@@ -1,0 +1,32 @@
+<%
+const { services } = it;
+%>
+
+<% services.forEach(({ fileBasename }) => { %>
+  import * as <%~ fileBasename %> from "./<%~ fileBasename %>";
+<% }) %>
+
+import { AxiosRequestConfig, ResponseType } from 'axios';
+
+export enum ContentType {
+  Json = 'application/json',
+  FormData = 'multipart/form-data',
+  UrlEncoded = 'application/x-www-form-urlencoded',
+  Text = 'text/plain',
+}
+
+export interface ApiConfig<SecurityDataType = unknown> extends Omit<AxiosRequestConfig, 'data' | 'cancelToken'> {
+  securityWorker?: (
+    securityData: SecurityDataType | null,
+  ) => Promise<AxiosRequestConfig | void> | AxiosRequestConfig | void;
+  secure?: boolean;
+  format?: ResponseType;
+}
+
+export function createClients<SecurityDataType = unknown>(config: ApiConfig<SecurityDataType>) {
+  return {
+  <% services.forEach(({ fileBasename }) => { %>
+    "<%~ fileBasename %>": new <%~ fileBasename %>.Api(config),
+  <% }) %>
+  };
+}
