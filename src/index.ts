@@ -73,10 +73,10 @@ export class Api {
       )
       .then(({ data }) => {
         this.setTokenHeaders(data);
+        this.refreshSessionJustBeforeExpiry();
       });
 
     this.updatePrerequest(request);
-    this.refreshSessionJustBeforeExpiry();
   }
 
   private refreshSessionJustBeforeExpiry() {
@@ -104,10 +104,10 @@ export class Api {
         )
         .then(({ data }) => {
           this.setTokenHeaders(data);
+          this.refreshSessionJustBeforeExpiry();
         });
 
       this.updatePrerequest(request);
-      this.refreshSessionJustBeforeExpiry();
     }, this.tokenExpiration * 900);
   }
 

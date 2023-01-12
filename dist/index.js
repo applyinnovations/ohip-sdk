@@ -51,9 +51,9 @@ class Api {
         })
             .then(({ data }) => {
             this.setTokenHeaders(data);
+            this.refreshSessionJustBeforeExpiry();
         });
         this.updatePrerequest(request);
-        this.refreshSessionJustBeforeExpiry();
     }
     refreshSessionJustBeforeExpiry() {
         if (!this.tokenExpiration)
@@ -76,9 +76,9 @@ class Api {
             })
                 .then(({ data }) => {
                 this.setTokenHeaders(data);
+                this.refreshSessionJustBeforeExpiry();
             });
             this.updatePrerequest(request);
-            this.refreshSessionJustBeforeExpiry();
         }, this.tokenExpiration * 900);
     }
     setTokenHeaders(response) {
