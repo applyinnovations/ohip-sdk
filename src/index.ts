@@ -1,4 +1,4 @@
-import { AxiosRequestConfig } from 'axios';
+import Axios, { AxiosRequestConfig } from 'axios';
 import qs from 'qs';
 
 import { createClients, ContentType } from './api';
@@ -13,11 +13,14 @@ interface ApiOptions {
   password: string;
 }
 
+const REQUEST_RETRY_LIMIT = 1;
+
 export class Api {
   private basicAuthToken: string;
   private token: string;
   private refreshToken: string;
   private tokenExpiration: number;
+  private retryLimit = 0;
 
   private refreshTimeout: NodeJS.Timeout;
 
@@ -43,9 +46,11 @@ export class Api {
       .filter(([id]) => id !== 'oauth')
       .forEach(([_, client]) => {
         client.instance.interceptors.request.use(this.handleClientRequest);
+        client.instance.interceptors.response.use(
+          undefined,
+          this.handleClientRequestError,
+        );
       });
-
-    this.initializeSession();
   }
 
   public get client() {
@@ -56,9 +61,10 @@ export class Api {
     clearTimeout(this.refreshTimeout);
   }
 
-  private initializeSession() {
-    const request = this.clientDict.oauth.tokens
-      .getToken(
+  private async requestNewAuthToken() {
+    this.clearTokens();
+    try {
+      const { data } = await this.clientDict.oauth.tokens.getToken(
         {
           grant_type: 'password',
           username: this.options.username,
@@ -70,67 +76,80 @@ export class Api {
             Authorization: `Basic ${this.basicAuthToken}`,
           },
         },
-      )
-      .then(({ data }) => {
-        this.setTokenHeaders(data);
-        this.refreshSessionJustBeforeExpiry();
-      });
-
-    this.updatePrerequest(request);
+      );
+      this.setTokenHeaders(data);
+    } catch (error) {
+      this.clearTokens();
+      throw error;
+    }
   }
 
-  private refreshSessionJustBeforeExpiry() {
-    if (!this.tokenExpiration) return;
-
-    this.refreshTimeout = setTimeout(() => {
-      if (!this.refreshToken) {
-        this.initializeSession();
-        return;
-      }
-
-      const request = this.clientDict.oauth.tokens
-        .getToken(
-          {
-            // @ts-ignore
-            grant_type: 'refresh_token',
-            refresh_token: this.refreshToken,
+  private async renewAuthToken() {
+    try {
+      const { data } = await this.clientDict.oauth.tokens.getToken(
+        {
+          // @ts-ignore
+          grant_type: 'refresh_token',
+          refresh_token: this.refreshToken,
+        },
+        {
+          type: ContentType.UrlEncoded,
+          headers: {
+            Authorization: `Basic ${this.basicAuthToken}`,
           },
-          {
-            type: ContentType.UrlEncoded,
-            headers: {
-              Authorization: `Basic ${this.basicAuthToken}`,
-            },
-          },
-        )
-        .then(({ data }) => {
-          this.setTokenHeaders(data);
-          this.refreshSessionJustBeforeExpiry();
-        });
-
-      this.updatePrerequest(request);
-    }, this.tokenExpiration * 900);
+        },
+      );
+      this.setTokenHeaders(data);
+    } catch (error) {
+      this.clearTokens();
+      await this.requestNewAuthToken();
+    }
   }
 
   private setTokenHeaders(response: OAuth2TokenResponse) {
     // @ts-ignore
     this.refreshToken = response.refresh_token;
     this.token = response.access_token;
-    this.tokenExpiration = response.expires_in;
+    this.tokenExpiration = Date.now() + (response.expires_in ?? 0) * 900;
+    this.retryLimit = 0;
   }
 
-  private updatePrerequest(request: Promise<any>) {
-    Object.entries(this.clientDict)
-      .filter(([id]) => id !== 'oauth')
-      .forEach(([_, client]) => {
-        // Every request waits for the prerequest to finish before starting the actual request
-        // This ensures that auth tokens are already available before the actual request is sent
-        client.prerequest = request;
-      });
+  private clearTokens() {
+    this.refreshToken = undefined;
+    this.token = undefined;
+    this.tokenExpiration = undefined;
   }
 
-  private handleClientRequest = (config: AxiosRequestConfig) => {
+  private isAuthTokenExpired() {
+    return Date.now() > this.tokenExpiration;
+  }
+
+  private handleClientRequest = async (config: AxiosRequestConfig) => {
+    if (!this.token) {
+      await this.requestNewAuthToken();
+    } else if (this.isAuthTokenExpired()) {
+      await this.renewAuthToken();
+    }
     config.headers['Authorization'] = `Bearer ${this.token}`;
 
     return config;
+  };
+
+  private handleClientRequestError = async (error: any) => {
+    const status = error.response ? error.response.status : null;
+
+    if (
+      [401, 402].includes(status) ||
+      this.retryLimit >= REQUEST_RETRY_LIMIT ||
+      !error.config ||
+      error.config.method !== 'get'
+    )
+      return Promise.reject(error);
+
+    // Retry get request
+    this.retryLimit += 1;
+    await this.requestNewAuthToken();
+    error.config.headers['Authorization'] = `Bearer ${this.token}`;
+    return Axios.request(error.config);
   };
 }
