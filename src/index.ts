@@ -79,6 +79,7 @@ export class Api {
       );
       this.setTokenHeaders(data);
     } catch (error) {
+      console.error('Requesting new OHIP session token failed', error);
       this.clearTokens();
       throw error;
     }
@@ -101,6 +102,7 @@ export class Api {
       );
       this.setTokenHeaders(data);
     } catch (error) {
+      console.error('Refreshing OHIP session token failed', error);
       await this.requestNewAuthToken();
     }
   }
@@ -109,6 +111,7 @@ export class Api {
     // @ts-ignore
     this.refreshToken = response.refresh_token;
     this.token = response.access_token;
+    // response.expires_in is in number of seconds. Multiply it by 90% of 1000ms
     this.tokenExpiration = Date.now() + (response.expires_in ?? 0) * 900;
     this.retryLimit = 0;
   }
@@ -138,14 +141,14 @@ export class Api {
     const status = error.response ? error.response.status : null;
 
     if (
-      [401, 402].includes(status) ||
+      [401, 403].includes(status) ||
       this.retryLimit >= REQUEST_RETRY_LIMIT ||
-      !error.config ||
-      error.config.method !== 'get'
+      !error.config
     )
       return Promise.reject(error);
 
     // Retry get request
+    console.warn('Trying to renew session token');
     this.retryLimit += 1;
     await this.requestNewAuthToken();
     error.config.headers['Authorization'] = `Bearer ${this.token}`;
