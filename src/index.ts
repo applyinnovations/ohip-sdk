@@ -101,7 +101,6 @@ export class Api {
       );
       this.setTokenHeaders(data);
     } catch (error) {
-      this.clearTokens();
       await this.requestNewAuthToken();
     }
   }
