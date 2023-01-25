@@ -151,7 +151,7 @@ export class Api {
 
     // Retry get request
     console.warn(
-      'OHIP responded with error code ${status}, renewing access token and resending request.',
+      `OHIP responded with error code ${error.response.status}, renewing access token and resending request.`,
     );
     this.retryLimit += 1;
     await this.requestNewAuthToken();
