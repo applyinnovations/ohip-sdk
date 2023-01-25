@@ -144,7 +144,7 @@ export class Api {
   private handleClientRequestError = async (error: unknown) => {
     if (
       !isAxiosError(error) ||
-      [401, 403].includes(error.response.status) ||
+      ![401, 403].includes(error.response.status) ||
       this.retryLimit >= REQUEST_RETRY_LIMIT
     )
       return Promise.reject(error);
