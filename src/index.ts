@@ -1,4 +1,4 @@
-import Axios, { AxiosRequestConfig } from 'axios';
+import Axios, { AxiosError, AxiosRequestConfig } from 'axios';
 import qs from 'qs';
 
 import { createClients, ContentType } from './api';
@@ -14,6 +14,10 @@ interface ApiOptions {
 }
 
 const REQUEST_RETRY_LIMIT = 1;
+
+function isAxiosError(error: any): error is AxiosError {
+  return !!error.response && !!error.config;
+}
 
 export class Api {
   private basicAuthToken: string;
@@ -137,18 +141,18 @@ export class Api {
     return config;
   };
 
-  private handleClientRequestError = async (error: any) => {
-    const status = error.response ? error.response.status : null;
-
+  private handleClientRequestError = async (error: unknown) => {
     if (
-      [401, 403].includes(status) ||
-      this.retryLimit >= REQUEST_RETRY_LIMIT ||
-      !error.config
+      !isAxiosError(error) ||
+      [401, 403].includes(error.response.status) ||
+      this.retryLimit >= REQUEST_RETRY_LIMIT
     )
       return Promise.reject(error);
 
     // Retry get request
-    console.warn('Trying to renew session token');
+    console.warn(
+      'OHIP responded with error code ${status}, renewing access token and resending request.',
+    );
     this.retryLimit += 1;
     await this.requestNewAuthToken();
     error.config.headers['Authorization'] = `Bearer ${this.token}`;
