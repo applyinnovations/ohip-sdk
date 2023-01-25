@@ -5456,7 +5456,6 @@ export enum ContentType {
 
 export class HttpClient<SecurityDataType = unknown> {
   public instance: AxiosInstance;
-  public prerequest: Promise<any> = Promise.resolve();
   private securityData: SecurityDataType | null = null;
   private securityWorker?: ApiConfig<SecurityDataType>['securityWorker'];
   private secure?: boolean;
@@ -5519,9 +5518,6 @@ export class HttpClient<SecurityDataType = unknown> {
     body,
     ...params
   }: FullRequestParams): Promise<AxiosResponse<T>> => {
-    // Wait for the prerequest to resolve before proceeding with the actual request. Useful for waiting for fetching auth tokens
-    await this.prerequest;
-
     const secureParams =
       ((typeof secure === 'boolean' ? secure : this.secure) &&
         this.securityWorker &&

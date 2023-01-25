@@ -2257,7 +2257,6 @@ export declare enum ContentType {
 }
 export declare class HttpClient<SecurityDataType = unknown> {
     instance: AxiosInstance;
-    prerequest: Promise<any>;
     private securityData;
     private securityWorker?;
     private secure?;

@@ -334,15 +334,12 @@ var ContentType;
 class HttpClient {
     constructor(_a = {}) {
         var { securityWorker, secure, format } = _a, axiosConfig = __rest(_a, ["securityWorker", "secure", "format"]);
-        this.prerequest = Promise.resolve();
         this.securityData = null;
         this.setSecurityData = (data) => {
             this.securityData = data;
         };
         this.request = async (_a) => {
             var { secure, path, type, query, format, body } = _a, params = __rest(_a, ["secure", "path", "type", "query", "format", "body"]);
-            // Wait for the prerequest to resolve before proceeding with the actual request. Useful for waiting for fetching auth tokens
-            await this.prerequest;
             const secureParams = ((typeof secure === 'boolean' ? secure : this.secure) &&
                 this.securityWorker &&
                 (await this.securityWorker(this.securityData))) ||

@@ -12,6 +12,7 @@ export declare class Api {
     private token;
     private refreshToken;
     private tokenExpiration;
+    private retryLimit;
     private refreshTimeout;
     private clientDict;
     constructor(options: ApiOptions);
@@ -57,10 +58,12 @@ export declare class Api {
         tokenexchange: import("./api/tokenexchange").Api<unknown>;
     };
     close(): void;
-    private initializeSession;
-    private refreshSessionJustBeforeExpiry;
+    private requestNewAuthToken;
+    private renewAuthToken;
     private setTokenHeaders;
-    private updatePrerequest;
+    private clearTokens;
+    private isAuthTokenExpired;
     private handleClientRequest;
+    private handleClientRequestError;
 }
 export {};
