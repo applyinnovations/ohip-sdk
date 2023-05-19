@@ -17,7 +17,8 @@ interface ApiOptions {
   credentials: Array<UserCredentail>;
 }
 
-const REQUEST_RETRY_LIMIT = 3;
+const REQUEST_RETRY_LIMIT = 1;
+const AUTH_RETRY_LIMIT = 3;
 
 function isAxiosError(error: any): error is AxiosError {
   return !!error.response && !!error.config;
@@ -29,6 +30,7 @@ export class Api {
   private refreshToken: string;
   private tokenExpiration: number;
   private retryLimit = 0;
+  private authRetries = 0;
   private activeCredentialIndex: number;
 
   private refreshTimeout: NodeJS.Timeout;
@@ -70,12 +72,19 @@ export class Api {
     clearTimeout(this.refreshTimeout);
   }
 
-  private async requestNewAuthToken() {
-    this.activeCredentialIndex =
-      this.activeCredentialIndex !== undefined ||
+  private async incrementActiveCrendentialIndex() {
+    if (
+      this.activeCredentialIndex === undefined ||
       this.activeCredentialIndex + 1 >= this.options.credentials.length
-        ? 0
-        : this.activeCredentialIndex + 1;
+    ) {
+      this.activeCredentialIndex = 0;
+    } else {
+      this.activeCredentialIndex += 1;
+    }
+  }
+
+  private async requestNewAuthToken() {
+    this.incrementActiveCrendentialIndex();
     this.clearTokens();
     try {
       const { data } = await this.clientDict.oauth.tokens.getToken(
@@ -95,6 +104,17 @@ export class Api {
       );
       this.setTokenHeaders(data);
     } catch (error) {
+      const retries = Math.floor(
+        this.authRetries / this.options.credentials.length,
+      );
+      if (retries < AUTH_RETRY_LIMIT) {
+        this.authRetries += 1;
+        console.warn(
+          `Requesting new OHIP session token failed using credentials[${this.activeCredentialIndex}], retrying ${retries}/${AUTH_RETRY_LIMIT}`,
+        );
+        await this.requestNewAuthToken();
+        return;
+      }
       console.error('Requesting new OHIP session token failed', error);
       this.clearTokens();
       throw error;

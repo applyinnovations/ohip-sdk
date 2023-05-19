@@ -7,7 +7,8 @@ exports.Api = void 0;
 const axios_1 = __importDefault(require("axios"));
 const qs_1 = __importDefault(require("qs"));
 const api_1 = require("./api");
-const REQUEST_RETRY_LIMIT = 3;
+const REQUEST_RETRY_LIMIT = 1;
+const AUTH_RETRY_LIMIT = 3;
 function isAxiosError(error) {
     return !!error.response && !!error.config;
 }
@@ -15,6 +16,7 @@ class Api {
     constructor(options) {
         this.options = options;
         this.retryLimit = 0;
+        this.authRetries = 0;
         this.handleClientRequest = async (config) => {
             if (!this.token) {
                 await this.requestNewAuthToken();
@@ -63,12 +65,17 @@ class Api {
     close() {
         clearTimeout(this.refreshTimeout);
     }
+    async incrementActiveCrendentialIndex() {
+        if (this.activeCredentialIndex === undefined ||
+            this.activeCredentialIndex + 1 >= this.options.credentials.length) {
+            this.activeCredentialIndex = 0;
+        }
+        else {
+            this.activeCredentialIndex += 1;
+        }
+    }
     async requestNewAuthToken() {
-        this.activeCredentialIndex =
-            this.activeCredentialIndex !== undefined ||
-                this.activeCredentialIndex + 1 >= this.options.credentials.length
-                ? 0
-                : this.activeCredentialIndex + 1;
+        this.incrementActiveCrendentialIndex();
         this.clearTokens();
         try {
             const { data } = await this.clientDict.oauth.tokens.getToken({
@@ -84,6 +91,13 @@ class Api {
             this.setTokenHeaders(data);
         }
         catch (error) {
+            const retries = Math.floor(this.authRetries / this.options.credentials.length);
+            if (retries < AUTH_RETRY_LIMIT) {
+                this.authRetries += 1;
+                console.warn(`Requesting new OHIP session token failed using credentials[${this.activeCredentialIndex}], retrying ${retries}/${AUTH_RETRY_LIMIT}`);
+                await this.requestNewAuthToken();
+                return;
+            }
             console.error('Requesting new OHIP session token failed', error);
             this.clearTokens();
             throw error;
