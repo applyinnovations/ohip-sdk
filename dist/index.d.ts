@@ -16,7 +16,8 @@ export declare class Api {
     private refreshToken;
     private tokenExpiration;
     private retryLimit;
-    private authRetries;
+    private authTries;
+    private authRetriesLimit;
     private activeCredentialIndex;
     private refreshTimeout;
     private clientDict;
@@ -63,7 +64,6 @@ export declare class Api {
         tokenexchange: import("./api/tokenexchange").Api<unknown>;
     };
     close(): void;
-    private incrementActiveCrendentialIndex;
     private requestNewAuthToken;
     private renewAuthToken;
     private setTokenHeaders;
@@ -71,5 +71,6 @@ export declare class Api {
     private isAuthTokenExpired;
     private handleClientRequest;
     private handleClientRequestError;
+    private incrementActiveCrendentialIndex;
 }
 export {};
