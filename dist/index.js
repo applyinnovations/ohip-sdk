@@ -90,9 +90,8 @@ class Api {
                 this.clearTokens();
                 throw error;
             }
-            // retry auth
-            this.authTries += 1;
             console.warn(`Requesting new OHIP session token failed using credentials[${this.activeCredentialIndex}], retrying ${this.authTries}/${this.authRetriesLimit}`);
+            this.authTries += 1;
             await this.requestNewAuthToken();
         }
     }
