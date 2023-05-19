@@ -7,7 +7,7 @@ exports.Api = void 0;
 const axios_1 = __importDefault(require("axios"));
 const qs_1 = __importDefault(require("qs"));
 const api_1 = require("./api");
-const REQUEST_RETRY_LIMIT = 1;
+const REQUEST_RETRY_LIMIT = 3;
 function isAxiosError(error) {
     return !!error.response && !!error.config;
 }
@@ -32,7 +32,9 @@ class Api {
                 return Promise.reject(error);
             // Retry get request
             console.warn(`OHIP responded with error code ${error.response.status}, renewing access token and resending request.`);
-            this.retryLimit += 1;
+            if (this.activeCredentialIndex === this.options.credentials.length - 1) {
+                this.retryLimit += 1;
+            }
             await this.requestNewAuthToken();
             error.config.headers['Authorization'] = `Bearer ${this.token}`;
             return axios_1.default.request(error.config);
@@ -62,12 +64,17 @@ class Api {
         clearTimeout(this.refreshTimeout);
     }
     async requestNewAuthToken() {
+        this.activeCredentialIndex =
+            this.activeCredentialIndex !== undefined ||
+                this.activeCredentialIndex + 1 >= this.options.credentials.length
+                ? 0
+                : this.activeCredentialIndex + 1;
         this.clearTokens();
         try {
             const { data } = await this.clientDict.oauth.tokens.getToken({
                 grant_type: 'password',
-                username: this.options.username,
-                password: this.options.password,
+                username: this.options.credentials[this.activeCredentialIndex].username,
+                password: this.options.credentials[this.activeCredentialIndex].password,
             }, {
                 type: api_1.ContentType.UrlEncoded,
                 headers: {

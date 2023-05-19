@@ -3,9 +3,5 @@ node_modules
 # Cloned repository
 hospitality-api-docs
 
-# Generated files
-src/api
-dist
-
 # macOS
 .DS_store
