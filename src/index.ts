@@ -4,16 +4,20 @@ import qs from 'qs';
 import { createClients, ContentType } from './api';
 import { OAuth2TokenResponse } from './api/oauth';
 
+interface UserCredentail {
+  username: string;
+  password: string;
+}
+
 interface ApiOptions {
   hostName: string;
   appKey: string;
   clientId: string;
   clientSecret: string;
-  username: string;
-  password: string;
+  credentials: Array<UserCredentail>;
 }
 
-const REQUEST_RETRY_LIMIT = 1;
+const REQUEST_RETRY_LIMIT = 3;
 
 function isAxiosError(error: any): error is AxiosError {
   return !!error.response && !!error.config;
@@ -25,6 +29,7 @@ export class Api {
   private refreshToken: string;
   private tokenExpiration: number;
   private retryLimit = 0;
+  private activeCredentialIndex: number;
 
   private refreshTimeout: NodeJS.Timeout;
 
@@ -66,13 +71,20 @@ export class Api {
   }
 
   private async requestNewAuthToken() {
+    this.activeCredentialIndex =
+      this.activeCredentialIndex !== undefined ||
+      this.activeCredentialIndex + 1 >= this.options.credentials.length
+        ? 0
+        : this.activeCredentialIndex + 1;
     this.clearTokens();
     try {
       const { data } = await this.clientDict.oauth.tokens.getToken(
         {
           grant_type: 'password',
-          username: this.options.username,
-          password: this.options.password,
+          username:
+            this.options.credentials[this.activeCredentialIndex].username,
+          password:
+            this.options.credentials[this.activeCredentialIndex].password,
         },
         {
           type: ContentType.UrlEncoded,
@@ -153,7 +165,9 @@ export class Api {
     console.warn(
       `OHIP responded with error code ${error.response.status}, renewing access token and resending request.`,
     );
-    this.retryLimit += 1;
+    if (this.activeCredentialIndex === this.options.credentials.length - 1) {
+      this.retryLimit += 1;
+    }
     await this.requestNewAuthToken();
     error.config.headers['Authorization'] = `Bearer ${this.token}`;
     return Axios.request(error.config);
