@@ -104,10 +104,10 @@ export class Api {
       );
       this.setTokenHeaders(data);
     } catch (error) {
-      const retries = Math.floor(
+      const retries = Math.ceil(
         this.authRetries / this.options.credentials.length,
       );
-      if (retries < AUTH_RETRY_LIMIT) {
+      if (retries <= AUTH_RETRY_LIMIT) {
         this.authRetries += 1;
         console.warn(
           `Requesting new OHIP session token failed using credentials[${this.activeCredentialIndex}], retrying ${retries}/${AUTH_RETRY_LIMIT}`,
