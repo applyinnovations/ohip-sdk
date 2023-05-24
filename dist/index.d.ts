@@ -1,4 +1,4 @@
-interface UserCredentail {
+interface UserCredential {
     username: string;
     password: string;
 }
@@ -7,7 +7,7 @@ interface ApiOptions {
     appKey: string;
     clientId: string;
     clientSecret: string;
-    credentials: Array<UserCredentail>;
+    credentials: Array<UserCredential>;
 }
 export declare class Api {
     private options;

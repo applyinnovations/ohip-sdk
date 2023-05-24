@@ -14,7 +14,7 @@ interface ApiOptions {
   appKey: string;
   clientId: string;
   clientSecret: string;
-  credentials: Array<UserCredentail>;
+  credentials: Array<UserCredential>;
 }
 
 const REQUEST_RETRY_LIMIT = 1;
