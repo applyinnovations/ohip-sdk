@@ -4,7 +4,7 @@ import qs from 'qs';
 import { createClients, ContentType } from './api';
 import { OAuth2TokenResponse } from './api/oauth';
 
-interface UserCredentail {
+interface UserCredential {
   username: string;
   password: string;
 }
