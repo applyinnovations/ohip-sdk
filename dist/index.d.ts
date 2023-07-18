@@ -1,10 +1,13 @@
+interface UserCredential {
+    username: string;
+    password: string;
+}
 interface ApiOptions {
     hostName: string;
     appKey: string;
     clientId: string;
     clientSecret: string;
-    username: string;
-    password: string;
+    credentials: Array<UserCredential>;
 }
 export declare class Api {
     private options;
@@ -13,6 +16,9 @@ export declare class Api {
     private refreshToken;
     private tokenExpiration;
     private retryLimit;
+    private authTries;
+    private authRetriesLimit;
+    private activeCredentialIndex;
     private refreshTimeout;
     private clientDict;
     constructor(options: ApiOptions);
@@ -65,5 +71,6 @@ export declare class Api {
     private isAuthTokenExpired;
     private handleClientRequest;
     private handleClientRequestError;
+    private incrementActiveCrendentialIndex;
 }
 export {};

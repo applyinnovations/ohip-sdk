@@ -8,6 +8,7 @@ const axios_1 = __importDefault(require("axios"));
 const qs_1 = __importDefault(require("qs"));
 const api_1 = require("./api");
 const REQUEST_RETRY_LIMIT = 1;
+const AUTH_RETRY_PER_CREDENTIAL_LIMIT = 3;
 function isAxiosError(error) {
     return !!error.response && !!error.config;
 }
@@ -15,6 +16,7 @@ class Api {
     constructor(options) {
         this.options = options;
         this.retryLimit = 0;
+        this.authTries = 1;
         this.handleClientRequest = async (config) => {
             if (!this.token) {
                 await this.requestNewAuthToken();
@@ -32,11 +34,15 @@ class Api {
                 return Promise.reject(error);
             // Retry get request
             console.warn(`OHIP responded with error code ${error.response.status}, renewing access token and resending request.`);
-            this.retryLimit += 1;
+            if (this.activeCredentialIndex === this.options.credentials.length - 1) {
+                this.retryLimit += 1;
+            }
             await this.requestNewAuthToken();
             error.config.headers['Authorization'] = `Bearer ${this.token}`;
             return axios_1.default.request(error.config);
         };
+        this.authRetriesLimit =
+            this.options.credentials.length * AUTH_RETRY_PER_CREDENTIAL_LIMIT;
         // Basic authentication usint Client ID and secret
         this.basicAuthToken = Buffer.from(`${this.options.clientId}:${this.options.clientSecret}`).toString('base64');
         this.clientDict = (0, api_1.createClients)({
@@ -62,12 +68,13 @@ class Api {
         clearTimeout(this.refreshTimeout);
     }
     async requestNewAuthToken() {
+        this.incrementActiveCrendentialIndex();
         this.clearTokens();
         try {
             const { data } = await this.clientDict.oauth.tokens.getToken({
                 grant_type: 'password',
-                username: this.options.username,
-                password: this.options.password,
+                username: this.options.credentials[this.activeCredentialIndex].username,
+                password: this.options.credentials[this.activeCredentialIndex].password,
             }, {
                 type: api_1.ContentType.UrlEncoded,
                 headers: {
@@ -75,11 +82,17 @@ class Api {
                 },
             });
             this.setTokenHeaders(data);
+            this.authTries = 1;
         }
         catch (error) {
-            console.error('Requesting new OHIP session token failed', error);
-            this.clearTokens();
-            throw error;
+            if (this.authTries > this.authRetriesLimit) {
+                console.error('Requesting new OHIP session token failed', error);
+                this.clearTokens();
+                throw error;
+            }
+            console.warn(`Requesting new OHIP session token failed using credentials[${this.activeCredentialIndex}], retrying ${this.authTries}/${this.authRetriesLimit}`);
+            this.authTries += 1;
+            await this.requestNewAuthToken();
         }
     }
     async renewAuthToken() {
@@ -117,6 +130,15 @@ class Api {
     }
     isAuthTokenExpired() {
         return Date.now() > this.tokenExpiration;
+    }
+    async incrementActiveCrendentialIndex() {
+        if (this.activeCredentialIndex === undefined ||
+            this.activeCredentialIndex + 1 >= this.options.credentials.length) {
+            this.activeCredentialIndex = 0;
+        }
+        else {
+            this.activeCredentialIndex += 1;
+        }
     }
 }
 exports.Api = Api;

@@ -28,3 +28,14 @@ const response = await api.client.rtp.packages.getPackages('<HotelId>', {
 
 console.log(response);
 ```
+
+### Development
+
+### Requirements
+
+- Close [oracle/hospitality-api-docs](https://github.com/oracle/hospitality-api-docs) in the projects root directory.
+- Change branch to `property_22.3`
+
+### Building
+
+- run `yarn build`
