@@ -8,6 +8,9 @@ interface ApiOptions {
     clientId: string;
     clientSecret: string;
     credentials: Array<UserCredential>;
+    maxBackOffTimeoutToWait?: number;
+    maxBackOffTimeout?: number;
+    backOffBaseTimeout?: number;
 }
 export declare class Api {
     private options;
@@ -15,13 +18,15 @@ export declare class Api {
     private token;
     private refreshToken;
     private tokenExpiration;
-    private retryLimit;
-    private authTries;
-    private authRetriesLimit;
     private activeCredentialIndex;
+    private requestingNewAuthToken;
     private refreshTimeout;
     private clientDict;
+    private backoffTimeout;
+    private authTries;
     constructor(options: ApiOptions);
+    private handleClientRequest;
+    private handleClientRequestError;
     get client(): {
         act: import("./api/act").Api<unknown>;
         actcfg: import("./api/actcfg").Api<unknown>;
@@ -69,8 +74,8 @@ export declare class Api {
     private setTokenHeaders;
     private clearTokens;
     private isAuthTokenExpired;
-    private handleClientRequest;
-    private handleClientRequestError;
+    private shouldBackOff;
+    private setBackoffTimeout;
     private incrementActiveCrendentialIndex;
 }
 export {};
