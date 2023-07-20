@@ -7,16 +7,14 @@ exports.Api = void 0;
 const axios_1 = __importDefault(require("axios"));
 const qs_1 = __importDefault(require("qs"));
 const api_1 = require("./api");
-const REQUEST_RETRY_LIMIT = 1;
-const AUTH_RETRY_PER_CREDENTIAL_LIMIT = 3;
 function isAxiosError(error) {
     return !!error.response && !!error.config;
 }
 class Api {
     constructor(options) {
         this.options = options;
-        this.retryLimit = 0;
-        this.authTries = 1;
+        this.backoffTimeout = 0;
+        this.authTries = 0;
         this.handleClientRequest = async (config) => {
             if (!this.token) {
                 await this.requestNewAuthToken();
@@ -24,25 +22,21 @@ class Api {
             else if (this.isAuthTokenExpired()) {
                 await this.renewAuthToken();
             }
+            if (!this.token)
+                throw new Error('Failed getting OHIP authentication token.');
             config.headers['Authorization'] = `Bearer ${this.token}`;
             return config;
         };
         this.handleClientRequestError = async (error) => {
-            if (!isAxiosError(error) ||
-                ![401, 403].includes(error.response.status) ||
-                this.retryLimit >= REQUEST_RETRY_LIMIT)
+            if (!isAxiosError(error) || ![401, 403].includes(error.response.status))
                 return Promise.reject(error);
-            // Retry get request
-            console.warn(`OHIP responded with error code ${error.response.status}, renewing access token and resending request.`);
-            if (this.activeCredentialIndex === this.options.credentials.length - 1) {
-                this.retryLimit += 1;
-            }
             await this.requestNewAuthToken();
+            if (!this.token)
+                return Promise.reject(error);
             error.config.headers['Authorization'] = `Bearer ${this.token}`;
             return axios_1.default.request(error.config);
         };
-        this.authRetriesLimit =
-            this.options.credentials.length * AUTH_RETRY_PER_CREDENTIAL_LIMIT;
+        this.options = Object.assign({ maxBackOffTimeoutToWait: 1000, baseBackOffTimeout: 1, maxBackOffTimeout: 60 * 60 * 1000 }, options);
         // Basic authentication usint Client ID and secret
         this.basicAuthToken = Buffer.from(`${this.options.clientId}:${this.options.clientSecret}`).toString('base64');
         this.clientDict = (0, api_1.createClients)({
@@ -68,32 +62,51 @@ class Api {
         clearTimeout(this.refreshTimeout);
     }
     async requestNewAuthToken() {
-        this.incrementActiveCrendentialIndex();
-        this.clearTokens();
-        try {
-            const { data } = await this.clientDict.oauth.tokens.getToken({
-                grant_type: 'password',
-                username: this.options.credentials[this.activeCredentialIndex].username,
-                password: this.options.credentials[this.activeCredentialIndex].password,
-            }, {
-                type: api_1.ContentType.UrlEncoded,
-                headers: {
-                    Authorization: `Basic ${this.basicAuthToken}`,
-                },
-            });
-            this.setTokenHeaders(data);
-            this.authTries = 1;
+        // a request for a new token is already in progress
+        // just wait for it to finish instead of trying to request a new one
+        if (this.requestingNewAuthToken) {
+            await this.requestingNewAuthToken;
+            return;
         }
-        catch (error) {
-            if (this.authTries > this.authRetriesLimit) {
-                console.error('Requesting new OHIP session token failed', error);
-                this.clearTokens();
-                throw error;
+        if (this.shouldBackOff()) {
+            const backOffMsRemaining = this.backoffTimeout - new Date().getTime();
+            if (backOffMsRemaining > this.options.maxBackOffTimeoutToWait) {
+                console.log(`Backing off for ${backOffMsRemaining}ms: Max backoff timeout to wait reached...`);
             }
-            console.warn(`Requesting new OHIP session token failed using credentials[${this.activeCredentialIndex}], retrying ${this.authTries}/${this.authRetriesLimit}`);
-            this.authTries += 1;
-            await this.requestNewAuthToken();
+            else {
+                console.log(`Backing off for ${backOffMsRemaining}ms: Waiting for new token...`);
+                await delay(backOffMsRemaining);
+                await this.requestNewAuthToken();
+            }
+            return;
         }
+        this.requestingNewAuthToken = new Promise(async (resolve) => {
+            this.authTries++;
+            this.incrementActiveCrendentialIndex();
+            this.clearTokens();
+            try {
+                console.log(`Requesting new OHIP session token using credentials[${this.activeCredentialIndex}]`);
+                const { data } = await this.clientDict.oauth.tokens.getToken({
+                    grant_type: 'password',
+                    username: this.options.credentials[this.activeCredentialIndex].username,
+                    password: this.options.credentials[this.activeCredentialIndex].password,
+                }, {
+                    type: api_1.ContentType.UrlEncoded,
+                    headers: {
+                        Authorization: `Basic ${this.basicAuthToken}`,
+                    },
+                });
+                this.setTokenHeaders(data);
+                this.authTries = 0;
+            }
+            catch (error) {
+                console.error('Requesting new OHIP session token failed', error);
+                this.setBackoffTimeout();
+            }
+            resolve();
+            this.requestingNewAuthToken = undefined;
+        });
+        return this.requestingNewAuthToken;
     }
     async renewAuthToken() {
         try {
@@ -121,7 +134,6 @@ class Api {
         this.token = response.access_token;
         // response.expires_in is in number of seconds. Multiply it by 90% of 1000ms
         this.tokenExpiration = Date.now() + ((_a = response.expires_in) !== null && _a !== void 0 ? _a : 0) * 900;
-        this.retryLimit = 0;
     }
     clearTokens() {
         this.refreshToken = undefined;
@@ -130,6 +142,22 @@ class Api {
     }
     isAuthTokenExpired() {
         return Date.now() > this.tokenExpiration;
+    }
+    shouldBackOff() {
+        if (this.authTries === 0)
+            return false;
+        return new Date().getTime() < this.backoffTimeout;
+    }
+    setBackoffTimeout() {
+        if (this.activeCredentialIndex !== this.options.credentials.length - 1)
+            return;
+        const delay = Math.min(this.options.baseBackOffTimeout *
+            Math.pow(10, Math.floor(this.authTries / this.options.credentials.length)), this.options.maxBackOffTimeout);
+        if (delay === this.options.maxBackOffTimeout) {
+            // if this happens we probably have the wrong password set in the config
+            console.error('Max backoff timeout reached. Check OHIP credentials.');
+        }
+        this.backoffTimeout = new Date().getTime() + delay;
     }
     async incrementActiveCrendentialIndex() {
         if (this.activeCredentialIndex === undefined ||
@@ -142,3 +170,6 @@ class Api {
     }
 }
 exports.Api = Api;
+async function delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
