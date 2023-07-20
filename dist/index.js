@@ -36,7 +36,7 @@ class Api {
             error.config.headers['Authorization'] = `Bearer ${this.token}`;
             return axios_1.default.request(error.config);
         };
-        this.options = Object.assign({ maxBackOffTimeoutToWait: 1000, backOffBaseTimeout: 1, maxBackOffTimeout: 60 * 60 * 1000 }, options);
+        this.options = Object.assign({ maxBackOffTimeoutToWait: 1000, baseBackOffTimeout: 1, maxBackOffTimeout: 60 * 60 * 1000 }, options);
         // Basic authentication usint Client ID and secret
         this.basicAuthToken = Buffer.from(`${this.options.clientId}:${this.options.clientSecret}`).toString('base64');
         this.clientDict = (0, api_1.createClients)({
@@ -151,7 +151,7 @@ class Api {
     setBackoffTimeout() {
         if (this.activeCredentialIndex !== this.options.credentials.length - 1)
             return;
-        const delay = Math.min(this.options.backOffBaseTimeout *
+        const delay = Math.min(this.options.baseBackOffTimeout *
             Math.pow(10, Math.floor(this.authTries / this.options.credentials.length)), this.options.maxBackOffTimeout);
         if (delay === this.options.maxBackOffTimeout) {
             // if this happens we probably have the wrong password set in the config

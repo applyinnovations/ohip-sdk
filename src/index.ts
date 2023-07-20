@@ -17,7 +17,7 @@ interface ApiOptions {
   credentials: Array<UserCredential>;
   maxBackOffTimeoutToWait?: number;
   maxBackOffTimeout?: number;
-  backOffBaseTimeout?: number;
+  baseBackOffTimeout?: number;
 }
 
 function isAxiosError(error: any): error is AxiosError {
@@ -39,7 +39,7 @@ export class Api {
   constructor(private options: ApiOptions) {
     this.options = {
       maxBackOffTimeoutToWait: 1000,
-      backOffBaseTimeout: 1,
+      baseBackOffTimeout: 1,
       maxBackOffTimeout: 60 * 60 * 1000,
       ...options,
     };
@@ -219,7 +219,7 @@ export class Api {
       return;
 
     const delay = Math.min(
-      this.options.backOffBaseTimeout *
+      this.options.baseBackOffTimeout *
         Math.pow(
           10,
           Math.floor(this.authTries / this.options.credentials.length),

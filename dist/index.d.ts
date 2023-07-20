@@ -10,7 +10,7 @@ interface ApiOptions {
     credentials: Array<UserCredential>;
     maxBackOffTimeoutToWait?: number;
     maxBackOffTimeout?: number;
-    backOffBaseTimeout?: number;
+    baseBackOffTimeout?: number;
 }
 export declare class Api {
     private options;
