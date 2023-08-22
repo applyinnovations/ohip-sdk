@@ -206,9 +206,6 @@ export class Api {
     } else if (this.isAuthTokenExpired()) {
       await this.renewAuthToken();
     }
-
-    // if (!this.token)
-    //   throw new Error('Failed getting OHIP authentication token.');
   };
 
   private handleClientRequestError = async (error: unknown) => {
