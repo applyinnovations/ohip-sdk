@@ -1,3 +1,4 @@
+import { ReservationApi } from './apis/fetch/rsv';
 interface UserCredential {
     username: string;
     password: string;
@@ -11,6 +12,15 @@ interface ApiOptions {
     maxBackOffTimeoutToWait?: number;
     maxBackOffTimeout?: number;
     baseBackOffTimeout?: number;
+    hotelId: string;
+}
+interface ClientDictionary {
+    rsv: {
+        ReservationApi: {
+            getReservations: ReservationApi['getReservations'];
+            postReservation: ReservationApi['postReservation'];
+        };
+    };
 }
 export declare class Api {
     private options;
@@ -25,6 +35,9 @@ export declare class Api {
     private backoffTimeout;
     private authTries;
     constructor(options: ApiOptions);
+    getClients(): Promise<ClientDictionary>;
+    private getAuthApi;
+    private createClients;
     private handleClientRequest;
     private handleClientRequestError;
     get client(): {

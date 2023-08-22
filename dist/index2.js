@@ -109,11 +109,8 @@ class Api {
             else if (this.isAuthTokenExpired()) {
                 await this.renewAuthToken();
             }
-            // if (!this.token)
-            //   throw new Error('Failed getting OHIP authentication token.');
         };
         this.handleClientRequestError = async (error) => {
-            console.log('this is the error response', JSON.stringify(error, null, 2));
             if (!isAxiosError(error) || ![401, 403].includes(error.response.status))
                 return Promise.reject(error);
             await this.requestNewAuthToken();
