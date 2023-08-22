@@ -9,6 +9,7 @@ import fs from 'fs';
 import Axios, { AxiosError, AxiosRequestConfig } from 'axios';
 
 const GENERATED_OUTPUT_DIRECTORY = 'src/apis/fetch';
+
 export enum ContentType {
   Json = 'application/json',
   FormData = 'multipart/form-data',
@@ -138,7 +139,6 @@ export class Api {
       apiKey: this.options.appKey,
       basePath: `${this.options.hostName}${AUTH_BASE_PATH}`,
     });
-
     const authApi = new AuthenticationApi(authConfig);
 
     return authApi;
@@ -349,7 +349,6 @@ export class Api {
           xAppKey: this.options.appKey,
         },
         {
-          type: ContentType.UrlEncoded,
           headers: {
             Authorization: `Basic ${this.basicAuthToken}`,
           },
@@ -407,14 +406,12 @@ async function main() {
     try {
       // @ts-ignore
       const resp = await clients.rsv.ReservationApi.getReservations({});
-      console.log('respnse', JSON.stringify(resp?.reservations?.count));
+      console.log('respnse', JSON.stringify(resp.reservations));
     } catch (e) {
       console.log('retrying', e);
     }
   };
 
-  await getReservation();
-  await getReservation();
   await getReservation();
 }
 
