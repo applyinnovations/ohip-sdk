@@ -5,3 +5,5 @@ hospitality-api-docs
 
 # macOS
 .DS_store
+src/apis
+.envrc
