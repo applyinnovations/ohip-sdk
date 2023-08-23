@@ -7,14 +7,14 @@
       "typescript-fetch": {
         "generatorName": "typescript-fetch",
         "output": "src/apis/typescript-fetch/#{name}",
-        "glob": "../hospitality-api-docs/rest-api-specs/property/*.{json,yaml}",
+        "glob": "./hospitality-api-docs/rest-api-specs/property/*.{json,yaml}",
         "skipOperationExample": true,
         "templateDir": "src/templates/typescript-fetch"
       },
       "go": {
         "generatorName": "go",
         "output": "src/apis/go/#{name}",
-        "glob": "../hospitality-api-docs/rest-api-specs/property/*.{json,yaml}",
+        "glob": "./hospitality-api-docs/rest-api-specs/property/*.{json,yaml}",
         "skipOperationExample": true
       }
     }
