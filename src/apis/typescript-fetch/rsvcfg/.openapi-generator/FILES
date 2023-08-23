@@ -1,0 +1,17 @@
+.openapi-generator-ignore
+apis/HotelConfigApi.ts
+apis/index.ts
+index.ts
+models/ErrorInstance.ts
+models/ExceptionDetailType.ts
+models/GuaranteeCodesDetails.ts
+models/GuaranteeCodesType.ts
+models/GuaranteeConfigType.ts
+models/GuaranteeConfigTypeMassCancellation.ts
+models/GuaranteeRequirementsType.ts
+models/InstanceLink.ts
+models/TranslationTextType80.ts
+models/TranslationsTextTypeInner.ts
+models/WarningType.ts
+models/index.ts
+runtime.ts

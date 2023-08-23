@@ -6,10 +6,10 @@
     "generators": {
       "typescript-fetch": {
         "generatorName": "typescript-fetch",
-        "output": "src/apis/fetch/#{name}",
+        "output": "src/apis/typescript-fetch/#{name}",
         "glob": "../hospitality-api-docs/rest-api-specs/property/*.{json,yaml}",
         "skipOperationExample": true,
-        "templateDir": "templates_open_api"
+        "templateDir": "src/templates/typescript-fetch"
       },
       "go": {
         "generatorName": "go",

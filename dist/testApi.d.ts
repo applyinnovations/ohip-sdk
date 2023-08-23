@@ -1,1 +1,0 @@
-export declare const OHIP_HOSTNAME: string, OHIP_APP_KEY: string, OHIP_CLIENT_ID: string, OHIP_CLIENT_SECRET: string, OHIP_USERNAME_1: string, OHIP_PASSWORD_1: string, OHIP_USERNAME_2: string, OHIP_PASSWORD_2: string, OHIP_HOTEL_ID: string;

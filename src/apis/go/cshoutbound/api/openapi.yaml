@@ -1,0 +1,1479 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hospitality_apis_ww_grp@oracle.com
+  description: "APIs to cater for Cashiering related external (outbound) functionality\
+    \ with OPERA. These APIs facilitate various operations related to getting data\
+    \ from an external system, and inserting it into OPERA.<br /><br /> Compatible\
+    \ with OPERA Cloud release 21.5.0.0.<br /><br /><p> This document and all content\
+    \ within is available under the Universal Permissive License v 1.0 (https://oss.oracle.com/licenses/upl).\
+    \ Copyright (c) 2020, 2022 Oracle and/or its affiliates.</p>"
+  license:
+    name: UPL
+    url: https://opensource.org/licenses/upl
+  termsOfService: https://www.oracle.com/legal/terms.html
+  title: OPERA Cloud Cashiering API
+  version: 21.5.0.0
+externalDocs:
+  description: Find out more about Oracle Hospitality
+  url: https://docs.oracle.com/en/industries/hospitality/integration_platforms.html
+servers:
+- url: /csh/outbound/v1
+tags:
+- description: "Cashiering module provides APIs to service front desk billing requirements,\
+    \ as well as any requirements related to a reservation's folio. You can retrieve\
+    \ a guest folio, post billing charges to guest folio, add routing instructions\
+    \ to a reservation, view authorization history, all the way through to checking\
+    \ the guest out using the postCheckOut API."
+  name: Cashiering
+paths:
+  /hotels/{hotelId}/memberships/{membershipId}/compRedemptions:
+    get:
+      description: You can use this API to get complimentary redemptions for a guest
+        having PTS Membership Type <p><strong>OperationId:</strong>getCompRedemptions</p>
+      operationId: getCompRedemptions
+      parameters:
+      - description: Membership number of the guest in the reservation
+        example: ""
+        in: path
+        name: membershipId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique ID of the hotel
+        example: ""
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 20
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner??????s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/fetchCompRedemptionsRS'
+          description: Response type for Complimentary Redemptions retrieval.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: CompRedemptions not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to get complimentary redemptions for a guest having PTS Membership
+        Type
+      tags:
+      - Cashiering
+  /hotels/{hotelId}/memberships/{membershipId}/compRedemptionAuthorizations:
+    put:
+      description: You can use this API to authorize complimentary redemptions for
+        a guest having PTS Membership Type <p><strong>OperationId:</strong>authorizeCompRedemptions</p>
+      operationId: authorizeCompRedemptions
+      parameters:
+      - description: Membership number of the guest in the reservation
+        example: ""
+        in: path
+        name: membershipId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique ID of the hotel
+        example: ""
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 20
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner??????s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/authorizeCompRedemptions_request'
+        description: Request type for Complimentary Redemptions authorization.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/authorizeCompRedemptionsRS'
+          description: Response type of Complimentary Redemptions authorization.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to authorize complimentary redemptions for a guest having
+        PTS Membership Type
+      tags:
+      - Cashiering
+      x-codegen-request-body-name: authorizeCompRedemptions
+  /hotels/{hotelId}/memberships/{membershipId}/compRedemptionPostings:
+    post:
+      description: You can use this API to post complimentary redemptions for a guest
+        having PTS Membership Type <p><strong>OperationId:</strong>postCompRedemptions</p>
+      operationId: postCompRedemptions
+      parameters:
+      - description: Membership number of the guest in the reservation
+        example: ""
+        in: path
+        name: membershipId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique ID of the hotel
+        example: ""
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 20
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner??????s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postCompRedemptions_request'
+        description: Request type of Complimentary Redemptions posting.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/postCompRedemptionsRS'
+          description: Response type for Complimentary Redemptions posting.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to post complimentary redemptions for a guest having PTS
+        Membership Type
+      tags:
+      - Cashiering
+      x-codegen-request-body-name: postCompRedemptions
+  /hotels/{hotelId}/memberships/{membershipId}/compRedemptionReversals:
+    post:
+      description: You can use this API to reverse complimentary redemptions for a
+        guest having PTS Membership Type <p><strong>OperationId:</strong>reverseCompRedemptions</p>
+      operationId: reverseCompRedemptions
+      parameters:
+      - description: Membership number of the guest in the reservation
+        example: ""
+        in: path
+        name: membershipId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique ID of the hotel
+        example: ""
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 20
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner??????s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/reverseCompRedemptions_request'
+        description: Request type of Complimentary Redemptions reversal.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to reverse complimentary redemptions for a guest having PTS
+        Membership Type
+      tags:
+      - Cashiering
+      x-codegen-request-body-name: reverseCompRedemptions
+  /hotels/{hotelId}/compPostingsApproval:
+    put:
+      description: You can use this API to submit Comp Transactions. <p><strong>OperationId:</strong>approveCompPostings</p>
+      operationId: approveCompPostings
+      parameters:
+      - description: Unique ID of the hotel
+        example: ""
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 20
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner??????s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/approveCompPostings_request'
+        description: Request object to submit comp transactions request to gaming
+          system
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/sendCompTransactionsStatus'
+          description: Response object for submit comp transactions request.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to request for comp postings approval.
+      tags:
+      - Cashiering
+      x-codegen-request-body-name: postings
+  /hotels/{hotelId}/compPostingsReversal:
+    put:
+      description: You can use this API to reverse Comp Transactions. <p><strong>OperationId:</strong>reverseCompPostings</p>
+      operationId: reverseCompPostings
+      parameters:
+      - description: Unique ID of the hotel
+        example: ""
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner??????s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/approveCompPostings_request'
+        description: Request object for comp postings reversal to be sent to the gaming
+          system.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to request for comp postings reversal.
+      tags:
+      - Cashiering
+      x-codegen-request-body-name: postings
+components:
+  parameters:
+    authKey:
+      description: Bearer token that needs to be passed which is generated post user
+        authentication
+      in: header
+      name: authorization
+      required: true
+      schema:
+        type: string
+    x-app-key:
+      description: Client or Partner??????s Application Key
+      in: header
+      name: x-app-key
+      required: true
+      schema:
+        pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+        type: string
+    Accept-Language:
+      description: Language code
+      in: header
+      name: Accept-Language
+      schema:
+        type: string
+  responses:
+    "400":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Bad Request
+    "401":
+      content: {}
+      description: Unauthorized
+    "403":
+      content: {}
+      description: Forbidden
+    "404":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Resource not found
+    "405":
+      content: {}
+      description: Method not allowed
+    "406":
+      content: {}
+      description: Not acceptable.
+    "413":
+      content: {}
+      description: Request Entity Too Large
+    "414":
+      content: {}
+      description: Request URI Too Large
+    "415":
+      content: {}
+      description: Unsupported Media Type
+    "500":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: System Error
+    "502":
+      content: {}
+      description: Bad Gateway
+    "503":
+      content: {}
+      description: Service Unavailable
+  schemas:
+    currencyAmountType:
+      description: A monetary value expressed with a currency code.
+      properties:
+        amount:
+          description: A monetary amount.
+          type: number
+        currencyCode:
+          description: Provides a currency code to reflect the currency in which an
+            amount may be expressed.
+          maxLength: 3
+          minLength: 3
+          type: string
+      type: object
+    sendCompTransactionsStatus:
+      properties:
+        compPostings:
+          description: List of comp transactions.
+          items:
+            $ref: '#/components/schemas/compTransactionInfoType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    compTransactionsInfoType:
+      description: List of comp transactions.
+      items:
+        $ref: '#/components/schemas/compTransactionInfoType'
+      maxItems: 4000
+      type: array
+    compTransactionInfoType:
+      description: Transaction information being processed by the vendor.
+      properties:
+        transactionId:
+          description: Transaction Number for which request is being submitted.
+          type: number
+        transactionCode:
+          description: Transaction code.
+          maxLength: 200
+          minLength: 0
+          type: string
+        transactionDescription:
+          description: Transaction description.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        roomId:
+          description: Room number associated with the transaction.
+          maxLength: 20
+          minLength: 0
+          type: string
+        confirmationNo:
+          description: Confirmation number associated with the transaction.
+          maxLength: 50
+          minLength: 0
+          type: string
+        approvalDate:
+          description: Approval date of the posting.
+          format: date
+          type: string
+        approvalStatus:
+          description: Approval status of the posting.
+          maxLength: 20
+          minLength: 0
+          type: string
+        approvalCode:
+          description: Approval code of the posting.
+          maxLength: 20
+          minLength: 0
+          type: string
+        approvalMessage:
+          description: Approval message of the posting coming from the vendor.
+          maxLength: 200
+          minLength: 0
+          type: string
+        amount:
+          $ref: '#/components/schemas/currencyAmountType'
+        name:
+          description: "Family name, last name or Company Name."
+          maxLength: 80
+          minLength: 0
+          type: string
+        firstName:
+          description: "Given name, first name or names."
+          maxLength: 80
+          minLength: 0
+          type: string
+      type: object
+    cashierId:
+      description: The Cashier ID of the Cashier who is currently processing the transaction(s).
+      type: number
+    uniqueID_Type:
+      description: "An identifier used to uniquely reference an object in a system\
+        \ (e.g. an airline reservation reference, customer profile reference, booking\
+        \ confirmation number, or a reference to a previous availability quote)."
+      properties:
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    warningsType:
+      description: Used in conjunction with the Success element to define a business
+        error.
+      items:
+        $ref: '#/components/schemas/warningType'
+      maxItems: 4000
+      type: array
+    warningType:
+      description: Used when a message has been successfully processed to report any
+        warnings or business errors that occurred.
+      properties:
+        value:
+          description: Property Value
+          type: string
+        shortText:
+          description: An abbreviated version of the error in textual format.
+          maxLength: 2000
+          type: string
+        code:
+          description: "If present, this refers to a table of coded values exchanged\
+            \ between applications to identify errors or warnings."
+          maxLength: 20
+          minLength: 0
+          type: string
+        docURL:
+          description: "If present, this URL refers to an online description of the\
+            \ error that occurred."
+          maxLength: 2000
+          type: string
+        status:
+          description: "If present, recommended values are those enumerated in the\
+            \ ErrorRS, (NotProcessed Incomplete Complete Unknown) however, the data\
+            \ type is designated as string data, recognizing that trading partners\
+            \ may identify additional status conditions not included in the enumeration."
+          maxLength: 2000
+          type: string
+        tag:
+          description: "If present, this attribute may identify an unknown or misspelled\
+            \ tag that caused an error in processing. It is recommended that the Tag\
+            \ attribute use XPath notation to identify the location of a tag in the\
+            \ event that more than one tag of the same name is present in the document.\
+            \ Alternatively, the tag name alone can be used to identify missing data\
+            \ [Type=ReqFieldMissing]."
+          maxLength: 2000
+          type: string
+        recordId:
+          description: "If present, this attribute allows for batch processing and\
+            \ the identification of the record that failed amongst a group of records.\
+            \ This value may contain a concatenation of a unique failed transaction\
+            \ ID with specific record(s) associated with that transaction."
+          maxLength: 2000
+          type: string
+        type:
+          description: The Warning element MUST contain the Type attribute that uses
+            a recommended set of values to indicate the warning type. The validating
+            XSD can expect to accept values that it has NOT been explicitly coded
+            for and process them by using Type ="Unknown".
+          maxLength: 20
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        rph:
+          description: Reference Place Holder used as an index for this warning.
+          maxLength: 8
+          minLength: 1
+          type: string
+      type: object
+    exceptionDetailType:
+      description: Complex type that contains error details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        o:errorDetails:
+          description: "Details of the error message, consisting of a hierarchical\
+            \ tree structure."
+          items:
+            $ref: '#/components/schemas/errorInstance'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      required:
+      - title
+      - type
+      title: Error Detail
+      type: object
+    errorInstance:
+      description: Complex type that contains error instance details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+      required:
+      - title
+      - type
+      title: Error Instance Details
+      type: object
+    links:
+      items:
+        $ref: '#/components/schemas/instanceLink'
+      type: array
+    instanceLink:
+      description: Metadata describing link description objects that MAY appear in
+        the JSON instance representation.
+      properties:
+        href:
+          description: "URI [RFC3986] or URI Template [RFC6570]. If the value is set\
+            \ to URI Template, then the \"templated\" property must be set to true."
+          type: string
+        rel:
+          description: "Name of the link relation that, in addition to the type property,\
+            \ can be used to retrieve link details. For example, href or profile."
+          type: string
+        templated:
+          default: false
+          description: "Boolean flag that specifies that \"href\" property is a URI\
+            \ or URI Template. If the property is a URI template, set this value to\
+            \ true. By default, this value is false."
+          type: boolean
+        method:
+          description: HTTP method for requesting the target of the link.
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          - OPTIONS
+          - HEAD
+          type: string
+        targetSchema:
+          description: "Link to the metadata of the resource, such as JSON-schema,\
+            \ that describes the resource expected when dereferencing the target resource.."
+          type: string
+        operationId:
+          description: "The operationId of the path you can call to follow this link.\
+            \  This allows you to look up not only the path and method, but the description\
+            \ of that path and any parameters you need to supply."
+          type: string
+        title:
+          description: Exact copy of the "summary" field on the linked operation.
+          type: string
+      required:
+      - href
+      - method
+      - operationId
+      - rel
+      type: object
+    fetchCompRedemptionsRS:
+      description: Response type for retrieval of Complimentary Redemption codes and
+        their respective Available Amount.
+      properties:
+        compRedemptions:
+          description: Collection of Complimentary Redemption codes and their respective
+            Available Amount.
+          items:
+            $ref: '#/components/schemas/fetchCompRedemptionsRSCompRedemptionType'
+          maxItems: 4000
+          type: array
+      type: object
+    fetchCompRedemptionsRSCompRedemptionsType:
+      description: Collection of Complimentary Redemption codes and their respective
+        Available Amount.
+      items:
+        $ref: '#/components/schemas/fetchCompRedemptionsRSCompRedemptionType'
+      maxItems: 4000
+      type: array
+    fetchCompRedemptionsRSCompRedemptionType:
+      description: Information about a Complimentary Redemption code and its Available
+        Amount.
+      properties:
+        code:
+          description: The associated redemption code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          description: Description of the Complimentary Redemption code.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        availableAmount:
+          $ref: '#/components/schemas/currencyAmountType'
+      type: object
+    authorizeCompRedemptionsRQ:
+      description: Request type of Complimentary Redemptions for approval.
+      properties:
+        compRedemptions:
+          description: Collection of Complimentary Redemptions for approval.
+          items:
+            $ref: '#/components/schemas/authorizeCompRedemptionsRQCompRedemptionType'
+          maxItems: 4000
+          type: array
+      type: object
+    authorizeCompRedemptionsRQCompRedemptionsType:
+      description: Collection of Complimentary Redemptions for approval.
+      items:
+        $ref: '#/components/schemas/authorizeCompRedemptionsRQCompRedemptionType'
+      maxItems: 4000
+      type: array
+    authorizeCompRedemptionsRQCompRedemptionType:
+      description: Information about a Complimentary Redemption for approval.
+      properties:
+        amount:
+          $ref: '#/components/schemas/currencyAmountType'
+        code:
+          description: The associated redemption code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          description: Description of the Complimentary Redemption code.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        availableAmount:
+          $ref: '#/components/schemas/currencyAmountType'
+      type: object
+    authorizeCompRedemptionsRS:
+      description: Response type of Complimentary Redemptions for approval.
+      properties:
+        compRedemptions:
+          description: Collection of Complimentary Redemption codes and their respective
+            Approval Code.
+          items:
+            $ref: '#/components/schemas/authorizeCompRedemptionsRSCompRedemptionType'
+          maxItems: 4000
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    authorizeCompRedemptionsRSCompRedemptionsType:
+      description: Collection of Complimentary Redemption codes and their respective
+        Approval Code.
+      items:
+        $ref: '#/components/schemas/authorizeCompRedemptionsRSCompRedemptionType'
+      maxItems: 4000
+      type: array
+    authorizeCompRedemptionsRSCompRedemptionType:
+      description: Information about a Complimentary Redemption including its approval
+        code.
+      properties:
+        code:
+          description: The associated Complimentary Redemption code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        approvalCode:
+          description: Approval Code of the Complimentary Redemption.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    postCompRedemptionsRQ:
+      description: Request type of Complimentary Redemptions posting.
+      properties:
+        compRedemptions:
+          description: Collection of Complimentary Redemptions for posting.
+          items:
+            $ref: '#/components/schemas/postCompRedemptionsRQCompRedemptionType'
+          maxItems: 4000
+          type: array
+      type: object
+    postCompRedemptionsRQCompRedemptionsType:
+      description: Collection of Complimentary Redemptions for posting.
+      items:
+        $ref: '#/components/schemas/postCompRedemptionsRQCompRedemptionType'
+      maxItems: 4000
+      type: array
+    postCompRedemptionsRQCompRedemptionType:
+      description: Information about a Complimentary Redemption for posting.
+      properties:
+        amount:
+          $ref: '#/components/schemas/currencyAmountType'
+        code:
+          description: The associated redemption code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          description: Description of the Complimentary Redemption code.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        availableAmount:
+          $ref: '#/components/schemas/currencyAmountType'
+        approvalCode:
+          description: Approval Code of the Complimentary Redemption.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    postCompRedemptionsRS:
+      description: Response type of Complimentary Redemptions for posting.
+      properties:
+        compRedemptions:
+          description: Collection of Complimentary Redemption codes and their respective
+            Approval Code.
+          items:
+            $ref: '#/components/schemas/postCompRedemptionsRSCompRedemptionType'
+          maxItems: 4000
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    postCompRedemptionsRSCompRedemptionsType:
+      description: Collection of Complimentary Redemption codes and their respective
+        Approval Code.
+      items:
+        $ref: '#/components/schemas/postCompRedemptionsRSCompRedemptionType'
+      maxItems: 4000
+      type: array
+    postCompRedemptionsRSCompRedemptionType:
+      description: Information about a Complimentary Redemption including its approval
+        code.
+      properties:
+        code:
+          description: The associated Complimentary Redemption code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        approvalCode:
+          description: Approval Code of the Complimentary Redemption.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    status:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    reverseCompRedemptionsRQ:
+      description: Request type of Complimentary Redemptions reversal.
+      properties:
+        compRedemptions:
+          description: Collection of Complimentary Redemptions for reversal.
+          items:
+            $ref: '#/components/schemas/reverseCompRedemptionsRQCompRedemptionType'
+          maxItems: 4000
+          type: array
+      type: object
+    reverseCompRedemptionsRQCompRedemptionsType:
+      description: Collection of Complimentary Redemptions for reversal.
+      items:
+        $ref: '#/components/schemas/reverseCompRedemptionsRQCompRedemptionType'
+      maxItems: 4000
+      type: array
+    reverseCompRedemptionsRQCompRedemptionType:
+      description: Information about a Complimentary Redemption for reversal.
+      properties:
+        amount:
+          $ref: '#/components/schemas/currencyAmountType'
+        code:
+          description: The associated redemption code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          description: Description of the Complimentary Redemption code.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        approvalCode:
+          description: Approval Code of the Complimentary Redemption.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    reverseCompRedemptionsRS:
+      description: Response type of Complimentary Redemptions for reversal
+      properties:
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    compTransactionsCriteriaType:
+      description: Contains all transactions to be submitted to the vendor
+      properties:
+        compPostings:
+          description: List of transactions to be submitted to the vendor.
+          items:
+            $ref: '#/components/schemas/compTransactionType'
+          maxItems: 4000
+          type: array
+      type: object
+    compTransactionType:
+      description: Contains the transaction to be submitted to the vendor
+      properties:
+        amount:
+          $ref: '#/components/schemas/currencyAmountType'
+        postedAmount:
+          $ref: '#/components/schemas/currencyAmountType'
+        debit:
+          $ref: '#/components/schemas/currencyAmountType'
+        credit:
+          $ref: '#/components/schemas/currencyAmountType'
+        name:
+          description: "Family name, last name or Company Name."
+          maxLength: 80
+          minLength: 0
+          type: string
+        firstName:
+          description: "Given name, first name or names."
+          maxLength: 80
+          minLength: 0
+          type: string
+        membershipId:
+          description: Membership number.
+          maxLength: 100
+          minLength: 0
+          type: string
+        membershipType:
+          description: Membership number.
+          maxLength: 100
+          minLength: 0
+          type: string
+        approvalDate:
+          description: Approval date of the posting.
+          format: date
+          type: string
+        approvalStatus:
+          description: Approval status of the posting.
+          maxLength: 20
+          minLength: 0
+          type: string
+        approvalCode:
+          description: Approval code of the posting.
+          maxLength: 20
+          minLength: 0
+          type: string
+        authorizerId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        guestNameId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        resvNameId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        confirmationNo:
+          description: Confirmation number associated with the transaction.
+          maxLength: 50
+          minLength: 0
+          type: string
+        roomId:
+          description: Room number associated with the transaction.
+          maxLength: 20
+          minLength: 0
+          type: string
+        compId:
+          description: Comp number associated with the transaction.
+          maxLength: 50
+          minLength: 0
+          type: string
+        folioNo:
+          description: Window number where the transaction is posted.
+          type: number
+        subGroup:
+          description: Subgroup for the transaction.
+          maxLength: 100
+          minLength: 0
+          type: string
+        transactionAmount:
+          $ref: '#/components/schemas/currencyAmountType'
+        transactionId:
+          description: Transaction Number for which request is being submitted.
+          type: number
+        transactionCode:
+          description: Transaction code.
+          maxLength: 200
+          minLength: 0
+          type: string
+        transactionDescription:
+          description: Transaction description.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        transactionStatus:
+          description: Transaction status.
+          maxLength: 100
+          minLength: 0
+          type: string
+        transactionDate:
+          description: Transaction date of the posting.
+          format: date
+          type: string
+        userName:
+          description: User name.
+          maxLength: 80
+          minLength: 0
+          type: string
+        externalUserId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        cashierId:
+          description: The Cashier ID of the Cashier who is currently processing the
+            transaction(s).
+          type: number
+      type: object
+    authorizeCompRedemptions_request:
+      allOf:
+      - $ref: '#/components/schemas/authorizeCompRedemptionsRQ'
+    postCompRedemptions_request:
+      allOf:
+      - $ref: '#/components/schemas/postCompRedemptionsRQ'
+    reverseCompRedemptions_request:
+      allOf:
+      - $ref: '#/components/schemas/reverseCompRedemptionsRQ'
+    approveCompPostings_request:
+      allOf:
+      - $ref: '#/components/schemas/compTransactionsCriteriaType'
+x-original-swagger-version: "2.0"
