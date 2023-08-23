@@ -6,6 +6,7 @@
   "scripts": {
     "build": "ts-node scripts/build.ts && yarn tsc",
     "build-open-api": "rm -r src/apis && openapi-generator-cli generate",
+    "list-templates": "openapi-generator-cli author template -g typescript-fetch",
     "test-api": "ts-node src/testApi.ts && yarn tsc",
     "ci": "yarn install && yarn build"
   },

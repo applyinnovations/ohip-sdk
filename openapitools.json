@@ -8,7 +8,8 @@
         "generatorName": "typescript-fetch",
         "output": "src/apis/fetch/#{name}",
         "glob": "../hospitality-api-docs/rest-api-specs/property/*.{json,yaml}",
-        "skipOperationExample": true
+        "skipOperationExample": true,
+        "templateDir": "templates_open_api"
       },
       "go": {
         "generatorName": "go",

@@ -1,4 +1,5 @@
 ﻿import { Api } from '.';
+import { BASE_PATH, Configuration, ReservationApi } from './apis/fetch/rsv';
 
 export const {
   OHIP_HOSTNAME,
@@ -13,39 +14,45 @@ export const {
 } = process.env;
 
 async function main() {
-  const api = new Api({
-    hostName: OHIP_HOSTNAME,
+  const resConfig = new Configuration({
+    apiKey: OHIP_APP_KEY,
+    password: OHIP_PASSWORD_1,
+    username: OHIP_USERNAME_1,
+    basePath: OHIP_HOSTNAME,
     hotelId: OHIP_HOTEL_ID,
-    appKey: OHIP_APP_KEY,
-    clientId: OHIP_CLIENT_ID,
-    clientSecret: OHIP_CLIENT_SECRET,
-    credentials: [
+    ohipCredentials: [
       {
-        username: OHIP_USERNAME_1,
         password: OHIP_PASSWORD_1,
+        username: OHIP_USERNAME_1,
       },
       {
-        username: OHIP_USERNAME_2,
         password: OHIP_PASSWORD_2,
+        username: OHIP_USERNAME_2,
       },
     ],
   });
+  const reservationApi = new ReservationApi(resConfig);
 
-  console.log('initiating clients');
-  const clients = await api.getClients();
-
-  console.log('getting reservation');
-  const getReservation = async () => {
+  const requestForReservations = async () => {
     try {
-      // @ts-ignore
-      const resp = await clients.rsv.ReservationApi.getReservations({});
-      console.log('respnse', JSON.stringify(resp.reservations));
+      const results = await reservationApi.getReservations({
+        xHotelid: OHIP_HOTEL_ID,
+      });
+      console.log('success results', results.reservations);
     } catch (e) {
-      console.log('retrying', e);
+      ('error occured');
     }
   };
 
-  await getReservation();
+  await requestForReservations();
+  await requestForReservations();
+  await requestForReservations();
+  await requestForReservations();
+  await requestForReservations();
+  await requestForReservations();
+  await requestForReservations();
+  await requestForReservations();
+  await requestForReservations();
 }
 
 main();
