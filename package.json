@@ -4,7 +4,9 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
+    "generate-open-api": "openapi-generator-cli generate",
     "build": "rm -rf src/apis && openapi-generator-cli generate && rm -r src/apis/typescript-fetch/chl && yarn tsc",
+    "template": "openapi-generator-cli author template -g go",
     "ci": "yarn install && yarn build"
   },
   "files": [
