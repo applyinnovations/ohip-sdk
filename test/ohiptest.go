@@ -23,18 +23,31 @@ func main(){
     
     xAppKey := getEnvOrDie("OHIP_APP_KEY") 
     xHotelid := getEnvOrDie("OHIP_HOTEL_ID") 
-	password := getEnvOrDie("OHIP_PASSWORD_1") 
-	username := getEnvOrDie("OHIP_USERNAME_1") 
+	password1 := getEnvOrDie("OHIP_PASSWORD_1") 
+	username1 := getEnvOrDie("OHIP_USERNAME_1") 
+	password2 := getEnvOrDie("OHIP_PASSWORD_2") 
+	// username2 := getEnvOrDie("OHIP_USERNAME_2") 
 
 
 	configuration := rsvApi.NewConfiguration()
 	configuration.Host = hostname
 	configuration.Scheme = "https"
-	configuration.Password= password
-	configuration.Username= username
+	configuration.Password= password1
+	configuration.Username= username1
 	configuration.ApiKey = xAppKey
 	configuration.HotelId = xHotelid
-
+	
+	
+	configuration.OhipCredentials=[]rsvApi.OhipCredential{
+		{
+			Username: username1,
+			Password: password1,
+		},
+		{
+			Username: username1,
+			Password: password2,
+		},
+	}
 	
     apiClient := rsvApi.NewAPIClient(configuration)
 
