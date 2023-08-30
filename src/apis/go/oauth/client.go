@@ -283,7 +283,7 @@ func (c *APIClient) prepareRequest(
 	queryParams url.Values,
 	formParams url.Values,
 	formFiles []formFile) (localVarRequest *http.Request, err error) {
-	
+
 	var body *bytes.Buffer
 
 	// Detect postBody type and post.

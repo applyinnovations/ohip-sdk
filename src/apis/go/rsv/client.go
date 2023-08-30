@@ -37,17 +37,17 @@ import (
 
 )
 
-const maxBackOffTimeoutToWait int64= int64(1000)
-const maxBackOffTimeout =  60 * 60 * 1000
-const baseBackOffTimeout= 1
+const maxBackOffTimeoutToWait = 1000
+const maxBackOffTimeout = 60 * 60 * 1000
+const baseBackOffTimeout = 1
+const clientName string = "rsv"
+
 var (
 	jsonCheck = regexp.MustCompile(`(?i:(?:application|text)/(?:vnd\.[^;]+\+)?json)`)
 	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 	queryParamSplit = regexp.MustCompile(`(^|&)([^&]+)`)
 	queryDescape    = strings.NewReplacer( "%5B", "[", "%5D", "]" )
 )
-
-type Empty struct{}
 
 // APIClient manages communication with the OPERA Cloud Reservation API API v21.5.0.0
 // In most cases there should be only one, shared, APIClient.
@@ -60,12 +60,14 @@ type APIClient struct {
 	RSVStatsApi *RSVStatsApiService
 
 	ReservationApi *ReservationApiService
+	// Authentication Properties
 	token string
+	refreshToken string
 	requestingNewAuthToken bool
-	backoffTimeout int64
+	backoffTimeout int
 	authTries int
 	activeCredentialIndex int
-	tokenExpiration int64
+	tokenExpiration int
 }
 
 type service struct {
@@ -264,6 +266,7 @@ func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
 	}
 
 	resp, err := c.cfg.HTTPClient.Do(request)
+	handleClientRequestError(c, resp)
 	if err != nil {
 		return resp, err
 	}
@@ -417,33 +420,27 @@ func (c *APIClient) prepareRequest(
 		}
 		headers["x-hotelid"] = []string{c.cfg.HotelId}
 		headers["x-app-key"] = []string{c.cfg.ApiKey}
-		
+
 		localVarRequest.Header = headers
 	}
 
 	// Add the user agent to the request.
 	localVarRequest.Header.Add("User-Agent", c.cfg.UserAgent)
-	
+
 	if ctx != nil {
-	
 		// add context to the request
 		localVarRequest = localVarRequest.WithContext(ctx)
 
 		// Walk through any authentication.
-		clientName:="rsv"
-		
-		if(c.token == ""  && clientName != "auth"){
-			// requestNewToken logic
-			errorAccessToken:= requestNewAuthToken(c)
-			if(errorAccessToken !=nil){
-				fmt.Println("Requesting new OHIP session token failed")
+		if(clientName != "auth"){
+			err = authenticateClientRequest(c)
+			if(err != nil){
+				return nil, err
 			}
+			localVarRequest.Header.Add("Authorization", "Bearer " + c.token)
 		}
 		
 
-		fmt.Println("this is the token")
-		fmt.Println(c.token)
-		localVarRequest.Header.Add("Authorization", "Bearer " + c.token)
 		
 	}
 
@@ -692,19 +689,65 @@ func formatErrorMessage(status string, v interface{}) string {
 
 
 
-
 // ohip authenticatpm middlewares
-func incrementActiveCrendentialIndex(c *APIClient) int{
-	if(c.activeCredentialIndex == 0 || c.activeCredentialIndex + 1 >= len(c.cfg.OhipCredentials)){
-		return 0
-	}else {
-		return c.activeCredentialIndex + 1
+func authenticateClientRequest(c *APIClient) error{
+	if(c.token == ""){
+		requestNewAuthToken(c)
+	}else if(isAuthTokenExpired(c)){
+		renewAuthToken(c)
 	}
+
+	if(c.token != ""){
+		return errors.New("'Failed getting OHIP authentication token.'")
+	}
+
+	return nil
+
+}
+
+func incrementActiveCrendentialIndex(c *APIClient) {
+	if(c.activeCredentialIndex + 1 >= len(c.cfg.OhipCredentials)){
+		c.activeCredentialIndex = 0
+	}else {
+		c.activeCredentialIndex = c.activeCredentialIndex + 1
+	}
+}
+
+func renewAuthToken(c *APIClient){
+	fmt.Println("Renewing Auth Token")
+	c.requestingNewAuthToken = true
+		c.authTries++
+		c.token = ""
+		clearTokens(c)
+		grantType := "refresh_token"
+		configuration := oauth.NewConfiguration()
+		configuration.Host = c.cfg.Host
+		configuration.Scheme = "https"
+		apiClient := oauth.NewAPIClient(configuration)
+		resp, _, err := apiClient.AuthenticationApi.
+			GetToken(context.Background()).
+			XAppKey(c.cfg.ApiKey).
+			GrantType(grantType).
+			Username(c.cfg.OhipCredentials[c.activeCredentialIndex].Username).
+			Password(c.cfg.OhipCredentials[c.activeCredentialIndex].Password).
+			Execute()
+
+		if(err !=nil){
+			fmt.Println("Refreshing OHIP session token failed")
+			fmt.Println(err)
+			requestNewAuthToken(c)
+		} else{
+			setTokenHeaders(c, *resp)
+
+		}
+
+		
 }
 
 func setTokenHeaders(c *APIClient ,response oauth.OAuth2TokenResponse){
 	c.token = response.AccessToken
-	c.tokenExpiration = time.Now().Unix() + (*response.ExpiresIn * int64(900));
+	c.tokenExpiration = int(time.Now().UnixMilli()) + (int(*response.ExpiresIn) * 900);
+	// c.refreshToken = response.RefreshToken
 }
 
 func clearTokens(c *APIClient){
@@ -714,29 +757,33 @@ func clearTokens(c *APIClient){
 
 func requestNewAuthToken(c *APIClient) (err error){
 	if(c.requestingNewAuthToken){
+		for c.requestingNewAuthToken {
+			// wait for request to finish
+		}
+
 		return nil
 	}
 
-	
-
 	if(shouldBackOff(c)){
-		backOffMsRemaining:= time.Duration(c.backoffTimeout - time.Now().Unix())
-		if(backOffMsRemaining.Milliseconds() >maxBackOffTimeoutToWait ){
+		backOffMsRemaining:= c.backoffTimeout - int(time.Now().UnixMilli())
+	
+		if(backOffMsRemaining > int(maxBackOffTimeoutToWait) ){
 			fmt.Println(
-				`Backing off for ${backOffMsRemaining}ms: Max backoff timeout to wait reached...`,
+				"Backing off for " + strconv.Itoa(backOffMsRemaining) + "ms: Max backoff timeout to wait reached...",
 			  );
 		}else{
-			fmt.Println("Backing off for " + string(backOffMsRemaining) + "ms: Waiting for new token...",)
-			time.Sleep(backOffMsRemaining * time.Millisecond)
+			fmt.Println("Backing off for " + strconv.Itoa(backOffMsRemaining) + "ms: Waiting for new token...",)
+			time.Sleep(time.Duration(int64(backOffMsRemaining)) * time.Millisecond)
 			requestNewAuthToken(c)
 		}
-
-
 		return nil
-	}else{
+	} else {
+		fmt.Println(
+			"Requesting new OHIP session token using credentials[" + strconv.Itoa(c.activeCredentialIndex) + "]",
+		  );
 		c.requestingNewAuthToken = true
+		incrementActiveCrendentialIndex(c)
 		c.authTries++
-		c.token = ""
 		clearTokens(c)
 		grantType := "password"
 		configuration := oauth.NewConfiguration()
@@ -754,10 +801,12 @@ func requestNewAuthToken(c *APIClient) (err error){
 		if err != nil {
 			fmt.Printf("%s => Failed getting access token from OHIP oauth rest endpoint\n", time.Now().Format(time.TimeOnly))
 			setBackoffTimeout(c)
+			c.requestingNewAuthToken = false
 			return err
 		}
 		
 		setTokenHeaders(c, *resp)
+		c.authTries=0
 		c.requestingNewAuthToken = false
 		return nil
 	}
@@ -768,24 +817,36 @@ func shouldBackOff(c *APIClient) bool{
 	if (c.authTries == 0) {
 		return false
 	};
-
-    return time.Now().Unix()< c.backoffTimeout;
+	
+    return int(time.Now().UnixMilli())< c.backoffTimeout;
 }
 
 func setBackoffTimeout(c *APIClient){
-	credLength:= len(c.cfg.OhipCredentials)-1
-	if(c.activeCredentialIndex != (len(c.cfg.OhipCredentials)-1)){
+	credLength:= len(c.cfg.OhipCredentials)
+	if(c.activeCredentialIndex != (credLength-1)){
 		return 
 	}
 
-	delay:= math.Min(
-		baseBackOffTimeout * math.Pow10(int(math.Floor(float64(c.authTries / credLength)))),
+	delay:=int(math.Min(
+		float64(baseBackOffTimeout) * math.Pow(10, math.Floor(float64(c.authTries / credLength))),
 		float64(maxBackOffTimeout),
-	)
-
-	if(delay== maxBackOffTimeout){
+	))
+		
+	if(delay== int(maxBackOffTimeout)){
 		fmt.Println("'Max backoff timeout reached. Check OHIP credentials.'")
 	}
 
-	c.backoffTimeout = time.Now().Unix() + int64(delay)
+	c.backoffTimeout = int(time.Now().UnixMilli()) + int(delay)
+}
+
+func isAuthTokenExpired(c *APIClient) bool {
+    return int(time.Now().UnixMilli()) > c.tokenExpiration;
+  }
+
+  func handleClientRequestError(c *APIClient, response *http.Response) error{
+	if(response.StatusCode != 401 && response.StatusCode !=403 && clientName !="oauth"){
+		return nil
+	}
+	requestNewAuthToken(c)
+	return nil
 }

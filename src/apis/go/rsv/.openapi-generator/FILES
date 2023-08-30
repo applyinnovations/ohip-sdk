@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -868,4 +869,6 @@ model_warning_type.go
 model_welcome_offer_options_type.go
 model_welcome_offer_type.go
 response.go
+test/api_reservation_test.go
+test/api_rsv_stats_test.go
 utils.go

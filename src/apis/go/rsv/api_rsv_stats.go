@@ -180,15 +180,6 @@ func (a *RSVStatsApiService) GetReservationStatisticsExecute(r RSVStatsApiGetRes
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
 
 	if r.chainName != nil {
 		t := *r.chainName
@@ -328,9 +319,6 @@ func (a *RSVStatsApiService) GetReservationStatisticsExecute(r RSVStatsApiGetRes
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}

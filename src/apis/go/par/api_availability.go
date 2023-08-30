@@ -416,15 +416,6 @@ func (a *AvailabilityApiService) GetHotelAvailabilityExecute(r AvailabilityApiGe
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
 
 	if r.cro != nil {
 		t := *r.cro
@@ -746,9 +737,6 @@ func (a *AvailabilityApiService) GetHotelAvailabilityExecute(r AvailabilityApiGe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -1023,18 +1011,6 @@ func (a *AvailabilityApiService) GetReservationGuaranteesExecute(r AvailabilityA
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.arrivalDate == nil {
-		return localVarReturnValue, nil, reportError("arrivalDate is required and must be specified")
-	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "arrivalDate", r.arrivalDate, "")
 	if r.ratePlanCode != nil {
@@ -1099,9 +1075,6 @@ func (a *AvailabilityApiService) GetReservationGuaranteesExecute(r AvailabilityA
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -1357,15 +1330,6 @@ func (a *AvailabilityApiService) GetRestrictionsByDateRangeExecute(r Availabilit
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
 
 	if r.chainName != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "chainName", r.chainName, "")
@@ -1431,9 +1395,6 @@ func (a *AvailabilityApiService) GetRestrictionsByDateRangeExecute(r Availabilit
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}

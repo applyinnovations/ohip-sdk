@@ -71,6 +71,12 @@ type ServerConfiguration struct {
 // ServerConfigurations stores multiple ServerConfiguration items
 type ServerConfigurations []ServerConfiguration
 
+
+type OhipCredential struct {
+	Username string 
+	Password string 
+}
+
 // Configuration stores the configuration of the API client
 type Configuration struct {
 	Host             string            `json:"host,omitempty"`
@@ -81,6 +87,14 @@ type Configuration struct {
 	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
+
+		//changes
+	Password string  `json:"password,omitempty"`
+	Username string  `json:"username,omitempty"`
+	OhipCredentials  []OhipCredential
+	ApiKey string`json:"apikey,omitempty"`
+	HotelId string`json:"hotelId,omitempty"`
+	
 }
 
 // NewConfiguration returns a new Configuration object

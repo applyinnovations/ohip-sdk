@@ -513,15 +513,6 @@ func (a *ReservationApiService) DeletePreCheckInReservationExecute(r Reservation
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
 
 	if r.resvIDExtension != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "resvIDExtension", r.resvIDExtension, "")
@@ -738,9 +729,6 @@ func (a *ReservationApiService) DeletePreCheckInReservationExecute(r Reservation
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -916,15 +904,6 @@ func (a *ReservationApiService) DeleteReservationLinksExecute(r ReservationApiDe
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -943,9 +922,6 @@ func (a *ReservationApiService) DeleteReservationLinksExecute(r ReservationApiDe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -1793,18 +1769,6 @@ func (a *ReservationApiService) GetExternalSystemReservationsExecute(r Reservati
 	if strlen(r.extSystemCode) > 2000 {
 		return localVarReturnValue, nil, reportError("extSystemCode must have less than 2000 elements")
 	}
-	if r.externalReferenceList == nil {
-		return localVarReturnValue, nil, reportError("externalReferenceList is required and must be specified")
-	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
 
 	{
 		t := *r.externalReferenceList
@@ -2408,9 +2372,6 @@ func (a *ReservationApiService) GetExternalSystemReservationsExecute(r Reservati
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -3363,15 +3324,6 @@ func (a *ReservationApiService) GetHotelReservationsExecute(r ReservationApiGetH
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
 
 	if r.recentlyAccessed != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "recentlyAccessed", r.recentlyAccessed, "")
@@ -4068,9 +4020,6 @@ func (a *ReservationApiService) GetHotelReservationsExecute(r ReservationApiGetH
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -4395,15 +4344,6 @@ func (a *ReservationApiService) GetRateInfoExecute(r ReservationApiGetRateInfoRe
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
 
 	if r.currencyCode != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "currencyCode", r.currencyCode, "")
@@ -4515,9 +4455,6 @@ func (a *ReservationApiService) GetRateInfoExecute(r ReservationApiGetRateInfoRe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -4707,15 +4644,6 @@ func (a *ReservationApiService) GetReservationExecute(r ReservationApiGetReserva
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
 
 	if r.fetchInstructions != nil {
 		t := *r.fetchInstructions
@@ -4756,9 +4684,6 @@ func (a *ReservationApiService) GetReservationExecute(r ReservationApiGetReserva
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -4964,15 +4889,6 @@ func (a *ReservationApiService) GetReservationActivityLogExecute(r ReservationAp
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
 
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
@@ -5025,9 +4941,6 @@ func (a *ReservationApiService) GetReservationActivityLogExecute(r ReservationAp
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -5203,15 +5116,6 @@ func (a *ReservationApiService) GetReservationUpsellInfoExecute(r ReservationApi
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -5230,9 +5134,6 @@ func (a *ReservationApiService) GetReservationUpsellInfoExecute(r ReservationApi
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -6098,16 +5999,6 @@ func (a *ReservationApiService) GetReservationsExecute(r ReservationApiGetReserv
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	// changes
-	// if r.authorization == nil {
-	// 	return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	// }
-	// if r.xAppKey == nil {
-	// 	return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	// }
-	// if r.xHotelid == nil {
-	// 	return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	// }
 
 	if r.recentlyAccessed != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "recentlyAccessed", r.recentlyAccessed, "")
@@ -6755,9 +6646,6 @@ func (a *ReservationApiService) GetReservationsExecute(r ReservationApiGetReserv
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	// parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	// parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -6920,18 +6808,6 @@ func (a *ReservationApiService) PostCallExecute(r ReservationApiPostCallRequest)
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
-	if r.registerCall == nil {
-		return localVarReturnValue, nil, reportError("registerCall is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json;charset=UTF-8"}
@@ -6950,9 +6826,6 @@ func (a *ReservationApiService) PostCallExecute(r ReservationApiPostCallRequest)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -7137,18 +7010,6 @@ func (a *ReservationApiService) PostCancelReservationExecute(r ReservationApiPos
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
-	if r.cancelReservation == nil {
-		return localVarReturnValue, nil, reportError("cancelReservation is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json;charset=UTF-8"}
@@ -7167,9 +7028,6 @@ func (a *ReservationApiService) PostCancelReservationExecute(r ReservationApiPos
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -7354,18 +7212,6 @@ func (a *ReservationApiService) PostCombineShareReservationsExecute(r Reservatio
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
-	if r.combineShareReservations == nil {
-		return localVarReturnValue, nil, reportError("combineShareReservations is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json;charset=UTF-8"}
@@ -7384,9 +7230,6 @@ func (a *ReservationApiService) PostCombineShareReservationsExecute(r Reservatio
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -7581,18 +7424,6 @@ func (a *ReservationApiService) PostCombineShareReservationsByExtIdExecute(r Res
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
-	if r.combineShareReservations == nil {
-		return localVarReturnValue, nil, reportError("combineShareReservations is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json;charset=UTF-8"}
@@ -7611,9 +7442,6 @@ func (a *ReservationApiService) PostCombineShareReservationsByExtIdExecute(r Res
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -7798,18 +7626,6 @@ func (a *ReservationApiService) PostPreCheckInReservationExecute(r ReservationAp
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
-	if r.preCheckInReservation == nil {
-		return localVarReturnValue, nil, reportError("preCheckInReservation is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json;charset=UTF-8"}
@@ -7828,9 +7644,6 @@ func (a *ReservationApiService) PostPreCheckInReservationExecute(r ReservationAp
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -8005,18 +7818,6 @@ func (a *ReservationApiService) PostReservationExecute(r ReservationApiPostReser
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
-	if r.createReservation == nil {
-		return localVarReturnValue, nil, reportError("createReservation is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json;charset=UTF-8"}
@@ -8035,9 +7836,6 @@ func (a *ReservationApiService) PostReservationExecute(r ReservationApiPostReser
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -8222,18 +8020,6 @@ func (a *ReservationApiService) PostReservationByBlockExecute(r ReservationApiPo
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
-	if r.createReservation == nil {
-		return localVarReturnValue, nil, reportError("createReservation is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json;charset=UTF-8"}
@@ -8252,9 +8038,6 @@ func (a *ReservationApiService) PostReservationByBlockExecute(r ReservationApiPo
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -8439,18 +8222,6 @@ func (a *ReservationApiService) PostReservationLinksExecute(r ReservationApiPost
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
-	if r.linkReservationsCriteria == nil {
-		return localVarReturnValue, nil, reportError("linkReservationsCriteria is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json;charset=UTF-8"}
@@ -8469,9 +8240,6 @@ func (a *ReservationApiService) PostReservationLinksExecute(r ReservationApiPost
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -8646,18 +8414,6 @@ func (a *ReservationApiService) PostReservationLinksByChainExecute(r Reservation
 	if strlen(r.reservationId) > 2000 {
 		return localVarReturnValue, nil, reportError("reservationId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
-	if r.linkReservationsCriteria == nil {
-		return localVarReturnValue, nil, reportError("linkReservationsCriteria is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json;charset=UTF-8"}
@@ -8676,9 +8432,6 @@ func (a *ReservationApiService) PostReservationLinksByChainExecute(r Reservation
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -8863,18 +8616,6 @@ func (a *ReservationApiService) PostUpsellReservationExecute(r ReservationApiPos
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
-	if r.upsellReservation == nil {
-		return localVarReturnValue, nil, reportError("upsellReservation is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json;charset=UTF-8"}
@@ -8893,9 +8634,6 @@ func (a *ReservationApiService) PostUpsellReservationExecute(r ReservationApiPos
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -9080,18 +8818,6 @@ func (a *ReservationApiService) PutReinstateReservationExecute(r ReservationApiP
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
-	if r.reinstateReservation == nil {
-		return localVarReturnValue, nil, reportError("reinstateReservation is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json;charset=UTF-8"}
@@ -9110,9 +8836,6 @@ func (a *ReservationApiService) PutReinstateReservationExecute(r ReservationApiP
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -9297,18 +9020,6 @@ func (a *ReservationApiService) PutReservationExecute(r ReservationApiPutReserva
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
-	if r.changeReservation == nil {
-		return localVarReturnValue, nil, reportError("changeReservation is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json;charset=UTF-8"}
@@ -9327,9 +9038,6 @@ func (a *ReservationApiService) PutReservationExecute(r ReservationApiPutReserva
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}
@@ -9504,18 +9212,6 @@ func (a *ReservationApiService) PutValidateReservationChangesExecute(r Reservati
 	if strlen(r.hotelId) > 2000 {
 		return localVarReturnValue, nil, reportError("hotelId must have less than 2000 elements")
 	}
-	if r.authorization == nil {
-		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
-	}
-	if r.xAppKey == nil {
-		return localVarReturnValue, nil, reportError("xAppKey is required and must be specified")
-	}
-	if r.xHotelid == nil {
-		return localVarReturnValue, nil, reportError("xHotelid is required and must be specified")
-	}
-	if r.validateReservationChanges == nil {
-		return localVarReturnValue, nil, reportError("validateReservationChanges is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json;charset=UTF-8"}
@@ -9534,9 +9230,6 @@ func (a *ReservationApiService) PutValidateReservationChangesExecute(r Reservati
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-app-key", r.xAppKey, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-hotelid", r.xHotelid, "")
 	if r.xExternalsystem != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-externalsystem", r.xExternalsystem, "")
 	}

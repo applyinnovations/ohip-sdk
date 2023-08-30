@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"time"
 
 	rsvApi "github.com/applyinnovations/ohip-sdk/rsv"
 )
@@ -40,7 +41,7 @@ func main(){
 	
 	configuration.OhipCredentials=[]rsvApi.OhipCredential{
 		{
-			Username: username1,
+			Username: "wrong username",
 			Password: password1,
 		},
 		{
@@ -50,7 +51,43 @@ func main(){
 	}
 	
     apiClient := rsvApi.NewAPIClient(configuration)
+	fmt.Println(apiClient)
+	// baseBackOffTimeout:= 1
+	// maxBackOffTimeout:=  1 * time.Minute
 
+	// delay:= int(math.Min(
+	// 	float64(baseBackOffTimeout) * math.Pow(10, math.Floor(float64(4 / 2))),
+	// 	float64(maxBackOffTimeout),
+	// ))
+
+	// fmt.Printf("DELAY %f",delay == int(maxBackOffTimeout))
+	getReservations(apiClient, "CALL REQUET 1")
+
+	go getReservations(apiClient, "CALL REQUET 1")
+	go getReservations(apiClient, "CALL REQUET 2")
+	go getReservations(apiClient, "CALL REQUET 3")
+	go getReservations(apiClient, "CALL REQUET 3")
+	time.Sleep(5 * time.Second)
+	go getReservations(apiClient, "CALL REQUET 4")
+	go getReservations(apiClient, "CALL REQUET 5")
+	go getReservations(apiClient, "CALL REQUET 6")
+	go getReservations(apiClient, "CALL REQUET 3")
+	time.Sleep(5 * time.Second)
+	go getReservations(apiClient, "CALL REQUET 7")
+	go getReservations(apiClient, "CALL REQUET 8")
+	go getReservations(apiClient, "CALL REQUET 9")
+	go getReservations(apiClient, "CALL REQUET 3")
+
+	time.Sleep(5 * time.Second)
+	go getReservations(apiClient, "CALL REQUET 7")
+	go getReservations(apiClient, "CALL REQUET 8")
+	go getReservations(apiClient, "CALL REQUET 9")
+	go getReservations(apiClient, "CALL REQUET 3")
+	
+	time.Sleep(30 * time.Second)
+}
+
+func getReservations(apiClient *rsvApi.APIClient, name string){
 	resp, r, err := apiClient.ReservationApi.GetReservations(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ReservationApi.GetReservations``: %v\n", err)
@@ -58,5 +95,5 @@ func main(){
     }
     // response from `GetReservations`: ReservationsDetails
     fmt.Fprintf(os.Stdout, "Response from `ReservationApi.GetReservations`: %v\n", resp)
-	
 }
+

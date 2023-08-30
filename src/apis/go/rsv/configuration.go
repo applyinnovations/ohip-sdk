@@ -87,12 +87,14 @@ type Configuration struct {
 	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
-	//changes
+
+		//changes
 	Password string  `json:"password,omitempty"`
 	Username string  `json:"username,omitempty"`
 	OhipCredentials  []OhipCredential
 	ApiKey string`json:"apikey,omitempty"`
 	HotelId string`json:"hotelId,omitempty"`
+	
 }
 
 // NewConfiguration returns a new Configuration object

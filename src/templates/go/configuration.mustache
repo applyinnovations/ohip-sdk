@@ -103,9 +103,16 @@ type ServerConfiguration struct {
 // ServerConfigurations stores multiple ServerConfiguration items
 type ServerConfigurations []ServerConfiguration
 
+
+type OhipCredential struct {
+	Username string 
+	Password string 
+}
+
 {{#withCustomMiddlewareFunction}}
 // MiddlewareFunction provides way to implement custom middleware
 type MiddlewareFunction func(*http.Request)
+
 
 {{/withCustomMiddlewareFunction}}
 // Configuration stores the configuration of the API client
@@ -118,6 +125,14 @@ type Configuration struct {
 	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
+
+		//changes
+	Password string  `json:"password,omitempty"`
+	Username string  `json:"username,omitempty"`
+	OhipCredentials  []OhipCredential
+	ApiKey string`json:"apikey,omitempty"`
+	HotelId string`json:"hotelId,omitempty"`
+	
 	{{#withCustomMiddlewareFunction}}
 	Middleware       MiddlewareFunction
 	{{/withCustomMiddlewareFunction}}
