@@ -1,4 +1,4 @@
-module github.com/applyinnovations/ohip-sdk/entcfg
+module github.com/applyinnovations/ohip-sdk/src/apis/go/entcfg
 
 go 1.18
 

@@ -1,4 +1,4 @@
-module github.com/applyinnovations/ohip-sdk/blkasync
+module github.com/applyinnovations/ohip-sdk/src/apis/go/blkasync
 
 go 1.18
 

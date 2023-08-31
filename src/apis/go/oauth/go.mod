@@ -1,4 +1,4 @@
-module github.com/applyinnovations/ohip-sdk/oauth
+module github.com/applyinnovations/ohip-sdk/src/apis/go/oauth
 
 go 1.18
 

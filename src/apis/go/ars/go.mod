@@ -1,4 +1,4 @@
-module github.com/applyinnovations/ohip-sdk/ars
+module github.com/applyinnovations/ohip-sdk/src/apis/go/ars
 
 go 1.18
 

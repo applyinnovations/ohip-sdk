@@ -1,4 +1,4 @@
-module github.com/applyinnovations/ohip-sdk/intcfg
+module github.com/applyinnovations/ohip-sdk/src/apis/go/intcfg
 
 go 1.18
 

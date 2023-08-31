@@ -1,4 +1,4 @@
-module github.com/applyinnovations/ohip-sdk/bof
+module github.com/applyinnovations/ohip-sdk/src/apis/go/bof
 
 go 1.18
 

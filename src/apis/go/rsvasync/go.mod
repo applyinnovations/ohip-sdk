@@ -1,4 +1,4 @@
-module github.com/applyinnovations/ohip-sdk/rsvasync
+module github.com/applyinnovations/ohip-sdk/src/apis/go/rsvasync
 
 go 1.18
 

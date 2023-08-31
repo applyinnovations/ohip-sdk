@@ -1,4 +1,4 @@
-module github.com/applyinnovations/ohip-sdk/rtp
+module github.com/applyinnovations/ohip-sdk/src/apis/go/rtp
 
 go 1.18
 

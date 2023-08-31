@@ -32,7 +32,7 @@ import (
 	"strings"
 	"time"
 	"unicode/utf8"
-	"github.com/applyinnovations/ohip-sdk/oauth"
+	"github.com/applyinnovations/ohip-sdk/src/apis/go/oauth"
 	"math"
 
 )

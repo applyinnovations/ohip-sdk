@@ -1,4 +1,4 @@
-module github.com/applyinnovations/ohip-sdk/dvm
+module github.com/applyinnovations/ohip-sdk/src/apis/go/dvm
 
 go 1.18
 

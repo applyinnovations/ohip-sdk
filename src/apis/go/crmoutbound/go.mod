@@ -1,4 +1,4 @@
-module github.com/applyinnovations/ohip-sdk/crmoutbound
+module github.com/applyinnovations/ohip-sdk/src/apis/go/crmoutbound
 
 go 1.18
 

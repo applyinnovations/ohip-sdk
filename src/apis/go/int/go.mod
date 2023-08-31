@@ -1,4 +1,4 @@
-module github.com/applyinnovations/ohip-sdk/int
+module github.com/applyinnovations/ohip-sdk/src/apis/go/int
 
 go 1.18
 

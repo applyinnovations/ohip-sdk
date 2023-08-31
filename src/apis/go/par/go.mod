@@ -1,4 +1,4 @@
-module github.com/applyinnovations/ohip-sdk/par
+module github.com/applyinnovations/ohip-sdk/src/apis/go/par
 
 go 1.18
 

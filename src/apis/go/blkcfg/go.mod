@@ -1,4 +1,4 @@
-module github.com/applyinnovations/ohip-sdk/blkcfg
+module github.com/applyinnovations/ohip-sdk/src/apis/go/blkcfg
 
 go 1.18
 
