@@ -263,7 +263,7 @@ func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
 	}
 
 	resp, err := c.cfg.HTTPClient.Do(request)
-	handleClientRequestError(c, resp)
+	handleClientRequestError(c, *resp)
 	if err != nil {
 		return resp, err
 	}
@@ -840,7 +840,7 @@ func isAuthTokenExpired(c *APIClient) bool {
     return int(time.Now().UnixMilli()) > c.tokenExpiration;
   }
 
-  func handleClientRequestError(c *APIClient, response *http.Response) error{
+  func handleClientRequestError(c *APIClient, response http.Response) error{
 	if(response.StatusCode != 401 && response.StatusCode !=403 && clientName !="oauth"){
 		return nil
 	}
