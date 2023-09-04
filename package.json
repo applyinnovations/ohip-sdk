@@ -5,7 +5,6 @@
   "main": "dist/index.js",
   "scripts": {
     "generate-open-api": "openapi-generator-cli generate",
-    "generate-open-api-auth": "openapi-generator-cli generate -g go -i ./hospitality-api-docs/rest-api-specs/property/oauth.json -o src/apis/go/oauth --git-repo-id ohip-sdk --git-user-id applyinnovations --skip-operation-example -t src/templates/go-auth --additional-properties=packageName=oauth,isGoSubmodule=true,structPrefix=true,enumClassPrefix=true",
     "build": "rm -rf src/apis && yarn generate-open-api && yarn generate-open-api-auth && rm -rf src/apis/typescript-fetch/chl && yarn tsc",
     "ci": "yarn install && yarn build"
   },
