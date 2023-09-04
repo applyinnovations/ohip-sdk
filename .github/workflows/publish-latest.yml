@@ -28,7 +28,7 @@ jobs:
           ref: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}
 
       - name: Checkout to release branch
-        run: git checkout -b "${{ env.HOSPITALITY_API_DOCS_BRANCH }}"
+        run: git checkout -b "release_${{ env.HOSPITALITY_API_DOCS_BRANCH }}"
 
       - uses: actions/setup-node@v3
         timeout-minutes: 2
@@ -43,20 +43,16 @@ jobs:
 
       - name: Get hospitality-api-docs's commit sha
         id: ohip_docs
-        run: |
-          echo "commit_sha=$(git --git-dir=${{ env.HOSPITALITY_API_DOCS_DIR }}/.git rev-parse HEAD)" >> $GITHUB_OUTPUT
+        run: echo "commit_sha=$(git --git-dir=${{ env.HOSPITALITY_API_DOCS_DIR }}/.git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
       - name: Remove dist from gitignore
         run: sed -i '/dist/d' ./.gitignore
 
-      - name: Stage generated files
-        run: git add dist/**/*
-
-      - name: Commit the files
-        run: git commit -m 'generated sdks for release'
-
-      - name: Push release files to new branch
-        run: git push
+      - name: Push release files to release branch
+        run: |
+          git add dist/**/*
+          git commit -m 'generated sdks for release' --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+          git push
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
