@@ -4,13 +4,10 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "generate-open-api": "openapi-generator-cli generate",
-    "build": "rm -rf src/apis && yarn generate-open-api && yarn generate-open-api-auth && rm -rf src/apis/typescript-fetch/chl && yarn tsc",
-    "ci": "yarn install && yarn build"
+    "build": "openapi-generator-cli generate"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "author": "",
   "license": "ISC",

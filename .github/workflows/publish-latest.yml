@@ -35,6 +35,9 @@ jobs:
       - name: Install deps
         run: yarn install
 
+      - name: Build sdks
+        run: yarn build
+
       - name: Get hospitality-api-docs's commit sha
         id: ohip_docs
         run: |
