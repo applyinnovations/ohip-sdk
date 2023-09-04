@@ -54,7 +54,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git add dist/**/*
           git commit -m 'generated sdks for release' --quiet
-          git push
+          git push --set-upstream origin "release_${{ env.HOSPITALITY_API_DOCS_BRANCH }}"
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
