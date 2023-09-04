@@ -2,7 +2,7 @@ name: Create release for release branch
 on:
   push:
     branches:
-      - 'release_*'
+      - 'releases/**'
 
 jobs:
   build:

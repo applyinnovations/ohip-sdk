@@ -28,7 +28,7 @@ jobs:
           ref: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}
 
       - name: Checkout to release branch
-        run: git checkout -b "release_${{ env.HOSPITALITY_API_DOCS_BRANCH }}"
+        run: git checkout -b "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}"
 
       - uses: actions/setup-node@v3
         timeout-minutes: 2
@@ -54,4 +54,4 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git add dist/**/*
           git commit -m 'generated sdks for release' --quiet
-          git push --set-upstream origin "release_${{ env.HOSPITALITY_API_DOCS_BRANCH }}" --force
+          git push --set-upstream origin "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}" --force
