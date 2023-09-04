@@ -27,6 +27,9 @@ jobs:
           path: ${{ env.HOSPITALITY_API_DOCS_DIR }}
           ref: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}
 
+      - name: Checkout to release branch
+        run: git checkout -b "${{ env.HOSPITALITY_API_DOCS_BRANCH }}"
+
       - uses: actions/setup-node@v3
         timeout-minutes: 2
         with:
@@ -43,12 +46,23 @@ jobs:
         run: |
           echo "commit_sha=$(git --git-dir=${{ env.HOSPITALITY_API_DOCS_DIR }}/.git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
+      - name: Remove dist from gitignore
+        run: sed -i '/dist/d' ./.gitignore
+
+      - name: Stage generated files
+        run: git add dist/**/*
+
+      - name: Commit the files
+        run: git commit -m 'generated sdks for release'
+
+      - name: Push release files to new branch
+        run: git push
+
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
           prerelease: false
-          files: dist/*
           tag_name: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}
           body: |
-            Updated to match commit `${{ steps.ohip_docs.outputs.commit_sha }}` 
+            Updated to match commit `${{ steps.ohip_docs.outputs.commit_sha }}` @ oracle/hospitality-api-docs
             - https://github.com/oracle/hospitality-api-docs/commit/${{ steps.ohip_docs.outputs.commit_sha }}
