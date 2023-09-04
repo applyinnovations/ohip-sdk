@@ -1,32 +1,43 @@
 # OHIPS SDK
 
-### Usage
+### Installation
 
-```typescript
-import { Api } from 'ohips-sdk';
+```
+go get github.com/applyinnovations/ohip-sdk/src/apis/go/oauth@gosdk
+go get github.com/applyinnovations/ohip-sdk/src/apis/go/<packageName>@gosdk
+```
 
-const api = new Api({
-  hostName: '<Host Name>',
-  appKey: '<App Key>',
-  clientId: '<Client ID>',
-  clientSecret: '<Client Secret>',
-  username: '<Username>',
-  password: '<Password>',
-});
+### Usage Go
 
-const response = await api.client.rtp.packages.getPackages('<HotelId>', {
-  includeGroup: true,
-  sellSeparate: true,
-  startDate: '2021-09-26',
-  endDate: '2021-09-27',
-  children: 0,
-  adults: 1,
-  fetchInstructions: ['Header', 'CalculatedPrice', 'Items'],
-  hotelId: ['<HotelId>'],
-  ticketPostingRhythm: false,
-});
+```go
+import (
+  ...
+  rsvApi "github.com/applyinnovations/ohip-sdk/src/apis/go/rsv"
+)
 
-console.log(response);
+...
+configuration := rsvApi.NewConfiguration()
+	configuration.Host = "hostname"
+	configuration.Scheme = "https"
+	configuration.Password= "password1"
+	configuration.Username= "username1"
+	configuration.ApiKey = "xAppKey"
+	configuration.HotelId = "xHotelid"
+
+
+	configuration.OhipCredentials=[]rsvApi.OhipCredential{
+		{
+			Username: username1,
+			Password: password1,
+		},
+		{
+			Username: username1,
+			Password: password1,
+		},
+	}
+
+    apiClient := rsvApi.NewAPIClient(configuration)
+
 ```
 
 ### Development
