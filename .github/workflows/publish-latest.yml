@@ -1,19 +1,20 @@
 name: Publish latest change to NPM
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    permissions:
-      packages: write
-      contents: write
+    runs-on: ubuntu-latest-4-cores
 
     env:
       HOSPITALITY_API_DOCS_DIR: hospitality-api-docs
-      HOSPITALITY_API_DOCS_BRANCH: property_22.3.0.0
+      HOSPITALITY_API_DOCS_BRANCH: property_23.2.0.0
 
     steps:
       - name: Checkout
@@ -26,42 +27,28 @@ jobs:
           path: ${{ env.HOSPITALITY_API_DOCS_DIR }}
           ref: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}
 
+      - uses: actions/setup-node@v3
+        timeout-minutes: 2
+        with:
+          node-version: 20
+
+      - name: Install deps
+        run: yarn install
+
+      - name: Build sdks
+        run: yarn build
+
       - name: Get hospitality-api-docs's commit sha
         id: ohip_docs
         run: |
           echo "commit_sha=$(git --git-dir=${{ env.HOSPITALITY_API_DOCS_DIR }}/.git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
-      - name: Check if package needs to publish a new version
-        id: should_publish
-        run: |
-          if [ -z "$(cat releases.txt | grep ${{ steps.ohip_docs.outputs.commit_sha }})" ]; then
-            echo "result=1" >> $GITHUB_OUTPUT
-          else
-            echo "result=0" >> $GITHUB_OUTPUT
-          fi
-
-      - uses: actions/setup-node@v3
-        if: steps.should_publish.outputs.result == true
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
         with:
-          node-version: '16.x'
-          registry-url: https://npm.pkg.github.com
-
-      - name: Build package
-        if: steps.should_publish.outputs.result == true
-        run: yarn ci
-
-      - name: Publish package to Github
-        if: steps.should_publish.outputs.result == true
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Append hospitality-api-docs's commit sha to releases.txt
-        if: steps.should_publish.outputs.result == true
-        run: echo ${{ steps.ohip_docs.outputs.commit_sha }} >> releases.txt
-
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        if: steps.should_publish.outputs.result == true
-        with:
-          commit_message: Release ${{ steps.ohip_docs.outputs.commit_sha }}
-          file_pattern: releases.txt
+          prerelease: false
+          files: dist/*
+          tag_name: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}
+          body: |
+            Updated to match commit `${{ steps.ohip_docs.outputs.commit_sha }}` 
+            - https://github.com/oracle/hospitality-api-docs/commit/${{ steps.ohip_docs.outputs.commit_sha }}

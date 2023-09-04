@@ -4,16 +4,15 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "ts-node scripts/build.ts && yarn tsc",
-    "ci": "yarn install && yarn build"
+    "build": "openapi-generator-cli generate"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@openapitools/openapi-generator-cli": "^2.7.0",
     "axios": "^1.2.1",
     "qs": "^6.11.0"
   },
