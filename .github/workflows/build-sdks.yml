@@ -1,4 +1,4 @@
-name: Publish latest change to NPM
+name: Build sdks and push to release branch
 
 on:
   push:
@@ -55,12 +55,3 @@ jobs:
           git add dist/**/*
           git commit -m 'generated sdks for release' --quiet
           git push --set-upstream origin "release_${{ env.HOSPITALITY_API_DOCS_BRANCH }}"
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          prerelease: false
-          tag_name: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}
-          body: |
-            Updated to match commit `${{ steps.ohip_docs.outputs.commit_sha }}` @ oracle/hospitality-api-docs
-            - https://github.com/oracle/hospitality-api-docs/commit/${{ steps.ohip_docs.outputs.commit_sha }}
