@@ -42,7 +42,7 @@ jobs:
         run: yarn build
 
       - name: Get hospitality-api-docs's commit sha
-        id: ohip_docs
+        id: ohip_commit
         run: echo "commit_sha=$(git --git-dir=${{ env.HOSPITALITY_API_DOCS_DIR }}/.git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
       - name: Remove dist from gitignore
@@ -55,3 +55,17 @@ jobs:
           git add dist/**/*
           git commit -m 'generated sdks for release' --quiet
           git push --set-upstream origin "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}" --force
+
+      - name: Get release branch commit sha
+        id: release_commit
+        run: echo "commit_sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          prerelease: false
+          tag_name: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}
+          target_commitish: ${{ steps.release_commit.outputs.commit_sha }}
+          body: |
+            Updated to match commit `${{ steps.ohip_commit.outputs.commit_sha }}` @ oracle/hospitality-api-docs
+            - https://github.com/oracle/hospitality-api-docs/commit/${{ steps.ohip_commit.outputs.commit_sha }}
