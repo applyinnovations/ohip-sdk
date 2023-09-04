@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest-4-cores
+    runs-on: ubuntu-latest
 
     env:
       HOSPITALITY_API_DOCS_DIR: hospitality-api-docs
