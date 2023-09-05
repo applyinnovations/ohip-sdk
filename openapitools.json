@@ -6,29 +6,14 @@
     "generators": {
       "typescript-fetch": {
         "generatorName": "typescript-fetch",
-        "output": "./src/typescript-fetch/#{name}",
+        "output": "./dist/typescript-fetch/#{name}",
         "glob": "./hospitality-api-docs/rest-api-specs/property/*.{json,yaml}",
         "skipOperationExample": true,
         "templateDir": "./templates/typescript-fetch"
       },
-      "go-oauth": {
-        "generatorName": "go",
-        "output": "./src/go/oauth",
-        "glob": "./hospitality-api-docs/rest-api-specs/property/oauth.json",
-        "gitRepoId": "ohip-sdk",
-        "gitUserId": "applyinnovations",
-        "templateDir": "./templates/go-oauth",
-        "skipOperationExample": true,
-        "additionalProperties": {
-          "isGoSubmodule": true,
-          "packageName": "/src/go/oauth",
-          "structPrefix": true,
-          "enumClassPrefix": true
-        }
-      },
       "go": {
         "generatorName": "go",
-        "output": "./src/go/#{name}",
+        "output": "./dist/go/#{name}",
         "glob": "./hospitality-api-docs/rest-api-specs/property/*.{json,yaml}",
         "gitRepoId": "ohip-sdk",
         "gitUserId": "applyinnovations",
@@ -36,9 +21,26 @@
         "skipOperationExample": true,
         "additionalProperties": {
           "isGoSubmodule": true,
-          "packageName": "/src/go/#{name}",
+          "packageName": "#{name}",
           "structPrefix": true,
-          "enumClassPrefix": true
+          "enumClassPrefix": true,
+          "modulePath": "dist/go"
+        }
+      },
+      "go-oauth": {
+        "generatorName": "go",
+        "output": "./dist/go/oauth",
+        "glob": "./hospitality-api-docs/rest-api-specs/property/oauth.json",
+        "gitRepoId": "ohip-sdk",
+        "gitUserId": "applyinnovations",
+        "templateDir": "./templates/go-auth",
+        "skipOperationExample": true,
+        "additionalProperties": {
+          "isGoSubmodule": true,
+          "packageName": "oauth",
+          "structPrefix": true,
+          "enumClassPrefix": true,
+          "modulePath": "dist/go"
         }
       }
     }
