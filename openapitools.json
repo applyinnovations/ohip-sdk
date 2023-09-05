@@ -21,7 +21,7 @@
         "skipOperationExample": true,
         "additionalProperties": {
           "isGoSubmodule": true,
-          "packageName": "oauth",
+          "packageName": "/dist/go/oauth",
           "structPrefix": true,
           "enumClassPrefix": true
         }
@@ -36,7 +36,7 @@
         "skipOperationExample": true,
         "additionalProperties": {
           "isGoSubmodule": true,
-          "packageName": "#{name}",
+          "packageName": "/dist/go/#{name}",
           "structPrefix": true,
           "enumClassPrefix": true
         }
