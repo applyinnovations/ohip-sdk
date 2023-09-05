@@ -1,5 +1,5 @@
 {{>partial_header}}
-package {{serviceName}}
+package {{packageName}}
 
 import (
 	"bytes"
@@ -22,7 +22,7 @@ import (
 	"strings"
 	"time"
 	"unicode/utf8"
-	"github.com/applyinnovations/ohip-sdk/{{packagePath}}/oauth"
+	"github.com/applyinnovations/ohip-sdk/{{modulePath}}/oauth"
 	"math"
 
 	{{#hasOAuthMethods}}
@@ -37,7 +37,7 @@ import (
 const maxBackOffTimeoutToWait = 1000
 const maxBackOffTimeout = 60 * 60 * 1000
 const baseBackOffTimeout = 1
-const clientName string = "{{serviceName}}"
+
 
 var (
 	jsonCheck = regexp.MustCompile(`(?i:(?:application|text)/(?:vnd\.[^;]+\+)?json)`)
@@ -438,13 +438,11 @@ func (c *APIClient) prepareRequest(
 		localVarRequest = localVarRequest.WithContext(ctx)
 
 		// Walk through any authentication.
-		if(clientName != "auth"){
-			err = authenticateClientRequest(c)
-			if(err != nil){
-				return nil, err
-			}
-			localVarRequest.Header.Add("Authorization", "Bearer " + c.token)
+		err = authenticateClientRequest(c)
+		if(err != nil){
+			return nil, err
 		}
+		localVarRequest.Header.Add("Authorization", "Bearer " + c.token)
 		
 
 		
@@ -925,7 +923,7 @@ func isAuthTokenExpired(c *APIClient) bool {
   }
 
   func handleClientRequestError(c *APIClient, response http.Response) error{
-	if(response.StatusCode != 401 && response.StatusCode !=403 && clientName !="oauth"){
+	if(response.StatusCode != 401 && response.StatusCode !=403){
 		return nil
 	}
 	requestNewAuthToken(c)
