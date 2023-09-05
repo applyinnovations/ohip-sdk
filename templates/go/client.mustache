@@ -923,7 +923,7 @@ func isAuthTokenExpired(c *APIClient) bool {
   }
 
   func handleClientRequestError(c *APIClient, response http.Response) error{
-	if(response.StatusCode != 401 && response.StatusCode !=403){
+	if(response.StatusCode != 401 && response.StatusCode != 403){
 		return nil
 	}
 	requestNewAuthToken(c)
