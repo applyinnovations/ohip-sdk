@@ -17,7 +17,6 @@
         "glob": "./hospitality-api-docs/rest-api-specs/property/oauth.json",
         "gitRepoId": "ohip-sdk",
         "gitUserId": "applyinnovations",
-        "templateDir": "./templates/go-oauth",
         "skipOperationExample": true,
         "additionalProperties": {
           "isGoSubmodule": true,
@@ -36,9 +35,11 @@
         "skipOperationExample": true,
         "additionalProperties": {
           "isGoSubmodule": true,
-          "packageName": "/src/go/#{name}",
+          "packageName": "src/go/#{name}",
           "structPrefix": true,
-          "enumClassPrefix": true
+          "enumClassPrefix": true,
+          "serviceName": "#{name}",
+          "packagePath": "src/go"
         }
       }
     }

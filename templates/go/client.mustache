@@ -1,5 +1,5 @@
 {{>partial_header}}
-package {{packageName}}
+package {{serviceName}}
 
 import (
 	"bytes"
@@ -22,7 +22,7 @@ import (
 	"strings"
 	"time"
 	"unicode/utf8"
-	"github.com/applyinnovations/ohip-sdk/src/apis/go/oauth"
+	"github.com/applyinnovations/ohip-sdk/{{packagePath}}/oauth"
 	"math"
 
 	{{#hasOAuthMethods}}
@@ -37,7 +37,7 @@ import (
 const maxBackOffTimeoutToWait = 1000
 const maxBackOffTimeout = 60 * 60 * 1000
 const baseBackOffTimeout = 1
-const clientName string = "{{packageName}}"
+const clientName string = "{{serviceName}}"
 
 var (
 	jsonCheck = regexp.MustCompile(`(?i:(?:application|text)/(?:vnd\.[^;]+\+)?json)`)
