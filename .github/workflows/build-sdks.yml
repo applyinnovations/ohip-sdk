@@ -45,21 +45,21 @@ jobs:
         id: ohip_commit
         run: echo "commit_sha=$(git --git-dir=${{ env.HOSPITALITY_API_DOCS_DIR }}/.git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
-      - name: Remove dist from gitignore
-        run: sed -i '/dist/d' ./.gitignore
+      - name: Remove src from gitignore
+        run: sed -i '/src/d' ./.gitignore
 
       - name: Set github actor to actions bot
         run: |
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
 
-      # create tags for each go submodule
-      - name: Create tags for each go submodule
-        run: ls -d dist/go/*/ | xargs -I {} bash -c "git tag {}${{ env.HOSPITALITY_API_DOCS_BRANCH }}"
+      # # create tags for each go submodule
+      # - name: Create tags for each go submodule
+      #   run: ls -d src/go/*/ | xargs -I {} bash -c "git tag {}${{ env.HOSPITALITY_API_DOCS_BRANCH }}"
 
       - name: Push release files to release branch
         run: |
-          git add dist/**/*
+          git add src/**/*
           git commit -m 'generated sdks for release' --quiet
           git push --set-upstream origin "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}" --force --tags
 
