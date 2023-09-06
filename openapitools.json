@@ -7,14 +7,20 @@
       "typescript-fetch": {
         "generatorName": "typescript-fetch",
         "output": "./dist/typescript-fetch/#{name}",
-        "glob": "./hospitality-api-docs/rest-api-specs/property/*.{json,yaml}",
+        "glob": "./hospitality-api-docs/rest-api-specs/property/*.json",
         "skipOperationExample": true,
         "templateDir": "./templates/typescript-fetch"
+      },
+      "typescript-fetch-oauth": {
+        "generatorName": "typescript-fetch",
+        "output": "./dist/typescript-fetch/oauth",
+        "glob": "./hospitality-api-docs/rest-api-specs/property/oauth.json",
+        "skipOperationExample": true
       },
       "go": {
         "generatorName": "go",
         "output": "./dist/go/#{name}",
-        "glob": "./hospitality-api-docs/rest-api-specs/property/*.{json,yaml}",
+        "glob": "./hospitality-api-docs/rest-api-specs/property/*.json",
         "gitRepoId": "ohip-sdk",
         "gitUserId": "applyinnovations",
         "templateDir": "./templates/go",
@@ -33,7 +39,7 @@
         "glob": "./hospitality-api-docs/rest-api-specs/property/oauth.json",
         "gitRepoId": "ohip-sdk",
         "gitUserId": "applyinnovations",
-        "templateDir": "./templates/go-auth",
+        "templateDir": "./templates/go-oauth",
         "skipOperationExample": true,
         "additionalProperties": {
           "isGoSubmodule": true,
