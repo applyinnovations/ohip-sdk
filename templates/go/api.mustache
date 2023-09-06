@@ -131,6 +131,11 @@ func (a *{{{classname}}}Service) {{nickname}}Execute(r {{#structPrefix}}{{&class
 	localVarFormParams := url.Values{}
 	{{#allParams}}
 	{{#required}}
+	{{^isPathParam}}
+	if r.{{paramName}} == nil {
+		return {{#returnType}}localVarReturnValue, {{/returnType}}nil, reportError("{{paramName}} is required and must be specified")
+	}
+	{{/isPathParam}}
 	{{#minItems}}
 	if len({{^isPathParam}}*{{/isPathParam}}r.{{paramName}}) < {{minItems}} {
 		return {{#returnType}}localVarReturnValue, {{/returnType}}nil, reportError("{{paramName}} must have at least {{minItems}} elements")
@@ -236,6 +241,9 @@ func (a *{{{classname}}}Service) {{nickname}}Execute(r {{#structPrefix}}{{&class
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 {{#headerParams}}
+	{{#required}}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "{{baseName}}", r.{{paramName}}, "{{collectionFormat}}")
+	{{/required}}
 	{{^required}}
 	if r.{{paramName}} != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "{{baseName}}", r.{{paramName}}, "{{collectionFormat}}")
