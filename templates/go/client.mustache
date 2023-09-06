@@ -22,6 +22,8 @@ import (
 	"strings"
 	"time"
 	"unicode/utf8"
+	"github.com/applyinnovations/ohip-sdk/{{modulePath}}/oauth"
+	"math"
 
 	{{#hasOAuthMethods}}
 	"golang.org/x/oauth2"
@@ -31,6 +33,11 @@ import (
 	awscredentials "github.com/aws/aws-sdk-go/aws/credentials"
 	{{/withAWSV4Signature}}
 )
+
+const maxBackOffTimeoutToWait = 1000
+const maxBackOffTimeout = 60 * 60 * 1000
+const baseBackOffTimeout = 1
+
 
 var (
 	jsonCheck = regexp.MustCompile(`(?i:(?:application|text)/(?:vnd\.[^;]+\+)?json)`)
@@ -54,6 +61,14 @@ type APIClient struct {
 {{/operations}}
 {{/apis}}
 {{/apiInfo}}
+	// Authentication Properties
+	token string
+	refreshToken string
+	requestingNewAuthToken bool
+	backoffTimeout int
+	authTries int
+	activeCredentialIndex int
+	tokenExpiration int
 }
 
 type service struct {
@@ -257,6 +272,7 @@ func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
 	}
 
 	resp, err := c.cfg.HTTPClient.Do(request)
+	handleClientRequestError(c, *resp)
 	if err != nil {
 		return resp, err
 	}
@@ -408,6 +424,9 @@ func (c *APIClient) prepareRequest(
 		for h, v := range headerParams {
 			headers[h] = []string{v}
 		}
+		headers["x-hotelid"] = []string{c.cfg.HotelId}
+		headers["x-app-key"] = []string{c.cfg.AppKey}
+
 		localVarRequest.Header = headers
 	}
 
@@ -419,7 +438,14 @@ func (c *APIClient) prepareRequest(
 		localVarRequest = localVarRequest.WithContext(ctx)
 
 		// Walk through any authentication.
+		err = authenticateClientRequest(c)
+		if(err != nil){
+			return nil, err
+		}
+		localVarRequest.Header.Add("Authorization", "Bearer " + c.token)
+		
 
+		
 		{{#hasOAuthMethods}}
 		// OAuth2 authentication
 		if tok, ok := ctx.Value(ContextOAuth2).(oauth2.TokenSource); ok {
@@ -738,4 +764,149 @@ func formatErrorMessage(status string, v interface{}) string {
 	}
 
 	return strings.TrimSpace(fmt.Sprintf("%s %s", status, str))
+}
+
+// oauth authentication middleware
+func authenticateClientRequest(c *APIClient) error {
+	if (c.token == "") {
+		requestNewAuthToken(c)
+	} else if (isAuthTokenExpired(c)) {
+		renewAuthToken(c)
+	}
+	if (c.token == "") {
+		return errors.New("Failed to get authentication token")
+	}
+	return nil
+}
+
+func incrementActiveCrendentialIndex(c *APIClient) {
+	if (c.activeCredentialIndex + 1 >= len(c.cfg.OhipCredentials)) {
+		c.activeCredentialIndex = 0
+	} else {
+		c.activeCredentialIndex = c.activeCredentialIndex + 1
+	}
+}
+
+func renewAuthToken(c *APIClient) {
+	fmt.Println("Attempting to renew authentication token")
+	c.requestingNewAuthToken = true
+	c.authTries++
+	c.token = ""
+	clearTokens(c)
+	grantType := "password"
+	configuration := oauth.NewConfiguration()
+	configuration.Host = c.cfg.Host
+	configuration.Scheme = "https"
+	apiClient := oauth.NewAPIClient(configuration)
+	resp, _, err := apiClient.AuthenticationApi.
+		GetToken(context.Background()).
+		XAppKey(c.cfg.AppKey).
+		GrantType(grantType).
+		Username(c.cfg.OhipCredentials[c.activeCredentialIndex].Username).
+		Password(c.cfg.OhipCredentials[c.activeCredentialIndex].Password).
+		Execute()
+
+	if (err != nil) {
+		fmt.Println("Failed to renew authentication token")
+		fmt.Println(err)
+		requestNewAuthToken(c)
+	} else {
+		setTokenHeaders(c, *resp)
+	}
+}
+
+func setTokenHeaders(c *APIClient, response oauth.OAuth2TokenResponse){
+	c.token = response.AccessToken
+	c.tokenExpiration = int(time.Now().UnixMilli()) + (int(*response.ExpiresIn) * 900)
+	// Refresh token is currently not returned by oauth endpoint
+	// c.refreshToken = response.RefreshToken
+}
+
+func clearTokens(c *APIClient) {
+	c.token = ""
+	c.tokenExpiration = 0
+}
+
+func requestNewAuthToken(c *APIClient) (err error) {
+	if (c.requestingNewAuthToken) {
+		for c.requestingNewAuthToken {
+			// wait for request to finish
+		}
+		return nil
+	}
+
+	if (shouldBackOff(c)) {
+		backOffMsRemaining := c.backoffTimeout - int(time.Now().UnixMilli())
+		if (backOffMsRemaining > int(maxBackOffTimeoutToWait)) {
+			fmt.Println("Max backoff timeout to wait reached")
+		} else {
+			fmt.Println("Backing off for %d ms\n", backOffMsRemaining)
+			time.Sleep(time.Duration(int64(backOffMsRemaining)) * time.Millisecond)
+			requestNewAuthToken(c)
+		}
+		return nil
+	} else {
+		fmt.Printf("Requesting authentication token using credentials[%d]\n", c.activeCredentialIndex)
+		c.requestingNewAuthToken = true
+		incrementActiveCrendentialIndex(c)
+		c.authTries++
+		clearTokens(c)
+		grantType := "password"
+		configuration := oauth.NewConfiguration()
+		configuration.Host = c.cfg.Host
+		configuration.Scheme = "https"
+		apiClient := oauth.NewAPIClient(configuration)
+		resp, _, err := apiClient.AuthenticationApi.
+			GetToken(context.Background()).
+			XAppKey(c.cfg.AppKey).
+			GrantType(grantType).
+			Username(c.cfg.OhipCredentials[c.activeCredentialIndex].Username).
+			Password(c.cfg.OhipCredentials[c.activeCredentialIndex].Password).
+			Execute()
+		if (err != nil) {
+			fmt.Printf("%s => Failed to get authentication token\n", time.Now().Format(time.TimeOnly))
+			fmt.Fprintf(os.Stderr, "%v\n", err)
+			setBackoffTimeout(c)
+			c.requestingNewAuthToken = false
+			return err
+		}
+		setTokenHeaders(c, *resp)
+		c.authTries = 0
+		c.requestingNewAuthToken = false
+		return nil
+	}
+}
+
+func shouldBackOff(c *APIClient) bool {
+	if (c.authTries == 0) {
+		return false
+	}
+	return int(time.Now().UnixMilli()) < c.backoffTimeout;
+}
+
+func setBackoffTimeout(c *APIClient) {
+	credLength := len(c.cfg.OhipCredentials)
+	if (c.activeCredentialIndex != (credLength - 1)) {
+		return 
+	}
+	delay := int(math.Min(
+		float64(baseBackOffTimeout) * math.Pow(10, math.Floor(float64(c.authTries / credLength))),
+		float64(maxBackOffTimeout),
+	))
+	if (delay == int(maxBackOffTimeout)) {
+		fmt.Println("Max backoff timeout reached")
+	}
+	c.backoffTimeout = int(time.Now().UnixMilli()) + int(delay)
+}
+
+func isAuthTokenExpired(c *APIClient) bool {
+  return int(time.Now().UnixMilli()) > c.tokenExpiration;
+}
+
+func handleClientRequestError(c *APIClient, response http.Response) error {
+	if (response.StatusCode != 401 && response.StatusCode != 403) {
+		return nil
+	}
+	requestNewAuthToken(c)
+	return nil
 }

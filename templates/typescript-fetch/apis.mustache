@@ -24,7 +24,7 @@ import {
 {{#allParams.0}}
 export interface {{#prefixParameterInterfaces}}{{classname}}{{/prefixParameterInterfaces}}{{operationIdCamelCase}}Request {
 {{#allParams}}
-    {{paramName}}{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{#isNullable}} | null{{/isNullable}}{{/isEnum}};
+    {{paramName}}?: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{#isNullable}} | null{{/isNullable}}{{/isEnum}};
 {{/allParams}}
 }
 
@@ -100,12 +100,6 @@ export class {{classname}} extends runtime.BaseAPI {
      */
     async {{nickname}}Raw({{#allParams.0}}requestParameters: {{#prefixParameterInterfaces}}{{classname}}{{/prefixParameterInterfaces}}{{operationIdCamelCase}}Request, {{/allParams.0}}initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{{{returnType}}}{{^returnType}}void{{/returnType}}>> {
         {{#allParams}}
-        {{#required}}
-        if (requestParameters.{{paramName}} === null || requestParameters.{{paramName}} === undefined) {
-            throw new runtime.RequiredError('{{paramName}}','Required parameter requestParameters.{{paramName}} was null or undefined when calling {{nickname}}.');
-        }
-
-        {{/required}}
         {{/allParams}}
         const queryParameters: any = {};
 
