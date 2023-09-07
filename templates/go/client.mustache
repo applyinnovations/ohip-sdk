@@ -792,7 +792,6 @@ func incrementActiveCrendentialIndex(c *APIClient) {
 
 func renewAuthToken(c *APIClient) {
 	fmt.Println("Attempting to renew authentication token")
-	c.requestingNewAuthToken = true
 	c.authTries++
 	c.token = ""
 	clearTokens(c)
