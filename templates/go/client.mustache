@@ -20,6 +20,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 	"unicode/utf8"
 	"github.com/applyinnovations/ohip-sdk/{{modulePath}}/oauth"
@@ -64,7 +65,7 @@ type APIClient struct {
 	// Authentication Properties
 	token string
 	refreshToken string
-	requestingNewAuthToken bool
+	mutex sync.Mutex
 	backoffTimeout int
 	authTries int
 	activeCredentialIndex int
@@ -768,6 +769,7 @@ func formatErrorMessage(status string, v interface{}) string {
 
 // oauth authentication middleware
 func authenticateClientRequest(c *APIClient) error {
+	c.mutex.Lock()
 	if (c.token == "") {
 		requestNewAuthToken(c)
 	} else if (isAuthTokenExpired(c)) {
@@ -776,6 +778,7 @@ func authenticateClientRequest(c *APIClient) error {
 	if (c.token == "") {
 		return errors.New("Failed to get authentication token")
 	}
+	c.mutex.Unlock()
 	return nil
 }
 
@@ -828,13 +831,6 @@ func clearTokens(c *APIClient) {
 }
 
 func requestNewAuthToken(c *APIClient) (err error) {
-	if (c.requestingNewAuthToken) {
-		for c.requestingNewAuthToken {
-			// wait for request to finish
-		}
-		return nil
-	}
-
 	if (shouldBackOff(c)) {
 		backOffMsRemaining := c.backoffTimeout - int(time.Now().UnixMilli())
 		if (backOffMsRemaining > int(maxBackOffTimeoutToWait)) {
@@ -847,9 +843,8 @@ func requestNewAuthToken(c *APIClient) (err error) {
 		return nil
 	} else {
 		fmt.Printf("Requesting authentication token using credentials[%d]\n", c.activeCredentialIndex)
-		c.requestingNewAuthToken = true
-		incrementActiveCrendentialIndex(c)
 		c.authTries++
+		incrementActiveCrendentialIndex(c)
 		clearTokens(c)
 		grantType := "password"
 		configuration := oauth.NewConfiguration()
@@ -864,15 +859,13 @@ func requestNewAuthToken(c *APIClient) (err error) {
 			Password(c.cfg.OhipCredentials[c.activeCredentialIndex].Password).
 			Execute()
 		if (err != nil) {
-			fmt.Printf("%s => Failed to get authentication token\n", time.Now().Format(time.TimeOnly))
+			fmt.Println("Failed to get authentication token")
 			fmt.Fprintf(os.Stderr, "%v\n", err)
 			setBackoffTimeout(c)
-			c.requestingNewAuthToken = false
 			return err
 		}
 		setTokenHeaders(c, *resp)
 		c.authTries = 0
-		c.requestingNewAuthToken = false
 		return nil
 	}
 }
@@ -907,6 +900,8 @@ func handleClientRequestError(c *APIClient, response http.Response) error {
 	if (response.StatusCode != 401 && response.StatusCode != 403) {
 		return nil
 	}
+	c.mutex.Lock()
 	requestNewAuthToken(c)
+	c.mutex.Unlock()
 	return nil
 }
