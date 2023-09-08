@@ -769,8 +769,11 @@ func formatErrorMessage(status string, v interface{}) string {
 func authenticateClientRequest(c *APIClient) error {
 	c.mutex.Lock()
 	defer c.mutex.Unlock()
-	err := requestNewAuthToken(c)
-	return err
+	if (c.token == "" || isAuthTokenExpired(c)) {
+		err := requestNewAuthToken(c)
+		return err
+	}
+	return nil
 }
 
 func incrementActiveCrendentialIndex(c *APIClient) {
