@@ -35,9 +35,10 @@ import (
 	{{/withAWSV4Signature}}
 )
 
-const maxBackOffTimeoutToWait = 1000
 const maxBackOffTimeout = 60 * 60 * 1000
-const baseBackOffTimeout = 1
+const maxBackOffTimeoutToWait = 10 * 1000
+const powerBackOffTimeout = 4
+const baseBackOffTimeout = 100
 
 
 var (
@@ -66,10 +67,10 @@ type APIClient struct {
 	token string
 	refreshToken string
 	mutex sync.Mutex
-	backoffTimeout int
+	backoffTimeout int64
 	authTries int
 	activeCredentialIndex int
-	tokenExpiration int
+	tokenExpiration int64
 }
 
 type service struct {
@@ -444,9 +445,6 @@ func (c *APIClient) prepareRequest(
 			return nil, err
 		}
 		localVarRequest.Header.Add("Authorization", "Bearer " + c.token)
-		
-
-		
 		{{#hasOAuthMethods}}
 		// OAuth2 authentication
 		if tok, ok := ctx.Value(ContextOAuth2).(oauth2.TokenSource); ok {
@@ -770,16 +768,9 @@ func formatErrorMessage(status string, v interface{}) string {
 // oauth authentication middleware
 func authenticateClientRequest(c *APIClient) error {
 	c.mutex.Lock()
-	if (c.token == "") {
-		requestNewAuthToken(c)
-	} else if (isAuthTokenExpired(c)) {
-		renewAuthToken(c)
-	}
-	if (c.token == "") {
-		return errors.New("Failed to get authentication token")
-	}
-	c.mutex.Unlock()
-	return nil
+	defer c.mutex.Unlock()
+	err := requestNewAuthToken(c)
+	return err
 }
 
 func incrementActiveCrendentialIndex(c *APIClient) {
@@ -790,36 +781,9 @@ func incrementActiveCrendentialIndex(c *APIClient) {
 	}
 }
 
-func renewAuthToken(c *APIClient) {
-	fmt.Println("Attempting to renew authentication token")
-	c.authTries++
-	c.token = ""
-	clearTokens(c)
-	grantType := "password"
-	configuration := oauth.NewConfiguration()
-	configuration.Host = c.cfg.Host
-	configuration.Scheme = "https"
-	apiClient := oauth.NewAPIClient(configuration)
-	resp, _, err := apiClient.AuthenticationApi.
-		GetToken(context.Background()).
-		XAppKey(c.cfg.AppKey).
-		GrantType(grantType).
-		Username(c.cfg.OhipCredentials[c.activeCredentialIndex].Username).
-		Password(c.cfg.OhipCredentials[c.activeCredentialIndex].Password).
-		Execute()
-
-	if (err != nil) {
-		fmt.Println("Failed to renew authentication token")
-		fmt.Println(err)
-		requestNewAuthToken(c)
-	} else {
-		setTokenHeaders(c, *resp)
-	}
-}
-
 func setTokenHeaders(c *APIClient, response oauth.OAuth2TokenResponse){
 	c.token = response.AccessToken
-	c.tokenExpiration = int(time.Now().UnixMilli()) + (int(*response.ExpiresIn) * 900)
+	c.tokenExpiration = int64(time.Now().UnixMilli() + *response.ExpiresIn * 900)
 	// Refresh token is currently not returned by oauth endpoint
 	// c.refreshToken = response.RefreshToken
 }
@@ -831,15 +795,14 @@ func clearTokens(c *APIClient) {
 
 func requestNewAuthToken(c *APIClient) (err error) {
 	if (shouldBackOff(c)) {
-		backOffMsRemaining := c.backoffTimeout - int(time.Now().UnixMilli())
-		if (backOffMsRemaining > int(maxBackOffTimeoutToWait)) {
-			fmt.Println("Max backoff timeout to wait reached")
+		backOffMsRemaining := c.backoffTimeout - time.Now().UnixMilli()
+		if (backOffMsRemaining > maxBackOffTimeoutToWait) {
+			return fmt.Errorf("Failed to get authentication token, max backoff timeout exceeded of %d ms\n", maxBackOffTimeoutToWait)
 		} else {
-			fmt.Println("Backing off for %d ms\n", backOffMsRemaining)
-			time.Sleep(time.Duration(int64(backOffMsRemaining)) * time.Millisecond)
-			requestNewAuthToken(c)
+			fmt.Fprintf(os.Stderr, "Backing off for %d ms\n", int(backOffMsRemaining))
+			time.Sleep(time.Duration(backOffMsRemaining) * time.Millisecond)
+			return requestNewAuthToken(c)
 		}
-		return nil
 	} else {
 		fmt.Printf("Requesting authentication token using credentials[%d]\n", c.activeCredentialIndex)
 		c.authTries++
@@ -850,30 +813,31 @@ func requestNewAuthToken(c *APIClient) (err error) {
 		configuration.Host = c.cfg.Host
 		configuration.Scheme = "https"
 		apiClient := oauth.NewAPIClient(configuration)
+		// wait maximum of 5000ms to respond
+		ctx, _ := context.WithTimeout(context.Background(), 5000 * time.Millisecond)
 		resp, _, err := apiClient.AuthenticationApi.
-			GetToken(context.Background()).
+			GetToken(ctx).
 			XAppKey(c.cfg.AppKey).
 			GrantType(grantType).
 			Username(c.cfg.OhipCredentials[c.activeCredentialIndex].Username).
 			Password(c.cfg.OhipCredentials[c.activeCredentialIndex].Password).
 			Execute()
 		if (err != nil) {
-			fmt.Println("Failed to get authentication token")
-			fmt.Fprintf(os.Stderr, "%v\n", err)
+			fmt.Fprintf(os.Stderr, "Failed to get new authentication token after %d attemps: %v \n", c.authTries, err)
 			setBackoffTimeout(c)
-			return err
+			return requestNewAuthToken(c)
 		}
 		setTokenHeaders(c, *resp)
 		c.authTries = 0
-		return nil
 	}
+	return nil
 }
 
 func shouldBackOff(c *APIClient) bool {
 	if (c.authTries == 0) {
 		return false
 	}
-	return int(time.Now().UnixMilli()) < c.backoffTimeout;
+	return time.Now().UnixMilli() < c.backoffTimeout;
 }
 
 func setBackoffTimeout(c *APIClient) {
@@ -881,21 +845,21 @@ func setBackoffTimeout(c *APIClient) {
 	if (c.activeCredentialIndex != (credLength - 1)) {
 		return 
 	}
-	delay := int(math.Min(
-		float64(baseBackOffTimeout) * math.Pow(10, math.Floor(float64(c.authTries / credLength))),
+	delay := int64(math.Min(
+		float64(baseBackOffTimeout) * math.Pow(powerBackOffTimeout, math.Floor(float64(c.authTries / credLength))),
 		float64(maxBackOffTimeout),
 	))
-	if (delay == int(maxBackOffTimeout)) {
-		fmt.Println("Max backoff timeout reached")
+	if (delay == maxBackOffTimeout) {
+		fmt.Fprintf(os.Stderr, "Max backoff timeout reached %d ms\n", maxBackOffTimeout)
 	}
-	c.backoffTimeout = int(time.Now().UnixMilli()) + int(delay)
+	c.backoffTimeout = time.Now().UnixMilli() + delay
 }
 
 func isAuthTokenExpired(c *APIClient) bool {
-  return int(time.Now().UnixMilli()) > c.tokenExpiration;
+  return time.Now().UnixMilli() > c.tokenExpiration;
 }
 
-func handleClientRequestError(c *APIClient, response http.Response) error {
+func handleClientRequestAuthenticationError(c *APIClient, response http.Response) error {
 	if (response.StatusCode != 401 && response.StatusCode != 403) {
 		return nil
 	}
