@@ -28,7 +28,7 @@ configuration.Host = GetEnvOrDie("OHIP_DOMAIN")
 configuration.AppKey = GetEnvOrDie("OHIP_APP_KEY")
 configuration.OhipCredentials = GetCrmOhipCredentialsFromEnv("OHIP_CREDENTIALS")
 client := crm.NewAPIClient(configuration)
-client.crm.ProfileApi.GetProfile(ctx, eventIn.PrimaryKey).Execute()
+client.crm.ProfileAPI.GetProfile(ctx, eventIn.PrimaryKey).Execute()
 ```
 
 ## Typescript
