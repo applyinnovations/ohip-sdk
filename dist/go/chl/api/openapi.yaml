@@ -1,0 +1,834 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hospitality_apis_ww_grp@oracle.com
+  description: "APIs to cater for Channel Management functionality in OPERA Cloud.\
+    \ <br /><br /> Channel Management allows a property to configure and administer\
+    \ channels such as OTAs, and web channels, covering functionality such as channel\
+    \ configuration, availability, inventory and restrictions.<br /><br /> Compatible\
+    \ with OPERA Cloud release 22.3.<br /><br /><p> This document and all content\
+    \ within is available under the Universal Permissive License v 1.0 (https://oss.oracle.com/licenses/upl).\
+    \ Copyright (c) 2020, 2023 Oracle and/or its affiliates.</p>"
+  license:
+    name: UPL
+    url: https://opensource.org/licenses/upl
+  termsOfService: https://www.oracle.com/legal/terms.html
+  title: OPERA Cloud Channel Configuration API
+  version: "22.3"
+externalDocs:
+  description: Find out more about Oracle Hospitality
+  url: https://docs.oracle.com/en/industries/hospitality/integration_platforms.html
+servers:
+- url: /chl/v1
+tags:
+- description: "The Channel APIs allows you to view, configure and manage the mappings\
+    \ for your channel rate codes, negotiated rates, room types, global descriptions,\
+    \ letters, credit card types and channel codes."
+  name: Channel
+paths:
+  /hotels/{hotelId}/rooms/mapping:
+    get:
+      description: "Use this API to get channel room mapping to OPERA hotel's room\
+        \ mapping including channel room type code, start date, end date, room order.\
+        \ <p><strong>OperationId:</strong>getChannelRoomMapping</p>"
+      operationId: getChannelRoomMapping
+      parameters:
+      - description: Unique ID that identifies a single hotel property.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Indicates maximum number of records a Web Service should return.
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: Index or initial index of the set(page) being requested. If the
+          index goes out of the bounds of the total set count then no data will be
+          returned.
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - explode: true
+        in: query
+        name: bookingChannelCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: roomTypes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: channelRoomTypes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Flag whether to include inactive mappings or not.
+        in: query
+        name: includeInactiveMappings
+        schema:
+          type: boolean
+      - description: Flag whether to include unmapped room types or not.
+        in: query
+        name: includeUnmappedRoomTypes
+        schema:
+          type: boolean
+      - description: Flag whether to include mapped room types only.
+        in: query
+        name: onlyUnmappedRoomTypes
+        schema:
+          type: boolean
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/channelRoomMappingsSummary'
+          description: Operation to fetch hotel-channel room type mappings.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: ChannelRoomMapping not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Gets channel property room mapping
+      tags:
+      - Channel
+components:
+  parameters:
+    authKey:
+      description: Bearer token that needs to be passed which is generated post user
+        authentication
+      in: header
+      name: authorization
+      required: true
+      schema:
+        type: string
+    x-app-key:
+      description: Client or Partner’s Application Key
+      in: header
+      name: x-app-key
+      required: true
+      schema:
+        pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+        type: string
+    x-hotelid:
+      description: Mandatory parameter to identify the hotel code where the end user
+        is logged in
+      in: header
+      name: x-hotelid
+      required: true
+      schema:
+        type: string
+    x-externalsystem:
+      description: External system code.
+      example: EXTERNALSYSTEMCODE
+      in: header
+      name: x-externalsystem
+      schema:
+        maxLength: 80
+        type: string
+    Accept-Language:
+      description: Language code
+      in: header
+      name: Accept-Language
+      schema:
+        type: string
+    x-hubid:
+      description: x-hubid is a logical grouping of multiple properties that allows
+        api consumers to manage data from a group of properties. This x-hubid is a
+        valid list of hub codes configured in OPERA to which the user has access.
+        Rest APIs without hotelId in the operation path can support hub level integration
+        using x-hubid
+      in: header
+      name: x-hubid
+      schema:
+        type: string
+  responses:
+    "400":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Bad Request
+    "401":
+      content: {}
+      description: Unauthorized
+    "403":
+      content: {}
+      description: Forbidden
+    "404":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Resource not found
+    "405":
+      content: {}
+      description: Method not allowed
+    "406":
+      content: {}
+      description: Not acceptable.
+    "413":
+      content: {}
+      description: Request Entity Too Large
+    "414":
+      content: {}
+      description: Request URI Too Large
+    "415":
+      content: {}
+      description: Unsupported Media Type
+    "500":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: System Error
+    "502":
+      content: {}
+      description: Bad Gateway
+    "503":
+      content: {}
+      description: Service Unavailable
+  schemas:
+    bookingChannelInfoType:
+      properties:
+        hotelMappings:
+          description: Hotel Code mapping for the Booking Channel.
+          items:
+            $ref: '#/components/schemas/hotelMappingType'
+          maxItems: 4000
+          type: array
+        configurationParameters:
+          description: Collection of generic Name-Value-Pair parameters.
+          items:
+            $ref: '#/components/schemas/parameterType'
+          maxItems: 4000
+          type: array
+        bookingChannelCode:
+          maxLength: 20
+          minLength: 0
+          type: string
+        name:
+          maxLength: 40
+          minLength: 0
+          type: string
+        bookingChannelType:
+          maxLength: 240
+          minLength: 0
+          type: string
+      type: object
+    hotelMappingType:
+      properties:
+        hotelId:
+          maxLength: 20
+          minLength: 0
+          type: string
+        code:
+          maxLength: 20
+          minLength: 0
+          type: string
+        name:
+          maxLength: 40
+          minLength: 0
+          type: string
+        description:
+          maxLength: 2000
+          minLength: 0
+          type: string
+      type: object
+    parametersType:
+      description: Collection of generic Name-Value-Pair parameters.
+      items:
+        $ref: '#/components/schemas/parameterType'
+      maxItems: 4000
+      type: array
+    parameterType:
+      description: Name value pair type that will hold generic parameter information.
+        Only use this type when the parameters being passed are too dynamic to be
+        defined.
+      properties:
+        parameterName:
+          description: Name of the parameter.
+          type: string
+        parameterValue:
+          description: Value of the parameter.
+          type: string
+      type: object
+    links:
+      items:
+        $ref: '#/components/schemas/instanceLink'
+      type: array
+    instanceLink:
+      description: Metadata describing link description objects that MAY appear in
+        the JSON instance representation.
+      properties:
+        href:
+          description: "URI [RFC3986] or URI Template [RFC6570]. If the value is set\
+            \ to URI Template, then the \"templated\" property must be set to true."
+          type: string
+        rel:
+          description: "Name of the link relation that, in addition to the type property,\
+            \ can be used to retrieve link details. For example, href or profile."
+          type: string
+        templated:
+          default: false
+          description: "Boolean flag that specifies that \"href\" property is a URI\
+            \ or URI Template. If the property is a URI template, set this value to\
+            \ true. By default, this value is false."
+          type: boolean
+        method:
+          description: HTTP method for requesting the target of the link.
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          - OPTIONS
+          - HEAD
+          type: string
+        targetSchema:
+          description: "Link to the metadata of the resource, such as JSON-schema,\
+            \ that describes the resource expected when dereferencing the target resource.."
+          type: string
+        operationId:
+          description: "The operationId of the path you can call to follow this link.\
+            \  This allows you to look up not only the path and method, but the description\
+            \ of that path and any parameters you need to supply."
+          type: string
+        title:
+          description: Exact copy of the "summary" field on the linked operation.
+          type: string
+      required:
+      - href
+      - method
+      - operationId
+      - rel
+      type: object
+    warningsType:
+      description: Used in conjunction with the Success element to define a business
+        error.
+      items:
+        $ref: '#/components/schemas/warningType'
+      maxItems: 4000
+      type: array
+    warningType:
+      description: Used when a message has been successfully processed to report any
+        warnings or business errors that occurred.
+      properties:
+        value:
+          description: Property Value
+          type: string
+        shortText:
+          description: An abbreviated version of the error in textual format.
+          maxLength: 2000
+          type: string
+        code:
+          description: "If present, this refers to a table of coded values exchanged\
+            \ between applications to identify errors or warnings."
+          maxLength: 20
+          minLength: 0
+          type: string
+        docURL:
+          description: "If present, this URL refers to an online description of the\
+            \ error that occurred."
+          maxLength: 2000
+          type: string
+        status:
+          description: "If present, recommended values are those enumerated in the\
+            \ ErrorRS, (NotProcessed Incomplete Complete Unknown) however, the data\
+            \ type is designated as string data, recognizing that trading partners\
+            \ may identify additional status conditions not included in the enumeration."
+          maxLength: 2000
+          type: string
+        tag:
+          description: "If present, this attribute may identify an unknown or misspelled\
+            \ tag that caused an error in processing. It is recommended that the Tag\
+            \ attribute use XPath notation to identify the location of a tag in the\
+            \ event that more than one tag of the same name is present in the document.\
+            \ Alternatively, the tag name alone can be used to identify missing data\
+            \ [Type=ReqFieldMissing]."
+          maxLength: 2000
+          type: string
+        recordId:
+          description: "If present, this attribute allows for batch processing and\
+            \ the identification of the record that failed amongst a group of records.\
+            \ This value may contain a concatenation of a unique failed transaction\
+            \ ID with specific record(s) associated with that transaction."
+          maxLength: 2000
+          type: string
+        type:
+          description: The Warning element MUST contain the Type attribute that uses
+            a recommended set of values to indicate the warning type. The validating
+            XSD can expect to accept values that it has NOT been explicitly coded
+            for and process them by using Type ="Unknown".
+          maxLength: 20
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        rph:
+          description: Reference Place Holder used as an index for this warning.
+          maxLength: 8
+          minLength: 1
+          type: string
+      type: object
+    exceptionDetailType:
+      description: Complex type that contains error details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        o:errorDetails:
+          description: "Details of the error message, consisting of a hierarchical\
+            \ tree structure."
+          items:
+            $ref: '#/components/schemas/errorInstance'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      required:
+      - title
+      - type
+      title: Error Detail
+      type: object
+    errorInstance:
+      description: Complex type that contains error instance details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+      required:
+      - title
+      - type
+      title: Error Instance Details
+      type: object
+    translationTextType50:
+      description: Contains Multiple translated texts and language codes.
+      properties:
+        defaultText:
+          description: Default text with Character length from 0 to 50.
+          maxLength: 50
+          minLength: 0
+          type: string
+        translatedTexts:
+          description: Language code for the translation.
+          items:
+            $ref: '#/components/schemas/translationsTextType_inner'
+          maxItems: 4000
+          type: array
+      type: object
+    translationsTextType:
+      description: Language code for the translation.
+      items:
+        $ref: '#/components/schemas/translationsTextType_inner'
+      maxItems: 4000
+      type: array
+    bookingChannelsInfoType:
+      description: Additional detail about booking channel.
+      items:
+        $ref: '#/components/schemas/bookingChannelInfoType'
+      maxItems: 4000
+      type: array
+    channelMappingEnhancedDescriptionType:
+      description: Enhanced descriptions of hotel-channel room type or rate code mapping.
+      properties:
+        enhancedDescriptionLine1:
+          $ref: '#/components/schemas/translationTextType50'
+        enhancedDescriptionLine2:
+          $ref: '#/components/schemas/translationTextType50'
+        enhancedDescriptionLine3:
+          $ref: '#/components/schemas/translationTextType50'
+      type: object
+    channelRoomMappingDescriptionType:
+      description: "This type holds descriptions of hotel-channel room type mapping.\
+        \ Description may be from Hotel Room Type description, Global description\
+        \ or custom user defined description. Global description only supports enhanced\
+        \ description."
+      properties:
+        roomTypeDescription:
+          $ref: '#/components/schemas/channelRoomMappingDescriptionDetailsType'
+        globalDescription:
+          $ref: '#/components/schemas/channelMappingEnhancedDescriptionType'
+        customDescription:
+          $ref: '#/components/schemas/channelRoomMappingDescriptionDetailsType'
+      type: object
+    channelRoomMappingDescriptionDetailsType:
+      description: "This type holds descriptions of hotel-channel room type mapping.\
+        \ Descriptions may be enhanced descriptions, HTML supported description or\
+        \ a simple string description."
+      properties:
+        enhancedDescription:
+          $ref: '#/components/schemas/channelMappingEnhancedDescriptionType'
+        hTMLSupportedDescription:
+          $ref: '#/components/schemas/channelRoomMappingHTMLSupportedDescriptionType'
+        description:
+          description: Description.
+          maxLength: 2000
+          minLength: 0
+          type: string
+      type: object
+    channelRoomMappingHTMLSupportedDescriptionType:
+      description: This type holds HTML description of hotel-channel room type with
+        additional channel room type short description.
+      properties:
+        description:
+          description: Description.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        shortDescription:
+          description: Channel room type or rate code short description.
+          maxLength: 80
+          minLength: 0
+          type: string
+      type: object
+    channelRoomMappingsSummary:
+      description: Operation to fetch hotel-channel room type mappings.
+      properties:
+        channelRoomMappingsSummary:
+          $ref: '#/components/schemas/channelRoomMappingsSummaryType'
+        masterInfo:
+          $ref: '#/components/schemas/channelRoomMappingMasterInfoType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    channelRoomMappingsSummaryType:
+      description: Collection of hotel-channel room type mappings.
+      properties:
+        channelRoomMappingSummary:
+          description: Information about hotel-channel room type mapping.
+          items:
+            $ref: '#/components/schemas/channelRoomMappingSummaryType'
+          maxItems: 4000
+          type: array
+        totalPages:
+          description: Evaluated total page count based on the requested max fetch
+            count.
+          type: integer
+        offset:
+          description: Index or initial index of the set(page) being requested. If
+            the index goes out of the bounds of the total set count then no data will
+            be returned.
+          type: integer
+        limit:
+          description: Indicates maximum number of records a Web Service should return.
+          type: integer
+        hasMore:
+          description: Indicates whether all the records are included in the response
+            or not. Absence of the attribute values should be consider as all rows
+            fetched in the response.
+          type: boolean
+        totalResults:
+          description: Total number of rows queried
+          type: integer
+        count:
+          description: Total number of rows returned
+          type: integer
+      type: object
+    channelRoomMappingSummaryType:
+      description: Basic details of hotel-channel room type mapping.
+      properties:
+        endDate:
+          description: End date of the hotel-channel room type mapping.
+          format: date
+          type: string
+        description:
+          $ref: '#/components/schemas/channelRoomMappingDescriptionType'
+        alternateChannelRoomType:
+          description: Alternate channel room type name.
+          maxLength: 40
+          minLength: 0
+          type: string
+        channelRoomTypeOrder:
+          description: Channel room type order of the hotel-channel room type mapping.
+          type: number
+        sellSequence:
+          description: Sell sequence for hotel-channel room type mapping.
+          type: number
+        active:
+          description: Flag that indicates whether hotel-channel room type mapping
+            is active or not.
+          type: boolean
+        bedTypeCode:
+          description: Channel bed type code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        baseAllocation:
+          description: Channel base allocation.
+          type: integer
+        rateCodes:
+          description: Rate codes where hotel-channel room type mappings belong to.
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+        channelRateCodes:
+          description: Channel rate codes where hotel-channel room mappings belong
+            to.
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+        noOfRateRoomsMapped:
+          description: Number of active rate room mappings for the channel room type.
+          type: integer
+        maximumOccupancy:
+          description: The maximum occupancy for this room category.
+          type: integer
+        defaultOccupancy:
+          description: Default occupancy for the room type.
+          type: integer
+        physicalRoomsCount:
+          description: The physical number of rooms in this room category at this
+            property.
+          type: integer
+        bookingChannelCode:
+          description: Booking Channel Code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        hotelId:
+          description: Hotel Code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomType:
+          description: Room Type.
+          maxLength: 20
+          minLength: 0
+          type: string
+        channelRoomType:
+          description: Channel Room Type.
+          maxLength: 20
+          minLength: 0
+          type: string
+        beginDate:
+          description: Begin Date.
+          format: date
+          type: string
+      type: object
+    channelRoomMappingMasterInfoType:
+      description: Additional details about the booking channels and source descriptions
+        for a hotel room type referenced within the fetched results.
+      properties:
+        bookingChannelsInfo:
+          description: Additional detail about booking channel.
+          items:
+            $ref: '#/components/schemas/bookingChannelInfoType'
+          maxItems: 4000
+          type: array
+        sourceDescriptions:
+          description: This type holds hotel-channel room type mapping source descriptions.
+          items:
+            $ref: '#/components/schemas/channelRoomMappingSourceDescriptionsType'
+          maxItems: 4000
+          type: array
+      type: object
+    channelRoomMappingsSourceDescriptionsType:
+      description: This type holds hotel-channel room type mapping source descriptions.
+      items:
+        $ref: '#/components/schemas/channelRoomMappingSourceDescriptionsType'
+      maxItems: 4000
+      type: array
+    channelRoomMappingSourceDescriptionsType:
+      description: Hotel-channel room type mapping source descriptions.
+      properties:
+        description:
+          description: Hotel room type description.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        globalDescription:
+          $ref: '#/components/schemas/channelMappingEnhancedDescriptionType'
+        hotelId:
+          description: Hotel code the descriptions belong to.
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomType:
+          description: Room type the descriptions belong to.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    translationsTextType_inner:
+      description: Language code for the translation.
+      properties:
+        value:
+          description: "Used for Character Strings, length 0 to 2000."
+          maxLength: 2000
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+      type: object
+x-original-swagger-version: "2.0"

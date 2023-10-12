@@ -1,0 +1,1751 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hospitality_apis_ww_grp@oracle.com
+  description: "APIs for Block configuration, such as creating, updating, fetching\
+    \ and removing codes related to blocks. <br />< This might include fetching the\
+    \ block cancellation reasons, or creating new block refused reasons.  Wash schedules\
+    \ can be create, or new reservation methods could be added for a property.<br\
+    \ /><br /> Compatible with OPERA Cloud release 22.3.<br /><br /><p> This document\
+    \ and all content within is available under the Universal Permissive License v\
+    \ 1.0 (https://oss.oracle.com/licenses/upl). Copyright (c) 2020, 2023 Oracle and/or\
+    \ its affiliates.</p>"
+  license:
+    name: UPL
+    url: https://opensource.org/licenses/upl
+  termsOfService: https://www.oracle.com/legal/terms.html
+  title: OPERA Cloud Block Configuration API
+  version: "22.3"
+externalDocs:
+  description: Find out more about Oracle Hospitality
+  url: https://docs.oracle.com/en/industries/hospitality/integration_platforms.html
+servers:
+- url: /blk/config/v1
+tags:
+- description: "The ChainConfigService Web Service offers capability of creating,\
+    \ managing, and retrieving of chain configuration."
+  name: ChainConfig
+- description: "The Block Configuration module offers capability of creating, managing,\
+    \ and retrieving of Block configuration."
+  name: BlockConfig
+paths:
+  /blockCancellationReasons:
+    get:
+      description: Use this API to get Block Cancellation Reasons. <p><strong>OperationId:</strong>getBlockCancellationReasons</p>
+      operationId: getBlockCancellationReasons
+      parameters:
+      - description: Determines wether to fetch inactive records or not.
+        in: query
+        name: fetchInactive
+        schema:
+          type: boolean
+      - description: Codes to be searched.
+        explode: true
+        in: query
+        name: codes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Wildcard search on the code.
+        in: query
+        name: wildCard
+        schema:
+          type: string
+      - description: Description of the code.
+        in: query
+        name: description
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/blockCancellationReasonsDetails'
+          description: Response object for fetching Block Cancellation Reasons.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: BlockCancellationReasons not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get Block Cancellation Reasons
+      tags:
+      - ChainConfig
+  /blockLostBookingCodes:
+    get:
+      description: Use this API to get Block Lost Booking Codes. <p><strong>OperationId:</strong>getBlockLostBookingCodes</p>
+      operationId: getBlockLostBookingCodes
+      parameters:
+      - description: Determines wether to fetch inactive records or not.
+        in: query
+        name: fetchInactive
+        schema:
+          type: boolean
+      - description: Codes to be searched.
+        explode: true
+        in: query
+        name: codes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Wildcard search on the code.
+        in: query
+        name: wildCard
+        schema:
+          type: string
+      - description: Description of the code.
+        in: query
+        name: description
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/blockLostBookingCodesDetails'
+          description: Response object for fetching Block Lost Booking Codes.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: BlockLostBookingCodes not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get Block Lost Booking Codes
+      tags:
+      - ChainConfig
+  /blockRateOverrideReasons:
+    get:
+      description: Use this API to get Block Rate Override Reasons. <p><strong>OperationId:</strong>getBlockRateOverrideReasons</p>
+      operationId: getBlockRateOverrideReasons
+      parameters:
+      - description: Determines wether to fetch inactive records or not.
+        in: query
+        name: fetchInactive
+        schema:
+          type: boolean
+      - description: Codes to be searched.
+        explode: true
+        in: query
+        name: codes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Wildcard search on the code.
+        in: query
+        name: wildCard
+        schema:
+          type: string
+      - description: Description of the code.
+        in: query
+        name: description
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/blockRateOverrideReasonsDetails'
+          description: Response object for fetching Block Rate Override Reasons.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: BlockRateOverrideReasons not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get Block Rate Override Reasons
+      tags:
+      - ChainConfig
+  /blockRefusedReasons:
+    get:
+      description: Use this API to get Block Refused Reasons. <p><strong>OperationId:</strong>getBlockRefusedReasons</p>
+      operationId: getBlockRefusedReasons
+      parameters:
+      - description: Determines wether to fetch inactive records or not.
+        in: query
+        name: fetchInactive
+        schema:
+          type: boolean
+      - description: Codes to be searched.
+        explode: true
+        in: query
+        name: codes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Wildcard search on the code.
+        in: query
+        name: wildCard
+        schema:
+          type: string
+      - description: Description of the code.
+        in: query
+        name: description
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/blockRefusedReasonsDetails'
+          description: Response object for fetching Block Refused Reasons.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: BlockRefusedReasons not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get Block Refused Reasons
+      tags:
+      - ChainConfig
+  /blockStatusCodes:
+    get:
+      description: "This API fetches a list of configured status codes for the chain.\
+        \ It returns status code, description, and status type such as non-deduct,\
+        \ deduct, cancel, waitlist, inquiry, and actual. Status attributes, such as\
+        \ starting status, function diary visibility, allows pickup, and log catering\
+        \ changes are also returned in the response. Please note, that status codes\
+        \ are configured in a strict sequence that must be followed. In order to find\
+        \ available next statuses for the current block status, please use operation\
+        \ getNextBlockStatusCodes.\_<p><strong>OperationId:</strong>getBlockStatusCodes</p>"
+      operationId: getBlockStatusCodes
+      parameters:
+      - explode: true
+        in: query
+        name: blockStatusCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/statusCodeDetails'
+          description: Response object for fetching block status codes.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: BlockStatusCodes not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get block status codes
+      tags:
+      - BlockConfig
+    post:
+      description: You can use this API to create a new block status code. <p><strong>OperationId:</strong>postBlockStatusCode</p>
+      operationId: postBlockStatusCode
+      parameters:
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postBlockStatusCode_request'
+        description: Request object for creating a block status code.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Create a block status code
+      tags:
+      - BlockConfig
+      x-codegen-request-body-name: blockStatusCodeDetails
+  /destinationCodes:
+    get:
+      description: Use this API to get Destination Codes. <p><strong>OperationId:</strong>getDestinationCodes</p>
+      operationId: getDestinationCodes
+      parameters:
+      - description: Determines wether to fetch inactive records or not.
+        in: query
+        name: fetchInactive
+        schema:
+          type: boolean
+      - description: Codes to be searched.
+        explode: true
+        in: query
+        name: codes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Wildcard search on the code.
+        in: query
+        name: wildCard
+        schema:
+          type: string
+      - description: Description of the code.
+        in: query
+        name: description
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/destinationCodesDetails'
+          description: Response object for fetching Destination Codes.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: DestinationCodes not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get Destination Codes
+      tags:
+      - ChainConfig
+  /reservationMethods:
+    get:
+      description: Use this API to get Reservation Methods. <p><strong>OperationId:</strong>getReservationMethods</p>
+      operationId: getReservationMethods
+      parameters:
+      - description: Determines wether to fetch inactive records or not.
+        in: query
+        name: fetchInactive
+        schema:
+          type: boolean
+      - description: Codes to be searched.
+        explode: true
+        in: query
+        name: codes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Wildcard search on the code.
+        in: query
+        name: wildCard
+        schema:
+          type: string
+      - description: Description of the code.
+        in: query
+        name: description
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/reservationMethodsDetails'
+          description: Response object for fetching Reservation Methods.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: ReservationMethods not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get Reservation Methods
+      tags:
+      - ChainConfig
+components:
+  parameters:
+    authKey:
+      description: Bearer token that needs to be passed which is generated post user
+        authentication
+      in: header
+      name: authorization
+      required: true
+      schema:
+        type: string
+    x-app-key:
+      description: Client or Partner’s Application Key
+      in: header
+      name: x-app-key
+      required: true
+      schema:
+        pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+        type: string
+    x-hotelid:
+      description: Mandatory parameter to identify the hotel code where the end user
+        is logged in
+      in: header
+      name: x-hotelid
+      required: true
+      schema:
+        type: string
+    x-externalsystem:
+      description: External system code.
+      example: EXTERNALSYSTEMCODE
+      in: header
+      name: x-externalsystem
+      schema:
+        maxLength: 80
+        type: string
+    Accept-Language:
+      description: Language code
+      in: header
+      name: Accept-Language
+      schema:
+        type: string
+    x-hubid:
+      description: x-hubid is a logical grouping of multiple properties that allows
+        api consumers to manage data from a group of properties. This x-hubid is a
+        valid list of hub codes configured in OPERA to which the user has access.
+        Rest APIs without hotelId in the operation path can support hub level integration
+        using x-hubid
+      in: header
+      name: x-hubid
+      schema:
+        type: string
+  responses:
+    "400":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Bad Request
+    "401":
+      content: {}
+      description: Unauthorized
+    "403":
+      content: {}
+      description: Forbidden
+    "404":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Resource not found
+    "405":
+      content: {}
+      description: Method not allowed
+    "406":
+      content: {}
+      description: Not acceptable.
+    "413":
+      content: {}
+      description: Request Entity Too Large
+    "414":
+      content: {}
+      description: Request URI Too Large
+    "415":
+      content: {}
+      description: Unsupported Media Type
+    "500":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: System Error
+    "502":
+      content: {}
+      description: Bad Gateway
+    "503":
+      content: {}
+      description: Service Unavailable
+  schemas:
+    blockCancellationReasonsDetails:
+      description: Response object for fetching Block Cancellation Reasons.
+      properties:
+        blockCancellationReasons:
+          description: List of Block Cancellation Reasons.
+          items:
+            $ref: '#/components/schemas/blockCancellationReasonType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    blockCancellationReasonsType:
+      description: List of Block Cancellation Reasons.
+      items:
+        $ref: '#/components/schemas/blockCancellationReasonType'
+      maxItems: 4000
+      type: array
+    blockCancellationReasonType:
+      description: Contains Common Master configuration detail.
+      properties:
+        code:
+          description: Common Master unique code.
+          maxLength: 40
+          minLength: 0
+          type: string
+        description:
+          $ref: '#/components/schemas/translationTextType2000'
+        displayOrder:
+          description: Common Master record sequence number.
+          type: number
+      type: object
+    translationTextType2000:
+      description: Contains Multiple translated texts and language codes.
+      properties:
+        defaultText:
+          description: Default text with Character length from 0 to 2000.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        translatedTexts:
+          description: Language code for the translation.
+          items:
+            $ref: '#/components/schemas/translationsTextType_inner'
+          maxItems: 4000
+          type: array
+      type: object
+    translationsTextType:
+      description: Language code for the translation.
+      items:
+        $ref: '#/components/schemas/translationsTextType_inner'
+      maxItems: 4000
+      type: array
+    links:
+      items:
+        $ref: '#/components/schemas/instanceLink'
+      type: array
+    instanceLink:
+      description: Metadata describing link description objects that MAY appear in
+        the JSON instance representation.
+      properties:
+        href:
+          description: "URI [RFC3986] or URI Template [RFC6570]. If the value is set\
+            \ to URI Template, then the \"templated\" property must be set to true."
+          type: string
+        rel:
+          description: "Name of the link relation that, in addition to the type property,\
+            \ can be used to retrieve link details. For example, href or profile."
+          type: string
+        templated:
+          default: false
+          description: "Boolean flag that specifies that \"href\" property is a URI\
+            \ or URI Template. If the property is a URI template, set this value to\
+            \ true. By default, this value is false."
+          type: boolean
+        method:
+          description: HTTP method for requesting the target of the link.
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          - OPTIONS
+          - HEAD
+          type: string
+        targetSchema:
+          description: "Link to the metadata of the resource, such as JSON-schema,\
+            \ that describes the resource expected when dereferencing the target resource.."
+          type: string
+        operationId:
+          description: "The operationId of the path you can call to follow this link.\
+            \  This allows you to look up not only the path and method, but the description\
+            \ of that path and any parameters you need to supply."
+          type: string
+        title:
+          description: Exact copy of the "summary" field on the linked operation.
+          type: string
+      required:
+      - href
+      - method
+      - operationId
+      - rel
+      type: object
+    warningsType:
+      description: Used in conjunction with the Success element to define a business
+        error.
+      items:
+        $ref: '#/components/schemas/warningType'
+      maxItems: 4000
+      type: array
+    warningType:
+      description: Used when a message has been successfully processed to report any
+        warnings or business errors that occurred.
+      properties:
+        value:
+          description: Property Value
+          type: string
+        shortText:
+          description: An abbreviated version of the error in textual format.
+          maxLength: 2000
+          type: string
+        code:
+          description: "If present, this refers to a table of coded values exchanged\
+            \ between applications to identify errors or warnings."
+          maxLength: 20
+          minLength: 0
+          type: string
+        docURL:
+          description: "If present, this URL refers to an online description of the\
+            \ error that occurred."
+          maxLength: 2000
+          type: string
+        status:
+          description: "If present, recommended values are those enumerated in the\
+            \ ErrorRS, (NotProcessed Incomplete Complete Unknown) however, the data\
+            \ type is designated as string data, recognizing that trading partners\
+            \ may identify additional status conditions not included in the enumeration."
+          maxLength: 2000
+          type: string
+        tag:
+          description: "If present, this attribute may identify an unknown or misspelled\
+            \ tag that caused an error in processing. It is recommended that the Tag\
+            \ attribute use XPath notation to identify the location of a tag in the\
+            \ event that more than one tag of the same name is present in the document.\
+            \ Alternatively, the tag name alone can be used to identify missing data\
+            \ [Type=ReqFieldMissing]."
+          maxLength: 2000
+          type: string
+        recordId:
+          description: "If present, this attribute allows for batch processing and\
+            \ the identification of the record that failed amongst a group of records.\
+            \ This value may contain a concatenation of a unique failed transaction\
+            \ ID with specific record(s) associated with that transaction."
+          maxLength: 2000
+          type: string
+        type:
+          description: The Warning element MUST contain the Type attribute that uses
+            a recommended set of values to indicate the warning type. The validating
+            XSD can expect to accept values that it has NOT been explicitly coded
+            for and process them by using Type ="Unknown".
+          maxLength: 20
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        rph:
+          description: Reference Place Holder used as an index for this warning.
+          maxLength: 8
+          minLength: 1
+          type: string
+      type: object
+    exceptionDetailType:
+      description: Complex type that contains error details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        o:errorDetails:
+          description: "Details of the error message, consisting of a hierarchical\
+            \ tree structure."
+          items:
+            $ref: '#/components/schemas/errorInstance'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      required:
+      - title
+      - type
+      title: Error Detail
+      type: object
+    errorInstance:
+      description: Complex type that contains error instance details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+      required:
+      - title
+      - type
+      title: Error Instance Details
+      type: object
+    status:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    blockLostBookingCodesDetails:
+      description: Response object for fetching Block Lost Booking Codes.
+      properties:
+        blockLostBookingCodes:
+          description: List of Block Lost Booking Codes.
+          items:
+            $ref: '#/components/schemas/blockLostBookingCodeType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    blockLostBookingCodesType:
+      description: List of Block Lost Booking Codes.
+      items:
+        $ref: '#/components/schemas/blockLostBookingCodeType'
+      maxItems: 4000
+      type: array
+    blockLostBookingCodeType:
+      description: Contains Common Master configuration detail.
+      properties:
+        code:
+          description: Common Master unique code.
+          maxLength: 40
+          minLength: 0
+          type: string
+        description:
+          $ref: '#/components/schemas/translationTextType2000'
+        displayOrder:
+          description: Common Master record sequence number.
+          type: number
+      type: object
+    blockRateOverrideReasonsDetails:
+      description: Response object for fetching Block Rate Override Reasons.
+      properties:
+        blockRateOverrideReasons:
+          description: List of Block Rate Override Reasons.
+          items:
+            $ref: '#/components/schemas/blockRateOverrideReasonType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    blockRateOverrideReasonsType:
+      description: List of Block Rate Override Reasons.
+      items:
+        $ref: '#/components/schemas/blockRateOverrideReasonType'
+      maxItems: 4000
+      type: array
+    blockRateOverrideReasonType:
+      description: Contains Common Master configuration detail.
+      properties:
+        code:
+          description: Common Master unique code.
+          maxLength: 40
+          minLength: 0
+          type: string
+        description:
+          $ref: '#/components/schemas/translationTextType2000'
+        displayOrder:
+          description: Common Master record sequence number.
+          type: number
+      type: object
+    blockRefusedReasonsDetails:
+      description: Response object for fetching Block Refused Reasons.
+      properties:
+        blockRefusedReasons:
+          description: List of Block Refused Reasons.
+          items:
+            $ref: '#/components/schemas/blockRefusedReasonType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    blockRefusedReasonsType:
+      description: List of Block Refused Reasons.
+      items:
+        $ref: '#/components/schemas/blockRefusedReasonType'
+      maxItems: 4000
+      type: array
+    blockRefusedReasonType:
+      description: Contains Common Master configuration detail.
+      properties:
+        code:
+          description: Common Master unique code.
+          maxLength: 40
+          minLength: 0
+          type: string
+        description:
+          $ref: '#/components/schemas/translationTextType2000'
+        displayOrder:
+          description: Common Master record sequence number.
+          type: number
+      type: object
+    statusCodeDetails:
+      description: Response object for fetching block status codes.
+      properties:
+        blockStatusCodes:
+          description: Block status code information.
+          items:
+            $ref: '#/components/schemas/blockStatusCodeType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    blockStatusCodeListType:
+      description: Block status code information.
+      items:
+        $ref: '#/components/schemas/blockStatusCodeType'
+      maxItems: 4000
+      type: array
+    blockStatusCodeType:
+      description: Block status code information.
+      properties:
+        status:
+          $ref: '#/components/schemas/codeDescriptionType'
+        roomStatusType:
+          $ref: '#/components/schemas/blockStatusCodeStatusType'
+        cateringStatusType:
+          $ref: '#/components/schemas/blockStatusCodeStatusType'
+        defaultReservationType:
+          $ref: '#/components/schemas/codeDescriptionType'
+        reasonType:
+          description: "Reason type for every block reservation cancellation. Block\
+            \ Cancellation Reason, Block Refused Reasons, and Block Lost Reasons."
+          type: string
+        color:
+          $ref: '#/components/schemas/statusColorType'
+        allowPickup:
+          description: Indicates if the rooms with this status code will be allowed
+            for pickup or not.
+          type: boolean
+        returnToInventory:
+          description: Indicates if the rooms with this status code can be returned
+            to availability or not.
+          type: boolean
+        starting:
+          description: Indicates if the status code is the starting status of the
+            status cycle or not.
+          type: boolean
+        leadStatus:
+          description: Indicates the default status for all new leads. Only one lead
+            status can be selected as the default.
+          type: boolean
+        logCatering:
+          description: Indicates if the status code logs the catering changes or not.
+          type: boolean
+        showDiary:
+          description: Indicates if the function diary will be shown within the Sales
+            and Catering.
+          type: boolean
+        orderBy:
+          description: Indicates the order the status code is displayed in the status
+            cycle.
+          type: integer
+        inUse:
+          description: Returns true if the status code is already used in Block /
+            Event / Status Flow.
+          type: boolean
+        cateringInUse:
+          description: Returns true if the status code is already used in Events.
+          type: boolean
+        opportunity:
+          description: Indicates that the business block created with this Status
+            is an Opportunity.
+          type: boolean
+      type: object
+    codeDescriptionType:
+      description: This contains a generic code and description information.
+      properties:
+        code:
+          description: Code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          description: description.
+          maxLength: 2000
+          minLength: 0
+          type: string
+      type: object
+    blockStatusCodeStatusType:
+      description: "Simple type for block status code's room status type and catering\
+        \ status type. Valid status values are Waitlist,Cancel,Lost,Refused,Actual,Inquiry,NonDeductInv,DeductInv\
+        \ and Referral."
+      enum:
+      - Waitlist
+      - Cancel
+      - Lost
+      - Refused
+      - Actual
+      - Inquiry
+      - NonDeductInv
+      - DeductInv
+      - Referral
+      type: string
+    statusColorType:
+      description: Status code color configuration type.
+      enum:
+      - White
+      - Red
+      - Blue
+      - Cyan
+      - Magenta
+      - Green
+      - Brown
+      - Black
+      - Yellow
+      - Gray
+      type: string
+    blockStatusCodeDetails:
+      description: Request object for updating block status code.
+      properties:
+        blockStatusCode:
+          $ref: '#/components/schemas/blockStatusCodeType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    destinationCodesDetails:
+      description: Response object for fetching Destination Codes.
+      properties:
+        destinationCodes:
+          description: List of Destination Codes.
+          items:
+            $ref: '#/components/schemas/destinationCodeType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    destinationCodesType:
+      description: List of Destination Codes.
+      items:
+        $ref: '#/components/schemas/destinationCodeType'
+      maxItems: 4000
+      type: array
+    destinationCodeType:
+      description: Contains Common Master configuration detail.
+      properties:
+        code:
+          description: Common Master unique code.
+          maxLength: 40
+          minLength: 0
+          type: string
+        description:
+          $ref: '#/components/schemas/translationTextType2000'
+        displayOrder:
+          description: Common Master record sequence number.
+          type: number
+      type: object
+    reservationMethodsDetails:
+      description: Response object for fetching Reservation Methods.
+      properties:
+        reservationMethods:
+          description: List of Reservation Methods.
+          items:
+            $ref: '#/components/schemas/reservationMethodType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    reservationMethodsType:
+      description: List of Reservation Methods.
+      items:
+        $ref: '#/components/schemas/reservationMethodType'
+      maxItems: 4000
+      type: array
+    reservationMethodType:
+      description: Contains Common Master configuration detail.
+      properties:
+        code:
+          description: Common Master unique code.
+          maxLength: 40
+          minLength: 0
+          type: string
+        description:
+          $ref: '#/components/schemas/translationTextType2000'
+        displayOrder:
+          description: Common Master record sequence number.
+          type: number
+      type: object
+    postBlockStatusCode_request:
+      allOf:
+      - $ref: '#/components/schemas/blockStatusCodeDetails'
+    translationsTextType_inner:
+      description: Language code for the translation.
+      properties:
+        value:
+          description: "Used for Character Strings, length 0 to 2000."
+          maxLength: 2000
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+      type: object
+x-original-swagger-version: "2.0"

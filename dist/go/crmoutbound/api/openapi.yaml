@@ -1,0 +1,5316 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hospitality_apis_ww_grp@oracle.com
+  description: "APIs to cater for Customer Relationship Management external (outbound)\
+    \ functionality with OPERA. These APIs facilitate various operations related to\
+    \ getting data from an external system, and inserting it into OPERA.<br /><br\
+    \ /> Compatible with OPERA Cloud release 22.3.<br /><br /><p> This document and\
+    \ all content within is available under the Universal Permissive License v 1.0\
+    \ (https://oss.oracle.com/licenses/upl). Copyright (c) 2020, 2023 Oracle and/or\
+    \ its affiliates.</p>"
+  license:
+    name: UPL
+    url: https://opensource.org/licenses/upl
+  termsOfService: https://www.oracle.com/legal/terms.html
+  title: OPERA Cloud Customer Relationship Management Outbound API
+  version: "22.3"
+externalDocs:
+  description: Find out more about Oracle Hospitality
+  url: https://docs.oracle.com/en/industries/hospitality/integration_platforms.html
+servers:
+- url: /crm/outbound/v1
+tags:
+- description: "The Profile APIs allow you to view, create, update, and delete profiles\
+    \ in OPERA Cloud. Each time a new profile in created in OPERA Cloud, a profileID\
+    \ is assigned.\_ Use this profileID to retrieve and update details relating to\
+    \ that profile.   The resource 'Companies' includes group, source, company and\
+    \ travel agent profile types.\_  The resource 'Guests' includes individual and\
+    \ contact profile types."
+  name: Profile
+- description: The Profile External module allows you to retrieve and manage profiles
+    from an external system.
+  name: ProfileExternal
+- description: "This will allow you to create a guest profile enrollment in OPERA\
+    \ Cloud. Enrollment relates to a membership program, so as an example you can\
+    \ enrol the guest Mr Tom Smith into a Membership / loyalty program."
+  name: ProfileMembership
+paths:
+  /externalSystems/{extSystemCode}/chains/{chainCode}/enrollments:
+    post:
+      description: Use this API when you have a guest profile and you want to enroll
+        that guest profile into a membership program in an external system. <p><strong>OperationId:</strong>postEnrollment</p>
+      operationId: postEnrollment
+      parameters:
+      - description: Profile will be downloaded from this External System.
+        in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Chain code from which the External Profiles will be downloaded.
+        in: path
+        name: chainCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Transaction Id
+        in: header
+        name: x-transactionId
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postEnrollment_request'
+        description: Request object to create profile enrollment.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/enrollment'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Create an Enrollment
+      tags:
+      - ProfileMembership
+      x-codegen-request-body-name: enrollment
+  /externalSystems/{extSystemCode}/chains/{chainCode}/externalProfiles:
+    get:
+      description: "Use this API when you want to search for profiles in an external\
+        \ system. The response will include a list of profiles that exist in the external\
+        \ system, based on your search criteria.  For example, you want to see if\
+        \ the external system has a profile for Mr David Smith.  The GET API will\
+        \ send a request to external system, and the response will include a list\
+        \ of any profiles that exist for Mr Davis Smith in that system.  If a profile\
+        \ does exist, and the user would like to 'download' that profile into OPERA,\
+        \ you would then proceed to use the downlodExternalProfiles API."
+      operationId: getExternalProfiles
+      parameters:
+      - description: Profiles will be fetched from this External System.
+        in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Chain code from which the External Profiles will be fetched.
+        in: path
+        name: chainCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Profile will be fetched from this External database.
+        in: query
+        name: externalDatabaseId
+        schema:
+          type: string
+      - description: "Hotel Code, It is used to filter hotel specific children to\
+          \ this specific hotel code."
+        in: query
+        name: hotelId
+        schema:
+          type: string
+      - description: The types of Profile handled by the web service.
+        in: query
+        name: profileType
+        schema:
+          enum:
+          - Guest
+          - Agent
+          - Company
+          - Group
+          - Source
+          - Employee
+          - Hotel
+          - Vendor
+          - Contact
+          - Purge
+          - BusinessHeader
+          - BillingAccount
+          - Activity
+          - Potential
+          - Account
+          type: string
+      - description: A unique identifying value assigned by the creating system. The
+          ID attribute may be used to reference a primary-key value within a database
+          or in a particular implementation.
+        explode: true
+        in: query
+        name: profileId
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A reference to the type of object defined by the UniqueID element.
+        explode: true
+        in: query
+        name: profileIdType
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: "Family name, last name or Company Name."
+        in: query
+        name: name
+        schema:
+          type: string
+      - description: "Given name, first name or names."
+        in: query
+        name: givenName
+        schema:
+          type: string
+      - description: "City (e.g., Dublin), town, or postal station (i.e., a postal\
+          \ service territory, often used in a military address)."
+        in: query
+        name: city
+        schema:
+          type: string
+      - description: Post Office Code number.
+        in: query
+        name: postalCode
+        schema:
+          type: string
+      - description: "State or Province name (e.g., Texas)."
+        in: query
+        name: state
+        schema:
+          type: string
+      - description: Code for a country or a nationality.
+        in: query
+        name: countryCode
+        schema:
+          type: string
+      - description: Keyword associated to the profile.
+        in: query
+        name: keyword
+        schema:
+          type: string
+      - description: "Any communication method associated to the profile such as phone,\
+          \ fax, eMail id."
+        in: query
+        name: communication
+        schema:
+          type: string
+      - description: Membership number associated to the profile.
+        in: query
+        name: membershipNumber
+        schema:
+          type: string
+      - description: Member Type of searching profile.
+        in: query
+        name: membershipType
+        schema:
+          type: string
+      - description: Account Receivable associated to the profile.
+        in: query
+        name: arNumber
+        schema:
+          type: string
+      - description: Date of birth
+        in: query
+        name: birthDate
+        schema:
+          format: date
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/externalProfiles'
+          description: "Response object for fetching profiles from external CRM System.\
+            \ This object contains profile primary details, profile summary details,\
+            \ master info list containing code and description used as lookup for\
+            \ description."
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: ExternalProfiles not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Retrieve profiles from external system
+      tags:
+      - ProfileExternal
+  /externalSystems/{extSystemCode}/chains/{chainCode}/externalProfiles/{profileExternalId}:
+    get:
+      description: "After searching for profiles in an external system using getExternalProfiles,\
+        \ proceed to use this API knowing the external profile ID in the path.  The\
+        \ result will be a new profile created in OPERA. <p><strong>OperationId:</strong>downloadExternalProfile</p>"
+      operationId: downloadExternalProfile
+      parameters:
+      - description: "If supplied, profile will be downloaded from this External System,\
+          \ otherwise it will be decided automatically based on the configuration."
+        in: path
+        name: extSystemCode
+        required: true
+        schema:
+          type: string
+      - description: Chain code from which the External Profiles will be downloaded.
+        in: path
+        name: chainCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique Identifier of the Profile on the External System.
+        in: path
+        name: profileExternalId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Profile will be downloaded from this External database.
+        in: query
+        name: externalDatabaseId
+        schema:
+          type: string
+      - description: "Hotel Code, It is used to filter hotel specific children to\
+          \ this specific hotel code."
+        in: query
+        name: hotelId
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Transaction Id
+        in: header
+        name: x-transactionId
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/profile'
+          description: Response object for the OPERA profile resulted from the download.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: downloadExternalProfile not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Download a Profile from external system
+      tags:
+      - ProfileExternal
+  /externalSystems/{extSystemCode}/chains/{chainCode}/validateMembershipNumber:
+    get:
+      description: Use this API when you want to validate membership numbers from
+        external system. <p><strong>OperationId:</strong>validateMembershipNumber</p>
+      operationId: validateMembershipNumber
+      parameters:
+      - in: path
+        name: chainCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Indicates membership number of the guest
+        in: query
+        name: membershipNo
+        required: true
+        schema:
+          type: string
+      - description: Membership type for which point calculation process is to be
+          run.
+        in: query
+        name: membershipType
+        required: true
+        schema:
+          type: string
+      - description: Hotel code from which the membership code belongs to
+        in: query
+        name: hotelId
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/validateMembershipNumber'
+          description: Type for response for external validation of membership number
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: validateMembershipNumber not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Validate Membership Number attached to a membership
+      tags:
+      - ProfileExternal
+  /externalSystems/{extSystemCode}/gamingOffers/{membershipNo}:
+    get:
+      description: Use this API when you have a guest profile and you want to get
+        the offers available from an external system. <p><strong>OperationId:</strong>getGamingOffers</p>
+      operationId: getGamingOffers
+      parameters:
+      - in: path
+        name: membershipNo
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Hotel Code for which the offers will be fetched.
+        in: query
+        name: hotelId
+        schema:
+          type: string
+      - in: query
+        name: startDate
+        schema:
+          format: date
+          type: string
+      - in: query
+        name: endDate
+        schema:
+          format: date
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/gamingOffers'
+            application/json:
+              example:
+                profiles:
+                  profileInfo:
+                  - profileIdList:
+                    - type: ""
+                      idContext: a
+                      id: a
+                    profile:
+                      customer:
+                        personName:
+                        - namePrefix: a
+                          givenName: Thomas
+                          middleName: B
+                          surname: Smith
+                          nameSuffix: a
+                          nameTitle: Mr
+                          nameTitleSuffix: -100000000
+                          envelopeGreeting: ""
+                          salutation: ""
+                          nameType: PRIMARY
+                          language: E
+                        anonymization:
+                          anonymizationStatus: REQUESTED
+                          anonymizationDate: 2019-09-03T14:56:18.21Z
+                        citizenCountry:
+                          name: United States of America
+                          code: US
+                        identifications:
+                          identificationInfo:
+                          - identification:
+                              idType: PASSPORT
+                              idNumber: C03005988
+                              idNumberMasked: C030059XX
+                              issuedCountry: USA
+                              issuedDate: 2009-11-30
+                              issuedPlace: New York
+                              expirationDate: 2019-11-29
+                              registeredProperty: ""
+                              primaryInd: false
+                              orderSequence: -100000000
+                        profession: Engineer
+                        alienInfo:
+                          alienRegistrationNo: ""
+                          immigrationStatus: a
+                          visaValidityType: a
+                        birthCountry:
+                          name: United States of America
+                          code: US
+                        businessTitle: Dr
+                        gender: MALE
+                        birthDate: 2000-01-01
+                        birthDateMasked: ""
+                        language: EN
+                        nationality: US
+                        nationalityDescription: a
+                        customerValue: a
+                        creditRating: ""
+                        vipStatus: "2"
+                        vipDescription: Gold
+                        birthPlace: New York
+                        privateProfile: false
+                        blacklist: false
+                      company:
+                        companyName: "Example Corporation, Ltd."
+                        companyName2: a
+                        companyName3: a
+                        alternateName: a
+                        alternateLanguage: E
+                        businessLocale: a
+                        iATAInfo:
+                          iATACompany: a
+                          iATAConsortia: a
+                        businessTitle: a
+                        currencyCode: USD
+                        currencySymbol: a
+                        decimalPlaces: -100000000
+                        language: ""
+                        nationality: US
+                        nationalityDescription: United States of America
+                        commissionCode: ""
+                        creditRating: ""
+                        corporateIdType: ""
+                        vipStatus: "2"
+                        vipDescription: Gold VIP
+                        blacklist: false
+                      profileImage:
+                        language: ""
+                        imageSet: a
+                        sequenceId: -100000000
+                        imageStyle: FULL
+                        imageType: a
+                        hotelCode: ""
+                        imageURL: a
+                        description: a
+                        imageOrder: -100000000
+                        website: a
+                      addresses:
+                        addressInfo:
+                        - uniqueId:
+                            type: ""
+                            idContext: a
+                            id: a
+                          address:
+                            addressLine:
+                            - 500 Oracle Parkway
+                            cityName: Redwood Shores
+                            postalCode: "94065"
+                            cityExtension: a
+                            county: a
+                            state: CA
+                            country:
+                              name: United States of America
+                              code: US
+                            language: E
+                            type: ""
+                            typeDescription: ""
+                            primaryInd: false
+                            barCode: a
+                            createDateTime: 2019-09-03T14:56:18.227Z
+                            creatorId: a
+                            lastModifyDateTime: 2019-09-03T14:56:18.228Z
+                            lastModifierId: a
+                      telephones:
+                        telephoneInfo:
+                        - uniqueId:
+                            type: ""
+                            idContext: a
+                            id: a
+                          telephone:
+                            phoneTechType: PHONE
+                            phoneUseType: MOBILE
+                            phoneUseTypeDescription: Mobile Phone Number
+                            phoneNumber: +1 415 555 0100
+                            extension: "2"
+                            primaryInd: false
+                            orderSequence: -100000000
+                            createDateTime: 2019-09-03T14:56:18.23Z
+                            creatorId: "1234"
+                            lastModifyDateTime: 2019-09-03T14:56:18.231Z
+                            lastModifierId: "1234"
+                      emails:
+                        emailInfo:
+                        - uniqueId:
+                            type: ""
+                            idContext: a
+                            id: a
+                          email:
+                            emailAddress: eg@example.com
+                            type: BUSINESSEMAIL
+                            typeDescription: Business Email Address
+                            emailFormat: HTML
+                            primaryInd: false
+                            orderSequence: -100000000
+                            createDateTime: 2019-09-03T14:56:18.234Z
+                            creatorId: "1232"
+                            lastModifyDateTime: 2019-09-03T14:56:18.234Z
+                            lastModifierId: "1232"
+                      comments:
+                        commentInfo:
+                        - uniqueId:
+                            type: ""
+                            idContext: a
+                            id: a
+                          comment:
+                            text:
+                              value: ""
+                              language: ""
+                            commentTitle: a
+                            notificationLocation: ""
+                            type: ""
+                            typeDescription: a
+                            internal: false
+                            confidential: false
+                            overrideInternal: false
+                            protectDescription: false
+                            hotelCode: ""
+                            actionType: ""
+                            actionDate: 0101-01-01
+                            createDateTime: 2019-09-03T14:56:18.239Z
+                            creatorId: a
+                            lastModifyDateTime: 2019-09-03T14:56:18.239Z
+                            lastModifierId: a
+                      profileMemberships:
+                        profileMembership:
+                        - comment:
+                            text:
+                              value: ""
+                              language: ""
+                          newMembershipId: ""
+                          nameOnCard: Thomas Smith
+                          programDescription: Hotel Plus Membership
+                          membershipLevel: Gold
+                          membershipLevelDescription: Gold Level
+                          membershipClass: MEM
+                          earningPreference: POINTS
+                          inactive: false
+                          benefits:
+                          - code: ""
+                            message: a
+                            inactive: false
+                          tierAdministration: DISABLED
+                          downgrade: GRACE
+                          reIssueNewCard: PENDING
+                          excludeFromBatch: false
+                          upgradeDescription: a
+                          downgradeDescription: a
+                          rating: ""
+                          membershipEnrollmentCode: ""
+                          memberStatus: ""
+                          currentPoints: -100000000
+                          pointsLabel: a
+                          enrollmentSource: ""
+                          enrollmentResort: ""
+                          preferredCard: false
+                          membershipId: ""
+                          membershipType: ""
+                          primaryMembershipYn: a
+                          membershipIdNo: -100000000
+                          centralSetup: false
+                          signupDate: 0101-01-01
+                          effectiveDate: 0101-01-01
+                          expireDate: 0101-01-01
+                          expireDateExclusiveIndicator: false
+                          orderSequence: -100000000
+                          createDateTime: 2019-09-03T14:56:18.247Z
+                          creatorId: a
+                          lastModifyDateTime: 2019-09-03T14:56:18.248Z
+                          lastModifierId: a
+                      preferenceCollection:
+                        preferenceType:
+                        - preference:
+                          - {}
+                          preferenceType: ""
+                          preferenceTypeDescription: ""
+                          sequence: ""
+                          maxQuantity: -100000000
+                          availableQuantity: -100000000
+                          maxResortUsedQuantity: -100000000
+                          reservationPreference: false
+                          createDateTime: 2019-09-03T14:56:18.249Z
+                          creatorId: a
+                          lastModifyDateTime: 2019-09-03T14:56:18.249Z
+                          lastModifierId: a
+                      keywords:
+                        keyword:
+                        - keywordDetail:
+                            newKeyword: a
+                          type: ""
+                          keyword: a
+                      profileIndicators:
+                      - indicatorName: a
+                        count: -100000000
+                      lastStayInfo:
+                        lastVisit: 0101-01-01
+                        lastRoom: ""
+                        lastRate:
+                          amount: -100000000
+                          currencyCode: aaa
+                        totalStay: -100000000
+                      profileAccessType:
+                        chainCode: a
+                        croCode: a
+                        hotelCode: a
+                        sharedLevel: GLOBAL
+                      profileRestrictions:
+                        reason: ""
+                        reasonDescription: a
+                        restricted: false
+                      mailingActions:
+                        mailingAction:
+                        - code: ""
+                          description: a
+                        active: false
+                        totalRows: -100000000
+                      privacyInfo:
+                        marketResearchParticipation: false
+                        lastPrivacyPromptDate: 2000-01-01
+                        infoFromThirdParty: false
+                        autoEnrollLoyaltyProgram: false
+                        allowPhone: false
+                        allowSMS: false
+                        allowEmail: false
+                        optInMailingList: false
+                        optInMarketResearch: false
+                        optInThirdParty: false
+                        optInAutoEnrollmentMember: false
+                        optInPhone: false
+                        optInSms: false
+                        optInEmail: false
+                      userDefinedFields:
+                        characterUDFs:
+                        - name: a
+                          value: a
+                          altname: a
+                        numericUDFs:
+                        - name: a
+                          value: -100000000
+                          altname: a
+                        dateUDFs:
+                        - name: a
+                          value: 0101-01-01
+                          altname: a
+                      localizationGuestType: a
+                      profileType: GUEST
+                      statusCode: ACTIVE
+                      registeredProperty: ""
+                      requestForHotel: ""
+                      protectedBy: a
+                      createDateTime: 2000-09-03T14:56:18.259Z
+                      creatorId: "1200"
+                      lastModifyDateTime: 2000-09-03T14:56:18.259Z
+                      lastModifierId: "1200"
+                      markAsRecentlyAccessed: false
+                      markForHistory: false
+                      hasCommission: false
+                  totalRows: -100000000
+                links:
+                - href: ""
+                  rel: ""
+                  method: GET
+                  operationId: ""
+                  templated: false
+                  targetSchema: ""
+                  title: ""
+          description: Response object for fetching offers from external system.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: GamingOffers not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get offers that can be attached for a profile
+      tags:
+      - ProfileExternal
+  /externalSystems/{extSystemCode}/memberships/{membershipType}/membershipIDs:
+    post:
+      description: This API will generate a new membership number. <p><strong>OperationId:</strong>postMembershipNumber</p>
+      operationId: postMembershipNumber
+      parameters:
+      - description: Profile will be downloaded from this External System.
+        in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: membershipType
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Transaction Id
+        in: header
+        name: x-transactionId
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postMembershipNumber_request'
+        description: Request object for generating membership number.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Generate membership number
+      tags:
+      - Profile
+      x-codegen-request-body-name: membershipNumber
+  /externalSystems/{extSystemCode}/playerStatistics/{profileId}:
+    get:
+      description: Request for the fetch player statistics WS operation <p><strong>OperationId:</strong>getPlayerStatistics</p>
+      operationId: getPlayerStatistics
+      parameters:
+      - description: Unique Identifier for profile ID
+        in: path
+        name: profileId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: External System Code
+        in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique Identifier for PlayerID.
+        in: query
+        name: playerId
+        schema:
+          type: string
+      - description: Code of the Hotel.
+        in: query
+        name: hotelId
+        schema:
+          type: string
+      - description: A unique identifying value assigned by the creating system. The
+          ID attribute may be used to reference a primary-key value within a database
+          or in a particular implementation.
+        in: query
+        name: reservationId
+        schema:
+          type: string
+      - description: "Used to identify the source of the identifier (e.g., IATA, ABTA)."
+        in: query
+        name: reservationIdContext
+        schema:
+          type: string
+      - description: A reference to the type of object defined by the UniqueID element.
+        in: query
+        name: reservationIdType
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/fetchPlayerStatisticsRS'
+            application/json:
+              example:
+                profiles:
+                  profileInfo:
+                  - profileIdList:
+                    - type: ""
+                      idContext: a
+                      id: a
+                    profile:
+                      customer:
+                        personName:
+                        - namePrefix: a
+                          givenName: Thomas
+                          middleName: B
+                          surname: Smith
+                          nameSuffix: a
+                          nameTitle: Mr
+                          nameTitleSuffix: -100000000
+                          envelopeGreeting: ""
+                          salutation: ""
+                          nameType: PRIMARY
+                          language: E
+                        anonymization:
+                          anonymizationStatus: REQUESTED
+                          anonymizationDate: 2019-09-03T14:56:18.21Z
+                        citizenCountry:
+                          name: United States of America
+                          code: US
+                        identifications:
+                          identificationInfo:
+                          - identification:
+                              idType: PASSPORT
+                              idNumber: C03005988
+                              idNumberMasked: C030059XX
+                              issuedCountry: USA
+                              issuedDate: 2009-11-30
+                              issuedPlace: New York
+                              expirationDate: 2019-11-29
+                              registeredProperty: ""
+                              primaryInd: false
+                              orderSequence: -100000000
+                        profession: Engineer
+                        alienInfo:
+                          alienRegistrationNo: ""
+                          immigrationStatus: a
+                          visaValidityType: a
+                        birthCountry:
+                          name: United States of America
+                          code: US
+                        businessTitle: Dr
+                        gender: MALE
+                        birthDate: 2000-01-01
+                        birthDateMasked: ""
+                        language: EN
+                        nationality: US
+                        nationalityDescription: a
+                        customerValue: a
+                        creditRating: ""
+                        vipStatus: "2"
+                        vipDescription: Gold
+                        birthPlace: New York
+                        privateProfile: false
+                        blacklist: false
+                      company:
+                        companyName: "Example Corporation, Ltd."
+                        companyName2: a
+                        companyName3: a
+                        alternateName: a
+                        alternateLanguage: E
+                        businessLocale: a
+                        iATAInfo:
+                          iATACompany: a
+                          iATAConsortia: a
+                        businessTitle: a
+                        currencyCode: USD
+                        currencySymbol: a
+                        decimalPlaces: -100000000
+                        language: ""
+                        nationality: US
+                        nationalityDescription: United States of America
+                        commissionCode: ""
+                        creditRating: ""
+                        corporateIdType: ""
+                        vipStatus: "2"
+                        vipDescription: Gold VIP
+                        blacklist: false
+                      profileImage:
+                        language: ""
+                        imageSet: a
+                        sequenceId: -100000000
+                        imageStyle: FULL
+                        imageType: a
+                        hotelCode: ""
+                        imageURL: a
+                        description: a
+                        imageOrder: -100000000
+                        website: a
+                      addresses:
+                        addressInfo:
+                        - uniqueId:
+                            type: ""
+                            idContext: a
+                            id: a
+                          address:
+                            addressLine:
+                            - 500 Oracle Parkway
+                            cityName: Redwood Shores
+                            postalCode: "94065"
+                            cityExtension: a
+                            county: a
+                            state: CA
+                            country:
+                              name: United States of America
+                              code: US
+                            language: E
+                            type: ""
+                            typeDescription: ""
+                            primaryInd: false
+                            barCode: a
+                            createDateTime: 2019-09-03T14:56:18.227Z
+                            creatorId: a
+                            lastModifyDateTime: 2019-09-03T14:56:18.228Z
+                            lastModifierId: a
+                      telephones:
+                        telephoneInfo:
+                        - uniqueId:
+                            type: ""
+                            idContext: a
+                            id: a
+                          telephone:
+                            phoneTechType: PHONE
+                            phoneUseType: MOBILE
+                            phoneUseTypeDescription: Mobile Phone Number
+                            phoneNumber: +1 415 555 0100
+                            extension: "2"
+                            primaryInd: false
+                            orderSequence: -100000000
+                            createDateTime: 2019-09-03T14:56:18.23Z
+                            creatorId: "1234"
+                            lastModifyDateTime: 2019-09-03T14:56:18.231Z
+                            lastModifierId: "1234"
+                      emails:
+                        emailInfo:
+                        - uniqueId:
+                            type: ""
+                            idContext: a
+                            id: a
+                          email:
+                            emailAddress: eg@example.com
+                            type: BUSINESSEMAIL
+                            typeDescription: Business Email Address
+                            emailFormat: HTML
+                            primaryInd: false
+                            orderSequence: -100000000
+                            createDateTime: 2019-09-03T14:56:18.234Z
+                            creatorId: "1232"
+                            lastModifyDateTime: 2019-09-03T14:56:18.234Z
+                            lastModifierId: "1232"
+                      comments:
+                        commentInfo:
+                        - uniqueId:
+                            type: ""
+                            idContext: a
+                            id: a
+                          comment:
+                            text:
+                              value: ""
+                              language: ""
+                            commentTitle: a
+                            notificationLocation: ""
+                            type: ""
+                            typeDescription: a
+                            internal: false
+                            confidential: false
+                            overrideInternal: false
+                            protectDescription: false
+                            hotelCode: ""
+                            actionType: ""
+                            actionDate: 0101-01-01
+                            createDateTime: 2019-09-03T14:56:18.239Z
+                            creatorId: a
+                            lastModifyDateTime: 2019-09-03T14:56:18.239Z
+                            lastModifierId: a
+                      profileMemberships:
+                        profileMembership:
+                        - comment:
+                            text:
+                              value: ""
+                              language: ""
+                          newMembershipId: ""
+                          nameOnCard: Thomas Smith
+                          programDescription: Hotel Plus Membership
+                          membershipLevel: Gold
+                          membershipLevelDescription: Gold Level
+                          membershipClass: MEM
+                          earningPreference: POINTS
+                          inactive: false
+                          benefits:
+                          - code: ""
+                            message: a
+                            inactive: false
+                          tierAdministration: DISABLED
+                          downgrade: GRACE
+                          reIssueNewCard: PENDING
+                          excludeFromBatch: false
+                          upgradeDescription: a
+                          downgradeDescription: a
+                          rating: ""
+                          membershipEnrollmentCode: ""
+                          memberStatus: ""
+                          currentPoints: -100000000
+                          pointsLabel: a
+                          enrollmentSource: ""
+                          enrollmentResort: ""
+                          preferredCard: false
+                          membershipId: ""
+                          membershipType: ""
+                          primaryMembershipYn: a
+                          membershipIdNo: -100000000
+                          centralSetup: false
+                          signupDate: 0101-01-01
+                          effectiveDate: 0101-01-01
+                          expireDate: 0101-01-01
+                          expireDateExclusiveIndicator: false
+                          orderSequence: -100000000
+                          createDateTime: 2019-09-03T14:56:18.247Z
+                          creatorId: a
+                          lastModifyDateTime: 2019-09-03T14:56:18.248Z
+                          lastModifierId: a
+                      preferenceCollection:
+                        preferenceType:
+                        - preference:
+                          - {}
+                          preferenceType: ""
+                          preferenceTypeDescription: ""
+                          sequence: ""
+                          maxQuantity: -100000000
+                          availableQuantity: -100000000
+                          maxResortUsedQuantity: -100000000
+                          reservationPreference: false
+                          createDateTime: 2019-09-03T14:56:18.249Z
+                          creatorId: a
+                          lastModifyDateTime: 2019-09-03T14:56:18.249Z
+                          lastModifierId: a
+                      keywords:
+                        keyword:
+                        - keywordDetail:
+                            newKeyword: a
+                          type: ""
+                          keyword: a
+                      profileIndicators:
+                      - indicatorName: a
+                        count: -100000000
+                      lastStayInfo:
+                        lastVisit: 0101-01-01
+                        lastRoom: ""
+                        lastRate:
+                          amount: -100000000
+                          currencyCode: aaa
+                        totalStay: -100000000
+                      profileAccessType:
+                        chainCode: a
+                        croCode: a
+                        hotelCode: a
+                        sharedLevel: GLOBAL
+                      profileRestrictions:
+                        reason: ""
+                        reasonDescription: a
+                        restricted: false
+                      mailingActions:
+                        mailingAction:
+                        - code: ""
+                          description: a
+                        active: false
+                        totalRows: -100000000
+                      privacyInfo:
+                        marketResearchParticipation: false
+                        lastPrivacyPromptDate: 2000-01-01
+                        infoFromThirdParty: false
+                        autoEnrollLoyaltyProgram: false
+                        allowPhone: false
+                        allowSMS: false
+                        allowEmail: false
+                        optInMailingList: false
+                        optInMarketResearch: false
+                        optInThirdParty: false
+                        optInAutoEnrollmentMember: false
+                        optInPhone: false
+                        optInSms: false
+                        optInEmail: false
+                      userDefinedFields:
+                        characterUDFs:
+                        - name: a
+                          value: a
+                          altname: a
+                        numericUDFs:
+                        - name: a
+                          value: -100000000
+                          altname: a
+                        dateUDFs:
+                        - name: a
+                          value: 0101-01-01
+                          altname: a
+                      localizationGuestType: a
+                      profileType: GUEST
+                      statusCode: ACTIVE
+                      registeredProperty: ""
+                      requestForHotel: ""
+                      protectedBy: a
+                      createDateTime: 2000-09-03T14:56:18.259Z
+                      creatorId: "1200"
+                      lastModifyDateTime: 2000-09-03T14:56:18.259Z
+                      lastModifierId: "1200"
+                      markAsRecentlyAccessed: false
+                      markForHistory: false
+                      hasCommission: false
+                  totalRows: -100000000
+                links:
+                - href: ""
+                  rel: ""
+                  method: GET
+                  operationId: ""
+                  templated: false
+                  targetSchema: ""
+                  title: ""
+          description: Response of the WS operation to fetch player statistics.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: PlayerStatistics not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Retrieve player statistics
+      tags:
+      - ProfileExternal
+  /externalSystems/{extSystemCode}/profiles/{externalProfileId}/memberships:
+    get:
+      description: Use this API to retrieve membership details on a profile. <p><strong>OperationId:</strong>getMembershipDetails</p>
+      operationId: getMembershipDetails
+      parameters:
+      - description: Profile will be downloaded from this External System.
+        in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: externalProfileId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: A unique identifying value assigned by the creating system. The
+          ID attribute may be used to reference a primary-key value within a database
+          or in a particular implementation.
+        explode: true
+        in: query
+        name: operaProfileId
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: The type of the membership.
+        in: query
+        name: membershipType
+        schema:
+          type: string
+      - description: The card number associated with this membership.
+        in: query
+        name: membershipId
+        schema:
+          type: string
+      - description: Property from which the membership stay information was received.
+        in: query
+        name: hotelId
+        schema:
+          type: string
+      - in: query
+        name: startDate
+        schema:
+          format: date
+          type: string
+      - in: query
+        name: endDate
+        schema:
+          format: date
+          type: string
+      - description: Whether member info search will pertain to transaction dates/
+          stay dates/ points credit dates.
+        in: query
+        name: mode
+        schema:
+          enum:
+          - TransactionDate
+          - StayBeginDate
+          - StayEndDate
+          - PointsCreditDate
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Transaction Id
+        in: header
+        name: x-transactionId
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/memberInformation'
+          description: Response object for member info.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: MembershipDetails not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get membership information on a profile
+      tags:
+      - ProfileMembership
+  /externalSystems/{extSystemCode}/profiles/{externalProfileId}/profileAwards:
+    put:
+      description: Redeem an award that exists on a profile. <p><strong>OperationId:</strong>redeemAward</p>
+      operationId: redeemAward
+      parameters:
+      - description: Profile will be downloaded from this External System.
+        in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: externalProfileId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Transaction Id
+        in: header
+        name: x-transactionId
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/redeemAward_request'
+        description: Request object to redeem award.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/award'
+          description: Response object for redeem award.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Redeem an award
+      tags:
+      - ProfileMembership
+      x-codegen-request-body-name: award
+  /hotels/{hotelId}/travelAgents/{iataNumber}:
+    get:
+      description: This API will validate and check an IATA number. <p><strong>OperationId:</strong>checkIataNumber</p>
+      operationId: checkIataNumber
+      parameters:
+      - description: IATA Number
+        in: path
+        name: iataNumber
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Hotel Id
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Transaction Id
+        in: header
+        name: x-transactionId
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/iataNumberDetails'
+          description: Response object to fetch IATA Number validation for Travel
+            Agency Profile.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: checkIataNumber not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Validate IATA number.
+      tags:
+      - ProfileExternal
+  /validatedAddresses:
+    get:
+      description: Use this API when you want to validate address from a third party
+        vendor. The response will be a list of addresses with its address ID based
+        on the search criteria. <p><strong>OperationId:</strong>getValidatedAddresses</p>
+      operationId: getValidatedAddresses
+      parameters:
+      - description: The suggestion that should be presented to the user as a possible
+          match to their input.
+        in: query
+        name: addressText
+        required: true
+        schema:
+          type: string
+      - description: The ID of the address recieved as part of an address search validation.
+        in: query
+        name: country
+        required: true
+        schema:
+          type: string
+      - description: The preferred language for results. This should be a 2 or 4 character
+          language code.
+        in: query
+        name: language
+        schema:
+          type: string
+      - description: Maximum time you are prepared to wait for a response.
+        in: query
+        name: timeoutSeconds
+        schema:
+          type: integer
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/validatedAddresses'
+          description: Response list of address validations based on supplied criteria
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: ValidatedAddresses not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Retrive valid addresses from a third party vendor.
+      tags:
+      - ProfileExternal
+  /validatedAddresses/{externalAddressId}:
+    get:
+      description: Use this API when you want to fetch full address information for
+        a given address Id. <p><strong>OperationId:</strong>getValidatedAddress</p>
+      operationId: getValidatedAddress
+      parameters:
+      - in: path
+        name: externalAddressId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Maximum time you are prepared to wait for a response.
+        in: query
+        name: timeoutSeconds
+        schema:
+          type: integer
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/validatedAddress'
+          description: Response address returned form the external vendor based on
+            supplied criteria
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: ValidatedAddress not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get full Address information from third party system for a given external
+        Address ID. The external Address ID is fetched from valdatedAddresses service.
+      tags:
+      - ProfileExternal
+components:
+  parameters:
+    authKey:
+      description: Bearer token that needs to be passed which is generated post user
+        authentication
+      in: header
+      name: authorization
+      required: true
+      schema:
+        type: string
+    x-app-key:
+      description: Client or Partner’s Application Key
+      in: header
+      name: x-app-key
+      required: true
+      schema:
+        pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+        type: string
+    x-transactionId:
+      description: Transaction Id
+      in: header
+      name: x-transactionId
+      schema:
+        type: string
+    Accept-Language:
+      description: Language code
+      in: header
+      name: Accept-Language
+      schema:
+        type: string
+  responses:
+    "400":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Bad Request
+    "401":
+      content: {}
+      description: Unauthorized
+    "403":
+      content: {}
+      description: Forbidden
+    "404":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Resource not found
+    "405":
+      content: {}
+      description: Method not allowed
+    "406":
+      content: {}
+      description: Not acceptable.
+    "413":
+      content: {}
+      description: Request Entity Too Large
+    "414":
+      content: {}
+      description: Request URI Too Large
+    "415":
+      content: {}
+      description: Unsupported Media Type
+    "500":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: System Error
+    "502":
+      content: {}
+      description: Bad Gateway
+    "503":
+      content: {}
+      description: Service Unavailable
+  schemas:
+    exceptionDetailType:
+      description: Complex type that contains error details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        o:errorDetails:
+          description: "Details of the error message, consisting of a hierarchical\
+            \ tree structure."
+          items:
+            $ref: '#/components/schemas/errorInstance'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      title: Error Detail
+      type: object
+    errorInstance:
+      description: Complex type that contains error instance details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+      title: Error Instance Details
+      type: object
+    instanceLink:
+      description: Metadata describing link description objects that MAY appear in
+        the JSON instance representation.
+      properties:
+        href:
+          description: "URI [RFC3986] or URI Template [RFC6570]. If the value is set\
+            \ to URI Template, then the \"templated\" property must be set to true."
+          type: string
+        rel:
+          description: "Name of the link relation that, in addition to the type property,\
+            \ can be used to retrieve link details. For example, href or profile."
+          type: string
+        templated:
+          default: false
+          description: "Boolean flag that specifies that \"href\" property is a URI\
+            \ or URI Template. If the property is a URI template, set this value to\
+            \ true. By default, this value is false."
+          type: boolean
+        method:
+          description: HTTP method for requesting the target of the link.
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          - OPTIONS
+          - HEAD
+          type: string
+        targetSchema:
+          description: "Link to the metadata of the resource, such as JSON-schema,\
+            \ that describes the resource expected when dereferencing the target resource.."
+          type: string
+        operationId:
+          description: "The operationId of the path you can call to follow this link.\
+            \  This allows you to look up not only the path and method, but the description\
+            \ of that path and any parameters you need to supply."
+          type: string
+        title:
+          description: Exact copy of the "summary" field on the linked operation.
+          type: string
+      type: object
+    links:
+      items:
+        $ref: '#/components/schemas/instanceLink'
+      type: array
+    profileType:
+      description: Type provides the detailed information about the profile and its
+        children.
+      properties:
+        customer:
+          $ref: '#/components/schemas/customerType'
+        company:
+          $ref: '#/components/schemas/companyType'
+        profileImage:
+          $ref: '#/components/schemas/imageSetType'
+        addresses:
+          $ref: '#/components/schemas/profileType_addresses'
+        businessSegments:
+          description: Business/Market Segment associated to the profile.
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+        territory:
+          description: Territory associated to the profile.
+          maxLength: 40
+          minLength: 0
+          type: string
+        telephones:
+          $ref: '#/components/schemas/profileType_telephones'
+        emails:
+          $ref: '#/components/schemas/profileType_emails'
+        comments:
+          $ref: '#/components/schemas/profileType_comments'
+        profileMemberships:
+          $ref: '#/components/schemas/profileType_profileMemberships'
+        preferenceCollection:
+          $ref: '#/components/schemas/profileType_preferenceCollection'
+        keywords:
+          $ref: '#/components/schemas/profileType_keywords'
+        profileIndicators:
+          description: Collection of lamp indicators.
+          items:
+            $ref: '#/components/schemas/indicatorType'
+          maxItems: 4000
+          type: array
+        lastStayInfo:
+          $ref: '#/components/schemas/lastStayInfoType'
+        profileAccessType:
+          $ref: '#/components/schemas/profileAccessType'
+        profileRestrictions:
+          $ref: '#/components/schemas/profileRestrictions'
+        mailingActions:
+          $ref: '#/components/schemas/mailingActionsType'
+        privacyInfo:
+          $ref: '#/components/schemas/privacyInfoType'
+        userDefinedFields:
+          $ref: '#/components/schemas/userDefinedFieldsType'
+        localizationGuestType:
+          description: Localization Guest Type assocaited to the profile.
+          maxLength: 20
+          minLength: 0
+          type: string
+        eligibleForFiscalFolio:
+          description: Eligible for Fiscal Folio/Payload generation.
+          maxLength: 20
+          minLength: 0
+          type: string
+        profileType:
+          $ref: '#/components/schemas/profileTypeType'
+        statusCode:
+          $ref: '#/components/schemas/profileStatusType'
+        registeredProperty:
+          description: Hotel which this profile is registered with. This attribute
+            is not used for configuration.
+          maxLength: 20
+          minLength: 0
+          type: string
+        requestForHotel:
+          description: Hotel which this profile is to be registered. This attribute
+            is only used during creation of profile.
+          maxLength: 20
+          minLength: 0
+          type: string
+        protectedBy:
+          description: What level this profile is protected.
+          maxLength: 40
+          minLength: 0
+          type: string
+        createDateTime:
+          description: Time stamp of the creation.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        creatorId:
+          description: ID of creator. The creator could be a software system identifier
+            or an identifier of an employee resposible for the creation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        lastModifyDateTime:
+          description: Time stamp of last modification.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        lastModifierId:
+          description: Identifies the last software system or person to modify a record.
+          maxLength: 200
+          minLength: 0
+          type: string
+        markAsRecentlyAccessed:
+          description: Mark this profile as recently accessed.
+          type: boolean
+        markForHistory:
+          description: "\"true\" setting marks the profile to be kept from being purged,\
+            \ once the profile is marked inactive."
+          type: boolean
+        hasCommission:
+          description: Populates true if the profile has commission configured false
+            otherwise.
+          type: boolean
+      type: object
+    commentInfoType:
+      description: Comment related to the profile/reservation.
+      properties:
+        comment:
+          $ref: '#/components/schemas/commentType'
+        createDateTime:
+          description: Time stamp of the creation.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        creatorId:
+          description: ID of creator. The creator could be a software system identifier
+            or an identifier of an employee resposible for the creation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        lastModifyDateTime:
+          description: Time stamp of last modification.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        lastModifierId:
+          description: Identifies the last software system or person to modify a record.
+          maxLength: 200
+          minLength: 0
+          type: string
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    commentType:
+      description: An indication of a new paragraph for a sub-section of a formatted
+        text message.
+      properties:
+        text:
+          $ref: '#/components/schemas/formattedTextTextType'
+        commentTitle:
+          description: Specifies Comment's Title.
+          maxLength: 4000
+          minLength: 0
+          type: string
+        notificationLocation:
+          description: Notification Location associated with the Note.
+          maxLength: 20
+          minLength: 0
+          type: string
+        type:
+          description: Specifies type of the comment.
+          maxLength: 20
+          minLength: 0
+          type: string
+        typeDescription:
+          description: Comment type Description.
+          maxLength: 200
+          minLength: 0
+          type: string
+        internal:
+          description: "When true, the comment may not be shown to the consumer. When\
+            \ false, the comment may be shown to the consumer."
+          type: boolean
+        confidential:
+          description: "When true, the comment may be confidential."
+          type: boolean
+        overrideInternal:
+          description: "When true, the note internal could be modified."
+          type: boolean
+        hotelId:
+          description: "If specified comment belongs to the Hotel, otherwise it is\
+            \ a global comment."
+          maxLength: 20
+          minLength: 0
+          type: string
+        createDateTime:
+          description: Time stamp of the creation.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        creatorId:
+          description: ID of creator. The creator could be a software system identifier
+            or an identifier of an employee resposible for the creation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        lastModifyDateTime:
+          description: Time stamp of last modification.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        lastModifierId:
+          description: Identifies the last software system or person to modify a record.
+          maxLength: 200
+          minLength: 0
+          type: string
+      type: object
+    formattedTextTextType:
+      description: Provides text and indicates whether it is formatted or not.
+      properties:
+        value:
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+      type: object
+    uniqueID_Type:
+      description: "An identifier used to uniquely reference an object in a system\
+        \ (e.g. an airline reservation reference, customer profile reference, booking\
+        \ confirmation number, or a reference to a previous availability quote)."
+      properties:
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    codeDescriptionType:
+      description: This contains a generic code and description information.
+      properties:
+        code:
+          description: Code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          description: description.
+          maxLength: 2000
+          minLength: 0
+          type: string
+      type: object
+    customerType:
+      description: "Contains basic data on the customer's identity, location, relationships,\
+        \ finances, memberships, etc."
+      properties:
+        personName:
+          description: Detailed name information for the customer.
+          items:
+            $ref: '#/components/schemas/personNameType'
+          maxItems: 5
+          type: array
+        anonymization:
+          $ref: '#/components/schemas/anonymizationType'
+        citizenCountry:
+          $ref: '#/components/schemas/countryNameType'
+        identifications:
+          $ref: '#/components/schemas/customerType_identifications'
+        profession:
+          description: Profession of a person.
+          maxLength: 80
+          minLength: 0
+          type: string
+        alienInfo:
+          $ref: '#/components/schemas/alienInfoType'
+        birthCountry:
+          $ref: '#/components/schemas/countryNameType'
+        businessTitle:
+          description: Business Title.
+          maxLength: 80
+          minLength: 0
+          type: string
+        gender:
+          description: Identifies the profile gender code selected from Gender types
+            List of values. Gender types LOV provides the values configured at gender
+            configuration.
+          maxLength: 20
+          minLength: 0
+          type: string
+        birthDate:
+          description: "Indicates the date of birth as indicated in the document,\
+            \ in ISO 8601 prescribed format."
+          format: date
+          type: string
+        birthDateMasked:
+          description: Indicates the date of birth as masked.
+          maxLength: 2000
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        nationality:
+          description: Nationality code identification
+          maxLength: 20
+          minLength: 0
+          type: string
+        nationalityDescription:
+          description: Nationality code description
+          maxLength: 80
+          minLength: 0
+          type: string
+        customerValue:
+          description: "The supplier's ranking of the customer (e.g., VIP, numerical\
+            \ ranking)."
+          maxLength: 20
+          minLength: 0
+          type: string
+        creditRating:
+          description: Credit Rating of the customer.
+          maxLength: 20
+          minLength: 0
+          type: string
+        vipStatus:
+          description: VIP status of the customer.
+          maxLength: 20
+          minLength: 0
+          type: string
+        vipDescription:
+          description: Description of the VIP status.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        birthPlace:
+          description: Place of birth.
+          maxLength: 80
+          minLength: 0
+          type: string
+        privateProfile:
+          description: This element tells profile is property exclusive or not.
+          type: boolean
+        blacklist:
+          description: This element tells if profile is blacklisted or not.
+          type: boolean
+      type: object
+    alienInfoType:
+      description: immigration/visa information of a foreign person.
+      properties:
+        alienRegistrationNo:
+          description: Alien Registration Number.
+          maxLength: 2000
+          type: string
+        immigrationStatus:
+          description: Immigration Status on an Alien.
+          maxLength: 40
+          minLength: 0
+          type: string
+        visaValidityType:
+          description: Visa Type of an Alien.
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    anonymizationType:
+      description: Provides information about guest's anonymization status.
+      properties:
+        anonymizationStatus:
+          $ref: '#/components/schemas/anonymizationStatusType'
+        anonymizationDate:
+          description: Date and Time when the guest was anonymized.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+      type: object
+    anonymizationStatusType:
+      description: Guest has been anonymized.
+      enum:
+      - Requested
+      - Anonymized
+      type: string
+    identificationInfoType:
+      description: Information on the identification of the customer.
+      properties:
+        identification:
+          $ref: '#/components/schemas/identificationType'
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    identificationType:
+      description: Identification information of the customer.
+      properties:
+        idType:
+          description: "Identification Type. Eg Passport, Driving License etc."
+          maxLength: 40
+          minLength: 0
+          type: string
+        idNumber:
+          description: Identification Number.
+          maxLength: 80
+          minLength: 0
+          type: string
+        idNumberMasked:
+          description: Masked Identification Number.
+          maxLength: 80
+          minLength: 0
+          type: string
+        issuedCountry:
+          description: The country where Identification was issued.
+          maxLength: 20
+          minLength: 0
+          type: string
+        issuedDate:
+          description: Issued date of Identification.
+          format: date
+          type: string
+        issuedPlace:
+          description: The place where Identification was issued.
+          maxLength: 80
+          minLength: 0
+          type: string
+        expirationDate:
+          description: Expiration date of Identification.
+          format: date
+          type: string
+        registeredProperty:
+          description: Property where the identification belongs to.
+          maxLength: 20
+          minLength: 0
+          type: string
+        primaryInd:
+          description: "When true, indicates a primary information."
+          type: boolean
+        orderSequence:
+          description: Display Order sequence.
+          type: number
+      type: object
+    personNameType:
+      description: This provides name information for a person.
+      properties:
+        namePrefix:
+          description: "Salutation of honorific (e.g. Mr., Mrs., Ms., Miss, Dr.)"
+          maxLength: 40
+          minLength: 0
+          type: string
+        givenName:
+          description: "Given name, first name or names."
+          maxLength: 40
+          minLength: 0
+          type: string
+        middleName:
+          description: The middle name of the person name.
+          maxLength: 40
+          minLength: 0
+          type: string
+        surname:
+          description: "Family name, last name. May also be used for full name if\
+            \ the sending system does not have the ability to separate a full name\
+            \ into its parts, e.g. the surname element may be used to pass the full\
+            \ name."
+          maxLength: 40
+          minLength: 0
+          type: string
+        nameSuffix:
+          description: "Hold various name suffixes and letters (e.g. Jr., Sr., III,\
+            \ Ret., Esq.)"
+          maxLength: 40
+          minLength: 0
+          type: string
+        nameTitle:
+          description: "Degree or honors (e.g., Ph.D., M.D.)"
+          maxLength: 80
+          minLength: 0
+          type: string
+        nameTitleSuffix:
+          description: Title Suffix. Must be populated if ADVANCED_TITLE is on.
+          type: integer
+        envelopeGreeting:
+          description: Envelope Greeting of the profile
+          maxLength: 2000
+          type: string
+        salutation:
+          description: Salutation of the profile
+          maxLength: 2000
+          type: string
+        nameType:
+          $ref: '#/components/schemas/personNameTypeType'
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+      type: object
+    personNameTypeType:
+      description: Person's name in an external system.
+      enum:
+      - Primary
+      - Alternate
+      - Incognito
+      - External
+      - Phonetic
+      type: string
+    countryNameType:
+      description: Code for a country or a nationality.
+      properties:
+        value:
+          description: "Used for Character Strings, length 0 to 200."
+          maxLength: 200
+          minLength: 0
+          type: string
+        code:
+          description: Code for a country or a nationality.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    profileMembershipType:
+      description: Detailed information of the memberships.
+      properties:
+        comment:
+          $ref: '#/components/schemas/paragraphType'
+        newMembershipNumber:
+          description: Card Number of the membership.
+          maxLength: 2000
+          type: string
+        nameOnCard:
+          description: Name to be displayed on the membership card.
+          maxLength: 2000
+          type: string
+        programDescription:
+          description: Description of the membership program.
+          maxLength: 2000
+          type: string
+        membershipLevel:
+          description: Indicates the membership level.
+          maxLength: 2000
+          type: string
+        membershipLevelDescription:
+          description: Indicates the membership level description.
+          maxLength: 200
+          minLength: 0
+          type: string
+        membershipClass:
+          description: Indicates the membership class.
+          maxLength: 2000
+          type: string
+        earningPreference:
+          $ref: '#/components/schemas/membershipEarningPreferenceType'
+        inactive:
+          description: Indicates whether membership is active or inactive.
+          type: boolean
+        benefits:
+          description: Basic information about membership benefit.
+          items:
+            $ref: '#/components/schemas/benefitType'
+          maxItems: 4000
+          type: array
+        tierAdministration:
+          $ref: '#/components/schemas/tierAdministrationType'
+        downgrade:
+          $ref: '#/components/schemas/downgradeType'
+        reIssueNewCard:
+          $ref: '#/components/schemas/cardReIssueType'
+        excludeFromBatch:
+          description: "True if you want to exclude the member from the Membership\
+            \ Fulfillment extract,the member's actions will not be included in the\
+            \ fulfillment extract until this value set to false."
+          type: boolean
+        upgradeDescription:
+          description: "Indicates Upgrade information which includes member's next\
+            \ tier level, requirements for the next upgrade."
+          maxLength: 32000
+          minLength: 0
+          type: string
+        downgradeDescription:
+          description: Indicates information regarding the member's possible downgrades.
+          maxLength: 32000
+          minLength: 0
+          type: string
+        rating:
+          description: Value Rating Type Description for this membership.
+          maxLength: 2000
+          type: string
+        membershipEnrollmentCode:
+          description: Indicates how the guest enrolled in the program.
+          maxLength: 20
+          minLength: 0
+          type: string
+        memberStatus:
+          description: Indicates where the guest is in the membership enrollment process.
+          maxLength: 20
+          minLength: 0
+          type: string
+        currentPoints:
+          description: Profile MemberShip Points.
+          type: number
+        pointsLabel:
+          description: Label used to refer to points for this membership type
+          maxLength: 20
+          minLength: 0
+          type: string
+        enrollmentSource:
+          description: Source from where the enrollment is done.
+          maxLength: 20
+          minLength: 0
+          type: string
+        enrollmentResort:
+          description: Resort/CRO where enrollment is done.
+          maxLength: 20
+          minLength: 0
+          type: string
+        preferredCard:
+          description: Preferred Card.
+          type: boolean
+        membershipId:
+          description: Card Number of the membership.
+          maxLength: 2000
+          type: string
+        membershipType:
+          description: Type of membership.
+          maxLength: 2000
+          type: string
+        primaryMembership:
+          description: Boolean indicator set to True implies membership is a Primary
+            Membership.
+          type: boolean
+        membershipIdNo:
+          description: Membership ID Number.
+          type: integer
+        playerRanking:
+          description: Ranking assigned to the Player Profile by the Gaming system.
+          type: integer
+        centralSetup:
+          description: Indicates how the award points for this membership type will
+            be managed.
+          type: boolean
+        signupDate:
+          description: Indicates when the member signed up for the loyalty program.
+          format: date
+          type: string
+        effectiveDate:
+          description: Indicates the starting date.
+          format: date
+          type: string
+        expireDate:
+          description: Indicates the ending date.
+          format: date
+          type: string
+        expireDateExclusiveIndicator:
+          description: "When true, indicates that the ExpireDate is the first day\
+            \ after the applicable period (e.g. when expire date is Oct 15 the last\
+            \ date of the period is Oct 14)."
+          type: boolean
+        orderSequence:
+          description: Display Order sequence.
+          type: number
+        createDateTime:
+          description: Time stamp of the creation.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        creatorId:
+          description: ID of creator. The creator could be a software system identifier
+            or an identifier of an employee resposible for the creation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        lastModifyDateTime:
+          description: Time stamp of last modification.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        lastModifierId:
+          description: Identifies the last software system or person to modify a record.
+          maxLength: 200
+          minLength: 0
+          type: string
+      type: object
+    paragraphType:
+      description: An indication of a new paragraph for a sub-section of a formatted
+        text message.
+      properties:
+        text:
+          $ref: '#/components/schemas/formattedTextTextType'
+      type: object
+    tierAdministrationType:
+      description: Do not upgrade membership. The membership may be downgraded.
+      enum:
+      - Disabled
+      - NoUpgrade
+      type: string
+    downgradeType:
+      description: "Do not downgrade membership when the next downgrade process runs.\
+        \ When the downgrade process runs, the membership will be automatically set\
+        \ to Grace."
+      enum:
+      - Grace
+      - Never
+      - Period
+      type: string
+    membershipEarningPreferenceType:
+      description: "The earning preference of a membership, it depends on the type\
+        \ of property. eg. when the property is a airline it should be Miles, other\
+        \ than Points."
+      enum:
+      - Points
+      - Miles
+      type: string
+    cardReIssueType:
+      description: Request to re issue a new card.
+      enum:
+      - Pending
+      - NotApplicable
+      - Requested
+      type: string
+    benefitsType:
+      description: Basic information about membership benefit.
+      items:
+        $ref: '#/components/schemas/benefitType'
+      maxItems: 4000
+      type: array
+    benefitType:
+      description: Basic information about membership benefit.
+      properties:
+        code:
+          description: Benefit code associated with a membership.
+          maxLength: 20
+          minLength: 0
+          type: string
+        message:
+          description: Processing message for membership benefit.
+          maxLength: 4000
+          minLength: 0
+          type: string
+        inactive:
+          description: Indicates whether membership benefit is active or inactive.
+          type: boolean
+      type: object
+    profileRestrictions:
+      properties:
+        reason:
+          description: Restriction reason associated with the current profile.
+          maxLength: 20
+          minLength: 0
+          type: string
+        reasonDescription:
+          description: Description of restriction reason.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        restricted:
+          description: True indicates there are restrictions associated with the current
+            profile.
+          type: boolean
+      type: object
+    profileStatusType:
+      enum:
+      - Active
+      - Inactive
+      type: string
+    reservationIdList:
+      description: Unique Id that references an object uniquely in the system.
+      items:
+        $ref: '#/components/schemas/uniqueID_Type'
+      maxItems: 4000
+      type: array
+    profileIdList:
+      description: Unique Id that references an object uniquely in the system.
+      items:
+        $ref: '#/components/schemas/uniqueID_Type'
+      maxItems: 4000
+      type: array
+    telephoneInfoType:
+      description: Information on a telephone number for the customer.
+      properties:
+        telephone:
+          $ref: '#/components/schemas/telephoneType'
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    telephoneType:
+      description: Information on a telephone number for the customer.
+      properties:
+        phoneTechType:
+          description: "Indicates type of technology associated with this telephone\
+            \ number, such as Voice, Data, Fax, Pager, Mobile, TTY, etc."
+          maxLength: 20
+          minLength: 0
+          type: string
+        phoneUseType:
+          description: "Describes the type of telephone number, in the context of\
+            \ its general use (e.g. Home, Business, Emergency Contact, Travel Arranger,\
+            \ Day, Evening)."
+          maxLength: 20
+          minLength: 0
+          type: string
+        phoneUseTypeDescription:
+          description: Description of the PhoneUseType code
+          maxLength: 2000
+          minLength: 0
+          type: string
+        phoneNumber:
+          description: Telephone number assigned to a single location.
+          maxLength: 40
+          minLength: 0
+          type: string
+        extension:
+          description: Extension to reach a specific party at the phone number.
+          maxLength: 20
+          minLength: 0
+          type: string
+        primaryInd:
+          description: "When true, indicates a primary information."
+          type: boolean
+        orderSequence:
+          description: Display Order sequence.
+          type: number
+        createDateTime:
+          description: Time stamp of the creation.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        creatorId:
+          description: ID of creator. The creator could be a software system identifier
+            or an identifier of an employee resposible for the creation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        lastModifyDateTime:
+          description: Time stamp of last modification.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        lastModifierId:
+          description: Identifies the last software system or person to modify a record.
+          maxLength: 200
+          minLength: 0
+          type: string
+      type: object
+    emailInfoType:
+      description: Information on an email for the customer.
+      properties:
+        email:
+          $ref: '#/components/schemas/emailType'
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    emailType:
+      description: Information on an email for the customer.
+      properties:
+        emailAddress:
+          description: Defines the e-mail address.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        type:
+          description: "Defines the purpose of the e-mail address (e.g. personal,\
+            \ business, listserve)."
+          maxLength: 20
+          minLength: 0
+          type: string
+        typeDescription:
+          description: Describes the Type code
+          maxLength: 2000
+          minLength: 0
+          type: string
+        emailFormat:
+          description: Supported Email format.
+          enum:
+          - Html
+          - Text
+          type: string
+        primaryInd:
+          description: "When true, indicates a primary information."
+          type: boolean
+        orderSequence:
+          description: Display Order sequence.
+          type: number
+        createDateTime:
+          description: Time stamp of the creation.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        creatorId:
+          description: ID of creator. The creator could be a software system identifier
+            or an identifier of an employee resposible for the creation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        lastModifyDateTime:
+          description: Time stamp of last modification.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        lastModifierId:
+          description: Identifies the last software system or person to modify a record.
+          maxLength: 200
+          minLength: 0
+          type: string
+      type: object
+    currencyAmountType:
+      description: A monetary value expressed with a currency code.
+      properties:
+        amount:
+          description: A monetary amount.
+          type: number
+      type: object
+    timeSpanType:
+      description: "Allows for a choice in description of the amount of time spanned\
+        \ by this type. EndDate specifies a specific date, whild Duration provides\
+        \ a measure of time to add to the StartDate to yield end date."
+      properties:
+        startDate:
+          format: date
+          type: string
+        endDate:
+          format: date
+          type: string
+        duration:
+          type: string
+      type: object
+    addressInfoType:
+      description: Provides address information.
+      properties:
+        address:
+          $ref: '#/components/schemas/addressType'
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    addressType:
+      description: Provides address information.
+      properties:
+        isValidated:
+          description: Indicator to define if the Address is validated by the Address
+            Validation System.
+          type: boolean
+        addressLine:
+          description: "When the address is unformatted (FormattedInd=\"false\") these\
+            \ lines will contain free form address details. When the address is formatted\
+            \ and street number and street name must be sent independently, the street\
+            \ number will be sent using StreetNmbr, and the street name will be sent\
+            \ in the first AddressLine occurrence."
+          items:
+            maxLength: 80
+            minLength: 0
+            type: string
+          maxItems: 4
+          type: array
+        cityName:
+          description: "City (e.g., Dublin), town, or postal station (i.e., a postal\
+            \ service territory, often used in a military address)."
+          maxLength: 40
+          minLength: 0
+          type: string
+        postalCode:
+          description: Post Office Code number.
+          maxLength: 15
+          minLength: 0
+          type: string
+        cityExtension:
+          description: Post Office City Extension Code number. City Extension mainly
+            used for UK addresses.
+          maxLength: 20
+          minLength: 0
+          type: string
+        county:
+          description: "County or District Name (e.g., Fairfax). This is read only."
+          maxLength: 20
+          minLength: 0
+          type: string
+        state:
+          description: "State or Province name (e.g., Texas)."
+          maxLength: 20
+          minLength: 0
+          type: string
+        country:
+          $ref: '#/components/schemas/countryNameType'
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        type:
+          description: "Defines the type of address (e.g. home, business, other)."
+          maxLength: 20
+          minLength: 0
+          type: string
+        typeDescription:
+          description: Describes the type code
+          maxLength: 2000
+          type: string
+        primaryInd:
+          description: "When true, indicates a primary information."
+          type: boolean
+        barCode:
+          description: The postal barcode for the address.
+          maxLength: 100
+          minLength: 0
+          type: string
+        createDateTime:
+          description: Time stamp of the creation.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        creatorId:
+          description: ID of creator. The creator could be a software system identifier
+            or an identifier of an employee resposible for the creation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        lastModifyDateTime:
+          description: Time stamp of last modification.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        lastModifierId:
+          description: Identifies the last software system or person to modify a record.
+          maxLength: 200
+          minLength: 0
+          type: string
+      type: object
+    profileId:
+      description: "An identifier used to uniquely reference an object in a system\
+        \ (e.g. an airline reservation reference, customer profile reference, booking\
+        \ confirmation number, or a reference to a previous availability quote)."
+      properties:
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 20
+          minLength: 0
+          type: string
+        instance:
+          description: The identification of a record as it exists at a point in time.
+            An instance is used in update messages where the sender must assure the
+            server that the update sent refers to the most recent modification level
+            of the object being updated.
+          maxLength: 80
+          minLength: 0
+          type: string
+        idContext:
+          description: "Used to identify the source of the identifier (e.g., IATA,\
+            \ ABTA)."
+          maxLength: 80
+          minLength: 0
+          type: string
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+      type: object
+    indicatorsType:
+      description: Collection of lamp indicators.
+      items:
+        $ref: '#/components/schemas/indicatorType'
+      maxItems: 4000
+      type: array
+    indicatorType:
+      description: Lamp indicator Type.
+      properties:
+        indicatorName:
+          description: Name of the indicator.
+          maxLength: 80
+          minLength: 0
+          type: string
+        count:
+          description: Indicates number of occurrences of the indicator.
+          type: integer
+      type: object
+    companyType:
+      properties:
+        companyName:
+          description: Name of the company.
+          maxLength: 40
+          minLength: 0
+          type: string
+        companyName2:
+          description: Second Name of the company.
+          maxLength: 40
+          minLength: 0
+          type: string
+        companyName3:
+          description: Third Name of the company.
+          maxLength: 40
+          minLength: 0
+          type: string
+        alternateName:
+          description: "Alternate Name of the Company. Mainly, it's the name of the\
+            \ company written in the Alternate Language."
+          maxLength: 40
+          minLength: 0
+          type: string
+        alternateLanguage:
+          description: Alternate Language of the company.
+          maxLength: 20
+          minLength: 0
+          type: string
+        businessLocale:
+          description: A jurisdiction(Territory) in which a company is authorized
+            to do business.
+          maxLength: 40
+          minLength: 0
+          type: string
+        iATAInfo:
+          $ref: '#/components/schemas/iATAInfoType'
+        businessTitle:
+          description: Business Title.
+          maxLength: 80
+          minLength: 0
+          type: string
+        currencyCode:
+          description: "The code specifying a monetary unit. Use ISO 4217, three alpha\
+            \ code."
+          maxLength: 20
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        nationality:
+          description: Nationality code identification
+          maxLength: 20
+          minLength: 0
+          type: string
+        nationalityDescription:
+          description: Nationality code description
+          maxLength: 80
+          minLength: 0
+          type: string
+        commissionCode:
+          description: Commission code of the company.
+          maxLength: 20
+          minLength: 0
+          type: string
+        creditRating:
+          description: Credit Rating of the company.
+          maxLength: 20
+          minLength: 0
+          type: string
+        corporateIdType:
+          description: The type of corporate ID
+          maxLength: 20
+          minLength: 0
+          type: string
+        vipStatus:
+          description: VIP status of the company.
+          maxLength: 20
+          minLength: 0
+          type: string
+        vipDescription:
+          description: Description of the VIP status.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        blacklist:
+          description: This element tells if profile is blacklisted or not.
+          type: boolean
+      type: object
+    iATAInfoType:
+      description: IATA Information of the profile.
+      properties:
+        iATACompany:
+          description: IATA Company Detail.
+          maxLength: 20
+          minLength: 0
+          type: string
+        iATAConsortia:
+          description: IATA Consortia.
+          maxLength: 40
+          minLength: 0
+          type: string
+        iATAValidationResult:
+          description: IATA Validation Result.
+          type: boolean
+      type: object
+    uRLInfoType:
+      description: Web site address.
+      properties:
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    ownerType:
+      description: Generic type for information about an owner.
+      properties:
+        hotel:
+          $ref: '#/components/schemas/codeDescriptionType'
+        userId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        userName:
+          description: Unique application user name of the owner.
+          maxLength: 40
+          minLength: 0
+          type: string
+        ownerCode:
+          description: Unique Code to identify the owner.
+          maxLength: 20
+          minLength: 0
+          type: string
+        profileId:
+          $ref: '#/components/schemas/profileId'
+        name:
+          $ref: '#/components/schemas/personNameType'
+        department:
+          $ref: '#/components/schemas/codeDescriptionType'
+        email:
+          $ref: '#/components/schemas/emailInfoType'
+        phone:
+          $ref: '#/components/schemas/telephoneInfoType'
+        relationship:
+          $ref: '#/components/schemas/codeDescriptionType'
+        primary:
+          description: "When true, this is a primary owner."
+          type: boolean
+      type: object
+    profileTypeType:
+      description: The types of Profile handled by the web service.
+      enum:
+      - Guest
+      - Agent
+      - Company
+      - Group
+      - Source
+      - Employee
+      - Hotel
+      - Vendor
+      - Contact
+      - Purge
+      - BusinessHeader
+      - BillingAccount
+      - Activity
+      - Potential
+      - Account
+      type: string
+    imageSetType:
+      description: Represents on image set record.
+      properties:
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        imageSet:
+          description: The image set name.
+          maxLength: 800
+          minLength: 0
+          type: string
+        sequenceId:
+          description: The image set sequence ID.
+          type: integer
+        imageStyle:
+          $ref: '#/components/schemas/imageStyleType'
+        imageType:
+          description: The image set type.
+          maxLength: 80
+          minLength: 0
+          type: string
+        hotelId:
+          description: The image set hotel code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        imageURL:
+          description: The image set URL.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        description:
+          description: The image set description.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        imageOrder:
+          description: The image set order.
+          type: integer
+        website:
+          description: The image set website.
+          maxLength: 2000
+          minLength: 0
+          type: string
+      type: object
+    imageStyleType:
+      description: An enumeration of image styles.
+      enum:
+      - Full
+      - Thumbnail
+      - Icon
+      - Square
+      - Banner
+      - Button
+      - Lowres
+      - Highres
+      type: string
+    lastStayInfoType:
+      description: Contains last stay related details for the profile
+      properties:
+        lastVisit:
+          description: Used to hold last stay information for the profile.
+          format: date
+          type: string
+        lastRoom:
+          description: Used to hold last room information for the profile.
+          maxLength: 2000
+          type: string
+        lastRate:
+          $ref: '#/components/schemas/currencyAmountType'
+        totalStay:
+          description: The total number of previous stay of the profile.
+          type: integer
+      type: object
+    mailingActionsType:
+      description: Defines mailing action list for the profile.
+      properties:
+        mailingAction:
+          description: Defines mailing action code and description.
+          items:
+            $ref: '#/components/schemas/codeDescriptionType'
+          maxItems: 4000
+          type: array
+        active:
+          description: When true indicates that profile has subscribed to the mailing
+            list.
+          type: boolean
+        totalRows:
+          description: Total number of rows queried
+          type: integer
+      type: object
+    privacyInfoType:
+      description: Defines Privacy related information for the profile.
+      properties:
+        marketResearchParticipation:
+          description: Indicates if the profile participates in market research.
+          type: boolean
+        lastPrivacyPromptDate:
+          description: Indicate the last privacy prompt date of the guest.
+          format: date
+          type: string
+        infoFromThirdParty:
+          description: Indicates if the profile is ok getting info from third parties.
+          type: boolean
+        autoEnrollLoyaltyProgram:
+          description: Indicates if the profile wishes to be automatically enrolled
+            in the property's loyalty program.
+          type: boolean
+        allowPhone:
+          description: Indicates if the profile wishes to allow phone calls.
+          type: boolean
+        allowSMS:
+          description: Indicates if the profile wishes to allow SMS.
+          type: boolean
+        allowEmail:
+          description: Indicates if the profile wishes to allow Email.
+          type: boolean
+        optInMailingList:
+          description: Indicates if the profile wishes to opt in for Mailing List.
+          type: boolean
+        optInMarketResearch:
+          description: Indicates if the profile wishes to opt in for Market Research.
+          type: boolean
+        optInThirdParty:
+          description: Indicates if the profile wishes to opt in for Third Party.
+          type: boolean
+        optInAutoEnrollmentMember:
+          description: Indicates if the profile wishes to opt in for Auto Enrolment
+            Member.
+          type: boolean
+        optInPhone:
+          description: Indicates if the profile wishes to opt in for Phone.
+          type: boolean
+        optInSms:
+          description: Indicates if the profile wishes to opt in for SMS.
+          type: boolean
+        optInEmail:
+          description: Indicates if the profile wishes to opt in for Email.
+          type: boolean
+      type: object
+    profileAccessType:
+      properties:
+        croCode:
+          description: Indicates the CRO code where the profile was created
+          maxLength: 200
+          minLength: 0
+          type: string
+        hotelId:
+          description: Indicates the Hotel code where the profile was created
+          maxLength: 200
+          minLength: 0
+          type: string
+        sharedLevel:
+          $ref: '#/components/schemas/profileSharedLevelType'
+      type: object
+    profileSharedLevelType:
+      description: Simple types for Shared level.
+      enum:
+      - Global
+      - Property
+      - Cro
+      type: string
+    preferenceTypeType:
+      description: Preference details for the profile.
+      properties:
+        preference:
+          description: Collection of Preferences for the profile.
+          items:
+            $ref: '#/components/schemas/preferenceType'
+          maxItems: 4000
+          type: array
+        preferenceType:
+          description: Preference group code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        preferenceTypeDescription:
+          description: Preference group description.
+          maxLength: 2000
+          type: string
+        sequence:
+          description: Preference Sequence.
+          maxLength: 2000
+          type: string
+        maxQuantity:
+          description: Maximum quantity of preferences allowed per preference group.
+          type: integer
+        availableQuantity:
+          description: Available quantity of preferences (maximum quantity - Existing
+            preferences)per preference group.
+          type: integer
+        maxResortUsedQuantity:
+          description: Maximum quantity of preferences used by any resort per preference
+            group.
+          type: integer
+        reservationPreference:
+          description: Whether this preference is reservation preference or not.
+          type: boolean
+        createDateTime:
+          description: Time stamp of the creation.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        creatorId:
+          description: ID of creator. The creator could be a software system identifier
+            or an identifier of an employee resposible for the creation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        lastModifyDateTime:
+          description: Time stamp of last modification.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        lastModifierId:
+          description: Identifies the last software system or person to modify a record.
+          maxLength: 200
+          minLength: 0
+          type: string
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    preferenceType:
+      description: Guest Preference details for the profile.
+      properties:
+        preferenceValue:
+          description: Preference value for display purposes.
+          maxLength: 200
+          minLength: 0
+          type: string
+        description:
+          description: Preference Description for display purposes.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        global:
+          description: Whether this preference is property specific or not.
+          type: boolean
+        source:
+          description: Source of the preference.
+          maxLength: 40
+          minLength: 0
+          type: string
+        hotels:
+          description: "If specified preference belongs to the Hotels listed, otherwise\
+            \ it is a global preference."
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+        preferenceCode:
+          maxLength: 20
+          minLength: 0
+          type: string
+        excludedPreferencesCount:
+          description: Specifies the count of preferences excluded for the attached
+            reservation preference.
+          type: integer
+      type: object
+    keywordType:
+      properties:
+        keywordDetail:
+          $ref: '#/components/schemas/keywordDetailType'
+        type:
+          description: The type of keyword
+          maxLength: 20
+          minLength: 0
+          type: string
+        keyword:
+          description: The keyword value.
+          maxLength: 80
+          minLength: 0
+          type: string
+      type: object
+    keywordDetailType:
+      properties:
+        newKeyword:
+          description: The new keyword value.
+          maxLength: 80
+          minLength: 0
+          type: string
+      type: object
+    userDefinedFieldsType:
+      description: "A common type used to hold user defined fields(UDFs). This type\
+        \ should be used to handle UDFs on RReservation, Profiles, etc."
+      properties:
+        characterUDFs:
+          description: Used to hold collection of user defined fields of Character/String
+            Type.
+          items:
+            $ref: '#/components/schemas/characterUDFType'
+          maxItems: 4000
+          type: array
+        numericUDFs:
+          description: Used to hold collection of user defined fields of Numeric Type.
+          items:
+            $ref: '#/components/schemas/numericUDFType'
+          maxItems: 4000
+          type: array
+        dateUDFs:
+          description: Used to hold collection of user defined fields of Date Type.
+          items:
+            $ref: '#/components/schemas/dateUDFType'
+          maxItems: 4000
+          type: array
+      type: object
+    dateUDFsType:
+      description: Used to hold collection of user defined fields of Date Type.
+      items:
+        $ref: '#/components/schemas/dateUDFType'
+      maxItems: 4000
+      type: array
+    dateUDFType:
+      description: Used to hold user defined field of Date Type.
+      properties:
+        name:
+          description: "Used to hold user defined field of Date Type. It is highly\
+            \ recommended to use UDFD01, UDFD02,...UDFN20 (Total 20) as Date UDF names(commonly\
+            \ used on Reservation, Profile etc.). Name is not restricted using enumeration,\
+            \ to provide flexibility of different name usage if required."
+          maxLength: 20
+          minLength: 0
+          type: string
+        value:
+          description: Value of user defined field.
+          format: date
+          type: string
+        altname:
+          description: Label of user defined field used by vendors or customers.
+          maxLength: 2000
+          minLength: 0
+          type: string
+      type: object
+    characterUDFsType:
+      description: Used to hold collection of user defined fields of Character/String
+        Type.
+      items:
+        $ref: '#/components/schemas/characterUDFType'
+      maxItems: 4000
+      type: array
+    characterUDFType:
+      description: Used to hold user defined field of Character/String Type.
+      properties:
+        name:
+          description: "Used to hold user defined field of Character Type. It is highly\
+            \ recommended to use UDFC01, UDFC02,...UDFC40 (Total 40) as Character/String\
+            \ UDF names(commonly used on Reservation, Profile etc.). Name is not restricted\
+            \ using enumeration, to provide flexibility of different name usage if\
+            \ required."
+          maxLength: 20
+          minLength: 0
+          type: string
+        value:
+          description: Value of user defined field.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        altname:
+          description: Label of user defined field used by vendors or customers.
+          maxLength: 2000
+          minLength: 0
+          type: string
+      type: object
+    numericUDFsType:
+      description: Used to hold collection of user defined fields of Numeric Type.
+      items:
+        $ref: '#/components/schemas/numericUDFType'
+      maxItems: 4000
+      type: array
+    numericUDFType:
+      description: "Used to hold user defined field of Numeric Type. It is highly\
+        \ recommended to use UDFN01, UDFN02,...UDFN40 (Total 40) as Numeric UDF names(commonly\
+        \ used on Reservation, Profile etc.). Name is not restricted using enumeration,\
+        \ to provide flexibility of different name usage if required."
+      properties:
+        name:
+          description: Name of user defined field.
+          maxLength: 20
+          minLength: 0
+          type: string
+        value:
+          description: Value of user defined field.
+          type: number
+        altname:
+          description: Label of user defined field used by vendors or customers.
+          maxLength: 2000
+          minLength: 0
+          type: string
+      type: object
+    externalProfileSummaryInfoType:
+      description: Summary information about a external profile and the associated
+        Unique IDs.
+      properties:
+        profileIdList:
+          description: Unique Id that references an object uniquely in the system.
+          items:
+            $ref: '#/components/schemas/uniqueID_Type'
+          maxItems: 4000
+          type: array
+        profile:
+          $ref: '#/components/schemas/externalProfileSummaryType'
+      type: object
+    externalProfileSummaryType:
+      description: Type provides the basic information about the external profile.
+      properties:
+        formerName:
+          $ref: '#/components/schemas/externalProfileSummaryType_formerName'
+        addressInfo:
+          $ref: '#/components/schemas/addressInfoType'
+        telephoneInfo:
+          $ref: '#/components/schemas/telephoneInfoType'
+        emailInfo:
+          $ref: '#/components/schemas/emailInfoType'
+        profileMembership:
+          $ref: '#/components/schemas/profileMembershipType'
+        urlInfo:
+          $ref: '#/components/schemas/uRLInfoType'
+        owners:
+          description: Generic type for a list of owners.
+          items:
+            $ref: '#/components/schemas/ownerType'
+          maxItems: 4000
+          type: array
+        profileType:
+          $ref: '#/components/schemas/profileTypeType'
+        statusCode:
+          $ref: '#/components/schemas/profileStatusType'
+        createDateTime:
+          description: Time stamp of the creation.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        creatorId:
+          description: ID of creator. The creator could be a software system identifier
+            or an identifier of an employee resposible for the creation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        lastModifyDateTime:
+          description: Time stamp of last modification.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        lastModifierId:
+          description: Identifies the last software system or person to modify a record.
+          maxLength: 200
+          minLength: 0
+          type: string
+        registeredProperty:
+          description: Property this profile is registered with.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    ownersType:
+      description: Generic type for a list of owners.
+      items:
+        $ref: '#/components/schemas/ownerType'
+      maxItems: 4000
+      type: array
+    profileEnrollmentType:
+      description: Type provides the detailed information about the profile and its
+        children.
+      properties:
+        customer:
+          $ref: '#/components/schemas/customerType'
+        addresses:
+          $ref: '#/components/schemas/profileEnrollmentType_addresses'
+        telephones:
+          $ref: '#/components/schemas/profileEnrollmentType_telephones'
+        emails:
+          $ref: '#/components/schemas/profileEnrollmentType_emails'
+        urls:
+          $ref: '#/components/schemas/profileEnrollmentType_urls'
+        profileMemberships:
+          $ref: '#/components/schemas/profileEnrollmentType_profileMemberships'
+        keywords:
+          $ref: '#/components/schemas/profileType_keywords'
+        profileType:
+          $ref: '#/components/schemas/profileTypeType'
+        statusCode:
+          $ref: '#/components/schemas/profileStatusType'
+        registeredProperty:
+          description: Hotel which this profile is registered with. This attribute
+            is not used for configuration.
+          maxLength: 20
+          minLength: 0
+          type: string
+        requestForHotel:
+          description: Hotel which this profile is to be registered. This attribute
+            is only used during creation of profile.
+          maxLength: 20
+          minLength: 0
+          type: string
+        createDateTime:
+          description: Time stamp of the creation.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        creatorId:
+          description: ID of creator. The creator could be a software system identifier
+            or an identifier of an employee resposible for the creation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        lastModifyDateTime:
+          description: Time stamp of last modification.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        lastModifierId:
+          description: Identifies the last software system or person to modify a record.
+          maxLength: 200
+          minLength: 0
+          type: string
+        profileId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        reservationId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        enrollmentCode:
+          $ref: '#/components/schemas/codeDescriptionType'
+        externalDatabaseID:
+          description: Enrollment details will be fetched from this External database.
+          maxLength: 20
+          minLength: 0
+          type: string
+        hotelId:
+          description: "Hotel Code, It is used to filter hotel specific children to\
+            \ this specific hotel code."
+          maxLength: 20
+          minLength: 0
+          type: string
+        userId:
+          description: UserID/LoginID of the user who is enrolling the Guest.
+          maxLength: 200
+          minLength: 0
+          type: string
+        employeeId:
+          description: EmployeeID of the user who is enrolling the Guest.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    externalProfileSummariesType:
+      description: A complex type containing the collection of Profile objects or
+        Unique IDs of Profiles.
+      properties:
+        profileInfo:
+          description: A collection of Profiles or Unique IDs of Profiles.
+          items:
+            $ref: '#/components/schemas/externalProfileSummaryInfoType'
+          maxItems: 4000
+          type: array
+        totalRows:
+          description: Total number of rows queried
+          type: integer
+        status:
+          $ref: '#/components/schemas/externalStatusType'
+        haltOperation:
+          description: Hold/Continue external Profile operation.
+          type: boolean
+      type: object
+    externalStatusType:
+      description: Success return when there is no error and operation is successful.
+      enum:
+      - NotEnoughCriteria
+      - IgnoredUnsupportedCriteria
+      - ExternalError
+      - CommunicationError
+      - Success
+      type: string
+    memberAwardType:
+      properties:
+        profileIdList:
+          description: Unique Id that references an object uniquely in the system.
+          items:
+            $ref: '#/components/schemas/uniqueID_Type'
+          maxItems: 4000
+          type: array
+        membershipType:
+          description: The type of the membership.
+          maxLength: 20
+          minLength: 0
+          type: string
+        membershipCardNo:
+          description: The card number associated with this membership.
+          maxLength: 50
+          minLength: 0
+          type: string
+        membershipLevel:
+          description: The current level of the membership.
+          maxLength: 20
+          minLength: 0
+          type: string
+        reservationIdList:
+          description: Unique Id that references an object uniquely in the system.
+          items:
+            $ref: '#/components/schemas/uniqueID_Type'
+          maxItems: 4000
+          type: array
+        adults:
+          description: Number of adults associated with the reservation.
+          type: integer
+        reservationTimeSpan:
+          $ref: '#/components/schemas/timeSpanType'
+        memberPointsBefore:
+          description: Member points before award transaction.
+          type: integer
+        memberPointsAfter:
+          description: Member points after award transaction.
+          type: integer
+        awardPoints:
+          description: Points associated with the award.
+          type: integer
+        cancelPointsReturn:
+          description: Number of cancel points returned.
+          type: integer
+        actualCancelPoints:
+          description: Actual number of cancel points.
+          type: integer
+        expiryPoints:
+          description: Points that will expire.
+          type: integer
+        awardProcessType:
+          $ref: '#/components/schemas/memberAwardProcessType'
+        memberAwardDetails:
+          description: Details related to member award per stay date.
+          items:
+            $ref: '#/components/schemas/memberAwardDetailType'
+          maxItems: 4000
+          type: array
+        hotelId:
+          description: Property associated with the reservation.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    memberAwardDetailsType:
+      description: Details related to member award per stay date.
+      items:
+        $ref: '#/components/schemas/memberAwardDetailType'
+      maxItems: 4000
+      type: array
+    memberAwardDetailType:
+      description: "Details related to member award like award type, stay date, rate\
+        \ code, etc."
+      properties:
+        awardType:
+          description: The award type or code.
+          maxLength: 40
+          minLength: 0
+          type: string
+        awardBasedOn:
+          description: "Indicates if award is a Stay, Package Element or other."
+          maxLength: 20
+          minLength: 0
+          type: string
+        cancelPenaltyDays:
+          description: Number days before arrival to apply penalty for cancellation.
+          type: integer
+        cancelPenaltyCharge:
+          description: Number points deducted if award is cancelled.
+          type: integer
+        cancelPenaltyType:
+          description: "Type of cancel penalty like Points, etc."
+          maxLength: 20
+          minLength: 0
+          type: string
+        cancelPenaltyPoints:
+          description: Number of penalty points if cancelled.
+          type: integer
+        stayDate:
+          description: Date of stay.
+          format: date
+          type: string
+        rateCode:
+          description: Rate code associated with the reservation.
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomType:
+          description: Room type label associated with the reservation.
+          maxLength: 20
+          minLength: 0
+          type: string
+        product:
+          description: "Product code for which the award was issued, in case of a\
+            \ product award."
+          maxLength: 80
+          minLength: 0
+          type: string
+        fromRoomType:
+          description: Room type label before the upgrade in case of an upgrade award.
+          maxLength: 20
+          minLength: 0
+          type: string
+        toRoomType:
+          description: Room type label after the upgrade for an upgrade award.
+          maxLength: 20
+          minLength: 0
+          type: string
+        totalLocalAmount:
+          description: Total Local Amount on bill in Hotel Currency.
+          type: number
+        redeemedLocalAmount:
+          description: Redeemed Local Amount on bill in Hotel Currency.
+          type: number
+        totalCentralAmount:
+          description: Total Central Amount on bill in External System Currency.
+          type: number
+        redeemedCentralAmount:
+          description: Redeemed Central Amount on bill in External System Currency.
+          type: number
+        transactionCode:
+          description: The Payment Transaction Code for which the Surcharge Applies.
+          maxLength: 20
+          minLength: 0
+          type: string
+        transactionNo:
+          description: Unique Transaction Identifier.
+          type: number
+        exchangeRateType:
+          description: Exchange Rate Type for the Currency Exchange.
+          maxLength: 20
+          minLength: 0
+          type: string
+        awardVoucherNo:
+          description: Award Voucher Number.
+          maxLength: 40
+          minLength: 0
+          type: string
+        awardCancellationNo:
+          $ref: '#/components/schemas/uniqueID_Type'
+        inactive:
+          description: If the award detail is inactive.
+          type: boolean
+        pointsRequired:
+          description: Points required for the stay date.
+          type: integer
+      type: object
+    memberAwardProcessType:
+      description: "Processing type of the award like Actual , Projected or Inactive."
+      enum:
+      - Actual
+      - Projected
+      - Inactive
+      type: string
+    profile:
+      description: Object for creation of profiles. This object contains profile details
+        with unique identifiers for each profile.
+      properties:
+        profileIdList:
+          description: Unique Id that references an object uniquely in the system.
+          items:
+            $ref: '#/components/schemas/uniqueID_Type'
+          maxItems: 4000
+          type: array
+        profileDetails:
+          $ref: '#/components/schemas/profileType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    enrollment:
+      description: Response object for fetching profile enrollment from external system.
+      properties:
+        enrollmentInfo:
+          $ref: '#/components/schemas/profileEnrollmentType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    externalProfiles:
+      description: "Response object for fetching profiles from external CRM System.\
+        \ This object contains profile primary details, profile summary details, master\
+        \ info list containing code and description used as lookup for description."
+      properties:
+        externalProfileSummaries:
+          $ref: '#/components/schemas/externalProfileSummariesType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    award:
+      description: Request object to redeem award.
+      properties:
+        memberAward:
+          $ref: '#/components/schemas/memberAwardType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    fetchPlayerStatisticsRS:
+      description: Response of the WS operation to fetch player statistics.
+      properties:
+        playerStatistics:
+          $ref: '#/components/schemas/playerStatisticsType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    playerStatisticsType:
+      description: Contains Player Statistics information
+      properties:
+        enrollmentDate:
+          maxLength: 2000
+          type: string
+        compDollars:
+          maxLength: 2000
+          type: string
+        actualTableWins:
+          maxLength: 2000
+          type: string
+        actualOtherWins:
+          maxLength: 2000
+          type: string
+        tableTimePlayed:
+          maxLength: 2000
+          type: string
+        otherTimePlayed:
+          maxLength: 2000
+          type: string
+        averageSlotBet:
+          maxLength: 2000
+          type: string
+        skillRating:
+          maxLength: 2000
+          type: string
+        playerTableWins:
+          maxLength: 2000
+          type: string
+        playerOtherWins:
+          maxLength: 2000
+          type: string
+        theoriticalTableWins:
+          maxLength: 2000
+          type: string
+        theoriticalOtherWins:
+          maxLength: 2000
+          type: string
+        expectedProfit:
+          maxLength: 2000
+          type: string
+        grossMarkers:
+          maxLength: 2000
+          type: string
+        compPoints:
+          maxLength: 2000
+          type: string
+        totalComps:
+          maxLength: 2000
+          type: string
+        actualSlotWins:
+          maxLength: 2000
+          type: string
+        creditLimit:
+          maxLength: 2000
+          type: string
+        slotTimePlayed:
+          maxLength: 2000
+          type: string
+        avgTableBet:
+          maxLength: 2000
+          type: string
+        avgOtherBet:
+          maxLength: 2000
+          type: string
+        preferredGame:
+          maxLength: 2000
+          type: string
+        playerSlotWins:
+          maxLength: 2000
+          type: string
+        noOfRatings:
+          maxLength: 2000
+          type: string
+        theoSlotWins:
+          maxLength: 2000
+          type: string
+        theoProfit:
+          maxLength: 2000
+          type: string
+        bettingLimit:
+          maxLength: 2000
+          type: string
+        netMarkers:
+          maxLength: 2000
+          type: string
+        notes:
+          maxLength: 2000
+          type: string
+      type: object
+    gamingOffers:
+      description: Response object for fetching offers from external system.
+      properties:
+        gamingOffersInfo:
+          description: Offers that are availabl to be attached
+          items:
+            $ref: '#/components/schemas/codeDescriptionType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    gamingOffersType:
+      description: Offers that are availabl to be attached
+      items:
+        $ref: '#/components/schemas/codeDescriptionType'
+      maxItems: 4000
+      type: array
+    iataNumberDetails:
+      description: Response object to fetch IATA Number validation for Travel Agency
+        Profile.
+      properties:
+        checkIataNumberInfo:
+          $ref: '#/components/schemas/checkIataNumberType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    checkIataNumberType:
+      description: Type provides the IATA Validation information.
+      properties:
+        code:
+          description: IATA Number.
+          maxLength: 20
+          minLength: 0
+          type: string
+        lastRefreshDate:
+          description: Last Refresh Date.
+          maxLength: 20
+          minLength: 0
+          type: string
+        reason:
+          description: Reason.
+          maxLength: 40
+          minLength: 0
+          type: string
+        agencyName:
+          description: Agency Name.
+          maxLength: 100
+          minLength: 0
+          type: string
+        approvalDate:
+          description: Approval Date.
+          maxLength: 100
+          minLength: 0
+          type: string
+        agencyClass:
+          description: Agency Class.
+          maxLength: 100
+          minLength: 0
+          type: string
+        siteType:
+          description: Site Type.
+          maxLength: 100
+          minLength: 0
+          type: string
+        address:
+          description: Address.
+          maxLength: 1000
+          minLength: 0
+          type: string
+        city:
+          description: City.
+          maxLength: 100
+          minLength: 0
+          type: string
+        postalCode:
+          description: Postal Code.
+          maxLength: 100
+          minLength: 0
+          type: string
+        state:
+          description: State.
+          maxLength: 40
+          minLength: 0
+          type: string
+        country:
+          description: Country.
+          maxLength: 40
+          minLength: 0
+          type: string
+        phoneNumber:
+          description: Phone Number.
+          maxLength: 40
+          minLength: 0
+          type: string
+        message:
+          description: Message.
+          maxLength: 100
+          minLength: 0
+          type: string
+      type: object
+    membershipNumber:
+      description: Request object for generating membership number.
+      properties:
+        generateMembershipNumberCriteria:
+          $ref: '#/components/schemas/generateMembershipNumberCriteriaType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    generateMembershipNumberCriteriaType:
+      description: Auto generate membership number criteria.
+      properties:
+        membershipType:
+          description: Indicates the Membership Type where membership number to be
+            generated will be based on.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    status:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    memberInformation:
+      description: Response object for member info.
+      properties:
+        memberInfo:
+          $ref: '#/components/schemas/memberInfoRSType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    memberInfoRSType:
+      properties:
+        memberInfoDetails:
+          $ref: '#/components/schemas/memberInfoDetailsType'
+        memberInfoRangeDetails:
+          $ref: '#/components/schemas/memberInfoDetailsType'
+        nextTierPoints:
+          description: Points required for next tier of membership.
+          type: integer
+        pointsAvailable:
+          description: Points available for the member.
+          type: integer
+      type: object
+    memberInfoDetailsType:
+      properties:
+        guestTotalNights:
+          description: Total nights of the guest.
+          type: integer
+        guestTotalStay:
+          description: STotal stays of the guest.
+          type: integer
+        tierBaseNights:
+          description: Tier Base Nights Points.
+          type: integer
+        tierBaseRevenue:
+          description: Tier Base Revenue Points.
+          type: number
+        tierBaseStay:
+          description: Tier Base Stay Points.
+          type: integer
+        tierBonusNights:
+          description: Tier Bonus Nights Points.
+          type: integer
+        tierBonusRevenue:
+          description: Tier Bonus Revenue Points.
+          type: number
+        tierBonusStay:
+          description: Tier Bonus Stay Points.
+          type: integer
+        membershipTotalNights:
+          description: Total Nights of the membership.
+          type: integer
+        membershipTotalStay:
+          description: Total Stay of the membership.
+          type: integer
+        awardBasePoints:
+          description: Total base points of the award.
+          type: integer
+        awardBonusPoints:
+          description: Total bonus points of the award.
+          type: integer
+        awardMiscPoints:
+          description: Total miscellaneous points of the award.
+          type: integer
+        totalAwardPoints:
+          description: Total points of the award.
+          type: integer
+      type: object
+    warningsType:
+      description: Used in conjunction with the Success element to define a business
+        error.
+      items:
+        $ref: '#/components/schemas/warningType'
+      maxItems: 4000
+      type: array
+    warningType:
+      description: Used when a message has been successfully processed to report any
+        warnings or business errors that occurred.
+      properties:
+        value:
+          description: Property Value
+          type: string
+        shortText:
+          description: An abbreviated version of the error in textual format.
+          maxLength: 2000
+          type: string
+        code:
+          description: "If present, this refers to a table of coded values exchanged\
+            \ between applications to identify errors or warnings."
+          maxLength: 20
+          minLength: 0
+          type: string
+        docURL:
+          description: "If present, this URL refers to an online description of the\
+            \ error that occurred."
+          maxLength: 2000
+          type: string
+        status:
+          description: "If present, recommended values are those enumerated in the\
+            \ ErrorRS, (NotProcessed Incomplete Complete Unknown) however, the data\
+            \ type is designated as string data, recognizing that trading partners\
+            \ may identify additional status conditions not included in the enumeration."
+          maxLength: 2000
+          type: string
+        tag:
+          description: "If present, this attribute may identify an unknown or misspelled\
+            \ tag that caused an error in processing. It is recommended that the Tag\
+            \ attribute use XPath notation to identify the location of a tag in the\
+            \ event that more than one tag of the same name is present in the document.\
+            \ Alternatively, the tag name alone can be used to identify missing data\
+            \ [Type=ReqFieldMissing]."
+          maxLength: 2000
+          type: string
+        recordId:
+          description: "If present, this attribute allows for batch processing and\
+            \ the identification of the record that failed amongst a group of records.\
+            \ This value may contain a concatenation of a unique failed transaction\
+            \ ID with specific record(s) associated with that transaction."
+          maxLength: 2000
+          type: string
+        type:
+          description: The Warning element MUST contain the Type attribute that uses
+            a recommended set of values to indicate the warning type. The validating
+            XSD can expect to accept values that it has NOT been explicitly coded
+            for and process them by using Type ="Unknown".
+          maxLength: 20
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        rph:
+          description: Reference Place Holder used as an index for this warning.
+          maxLength: 8
+          minLength: 1
+          type: string
+      type: object
+    addressValidationsType:
+      description: A collection of validated Addresses.
+      items:
+        $ref: '#/components/schemas/addressValidationInfoType'
+      maxItems: 4000
+      type: array
+    addressValidationInfoType:
+      properties:
+        addressText:
+          description: The suggestion that should be presented to the user as a possible
+            match to their input.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        externalAddressId:
+          description: The ID of the address recieved as part of an address search
+            validation.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        addressType:
+          description: If the Type is 'Address' then the Id can be passed to the Retrieve
+            service. Any other Id should be passed as the Container to a further Find
+            request to get more results.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    validateMembershipNumber:
+      description: Response object for fetching offers from external system.
+      properties:
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    validatedAddresses:
+      description: Response object for fetching Addresses from external system.
+      properties:
+        addressValidationsInfo:
+          description: A collection of validated Addresses.
+          items:
+            $ref: '#/components/schemas/addressValidationInfoType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    validatedAddress:
+      description: Response object for fetching full address based on ID from external
+        system.
+      properties:
+        addressValidationInfo:
+          $ref: '#/components/schemas/addressType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    postEnrollment_request:
+      allOf:
+      - $ref: '#/components/schemas/enrollment'
+    postMembershipNumber_request:
+      allOf:
+      - $ref: '#/components/schemas/membershipNumber'
+    redeemAward_request:
+      allOf:
+      - $ref: '#/components/schemas/award'
+    profileType_addresses:
+      description: List of customer addresses.
+      properties:
+        addressInfo:
+          description: Collection of Detailed information on an address for the customer.
+          items:
+            $ref: '#/components/schemas/addressInfoType'
+          maxItems: 4000
+          type: array
+        totalRows:
+          description: Total number of rows queried
+          type: integer
+      type: object
+    profileType_telephones:
+      description: List of Telephone Number Information
+      properties:
+        telephoneInfo:
+          description: Collection of Detailed information on telephone/fax for the
+            customer.
+          items:
+            $ref: '#/components/schemas/telephoneInfoType'
+          maxItems: 4000
+          type: array
+        totalRows:
+          description: Total number of rows queried
+          type: integer
+      type: object
+    profileType_emails:
+      description: List of email address for the customer.
+      properties:
+        emailInfo:
+          description: Collection of Detailed information on an eMail address for
+            the customer.
+          items:
+            $ref: '#/components/schemas/emailInfoType'
+          maxItems: 4000
+          type: array
+        totalRows:
+          description: Total number of rows queried
+          type: integer
+      type: object
+    profileType_comments:
+      description: List of Notes for the customer.
+      properties:
+        commentInfo:
+          description: Collection of Detailed information on comments for the customer.
+          items:
+            $ref: '#/components/schemas/commentInfoType'
+          maxItems: 4000
+          type: array
+        allRowsFetched:
+          description: Indicates whether all the records are included in the response
+            or not. Absence of the attribute values should be consider as all rows
+            fetched in the response.
+          type: boolean
+        totalRows:
+          description: Total number of rows queried
+          type: integer
+      type: object
+    profileType_profileMemberships:
+      description: List of loyalty program(s) the profile is subscribed to.
+      properties:
+        profileMembership:
+          description: Collection of Detailed information on memberships for the customer.
+          items:
+            $ref: '#/components/schemas/profileMembershipType'
+          maxItems: 4000
+          type: array
+        totalRows:
+          description: Total number of rows queried
+          type: integer
+      type: object
+    profileType_preferenceCollection:
+      description: List of customer preferences.
+      properties:
+        preferenceType:
+          description: Collection of Detailed information on preferences of the customer.
+          items:
+            $ref: '#/components/schemas/preferenceTypeType'
+          maxItems: 4000
+          type: array
+        totalRows:
+          description: Total number of rows queried
+          type: integer
+      type: object
+    profileType_keywords:
+      description: List of customer keywords.
+      properties:
+        keyword:
+          description: Collection of keywords attached to the profile.
+          items:
+            $ref: '#/components/schemas/keywordType'
+          maxItems: 4000
+          type: array
+        allRowsFetched:
+          description: Indicates whether all the records are included in the response
+            or not. Absence of the attribute values should be consider as all rows
+            fetched in the response.
+          type: boolean
+        totalRows:
+          description: Total number of rows queried
+          type: integer
+      type: object
+    customerType_identifications:
+      description: List of identification of the customer.
+      properties:
+        identificationInfo:
+          description: Collection of detailed information on the identification of
+            the customer.
+          items:
+            $ref: '#/components/schemas/identificationInfoType'
+          maxItems: 4000
+          type: array
+        allRowsFetched:
+          description: Indicates whether all the records are included in the response
+            or not. Absence of the attribute values should be consider as all rows
+            fetched in the response.
+          type: boolean
+        totalRows:
+          description: Total number of rows queried
+          type: integer
+      type: object
+    externalProfileSummaryType_formerName:
+      description: This provides name information for a person.
+      properties:
+        name:
+          description: "Family name, last name or Company Name."
+          maxLength: 40
+          minLength: 0
+          type: string
+        fullName:
+          description: Full display Name.
+          maxLength: 200
+          minLength: 0
+          type: string
+        namePrefix:
+          description: "Salutation of honorific (e.g. Mr., Mrs., Ms., Miss, Dr.)"
+          maxLength: 40
+          minLength: 0
+          type: string
+        givenName:
+          description: "Given name, first name or names."
+          maxLength: 40
+          minLength: 0
+          type: string
+        middleName:
+          description: The middle name of the person name.
+          maxLength: 40
+          minLength: 0
+          type: string
+        nameSuffix:
+          description: "Hold various name suffixes and letters (e.g. Jr., Sr., III,\
+            \ Ret., Esq.)"
+          maxLength: 40
+          minLength: 0
+          type: string
+        nameTitle:
+          description: "Degree or honors (e.g., Ph.D., M.D.)"
+          maxLength: 80
+          minLength: 0
+          type: string
+        nameType:
+          $ref: '#/components/schemas/personNameTypeType'
+        gender:
+          description: Identifies the profile gender code selected from Gender types
+            List of values. Gender types LOV provides the values configured at gender
+            configuration.
+          maxLength: 20
+          minLength: 0
+          type: string
+        birthDate:
+          description: "Indicates the date of birth as indicated in the document,\
+            \ in ISO 8601 prescribed format."
+          format: date
+          type: string
+        birthDateMasked:
+          description: Indicates the date of birth as masked.
+          maxLength: 2000
+          type: string
+        currencyCode:
+          description: "The code specifying a monetary unit. Use ISO 4217, three alpha\
+            \ code."
+          maxLength: 20
+          minLength: 0
+          type: string
+        currencySymbol:
+          description: "The symbol for the currency, e.g, for currencyCode USD the\
+            \ symbol is $."
+          maxLength: 10
+          minLength: 0
+          type: string
+        decimalPlaces:
+          description: "Indicates the number of decimal places for a particular currency.\
+            \ This is equivalent to the ISO 4217 standard \"minor unit\". Typically\
+            \ used when the amount provided includes the minor unit of currency without\
+            \ a decimal point (e.g., USD 8500 needs DecimalPlaces=\"2\" to represent\
+            \ $85)."
+          type: integer
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        customerValue:
+          description: "The supplier's ranking of the customer (e.g., VIP, numerical\
+            \ ranking)."
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    profileEnrollmentType_addresses:
+      description: List of customer addresses.
+      properties:
+        addressInfo:
+          description: Collection of Detailed information on an address for the customer.
+          items:
+            $ref: '#/components/schemas/addressInfoType'
+          maxItems: 4000
+          type: array
+        allRowsFetched:
+          description: Indicates whether all the records are included in the response
+            or not. Absence of the attribute values should be consider as all rows
+            fetched in the response.
+          type: boolean
+        totalRows:
+          description: Total number of rows queried
+          type: integer
+      type: object
+    profileEnrollmentType_telephones:
+      description: List of Telephone Number Information
+      properties:
+        telephoneInfo:
+          description: Collection of Detailed information on telephone/fax for the
+            customer.
+          items:
+            $ref: '#/components/schemas/telephoneInfoType'
+          maxItems: 4000
+          type: array
+        allRowsFetched:
+          description: Indicates whether all the records are included in the response
+            or not. Absence of the attribute values should be consider as all rows
+            fetched in the response.
+          type: boolean
+        totalRows:
+          description: Total number of rows queried
+          type: integer
+      type: object
+    profileEnrollmentType_emails:
+      description: List of email address for the customer.
+      properties:
+        emailInfo:
+          description: Collection of Detailed information on an eMail address for
+            the customer.
+          items:
+            $ref: '#/components/schemas/emailInfoType'
+          maxItems: 4000
+          type: array
+        allRowsFetched:
+          description: Indicates whether all the records are included in the response
+            or not. Absence of the attribute values should be consider as all rows
+            fetched in the response.
+          type: boolean
+        totalRows:
+          description: Total number of rows queried
+          type: integer
+      type: object
+    profileEnrollmentType_urls:
+      description: List of Information on a URL for the customer.
+      properties:
+        urlInfo:
+          description: Collection of Detailed information on web url/address for the
+            customer.
+          items:
+            $ref: '#/components/schemas/uRLInfoType'
+          maxItems: 4000
+          type: array
+        allRowsFetched:
+          description: Indicates whether all the records are included in the response
+            or not. Absence of the attribute values should be consider as all rows
+            fetched in the response.
+          type: boolean
+        totalRows:
+          description: Total number of rows queried
+          type: integer
+      type: object
+    profileEnrollmentType_profileMemberships:
+      description: List of loyalty program(s) the profile is subscribed to.
+      properties:
+        profileMembership:
+          description: Collection of Detailed information on memberships for the customer.
+          items:
+            $ref: '#/components/schemas/profileMembershipType'
+          maxItems: 4000
+          type: array
+        allRowsFetched:
+          description: Indicates whether all the records are included in the response
+            or not. Absence of the attribute values should be consider as all rows
+            fetched in the response.
+          type: boolean
+        totalRows:
+          description: Total number of rows queried
+          type: integer
+      type: object
+x-original-swagger-version: "2.0"

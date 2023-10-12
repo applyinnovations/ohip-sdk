@@ -1,0 +1,82 @@
+# RotationGroups
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**RotationGroups** | Pointer to [**[]RotationGroupType**](RotationGroupType.md) | Defines collection of Room Rotation Groups. | [optional] 
+**Warnings** | Pointer to [**[]WarningType**](WarningType.md) | Used in conjunction with the Success element to define a business error. | [optional] 
+
+## Methods
+
+### NewRotationGroups
+
+`func NewRotationGroups() *RotationGroups`
+
+NewRotationGroups instantiates a new RotationGroups object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewRotationGroupsWithDefaults
+
+`func NewRotationGroupsWithDefaults() *RotationGroups`
+
+NewRotationGroupsWithDefaults instantiates a new RotationGroups object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetRotationGroups
+
+`func (o *RotationGroups) GetRotationGroups() []RotationGroupType`
+
+GetRotationGroups returns the RotationGroups field if non-nil, zero value otherwise.
+
+### GetRotationGroupsOk
+
+`func (o *RotationGroups) GetRotationGroupsOk() (*[]RotationGroupType, bool)`
+
+GetRotationGroupsOk returns a tuple with the RotationGroups field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRotationGroups
+
+`func (o *RotationGroups) SetRotationGroups(v []RotationGroupType)`
+
+SetRotationGroups sets RotationGroups field to given value.
+
+### HasRotationGroups
+
+`func (o *RotationGroups) HasRotationGroups() bool`
+
+HasRotationGroups returns a boolean if a field has been set.
+
+### GetWarnings
+
+`func (o *RotationGroups) GetWarnings() []WarningType`
+
+GetWarnings returns the Warnings field if non-nil, zero value otherwise.
+
+### GetWarningsOk
+
+`func (o *RotationGroups) GetWarningsOk() (*[]WarningType, bool)`
+
+GetWarningsOk returns a tuple with the Warnings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWarnings
+
+`func (o *RotationGroups) SetWarnings(v []WarningType)`
+
+SetWarnings sets Warnings field to given value.
+
+### HasWarnings
+
+`func (o *RotationGroups) HasWarnings() bool`
+
+HasWarnings returns a boolean if a field has been set.
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

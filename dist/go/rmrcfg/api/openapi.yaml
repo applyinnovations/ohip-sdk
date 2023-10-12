@@ -1,0 +1,4937 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hospitality_apis_ww_grp@oracle.com
+  description: "APIs to cater for Room Rotation Configuration functionality in OPERA\
+    \ Cloud. Api provides capability to handle Room Rotation in OPERA Cloud. Room\
+    \ Rotation provides room ownership options for automatic inventory rotation and\
+    \ prioritization for owner rooms assignment and occupancy.<br /><br /> Compatible\
+    \ with OPERA Cloud release 22.3.<br /><br /><p> This document and all content\
+    \ within is available under the Universal Permissive License v 1.0 (https://oss.oracle.com/licenses/upl).\
+    \ Copyright (c) 2020, 2023 Oracle and/or its affiliates.</p>"
+  license:
+    name: UPL
+    url: https://opensource.org/licenses/upl
+  termsOfService: https://www.oracle.com/legal/terms.html
+  title: OPERA Cloud Room Rotation Configuration Service API
+  version: "22.3"
+externalDocs:
+  description: Find out more about Oracle Hospitality
+  url: https://docs.oracle.com/en/industries/hospitality/integration_platforms.html
+servers:
+- url: /rmr/config/v1
+tags:
+- description: "The REST APIs allow you to perform all actions related to Room Rotation\
+    \ from configuring point calculations for owner rooms, adjustment options for\
+    \ room prioritization and automatic assignment based on owner room utilization."
+  name: RoomRotationConfig
+paths:
+  /adjustmentReasons:
+    get:
+      description: Use this API to get Room Rotation Adjustment Reasons. <p><strong>OperationId:</strong>getAdjustmentReasons</p>
+      operationId: getAdjustmentReasons
+      parameters:
+      - description: Determines wether to fetch inactive records or not.
+        in: query
+        name: fetchInactive
+        schema:
+          type: boolean
+      - description: Codes to be searched.
+        explode: true
+        in: query
+        name: code
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Wildcard search on the code.
+        in: query
+        name: wildCard
+        schema:
+          type: string
+      - description: Description of the code.
+        in: query
+        name: description
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FetchAdjustmentReasonsDetails'
+          description: Response object for fetching Room Rotation Adjustment Reasons.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: AdjustmentReasons not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get Room Rotation Adjustment Reasons
+      tags:
+      - RoomRotationConfig
+    post:
+      description: Use this API to post Room Rotation Adjustment Reasons. <p><strong>OperationId:</strong>postAdjustmentReasons</p>
+      operationId: postAdjustmentReasons
+      parameters:
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postAdjustmentReasons_request'
+        description: Request object for creating a new Room Rotation Adjustment Reason.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Post Room Rotation Adjustment Reasons
+      tags:
+      - RoomRotationConfig
+      x-codegen-request-body-name: CreateAdjustmentReasonsDetails
+  /adjustmentReasons/{adjustmentReasonsId}:
+    delete:
+      description: Use this API to update Room Rotation Adjustment Reasons. <p><strong>OperationId:</strong>deleteAdjustmentReasons</p>
+      operationId: deleteAdjustmentReasons
+      parameters:
+      - description: Unique ID of Room Rotation Adjustment Reason
+        in: path
+        name: adjustmentReasonsId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - explode: true
+        in: query
+        name: code
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Delete Room Rotation Adjustment Reasons
+      tags:
+      - RoomRotationConfig
+    put:
+      description: Use this API to update Room Rotation Adjustment Reasons. <p><strong>OperationId:</strong>putAdjustmentReasons</p>
+      operationId: putAdjustmentReasons
+      parameters:
+      - description: Unique ID of Room Rotation Adjustment Reason
+        in: path
+        name: adjustmentReasonsId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/putAdjustmentReasons_request'
+        description: Request object for changing an existing Room Rotation Adjustment
+          Reasons.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/AdjustmentReasonsDetailsUpdated'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Update Room Rotation Adjustment Reasons
+      tags:
+      - RoomRotationConfig
+      x-codegen-request-body-name: ChangeAdjustmentReasonsDetails
+  /hotels/{hotelId}/RoomOwner/{RoomOwnerId}:
+    delete:
+      description: Use this API to delete Room Owner. <p><strong>OperationId:</strong>deleteRoomOwner</p>
+      operationId: deleteRoomOwner
+      parameters:
+      - description: Unique Room Owner Code.
+        in: path
+        name: RoomOwnerId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Delete Room Owner
+      tags:
+      - RoomRotationConfig
+    put:
+      description: Use this API to update Room Owner. <p><strong>OperationId:</strong>putRoomOwner</p>
+      operationId: putRoomOwner
+      parameters:
+      - description: Contract ID of the room owner record.
+        in: path
+        name: RoomOwnerId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/putRoomOwner_request'
+        description: Request object for changing room owner.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Change Room Owner
+      tags:
+      - RoomRotationConfig
+      x-codegen-request-body-name: changeRoomOwnerDetails
+  /hotels/{hotelId}/revenueTransactionCodes:
+    get:
+      description: Use this API to retrieve all existing Room Rotation Revenue Transaction
+        Codes. <p><strong>OperationId:</strong>getRevenueTransactionCodes</p>
+      operationId: getRevenueTransactionCodes
+      parameters:
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: "Indicate to retrieve transaction codes that are marked as Rotation\
+          \ Revenue transaction codes. If this value is omitted, all transaction codes\
+          \ will be returned for the given property."
+        in: query
+        name: rotationRevenue
+        schema:
+          type: boolean
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FetchRevenueTransactionCodesDetails'
+          description: Response object for retrieving revenue transaction codes for
+            a given property
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: RevenueTransactionCodes not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Retrieve all Room Rotation Revenue Transaction Codes
+      tags:
+      - RoomRotationConfig
+    put:
+      description: Use this API to update the room rotation revenue status of a set
+        of transaction codes. <p><strong>OperationId:</strong>putRevenueTransactionCodes</p>
+      operationId: putRevenueTransactionCodes
+      parameters:
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/putRevenueTransactionCodes_request'
+        description: Request object for updating the rotation revenue status of a
+          transaction code for a given property.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ChangeRevenueTransactionCodesDetails'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Update the room rotation revenue status of a set of transaction codes
+      tags:
+      - RoomRotationConfig
+      x-codegen-request-body-name: ChangeRevenueTransactionCodesCriteria
+  /hotels/{hotelId}/roomOwner:
+    post:
+      description: Use this API to create Room Owner. <p><strong>OperationId:</strong>postRoomOwner</p>
+      operationId: postRoomOwner
+      parameters:
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postRoomOwner_request'
+        description: Request object for creating room owner.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Create Room Owner
+      tags:
+      - RoomRotationConfig
+      x-codegen-request-body-name: createRoomOwnerDetails
+  /hotels/{hotelId}/rotationGroups:
+    post:
+      description: Use this API to create Room Rotation Groups. <p><strong>OperationId:</strong>postRotationGroups</p>
+      operationId: postRotationGroups
+      parameters:
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postRotationGroups_request'
+        description: Request object for creating room rotation groups.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Create Room Rotation Groups
+      tags:
+      - RoomRotationConfig
+      x-codegen-request-body-name: rotationGroups
+  /hotels/{hotelId}/rotationGroups/{rotationGroupsId}:
+    delete:
+      description: Use this API to delete Room Rotation Group. <p><strong>OperationId:</strong>deleteRotationGroups</p>
+      operationId: deleteRotationGroups
+      parameters:
+      - description: Unique Rotation Group Code.
+        in: path
+        name: rotationGroupsId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Delete Room Rotation Groups
+      tags:
+      - RoomRotationConfig
+    put:
+      description: Use this API to update Room Rotation Group. <p><strong>OperationId:</strong>putRotationGroups</p>
+      operationId: putRotationGroups
+      parameters:
+      - description: Unique Rotation Group Code.
+        in: path
+        name: rotationGroupsId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postRotationGroups_request'
+        description: Request object for changing room rotation groups.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Change Room Rotation Groups
+      tags:
+      - RoomRotationConfig
+      x-codegen-request-body-name: rotationGroups
+  /hotels/{hotelId}/rotationPeriod:
+    get:
+      description: Use this API to fetch Room Rotation Period based on criteria. <p><strong>OperationId:</strong>getRotationPeriod</p>
+      operationId: getRotationPeriod
+      parameters:
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FetchRotationPeriodResponse'
+          description: Response Object for Fetch Rotation Period
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: RotationPeriod not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Fetch Room Rotation Period
+      tags:
+      - RoomRotationConfig
+    put:
+      description: Use this API to change Room Rotation Period. <p><strong>OperationId:</strong>putRotationPeriod</p>
+      operationId: putRotationPeriod
+      parameters:
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/putRotationPeriod_request'
+        description: Request Object for changing Rotation Period
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ChangeRotationPeriodDetails'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Change Room Rotation Period
+      tags:
+      - RoomRotationConfig
+      x-codegen-request-body-name: rotationPeriod
+  /hotels/{hotelId}/rules:
+    get:
+      description: Use this API to retrieve all existing Room Rotation Rules based
+        on criteria. <p><strong>OperationId:</strong>getRotationRules</p>
+      operationId: getRotationRules
+      parameters:
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Indicates maximum number of records a Web Service should return.
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: Index or initial index of the set(page) being requested. If the
+          index goes out of the bounds of the total set count then no data will be
+          returned.
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: Simple type for Rotation Rule Setup.
+        in: query
+        name: setupType
+        schema:
+          enum:
+          - Points
+          - OwnerMultiplier
+          - RoomStatusMultiplier
+          type: string
+      - description: "If set to True, only Inactive Rotation Rules will be retrieved.\
+          \ Otherwise, only Active Rotation Rules will be retrieved."
+        in: query
+        name: inactiveRules
+        schema:
+          type: boolean
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FetchRotationRulesResponse'
+          description: Response object for retrieving rotation rules for a given property
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: RotationRules not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Retrieve all Room Rotation Rules
+      tags:
+      - RoomRotationConfig
+    post:
+      description: Use this API to create Room Rotation Rules. <p><strong>OperationId:</strong>postRotationRules</p>
+      operationId: postRotationRules
+      parameters:
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postRotationRules_request'
+        description: Request object for creating Rotation Rules for a given property
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Create Room Rotation Rules
+      tags:
+      - RoomRotationConfig
+      x-codegen-request-body-name: rotationRules
+  /hotels/{hotelId}/rules/{ruleId}:
+    delete:
+      description: Use this API to delete an existing Room Rotation Rule. <p><strong>OperationId:</strong>deleteRotationRules</p>
+      operationId: deleteRotationRules
+      parameters:
+      - description: Unique ID of Rotation Rule.
+        in: path
+        name: ruleId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Delete an existing Room Rotation Rule
+      tags:
+      - RoomRotationConfig
+    put:
+      description: Use this API to update Room Rotation Rule. <p><strong>OperationId:</strong>putRotationRules</p>
+      operationId: putRotationRules
+      parameters:
+      - description: Unique Rotation Group Code.
+        in: path
+        name: ruleId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postRotationRules_request'
+        description: Request object for changing room rotation rules.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Change Room Rotation Rules
+      tags:
+      - RoomRotationConfig
+      x-codegen-request-body-name: rotationRules
+  /hotels/{hotelId}/unitGrades:
+    get:
+      description: Use this API to get Room Rotation Unit Grades. <p><strong>OperationId:</strong>getUnitGrades</p>
+      operationId: getUnitGrades
+      parameters:
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Determines wether to fetch inactive records or not.
+        in: query
+        name: fetchInactive
+        schema:
+          type: boolean
+      - description: Codes to be searched.
+        explode: true
+        in: query
+        name: code
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Wildcard search on the code.
+        in: query
+        name: wildCard
+        schema:
+          type: string
+      - description: Description of the code.
+        in: query
+        name: description
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FetchUnitGradesDetails'
+          description: Response object for fetching Room Rotation Unit Grades.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: UnitGrades not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get Room Rotation Unit Grades
+      tags:
+      - RoomRotationConfig
+    post:
+      description: Use this API to create a new Room Rotation Unit Grade. <p><strong>OperationId:</strong>postUnitGrades</p>
+      operationId: postUnitGrades
+      parameters:
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postUnitGrades_request'
+        description: Request object for creating a new Room Rotation Unit Grade.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Create a new Room Rotation Unit Grade
+      tags:
+      - RoomRotationConfig
+      x-codegen-request-body-name: CreateUnitGradesDetails
+  /hotels/{hotelId}/unitGrades/{unitGradeCode}:
+    delete:
+      description: Use this API to delete an existing Room Rotation Unit Grade. <p><strong>OperationId:</strong>deleteUnitGrades</p>
+      operationId: deleteUnitGrades
+      parameters:
+      - description: Unique Code of Unit Grade.
+        in: path
+        name: unitGradeCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Configuration code.
+        explode: true
+        in: query
+        name: code
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Delete an existing Room Rotation Unit Grade
+      tags:
+      - RoomRotationConfig
+    put:
+      description: Use this API to update Room Rotation Unit Grades. <p><strong>OperationId:</strong>putUnitGrades</p>
+      operationId: putUnitGrades
+      parameters:
+      - description: Unique Code of Unit Grade.
+        in: path
+        name: unitGradeCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/putUnitGrades_request'
+        description: Request object for changing an existing Room Rotation Unit Grades.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/UnitGradesDetailsUpdated'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Change an existing Room Rotation Unit Grade
+      tags:
+      - RoomRotationConfig
+      x-codegen-request-body-name: ChangeUnitGradesDetails
+  /overrideReasons:
+    get:
+      description: Use this API to get Room Rotation Override Reasons. <p><strong>OperationId:</strong>getOverrideReasons</p>
+      operationId: getOverrideReasons
+      parameters:
+      - description: Determines wether to fetch inactive records or not.
+        in: query
+        name: fetchInactive
+        schema:
+          type: boolean
+      - description: Codes to be searched.
+        explode: true
+        in: query
+        name: code
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Wildcard search on the code.
+        in: query
+        name: wildCard
+        schema:
+          type: string
+      - description: Description of the code.
+        in: query
+        name: description
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/overrideReasonsDetails'
+          description: Response object for fetching Room Rotation Override Reasons.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: OverrideReasons not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get Room Rotation Override Reasons
+      tags:
+      - RoomRotationConfig
+    post:
+      description: Use this API to create a new Room Rotation Override Reason. <p><strong>OperationId:</strong>postOverrideReasons</p>
+      operationId: postOverrideReasons
+      parameters:
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postOverrideReasons_request'
+        description: Request object for creating a new Room Rotation Override Reason.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Create a new Room Rotation Override Reason
+      tags:
+      - RoomRotationConfig
+      x-codegen-request-body-name: overrideReasonsCriteria
+  /overrideReasons/{overrideReasonsId}:
+    delete:
+      description: Use this API to delete an existing Room Rotation Override Reason.
+        <p><strong>OperationId:</strong>deleteOverrideReasons</p>
+      operationId: deleteOverrideReasons
+      parameters:
+      - description: Unique ID of Room Rotation Override Reason
+        in: path
+        name: overrideReasonsId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - explode: true
+        in: query
+        name: code
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Delete an existing Room Rotation Override Reason
+      tags:
+      - RoomRotationConfig
+    put:
+      description: Use this API to update an existing Room Rotation Override Reason.
+        <p><strong>OperationId:</strong>putOverrideReasons</p>
+      operationId: putOverrideReasons
+      parameters:
+      - description: Unique ID of Room Rotation Override Reason
+        in: path
+        name: overrideReasonsId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/putOverrideReasons_request'
+        description: Request object for changing an existing Room Rotation Override
+          Reason.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Change an existing Room Rotation Override Reason
+      tags:
+      - RoomRotationConfig
+      x-codegen-request-body-name: overrideReasonsToBeChanged
+  /rotationGroups:
+    get:
+      description: Use this API to get Room Rotation Groups. <p><strong>OperationId:</strong>getRotationGroups</p>
+      operationId: getRotationGroups
+      parameters:
+      - explode: true
+        in: query
+        name: hotelId
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: code
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Specifies description criteria.
+        in: query
+        name: description
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/rotationGroupsResult'
+          description: Response object for fetching room rotation groups.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: RotationGroups not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get Room Rotation Groups
+      tags:
+      - RoomRotationConfig
+  /services/roomrotation/cache:
+    delete:
+      description: This API facilitates clearing of cache in room rotation service
+        <p><strong>OperationId:</strong>deleteRoomRotationConfigServiceCache</p>
+      operationId: deleteRoomRotationConfigServiceCache
+      parameters:
+      - description: Request object for cleaning WS cache input type
+        in: query
+        name: operaClearInput
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Clear Cache
+      tags:
+      - RoomRotationConfig
+  /services/roomrotation/status:
+    get:
+      description: This API facilitates status check of room rotation service <p><strong>OperationId:</strong>pingRoomRotationConfigService</p>
+      operationId: pingRoomRotationConfigService
+      parameters:
+      - description: Opera Ping request input type
+        in: query
+        name: operaPingInput
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/pingDetail'
+          description: Response for Ping operation.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: pingRoomRotationConfigService not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Ping
+      tags:
+      - RoomRotationConfig
+components:
+  parameters:
+    authKey:
+      description: Bearer token that needs to be passed which is generated post user
+        authentication
+      in: header
+      name: authorization
+      required: true
+      schema:
+        type: string
+    x-app-key:
+      description: Client or Partner’s Application Key
+      in: header
+      name: x-app-key
+      required: true
+      schema:
+        pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+        type: string
+    x-hotelid:
+      description: Mandatory parameter to identify the hotel code where the end user
+        is logged in
+      in: header
+      name: x-hotelid
+      required: true
+      schema:
+        type: string
+    x-externalsystem:
+      description: External system code.
+      example: EXTERNALSYSTEMCODE
+      in: header
+      name: x-externalsystem
+      schema:
+        maxLength: 80
+        type: string
+    Accept-Language:
+      description: Language code
+      in: header
+      name: Accept-Language
+      schema:
+        type: string
+    x-hubid:
+      description: x-hubid is a logical grouping of multiple properties that allows
+        api consumers to manage data from a group of properties. This x-hubid is a
+        valid list of hub codes configured in OPERA to which the user has access.
+        Rest APIs without hotelId in the operation path can support hub level integration
+        using x-hubid
+      in: header
+      name: x-hubid
+      schema:
+        type: string
+  responses:
+    "400":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Bad Request
+    "401":
+      content: {}
+      description: Unauthorized
+    "403":
+      content: {}
+      description: Forbidden
+    "404":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Resource not found
+    "405":
+      content: {}
+      description: Method not allowed
+    "406":
+      content: {}
+      description: Not acceptable.
+    "413":
+      content: {}
+      description: Request Entity Too Large
+    "414":
+      content: {}
+      description: Request URI Too Large
+    "415":
+      content: {}
+      description: Unsupported Media Type
+    "500":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: System Error
+    "502":
+      content: {}
+      description: Bad Gateway
+    "503":
+      content: {}
+      description: Service Unavailable
+  schemas:
+    FetchAdjustmentReasonsDetails:
+      description: Response object for creating Room Rotation Adjustment Reasons.
+      properties:
+        adjustmentReasons:
+          description: Room Rotation Adjustment Reason Enumeration element.
+          items:
+            $ref: '#/components/schemas/roomRotationAdjustmentReasonType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    roomRotationAdjustmentReasonsType:
+      description: Room Rotation Adjustment Reason Enumeration element.
+      items:
+        $ref: '#/components/schemas/roomRotationAdjustmentReasonType'
+      maxItems: 4000
+      type: array
+    roomRotationAdjustmentReasonType:
+      description: Contains Common Master configuration detail.
+      properties:
+        code:
+          description: Common Master unique code.
+          maxLength: 40
+          minLength: 0
+          type: string
+        description:
+          $ref: '#/components/schemas/translationTextType2000'
+        displayOrder:
+          description: Common Master record sequence number.
+          type: number
+      type: object
+    translationTextType2000:
+      description: Contains Multiple translated texts and language codes.
+      properties:
+        defaultText:
+          description: Default text with Character length from 0 to 2000.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        translatedTexts:
+          description: Language code for the translation.
+          items:
+            $ref: '#/components/schemas/translationsTextType_inner'
+          maxItems: 4000
+          type: array
+      type: object
+    translationsTextType:
+      description: Language code for the translation.
+      items:
+        $ref: '#/components/schemas/translationsTextType_inner'
+      maxItems: 4000
+      type: array
+    links:
+      items:
+        $ref: '#/components/schemas/instanceLink'
+      type: array
+    instanceLink:
+      description: Metadata describing link description objects that MAY appear in
+        the JSON instance representation.
+      properties:
+        href:
+          description: "URI [RFC3986] or URI Template [RFC6570]. If the value is set\
+            \ to URI Template, then the \"templated\" property must be set to true."
+          type: string
+        rel:
+          description: "Name of the link relation that, in addition to the type property,\
+            \ can be used to retrieve link details. For example, href or profile."
+          type: string
+        templated:
+          default: false
+          description: "Boolean flag that specifies that \"href\" property is a URI\
+            \ or URI Template. If the property is a URI template, set this value to\
+            \ true. By default, this value is false."
+          type: boolean
+        method:
+          description: HTTP method for requesting the target of the link.
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          - OPTIONS
+          - HEAD
+          type: string
+        targetSchema:
+          description: "Link to the metadata of the resource, such as JSON-schema,\
+            \ that describes the resource expected when dereferencing the target resource.."
+          type: string
+        operationId:
+          description: "The operationId of the path you can call to follow this link.\
+            \  This allows you to look up not only the path and method, but the description\
+            \ of that path and any parameters you need to supply."
+          type: string
+        title:
+          description: Exact copy of the "summary" field on the linked operation.
+          type: string
+      required:
+      - href
+      - method
+      - operationId
+      - rel
+      type: object
+    warningsType:
+      description: Used in conjunction with the Success element to define a business
+        error.
+      items:
+        $ref: '#/components/schemas/warningType'
+      maxItems: 4000
+      type: array
+    warningType:
+      description: Used when a message has been successfully processed to report any
+        warnings or business errors that occurred.
+      properties:
+        value:
+          description: Property Value
+          type: string
+        shortText:
+          description: An abbreviated version of the error in textual format.
+          maxLength: 2000
+          type: string
+        code:
+          description: "If present, this refers to a table of coded values exchanged\
+            \ between applications to identify errors or warnings."
+          maxLength: 20
+          minLength: 0
+          type: string
+        docURL:
+          description: "If present, this URL refers to an online description of the\
+            \ error that occurred."
+          maxLength: 2000
+          type: string
+        status:
+          description: "If present, recommended values are those enumerated in the\
+            \ ErrorRS, (NotProcessed Incomplete Complete Unknown) however, the data\
+            \ type is designated as string data, recognizing that trading partners\
+            \ may identify additional status conditions not included in the enumeration."
+          maxLength: 2000
+          type: string
+        tag:
+          description: "If present, this attribute may identify an unknown or misspelled\
+            \ tag that caused an error in processing. It is recommended that the Tag\
+            \ attribute use XPath notation to identify the location of a tag in the\
+            \ event that more than one tag of the same name is present in the document.\
+            \ Alternatively, the tag name alone can be used to identify missing data\
+            \ [Type=ReqFieldMissing]."
+          maxLength: 2000
+          type: string
+        recordId:
+          description: "If present, this attribute allows for batch processing and\
+            \ the identification of the record that failed amongst a group of records.\
+            \ This value may contain a concatenation of a unique failed transaction\
+            \ ID with specific record(s) associated with that transaction."
+          maxLength: 2000
+          type: string
+        type:
+          description: The Warning element MUST contain the Type attribute that uses
+            a recommended set of values to indicate the warning type. The validating
+            XSD can expect to accept values that it has NOT been explicitly coded
+            for and process them by using Type ="Unknown".
+          maxLength: 20
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        rph:
+          description: Reference Place Holder used as an index for this warning.
+          maxLength: 8
+          minLength: 1
+          type: string
+      type: object
+    exceptionDetailType:
+      description: Complex type that contains error details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        o:errorDetails:
+          description: "Details of the error message, consisting of a hierarchical\
+            \ tree structure."
+          items:
+            $ref: '#/components/schemas/errorInstance'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      required:
+      - title
+      - type
+      title: Error Detail
+      type: object
+    errorInstance:
+      description: Complex type that contains error instance details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+      required:
+      - title
+      - type
+      title: Error Instance Details
+      type: object
+    CreateAdjustmentReasonsDetails:
+      description: Request object for fetching Room Rotation Adjustment Reasons.
+      properties:
+        adjustmentReasons:
+          description: Room Rotation Adjustment Reason Enumeration element.
+          items:
+            $ref: '#/components/schemas/roomRotationAdjustmentReasonType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    status:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    ChangeAdjustmentReasonsDetails:
+      description: Request object for changing Room Rotation Adjustment Reasons.
+      properties:
+        adjustmentReasons:
+          description: Room Rotation Adjustment Reason Enumeration element.
+          items:
+            $ref: '#/components/schemas/roomRotationAdjustmentReasonType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    AdjustmentReasonsDetailsUpdated:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    changeRoomOwnerDetails:
+      description: Request object for changing room owner.
+      properties:
+        contractId:
+          description: Contract ID of the room owner record.
+          type: integer
+        roomOwner:
+          $ref: '#/components/schemas/roomOwnerType'
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    roomOwnerType:
+      description: Room owner record fields
+      properties:
+        hotelId:
+          description: Hotel Code of Room owner.
+          maxLength: 20
+          minLength: 0
+          type: string
+        contractNumber:
+          description: Contract number for room owner.
+          type: string
+        unit:
+          description: Unit for room owner.
+          type: string
+        roomCategory:
+          description: Room Category of the room ownership record.
+          type: string
+        startDate:
+          description: Start Date of the room ownership record.
+          format: date
+          type: string
+        endDate:
+          description: End Date of the room ownership record.
+          format: date
+          type: string
+        profileId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        status:
+          description: Status of the room ownership record.
+          type: string
+      type: object
+    uniqueID_Type:
+      description: "An identifier used to uniquely reference an object in a system\
+        \ (e.g. an airline reservation reference, customer profile reference, booking\
+        \ confirmation number, or a reference to a previous availability quote)."
+      properties:
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    FetchRevenueTransactionCodesDetails:
+      description: Response object for retrieving revenue transaction codes for a
+        given property
+      properties:
+        revenueTransactionCodes:
+          description: A revenue transaction code.
+          items:
+            $ref: '#/components/schemas/rotationRevenueTransactionCodeType'
+          maxItems: 4000
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    rotationRevenueTransactionCodesType:
+      description: A revenue transaction code.
+      items:
+        $ref: '#/components/schemas/rotationRevenueTransactionCodeType'
+      maxItems: 4000
+      type: array
+    rotationRevenueTransactionCodeType:
+      description: A revenue transaction code
+      properties:
+        hotelId:
+          description: Hotel code of revenue transaction code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        transactionCode:
+          description: Transaction code that uniquely identifies the record.
+          maxLength: 20
+          minLength: 0
+          type: string
+        rotationRevenue:
+          description: Indicates that the transaction code is marked as a rotation
+            revenue transaction code.
+          type: boolean
+        description:
+          description: Description of a revenue transaction code.
+          maxLength: 2000
+          minLength: 0
+          type: string
+      type: object
+    ChangeRevenueTransactionCodesCriteria:
+      description: Request object for updating the rotation revenue status of a transaction
+        code for a given property.
+      properties:
+        revenueTransactionCodes:
+          $ref: '#/components/schemas/rotationRevenueTransactionCodesChangeType'
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    rotationRevenueTransactionCodesChangeType:
+      description: Two collections of transaction codes for a resort. One collection
+        lists codes to be changed to Rotation Revenue transaction codes and the other
+        to be changed to non Rotation Revenue Transaction codes.
+      properties:
+        hotelId:
+          description: Hotel code of revenue transaction code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        rotationRevenueTransactionCodes:
+          description: Revenue transaction code.
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+        nonRotationRevenueTransactionCodes:
+          description: Revenue transaction code.
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+      type: object
+    transactionCodesType:
+      description: Revenue transaction code.
+      items:
+        maxLength: 20
+        minLength: 0
+        type: string
+      maxItems: 4000
+      type: array
+    ChangeRevenueTransactionCodesDetails:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        success:
+          description: Returning an empty element of this type indicates the successful
+            processing of an message. This is used in conjunction with the Warning
+            Type to report any warnings or business errors.
+          type: object
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+        errors:
+          description: An error that occurred during the processing of a message.
+          items:
+            $ref: '#/components/schemas/errorType'
+          maxItems: 99
+          type: array
+        echoToken:
+          description: "A reference for additional message identification, assigned\
+            \ by the requesting host system. When a request message includes an echo\
+            \ token the corresponding response message MUST include an echo token\
+            \ with an identical value."
+          maxLength: 128
+          minLength: 0
+          type: string
+        timeStamp:
+          description: "Indicates the creation date and time of the message in UTC\
+            \ using the following format specified by ISO 8601; YYYY-MM-DDThh:mm:ssZ\
+            \ with time values using the 24 hour clock (e.g. 20 November 2003, 1:59:38\
+            \ pm UTC becomes 2003-11-20T13:59:38Z)."
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        version:
+          description: "For all Opera versioned messages, the version of the message\
+            \ is indicated by a Opera Version value."
+          maxLength: 40
+          minLength: 0
+          type: string
+        correlationId:
+          description: Allow end-to-end correlation of log messages with the corresponding
+            Web service message throughout the processing of the Web service message.
+          maxLength: 80
+          minLength: 0
+          type: string
+        retryAllowed:
+          description: Indicates if the operation supports the ability to retry the
+            request.
+          type: boolean
+        enforceAllowed:
+          description: Indicates if the operation supports the ability to force the
+            retry request through OPERA services in the case where the external system
+            continues to fail.
+          type: boolean
+        useLocalAllowed:
+          description: This attribute carries the user selected confirmation value
+            on confirmation popup.
+          type: boolean
+      type: object
+    successType:
+      description: Returning an empty element of this type indicates the successful
+        processing of an message. This is used in conjunction with the Warning Type
+        to report any warnings or business errors.
+      type: object
+    errorsType:
+      description: An error that occurred during the processing of a message.
+      items:
+        $ref: '#/components/schemas/errorType'
+      maxItems: 99
+      type: array
+    errorType:
+      description: "Standard way to indicate that an error occurred during the processing\
+        \ of an message. If the message successfully processes, but there are business\
+        \ errors, those errors should be passed in the warning element."
+      properties:
+        value:
+          description: Property Value
+          type: string
+        shortText:
+          description: An abbreviated version of the error in textual format.
+          type: string
+        code:
+          description: "If present, this refers to a table of coded values exchanged\
+            \ between applications to identify errors or warnings."
+          maxLength: 20
+          minLength: 0
+          type: string
+        docURL:
+          description: "If present, this URL refers to an online description of the\
+            \ error that occurred."
+          type: string
+        status:
+          description: "If present, recommended values are those enumerated in the\
+            \ ErrorRS, (NotProcessed Incomplete Complete Unknown) however, the data\
+            \ type is designated as string data, recognizing that trading partners\
+            \ may identify additional status conditions not included in the enumeration."
+          type: string
+        tag:
+          description: "If present, this attribute may identify an unknown or misspelled\
+            \ tag that caused an error in processing. It is recommended that the Tag\
+            \ attribute use XPath notation to identify the location of a tag in the\
+            \ event that more than one tag of the same name is present in the document.\
+            \ Alternatively, the tag name alone can be used to identify missing data\
+            \ [Type=ReqFieldMissing]."
+          type: string
+        recordId:
+          description: "If present, this attribute allows for batch processing and\
+            \ the identification of the record that failed amongst a group of records.\
+            \ This value may contain a concatenation of a unique failed transaction\
+            \ ID with specific record(s) associated with that transaction."
+          type: string
+        type:
+          description: The Warning element MUST contain the Type attribute that uses
+            a recommended set of values to indicate the warning type. The validating
+            XSD can expect to accept values that it has NOT been explicitly coded
+            for and process them by using Type ="Unknown".
+          maxLength: 20
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        nodeList:
+          description: "An XPath expression that selects all the nodes whose data\
+            \ caused this error. Further, this expression should have an additional\
+            \ contraint which contains the data of the node. This will provide the\
+            \ offending data back to systems that cannot maintain the original message."
+          type: string
+      type: object
+    createRoomOwnerDetails:
+      description: Request object for creating room owner.
+      properties:
+        roomOwner:
+          $ref: '#/components/schemas/roomOwnerType'
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    rotationGroups:
+      description: Request object for creating room rotation groups.
+      properties:
+        rotationGroups:
+          description: Defines collection of Room Rotation Groups.
+          items:
+            $ref: '#/components/schemas/rotationGroupType'
+          maxItems: 4000
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    rotationGroupsType:
+      description: Defines collection of Room Rotation Groups.
+      items:
+        $ref: '#/components/schemas/rotationGroupType'
+      maxItems: 4000
+      type: array
+    rotationGroupType:
+      description: Defines Room Rotation Group Details.
+      properties:
+        hotelId:
+          description: Hotel Code of Room Rotation Group.
+          maxLength: 20
+          minLength: 0
+          type: string
+        groupCode:
+          description: Room Rotation Group Code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          $ref: '#/components/schemas/translationTextType2000'
+        roomTypes:
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+      type: object
+    codeListType:
+      items:
+        maxLength: 20
+        minLength: 0
+        type: string
+      maxItems: 4000
+      type: array
+    FetchRotationPeriodResponse:
+      description: Response Object for Fetch Rotation Period
+      properties:
+        hotelId:
+          description: Property code for Room Rotation Period.
+          maxLength: 20
+          minLength: 0
+          type: string
+        startDate:
+          description: Represents Effective start date for the Room Rotation Period
+            Setup.
+          format: date
+          type: string
+        periodFrequency:
+          $ref: '#/components/schemas/rotationPeriodFrequencyType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    rotationPeriodFrequencyType:
+      description: Simple type for Rotation Period Type.
+      enum:
+      - Monthly
+      - Quarterly
+      - SemiAnnually
+      - Annually
+      - Never
+      type: string
+    rotationPeriod:
+      description: Request Object for changing Rotation Period.
+      properties:
+        rotationPeriod:
+          $ref: '#/components/schemas/rotationPeriodType'
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    rotationPeriodType:
+      description: Rotation Period Frequency and Start Date Details for a Property
+      properties:
+        hotelId:
+          description: Property code for Room Rotation Period.
+          maxLength: 20
+          minLength: 0
+          type: string
+        startDate:
+          description: Represents Effective start date for the Room Rotation Period
+            Setup.
+          format: date
+          type: string
+        periodFrequency:
+          $ref: '#/components/schemas/rotationPeriodFrequencyType'
+        forceRecalculate:
+          description: Represents if Rotation points/rules recalculation job should
+            be re-triggered.
+          type: boolean
+      type: object
+    ChangeRotationPeriodDetails:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        success:
+          description: Returning an empty element of this type indicates the successful
+            processing of an message. This is used in conjunction with the Warning
+            Type to report any warnings or business errors.
+          type: object
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+        errors:
+          description: An error that occurred during the processing of a message.
+          items:
+            $ref: '#/components/schemas/errorType'
+          maxItems: 99
+          type: array
+        echoToken:
+          description: "A reference for additional message identification, assigned\
+            \ by the requesting host system. When a request message includes an echo\
+            \ token the corresponding response message MUST include an echo token\
+            \ with an identical value."
+          maxLength: 128
+          minLength: 0
+          type: string
+        timeStamp:
+          description: "Indicates the creation date and time of the message in UTC\
+            \ using the following format specified by ISO 8601; YYYY-MM-DDThh:mm:ssZ\
+            \ with time values using the 24 hour clock (e.g. 20 November 2003, 1:59:38\
+            \ pm UTC becomes 2003-11-20T13:59:38Z)."
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        version:
+          description: "For all Opera versioned messages, the version of the message\
+            \ is indicated by a Opera Version value."
+          maxLength: 40
+          minLength: 0
+          type: string
+        correlationId:
+          description: Allow end-to-end correlation of log messages with the corresponding
+            Web service message throughout the processing of the Web service message.
+          maxLength: 80
+          minLength: 0
+          type: string
+        retryAllowed:
+          description: Indicates if the operation supports the ability to retry the
+            request.
+          type: boolean
+        enforceAllowed:
+          description: Indicates if the operation supports the ability to force the
+            retry request through OPERA services in the case where the external system
+            continues to fail.
+          type: boolean
+        useLocalAllowed:
+          description: This attribute carries the user selected confirmation value
+            on confirmation popup.
+          type: boolean
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    FetchRotationRulesResponse:
+      description: Response object for retrieving rotation rules for a given property
+      properties:
+        rotationRulesResult:
+          $ref: '#/components/schemas/rotationRulesResultType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    rotationRulesResultType:
+      description: Collection of Room Rotation Rules Results.
+      properties:
+        rotationRules:
+          $ref: '#/components/schemas/rotationRulesType'
+        masterInfo:
+          description: "Collection of RateCodes, RoomTypes, Out of Order Reasons"
+          items:
+            $ref: '#/components/schemas/masterInfoType'
+          maxItems: 4000
+          type: array
+        totalPages:
+          description: Evaluated total page count based on the requested max fetch
+            count.
+          type: integer
+        offset:
+          description: Index or initial index of the set(page) being requested. If
+            the index goes out of the bounds of the total set count then no data will
+            be returned.
+          type: integer
+        limit:
+          description: Indicates maximum number of records a Web Service should return.
+          type: integer
+        hasMore:
+          description: Indicates whether all the records are included in the response
+            or not. Absence of the attribute values should be consider as all rows
+            fetched in the response.
+          type: boolean
+        totalResults:
+          description: Total number of rows queried
+          type: integer
+        count:
+          description: Total number of rows returned
+          type: integer
+      type: object
+    rotationRulesType:
+      description: Collection of Room Rotation Rules elements.
+      properties:
+        hotelId:
+          description: Property code for Room Rotation Rules.
+          maxLength: 20
+          minLength: 0
+          type: string
+        setupType:
+          $ref: '#/components/schemas/rotationRuleSetupType'
+        rule:
+          description: Information representing Room Rotation Rule.
+          items:
+            $ref: '#/components/schemas/rotationRuleType'
+          maxItems: 4000
+          type: array
+      type: object
+    rotationRuleSetupType:
+      description: Simple type for Rotation Rule Setup.
+      enum:
+      - Points
+      - OwnerMultiplier
+      - RoomStatusMultiplier
+      type: string
+    rotationRuleType:
+      properties:
+        ruleId:
+          type: number
+        startDate:
+          description: Represents start date for Room Rotation point Rule.
+          format: date
+          type: string
+        endDate:
+          description: Represents end date for Room Rotation point Rule.
+          format: date
+          type: string
+        daysOfWeek:
+          $ref: '#/components/schemas/daysOfWeekAttrType'
+        calculationRule:
+          $ref: '#/components/schemas/rotationRuleCalculationRuleType'
+        referral:
+          description: Indicates that this Rotation Rule has referral.
+          type: boolean
+        points:
+          description: Represents total points for a Rotation Rule.
+          type: number
+        multiplier:
+          description: Represents multiplier value for an Owner Multiplier Rule.
+          type: number
+        reasons:
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+        rateCodes:
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+        roomTypes:
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+      type: object
+    daysOfWeekAttrType:
+      properties:
+        sunday:
+          type: boolean
+        monday:
+          type: boolean
+        tuesday:
+          type: boolean
+        wednesday:
+          type: boolean
+        thursday:
+          type: boolean
+        friday:
+          type: boolean
+        saturday:
+          type: boolean
+      type: object
+    rotationRuleCalculationRuleType:
+      description: Simple type for Rotation Rule Calculation Rule.
+      enum:
+      - PerRevenue
+      - PerNight
+      - PerStay
+      type: string
+    masterInfoType:
+      properties:
+        codeInfo:
+          items:
+            $ref: '#/components/schemas/codeInfoType'
+          maxItems: 4000
+          type: array
+        codeType:
+          $ref: '#/components/schemas/masterType'
+      type: object
+    codeInfoType:
+      description: ""
+      properties:
+        description:
+          maxLength: 80
+          minLength: 0
+          type: string
+        hotelId:
+          maxLength: 20
+          minLength: 0
+          type: string
+        code:
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    masterType:
+      enum:
+      - Country
+      - State
+      - AddressType
+      - PhoneType
+      - RateCategory
+      - CalculationRule
+      - PostingRythym
+      - BillingInstruction
+      - TransactionCode
+      - DisplaySet
+      - MailingActions
+      - DistanceType
+      - District
+      - Territory
+      - FiscalRegion
+      - InventoryItem
+      - Package
+      - RoomFeaturePreference
+      - SpecialPreference
+      - Promotion
+      - Department
+      - ReservationPreference
+      - FacilityTask
+      - RoomType
+      - RateCode
+      - OutOfOrderReason
+      - Block
+      type: string
+    rotationRules:
+      description: Request object for creating room rotation rules.
+      properties:
+        rotationRules:
+          $ref: '#/components/schemas/rotationRulesType'
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    FetchUnitGradesDetails:
+      description: Response object for fetching Room Rotation Unit Grades.
+      properties:
+        unitGrades:
+          description: Room Rotation Unit Grade Enumeration element.
+          items:
+            $ref: '#/components/schemas/roomRotationUnitGradeType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    roomRotationUnitGradesType:
+      description: Room Rotation Unit Grade Enumeration element.
+      items:
+        $ref: '#/components/schemas/roomRotationUnitGradeType'
+      maxItems: 4000
+      type: array
+    roomRotationUnitGradeType:
+      description: Contains Common Master configuration detail.
+      properties:
+        code:
+          description: Common Master unique code.
+          maxLength: 40
+          minLength: 0
+          type: string
+        description:
+          $ref: '#/components/schemas/translationTextType2000'
+        displayOrder:
+          description: Common Master record sequence number.
+          type: number
+        hotelId:
+          description: Hotel of the record.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    CreateUnitGradesDetails:
+      description: Request object for creating a new Room Rotation Unit Grade.
+      properties:
+        unitGrades:
+          description: Room Rotation Unit Grade Enumeration element.
+          items:
+            $ref: '#/components/schemas/roomRotationUnitGradeType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    ChangeUnitGradesDetails:
+      description: Request object for changing an existing Room Rotation Unit Grades.
+      properties:
+        unitGrades:
+          description: Room Rotation Unit Grade Enumeration element.
+          items:
+            $ref: '#/components/schemas/roomRotationUnitGradeType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    UnitGradesDetailsUpdated:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    overrideReasonsDetails:
+      description: Response object for fetching Room Rotation Override Reasons.
+      properties:
+        overrideReasons:
+          description: Room Rotation Override Reason Enumeration element.
+          items:
+            $ref: '#/components/schemas/roomRotationOverrideReasonType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    roomRotationOverrideReasonsType:
+      description: Room Rotation Override Reason Enumeration element.
+      items:
+        $ref: '#/components/schemas/roomRotationOverrideReasonType'
+      maxItems: 4000
+      type: array
+    roomRotationOverrideReasonType:
+      description: Contains Common Master configuration detail.
+      properties:
+        code:
+          description: Common Master unique code.
+          maxLength: 40
+          minLength: 0
+          type: string
+        description:
+          $ref: '#/components/schemas/translationTextType2000'
+        displayOrder:
+          description: Common Master record sequence number.
+          type: number
+      type: object
+    overrideReasonsCriteria:
+      description: Request object for creating a new Room Rotation Override Reason.
+      properties:
+        overrideReasons:
+          description: Room Rotation Override Reason Enumeration element.
+          items:
+            $ref: '#/components/schemas/roomRotationOverrideReasonType'
+          maxItems: 4000
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    overrideReasonsToBeChanged:
+      description: Request object for changing an existing Room Rotation Override
+        Reason.
+      properties:
+        overrideReasons:
+          description: Room Rotation Override Reason Enumeration element.
+          items:
+            $ref: '#/components/schemas/roomRotationOverrideReasonType'
+          maxItems: 4000
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    rotationGroupsResult:
+      description: Response object for fetching room rotation groups.
+      properties:
+        rotationGroups:
+          $ref: '#/components/schemas/rotationGroupsResultType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    rotationGroupsResultType:
+      description: Defines collection of Room Rotation Groups.
+      properties:
+        rotationGroup:
+          items:
+            $ref: '#/components/schemas/rotationGroupType'
+          maxItems: 4000
+          type: array
+        masterInfo:
+          description: Collection of Room Type Code Description.
+          items:
+            $ref: '#/components/schemas/masterInfoType'
+          maxItems: 4000
+          type: array
+      type: object
+    pingDetail:
+      description: Response for Ping operation.
+      properties:
+        operaVersion:
+          description: Current Opera Version Number
+          maxLength: 40
+          minLength: 0
+          type: string
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    operaVersionNumberType:
+      description: Current Opera Version Number
+      maxLength: 40
+      minLength: 0
+      type: string
+    postAdjustmentReasons_request:
+      allOf:
+      - $ref: '#/components/schemas/CreateAdjustmentReasonsDetails'
+    putAdjustmentReasons_request:
+      allOf:
+      - $ref: '#/components/schemas/ChangeAdjustmentReasonsDetails'
+    putRoomOwner_request:
+      allOf:
+      - $ref: '#/components/schemas/changeRoomOwnerDetails'
+    putRevenueTransactionCodes_request:
+      allOf:
+      - $ref: '#/components/schemas/ChangeRevenueTransactionCodesCriteria'
+    postRoomOwner_request:
+      allOf:
+      - $ref: '#/components/schemas/createRoomOwnerDetails'
+    postRotationGroups_request:
+      allOf:
+      - $ref: '#/components/schemas/rotationGroups'
+    putRotationPeriod_request:
+      allOf:
+      - $ref: '#/components/schemas/rotationPeriod'
+    postRotationRules_request:
+      allOf:
+      - $ref: '#/components/schemas/rotationRules'
+    postUnitGrades_request:
+      allOf:
+      - $ref: '#/components/schemas/CreateUnitGradesDetails'
+    putUnitGrades_request:
+      allOf:
+      - $ref: '#/components/schemas/ChangeUnitGradesDetails'
+    postOverrideReasons_request:
+      allOf:
+      - $ref: '#/components/schemas/overrideReasonsCriteria'
+    putOverrideReasons_request:
+      allOf:
+      - $ref: '#/components/schemas/overrideReasonsToBeChanged'
+    translationsTextType_inner:
+      description: Language code for the translation.
+      properties:
+        value:
+          description: "Used for Character Strings, length 0 to 2000."
+          maxLength: 2000
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+      type: object
+x-original-swagger-version: "2.0"

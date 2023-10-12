@@ -1,0 +1,2765 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hospitality_apis_ww_grp@oracle.com
+  description: "APIs to cater for external Leisure Management functionality integrated\
+    \ with OPERA Cloud.<br /><br /> Compatible with OPERA Cloud release 22.3.<br /><br\
+    \ /><p> This document and all content within is available under the Universal\
+    \ Permissive License v 1.0 (https://oss.oracle.com/licenses/upl). Copyright (c)\
+    \ 2020, 2023 Oracle and/or its affiliates.</p>"
+  license:
+    name: UPL
+    url: https://opensource.org/licenses/upl
+  termsOfService: https://www.oracle.com/legal/terms.html
+  title: OPERA Cloud Leisure Management API
+  version: "22.3"
+externalDocs:
+  description: Find out more about Oracle Hospitality
+  url: https://docs.oracle.com/en/industries/hospitality/integration_platforms.html
+servers:
+- url: /lms/v1
+tags:
+- description: "The Leisure Management Configuration module offers a set of operations\
+    \ to manage the configuration of activities like Status codes, locations, types\
+    \ etc. User can create, change, remove and fetch Status codes, locations, types\
+    \ etc."
+  name: LeisureManagementConfig
+paths:
+  /activityLocations:
+    get:
+      description: Use this API to fetch Activity location codes for a property. <p><strong>OperationId:</strong>getActivityLocations</p>
+      operationId: getActivityLocations
+      parameters:
+      - explode: true
+        in: query
+        name: hotelIds
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: criteriaCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/fetchActivityLocations'
+          description: Response object after fetching the Activity Locations.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: ActivityLocations not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Look up of Activity Locations
+      tags:
+      - LeisureManagementConfig
+    post:
+      description: Use this API to create a new Activity location for a property.
+        <p><strong>OperationId:</strong>postActivityLocations</p>
+      operationId: postActivityLocations
+      parameters:
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postActivityLocations_request'
+        description: Request object for creating Activity Locations.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Create an Activity Locations
+      tags:
+      - LeisureManagementConfig
+      x-codegen-request-body-name: createActivityLocations
+  /activityLocations/{activityLocationsId}:
+    delete:
+      description: Use this API to delete an Activity location for a property. <p><strong>OperationId:</strong>deleteActivityLocations</p>
+      operationId: deleteActivityLocations
+      parameters:
+      - description: OPERA Activity locations id
+        in: path
+        name: activityLocationsId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Hotel where the code is configured.
+        in: query
+        name: hotelIds
+        required: true
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Remove Activity Locations
+      tags:
+      - LeisureManagementConfig
+    put:
+      description: Use this API to update an existing Activity location Code for a
+        property. <p><strong>OperationId:</strong>putActivityLocations</p>
+      operationId: putActivityLocations
+      parameters:
+      - description: OPERA Activity locations id
+        in: path
+        name: activityLocationsId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/putActivityLocations_request'
+        description: Request object for changing Activity Locations.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/changeActivityLocationsRS'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Change in Activity Locations
+      tags:
+      - LeisureManagementConfig
+      x-codegen-request-body-name: changeActivityLocations
+  /activityLocations/{activityLocationsId}/copy:
+    put:
+      description: Use this API to copy an Activity location for a property. <p><strong>OperationId:</strong>copyActivityLocations</p>
+      operationId: copyActivityLocations
+      parameters:
+      - description: OPERA Source Activity locations id
+        in: path
+        name: activityLocationsId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/copyActivityLocations_request'
+        description: Request object for copying Activity Locations to hotel(s).
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/copyActivityLocationsRS'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Copy Activity Locations
+      tags:
+      - LeisureManagementConfig
+      x-codegen-request-body-name: copyActivityLocations
+  /activityStatusCodes:
+    get:
+      description: Fetch Activity Status Codes that are configured for a property.  <p><strong>OperationId:</strong>getActivityStatusCodes</p>
+      operationId: getActivityStatusCodes
+      parameters:
+      - explode: true
+        in: query
+        name: hotelIds
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: criteriaCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: applicationCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/fetchActivityStatusCodes'
+          description: Response object after fetching the Activity Status Codes.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: ActivityStatusCodes not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get Activity Status Codes
+      tags:
+      - LeisureManagementConfig
+    post:
+      description: Retrieve Activity Status Code that are configured for a property.  Activity
+        Status Codes are typically used when an EAS (External Activities Scheduler
+        system) interface is connected to OPERA.   <p><strong>OperationId:</strong>postActivityStatusCodes</p>
+      operationId: postActivityStatusCodes
+      parameters:
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postActivityStatusCodes_request'
+        description: Request object for creating Activity Status Codes.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Create Activity Status Code
+      tags:
+      - LeisureManagementConfig
+      x-codegen-request-body-name: createActivityStatusCodes
+  /activityStatusCodes/{activityStatusCodesId}:
+    delete:
+      description: Remove an Activity Status Code that is configured for a property.  <p><strong>OperationId:</strong>deleteActivityStatusCodes</p>
+      operationId: deleteActivityStatusCodes
+      parameters:
+      - description: OPERA Activity status codes
+        in: path
+        name: activityStatusCodesId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Hotel where the code is configured.
+        in: query
+        name: hotelIds
+        required: true
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Remove Activity Status Code
+      tags:
+      - LeisureManagementConfig
+    put:
+      description: Modify an Activity Status Code that is configured for a property.  <p><strong>OperationId:</strong>putActivityStatusCodes</p>
+      operationId: putActivityStatusCodes
+      parameters:
+      - description: OPERA Activity status codes
+        in: path
+        name: activityStatusCodesId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/putActivityStatusCodes_request'
+        description: Request object for changing Activity Status Codes.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/changeActivityStatusCodesRS'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Change Activity Status Code
+      tags:
+      - LeisureManagementConfig
+      x-codegen-request-body-name: changeActivityStatusCodes
+  /activityTypes:
+    get:
+      description: Retrieve Activity Types that are configured for a property.  Activity
+        Types are typically used when an EAS (External Activities Scheduler system)
+        interface is connected to OPERA.   <p><strong>OperationId:</strong>getActivityTypes</p>
+      operationId: getActivityTypes
+      parameters:
+      - explode: true
+        in: query
+        name: hotelIds
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: typeCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/fetchActivityTypes'
+          description: Response object after fetching the Activity Types.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: ActivityTypes not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Fetch Activity Types
+      tags:
+      - LeisureManagementConfig
+    post:
+      description: Create a new Activity Type Code for a specific property. <p><strong>OperationId:</strong>postActivityTypes</p>
+      operationId: postActivityTypes
+      parameters:
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postActivityTypes_request'
+        description: Request object for creating Activity Types.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Create Activity Types
+      tags:
+      - LeisureManagementConfig
+      x-codegen-request-body-name: createActivityTypes
+  /activityTypes/{activityTypesId}:
+    delete:
+      description: Delete an Activity Type Code that is configured for a property.
+        <p><strong>OperationId:</strong>deleteActivityTypes</p>
+      operationId: deleteActivityTypes
+      parameters:
+      - description: OPERA Activity types id
+        in: path
+        name: activityTypesId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Hotel where the code is configured.
+        in: query
+        name: hotelIds
+        required: true
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Remove Activity Types
+      tags:
+      - LeisureManagementConfig
+    put:
+      description: Modify an Activity Type Code that is configured for a property.
+        <p><strong>OperationId:</strong>putActivityTypes</p>
+      operationId: putActivityTypes
+      parameters:
+      - description: OPERA Activity types id
+        in: path
+        name: activityTypesId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/putActivityTypes_request'
+        description: Request object for changing Activity Types.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/changeActivityTypesRS'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Change Activity Types
+      tags:
+      - LeisureManagementConfig
+      x-codegen-request-body-name: changeActivityTypes
+  /activityTypes/{activityTypesId}/copy:
+    put:
+      description: Copy existing Activity Types from source property to target properties.
+        <p><strong>OperationId:</strong>copyActivityTypes</p>
+      operationId: copyActivityTypes
+      parameters:
+      - description: OPERA Activity types id
+        in: path
+        name: activityTypesId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/copyActivityTypes_request'
+        description: Request object for copying Activity Types to hotel(s).
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/copyActivityTypesRS'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Copy Activity Types
+      tags:
+      - LeisureManagementConfig
+      x-codegen-request-body-name: copyActivityTypes
+components:
+  parameters:
+    authKey:
+      description: Bearer token that needs to be passed which is generated post user
+        authentication
+      in: header
+      name: authorization
+      required: true
+      schema:
+        type: string
+    x-app-key:
+      description: Client or Partner’s Application Key
+      in: header
+      name: x-app-key
+      required: true
+      schema:
+        pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+        type: string
+    x-hotelid:
+      description: Mandatory parameter to identify the hotel code where the end user
+        is logged in
+      in: header
+      name: x-hotelid
+      required: true
+      schema:
+        type: string
+    x-externalsystem:
+      description: External system code.
+      example: EXTERNALSYSTEMCODE
+      in: header
+      name: x-externalsystem
+      schema:
+        maxLength: 80
+        type: string
+    Accept-Language:
+      description: Language code
+      in: header
+      name: Accept-Language
+      schema:
+        type: string
+    x-hubid:
+      description: x-hubid is a logical grouping of multiple properties that allows
+        api consumers to manage data from a group of properties. This x-hubid is a
+        valid list of hub codes configured in OPERA to which the user has access.
+        Rest APIs without hotelId in the operation path can support hub level integration
+        using x-hubid
+      in: header
+      name: x-hubid
+      schema:
+        type: string
+  responses:
+    "400":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Bad Request
+    "401":
+      content: {}
+      description: Unauthorized
+    "403":
+      content: {}
+      description: Forbidden
+    "404":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Resource not found
+    "405":
+      content: {}
+      description: Method not allowed
+    "406":
+      content: {}
+      description: Not acceptable.
+    "413":
+      content: {}
+      description: Request Entity Too Large
+    "414":
+      content: {}
+      description: Request URI Too Large
+    "415":
+      content: {}
+      description: Unsupported Media Type
+    "500":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: System Error
+    "502":
+      content: {}
+      description: Bad Gateway
+    "503":
+      content: {}
+      description: Service Unavailable
+  schemas:
+    createActivityLocations:
+      description: Request object for creating Activity Locations.
+      properties:
+        activityLocations:
+          description: Collection of Activity Locations.
+          items:
+            $ref: '#/components/schemas/activityLocationType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    activityLocationsType:
+      description: Collection of Activity Locations.
+      items:
+        $ref: '#/components/schemas/activityLocationType'
+      maxItems: 4000
+      type: array
+    activityLocationType:
+      description: Activity Location detail information.
+      properties:
+        hotelId:
+          description: Property to which the activity Location belongs to.
+          maxLength: 20
+          minLength: 0
+          type: string
+        code:
+          description: Code for the activity Location.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          description: Description for the Activity Location.
+          maxLength: 80
+          minLength: 0
+          type: string
+      type: object
+    links:
+      items:
+        $ref: '#/components/schemas/instanceLink'
+      type: array
+    instanceLink:
+      description: Metadata describing link description objects that MAY appear in
+        the JSON instance representation.
+      properties:
+        href:
+          description: "URI [RFC3986] or URI Template [RFC6570]. If the value is set\
+            \ to URI Template, then the \"templated\" property must be set to true."
+          type: string
+        rel:
+          description: "Name of the link relation that, in addition to the type property,\
+            \ can be used to retrieve link details. For example, href or profile."
+          type: string
+        templated:
+          default: false
+          description: "Boolean flag that specifies that \"href\" property is a URI\
+            \ or URI Template. If the property is a URI template, set this value to\
+            \ true. By default, this value is false."
+          type: boolean
+        method:
+          description: HTTP method for requesting the target of the link.
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          - OPTIONS
+          - HEAD
+          type: string
+        targetSchema:
+          description: "Link to the metadata of the resource, such as JSON-schema,\
+            \ that describes the resource expected when dereferencing the target resource.."
+          type: string
+        operationId:
+          description: "The operationId of the path you can call to follow this link.\
+            \  This allows you to look up not only the path and method, but the description\
+            \ of that path and any parameters you need to supply."
+          type: string
+        title:
+          description: Exact copy of the "summary" field on the linked operation.
+          type: string
+      required:
+      - href
+      - method
+      - operationId
+      - rel
+      type: object
+    warningsType:
+      description: Used in conjunction with the Success element to define a business
+        error.
+      items:
+        $ref: '#/components/schemas/warningType'
+      maxItems: 4000
+      type: array
+    warningType:
+      description: Used when a message has been successfully processed to report any
+        warnings or business errors that occurred.
+      properties:
+        value:
+          description: Property Value
+          type: string
+        shortText:
+          description: An abbreviated version of the error in textual format.
+          maxLength: 2000
+          type: string
+        code:
+          description: "If present, this refers to a table of coded values exchanged\
+            \ between applications to identify errors or warnings."
+          maxLength: 20
+          minLength: 0
+          type: string
+        docURL:
+          description: "If present, this URL refers to an online description of the\
+            \ error that occurred."
+          maxLength: 2000
+          type: string
+        status:
+          description: "If present, recommended values are those enumerated in the\
+            \ ErrorRS, (NotProcessed Incomplete Complete Unknown) however, the data\
+            \ type is designated as string data, recognizing that trading partners\
+            \ may identify additional status conditions not included in the enumeration."
+          maxLength: 2000
+          type: string
+        tag:
+          description: "If present, this attribute may identify an unknown or misspelled\
+            \ tag that caused an error in processing. It is recommended that the Tag\
+            \ attribute use XPath notation to identify the location of a tag in the\
+            \ event that more than one tag of the same name is present in the document.\
+            \ Alternatively, the tag name alone can be used to identify missing data\
+            \ [Type=ReqFieldMissing]."
+          maxLength: 2000
+          type: string
+        recordId:
+          description: "If present, this attribute allows for batch processing and\
+            \ the identification of the record that failed amongst a group of records.\
+            \ This value may contain a concatenation of a unique failed transaction\
+            \ ID with specific record(s) associated with that transaction."
+          maxLength: 2000
+          type: string
+        type:
+          description: The Warning element MUST contain the Type attribute that uses
+            a recommended set of values to indicate the warning type. The validating
+            XSD can expect to accept values that it has NOT been explicitly coded
+            for and process them by using Type ="Unknown".
+          maxLength: 20
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        rph:
+          description: Reference Place Holder used as an index for this warning.
+          maxLength: 8
+          minLength: 1
+          type: string
+      type: object
+    status:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    exceptionDetailType:
+      description: Complex type that contains error details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        o:errorDetails:
+          description: "Details of the error message, consisting of a hierarchical\
+            \ tree structure."
+          items:
+            $ref: '#/components/schemas/errorInstance'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      required:
+      - title
+      - type
+      title: Error Detail
+      type: object
+    errorInstance:
+      description: Complex type that contains error instance details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+      required:
+      - title
+      - type
+      title: Error Instance Details
+      type: object
+    fetchActivityLocations:
+      description: Response object after fetching the Activity Locations.
+      properties:
+        activityLocations:
+          description: Collection of Activity Locations.
+          items:
+            $ref: '#/components/schemas/activityLocationType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    changeActivityLocations:
+      description: Request object for changing Activity Locations.
+      properties:
+        activityLocations:
+          description: Collection of Activity Locations.
+          items:
+            $ref: '#/components/schemas/activityLocationType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    changeActivityLocationsRS:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        success:
+          description: Returning an empty element of this type indicates the successful
+            processing of an message. This is used in conjunction with the Warning
+            Type to report any warnings or business errors.
+          type: object
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+        errors:
+          description: An error that occurred during the processing of a message.
+          items:
+            $ref: '#/components/schemas/errorType'
+          maxItems: 99
+          type: array
+        echoToken:
+          description: "A reference for additional message identification, assigned\
+            \ by the requesting host system. When a request message includes an echo\
+            \ token the corresponding response message MUST include an echo token\
+            \ with an identical value."
+          maxLength: 128
+          minLength: 0
+          type: string
+        timeStamp:
+          description: "Indicates the creation date and time of the message in UTC\
+            \ using the following format specified by ISO 8601; YYYY-MM-DDThh:mm:ssZ\
+            \ with time values using the 24 hour clock (e.g. 20 November 2003, 1:59:38\
+            \ pm UTC becomes 2003-11-20T13:59:38Z)."
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        version:
+          description: "For all Opera versioned messages, the version of the message\
+            \ is indicated by a Opera Version value."
+          maxLength: 40
+          minLength: 0
+          type: string
+        correlationId:
+          description: Allow end-to-end correlation of log messages with the corresponding
+            Web service message throughout the processing of the Web service message.
+          maxLength: 80
+          minLength: 0
+          type: string
+        retryAllowed:
+          description: Indicates if the operation supports the ability to retry the
+            request.
+          type: boolean
+        enforceAllowed:
+          description: Indicates if the operation supports the ability to force the
+            retry request through OPERA services in the case where the external system
+            continues to fail.
+          type: boolean
+        useLocalAllowed:
+          description: This attribute carries the user selected confirmation value
+            on confirmation popup.
+          type: boolean
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    successType:
+      description: Returning an empty element of this type indicates the successful
+        processing of an message. This is used in conjunction with the Warning Type
+        to report any warnings or business errors.
+      type: object
+    errorsType:
+      description: An error that occurred during the processing of a message.
+      items:
+        $ref: '#/components/schemas/errorType'
+      maxItems: 99
+      type: array
+    errorType:
+      description: "Standard way to indicate that an error occurred during the processing\
+        \ of an message. If the message successfully processes, but there are business\
+        \ errors, those errors should be passed in the warning element."
+      properties:
+        value:
+          description: Property Value
+          type: string
+        shortText:
+          description: An abbreviated version of the error in textual format.
+          type: string
+        code:
+          description: "If present, this refers to a table of coded values exchanged\
+            \ between applications to identify errors or warnings."
+          maxLength: 20
+          minLength: 0
+          type: string
+        docURL:
+          description: "If present, this URL refers to an online description of the\
+            \ error that occurred."
+          type: string
+        status:
+          description: "If present, recommended values are those enumerated in the\
+            \ ErrorRS, (NotProcessed Incomplete Complete Unknown) however, the data\
+            \ type is designated as string data, recognizing that trading partners\
+            \ may identify additional status conditions not included in the enumeration."
+          type: string
+        tag:
+          description: "If present, this attribute may identify an unknown or misspelled\
+            \ tag that caused an error in processing. It is recommended that the Tag\
+            \ attribute use XPath notation to identify the location of a tag in the\
+            \ event that more than one tag of the same name is present in the document.\
+            \ Alternatively, the tag name alone can be used to identify missing data\
+            \ [Type=ReqFieldMissing]."
+          type: string
+        recordId:
+          description: "If present, this attribute allows for batch processing and\
+            \ the identification of the record that failed amongst a group of records.\
+            \ This value may contain a concatenation of a unique failed transaction\
+            \ ID with specific record(s) associated with that transaction."
+          type: string
+        type:
+          description: The Warning element MUST contain the Type attribute that uses
+            a recommended set of values to indicate the warning type. The validating
+            XSD can expect to accept values that it has NOT been explicitly coded
+            for and process them by using Type ="Unknown".
+          maxLength: 20
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        nodeList:
+          description: "An XPath expression that selects all the nodes whose data\
+            \ caused this error. Further, this expression should have an additional\
+            \ contraint which contains the data of the node. This will provide the\
+            \ offending data back to systems that cannot maintain the original message."
+          type: string
+      type: object
+    copyActivityLocations:
+      description: Request object for copying Activity Locations to hotel(s).
+      properties:
+        copyInstructions:
+          description: Information needed to copy configuration code from one property
+            to the other.
+          items:
+            $ref: '#/components/schemas/copyConfigurationCodeType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    copyConfigurationCodesType:
+      description: Information needed to copy configuration code from one property
+        to the other.
+      items:
+        $ref: '#/components/schemas/copyConfigurationCodeType'
+      maxItems: 4000
+      type: array
+    copyConfigurationCodeType:
+      description: Information needed to copy configuration code from one property
+        to the other.
+      properties:
+        targetHotelCode:
+          description: Property to which configuration code type to be copied to.
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+        sourceHotelCode:
+          description: Code that is to be copied.
+          maxLength: 20
+          minLength: 0
+          type: string
+        code:
+          description: Source hotel code from which code is to be copied from.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    copyActivityLocationsRS:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        success:
+          description: Returning an empty element of this type indicates the successful
+            processing of an message. This is used in conjunction with the Warning
+            Type to report any warnings or business errors.
+          type: object
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+        errors:
+          description: An error that occurred during the processing of a message.
+          items:
+            $ref: '#/components/schemas/errorType'
+          maxItems: 99
+          type: array
+        echoToken:
+          description: "A reference for additional message identification, assigned\
+            \ by the requesting host system. When a request message includes an echo\
+            \ token the corresponding response message MUST include an echo token\
+            \ with an identical value."
+          maxLength: 128
+          minLength: 0
+          type: string
+        timeStamp:
+          description: "Indicates the creation date and time of the message in UTC\
+            \ using the following format specified by ISO 8601; YYYY-MM-DDThh:mm:ssZ\
+            \ with time values using the 24 hour clock (e.g. 20 November 2003, 1:59:38\
+            \ pm UTC becomes 2003-11-20T13:59:38Z)."
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        version:
+          description: "For all Opera versioned messages, the version of the message\
+            \ is indicated by a Opera Version value."
+          maxLength: 40
+          minLength: 0
+          type: string
+        correlationId:
+          description: Allow end-to-end correlation of log messages with the corresponding
+            Web service message throughout the processing of the Web service message.
+          maxLength: 80
+          minLength: 0
+          type: string
+        retryAllowed:
+          description: Indicates if the operation supports the ability to retry the
+            request.
+          type: boolean
+        enforceAllowed:
+          description: Indicates if the operation supports the ability to force the
+            retry request through OPERA services in the case where the external system
+            continues to fail.
+          type: boolean
+        useLocalAllowed:
+          description: This attribute carries the user selected confirmation value
+            on confirmation popup.
+          type: boolean
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    createActivityStatusCodes:
+      description: Request object for creating Activity Status Codes.
+      properties:
+        activityStatusCodes:
+          description: Activity Status Codes object.
+          items:
+            $ref: '#/components/schemas/activityStatusCodeType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    activityStatusCodesType:
+      description: Activity Status Codes object.
+      items:
+        $ref: '#/components/schemas/activityStatusCodeType'
+      maxItems: 4000
+      type: array
+    activityStatusCodeType:
+      description: Activity Status Code detail information.
+      properties:
+        hotelId:
+          description: Property to which the activity status code belongs to. Cannot
+            be null.
+          maxLength: 20
+          minLength: 0
+          type: string
+        code:
+          description: Code for the activity status code. Cannot be null.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          description: Description for the Activity Status Code. Cannot be null.
+          maxLength: 80
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        priority:
+          description: Priority for the activity status code.
+          type: integer
+        application:
+          description: Used in Application for the activity status code.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    fetchActivityStatusCodes:
+      description: Response object after fetching the Activity Status Codes.
+      properties:
+        activityStatusCodes:
+          description: Activity Status Codes object.
+          items:
+            $ref: '#/components/schemas/activityStatusCodeType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    changeActivityStatusCodes:
+      description: Request object for changing Activity Status Codes.
+      properties:
+        activityStatusCodes:
+          description: Activity Status Codes object.
+          items:
+            $ref: '#/components/schemas/activityStatusCodeType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    changeActivityStatusCodesRS:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        success:
+          description: Returning an empty element of this type indicates the successful
+            processing of an message. This is used in conjunction with the Warning
+            Type to report any warnings or business errors.
+          type: object
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+        errors:
+          description: An error that occurred during the processing of a message.
+          items:
+            $ref: '#/components/schemas/errorType'
+          maxItems: 99
+          type: array
+        echoToken:
+          description: "A reference for additional message identification, assigned\
+            \ by the requesting host system. When a request message includes an echo\
+            \ token the corresponding response message MUST include an echo token\
+            \ with an identical value."
+          maxLength: 128
+          minLength: 0
+          type: string
+        timeStamp:
+          description: "Indicates the creation date and time of the message in UTC\
+            \ using the following format specified by ISO 8601; YYYY-MM-DDThh:mm:ssZ\
+            \ with time values using the 24 hour clock (e.g. 20 November 2003, 1:59:38\
+            \ pm UTC becomes 2003-11-20T13:59:38Z)."
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        version:
+          description: "For all Opera versioned messages, the version of the message\
+            \ is indicated by a Opera Version value."
+          maxLength: 40
+          minLength: 0
+          type: string
+        correlationId:
+          description: Allow end-to-end correlation of log messages with the corresponding
+            Web service message throughout the processing of the Web service message.
+          maxLength: 80
+          minLength: 0
+          type: string
+        retryAllowed:
+          description: Indicates if the operation supports the ability to retry the
+            request.
+          type: boolean
+        enforceAllowed:
+          description: Indicates if the operation supports the ability to force the
+            retry request through OPERA services in the case where the external system
+            continues to fail.
+          type: boolean
+        useLocalAllowed:
+          description: This attribute carries the user selected confirmation value
+            on confirmation popup.
+          type: boolean
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    fetchActivityTypes:
+      description: Response object after fetching the Activity Types.
+      properties:
+        activityTypes:
+          description: Collection of Activity Types.
+          items:
+            $ref: '#/components/schemas/activityTypeDetailType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    activityTypesType:
+      description: Collection of Activity Types.
+      items:
+        $ref: '#/components/schemas/activityTypeDetailType'
+      maxItems: 4000
+      type: array
+    activityTypeDetailType:
+      description: Activity Type detail information.
+      properties:
+        hotelId:
+          description: Property to which the activity Type belongs to.
+          maxLength: 20
+          minLength: 0
+          type: string
+        typeCode:
+          description: Type for the activity Type.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          description: Description for the Activity Type.
+          maxLength: 100
+          minLength: 0
+          type: string
+      type: object
+    createActivityTypes:
+      description: Request object for creating Activity Types.
+      properties:
+        activityTypes:
+          description: Collection of Activity Types.
+          items:
+            $ref: '#/components/schemas/activityTypeDetailType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    changeActivityTypes:
+      description: Request object for changing Activity Types.
+      properties:
+        activityTypes:
+          description: Collection of Activity Types.
+          items:
+            $ref: '#/components/schemas/activityTypeDetailType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    changeActivityTypesRS:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        success:
+          description: Returning an empty element of this type indicates the successful
+            processing of an message. This is used in conjunction with the Warning
+            Type to report any warnings or business errors.
+          type: object
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+        errors:
+          description: An error that occurred during the processing of a message.
+          items:
+            $ref: '#/components/schemas/errorType'
+          maxItems: 99
+          type: array
+        echoToken:
+          description: "A reference for additional message identification, assigned\
+            \ by the requesting host system. When a request message includes an echo\
+            \ token the corresponding response message MUST include an echo token\
+            \ with an identical value."
+          maxLength: 128
+          minLength: 0
+          type: string
+        timeStamp:
+          description: "Indicates the creation date and time of the message in UTC\
+            \ using the following format specified by ISO 8601; YYYY-MM-DDThh:mm:ssZ\
+            \ with time values using the 24 hour clock (e.g. 20 November 2003, 1:59:38\
+            \ pm UTC becomes 2003-11-20T13:59:38Z)."
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        version:
+          description: "For all Opera versioned messages, the version of the message\
+            \ is indicated by a Opera Version value."
+          maxLength: 40
+          minLength: 0
+          type: string
+        correlationId:
+          description: Allow end-to-end correlation of log messages with the corresponding
+            Web service message throughout the processing of the Web service message.
+          maxLength: 80
+          minLength: 0
+          type: string
+        retryAllowed:
+          description: Indicates if the operation supports the ability to retry the
+            request.
+          type: boolean
+        enforceAllowed:
+          description: Indicates if the operation supports the ability to force the
+            retry request through OPERA services in the case where the external system
+            continues to fail.
+          type: boolean
+        useLocalAllowed:
+          description: This attribute carries the user selected confirmation value
+            on confirmation popup.
+          type: boolean
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    copyActivityTypes:
+      description: Request object for copying Activity Types to hotel(s).
+      properties:
+        copyInstructions:
+          description: Information needed to copy configuration code from one property
+            to the other.
+          items:
+            $ref: '#/components/schemas/copyConfigurationCodeType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    copyActivityTypesRS:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        success:
+          description: Returning an empty element of this type indicates the successful
+            processing of an message. This is used in conjunction with the Warning
+            Type to report any warnings or business errors.
+          type: object
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+        errors:
+          description: An error that occurred during the processing of a message.
+          items:
+            $ref: '#/components/schemas/errorType'
+          maxItems: 99
+          type: array
+        echoToken:
+          description: "A reference for additional message identification, assigned\
+            \ by the requesting host system. When a request message includes an echo\
+            \ token the corresponding response message MUST include an echo token\
+            \ with an identical value."
+          maxLength: 128
+          minLength: 0
+          type: string
+        timeStamp:
+          description: "Indicates the creation date and time of the message in UTC\
+            \ using the following format specified by ISO 8601; YYYY-MM-DDThh:mm:ssZ\
+            \ with time values using the 24 hour clock (e.g. 20 November 2003, 1:59:38\
+            \ pm UTC becomes 2003-11-20T13:59:38Z)."
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        version:
+          description: "For all Opera versioned messages, the version of the message\
+            \ is indicated by a Opera Version value."
+          maxLength: 40
+          minLength: 0
+          type: string
+        correlationId:
+          description: Allow end-to-end correlation of log messages with the corresponding
+            Web service message throughout the processing of the Web service message.
+          maxLength: 80
+          minLength: 0
+          type: string
+        retryAllowed:
+          description: Indicates if the operation supports the ability to retry the
+            request.
+          type: boolean
+        enforceAllowed:
+          description: Indicates if the operation supports the ability to force the
+            retry request through OPERA services in the case where the external system
+            continues to fail.
+          type: boolean
+        useLocalAllowed:
+          description: This attribute carries the user selected confirmation value
+            on confirmation popup.
+          type: boolean
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    postActivityLocations_request:
+      allOf:
+      - $ref: '#/components/schemas/createActivityLocations'
+    putActivityLocations_request:
+      allOf:
+      - $ref: '#/components/schemas/changeActivityLocations'
+    copyActivityLocations_request:
+      allOf:
+      - $ref: '#/components/schemas/copyActivityLocations'
+    postActivityStatusCodes_request:
+      allOf:
+      - $ref: '#/components/schemas/createActivityStatusCodes'
+    putActivityStatusCodes_request:
+      allOf:
+      - $ref: '#/components/schemas/changeActivityStatusCodes'
+    postActivityTypes_request:
+      allOf:
+      - $ref: '#/components/schemas/createActivityTypes'
+    putActivityTypes_request:
+      allOf:
+      - $ref: '#/components/schemas/changeActivityTypes'
+    copyActivityTypes_request:
+      allOf:
+      - $ref: '#/components/schemas/copyActivityTypes'
+x-original-swagger-version: "2.0"

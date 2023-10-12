@@ -1,0 +1,2880 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hospitality_apis_ww_grp@oracle.com
+  description: "APIs to cater for room configuration, such as configuring room types,\
+    \ room Classes, creating new room features, or updating housekeeping room maintenance\
+    \ reasons.<br /><br /> Compatible with OPERA Cloud release 22.3.<br /><br /><p>\
+    \ This document and all content within is available under the Universal Permissive\
+    \ License v 1.0 (https://oss.oracle.com/licenses/upl). Copyright (c) 2020, 2023\
+    \ Oracle and/or its affiliates.</p>"
+  license:
+    name: UPL
+    url: https://opensource.org/licenses/upl
+  termsOfService: https://www.oracle.com/legal/terms.html
+  title: OPERA Cloud Room Configuration API
+  version: "22.3"
+externalDocs:
+  description: Find out more about Oracle Hospitality
+  url: https://docs.oracle.com/en/industries/hospitality/integration_platforms.html
+servers:
+- url: /rm/config/v1
+tags:
+- description: "The ChainConfigService Web Service offers capability of creating,\
+    \ managing, and retrieving of chain configuration."
+  name: ChainConfig
+- description: "The Hotel Config Service Web Service offers capability to configure\
+    \ Master Data needed for Hotel Configuration such as managing Room Classes, Room\
+    \ Types, Rooms, etc."
+  name: HotelConfig
+paths:
+  /bedTypes:
+    get:
+      description: "Use this API to return bed types based on search criteria such\
+        \ as fetchInactive, codes, wildCard, description.<p><strong>OperationId:</strong>getBedTypes</p>"
+      operationId: getBedTypes
+      parameters:
+      - description: Determines wether to fetch inactive records or not.
+        in: query
+        name: fetchInactive
+        schema:
+          type: boolean
+      - description: Codes to be searched.
+        explode: true
+        in: query
+        name: codes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Wildcard search on the code.
+        in: query
+        name: wildCard
+        schema:
+          type: string
+      - description: Description of the code.
+        in: query
+        name: description
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/bedTypesDetails'
+          description: Response object for fetching Bed Types.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: BedTypes not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get bed types
+      tags:
+      - ChainConfig
+  /hotels/{hotelId}/roomConditions:
+    post:
+      description: Use this API to create room condition configuration . <p><strong>OperationId:</strong>postResortRoomCondition</p>
+      operationId: postResortRoomCondition
+      parameters:
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postResortRoomCondition_request'
+        description: Request object for Create Room Condition.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: 'Create room condition configuration '
+      tags:
+      - HotelConfig
+      x-codegen-request-body-name: resortRoomConditionCriteria
+  /hotels/{hotelId}/roomType/{roomTypeCode}:
+    get:
+      description: Use this API to get Room Type details of a Property. The search
+        criteria can include a list of Room Types and the  Property (hotelID). <p><strong>OperationId:</strong>getRoomTypeInfo</p>
+      operationId: getRoomTypeInfo
+      parameters:
+      - description: Unique Code of room type.
+        in: path
+        name: roomTypeCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/roomTypeInfoDetails'
+          description: Response object for fetching room type information.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: RoomTypeInfo not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get Room Type Information
+      tags:
+      - HotelConfig
+  /hotels/{hotelId}/roomTypes:
+    get:
+      description: "Use this API to return room types for a specific property based\
+        \ on search criteria such as roomClassCodes, roomTypeCodes, physical, pseudo,\
+        \ etc.<p><strong>OperationId:</strong>getRoomTypes</p>"
+      operationId: getRoomTypes
+      parameters:
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Flag to indicate if accessible room type should be fetched.
+        in: query
+        name: accessible
+        schema:
+          type: boolean
+      - description: Flag to indicate if inactive room types should be included.
+        in: query
+        name: includeInactive
+        schema:
+          type: boolean
+      - description: Indicates maximum number of records a Web Service should return.
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: Index or initial index of the set(page) being requested. If the
+          index goes out of the bounds of the total set count then no data will be
+          returned.
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: Is it a physical sleep room type.
+        in: query
+        name: physical
+        schema:
+          type: boolean
+      - description: Is it a pseudo room type.
+        in: query
+        name: pseudo
+        schema:
+          type: boolean
+      - description: Flag to indicate if summary or detailed information should be
+          fetched.
+        in: query
+        name: summaryInfo
+        schema:
+          type: boolean
+      - explode: true
+        in: query
+        name: roomTypeCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: roomClassCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/roomTypesDetails'
+          description: Response object for Fetching existing Room Types.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: RoomTypes not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get hotel room types
+      tags:
+      - HotelConfig
+    post:
+      description: Use this API to create new room types for a property. A list of
+        new room types can be passed as part of the request to Use this API to create
+        multiple rooms in one request. <p><strong>OperationId:</strong>postRoomTypes</p>
+      operationId: postRoomTypes
+      parameters:
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postRoomTypes_request'
+        description: Request object for Creating a new Room Type.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Create a new room type
+      tags:
+      - HotelConfig
+      x-codegen-request-body-name: roomTypesCriteria
+  /hotels/{hotelId}/rooms:
+    get:
+      description: "Use this API to return rooms for a specific property based on\
+        \ search criteria such as roomClassCodes, roomTypeCodes, room, etc.<p><strong>OperationId:</strong>getRooms</p>"
+      operationId: getRooms
+      parameters:
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Indicates maximum number of records a Web Service should return.
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: Index or initial index of the set(page) being requested. If the
+          index goes out of the bounds of the total set count then no data will be
+          returned.
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: Is it a physical room type.
+        in: query
+        name: physical
+        schema:
+          type: boolean
+      - description: Is it a pseudo room type.
+        in: query
+        name: pseudo
+        schema:
+          type: boolean
+      - explode: true
+        in: query
+        name: roomClassCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: roomTypeCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Room to be searched.
+        in: query
+        name: room
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/roomsDetails'
+          description: Response object for fetching complete information of existing
+            rooms.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: Rooms not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get hotel rooms
+      tags:
+      - HotelConfig
+    post:
+      description: Use this API to create a new room for a specific property.<p><strong>OperationId:</strong>postRooms</p>
+      operationId: postRooms
+      parameters:
+      - description: Unique ID of hotel.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postRooms_request'
+        description: Request object for creating a new room.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Post a new room
+      tags:
+      - HotelConfig
+      x-codegen-request-body-name: roomCriteria
+  /roomTypes:
+    get:
+      description: This API accepts the room type template request search criteria
+        and gets the Room Type templates. <p><strong>OperationId:</strong>getRoomTypeTemplates</p>
+      operationId: getRoomTypeTemplates
+      parameters:
+      - description: Include inactive Room type in search result?
+        in: query
+        name: includeInactive
+        schema:
+          type: boolean
+      - description: Is it a physical sleep room type.
+        in: query
+        name: physical
+        schema:
+          default: false
+          type: boolean
+      - description: Is it a pseudo room type.
+        in: query
+        name: pseudo
+        schema:
+          default: false
+          type: boolean
+      - in: query
+        name: summaryInfo
+        schema:
+          type: boolean
+      - explode: true
+        in: query
+        name: roomTypeCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: roomClassCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/roomTypeTemplatesDetails'
+          description: Response object for information regarding room type template
+            of a property.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: RoomTypeTemplates not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get Room Type Templates
+      tags:
+      - HotelConfig
+  /roomsSummary:
+    get:
+      description: "Use this API to return room summary information based on search\
+        \ criteria such as hotelId, roomClassCodes, roomTypeCodes, roomCodes, wildCard,\
+        \ etc.<p><strong>OperationId:</strong>getRoomsSummary</p>"
+      operationId: getRoomsSummary
+      parameters:
+      - description: Indicates maximum number of records a Web Service should return.
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: Index or initial index of the set(page) being requested. If the
+          index goes out of the bounds of the total set count then no data will be
+          returned.
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: Is it a physical room type.
+        in: query
+        name: physical
+        schema:
+          type: boolean
+      - description: Is it a pseudo room type.
+        in: query
+        name: pseudo
+        schema:
+          type: boolean
+      - description: Hotel code of room to be searched.
+        in: query
+        name: hotelId
+        schema:
+          type: string
+      - explode: true
+        in: query
+        name: roomClassCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: roomTypeCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Codes to be searched.
+        explode: true
+        in: query
+        name: roomCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Wildcard search on the code.
+        in: query
+        name: wildCard
+        schema:
+          type: string
+      - description: Building associated with room to be searched.
+        in: query
+        name: building
+        schema:
+          type: string
+      - explode: true
+        in: query
+        name: ratingsCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/roomsSummaryDetails'
+          description: Response object for fetching summary information of existing
+            rooms.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: RoomsSummary not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get room summary
+      tags:
+      - HotelConfig
+components:
+  parameters:
+    authKey:
+      description: Bearer token that needs to be passed which is generated post user
+        authentication
+      in: header
+      name: authorization
+      required: true
+      schema:
+        type: string
+    x-app-key:
+      description: Client or Partner’s Application Key
+      in: header
+      name: x-app-key
+      required: true
+      schema:
+        pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+        type: string
+    x-hotelid:
+      description: Mandatory parameter to identify the hotel code where the end user
+        is logged in
+      in: header
+      name: x-hotelid
+      required: true
+      schema:
+        type: string
+    x-externalsystem:
+      description: External system code.
+      example: EXTERNALSYSTEMCODE
+      in: header
+      name: x-externalsystem
+      schema:
+        maxLength: 80
+        type: string
+    Accept-Language:
+      description: Language code
+      in: header
+      name: Accept-Language
+      schema:
+        type: string
+    x-hubid:
+      description: x-hubid is a logical grouping of multiple properties that allows
+        api consumers to manage data from a group of properties. This x-hubid is a
+        valid list of hub codes configured in OPERA to which the user has access.
+        Rest APIs without hotelId in the operation path can support hub level integration
+        using x-hubid
+      in: header
+      name: x-hubid
+      schema:
+        type: string
+  responses:
+    "400":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Bad Request
+    "401":
+      content: {}
+      description: Unauthorized
+    "403":
+      content: {}
+      description: Forbidden
+    "404":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Resource not found
+    "405":
+      content: {}
+      description: Method not allowed
+    "406":
+      content: {}
+      description: Not acceptable.
+    "413":
+      content: {}
+      description: Request Entity Too Large
+    "414":
+      content: {}
+      description: Request URI Too Large
+    "415":
+      content: {}
+      description: Unsupported Media Type
+    "500":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: System Error
+    "502":
+      content: {}
+      description: Bad Gateway
+    "503":
+      content: {}
+      description: Service Unavailable
+  schemas:
+    translationTextType2000:
+      description: Contains Multiple translated texts and language codes.
+      properties:
+        defaultText:
+          description: Default text with Character length from 0 to 2000.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        translatedTexts:
+          description: Language code for the translation.
+          items:
+            $ref: '#/components/schemas/translationsTextType_inner'
+          maxItems: 4000
+          type: array
+      type: object
+    translationsTextType:
+      description: Language code for the translation.
+      items:
+        $ref: '#/components/schemas/translationsTextType_inner'
+      maxItems: 4000
+      type: array
+    links:
+      items:
+        $ref: '#/components/schemas/instanceLink'
+      type: array
+    instanceLink:
+      description: Metadata describing link description objects that MAY appear in
+        the JSON instance representation.
+      properties:
+        href:
+          description: "URI [RFC3986] or URI Template [RFC6570]. If the value is set\
+            \ to URI Template, then the \"templated\" property must be set to true."
+          type: string
+        rel:
+          description: "Name of the link relation that, in addition to the type property,\
+            \ can be used to retrieve link details. For example, href or profile."
+          type: string
+        templated:
+          default: false
+          description: "Boolean flag that specifies that \"href\" property is a URI\
+            \ or URI Template. If the property is a URI template, set this value to\
+            \ true. By default, this value is false."
+          type: boolean
+        method:
+          description: HTTP method for requesting the target of the link.
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          - OPTIONS
+          - HEAD
+          type: string
+        targetSchema:
+          description: "Link to the metadata of the resource, such as JSON-schema,\
+            \ that describes the resource expected when dereferencing the target resource.."
+          type: string
+        operationId:
+          description: "The operationId of the path you can call to follow this link.\
+            \  This allows you to look up not only the path and method, but the description\
+            \ of that path and any parameters you need to supply."
+          type: string
+        title:
+          description: Exact copy of the "summary" field on the linked operation.
+          type: string
+      required:
+      - href
+      - method
+      - operationId
+      - rel
+      type: object
+    warningsType:
+      description: Used in conjunction with the Success element to define a business
+        error.
+      items:
+        $ref: '#/components/schemas/warningType'
+      maxItems: 4000
+      type: array
+    warningType:
+      description: Used when a message has been successfully processed to report any
+        warnings or business errors that occurred.
+      properties:
+        value:
+          description: Property Value
+          type: string
+        shortText:
+          description: An abbreviated version of the error in textual format.
+          maxLength: 2000
+          type: string
+        code:
+          description: "If present, this refers to a table of coded values exchanged\
+            \ between applications to identify errors or warnings."
+          maxLength: 20
+          minLength: 0
+          type: string
+        docURL:
+          description: "If present, this URL refers to an online description of the\
+            \ error that occurred."
+          maxLength: 2000
+          type: string
+        status:
+          description: "If present, recommended values are those enumerated in the\
+            \ ErrorRS, (NotProcessed Incomplete Complete Unknown) however, the data\
+            \ type is designated as string data, recognizing that trading partners\
+            \ may identify additional status conditions not included in the enumeration."
+          maxLength: 2000
+          type: string
+        tag:
+          description: "If present, this attribute may identify an unknown or misspelled\
+            \ tag that caused an error in processing. It is recommended that the Tag\
+            \ attribute use XPath notation to identify the location of a tag in the\
+            \ event that more than one tag of the same name is present in the document.\
+            \ Alternatively, the tag name alone can be used to identify missing data\
+            \ [Type=ReqFieldMissing]."
+          maxLength: 2000
+          type: string
+        recordId:
+          description: "If present, this attribute allows for batch processing and\
+            \ the identification of the record that failed amongst a group of records.\
+            \ This value may contain a concatenation of a unique failed transaction\
+            \ ID with specific record(s) associated with that transaction."
+          maxLength: 2000
+          type: string
+        type:
+          description: The Warning element MUST contain the Type attribute that uses
+            a recommended set of values to indicate the warning type. The validating
+            XSD can expect to accept values that it has NOT been explicitly coded
+            for and process them by using Type ="Unknown".
+          maxLength: 20
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        rph:
+          description: Reference Place Holder used as an index for this warning.
+          maxLength: 8
+          minLength: 1
+          type: string
+      type: object
+    exceptionDetailType:
+      description: Complex type that contains error details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        o:errorDetails:
+          description: "Details of the error message, consisting of a hierarchical\
+            \ tree structure."
+          items:
+            $ref: '#/components/schemas/errorInstance'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      required:
+      - title
+      - type
+      title: Error Detail
+      type: object
+    errorInstance:
+      description: Complex type that contains error instance details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+      required:
+      - title
+      - type
+      title: Error Instance Details
+      type: object
+    status:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    bedTypesDetails:
+      description: Response object for fetching Bed Types.
+      properties:
+        bedTypes:
+          description: Bed Type Enumeration element.
+          items:
+            $ref: '#/components/schemas/bedTypeType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    bedTypesType:
+      description: Bed Type Enumeration element.
+      items:
+        $ref: '#/components/schemas/bedTypeType'
+      maxItems: 4000
+      type: array
+    bedTypeType:
+      description: Contains Common Master configuration detail.
+      properties:
+        code:
+          description: Common Master unique code.
+          maxLength: 40
+          minLength: 0
+          type: string
+        description:
+          $ref: '#/components/schemas/translationTextType2000'
+        displayOrder:
+          description: Common Master record sequence number.
+          type: number
+      type: object
+    codeListType:
+      items:
+        maxLength: 20
+        minLength: 0
+        type: string
+      maxItems: 4000
+      type: array
+    codeType:
+      description: "Used for codes in the OPERA Code tables. Possible values of this\
+        \ pattern are 1, 101, 101.EQP, or 101.EQP.X."
+      maxLength: 20
+      minLength: 0
+      type: string
+    codeDescriptionType:
+      description: This contains a generic code and description information.
+      properties:
+        code:
+          description: Code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          description: description.
+          maxLength: 2000
+          minLength: 0
+          type: string
+      type: object
+    housekeepingCreditsType:
+      description: Information regarding the credits for housekeeping tasks/rooms.
+      properties:
+        type:
+          $ref: '#/components/schemas/housekeepingCreditsDefinitionType'
+        numberOfCredits:
+          description: Total number of Credits for the Type.
+          type: number
+      type: object
+    housekeepingCreditsDefinitionType:
+      description: Type for the different kinds of Credits which will be used in Rooms
+        Management.
+      enum:
+      - Departure
+      - Pickup
+      - Turndown
+      - StayOver
+      - FacilityTask
+      - Travelling
+      - Total
+      type: string
+    roomTypesSummaryType:
+      description: This type holds collection of room type.
+      properties:
+        roomTypeSummary:
+          items:
+            $ref: '#/components/schemas/roomTypeSummaryType'
+          maxItems: 4000
+          type: array
+        hotelId:
+          description: Hotel Code.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    roomTypeSummaryType:
+      description: This type represents the summary of room type attributes.
+      properties:
+        roomClass:
+          description: Room class for the room type code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        shortDescription:
+          description: Short Description of room type.
+          maxLength: 200
+          minLength: 0
+          type: string
+        activeDate:
+          description: Active date of the room type.
+          format: date
+          type: string
+        pseudo:
+          description: Indicates if room type is pseudo.
+          type: boolean
+        accessible:
+          description: Indicates if room type is accessible.
+          type: boolean
+        sendToInterface:
+          description: Indicates if room type is sent to interface.
+          type: boolean
+        sellSequence:
+          description: Indicates room types sell sequence.
+          type: number
+        suite:
+          description: Indicates room type is a suite.
+          type: boolean
+        meetingRoom:
+          description: Indicates room type is meeting room. This Can be Meeting room
+            flag cannot be unmarked at the property level. Can only be marked for
+            non pseudo room types.
+          type: boolean
+        roomType:
+          maxLength: 20
+          minLength: 0
+          type: string
+        numberOfRooms:
+          description: Number of rooms for this room type.
+          type: integer
+        inactive:
+          description: Indicates the room type is inactive or not.
+          type: boolean
+      type: object
+    roomCondtionType:
+      description: Resort Room Condition Configuration Type
+      properties:
+        description:
+          description: Description for the room condition.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        displayInRoomAssignment:
+          description: Indicates types of assignment.
+          type: boolean
+        comments:
+          description: Comments for the room condition.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        displaySeq:
+          type: integer
+        inactive:
+          type: boolean
+        holdMinutes:
+          type: integer
+        hotelId:
+          maxLength: 20
+          minLength: 0
+          type: string
+        code:
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    resortRoomConditionCriteria:
+      description: Request object for Create Room Condition.
+      properties:
+        roomCondition:
+          $ref: '#/components/schemas/roomCondtionType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    roomTypeInfoDetails:
+      description: Response object for fetching room type information.
+      properties:
+        roomTypeMasterInfoType:
+          $ref: '#/components/schemas/roomTypeMasterInfoType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    roomTypeMasterInfoType:
+      description: The RoomType element is used to contain all the room type information
+        for a single room type.
+      properties:
+        roomType:
+          description: Room type information
+          items:
+            $ref: '#/components/schemas/roomTypeInfoType'
+          maxItems: 4000
+          type: array
+        hotelId:
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    roomTypeInfoType:
+      properties:
+        longDescription:
+          description: Detail description of the Room Type.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        webName:
+          description: Name corresponding to a RoomType.
+          maxLength: 80
+          minLength: 0
+          type: string
+        webPage:
+          description: URL providing more information about the Room Type.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        roomFeatures:
+          description: A recurring element that identifies the room features.
+          items:
+            $ref: '#/components/schemas/roomFeatureType'
+          maxItems: 4000
+          type: array
+        roomTypeAttributes:
+          $ref: '#/components/schemas/roomTypeAttributesType'
+        bookingChannelMappings:
+          description: Booking Channels mapping for the Room Type.
+          items:
+            $ref: '#/components/schemas/bookingChannelMappingType'
+          maxItems: 4000
+          type: array
+        bedTypeCodes:
+          description: Bed type code associated with room.
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+        bedType:
+          $ref: '#/components/schemas/bedTypeInfoType'
+        roomType:
+          maxLength: 20
+          minLength: 0
+          type: string
+        hotelId:
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomClass:
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          maxLength: 2000
+          minLength: 0
+          type: string
+        suite:
+          description: Indicates room type is a suite.
+          type: boolean
+        component:
+          description: Indicates room type is a Component Room.
+          type: boolean
+        invBlockCode:
+          description: Block code.
+          maxLength: 40
+          minLength: 0
+          type: string
+        roomViewCode:
+          description: "Represents the room view code like City view, River view,\
+            \ Ocean view etc."
+          maxLength: 40
+          minLength: 0
+          type: string
+        promotionCode:
+          description: Represents the promotional code.
+          maxLength: 40
+          minLength: 0
+          type: string
+        roomQualifierCode:
+          description: "Represents the room qualifier code like Deluxe,Economy,Suite\
+            \ etc."
+          maxLength: 40
+          minLength: 0
+          type: string
+        roomQualifierMatchIndicator:
+          description: Represents the match indicator of room qualifier code returned
+            in the response with the requested room qualifier code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        accessible:
+          description: Indicates whether room type is accessible or not.
+          type: boolean
+      type: object
+    roomFeaturesType:
+      description: A recurring element that identifies the room features.
+      items:
+        $ref: '#/components/schemas/roomFeatureType'
+      maxItems: 4000
+      type: array
+    roomFeatureType:
+      description: Room Feature Information.
+      properties:
+        code:
+          description: A code representing a room feature.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          description: A code representing a room feature.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        orderSequence:
+          description: Display Order sequence.
+          type: number
+        quantity:
+          description: Indicates quantity.
+          type: integer
+      type: object
+    roomTypeAttributesType:
+      description: Attributes of property room type.
+      properties:
+        defaultOccupancy:
+          description: Default occupancy of property room type.
+          type: integer
+        maximumOccupancy:
+          description: Max occupancy of property room type.
+          type: integer
+        noOfPhysicalRooms:
+          description: Number of physical rooms of property room type.
+          type: integer
+        minimumOccupancy:
+          description: Minimum occupancy of property room type.
+          type: integer
+        maximumAdults:
+          description: Maximum adult occupancy of property room type.
+          type: integer
+        maximumChildren:
+          description: Maximum children occupancy of property room type.
+          type: integer
+      type: object
+    bookingChannelMappingType:
+      properties:
+        bookingChannelCode:
+          maxLength: 20
+          minLength: 0
+          type: string
+        code:
+          maxLength: 20
+          minLength: 0
+          type: string
+        name:
+          maxLength: 40
+          minLength: 0
+          type: string
+        description:
+          maxLength: 2000
+          minLength: 0
+          type: string
+      type: object
+    bedTypeInfoType:
+      description: Information representing Bed type associated with a room type.
+      properties:
+        code:
+          description: Bed Type Code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          $ref: '#/components/schemas/translationTextType2000'
+      type: object
+    roomTypesDetails:
+      description: Response object for Fetching existing Room Types.
+      properties:
+        roomTypesSummary:
+          description: Contains the results of a successful operation.
+          items:
+            $ref: '#/components/schemas/roomTypesSummaryType'
+          type: array
+        roomTypes:
+          description: Collection of Room Type Templates and their information.
+          items:
+            $ref: '#/components/schemas/roomTypesType'
+          type: array
+        totalPages:
+          description: Evaluated total page count based on the requested max fetch
+            count.
+          type: integer
+        offset:
+          description: Index or initial index of the set(page) being requested. If
+            the index goes out of the bounds of the total set count then no data will
+            be returned.
+          type: integer
+        limit:
+          description: Indicates maximum number of records a Web Service should return.
+          type: integer
+        hasMore:
+          description: Indicates whether all the records are included in the response
+            or not. Absence of the attribute values should be consider as all rows
+            fetched in the response.
+          type: boolean
+        totalResults:
+          description: Total number of rows queried
+          type: integer
+        count:
+          description: Total number of rows returned
+          type: integer
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    roomTypesType:
+      description: This type holds collection of room type.
+      properties:
+        roomType:
+          items:
+            $ref: '#/components/schemas/roomTypeType'
+          maxItems: 4000
+          type: array
+        hotelId:
+          description: Hotel Code.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    roomTypeType:
+      description: This type represents the room type attributes.
+      properties:
+        newRoomType:
+          description: New Room type code. (Used in change template room type operation)
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomClass:
+          description: Room class for the room type code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        bedType:
+          description: Bed type of room type.
+          maxLength: 20
+          minLength: 0
+          type: string
+        shortDescription:
+          $ref: '#/components/schemas/translationTextType2000'
+        description:
+          $ref: '#/components/schemas/translationTextType2000'
+        smokingPreference:
+          description: "Specifies the smoking preference for this room type. I.E.\
+            \ SM, NS."
+          maxLength: 20
+          minLength: 0
+          type: string
+        activeDate:
+          description: Active date of the room type.
+          format: date
+          type: string
+        pseudo:
+          description: Indicates if room type is pseudo.
+          type: boolean
+        accessible:
+          description: Indicates if room type is accessible.
+          type: boolean
+        suite:
+          $ref: '#/components/schemas/roomTypeType_suite'
+        meetingRoom:
+          description: Indicates room type is meeting room. This Can be Meeting room
+            flag cannot be unmarked at the property level. Can only be marked for
+            non pseudo room types.
+          type: boolean
+        sendToInterface:
+          description: Indicates room type is sent to interface.
+          type: boolean
+        sellSequence:
+          description: Indicates room types sell sequence.
+          type: number
+        generic:
+          description: Indicates room type is generic.
+          type: boolean
+        maintenance:
+          description: Indicates room type is available for maintenance request.
+          type: boolean
+        defaultOccupancy:
+          description: Default occupancy for the room type.
+          type: number
+        minimumOccupancy:
+          description: Minimum occupancy for the room type.
+          type: integer
+        maximumOccupancy:
+          description: Maximum occupancy for the room type.
+          type: integer
+        maxAdults:
+          description: Maximum Adults for the room type.
+          type: integer
+        maxChildren:
+          description: Maximum Children for the room type.
+          type: integer
+        houseKeeping:
+          description: Room type shows in house keeping.
+          type: boolean
+        infoURL:
+          description: Room type info URL.
+          maxLength: 200
+          minLength: 0
+          type: string
+        autoPopulate:
+          description: Room type is automatically attached when new rate codes are
+            created.
+          type: boolean
+        autoRoomAssign:
+          description: Room number is automatically assigned when a reservation is
+            made for this Room Type.
+          type: boolean
+        autoCheckin:
+          description: "Creates a new linked Reservation, and proceeds within check-in\
+            \ of the new reservation."
+          type: boolean
+        rateFloor:
+          description: This value will control the minimum amount that the selected
+            room type can be sold
+          type: number
+        components:
+          description: Contains room components of a component room type.
+          items:
+            $ref: '#/components/schemas/roomTypeComponentType'
+          maxItems: 4000
+          type: array
+        features:
+          description: A recurring element that identifies the room features.
+          items:
+            $ref: '#/components/schemas/roomFeatureType'
+          maxItems: 4000
+          type: array
+        yieldStatus:
+          $ref: '#/components/schemas/roomTypeYieldableType'
+        yieldCategory:
+          description: Yield category for this room type (Available when a yield integration
+            add-on license is active and when room type is Yieldable.)
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomType:
+          maxLength: 20
+          minLength: 0
+          type: string
+        numberOfRooms:
+          description: Number of rooms for this room type.
+          type: integer
+        inactive:
+          description: Is Room type inactive?
+          type: boolean
+      type: object
+    roomTypeComponentsType:
+      description: Contains room components of a component room type.
+      items:
+        $ref: '#/components/schemas/roomTypeComponentType'
+      maxItems: 4000
+      type: array
+    roomTypeComponentType:
+      description: Room component and its quantity for the component room type.
+      properties:
+        qty:
+          description: Quantity of room component for the component room type.
+          type: integer
+        description:
+          description: Description of room component.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        roomType:
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    roomTypeYieldableType:
+      description: Simple type for Yieldable or Non Yieldable
+      enum:
+      - Yieldable
+      - NonYieldable
+      type: string
+    roomTypesCriteria:
+      description: Request object for Creating a new Room Type.
+      properties:
+        roomType:
+          $ref: '#/components/schemas/roomTypesCriteria_roomType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    roomsDetails:
+      description: Response object for fetching complete information of existing rooms.
+      properties:
+        rooms:
+          description: Collection of rooms with detailed information.
+          items:
+            $ref: '#/components/schemas/configRoomsType'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    configRoomsType:
+      description: This type holds collection of rooms with complete information.
+      properties:
+        room:
+          items:
+            $ref: '#/components/schemas/configRoomType'
+          maxItems: 4000
+          type: array
+        hotelId:
+          description: Hotel Code of the rooms.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    configRoomType:
+      description: This type represents the primary room attributes.
+      properties:
+        roomType:
+          $ref: '#/components/schemas/roomTypeShortInfoType'
+        floor:
+          description: Floor of the Room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        floorDescription:
+          description: Description for the Floor of the Room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomFeatures:
+          description: A recurring element that identifies the room features.
+          items:
+            $ref: '#/components/schemas/roomFeatureType'
+          maxItems: 4000
+          type: array
+        roomDescription:
+          description: Detail Long Description Of The Room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          $ref: '#/components/schemas/translationTextType2000'
+        smokingPreference:
+          description: This indicates room smoking preference.
+          maxLength: 20
+          minLength: 0
+          type: string
+        smokingPreferenceDescription:
+          description: This indicates the description of the room smoking preference.
+          maxLength: 20
+          minLength: 0
+          type: string
+        building:
+          description: Building associated with the room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomAssignmentRating:
+          $ref: '#/components/schemas/ratePlanRatingType'
+        accessible:
+          description: Indicates whether the room is accessibility compliant.
+          type: boolean
+        roomId:
+          description: Code of the room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        meetingRoom:
+          description: Indicates whether the room is a Meeting Room
+          type: boolean
+        roomComponents:
+          description: Component of a room.
+          items:
+            $ref: '#/components/schemas/roomComponentType'
+          maxItems: 4000
+          type: array
+        connectingRooms:
+          description: Collection of rooms.
+          items:
+            $ref: '#/components/schemas/roomRoomType'
+          maxItems: 4000
+          type: array
+        rateCode:
+          description: Published rate code of a room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        rateAmount:
+          $ref: '#/components/schemas/currencyAmountType'
+        maximumOccupancy:
+          description: Maximum occupancy of a room.
+          type: integer
+        sellSequence:
+          description: Display sequence of a room.
+          type: number
+        ownerRoom:
+          description: This indicates if room is marked as a owner room
+          type: boolean
+        unitGradeCode:
+          description: The Unit Grade Code attached to the room
+          maxLength: 20
+          minLength: 0
+          type: string
+        smoking:
+          description: This indicates if smoking is allowed in the room.
+          type: boolean
+        keyCode:
+          description: Key code of a room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        keyOptions:
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+        squareUnits:
+          description: Square units of a room.
+          type: number
+        turndownService:
+          description: Turndown service flag of a room.
+          type: boolean
+        squareUnitsMeasurement:
+          description: Square unit measurement of a room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        phoneNumber:
+          description: Square unit measurement of a room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        housekeepingCredit:
+          description: "Housekeeping credits of the room. This may include stayover,\
+            \ departure, pickup and turndown credits."
+          items:
+            $ref: '#/components/schemas/housekeepingCreditsType'
+          maxItems: 4000
+          type: array
+        roomSection:
+          $ref: '#/components/schemas/roomSectionType'
+        noOfBeds:
+          description: Number of beds of the room.
+          type: integer
+      type: object
+    roomTypeShortInfoType:
+      description: Basic information of room type.
+      properties:
+        pseudo:
+          description: Indicates if room is a pseudo. This is read-only.
+          type: boolean
+        suite:
+          description: Indicates if room is a suite. This is read-only.
+          type: boolean
+        roomClass:
+          description: Room Class of the room. This is read-only.
+          maxLength: 20
+          minLength: 0
+          type: string
+        shortDescription:
+          description: Short Description of room type.
+          maxLength: 200
+          minLength: 0
+          type: string
+        houseKeeping:
+          description: Indicates if room type of the room is flagged as housekeeping.
+            This is read-only.
+          type: boolean
+        smokingPreference:
+          description: Specifies the smoking preference for room type of the room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        building:
+          description: Building associated with the room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomAssignmentRating:
+          $ref: '#/components/schemas/ratePlanRatingType'
+        minimumOccupancy:
+          description: Minimum occupancy for the room type.
+          type: integer
+        maximumOccupancy:
+          description: Maximum occupancy for the room type.
+          type: integer
+        roomFeatures:
+          description: A recurring element that identifies the room features.
+          items:
+            $ref: '#/components/schemas/roomFeatureType'
+          maxItems: 4000
+          type: array
+        accessible:
+          description: Indicates if room type is accessible.
+          type: boolean
+        roomType:
+          description: Room type of the room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        meetingRoom:
+          description: Indicates whether function space can be meeting room.
+          type: boolean
+      type: object
+    ratePlanRatingType:
+      description: Possible Rate plan rating values.
+      enum:
+      - MostImportant
+      - Important
+      - SomewhatImportant
+      - LessImportant
+      - LeastImportant
+      - NoValueSet
+      type: string
+    roomComponentsType:
+      description: Component of a room.
+      items:
+        $ref: '#/components/schemas/roomComponentType'
+      maxItems: 4000
+      type: array
+    roomComponentType:
+      description: Room component and its quantity for the component room type.
+      properties:
+        qty:
+          description: Quantity of room component for the component room type.
+          type: integer
+        description:
+          description: Description of room component.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        roomType:
+          maxLength: 20
+          minLength: 0
+          type: string
+        rooms:
+          description: Collection of rooms.
+          items:
+            $ref: '#/components/schemas/roomRoomType'
+          maxItems: 4000
+          type: array
+      type: object
+    roomRoomsType:
+      description: Collection of rooms.
+      items:
+        $ref: '#/components/schemas/roomRoomType'
+      maxItems: 4000
+      type: array
+    roomRoomType:
+      description: This type represents the primary room attributes.
+      properties:
+        roomType:
+          $ref: '#/components/schemas/roomTypeShortInfoType'
+        floor:
+          description: Floor of the Room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        floorDescription:
+          description: Description for the Floor of the Room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomFeatures:
+          description: A recurring element that identifies the room features.
+          items:
+            $ref: '#/components/schemas/roomFeatureType'
+          maxItems: 4000
+          type: array
+        roomDescription:
+          description: Detail Long Description Of The Room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          $ref: '#/components/schemas/translationTextType2000'
+        smokingPreference:
+          description: This indicates room smoking preference.
+          maxLength: 20
+          minLength: 0
+          type: string
+        smokingPreferenceDescription:
+          description: This indicates the description of the room smoking preference.
+          maxLength: 20
+          minLength: 0
+          type: string
+        building:
+          description: Building associated with the room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomAssignmentRating:
+          $ref: '#/components/schemas/ratePlanRatingType'
+        accessible:
+          description: Indicates whether the room is accessibility compliant.
+          type: boolean
+        roomId:
+          description: Code of the room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        meetingRoom:
+          description: Indicates whether the room is a Meeting Room
+          type: boolean
+        roomCondition:
+          $ref: '#/components/schemas/codeDescriptionType'
+      type: object
+    currencyAmountType:
+      description: A monetary value expressed with a currency code.
+      properties:
+        amount:
+          description: A monetary amount.
+          type: number
+        currencyCode:
+          description: Provides a currency code to reflect the currency in which an
+            amount may be expressed.
+          maxLength: 3
+          minLength: 3
+          type: string
+      type: object
+    roomSectionType:
+      properties:
+        daySectionCode:
+          maxLength: 20
+          minLength: 0
+          type: string
+        eveningSectionCode:
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    roomCriteria:
+      description: Request object for creating a new room.
+      properties:
+        room:
+          $ref: '#/components/schemas/roomCriteria_room'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    roomTypeTemplatesDetails:
+      description: Response object for information regarding room type template of
+        a property.
+      properties:
+        roomTypeTemplatesSummary:
+          description: This type holds collection of room type.
+          items:
+            $ref: '#/components/schemas/roomTypeSummaryType'
+          maxItems: 4000
+          type: array
+        roomTypeTemplates:
+          description: This type holds collection of room type.
+          items:
+            $ref: '#/components/schemas/roomTypeType'
+          maxItems: 4000
+          type: array
+        totalPages:
+          description: Evaluated total page count based on the requested max fetch
+            count.
+          type: integer
+        offset:
+          description: Index or initial index of the set(page) being requested. If
+            the index goes out of the bounds of the total set count then no data will
+            be returned.
+          type: integer
+        limit:
+          description: Indicates maximum number of records a Web Service should return.
+          type: integer
+        hasMore:
+          description: Indicates whether all the records are included in the response
+            or not. Absence of the attribute values should be consider as all rows
+            fetched in the response.
+          type: boolean
+        totalResults:
+          description: Total number of rows queried
+          type: integer
+        count:
+          description: Total number of rows returned
+          type: integer
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    roomTypeTemplateSummaryType:
+      description: This type holds collection of room type.
+      items:
+        $ref: '#/components/schemas/roomTypeSummaryType'
+      maxItems: 4000
+      type: array
+    roomTypeTemplateType:
+      description: This type holds collection of room type.
+      items:
+        $ref: '#/components/schemas/roomTypeType'
+      maxItems: 4000
+      type: array
+    roomsSummaryDetails:
+      description: Response object for fetching summary information of existing rooms.
+      properties:
+        rooms:
+          $ref: '#/components/schemas/roomsSummaryDetails_rooms'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    configRoomsSummaryType:
+      description: This type holds collection of rooms summary.
+      properties:
+        roomSummary:
+          items:
+            $ref: '#/components/schemas/configRoomSummaryType'
+          maxItems: 4000
+          type: array
+        hotelId:
+          description: Hotel Code of the rooms.
+          maxLength: 20
+          minLength: 0
+          type: string
+        noOfRooms:
+          description: Current number of rooms.
+          type: integer
+      type: object
+    configRoomSummaryType:
+      description: This type represents the primary room attributes.
+      properties:
+        roomType:
+          $ref: '#/components/schemas/roomTypeShortInfoType'
+        floor:
+          description: Floor of the Room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        floorDescription:
+          description: Description for the Floor of the Room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomFeatures:
+          description: A recurring element that identifies the room features.
+          items:
+            $ref: '#/components/schemas/roomFeatureType'
+          maxItems: 4000
+          type: array
+        roomDescription:
+          description: Detail Long Description Of The Room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          $ref: '#/components/schemas/translationTextType2000'
+        smokingPreference:
+          description: This indicates room smoking preference.
+          maxLength: 20
+          minLength: 0
+          type: string
+        smokingPreferenceDescription:
+          description: This indicates the description of the room smoking preference.
+          maxLength: 20
+          minLength: 0
+          type: string
+        building:
+          description: Building associated with the room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomAssignmentRating:
+          $ref: '#/components/schemas/ratePlanRatingType'
+        accessible:
+          description: Indicates whether the room is accessibility compliant.
+          type: boolean
+        roomId:
+          description: Code of the room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        meetingRoom:
+          description: Indicates whether the room is a Meeting Room
+          type: boolean
+        maximumOccupancy:
+          description: Maximum occupancy for the room type.
+          type: integer
+        squareUnits:
+          description: Square units of a room.
+          type: number
+        squareUnitsMeasurement:
+          description: Square unit measurement of a room.
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomComponents:
+          description: Component of a room.
+          items:
+            $ref: '#/components/schemas/roomComponentType'
+          maxItems: 4000
+          type: array
+        connectingRooms:
+          description: Collection of rooms.
+          items:
+            $ref: '#/components/schemas/roomRoomType'
+          maxItems: 4000
+          type: array
+        sellSequence:
+          description: Display sequence of a room.
+          type: number
+      type: object
+    postResortRoomCondition_request:
+      allOf:
+      - $ref: '#/components/schemas/resortRoomConditionCriteria'
+    postRoomTypes_request:
+      allOf:
+      - $ref: '#/components/schemas/roomTypesCriteria'
+    postRooms_request:
+      allOf:
+      - $ref: '#/components/schemas/roomCriteria'
+    translationsTextType_inner:
+      description: Language code for the translation.
+      properties:
+        value:
+          description: "Used for Character Strings, length 0 to 2000."
+          maxLength: 2000
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+      type: object
+    roomTypeType_suite:
+      description: Indicates room type is a suite.
+      properties:
+        value:
+          description: Property Value
+          type: boolean
+        editable:
+          description: Indicates if room type Room Components may be changed.
+          type: boolean
+      type: object
+    roomTypesCriteria_roomType:
+      description: Room Type details to be created.
+      properties:
+        roomTypeDetails:
+          $ref: '#/components/schemas/roomTypeType'
+        hotelId:
+          description: "Used for codes in the OPERA Code tables. Possible values of\
+            \ this pattern are 1, 101, 101.EQP, or 101.EQP.X."
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    roomCriteria_room:
+      description: Room to be created.
+      properties:
+        roomDetails:
+          $ref: '#/components/schemas/configRoomType'
+        hotelId:
+          description: "Used for codes in the OPERA Code tables. Possible values of\
+            \ this pattern are 1, 101, 101.EQP, or 101.EQP.X."
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    roomsSummaryDetails_rooms:
+      description: Collection of rooms.
+      properties:
+        roomsSummary:
+          description: Collection of rooms summary.
+          items:
+            $ref: '#/components/schemas/configRoomsSummaryType'
+          type: array
+        totalPages:
+          description: Evaluated total page count based on the requested max fetch
+            count.
+          type: integer
+        offset:
+          description: Index or initial index of the set(page) being requested. If
+            the index goes out of the bounds of the total set count then no data will
+            be returned.
+          type: integer
+        limit:
+          description: Indicates maximum number of records a Web Service should return.
+          type: integer
+        hasMore:
+          description: Indicates whether all the records are included in the response
+            or not. Absence of the attribute values should be consider as all rows
+            fetched in the response.
+          type: boolean
+        totalResults:
+          description: Total number of rows queried
+          type: integer
+        count:
+          description: Total number of rows returned
+          type: integer
+      type: object
+x-original-swagger-version: "2.0"

@@ -1,0 +1,3641 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hospitality_apis_ww_grp@oracle.com
+  description: "APIs catering to Integration Configuration in OPERA Cloud.  Operations\
+    \ such as get Hotel Interface Types, or get UDF mappings can be found in this\
+    \ module.<br /><br /> Compatible with OPERA Cloud release 22.3.<br /><br /><p>\
+    \ This document and all content within is available under the Universal Permissive\
+    \ License v 1.0 (https://oss.oracle.com/licenses/upl). Copyright (c) 2020, 2023\
+    \ Oracle and/or its affiliates.</p>"
+  license:
+    name: UPL
+    url: https://opensource.org/licenses/upl
+  termsOfService: https://www.oracle.com/legal/terms.html
+  title: OPERA Cloud Integration Configuration API
+  version: "22.3"
+externalDocs:
+  description: Find out more about Oracle Hospitality
+  url: https://docs.oracle.com/en/industries/hospitality/integration_platforms.html
+servers:
+- url: /int/config/v1
+tags:
+- name: ExternalSystemsConfig
+- description: These APIs will allow you to do external configuration under Administration.
+  name: ChainConfig
+paths:
+  /deliveryMethods:
+    delete:
+      description: ' <p><strong>OperationId:</strong>deleteDeliveryMethods</p>'
+      operationId: deleteDeliveryMethods
+      parameters:
+      - description: "Used for codes in the OPERA Code tables. Possible values of\
+          \ this pattern are 1, 101, 101.EQP, or 101.EQP.X."
+        in: query
+        name: hotelId
+        schema:
+          type: string
+      - description: Settings for Text Message Delivery of Queue Reservation status
+        in: query
+        name: type
+        schema:
+          enum:
+          - General
+          - QueueReservation
+          - Confirmation
+          - GuestMessage
+          - BillingFolio
+          - QueueRush
+          type: string
+      - description: SFTP delivery configurations
+        explode: true
+        in: query
+        name: options
+        schema:
+          items:
+            enum:
+            - Email
+            - Fax
+            - TextMessage
+            - Sftp
+            type: string
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Unique id associated with this configuration
+        explode: true
+        in: query
+        name: configurationId
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to remove delivery methods.
+      tags:
+      - ExternalSystemsConfig
+    get:
+      description: ' <p><strong>OperationId:</strong>getDeliveryMethods</p>'
+      operationId: getDeliveryMethods
+      parameters:
+      - description: Property code.
+        in: query
+        name: hotelId
+        schema:
+          type: string
+      - description: CRO code.
+        in: query
+        name: croCode
+        schema:
+          type: string
+      - description: Settings for Text Message Delivery of Queue Reservation status
+        explode: true
+        in: query
+        name: usages
+        schema:
+          items:
+            enum:
+            - General
+            - QueueReservation
+            - Confirmation
+            - GuestMessage
+            - BillingFolio
+            - QueueRush
+            type: string
+          type: array
+          uniqueItems: true
+        style: form
+      - description: If true this will include inactive records(This is only applicable
+          for general SMTP delivery method ).
+        in: query
+        name: includeInactive
+        schema:
+          type: boolean
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/fetchedDeliveryMethods'
+          description: Response to request to fetch the delivery method for a property/HUB/Chain
+            and its configurations.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: DeliveryMethods not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to fetch delivery methods.
+      tags:
+      - ExternalSystemsConfig
+    post:
+      description: ' <p><strong>OperationId:</strong>postDeliveryMethods</p>'
+      operationId: postDeliveryMethods
+      parameters:
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postDeliveryMethods_request'
+        description: Request to create the delivery method for a property/HUB/Chain
+          and its configurations.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to create delivery methods.
+      tags:
+      - ExternalSystemsConfig
+      x-codegen-request-body-name: createDeliveryMethods
+    put:
+      description: ' <p><strong>OperationId:</strong>putDeliveryMethods</p>'
+      operationId: putDeliveryMethods
+      parameters:
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/putDeliveryMethods_request'
+        description: Request to change the delivery method for a property/HUB/Chain
+          and its configurations.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/changedDeliveryMethods'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to change delivery methods.
+      tags:
+      - ExternalSystemsConfig
+      x-codegen-request-body-name: changeDeliveryMethods
+  /deviceLocations:
+    get:
+      description: Use this API to get the template device locations. <p><strong>OperationId:</strong>getTemplateDeviceLocations</p>
+      operationId: getTemplateDeviceLocations
+      parameters:
+      - description: Determines wether to fetch inactive records or not.
+        in: query
+        name: fetchInactive
+        schema:
+          default: false
+          type: boolean
+      - description: Codes to be searched.
+        explode: true
+        in: query
+        name: codes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Wildcard search on the code.
+        in: query
+        name: wildCard
+        schema:
+          type: string
+      - description: Description of the code.
+        in: query
+        name: description
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/templateDeviceLocationsDetails'
+          description: Response object for fetching template Device locations.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: TemplateDeviceLocations not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get the template device locations
+      tags:
+      - ChainConfig
+    post:
+      description: Use this API to create the template device locations. <p><strong>OperationId:</strong>postTemplateDeviceLocations</p>
+      operationId: postTemplateDeviceLocations
+      parameters:
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postTemplateDeviceLocations_request'
+        description: Request object for creating template Device locations.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Create the template device locations
+      tags:
+      - ChainConfig
+      x-codegen-request-body-name: templateDeviceLocationsCriteria
+  /deviceLocations/{deviceLocationId}:
+    delete:
+      description: Use this API to delete the template device locations. <p><strong>OperationId:</strong>removeTemplateDeviceLocations</p>
+      operationId: removeTemplateDeviceLocations
+      parameters:
+      - description: Unique ID of device location.
+        in: path
+        name: deviceLocationId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Delete the template device locations
+      tags:
+      - ChainConfig
+    put:
+      description: Use this API to update the template device locations. <p><strong>OperationId:</strong>changeTemplateDeviceLocations</p>
+      operationId: changeTemplateDeviceLocations
+      parameters:
+      - description: Unique ID of device location.
+        in: path
+        name: deviceLocationId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/changeTemplateDeviceLocations_request'
+        description: Request object for changing template Device locations.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Change the template device locations
+      tags:
+      - ChainConfig
+      x-codegen-request-body-name: templateDeviceLocationsToBeChanged
+  /externalSystems/{externalSystemCode}/hotels/{hotelId}/publishers:
+    delete:
+      description: ' <p><strong>OperationId:</strong>deletePublisher</p>'
+      operationId: deletePublisher
+      parameters:
+      - description: Unique OPERA Id used to find a property in OPERA.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique OPERA Code used to find External System in OPERA.
+        in: path
+        name: externalSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: query
+        name: subscriberHotelId
+        schema:
+          type: string
+      - in: query
+        name: code
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to remove publisher.
+      tags:
+      - ExternalSystemsConfig
+    post:
+      description: ' <p><strong>OperationId:</strong>postPublishers</p>'
+      operationId: postPublishers
+      parameters:
+      - description: Unique OPERA Id used to find a property in OPERA.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique OPERA Code used to find External System in OPERA.
+        in: path
+        name: externalSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postPublishers_request'
+        description: Request to create publishers.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to create publishers.
+      tags:
+      - ExternalSystemsConfig
+      x-codegen-request-body-name: createPublishers
+  /externalSystems/{externalSystemCode}/publishers:
+    get:
+      description: ' <p><strong>OperationId:</strong>getPublishers</p>'
+      operationId: getPublishers
+      parameters:
+      - description: Unique OPERA Code used to find External System in OPERA.
+        in: path
+        name: externalSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: query
+        name: hotelId
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/fetchedPublishers'
+          description: Response to request to fetch the external systems
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: Publishers not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to fetch publishers.
+      tags:
+      - ExternalSystemsConfig
+  /hotelInterfaceTypes:
+    get:
+      description: ' <p><strong>OperationId:</strong>getHotelInterfaces</p>'
+      operationId: getHotelInterfaces
+      parameters:
+      - explode: true
+        in: query
+        name: hotelIds
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: XML Posting Interface
+        explode: true
+        in: query
+        name: interfaceTypes
+        schema:
+          items:
+            enum:
+            - Bms
+            - Cas
+            - Ccw
+            - Dls
+            - Eft
+            - Exp
+            - Mak
+            - Mbs
+            - Msc
+            - Pbx
+            - Pos
+            - Svs
+            - Tik
+            - Vid
+            - Vms
+            - Www
+            - Xml
+            type: string
+          type: array
+          uniqueItems: true
+        style: form
+      - explode: true
+        in: query
+        name: logosCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: If true this will set the criteria to include inactive records.
+        in: query
+        name: includeInactive
+        schema:
+          type: boolean
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/fetchedHotelInterfaces'
+          description: Response object for retrieving Hotel Interfaces.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: HotelInterfaces not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to fetch hotel interfaces.
+      tags:
+      - ExternalSystemsConfig
+  /hotels/{hotelId}/hotelInerface:
+    delete:
+      description: ' <p><strong>OperationId:</strong>deleteHotelInterface</p>'
+      operationId: deleteHotelInterface
+      parameters:
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: "Hotel Interface Logo. On the database, this is also referred\
+          \ as DBF Logo. This is a three letter code followed by an underscore(_).\
+          \ This tells us which DBF files and log files with the prefix that IFC7\
+          \ is going to create."
+        in: query
+        name: logo
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to remove hotel interface.
+      tags:
+      - ExternalSystemsConfig
+  /interfaceRights:
+    delete:
+      description: ' <p><strong>OperationId:</strong>deleteInterfaceRight</p>'
+      operationId: deleteInterfaceRight
+      parameters:
+      - description: Hotel Code to which the Interface Right belongs to.
+        in: query
+        name: hotelId
+        schema:
+          type: string
+      - description: A unique identifying value assigned by the creating system. The
+          ID attribute may be used to reference a primary-key value within a database
+          or in a particular implementation.
+        in: query
+        name: id
+        schema:
+          type: string
+      - description: Additional identifying value assigned by the creating system.
+        in: query
+        name: idExtension
+        schema:
+          type: integer
+      - description: "Used to identify the source of the identifier (e.g., IATA, ABTA)."
+        in: query
+        name: idContext
+        schema:
+          type: string
+      - description: A reference to the type of object defined by the UniqueID element.
+        in: query
+        name: type
+        schema:
+          type: string
+      - description: Internal code for each allowed right of a Hotel Interface record.
+        in: query
+        name: right
+        schema:
+          type: integer
+      - description: User defined code for an Interface Right.
+        in: query
+        name: code
+        schema:
+          type: string
+      - description: User defined description for an Interface Right.
+        in: query
+        name: description
+        schema:
+          type: string
+      - description: System Description of an allowed Interface Right.
+        in: query
+        name: interfaceRightDescription
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to remove interface right.
+      tags:
+      - ExternalSystemsConfig
+    get:
+      description: ' <p><strong>OperationId:</strong>getInterfaceRights</p>'
+      operationId: getInterfaceRights
+      parameters:
+      - description: "Used for codes in the OPERA Code tables. Possible values of\
+          \ this pattern are 1, 101, 101.EQP, or 101.EQP.X."
+        in: query
+        name: hotelId
+        schema:
+          type: string
+      - description: A unique identifying value assigned by the creating system. The
+          ID attribute may be used to reference a primary-key value within a database
+          or in a particular implementation.
+        in: query
+        name: id
+        schema:
+          type: string
+      - description: Additional identifying value assigned by the creating system.
+        in: query
+        name: idExtension
+        schema:
+          type: integer
+      - description: "Used to identify the source of the identifier (e.g., IATA, ABTA)."
+        in: query
+        name: idContext
+        schema:
+          type: string
+      - description: A reference to the type of object defined by the UniqueID element.
+        in: query
+        name: type
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/fetchedInterfaceRights'
+          description: Collection of Hotel Interface Tasks.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: InterfaceRights not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to fetch interface rights.
+      tags:
+      - ExternalSystemsConfig
+    put:
+      description: ' <p><strong>OperationId:</strong>putInterfaceRight</p>'
+      operationId: putInterfaceRight
+      parameters:
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/putInterfaceRight_request'
+        description: Request object for updating a Hotel Interface Right. It will
+          create the Hotel Interface Right if it does not exist on the database.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/changedInterfaceRight'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to change interface right.
+      tags:
+      - ExternalSystemsConfig
+      x-codegen-request-body-name: changeInterfaceRight
+  /interfaces/{interfaceId}/databases/{databaseId}/availableResorts:
+    get:
+      description: ' <p><strong>OperationId:</strong>getExternalDatabaseAvailableProperties</p>'
+      operationId: getExternalDatabaseAvailableProperties
+      parameters:
+      - description: OPERA Id for Databsase
+        in: path
+        name: databaseId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: OPERA Id for interface
+        in: path
+        name: interfaceId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Flag that indicates to include inactive records.
+        in: query
+        name: includeInactive
+        schema:
+          type: boolean
+      - explode: true
+        in: query
+        name: interfaceCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: hotelIds
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/fetchedExternalDatabaseAvailableProperties'
+          description: Response object for retrieving the Available properties for
+            External Databases.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: ExternalDatabaseAvailableProperties not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to fetch external database available properties.
+      tags:
+      - ExternalSystemsConfig
+  /udfMappings:
+    get:
+      description: Operation to send a response to the Look-up of UDFs. <p><strong>OperationId:</strong>getUDFMappings</p>
+      operationId: getUDFMappings
+      parameters:
+      - description: A reference to the type of object defined by the Type for Reservation
+          and Profile Type.
+        in: query
+        name: type
+        schema:
+          type: string
+      - description: Name of the user-defined function (UDF) field.
+        in: query
+        name: uDFName
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/fetchedUDFMappings'
+          description: Message received on an UDFs Lookup.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: UDFMappings not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to send a response to the Look up of UDFs.
+      tags:
+      - ExternalSystemsConfig
+    put:
+      description: Operation to send a response to the Change in UDF. <p><strong>OperationId:</strong>putUDFMapping</p>
+      operationId: putUDFMapping
+      parameters:
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner’s Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/putUDFMapping_request'
+        description: Self-contained Request object that is used when Updating UDFMapping.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/changedUDFMapping'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to send a response to the Change in UDF.
+      tags:
+      - ExternalSystemsConfig
+      x-codegen-request-body-name: changeUDFMapping
+components:
+  parameters:
+    authKey:
+      description: Bearer token that needs to be passed which is generated post user
+        authentication
+      in: header
+      name: authorization
+      required: true
+      schema:
+        type: string
+    x-app-key:
+      description: Client or Partner’s Application Key
+      in: header
+      name: x-app-key
+      required: true
+      schema:
+        pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+        type: string
+    x-hotelid:
+      description: Mandatory parameter to identify the hotel code where the end user
+        is logged in
+      in: header
+      name: x-hotelid
+      required: true
+      schema:
+        type: string
+    x-externalsystem:
+      description: External system code.
+      example: EXTERNALSYSTEMCODE
+      in: header
+      name: x-externalsystem
+      schema:
+        maxLength: 80
+        type: string
+    Accept-Language:
+      description: Language code
+      in: header
+      name: Accept-Language
+      schema:
+        type: string
+    x-hubid:
+      description: x-hubid is a logical grouping of multiple properties that allows
+        api consumers to manage data from a group of properties. This x-hubid is a
+        valid list of hub codes configured in OPERA to which the user has access.
+        Rest APIs without hotelId in the operation path can support hub level integration
+        using x-hubid
+      in: header
+      name: x-hubid
+      schema:
+        type: string
+  responses:
+    "400":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Bad Request
+    "401":
+      content: {}
+      description: Unauthorized
+    "403":
+      content: {}
+      description: Forbidden
+    "404":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Resource not found
+    "405":
+      content: {}
+      description: Method not allowed
+    "406":
+      content: {}
+      description: Not acceptable.
+    "413":
+      content: {}
+      description: Request Entity Too Large
+    "414":
+      content: {}
+      description: Request URI Too Large
+    "415":
+      content: {}
+      description: Unsupported Media Type
+    "500":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: System Error
+    "502":
+      content: {}
+      description: Bad Gateway
+    "503":
+      content: {}
+      description: Service Unavailable
+  schemas:
+    status:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    warningsType:
+      description: Used in conjunction with the Success element to define a business
+        error.
+      items:
+        $ref: '#/components/schemas/warningType'
+      maxItems: 4000
+      type: array
+    warningType:
+      description: Used when a message has been successfully processed to report any
+        warnings or business errors that occurred.
+      properties:
+        value:
+          description: Property Value
+          type: string
+        shortText:
+          description: An abbreviated version of the error in textual format.
+          maxLength: 2000
+          type: string
+        code:
+          description: "If present, this refers to a table of coded values exchanged\
+            \ between applications to identify errors or warnings."
+          maxLength: 20
+          minLength: 0
+          type: string
+        docURL:
+          description: "If present, this URL refers to an online description of the\
+            \ error that occurred."
+          maxLength: 2000
+          type: string
+        status:
+          description: "If present, recommended values are those enumerated in the\
+            \ ErrorRS, (NotProcessed Incomplete Complete Unknown) however, the data\
+            \ type is designated as string data, recognizing that trading partners\
+            \ may identify additional status conditions not included in the enumeration."
+          maxLength: 2000
+          type: string
+        tag:
+          description: "If present, this attribute may identify an unknown or misspelled\
+            \ tag that caused an error in processing. It is recommended that the Tag\
+            \ attribute use XPath notation to identify the location of a tag in the\
+            \ event that more than one tag of the same name is present in the document.\
+            \ Alternatively, the tag name alone can be used to identify missing data\
+            \ [Type=ReqFieldMissing]."
+          maxLength: 2000
+          type: string
+        recordId:
+          description: "If present, this attribute allows for batch processing and\
+            \ the identification of the record that failed amongst a group of records.\
+            \ This value may contain a concatenation of a unique failed transaction\
+            \ ID with specific record(s) associated with that transaction."
+          maxLength: 2000
+          type: string
+        type:
+          description: The Warning element MUST contain the Type attribute that uses
+            a recommended set of values to indicate the warning type. The validating
+            XSD can expect to accept values that it has NOT been explicitly coded
+            for and process them by using Type ="Unknown".
+          maxLength: 20
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        rph:
+          description: Reference Place Holder used as an index for this warning.
+          maxLength: 8
+          minLength: 1
+          type: string
+      type: object
+    links:
+      items:
+        $ref: '#/components/schemas/instanceLink'
+      type: array
+    instanceLink:
+      description: Metadata describing link description objects that MAY appear in
+        the JSON instance representation.
+      properties:
+        href:
+          description: "URI [RFC3986] or URI Template [RFC6570]. If the value is set\
+            \ to URI Template, then the \"templated\" property must be set to true."
+          type: string
+        rel:
+          description: "Name of the link relation that, in addition to the type property,\
+            \ can be used to retrieve link details. For example, href or profile."
+          type: string
+        templated:
+          default: false
+          description: "Boolean flag that specifies that \"href\" property is a URI\
+            \ or URI Template. If the property is a URI template, set this value to\
+            \ true. By default, this value is false."
+          type: boolean
+        method:
+          description: HTTP method for requesting the target of the link.
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          - OPTIONS
+          - HEAD
+          type: string
+        targetSchema:
+          description: "Link to the metadata of the resource, such as JSON-schema,\
+            \ that describes the resource expected when dereferencing the target resource.."
+          type: string
+        operationId:
+          description: "The operationId of the path you can call to follow this link.\
+            \  This allows you to look up not only the path and method, but the description\
+            \ of that path and any parameters you need to supply."
+          type: string
+        title:
+          description: Exact copy of the "summary" field on the linked operation.
+          type: string
+      required:
+      - href
+      - method
+      - operationId
+      - rel
+      type: object
+    exceptionDetailType:
+      description: Complex type that contains error details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        o:errorDetails:
+          description: "Details of the error message, consisting of a hierarchical\
+            \ tree structure."
+          items:
+            $ref: '#/components/schemas/errorInstance'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      required:
+      - title
+      - type
+      title: Error Detail
+      type: object
+    errorInstance:
+      description: Complex type that contains error instance details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+      required:
+      - title
+      - type
+      title: Error Instance Details
+      type: object
+    fetchedDeliveryMethods:
+      description: Response to request to fetch the delivery method for a property/HUB/Chain
+        and its configurations.
+      properties:
+        deliveryMethods:
+          $ref: '#/components/schemas/configuredExternalDeliveryMethodsType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    configuredExternalDeliveryMethodsType:
+      description: External system configuration delivery methods for a property(chain
+        or hub).
+      properties:
+        general:
+          $ref: '#/components/schemas/generalDeliveryMethodType'
+        queueReservation:
+          $ref: '#/components/schemas/queueReservationDeliveryMethodType'
+        confirmation:
+          $ref: '#/components/schemas/confirmationDeliveryMethodType'
+        guestMessage:
+          $ref: '#/components/schemas/guestMessageDeliveryMethodType'
+        billingFolio:
+          $ref: '#/components/schemas/billingFolioDeliveryMethodType'
+        queueRush:
+          $ref: '#/components/schemas/queueRushDeliveryMethodType'
+      type: object
+    generalDeliveryMethodType:
+      description: "General delivery method SFTPConfigurationType configuration, settings\
+        \ for Email and Fax Delivery of General Letters"
+      properties:
+        email:
+          $ref: '#/components/schemas/emailDeliveryConfigurationType'
+        fax:
+          $ref: '#/components/schemas/faxDeliveryConfigurationType'
+        sftpConfigurations:
+          description: Type that holds sftp configurations
+          items:
+            $ref: '#/components/schemas/sftpConfigurationType'
+          maxItems: 4000
+          type: array
+      type: object
+    emailDeliveryConfigurationType:
+      description: Email content configuration template
+      properties:
+        fromAddress:
+          maxLength: 200
+          minLength: 0
+          type: string
+        userId:
+          maxLength: 80
+          minLength: 0
+          type: string
+        userPassword:
+          maxLength: 80
+          minLength: 0
+          type: string
+        serverName:
+          maxLength: 80
+          minLength: 0
+          type: string
+        subject:
+          maxLength: 2000
+          minLength: 0
+          type: string
+        body:
+          maxLength: 2000
+          minLength: 0
+          type: string
+        format:
+          $ref: '#/components/schemas/emailDeliveryFormatType'
+        type:
+          $ref: '#/components/schemas/emailDeliveryMethodType'
+        hotelId:
+          description: Hotel code
+          maxLength: 20
+          minLength: 0
+          type: string
+        activateDelivery:
+          description: This option must be selected in order to activate emailing
+            from an SMTP compliant email server
+          type: boolean
+        hTMLFormatDelivery:
+          description: Available for Confirmation Letters only and when Activate Email
+            Delivery is selected
+          type: boolean
+        attachICalender:
+          type: boolean
+      type: object
+    emailDeliveryFormatType:
+      description: Email delivery format
+      enum:
+      - Htmlcss
+      - Pdf
+      - Rtf
+      - Tif
+      type: string
+    emailDeliveryMethodType:
+      description: Email delivery method type
+      enum:
+      - Billing
+      - Confirmation
+      - General
+      - Other
+      type: string
+    faxDeliveryConfigurationType:
+      description: Email content configuration template
+      properties:
+        fromAddress:
+          maxLength: 200
+          minLength: 0
+          type: string
+        userId:
+          maxLength: 80
+          minLength: 0
+          type: string
+        userPassword:
+          maxLength: 80
+          minLength: 0
+          type: string
+        serverName:
+          maxLength: 80
+          minLength: 0
+          type: string
+        subject:
+          maxLength: 2000
+          minLength: 0
+          type: string
+        body:
+          maxLength: 2000
+          minLength: 0
+          type: string
+        format:
+          $ref: '#/components/schemas/emailDeliveryFormatType'
+        type:
+          $ref: '#/components/schemas/emailDeliveryMethodType'
+        hotelId:
+          description: Hotel code
+          maxLength: 20
+          minLength: 0
+          type: string
+        faxPrefix:
+          maxLength: 20
+          minLength: 0
+          type: string
+        faxSuffix:
+          maxLength: 20
+          minLength: 0
+          type: string
+        faxDomain:
+          maxLength: 40
+          minLength: 0
+          type: string
+        activateEmailToFax:
+          description: This option must be selected in order to activate faxing from
+            an SMTP compliant fax server
+          type: boolean
+      type: object
+    sftpConfigurationsListType:
+      description: Type that holds sftp configurations
+      items:
+        $ref: '#/components/schemas/sftpConfigurationType'
+      maxItems: 4000
+      type: array
+    sftpConfigurationType:
+      description: Information which uniquely identifies SFTP Configuration
+      properties:
+        configurationId:
+          description: Unique id associated with this configuration
+          type: integer
+        destination:
+          description: SFTP destination
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          description: "Description of the destination, such as Shift Reports."
+          maxLength: 200
+          minLength: 0
+          type: string
+        inactive:
+          description: Indicates whether the configuration is inactive or not.
+          type: boolean
+        hotelId:
+          description: Hotel code
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    queueReservationDeliveryMethodType:
+      description: "Queue reservation delivery method configuration, settings for\
+        \ Text Message Delivery of Queue Reservation status"
+      properties:
+        textMessage:
+          $ref: '#/components/schemas/textMessageDeliveryConfigurationType'
+      type: object
+    textMessageDeliveryConfigurationType:
+      description: Text message delivery configuration
+      properties:
+        userId:
+          description: "Partner or User ID, Text field for Partner ID or User ID for\
+            \ the delivery provider, Name of the Text Messaging Provider."
+          maxLength: 80
+          minLength: 0
+          type: string
+        serverName:
+          description: Text field for Service type or email server address for the
+            SMTP.
+          maxLength: 80
+          minLength: 0
+          type: string
+        account:
+          description: Text field for Service ID or email account for the SMTP as
+            advised by Text Messaging Provider.
+          maxLength: 80
+          minLength: 0
+          type: string
+        password:
+          maxLength: 80
+          minLength: 0
+          type: string
+        timeOut:
+          description: Number field for Delivery time out in seconds for the message.
+            Any message exceeding this limit will be timed out. Add word Seconds using
+            small grey font next to the number box.
+          type: integer
+        url:
+          description: Text field for URL address or the Text Messaging Provider.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        uRLParameter:
+          $ref: '#/components/schemas/urlFormatType'
+        format:
+          description: "Text field for entering any special formatting for the delivery,\
+            \ or multi select LOV type, for example the one used for Address Format\
+            \ for selection of SID fields, to allow users choosing from a list of\
+            \ tags that may be used to customize this field."
+          maxLength: 4000
+          minLength: 0
+          type: string
+        message:
+          description: Text field for entering the Text Message for delivery.
+          maxLength: 4000
+          minLength: 0
+          type: string
+        type:
+          $ref: '#/components/schemas/textDeliveryMethodType'
+        hotelId:
+          description: Hotel code
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    urlFormatType:
+      description: Url content format
+      enum:
+      - Xml
+      - Text
+      type: string
+    textDeliveryMethodType:
+      description: Text delivery method type
+      enum:
+      - Url
+      - Email
+      type: string
+    confirmationDeliveryMethodType:
+      description: "Confirmation letter delivery method configuration, settings for\
+        \ Text Message, Email and Fax Delivery of Confirmation Letters"
+      properties:
+        email:
+          $ref: '#/components/schemas/emailDeliveryConfigurationType'
+        fax:
+          $ref: '#/components/schemas/faxDeliveryConfigurationType'
+        textMessage:
+          $ref: '#/components/schemas/textMessageDeliveryConfigurationType'
+      type: object
+    guestMessageDeliveryMethodType:
+      description: "Guest text message configuration, settings for Text Message Delivery\
+        \ of Guest Messages"
+      properties:
+        textMessage:
+          $ref: '#/components/schemas/textMessageDeliveryConfigurationType'
+      type: object
+    billingFolioDeliveryMethodType:
+      description: "Billing folio delivery method configuration, settings for Email\
+        \ and Fax Delivery of Guest Folios"
+      properties:
+        email:
+          $ref: '#/components/schemas/emailDeliveryConfigurationType'
+        fax:
+          $ref: '#/components/schemas/faxDeliveryConfigurationType'
+      type: object
+    queueRushDeliveryMethodType:
+      description: "Queue rush delivery method configuration, settings for Text Message\
+        \ Delivery of Queue Reservation status"
+      properties:
+        textMessage:
+          $ref: '#/components/schemas/textMessageDeliveryConfigurationType'
+      type: object
+    changeDeliveryMethods:
+      description: Request to change the delivery method for a property/HUB/Chain
+        and its configurations.
+      properties:
+        deliveryMethods:
+          $ref: '#/components/schemas/configuredExternalDeliveryMethodsType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    changedDeliveryMethods:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    createDeliveryMethods:
+      description: Request to create the delivery method for a property/HUB/Chain
+        and its configurations.
+      properties:
+        deliveryMethods:
+          $ref: '#/components/schemas/configuredExternalDeliveryMethodsType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    templateDeviceLocationsDetails:
+      description: Response object for fetching template Device locations.
+      properties:
+        templateDeviceLocations:
+          description: List of Device locations at template level.
+          items:
+            $ref: '#/components/schemas/templateDeviceLocationType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    templateDeviceLocationsType:
+      description: List of Device locations at template level.
+      items:
+        $ref: '#/components/schemas/templateDeviceLocationType'
+      maxItems: 4000
+      type: array
+    templateDeviceLocationType:
+      description: Contains Common Master configuration detail.
+      properties:
+        code:
+          description: Common Master unique code.
+          maxLength: 40
+          minLength: 0
+          type: string
+        description:
+          $ref: '#/components/schemas/translationTextType2000'
+        displayOrder:
+          description: Common Master record sequence number.
+          type: number
+      type: object
+    translationTextType2000:
+      description: Contains Multiple translated texts and language codes.
+      properties:
+        defaultText:
+          description: Default text with Character length from 0 to 2000.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        translatedTexts:
+          description: Language code for the translation.
+          items:
+            $ref: '#/components/schemas/translationsTextType_inner'
+          maxItems: 4000
+          type: array
+      type: object
+    translationsTextType:
+      description: Language code for the translation.
+      items:
+        $ref: '#/components/schemas/translationsTextType_inner'
+      maxItems: 4000
+      type: array
+    templateDeviceLocationsCriteria:
+      description: Request object for creating template Device locations.
+      properties:
+        templateDeviceLocations:
+          description: List of Device locations at template level.
+          items:
+            $ref: '#/components/schemas/templateDeviceLocationType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    templateDeviceLocationsToBeChanged:
+      description: Request object for changing template Device locations.
+      properties:
+        templateDeviceLocations:
+          description: List of Device locations at template level.
+          items:
+            $ref: '#/components/schemas/templateDeviceLocationType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    createPublishers:
+      description: Request to create publishers.
+      properties:
+        subscriber:
+          $ref: '#/components/schemas/externalSystemType'
+        publishers:
+          description: Information of all the publishers for a given subscriber.
+          items:
+            $ref: '#/components/schemas/externalSystemType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    externalSystemType:
+      description: External System Information
+      properties:
+        hotelId:
+          maxLength: 20
+          minLength: 0
+          type: string
+        externalSystemCode:
+          $ref: '#/components/schemas/externalSystemCodeType'
+      type: object
+    externalSystemCodeType:
+      description: External System Code
+      properties:
+        code:
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    publishersType:
+      description: Information of all the publishers for a given subscriber.
+      items:
+        $ref: '#/components/schemas/externalSystemType'
+      maxItems: 4000
+      type: array
+    fetchedPublishers:
+      description: Response to request to fetch the external systems
+      properties:
+        publishers:
+          description: Information of all the publishers for a given subscriber.
+          items:
+            $ref: '#/components/schemas/externalSystemType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    fetchedHotelInterfaces:
+      description: Response object for retrieving Hotel Interfaces.
+      properties:
+        hotelInterfaces:
+          description: Collection of Hotel Interfaces.
+          items:
+            $ref: '#/components/schemas/hotelInterfaceType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    hotelInterfacesType:
+      description: Collection of Hotel Interfaces.
+      items:
+        $ref: '#/components/schemas/hotelInterfaceType'
+      maxItems: 4000
+      type: array
+    hotelInterfaceType:
+      properties:
+        interfaceId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        hotelId:
+          description: Hotel Code
+          maxLength: 20
+          minLength: 0
+          type: string
+        interfaceName:
+          description: Name of the Hotel Interface
+          maxLength: 40
+          minLength: 0
+          type: string
+        interfaceType:
+          $ref: '#/components/schemas/hotelInterfaceTypeType'
+        logo:
+          description: "Hotel Interface Logo. On the database, this is also referred\
+            \ as DBF Logo. This is a three letter code followed by an underscore(_).\
+            \ This tells us which DBF files and log files with the prefix that IFC7\
+            \ is going to create."
+          maxLength: 20
+          minLength: 0
+          type: string
+        machineName:
+          description: Unique machine name of the running IFC.
+          maxLength: 80
+          minLength: 0
+          type: string
+        status:
+          $ref: '#/components/schemas/hotelInterfaceStatusType'
+        activeFlag:
+          description: "Indicator if the Hotel Interface is active or not. This is\
+            \ different from the Interface Status, which is either STOPPED or RUNNING."
+          type: boolean
+      type: object
+    uniqueID_Type:
+      description: "An identifier used to uniquely reference an object in a system\
+        \ (e.g. an airline reservation reference, customer profile reference, booking\
+        \ confirmation number, or a reference to a previous availability quote)."
+      properties:
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    hotelInterfaceTypeType:
+      description: XML Posting Interface
+      enum:
+      - Bms
+      - Cas
+      - Ccw
+      - Dls
+      - Eft
+      - Exp
+      - Mak
+      - Mbs
+      - Msc
+      - Pbx
+      - Pos
+      - Svs
+      - Tik
+      - Vid
+      - Vms
+      - Www
+      - Xml
+      type: string
+    hotelInterfaceStatusType:
+      description: Status of the Hotel Interface either STOPPED or RUNNING.
+      enum:
+      - Stopped
+      - Running
+      - Waiting
+      - StopInitiated
+      - StartInitiated
+      - RebootInitiated
+      - Other
+      type: string
+    changeInterfaceRight:
+      description: Request object for updating a Hotel Interface Right. It will create
+        the Hotel Interface Right if it does not exist on the database.
+      properties:
+        details:
+          $ref: '#/components/schemas/interfaceRightType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    interfaceRightType:
+      properties:
+        hotelId:
+          description: Hotel Code to which the Interface Right belongs to.
+          maxLength: 20
+          minLength: 0
+          type: string
+        interfaceId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        right:
+          description: Internal code for each allowed right of a Hotel Interface record.
+          type: integer
+        code:
+          description: User defined code for an Interface Right.
+          maxLength: 5
+          minLength: 0
+          type: string
+        description:
+          description: User defined description for an Interface Right.
+          maxLength: 80
+          minLength: 0
+          type: string
+        interfaceRightDescription:
+          description: System Description of an allowed Interface Right.
+          maxLength: 80
+          minLength: 0
+          type: string
+      type: object
+    changedInterfaceRight:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    fetchedInterfaceRights:
+      description: Collection of Hotel Interface Rights.
+      items:
+        $ref: '#/components/schemas/interfaceRightType'
+      type: array
+    fetchedExternalDatabaseAvailableProperties:
+      description: Response object for retrieving the Available properties for External
+        Databases.
+      properties:
+        availailableProperties:
+          description: Collection of Hotel for external database.
+          items:
+            $ref: '#/components/schemas/externalDatabaseAssociatedHotelType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    externalDatabaseAssociatedHotelsType:
+      description: Collection of Hotel for external database.
+      items:
+        $ref: '#/components/schemas/externalDatabaseAssociatedHotelType'
+      maxItems: 4000
+      type: array
+    externalDatabaseAssociatedHotelType:
+      properties:
+        hotelId:
+          description: Pertain associated hotel code for external database.
+          maxLength: 20
+          minLength: 0
+          type: string
+        hotelName:
+          description: Pertain associated hotel code for external database.
+          maxLength: 80
+          minLength: 0
+          type: string
+      type: object
+    fetchedUDFMappings:
+      description: Message received on an UDFs Lookup.
+      properties:
+        uDFMappings:
+          description: Criteria for fetching UDFs.
+          items:
+            $ref: '#/components/schemas/uDFMappingType'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    uDFMappingType:
+      description: Generic self-contained request object that is used when updating
+        and fetching UDFs.
+      properties:
+        uDFName:
+          description: Name of the user-defined function (UDF) field.
+          maxLength: 40
+          minLength: 0
+          type: string
+        uDFLabel:
+          description: Label the user-defined function (UDF) field shared with external
+            system which will be send in the request message for mapping of actual
+            UDF Name.
+          maxLength: 200
+          minLength: 0
+          type: string
+        active:
+          description: A flag to indicate whether the UDF mapping is active in the
+            Interface system or not.
+          type: boolean
+        updateAllowed:
+          description: A flag to indicate whether the update is allowed in the Interface
+            system or not.
+          type: boolean
+        type:
+          description: A reference to the type of object defined by the Type for Reservation
+            and Profile Type.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    changeUDFMapping:
+      description: Self-contained Request object that is used when Updating UDFMapping.
+      properties:
+        uDFMapping:
+          $ref: '#/components/schemas/uDFMappingType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    changedUDFMapping:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    conditionGroupType:
+      properties:
+        condition:
+          items:
+            $ref: '#/components/schemas/conditionType'
+          maxItems: 4000
+          type: array
+        conditionGroup:
+          items:
+            $ref: '#/components/schemas/conditionGroupType'
+          maxItems: 4000
+          type: array
+        logicalOperator:
+          $ref: '#/components/schemas/logicalOperatorType'
+      type: object
+    logicalOperatorType:
+      enum:
+      - And
+      - Or
+      type: string
+    conditionType:
+      properties:
+        leftExpression:
+          $ref: '#/components/schemas/expressionFieldType'
+        operator:
+          $ref: '#/components/schemas/expressionOperatorType'
+        rightExpression:
+          $ref: '#/components/schemas/expressionParameterType'
+        logicalOperator:
+          $ref: '#/components/schemas/logicalOperatorType'
+      type: object
+    expressionFieldType:
+      properties:
+        fieldName:
+          maxLength: 40
+          minLength: 0
+          type: string
+        fieldDescription:
+          maxLength: 40
+          minLength: 0
+          type: string
+        tableName:
+          maxLength: 40
+          minLength: 0
+          type: string
+        virtual:
+          type: boolean
+        dataType:
+          maxLength: 40
+          minLength: 0
+          type: string
+        lovSelected:
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    expressionParameterType:
+      properties:
+        parameter:
+          items:
+            maxLength: 40
+            minLength: 0
+            type: string
+          maxItems: 3
+          type: array
+        functionIdOne:
+          type: number
+        functionIdTwo:
+          type: number
+      type: object
+    expressionOperatorType:
+      properties:
+        operatorName:
+          maxLength: 40
+          minLength: 0
+          type: string
+        operatorDescription:
+          maxLength: 40
+          minLength: 0
+          type: string
+        parameterSize:
+          type: number
+      type: object
+    putDeliveryMethods_request:
+      allOf:
+      - $ref: '#/components/schemas/changeDeliveryMethods'
+    postDeliveryMethods_request:
+      allOf:
+      - $ref: '#/components/schemas/createDeliveryMethods'
+    postTemplateDeviceLocations_request:
+      allOf:
+      - $ref: '#/components/schemas/templateDeviceLocationsCriteria'
+    changeTemplateDeviceLocations_request:
+      allOf:
+      - $ref: '#/components/schemas/templateDeviceLocationsToBeChanged'
+    postPublishers_request:
+      allOf:
+      - $ref: '#/components/schemas/createPublishers'
+    putInterfaceRight_request:
+      allOf:
+      - $ref: '#/components/schemas/changeInterfaceRight'
+    putUDFMapping_request:
+      allOf:
+      - $ref: '#/components/schemas/changeUDFMapping'
+    translationsTextType_inner:
+      description: Language code for the translation.
+      properties:
+        value:
+          description: "Used for Character Strings, length 0 to 2000."
+          maxLength: 2000
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+      type: object
+x-original-swagger-version: "2.0"
