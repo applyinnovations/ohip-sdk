@@ -20,10 +20,10 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
-  "sync"
+	"sync"
 	"time"
 	"unicode/utf8"
-  "github.com/applyinnovations/ohip-sdk/{{modulePath}}/oauth"
+	"github.com/applyinnovations/ohip-sdk/{{modulePath}}/oauth"
 	"math"
 
 	{{#hasOAuthMethods}}
@@ -63,7 +63,7 @@ type APIClient struct {
 {{/operations}}
 {{/apis}}
 {{/apiInfo}}
-// Authentication Properties
+	// Authentication Properties
 	token string
 	refreshToken string
 	mutex sync.Mutex
@@ -274,7 +274,7 @@ func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
 	}
 
 	resp, err := c.cfg.HTTPClient.Do(request)
-  handleClientRequestAuthenticationError(c, *resp)
+	handleClientRequestAuthenticationError(c, *resp)
 	if err != nil {
 		return resp, err
 	}
@@ -426,7 +426,7 @@ func (c *APIClient) prepareRequest(
 		for h, v := range headerParams {
 			headers[h] = []string{v}
 		}
-    headers["x-hotelid"] = []string{c.cfg.HotelId}
+		headers["x-hotelid"] = []string{c.cfg.HotelId}
 		headers["x-app-key"] = []string{c.cfg.AppKey}
 
 		localVarRequest.Header = headers
@@ -440,7 +440,7 @@ func (c *APIClient) prepareRequest(
 		localVarRequest = localVarRequest.WithContext(ctx)
 
 		// Walk through any authentication.
-    err = authenticateClientRequest(c)
+		err = authenticateClientRequest(c)
 		if(err != nil){
 			return nil, err
 		}

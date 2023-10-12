@@ -129,7 +129,7 @@ type Configuration struct {
 	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
-  OhipCredentials  []OhipCredential
+	OhipCredentials  []OhipCredential
 	AppKey           string`json:"appKey,omitempty"`
 	HotelId          string`json:"hotelId,omitempty"`
 	{{#withCustomMiddlewareFunction}}

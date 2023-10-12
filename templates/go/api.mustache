@@ -211,10 +211,7 @@ func (a *{{{classname}}}Service) {{nickname}}Execute(r {{#structPrefix}}{{&class
 	{{^isCollectionFormatMulti}}
 		parameterAddToHeaderOrQuery(localVarQueryParams, "{{baseName}}", r.{{paramName}}, "{{collectionFormat}}")
 	{{/isCollectionFormatMulti}}
-	{{#defaultValue}}} else {
-		var defaultValue {{{dataType}}} = {{{.}}}
-		r.{{paramName}} = &defaultValue
-	{{/defaultValue}}}
+	}
 	{{/required}}
 	{{/queryParams}}
 	// to determine the Content-Type header
@@ -239,7 +236,7 @@ func (a *{{{classname}}}Service) {{nickname}}Execute(r {{#structPrefix}}{{&class
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 {{#headerParams}}
-		{{^required}}
+	{{^required}}
 	if r.{{paramName}} != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "{{baseName}}", r.{{paramName}}, "{{collectionFormat}}")
 	}
