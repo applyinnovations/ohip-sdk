@@ -831,7 +831,7 @@ func requestNewAuthToken(c *APIClient) (err error) {
 		apiClient := oauth.NewAPIClient(configuration)
 		// wait maximum of 5000ms to respond
 		ctx, _ := context.WithTimeout(context.Background(), 5000 * time.Millisecond)
-		resp, _, err := apiClient.AuthenticationAPI.
+		resp, _, err := apiClient.AuthenticationApi.
 			GetToken(ctx).
 			XAppKey(c.cfg.AppKey).
 			GrantType(grantType).

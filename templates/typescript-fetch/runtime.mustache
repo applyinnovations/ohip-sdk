@@ -2,7 +2,7 @@
 /* eslint-disable */
 {{>licenseInfo}}
 import {
-  AuthenticationAPI,
+  AuthenticationApi,
   BASE_PATH as AUTH_BASE_PATH,
   Configuration as AuthConfiguration,
   OAuth2TokenResponse,
@@ -266,7 +266,7 @@ export class BaseAPI {
         const authConfig = new AuthConfiguration({
             basePath: this.configuration.basePath,
         });
-        return new AuthenticationAPI(authConfig);
+        return new AuthenticationApi(authConfig);
     };
 
     private handleClientRequest = async (context: RequestContext) => {
