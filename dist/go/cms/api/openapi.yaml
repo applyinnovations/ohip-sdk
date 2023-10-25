@@ -1,0 +1,3460 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hospitality_apis_ww_grp@oracle.com
+  description: "This API deals with the different aspect of the CustomerManagement.<br\
+    \ /><br /> Compatible with OPERA Cloud release 23.2.<br /><br /><p> This document\
+    \ and all content within is available under the Universal Permissive License v\
+    \ 1.0 (https://oss.oracle.com/licenses/upl). Copyright (c) 2020, 2023 Oracle and/or\
+    \ its affiliates.</p>"
+  license:
+    name: UPL
+    url: https://opensource.org/licenses/upl
+  termsOfService: https://www.oracle.com/legal/terms.html
+  title: OPERA Cloud API for Customer Management Service
+  version: "23.2"
+externalDocs:
+  description: Find out more about Oracle Hospitality
+  url: https://docs.oracle.com/en/industries/hospitality/integration_platforms.html
+servers:
+- url: /cms/v1
+tags:
+- description: Customer Management web service caters operations for Customer Management
+    activities.
+  name: CustomerManagement
+paths:
+  /activities/tasks:
+    get:
+      description: "You can fetch a list of Calendar Tasks for with this API, for\
+        \ one or more properties. <p><strong>OperationId:</strong>getCalendarTasks</p>"
+      operationId: getCalendarTasks
+      parameters:
+      - description: Indicator whether summary count will be retrieved or not.
+        in: query
+        name: countSummary
+        schema:
+          type: boolean
+      - description: Indicator whether task summary will be retrieved or not.
+        in: query
+        name: taskSummary
+        schema:
+          type: boolean
+      - description: List of Hotel codes of calendar task.
+        explode: true
+        in: query
+        name: hotelIds
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - in: query
+        name: startDate
+        schema:
+          format: date
+          type: string
+      - in: query
+        name: endDate
+        schema:
+          format: date
+          type: string
+      - in: query
+        name: duration
+        schema:
+          type: string
+      - description: Defines completion status codes of calendar task.
+        in: query
+        name: completionStatus
+        schema:
+          enum:
+          - All
+          - Completed
+          - Outstanding
+          type: string
+      - description: List of priority levels of calendar task.
+        explode: true
+        in: query
+        name: priorityCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Defines classification codes of calendar task.
+        explode: true
+        in: query
+        name: classCodes
+        schema:
+          items:
+            enum:
+            - Correspondence
+            - Meeting
+            - Todolist
+            - Call
+            - Appointment
+            type: string
+          type: array
+          uniqueItems: true
+        style: form
+      - description: List of types of calendar task based on its classification.
+        explode: true
+        in: query
+        name: typeCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Brief description and purpose of calendar task.
+        in: query
+        name: purpose
+        schema:
+          type: string
+      - description: Owner code of the person to whom the calendar task is assigned.
+        in: query
+        name: taskOwner
+        schema:
+          type: string
+      - description: Author of the calendar task.
+        in: query
+        name: author
+        schema:
+          type: string
+      - description: A unique identifying value assigned by the creating system. The
+          ID attribute may be used to reference a primary-key value within a database
+          or in a particular implementation.
+        in: query
+        name: accountId
+        schema:
+          type: string
+      - description: "Used to identify the source of the identifier (e.g., IATA, ABTA)."
+        in: query
+        name: accountIdContext
+        schema:
+          type: string
+      - description: A reference to the type of object defined by the UniqueID element.
+        in: query
+        name: accountIdType
+        schema:
+          type: string
+      - description: A unique identifying value assigned by the creating system. The
+          ID attribute may be used to reference a primary-key value within a database
+          or in a particular implementation.
+        in: query
+        name: contactId
+        schema:
+          type: string
+      - description: "Used to identify the source of the identifier (e.g., IATA, ABTA)."
+        in: query
+        name: contactIdContext
+        schema:
+          type: string
+      - description: A reference to the type of object defined by the UniqueID element.
+        in: query
+        name: contactIdType
+        schema:
+          type: string
+      - description: A unique identifying value assigned by the creating system. The
+          ID attribute may be used to reference a primary-key value within a database
+          or in a particular implementation.
+        in: query
+        name: blockId
+        schema:
+          type: string
+      - description: "Used to identify the source of the identifier (e.g., IATA, ABTA)."
+        in: query
+        name: blockIdContext
+        schema:
+          type: string
+      - description: A reference to the type of object defined by the UniqueID element.
+        in: query
+        name: blockIdType
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/calendarTasks'
+          description: Response for fetching calendar tasks.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: CalendarTasks not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get Calendar Tasks
+      tags:
+      - CustomerManagement
+  /activities/tasks/attachment:
+    delete:
+      description: Delete an attachment associated with the calendar task <p><strong>OperationId:</strong>deleteCalendarTaskAttachment</p>
+      operationId: deleteCalendarTaskAttachment
+      parameters:
+      - description: A unique identifying value assigned by the creating system. The
+          ID attribute may be used to reference a primary-key value within a database
+          or in a particular implementation.
+        in: query
+        name: linkedToId
+        required: true
+        schema:
+          type: string
+      - description: A unique identifying value assigned by the creating system. The
+          ID attribute may be used to reference a primary-key value within a database
+          or in a particular implementation.
+        in: query
+        name: attachId
+        required: true
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: 'Delete a Calendar Task attachment '
+      tags:
+      - CustomerManagement
+  /activities/{activityId}/task:
+    get:
+      description: With this API you can get a Calendar Task. <p><strong>OperationId:</strong>getCalendarTask</p>
+      operationId: getCalendarTask
+      parameters:
+      - in: path
+        name: activityId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: "Used to identify the source of the identifier (e.g., IATA, ABTA)."
+        in: query
+        name: idContext
+        schema:
+          type: string
+      - description: A reference to the type of object defined by the UniqueID element.
+        in: query
+        name: idType
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/calendarTask'
+          description: Response for fetching calendar task.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: CalendarTask not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get a Calendar Task
+      tags:
+      - CustomerManagement
+  /hotels/{hotelId}/activities/task:
+    post:
+      description: This API will allow you to create a new Calendar Task. <p><strong>OperationId:</strong>postCalendarTask</p>
+      operationId: postCalendarTask
+      parameters:
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postCalendarTask_request'
+        description: Request to create calendar task.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Create Calendar Task
+      tags:
+      - CustomerManagement
+      x-codegen-request-body-name: calendarTask
+  /hotels/{hotelId}/activities/tasks/{taskId}/attachments:
+    get:
+      description: Retrieve the attachments on a Calendar task. <p><strong>OperationId:</strong>getCalendarTaskAttachments</p>
+      operationId: getCalendarTaskAttachments
+      parameters:
+      - in: path
+        name: taskId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: "Used to identify the source of the identifier (e.g., IATA, ABTA)."
+        in: query
+        name: idContext
+        schema:
+          type: string
+      - description: A reference to the type of object defined by the UniqueID element.
+        in: query
+        name: idType
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/calendarTaskAttachments'
+          description: Response for fetching calendar task attachments.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: CalendarTaskAttachments not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get calendar task attachments
+      tags:
+      - CustomerManagement
+  /hotels/{hotelId}/activities/{activityId}/task:
+    delete:
+      description: This API will allow you to delete a Calendar Task. <p><strong>OperationId:</strong>deleteCalendarTask</p>
+      operationId: deleteCalendarTask
+      parameters:
+      - in: path
+        name: activityId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Delete a Calendar Task
+      tags:
+      - CustomerManagement
+    put:
+      description: This API will allow you to update an existing Calendar Task. <p><strong>OperationId:</strong>putCalendarTask</p>
+      operationId: putCalendarTask
+      parameters:
+      - in: path
+        name: activityId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/postCalendarTask_request'
+        description: Request to update calendar task.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/calendarTask'
+          description: Response for updating calendar task.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Update Calendar Task
+      tags:
+      - CustomerManagement
+      x-codegen-request-body-name: calendarTask
+  /hotels/{hotelId}/trackItems:
+    delete:
+      description: Delete a Track It Item for a property. <p><strong>OperationId:</strong>deleteTrackItItems</p>
+      operationId: deleteTrackItItems
+      parameters:
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: A unique identifying value assigned by the creating system. The
+          ID attribute may be used to reference a primary-key value within a database
+          or in a particular implementation.
+        explode: true
+        in: query
+        name: trackItId
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: "Used to identify the source of the identifier (e.g., IATA, ABTA)."
+        explode: true
+        in: query
+        name: trackItIdContext
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A reference to the type of object defined by the UniqueID element.
+        explode: true
+        in: query
+        name: trackItIdType
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Deletes track it items
+      tags:
+      - CustomerManagement
+    get:
+      description: Retrieve a list of all Track It Items for a property. <p><strong>OperationId:</strong>getTrackItItems</p>
+      operationId: getTrackItItems
+      parameters:
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Complete ticket number of the Track It item.
+        in: query
+        name: ticketId
+        schema:
+          type: string
+      - description: A unique identifying value assigned by the creating system. The
+          ID attribute may be used to reference a primary-key value within a database
+          or in a particular implementation.
+        in: query
+        name: reservationId
+        schema:
+          type: string
+      - description: "Used to identify the source of the identifier (e.g., IATA, ABTA)."
+        in: query
+        name: reservationIdContext
+        schema:
+          type: string
+      - description: A reference to the type of object defined by the UniqueID element.
+        in: query
+        name: reservationIdType
+        schema:
+          type: string
+      - description: "Given name, first name or names."
+        in: query
+        name: givenName
+        schema:
+          type: string
+      - description: "Family name, last name. May also be used for full name if the\
+          \ sending system does not have the ability to separate a full name into\
+          \ its parts, e.g. the surname element may be used to pass the full name."
+        in: query
+        name: surname
+        schema:
+          type: string
+      - description: Group to which the Track It items belong.
+        explode: true
+        in: query
+        name: trackItGroups
+        schema:
+          items:
+            enum:
+            - Parcel
+            - Valet
+            - Baggage
+            - Lost
+            type: string
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Track It types based on the Track It group.
+        explode: true
+        in: query
+        name: types
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Locations for Track It location.
+        explode: true
+        in: query
+        name: locations
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Track It actions based on Track It groups.
+        explode: true
+        in: query
+        name: actions
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: "Action status of the Track It item(Open, Closed)."
+        explode: true
+        in: query
+        name: actionStatuses
+        schema:
+          items:
+            enum:
+            - Open
+            - Closed
+            type: string
+          type: array
+          uniqueItems: true
+        style: form
+      - description: A unique identifying value assigned by the creating system. The
+          ID attribute may be used to reference a primary-key value within a database
+          or in a particular implementation.
+        in: query
+        name: appUserId
+        schema:
+          type: string
+      - description: "Used to identify the source of the identifier (e.g., IATA, ABTA)."
+        in: query
+        name: appUserIdContext
+        schema:
+          type: string
+      - description: A reference to the type of object defined by the UniqueID element.
+        in: query
+        name: appUserIdType
+        schema:
+          type: string
+      - description: "Assignment status of the Track It item(Assigned, Unassigned)."
+        explode: true
+        in: query
+        name: assignedStatuses
+        schema:
+          items:
+            enum:
+            - Assigned
+            - Unassigned
+            type: string
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Guest's room number if ticket associated with a reservation.
+        in: query
+        name: room
+        schema:
+          type: string
+      - description: Follow up date for the ticket.
+        in: query
+        name: followUpDate
+        schema:
+          format: date
+          type: string
+      - description: Date when the ticket was created.
+        in: query
+        name: createdOn
+        schema:
+          format: date
+          type: string
+      - description: A unique identifying value assigned by the creating system. The
+          ID attribute may be used to reference a primary-key value within a database
+          or in a particular implementation.
+        in: query
+        name: createdByUserId
+        schema:
+          type: string
+      - description: "Used to identify the source of the identifier (e.g., IATA, ABTA)."
+        in: query
+        name: createdByUserIdContext
+        schema:
+          type: string
+      - description: A reference to the type of object defined by the UniqueID element.
+        in: query
+        name: createdByUserIdType
+        schema:
+          type: string
+      - description: Description associated with the Track It item.
+        in: query
+        name: description
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/trackItItems'
+          description: Response object that retrieves Track It items.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: TrackItItems not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Fetches track it items
+      tags:
+      - CustomerManagement
+    post:
+      description: "Create a new Track It Item. Track It manages storage and delivery\
+        \ of guest luggage, parcels, vehicles (valet), and lost items.  They can optionally\
+        \ be linked to a reservation if related or an arrival, in-house or departure\
+        \ reservation. <p><strong>OperationId:</strong>postTrackItItems</p>"
+      operationId: postTrackItItems
+      parameters:
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/putTrackItItems_request'
+        description: Request object to create Track It items.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Creates track it items
+      tags:
+      - CustomerManagement
+      x-codegen-request-body-name: trackItItems
+    put:
+      description: Update the details of a Track It Item for a property. <p><strong>OperationId:</strong>putTrackItItems</p>
+      operationId: putTrackItItems
+      parameters:
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/putTrackItItems_request'
+        description: Request object to update Track It items.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/trackItItems'
+          description: Response object for updating Track It items.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Updates track it items
+      tags:
+      - CustomerManagement
+      x-codegen-request-body-name: trackItItems
+components:
+  schemas:
+    actionStatusType:
+      description: "Action status of the Track It item(Open, Closed)."
+      enum:
+      - Open
+      - Closed
+      type: string
+    addressInfoType:
+      description: Provides address information.
+      properties:
+        address:
+          $ref: '#/components/schemas/addressType'
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    addressSearchType:
+      description: "Address Details such as city, state, country, postal code etc."
+      properties:
+        cityName:
+          description: "City (e.g., Dublin), town, or postal station (i.e., a postal\
+            \ service territory, often used in a military address)."
+          maxLength: 40
+          minLength: 0
+          type: string
+        country:
+          $ref: '#/components/schemas/countryNameType'
+        excludeNoCity:
+          description: When true indicates that only profiles with city will be fetched.
+          type: boolean
+        postalCode:
+          description: Post Office Code number.
+          maxLength: 15
+          minLength: 0
+          type: string
+        state:
+          description: "State or Province name (e.g., Texas)."
+          maxLength: 20
+          minLength: 0
+          type: string
+        streetAddress:
+          description: First Line of Street Address. For profile search it matches
+            the first Address line.
+          maxLength: 80
+          minLength: 0
+          type: string
+      type: object
+    addressType:
+      description: Provides address information.
+      properties:
+        addressLine:
+          description: "When the address is unformatted (FormattedInd=\"false\") these\
+            \ lines will contain free form address details. When the address is formatted\
+            \ and street number and street name must be sent independently, the street\
+            \ number will be sent using StreetNmbr, and the street name will be sent\
+            \ in the first AddressLine occurrence."
+          items:
+            maxLength: 80
+            minLength: 0
+            type: string
+          maxItems: 4
+          type: array
+        barCode:
+          description: The postal barcode for the address.
+          maxLength: 100
+          minLength: 0
+          type: string
+        cityExtension:
+          description: Post Office City Extension Code number. City Extension mainly
+            used for UK addresses.
+          maxLength: 20
+          minLength: 0
+          type: string
+        cityName:
+          description: "City (e.g., Dublin), town, or postal station (i.e., a postal\
+            \ service territory, often used in a military address)."
+          maxLength: 40
+          minLength: 0
+          type: string
+        country:
+          $ref: '#/components/schemas/countryNameType'
+        county:
+          description: "County or District Name (e.g., Fairfax). This is read only."
+          maxLength: 20
+          minLength: 0
+          type: string
+        createDateTime:
+          description: Time stamp of the creation.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        creatorId:
+          description: ID of creator. The creator could be a software system identifier
+            or an identifier of an employee resposible for the creation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        isValidated:
+          description: Indicator to define if the Address is validated by the Address
+            Validation System.
+          type: boolean
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        lastModifierId:
+          description: Identifies the last software system or person to modify a record.
+          maxLength: 200
+          minLength: 0
+          type: string
+        lastModifyDateTime:
+          description: Time stamp of last modification.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        postalCode:
+          description: Post Office Code number.
+          maxLength: 15
+          minLength: 0
+          type: string
+        primaryInd:
+          description: "When true, indicates a primary information."
+          type: boolean
+        purgeDate:
+          description: "Date an item will be purged from a database (e.g., from a\
+            \ live database to an archive)."
+          format: date
+          type: string
+        state:
+          description: "State or Province name (e.g., Texas)."
+          maxLength: 20
+          minLength: 0
+          type: string
+        type:
+          description: "Defines the type of address (e.g. home, business, other)."
+          maxLength: 20
+          minLength: 0
+          type: string
+        typeDescription:
+          description: Describes the type code
+          type: string
+        updateReservations:
+          description: "Indicates whether to update the reservations or not. If true\
+            \ and the address is primary, then all associated active reservations\
+            \ will be updated with the new primary address."
+          type: boolean
+      type: object
+    anonymizationStatusType:
+      description: Guest has been anonymized.
+      enum:
+      - Requested
+      - Anonymized
+      type: string
+    anonymizationType:
+      description: Provides information about guest's anonymization status.
+      properties:
+        anonymizationDate:
+          description: Date and Time when the guest was anonymized.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        anonymizationStatus:
+          $ref: '#/components/schemas/anonymizationStatusType'
+      type: object
+    applicationUserType:
+      properties:
+        actAs:
+          maxLength: 20
+          minLength: 0
+          type: string
+        actAt:
+          maxLength: 20
+          minLength: 0
+          type: string
+        appUser:
+          maxLength: 60
+          minLength: 0
+          type: string
+        appUserId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        attendantInfo:
+          $ref: '#/components/schemas/attendantType'
+        cashierId:
+          type: integer
+        cashierTitle:
+          description: Cashier title.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        department:
+          maxLength: 60
+          minLength: 0
+          type: string
+        departmentLocation:
+          maxLength: 60
+          minLength: 0
+          type: string
+        disabledUntil:
+          format: date
+          type: string
+        expiryDate:
+          format: date
+          type: string
+        hotel:
+          $ref: '#/components/schemas/codeDescriptionType'
+        lDAPUser:
+          maxLength: 60
+          minLength: 0
+          type: string
+        passwordChangeDate:
+          format: date
+          type: string
+        salesRepCode:
+          maxLength: 20
+          minLength: 0
+          type: string
+        userDefaultLanguage:
+          maxLength: 20
+          minLength: 0
+          type: string
+        userInfo:
+          $ref: '#/components/schemas/employeeInfoType'
+        userSessionInfo:
+          $ref: '#/components/schemas/userSessionInfoType'
+      type: object
+    attachmentType:
+      description: Attached files.
+      properties:
+        description:
+          description: Description for the file.
+          maxLength: 4000
+          minLength: 0
+          type: string
+        fileName:
+          description: Name of the file.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        fileSize:
+          description: Size of the file.
+          type: integer
+        global:
+          description: Flag to say if attachment is available across properties.
+          type: boolean
+        history:
+          $ref: '#/components/schemas/dateTimeStampGroupType'
+        hotelId:
+          description: Hotel Code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        idContext:
+          description: "Used to identify the source of the identifier (e.g., IATA,\
+            \ ABTA)."
+          maxLength: 80
+          minLength: 0
+          type: string
+        idExtension:
+          description: Additional identifying value assigned by the creating system.
+          type: integer
+        instance:
+          description: The identification of a record as it exists at a point in time.
+            An instance is used in update messages where the sender must assure the
+            server that the update sent refers to the most recent modification level
+            of the object being updated.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 20
+          minLength: 0
+          type: string
+        url:
+          description: URL that identifies the location associated with the record
+            identified by the UniqueID.
+          type: string
+      type: object
+    attachmentsType:
+      description: Attachment List.
+      items:
+        $ref: '#/components/schemas/attachmentType'
+      maxItems: 4000
+      type: array
+    attendantType:
+      properties:
+        attendantId:
+          maxLength: 20
+          minLength: 0
+          type: string
+        hotelId:
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    basicEmailType:
+      description: Email address
+      maxLength: 2000
+      minLength: 0
+      type: string
+    calendarTask:
+      description: Response for fetching calendar task.
+      properties:
+        calendarTaskDetails:
+          $ref: '#/components/schemas/calendarTaskType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    calendarTaskAttachments:
+      description: Response for fetching calendar task attachments.
+      properties:
+        calendarTaskAttachments:
+          description: Attachment List.
+          items:
+            $ref: '#/components/schemas/attachmentType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    calendarTaskClassType:
+      description: Defines classification codes of calendar task.
+      enum:
+      - Correspondence
+      - Meeting
+      - Todolist
+      - Call
+      - Appointment
+      type: string
+    calendarTaskCountListType:
+      description: Defines summary count of calendar tasks that belongs to specific
+        classification.
+      items:
+        $ref: '#/components/schemas/calendarTaskCountType'
+      maxItems: 4000
+      type: array
+    calendarTaskCountType:
+      description: Defines summary count of calendar tasks that belongs to specific
+        classification.
+      properties:
+        class:
+          $ref: '#/components/schemas/calendarTaskClassType'
+        outstandingCount:
+          description: Total number of outstanding calendar tasks under specific classification.
+          type: integer
+        taskOwner:
+          description: Owner code of the person to whom the calendar task is assigned.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    calendarTaskListType:
+      description: Detailed information regarding calendar task.
+      items:
+        $ref: '#/components/schemas/calendarTaskType'
+      maxItems: 4000
+      type: array
+    calendarTaskPriorityType:
+      description: "Calendar Task code, description and color This will be used for\
+        \ calendar task priorities."
+      properties:
+        code:
+          $ref: '#/components/schemas/codeDescriptionType'
+        priorityColor:
+          $ref: '#/components/schemas/priorityColorType'
+      type: object
+    calendarTaskType:
+      description: Detailed information regarding calendar task.
+      properties:
+        accountIdList:
+          description: Defines descriptive name and unique identification combination.
+          items:
+            $ref: '#/components/schemas/uniqueNameIDType'
+          maxItems: 4000
+          type: array
+        attachmentsCount:
+          description: Count of the attachments that are attached to the task.
+          type: integer
+        author:
+          description: Author of the calendar task.
+          maxLength: 20
+          minLength: 0
+          type: string
+        blockIdList:
+          description: Defines descriptive name and unique identification combination.
+          items:
+            $ref: '#/components/schemas/uniqueNameIDType'
+          maxItems: 4000
+          type: array
+        classCode:
+          $ref: '#/components/schemas/calendarTaskClassType'
+        contactIdList:
+          description: Defines descriptive name and unique identification combination.
+          items:
+            $ref: '#/components/schemas/uniqueNameIDType'
+          maxItems: 4000
+          type: array
+        hotelId:
+          description: Hotel code of calendar task.
+          maxLength: 20
+          minLength: 0
+          type: string
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        idContext:
+          description: "Used to identify the source of the identifier (e.g., IATA,\
+            \ ABTA)."
+          maxLength: 80
+          minLength: 0
+          type: string
+        idExtension:
+          description: Additional identifying value assigned by the creating system.
+          type: integer
+        instance:
+          description: The identification of a record as it exists at a point in time.
+            An instance is used in update messages where the sender must assure the
+            server that the update sent refers to the most recent modification level
+            of the object being updated.
+          maxLength: 80
+          minLength: 0
+          type: string
+        notes:
+          description: Additional notes and information regarding calendar task.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        priorityInfo:
+          $ref: '#/components/schemas/calendarTaskPriorityType'
+        purpose:
+          description: Brief description and purpose of calendar task.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        status:
+          $ref: '#/components/schemas/calendarTaskType_status'
+        taskOwner:
+          description: Owner code of the person to whom the calendar task is assigned.
+          maxLength: 20
+          minLength: 0
+          type: string
+        timeSpan:
+          $ref: '#/components/schemas/timeSpanType'
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 20
+          minLength: 0
+          type: string
+        typeCode:
+          $ref: '#/components/schemas/codeDescriptionType'
+        url:
+          description: URL that identifies the location associated with the record
+            identified by the UniqueID.
+          type: string
+      type: object
+    calendarTasks:
+      description: Response for fetching calendar tasks.
+      properties:
+        countSummary:
+          description: Defines summary count of calendar tasks that belongs to specific
+            classification.
+          items:
+            $ref: '#/components/schemas/calendarTaskCountType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        taskSummary:
+          description: Detailed information regarding calendar task.
+          items:
+            $ref: '#/components/schemas/calendarTaskType'
+          maxItems: 4000
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    codeDescriptionType:
+      description: This contains a generic code and description information.
+      properties:
+        code:
+          description: Code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          description: description.
+          maxLength: 2000
+          minLength: 0
+          type: string
+      type: object
+    codeType:
+      description: "Used for codes in the OPERA Code tables. Possible values of this\
+        \ pattern are 1, 101, 101.EQP, or 101.EQP.X."
+      maxLength: 20
+      minLength: 0
+      type: string
+    countryNameType:
+      description: Code for a country or a nationality.
+      properties:
+        code:
+          description: Code for a country or a nationality.
+          maxLength: 20
+          minLength: 0
+          type: string
+        value:
+          description: "Used for Character Strings, length 0 to 200."
+          maxLength: 200
+          minLength: 0
+          type: string
+      type: object
+    currencyAmountType:
+      description: A monetary value expressed with a currency code.
+      properties:
+        amount:
+          description: A monetary amount.
+          type: number
+        currencyCode:
+          description: Provides a currency code to reflect the currency in which an
+            amount may be expressed.
+          maxLength: 3
+          minLength: 3
+          type: string
+      type: object
+    dateTimeStampGroupType:
+      properties:
+        createDateTime:
+          description: Time stamp of the creation.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        creatorId:
+          description: ID of creator. The creator could be a software system identifier
+            or an identifier of an employee resposible for the creation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        lastModifierId:
+          description: Identifies the last software system or person to modify a record.
+          maxLength: 200
+          minLength: 0
+          type: string
+        lastModifyDateTime:
+          description: Time stamp of last modification.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        purgeDate:
+          description: "Date an item will be purged from a database (e.g., from a\
+            \ live database to an archive)."
+          format: date
+          type: string
+      type: object
+    emailInfoType:
+      description: Information on an email for the customer.
+      properties:
+        email:
+          $ref: '#/components/schemas/emailType'
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    emailType:
+      description: Information on an email for the customer.
+      properties:
+        createDateTime:
+          description: Time stamp of the creation.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        creatorId:
+          description: ID of creator. The creator could be a software system identifier
+            or an identifier of an employee resposible for the creation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        emailAddress:
+          description: Defines the e-mail address.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        emailFormat:
+          description: Supported Email format.
+          enum:
+          - Html
+          - Text
+          type: string
+        lastModifierId:
+          description: Identifies the last software system or person to modify a record.
+          maxLength: 200
+          minLength: 0
+          type: string
+        lastModifyDateTime:
+          description: Time stamp of last modification.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        orderSequence:
+          description: Display Order sequence.
+          type: number
+        primaryInd:
+          description: "When true, indicates a primary information."
+          type: boolean
+        purgeDate:
+          description: "Date an item will be purged from a database (e.g., from a\
+            \ live database to an archive)."
+          format: date
+          type: string
+        type:
+          description: "Defines the purpose of the e-mail address (e.g. personal,\
+            \ business, listserve)."
+          maxLength: 20
+          minLength: 0
+          type: string
+        typeDescription:
+          description: Describes the Type code
+          maxLength: 2000
+          minLength: 0
+          type: string
+      type: object
+    employeeInfoType:
+      properties:
+        addressInfo:
+          $ref: '#/components/schemas/addressInfoType'
+        birthDate:
+          description: "Indicates the date of birth as indicated in the document,\
+            \ in ISO 8601 prescribed format."
+          format: date
+          type: string
+        birthDateMasked:
+          description: Indicates the date of birth as masked.
+          type: string
+        department:
+          $ref: '#/components/schemas/codeDescriptionType'
+        emailInfo:
+          $ref: '#/components/schemas/emailInfoType'
+        gender:
+          description: Identifies the profile gender code selected from Gender types
+            List of values. Gender types LOV provides the values configured at gender
+            configuration.
+          maxLength: 20
+          minLength: 0
+          type: string
+        personName:
+          $ref: '#/components/schemas/personNameType'
+        phoneInfo:
+          $ref: '#/components/schemas/telephoneInfoType'
+        profileId:
+          $ref: '#/components/schemas/uniqueID_Type'
+      type: object
+    errorInstance:
+      description: Complex type that contains error instance details for a REST call.
+      properties:
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+      required:
+      - title
+      - type
+      title: Error Instance Details
+      type: object
+    exceptionDetailType:
+      description: Complex type that contains error details for a REST call.
+      properties:
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorDetails:
+          description: "Details of the error message, consisting of a hierarchical\
+            \ tree structure."
+          items:
+            $ref: '#/components/schemas/errorInstance'
+          type: array
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+      required:
+      - title
+      - type
+      title: Error Detail
+      type: object
+    givenNameType:
+      description: "Given name, first name or names"
+      maxLength: 40
+      minLength: 0
+      type: string
+    guestLastStayInfoType:
+      description: Contains last stay related details of the guest.
+      properties:
+        lastStayDate:
+          description: Guest's last stay date.
+          format: date
+          type: string
+        lastStayRate:
+          $ref: '#/components/schemas/currencyAmountType'
+        lastStayRoom:
+          description: Room Number where the guest stayed.
+          maxLength: 20
+          minLength: 0
+          type: string
+        totalStay:
+          description: The total number of previous stay of the guest.
+          type: integer
+      type: object
+    housekeepingRoomStatusType:
+      description: "Simple type for room status instructions to be used in requests\
+        \ for fetching housekeeping rooms. Valid status values are Clean, Dirty, Pickup,\
+        \ Inspected, OutOfOrder, OutOfService."
+      enum:
+      - Clean
+      - Dirty
+      - Pickup
+      - Inspected
+      - OutOfOrder
+      - OutOfService
+      type: string
+    instanceLink:
+      description: Metadata describing link description objects that MAY appear in
+        the JSON instance representation.
+      properties:
+        href:
+          description: "URI [RFC3986] or URI Template [RFC6570]. If the value is set\
+            \ to URI Template, then the \"templated\" property must be set to true."
+          type: string
+        method:
+          description: HTTP method for requesting the target of the link.
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          - OPTIONS
+          - HEAD
+          type: string
+        operationId:
+          description: "The operationId of the path you can call to follow this link.\
+            \  This allows you to look up not only the path and method, but the description\
+            \ of that path and any parameters you need to supply."
+          type: string
+        rel:
+          description: "Name of the link relation that, in addition to the type property,\
+            \ can be used to retrieve link details. For example, href or profile."
+          type: string
+        targetSchema:
+          description: "Link to the metadata of the resource, such as JSON-schema,\
+            \ that describes the resource expected when dereferencing the target resource.."
+          type: string
+        templated:
+          default: false
+          description: "Boolean flag that specifies that \"href\" property is a URI\
+            \ or URI Template. If the property is a URI template, set this value to\
+            \ true. By default, this value is false."
+          type: boolean
+        title:
+          description: Exact copy of the "summary" field on the linked operation.
+          type: string
+      required:
+      - href
+      - method
+      - operationId
+      - rel
+      type: object
+    links:
+      items:
+        $ref: '#/components/schemas/instanceLink'
+      type: array
+    membershipInfoType:
+      description: The Membership object identifies the frequent customer reward program.
+      properties:
+        accountId:
+          description: The account identification number for this particular member
+            in this particular program.
+          maxLength: 50
+          minLength: 0
+          type: string
+        bonusCode:
+          description: "The code or name of the bonus program. BonusCode can be used\
+            \ to indicate the level of membership (Gold Club, Platinum member, etc.)"
+          maxLength: 20
+          minLength: 0
+          type: string
+        membershipId:
+          description: Membership ID (Unique ID from the memberships table).
+          type: number
+        membershipLevel:
+          description: "The code or name of the membership level and indicates the\
+            \ level of membership (Gold Club, Platinum member, etc.). This is same\
+            \ as the BonusCode."
+          maxLength: 20
+          minLength: 0
+          type: string
+        membershipLevelDesc:
+          description: The description of the Bonus Code.(Platinum for code P)
+          maxLength: 2000
+          minLength: 0
+          type: string
+        membershipTypeDesc:
+          description: The description of the ProgramCode.(Delta Previlige for code
+            DP)
+          maxLength: 2000
+          minLength: 0
+          type: string
+        playerRanking:
+          description: Ranking assigned to the Player Profile by the Gaming system.
+          type: integer
+        programCode:
+          description: "The code or name of the membership program ('Hertz', 'AAdvantage',\
+            \ etc.)."
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    namePrefixType:
+      description: "Salutation of honorific. (e.g., Mr. Mrs., Ms., Miss, Dr.)"
+      maxLength: 40
+      minLength: 0
+      type: string
+    nameTypeType:
+      enum:
+      - Guest
+      - Company
+      - Agent
+      - Contact
+      - Source
+      - Group
+      - Employee
+      - Hotel
+      - Purge
+      type: string
+    operaVersionNumberType:
+      description: Current Opera Version Number
+      maxLength: 40
+      minLength: 0
+      type: string
+    pMS_ResStatusType:
+      description: This reservation is in checked in status and the business date
+        is past departure date. This could occur when ORS and PMS are in same environment.
+      enum:
+      - Reserved
+      - Requested
+      - NoShow
+      - Cancelled
+      - InHouse
+      - CheckedOut
+      - Waitlisted
+      - DueIn
+      - DueOut
+      - Walkin
+      - PendingCheckout
+      type: string
+    parameterType:
+      description: Name value pair type that will hold generic parameter information.
+        Only use this type when the parameters being passed are too dynamic to be
+        defined.
+      properties:
+        parameterName:
+          description: Name of the parameter.
+          type: string
+        parameterValue:
+          description: Value of the parameter.
+          type: string
+      type: object
+    parametersType:
+      description: Collection of generic Name-Value-Pair parameters.
+      items:
+        $ref: '#/components/schemas/parameterType'
+      maxItems: 4000
+      type: array
+    personNameType:
+      description: This provides name information for a person.
+      properties:
+        envelopeGreeting:
+          description: Envelope Greeting of the profile
+          type: string
+        externalSystem:
+          description: "When name type is external, indicates the external system\
+            \ the name belongs to."
+          maxLength: 40
+          minLength: 0
+          type: string
+        givenName:
+          description: "Given name, first name or names."
+          maxLength: 40
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        middleName:
+          description: The middle name of the person name.
+          maxLength: 40
+          minLength: 0
+          type: string
+        namePrefix:
+          description: "Salutation of honorific (e.g. Mr., Mrs., Ms., Miss, Dr.)"
+          maxLength: 40
+          minLength: 0
+          type: string
+        nameSuffix:
+          description: "Hold various name suffixes and letters (e.g. Jr., Sr., III,\
+            \ Ret., Esq.)"
+          maxLength: 40
+          minLength: 0
+          type: string
+        nameTitle:
+          description: "Degree or honors (e.g., Ph.D., M.D.)"
+          maxLength: 80
+          minLength: 0
+          type: string
+        nameTitleSuffix:
+          description: Title Suffix. Must be populated if ADVANCED_TITLE is on.
+          type: integer
+        nameType:
+          $ref: '#/components/schemas/personNameTypeType'
+        salutation:
+          description: Salutation of the profile
+          type: string
+        surname:
+          description: "Family name, last name. May also be used for full name if\
+            \ the sending system does not have the ability to separate a full name\
+            \ into its parts, e.g. the surname element may be used to pass the full\
+            \ name."
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    personNameTypeType:
+      description: Person's name in an external system.
+      enum:
+      - Primary
+      - Alternate
+      - Incognito
+      - External
+      - Phonetic
+      type: string
+    phoneNumberType:
+      description: Phone number
+      maxLength: 40
+      minLength: 0
+      type: string
+    priorityColorType:
+      description: Priority code color configuration type.
+      enum:
+      - Red
+      - DarkRed
+      - Blue
+      - DarkBlue
+      - Cyan
+      - DarkCyan
+      - Magenta
+      - DarkMagenta
+      - Green
+      - DarkGreen
+      - Black
+      - Yellow
+      - DarkYellow
+      type: string
+    profileIdList:
+      description: Unique Id that references an object uniquely in the system.
+      items:
+        $ref: '#/components/schemas/uniqueID_Type'
+      maxItems: 4000
+      type: array
+    resAccompanyGuestInfoType:
+      properties:
+        firstName:
+          description: "Given name, first name or names"
+          type: string
+        fullName:
+          description: String representation of the full name
+          type: string
+        lastName:
+          description: "Family name, last name."
+          type: string
+        profileIdList:
+          description: Unique Id that references an object uniquely in the system.
+          items:
+            $ref: '#/components/schemas/uniqueID_Type'
+          maxItems: 4000
+          type: array
+        registrationCardNo:
+          description: Unique identifier of the police registration card number.
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    resAccompanyGuestListType:
+      description: Collection of accompany guests
+      items:
+        $ref: '#/components/schemas/resAccompanyGuestInfoType'
+      maxItems: 4000
+      type: array
+    resGuaranteeType:
+      description: Validations type record returned after Validations are done.
+      properties:
+        guaranteeCode:
+          description: Guarantee Code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        onHold:
+          description: Guarantee Code.
+          type: boolean
+        shortDescription:
+          description: Guarantee Code.
+          maxLength: 80
+          minLength: 0
+          type: string
+      type: object
+    resGuestExternalInfoType:
+      description: Specifies Company or Travel Agent profile using IATA or Corp. No.
+      properties:
+        givenName:
+          description: "Given name, first name or names"
+          maxLength: 40
+          minLength: 0
+          type: string
+        surname:
+          description: "Family name, last name."
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    resGuestInfoType:
+      description: Specifies Company or Travel Agent profile using IATA or Corp. No.
+      properties:
+        accompanyGuests:
+          description: Collection of accompany guests
+          items:
+            $ref: '#/components/schemas/resAccompanyGuestInfoType'
+          maxItems: 4000
+          type: array
+        address:
+          $ref: '#/components/schemas/addressSearchType'
+        alternateFullName:
+          description: Altername full display name
+          type: string
+        alternateGivenName:
+          description: "Alternate given name, first name or names"
+          maxLength: 40
+          minLength: 0
+          type: string
+        alternateSurname:
+          description: "Alternate family name, last name."
+          maxLength: 40
+          minLength: 0
+          type: string
+        anonymization:
+          $ref: '#/components/schemas/anonymizationType'
+        birthDate:
+          description: Date of birth
+          format: date
+          type: string
+        email:
+          description: Email address
+          maxLength: 2000
+          minLength: 0
+          type: string
+        externalInfo:
+          $ref: '#/components/schemas/resGuestExternalInfoType'
+        fullName:
+          description: Full display name
+          type: string
+        givenName:
+          description: "Given name, first name or names"
+          maxLength: 40
+          minLength: 0
+          type: string
+        guestLastStayInfo:
+          $ref: '#/components/schemas/guestLastStayInfoType'
+        guestRestricted:
+          description: True indicates there are restrictions associated with the current
+            profile.
+          type: boolean
+        guestRestrictedCode:
+          description: Guest profile restricted reason code
+          type: string
+        guestRestrictedReasonDesc:
+          description: Guest profile restricted reason description
+          type: string
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        membership:
+          $ref: '#/components/schemas/membershipInfoType'
+        middleName:
+          description: The middle name of the person name
+          maxLength: 40
+          minLength: 0
+          type: string
+        namePrefix:
+          description: "Salutation of honorific. (e.g., Mr. Mrs., Ms., Miss, Dr.)"
+          maxLength: 40
+          minLength: 0
+          type: string
+        nameSuffix:
+          description: "Hold various name suffixes and letters (e.g. Jr., Sr., III,\
+            \ Ret., Esq.)."
+          maxLength: 20
+          minLength: 0
+          type: string
+        nameTitle:
+          description: "Degree or honors (e.g., Ph.D., M.D.)"
+          maxLength: 20
+          minLength: 0
+          type: string
+        nameType:
+          $ref: '#/components/schemas/nameTypeType'
+        nationality:
+          $ref: '#/components/schemas/countryNameType'
+        phoneNumber:
+          description: Phone number
+          maxLength: 40
+          minLength: 0
+          type: string
+        registrationCardNo:
+          description: Unique identifier of the police registration card number.
+          maxLength: 40
+          minLength: 0
+          type: string
+        surname:
+          description: "Family name, last name."
+          maxLength: 40
+          minLength: 0
+          type: string
+        surnamePrefix:
+          description: "e.g \"van der\", \"von\", \"de\""
+          maxLength: 20
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 40
+          minLength: 0
+          type: string
+        vip:
+          $ref: '#/components/schemas/vIPType'
+      type: object
+    reservationIdList:
+      description: Unique Id that references an object uniquely in the system.
+      items:
+        $ref: '#/components/schemas/uniqueID_Type'
+      maxItems: 4000
+      type: array
+    status:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    surnameType:
+      description: "Family name, last name."
+      maxLength: 40
+      minLength: 0
+      type: string
+    telephoneInfoType:
+      description: Information on a telephone number for the customer.
+      properties:
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        telephone:
+          $ref: '#/components/schemas/telephoneType'
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    telephoneType:
+      description: Information on a telephone number for the customer.
+      properties:
+        createDateTime:
+          description: Time stamp of the creation.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        creatorId:
+          description: ID of creator. The creator could be a software system identifier
+            or an identifier of an employee resposible for the creation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        extension:
+          description: Extension to reach a specific party at the phone number.
+          maxLength: 20
+          minLength: 0
+          type: string
+        lastModifierId:
+          description: Identifies the last software system or person to modify a record.
+          maxLength: 200
+          minLength: 0
+          type: string
+        lastModifyDateTime:
+          description: Time stamp of last modification.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        orderSequence:
+          description: Display Order sequence.
+          type: number
+        phoneNumber:
+          description: Telephone number assigned to a single location.
+          maxLength: 40
+          minLength: 0
+          type: string
+        phoneTechType:
+          description: "Indicates type of technology associated with this telephone\
+            \ number, such as Voice, Data, Fax, Pager, Mobile, TTY, etc."
+          maxLength: 20
+          minLength: 0
+          type: string
+        phoneUseType:
+          description: "Describes the type of telephone number, in the context of\
+            \ its general use (e.g. Home, Business, Emergency Contact, Travel Arranger,\
+            \ Day, Evening)."
+          maxLength: 20
+          minLength: 0
+          type: string
+        phoneUseTypeDescription:
+          description: Description of the PhoneUseType code
+          maxLength: 2000
+          minLength: 0
+          type: string
+        primaryInd:
+          description: "When true, indicates a primary information."
+          type: boolean
+        purgeDate:
+          description: "Date an item will be purged from a database (e.g., from a\
+            \ live database to an archive)."
+          format: date
+          type: string
+      type: object
+    timeSpanType:
+      description: "Allows for a choice in description of the amount of time spanned\
+        \ by this type. EndDate specifies a specific date, while Duration provides\
+        \ a measure of time to add to the StartDate to yield end date."
+      properties:
+        duration:
+          type: string
+        endDate:
+          format: date
+          type: string
+        startDate:
+          format: date
+          type: string
+      type: object
+    trackItActionType:
+      description: Identifies the response expected from staff or other parties relative
+        to a Track It ticket.
+      properties:
+        status:
+          $ref: '#/components/schemas/actionStatusType'
+        trackItAction:
+          $ref: '#/components/schemas/codeDescriptionType'
+      type: object
+    trackItGroup:
+      description: Group to which the Track It items belong.
+      enum:
+      - Parcel
+      - Valet
+      - Baggage
+      - Lost
+      type: string
+    trackItId:
+      description: "An identifier used to uniquely reference an object in a system\
+        \ (e.g. an airline reservation reference, customer profile reference, booking\
+        \ confirmation number, or a reference to a previous availability quote)."
+      properties:
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        idContext:
+          description: "Used to identify the source of the identifier (e.g., IATA,\
+            \ ABTA)."
+          maxLength: 80
+          minLength: 0
+          type: string
+        idExtension:
+          description: Additional identifying value assigned by the creating system.
+          type: integer
+        instance:
+          description: The identification of a record as it exists at a point in time.
+            An instance is used in update messages where the sender must assure the
+            server that the update sent refers to the most recent modification level
+            of the object being updated.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 20
+          minLength: 0
+          type: string
+        url:
+          description: URL that identifies the location associated with the record
+            identified by the UniqueID.
+          type: string
+      type: object
+    trackItItemType:
+      description: Detailed information of a Track It item.
+      properties:
+        action:
+          $ref: '#/components/schemas/trackItActionType'
+        assignedTo:
+          $ref: '#/components/schemas/applicationUserType'
+        description:
+          maxLength: 2000
+          minLength: 0
+          type: string
+        followUpDate:
+          format: date
+          type: string
+        group:
+          $ref: '#/components/schemas/trackItGroup'
+        hotelId:
+          maxLength: 20
+          minLength: 0
+          type: string
+        location:
+          $ref: '#/components/schemas/codeDescriptionType'
+        quantity:
+          type: integer
+        referenceNumber:
+          maxLength: 20
+          minLength: 0
+          type: string
+        reservationInfo:
+          $ref: '#/components/schemas/trackItReservationInfoType'
+        ticketNumber:
+          maxLength: 80
+          minLength: 0
+          type: string
+        trackItId:
+          $ref: '#/components/schemas/trackItId'
+        trackItLogList:
+          items:
+            $ref: '#/components/schemas/trackItLogType'
+          maxItems: 4000
+          type: array
+        type:
+          $ref: '#/components/schemas/trackItType'
+      type: object
+    trackItItems:
+      description: Response object that retrieves Track It items.
+      properties:
+        hotelId:
+          description: "Used for codes in the OPERA Code tables. Possible values of\
+            \ this pattern are 1, 101, 101.EQP, or 101.EQP.X."
+          maxLength: 20
+          minLength: 0
+          type: string
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        trackItItemsInfo:
+          items:
+            $ref: '#/components/schemas/trackItItemType'
+          maxItems: 4000
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    trackItItemsType:
+      items:
+        $ref: '#/components/schemas/trackItItemType'
+      maxItems: 4000
+      type: array
+    trackItLogListType:
+      items:
+        $ref: '#/components/schemas/trackItLogType'
+      maxItems: 4000
+      type: array
+    trackItLogType:
+      description: Individual activity log related to the Track It ticket.
+      properties:
+        businessDate:
+          format: date
+          type: string
+        description:
+          maxLength: 200
+          minLength: 0
+          type: string
+        hotelId:
+          maxLength: 20
+          minLength: 0
+          type: string
+        logDate:
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        logUserId:
+          type: integer
+        logUserName:
+          type: string
+        trackItId:
+          $ref: '#/components/schemas/trackItId'
+        trackItLogId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        type:
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    trackItReservationInfoType:
+      description: Reservation info associated with a Track It item.
+      properties:
+        computedReservationStatus:
+          $ref: '#/components/schemas/pMS_ResStatusType'
+        guarantee:
+          $ref: '#/components/schemas/resGuaranteeType'
+        guestInfo:
+          $ref: '#/components/schemas/resGuestInfoType'
+        reservationIdList:
+          description: Unique Id that references an object uniquely in the system.
+          items:
+            $ref: '#/components/schemas/uniqueID_Type'
+          maxItems: 4000
+          type: array
+        reservationStatus:
+          $ref: '#/components/schemas/pMS_ResStatusType'
+        roomId:
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomStatus:
+          $ref: '#/components/schemas/housekeepingRoomStatusType'
+        roomType:
+          maxLength: 20
+          minLength: 0
+          type: string
+        timeSpan:
+          $ref: '#/components/schemas/timeSpanType'
+      type: object
+    trackItType:
+      description: "Identifies the kind of Parcel, Baggage, or Lost items or Valet-managed\
+        \ vehicles or services."
+      properties:
+        type:
+          $ref: '#/components/schemas/codeDescriptionType'
+        url:
+          $ref: '#/components/schemas/uRLType'
+      type: object
+    uRLType:
+      description: "Web site address, in IETF(The Internet Engineering Task Force)\
+        \ specified format."
+      properties:
+        orderSequence:
+          description: Display Order sequence.
+          type: number
+        primaryInd:
+          description: "When true, indicates a primary information."
+          type: boolean
+        type:
+          description: "Defines the purpose of the URL address, such as personal,\
+            \ business, public, etc."
+          maxLength: 20
+          minLength: 0
+          type: string
+        typeDescription:
+          description: Describes the Type code
+          maxLength: 2000
+          minLength: 0
+          type: string
+        value:
+          description: Property Value
+          type: string
+      type: object
+    uniqueID_Type:
+      description: "An identifier used to uniquely reference an object in a system\
+        \ (e.g. an airline reservation reference, customer profile reference, booking\
+        \ confirmation number, or a reference to a previous availability quote)."
+      properties:
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    uniqueNameIDListType:
+      description: Defines descriptive name and unique identification combination.
+      items:
+        $ref: '#/components/schemas/uniqueNameIDType'
+      maxItems: 4000
+      type: array
+    uniqueNameIDType:
+      description: "Defines descriptive name, unique identification, and basic information\
+        \ combination."
+      properties:
+        email:
+          description: Email address
+          maxLength: 2000
+          minLength: 0
+          type: string
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        name:
+          description: Display name.
+          maxLength: 200
+          minLength: 0
+          type: string
+        phoneNumber:
+          description: Phone number
+          maxLength: 40
+          minLength: 0
+          type: string
+        primaryInd:
+          description: "When true, indicates a primary information."
+          type: boolean
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    userSessionDefaultsType:
+      properties:
+        baseLanguage:
+          maxLength: 20
+          minLength: 0
+          type: string
+        currencyCode:
+          maxLength: 20
+          minLength: 0
+          type: string
+        currencyFormat:
+          type: string
+        dbDateFormat:
+          type: string
+        defaultLanguage:
+          type: string
+        javaDateFormat:
+          type: string
+        javaTimeFormat:
+          type: string
+        oracleDateFormat:
+          type: string
+        oracleTimeFormat:
+          type: string
+      type: object
+    userSessionInfoType:
+      properties:
+        businessDate:
+          format: date
+          type: string
+        cROCountryCode:
+          maxLength: 20
+          minLength: 0
+          type: string
+        chain:
+          maxLength: 20
+          minLength: 0
+          type: string
+        cro:
+          $ref: '#/components/schemas/codeDescriptionType'
+        hotel:
+          $ref: '#/components/schemas/codeDescriptionType'
+        parameters:
+          description: Collection of generic Name-Value-Pair parameters.
+          items:
+            $ref: '#/components/schemas/parameterType'
+          maxItems: 4000
+          type: array
+        runningApp:
+          type: string
+        sessionDefaults:
+          $ref: '#/components/schemas/userSessionDefaultsType'
+        shareProfiles:
+          type: boolean
+        systemDate:
+          format: date
+          type: string
+        terminal:
+          type: string
+      type: object
+    vIPType:
+      description: The supplier's ranking of the customer.
+      properties:
+        vipCode:
+          description: VIP Code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        vipDescription:
+          description: VIP Description.
+          maxLength: 80
+          minLength: 0
+          type: string
+      type: object
+    warningType:
+      description: Used when a message has been successfully processed to report any
+        warnings or business errors that occurred.
+      properties:
+        code:
+          description: "If present, this refers to a table of coded values exchanged\
+            \ between applications to identify errors or warnings."
+          maxLength: 20
+          minLength: 0
+          type: string
+        docURL:
+          description: "If present, this URL refers to an online description of the\
+            \ error that occurred."
+          maxLength: 2000
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        recordId:
+          description: "If present, this attribute allows for batch processing and\
+            \ the identification of the record that failed amongst a group of records.\
+            \ This value may contain a concatenation of a unique failed transaction\
+            \ ID with specific record(s) associated with that transaction."
+          maxLength: 2000
+          type: string
+        rph:
+          description: Reference Place Holder used as an index for this warning.
+          maxLength: 8
+          minLength: 1
+          type: string
+        shortText:
+          description: An abbreviated version of the error in textual format.
+          maxLength: 2000
+          type: string
+        status:
+          description: "If present, recommended values are those enumerated in the\
+            \ ErrorRS, (NotProcessed Incomplete Complete Unknown) however, the data\
+            \ type is designated as string data, recognizing that trading partners\
+            \ may identify additional status conditions not included in the enumeration."
+          maxLength: 2000
+          type: string
+        tag:
+          description: "If present, this attribute may identify an unknown or misspelled\
+            \ tag that caused an error in processing. It is recommended that the Tag\
+            \ attribute use XPath notation to identify the location of a tag in the\
+            \ event that more than one tag of the same name is present in the document.\
+            \ Alternatively, the tag name alone can be used to identify missing data\
+            \ [Type=ReqFieldMissing]."
+          maxLength: 2000
+          type: string
+        type:
+          description: The Warning element MUST contain the Type attribute that uses
+            a recommended set of values to indicate the warning type. The validating
+            XSD can expect to accept values that it has NOT been explicitly coded
+            for and process them by using Type ="Unknown".
+          maxLength: 20
+          minLength: 0
+          type: string
+        value:
+          description: Property Value
+          type: string
+      type: object
+    warningsType:
+      description: Used in conjunction with the Success element to define a business
+        error.
+      items:
+        $ref: '#/components/schemas/warningType'
+      maxItems: 4000
+      type: array
+    postCalendarTask_request:
+      allOf:
+      - $ref: '#/components/schemas/calendarTask'
+    putTrackItItems_request:
+      allOf:
+      - $ref: '#/components/schemas/trackItItems'
+    calendarTaskType_status:
+      description: Completion status of calendar task.
+      properties:
+        completed:
+          description: Whether the task is completed or not.
+          type: boolean
+        completedBy:
+          description: Name of person who completed the task. Ignored when task is
+            not marked as completed.
+          type: string
+        completedOn:
+          description: Date on which the task was completed. Ignored when task is
+            not marked as completed.
+          format: date
+          type: string
+      type: object
+x-original-swagger-version: "2.0"

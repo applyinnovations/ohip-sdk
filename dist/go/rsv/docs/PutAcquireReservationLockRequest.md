@@ -1,0 +1,186 @@
+# PutAcquireReservationLockRequest
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**HotelId** | Pointer to **string** | Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X. | [optional] 
+**Links** | Pointer to [**[]InstanceLink**](InstanceLink.md) |  | [optional] 
+**LockHandle** | Pointer to **float32** | An identifier representing the record lock for the reservation under process.When passed,then it will verify that if the lock is still valid and return same lock handle.Else it will create new lock. | [optional] 
+**OverrideIfLockedByRequestingUser** | Pointer to **bool** | If true, the operation will try to break the existing lock if the requesting user is the same as the owner of the lock. | [optional] 
+**ReservationId** | Pointer to [**ReservationId**](ReservationId.md) |  | [optional] 
+**Warnings** | Pointer to [**[]WarningType**](WarningType.md) | Used in conjunction with the Success element to define a business error. | [optional] 
+
+## Methods
+
+### NewPutAcquireReservationLockRequest
+
+`func NewPutAcquireReservationLockRequest() *PutAcquireReservationLockRequest`
+
+NewPutAcquireReservationLockRequest instantiates a new PutAcquireReservationLockRequest object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewPutAcquireReservationLockRequestWithDefaults
+
+`func NewPutAcquireReservationLockRequestWithDefaults() *PutAcquireReservationLockRequest`
+
+NewPutAcquireReservationLockRequestWithDefaults instantiates a new PutAcquireReservationLockRequest object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetHotelId
+
+`func (o *PutAcquireReservationLockRequest) GetHotelId() string`
+
+GetHotelId returns the HotelId field if non-nil, zero value otherwise.
+
+### GetHotelIdOk
+
+`func (o *PutAcquireReservationLockRequest) GetHotelIdOk() (*string, bool)`
+
+GetHotelIdOk returns a tuple with the HotelId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHotelId
+
+`func (o *PutAcquireReservationLockRequest) SetHotelId(v string)`
+
+SetHotelId sets HotelId field to given value.
+
+### HasHotelId
+
+`func (o *PutAcquireReservationLockRequest) HasHotelId() bool`
+
+HasHotelId returns a boolean if a field has been set.
+
+### GetLinks
+
+`func (o *PutAcquireReservationLockRequest) GetLinks() []InstanceLink`
+
+GetLinks returns the Links field if non-nil, zero value otherwise.
+
+### GetLinksOk
+
+`func (o *PutAcquireReservationLockRequest) GetLinksOk() (*[]InstanceLink, bool)`
+
+GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLinks
+
+`func (o *PutAcquireReservationLockRequest) SetLinks(v []InstanceLink)`
+
+SetLinks sets Links field to given value.
+
+### HasLinks
+
+`func (o *PutAcquireReservationLockRequest) HasLinks() bool`
+
+HasLinks returns a boolean if a field has been set.
+
+### GetLockHandle
+
+`func (o *PutAcquireReservationLockRequest) GetLockHandle() float32`
+
+GetLockHandle returns the LockHandle field if non-nil, zero value otherwise.
+
+### GetLockHandleOk
+
+`func (o *PutAcquireReservationLockRequest) GetLockHandleOk() (*float32, bool)`
+
+GetLockHandleOk returns a tuple with the LockHandle field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLockHandle
+
+`func (o *PutAcquireReservationLockRequest) SetLockHandle(v float32)`
+
+SetLockHandle sets LockHandle field to given value.
+
+### HasLockHandle
+
+`func (o *PutAcquireReservationLockRequest) HasLockHandle() bool`
+
+HasLockHandle returns a boolean if a field has been set.
+
+### GetOverrideIfLockedByRequestingUser
+
+`func (o *PutAcquireReservationLockRequest) GetOverrideIfLockedByRequestingUser() bool`
+
+GetOverrideIfLockedByRequestingUser returns the OverrideIfLockedByRequestingUser field if non-nil, zero value otherwise.
+
+### GetOverrideIfLockedByRequestingUserOk
+
+`func (o *PutAcquireReservationLockRequest) GetOverrideIfLockedByRequestingUserOk() (*bool, bool)`
+
+GetOverrideIfLockedByRequestingUserOk returns a tuple with the OverrideIfLockedByRequestingUser field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOverrideIfLockedByRequestingUser
+
+`func (o *PutAcquireReservationLockRequest) SetOverrideIfLockedByRequestingUser(v bool)`
+
+SetOverrideIfLockedByRequestingUser sets OverrideIfLockedByRequestingUser field to given value.
+
+### HasOverrideIfLockedByRequestingUser
+
+`func (o *PutAcquireReservationLockRequest) HasOverrideIfLockedByRequestingUser() bool`
+
+HasOverrideIfLockedByRequestingUser returns a boolean if a field has been set.
+
+### GetReservationId
+
+`func (o *PutAcquireReservationLockRequest) GetReservationId() ReservationId`
+
+GetReservationId returns the ReservationId field if non-nil, zero value otherwise.
+
+### GetReservationIdOk
+
+`func (o *PutAcquireReservationLockRequest) GetReservationIdOk() (*ReservationId, bool)`
+
+GetReservationIdOk returns a tuple with the ReservationId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReservationId
+
+`func (o *PutAcquireReservationLockRequest) SetReservationId(v ReservationId)`
+
+SetReservationId sets ReservationId field to given value.
+
+### HasReservationId
+
+`func (o *PutAcquireReservationLockRequest) HasReservationId() bool`
+
+HasReservationId returns a boolean if a field has been set.
+
+### GetWarnings
+
+`func (o *PutAcquireReservationLockRequest) GetWarnings() []WarningType`
+
+GetWarnings returns the Warnings field if non-nil, zero value otherwise.
+
+### GetWarningsOk
+
+`func (o *PutAcquireReservationLockRequest) GetWarningsOk() (*[]WarningType, bool)`
+
+GetWarningsOk returns a tuple with the Warnings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWarnings
+
+`func (o *PutAcquireReservationLockRequest) SetWarnings(v []WarningType)`
+
+SetWarnings sets Warnings field to given value.
+
+### HasWarnings
+
+`func (o *PutAcquireReservationLockRequest) HasWarnings() bool`
+
+HasWarnings returns a boolean if a field has been set.
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

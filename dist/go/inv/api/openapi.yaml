@@ -1,0 +1,3475 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hospitality_apis_ww_grp@oracle.com
+  description: "APIs to cater for Inventory functionality in OPERA Cloud. This includes\
+    \ sell limits for date ranges, viewing and updating the property&apos;s inventory,\
+    \ as well as item inventory (such as rollaways, microwaves etc.).<br /><br />\
+    \ Compatible with OPERA Cloud release 23.2.<br /><br /><p> This document and all\
+    \ content within is available under the Universal Permissive License v 1.0 (https://oss.oracle.com/licenses/upl).\
+    \ Copyright (c) 2020, 2023 Oracle and/or its affiliates.</p>"
+  license:
+    name: UPL
+    url: https://opensource.org/licenses/upl
+  termsOfService: https://www.oracle.com/legal/terms.html
+  title: OPERA Cloud Inventory API
+  version: "23.2"
+externalDocs:
+  description: Find out more about Oracle Hospitality
+  url: https://docs.oracle.com/en/industries/hospitality/integration_platforms.html
+servers:
+- url: /inv/v1
+tags:
+- description: The Inventory APIs provide the ability to fetch Hotel Room Type Inventory
+    and manage overbooking/sell limits at different levels. It also contains operations
+    to get item inventory for a property.
+  name: Inventory
+- description: The Inventory Statistics APIs provide the ability to fetch hotels inventory
+    statistics or block inventory statistics for a specified date range provided in
+    the request. It also contains operations to get block inventory statistics for
+    multiple properties.
+  name: INVStats
+paths:
+  /blockInventoryStatistics:
+    get:
+      description: You can use this API to retrieve Block inventory for multiple hotel
+        codes. Narrow down your results using the query parameters available. <p><strong>OperationId:</strong>getBlockInventoryStatisticsMultipleHotelIds</p>
+      operationId: getBlockInventoryStatisticsMultipleHotelIds
+      parameters:
+      - description: Hotel code.
+        explode: true
+        in: query
+        name: hotelIds
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: "If set to true, includes business blocks without rooms."
+        in: query
+        name: includeBlocksWithNoRoom
+        schema:
+          type: boolean
+      - description: "If set to true, the house overbooking limit for each day is\
+          \ added to the total number of physical rooms."
+        in: query
+        name: includeOverbooking
+        schema:
+          type: boolean
+      - description: "If set to true, the results will include opportunities. If this\
+          \ flag is not provided it will be considered false and exclude opportunities."
+        in: query
+        name: includeOpportunities
+        schema:
+          type: boolean
+      - description: "If set to true, includes non-deduct business blocks and group\
+          \ reservations in the Sales Allowance Available Rooms and House Availability\
+          \ statistics."
+        in: query
+        name: includeTentativeInventory
+        schema:
+          type: boolean
+      - description: Indicates maximum number of records a Web Service should return.
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: Index or initial index of the set(page) being requested. If the
+          index goes out of the bounds of the total set count then no data will be
+          returned.
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: The ending value of the date range.
+        in: query
+        name: endDateRange
+        schema:
+          format: date
+          type: string
+      - description: The starting value of the date range.
+        in: query
+        name: startDateRange
+        schema:
+          format: date
+          type: string
+      - description: Collection of configured Block Status Codes.
+        explode: true
+        in: query
+        name: blockStatusCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Collection of Origin Codes.
+        explode: true
+        in: query
+        name: originCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Collection of Room Owners.
+        explode: true
+        in: query
+        name: roomOwnerCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Collection of block owners.
+        explode: true
+        in: query
+        name: blockOwners
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Supported block inventory statistical sorting for summary information
+        in: query
+        name: summarySortByCode
+        schema:
+          enum:
+          - Status
+          - StatusDescending
+          type: string
+      - description: Supported block inventory statistical sorting for detailed block
+          information
+        in: query
+        name: detailSortByCode
+        schema:
+          enum:
+          - Status
+          - StatusDescending
+          - ArrivalDate
+          - BlockAccount
+          - Revenue
+          - RoomsOwner
+          type: string
+      - description: "If selected, Sundays are included in search result."
+        in: query
+        name: sunday
+        schema:
+          type: boolean
+      - description: "If selected, Mondays are included in search result."
+        in: query
+        name: monday
+        schema:
+          type: boolean
+      - description: "If selected, Tuesdays are included in search result."
+        in: query
+        name: tuesday
+        schema:
+          type: boolean
+      - description: "If selected, Wednesdays are included in search result."
+        in: query
+        name: wednesday
+        schema:
+          type: boolean
+      - description: "If selected, Thursdays are included in search result."
+        in: query
+        name: thursday
+        schema:
+          type: boolean
+      - description: "If selected, Fridays are included in search result."
+        in: query
+        name: friday
+        schema:
+          type: boolean
+      - description: "If selected, Saturdays are included in search result."
+        in: query
+        name: saturday
+        schema:
+          type: boolean
+      - description: Type for block inventory statistics instructions that can be
+          used in requests for partial operations.
+        explode: true
+        in: query
+        name: fetchInstructions
+        schema:
+          items:
+            enum:
+            - StatusSummary
+            - BookingSummary
+            - ForecastSummary
+            - DetailSummary
+            - RoomSummary
+            type: string
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the endDate
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/blockInventoryStatistic'
+          description: Response object for information regarding Block Inventory Statistics.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: BlockInventoryStatistics not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get block inventory statistics for multiple hotel Ids
+      tags:
+      - INVStats
+  /hotels/{hotelId}/blockInventoryStatistics:
+    get:
+      description: "Use this API to get block statistics on a per-day basis across\
+        \ a specified date range. The result includes a summary section of rooms booked\
+        \ by status by date, details on deduct and non-deduct rooms booked per day,\
+        \ and Sales Allowance and House Availability figures per day. The details\
+        \ section of the results include block details such as name, block, code,\
+        \ start and end date, owner, and more. It also shows a breakdown of blocked\
+        \ picked-up and available rooms per day per block. The result set is used\
+        \ to feed the GRC (Group Rooms Control) page in the OPERA UI. <p><strong>OperationId:</strong>getBlockInventoryStatistics</p>"
+      operationId: getBlockInventoryStatistics
+      parameters:
+      - description: Unique ID of the hotel where block inventory statistics are searched.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: "If set to true, includes business blocks without rooms."
+        in: query
+        name: includeBlocksWithNoRoom
+        schema:
+          type: boolean
+      - description: "If set to true, the house overbooking limit for each day is\
+          \ added to the total number of physical rooms."
+        in: query
+        name: includeOverbooking
+        schema:
+          type: boolean
+      - description: "If set to true, the results will include opportunities. If this\
+          \ flag is not provided it will be considered false and exclude opportunities."
+        in: query
+        name: includeOpportunities
+        schema:
+          type: boolean
+      - description: "If set to true, includes non-deduct business blocks and group\
+          \ reservations in the Sales Allowance Available Rooms and House Availability\
+          \ statistics."
+        in: query
+        name: includeTentativeInventory
+        schema:
+          type: boolean
+      - description: Indicates maximum number of records a Web Service should return.
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: Index or initial index of the set(page) being requested. If the
+          index goes out of the bounds of the total set count then no data will be
+          returned.
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: The ending value of the date range.
+        in: query
+        name: endDateRange
+        schema:
+          format: date
+          type: string
+      - description: The starting value of the date range.
+        in: query
+        name: startDateRange
+        schema:
+          format: date
+          type: string
+      - explode: true
+        in: query
+        name: blockStatusCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: originCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: roomOwnerCodes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: blockOwners
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Supported block inventory statistical sorting.
+        in: query
+        name: summarySortByCode
+        schema:
+          enum:
+          - Status
+          - StatusDescending
+          - ArrivalDate
+          - BlockAccount
+          - Revenue
+          - RoomsOwner
+          type: string
+      - description: Supported block inventory statistical sorting.
+        in: query
+        name: detailSortByCode
+        schema:
+          enum:
+          - Status
+          - StatusDescending
+          - ArrivalDate
+          - BlockAccount
+          - Revenue
+          - RoomsOwner
+          type: string
+      - in: query
+        name: friday
+        schema:
+          type: boolean
+      - in: query
+        name: monday
+        schema:
+          type: boolean
+      - in: query
+        name: saturday
+        schema:
+          type: boolean
+      - in: query
+        name: sunday
+        schema:
+          type: boolean
+      - in: query
+        name: thursday
+        schema:
+          type: boolean
+      - in: query
+        name: tuesday
+        schema:
+          type: boolean
+      - in: query
+        name: wednesday
+        schema:
+          type: boolean
+      - description: Type for block inventory statistics instructions that can be
+          used in requests for partial operations.
+        explode: true
+        in: query
+        name: fetchInstructions
+        schema:
+          items:
+            enum:
+            - StatusSummary
+            - BookingSummary
+            - ForecastSummary
+            - DetailSummary
+            - RoomSummary
+            type: string
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the endDate
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/blockInventoryStatistic'
+          description: Response object for information regarding Block Inventory Statistics.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: BlockInventoryStatistics not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get block inventory statistics
+      tags:
+      - INVStats
+  /hotels/{hotelId}/hotelInventory:
+    get:
+      description: "You can use this API to retrieve the inventory for a specified\
+        \ hotel. Narrow down your results using the query parameters such as a date\
+        \ range, room type, room class, and/or tentative inventory included. <p><strong>OperationId:</strong>getHotelInventory</p>"
+      operationId: getHotelInventory
+      parameters:
+      - description: Unique ID of the hotel where hotel inventory is searched.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: query
+        name: dateRangeStart
+        required: true
+        schema:
+          format: date
+          type: string
+      - in: query
+        name: dateRangeEnd
+        required: true
+        schema:
+          format: date
+          type: string
+      - description: Number of rooms requested.
+        in: query
+        name: roomCountRequested
+        required: true
+        schema:
+          type: integer
+      - description: "If set to true, includes non-deduct/Tentative rooms for a date\
+          \ range."
+        in: query
+        name: includeTentativeInventory
+        schema:
+          type: boolean
+      - description: "If false minimum inventory for the date range is requested,\
+          \ otherwise inventory is requested for every day."
+        in: query
+        name: dailyInventory
+        schema:
+          type: boolean
+      - description: Indicates that House level inventory is requested.
+        in: query
+        name: houseLevel
+        schema:
+          type: boolean
+      - description: Room Type Code.
+        explode: true
+        in: query
+        name: roomTypes
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Room Class Code.
+        explode: true
+        in: query
+        name: roomClasses
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the endDate
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/hotelInventory'
+          description: "A response for Hotel Inventories meeting the search criteria.\
+            \ Returns inventory classified on room type, class and house level for\
+            \ a given property."
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: HotelInventory not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get hotel inventory
+      tags:
+      - Inventory
+  /hotels/{hotelId}/inventoryStatistics:
+    get:
+      description: "Use this API to retrieve the inventory data for a specified hotel.\
+        \ Narrow down your results using the query parameters such as a date range,\
+        \ room type, room class, and/or tentative inventory included. Maximum days\
+        \ limit with a single request is 30 days.<p><strong>OperationId:</strong>getInventoryStatistics</p>"
+      operationId: getInventoryStatistics
+      parameters:
+      - description: Unique ID of the hotel where inventory statistics are searched.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: The ending value of the date range.
+        in: query
+        name: dateRangeEnd
+        required: true
+        schema:
+          format: date
+          type: string
+      - description: Identifies the type of statistics collected. Each ReportCode
+          corresponds to a set of category summaries based upon a predetermined agreement.
+        in: query
+        name: reportCode
+        required: true
+        schema:
+          enum:
+          - DetailedAvailabiltySummary
+          - RoomCalendarStatistics
+          - SellLimitSummary
+          - RoomsAvailabilitySummary
+          type: string
+      - description: The starting value of the date range.
+        in: query
+        name: dateRangeStart
+        required: true
+        schema:
+          format: date
+          type: string
+      - description: Name of the parameter.
+        explode: true
+        in: query
+        name: parameterName
+        schema:
+          items:
+            enum:
+            - CancelledYN
+            - Channel
+            - DeductRoomsYN
+            - GroupBy
+            - HouseArrPersonsYN
+            - HouseArrRoomsYN
+            - HouseAvailPercYN
+            - HouseAvailRoomsExcludingOverbookingYN
+            - HouseAvailRoomsYN
+            - HouseAvailTenPercYN
+            - HouseBlkDeductNpuYN
+            - HouseBlkDeductPuYN
+            - HouseBlkTentNpuYN
+            - HouseBlkTentPuYN
+            - HouseDayUsePersonYN
+            - HouseDayUseRoomYN
+            - HouseDepPersonsYN
+            - HouseDepRoomsYN
+            - HouseInventoryRoomsYN
+            - HouseMaxAvailabilityExcludingOverbookingYN
+            - HouseMaxAvailabilityYN
+            - HouseMaxOccupancyYN
+            - HouseMinAvailabilityExcludingOverbookingYN
+            - HouseMinAvailabilityYN
+            - HouseOccPercYN
+            - HouseOccTenPercYN
+            - HouseOccupancyYN
+            - HouseOOOYN
+            - HouseOOSRoomsYN
+            - HouseOverBookingYN
+            - HousePeopleInHouseYN
+            - HousePhysicalRoomsYN
+            - HouseRoomsSoldYN
+            - HouseSellLimitYN
+            - HouseTentRoomsExcludingOverbookingYN
+            - HouseTentRoomsSoldYN
+            - HouseTentRoomsYN
+            - NonOwnerExclusiveYN
+            - OutOfOrderRoomsYN
+            - OwnerExclusiveYN
+            - RestrictionsYN
+            - RoomArrPersonsYN
+            - RoomArrRoomsYN
+            - RoomAvailRoomsExcludingOverbookingYN
+            - RoomAvailRoomsYN
+            - RoomBlkDeductNpuYN
+            - RoomBlkDeductPuYN
+            - RoomBlkTentNpuYN
+            - RoomBlkTentPuYN
+            - RoomCancelledYN
+            - RoomClassList
+            - RoomDayUsePersonYN
+            - RoomDayUseRoomYN
+            - RoomDepPersonsYN
+            - RoomDepRoomsYN
+            - RoomInventoryRoomsYN
+            - RoomMaxAvailabilityExcludingOverbookingYN
+            - RoomMaxAvailabilityYN
+            - RoomMaxOccupancyYN
+            - RoomMinAvailabilityExcludingOverbookingYN
+            - RoomMinAvailabilityYN
+            - RoomOccupancyYN
+            - RoomOOOYN
+            - RoomOOSRoomsYN
+            - RoomOverBookingYN
+            - RoomPeopleInHouseYN
+            - RoomPhysicalRoomsYN
+            - RoomRestrictionsYN
+            - RoomRoomsSoldYN
+            - RoomSellLimitYN
+            - RoomTentRoomsExcludingOverbookingYN
+            - RoomTentRoomsYN
+            - RoomTentYN
+            - RoomTypeWildCardList
+            type: string
+          type: array
+        style: form
+      - description: Value of the parameter.
+        explode: true
+        in: query
+        name: parameterValue
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the endDate
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/inventoryStatistics'
+            application/json:
+              example:
+              - hotelName: HOTEL1
+                reportCode: RoomsAvailabilitySummary
+                statistics:
+                - statCategoryCode: HotelCode
+                  statCode: HOTEL1
+                  statisticDate:
+                  - statisticDate: 2020-01-25
+                    weekendDate: false
+                  - statisticDate: 2020-01-26
+                    weekendDate: false
+                - description: Component Room - Standard
+                  statCategoryCode: HotelRoomCode
+                  statCode: CSTND
+                  statCodeClass: STDCOMP
+                  statisticDate:
+                  - inventory:
+                    - code: SequenceId
+                      value: "1"
+                    statisticDate: 2020-01-25
+                    weekendDate: false
+                  - inventory:
+                    - code: SequenceId
+                      value: "1"
+                    statisticDate: 2020-01-26
+                    weekendDate: false
+                - description: Standard Room
+                  statCategoryCode: HotelRoomCode
+                  statCode: STD
+                  statCodeClass: ALL
+                  statisticDate:
+                  - statisticDate: 2020-01-25
+                    weekendDate: false
+                  - statisticDate: 2020-01-26
+                    weekendDate: false
+          description: Object that holds the details of inventory Statistics.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: InventoryStatistics not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get hotel inventory
+      tags:
+      - INVStats
+  /hotels/{hotelId}/itemInventory:
+    get:
+      description: This will fetch a hotels Item inventory for a specified date range
+        that you can provided in the request. <p><strong>OperationId:</strong>getItemInventory</p>
+      operationId: getItemInventory
+      parameters:
+      - description: Unique ID of the hotel where item inventory is searched.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: query
+        name: startDate
+        schema:
+          format: date
+          type: string
+      - in: query
+        name: endDate
+        schema:
+          format: date
+          type: string
+      - in: query
+        name: duration
+        schema:
+          type: string
+      - description: End Time of the Time window.
+        in: query
+        name: endTime
+        schema:
+          type: string
+      - description: Start Time of the Time window.
+        in: query
+        name: startTime
+        schema:
+          type: string
+      - description: Item Class to filter the Items/Item Pools in the response.
+        in: query
+        name: itemClass
+        schema:
+          type: string
+      - explode: true
+        in: query
+        name: itemPool
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: itemCode
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Define the default duration in days when booking the item.
+        in: query
+        name: defaultDuration
+        schema:
+          type: integer
+      - description: If true indicates that item has fixed charge when it is attached
+          to a reservation.
+        in: query
+        name: fixedCharge
+        schema:
+          type: boolean
+      - description: If true indicates that item could be held outside of the reservation
+          stay days.
+        in: query
+        name: outsideStay
+        schema:
+          type: boolean
+      - description: If true indicates that item is required for the reservation.
+        in: query
+        name: requiredForBooking
+        schema:
+          type: boolean
+      - description: If true indicates that item can be sold in event.
+        in: query
+        name: sellInEvent
+        schema:
+          type: boolean
+      - description: If true indicates that item can be sold in reservation.
+        in: query
+        name: sellInReservation
+        schema:
+          type: boolean
+      - description: If true indicates that item is allowed to sell separately.
+        in: query
+        name: sellSeparate
+        schema:
+          type: boolean
+      - description: When set to true will only return items that are Welcome Offer
+          Eligible.
+        in: query
+        name: welcomeOffer
+        schema:
+          type: boolean
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the endDate
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/itemInventory'
+          description: Return object to the request for information regarding items
+            inventory/availability.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: ItemInventory not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get item inventory
+      tags:
+      - Inventory
+  /hotels/{hotelId}/itemInventoryHold:
+    get:
+      description: Fetch item inventory that is currently being held. <p><strong>OperationId:</strong>getHoldItemsInventory</p>
+      operationId: getHoldItemsInventory
+      parameters:
+      - description: Unique ID of the hotel where items inventory is held.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: ID of an Hold Item
+        explode: true
+        in: query
+        name: itemHoldId
+        schema:
+          items:
+            type: number
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the endDate
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/holdItemsInventory'
+          description: Response object to fetch the item hold details.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: HoldItemsInventory not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get items inventory that are held
+      tags:
+      - Inventory
+    post:
+      description: Use this API to hold Item Inventory. <p><strong>OperationId:</strong>postHoldItemInventory</p>
+      operationId: postHoldItemInventory
+      parameters:
+      - description: Unique ID of the hotel where item inventory is held.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the endDate
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/putHoldItemsInventory_request'
+        description: Request object for holding an items inventory/availability.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Hold item inventory
+      tags:
+      - Inventory
+      x-codegen-request-body-name: holdItemInventory
+    put:
+      description: You can update item inventory that is being held using this API.
+        <p><strong>OperationId:</strong>putHoldItemsInventory</p>
+      operationId: putHoldItemsInventory
+      parameters:
+      - description: Unique ID of the hotel where items inventory that are held is
+          updated.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the endDate
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/putHoldItemsInventory_request'
+        description: Request object to change the item hold details
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/holdItemInventory'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: update items inventory that are held
+      tags:
+      - Inventory
+      x-codegen-request-body-name: holdItemInventory
+  /hotels/{hotelId}/sellLimits:
+    put:
+      description: You can use this API to create sell limits in OPERA by date. <p><strong>OperationId:</strong>changeSellLimitByDate</p>
+      operationId: changeSellLimitByDate
+      parameters:
+      - description: Unique ID of the hotel where sell limit are created by date.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the endDate
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/changeSellLimitByDate_request'
+        description: "A Request message that sets sell limit for a particular date\
+          \ for all the levels House, room type and room class. The request can contain\
+          \ the number type in which the sell limits is to be fetched for the different\
+          \ levels."
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/sellLimitResponse'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Set sell limits by date
+      tags:
+      - Inventory
+      x-codegen-request-body-name: sellLimit
+  /hotels/{hotelId}/sellLimitsByDateRange:
+    put:
+      description: You can use this API to create sell limits in OPERA by date range.
+        <p><strong>OperationId:</strong>changeSellLimitByDateRange</p>
+      operationId: changeSellLimitByDateRange
+      parameters:
+      - description: Unique ID of the hotel where sell limits are created by date
+          range.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the endDate
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/changeSellLimitByDateRange_request'
+        description: Contains the sell limits for a given date range to be set.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/sellLimitByDateResponse'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Set sell limits by date range
+      tags:
+      - Inventory
+      x-codegen-request-body-name: sellLimitByRange
+  /releasedItemInventory:
+    put:
+      description: This API will release item inventory that has been held. <p><strong>OperationId:</strong>putItemInventoryHold</p>
+      operationId: putItemInventoryHold
+      parameters:
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the endDate
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/putItemInventoryHold_request'
+        description: Request object for releasing a held item inventory/availability.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/releasedItemInventoryHeld'
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Release item inventory held
+      tags:
+      - Inventory
+      x-codegen-request-body-name: releaseItemInventoryHold
+components:
+  schemas:
+    blockClassificationType:
+      description: "Simple type for block instructions to be used in requests for\
+        \ fetching blocks. Valid status values are MASTER_BLOCK, MASTER_TOUR, FIT_MASTER,\
+        \ MASTER_ALLOCATION, MASTER_ITINERARY, LEAD_MASTER, REGULAR_BOOKING, SUB_BLOCK,\
+        \ SUB_TOUR, FIT_CONTRACT, SUB_ALLOCATION, SUB_ITINERARY, LEAD."
+      enum:
+      - MasterBlock
+      - MasterTour
+      - MasterAllocation
+      - MasterItinerary
+      - LeadMaster
+      - RegularBooking
+      - SubBlock
+      - SubTour
+      - FitContract
+      - SubAllocation
+      - SubItinerary
+      - Lead
+      - FitMaster
+      - Opportunity
+      type: string
+    blockDetailStatisticType:
+      description: Information and statistic summary for a particular block.
+      properties:
+        blockInformation:
+          $ref: '#/components/schemas/blockInfoType'
+        blockStatistics:
+          description: Summary statistics of a block for each date.
+          items:
+            $ref: '#/components/schemas/blockStatusStatisticType'
+          maxItems: 4000
+          type: array
+      type: object
+    blockDetailStatisticsType:
+      description: Compose of block information and statistic summary for a particular
+        block.
+      items:
+        $ref: '#/components/schemas/blockDetailStatisticType'
+      maxItems: 4000
+      type: array
+    blockInfoType:
+      description: Contains information of the business block .
+      properties:
+        accountId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        accountName:
+          description: Account name attached to the business block.
+          maxLength: 200
+          minLength: 0
+          type: string
+        averageRoomRate:
+          description: Average room rate of the business block.
+          type: number
+        blockClassification:
+          $ref: '#/components/schemas/blockClassificationType'
+        blockCode:
+          description: Block code for the block.
+          maxLength: 20
+          minLength: 0
+          type: string
+        blockId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        blockName:
+          description: Name of the business block.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        blockStatus:
+          $ref: '#/components/schemas/codeDescriptionType'
+        blockStatusColor:
+          $ref: '#/components/schemas/statusColorType'
+        contactId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        contactName:
+          description: Contact name attached to the business block.
+          maxLength: 200
+          minLength: 0
+          type: string
+        conversionCode:
+          description: Indicates the likelihood of the block moving to the next active
+            block status.
+          maxLength: 20
+          minLength: 0
+          type: string
+        currencyCode:
+          description: Currency Code attached to the business block.
+          maxLength: 20
+          minLength: 0
+          type: string
+        cutOffDate:
+          description: Date after which unused block rooms should be returned to house.
+          format: date
+          type: string
+        endDate:
+          description: End date for this block.
+          format: date
+          type: string
+        guaranteeCode:
+          description: Guarantee Code for the block.
+          maxLength: 20
+          minLength: 0
+          type: string
+        hotelId:
+          description: The hotel code of the business block.
+          maxLength: 20
+          minLength: 0
+          type: string
+        nonCompeteDetails:
+          $ref: '#/components/schemas/blockNonCompeteType'
+        rankingCode:
+          description: Indicates the ranking of the block.
+          maxLength: 20
+          minLength: 0
+          type: string
+        rateProtectionDetails:
+          $ref: '#/components/schemas/blockRateProtectionType'
+        roomSalesManager:
+          $ref: '#/components/schemas/codeDescriptionType'
+        startDate:
+          description: Start date for this block.
+          format: date
+          type: string
+      type: object
+    blockInventoryStatistic:
+      description: Response object for information regarding Block Inventory Statistics.
+      properties:
+        blockInventoryStatistics:
+          $ref: '#/components/schemas/blockInventoryStatistic_blockInventoryStatistics'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    blockInventoryStatisticType:
+      description: Summary and Detail statistics for block inventory.
+      properties:
+        blockDetailStatistics:
+          description: Compose of block information and statistic summary for a particular
+            block.
+          items:
+            $ref: '#/components/schemas/blockDetailStatisticType'
+          maxItems: 4000
+          type: array
+        blockSummaryStatistics:
+          description: "Statistic units group by status, booking and daily targets."
+          items:
+            $ref: '#/components/schemas/blockSummaryStatisticType'
+          maxItems: 4000
+          type: array
+        sellMessages:
+          $ref: '#/components/schemas/sellMessagesType'
+      type: object
+    blockNonCompeteType:
+      description: Block Non Compete code information.
+      properties:
+        criteria:
+          $ref: '#/components/schemas/rateProtectionType'
+        industry:
+          description: Specifies the Non-Compete Industry.>
+          maxLength: 20
+          minLength: 0
+          type: string
+        industryDescription:
+          description: Specifies the Non-Compete Industry description.>
+          maxLength: 2000
+          minLength: 0
+          type: string
+        protectedDates:
+          description: Specifies a single date.
+          items:
+            format: date
+            type: string
+          maxItems: 4000
+          type: array
+      type: object
+    blockRateProtectionType:
+      description: Block Rate Protection code information.
+      properties:
+        criteria:
+          $ref: '#/components/schemas/rateProtectionType'
+        protectedDates:
+          description: Specifies a single date.
+          items:
+            format: date
+            type: string
+          maxItems: 4000
+          type: array
+      type: object
+    blockStatusStatisticType:
+      description: Contains summary statistic for a block on a particular statistic
+        date.
+      properties:
+        statisticDate:
+          description: Date of the statistic.
+          format: date
+          type: string
+        statusSummaryStatistic:
+          description: Unit type to hold statistic code and value pair.
+          items:
+            $ref: '#/components/schemas/statisticUnitType'
+          maxItems: 4000
+          type: array
+      type: object
+    blockStatusStatisticsType:
+      description: Summary statistics of a block for each date.
+      items:
+        $ref: '#/components/schemas/blockStatusStatisticType'
+      maxItems: 4000
+      type: array
+    blockSummaryStatisticType:
+      description: "Statistic units group by status, booking and daily targets."
+      properties:
+        bookingSummaryStatistic:
+          description: Unit type to hold statistic code and value pair.
+          items:
+            $ref: '#/components/schemas/statisticUnitType'
+          maxItems: 4000
+          type: array
+        dailyTargetsSummaryStatistic:
+          description: Unit type to hold statistic code and value pair.
+          items:
+            $ref: '#/components/schemas/statisticUnitType'
+          maxItems: 4000
+          type: array
+        statisticDate:
+          description: Date of the block inventory statistic.
+          format: date
+          type: string
+        statusSummaryStatistic:
+          description: Statistic summary for a particular status.
+          items:
+            $ref: '#/components/schemas/statusStatisticType'
+          maxItems: 4000
+          type: array
+      type: object
+    blockSummaryStatisticsType:
+      description: "Statistic units group by status, booking and daily targets."
+      items:
+        $ref: '#/components/schemas/blockSummaryStatisticType'
+      maxItems: 4000
+      type: array
+    codeDescriptionType:
+      description: This contains a generic code and description information.
+      properties:
+        code:
+          description: Code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          description: description.
+          maxLength: 2000
+          minLength: 0
+          type: string
+      type: object
+    codeType:
+      description: "Used for codes in the OPERA Code tables. Possible values of this\
+        \ pattern are 1, 101, 101.EQP, or 101.EQP.X."
+      maxLength: 20
+      minLength: 0
+      type: string
+    dailyItemInventoryCountsListType:
+      description: Inventory counts for the given date.
+      items:
+        $ref: '#/components/schemas/dailyItemInventoryCountsType'
+      maxItems: 4000
+      type: array
+    dailyItemInventoryCountsType:
+      description: Inventory counts for the given date.
+      properties:
+        available:
+          description: Available Item count.
+          type: integer
+        date:
+          description: Date of the item inventory.
+          format: date
+          type: string
+        total:
+          description: Total Item count.
+          type: integer
+      type: object
+    datesType:
+      description: Specifies a single date.
+      items:
+        format: date
+        type: string
+      maxItems: 4000
+      type: array
+    errorInstance:
+      description: Complex type that contains error instance details for a REST call.
+      properties:
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+      required:
+      - title
+      - type
+      title: Error Instance Details
+      type: object
+    exceptionDetailType:
+      description: Complex type that contains error details for a REST call.
+      properties:
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorDetails:
+          description: "Details of the error message, consisting of a hierarchical\
+            \ tree structure."
+          items:
+            $ref: '#/components/schemas/errorInstance'
+          type: array
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+      required:
+      - title
+      - type
+      title: Error Detail
+      type: object
+    heldByType:
+      description: Type of the entity that is requesting for the item hold.
+      enum:
+      - Event
+      - Reservation
+      - Allotment
+      type: string
+    holdItemInfoListType:
+      description: Info of an item inventory that is requested for Hold.
+      items:
+        $ref: '#/components/schemas/holdItemInfoType'
+      maxItems: 4000
+      type: array
+    holdItemInfoType:
+      description: Information about an item inventory that is requested for hold.
+      properties:
+        count:
+          description: Number of items to hold.
+          type: integer
+        itemCode:
+          description: Item Code to hold.
+          maxLength: 20
+          minLength: 0
+          type: string
+        itemId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        timeSpan:
+          $ref: '#/components/schemas/timeSpanType'
+      type: object
+    holdItemInventory:
+      description: Object containing the item hold details.
+      properties:
+        holdItemInfo:
+          $ref: '#/components/schemas/holdItemInventoryType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    holdItemInventoryType:
+      description: Request parameter for holding an Item Inventory.
+      properties:
+        heldBy:
+          $ref: '#/components/schemas/heldByType'
+        heldById:
+          $ref: '#/components/schemas/uniqueID_Type'
+        holdItemInfoList:
+          description: Info of an item inventory that is requested for Hold.
+          items:
+            $ref: '#/components/schemas/holdItemInfoType'
+          maxItems: 4000
+          type: array
+        hotelId:
+          description: Hotel Code whose Item Inventory is being requested.
+          maxLength: 20
+          minLength: 0
+          type: string
+        itemHoldId:
+          description: Unique ID of the one requesting for the item hold.
+          type: number
+        overrideInventory:
+          description: Flag to indicate if inventory check will be overriden.
+          type: boolean
+      type: object
+    holdItemsInventory:
+      description: Response object to fetch the item hold details.
+      properties:
+        itemsInventory:
+          description: Items/Item pool with brief information and its Inventory counts
+            for the given dates.
+          items:
+            $ref: '#/components/schemas/poolItemInventoryCountsType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    hotelInventory:
+      description: "A response for Hotel Inventories meeting the search criteria.\
+        \ Returns inventory classified on room type, class and house level for a given\
+        \ property."
+      properties:
+        hotelInventories:
+          description: Refer to Inventory common types document.
+          items:
+            $ref: '#/components/schemas/hotelInventoryType'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    hotelInventoryType:
+      description: A collection of Reservation objects and Unique IDs of Reservation.
+      properties:
+        houseInventory:
+          description: Collection of Inventory counts for the date ranges.
+          items:
+            $ref: '#/components/schemas/inventoryCountsType'
+          maxItems: 4000
+          type: array
+        roomClassInventories:
+          description: Collection of Room Class level Inventory counts for the date
+            ranges.
+          items:
+            $ref: '#/components/schemas/inventoryLevelCountsListType'
+          maxItems: 4000
+          type: array
+        roomTypeInventories:
+          description: Collection of Room type level Inventory counts for the date
+            ranges.
+          items:
+            $ref: '#/components/schemas/inventoryLevelCountsListType'
+          maxItems: 4000
+          type: array
+      type: object
+    houseSellLimitType:
+      properties:
+        amount:
+          type: number
+        date:
+          format: date
+          type: string
+        flatOrPercentage:
+          type: string
+      type: object
+    instanceLink:
+      description: Metadata describing link description objects that MAY appear in
+        the JSON instance representation.
+      properties:
+        href:
+          description: "URI [RFC3986] or URI Template [RFC6570]. If the value is set\
+            \ to URI Template, then the \"templated\" property must be set to true."
+          type: string
+        method:
+          description: HTTP method for requesting the target of the link.
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          - OPTIONS
+          - HEAD
+          type: string
+        operationId:
+          description: "The operationId of the path you can call to follow this link.\
+            \  This allows you to look up not only the path and method, but the description\
+            \ of that path and any parameters you need to supply."
+          type: string
+        rel:
+          description: "Name of the link relation that, in addition to the type property,\
+            \ can be used to retrieve link details. For example, href or profile."
+          type: string
+        targetSchema:
+          description: "Link to the metadata of the resource, such as JSON-schema,\
+            \ that describes the resource expected when dereferencing the target resource.."
+          type: string
+        templated:
+          default: false
+          description: "Boolean flag that specifies that \"href\" property is a URI\
+            \ or URI Template. If the property is a URI template, set this value to\
+            \ true. By default, this value is false."
+          type: boolean
+        title:
+          description: Exact copy of the "summary" field on the linked operation.
+          type: string
+      required:
+      - href
+      - method
+      - operationId
+      - rel
+      type: object
+    inventoryCountsListType:
+      description: Collection of Inventory counts for the date ranges.
+      items:
+        $ref: '#/components/schemas/inventoryCountsType'
+      maxItems: 4000
+      type: array
+    inventoryCountsType:
+      description: Inventory counts for the given date range.
+      properties:
+        available:
+          description: Indicates whether enough inventory is available or not.
+          type: boolean
+        availableCount:
+          description: Available Inventory count.
+          type: integer
+        availableTentativeCount:
+          description: Available Tentative Inventory count.
+          type: integer
+        endDate:
+          description: The ending value of the date range.
+          format: date
+          type: string
+        startDate:
+          description: The starting value of the date range.
+          format: date
+          type: string
+      type: object
+    inventoryLevelCountsListType:
+      description: Collection of Inventory counts for the date ranges.
+      properties:
+        code:
+          description: Inventory Group/Level code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        inventoryCounts:
+          description: Collection of Inventory counts for the date ranges.
+          items:
+            $ref: '#/components/schemas/inventoryCountsType'
+          maxItems: 4000
+          type: array
+        sequence:
+          description: Integer Group/Level order sequence number.
+          type: integer
+      type: object
+    inventoryStatistics:
+      description: List of inventory statistics that is grouped by statistic date.
+      items:
+        $ref: '#/components/schemas/statisticType'
+      maxItems: 4000
+      type: array
+    itemInventory:
+      description: Return object to the request for information regarding items inventory/availability.
+      properties:
+        itemsInventory:
+          description: Items/Item pool with brief information and its Inventory counts
+            for the given dates.
+          items:
+            $ref: '#/components/schemas/poolItemInventoryCountsType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    itemInventoryCountsListType:
+      description: Provides item's brief information and a collection of Inventory
+        counts for the given dates for the item.
+      items:
+        $ref: '#/components/schemas/itemInventoryCountsType'
+      maxItems: 4000
+      type: array
+    itemInventoryCountsType:
+      description: Basic information regarding an Item.
+      properties:
+        availabilityPeriod:
+          $ref: '#/components/schemas/timeWindowType'
+        code:
+          description: Item Code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        defaultDuration:
+          description: Define the default duration in days when booking the item.
+          type: integer
+        description:
+          description: Detail description of an item.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        fixedCharge:
+          description: If true indicates that item has fixed charge when it is attached
+            to a reservation.
+          type: boolean
+        inventories:
+          description: Inventory counts for the given date.
+          items:
+            $ref: '#/components/schemas/dailyItemInventoryCountsType'
+          maxItems: 4000
+          type: array
+        itemHoldId:
+          description: ID reference for the hold Item
+          type: number
+        itemPool:
+          description: Indicates if it is an item pool. Not applicable for Item within
+            the Item Pool.
+          type: boolean
+        name:
+          description: Name of an item.
+          maxLength: 200
+          minLength: 0
+          type: string
+        outsideStay:
+          description: If true indicates that item could be held outside of the reservation
+            stay days.
+          type: boolean
+        quantity:
+          description: Quantity of hold Item
+          type: integer
+        requiredForBooking:
+          description: If true indicates that item is required for the reservation.
+          type: boolean
+        sellInEvent:
+          description: If true indicates that item can be sold in event.
+          type: boolean
+        sellInReservation:
+          description: If true indicates that item can be sold in reservation.
+          type: boolean
+        sellSeparate:
+          description: If true indicates that item is allowed to sell separately.
+          type: boolean
+        timeSpan:
+          $ref: '#/components/schemas/timeSpanType'
+      type: object
+    links:
+      items:
+        $ref: '#/components/schemas/instanceLink'
+      type: array
+    numericCategorySummaryType:
+      description: "This element has count data for each count category such as number\
+        \ of guests, rooms occupied, etc."
+      properties:
+        code:
+          description: "The representation of a numeric category such as Guests :\
+            \ Number of guests, RoomsOcc : Rooms occupied."
+          maxLength: 40
+          minLength: 0
+          type: string
+        value:
+          description: The total count for the category in NumericCategoryCode.
+          type: number
+      type: object
+    operaVersionNumberType:
+      description: Current Opera Version Number
+      maxLength: 40
+      minLength: 0
+      type: string
+    poolItemInventoryCountsListType:
+      description: Items/Item pool with brief information and its Inventory counts
+        for the given dates.
+      items:
+        $ref: '#/components/schemas/poolItemInventoryCountsType'
+      maxItems: 4000
+      type: array
+    poolItemInventoryCountsType:
+      description: Basic information regarding an Item.
+      properties:
+        availabilityPeriod:
+          $ref: '#/components/schemas/timeWindowType'
+        code:
+          description: Item Code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        defaultDuration:
+          description: Define the default duration in days when booking the item.
+          type: integer
+        description:
+          description: Detail description of an item.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        fixedCharge:
+          description: If true indicates that item has fixed charge when it is attached
+            to a reservation.
+          type: boolean
+        inventories:
+          description: Inventory counts for the given date.
+          items:
+            $ref: '#/components/schemas/dailyItemInventoryCountsType'
+          maxItems: 4000
+          type: array
+        itemHoldId:
+          description: ID reference for the hold Item
+          type: number
+        itemPool:
+          description: Indicates if it is an item pool. Not applicable for Item within
+            the Item Pool.
+          type: boolean
+        name:
+          description: Name of an item.
+          maxLength: 200
+          minLength: 0
+          type: string
+        outsideStay:
+          description: If true indicates that item could be held outside of the reservation
+            stay days.
+          type: boolean
+        poolItems:
+          description: Provides item's brief information and a collection of Inventory
+            counts for the given dates for the item.
+          items:
+            $ref: '#/components/schemas/itemInventoryCountsType'
+          maxItems: 4000
+          type: array
+        quantity:
+          description: Quantity of hold Item
+          type: integer
+        requiredForBooking:
+          description: If true indicates that item is required for the reservation.
+          type: boolean
+        sellInEvent:
+          description: If true indicates that item can be sold in event.
+          type: boolean
+        sellInReservation:
+          description: If true indicates that item can be sold in reservation.
+          type: boolean
+        sellSeparate:
+          description: If true indicates that item is allowed to sell separately.
+          type: boolean
+        timeSpan:
+          $ref: '#/components/schemas/timeSpanType'
+      type: object
+    propertyStatisticUnitType:
+      description: "Unit type to hold statistic code and value pair e.g. [resort -\
+        \ value] [BHOTEL - 20] [MHOTEL - 30] and its sub units per property wise"
+      properties:
+        hotelId:
+          description: Unique ID of the hotel.
+          type: string
+        value:
+          description: Value of the statistic unit.
+          format: int32
+          type: integer
+      type: object
+    rateProtectionType:
+      description: Simple type for specifying the block protection type.
+      enum:
+      - All
+      - Selected
+      - None
+      type: string
+    releaseItemInventoryHold:
+      description: Request object for releasing a held item inventory/availability.
+      properties:
+        heldBy:
+          $ref: '#/components/schemas/heldByType'
+        heldById:
+          $ref: '#/components/schemas/uniqueID_Type'
+        hotelId:
+          description: "Used for codes in the OPERA Code tables. Possible values of\
+            \ this pattern are 1, 101, 101.EQP, or 101.EQP.X."
+          maxLength: 20
+          minLength: 0
+          type: string
+        itemCode:
+          description: "Used for codes in the OPERA Code tables. Possible values of\
+            \ this pattern are 1, 101, 101.EQP, or 101.EQP.X."
+          maxLength: 20
+          minLength: 0
+          type: string
+        itemHoldId:
+          description: ID reference for the one who hold the item. Used for releasing/reserving
+            the item afterwards.
+          type: number
+        itemId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        releaseItemsInventoryHoldInfo:
+          description: Collection of items for releasing an Items Inventory hold.
+          items:
+            $ref: '#/components/schemas/releaseItemInventoryHoldType'
+          maxItems: 4000
+          type: array
+        reserveDates:
+          $ref: '#/components/schemas/timeSpanType'
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    releaseItemInventoryHoldType:
+      description: Item information for releasing an Item Inventory hold.
+      properties:
+        heldBy:
+          $ref: '#/components/schemas/heldByType'
+        heldById:
+          $ref: '#/components/schemas/uniqueID_Type'
+        hotelId:
+          description: Hotel Code of the holding item to be released.
+          maxLength: 20
+          minLength: 0
+          type: string
+        itemCode:
+          description: Item Code to be released.
+          maxLength: 20
+          minLength: 0
+          type: string
+        itemHoldId:
+          description: ID reference for the one who hold the item. Used for releasing/reserving
+            the item afterwards.
+          type: number
+        itemId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        reserveDates:
+          $ref: '#/components/schemas/timeSpanType'
+      type: object
+    releaseItemsInventoryHoldType:
+      description: Collection of items for releasing an Items Inventory hold.
+      items:
+        $ref: '#/components/schemas/releaseItemInventoryHoldType'
+      maxItems: 4000
+      type: array
+    releasedItemInventoryHeld:
+      description: Response object for releasing item inventory hold.
+      properties:
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    revenueCategorySummaryType:
+      description: "This element has revenue amount data for its revenue category\
+        \ such as Room Revenue, Food and Beverage Revenue."
+      properties:
+        amount:
+          description: A monetary amount.
+          type: number
+        code:
+          description: The representation of a revenue category.
+          maxLength: 40
+          minLength: 0
+          type: string
+        currencyCode:
+          description: Provides a currency code to reflect the currency in which an
+            amount may be expressed.
+          maxLength: 3
+          minLength: 3
+          type: string
+      type: object
+    roomClassSellLimitType:
+      properties:
+        amount:
+          type: number
+        date:
+          format: date
+          type: string
+        flatOrPercentage:
+          type: string
+        roomClass:
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    roomCodeCategoryType:
+      description: Used for Room code type. eg. Code="RoomType" or "RoomClass"
+      enum:
+      - RoomType
+      - RoomClass
+      type: string
+    roomTypeSellLimitType:
+      properties:
+        amount:
+          type: number
+        date:
+          format: date
+          type: string
+        flatOrPercentage:
+          type: string
+        roomType:
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    sellLimit:
+      description: "A Request message that sets sell limit for a particular date for\
+        \ all the levels House, room type and room class. The request can contain\
+        \ the number type in which the sell limits is to be fetched for the different\
+        \ levels."
+      properties:
+        sellLimitsByDate:
+          $ref: '#/components/schemas/sellLimitByDateType'
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    sellLimitByDateRangeType:
+      description: This type is used by sell limit request for date ranges.
+      properties:
+        codeCategory:
+          $ref: '#/components/schemas/roomCodeCategoryType'
+        codeValue:
+          maxLength: 20
+          minLength: 0
+          type: string
+        hotelId:
+          maxLength: 20
+          minLength: 0
+          type: string
+        sellLimitDateRanges:
+          description: Collection of date ranges and sell limit amount.
+          items:
+            $ref: '#/components/schemas/sellLimitDateRangeType'
+          maxItems: 4000
+          type: array
+      type: object
+    sellLimitByDateResponse:
+      description: A Response object for setting sell limit by date range.
+      properties:
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    sellLimitByDateType:
+      description: This type is used by sell limit request.
+      properties:
+        hotelId:
+          description: Resort context.
+          maxLength: 20
+          minLength: 0
+          type: string
+        houseSellLimits:
+          description: Collection of House level sell limit by the date.
+          items:
+            $ref: '#/components/schemas/houseSellLimitType'
+          maxItems: 4000
+          type: array
+        roomClassSellLimits:
+          description: Collection of Room Class level sell limit by the date.
+          items:
+            $ref: '#/components/schemas/roomClassSellLimitType'
+          maxItems: 4000
+          type: array
+        roomTypeSellLimits:
+          description: Collection of Room type level sell limit by the date.
+          items:
+            $ref: '#/components/schemas/roomTypeSellLimitType'
+          maxItems: 4000
+          type: array
+      type: object
+    sellLimitByRange:
+      description: "A Request message that sets sell limit for collection of date\
+        \ ranges for either of the levels House, room type or room class. You can\
+        \ specify the days of the week, number type group and the date range as part\
+        \ of the request."
+      properties:
+        sellLimitsByDateRange:
+          description: Contains the sell limits for a given date range to be set.
+          items:
+            $ref: '#/components/schemas/sellLimitByDateRangeType'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    sellLimitDateRangeType:
+      properties:
+        actionType:
+          description: "It indicates the call is to update Available Rooms, Sell Limit\
+            \ or Sell Control Rooms."
+          type: string
+        amount:
+          type: number
+        endDate:
+          description: The ending value of the date range.
+          format: date
+          type: string
+        flatOrPercentage:
+          type: string
+        friday:
+          type: boolean
+        monday:
+          type: boolean
+        saturday:
+          type: boolean
+        startDate:
+          description: The starting value of the date range.
+          format: date
+          type: string
+        sunday:
+          type: boolean
+        thursday:
+          type: boolean
+        tuesday:
+          type: boolean
+        wednesday:
+          type: boolean
+      type: object
+    sellLimitResponse:
+      description: A Response object for setting sell limit by date.
+      properties:
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    sellMessageType:
+      description: The SellMessagesType defines the standard attributes that will
+        be retrieved with the sell message.
+      properties:
+        beginDate:
+          description: This is the Begin date for the configured SellMessage.
+          format: date
+          type: string
+        chainCode:
+          description: This is the chain code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        croCode:
+          description: This is the Central Reservation office code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        hotelId:
+          description: This is the hotel code or resort.
+          maxLength: 20
+          minLength: 0
+          type: string
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        idContext:
+          description: "Used to identify the source of the identifier (e.g., IATA,\
+            \ ABTA)."
+          maxLength: 80
+          minLength: 0
+          type: string
+        idExtension:
+          description: Additional identifying value assigned by the creating system.
+          type: integer
+        instance:
+          description: The identification of a record as it exists at a point in time.
+            An instance is used in update messages where the sender must assure the
+            server that the update sent refers to the most recent modification level
+            of the object being updated.
+          maxLength: 80
+          minLength: 0
+          type: string
+        languageCode:
+          description: This is the language code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        message:
+          description: This is the message text.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        ratePlanCode:
+          description: This represents the rate plan code of the room type.
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomType:
+          description: This represents the room type code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        stickyFlagYn:
+          description: Flag which tells if this message is Sticky (Y/N).
+          maxLength: 1
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 20
+          minLength: 0
+          type: string
+        url:
+          description: URL that identifies the location associated with the record
+            identified by the UniqueID.
+          type: string
+        usedInModule:
+          $ref: '#/components/schemas/usedInModuleType'
+      type: object
+    sellMessagesType:
+      description: The SellMessagesType is the list of message and attributes returned
+        by web service.
+      properties:
+        count:
+          description: Total number of rows returned
+          type: integer
+        hasMore:
+          description: Indicates whether all the records are included in the response
+            or not. Absence of the attribute values should be consider as all rows
+            fetched in the response.
+          type: boolean
+        sellMessage:
+          description: This is the message text.
+          items:
+            $ref: '#/components/schemas/sellMessageType'
+          maxItems: 4000
+          type: array
+        totalResults:
+          description: Total number of rows queried
+          type: integer
+      type: object
+    statisticCodeType:
+      description: Defines the codes and corresponding categories for which the data
+        in the other elements has been gathered.
+      properties:
+        description:
+          description: Statistic code description.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        statCategoryCode:
+          description: Category Code category of StatCode attribute (e.g. Market Segment).
+          maxLength: 40
+          minLength: 0
+          type: string
+        statCode:
+          description: "Actual code used by the system to collect the statistics (e.g.\
+            \ CORP, RACK if category is Market Segment)."
+          maxLength: 20
+          minLength: 0
+          type: string
+        statCodeClass:
+          description: Class grouping of StatCode attribute.
+          maxLength: 40
+          minLength: 0
+          type: string
+        statisticDate:
+          description: Collection of statistic summary data.
+          items:
+            $ref: '#/components/schemas/statisticSetType'
+          maxItems: 4000
+          type: array
+      type: object
+    statisticSetType:
+      description: "An instance of a statistic, which is a set containing revenue\
+        \ category and number category summaries."
+      properties:
+        inventory:
+          description: Collection of CountCategorySummary elements. Used if count
+            values reported.
+          items:
+            $ref: '#/components/schemas/numericCategorySummaryType'
+          maxItems: 4000
+          type: array
+        revenue:
+          description: Collection of RevenueCategorySummary elements. Used if revenue
+            values reported.
+          items:
+            $ref: '#/components/schemas/revenueCategorySummaryType'
+          maxItems: 4000
+          type: array
+        statisticDate:
+          description: Date of the statistic.
+          format: date
+          type: string
+        weekendDate:
+          description: Determines whether statistic date is a weekend date.
+          type: boolean
+      type: object
+    statisticType:
+      description: Defines all details needed to create a statistical report.
+      properties:
+        description:
+          description: "This element has revenue amount data for its revenue category\
+            \ such as Room Revenue, Food and Beverage Revenue."
+          maxLength: 2000
+          minLength: 0
+          type: string
+        hotelName:
+          description: A text field used to communicate the proper name of the hotel.
+          maxLength: 80
+          minLength: 0
+          type: string
+        reportCode:
+          description: Identifies the type of statistics collected. Each ReportCode
+            corresponds to a set of category summaries based upon a predetermined
+            agreement.
+          maxLength: 100
+          minLength: 0
+          type: string
+        statistics:
+          description: Statistic Codes.
+          items:
+            $ref: '#/components/schemas/statisticCodeType'
+          maxItems: 4000
+          type: array
+      type: object
+    statisticUnitType:
+      description: "Unit type to hold statistic code and value pair e.g. [code - value]\
+        \ [Definite - 20] [Sales Allowance - 30] and its sub units."
+      properties:
+        code:
+          description: Code of the statistic unit.
+          type: string
+        propertyBookingSummaryStatistics:
+          description: Statistic summary for a particular status for a particular
+            property
+          items:
+            $ref: '#/components/schemas/propertyStatisticUnitType'
+          maxItems: 4000
+          type: array
+        value:
+          description: Value of the statistic unit.
+          type: string
+      type: object
+    statisticUnitsType:
+      description: Unit type to hold statistic code and value pair.
+      items:
+        $ref: '#/components/schemas/statisticUnitType'
+      maxItems: 4000
+      type: array
+    status:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    statusColorType:
+      description: Status code color configuration type.
+      enum:
+      - White
+      - Red
+      - Blue
+      - Cyan
+      - Magenta
+      - Green
+      - Brown
+      - Black
+      - Yellow
+      - Gray
+      type: string
+    statusStatisticType:
+      description: List of statistic units for a particular status.
+      properties:
+        statisticUnit:
+          description: Unit type to hold statistic code and value pair.
+          items:
+            $ref: '#/components/schemas/statisticUnitType'
+          maxItems: 4000
+          type: array
+        status:
+          description: "Status type of statistic, e.g. Definite."
+          type: string
+      type: object
+    statusSummaryStatisticType:
+      description: Statistic summary for a particular status.
+      items:
+        $ref: '#/components/schemas/statusStatisticType'
+      maxItems: 4000
+      type: array
+    timeSpanType:
+      description: "Allows for a choice in description of the amount of time spanned\
+        \ by this type. EndDate specifies a specific date, while Duration provides\
+        \ a measure of time to add to the StartDate to yield endDate date."
+      properties:
+        duration:
+          type: string
+        endDate:
+          format: date
+          type: string
+        startDate:
+          format: date
+          type: string
+      type: object
+    timeWindowType:
+      description: Defines a Time period with startDate time and an endDate time.
+      properties:
+        endTime:
+          description: End Time of the Time window.
+          type: string
+        startTime:
+          description: Start Time of the Time window.
+          type: string
+      type: object
+    uniqueID_Type:
+      description: "An identifier used to uniquely reference an object in a system\
+        \ (e.g. an airline reservation reference, customer profile reference, booking\
+        \ confirmation number, or a reference to a previous availability quote)."
+      properties:
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    usedInModuleType:
+      description: "Simple type for indicating the module for which user wants to\
+        \ create the SellMessage. Valid module types are Look To Book Sales,Reservations,Blocks,Function\
+        \ Diary and Group Rooms Control."
+      enum:
+      - Blocks
+      - Reservations
+      - FunctionDiary
+      - LookToBookSales
+      - GroupRoomsControl
+      type: string
+    warningType:
+      description: Used when a message has been successfully processed to report any
+        warnings or business errors that occurred.
+      properties:
+        code:
+          description: "If present, this refers to a table of coded values exchanged\
+            \ between applications to identify errors or warnings."
+          maxLength: 20
+          minLength: 0
+          type: string
+        docURL:
+          description: "If present, this URL refers to an online description of the\
+            \ error that occurred."
+          maxLength: 2000
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        recordId:
+          description: "If present, this attribute allows for batch processing and\
+            \ the identification of the record that failed amongst a group of records.\
+            \ This value may contain a concatenation of a unique failed transaction\
+            \ ID with specific record(s) associated with that transaction."
+          maxLength: 2000
+          type: string
+        rph:
+          description: Reference Place Holder used as an index for this warning.
+          maxLength: 8
+          minLength: 1
+          type: string
+        shortText:
+          description: An abbreviated version of the error in textual format.
+          maxLength: 2000
+          type: string
+        status:
+          description: "If present, recommended values are those enumerated in the\
+            \ ErrorRS, (NotProcessed Incomplete Complete Unknown) however, the data\
+            \ type is designated as string data, recognizing that trading partners\
+            \ may identify additional status conditions not included in the enumeration."
+          maxLength: 2000
+          type: string
+        tag:
+          description: "If present, this attribute may identify an unknown or misspelled\
+            \ tag that caused an error in processing. It is recommended that the Tag\
+            \ attribute use XPath notation to identify the location of a tag in the\
+            \ event that more than one tag of the same name is present in the document.\
+            \ Alternatively, the tag name alone can be used to identify missing data\
+            \ [Type=ReqFieldMissing]."
+          maxLength: 2000
+          type: string
+        type:
+          description: The Warning element MUST contain the Type attribute that uses
+            a recommended set of values to indicate the warning type. The validating
+            XSD can expect to accept values that it has NOT been explicitly coded
+            for and process them by using Type ="Unknown".
+          maxLength: 20
+          minLength: 0
+          type: string
+        value:
+          description: Property Value
+          type: string
+      type: object
+    warningsType:
+      description: Used in conjunction with the Success element to define a business
+        error.
+      items:
+        $ref: '#/components/schemas/warningType'
+      maxItems: 4000
+      type: array
+    putHoldItemsInventory_request:
+      allOf:
+      - $ref: '#/components/schemas/holdItemInventory'
+    changeSellLimitByDate_request:
+      allOf:
+      - $ref: '#/components/schemas/sellLimit'
+    changeSellLimitByDateRange_request:
+      allOf:
+      - $ref: '#/components/schemas/sellLimitByRange'
+    putItemInventoryHold_request:
+      allOf:
+      - $ref: '#/components/schemas/releaseItemInventoryHold'
+    blockInventoryStatistic_blockInventoryStatistics:
+      description: List of block inventory statistics that is grouped by statistic
+        date.
+      properties:
+        allRowsFetched:
+          description: Indicates whether all the records are included in the response
+            or not. Absence of the attribute values should be consider as all rows
+            fetched in the response.
+          type: boolean
+        blockInventoryStatistic:
+          description: Summary and Detail statistic for block inventory that is group
+            by statistic date.
+          items:
+            $ref: '#/components/schemas/blockInventoryStatisticType'
+          type: array
+        limit:
+          description: Indicates maximum number of records a Web Service should return.
+          type: integer
+        offset:
+          description: Index or initial index of the set(page) being requested. If
+            the index goes out of the bounds of the total set count then no data will
+            be returned.
+          type: integer
+        totalPages:
+          description: Evaluated total page count based on the requested max fetch
+            count.
+          type: integer
+        totalRows:
+          description: Total number of rows queried
+          type: integer
+      type: object
+x-original-swagger-version: "2.0"
