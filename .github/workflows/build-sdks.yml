@@ -14,7 +14,7 @@ jobs:
 
     env:
       HOSPITALITY_API_DOCS_DIR: hospitality-api-docs
-      HOSPITALITY_API_DOCS_BRANCH: property_23.2.0.0
+      HOSPITALITY_API_DOCS_BRANCH: property_23.2
 
     steps:
       - name: Checkout
