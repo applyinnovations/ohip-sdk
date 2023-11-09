@@ -1,0 +1,108 @@
+# CreateUnitGradesDetails
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Links** | Pointer to [**Links**](Links.md) |  | [optional] 
+**UnitGrades** | Pointer to [**RoomRotationUnitGradesType**](RoomRotationUnitGradesType.md) |  | [optional] 
+**Warnings** | Pointer to [**WarningsType**](WarningsType.md) |  | [optional] 
+
+## Methods
+
+### NewCreateUnitGradesDetails
+
+`func NewCreateUnitGradesDetails() *CreateUnitGradesDetails`
+
+NewCreateUnitGradesDetails instantiates a new CreateUnitGradesDetails object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewCreateUnitGradesDetailsWithDefaults
+
+`func NewCreateUnitGradesDetailsWithDefaults() *CreateUnitGradesDetails`
+
+NewCreateUnitGradesDetailsWithDefaults instantiates a new CreateUnitGradesDetails object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetLinks
+
+`func (o *CreateUnitGradesDetails) GetLinks() Links`
+
+GetLinks returns the Links field if non-nil, zero value otherwise.
+
+### GetLinksOk
+
+`func (o *CreateUnitGradesDetails) GetLinksOk() (*Links, bool)`
+
+GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLinks
+
+`func (o *CreateUnitGradesDetails) SetLinks(v Links)`
+
+SetLinks sets Links field to given value.
+
+### HasLinks
+
+`func (o *CreateUnitGradesDetails) HasLinks() bool`
+
+HasLinks returns a boolean if a field has been set.
+
+### GetUnitGrades
+
+`func (o *CreateUnitGradesDetails) GetUnitGrades() RoomRotationUnitGradesType`
+
+GetUnitGrades returns the UnitGrades field if non-nil, zero value otherwise.
+
+### GetUnitGradesOk
+
+`func (o *CreateUnitGradesDetails) GetUnitGradesOk() (*RoomRotationUnitGradesType, bool)`
+
+GetUnitGradesOk returns a tuple with the UnitGrades field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnitGrades
+
+`func (o *CreateUnitGradesDetails) SetUnitGrades(v RoomRotationUnitGradesType)`
+
+SetUnitGrades sets UnitGrades field to given value.
+
+### HasUnitGrades
+
+`func (o *CreateUnitGradesDetails) HasUnitGrades() bool`
+
+HasUnitGrades returns a boolean if a field has been set.
+
+### GetWarnings
+
+`func (o *CreateUnitGradesDetails) GetWarnings() WarningsType`
+
+GetWarnings returns the Warnings field if non-nil, zero value otherwise.
+
+### GetWarningsOk
+
+`func (o *CreateUnitGradesDetails) GetWarningsOk() (*WarningsType, bool)`
+
+GetWarningsOk returns a tuple with the Warnings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWarnings
+
+`func (o *CreateUnitGradesDetails) SetWarnings(v WarningsType)`
+
+SetWarnings sets Warnings field to given value.
+
+### HasWarnings
+
+`func (o *CreateUnitGradesDetails) HasWarnings() bool`
+
+HasWarnings returns a boolean if a field has been set.
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

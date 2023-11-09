@@ -1,0 +1,160 @@
+# RoomingListReservationType
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Errors** | Pointer to [**ErrorsType**](ErrorsType.md) |  | [optional] 
+**HotelReservation** | Pointer to [**HotelReservationType**](HotelReservationType.md) |  | [optional] 
+**RoomingListSequence** | Pointer to **int32** | Unique identifier that identifies the sequence of an individual rooming list reservation. The sequence will be maintained across every request and response. | [optional] 
+**RoutingInstructions** | Pointer to [**RoutingInfoListType**](RoutingInfoListType.md) |  | [optional] 
+**Success** | Pointer to **map[string]interface{}** | Returning an empty element of this type indicates the successful processing of an message. This is used in conjunction with the Warning Type to report any warnings or business errors. | [optional] 
+
+## Methods
+
+### NewRoomingListReservationType
+
+`func NewRoomingListReservationType() *RoomingListReservationType`
+
+NewRoomingListReservationType instantiates a new RoomingListReservationType object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewRoomingListReservationTypeWithDefaults
+
+`func NewRoomingListReservationTypeWithDefaults() *RoomingListReservationType`
+
+NewRoomingListReservationTypeWithDefaults instantiates a new RoomingListReservationType object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetErrors
+
+`func (o *RoomingListReservationType) GetErrors() ErrorsType`
+
+GetErrors returns the Errors field if non-nil, zero value otherwise.
+
+### GetErrorsOk
+
+`func (o *RoomingListReservationType) GetErrorsOk() (*ErrorsType, bool)`
+
+GetErrorsOk returns a tuple with the Errors field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetErrors
+
+`func (o *RoomingListReservationType) SetErrors(v ErrorsType)`
+
+SetErrors sets Errors field to given value.
+
+### HasErrors
+
+`func (o *RoomingListReservationType) HasErrors() bool`
+
+HasErrors returns a boolean if a field has been set.
+
+### GetHotelReservation
+
+`func (o *RoomingListReservationType) GetHotelReservation() HotelReservationType`
+
+GetHotelReservation returns the HotelReservation field if non-nil, zero value otherwise.
+
+### GetHotelReservationOk
+
+`func (o *RoomingListReservationType) GetHotelReservationOk() (*HotelReservationType, bool)`
+
+GetHotelReservationOk returns a tuple with the HotelReservation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHotelReservation
+
+`func (o *RoomingListReservationType) SetHotelReservation(v HotelReservationType)`
+
+SetHotelReservation sets HotelReservation field to given value.
+
+### HasHotelReservation
+
+`func (o *RoomingListReservationType) HasHotelReservation() bool`
+
+HasHotelReservation returns a boolean if a field has been set.
+
+### GetRoomingListSequence
+
+`func (o *RoomingListReservationType) GetRoomingListSequence() int32`
+
+GetRoomingListSequence returns the RoomingListSequence field if non-nil, zero value otherwise.
+
+### GetRoomingListSequenceOk
+
+`func (o *RoomingListReservationType) GetRoomingListSequenceOk() (*int32, bool)`
+
+GetRoomingListSequenceOk returns a tuple with the RoomingListSequence field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRoomingListSequence
+
+`func (o *RoomingListReservationType) SetRoomingListSequence(v int32)`
+
+SetRoomingListSequence sets RoomingListSequence field to given value.
+
+### HasRoomingListSequence
+
+`func (o *RoomingListReservationType) HasRoomingListSequence() bool`
+
+HasRoomingListSequence returns a boolean if a field has been set.
+
+### GetRoutingInstructions
+
+`func (o *RoomingListReservationType) GetRoutingInstructions() RoutingInfoListType`
+
+GetRoutingInstructions returns the RoutingInstructions field if non-nil, zero value otherwise.
+
+### GetRoutingInstructionsOk
+
+`func (o *RoomingListReservationType) GetRoutingInstructionsOk() (*RoutingInfoListType, bool)`
+
+GetRoutingInstructionsOk returns a tuple with the RoutingInstructions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRoutingInstructions
+
+`func (o *RoomingListReservationType) SetRoutingInstructions(v RoutingInfoListType)`
+
+SetRoutingInstructions sets RoutingInstructions field to given value.
+
+### HasRoutingInstructions
+
+`func (o *RoomingListReservationType) HasRoutingInstructions() bool`
+
+HasRoutingInstructions returns a boolean if a field has been set.
+
+### GetSuccess
+
+`func (o *RoomingListReservationType) GetSuccess() map[string]interface{}`
+
+GetSuccess returns the Success field if non-nil, zero value otherwise.
+
+### GetSuccessOk
+
+`func (o *RoomingListReservationType) GetSuccessOk() (*map[string]interface{}, bool)`
+
+GetSuccessOk returns a tuple with the Success field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSuccess
+
+`func (o *RoomingListReservationType) SetSuccess(v map[string]interface{})`
+
+SetSuccess sets Success field to given value.
+
+### HasSuccess
+
+`func (o *RoomingListReservationType) HasSuccess() bool`
+
+HasSuccess returns a boolean if a field has been set.
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

@@ -1,0 +1,386 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hospitality_apis_ww_grp@oracle.com
+  description: "APIs to cater for Back Office Operations functionality in OPERA Cloud.\
+    \ <br /><br /> A common BackOffice industry term is End of Day.  This closes and\
+    \ balances each day's business activities. It reconciles guest folios and processes\
+    \ credit card transactions. The End of Day routine rolls the business date forward\
+    \ and prints final reports.<br /><br /> Compatible with OPERA Cloud release 23.2.<br\
+    \ /><br /><p> This document and all content within is available under the Universal\
+    \ Permissive License v 1.0 (https://oss.oracle.com/licenses/upl). Copyright (c)\
+    \ 2020, 2023 Oracle and/or its affiliates.</p>"
+  license:
+    name: UPL
+    url: https://opensource.org/licenses/upl
+  termsOfService: https://www.oracle.com/legal/terms.html
+  title: OPERA Cloud Back Office Operations API
+  version: "23.2"
+externalDocs:
+  description: Find out more about Oracle Hospitality
+  url: https://docs.oracle.com/en/industries/hospitality/integration_platforms.html
+servers:
+- url: /bof/v1
+tags:
+- description: "This module provides APIs to service Back Office operations for property,\
+    \ such as managing end-of-day, getting the properties current business date, and\
+    \ perform cashier closure."
+  name: BackOfficeOperations
+paths:
+  /hotels/{hotelId}/businessDate:
+    get:
+      description: Use this API to find out the current business date of a specified
+        hotel. <p><strong>OperationId:</strong>getBusinessDate</p>
+      operationId: getBusinessDate
+      parameters:
+      - description: Unique ID that identifies a single hotel property.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/businessDate'
+            application/json:
+              example:
+                hotels:
+                - businessDate: 2020-04-05
+                  hotelId: HOTEL1
+          description: Response for fetching active end of day status for multiple
+            hotels.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: BusinessDate not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Fetch end of day business dates
+      tags:
+      - BackOfficeOperations
+components:
+  schemas:
+    businessDate:
+      description: Response for fetching active end of day status for multiple hotels.
+      properties:
+        hotels:
+          $ref: '#/components/schemas/hotelActiveEndOfDaysType'
+        links:
+          $ref: '#/components/schemas/links'
+        warnings:
+          $ref: '#/components/schemas/warningsType'
+      type: object
+    errorInstance:
+      description: Complex type that contains error instance details for a REST call.
+      properties:
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+      required:
+      - title
+      - type
+      title: Error Instance Details
+      type: object
+    exceptionDetailType:
+      description: Complex type that contains error details for a REST call.
+      properties:
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        links:
+          $ref: '#/components/schemas/links'
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorDetails:
+          description: "Details of the error message, consisting of a hierarchical\
+            \ tree structure."
+          items:
+            $ref: '#/components/schemas/errorInstance'
+          type: array
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+      required:
+      - title
+      - type
+      title: Error Detail
+      type: object
+    hotelActiveEndOfDayType:
+      description: Defines hotel and its active end of days.
+      properties:
+        businessDate:
+          description: Current open business date of hotel.
+          format: date
+          type: string
+        hotelId:
+          description: Hotel code of the active end of days.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    hotelActiveEndOfDaysType:
+      description: Collection of hotels and its active end of days.
+      items:
+        $ref: '#/components/schemas/hotelActiveEndOfDayType'
+      maxItems: 4000
+      type: array
+    instanceLink:
+      description: Metadata describing link description objects that MAY appear in
+        the JSON instance representation.
+      properties:
+        href:
+          description: "URI [RFC3986] or URI Template [RFC6570]. If the value is set\
+            \ to URI Template, then the \"templated\" property must be set to true."
+          type: string
+        method:
+          description: HTTP method for requesting the target of the link.
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          - OPTIONS
+          - HEAD
+          type: string
+        operationId:
+          description: "The operationId of the path you can call to follow this link.\
+            \  This allows you to look up not only the path and method, but the description\
+            \ of that path and any parameters you need to supply."
+          type: string
+        rel:
+          description: "Name of the link relation that, in addition to the type property,\
+            \ can be used to retrieve link details. For example, href or profile."
+          type: string
+        targetSchema:
+          description: "Link to the metadata of the resource, such as JSON-schema,\
+            \ that describes the resource expected when dereferencing the target resource.."
+          type: string
+        templated:
+          default: false
+          description: "Boolean flag that specifies that \"href\" property is a URI\
+            \ or URI Template. If the property is a URI template, set this value to\
+            \ true. By default, this value is false."
+          type: boolean
+        title:
+          description: Exact copy of the "summary" field on the linked operation.
+          type: string
+      required:
+      - href
+      - method
+      - operationId
+      - rel
+      type: object
+    links:
+      items:
+        $ref: '#/components/schemas/instanceLink'
+      type: array
+    operaVersionNumberType:
+      description: Current Opera Version Number
+      maxLength: 40
+      minLength: 0
+      type: string
+    warningType:
+      description: Used when a message has been successfully processed to report any
+        warnings or business errors that occurred.
+      properties:
+        code:
+          description: "If present, this refers to a table of coded values exchanged\
+            \ between applications to identify errors or warnings."
+          maxLength: 20
+          minLength: 0
+          type: string
+        docURL:
+          description: "If present, this URL refers to an online description of the\
+            \ error that occurred."
+          maxLength: 2000
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        recordId:
+          description: "If present, this attribute allows for batch processing and\
+            \ the identification of the record that failed amongst a group of records.\
+            \ This value may contain a concatenation of a unique failed transaction\
+            \ ID with specific record(s) associated with that transaction."
+          maxLength: 2000
+          type: string
+        rph:
+          description: Reference Place Holder used as an index for this warning.
+          maxLength: 8
+          minLength: 1
+          type: string
+        shortText:
+          description: An abbreviated version of the error in textual format.
+          maxLength: 2000
+          type: string
+        status:
+          description: "If present, recommended values are those enumerated in the\
+            \ ErrorRS, (NotProcessed Incomplete Complete Unknown) however, the data\
+            \ type is designated as string data, recognizing that trading partners\
+            \ may identify additional status conditions not included in the enumeration."
+          maxLength: 2000
+          type: string
+        tag:
+          description: "If present, this attribute may identify an unknown or misspelled\
+            \ tag that caused an error in processing. It is recommended that the Tag\
+            \ attribute use XPath notation to identify the location of a tag in the\
+            \ event that more than one tag of the same name is present in the document.\
+            \ Alternatively, the tag name alone can be used to identify missing data\
+            \ [Type=ReqFieldMissing]."
+          maxLength: 2000
+          type: string
+        type:
+          description: The Warning element MUST contain the Type attribute that uses
+            a recommended set of values to indicate the warning type. The validating
+            XSD can expect to accept values that it has NOT been explicitly coded
+            for and process them by using Type ="Unknown".
+          maxLength: 20
+          minLength: 0
+          type: string
+        value:
+          description: Property Value
+          type: string
+      type: object
+    warningsType:
+      description: Used in conjunction with the Success element to define a business
+        error.
+      items:
+        $ref: '#/components/schemas/warningType'
+      maxItems: 4000
+      type: array
+x-original-swagger-version: "2.0"

@@ -1,0 +1,1890 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hospitality_apis_ww_grp@oracle.com
+  description: "APIs to facilitate Room Rotation functionality in OPERA Cloud. Api\
+    \ provides capability to handle Room Rotation in OPERA Cloud. Room Rotation provides\
+    \ room ownership options for automatic inventory rotation and prioritization for\
+    \ owner rooms assignment and occupancy.<br /><br /> Compatible with OPERA Cloud\
+    \ release 23.2.<br /><br /><p> This document and all content within is available\
+    \ under the Universal Permissive License v 1.0 (https://oss.oracle.com/licenses/upl).\
+    \ Copyright (c) 2020, 2023 Oracle and/or its affiliates.</p>"
+  license:
+    name: UPL
+    url: https://opensource.org/licenses/upl
+  termsOfService: https://www.oracle.com/legal/terms.html
+  title: OPERA Cloud Room Rotation Service API
+  version: "23.2"
+externalDocs:
+  description: Find out more about Oracle Hospitality
+  url: https://docs.oracle.com/en/industries/hospitality/integration_platforms.html
+servers:
+- url: /rmr/v1
+tags:
+- description: "The REST APIs allow you to perform all actions related to Room Rotation\
+    \ from configuring point calculations for owner rooms, adjustment options for\
+    \ room prioritization and automatic assignment based on owner room utilization."
+  name: RoomRotation
+paths:
+  /hotels/{hotelId}/departureStartDate/{departureStartDate}/departureEndDate/{departureEndDate}/reservationRotationPoints:
+    get:
+      description: "This API will allow a user to retrieve list of reservations and\
+        \ the number of rotation points associated with a given reservation for requested\
+        \ hotel, departure start date, departure end date, and room numbers. <p><strong>OperationId:</strong>getReservationRotationPoints</p>"
+      operationId: getReservationRotationPoints
+      parameters:
+      - description: Unique Id for the Hotel
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 20
+          minLength: 1
+          type: string
+      - description: Departure Start Date of the reservation to be searched.
+        in: path
+        name: departureStartDate
+        required: true
+        schema:
+          format: date
+          type: string
+      - description: Departure End Date of the reservation to be searched.
+        in: path
+        name: departureEndDate
+        required: true
+        schema:
+          format: date
+          type: string
+      - description: List of Room Ids for which to return Reservation Rotation Points.
+        explode: true
+        in: query
+        name: roomIds
+        required: true
+        schema:
+          items:
+            maxLength: 20
+            minLength: 1
+            type: string
+          maxItems: 5
+          type: array
+        style: form
+      - description: A unique identifying value assigned by the creating system. The
+          ID attribute may be used to reference a primary-key value within a database
+          or in a particular implementation.
+        in: query
+        name: confirmationNumber
+        schema:
+          maxLength: 50
+          minLength: 1
+          type: string
+      - description: "Family name, last name."
+        in: query
+        name: surname
+        schema:
+          maxLength: 40
+          minLength: 1
+          type: string
+      - description: "Given name, first name or names"
+        in: query
+        name: givenName
+        schema:
+          maxLength: 40
+          minLength: 1
+          type: string
+      - description: Indicates maximum number of records a Web Service should return.
+        in: query
+        name: limit
+        schema:
+          default: 25
+          type: integer
+      - description: Index or initial index of the set(page) being requested. If the
+          index goes out of the bounds of the total set count then no data will be
+          returned.
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/getReservationRotationPoints'
+            application/json:
+              example: {}
+          description: "Response object for fetching Reservation Rotation Points.\
+            \ Based on the criteria, reservations and associated rotation points are\
+            \ returned."
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: Reservation Rotation Points not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get list of reservations and the associated rotations points
+      tags:
+      - RoomRotation
+  /hotels/{hotelId}/reservations/{reservationId}/rooms/{roomId}/reservationRotationPointsDetails:
+    get:
+      description: "This API will allow a user to retrieve list of rotation points\
+        \ details along with adjustment log for requested hotel, reservation Id and\
+        \ room number. <p><strong>OperationId:</strong>getReservationRotationPointsDetails</p>"
+      operationId: getReservationRotationPointsDetails
+      parameters:
+      - description: Unique Id of the Hotel for the reservation.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 20
+          minLength: 1
+          type: string
+      - description: Unique OPERA reservation ID which is used to find reservation
+          from OPERA. This ID is a primary identification of a reservation in OPERA.
+        in: path
+        name: reservationId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Room number of the reservation.
+        in: path
+        name: roomId
+        required: true
+        schema:
+          maxLength: 20
+          minLength: 1
+          type: string
+      - description: Include adjustment log details in the response.
+        in: query
+        name: includeAdjustmentLog
+        schema:
+          type: boolean
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/getReservationRotationPointsDetails'
+            application/json:
+              example: {}
+          description: "Response object for fetching Reservation Rotation Points Details.\
+            \ Rotation points details with adjustment log are returned for the requested\
+            \ hotel, reservation Id and room number."
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: Reservation Rotation Points Details not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get list of rotation points details associated with a reservation with
+        adjustment log.
+      tags:
+      - RoomRotation
+    put:
+      description: "This API will allow a user to modify rotation points for the requested\
+        \ hotel, reservation Id and room number. <p><strong>OperationId:</strong>putReservationRotationPointsDetails</p>"
+      operationId: putReservationRotationPointsDetails
+      parameters:
+      - description: Unique Id of the Hotel for the reservation.
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 20
+          minLength: 1
+          type: string
+      - description: Unique OPERA reservation ID which is used to find reservation
+          from OPERA. This ID is a primary identification of a reservation in OPERA.
+        in: path
+        name: reservationId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Room number of the reservation.
+        in: path
+        name: roomId
+        required: true
+        schema:
+          maxLength: 20
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/putReservationRotationPointsDetails'
+        description: Collection of Reservation Rotation Points Details
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+            application/json:
+              example: {}
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Update Rotation Points Details associated with a reservation.
+      tags:
+      - RoomRotation
+      x-codegen-request-body-name: reservationRotationPoints
+  /hotels/{hotelId}/roomRotationPoints:
+    get:
+      description: Use this API to fetch the individual units' rotation points.<p><strong>OperationId:</strong>getRoomRotationPoints</p>
+      operationId: getRoomRotationPoints
+      parameters:
+      - description: Unique Id for the Hotel
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 20
+          minLength: 1
+          type: string
+      - description: The date for which the Room Rotation Points are being requested
+        in: query
+        name: roomRotationPointsDate
+        required: true
+        schema:
+          format: date
+          type: string
+      - description: Indicates maximum number of records the API should return.
+        in: query
+        name: limit
+        schema:
+          default: 25
+          type: integer
+      - description: Index or initial index of the set(page) being requested. If the
+          index goes out of the bounds of the total set count then no data will be
+          returned.
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: List of Room Classes for which to return Room Rotation Points.
+          Multiple values can be entered by adding multiple query parameters.
+        explode: true
+        in: query
+        name: roomClasses
+        schema:
+          items:
+            maxLength: 20
+            minLength: 1
+            type: string
+          maxItems: 4000
+          type: array
+        style: form
+      - description: List of Room Types for which to return Room Rotation Points.
+          Multiple values can be entered by adding multiple query parameters.
+        explode: true
+        in: query
+        name: roomTypes
+        schema:
+          items:
+            maxLength: 20
+            minLength: 1
+            type: string
+          maxItems: 4000
+          type: array
+        style: form
+      - description: List of Room Ids for which to return Room Rotation Points. Multiple
+          values can be entered by adding multiple query parameters.
+        explode: true
+        in: query
+        name: roomIds
+        schema:
+          items:
+            maxLength: 20
+            minLength: 1
+            type: string
+          maxItems: 4000
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/getRoomRotationPoints'
+          description: "Response object for fetching Room Rotation Points. Based on\
+            \ the criteria, Room Rotation Points information is returned"
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: Room Rotation Points not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get Room Rotation Points
+      tags:
+      - RoomRotation
+    put:
+      description: Use this operation to update balance forward and adjusted points
+        of individual rooms. <p><strong>OperationId:</strong>putRoomRotationPoints</p>
+      operationId: putRoomRotationPoints
+      parameters:
+      - description: Unique Id for the Hotel
+        in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 20
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/roomRotationPointsAdjustment'
+        description: "Request details containing room, balance forward and adjusted\
+          \ points to update."
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+            application/json:
+              example: {}
+          description: Existing Operations Responses will eventually be modified to
+            be extended from this type.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Update Rotation Points by Room Numbers
+      tags:
+      - RoomRotation
+      x-codegen-request-body-name: roomRotationPointsAdjustment
+  /profiles/{profileId}/roomOwnerships:
+    get:
+      description: Use this API to fetch profile Rooms with Room Ownership or Owner
+        Referral records associated. <p><strong>OperationId:</strong>getRoomOwnerships</p>
+      operationId: getRoomOwnerships
+      parameters:
+      - description: Unique ID of profile.
+        in: path
+        name: profileId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique Id(s) for the Hotel(s). Multiple Hotels can be entered
+          by adding multiple query parameters.
+        explode: true
+        in: query
+        name: hotelIds
+        schema:
+          items:
+            maxLength: 20
+            minLength: 1
+            type: string
+          maxItems: 4000
+          type: array
+        style: form
+      - description: The starting value of the date range.
+        in: query
+        name: startDate
+        schema:
+          format: date
+          type: string
+      - description: The ending value of the date range.
+        in: query
+        name: endDate
+        schema:
+          format: date
+          type: string
+      - description: Include Owner Referral in response flag.
+        in: query
+        name: includeReferral
+        schema:
+          default: true
+          type: boolean
+      - description: Flag indicating if only rooms available for booking during the
+          date range specified should be included in response.
+        in: query
+        name: includeAvailableRoomsOnly
+        schema:
+          default: false
+          type: boolean
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/associatedRoomOwnershipListDetails'
+            application/json:
+              example: {}
+          description: "Response object for Rooms with Room Ownership or Owner Referral\
+            \ records. Based on the criteria, associated Owner Rooms are returned."
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: Associated Room Ownership not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get Profile Room Owners Details
+      tags:
+      - RoomRotation
+  /roomOwners:
+    get:
+      description: Get Room Ownership details for specific room(s) or owners. Hotel
+        Id(s) and at least one other search criteria is required. <p><strong>OperationId:</strong>getRoomOwners</p>
+      operationId: getRoomOwners
+      parameters:
+      - description: Unique Id(s) for the Hotel(s) queried.
+        explode: true
+        in: query
+        name: hotelIds
+        required: true
+        schema:
+          items:
+            maxLength: 20
+            minLength: 1
+            type: string
+          maxItems: 5
+          minItems: 1
+          type: array
+        style: form
+      - description: "Family name, last name."
+        in: query
+        name: surname
+        schema:
+          maxLength: 40
+          minLength: 1
+          type: string
+      - description: "Given name, first name or names"
+        in: query
+        name: givenName
+        schema:
+          maxLength: 40
+          minLength: 1
+          type: string
+      - description: The starting value of the start date range.
+        in: query
+        name: startDateFrom
+        schema:
+          format: date
+          type: string
+      - description: The ending value of the start date range.
+        in: query
+        name: startDateTo
+        schema:
+          format: date
+          type: string
+      - description: The starting value of the end date range.
+        in: query
+        name: endDateFrom
+        schema:
+          format: date
+          type: string
+      - description: The ending value of the end date range.
+        in: query
+        name: endDateTo
+        schema:
+          format: date
+          type: string
+      - description: List of Room Classes for which to return Room Owners. Multiple
+          values can be entered by adding multiple query parameters.
+        explode: true
+        in: query
+        name: roomClasses
+        schema:
+          items:
+            maxLength: 20
+            minLength: 1
+            type: string
+          maxItems: 4000
+          type: array
+        style: form
+      - description: List of Room Types for which to return Room Owners. Multiple
+          values can be entered by adding multiple query parameters.
+        explode: true
+        in: query
+        name: roomTypes
+        schema:
+          items:
+            maxLength: 20
+            minLength: 1
+            type: string
+          maxItems: 4000
+          type: array
+        style: form
+      - description: List of Room Ids for which to return Room Owners. Multiple values
+          can be entered by adding multiple query parameters.
+        explode: true
+        in: query
+        name: roomIds
+        schema:
+          items:
+            maxLength: 20
+            minLength: 1
+            type: string
+          maxItems: 4000
+          type: array
+        style: form
+      - description: Contract Number of the Ownership Record.
+        in: query
+        name: contractNumber
+        schema:
+          maxLength: 50
+          minLength: 1
+          type: string
+      - description: Indicates whether to return inactive records. Records are considered
+          inactive when the end date of the ownership record is prior to the currrent
+          property business date.
+        in: query
+        name: includeInactive
+        schema:
+          type: boolean
+      - description: Indicates maximum number of records the API should return.
+        in: query
+        name: limit
+        schema:
+          default: 25
+          maximum: 200
+          type: integer
+      - description: Index or initial index of the set(page) being requested. If the
+          index goes out of the bounds of the total set count then no data will be
+          returned.
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/roomOwnersListDetails'
+            application/json:
+              example: {}
+          description: "Response object for List of Room Owners. Based on the criteria,\
+            \ associated List of Room Owners are returned."
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: Room Owners not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get Room Owners Details
+      tags:
+      - RoomRotation
+components:
+  schemas:
+    associatedRoomOwnershipInfoType:
+      description: Associated Room Ownership Information
+      properties:
+        associatedRoomOwnershipType:
+          $ref: '#/components/schemas/associatedRoomOwnershipType'
+        endDate:
+          description: End date of Room Ownership contract
+          format: date
+          type: string
+        hotelId:
+          description: Hotel Id
+          maxLength: 20
+          minLength: 0
+          type: string
+        ownerExclusive:
+          description: "Whether Room is available for the exclusive use of its designated\
+            \ owner and owner referrals, or if it is available in general availability"
+          type: boolean
+        roomId:
+          description: Room Number
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomOwnershipId:
+          description: Unique Id for Room Owner record.
+          type: integer
+        roomType:
+          description: Room Type
+          maxLength: 20
+          minLength: 0
+          type: string
+        startDate:
+          description: Start date of Room Ownership contract
+          format: date
+          type: string
+      type: object
+    associatedRoomOwnershipListDetails:
+      description: Associated Room Ownerships List
+      properties:
+        associatedRoomOwnershipInfoTypeList:
+          description: List of Associated Room Ownerships
+          items:
+            $ref: '#/components/schemas/associatedRoomOwnershipInfoType'
+          maxItems: 2000
+          type: array
+        links:
+          $ref: '#/components/schemas/links'
+        warnings:
+          $ref: '#/components/schemas/warningsType'
+      type: object
+    associatedRoomOwnershipType:
+      description: Indicates if the associated room is an Owner or Referral room.
+      enum:
+      - Owner
+      - Referral
+      type: string
+    errorInstance:
+      description: Complex type that contains error instance details for a REST call.
+      properties:
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+      required:
+      - title
+      - type
+      title: Error Instance Details
+      type: object
+    exceptionDetailType:
+      description: Complex type that contains error details for a REST call.
+      properties:
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        links:
+          $ref: '#/components/schemas/links'
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorDetails:
+          description: "Details of the error message, consisting of a hierarchical\
+            \ tree structure."
+          items:
+            $ref: '#/components/schemas/errorInstance'
+          type: array
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+      required:
+      - title
+      - type
+      title: Error Detail
+      type: object
+    getReservationRotationPoints:
+      allOf:
+      - $ref: '#/components/schemas/rESTPaginationGroup'
+      description: Provides Pagination Information for the REST API.
+      properties:
+        reservationRotationPoints:
+          description: Collection of reservation and associated rotation points details.
+          items:
+            $ref: '#/components/schemas/reservationRotationPointsType'
+          maxItems: 4000
+          type: array
+    getReservationRotationPointsDetails:
+      description: Response object for Reservation Rotation Points Details.
+      properties:
+        adjustmentLogList:
+          $ref: '#/components/schemas/reservationRotationPointsAdjustmentLogListType'
+        links:
+          $ref: '#/components/schemas/links'
+        reservationDetails:
+          $ref: '#/components/schemas/reservationDetailsType'
+        reservationRotationPointsDetailsList:
+          $ref: '#/components/schemas/reservationRotationPointsDetailsListType'
+        warnings:
+          $ref: '#/components/schemas/warningsType'
+      type: object
+    getRoomRotationPoints:
+      properties:
+        balanceForwardActive:
+          description: Indicates whether the balance forward is active
+          type: boolean
+        balanceForwardEditable:
+          description: Indicates whether the user is allowed to edit balance forward
+            points
+          type: boolean
+        count:
+          description: Indicates number of records the API has returned actually as
+            per the API request criteria.
+          type: integer
+        endRoomRotationPeriodDate:
+          description: End date of the Room Rotation Period
+          format: date
+          type: string
+        hasMore:
+          description: Indicates whether there are more records available to be returned
+            as per the API request criteria or not.
+          type: boolean
+        limit:
+          description: Indicates number of records the API can return as per the API
+            request limit sent.
+          type: integer
+        links:
+          $ref: '#/components/schemas/links'
+        offset:
+          description: Indicates the index of the next applicable set(page).
+          type: integer
+        outOfOrderServiceActive:
+          description: Indicates whether Out of Order/ Out of Service Room Rotation
+            Points is active
+          type: boolean
+        roomRotationPointsInfoList:
+          description: List of Room Rotation Points Information.
+          items:
+            $ref: '#/components/schemas/roomRotationPointsInfoType'
+          maxItems: 4000
+          type: array
+        startRoomRotationPeriodDate:
+          description: Start date of the Room Rotation Period
+          format: date
+          type: string
+        totalResults:
+          description: Indicates total number of records available that can be returned
+            as per the API request criteria.
+          type: integer
+        warnings:
+          $ref: '#/components/schemas/warningsType'
+      type: object
+    instanceLink:
+      description: Metadata describing link description objects that MAY appear in
+        the JSON instance representation.
+      properties:
+        href:
+          description: "URI [RFC3986] or URI Template [RFC6570]. If the value is set\
+            \ to URI Template, then the \"templated\" property must be set to true."
+          type: string
+        method:
+          description: HTTP method for requesting the target of the link.
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          - OPTIONS
+          - HEAD
+          type: string
+        operationId:
+          description: "The operationId of the path you can call to follow this link.\
+            \  This allows you to look up not only the path and method, but the description\
+            \ of that path and any parameters you need to supply."
+          type: string
+        rel:
+          description: "Name of the link relation that, in addition to the type property,\
+            \ can be used to retrieve link details. For example, href or profile."
+          type: string
+        targetSchema:
+          description: "Link to the metadata of the resource, such as JSON-schema,\
+            \ that describes the resource expected when dereferencing the target resource.."
+          type: string
+        templated:
+          default: false
+          description: "Boolean flag that specifies that \"href\" property is a URI\
+            \ or URI Template. If the property is a URI template, set this value to\
+            \ true. By default, this value is false."
+          type: boolean
+        title:
+          description: Exact copy of the "summary" field on the linked operation.
+          type: string
+      required:
+      - href
+      - method
+      - operationId
+      - rel
+      type: object
+    links:
+      items:
+        $ref: '#/components/schemas/instanceLink'
+      type: array
+    operaVersionNumberType:
+      description: Current Opera Version Number
+      maxLength: 40
+      minLength: 0
+      type: string
+    profileId:
+      description: "An identifier used to uniquely reference an object in a system\
+        \ (e.g. an airline reservation reference, customer profile reference, booking\
+        \ confirmation number, or a reference to a previous availability quote)."
+      properties:
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        idExtension:
+          description: Additional identifying value assigned by the creating system.
+          type: integer
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    putReservationRotationPointsDetails:
+      description: Collection of Reservation Rotation Points Details.
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        reservationRotationPointsDetailsList:
+          $ref: '#/components/schemas/reservationRotationPointsDetailsListType'
+        warnings:
+          $ref: '#/components/schemas/warningsType'
+      type: object
+    rESTPaginationGroup:
+      description: Provides Pagination Information for the REST API.
+      properties:
+        count:
+          description: Indicates number of records the API has returned actually as
+            per the API request criteria.
+          type: integer
+        hasMore:
+          description: Indicates whether there are more records available to be returned
+            as per the API request criteria or not.
+          type: boolean
+        limit:
+          description: Indicates number of records the API can return as per the API
+            request limit sent. A maximum of 200 records can be only returned at a
+            time.
+          type: integer
+        offset:
+          description: Indicates the index of the next applicable set(page).
+          type: integer
+        totalResults:
+          description: Indicates total number of records available that can be returned
+            as per the API request criteria.
+          type: integer
+      type: object
+    reservationDetailsType:
+      description: Reservation Details
+      properties:
+        arrival:
+          description: Reservation arrival date
+          format: date
+          type: string
+        departure:
+          description: Reservation departure date
+          format: date
+          type: string
+        givenName:
+          description: "Given name, first name or names"
+          maxLength: 40
+          minLength: 0
+          type: string
+        hotelId:
+          description: Hotel Id
+          maxLength: 20
+          minLength: 0
+          type: string
+        nights:
+          description: The number of nights of the reservation.
+          type: integer
+        profileId:
+          $ref: '#/components/schemas/profileId'
+        reservationIdList:
+          description: "Unique identifier of the reservation like Reservation Name\
+            \ Id, Confirmation Number."
+          items:
+            $ref: '#/components/schemas/uniqueID_Type'
+          maxItems: 4000
+          type: array
+        roomId:
+          description: Room Number
+          maxLength: 20
+          minLength: 0
+          type: string
+        surname:
+          description: "Family name, last name."
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    reservationRotationPointsAdjustmentLogListType:
+      description: Reservation rotation points adjustment log.
+      properties:
+        adjustmentLog:
+          description: Collection of reservation rotation points adjustment log.
+          items:
+            $ref: '#/components/schemas/reservationRotationPointsAdjustmentLogType'
+          maxItems: 4000
+          type: array
+      type: object
+    reservationRotationPointsAdjustmentLogType:
+      description: Reservation rotation points adjustment log.
+      properties:
+        adjustedPointsTo:
+          description: The number of points for the specific calculation rule after
+            the change of points.
+          type: number
+        adjustmentReason:
+          $ref: '#/components/schemas/reservationRotationPointsAdjustmentReasonType'
+        logDate:
+          description: The date and time that the adjustment was made to the rotation
+            points for the room.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        originalPoints:
+          description: The points that were applicable for the specific calculation
+            rule before the change of points.
+          type: number
+        type:
+          $ref: '#/components/schemas/rotationRuleCalculationRuleType'
+        userId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        userName:
+          description: Unique application login of the user who made the adjustment.
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    reservationRotationPointsAdjustmentReasonType:
+      description: Contains adjustment reason code and description.
+      properties:
+        code:
+          description: Code.
+          maxLength: 40
+          minLength: 0
+          type: string
+        description:
+          description: Description of the code.
+          maxLength: 2000
+          minLength: 0
+          type: string
+      type: object
+    reservationRotationPointsDetailsListType:
+      description: Reservation Rotation points details with total points.
+      properties:
+        reservationRotationPointsDetails:
+          description: Collection of reservation rotation points details.
+          items:
+            $ref: '#/components/schemas/reservationRotationPointsDetailsType'
+          maxItems: 4000
+          type: array
+        totalReservationPoints:
+          description: Total points including any applied adjustments.
+          type: number
+      type: object
+    reservationRotationPointsDetailsType:
+      description: Rotation Points Details of a reservation
+      properties:
+        adjustPointsTo:
+          description: Override the current points and enter a new value for the respective
+            calculation rule up to 5 decimal places.
+          type: number
+        adjustmentReason:
+          $ref: '#/components/schemas/reservationRotationPointsAdjustmentReasonType'
+        currentPoints:
+          description: Current applicable points for the shown calculation rule for
+            the reservation.
+          type: number
+        endDate:
+          description: End date of reservation
+          format: date
+          type: string
+        startDate:
+          description: Start date of reservation
+          format: date
+          type: string
+        type:
+          $ref: '#/components/schemas/rotationRuleCalculationRuleType'
+      type: object
+    reservationRotationPointsType:
+      description: Individual reservation and associated rotation points information
+      properties:
+        arrivalDate:
+          description: Reservation arrival date
+          format: date
+          type: string
+        departureDate:
+          description: Reservation departure date
+          format: date
+          type: string
+        guestName:
+          description: The guest name on the reservation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        nights:
+          description: The number of nights of the reservation.
+          type: integer
+        pointsAdjusted:
+          description: Whether rotation points for the room have been adjusted.
+          type: boolean
+        profileId:
+          $ref: '#/components/schemas/profileId'
+        reservationIdList:
+          description: "Unique identifier of the reservation like Reservation Name\
+            \ Id, Confirmation Number."
+          items:
+            $ref: '#/components/schemas/uniqueID_Type'
+          maxItems: 4000
+          type: array
+        roomId:
+          description: Room Number
+          maxLength: 20
+          minLength: 0
+          type: string
+        totalPoints:
+          description: Total rotation points for the room.
+          type: number
+      type: object
+    roomOwnerInfoType:
+      description: Room Owners with Room Ownership details.
+      properties:
+        contractNumber:
+          description: Contract number for Room Ownership record.
+          maxLength: 50
+          minLength: 1
+          type: string
+        endDate:
+          description: End Date of the Room Ownership record.
+          format: date
+          type: string
+        hotelId:
+          description: Hotel Code of Room Ownership record.
+          maxLength: 20
+          minLength: 1
+          type: string
+        inactive:
+          description: Indicates if the Room Owner is inactive.
+          type: boolean
+        ownerDisplayName:
+          description: Display Name for the Room Owner.
+          maxLength: 200
+          minLength: 1
+          type: string
+        ownerExclusive:
+          description: "Indicates whether Room is available for the exclusive use\
+            \ of its designated owner and owner referrals, or if it is available in\
+            \ general availability."
+          type: boolean
+        profileId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        roomId:
+          description: Room Id of Room Ownership record.
+          maxLength: 20
+          minLength: 1
+          type: string
+        roomOwnershipId:
+          description: Unique Id for Room Ownership record.
+          type: integer
+        roomType:
+          description: Room Type of the Room Ownership record.
+          maxLength: 20
+          minLength: 1
+          type: string
+        startDate:
+          description: Start Date of the Room Ownership record.
+          format: date
+          type: string
+      type: object
+    roomOwnersListDetails:
+      allOf:
+      - $ref: '#/components/schemas/rESTPaginationGroup'
+      description: Provides Pagination Information for the REST API.
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        roomOwnerInfoTypeList:
+          description: Collection of Room Owners with Room Ownership details.
+          items:
+            $ref: '#/components/schemas/roomOwnerInfoType'
+          maxItems: 4000
+          type: array
+        warnings:
+          $ref: '#/components/schemas/warningsType'
+    roomRotationPointsAdjustment:
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        roomRotationPointsAdjustmentInfoTypeList:
+          description: List of Room Rotation Points Information to update
+          items:
+            $ref: '#/components/schemas/roomRotationPointsAdjustmentInfoType'
+          maxItems: 4000
+          type: array
+        warnings:
+          $ref: '#/components/schemas/warningsType'
+      type: object
+    roomRotationPointsAdjustmentInfoType:
+      description: Room Rotation Points Update Information
+      properties:
+        balanceForwardPoints:
+          description: Balance forward points to update
+          type: number
+        roomAdjustedPoints:
+          description: Room adjusted points to update
+          type: number
+        roomId:
+          description: Room Number
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    roomRotationPointsInfoType:
+      description: Room Rotation Points Information
+      properties:
+        balanceForwardPoints:
+          description: Balance forward points
+          type: number
+        calculatedPoints:
+          description: Calculated points
+          type: number
+        forecastedPoints:
+          description: Forecasted points
+          type: number
+        outOfOrderServicePoints:
+          description: Out of Order / Out of Service points
+          type: number
+        proratedAveragePoints:
+          description: Prorated average points
+          type: number
+        randomPoints:
+          description: Random points
+          type: number
+        reservationAdjustedPoints:
+          description: Reservation adjusted points
+          type: number
+        roomAdjustedPoints:
+          description: Room adjusted points
+          type: number
+        roomId:
+          description: Room Number
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    rotationRuleCalculationRuleType:
+      description: Simple type for Rotation Rule Calculation Rule.
+      enum:
+      - PerRevenue
+      - PerNight
+      - PerStay
+      - AvgRateAmount
+      type: string
+    status:
+      description: Existing Operations Responses will eventually be modified to be
+        extended from this type.
+      properties:
+        links:
+          $ref: '#/components/schemas/links'
+        warnings:
+          $ref: '#/components/schemas/warningsType'
+      type: object
+    uniqueID_Type:
+      description: "An identifier used to uniquely reference an object in a system\
+        \ (e.g. an airline reservation reference, customer profile reference, booking\
+        \ confirmation number, or a reference to a previous availability quote)."
+      properties:
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    warningType:
+      description: Used when a message has been successfully processed to report any
+        warnings or business errors that occurred.
+      properties:
+        code:
+          description: "If present, this refers to a table of coded values exchanged\
+            \ between applications to identify errors or warnings."
+          maxLength: 20
+          minLength: 0
+          type: string
+        docURL:
+          description: "If present, this URL refers to an online description of the\
+            \ error that occurred."
+          maxLength: 2000
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        recordId:
+          description: "If present, this attribute allows for batch processing and\
+            \ the identification of the record that failed amongst a group of records.\
+            \ This value may contain a concatenation of a unique failed transaction\
+            \ ID with specific record(s) associated with that transaction."
+          maxLength: 2000
+          type: string
+        rph:
+          description: Reference Place Holder used as an index for this warning.
+          maxLength: 8
+          minLength: 1
+          type: string
+        shortText:
+          description: An abbreviated version of the error in textual format.
+          maxLength: 2000
+          type: string
+        status:
+          description: "If present, recommended values are those enumerated in the\
+            \ ErrorRS, (NotProcessed Incomplete Complete Unknown) however, the data\
+            \ type is designated as string data, recognizing that trading partners\
+            \ may identify additional status conditions not included in the enumeration."
+          maxLength: 2000
+          type: string
+        tag:
+          description: "If present, this attribute may identify an unknown or misspelled\
+            \ tag that caused an error in processing. It is recommended that the Tag\
+            \ attribute use XPath notation to identify the location of a tag in the\
+            \ event that more than one tag of the same name is present in the document.\
+            \ Alternatively, the tag name alone can be used to identify missing data\
+            \ [Type=ReqFieldMissing]."
+          maxLength: 2000
+          type: string
+        type:
+          description: The Warning element MUST contain the Type attribute that uses
+            a recommended set of values to indicate the warning type. The validating
+            XSD can expect to accept values that it has NOT been explicitly coded
+            for and process them by using Type ="Unknown".
+          maxLength: 20
+          minLength: 0
+          type: string
+        value:
+          description: Property Value
+          type: string
+      type: object
+    warningsType:
+      description: Used in conjunction with the Success element to define a business
+        error.
+      items:
+        $ref: '#/components/schemas/warningType'
+      maxItems: 4000
+      type: array
+x-original-swagger-version: "2.0"

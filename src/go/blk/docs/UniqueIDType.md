@@ -1,0 +1,134 @@
+# UniqueIDType
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | Pointer to **string** | A unique identifying value assigned by the creating system. The ID attribute may be used to reference a primary-key value within a database or in a particular implementation. | [optional] 
+**IdContext** | Pointer to **string** | Used to identify the source of the identifier (e.g., IATA, ABTA). | [optional] 
+**Type** | Pointer to **string** | A reference to the type of object defined by the UniqueID element. | [optional] 
+**Warnings** | Pointer to [**WarningsType**](WarningsType.md) |  | [optional] 
+
+## Methods
+
+### NewUniqueIDType
+
+`func NewUniqueIDType() *UniqueIDType`
+
+NewUniqueIDType instantiates a new UniqueIDType object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewUniqueIDTypeWithDefaults
+
+`func NewUniqueIDTypeWithDefaults() *UniqueIDType`
+
+NewUniqueIDTypeWithDefaults instantiates a new UniqueIDType object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *UniqueIDType) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *UniqueIDType) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *UniqueIDType) SetId(v string)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *UniqueIDType) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### GetIdContext
+
+`func (o *UniqueIDType) GetIdContext() string`
+
+GetIdContext returns the IdContext field if non-nil, zero value otherwise.
+
+### GetIdContextOk
+
+`func (o *UniqueIDType) GetIdContextOk() (*string, bool)`
+
+GetIdContextOk returns a tuple with the IdContext field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIdContext
+
+`func (o *UniqueIDType) SetIdContext(v string)`
+
+SetIdContext sets IdContext field to given value.
+
+### HasIdContext
+
+`func (o *UniqueIDType) HasIdContext() bool`
+
+HasIdContext returns a boolean if a field has been set.
+
+### GetType
+
+`func (o *UniqueIDType) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *UniqueIDType) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *UniqueIDType) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *UniqueIDType) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
+### GetWarnings
+
+`func (o *UniqueIDType) GetWarnings() WarningsType`
+
+GetWarnings returns the Warnings field if non-nil, zero value otherwise.
+
+### GetWarningsOk
+
+`func (o *UniqueIDType) GetWarningsOk() (*WarningsType, bool)`
+
+GetWarningsOk returns a tuple with the Warnings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWarnings
+
+`func (o *UniqueIDType) SetWarnings(v WarningsType)`
+
+SetWarnings sets Warnings field to given value.
+
+### HasWarnings
+
+`func (o *UniqueIDType) HasWarnings() bool`
+
+HasWarnings returns a boolean if a field has been set.
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

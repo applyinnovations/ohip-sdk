@@ -1,0 +1,1031 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hospitality_apis_ww_grp@oracle.com
+  description: "APIs which offer external systems to config and use values different\
+    \ than what are configured in opera<br /><br /> Compatible with OPERA Cloud release\
+    \ 23.2.<br /><br /><p> This document and all content within is available under\
+    \ the Universal Permissive License v 1.0 (https://oss.oracle.com/licenses/upl).\
+    \ Copyright (c) 2020, 2023 Oracle and/or its affiliates.</p>"
+  license:
+    name: UPL
+    url: https://opensource.org/licenses/upl
+  termsOfService: https://www.oracle.com/legal/terms.html
+  title: OPERA Cloud DataValueMapping Service API
+  version: "23.2"
+externalDocs:
+  description: Find out more about Oracle Hospitality
+  url: https://docs.oracle.com/en/industries/hospitality/integration_platforms.html
+servers:
+- url: /dvm/v1
+tags:
+- description: The DataValueMappingService Web Service offers capability to convert
+    Opera values to external vendor's values or vice versa.
+  name: DataValueMapping
+paths:
+  /externalSystems/{extSystemCode}/hotels/{externalHotelId}/conversions:
+    get:
+      description: This API allows you to get the converted hotel code <p><strong>OperationId:</strong>getOperaHotelCode</p>
+      operationId: getOperaHotelCode
+      parameters:
+      - in: path
+        name: externalHotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Opera Resort for which conversion is needed.
+        in: query
+        name: operaHotelCode
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/convertedHotelCode'
+          description: Response to fetch the opera resort for an interface and given
+            the external resort value or vice versa.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: OperaHotelCode not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Fetch Converted Hotel Code
+      tags:
+      - DataValueMapping
+  /externalSystems/{extSystemCode}/hotels/{operaHotelId}/convertedValues:
+    get:
+      description: This API allows you to get the converted values <p><strong>OperationId:</strong>getConvertedValues</p>
+      operationId: getConvertedValues
+      parameters:
+      - in: path
+        name: operaHotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: External value of resort for which conversion is needed.
+        in: query
+        name: externalHotelId
+        schema:
+          type: string
+      - description: Enumeration of the different conversion codes needed for data
+          value mapping.
+        explode: true
+        in: query
+        name: conversionCode
+        schema:
+          items:
+            enum:
+            - AccountType
+            - ActionCode
+            - ActionType
+            - ActivityLocation
+            - ActivityStatus
+            - ActivityType
+            - ActivityTypeSc
+            - AddressTypes
+            - ArrangementCode
+            - BlockCancellationCodes
+            - BlockCodes
+            - BlockConversion
+            - BlockRanking
+            - BlockRateOverrideReason
+            - BookingStatus
+            - BookingType
+            - BusiinessSegment
+            - CalendarEvent
+            - CancellationCodes
+            - CategoryCode
+            - CatItemrate
+            - CatRate
+            - CatServing
+            - CatSetup
+            - ChannelCodes
+            - ComboRoom
+            - CommentType
+            - CompetitionCode
+            - CountryCode
+            - CurrencyCode
+            - DayType
+            - DepartmentId
+            - DeptNoteCode
+            - DiscountReason
+            - DocumentType
+            - EventType
+            - FitContractType
+            - Frequency
+            - FunctionSpaceLocation
+            - FunctionSpaceRateType
+            - GenderMf
+            - GtdReq
+            - GuestPreferenceCode
+            - GuestPreferenceType
+            - IndustryCode
+            - InfluenceCode
+            - LanguageCodes
+            - MarketingCity
+            - MarketingRegion
+            - MarketCode
+            - MeetingRoomtype
+            - MembershipLevel
+            - MembershipType
+            - MembershipTypeAirline
+            - Nationality
+            - OcrmBounceType
+            - OcrmEventType
+            - OtaGuestPreferenceCode
+            - PaymentMethod
+            - PhoneType
+            - PosFamilyGroup
+            - PosMajorGroup
+            - PosMenuDef
+            - PosRevenueCenter
+            - PriceCode
+            - ProductCode
+            - ProfilePriority
+            - ProfileSource
+            - ProfileType
+            - RateCategory
+            - RateCode
+            - RateProgram
+            - RateToRateBlock
+            - RateType
+            - ReasonCode
+            - Relationship
+            - ReservationStatus
+            - ReservationType
+            - ResvBookingMethod
+            - RevenueGroups
+            - RevenueType
+            - Room
+            - RoomsPotential
+            - RoomCategoryLabel
+            - RoomClass
+            - RoomPool
+            - RoomRepairsReasonCode
+            - RoomStatusReasons
+            - RoutingCode
+            - Scope
+            - ScopeCity
+            - ScAccPriority
+            - ScAccRoomsPot
+            - ScAccSource
+            - ScDestination
+            - ScFunctionSpace
+            - ScFunctionSpaceRateCode
+            - ScFunctionSpaceSetup
+            - ScRevenueTypes
+            - ScSetupCode
+            - ScTaskCode
+            - ScTerritory
+            - ServiceRequestType
+            - SgiLanguage
+            - SgiRequestCodes
+            - SgiTitle
+            - SourceCode
+            - State
+            - Title
+            - TraceCode
+            - TraceDepartment
+            - TransportTypes
+            - TravelAgentCommissionCodes
+            - TravelAgentCurrencyCodes
+            - Trxgenerates
+            - TrxCode
+            - VipLevel
+            - WaitlistCodes
+            - WebuserSecurityQuestion
+            type: string
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Value to be converted. It can be opera or external value.
+        explode: true
+        in: query
+        name: valueToBeConverted
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Master value is supposed to be Opera value.
+        explode: true
+        in: query
+        name: masterValue
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/convertedValues'
+          description: Reponse for all the converted values.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: ConvertedValues not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Fetch Converted Values
+      tags:
+      - DataValueMapping
+  /externalSystems/{extSystemCode}/hotels/{operaHotelId}/defaultValues:
+    get:
+      description: This API allows you to get default values <p><strong>OperationId:</strong>getDefaultValues</p>
+      operationId: getDefaultValues
+      parameters:
+      - in: path
+        name: operaHotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        example: EXTERNALSYSTEMCODE
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/defaultValues'
+          description: Reponse for all the converted values.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: DefaultValues not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Fetch Default values
+      tags:
+      - DataValueMapping
+components:
+  schemas:
+    conversionHotelInfoType:
+      description: "Generic information of the resort , external resort and external\
+        \ system."
+      properties:
+        externalHotelCode:
+          description: External value of resort for which conversion is needed.
+          maxLength: 20
+          minLength: 0
+          type: string
+        operaHotelCode:
+          description: Opera Resort for which conversion is needed.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    convertedHotelCode:
+      properties:
+        externalSystem:
+          description: ExternalSystem for which the conversion is needed.
+          maxLength: 2000
+          type: string
+        hotelInfo:
+          $ref: '#/components/schemas/conversionHotelInfoType'
+        links:
+          $ref: '#/components/schemas/links'
+        warnings:
+          $ref: '#/components/schemas/warningsType'
+      type: object
+    convertedValueType:
+      description: Details of the converted value.
+      properties:
+        conversionCode:
+          $ref: '#/components/schemas/dataValueMappingCodeType'
+        crsDefaultConversion:
+          description: The flag will be true for all the conversions that are crs
+            defaults. In case there are more than one conversions available in opera.
+          type: boolean
+        externalValue:
+          description: Value used by the external vendors.
+          type: string
+        masterValue:
+          description: Opera Master Value
+          type: string
+        operaValue:
+          description: Opera Value
+          type: string
+        pmsDefaultConversion:
+          description: The flag will be true for all the conversions that are pms
+            defaults. In case there are more than one conversions available in opera.
+          type: boolean
+      type: object
+    convertedValues:
+      properties:
+        convertedValues:
+          $ref: '#/components/schemas/convertedValuesType'
+        externalSystem:
+          description: ExternalSystem for which the conversion is needed.
+          maxLength: 2000
+          type: string
+        hotelInfo:
+          $ref: '#/components/schemas/conversionHotelInfoType'
+        links:
+          $ref: '#/components/schemas/links'
+        warnings:
+          $ref: '#/components/schemas/warningsType'
+      type: object
+    convertedValuesType:
+      description: A collection of converted values.
+      items:
+        $ref: '#/components/schemas/convertedValueType'
+      maxItems: 4000
+      type: array
+    dataValueMappingCodeType:
+      description: Enumeration of the different conversion codes needed for data value
+        mapping.
+      enum:
+      - AccountType
+      - ActionCode
+      - ActionType
+      - ActivityLocation
+      - ActivityStatus
+      - ActivityType
+      - ActivityTypeSc
+      - AddressTypes
+      - ArrangementCode
+      - BlockCancellationCodes
+      - BlockCodes
+      - BlockConversion
+      - BlockRanking
+      - BlockRateOverrideReason
+      - BookingStatus
+      - BookingType
+      - BusiinessSegment
+      - CalendarEvent
+      - CancellationCodes
+      - CategoryCode
+      - CatItemrate
+      - CatRate
+      - CatServing
+      - CatSetup
+      - ChannelCodes
+      - ComboRoom
+      - CommentType
+      - CompetitionCode
+      - CountryCode
+      - CurrencyCode
+      - DayType
+      - DepartmentId
+      - DeptNoteCode
+      - DiscountReason
+      - DocumentType
+      - EventType
+      - FitContractType
+      - Frequency
+      - FunctionSpaceLocation
+      - FunctionSpaceRateType
+      - GenderMf
+      - GtdReq
+      - GuestPreferenceCode
+      - GuestPreferenceType
+      - IndustryCode
+      - InfluenceCode
+      - LanguageCodes
+      - MarketingCity
+      - MarketingRegion
+      - MarketCode
+      - MeetingRoomtype
+      - MembershipLevel
+      - MembershipType
+      - MembershipTypeAirline
+      - Nationality
+      - OcrmBounceType
+      - OcrmEventType
+      - OtaGuestPreferenceCode
+      - PaymentMethod
+      - PhoneType
+      - PosFamilyGroup
+      - PosMajorGroup
+      - PosMenuDef
+      - PosRevenueCenter
+      - PriceCode
+      - ProductCode
+      - ProfilePriority
+      - ProfileSource
+      - ProfileType
+      - RateCategory
+      - RateCode
+      - RateProgram
+      - RateToRateBlock
+      - RateType
+      - ReasonCode
+      - Relationship
+      - ReservationStatus
+      - ReservationType
+      - ResvBookingMethod
+      - RevenueGroups
+      - RevenueType
+      - Room
+      - RoomsPotential
+      - RoomCategoryLabel
+      - RoomClass
+      - RoomPool
+      - RoomRepairsReasonCode
+      - RoomStatusReasons
+      - RoutingCode
+      - Scope
+      - ScopeCity
+      - ScAccPriority
+      - ScAccRoomsPot
+      - ScAccSource
+      - ScDestination
+      - ScFunctionSpace
+      - ScFunctionSpaceRateCode
+      - ScFunctionSpaceSetup
+      - ScRevenueTypes
+      - ScSetupCode
+      - ScTaskCode
+      - ScTerritory
+      - ServiceRequestType
+      - SgiLanguage
+      - SgiRequestCodes
+      - SgiTitle
+      - SourceCode
+      - State
+      - Title
+      - TraceCode
+      - TraceDepartment
+      - TransportTypes
+      - TravelAgentCommissionCodes
+      - TravelAgentCurrencyCodes
+      - Trxgenerates
+      - TrxCode
+      - VipLevel
+      - WaitlistCodes
+      - WebuserSecurityQuestion
+      type: string
+    defaultValueCodeType:
+      description: Enumeration of the different default codes.
+      enum:
+      - AddressTypes
+      - AvailabilityType
+      - BlockCancellationCodes
+      - BlockChannelCode
+      - BlockMarketCode
+      - BlockOwner
+      - BlockRateCode
+      - BlockReservationType
+      - BlockSourceCode
+      - BlockStatus
+      - BlockType
+      - CancellationCodes
+      - CashierId
+      - CountryCode
+      - ChannelCodes
+      - ConfLetterId
+      - ConfLetterName
+      - CrsCurrencyCode
+      - CrsCurrencyFmtDisplay
+      - CrsCurrencyFormat
+      - CrsCurrencyMultiplier
+      - CurrencyCode
+      - Custom1
+      - Custom2
+      - DeleteCharInd
+      - DeleteDateInd
+      - DeleteNumberInd
+      - DepositPaymentMethod
+      - DeptCodes
+      - DiscountReason
+      - GuestPreferences
+      - HighPrioMemTypes
+      - KeepingCharInd
+      - KeepingDateInd
+      - KeepingNumberInd
+      - LanguageCodes
+      - MarketCode
+      - MaxAvailInAdvance
+      - PaymentMethod
+      - PhoneType
+      - RateCategory
+      - RateClass
+      - RateCode
+      - RateDisplaySet
+      - ReservationType
+      - RoomCategoryLabel
+      - ScDestination
+      - SourceCode
+      - StartDayOfWeek
+      - TaCompanyOwner
+      - Trace1
+      - Trace2
+      - TraceArrivalDept1
+      - TraceArrivalDept2
+      - TraceOverrideDept1
+      - TraceOverrideDept2
+      - TraceOverrideWarning
+      - TraceWarning
+      - TravelAgentCommissionCodes
+      - TravelAgentCurrencyCodes
+      - TravelAgentCurrencyCodesCentral
+      - VipLevel
+      - WaitlistCodes
+      - ProfileNoteType
+      - BlockNoteType
+      type: string
+    defaultValueType:
+      description: Details of the default value fetched for an interface and resort.
+      properties:
+        defaultValueType:
+          $ref: '#/components/schemas/defaultValueCodeType'
+        externalDefault:
+          description: Value used by the external vendors.
+          type: string
+        operaDefault:
+          description: Opera Value
+          type: string
+      type: object
+    defaultValues:
+      properties:
+        defaultValues:
+          $ref: '#/components/schemas/defaultValuesType'
+        links:
+          $ref: '#/components/schemas/links'
+        warnings:
+          $ref: '#/components/schemas/warningsType'
+      type: object
+    defaultValuesType:
+      description: A collection of default values.
+      items:
+        $ref: '#/components/schemas/defaultValueType'
+      maxItems: 4000
+      type: array
+    errorInstance:
+      description: Complex type that contains error instance details for a REST call.
+      properties:
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+      required:
+      - title
+      - type
+      title: Error Instance Details
+      type: object
+    exceptionDetailType:
+      description: Complex type that contains error details for a REST call.
+      properties:
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        links:
+          $ref: '#/components/schemas/links'
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorDetails:
+          description: "Details of the error message, consisting of a hierarchical\
+            \ tree structure."
+          items:
+            $ref: '#/components/schemas/errorInstance'
+          type: array
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+      required:
+      - title
+      - type
+      title: Error Detail
+      type: object
+    instanceLink:
+      description: Metadata describing link description objects that MAY appear in
+        the JSON instance representation.
+      properties:
+        href:
+          description: "URI [RFC3986] or URI Template [RFC6570]. If the value is set\
+            \ to URI Template, then the \"templated\" property must be set to true."
+          type: string
+        method:
+          description: HTTP method for requesting the target of the link.
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          - OPTIONS
+          - HEAD
+          type: string
+        operationId:
+          description: "The operationId of the path you can call to follow this link.\
+            \  This allows you to look up not only the path and method, but the description\
+            \ of that path and any parameters you need to supply."
+          type: string
+        rel:
+          description: "Name of the link relation that, in addition to the type property,\
+            \ can be used to retrieve link details. For example, href or profile."
+          type: string
+        targetSchema:
+          description: "Link to the metadata of the resource, such as JSON-schema,\
+            \ that describes the resource expected when dereferencing the target resource.."
+          type: string
+        templated:
+          default: false
+          description: "Boolean flag that specifies that \"href\" property is a URI\
+            \ or URI Template. If the property is a URI template, set this value to\
+            \ true. By default, this value is false."
+          type: boolean
+        title:
+          description: Exact copy of the "summary" field on the linked operation.
+          type: string
+      required:
+      - href
+      - method
+      - operationId
+      - rel
+      type: object
+    links:
+      items:
+        $ref: '#/components/schemas/instanceLink'
+      type: array
+    warningType:
+      description: Used when a message has been successfully processed to report any
+        warnings or business errors that occurred.
+      properties:
+        code:
+          description: "If present, this refers to a table of coded values exchanged\
+            \ between applications to identify errors or warnings."
+          maxLength: 20
+          minLength: 0
+          type: string
+        docURL:
+          description: "If present, this URL refers to an online description of the\
+            \ error that occurred."
+          maxLength: 2000
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        recordId:
+          description: "If present, this attribute allows for batch processing and\
+            \ the identification of the record that failed amongst a group of records.\
+            \ This value may contain a concatenation of a unique failed transaction\
+            \ ID with specific record(s) associated with that transaction."
+          maxLength: 2000
+          type: string
+        rph:
+          description: Reference Place Holder used as an index for this warning.
+          maxLength: 8
+          minLength: 1
+          type: string
+        shortText:
+          description: An abbreviated version of the error in textual format.
+          maxLength: 2000
+          type: string
+        status:
+          description: "If present, recommended values are those enumerated in the\
+            \ ErrorRS, (NotProcessed Incomplete Complete Unknown) however, the data\
+            \ type is designated as string data, recognizing that trading partners\
+            \ may identify additional status conditions not included in the enumeration."
+          maxLength: 2000
+          type: string
+        tag:
+          description: "If present, this attribute may identify an unknown or misspelled\
+            \ tag that caused an error in processing. It is recommended that the Tag\
+            \ attribute use XPath notation to identify the location of a tag in the\
+            \ event that more than one tag of the same name is present in the document.\
+            \ Alternatively, the tag name alone can be used to identify missing data\
+            \ [Type=ReqFieldMissing]."
+          maxLength: 2000
+          type: string
+        type:
+          description: The Warning element MUST contain the Type attribute that uses
+            a recommended set of values to indicate the warning type. The validating
+            XSD can expect to accept values that it has NOT been explicitly coded
+            for and process them by using Type ="Unknown".
+          maxLength: 20
+          minLength: 0
+          type: string
+        value:
+          description: Property Value
+          type: string
+      type: object
+    warningsType:
+      description: Used in conjunction with the Success element to define a business
+        error.
+      items:
+        $ref: '#/components/schemas/warningType'
+      maxItems: 4000
+      type: array
+x-original-swagger-version: "2.0"

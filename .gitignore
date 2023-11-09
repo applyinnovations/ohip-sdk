@@ -7,7 +7,4 @@ hospitality-api-docs
 .DS_store
 .envrc
 
-dist
-src
-
 *.log

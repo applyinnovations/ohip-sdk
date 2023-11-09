@@ -1,0 +1,875 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hospitality_apis_ww_grp@oracle.com
+  description: "APIs to cater for Reservation Asynchronous functionality in OPERA\
+    \ Cloud. This includes viewing reservation data along with its revenue. <p>This\
+    \ API follows an async pattern where</p><ul><li>You make an initial request, which\
+    \ returns a Location header</li><li>You poll HEAD on the Location header returned\
+    \ to obtain the status of the process</li><li>Once the process completes HEAD\
+    \ will return in the Location header the URL that must be called to obtain the\
+    \ results of the process</li><li>You call the URL to obtain the results of the\
+    \ process</li></ul><br /><br /> Compatible with OPERA Cloud release 23.2.<br /><br\
+    \ /><p> This document and all content within is available under the Universal\
+    \ Permissive License v 1.0 (https://oss.oracle.com/licenses/upl). Copyright (c)\
+    \ 2020, 2023 Oracle and/or its affiliates.</p>"
+  license:
+    name: UPL
+    url: https://opensource.org/licenses/upl
+  termsOfService: https://www.oracle.com/legal/terms.html
+  title: OPERA Cloud Reservation Asynchronous API
+  version: "23.2"
+externalDocs:
+  description: Find out more about Oracle Hospitality
+  url: https://docs.oracle.com/en/industries/hospitality/integration_platforms.html
+servers:
+- url: /rsv/async/v1
+tags:
+- description: The Reservation Asynchronous module provides capability for an external
+    system to retrieve reservation related data using an asynchronous approach.
+  name: ReservationAsync
+paths:
+  /externalSystems/{extSystemCode}/hotels/{hotelId}/reservations/dailySummary:
+    post:
+      description: "Use this API to get a reservation daily summary for a property\
+        \ within a given date range. Maximum limit of date range is 94 days, but the\
+        \ recommendation is to use a date range proportionate to the size of the hotel.\
+        \ Returns a header parameter Location that can be used in the getReservationsProcessStatus\
+        \ operation.  Use event driven APIs (see https://docs.oracle.com/cd/F29336_01/doc.201/f27480/c_business_events.htm#OHIPU-BusinessEvents-F0AC1F1C)\
+        \ to get real time reservation updates.  <p><strong>OperationId:</strong>startReservationsDailySummaryProcess</p>"
+      operationId: startReservationsDailySummaryProcess
+      parameters:
+      - in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/criteria'
+        description: Request object for fetching future reservations asynchronously.
+        required: true
+      responses:
+        "202":
+          content: {}
+          description: Location of process status resource
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of process status resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: "Fetch past, present and future Reservations Daily Summary"
+      tags:
+      - ReservationAsync
+      x-interaction:
+      - async-polling
+      x-codegen-request-body-name: criteria
+  /externalSystems/{extSystemCode}/hotels/{hotelId}/reservations/dailySummary/{summaryId}:
+    get:
+      description: Use this API to retrieve a property&apos;s reservation daily summary
+        within the dates given in the startReservationsDailySummaryProcess API request.
+        You can get the value of the summaryId from the Location header returned by
+        the getReservationsProcessStatus operation after the process is completed.  <p><strong>OperationId:</strong>getReservationsDailySummary</p>
+      operationId: getReservationsDailySummary
+      parameters:
+      - in: path
+        name: summaryId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/reservationsDailySummaryDetails'
+          description: Response for fetched future reservations.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get results of Reservations Daily Summary
+      tags:
+      - ReservationAsync
+    head:
+      description: Use this to check whether the process to generate reservations
+        daily summaries is complete. You can get value of summaryId from the Location
+        header returned by the startReservationsDailySummaryProcess operation. <p><strong>OperationId:</strong>getReservationsProcessStatus</p>
+      operationId: getReservationsProcessStatus
+      parameters:
+      - in: path
+        name: summaryId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Response for status of scheduled asynchronous process.
+          headers:
+            Status:
+              description: Status of the requested process.
+              schema:
+                enum:
+                - Processing
+                - Invalid
+                type: string
+            Cache-Control:
+              description: number of seconds to wait before polling again.
+              schema:
+                type: string
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "201":
+          content: {}
+          description: Response for status of scheduled asynchronous process.
+          headers:
+            Status:
+              description: Status of the requested process.
+              schema:
+                enum:
+                - Completed
+                type: string
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource once the status of process
+                run is Complete.
+              schema:
+                type: string
+        "400":
+          content: {}
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content: {}
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "500":
+          content: {}
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Check status of Reservation Daily Summary process
+      tags:
+      - ReservationAsync
+components:
+  schemas:
+    criteria:
+      description: Request object for fetching future reservations asynchronously.
+      properties:
+        criteria:
+          $ref: '#/components/schemas/reservationsDailySummarySearchType'
+      type: object
+    dailySummaryType:
+      description: Statistic information related to a specific reservation stay date.
+      properties:
+        adults:
+          description: Number of adults of the reservation.
+          type: integer
+        bookedRoomType:
+          description: Booked room type.
+          maxLength: 20
+          minLength: 0
+          type: string
+        channel:
+          description: Classifies the Channel field on reservation screen through
+            which the reservation is made.
+          maxLength: 20
+          minLength: 0
+          type: string
+        children:
+          description: Number of children of the reservation.
+          type: integer
+        fbRevenue:
+          description: Food and Beverage Revenue generated by the reservation.
+          type: number
+        fbRevenueCurrency:
+          description: Provides a currency code to reflect the currency in which an
+            amount may be expressed.
+          maxLength: 3
+          minLength: 3
+          type: string
+        marketCode:
+          description: "Holds the code that relates to the market being sold (e.g.,\
+            \ the corporate market, packages)."
+          maxLength: 20
+          minLength: 0
+          type: string
+        netRateAmount:
+          description: Net Amount generated by the reservation.
+          type: number
+        netRateAmountCurrency:
+          description: Provides a currency code to reflect the currency in which an
+            amount may be expressed.
+          maxLength: 3
+          minLength: 3
+          type: string
+        otherRevenue:
+          description: Other Revenue generated by the reservation.
+          type: number
+        otherRevenueCurrency:
+          description: Provides a currency code to reflect the currency in which an
+            amount may be expressed.
+          maxLength: 3
+          minLength: 3
+          type: string
+        packageRevenue:
+          description: Package Revenue generated by the reservation.
+          type: number
+        packageRevenueCurrency:
+          description: Provides a currency code to reflect the currency in which an
+            amount may be expressed.
+          maxLength: 3
+          minLength: 3
+          type: string
+        rateAmount:
+          description: A monetary amount.
+          type: number
+        rateAmountCurrency:
+          description: Provides a currency code to reflect the currency in which an
+            amount may be expressed.
+          maxLength: 3
+          minLength: 3
+          type: string
+        rateCode:
+          description: The rate plan code of the reservation.
+          maxLength: 20
+          minLength: 0
+          type: string
+        room:
+          description: Room number.
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomRevenue:
+          description: Room Revenue generated by the reservation.
+          type: number
+        roomRevenueCurrency:
+          description: Provides a currency code to reflect the currency in which an
+            amount may be expressed.
+          maxLength: 3
+          minLength: 3
+          type: string
+        roomType:
+          description: Room type.
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomTypeCharged:
+          description: Room type charged for the reservation.
+          maxLength: 20
+          minLength: 0
+          type: string
+        sourceCode:
+          description: The entity/channel who made the reservation.
+          maxLength: 20
+          minLength: 0
+          type: string
+        tax:
+          description: Tax Revenue generated by the reservation.
+          type: number
+        taxCurrency:
+          description: Provides a currency code to reflect the currency in which an
+            amount may be expressed.
+          maxLength: 3
+          minLength: 3
+          type: string
+        totalRevenue:
+          description: Total Revenue generated by the reservation.
+          type: number
+        totalRevenueCurrency:
+          description: Provides a currency code to reflect the currency in which an
+            amount may be expressed.
+          maxLength: 3
+          minLength: 3
+          type: string
+        trxDate:
+          description: Reservation stay date for which the daily statistics are projected.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+      type: object
+    errorInstance:
+      description: Complex type that contains error instance details for a REST call.
+      properties:
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+      title: Error Instance Details
+      type: object
+    exceptionDetailType:
+      description: Complex type that contains error details for a REST call.
+      properties:
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        links:
+          $ref: '#/components/schemas/links'
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorDetails:
+          description: "Details of the error message, consisting of a hierarchical\
+            \ tree structure."
+          items:
+            $ref: '#/components/schemas/errorInstance'
+          type: array
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+      title: Error Detail
+      type: object
+    instanceLink:
+      description: Metadata describing link description objects that MAY appear in
+        the JSON instance representation.
+      properties:
+        href:
+          description: "URI [RFC3986] or URI Template [RFC6570]. If the value is set\
+            \ to URI Template, then the \"templated\" property must be set to true."
+          type: string
+        method:
+          description: HTTP method for requesting the target of the link.
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          - OPTIONS
+          - HEAD
+          type: string
+        operationId:
+          description: "The operationId of the path you can call to follow this link.\
+            \  This allows you to look up not only the path and method, but the description\
+            \ of that path and any parameters you need to supply."
+          type: string
+        rel:
+          description: "Name of the link relation that, in addition to the type property,\
+            \ can be used to retrieve link details. For example, href or profile."
+          type: string
+        targetSchema:
+          description: "Link to the metadata of the resource, such as JSON-schema,\
+            \ that describes the resource expected when dereferencing the target resource.."
+          type: string
+        templated:
+          default: false
+          description: "Boolean flag that specifies that \"href\" property is a URI\
+            \ or URI Template. If the property is a URI template, set this value to\
+            \ true. By default, this value is false."
+          type: boolean
+        title:
+          description: Exact copy of the "summary" field on the linked operation.
+          type: string
+      type: object
+    lastModifiedDateType:
+      description: Start and End Modified Dates of Reservations after which the results
+        are to be fetched
+      properties:
+        endLastModifiedDate:
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        startLastModifiedDate:
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+      type: object
+    links:
+      items:
+        $ref: '#/components/schemas/instanceLink'
+      type: array
+    pMS_ResStatusType:
+      description: This reservation is in checked in status and the business date
+        is past departure date. This could occur when ORS and PMS are in same environment.
+      enum:
+      - Reserved
+      - Requested
+      - NoShow
+      - Cancelled
+      - InHouse
+      - CheckedIn
+      - CheckedOut
+      - Waitlisted
+      - DueIn
+      - DueOut
+      - Walkin
+      - PendingCheckout
+      type: string
+    reservationDailySummaryType:
+      description: Daily summary information related to a reservation.
+      properties:
+        arrival:
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        blockCode:
+          description: Block code of the reservation.
+          maxLength: 20
+          minLength: 0
+          type: string
+        bookingDate:
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        bookingMedium:
+          description: Classifies the medium(Channel field on reservation screen)
+            through which the reservation is made. Either bookingMedium or origin_of_booking
+            will be present in the response.
+          maxLength: 20
+          minLength: 0
+          type: string
+        cancellationDate:
+          description: The date the reservation was canceled.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        cancellationReasonCode:
+          type: string
+        checkedOutDate:
+          description: The date the reservation was checked out.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        children1:
+          description: Number of children classified under the first Age Qualifying
+            Group.
+          type: integer
+        children2:
+          description: Number of children classified under the second Age Qualifying
+            Group.
+          type: integer
+        children3:
+          description: Number of children classified under the third Age Qualifying
+            Group.
+          type: integer
+        companyId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        companyName:
+          description: Name of the company for the reservation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        createDateTime:
+          description: Business Date when the reservation was created.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        dailySummary:
+          description: Collection of daily summary for the reservation.
+          items:
+            $ref: '#/components/schemas/dailySummaryType'
+          maxItems: 4000
+          type: array
+        departure:
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        groupId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        groupName:
+          description: Name of the group for the reservation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        guestCountry:
+          description: Country code for guest's primary address.
+          maxLength: 20
+          minLength: 0
+          type: string
+        iataCode:
+          description: IATA Code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        lastModifiedDate:
+          description: Business Date when the reservation was modified.Either lastModifiedDateTime
+            or lastModifiedDate will be returned.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        lastModifiedDateTime:
+          description: Business Date when the reservation was modified.Either lastModifiedDateTime
+            or lastModifiedDate will be returned.
+          pattern: "/([0-9]{4})-(?:[0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]+)/"
+          type: string
+        membershipId:
+          description: Card Number of the membership.Either membershipId or membershipNumber
+            will be returned.
+          type: string
+        membershipLevel:
+          description: Indicates the membership level.
+          type: string
+        membershipNumber:
+          description: Card Number of the membership.Either membershipId or membershipNumber
+            will be returned.
+          type: string
+        membershipType:
+          description: Type of membership.
+          type: string
+        nationality:
+          description: Affiliation or ethnicity to a particular country.
+          maxLength: 20
+          minLength: 0
+          type: string
+        noOfRooms:
+          description: Number of rooms of the reservation.
+          type: integer
+        origin_of_booking:
+          description: Classifies the medium(Channel field on reservation screen)
+            through which the reservation is made.Either bookingMedium or origin_of_booking
+            will be present in the response.
+          maxLength: 20
+          minLength: 0
+          type: string
+        reservationIdList:
+          $ref: '#/components/schemas/reservationIdList'
+        resvContactId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        resvContactName:
+          description: Name of the contact for the reservation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        resvStatus:
+          $ref: '#/components/schemas/pMS_ResStatusType'
+        resvType:
+          description: Type of the reservation.
+          maxLength: 20
+          minLength: 0
+          type: string
+        sharedYn:
+          description: Indicates whether the reservation has any sharers. Y indicates
+            true and N indicates false.
+          type: string
+        sharersList:
+          description: Collection of Confirmation Numbers of Sharers.
+          type: string
+        sourceId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        sourceName:
+          description: Name of the source for the reservation.
+          maxLength: 200
+          minLength: 0
+          type: string
+        travelAgentId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        travelAgentName:
+          description: Name of the travel agent for the reservation.
+          maxLength: 200
+          minLength: 0
+          type: string
+      type: object
+    reservationIdList:
+      description: Unique Id that references an object uniquely in the system.
+      items:
+        $ref: '#/components/schemas/uniqueID_Type'
+      maxItems: 4000
+      type: array
+    reservationsDailySummaryDetails:
+      description: Reservation Daily Summary Details.
+      properties:
+        reservations:
+          items:
+            $ref: '#/components/schemas/reservationDailySummaryType'
+          maxItems: 4000
+          type: array
+      type: object
+    reservationsDailySummarySearchType:
+      properties:
+        hotelId:
+          description: The Hotel Code for which the reservation search will be performed.
+          maxLength: 20
+          minLength: 0
+          type: string
+        lastModifiedDate:
+          $ref: '#/components/schemas/lastModifiedDateType'
+        timeSpan:
+          $ref: '#/components/schemas/timeSpanType'
+      type: object
+    timeSpanType:
+      description: "Allows for a choice in description of the amount of time spanned\
+        \ by this type. EndDate specifies a specific date, whild Duration provides\
+        \ a measure of time to add to the StartDate to yield end date."
+      properties:
+        duration:
+          type: string
+        endDate:
+          format: date
+          type: string
+        startDate:
+          format: date
+          type: string
+      type: object
+    uniqueID_Type:
+      description: "An identifier used to uniquely reference an object in a system\
+        \ (e.g. an airline reservation reference, customer profile reference, booking\
+        \ confirmation number, or a reference to a previous availability quote)."
+      properties:
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+x-original-swagger-version: "2.0"
