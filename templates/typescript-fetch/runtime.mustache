@@ -46,7 +46,7 @@ export class Configuration {
         return this.configuration.hotelId;
     }
 
-    get ohipCredentials(): OhipCredentials[] {
+    get ohipCredentials(): OhipCredential[] {
         return this.configuration.ohipCredentials;
     }
 
@@ -92,6 +92,10 @@ export class Configuration {
 
     get credentials(): RequestCredentials | undefined {
         return this.configuration.credentials;
+    }
+      
+    get appKey(): string {
+        return this.configuration.appKey;
     }
 }
 
