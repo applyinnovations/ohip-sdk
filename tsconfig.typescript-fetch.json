@@ -1,8 +1,7 @@
 {
-  "extends": "tsconfig.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "dist/typescript-fetch"
   },
-  "include": ["src/typescript-fetch"],
-  "composite": true
+  "include": ["src/typescript-fetch"]
 }
