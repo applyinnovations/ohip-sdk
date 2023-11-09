@@ -7,7 +7,7 @@
     "reset-docs": "cd hospitality-api-docs && git reset --hard && cd ..",
     "patch-docs": "./patch-docs.sh",
     "clean": "rm -rf src && rm -rf dist",
-    "build": "yarn patch-docs && openapi-generator-cli generate",
+    "build": "yarn patch-docs && openapi-generator-cli generate > build.log",
     "compile": "yarn tsc -p tsconfig.typescript-fetch.json"
   },
   "files": [

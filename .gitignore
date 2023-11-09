@@ -9,3 +9,5 @@ hospitality-api-docs
 
 dist
 src
+
+*.log

@@ -9,13 +9,29 @@
         "output": "./src/typescript-fetch/#{name}",
         "glob": "./hospitality-api-docs/rest-api-specs/property/*.json",
         "skipOperationExample": true,
-        "templateDir": "./templates/typescript-fetch"
+        "templateDir": "./templates/typescript-fetch",
+        "additionalProperties": {
+          "debugModels": true,
+          "debugOpenAPI": true,
+          "debugOperations": true,
+          "debugSupportingFiles": true,
+          "verbose": true,
+          "generateAliasAsModel": true
+        }
       },
       "typescript-fetch-oauth": {
         "generatorName": "typescript-fetch",
         "output": "./src/typescript-fetch/oauth",
         "glob": "./hospitality-api-docs/rest-api-specs/property/oauth.json",
-        "skipOperationExample": true
+        "skipOperationExample": true,
+        "additionalProperties": {
+          "debugModels": true,
+          "debugOpenAPI": true,
+          "debugOperations": true,
+          "debugSupportingFiles": true,
+          "verbose": true,
+          "generateAliasAsModel": true
+        }
       },
       "go": {
         "generatorName": "go",
@@ -26,6 +42,12 @@
         "templateDir": "./templates/go",
         "skipOperationExample": true,
         "additionalProperties": {
+          "debugModels": true,
+          "debugOpenAPI": true,
+          "debugOperations": true,
+          "debugSupportingFiles": true,
+          "verbose": true,
+          "generateAliasAsModel": true,
           "isGoSubmodule": true,
           "packageName": "#{name}",
           "structPrefix": true,
@@ -42,6 +64,12 @@
         "templateDir": "./templates/go-oauth",
         "skipOperationExample": true,
         "additionalProperties": {
+          "debugModels": true,
+          "debugOpenAPI": true,
+          "debugOperations": true,
+          "debugSupportingFiles": true,
+          "verbose": true,
+          "generateAliasAsModel": true,
           "isGoSubmodule": true,
           "packageName": "oauth",
           "structPrefix": true,

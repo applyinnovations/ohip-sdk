@@ -41,6 +41,12 @@ jobs:
       - name: Build sdks
         run: yarn build
 
+      - name: Upload build.log as an artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-log
+          path: build.log
+
       - name: Compile
         run: yarn compile
 
