@@ -27,6 +27,7 @@ interface OhipCredential {
 }
 
 export interface ConfigurationParameters {
+    host: string; // override host
     basePath?: string; // override base path
     fetchApi?: FetchAPI; // override for fetch implementation
     middleware?: Middleware[]; // middleware to apply before/after fetch requests
@@ -47,6 +48,10 @@ export class Configuration {
 
     set config(configuration: Configuration) {
         this.configuration = configuration;
+    }
+
+    get host(): string {
+        return this.configuration.host;
     }
 
     get basePath(): string {
@@ -187,7 +192,7 @@ export class BaseAPI {
     }
 
     private async createFetchParams(context: RequestOpts, initOverrides?: RequestInit | InitOverrideFunction) {
-        let url = this.configuration.basePath + BASE_PATH + context.path;
+        let url = this.configuration.host + BASE_PATH + context.path;
         if (context.query !== undefined && Object.keys(context.query).length !== 0) {
             // only add the querystring to the URL if there are query parameters.
             // this is done to avoid urls ending with a "?" character which buggy webservers
@@ -279,7 +284,7 @@ export class BaseAPI {
 
     private getAuthApi = () => {
         const authConfig = new AuthConfiguration({
-            basePath: this.configuration.basePath,
+            basePath: this.configuration.host + AUTH_BASE_PATH,
         });
         return new AuthenticationApi(authConfig);
     };
