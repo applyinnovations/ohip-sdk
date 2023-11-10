@@ -16,7 +16,7 @@ interface OhipCredential {
 }
 
 export interface ConfigurationParameters {
-    host: string; // override host
+    host?: string; // override host
     basePath?: string; // override base path
     fetchApi?: FetchAPI; // override for fetch implementation
     middleware?: Middleware[]; // middleware to apply before/after fetch requests
