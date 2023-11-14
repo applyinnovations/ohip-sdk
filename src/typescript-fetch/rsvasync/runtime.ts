@@ -16,6 +16,7 @@
 export const BASE_PATH = "/rsv/async/v1".replace(/\/+$/, "");
 
 export interface ConfigurationParameters {
+    host?: string; // override host
     basePath?: string; // override base path
     fetchApi?: FetchAPI; // override for fetch implementation
     middleware?: Middleware[]; // middleware to apply before/after fetch requests
@@ -33,6 +34,10 @@ export class Configuration {
 
     set config(configuration: Configuration) {
         this.configuration = configuration;
+    }
+
+    get host(): string {
+      return this.configuration.host != null ? this.configuration.host : "http://localhost";
     }
 
     get basePath(): string {
@@ -141,7 +146,7 @@ export class BaseAPI {
     }
 
     private async createFetchParams(context: RequestOpts, initOverrides?: RequestInit | InitOverrideFunction) {
-        let url = this.configuration.basePath + context.path;
+        let url = this.configuration.host + this.configuration.basePath + context.path;
         if (context.query !== undefined && Object.keys(context.query).length !== 0) {
             // only add the querystring to the URL if there are query parameters.
             // this is done to avoid urls ending with a "?" character which buggy webservers

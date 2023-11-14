@@ -31,6 +31,9 @@ class Configuration {
     set config(configuration) {
         this.configuration = configuration;
     }
+    get host() {
+        return this.configuration.host != null ? this.configuration.host : "http://localhost";
+    }
     get basePath() {
         return this.configuration.basePath != null ? this.configuration.basePath : exports.BASE_PATH;
     }
@@ -165,7 +168,7 @@ class BaseAPI {
     }
     createFetchParams(context, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            let url = this.configuration.basePath + context.path;
+            let url = this.configuration.host + this.configuration.basePath + context.path;
             if (context.query !== undefined && Object.keys(context.query).length !== 0) {
                 // only add the querystring to the URL if there are query parameters.
                 // this is done to avoid urls ending with a "?" character which buggy webservers

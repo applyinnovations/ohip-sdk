@@ -11,6 +11,7 @@
  */
 export declare const BASE_PATH: string;
 export interface ConfigurationParameters {
+    host?: string;
     basePath?: string;
     fetchApi?: FetchAPI;
     middleware?: Middleware[];
@@ -26,6 +27,7 @@ export declare class Configuration {
     private configuration;
     constructor(configuration?: ConfigurationParameters);
     set config(configuration: Configuration);
+    get host(): string;
     get basePath(): string;
     get fetchApi(): FetchAPI | undefined;
     get middleware(): Middleware[];
