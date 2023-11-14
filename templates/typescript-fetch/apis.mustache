@@ -111,6 +111,7 @@ export class {{classname}} extends runtime.BaseAPI {
         if (requestParameters.{{paramName}} === null || requestParameters.{{paramName}} === undefined) {
             throw new runtime.RequiredError('{{paramName}}','Required parameter requestParameters.{{paramName}} was null or undefined when calling {{nickname}}.');
         }
+        
         {{/isHeaderParam}}
         {{/required}}
         {{/allParams}}
