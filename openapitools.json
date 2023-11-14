@@ -9,7 +9,6 @@
         "output": "./src/typescript-fetch/#{name}",
         "glob": "./hospitality-api-docs/rest-api-specs/property/*.json",
         "skipOperationExample": true,
-        "templateDir": "./templates/typescript-fetch",
         "additionalProperties": {
           "debugModels": true,
           "debugOpenAPI": true,
@@ -17,64 +16,6 @@
           "debugSupportingFiles": true,
           "verbose": true,
           "generateAliasAsModel": true
-        }
-      },
-      "typescript-fetch-oauth": {
-        "generatorName": "typescript-fetch",
-        "output": "./src/typescript-fetch/oauth",
-        "glob": "./hospitality-api-docs/rest-api-specs/property/oauth.json",
-        "skipOperationExample": true,
-        "additionalProperties": {
-          "debugModels": true,
-          "debugOpenAPI": true,
-          "debugOperations": true,
-          "debugSupportingFiles": true,
-          "verbose": true,
-          "generateAliasAsModel": true
-        }
-      },
-      "go": {
-        "generatorName": "go",
-        "output": "./src/go/#{name}",
-        "glob": "./hospitality-api-docs/rest-api-specs/property/*.json",
-        "gitRepoId": "ohip-sdk",
-        "gitUserId": "applyinnovations",
-        "templateDir": "./templates/go",
-        "skipOperationExample": true,
-        "additionalProperties": {
-          "debugModels": true,
-          "debugOpenAPI": true,
-          "debugOperations": true,
-          "debugSupportingFiles": true,
-          "verbose": true,
-          "generateAliasAsModel": true,
-          "isGoSubmodule": true,
-          "packageName": "#{name}",
-          "structPrefix": true,
-          "enumClassPrefix": true,
-          "modulePath": "src/go"
-        }
-      },
-      "go-oauth": {
-        "generatorName": "go",
-        "output": "./src/go/oauth",
-        "glob": "./hospitality-api-docs/rest-api-specs/property/oauth.json",
-        "gitRepoId": "ohip-sdk",
-        "gitUserId": "applyinnovations",
-        "templateDir": "./templates/go-oauth",
-        "skipOperationExample": true,
-        "additionalProperties": {
-          "debugModels": true,
-          "debugOpenAPI": true,
-          "debugOperations": true,
-          "debugSupportingFiles": true,
-          "verbose": true,
-          "generateAliasAsModel": true,
-          "isGoSubmodule": true,
-          "packageName": "oauth",
-          "structPrefix": true,
-          "enumClassPrefix": true,
-          "modulePath": "src/go"
         }
       }
     }

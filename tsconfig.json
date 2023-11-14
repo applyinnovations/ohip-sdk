@@ -3,6 +3,8 @@
     "incremental": true,
     "target": "ES6",
     "module": "commonjs",
+    "strict": true,
+    "noImplicitAny": true,
     "declaration": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
