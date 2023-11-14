@@ -2,22 +2,14 @@
   "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
   "spaces": 2,
   "generator-cli": {
-    "version": "6.6.0",
+    "version": "7.1.0",
     "generators": {
       "typescript-fetch": {
         "generatorName": "typescript-fetch",
         "output": "./src/typescript-fetch/#{name}",
         "templateDir": "templates/typescript-fetch",
         "glob": "./hospitality-api-docs/rest-api-specs/property/*.json",
-        "skipOperationExample": true,
-        "additionalProperties": {
-          "debugModels": true,
-          "debugOpenAPI": true,
-          "debugOperations": true,
-          "debugSupportingFiles": true,
-          "verbose": true,
-          "generateAliasAsModel": true
-        }
+        "skipOperationExample": true
       }
     }
   }
