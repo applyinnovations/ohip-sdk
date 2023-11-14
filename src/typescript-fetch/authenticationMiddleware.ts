@@ -8,7 +8,10 @@ type OhipCredential = {
   password: string;
 };
 
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+const delay = (ms: number) =>
+  new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
 
 export class OhipCredentialsProvider {
   authenticating: boolean;
@@ -94,8 +97,6 @@ export class OhipCredentialsProvider {
           await this.renewCredentials({ retryCount: retryCount + 1 });
         } else throw Error(`OHIP_AUTH_ERR: maximum retry attempts exceeded`);
       }
-    } catch (e) {
-      throw e;
     } finally {
       this.authenticating = false;
     }
@@ -118,9 +119,15 @@ export class OhipCredentialsProvider {
     ) {
       await this.renewCredentials({ retryCount: 0, start });
     }
-    // apply token
-    const headers = new Headers(context.init.headers);
-    headers.set(`Authorization`, `Bearer ${this.access_token}`);
-    context.init.headers = headers;
+    return {
+      ...context,
+      init: {
+        ...context.init,
+        headers: {
+          ...context.init.headers,
+          Authorization: `Bearer ${this.access_token}`,
+        },
+      },
+    };
   }
 }

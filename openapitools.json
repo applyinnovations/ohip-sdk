@@ -9,15 +9,7 @@
         "output": "./src/typescript-fetch/#{name}",
         "templateDir": "templates/typescript-fetch",
         "glob": "./hospitality-api-docs/rest-api-specs/property/*.json",
-        "skipOperationExample": true,
-        "additionalProperties": {
-          "debugModels": true,
-          "debugOpenAPI": true,
-          "debugOperations": true,
-          "debugSupportingFiles": true,
-          "verbose": true,
-          "generateAliasAsModel": true
-        }
+        "skipOperationExample": true
       }
     }
   }
