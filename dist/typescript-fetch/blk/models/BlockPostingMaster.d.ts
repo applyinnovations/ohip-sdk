@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CreateBlockPostingMasterCriteria } from './CreateBlockPostingMasterCriteria';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating a new Posting Master Reservation.
  * @export
@@ -26,16 +26,16 @@ export interface BlockPostingMaster {
     criteria?: CreateBlockPostingMasterCriteria;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockPostingMaster
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockPostingMaster
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockPostingMaster interface.

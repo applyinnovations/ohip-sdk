@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationId } from './ReservationId';
-import type { ReservationTransactionDiversionsType } from './ReservationTransactionDiversionsType';
-import type { WarningsType } from './WarningsType';
+import type { ReservationTransactionDiversionType } from './ReservationTransactionDiversionType';
+import type { WarningType } from './WarningType';
 /**
  * Request to modify transaction diversion rules attached to a reservation.
  * @export
@@ -27,10 +27,10 @@ export interface TransactionDiversionsInfo {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransactionDiversionsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationId}
@@ -38,17 +38,17 @@ export interface TransactionDiversionsInfo {
      */
     reservationId?: ReservationId;
     /**
-     *
-     * @type {ReservationTransactionDiversionsType}
+     * List of Transaction Diversion rules.
+     * @type {Array<ReservationTransactionDiversionType>}
      * @memberof TransactionDiversionsInfo
      */
-    transactionDiversions?: ReservationTransactionDiversionsType;
+    transactionDiversions?: Array<ReservationTransactionDiversionType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransactionDiversionsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TransactionDiversionsInfo interface.

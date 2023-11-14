@@ -9,8 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
-import type { ParametersType } from './ParametersType';
+import type { ParameterType } from './ParameterType';
 /**
  *
  * @export
@@ -19,10 +18,10 @@ import type { ParametersType } from './ParametersType';
 export interface ListOfValuesCriteriaType {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ListOfValuesCriteriaType
      */
-    excludeCodeList?: CodeListType;
+    excludeCodeList?: Array<string>;
     /**
      * Only useful for LOVs that support toggle of inactive records inclusion. When set to true, inactive records will be included.
      * @type {boolean}
@@ -42,11 +41,11 @@ export interface ListOfValuesCriteriaType {
      */
     lovName?: string;
     /**
-     *
-     * @type {ParametersType}
+     * Collection of generic Name-Value-Pair parameters.
+     * @type {Array<ParameterType>}
      * @memberof ListOfValuesCriteriaType
      */
-    parameters?: ParametersType;
+    parameters?: Array<ParameterType>;
 }
 /**
  * Check if a given object implements the ListOfValuesCriteriaType interface.

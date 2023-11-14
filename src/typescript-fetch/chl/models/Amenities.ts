@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AmenitiesMappingType } from './AmenitiesMappingType';
+import type { AmenityMappingType } from './AmenityMappingType';
 import {
-    AmenitiesMappingTypeFromJSON,
-    AmenitiesMappingTypeFromJSONTyped,
-    AmenitiesMappingTypeToJSON,
-} from './AmenitiesMappingType';
-import type { Links } from './Links';
+    AmenityMappingTypeFromJSON,
+    AmenityMappingTypeFromJSONTyped,
+    AmenityMappingTypeToJSON,
+} from './AmenityMappingType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing external system amenities.
@@ -39,23 +39,23 @@ import {
  */
 export interface Amenities {
     /**
-     * 
-     * @type {AmenitiesMappingType}
+     * Information about an external system amenity mapping.
+     * @type {Array<AmenityMappingType>}
      * @memberof Amenities
      */
-    amenities?: AmenitiesMappingType;
+    amenities?: Array<AmenityMappingType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Amenities
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Amenities
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function AmenitiesFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     }
     return {
         
-        'amenities': !exists(json, 'amenities') ? undefined : AmenitiesMappingTypeFromJSON(json['amenities']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'amenities': !exists(json, 'amenities') ? undefined : ((json['amenities'] as Array<any>).map(AmenityMappingTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function AmenitiesToJSON(value?: Amenities | null): any {
     }
     return {
         
-        'amenities': AmenitiesMappingTypeToJSON(value.amenities),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'amenities': value.amenities === undefined ? undefined : ((value.amenities as Array<any>).map(AmenityMappingTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { PlayerStatisticsType } from './PlayerStatisticsType';
 import {
     PlayerStatisticsTypeFromJSON,
@@ -40,10 +40,10 @@ export interface FetchPlayerStatisticsRS {
     playerStatistics?: PlayerStatisticsType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchPlayerStatisticsRS
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function FetchPlayerStatisticsRSFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'playerStatistics': !exists(json, 'playerStatistics') ? undefined : PlayerStatisticsTypeFromJSON(json['playerStatistics']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function FetchPlayerStatisticsRSToJSON(value?: FetchPlayerStatisticsRS | 
     return {
         
         'playerStatistics': PlayerStatisticsTypeToJSON(value.playerStatistics),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

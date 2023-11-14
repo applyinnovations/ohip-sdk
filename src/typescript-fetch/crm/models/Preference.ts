@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { PreferenceTypeType } from './PreferenceTypeType';
 import {
     PreferenceTypeTypeFromJSON,
     PreferenceTypeTypeFromJSONTyped,
     PreferenceTypeTypeToJSON,
 } from './PreferenceTypeType';
-import type { ProfileIdList } from './ProfileIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
-import type { WarningsType } from './WarningsType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetch preference. This object contains collection of preferences,Success,Warnings and Errors related to this operation.
@@ -46,10 +46,10 @@ import {
 export interface Preference {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Preference
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Detailed information of preferences related to the profile
      * @type {Array<PreferenceTypeType>}
@@ -57,17 +57,17 @@ export interface Preference {
      */
     preferenceCollections?: Array<PreferenceTypeType>;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof Preference
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Preference
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function PreferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'preferenceCollections': !exists(json, 'preferenceCollections') ? undefined : ((json['preferenceCollections'] as Array<any>).map(PreferenceTypeTypeFromJSON)),
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function PreferenceToJSON(value?: Preference | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'preferenceCollections': value.preferenceCollections === undefined ? undefined : ((value.preferenceCollections as Array<any>).map(PreferenceTypeTypeToJSON)),
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

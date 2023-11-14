@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockPostingAccountReservationsType } from './BlockPostingAccountReservationsType';
+import type { BlockPostingReservationsType } from './BlockPostingReservationsType';
 import {
-    BlockPostingAccountReservationsTypeFromJSON,
-    BlockPostingAccountReservationsTypeFromJSONTyped,
-    BlockPostingAccountReservationsTypeToJSON,
-} from './BlockPostingAccountReservationsType';
-import type { Links } from './Links';
+    BlockPostingReservationsTypeFromJSON,
+    BlockPostingReservationsTypeFromJSONTyped,
+    BlockPostingReservationsTypeToJSON,
+} from './BlockPostingReservationsType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for retrieving block Posting account reservations.
@@ -39,23 +39,23 @@ import {
  */
 export interface BlockPostingAccountReservationsInfo {
     /**
-     * 
-     * @type {BlockPostingAccountReservationsType}
+     * Fetch block's posting account reservations information.
+     * @type {Array<BlockPostingReservationsType>}
      * @memberof BlockPostingAccountReservationsInfo
      */
-    blockPostingAccountReservations?: BlockPostingAccountReservationsType;
+    blockPostingAccountReservations?: Array<BlockPostingReservationsType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockPostingAccountReservationsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockPostingAccountReservationsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function BlockPostingAccountReservationsInfoFromJSONTyped(json: any, igno
     }
     return {
         
-        'blockPostingAccountReservations': !exists(json, 'blockPostingAccountReservations') ? undefined : BlockPostingAccountReservationsTypeFromJSON(json['blockPostingAccountReservations']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'blockPostingAccountReservations': !exists(json, 'blockPostingAccountReservations') ? undefined : ((json['blockPostingAccountReservations'] as Array<any>).map(BlockPostingReservationsTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function BlockPostingAccountReservationsInfoToJSON(value?: BlockPostingAc
     }
     return {
         
-        'blockPostingAccountReservations': BlockPostingAccountReservationsTypeToJSON(value.blockPostingAccountReservations),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'blockPostingAccountReservations': value.blockPostingAccountReservations === undefined ? undefined : ((value.blockPostingAccountReservations as Array<any>).map(BlockPostingReservationsTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

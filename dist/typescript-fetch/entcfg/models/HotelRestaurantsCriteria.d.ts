@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelRestaurantsType } from './HotelRestaurantsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelRestaurantType } from './HotelRestaurantType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new restaurants for hotels.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface HotelRestaurantsCriteria {
     /**
      *
-     * @type {HotelRestaurantsType}
+     * @type {Array<HotelRestaurantType>}
      * @memberof HotelRestaurantsCriteria
      */
-    hotelRestaurants?: HotelRestaurantsType;
+    hotelRestaurants?: Array<HotelRestaurantType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelRestaurantsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelRestaurantsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HotelRestaurantsCriteria interface.

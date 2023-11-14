@@ -19,18 +19,18 @@ import {
     ActivityLogListTypeFromJSONTyped,
     ActivityLogListTypeToJSON,
 } from './ActivityLogListType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching block activity log. This object contains collection of user activity log for the block, Success, Warnings and Errors related to this operation
@@ -46,16 +46,16 @@ export interface BlockActivityLog {
     activityLog?: ActivityLogListType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockActivityLog
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockActivityLog
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -78,8 +78,8 @@ export function BlockActivityLogFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'activityLog': !exists(json, 'activityLog') ? undefined : ActivityLogListTypeFromJSON(json['activityLog']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -93,8 +93,8 @@ export function BlockActivityLogToJSON(value?: BlockActivityLog | null): any {
     return {
         
         'activityLog': ActivityLogListTypeToJSON(value.activityLog),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { FloorPlanType } from './FloorPlanType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object to the Fetch Reservation Request operation. Based on the criteria, reservation information is returned.
  * @export
@@ -26,16 +26,16 @@ export interface FloorPlans {
     floorPlansDetails?: Array<FloorPlanType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FloorPlans
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FloorPlans
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FloorPlans interface.

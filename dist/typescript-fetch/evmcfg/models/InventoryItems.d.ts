@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { InventoryItemsType } from './InventoryItemsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { InventoryItemType } from './InventoryItemType';
+import type { WarningType } from './WarningType';
 /**
  * Response object to fetch Inventory Items Setup configuration
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface InventoryItems {
     /**
-     *
-     * @type {InventoryItemsType}
+     * List of Inventory Items.
+     * @type {Array<InventoryItemType>}
      * @memberof InventoryItems
      */
-    items?: InventoryItemsType;
+    items?: Array<InventoryItemType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof InventoryItems
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof InventoryItems
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the InventoryItems interface.

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CurrencyAmountType } from './CurrencyAmountType';
-import type { EventResourceNotesType } from './EventResourceNotesType';
+import type { EventResourceNoteType } from './EventResourceNoteType';
 import type { ResourceId } from './ResourceId';
 import type { ResourceType } from './ResourceType';
 /**
@@ -44,11 +44,11 @@ export interface CateringEventResourceType {
      */
     eventEndDate?: Date;
     /**
-     *
-     * @type {EventResourceNotesType}
+     * Contains event resource comment information.
+     * @type {Array<EventResourceNoteType>}
      * @memberof CateringEventResourceType
      */
-    eventResourceNotes?: EventResourceNotesType;
+    eventResourceNotes?: Array<EventResourceNoteType>;
     /**
      * Event Start Date of resource of type Menu.
      * @type {Date}

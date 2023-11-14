@@ -16,10 +16,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CompanyToJSON = exports.CompanyFromJSONTyped = exports.CompanyFromJSON = exports.instanceOfCompany = void 0;
 const runtime_1 = require("../runtime");
 const CompanyProfileType_1 = require("./CompanyProfileType");
-const ExternalReferencesType_1 = require("./ExternalReferencesType");
-const Links_1 = require("./Links");
-const ProfileIdList_1 = require("./ProfileIdList");
-const WarningsType_1 = require("./WarningsType");
+const ExternalReferenceType_1 = require("./ExternalReferenceType");
+const InstanceLink_1 = require("./InstanceLink");
+const UniqueIDType_1 = require("./UniqueIDType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the Company interface.
  */
@@ -38,10 +38,10 @@ function CompanyFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'companyDetails': !(0, runtime_1.exists)(json, 'companyDetails') ? undefined : (0, CompanyProfileType_1.CompanyProfileTypeFromJSON)(json['companyDetails']),
-        'companyIdList': !(0, runtime_1.exists)(json, 'companyIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['companyIdList']),
-        'externalReferences': !(0, runtime_1.exists)(json, 'externalReferences') ? undefined : (0, ExternalReferencesType_1.ExternalReferencesTypeFromJSON)(json['externalReferences']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'companyIdList': !(0, runtime_1.exists)(json, 'companyIdList') ? undefined : (json['companyIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'externalReferences': !(0, runtime_1.exists)(json, 'externalReferences') ? undefined : (json['externalReferences'].map(ExternalReferenceType_1.ExternalReferenceTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CompanyFromJSONTyped = CompanyFromJSONTyped;
@@ -54,10 +54,10 @@ function CompanyToJSON(value) {
     }
     return {
         'companyDetails': (0, CompanyProfileType_1.CompanyProfileTypeToJSON)(value.companyDetails),
-        'companyIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.companyIdList),
-        'externalReferences': (0, ExternalReferencesType_1.ExternalReferencesTypeToJSON)(value.externalReferences),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'companyIdList': value.companyIdList === undefined ? undefined : (value.companyIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'externalReferences': value.externalReferences === undefined ? undefined : (value.externalReferences.map(ExternalReferenceType_1.ExternalReferenceTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CompanyToJSON = CompanyToJSON;

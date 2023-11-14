@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { ARTransactionType } from './ARTransactionType';
-import type { Links } from './Links';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TrxInfoType } from './TrxInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response after fetching AR transaction details.
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface ArTransactions {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ArTransactions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ARTransactionType}
@@ -32,17 +32,17 @@ export interface ArTransactions {
      */
     transactions?: ARTransactionType;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof ArTransactions
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ArTransactions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ArTransactions interface.

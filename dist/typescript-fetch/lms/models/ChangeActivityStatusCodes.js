@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChangeActivityStatusCodesToJSON = exports.ChangeActivityStatusCodesFromJSONTyped = exports.ChangeActivityStatusCodesFromJSON = exports.instanceOfChangeActivityStatusCodes = void 0;
 const runtime_1 = require("../runtime");
-const ActivityStatusCodesType_1 = require("./ActivityStatusCodesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ActivityStatusCodeType_1 = require("./ActivityStatusCodeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChangeActivityStatusCodes interface.
  */
@@ -35,9 +35,9 @@ function ChangeActivityStatusCodesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'activityStatusCodes': !(0, runtime_1.exists)(json, 'activityStatusCodes') ? undefined : (0, ActivityStatusCodesType_1.ActivityStatusCodesTypeFromJSON)(json['activityStatusCodes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'activityStatusCodes': !(0, runtime_1.exists)(json, 'activityStatusCodes') ? undefined : (json['activityStatusCodes'].map(ActivityStatusCodeType_1.ActivityStatusCodeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChangeActivityStatusCodesFromJSONTyped = ChangeActivityStatusCodesFromJSONTyped;
@@ -49,9 +49,9 @@ function ChangeActivityStatusCodesToJSON(value) {
         return null;
     }
     return {
-        'activityStatusCodes': (0, ActivityStatusCodesType_1.ActivityStatusCodesTypeToJSON)(value.activityStatusCodes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'activityStatusCodes': value.activityStatusCodes === undefined ? undefined : (value.activityStatusCodes.map(ActivityStatusCodeType_1.ActivityStatusCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChangeActivityStatusCodesToJSON = ChangeActivityStatusCodesToJSON;

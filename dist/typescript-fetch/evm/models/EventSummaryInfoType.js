@@ -15,13 +15,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EventSummaryInfoTypeToJSON = exports.EventSummaryInfoTypeFromJSONTyped = exports.EventSummaryInfoTypeFromJSON = exports.instanceOfEventSummaryInfoType = void 0;
 const runtime_1 = require("../runtime");
-const BlockIdList_1 = require("./BlockIdList");
 const BookingStatusType_1 = require("./BookingStatusType");
 const CateringEventLinkType_1 = require("./CateringEventLinkType");
 const CateringStatusTypeType_1 = require("./CateringStatusTypeType");
 const CodeDescriptionType_1 = require("./CodeDescriptionType");
 const EventId_1 = require("./EventId");
-const IndicatorsType_1 = require("./IndicatorsType");
+const IndicatorType_1 = require("./IndicatorType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the EventSummaryInfoType interface.
  */
@@ -44,7 +44,7 @@ function EventSummaryInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'attendees': !(0, runtime_1.exists)(json, 'attendees') ? undefined : json['attendees'],
         'blockHasPostings': !(0, runtime_1.exists)(json, 'blockHasPostings') ? undefined : json['blockHasPostings'],
         'blockHotelCode': !(0, runtime_1.exists)(json, 'blockHotelCode') ? undefined : json['blockHotelCode'],
-        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (0, BlockIdList_1.BlockIdListFromJSON)(json['blockIdList']),
+        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'blockName': !(0, runtime_1.exists)(json, 'blockName') ? undefined : json['blockName'],
         'cateringCurrency': !(0, runtime_1.exists)(json, 'cateringCurrency') ? undefined : json['cateringCurrency'],
         'cateringQuotedCurrency': !(0, runtime_1.exists)(json, 'cateringQuotedCurrency') ? undefined : json['cateringQuotedCurrency'],
@@ -56,7 +56,7 @@ function EventSummaryInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'doorCard': !(0, runtime_1.exists)(json, 'doorCard') ? undefined : json['doorCard'],
         'eventEndDate': !(0, runtime_1.exists)(json, 'eventEndDate') ? undefined : json['eventEndDate'],
         'eventId': !(0, runtime_1.exists)(json, 'eventId') ? undefined : (0, EventId_1.EventIdFromJSON)(json['eventId']),
-        'eventIndicators': !(0, runtime_1.exists)(json, 'eventIndicators') ? undefined : (0, IndicatorsType_1.IndicatorsTypeFromJSON)(json['eventIndicators']),
+        'eventIndicators': !(0, runtime_1.exists)(json, 'eventIndicators') ? undefined : (json['eventIndicators'].map(IndicatorType_1.IndicatorTypeFromJSON)),
         'eventLink': !(0, runtime_1.exists)(json, 'eventLink') ? undefined : (0, CateringEventLinkType_1.CateringEventLinkTypeFromJSON)(json['eventLink']),
         'eventName': !(0, runtime_1.exists)(json, 'eventName') ? undefined : json['eventName'],
         'eventShared': !(0, runtime_1.exists)(json, 'eventShared') ? undefined : json['eventShared'],
@@ -70,7 +70,7 @@ function EventSummaryInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
         'includeSpaceInPackage': !(0, runtime_1.exists)(json, 'includeSpaceInPackage') ? undefined : json['includeSpaceInPackage'],
-        'indicators': !(0, runtime_1.exists)(json, 'indicators') ? undefined : (0, IndicatorsType_1.IndicatorsTypeFromJSON)(json['indicators']),
+        'indicators': !(0, runtime_1.exists)(json, 'indicators') ? undefined : (json['indicators'].map(IndicatorType_1.IndicatorTypeFromJSON)),
         'loudEvent': !(0, runtime_1.exists)(json, 'loudEvent') ? undefined : json['loudEvent'],
         'masterEvent': !(0, runtime_1.exists)(json, 'masterEvent') ? undefined : json['masterEvent'],
         'maximumOccupancy': !(0, runtime_1.exists)(json, 'maximumOccupancy') ? undefined : json['maximumOccupancy'],
@@ -106,7 +106,7 @@ function EventSummaryInfoTypeToJSON(value) {
         'attendees': value.attendees,
         'blockHasPostings': value.blockHasPostings,
         'blockHotelCode': value.blockHotelCode,
-        'blockIdList': (0, BlockIdList_1.BlockIdListToJSON)(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'blockName': value.blockName,
         'cateringCurrency': value.cateringCurrency,
         'cateringQuotedCurrency': value.cateringQuotedCurrency,
@@ -118,7 +118,7 @@ function EventSummaryInfoTypeToJSON(value) {
         'doorCard': value.doorCard,
         'eventEndDate': value.eventEndDate,
         'eventId': (0, EventId_1.EventIdToJSON)(value.eventId),
-        'eventIndicators': (0, IndicatorsType_1.IndicatorsTypeToJSON)(value.eventIndicators),
+        'eventIndicators': value.eventIndicators === undefined ? undefined : (value.eventIndicators.map(IndicatorType_1.IndicatorTypeToJSON)),
         'eventLink': (0, CateringEventLinkType_1.CateringEventLinkTypeToJSON)(value.eventLink),
         'eventName': value.eventName,
         'eventShared': value.eventShared,
@@ -132,7 +132,7 @@ function EventSummaryInfoTypeToJSON(value) {
         'hotelId': value.hotelId,
         'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
         'includeSpaceInPackage': value.includeSpaceInPackage,
-        'indicators': (0, IndicatorsType_1.IndicatorsTypeToJSON)(value.indicators),
+        'indicators': value.indicators === undefined ? undefined : (value.indicators.map(IndicatorType_1.IndicatorTypeToJSON)),
         'loudEvent': value.loudEvent,
         'masterEvent': value.masterEvent,
         'maximumOccupancy': value.maximumOccupancy,

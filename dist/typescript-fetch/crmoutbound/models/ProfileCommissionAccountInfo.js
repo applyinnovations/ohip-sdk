@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfileCommissionAccountInfoToJSON = exports.ProfileCommissionAccountInfoFromJSONTyped = exports.ProfileCommissionAccountInfoFromJSON = exports.instanceOfProfileCommissionAccountInfo = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const ProfileCommissionAccountInfoListType_1 = require("./ProfileCommissionAccountInfoListType");
+const InstanceLink_1 = require("./InstanceLink");
+const ProfileCommissionAccountInfoType_1 = require("./ProfileCommissionAccountInfoType");
 /**
  * Check if a given object implements the ProfileCommissionAccountInfo interface.
  */
@@ -34,8 +34,8 @@ function ProfileCommissionAccountInfoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'profileCommissionAccountInfoList': !(0, runtime_1.exists)(json, 'profileCommissionAccountInfoList') ? undefined : (0, ProfileCommissionAccountInfoListType_1.ProfileCommissionAccountInfoListTypeFromJSON)(json['profileCommissionAccountInfoList']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'profileCommissionAccountInfoList': !(0, runtime_1.exists)(json, 'profileCommissionAccountInfoList') ? undefined : (json['profileCommissionAccountInfoList'].map(ProfileCommissionAccountInfoType_1.ProfileCommissionAccountInfoTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.ProfileCommissionAccountInfoFromJSONTyped = ProfileCommissionAccountInfoFromJSONTyped;
@@ -47,8 +47,8 @@ function ProfileCommissionAccountInfoToJSON(value) {
         return null;
     }
     return {
-        'profileCommissionAccountInfoList': (0, ProfileCommissionAccountInfoListType_1.ProfileCommissionAccountInfoListTypeToJSON)(value.profileCommissionAccountInfoList),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'profileCommissionAccountInfoList': value.profileCommissionAccountInfoList === undefined ? undefined : (value.profileCommissionAccountInfoList.map(ProfileCommissionAccountInfoType_1.ProfileCommissionAccountInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.ProfileCommissionAccountInfoToJSON = ProfileCommissionAccountInfoToJSON;

@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DuplicateOPERASubscriptionsTypeToJSON = exports.DuplicateOPERASubscriptionsTypeFromJSONTyped = exports.DuplicateOPERASubscriptionsTypeFromJSON = exports.instanceOfDuplicateOPERASubscriptionsType = void 0;
 const runtime_1 = require("../runtime");
-const ProfileSubscriptionListType_1 = require("./ProfileSubscriptionListType");
+const ProfileSubscriptionType_1 = require("./ProfileSubscriptionType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the DuplicateOPERASubscriptionsType interface.
@@ -35,7 +35,7 @@ function DuplicateOPERASubscriptionsTypeFromJSONTyped(json, ignoreDiscriminator)
     }
     return {
         'externalProfileId': !(0, runtime_1.exists)(json, 'externalProfileId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['externalProfileId']),
-        'profileSubscriptions': !(0, runtime_1.exists)(json, 'profileSubscriptions') ? undefined : (0, ProfileSubscriptionListType_1.ProfileSubscriptionListTypeFromJSON)(json['profileSubscriptions']),
+        'profileSubscriptions': !(0, runtime_1.exists)(json, 'profileSubscriptions') ? undefined : (json['profileSubscriptions'].map(ProfileSubscriptionType_1.ProfileSubscriptionTypeFromJSON)),
     };
 }
 exports.DuplicateOPERASubscriptionsTypeFromJSONTyped = DuplicateOPERASubscriptionsTypeFromJSONTyped;
@@ -48,7 +48,7 @@ function DuplicateOPERASubscriptionsTypeToJSON(value) {
     }
     return {
         'externalProfileId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.externalProfileId),
-        'profileSubscriptions': (0, ProfileSubscriptionListType_1.ProfileSubscriptionListTypeToJSON)(value.profileSubscriptions),
+        'profileSubscriptions': value.profileSubscriptions === undefined ? undefined : (value.profileSubscriptions.map(ProfileSubscriptionType_1.ProfileSubscriptionTypeToJSON)),
     };
 }
 exports.DuplicateOPERASubscriptionsTypeToJSON = DuplicateOPERASubscriptionsTypeToJSON;

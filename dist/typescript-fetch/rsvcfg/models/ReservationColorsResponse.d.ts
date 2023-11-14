@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ReservationColorsType } from './ReservationColorsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ReservationColorType } from './ReservationColorType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetch reservation colors.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ReservationColorsResponse {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationColorsResponse
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ReservationColorsType}
+     * Collection of reservation colors.
+     * @type {Array<ReservationColorType>}
      * @memberof ReservationColorsResponse
      */
-    reservationColors?: ReservationColorsType;
+    reservationColors?: Array<ReservationColorType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationColorsResponse
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationColorsResponse interface.

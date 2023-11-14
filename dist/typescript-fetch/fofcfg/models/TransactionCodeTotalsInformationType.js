@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TransactionCodeTotalsInformationTypeToJSON = exports.TransactionCodeTotalsInformationTypeFromJSONTyped = exports.TransactionCodeTotalsInformationTypeFromJSON = exports.instanceOfTransactionCodeTotalsInformationType = void 0;
 const runtime_1 = require("../runtime");
+const MonthlyTransactionVarianceInfoType_1 = require("./MonthlyTransactionVarianceInfoType");
 const TransactionInfoType_1 = require("./TransactionInfoType");
-const TransactionVarianceInfoType_1 = require("./TransactionVarianceInfoType");
 /**
  * Check if a given object implements the TransactionCodeTotalsInformationType interface.
  */
@@ -34,11 +34,11 @@ function TransactionCodeTotalsInformationTypeFromJSONTyped(json, ignoreDiscrimin
         return json;
     }
     return {
-        'aBVarianceTotalInfo': !(0, runtime_1.exists)(json, 'aBVarianceTotalInfo') ? undefined : (0, TransactionVarianceInfoType_1.TransactionVarianceInfoTypeFromJSON)(json['aBVarianceTotalInfo']),
-        'aFVarianceTotalInfo': !(0, runtime_1.exists)(json, 'aFVarianceTotalInfo') ? undefined : (0, TransactionVarianceInfoType_1.TransactionVarianceInfoTypeFromJSON)(json['aFVarianceTotalInfo']),
+        'aBVarianceTotalInfo': !(0, runtime_1.exists)(json, 'aBVarianceTotalInfo') ? undefined : (json['aBVarianceTotalInfo'].map(MonthlyTransactionVarianceInfoType_1.MonthlyTransactionVarianceInfoTypeFromJSON)),
+        'aFVarianceTotalInfo': !(0, runtime_1.exists)(json, 'aFVarianceTotalInfo') ? undefined : (json['aFVarianceTotalInfo'].map(MonthlyTransactionVarianceInfoType_1.MonthlyTransactionVarianceInfoTypeFromJSON)),
         'actualTotalInfo': !(0, runtime_1.exists)(json, 'actualTotalInfo') ? undefined : (0, TransactionInfoType_1.TransactionInfoTypeFromJSON)(json['actualTotalInfo']),
         'budgetTotalInfo': !(0, runtime_1.exists)(json, 'budgetTotalInfo') ? undefined : (0, TransactionInfoType_1.TransactionInfoTypeFromJSON)(json['budgetTotalInfo']),
-        'fBVarianceTotalInfo': !(0, runtime_1.exists)(json, 'fBVarianceTotalInfo') ? undefined : (0, TransactionVarianceInfoType_1.TransactionVarianceInfoTypeFromJSON)(json['fBVarianceTotalInfo']),
+        'fBVarianceTotalInfo': !(0, runtime_1.exists)(json, 'fBVarianceTotalInfo') ? undefined : (json['fBVarianceTotalInfo'].map(MonthlyTransactionVarianceInfoType_1.MonthlyTransactionVarianceInfoTypeFromJSON)),
         'forecastTotalInfo': !(0, runtime_1.exists)(json, 'forecastTotalInfo') ? undefined : (0, TransactionInfoType_1.TransactionInfoTypeFromJSON)(json['forecastTotalInfo']),
     };
 }
@@ -51,11 +51,11 @@ function TransactionCodeTotalsInformationTypeToJSON(value) {
         return null;
     }
     return {
-        'aBVarianceTotalInfo': (0, TransactionVarianceInfoType_1.TransactionVarianceInfoTypeToJSON)(value.aBVarianceTotalInfo),
-        'aFVarianceTotalInfo': (0, TransactionVarianceInfoType_1.TransactionVarianceInfoTypeToJSON)(value.aFVarianceTotalInfo),
+        'aBVarianceTotalInfo': value.aBVarianceTotalInfo === undefined ? undefined : (value.aBVarianceTotalInfo.map(MonthlyTransactionVarianceInfoType_1.MonthlyTransactionVarianceInfoTypeToJSON)),
+        'aFVarianceTotalInfo': value.aFVarianceTotalInfo === undefined ? undefined : (value.aFVarianceTotalInfo.map(MonthlyTransactionVarianceInfoType_1.MonthlyTransactionVarianceInfoTypeToJSON)),
         'actualTotalInfo': (0, TransactionInfoType_1.TransactionInfoTypeToJSON)(value.actualTotalInfo),
         'budgetTotalInfo': (0, TransactionInfoType_1.TransactionInfoTypeToJSON)(value.budgetTotalInfo),
-        'fBVarianceTotalInfo': (0, TransactionVarianceInfoType_1.TransactionVarianceInfoTypeToJSON)(value.fBVarianceTotalInfo),
+        'fBVarianceTotalInfo': value.fBVarianceTotalInfo === undefined ? undefined : (value.fBVarianceTotalInfo.map(MonthlyTransactionVarianceInfoType_1.MonthlyTransactionVarianceInfoTypeToJSON)),
         'forecastTotalInfo': (0, TransactionInfoType_1.TransactionInfoTypeToJSON)(value.forecastTotalInfo),
     };
 }

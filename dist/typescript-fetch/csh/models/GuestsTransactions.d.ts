@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationFolioInfoType } from './ReservationFolioInfoType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+import type { TrxInfoType } from './TrxInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Lists a summary of transactions of guests.
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface GuestsTransactions {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuestsTransactions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Folio details for the requested reservation/s.
      * @type {Array<ReservationFolioInfoType>}
@@ -32,17 +32,17 @@ export interface GuestsTransactions {
      */
     reservationFolioInformation?: Array<ReservationFolioInfoType>;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof GuestsTransactions
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuestsTransactions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GuestsTransactions interface.

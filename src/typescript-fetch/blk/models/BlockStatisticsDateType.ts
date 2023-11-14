@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockRoomStatisticsListType } from './BlockRoomStatisticsListType';
+import type { BlockRoomStatisticsType } from './BlockRoomStatisticsType';
 import {
-    BlockRoomStatisticsListTypeFromJSON,
-    BlockRoomStatisticsListTypeFromJSONTyped,
-    BlockRoomStatisticsListTypeToJSON,
-} from './BlockRoomStatisticsListType';
+    BlockRoomStatisticsTypeFromJSON,
+    BlockRoomStatisticsTypeFromJSONTyped,
+    BlockRoomStatisticsTypeToJSON,
+} from './BlockRoomStatisticsType';
 
 /**
  * Holds the room type level statistics and total statistics for an allotment date.
@@ -33,11 +33,11 @@ export interface BlockStatisticsDateType {
      */
     date?: Date;
     /**
-     * 
-     * @type {BlockRoomStatisticsListType}
+     * Collection of room type level statistics.
+     * @type {Array<BlockRoomStatisticsType>}
      * @memberof BlockStatisticsDateType
      */
-    roomStatisticsList?: BlockRoomStatisticsListType;
+    roomStatisticsList?: Array<BlockRoomStatisticsType>;
     /**
      * 
      * @type {number}
@@ -66,7 +66,7 @@ export function BlockStatisticsDateTypeFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
-        'roomStatisticsList': !exists(json, 'roomStatisticsList') ? undefined : BlockRoomStatisticsListTypeFromJSON(json['roomStatisticsList']),
+        'roomStatisticsList': !exists(json, 'roomStatisticsList') ? undefined : ((json['roomStatisticsList'] as Array<any>).map(BlockRoomStatisticsTypeFromJSON)),
         'total': !exists(json, 'total') ? undefined : json['total'],
     };
 }
@@ -81,7 +81,7 @@ export function BlockStatisticsDateTypeToJSON(value?: BlockStatisticsDateType | 
     return {
         
         'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
-        'roomStatisticsList': BlockRoomStatisticsListTypeToJSON(value.roomStatisticsList),
+        'roomStatisticsList': value.roomStatisticsList === undefined ? undefined : ((value.roomStatisticsList as Array<any>).map(BlockRoomStatisticsTypeToJSON)),
         'total': value.total,
     };
 }

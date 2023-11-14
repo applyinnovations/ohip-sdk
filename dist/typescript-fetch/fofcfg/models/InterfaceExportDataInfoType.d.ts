@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { InterfaceExportDataDetailsType } from './InterfaceExportDataDetailsType';
+import type { InterfaceExportDataDetailType } from './InterfaceExportDataDetailType';
 /**
  * This type holds the export data of a hotel interface.
  * @export
@@ -17,17 +17,17 @@ import type { InterfaceExportDataDetailsType } from './InterfaceExportDataDetail
  */
 export interface InterfaceExportDataInfoType {
     /**
-     *
-     * @type {InterfaceExportDataDetailsType}
+     * Collection of export data details of a hotel interface.
+     * @type {Array<InterfaceExportDataDetailType>}
      * @memberof InterfaceExportDataInfoType
      */
-    interfaceExportDataDetails?: InterfaceExportDataDetailsType;
+    interfaceExportDataDetails?: Array<InterfaceExportDataDetailType>;
     /**
-     *
-     * @type {InterfaceExportDataDetailsType}
+     * Collection of export data details of a hotel interface.
+     * @type {Array<InterfaceExportDataDetailType>}
      * @memberof InterfaceExportDataInfoType
      */
-    interfaceExportDataMandatoryDetails?: InterfaceExportDataDetailsType;
+    interfaceExportDataMandatoryDetails?: Array<InterfaceExportDataDetailType>;
 }
 /**
  * Check if a given object implements the InterfaceExportDataInfoType interface.

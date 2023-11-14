@@ -18,7 +18,7 @@ const runtime_1 = require("../runtime");
 const AddressInfoType_1 = require("./AddressInfoType");
 const EmailInfoType_1 = require("./EmailInfoType");
 const ExternalProfileSummaryTypeFormerName_1 = require("./ExternalProfileSummaryTypeFormerName");
-const OwnersType_1 = require("./OwnersType");
+const OwnerType_1 = require("./OwnerType");
 const ProfileMembershipType_1 = require("./ProfileMembershipType");
 const ProfileStatusType_1 = require("./ProfileStatusType");
 const ProfileTypeType_1 = require("./ProfileTypeType");
@@ -47,7 +47,7 @@ function ExternalProfileSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
         'emailInfo': !(0, runtime_1.exists)(json, 'emailInfo') ? undefined : (0, EmailInfoType_1.EmailInfoTypeFromJSON)(json['emailInfo']),
         'profileMembership': !(0, runtime_1.exists)(json, 'profileMembership') ? undefined : (0, ProfileMembershipType_1.ProfileMembershipTypeFromJSON)(json['profileMembership']),
         'urlInfo': !(0, runtime_1.exists)(json, 'urlInfo') ? undefined : (0, URLInfoType_1.URLInfoTypeFromJSON)(json['urlInfo']),
-        'owners': !(0, runtime_1.exists)(json, 'owners') ? undefined : (0, OwnersType_1.OwnersTypeFromJSON)(json['owners']),
+        'owners': !(0, runtime_1.exists)(json, 'owners') ? undefined : (json['owners'].map(OwnerType_1.OwnerTypeFromJSON)),
         'profileType': !(0, runtime_1.exists)(json, 'profileType') ? undefined : (0, ProfileTypeType_1.ProfileTypeTypeFromJSON)(json['profileType']),
         'statusCode': !(0, runtime_1.exists)(json, 'statusCode') ? undefined : (0, ProfileStatusType_1.ProfileStatusTypeFromJSON)(json['statusCode']),
         'createDateTime': !(0, runtime_1.exists)(json, 'createDateTime') ? undefined : json['createDateTime'],
@@ -72,7 +72,7 @@ function ExternalProfileSummaryTypeToJSON(value) {
         'emailInfo': (0, EmailInfoType_1.EmailInfoTypeToJSON)(value.emailInfo),
         'profileMembership': (0, ProfileMembershipType_1.ProfileMembershipTypeToJSON)(value.profileMembership),
         'urlInfo': (0, URLInfoType_1.URLInfoTypeToJSON)(value.urlInfo),
-        'owners': (0, OwnersType_1.OwnersTypeToJSON)(value.owners),
+        'owners': value.owners === undefined ? undefined : (value.owners.map(OwnerType_1.OwnerTypeToJSON)),
         'profileType': (0, ProfileTypeType_1.ProfileTypeTypeToJSON)(value.profileType),
         'statusCode': (0, ProfileStatusType_1.ProfileStatusTypeToJSON)(value.statusCode),
         'createDateTime': value.createDateTime,

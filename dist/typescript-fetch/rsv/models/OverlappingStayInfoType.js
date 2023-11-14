@@ -17,7 +17,7 @@ exports.OverlappingStayInfoTypeToJSON = exports.OverlappingStayInfoTypeFromJSONT
 const runtime_1 = require("../runtime");
 const ProfileId_1 = require("./ProfileId");
 const ReservationId_1 = require("./ReservationId");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the OverlappingStayInfoType interface.
  */
@@ -36,7 +36,7 @@ function OverlappingStayInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
-        'excludedReservations': !(0, runtime_1.exists)(json, 'excludedReservations') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['excludedReservations']),
+        'excludedReservations': !(0, runtime_1.exists)(json, 'excludedReservations') ? undefined : (json['excludedReservations'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, ProfileId_1.ProfileIdFromJSON)(json['profileId']),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
@@ -53,7 +53,7 @@ function OverlappingStayInfoTypeToJSON(value) {
     }
     return {
         'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
-        'excludedReservations': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.excludedReservations),
+        'excludedReservations': value.excludedReservations === undefined ? undefined : (value.excludedReservations.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'hotelId': value.hotelId,
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),

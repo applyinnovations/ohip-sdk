@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { PreferenceTypeType } from './PreferenceTypeType';
 import type { ReservationId } from './ReservationId';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Method to change a reservation preference on an existing reservation.
  * @export
@@ -27,10 +27,10 @@ export interface ReservationPreferenceInfo {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationPreferenceInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationId}
@@ -44,11 +44,11 @@ export interface ReservationPreferenceInfo {
      */
     reservationPreferences?: Array<PreferenceTypeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationPreferenceInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationPreferenceInfo interface.

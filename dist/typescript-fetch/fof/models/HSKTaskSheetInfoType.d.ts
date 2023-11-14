@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AssignedTasksType } from './AssignedTasksType';
+import type { AssignedTaskType } from './AssignedTaskType';
 import type { HSKTaskSheetDetailsInfoType } from './HSKTaskSheetDetailsInfoType';
 import type { HSKTaskSheetInfoTypeRoomSummaryInner } from './HSKTaskSheetInfoTypeRoomSummaryInner';
 import type { TaskSheetType } from './TaskSheetType';
@@ -20,11 +20,11 @@ import type { TaskSheetType } from './TaskSheetType';
  */
 export interface HSKTaskSheetInfoType {
     /**
-     *
-     * @type {AssignedTasksType}
+     * Holds the assigned task codes for a tasksheet.
+     * @type {Array<AssignedTaskType>}
      * @memberof HSKTaskSheetInfoType
      */
-    assignedTasks?: AssignedTasksType;
+    assignedTasks?: Array<AssignedTaskType>;
     /**
      *
      * @type {string}

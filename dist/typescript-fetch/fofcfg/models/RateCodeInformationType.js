@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RateCodeInformationTypeToJSON = exports.RateCodeInformationTypeFromJSONTyped = exports.RateCodeInformationTypeFromJSON = exports.instanceOfRateCodeInformationType = void 0;
 const runtime_1 = require("../runtime");
+const MonthlyRevenueNightsVarianceInfoType_1 = require("./MonthlyRevenueNightsVarianceInfoType");
 const RevenueNightsInfoType_1 = require("./RevenueNightsInfoType");
-const RevenueNightsVarianceInfoType_1 = require("./RevenueNightsVarianceInfoType");
 /**
  * Check if a given object implements the RateCodeInformationType interface.
  */
@@ -34,11 +34,11 @@ function RateCodeInformationTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'aBVarianceInfo': !(0, runtime_1.exists)(json, 'aBVarianceInfo') ? undefined : (0, RevenueNightsVarianceInfoType_1.RevenueNightsVarianceInfoTypeFromJSON)(json['aBVarianceInfo']),
-        'aFVarianceInfo': !(0, runtime_1.exists)(json, 'aFVarianceInfo') ? undefined : (0, RevenueNightsVarianceInfoType_1.RevenueNightsVarianceInfoTypeFromJSON)(json['aFVarianceInfo']),
+        'aBVarianceInfo': !(0, runtime_1.exists)(json, 'aBVarianceInfo') ? undefined : (json['aBVarianceInfo'].map(MonthlyRevenueNightsVarianceInfoType_1.MonthlyRevenueNightsVarianceInfoTypeFromJSON)),
+        'aFVarianceInfo': !(0, runtime_1.exists)(json, 'aFVarianceInfo') ? undefined : (json['aFVarianceInfo'].map(MonthlyRevenueNightsVarianceInfoType_1.MonthlyRevenueNightsVarianceInfoTypeFromJSON)),
         'actualRevenueInfo': !(0, runtime_1.exists)(json, 'actualRevenueInfo') ? undefined : (0, RevenueNightsInfoType_1.RevenueNightsInfoTypeFromJSON)(json['actualRevenueInfo']),
         'budgetRevenueInfo': !(0, runtime_1.exists)(json, 'budgetRevenueInfo') ? undefined : (0, RevenueNightsInfoType_1.RevenueNightsInfoTypeFromJSON)(json['budgetRevenueInfo']),
-        'fBVarianceInfo': !(0, runtime_1.exists)(json, 'fBVarianceInfo') ? undefined : (0, RevenueNightsVarianceInfoType_1.RevenueNightsVarianceInfoTypeFromJSON)(json['fBVarianceInfo']),
+        'fBVarianceInfo': !(0, runtime_1.exists)(json, 'fBVarianceInfo') ? undefined : (json['fBVarianceInfo'].map(MonthlyRevenueNightsVarianceInfoType_1.MonthlyRevenueNightsVarianceInfoTypeFromJSON)),
         'forecastRevenueInfo': !(0, runtime_1.exists)(json, 'forecastRevenueInfo') ? undefined : (0, RevenueNightsInfoType_1.RevenueNightsInfoTypeFromJSON)(json['forecastRevenueInfo']),
         'rateCode': !(0, runtime_1.exists)(json, 'rateCode') ? undefined : json['rateCode'],
         'rateCodeDescription': !(0, runtime_1.exists)(json, 'rateCodeDescription') ? undefined : json['rateCodeDescription'],
@@ -53,11 +53,11 @@ function RateCodeInformationTypeToJSON(value) {
         return null;
     }
     return {
-        'aBVarianceInfo': (0, RevenueNightsVarianceInfoType_1.RevenueNightsVarianceInfoTypeToJSON)(value.aBVarianceInfo),
-        'aFVarianceInfo': (0, RevenueNightsVarianceInfoType_1.RevenueNightsVarianceInfoTypeToJSON)(value.aFVarianceInfo),
+        'aBVarianceInfo': value.aBVarianceInfo === undefined ? undefined : (value.aBVarianceInfo.map(MonthlyRevenueNightsVarianceInfoType_1.MonthlyRevenueNightsVarianceInfoTypeToJSON)),
+        'aFVarianceInfo': value.aFVarianceInfo === undefined ? undefined : (value.aFVarianceInfo.map(MonthlyRevenueNightsVarianceInfoType_1.MonthlyRevenueNightsVarianceInfoTypeToJSON)),
         'actualRevenueInfo': (0, RevenueNightsInfoType_1.RevenueNightsInfoTypeToJSON)(value.actualRevenueInfo),
         'budgetRevenueInfo': (0, RevenueNightsInfoType_1.RevenueNightsInfoTypeToJSON)(value.budgetRevenueInfo),
-        'fBVarianceInfo': (0, RevenueNightsVarianceInfoType_1.RevenueNightsVarianceInfoTypeToJSON)(value.fBVarianceInfo),
+        'fBVarianceInfo': value.fBVarianceInfo === undefined ? undefined : (value.fBVarianceInfo.map(MonthlyRevenueNightsVarianceInfoType_1.MonthlyRevenueNightsVarianceInfoTypeToJSON)),
         'forecastRevenueInfo': (0, RevenueNightsInfoType_1.RevenueNightsInfoTypeToJSON)(value.forecastRevenueInfo),
         'rateCode': value.rateCode,
         'rateCodeDescription': value.rateCodeDescription,

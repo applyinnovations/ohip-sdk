@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DailyPlanCodesType } from './DailyPlanCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { DailyPlanCodeType } from './DailyPlanCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface DailyPlanCodes {
     /**
-     *
-     * @type {DailyPlanCodesType}
+     * Details for daily plan code along with associated transaction codes.
+     * @type {Array<DailyPlanCodeType>}
      * @memberof DailyPlanCodes
      */
-    dailyPlanCodes?: DailyPlanCodesType;
+    dailyPlanCodes?: Array<DailyPlanCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DailyPlanCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DailyPlanCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DailyPlanCodes interface.

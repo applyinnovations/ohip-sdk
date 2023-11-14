@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ProfileMembershipType } from './ProfileMembershipType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for change/update membership. This object contains collection of memberships,Success,Warnings and Errors related to this operation
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ChangedMembership {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangedMembership
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Detailed information of membership related to the profile
      * @type {Array<ProfileMembershipType>}
@@ -31,11 +31,11 @@ export interface ChangedMembership {
      */
     profileMemberships?: Array<ProfileMembershipType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangedMembership
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChangedMembership interface.

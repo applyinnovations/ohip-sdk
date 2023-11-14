@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreatePolicyApplicableCodesTypeToJSON = exports.CreatePolicyApplicableCodesTypeFromJSONTyped = exports.CreatePolicyApplicableCodesTypeFromJSON = exports.instanceOfCreatePolicyApplicableCodesType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CreatePolicyApplicableCodesType interface.
@@ -36,10 +35,10 @@ function CreatePolicyApplicableCodesTypeFromJSONTyped(json, ignoreDiscriminator)
     return {
         'blockCode': !(0, runtime_1.exists)(json, 'blockCode') ? undefined : json['blockCode'],
         'blockId': !(0, runtime_1.exists)(json, 'blockId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['blockId']),
-        'creditRatings': !(0, runtime_1.exists)(json, 'creditRatings') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['creditRatings']),
-        'guaranteeCodes': !(0, runtime_1.exists)(json, 'guaranteeCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['guaranteeCodes']),
+        'creditRatings': !(0, runtime_1.exists)(json, 'creditRatings') ? undefined : json['creditRatings'],
+        'guaranteeCodes': !(0, runtime_1.exists)(json, 'guaranteeCodes') ? undefined : json['guaranteeCodes'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'ratePlanCodes': !(0, runtime_1.exists)(json, 'ratePlanCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['ratePlanCodes']),
+        'ratePlanCodes': !(0, runtime_1.exists)(json, 'ratePlanCodes') ? undefined : json['ratePlanCodes'],
         'seasonCode': !(0, runtime_1.exists)(json, 'seasonCode') ? undefined : json['seasonCode'],
     };
 }
@@ -54,10 +53,10 @@ function CreatePolicyApplicableCodesTypeToJSON(value) {
     return {
         'blockCode': value.blockCode,
         'blockId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.blockId),
-        'creditRatings': (0, CodeListType_1.CodeListTypeToJSON)(value.creditRatings),
-        'guaranteeCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.guaranteeCodes),
+        'creditRatings': value.creditRatings,
+        'guaranteeCodes': value.guaranteeCodes,
         'hotelId': value.hotelId,
-        'ratePlanCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.ratePlanCodes),
+        'ratePlanCodes': value.ratePlanCodes,
         'seasonCode': value.seasonCode,
     };
 }

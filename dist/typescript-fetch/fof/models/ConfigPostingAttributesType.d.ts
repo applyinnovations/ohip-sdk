@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FunctionArgumentsType } from './FunctionArgumentsType';
+import type { FunctionArgumentType } from './FunctionArgumentType';
 import type { PackageCalculationRuleType } from './PackageCalculationRuleType';
 import type { PackagePostingRhythmType } from './PackagePostingRhythmType';
 import type { PkgInventoryItemType } from './PkgInventoryItemType';
@@ -62,11 +62,11 @@ export interface ConfigPostingAttributesType {
      */
     formula?: string;
     /**
-     *
-     * @type {FunctionArgumentsType}
+     * Collection of function arguments and their corresponding values.
+     * @type {Array<FunctionArgumentType>}
      * @memberof ConfigPostingAttributesType
      */
-    formulaFunctionArguments?: FunctionArgumentsType;
+    formulaFunctionArguments?: Array<FunctionArgumentType>;
     /**
      * The custom formula function name used for this package, if any.
      * @type {string}

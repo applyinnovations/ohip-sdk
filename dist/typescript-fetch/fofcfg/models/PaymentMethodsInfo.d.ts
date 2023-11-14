@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { PaymentMethodsType } from './PaymentMethodsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { PaymentMethodType } from './PaymentMethodType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -38,10 +38,10 @@ export interface PaymentMethodsInfo {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PaymentMethodsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -49,11 +49,11 @@ export interface PaymentMethodsInfo {
      */
     offset?: number;
     /**
-     *
-     * @type {PaymentMethodsType}
+     * Holds the various types of payment methods.
+     * @type {Array<PaymentMethodType>}
      * @memberof PaymentMethodsInfo
      */
-    paymentMethods?: PaymentMethodsType;
+    paymentMethods?: Array<PaymentMethodType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -67,11 +67,11 @@ export interface PaymentMethodsInfo {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PaymentMethodsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PaymentMethodsInfo interface.

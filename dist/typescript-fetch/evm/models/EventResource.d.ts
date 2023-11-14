@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { EventResourceDetailType } from './EventResourceDetailType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Object containing event resource details.
  * @export
@@ -26,16 +26,16 @@ export interface EventResource {
     eventResourceDetails?: EventResourceDetailType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EventResource
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EventResource
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the EventResource interface.

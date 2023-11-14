@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ProfileIdList } from './ProfileIdList';
-import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
 import type { ProfileType } from './ProfileType';
 import {
     ProfileTypeFromJSON,
@@ -31,6 +25,12 @@ import {
     ResProfileTypeTypeFromJSONTyped,
     ResProfileTypeTypeToJSON,
 } from './ResProfileTypeType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -45,11 +45,11 @@ export interface ReservationProfileType {
      */
     profile?: ProfileType;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ReservationProfileType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {ResProfileTypeType}
@@ -78,7 +78,7 @@ export function ReservationProfileTypeFromJSONTyped(json: any, ignoreDiscriminat
     return {
         
         'profile': !exists(json, 'profile') ? undefined : ProfileTypeFromJSON(json['profile']),
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'reservationProfileType': !exists(json, 'reservationProfileType') ? undefined : ResProfileTypeTypeFromJSON(json['reservationProfileType']),
     };
 }
@@ -93,7 +93,7 @@ export function ReservationProfileTypeToJSON(value?: ReservationProfileType | nu
     return {
         
         'profile': ProfileTypeToJSON(value.profile),
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'reservationProfileType': ResProfileTypeTypeToJSON(value.reservationProfileType),
     };
 }

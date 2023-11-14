@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RoomFeaturesType } from './RoomFeaturesType';
+import type { RoomFeatureType } from './RoomFeatureType';
 /**
  * Basic information of room type.
  * @export
@@ -65,11 +65,11 @@ export interface RoomTypeShortInfoType {
      */
     roomClass?: string;
     /**
-     *
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof RoomTypeShortInfoType
      */
-    roomFeatures?: RoomFeaturesType;
+    roomFeatures?: Array<RoomFeatureType>;
     /**
      * Room type of the room.
      * @type {string}

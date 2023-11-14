@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ReservationsForCCAuthType } from './ReservationsForCCAuthType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ReservationForCCAuthType } from './ReservationForCCAuthType';
 import {
-    ReservationsForCCAuthTypeFromJSON,
-    ReservationsForCCAuthTypeFromJSONTyped,
-    ReservationsForCCAuthTypeToJSON,
-} from './ReservationsForCCAuthType';
-import type { WarningsType } from './WarningsType';
+    ReservationForCCAuthTypeFromJSON,
+    ReservationForCCAuthTypeFromJSONTyped,
+    ReservationForCCAuthTypeToJSON,
+} from './ReservationForCCAuthType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to start a batch job that will process a list of reservation, and their associated payment methods, that require credit card authorizations.
@@ -46,22 +46,22 @@ export interface BatchCCAuth {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BatchCCAuth
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ReservationsForCCAuthType}
+     * List of reservations with their payment methods.
+     * @type {Array<ReservationForCCAuthType>}
      * @memberof BatchCCAuth
      */
-    reservations?: ReservationsForCCAuthType;
+    reservations?: Array<ReservationForCCAuthType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BatchCCAuth
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -84,9 +84,9 @@ export function BatchCCAuthFromJSONTyped(json: any, ignoreDiscriminator: boolean
     return {
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'reservations': !exists(json, 'reservations') ? undefined : ReservationsForCCAuthTypeFromJSON(json['reservations']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'reservations': !exists(json, 'reservations') ? undefined : ((json['reservations'] as Array<any>).map(ReservationForCCAuthTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -100,9 +100,9 @@ export function BatchCCAuthToJSON(value?: BatchCCAuth | null): any {
     return {
         
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
-        'reservations': ReservationsForCCAuthTypeToJSON(value.reservations),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'reservations': value.reservations === undefined ? undefined : ((value.reservations as Array<any>).map(ReservationForCCAuthTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

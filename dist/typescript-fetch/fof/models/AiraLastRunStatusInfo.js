@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AiraLastRunStatusInfoToJSON = exports.AiraLastRunStatusInfoFromJSONTyped = exports.AiraLastRunStatusInfoFromJSON = exports.instanceOfAiraLastRunStatusInfo = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AiraLastRunStatusInfo interface.
  */
@@ -36,9 +36,9 @@ function AiraLastRunStatusInfoFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'actionValue': !(0, runtime_1.exists)(json, 'actionValue') ? undefined : json['actionValue'],
         'insertDate': !(0, runtime_1.exists)(json, 'insertDate') ? undefined : json['insertDate'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'updateDate': !(0, runtime_1.exists)(json, 'updateDate') ? undefined : json['updateDate'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AiraLastRunStatusInfoFromJSONTyped = AiraLastRunStatusInfoFromJSONTyped;
@@ -52,9 +52,9 @@ function AiraLastRunStatusInfoToJSON(value) {
     return {
         'actionValue': value.actionValue,
         'insertDate': value.insertDate,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'updateDate': value.updateDate,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AiraLastRunStatusInfoToJSON = AiraLastRunStatusInfoToJSON;

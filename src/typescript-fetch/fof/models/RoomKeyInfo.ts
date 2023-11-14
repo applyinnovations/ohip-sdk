@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomKeysInfoListType } from './RoomKeysInfoListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomKeyInfoType } from './RoomKeyInfoType';
 import {
-    RoomKeysInfoListTypeFromJSON,
-    RoomKeysInfoListTypeFromJSONTyped,
-    RoomKeysInfoListTypeToJSON,
-} from './RoomKeysInfoListType';
-import type { WarningsType } from './WarningsType';
+    RoomKeyInfoTypeFromJSON,
+    RoomKeyInfoTypeFromJSONTyped,
+    RoomKeyInfoTypeToJSON,
+} from './RoomKeyInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response of fetch room keys operation.
@@ -46,16 +46,16 @@ export interface RoomKeyInfo {
     incidentalLimit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomKeyInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RoomKeysInfoListType}
+     * Contains details of Room key.
+     * @type {Array<RoomKeyInfoType>}
      * @memberof RoomKeyInfo
      */
-    roomKeysInfoList?: RoomKeysInfoListType;
+    roomKeysInfoList?: Array<RoomKeyInfoType>;
     /**
      * Total Authorization on a reservation.
      * @type {number}
@@ -63,11 +63,11 @@ export interface RoomKeyInfo {
      */
     totalAuthorization?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomKeyInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -90,10 +90,10 @@ export function RoomKeyInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean
     return {
         
         'incidentalLimit': !exists(json, 'incidentalLimit') ? undefined : json['incidentalLimit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'roomKeysInfoList': !exists(json, 'roomKeysInfoList') ? undefined : RoomKeysInfoListTypeFromJSON(json['roomKeysInfoList']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'roomKeysInfoList': !exists(json, 'roomKeysInfoList') ? undefined : ((json['roomKeysInfoList'] as Array<any>).map(RoomKeyInfoTypeFromJSON)),
         'totalAuthorization': !exists(json, 'totalAuthorization') ? undefined : json['totalAuthorization'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -107,10 +107,10 @@ export function RoomKeyInfoToJSON(value?: RoomKeyInfo | null): any {
     return {
         
         'incidentalLimit': value.incidentalLimit,
-        'links': LinksToJSON(value.links),
-        'roomKeysInfoList': RoomKeysInfoListTypeToJSON(value.roomKeysInfoList),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'roomKeysInfoList': value.roomKeysInfoList === undefined ? undefined : ((value.roomKeysInfoList as Array<any>).map(RoomKeyInfoTypeToJSON)),
         'totalAuthorization': value.totalAuthorization,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

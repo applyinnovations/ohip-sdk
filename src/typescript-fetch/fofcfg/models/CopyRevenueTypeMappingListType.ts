@@ -19,12 +19,6 @@ import {
     CateringOnlyTypeFromJSONTyped,
     CateringOnlyTypeToJSON,
 } from './CateringOnlyType';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -46,10 +40,10 @@ export interface CopyRevenueTypeMappingListType {
     cateringOnly?: CateringOnlyType;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyRevenueTypeMappingListType
      */
-    eventList?: CodeListType;
+    eventList?: Array<string>;
     /**
      * Provides information about the Event Type.
      * @type {string}
@@ -118,10 +112,10 @@ export interface CopyRevenueTypeMappingListType {
     space?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyRevenueTypeMappingListType
      */
-    spaceList?: CodeListType;
+    spaceList?: Array<string>;
     /**
      * Transaction code for the Revenue Type.
      * @type {string}
@@ -150,7 +144,7 @@ export function CopyRevenueTypeMappingListTypeFromJSONTyped(json: any, ignoreDis
     return {
         
         'cateringOnly': !exists(json, 'cateringOnly') ? undefined : CateringOnlyTypeFromJSON(json['cateringOnly']),
-        'eventList': !exists(json, 'eventList') ? undefined : CodeListTypeFromJSON(json['eventList']),
+        'eventList': !exists(json, 'eventList') ? undefined : json['eventList'],
         'eventType': !exists(json, 'eventType') ? undefined : json['eventType'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'isCateringOnly': !exists(json, 'isCateringOnly') ? undefined : json['isCateringOnly'],
@@ -162,7 +156,7 @@ export function CopyRevenueTypeMappingListTypeFromJSONTyped(json: any, ignoreDis
         'serviceChargeCalulationMethod': !exists(json, 'serviceChargeCalulationMethod') ? undefined : json['serviceChargeCalulationMethod'],
         'serviceChargeTrxCode': !exists(json, 'serviceChargeTrxCode') ? undefined : json['serviceChargeTrxCode'],
         'space': !exists(json, 'space') ? undefined : json['space'],
-        'spaceList': !exists(json, 'spaceList') ? undefined : CodeListTypeFromJSON(json['spaceList']),
+        'spaceList': !exists(json, 'spaceList') ? undefined : json['spaceList'],
         'transactionCode': !exists(json, 'transactionCode') ? undefined : json['transactionCode'],
     };
 }
@@ -177,7 +171,7 @@ export function CopyRevenueTypeMappingListTypeToJSON(value?: CopyRevenueTypeMapp
     return {
         
         'cateringOnly': CateringOnlyTypeToJSON(value.cateringOnly),
-        'eventList': CodeListTypeToJSON(value.eventList),
+        'eventList': value.eventList,
         'eventType': value.eventType,
         'hotelId': value.hotelId,
         'isCateringOnly': value.isCateringOnly,
@@ -189,7 +183,7 @@ export function CopyRevenueTypeMappingListTypeToJSON(value?: CopyRevenueTypeMapp
         'serviceChargeCalulationMethod': value.serviceChargeCalulationMethod,
         'serviceChargeTrxCode': value.serviceChargeTrxCode,
         'space': value.space,
-        'spaceList': CodeListTypeToJSON(value.spaceList),
+        'spaceList': value.spaceList,
         'transactionCode': value.transactionCode,
     };
 }

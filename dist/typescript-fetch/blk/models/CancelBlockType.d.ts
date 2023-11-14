@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockIdList } from './BlockIdList';
 import type { CancellationDetailsType } from './CancellationDetailsType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * ID information of the cancelled Block.
  * @export
@@ -18,11 +18,11 @@ import type { CancellationDetailsType } from './CancellationDetailsType';
  */
 export interface CancelBlockType {
     /**
-     *
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CancelBlockType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {CancellationDetailsType}

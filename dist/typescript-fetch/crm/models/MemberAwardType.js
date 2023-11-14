@@ -15,11 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MemberAwardTypeToJSON = exports.MemberAwardTypeFromJSONTyped = exports.MemberAwardTypeFromJSON = exports.instanceOfMemberAwardType = void 0;
 const runtime_1 = require("../runtime");
-const MemberAwardDetailsType_1 = require("./MemberAwardDetailsType");
+const MemberAwardDetailType_1 = require("./MemberAwardDetailType");
 const MemberAwardProcessType_1 = require("./MemberAwardProcessType");
-const ProfileIdList_1 = require("./ProfileIdList");
-const ReservationIdList_1 = require("./ReservationIdList");
 const TimeSpanType_1 = require("./TimeSpanType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the MemberAwardType interface.
  */
@@ -44,14 +43,14 @@ function MemberAwardTypeFromJSONTyped(json, ignoreDiscriminator) {
         'cancelPointsReturn': !(0, runtime_1.exists)(json, 'cancelPointsReturn') ? undefined : json['cancelPointsReturn'],
         'expiryPoints': !(0, runtime_1.exists)(json, 'expiryPoints') ? undefined : json['expiryPoints'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'memberAwardDetails': !(0, runtime_1.exists)(json, 'memberAwardDetails') ? undefined : (0, MemberAwardDetailsType_1.MemberAwardDetailsTypeFromJSON)(json['memberAwardDetails']),
+        'memberAwardDetails': !(0, runtime_1.exists)(json, 'memberAwardDetails') ? undefined : (json['memberAwardDetails'].map(MemberAwardDetailType_1.MemberAwardDetailTypeFromJSON)),
         'memberPointsAfter': !(0, runtime_1.exists)(json, 'memberPointsAfter') ? undefined : json['memberPointsAfter'],
         'memberPointsBefore': !(0, runtime_1.exists)(json, 'memberPointsBefore') ? undefined : json['memberPointsBefore'],
         'membershipCardNo': !(0, runtime_1.exists)(json, 'membershipCardNo') ? undefined : json['membershipCardNo'],
         'membershipLevel': !(0, runtime_1.exists)(json, 'membershipLevel') ? undefined : json['membershipLevel'],
         'membershipType': !(0, runtime_1.exists)(json, 'membershipType') ? undefined : json['membershipType'],
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'reservationTimeSpan': !(0, runtime_1.exists)(json, 'reservationTimeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['reservationTimeSpan']),
         'sourceCode': !(0, runtime_1.exists)(json, 'sourceCode') ? undefined : json['sourceCode'],
     };
@@ -72,14 +71,14 @@ function MemberAwardTypeToJSON(value) {
         'cancelPointsReturn': value.cancelPointsReturn,
         'expiryPoints': value.expiryPoints,
         'hotelId': value.hotelId,
-        'memberAwardDetails': (0, MemberAwardDetailsType_1.MemberAwardDetailsTypeToJSON)(value.memberAwardDetails),
+        'memberAwardDetails': value.memberAwardDetails === undefined ? undefined : (value.memberAwardDetails.map(MemberAwardDetailType_1.MemberAwardDetailTypeToJSON)),
         'memberPointsAfter': value.memberPointsAfter,
         'memberPointsBefore': value.memberPointsBefore,
         'membershipCardNo': value.membershipCardNo,
         'membershipLevel': value.membershipLevel,
         'membershipType': value.membershipType,
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'reservationTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.reservationTimeSpan),
         'sourceCode': value.sourceCode,
     };

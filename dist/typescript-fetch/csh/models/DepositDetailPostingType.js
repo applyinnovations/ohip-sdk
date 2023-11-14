@@ -26,9 +26,9 @@ const PostingGroupType_1 = require("./PostingGroupType");
 const ReceiptSummaryType_1 = require("./ReceiptSummaryType");
 const ResDepositPolicyType_1 = require("./ResDepositPolicyType");
 const ReservationPaymentMethodType_1 = require("./ReservationPaymentMethodType");
-const SummaryPostingsType_1 = require("./SummaryPostingsType");
+const SummaryPostingType_1 = require("./SummaryPostingType");
 const TransactionCurrencyExchangeInfoType_1 = require("./TransactionCurrencyExchangeInfoType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the DepositDetailPostingType interface.
  */
@@ -66,7 +66,7 @@ function DepositDetailPostingTypeFromJSONTyped(json, ignoreDiscriminator) {
         'depositTransactionId': !(0, runtime_1.exists)(json, 'depositTransactionId') ? undefined : json['depositTransactionId'],
         'exchange': !(0, runtime_1.exists)(json, 'exchange') ? undefined : (0, ExchangeAmounts_1.ExchangeAmountsFromJSON)(json['exchange']),
         'fbaCertificate': !(0, runtime_1.exists)(json, 'fbaCertificate') ? undefined : json['fbaCertificate'],
-        'financialTransactionIdList': !(0, runtime_1.exists)(json, 'financialTransactionIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['financialTransactionIdList']),
+        'financialTransactionIdList': !(0, runtime_1.exists)(json, 'financialTransactionIdList') ? undefined : (json['financialTransactionIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'folioNo': !(0, runtime_1.exists)(json, 'folioNo') ? undefined : json['folioNo'],
         'folioTypeName': !(0, runtime_1.exists)(json, 'folioTypeName') ? undefined : json['folioTypeName'],
         'groupTypeInfo': !(0, runtime_1.exists)(json, 'groupTypeInfo') ? undefined : (0, PostingGroupType_1.PostingGroupTypeFromJSON)(json['groupTypeInfo']),
@@ -89,7 +89,7 @@ function DepositDetailPostingTypeFromJSONTyped(json, ignoreDiscriminator) {
         'roundingDifferenceTrx': !(0, runtime_1.exists)(json, 'roundingDifferenceTrx') ? undefined : json['roundingDifferenceTrx'],
         'serviceRecovery': !(0, runtime_1.exists)(json, 'serviceRecovery') ? undefined : json['serviceRecovery'],
         'stampDuty': !(0, runtime_1.exists)(json, 'stampDuty') ? undefined : json['stampDuty'],
-        'subPostings': !(0, runtime_1.exists)(json, 'subPostings') ? undefined : (0, SummaryPostingsType_1.SummaryPostingsTypeFromJSON)(json['subPostings']),
+        'subPostings': !(0, runtime_1.exists)(json, 'subPostings') ? undefined : (json['subPostings'].map(SummaryPostingType_1.SummaryPostingTypeFromJSON)),
         'taxInvoiceNo': !(0, runtime_1.exists)(json, 'taxInvoiceNo') ? undefined : json['taxInvoiceNo'],
         'transactionAmount': !(0, runtime_1.exists)(json, 'transactionAmount') ? undefined : json['transactionAmount'],
         'transactionCode': !(0, runtime_1.exists)(json, 'transactionCode') ? undefined : json['transactionCode'],
@@ -130,7 +130,7 @@ function DepositDetailPostingTypeToJSON(value) {
         'depositTransactionId': value.depositTransactionId,
         'exchange': (0, ExchangeAmounts_1.ExchangeAmountsToJSON)(value.exchange),
         'fbaCertificate': value.fbaCertificate,
-        'financialTransactionIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.financialTransactionIdList),
+        'financialTransactionIdList': value.financialTransactionIdList === undefined ? undefined : (value.financialTransactionIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'folioNo': value.folioNo,
         'folioTypeName': value.folioTypeName,
         'groupTypeInfo': (0, PostingGroupType_1.PostingGroupTypeToJSON)(value.groupTypeInfo),
@@ -153,7 +153,7 @@ function DepositDetailPostingTypeToJSON(value) {
         'roundingDifferenceTrx': value.roundingDifferenceTrx,
         'serviceRecovery': value.serviceRecovery,
         'stampDuty': value.stampDuty,
-        'subPostings': (0, SummaryPostingsType_1.SummaryPostingsTypeToJSON)(value.subPostings),
+        'subPostings': value.subPostings === undefined ? undefined : (value.subPostings.map(SummaryPostingType_1.SummaryPostingTypeToJSON)),
         'taxInvoiceNo': value.taxInvoiceNo,
         'transactionAmount': value.transactionAmount,
         'transactionCode': value.transactionCode,

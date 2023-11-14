@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EffectiveRatesType } from './EffectiveRatesType';
+import type { EffectiveRateType } from './EffectiveRateType';
 /**
  * Instruction to apply new effective rates to the reservations.
  * @export
@@ -17,11 +17,11 @@ import type { EffectiveRatesType } from './EffectiveRatesType';
  */
 export interface ChangeShareRateAmountTypeChangeShareRateInstructions {
     /**
-     *
-     * @type {EffectiveRatesType}
+     * Collection of effective rate amount per guest on specific dates.
+     * @type {Array<EffectiveRateType>}
      * @memberof ChangeShareRateAmountTypeChangeShareRateInstructions
      */
-    effectiveRates?: EffectiveRatesType;
+    effectiveRates?: Array<EffectiveRateType>;
     /**
      * After the change rate operation, return the new list of Sharer Reservaitions.
      * @type {boolean}

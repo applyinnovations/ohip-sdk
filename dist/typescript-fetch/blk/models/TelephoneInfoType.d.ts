@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { TelephoneType } from './TelephoneType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Information on a telephone number for the customer.
  * @export
@@ -42,11 +42,11 @@ export interface TelephoneInfoType {
      */
     type?: string;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TelephoneInfoType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TelephoneInfoType interface.

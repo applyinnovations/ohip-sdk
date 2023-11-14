@@ -16,9 +16,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.LeadInfoTypeToJSON = exports.LeadInfoTypeFromJSONTyped = exports.LeadInfoTypeFromJSON = exports.instanceOfLeadInfoType = void 0;
 const runtime_1 = require("../runtime");
 const BlockClassificationType_1 = require("./BlockClassificationType");
-const BlockIdList_1 = require("./BlockIdList");
 const BookingStatusType_1 = require("./BookingStatusType");
 const TimeSpanType_1 = require("./TimeSpanType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the LeadInfoType interface.
  */
@@ -36,7 +36,7 @@ function LeadInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (0, BlockIdList_1.BlockIdListFromJSON)(json['blockIdList']),
+        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'blockName': !(0, runtime_1.exists)(json, 'blockName') ? undefined : json['blockName'],
         'blockStatus': !(0, runtime_1.exists)(json, 'blockStatus') ? undefined : (0, BookingStatusType_1.BookingStatusTypeFromJSON)(json['blockStatus']),
         'blockType': !(0, runtime_1.exists)(json, 'blockType') ? undefined : (0, BlockClassificationType_1.BlockClassificationTypeFromJSON)(json['blockType']),
@@ -56,7 +56,7 @@ function LeadInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'blockIdList': (0, BlockIdList_1.BlockIdListToJSON)(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'blockName': value.blockName,
         'blockStatus': (0, BookingStatusType_1.BookingStatusTypeToJSON)(value.blockStatus),
         'blockType': (0, BlockClassificationType_1.BlockClassificationTypeToJSON)(value.blockType),

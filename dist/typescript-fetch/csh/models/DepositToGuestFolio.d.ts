@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { PostDepositToGuestFolioType } from './PostDepositToGuestFolioType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to post an existing deposit on a reservation to the Guest Folio for No Show or Canceled Reservations. Deposits remain in the deposit ledger until Checkin/Checkout. In the case of No Show or Canceled reservations they remain in the deposit ledger until this request is done.
  * @export
@@ -26,16 +26,16 @@ export interface DepositToGuestFolio {
     criteria?: PostDepositToGuestFolioType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DepositToGuestFolio
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DepositToGuestFolio
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DepositToGuestFolio interface.

@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FiscalPartnersType } from './FiscalPartnersType';
-import type { WarningsType } from './WarningsType';
+import type { FiscalPartnerType } from './FiscalPartnerType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to edit Fiscal Partners.
  * @export
@@ -18,17 +18,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ChangeFiscalPartners {
     /**
-     *
-     * @type {FiscalPartnersType}
+     * Details of Fiscal Partners.
+     * @type {Array<FiscalPartnerType>}
      * @memberof ChangeFiscalPartners
      */
-    fiscalPartners?: FiscalPartnersType;
+    fiscalPartners?: Array<FiscalPartnerType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeFiscalPartners
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChangeFiscalPartners interface.

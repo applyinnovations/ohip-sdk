@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ReservationDepositFoliosInfoType } from './ReservationDepositFoliosInfoType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ReservationDepositFolioInfoType } from './ReservationDepositFolioInfoType';
 import {
-    ReservationDepositFoliosInfoTypeFromJSON,
-    ReservationDepositFoliosInfoTypeFromJSONTyped,
-    ReservationDepositFoliosInfoTypeToJSON,
-} from './ReservationDepositFoliosInfoType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+    ReservationDepositFolioInfoTypeFromJSON,
+    ReservationDepositFolioInfoTypeFromJSONTyped,
+    ReservationDepositFolioInfoTypeToJSON,
+} from './ReservationDepositFolioInfoType';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Deposit Posting Information for a reservation. Contains all deposit payments made for a reservation.
@@ -46,28 +46,28 @@ import {
 export interface ReservationDepositFolios {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationDepositFolios
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ReservationDepositFoliosInfoType}
+     * Detailed information of a reservation and its deposit payment posting information.
+     * @type {Array<ReservationDepositFolioInfoType>}
      * @memberof ReservationDepositFolios
      */
-    reservationDepositFoliosInfo?: ReservationDepositFoliosInfoType;
+    reservationDepositFoliosInfo?: Array<ReservationDepositFolioInfoType>;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof ReservationDepositFolios
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationDepositFolios
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function ReservationDepositFoliosFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'reservationDepositFoliosInfo': !exists(json, 'reservationDepositFoliosInfo') ? undefined : ReservationDepositFoliosInfoTypeFromJSON(json['reservationDepositFoliosInfo']),
-        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : TrxCodesInfoTypeFromJSON(json['trxCodesInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'reservationDepositFoliosInfo': !exists(json, 'reservationDepositFoliosInfo') ? undefined : ((json['reservationDepositFoliosInfo'] as Array<any>).map(ReservationDepositFolioInfoTypeFromJSON)),
+        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : ((json['trxCodesInfo'] as Array<any>).map(TrxInfoTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function ReservationDepositFoliosToJSON(value?: ReservationDepositFolios 
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'reservationDepositFoliosInfo': ReservationDepositFoliosInfoTypeToJSON(value.reservationDepositFoliosInfo),
-        'trxCodesInfo': TrxCodesInfoTypeToJSON(value.trxCodesInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'reservationDepositFoliosInfo': value.reservationDepositFoliosInfo === undefined ? undefined : ((value.reservationDepositFoliosInfo as Array<any>).map(ReservationDepositFolioInfoTypeToJSON)),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : ((value.trxCodesInfo as Array<any>).map(TrxInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

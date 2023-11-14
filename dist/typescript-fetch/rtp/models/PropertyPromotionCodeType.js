@@ -17,7 +17,7 @@ exports.PropertyPromotionCodeTypeToJSON = exports.PropertyPromotionCodeTypeFromJ
 const runtime_1 = require("../runtime");
 const PromoCodeRoutingInstructionType_1 = require("./PromoCodeRoutingInstructionType");
 const PromotionCodeDetailsType_1 = require("./PromotionCodeDetailsType");
-const PropertyPromotionRateCodesType_1 = require("./PropertyPromotionRateCodesType");
+const PropertyPromotionRateCodeType_1 = require("./PropertyPromotionRateCodeType");
 /**
  * Check if a given object implements the PropertyPromotionCodeType interface.
  */
@@ -39,7 +39,7 @@ function PropertyPromotionCodeTypeFromJSONTyped(json, ignoreDiscriminator) {
         'promoCodeRoutingInstruction': !(0, runtime_1.exists)(json, 'promoCodeRoutingInstruction') ? undefined : (0, PromoCodeRoutingInstructionType_1.PromoCodeRoutingInstructionTypeFromJSON)(json['promoCodeRoutingInstruction']),
         'promotionCode': !(0, runtime_1.exists)(json, 'promotionCode') ? undefined : json['promotionCode'],
         'promotionCodeDetails': !(0, runtime_1.exists)(json, 'promotionCodeDetails') ? undefined : (0, PromotionCodeDetailsType_1.PromotionCodeDetailsTypeFromJSON)(json['promotionCodeDetails']),
-        'propertyPromotionRateCodes': !(0, runtime_1.exists)(json, 'propertyPromotionRateCodes') ? undefined : (0, PropertyPromotionRateCodesType_1.PropertyPromotionRateCodesTypeFromJSON)(json['propertyPromotionRateCodes']),
+        'propertyPromotionRateCodes': !(0, runtime_1.exists)(json, 'propertyPromotionRateCodes') ? undefined : (json['propertyPromotionRateCodes'].map(PropertyPromotionRateCodeType_1.PropertyPromotionRateCodeTypeFromJSON)),
     };
 }
 exports.PropertyPromotionCodeTypeFromJSONTyped = PropertyPromotionCodeTypeFromJSONTyped;
@@ -55,7 +55,7 @@ function PropertyPromotionCodeTypeToJSON(value) {
         'promoCodeRoutingInstruction': (0, PromoCodeRoutingInstructionType_1.PromoCodeRoutingInstructionTypeToJSON)(value.promoCodeRoutingInstruction),
         'promotionCode': value.promotionCode,
         'promotionCodeDetails': (0, PromotionCodeDetailsType_1.PromotionCodeDetailsTypeToJSON)(value.promotionCodeDetails),
-        'propertyPromotionRateCodes': (0, PropertyPromotionRateCodesType_1.PropertyPromotionRateCodesTypeToJSON)(value.propertyPromotionRateCodes),
+        'propertyPromotionRateCodes': value.propertyPromotionRateCodes === undefined ? undefined : (value.propertyPromotionRateCodes.map(PropertyPromotionRateCodeType_1.PropertyPromotionRateCodeTypeToJSON)),
     };
 }
 exports.PropertyPromotionCodeTypeToJSON = PropertyPromotionCodeTypeToJSON;

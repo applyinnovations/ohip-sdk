@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ARAccountTypesType } from './ARAccountTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ARAccountTypeType } from './ARAccountTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing account types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ArAccountTypes {
     /**
-     *
-     * @type {ARAccountTypesType}
+     * Holds collection of account types
+     * @type {Array<ARAccountTypeType>}
      * @memberof ArAccountTypes
      */
-    accountTypes?: ARAccountTypesType;
+    accountTypes?: Array<ARAccountTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ArAccountTypes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ArAccountTypes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ArAccountTypes interface.

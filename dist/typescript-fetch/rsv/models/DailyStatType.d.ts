@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockStatsType } from './BlockStatsType';
+import type { BlockStatType } from './BlockStatType';
 /**
  * Statistics of one day.
  * @export
@@ -17,11 +17,11 @@ import type { BlockStatsType } from './BlockStatsType';
  */
 export interface DailyStatType {
     /**
-     *
-     * @type {BlockStatsType}
+     * Statistics of one block.
+     * @type {Array<BlockStatType>}
      * @memberof DailyStatType
      */
-    blockStats?: BlockStatsType;
+    blockStats?: Array<BlockStatType>;
     /**
      * Date of statistics.
      * @type {Date}

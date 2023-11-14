@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RoomRepairOutOfOrderCriteria } from './RoomRepairOutOfOrderCriteria';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -26,16 +26,16 @@ export interface RoomRepairOutOfOrder {
     criteria?: RoomRepairOutOfOrderCriteria;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomRepairOutOfOrder
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomRepairOutOfOrder
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomRepairOutOfOrder interface.

@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OpportunityEventInfoTypeToJSON = exports.OpportunityEventInfoTypeFromJSONTyped = exports.OpportunityEventInfoTypeFromJSON = exports.instanceOfOpportunityEventInfoType = void 0;
 const runtime_1 = require("../runtime");
-const EventNotesType_1 = require("./EventNotesType");
+const EventNoteType_1 = require("./EventNoteType");
 const OpportunityEventDetailType_1 = require("./OpportunityEventDetailType");
 /**
  * Check if a given object implements the OpportunityEventInfoType interface.
@@ -34,7 +34,7 @@ function OpportunityEventInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'eventNotes': !(0, runtime_1.exists)(json, 'eventNotes') ? undefined : (0, EventNotesType_1.EventNotesTypeFromJSON)(json['eventNotes']),
+        'eventNotes': !(0, runtime_1.exists)(json, 'eventNotes') ? undefined : (json['eventNotes'].map(EventNoteType_1.EventNoteTypeFromJSON)),
         'opportunityEventDetail': !(0, runtime_1.exists)(json, 'opportunityEventDetail') ? undefined : (0, OpportunityEventDetailType_1.OpportunityEventDetailTypeFromJSON)(json['opportunityEventDetail']),
     };
 }
@@ -47,7 +47,7 @@ function OpportunityEventInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'eventNotes': (0, EventNotesType_1.EventNotesTypeToJSON)(value.eventNotes),
+        'eventNotes': value.eventNotes === undefined ? undefined : (value.eventNotes.map(EventNoteType_1.EventNoteTypeToJSON)),
         'opportunityEventDetail': (0, OpportunityEventDetailType_1.OpportunityEventDetailTypeToJSON)(value.opportunityEventDetail),
     };
 }

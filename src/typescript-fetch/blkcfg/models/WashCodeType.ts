@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { WashCodeDetailsType } from './WashCodeDetailsType';
+import type { WashCodeDetailType } from './WashCodeDetailType';
 import {
-    WashCodeDetailsTypeFromJSON,
-    WashCodeDetailsTypeFromJSONTyped,
-    WashCodeDetailsTypeToJSON,
-} from './WashCodeDetailsType';
+    WashCodeDetailTypeFromJSON,
+    WashCodeDetailTypeFromJSONTyped,
+    WashCodeDetailTypeToJSON,
+} from './WashCodeDetailType';
 
 /**
  * A representation of the information contained by a Wash Code.
@@ -45,11 +45,11 @@ export interface WashCodeType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {WashCodeDetailsType}
+     * Wash Code Detail for a single entry.
+     * @type {Array<WashCodeDetailType>}
      * @memberof WashCodeType
      */
-    washCodeDetails?: WashCodeDetailsType;
+    washCodeDetails?: Array<WashCodeDetailType>;
 }
 
 /**
@@ -74,7 +74,7 @@ export function WashCodeTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'code': !exists(json, 'code') ? undefined : json['code'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'washCodeDetails': !exists(json, 'washCodeDetails') ? undefined : WashCodeDetailsTypeFromJSON(json['washCodeDetails']),
+        'washCodeDetails': !exists(json, 'washCodeDetails') ? undefined : ((json['washCodeDetails'] as Array<any>).map(WashCodeDetailTypeFromJSON)),
     };
 }
 
@@ -90,7 +90,7 @@ export function WashCodeTypeToJSON(value?: WashCodeType | null): any {
         'code': value.code,
         'description': value.description,
         'hotelId': value.hotelId,
-        'washCodeDetails': WashCodeDetailsTypeToJSON(value.washCodeDetails),
+        'washCodeDetails': value.washCodeDetails === undefined ? undefined : ((value.washCodeDetails as Array<any>).map(WashCodeDetailTypeToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { SaleCriteriaType } from './SaleCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to post a set of charges, payments and generate a bill for a PasserBy or for the Post-It functionality . A PasserBy is someone who is not staying at the Property. A PasserBy transaction requires a Profile in Opera for whom the the folio is being created.
  * @export
@@ -26,16 +26,16 @@ export interface ArticlesSaleCriteria {
     criteria?: SaleCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ArticlesSaleCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ArticlesSaleCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ArticlesSaleCriteria interface.

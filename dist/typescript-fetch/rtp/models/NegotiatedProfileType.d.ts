@@ -12,7 +12,7 @@
 import type { NegRateAccessType } from './NegRateAccessType';
 import type { ProfileNameType } from './ProfileNameType';
 import type { ProfileTypeType } from './ProfileTypeType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Profile details
  * @export
@@ -26,11 +26,11 @@ export interface NegotiatedProfileType {
      */
     externalSystemCode?: string;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof NegotiatedProfileType
      */
-    profileIdList?: UniqueIDListType;
+    profileIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {ProfileNameType}

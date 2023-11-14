@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringEventResourceTypeToJSON = exports.CateringEventResourceTypeFromJSONTyped = exports.CateringEventResourceTypeFromJSON = exports.instanceOfCateringEventResourceType = void 0;
 const runtime_1 = require("../runtime");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
-const EventResourceNotesType_1 = require("./EventResourceNotesType");
+const EventResourceNoteType_1 = require("./EventResourceNoteType");
 const ResourceId_1 = require("./ResourceId");
 const ResourceType_1 = require("./ResourceType");
 /**
@@ -40,7 +40,7 @@ function CateringEventResourceTypeFromJSONTyped(json, ignoreDiscriminator) {
         'custom': !(0, runtime_1.exists)(json, 'custom') ? undefined : json['custom'],
         'discount': !(0, runtime_1.exists)(json, 'discount') ? undefined : json['discount'],
         'eventEndDate': !(0, runtime_1.exists)(json, 'eventEndDate') ? undefined : (new Date(json['eventEndDate'])),
-        'eventResourceNotes': !(0, runtime_1.exists)(json, 'eventResourceNotes') ? undefined : (0, EventResourceNotesType_1.EventResourceNotesTypeFromJSON)(json['eventResourceNotes']),
+        'eventResourceNotes': !(0, runtime_1.exists)(json, 'eventResourceNotes') ? undefined : (json['eventResourceNotes'].map(EventResourceNoteType_1.EventResourceNoteTypeFromJSON)),
         'eventStartDate': !(0, runtime_1.exists)(json, 'eventStartDate') ? undefined : (new Date(json['eventStartDate'])),
         'external': !(0, runtime_1.exists)(json, 'external') ? undefined : json['external'],
         'hasDiscountMenuItem': !(0, runtime_1.exists)(json, 'hasDiscountMenuItem') ? undefined : json['hasDiscountMenuItem'],
@@ -79,7 +79,7 @@ function CateringEventResourceTypeToJSON(value) {
         'custom': value.custom,
         'discount': value.discount,
         'eventEndDate': value.eventEndDate === undefined ? undefined : (value.eventEndDate.toISOString().substring(0, 10)),
-        'eventResourceNotes': (0, EventResourceNotesType_1.EventResourceNotesTypeToJSON)(value.eventResourceNotes),
+        'eventResourceNotes': value.eventResourceNotes === undefined ? undefined : (value.eventResourceNotes.map(EventResourceNoteType_1.EventResourceNoteTypeToJSON)),
         'eventStartDate': value.eventStartDate === undefined ? undefined : (value.eventStartDate.toISOString().substring(0, 10)),
         'external': value.external,
         'hasDiscountMenuItem': value.hasDiscountMenuItem,

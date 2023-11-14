@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipTransactionExceptionsType } from './MembershipTransactionExceptionsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipTransactionExceptionType } from './MembershipTransactionExceptionType';
 import {
-    MembershipTransactionExceptionsTypeFromJSON,
-    MembershipTransactionExceptionsTypeFromJSONTyped,
-    MembershipTransactionExceptionsTypeToJSON,
-} from './MembershipTransactionExceptionsType';
-import type { WarningsType } from './WarningsType';
+    MembershipTransactionExceptionTypeFromJSON,
+    MembershipTransactionExceptionTypeFromJSONTyped,
+    MembershipTransactionExceptionTypeToJSON,
+} from './MembershipTransactionExceptionType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching membership transaction exceptions.
@@ -40,22 +40,22 @@ import {
 export interface MembershipTransactionExceptions {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipTransactionExceptions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MembershipTransactionExceptionsType}
+     * Contains Membership transaction exception information.
+     * @type {Array<MembershipTransactionExceptionType>}
      * @memberof MembershipTransactionExceptions
      */
-    memberTransactionExceptions?: MembershipTransactionExceptionsType;
+    memberTransactionExceptions?: Array<MembershipTransactionExceptionType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipTransactionExceptions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MembershipTransactionExceptionsFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'memberTransactionExceptions': !exists(json, 'memberTransactionExceptions') ? undefined : MembershipTransactionExceptionsTypeFromJSON(json['memberTransactionExceptions']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'memberTransactionExceptions': !exists(json, 'memberTransactionExceptions') ? undefined : ((json['memberTransactionExceptions'] as Array<any>).map(MembershipTransactionExceptionTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MembershipTransactionExceptionsToJSON(value?: MembershipTransact
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'memberTransactionExceptions': MembershipTransactionExceptionsTypeToJSON(value.memberTransactionExceptions),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'memberTransactionExceptions': value.memberTransactionExceptions === undefined ? undefined : ((value.memberTransactionExceptions as Array<any>).map(MembershipTransactionExceptionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -25,18 +25,18 @@ import {
     BlockStatisticsDetailsTypeFromJSONTyped,
     BlockStatisticsDetailsTypeToJSON,
 } from './BlockStatisticsDetailsType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * The response object that returns Block Statistics information.
@@ -46,10 +46,10 @@ import {
 export interface BlockStatistics {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockStatistics
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {BlockStatisticsAllotedRoomsType}
@@ -63,11 +63,11 @@ export interface BlockStatistics {
      */
     statisticsDetails?: BlockStatisticsDetailsType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockStatistics
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function BlockStatisticsFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'masterInfo': !exists(json, 'masterInfo') ? undefined : BlockStatisticsAllotedRoomsTypeFromJSON(json['masterInfo']),
         'statisticsDetails': !exists(json, 'statisticsDetails') ? undefined : BlockStatisticsDetailsTypeFromJSON(json['statisticsDetails']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function BlockStatisticsToJSON(value?: BlockStatistics | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'masterInfo': BlockStatisticsAllotedRoomsTypeToJSON(value.masterInfo),
         'statisticsDetails': BlockStatisticsDetailsTypeToJSON(value.statisticsDetails),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfileCommissionAccountToJSON = exports.ProfileCommissionAccountFromJSONTyped = exports.ProfileCommissionAccountFromJSON = exports.instanceOfProfileCommissionAccount = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const ProfileCommissionAccountCriteriaType_1 = require("./ProfileCommissionAccountCriteriaType");
 /**
  * Check if a given object implements the ProfileCommissionAccount interface.
@@ -35,7 +35,7 @@ function ProfileCommissionAccountFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'criteria': !(0, runtime_1.exists)(json, 'criteria') ? undefined : (0, ProfileCommissionAccountCriteriaType_1.ProfileCommissionAccountCriteriaTypeFromJSON)(json['criteria']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.ProfileCommissionAccountFromJSONTyped = ProfileCommissionAccountFromJSONTyped;
@@ -48,7 +48,7 @@ function ProfileCommissionAccountToJSON(value) {
     }
     return {
         'criteria': (0, ProfileCommissionAccountCriteriaType_1.ProfileCommissionAccountCriteriaTypeToJSON)(value.criteria),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.ProfileCommissionAccountToJSON = ProfileCommissionAccountToJSON;

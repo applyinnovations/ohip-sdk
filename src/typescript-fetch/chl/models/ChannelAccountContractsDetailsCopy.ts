@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelAccountContractsCopyResponseType } from './ChannelAccountContractsCopyResponseType';
+import type { ChannelAccountContractCopyResponseType } from './ChannelAccountContractCopyResponseType';
 import {
-    ChannelAccountContractsCopyResponseTypeFromJSON,
-    ChannelAccountContractsCopyResponseTypeFromJSONTyped,
-    ChannelAccountContractsCopyResponseTypeToJSON,
-} from './ChannelAccountContractsCopyResponseType';
-import type { Links } from './Links';
+    ChannelAccountContractCopyResponseTypeFromJSON,
+    ChannelAccountContractCopyResponseTypeFromJSONTyped,
+    ChannelAccountContractCopyResponseTypeToJSON,
+} from './ChannelAccountContractCopyResponseType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object of the Channel account contract copy request.
@@ -39,23 +39,23 @@ import {
  */
 export interface ChannelAccountContractsDetailsCopy {
     /**
-     * 
-     * @type {ChannelAccountContractsCopyResponseType}
+     * List of channel account contracts information to create a copy of.
+     * @type {Array<ChannelAccountContractCopyResponseType>}
      * @memberof ChannelAccountContractsDetailsCopy
      */
-    channelAccountContractsCopyResponse?: ChannelAccountContractsCopyResponseType;
+    channelAccountContractsCopyResponse?: Array<ChannelAccountContractCopyResponseType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelAccountContractsDetailsCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelAccountContractsDetailsCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ChannelAccountContractsDetailsCopyFromJSONTyped(json: any, ignor
     }
     return {
         
-        'channelAccountContractsCopyResponse': !exists(json, 'channelAccountContractsCopyResponse') ? undefined : ChannelAccountContractsCopyResponseTypeFromJSON(json['channelAccountContractsCopyResponse']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'channelAccountContractsCopyResponse': !exists(json, 'channelAccountContractsCopyResponse') ? undefined : ((json['channelAccountContractsCopyResponse'] as Array<any>).map(ChannelAccountContractCopyResponseTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ChannelAccountContractsDetailsCopyToJSON(value?: ChannelAccountC
     }
     return {
         
-        'channelAccountContractsCopyResponse': ChannelAccountContractsCopyResponseTypeToJSON(value.channelAccountContractsCopyResponse),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'channelAccountContractsCopyResponse': value.channelAccountContractsCopyResponse === undefined ? undefined : ((value.channelAccountContractsCopyResponse as Array<any>).map(ChannelAccountContractCopyResponseTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

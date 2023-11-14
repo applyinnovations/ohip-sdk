@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ActivityLogListType } from './ActivityLogListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching profile activity log. This object contains collection of user activity log for the profile,Success,Warnings and Errors related to this operation
  * @export
@@ -26,16 +26,16 @@ export interface ProfileActivityLog {
     activityLog?: ActivityLogListType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileActivityLog
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileActivityLog
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileActivityLog interface.

@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DepositPostingsType } from './DepositPostingsType';
-import type { Links } from './Links';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+import type { DepositPostingType } from './DepositPostingType';
+import type { InstanceLink } from './InstanceLink';
+import type { TrxInfoType } from './TrxInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response for the post deposit payment request.
  * @export
@@ -20,29 +20,29 @@ import type { WarningsType } from './WarningsType';
  */
 export interface DepositedPayment {
     /**
-     *
-     * @type {DepositPostingsType}
+     * A List of Deposit Payments.
+     * @type {Array<DepositPostingType>}
      * @memberof DepositedPayment
      */
-    deposits?: DepositPostingsType;
+    deposits?: Array<DepositPostingType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DepositedPayment
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof DepositedPayment
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DepositedPayment
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DepositedPayment interface.

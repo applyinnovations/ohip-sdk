@@ -19,10 +19,10 @@ const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const LinkedReservationType_1 = require("./LinkedReservationType");
 const PMSResStatusType_1 = require("./PMSResStatusType");
 const ResGuaranteeType_1 = require("./ResGuaranteeType");
-const ReservationAllowedActionsType_1 = require("./ReservationAllowedActionsType");
+const ReservationAllowedActionType_1 = require("./ReservationAllowedActionType");
 const ReservationBlockType_1 = require("./ReservationBlockType");
-const ReservationIdList_1 = require("./ReservationIdList");
 const TimeSpanType_1 = require("./TimeSpanType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the LinkedReservationInfoType interface.
  */
@@ -40,7 +40,7 @@ function LinkedReservationInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'allowedActions': !(0, runtime_1.exists)(json, 'allowedActions') ? undefined : (0, ReservationAllowedActionsType_1.ReservationAllowedActionsTypeFromJSON)(json['allowedActions']),
+        'allowedActions': !(0, runtime_1.exists)(json, 'allowedActions') ? undefined : (json['allowedActions'].map(ReservationAllowedActionType_1.ReservationAllowedActionTypeFromJSON)),
         'balance': !(0, runtime_1.exists)(json, 'balance') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['balance']),
         'displayColor': !(0, runtime_1.exists)(json, 'displayColor') ? undefined : json['displayColor'],
         'givenName': !(0, runtime_1.exists)(json, 'givenName') ? undefined : json['givenName'],
@@ -50,7 +50,7 @@ function LinkedReservationInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'rate': !(0, runtime_1.exists)(json, 'rate') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['rate']),
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'reservationBlock': !(0, runtime_1.exists)(json, 'reservationBlock') ? undefined : (0, ReservationBlockType_1.ReservationBlockTypeFromJSON)(json['reservationBlock']),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'reservationStatus': !(0, runtime_1.exists)(json, 'reservationStatus') ? undefined : (0, PMSResStatusType_1.PMSResStatusTypeFromJSON)(json['reservationStatus']),
         'reverseCheckInAllowed': !(0, runtime_1.exists)(json, 'reverseCheckInAllowed') ? undefined : json['reverseCheckInAllowed'],
         'room': !(0, runtime_1.exists)(json, 'room') ? undefined : json['room'],
@@ -71,7 +71,7 @@ function LinkedReservationInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'allowedActions': (0, ReservationAllowedActionsType_1.ReservationAllowedActionsTypeToJSON)(value.allowedActions),
+        'allowedActions': value.allowedActions === undefined ? undefined : (value.allowedActions.map(ReservationAllowedActionType_1.ReservationAllowedActionTypeToJSON)),
         'balance': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.balance),
         'displayColor': value.displayColor,
         'givenName': value.givenName,
@@ -81,7 +81,7 @@ function LinkedReservationInfoTypeToJSON(value) {
         'rate': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.rate),
         'ratePlanCode': value.ratePlanCode,
         'reservationBlock': (0, ReservationBlockType_1.ReservationBlockTypeToJSON)(value.reservationBlock),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'reservationStatus': (0, PMSResStatusType_1.PMSResStatusTypeToJSON)(value.reservationStatus),
         'reverseCheckInAllowed': value.reverseCheckInAllowed,
         'room': value.room,

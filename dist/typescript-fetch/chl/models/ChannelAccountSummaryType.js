@@ -17,11 +17,10 @@ exports.ChannelAccountSummaryTypeToJSON = exports.ChannelAccountSummaryTypeFromJ
 const runtime_1 = require("../runtime");
 const AddressInfoType_1 = require("./AddressInfoType");
 const ChannelAccountDetailsType_1 = require("./ChannelAccountDetailsType");
-const CodeListType_1 = require("./CodeListType");
 const EmailInfoType_1 = require("./EmailInfoType");
-const IndicatorsType_1 = require("./IndicatorsType");
+const IndicatorType_1 = require("./IndicatorType");
 const TelephoneInfoType_1 = require("./TelephoneInfoType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ChannelAccountSummaryType interface.
  */
@@ -41,13 +40,13 @@ function ChannelAccountSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'accountDetails': !(0, runtime_1.exists)(json, 'accountDetails') ? undefined : (0, ChannelAccountDetailsType_1.ChannelAccountDetailsTypeFromJSON)(json['accountDetails']),
         'addressInfo': !(0, runtime_1.exists)(json, 'addressInfo') ? undefined : (0, AddressInfoType_1.AddressInfoTypeFromJSON)(json['addressInfo']),
-        'channelAccountIndicators': !(0, runtime_1.exists)(json, 'channelAccountIndicators') ? undefined : (0, IndicatorsType_1.IndicatorsTypeFromJSON)(json['channelAccountIndicators']),
+        'channelAccountIndicators': !(0, runtime_1.exists)(json, 'channelAccountIndicators') ? undefined : (json['channelAccountIndicators'].map(IndicatorType_1.IndicatorTypeFromJSON)),
         'contractEndsOn': !(0, runtime_1.exists)(json, 'contractEndsOn') ? undefined : (new Date(json['contractEndsOn'])),
         'emailInfo': !(0, runtime_1.exists)(json, 'emailInfo') ? undefined : (0, EmailInfoType_1.EmailInfoTypeFromJSON)(json['emailInfo']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'hotels': !(0, runtime_1.exists)(json, 'hotels') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['hotels']),
+        'hotels': !(0, runtime_1.exists)(json, 'hotels') ? undefined : json['hotels'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'telephoneInfo': !(0, runtime_1.exists)(json, 'telephoneInfo') ? undefined : (0, TelephoneInfoType_1.TelephoneInfoTypeFromJSON)(json['telephoneInfo']),
     };
 }
@@ -62,13 +61,13 @@ function ChannelAccountSummaryTypeToJSON(value) {
     return {
         'accountDetails': (0, ChannelAccountDetailsType_1.ChannelAccountDetailsTypeToJSON)(value.accountDetails),
         'addressInfo': (0, AddressInfoType_1.AddressInfoTypeToJSON)(value.addressInfo),
-        'channelAccountIndicators': (0, IndicatorsType_1.IndicatorsTypeToJSON)(value.channelAccountIndicators),
+        'channelAccountIndicators': value.channelAccountIndicators === undefined ? undefined : (value.channelAccountIndicators.map(IndicatorType_1.IndicatorTypeToJSON)),
         'contractEndsOn': value.contractEndsOn === undefined ? undefined : (value.contractEndsOn.toISOString().substring(0, 10)),
         'emailInfo': (0, EmailInfoType_1.EmailInfoTypeToJSON)(value.emailInfo),
         'hotelId': value.hotelId,
-        'hotels': (0, CodeListType_1.CodeListTypeToJSON)(value.hotels),
+        'hotels': value.hotels,
         'inactive': value.inactive,
-        'profileIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'telephoneInfo': (0, TelephoneInfoType_1.TelephoneInfoTypeToJSON)(value.telephoneInfo),
     };
 }

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RoomsStatusSummaryType } from './RoomsStatusSummaryType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * It also contains Success,Warnings and Errors related to this operation.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface BlockRoomsStatus {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockRoomsStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {RoomsStatusSummaryType}
@@ -31,11 +31,11 @@ export interface BlockRoomsStatus {
      */
     roomsStatusSummary?: RoomsStatusSummaryType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockRoomsStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockRoomsStatus interface.

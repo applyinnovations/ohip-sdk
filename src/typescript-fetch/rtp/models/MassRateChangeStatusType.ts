@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { MassRateChangeDetailLogListType } from './MassRateChangeDetailLogListType';
+import type { MassRateChangeDetailLogType } from './MassRateChangeDetailLogType';
 import {
-    MassRateChangeDetailLogListTypeFromJSON,
-    MassRateChangeDetailLogListTypeFromJSONTyped,
-    MassRateChangeDetailLogListTypeToJSON,
-} from './MassRateChangeDetailLogListType';
+    MassRateChangeDetailLogTypeFromJSON,
+    MassRateChangeDetailLogTypeFromJSONTyped,
+    MassRateChangeDetailLogTypeToJSON,
+} from './MassRateChangeDetailLogType';
 import type { MassRateChangeProcessStatusType } from './MassRateChangeProcessStatusType';
 import {
     MassRateChangeProcessStatusTypeFromJSON,
@@ -39,11 +39,11 @@ export interface MassRateChangeStatusType {
      */
     completedRatePlans?: number;
     /**
-     * 
-     * @type {MassRateChangeDetailLogListType}
+     * Mass rate update details.
+     * @type {Array<MassRateChangeDetailLogType>}
      * @memberof MassRateChangeStatusType
      */
-    details?: MassRateChangeDetailLogListType;
+    details?: Array<MassRateChangeDetailLogType>;
     /**
      * Property code.
      * @type {string}
@@ -84,7 +84,7 @@ export function MassRateChangeStatusTypeFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         'completedRatePlans': !exists(json, 'completedRatePlans') ? undefined : json['completedRatePlans'],
-        'details': !exists(json, 'details') ? undefined : MassRateChangeDetailLogListTypeFromJSON(json['details']),
+        'details': !exists(json, 'details') ? undefined : ((json['details'] as Array<any>).map(MassRateChangeDetailLogTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'status': !exists(json, 'status') ? undefined : MassRateChangeProcessStatusTypeFromJSON(json['status']),
         'totalRatePlans': !exists(json, 'totalRatePlans') ? undefined : json['totalRatePlans'],
@@ -101,7 +101,7 @@ export function MassRateChangeStatusTypeToJSON(value?: MassRateChangeStatusType 
     return {
         
         'completedRatePlans': value.completedRatePlans,
-        'details': MassRateChangeDetailLogListTypeToJSON(value.details),
+        'details': value.details === undefined ? undefined : ((value.details as Array<any>).map(MassRateChangeDetailLogTypeToJSON)),
         'hotelId': value.hotelId,
         'status': MassRateChangeProcessStatusTypeToJSON(value.status),
         'totalRatePlans': value.totalRatePlans,

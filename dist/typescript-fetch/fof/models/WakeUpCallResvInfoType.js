@@ -19,7 +19,7 @@ const BlockId_1 = require("./BlockId");
 const CodeDescriptionType_1 = require("./CodeDescriptionType");
 const PMSResStatusType_1 = require("./PMSResStatusType");
 const ProfileId_1 = require("./ProfileId");
-const ReservationIdList_1 = require("./ReservationIdList");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the WakeUpCallResvInfoType interface.
  */
@@ -47,7 +47,7 @@ function WakeUpCallResvInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'membershipLevel': !(0, runtime_1.exists)(json, 'membershipLevel') ? undefined : json['membershipLevel'],
         'membershipType': !(0, runtime_1.exists)(json, 'membershipType') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['membershipType']),
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, ProfileId_1.ProfileIdFromJSON)(json['profileId']),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'reservationStatus': !(0, runtime_1.exists)(json, 'reservationStatus') ? undefined : (0, PMSResStatusType_1.PMSResStatusTypeFromJSON)(json['reservationStatus']),
         'room': !(0, runtime_1.exists)(json, 'room') ? undefined : json['room'],
         'roomPhoneNumber': !(0, runtime_1.exists)(json, 'roomPhoneNumber') ? undefined : json['roomPhoneNumber'],
@@ -74,7 +74,7 @@ function WakeUpCallResvInfoTypeToJSON(value) {
         'membershipLevel': value.membershipLevel,
         'membershipType': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.membershipType),
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'reservationStatus': (0, PMSResStatusType_1.PMSResStatusTypeToJSON)(value.reservationStatus),
         'room': value.room,
         'roomPhoneNumber': value.roomPhoneNumber,

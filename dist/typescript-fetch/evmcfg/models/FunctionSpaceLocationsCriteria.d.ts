@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FunctionSpaceLocationsType } from './FunctionSpaceLocationsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { FunctionSpaceLocationType } from './FunctionSpaceLocationType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for adding function space location configurations to resort.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface FunctionSpaceLocationsCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FunctionSpaceLocationsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {FunctionSpaceLocationsType}
+     * List of the function space locations to be configured or fetched
+     * @type {Array<FunctionSpaceLocationType>}
      * @memberof FunctionSpaceLocationsCriteria
      */
-    locations?: FunctionSpaceLocationsType;
+    locations?: Array<FunctionSpaceLocationType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FunctionSpaceLocationsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FunctionSpaceLocationsCriteria interface.

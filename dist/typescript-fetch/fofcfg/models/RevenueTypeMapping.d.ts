@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RevenueTypeMappingType } from './RevenueTypeMappingType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface RevenueTypeMapping {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RevenueTypeMapping
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {RevenueTypeMappingType}
@@ -31,11 +31,11 @@ export interface RevenueTypeMapping {
      */
     revenueTypeMapping?: RevenueTypeMappingType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RevenueTypeMapping
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RevenueTypeMapping interface.

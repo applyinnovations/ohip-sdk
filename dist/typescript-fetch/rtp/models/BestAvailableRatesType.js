@@ -17,7 +17,6 @@ exports.BestAvailableRatesTypeToJSON = exports.BestAvailableRatesTypeFromJSONTyp
 const runtime_1 = require("../runtime");
 const BestAvailableRatesTypeDuration_1 = require("./BestAvailableRatesTypeDuration");
 const BestAvailableRatesTypeLengthOfStay_1 = require("./BestAvailableRatesTypeLengthOfStay");
-const CodeListType_1 = require("./CodeListType");
 const DateRangeType_1 = require("./DateRangeType");
 /**
  * Check if a given object implements the BestAvailableRatesType interface.
@@ -40,7 +39,7 @@ function BestAvailableRatesTypeFromJSONTyped(json, ignoreDiscriminator) {
         'duration': !(0, runtime_1.exists)(json, 'duration') ? undefined : (0, BestAvailableRatesTypeDuration_1.BestAvailableRatesTypeDurationFromJSON)(json['duration']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'lengthOfStay': !(0, runtime_1.exists)(json, 'lengthOfStay') ? undefined : (0, BestAvailableRatesTypeLengthOfStay_1.BestAvailableRatesTypeLengthOfStayFromJSON)(json['lengthOfStay']),
-        'rateCode': !(0, runtime_1.exists)(json, 'rateCode') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['rateCode']),
+        'rateCode': !(0, runtime_1.exists)(json, 'rateCode') ? undefined : json['rateCode'],
     };
 }
 exports.BestAvailableRatesTypeFromJSONTyped = BestAvailableRatesTypeFromJSONTyped;
@@ -56,7 +55,7 @@ function BestAvailableRatesTypeToJSON(value) {
         'duration': (0, BestAvailableRatesTypeDuration_1.BestAvailableRatesTypeDurationToJSON)(value.duration),
         'hotelId': value.hotelId,
         'lengthOfStay': (0, BestAvailableRatesTypeLengthOfStay_1.BestAvailableRatesTypeLengthOfStayToJSON)(value.lengthOfStay),
-        'rateCode': (0, CodeListType_1.CodeListTypeToJSON)(value.rateCode),
+        'rateCode': value.rateCode,
     };
 }
 exports.BestAvailableRatesTypeToJSON = BestAvailableRatesTypeToJSON;

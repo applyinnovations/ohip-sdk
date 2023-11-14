@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockIdList } from './BlockIdList';
-import {
-    BlockIdListFromJSON,
-    BlockIdListFromJSONTyped,
-    BlockIdListToJSON,
-} from './BlockIdList';
 import type { BlockOwnersType } from './BlockOwnersType';
 import {
     BlockOwnersTypeFromJSON,
@@ -31,6 +25,12 @@ import {
     BlockOwnershipTypeFromJSONTyped,
     BlockOwnershipTypeToJSON,
 } from './BlockOwnershipType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Criteria to update block owners.
@@ -39,11 +39,11 @@ import {
  */
 export interface SetBlockOwnersType {
     /**
-     * 
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof SetBlockOwnersType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {BlockOwnersType}
@@ -83,7 +83,7 @@ export function SetBlockOwnersTypeFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : BlockIdListFromJSON(json['blockIdList']),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'blockOwners': !exists(json, 'blockOwners') ? undefined : BlockOwnersTypeFromJSON(json['blockOwners']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'ownership': !exists(json, 'ownership') ? undefined : BlockOwnershipTypeFromJSON(json['ownership']),
@@ -99,7 +99,7 @@ export function SetBlockOwnersTypeToJSON(value?: SetBlockOwnersType | null): any
     }
     return {
         
-        'blockIdList': BlockIdListToJSON(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'blockOwners': BlockOwnersTypeToJSON(value.blockOwners),
         'hotelId': value.hotelId,
         'ownership': BlockOwnershipTypeToJSON(value.ownership),

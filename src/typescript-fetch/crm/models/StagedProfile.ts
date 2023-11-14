@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { StagedProfileChangeInstructionsType } from './StagedProfileChangeInstructionsType';
 import {
     StagedProfileChangeInstructionsTypeFromJSON,
@@ -31,12 +31,12 @@ import {
     StagedProfileTypeFromJSONTyped,
     StagedProfileTypeToJSON,
 } from './StagedProfileType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing the staged profile.
@@ -52,10 +52,10 @@ export interface StagedProfile {
     changeInstructions?: StagedProfileChangeInstructionsType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof StagedProfile
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {StagedProfileType}
@@ -63,11 +63,11 @@ export interface StagedProfile {
      */
     stagedProfile?: StagedProfileType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof StagedProfile
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -90,9 +90,9 @@ export function StagedProfileFromJSONTyped(json: any, ignoreDiscriminator: boole
     return {
         
         'changeInstructions': !exists(json, 'changeInstructions') ? undefined : StagedProfileChangeInstructionsTypeFromJSON(json['changeInstructions']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'stagedProfile': !exists(json, 'stagedProfile') ? undefined : StagedProfileTypeFromJSON(json['stagedProfile']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -106,9 +106,9 @@ export function StagedProfileToJSON(value?: StagedProfile | null): any {
     return {
         
         'changeInstructions': StagedProfileChangeInstructionsTypeToJSON(value.changeInstructions),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'stagedProfile': StagedProfileTypeToJSON(value.stagedProfile),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

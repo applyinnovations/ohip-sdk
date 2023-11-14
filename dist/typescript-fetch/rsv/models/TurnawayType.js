@@ -16,7 +16,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TurnawayTypeToJSON = exports.TurnawayTypeFromJSONTyped = exports.TurnawayTypeFromJSON = exports.instanceOfTurnawayType = void 0;
 const runtime_1 = require("../runtime");
 const AddressType_1 = require("./AddressType");
-const ProfileIdList_1 = require("./ProfileIdList");
 const TurnawayDetailsType_1 = require("./TurnawayDetailsType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -40,7 +39,7 @@ function TurnawayTypeFromJSONTyped(json, ignoreDiscriminator) {
         'callId': !(0, runtime_1.exists)(json, 'callId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['callId']),
         'comments': !(0, runtime_1.exists)(json, 'comments') ? undefined : json['comments'],
         'details': !(0, runtime_1.exists)(json, 'details') ? undefined : (0, TurnawayDetailsType_1.TurnawayDetailsTypeFromJSON)(json['details']),
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'reasonCode': !(0, runtime_1.exists)(json, 'reasonCode') ? undefined : json['reasonCode'],
     };
 }
@@ -57,7 +56,7 @@ function TurnawayTypeToJSON(value) {
         'callId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.callId),
         'comments': value.comments,
         'details': (0, TurnawayDetailsType_1.TurnawayDetailsTypeToJSON)(value.details),
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'reasonCode': value.reasonCode,
     };
 }

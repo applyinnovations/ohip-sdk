@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EnrollmentMatchProfilesToJSON = exports.EnrollmentMatchProfilesFromJSONTyped = exports.EnrollmentMatchProfilesFromJSON = exports.instanceOfEnrollmentMatchProfiles = void 0;
 const runtime_1 = require("../runtime");
-const EnrollmentMatchProfilesType_1 = require("./EnrollmentMatchProfilesType");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
+const ProfileEnrollmentType_1 = require("./ProfileEnrollmentType");
 /**
  * Check if a given object implements the EnrollmentMatchProfiles interface.
  */
@@ -34,8 +34,8 @@ function EnrollmentMatchProfilesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'enrollmentMatchProfilesDetail': !(0, runtime_1.exists)(json, 'enrollmentMatchProfilesDetail') ? undefined : (0, EnrollmentMatchProfilesType_1.EnrollmentMatchProfilesTypeFromJSON)(json['enrollmentMatchProfilesDetail']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'enrollmentMatchProfilesDetail': !(0, runtime_1.exists)(json, 'enrollmentMatchProfilesDetail') ? undefined : (json['enrollmentMatchProfilesDetail'].map(ProfileEnrollmentType_1.ProfileEnrollmentTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.EnrollmentMatchProfilesFromJSONTyped = EnrollmentMatchProfilesFromJSONTyped;
@@ -47,8 +47,8 @@ function EnrollmentMatchProfilesToJSON(value) {
         return null;
     }
     return {
-        'enrollmentMatchProfilesDetail': (0, EnrollmentMatchProfilesType_1.EnrollmentMatchProfilesTypeToJSON)(value.enrollmentMatchProfilesDetail),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'enrollmentMatchProfilesDetail': value.enrollmentMatchProfilesDetail === undefined ? undefined : (value.enrollmentMatchProfilesDetail.map(ProfileEnrollmentType_1.ProfileEnrollmentTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.EnrollmentMatchProfilesToJSON = EnrollmentMatchProfilesToJSON;

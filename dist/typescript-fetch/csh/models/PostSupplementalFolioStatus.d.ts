@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DetailPostingsType } from './DetailPostingsType';
+import type { DetailPostingType } from './DetailPostingType';
 import type { FolioWindowType } from './FolioWindowType';
-import type { Links } from './Links';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TrxInfoType } from './TrxInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response for the request to create Supplemental Folio.
  * @export
@@ -28,28 +28,28 @@ export interface PostSupplementalFolioStatus {
     folioWindow?: Array<FolioWindowType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostSupplementalFolioStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {DetailPostingsType}
+     * Details of the transaction(Posting).
+     * @type {Array<DetailPostingType>}
      * @memberof PostSupplementalFolioStatus
      */
-    payments?: DetailPostingsType;
+    payments?: Array<DetailPostingType>;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof PostSupplementalFolioStatus
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostSupplementalFolioStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PostSupplementalFolioStatus interface.

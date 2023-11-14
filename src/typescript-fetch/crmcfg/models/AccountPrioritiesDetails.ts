@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AccountPrioritiesType } from './AccountPrioritiesType';
+import type { AccountPriorityType } from './AccountPriorityType';
 import {
-    AccountPrioritiesTypeFromJSON,
-    AccountPrioritiesTypeFromJSONTyped,
-    AccountPrioritiesTypeToJSON,
-} from './AccountPrioritiesType';
-import type { Links } from './Links';
+    AccountPriorityTypeFromJSON,
+    AccountPriorityTypeFromJSONTyped,
+    AccountPriorityTypeToJSON,
+} from './AccountPriorityType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Account Priorities.
@@ -39,23 +39,23 @@ import {
  */
 export interface AccountPrioritiesDetails {
     /**
-     * 
-     * @type {AccountPrioritiesType}
+     * List of Account Priorities.
+     * @type {Array<AccountPriorityType>}
      * @memberof AccountPrioritiesDetails
      */
-    accountPriorities?: AccountPrioritiesType;
+    accountPriorities?: Array<AccountPriorityType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AccountPrioritiesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AccountPrioritiesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function AccountPrioritiesDetailsFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'accountPriorities': !exists(json, 'accountPriorities') ? undefined : AccountPrioritiesTypeFromJSON(json['accountPriorities']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'accountPriorities': !exists(json, 'accountPriorities') ? undefined : ((json['accountPriorities'] as Array<any>).map(AccountPriorityTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function AccountPrioritiesDetailsToJSON(value?: AccountPrioritiesDetails 
     }
     return {
         
-        'accountPriorities': AccountPrioritiesTypeToJSON(value.accountPriorities),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'accountPriorities': value.accountPriorities === undefined ? undefined : ((value.accountPriorities as Array<any>).map(AccountPriorityTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

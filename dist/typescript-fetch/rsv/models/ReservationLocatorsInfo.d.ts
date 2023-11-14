@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationId } from './ReservationId';
-import type { ReservationLocatorsType } from './ReservationLocatorsType';
-import type { WarningsType } from './WarningsType';
+import type { ReservationLocatorType } from './ReservationLocatorType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing hotel Notes for hotels.
  * @export
@@ -27,10 +27,10 @@ export interface ReservationLocatorsInfo {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationLocatorsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationId}
@@ -38,17 +38,17 @@ export interface ReservationLocatorsInfo {
      */
     reservationId?: ReservationId;
     /**
-     *
-     * @type {ReservationLocatorsType}
+     * Holds the Locator Information.
+     * @type {Array<ReservationLocatorType>}
      * @memberof ReservationLocatorsInfo
      */
-    reservationLocators?: ReservationLocatorsType;
+    reservationLocators?: Array<ReservationLocatorType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationLocatorsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationLocatorsInfo interface.

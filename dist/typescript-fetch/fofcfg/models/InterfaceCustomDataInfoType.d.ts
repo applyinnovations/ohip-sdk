@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { InterfaceCustomDataDetailsType } from './InterfaceCustomDataDetailsType';
+import type { InterfaceCustomDataDetailType } from './InterfaceCustomDataDetailType';
 /**
  * This type holds the custom data of a hotel interface.
  * @export
@@ -29,11 +29,11 @@ export interface InterfaceCustomDataInfoType {
      */
     includeDoorcardField?: boolean;
     /**
-     *
-     * @type {InterfaceCustomDataDetailsType}
+     * Collection of custom data details of a hotel interface.
+     * @type {Array<InterfaceCustomDataDetailType>}
      * @memberof InterfaceCustomDataInfoType
      */
-    interfaceCustomDataDetails?: InterfaceCustomDataDetailsType;
+    interfaceCustomDataDetails?: Array<InterfaceCustomDataDetailType>;
 }
 /**
  * Check if a given object implements the InterfaceCustomDataInfoType interface.

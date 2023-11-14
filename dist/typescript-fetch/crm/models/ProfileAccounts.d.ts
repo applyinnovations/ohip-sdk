@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ARAccountsType } from './ARAccountsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ARAccountType } from './ARAccountType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response of profile accounts.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ProfileAccounts {
     /**
-     *
-     * @type {ARAccountsType}
+     * Information regarding the AR Account.
+     * @type {Array<ARAccountType>}
      * @memberof ProfileAccounts
      */
-    accounts?: ARAccountsType;
+    accounts?: Array<ARAccountType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileAccounts
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileAccounts
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileAccounts interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelNotesType } from './HotelNotesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CommentInfoType } from './CommentInfoType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing hotel Notes for hotels.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface HotelNotesToBeChanged {
     /**
-     *
-     * @type {HotelNotesType}
+     * List of Notes of the hotel.
+     * @type {Array<CommentInfoType>}
      * @memberof HotelNotesToBeChanged
      */
-    hotelNotes?: HotelNotesType;
+    hotelNotes?: Array<CommentInfoType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelNotesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelNotesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HotelNotesToBeChanged interface.

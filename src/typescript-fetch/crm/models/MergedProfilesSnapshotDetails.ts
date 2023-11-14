@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { MergedProfileType } from './MergedProfileType';
 import {
     MergedProfileTypeFromJSON,
     MergedProfileTypeFromJSONTyped,
     MergedProfileTypeToJSON,
 } from './MergedProfileType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching snapshot of merge profiles result.
@@ -40,10 +40,10 @@ import {
 export interface MergedProfilesSnapshotDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MergedProfilesSnapshotDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {MergedProfileType}
@@ -51,11 +51,11 @@ export interface MergedProfilesSnapshotDetails {
      */
     mergedProfileSnapshot?: MergedProfileType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MergedProfilesSnapshotDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MergedProfilesSnapshotDetailsFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'mergedProfileSnapshot': !exists(json, 'mergedProfileSnapshot') ? undefined : MergedProfileTypeFromJSON(json['mergedProfileSnapshot']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MergedProfilesSnapshotDetailsToJSON(value?: MergedProfilesSnapsh
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'mergedProfileSnapshot': MergedProfileTypeToJSON(value.mergedProfileSnapshot),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

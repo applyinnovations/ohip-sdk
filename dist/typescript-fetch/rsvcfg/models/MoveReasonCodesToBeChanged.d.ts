@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MoveReasonCodesType } from './MoveReasonCodesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MoveReasonCodeType } from './MoveReasonCodeType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Move Reason Codes.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MoveReasonCodesToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MoveReasonCodesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MoveReasonCodesType}
+     * List of Move Reason Codes.
+     * @type {Array<MoveReasonCodeType>}
      * @memberof MoveReasonCodesToBeChanged
      */
-    moveReasonCodes?: MoveReasonCodesType;
+    moveReasonCodes?: Array<MoveReasonCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MoveReasonCodesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MoveReasonCodesToBeChanged interface.

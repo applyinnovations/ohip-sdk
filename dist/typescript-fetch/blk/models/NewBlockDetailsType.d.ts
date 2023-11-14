@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { DateRangeType } from './DateRangeType';
 /**
  * This is used when creating a copy of a block.
@@ -55,10 +54,10 @@ export interface NewBlockDetailsType {
     cateringStatus?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof NewBlockDetailsType
      */
-    gridCategory?: CodeListType;
+    gridCategory?: Array<string>;
     /**
      * This is the source grid type, like Original, Current, Pickup, which will be copied to the target Business Block.
      * @type {string}

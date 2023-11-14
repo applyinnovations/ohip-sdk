@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DailyStatTypeToJSON = exports.DailyStatTypeFromJSONTyped = exports.DailyStatTypeFromJSON = exports.instanceOfDailyStatType = void 0;
 const runtime_1 = require("../runtime");
-const BlockStatsType_1 = require("./BlockStatsType");
+const BlockStatType_1 = require("./BlockStatType");
 /**
  * Check if a given object implements the DailyStatType interface.
  */
@@ -33,7 +33,7 @@ function DailyStatTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blockStats': !(0, runtime_1.exists)(json, 'blockStats') ? undefined : (0, BlockStatsType_1.BlockStatsTypeFromJSON)(json['blockStats']),
+        'blockStats': !(0, runtime_1.exists)(json, 'blockStats') ? undefined : (json['blockStats'].map(BlockStatType_1.BlockStatTypeFromJSON)),
         'statisticDate': !(0, runtime_1.exists)(json, 'statisticDate') ? undefined : (new Date(json['statisticDate'])),
     };
 }
@@ -46,7 +46,7 @@ function DailyStatTypeToJSON(value) {
         return null;
     }
     return {
-        'blockStats': (0, BlockStatsType_1.BlockStatsTypeToJSON)(value.blockStats),
+        'blockStats': value.blockStats === undefined ? undefined : (value.blockStats.map(BlockStatType_1.BlockStatTypeToJSON)),
         'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0, 10)),
     };
 }

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AwardVouchersType } from './AwardVouchersType';
+import type { AwardVouchersTypeInner } from './AwardVouchersTypeInner';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Membership Awards code applied on the reservation.
@@ -18,11 +18,11 @@ import type { UniqueIDType } from './UniqueIDType';
  */
 export interface ResAwardsType {
     /**
-     *
-     * @type {AwardVouchersType}
+     * This stores the Membership Awards code applied on the reservation.
+     * @type {Array<AwardVouchersTypeInner>}
      * @memberof ResAwardsType
      */
-    awardVouchers?: AwardVouchersType;
+    awardVouchers?: Array<AwardVouchersTypeInner>;
     /**
      *
      * @type {UniqueIDType}

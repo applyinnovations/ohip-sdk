@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ARAccountCriteriaType } from './ARAccountCriteriaType';
-import type { ARInvoicesType } from './ARInvoicesType';
+import type { ARInvoiceType } from './ARInvoiceType';
 /**
  * Criteria type compressing invoices i.e grouping multiple invoices into one,for an Account.
  * @export
@@ -36,11 +36,11 @@ export interface ARCompressInvoicesType {
      */
     folioTypeName?: string;
     /**
-     *
-     * @type {ARInvoicesType}
+     * A collection of AR Invoices.
+     * @type {Array<ARInvoiceType>}
      * @memberof ARCompressInvoicesType
      */
-    invoices?: ARInvoicesType;
+    invoices?: Array<ARInvoiceType>;
     /**
      * Reference Text for the Master Invoice which will be created.
      * @type {string}

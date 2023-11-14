@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateGuestMessagesToJSON = exports.CreateGuestMessagesFromJSONTyped = exports.CreateGuestMessagesFromJSON = exports.instanceOfCreateGuestMessages = void 0;
 const runtime_1 = require("../runtime");
-const GuestMessagesType_1 = require("./GuestMessagesType");
-const Links_1 = require("./Links");
-const ReservationIdList_1 = require("./ReservationIdList");
-const WarningsType_1 = require("./WarningsType");
+const GuestMessageType_1 = require("./GuestMessageType");
+const InstanceLink_1 = require("./InstanceLink");
+const UniqueIDType_1 = require("./UniqueIDType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CreateGuestMessages interface.
  */
@@ -36,11 +36,11 @@ function CreateGuestMessagesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'guestMessages': !(0, runtime_1.exists)(json, 'guestMessages') ? undefined : (0, GuestMessagesType_1.GuestMessagesTypeFromJSON)(json['guestMessages']),
+        'guestMessages': !(0, runtime_1.exists)(json, 'guestMessages') ? undefined : (json['guestMessages'].map(GuestMessageType_1.GuestMessageTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CreateGuestMessagesFromJSONTyped = CreateGuestMessagesFromJSONTyped;
@@ -52,11 +52,11 @@ function CreateGuestMessagesToJSON(value) {
         return null;
     }
     return {
-        'guestMessages': (0, GuestMessagesType_1.GuestMessagesTypeToJSON)(value.guestMessages),
+        'guestMessages': value.guestMessages === undefined ? undefined : (value.guestMessages.map(GuestMessageType_1.GuestMessageTypeToJSON)),
         'hotelId': value.hotelId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CreateGuestMessagesToJSON = CreateGuestMessagesToJSON;

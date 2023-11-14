@@ -14,7 +14,7 @@ import type { ContractPriceFrequencyType } from './ContractPriceFrequencyType';
 import type { ContractPricingType } from './ContractPricingType';
 import type { ContractRangeInformationType } from './ContractRangeInformationType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
-import type { OrderByListType } from './OrderByListType';
+import type { OrderByListTypeInner } from './OrderByListTypeInner';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * To hold channel account contract element detailed information.
@@ -96,10 +96,10 @@ export interface ChannelStatementDetailType {
     oldHotelCode?: string;
     /**
      *
-     * @type {OrderByListType}
+     * @type {Array<OrderByListTypeInner>}
      * @memberof ChannelStatementDetailType
      */
-    orderByList?: OrderByListType;
+    orderByList?: Array<OrderByListTypeInner>;
     /**
      * Number of Units (transactions, rooms or properties).
      * @type {number}

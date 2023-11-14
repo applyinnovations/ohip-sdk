@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TraceResvInfoTypeToJSON = exports.TraceResvInfoTypeFromJSONTyped = exports.TraceResvInfoTypeFromJSON = exports.instanceOfTraceResvInfoType = void 0;
 const runtime_1 = require("../runtime");
 const ResGuestType_1 = require("./ResGuestType");
-const ReservationIdList_1 = require("./ReservationIdList");
 const TimeSpanType_1 = require("./TimeSpanType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the TraceResvInfoType interface.
  */
@@ -37,7 +37,7 @@ function TraceResvInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'reservationGuests': !(0, runtime_1.exists)(json, 'reservationGuests') ? undefined : (json['reservationGuests'].map(ResGuestType_1.ResGuestTypeFromJSON)),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'reservationStatus': !(0, runtime_1.exists)(json, 'reservationStatus') ? undefined : json['reservationStatus'],
         'roomId': !(0, runtime_1.exists)(json, 'roomId') ? undefined : json['roomId'],
         'roomStatus': !(0, runtime_1.exists)(json, 'roomStatus') ? undefined : json['roomStatus'],
@@ -55,7 +55,7 @@ function TraceResvInfoTypeToJSON(value) {
     return {
         'hotelId': value.hotelId,
         'reservationGuests': value.reservationGuests === undefined ? undefined : (value.reservationGuests.map(ResGuestType_1.ResGuestTypeToJSON)),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'reservationStatus': value.reservationStatus,
         'roomId': value.roomId,
         'roomStatus': value.roomStatus,

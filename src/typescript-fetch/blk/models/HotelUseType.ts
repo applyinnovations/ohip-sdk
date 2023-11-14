@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AccessRestrictionsType } from './AccessRestrictionsType';
+import type { BlockAccessRestrictionType } from './BlockAccessRestrictionType';
 import {
-    AccessRestrictionsTypeFromJSON,
-    AccessRestrictionsTypeFromJSONTyped,
-    AccessRestrictionsTypeToJSON,
-} from './AccessRestrictionsType';
+    BlockAccessRestrictionTypeFromJSON,
+    BlockAccessRestrictionTypeFromJSONTyped,
+    BlockAccessRestrictionTypeToJSON,
+} from './BlockAccessRestrictionType';
 
 /**
  * 
@@ -27,11 +27,11 @@ import {
  */
 export interface HotelUseType {
     /**
-     * 
-     * @type {AccessRestrictionsType}
+     * Block access exclusion/restriction type.
+     * @type {Array<BlockAccessRestrictionType>}
      * @memberof HotelUseType
      */
-    accessRestrictions?: AccessRestrictionsType;
+    accessRestrictions?: Array<BlockAccessRestrictionType>;
     /**
      * Indicates whether this business block can be updated only by the Hotel to which it belongs. This is used to communicate to CRO that the business block can be only updated by the Hotel.
      * @type {boolean}
@@ -65,7 +65,7 @@ export function HotelUseTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'accessRestrictions': !exists(json, 'accessRestrictions') ? undefined : AccessRestrictionsTypeFromJSON(json['accessRestrictions']),
+        'accessRestrictions': !exists(json, 'accessRestrictions') ? undefined : ((json['accessRestrictions'] as Array<any>).map(BlockAccessRestrictionTypeFromJSON)),
         'hotelUseOnly': !exists(json, 'hotelUseOnly') ? undefined : json['hotelUseOnly'],
         'hotelUseReason': !exists(json, 'hotelUseReason') ? undefined : json['hotelUseReason'],
     };
@@ -80,7 +80,7 @@ export function HotelUseTypeToJSON(value?: HotelUseType | null): any {
     }
     return {
         
-        'accessRestrictions': AccessRestrictionsTypeToJSON(value.accessRestrictions),
+        'accessRestrictions': value.accessRestrictions === undefined ? undefined : ((value.accessRestrictions as Array<any>).map(BlockAccessRestrictionTypeToJSON)),
         'hotelUseOnly': value.hotelUseOnly,
         'hotelUseReason': value.hotelUseReason,
     };

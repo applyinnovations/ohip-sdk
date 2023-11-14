@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ConfigTemplatePreferencesType } from './ConfigTemplatePreferencesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ConfigTemplatePreferenceType } from './ConfigTemplatePreferenceType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching preferences at the template level.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TemplatePreferences {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplatePreferences
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ConfigTemplatePreferencesType}
+     * This type holds a collection of preferences at the template level.
+     * @type {Array<ConfigTemplatePreferenceType>}
      * @memberof TemplatePreferences
      */
-    templatePreferences?: ConfigTemplatePreferencesType;
+    templatePreferences?: Array<ConfigTemplatePreferenceType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplatePreferences
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplatePreferences interface.

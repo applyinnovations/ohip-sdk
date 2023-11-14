@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { OwnersType } from './OwnersType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { OwnerType } from './OwnerType';
+import type { WarningType } from './WarningType';
 /**
  * Response object to fetch the owners of a profile.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ProfileOwnersDetail {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileOwnersDetail
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {OwnersType}
+     * Generic type for a list of owners.
+     * @type {Array<OwnerType>}
      * @memberof ProfileOwnersDetail
      */
-    profileOwnersList?: OwnersType;
+    profileOwnersList?: Array<OwnerType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileOwnersDetail
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileOwnersDetail interface.

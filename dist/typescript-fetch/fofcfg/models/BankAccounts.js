@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BankAccountsToJSON = exports.BankAccountsFromJSONTyped = exports.BankAccountsFromJSON = exports.instanceOfBankAccounts = void 0;
 const runtime_1 = require("../runtime");
-const ConfigBankAccountsType_1 = require("./ConfigBankAccountsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ConfigBankAccountType_1 = require("./ConfigBankAccountType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BankAccounts interface.
  */
@@ -35,11 +35,11 @@ function BankAccountsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'bankAccounts': !(0, runtime_1.exists)(json, 'bankAccounts') ? undefined : (0, ConfigBankAccountsType_1.ConfigBankAccountsTypeFromJSON)(json['bankAccounts']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'bankAccounts': !(0, runtime_1.exists)(json, 'bankAccounts') ? undefined : (json['bankAccounts'].map(ConfigBankAccountType_1.ConfigBankAccountTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'updateDefault': !(0, runtime_1.exists)(json, 'updateDefault') ? undefined : json['updateDefault'],
         'updateDefaultForCurrency': !(0, runtime_1.exists)(json, 'updateDefaultForCurrency') ? undefined : json['updateDefaultForCurrency'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BankAccountsFromJSONTyped = BankAccountsFromJSONTyped;
@@ -51,11 +51,11 @@ function BankAccountsToJSON(value) {
         return null;
     }
     return {
-        'bankAccounts': (0, ConfigBankAccountsType_1.ConfigBankAccountsTypeToJSON)(value.bankAccounts),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'bankAccounts': value.bankAccounts === undefined ? undefined : (value.bankAccounts.map(ConfigBankAccountType_1.ConfigBankAccountTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'updateDefault': value.updateDefault,
         'updateDefaultForCurrency': value.updateDefaultForCurrency,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BankAccountsToJSON = BankAccountsToJSON;

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomMoveDetailsType } from './RoomMoveDetailsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomMoveDetailType } from './RoomMoveDetailType';
 import {
-    RoomMoveDetailsTypeFromJSON,
-    RoomMoveDetailsTypeFromJSONTyped,
-    RoomMoveDetailsTypeToJSON,
-} from './RoomMoveDetailsType';
-import type { WarningsType } from './WarningsType';
+    RoomMoveDetailTypeFromJSON,
+    RoomMoveDetailTypeFromJSONTyped,
+    RoomMoveDetailTypeToJSON,
+} from './RoomMoveDetailType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for the fetch room move history of a reservation.
@@ -40,22 +40,22 @@ import {
 export interface RoomMoveHistory {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomMoveHistory
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RoomMoveDetailsType}
+     * List of room move details
+     * @type {Array<RoomMoveDetailType>}
      * @memberof RoomMoveHistory
      */
-    roomMoveHistoryDetails?: RoomMoveDetailsType;
+    roomMoveHistoryDetails?: Array<RoomMoveDetailType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomMoveHistory
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RoomMoveHistoryFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'roomMoveHistoryDetails': !exists(json, 'roomMoveHistoryDetails') ? undefined : RoomMoveDetailsTypeFromJSON(json['roomMoveHistoryDetails']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'roomMoveHistoryDetails': !exists(json, 'roomMoveHistoryDetails') ? undefined : ((json['roomMoveHistoryDetails'] as Array<any>).map(RoomMoveDetailTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RoomMoveHistoryToJSON(value?: RoomMoveHistory | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'roomMoveHistoryDetails': RoomMoveDetailsTypeToJSON(value.roomMoveHistoryDetails),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'roomMoveHistoryDetails': value.roomMoveHistoryDetails === undefined ? undefined : ((value.roomMoveHistoryDetails as Array<any>).map(RoomMoveDetailTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

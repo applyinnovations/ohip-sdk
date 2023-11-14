@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to submit a comp transaction to gaming system
@@ -40,10 +40,10 @@ export interface CompTransactionCriteria {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CompTransactionCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Transaction Number for which request is being submitted.
      * @type {number}
@@ -51,11 +51,11 @@ export interface CompTransactionCriteria {
      */
     trxNo?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CompTransactionCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -78,9 +78,9 @@ export function CompTransactionCriteriaFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'trxNo': !exists(json, 'trxNo') ? undefined : json['trxNo'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -94,9 +94,9 @@ export function CompTransactionCriteriaToJSON(value?: CompTransactionCriteria | 
     return {
         
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'trxNo': value.trxNo,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

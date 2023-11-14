@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ProfileCashieringDetailType } from './ProfileCashieringDetailType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object containing profile routing instructions.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ProfileCashieringDetailsInfo {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileCashieringDetailsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Cashiering details for the profile.
      * @type {Array<ProfileCashieringDetailType>}
@@ -31,11 +31,11 @@ export interface ProfileCashieringDetailsInfo {
      */
     profileCashieringDetailList?: Array<ProfileCashieringDetailType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileCashieringDetailsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileCashieringDetailsInfo interface.

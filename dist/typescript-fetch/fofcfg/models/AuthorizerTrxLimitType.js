@@ -15,8 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthorizerTrxLimitTypeToJSON = exports.AuthorizerTrxLimitTypeFromJSONTyped = exports.AuthorizerTrxLimitTypeFromJSON = exports.instanceOfAuthorizerTrxLimitType = void 0;
 const runtime_1 = require("../runtime");
-const AuthBillingInstructionsType_1 = require("./AuthBillingInstructionsType");
-const AuthTransactionCodesType_1 = require("./AuthTransactionCodesType");
+const CodeDescriptionType_1 = require("./CodeDescriptionType");
 /**
  * Check if a given object implements the AuthorizerTrxLimitType interface.
  */
@@ -34,11 +33,11 @@ function AuthorizerTrxLimitTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'billingInstructions': !(0, runtime_1.exists)(json, 'billingInstructions') ? undefined : (0, AuthBillingInstructionsType_1.AuthBillingInstructionsTypeFromJSON)(json['billingInstructions']),
+        'billingInstructions': !(0, runtime_1.exists)(json, 'billingInstructions') ? undefined : (json['billingInstructions'].map(CodeDescriptionType_1.CodeDescriptionTypeFromJSON)),
         'creditLimit': !(0, runtime_1.exists)(json, 'creditLimit') ? undefined : json['creditLimit'],
         'groupHeaderId': !(0, runtime_1.exists)(json, 'groupHeaderId') ? undefined : json['groupHeaderId'],
         'occurrenceLimit': !(0, runtime_1.exists)(json, 'occurrenceLimit') ? undefined : json['occurrenceLimit'],
-        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (0, AuthTransactionCodesType_1.AuthTransactionCodesTypeFromJSON)(json['transactionCodes']),
+        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (json['transactionCodes'].map(CodeDescriptionType_1.CodeDescriptionTypeFromJSON)),
     };
 }
 exports.AuthorizerTrxLimitTypeFromJSONTyped = AuthorizerTrxLimitTypeFromJSONTyped;
@@ -50,11 +49,11 @@ function AuthorizerTrxLimitTypeToJSON(value) {
         return null;
     }
     return {
-        'billingInstructions': (0, AuthBillingInstructionsType_1.AuthBillingInstructionsTypeToJSON)(value.billingInstructions),
+        'billingInstructions': value.billingInstructions === undefined ? undefined : (value.billingInstructions.map(CodeDescriptionType_1.CodeDescriptionTypeToJSON)),
         'creditLimit': value.creditLimit,
         'groupHeaderId': value.groupHeaderId,
         'occurrenceLimit': value.occurrenceLimit,
-        'transactionCodes': (0, AuthTransactionCodesType_1.AuthTransactionCodesTypeToJSON)(value.transactionCodes),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : (value.transactionCodes.map(CodeDescriptionType_1.CodeDescriptionTypeToJSON)),
     };
 }
 exports.AuthorizerTrxLimitTypeToJSON = AuthorizerTrxLimitTypeToJSON;

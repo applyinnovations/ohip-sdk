@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelFolioTextsType } from './HotelFolioTextsType';
+import type { HotelFolioTextType } from './HotelFolioTextType';
 /**
  * A type which is used to insert Membership FolioTexts.
  * @export
@@ -18,10 +18,10 @@ import type { HotelFolioTextsType } from './HotelFolioTextsType';
 export interface MembershipFolioTextsType {
     /**
      * Folio Texts.
-     * @type {Array<HotelFolioTextsType>}
+     * @type {Array<Array<HotelFolioTextType>>}
      * @memberof MembershipFolioTextsType
      */
-    folioTexts?: Array<HotelFolioTextsType>;
+    folioTexts?: Array<Array<HotelFolioTextType>>;
     /**
      * Membership Level code.
      * @type {string}

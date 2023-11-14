@@ -11,7 +11,7 @@
  */
 import type { HotelReservationInstructionType } from './HotelReservationInstructionType';
 import type { ReservationId } from './ReservationId';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -32,10 +32,10 @@ export interface MoveReservationHotelCriteriaType {
     destinationHotelCode?: string;
     /**
      * Valid share reservation identifier. This ID will be verified against the SourceHotel.
-     * @type {Array<ReservationIdList>}
+     * @type {Array<Array<UniqueIDType>>}
      * @memberof MoveReservationHotelCriteriaType
      */
-    includedSharers?: Array<ReservationIdList>;
+    includedSharers?: Array<Array<UniqueIDType>>;
     /**
      *
      * @type {string}

@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-
 /**
  * The selected Channel Rate Codes for update.
  * @export
@@ -28,16 +21,16 @@ import {
 export interface PublishRatePlanTypeChannelCodes {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PublishRatePlanTypeChannelCodes
      */
-    channelRatePlanCodes?: CodeListType;
+    channelRatePlanCodes?: Array<string>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PublishRatePlanTypeChannelCodes
      */
-    channelRoomTypes?: CodeListType;
+    channelRoomTypes?: Array<string>;
 }
 
 /**
@@ -59,8 +52,8 @@ export function PublishRatePlanTypeChannelCodesFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'channelRatePlanCodes': !exists(json, 'channelRatePlanCodes') ? undefined : CodeListTypeFromJSON(json['channelRatePlanCodes']),
-        'channelRoomTypes': !exists(json, 'channelRoomTypes') ? undefined : CodeListTypeFromJSON(json['channelRoomTypes']),
+        'channelRatePlanCodes': !exists(json, 'channelRatePlanCodes') ? undefined : json['channelRatePlanCodes'],
+        'channelRoomTypes': !exists(json, 'channelRoomTypes') ? undefined : json['channelRoomTypes'],
     };
 }
 
@@ -73,8 +66,8 @@ export function PublishRatePlanTypeChannelCodesToJSON(value?: PublishRatePlanTyp
     }
     return {
         
-        'channelRatePlanCodes': CodeListTypeToJSON(value.channelRatePlanCodes),
-        'channelRoomTypes': CodeListTypeToJSON(value.channelRoomTypes),
+        'channelRatePlanCodes': value.channelRatePlanCodes,
+        'channelRoomTypes': value.channelRoomTypes,
     };
 }
 

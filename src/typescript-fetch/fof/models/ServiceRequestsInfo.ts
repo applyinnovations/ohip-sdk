@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ServiceRequests } from './ServiceRequests';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ServiceRequest } from './ServiceRequest';
 import {
-    ServiceRequestsFromJSON,
-    ServiceRequestsFromJSONTyped,
-    ServiceRequestsToJSON,
-} from './ServiceRequests';
-import type { WarningsType } from './WarningsType';
+    ServiceRequestFromJSON,
+    ServiceRequestFromJSONTyped,
+    ServiceRequestToJSON,
+} from './ServiceRequest';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for service requests.
@@ -40,22 +40,22 @@ import {
 export interface ServiceRequestsInfo {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ServiceRequestsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ServiceRequests}
+     * Service request.
+     * @type {Array<ServiceRequest>}
      * @memberof ServiceRequestsInfo
      */
-    serviceRequestsDetails?: ServiceRequests;
+    serviceRequestsDetails?: Array<ServiceRequest>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ServiceRequestsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ServiceRequestsInfoFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'serviceRequestsDetails': !exists(json, 'serviceRequestsDetails') ? undefined : ServiceRequestsFromJSON(json['serviceRequestsDetails']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'serviceRequestsDetails': !exists(json, 'serviceRequestsDetails') ? undefined : ((json['serviceRequestsDetails'] as Array<any>).map(ServiceRequestFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ServiceRequestsInfoToJSON(value?: ServiceRequestsInfo | null): a
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'serviceRequestsDetails': ServiceRequestsToJSON(value.serviceRequestsDetails),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'serviceRequestsDetails': value.serviceRequestsDetails === undefined ? undefined : ((value.serviceRequestsDetails as Array<any>).map(ServiceRequestToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

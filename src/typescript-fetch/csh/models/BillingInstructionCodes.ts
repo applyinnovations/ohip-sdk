@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BillingInstructionsType } from './BillingInstructionsType';
+import type { BillingInstructionType } from './BillingInstructionType';
 import {
-    BillingInstructionsTypeFromJSON,
-    BillingInstructionsTypeFromJSONTyped,
-    BillingInstructionsTypeToJSON,
-} from './BillingInstructionsType';
-import type { Links } from './Links';
+    BillingInstructionTypeFromJSON,
+    BillingInstructionTypeFromJSONTyped,
+    BillingInstructionTypeToJSON,
+} from './BillingInstructionType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -45,29 +45,29 @@ import {
  */
 export interface BillingInstructionCodes {
     /**
-     * 
-     * @type {BillingInstructionsType}
+     * Set of Billing Instruction codes.
+     * @type {Array<BillingInstructionType>}
      * @memberof BillingInstructionCodes
      */
-    billingInstructions?: BillingInstructionsType;
+    billingInstructions?: Array<BillingInstructionType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BillingInstructionCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof BillingInstructionCodes
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BillingInstructionCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function BillingInstructionCodesFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'billingInstructions': !exists(json, 'billingInstructions') ? undefined : BillingInstructionsTypeFromJSON(json['billingInstructions']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : TrxCodesInfoTypeFromJSON(json['transactionCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'billingInstructions': !exists(json, 'billingInstructions') ? undefined : ((json['billingInstructions'] as Array<any>).map(BillingInstructionTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : ((json['transactionCodes'] as Array<any>).map(TrxInfoTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function BillingInstructionCodesToJSON(value?: BillingInstructionCodes | 
     }
     return {
         
-        'billingInstructions': BillingInstructionsTypeToJSON(value.billingInstructions),
-        'links': LinksToJSON(value.links),
-        'transactionCodes': TrxCodesInfoTypeToJSON(value.transactionCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'billingInstructions': value.billingInstructions === undefined ? undefined : ((value.billingInstructions as Array<any>).map(BillingInstructionTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : ((value.transactionCodes as Array<any>).map(TrxInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

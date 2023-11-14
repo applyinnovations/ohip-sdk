@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CopyCateringEventsProcessedInfoList } from './CopyCateringEventsProcessedInfoList';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CateringEventsProcessedInfoType } from './CateringEventsProcessedInfoType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Status/Info of the processed resource(s).
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface QuickInsertResourceStatus {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof QuickInsertResourceStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {CopyCateringEventsProcessedInfoList}
+     * Status/Info of the processed events.
+     * @type {Array<CateringEventsProcessedInfoType>}
      * @memberof QuickInsertResourceStatus
      */
-    quickinsertResourcesProcessedInfo?: CopyCateringEventsProcessedInfoList;
+    quickinsertResourcesProcessedInfo?: Array<CateringEventsProcessedInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof QuickInsertResourceStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the QuickInsertResourceStatus interface.

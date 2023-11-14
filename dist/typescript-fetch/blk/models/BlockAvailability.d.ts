@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { BlockAvailabilityType } from './BlockAvailabilityType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for FetchBlockAvailability operation.
  * @export
@@ -26,16 +26,16 @@ export interface BlockAvailability {
     blockAvailability?: BlockAvailabilityType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockAvailability
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockAvailability
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockAvailability interface.

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FiscalFolioParametersToJSON = exports.FiscalFolioParametersFromJSONTyped = exports.FiscalFolioParametersFromJSON = exports.instanceOfFiscalFolioParameters = void 0;
 const runtime_1 = require("../runtime");
-const FiscalFolioParametersType_1 = require("./FiscalFolioParametersType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const FiscalFolioParameterType_1 = require("./FiscalFolioParameterType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FiscalFolioParameters interface.
  */
@@ -35,9 +35,9 @@ function FiscalFolioParametersFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'fiscalFolioParameters': !(0, runtime_1.exists)(json, 'fiscalFolioParameters') ? undefined : (0, FiscalFolioParametersType_1.FiscalFolioParametersTypeFromJSON)(json['fiscalFolioParameters']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'fiscalFolioParameters': !(0, runtime_1.exists)(json, 'fiscalFolioParameters') ? undefined : (json['fiscalFolioParameters'].map(FiscalFolioParameterType_1.FiscalFolioParameterTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FiscalFolioParametersFromJSONTyped = FiscalFolioParametersFromJSONTyped;
@@ -49,9 +49,9 @@ function FiscalFolioParametersToJSON(value) {
         return null;
     }
     return {
-        'fiscalFolioParameters': (0, FiscalFolioParametersType_1.FiscalFolioParametersTypeToJSON)(value.fiscalFolioParameters),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'fiscalFolioParameters': value.fiscalFolioParameters === undefined ? undefined : (value.fiscalFolioParameters.map(FiscalFolioParameterType_1.FiscalFolioParameterTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FiscalFolioParametersToJSON = FiscalFolioParametersToJSON;

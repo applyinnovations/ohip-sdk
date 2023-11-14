@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfileDistributionFiltersToJSON = exports.ProfileDistributionFiltersFromJSONTyped = exports.ProfileDistributionFiltersFromJSON = exports.instanceOfProfileDistributionFilters = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const ProfileDistributionFiltersType_1 = require("./ProfileDistributionFiltersType");
+const InstanceLink_1 = require("./InstanceLink");
+const ProfileDistributionFilterType_1 = require("./ProfileDistributionFilterType");
 /**
  * Check if a given object implements the ProfileDistributionFilters interface.
  */
@@ -34,8 +34,8 @@ function ProfileDistributionFiltersFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'profileDistributionFiltersDetail': !(0, runtime_1.exists)(json, 'profileDistributionFiltersDetail') ? undefined : (0, ProfileDistributionFiltersType_1.ProfileDistributionFiltersTypeFromJSON)(json['profileDistributionFiltersDetail']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'profileDistributionFiltersDetail': !(0, runtime_1.exists)(json, 'profileDistributionFiltersDetail') ? undefined : (json['profileDistributionFiltersDetail'].map(ProfileDistributionFilterType_1.ProfileDistributionFilterTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.ProfileDistributionFiltersFromJSONTyped = ProfileDistributionFiltersFromJSONTyped;
@@ -47,8 +47,8 @@ function ProfileDistributionFiltersToJSON(value) {
         return null;
     }
     return {
-        'profileDistributionFiltersDetail': (0, ProfileDistributionFiltersType_1.ProfileDistributionFiltersTypeToJSON)(value.profileDistributionFiltersDetail),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'profileDistributionFiltersDetail': value.profileDistributionFiltersDetail === undefined ? undefined : (value.profileDistributionFiltersDetail.map(ProfileDistributionFilterType_1.ProfileDistributionFilterTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.ProfileDistributionFiltersToJSON = ProfileDistributionFiltersToJSON;

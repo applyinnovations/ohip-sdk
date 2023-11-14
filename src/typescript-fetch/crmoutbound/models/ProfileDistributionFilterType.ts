@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { ProfileDistributionFilterIDType } from './ProfileDistributionFilterIDType';
 import {
     ProfileDistributionFilterIDTypeFromJSON,
@@ -52,28 +46,28 @@ export interface ProfileDistributionFilterType {
     description?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ProfileDistributionFilterType
      */
-    toDatabases?: CodeListType;
+    toDatabases?: Array<string>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ProfileDistributionFilterType
      */
-    fromDatabases?: CodeListType;
+    fromDatabases?: Array<string>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ProfileDistributionFilterType
      */
-    fromCountry?: CodeListType;
+    fromCountry?: Array<string>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ProfileDistributionFilterType
      */
-    fromTerritory?: CodeListType;
+    fromTerritory?: Array<string>;
     /**
      * Profile Type.
      * @type {string}
@@ -142,22 +136,22 @@ export interface ProfileDistributionFilterType {
     toStayDate?: Date;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ProfileDistributionFilterType
      */
-    roomLabels?: CodeListType;
+    roomLabels?: Array<string>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ProfileDistributionFilterType
      */
-    stayResorts?: CodeListType;
+    stayResorts?: Array<string>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ProfileDistributionFilterType
      */
-    stayChains?: CodeListType;
+    stayChains?: Array<string>;
     /**
      * Sum of total revenue on stay records for the time period.
      * @type {number}
@@ -226,10 +220,10 @@ export interface ProfileDistributionFilterType {
     excludeStay?: boolean;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ProfileDistributionFilterType
      */
-    revenueType?: CodeListType;
+    revenueType?: Array<string>;
     /**
      * Total amount of Membership Revenue Type.
      * @type {number}
@@ -272,10 +266,10 @@ export function ProfileDistributionFilterTypeFromJSONTyped(json: any, ignoreDisc
         'queryId': !exists(json, 'queryId') ? undefined : ProfileDistributionFilterIDTypeFromJSON(json['queryId']),
         'code': !exists(json, 'code') ? undefined : json['code'],
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'toDatabases': !exists(json, 'toDatabases') ? undefined : CodeListTypeFromJSON(json['toDatabases']),
-        'fromDatabases': !exists(json, 'fromDatabases') ? undefined : CodeListTypeFromJSON(json['fromDatabases']),
-        'fromCountry': !exists(json, 'fromCountry') ? undefined : CodeListTypeFromJSON(json['fromCountry']),
-        'fromTerritory': !exists(json, 'fromTerritory') ? undefined : CodeListTypeFromJSON(json['fromTerritory']),
+        'toDatabases': !exists(json, 'toDatabases') ? undefined : json['toDatabases'],
+        'fromDatabases': !exists(json, 'fromDatabases') ? undefined : json['fromDatabases'],
+        'fromCountry': !exists(json, 'fromCountry') ? undefined : json['fromCountry'],
+        'fromTerritory': !exists(json, 'fromTerritory') ? undefined : json['fromTerritory'],
         'profileType': !exists(json, 'profileType') ? undefined : json['profileType'],
         'membershipType': !exists(json, 'membershipType') ? undefined : json['membershipType'],
         'membershipLevels': !exists(json, 'membershipLevels') ? undefined : json['membershipLevels'],
@@ -287,9 +281,9 @@ export function ProfileDistributionFilterTypeFromJSONTyped(json: any, ignoreDisc
         'guestLanguages': !exists(json, 'guestLanguages') ? undefined : json['guestLanguages'],
         'fromStayDate': !exists(json, 'fromStayDate') ? undefined : (new Date(json['fromStayDate'])),
         'toStayDate': !exists(json, 'toStayDate') ? undefined : (new Date(json['toStayDate'])),
-        'roomLabels': !exists(json, 'roomLabels') ? undefined : CodeListTypeFromJSON(json['roomLabels']),
-        'stayResorts': !exists(json, 'stayResorts') ? undefined : CodeListTypeFromJSON(json['stayResorts']),
-        'stayChains': !exists(json, 'stayChains') ? undefined : CodeListTypeFromJSON(json['stayChains']),
+        'roomLabels': !exists(json, 'roomLabels') ? undefined : json['roomLabels'],
+        'stayResorts': !exists(json, 'stayResorts') ? undefined : json['stayResorts'],
+        'stayChains': !exists(json, 'stayChains') ? undefined : json['stayChains'],
         'totalRevenue': !exists(json, 'totalRevenue') ? undefined : json['totalRevenue'],
         'totalRoomRevenue': !exists(json, 'totalRoomRevenue') ? undefined : json['totalRoomRevenue'],
         'totalNights': !exists(json, 'totalNights') ? undefined : json['totalNights'],
@@ -301,7 +295,7 @@ export function ProfileDistributionFilterTypeFromJSONTyped(json: any, ignoreDisc
         'topNumber': !exists(json, 'topNumber') ? undefined : json['topNumber'],
         'topBasedOn': !exists(json, 'topBasedOn') ? undefined : json['topBasedOn'],
         'excludeStay': !exists(json, 'excludeStay') ? undefined : json['excludeStay'],
-        'revenueType': !exists(json, 'revenueType') ? undefined : CodeListTypeFromJSON(json['revenueType']),
+        'revenueType': !exists(json, 'revenueType') ? undefined : json['revenueType'],
         'totalRevenueTypeAmount': !exists(json, 'totalRevenueTypeAmount') ? undefined : json['totalRevenueTypeAmount'],
         'customFilter': !exists(json, 'customFilter') ? undefined : json['customFilter'],
         'reportId': !exists(json, 'reportId') ? undefined : json['reportId'],
@@ -320,10 +314,10 @@ export function ProfileDistributionFilterTypeToJSON(value?: ProfileDistributionF
         'queryId': ProfileDistributionFilterIDTypeToJSON(value.queryId),
         'code': value.code,
         'description': value.description,
-        'toDatabases': CodeListTypeToJSON(value.toDatabases),
-        'fromDatabases': CodeListTypeToJSON(value.fromDatabases),
-        'fromCountry': CodeListTypeToJSON(value.fromCountry),
-        'fromTerritory': CodeListTypeToJSON(value.fromTerritory),
+        'toDatabases': value.toDatabases,
+        'fromDatabases': value.fromDatabases,
+        'fromCountry': value.fromCountry,
+        'fromTerritory': value.fromTerritory,
         'profileType': value.profileType,
         'membershipType': value.membershipType,
         'membershipLevels': value.membershipLevels,
@@ -335,9 +329,9 @@ export function ProfileDistributionFilterTypeToJSON(value?: ProfileDistributionF
         'guestLanguages': value.guestLanguages,
         'fromStayDate': value.fromStayDate === undefined ? undefined : (value.fromStayDate.toISOString().substring(0,10)),
         'toStayDate': value.toStayDate === undefined ? undefined : (value.toStayDate.toISOString().substring(0,10)),
-        'roomLabels': CodeListTypeToJSON(value.roomLabels),
-        'stayResorts': CodeListTypeToJSON(value.stayResorts),
-        'stayChains': CodeListTypeToJSON(value.stayChains),
+        'roomLabels': value.roomLabels,
+        'stayResorts': value.stayResorts,
+        'stayChains': value.stayChains,
         'totalRevenue': value.totalRevenue,
         'totalRoomRevenue': value.totalRoomRevenue,
         'totalNights': value.totalNights,
@@ -349,7 +343,7 @@ export function ProfileDistributionFilterTypeToJSON(value?: ProfileDistributionF
         'topNumber': value.topNumber,
         'topBasedOn': value.topBasedOn,
         'excludeStay': value.excludeStay,
-        'revenueType': CodeListTypeToJSON(value.revenueType),
+        'revenueType': value.revenueType,
         'totalRevenueTypeAmount': value.totalRevenueTypeAmount,
         'customFilter': value.customFilter,
         'reportId': value.reportId,

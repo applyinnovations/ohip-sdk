@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DuplicateExternalSubscriptionsTypeToJSON = exports.DuplicateExternalSubscriptionsTypeFromJSONTyped = exports.DuplicateExternalSubscriptionsTypeFromJSON = exports.instanceOfDuplicateExternalSubscriptionsType = void 0;
 const runtime_1 = require("../runtime");
 const ProfileId_1 = require("./ProfileId");
-const ProfileSubscriptionListType_1 = require("./ProfileSubscriptionListType");
+const ProfileSubscriptionType_1 = require("./ProfileSubscriptionType");
 /**
  * Check if a given object implements the DuplicateExternalSubscriptionsType interface.
  */
@@ -36,7 +36,7 @@ function DuplicateExternalSubscriptionsTypeFromJSONTyped(json, ignoreDiscriminat
     return {
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, ProfileId_1.ProfileIdFromJSON)(json['profileId']),
         'databaseId': !(0, runtime_1.exists)(json, 'databaseId') ? undefined : json['databaseId'],
-        'profileSubscriptions': !(0, runtime_1.exists)(json, 'profileSubscriptions') ? undefined : (0, ProfileSubscriptionListType_1.ProfileSubscriptionListTypeFromJSON)(json['profileSubscriptions']),
+        'profileSubscriptions': !(0, runtime_1.exists)(json, 'profileSubscriptions') ? undefined : (json['profileSubscriptions'].map(ProfileSubscriptionType_1.ProfileSubscriptionTypeFromJSON)),
     };
 }
 exports.DuplicateExternalSubscriptionsTypeFromJSONTyped = DuplicateExternalSubscriptionsTypeFromJSONTyped;
@@ -50,7 +50,7 @@ function DuplicateExternalSubscriptionsTypeToJSON(value) {
     return {
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
         'databaseId': value.databaseId,
-        'profileSubscriptions': (0, ProfileSubscriptionListType_1.ProfileSubscriptionListTypeToJSON)(value.profileSubscriptions),
+        'profileSubscriptions': value.profileSubscriptions === undefined ? undefined : (value.profileSubscriptions.map(ProfileSubscriptionType_1.ProfileSubscriptionTypeToJSON)),
     };
 }
 exports.DuplicateExternalSubscriptionsTypeToJSON = DuplicateExternalSubscriptionsTypeToJSON;

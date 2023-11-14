@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomFeatureRatingsInfoToJSON = exports.RoomFeatureRatingsInfoFromJSONTyped = exports.RoomFeatureRatingsInfoFromJSON = exports.instanceOfRoomFeatureRatingsInfo = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RoomFeatureRatingsInfoType_1 = require("./RoomFeatureRatingsInfoType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RoomFeatureRatingInfoType_1 = require("./RoomFeatureRatingInfoType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomFeatureRatingsInfo interface.
  */
@@ -37,12 +37,12 @@ function RoomFeatureRatingsInfoFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'hasMore': !(0, runtime_1.exists)(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'offset': !(0, runtime_1.exists)(json, 'offset') ? undefined : json['offset'],
-        'roomFeatureRatingsInfo': !(0, runtime_1.exists)(json, 'roomFeatureRatingsInfo') ? undefined : (0, RoomFeatureRatingsInfoType_1.RoomFeatureRatingsInfoTypeFromJSON)(json['roomFeatureRatingsInfo']),
+        'roomFeatureRatingsInfo': !(0, runtime_1.exists)(json, 'roomFeatureRatingsInfo') ? undefined : (json['roomFeatureRatingsInfo'].map(RoomFeatureRatingInfoType_1.RoomFeatureRatingInfoTypeFromJSON)),
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !(0, runtime_1.exists)(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomFeatureRatingsInfoFromJSONTyped = RoomFeatureRatingsInfoFromJSONTyped;
@@ -56,12 +56,12 @@ function RoomFeatureRatingsInfoToJSON(value) {
     return {
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'offset': value.offset,
-        'roomFeatureRatingsInfo': (0, RoomFeatureRatingsInfoType_1.RoomFeatureRatingsInfoTypeToJSON)(value.roomFeatureRatingsInfo),
+        'roomFeatureRatingsInfo': value.roomFeatureRatingsInfo === undefined ? undefined : (value.roomFeatureRatingsInfo.map(RoomFeatureRatingInfoType_1.RoomFeatureRatingInfoTypeToJSON)),
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomFeatureRatingsInfoToJSON = RoomFeatureRatingsInfoToJSON;

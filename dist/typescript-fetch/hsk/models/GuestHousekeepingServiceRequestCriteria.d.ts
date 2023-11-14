@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { SetGuestHousekeepingServiceRequestCriteriaType } from './SetGuestHousekeepingServiceRequestCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Operation to set the Guest Service status of an occupied room. The service status can be Do Not Disturb or Make Up Room.
  * @export
@@ -26,16 +26,16 @@ export interface GuestHousekeepingServiceRequestCriteria {
     criteria?: SetGuestHousekeepingServiceRequestCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuestHousekeepingServiceRequestCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuestHousekeepingServiceRequestCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GuestHousekeepingServiceRequestCriteria interface.

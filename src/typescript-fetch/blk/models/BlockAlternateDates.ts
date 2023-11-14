@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockAlternateDatesType } from './BlockAlternateDatesType';
+import type { BlockAlternateDateType } from './BlockAlternateDateType';
 import {
-    BlockAlternateDatesTypeFromJSON,
-    BlockAlternateDatesTypeFromJSONTyped,
-    BlockAlternateDatesTypeToJSON,
-} from './BlockAlternateDatesType';
-import type { BlockIdList } from './BlockIdList';
+    BlockAlternateDateTypeFromJSON,
+    BlockAlternateDateTypeFromJSONTyped,
+    BlockAlternateDateTypeToJSON,
+} from './BlockAlternateDateType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    BlockIdListFromJSON,
-    BlockIdListFromJSONTyped,
-    BlockIdListToJSON,
-} from './BlockIdList';
-import type { Links } from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to create block alternate dates.
@@ -45,17 +45,17 @@ import {
  */
 export interface BlockAlternateDates {
     /**
-     * 
-     * @type {BlockAlternateDatesType}
+     * Contains a list of Block Alternate Dates.
+     * @type {Array<BlockAlternateDateType>}
      * @memberof BlockAlternateDates
      */
-    blockAlternateDates?: BlockAlternateDatesType;
+    blockAlternateDates?: Array<BlockAlternateDateType>;
     /**
-     * 
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof BlockAlternateDates
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -64,16 +64,16 @@ export interface BlockAlternateDates {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockAlternateDates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockAlternateDates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -95,11 +95,11 @@ export function BlockAlternateDatesFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'blockAlternateDates': !exists(json, 'blockAlternateDates') ? undefined : BlockAlternateDatesTypeFromJSON(json['blockAlternateDates']),
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : BlockIdListFromJSON(json['blockIdList']),
+        'blockAlternateDates': !exists(json, 'blockAlternateDates') ? undefined : ((json['blockAlternateDates'] as Array<any>).map(BlockAlternateDateTypeFromJSON)),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -112,11 +112,11 @@ export function BlockAlternateDatesToJSON(value?: BlockAlternateDates | null): a
     }
     return {
         
-        'blockAlternateDates': BlockAlternateDatesTypeToJSON(value.blockAlternateDates),
-        'blockIdList': BlockIdListToJSON(value.blockIdList),
+        'blockAlternateDates': value.blockAlternateDates === undefined ? undefined : ((value.blockAlternateDates as Array<any>).map(BlockAlternateDateTypeToJSON)),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

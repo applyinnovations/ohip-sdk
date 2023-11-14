@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ARInvoiceCriteriaTypeAdditionalFilterToJSON = exports.ARInvoiceCriteriaTypeAdditionalFilterFromJSONTyped = exports.ARInvoiceCriteriaTypeAdditionalFilterFromJSON = exports.instanceOfARInvoiceCriteriaTypeAdditionalFilter = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const DateRangeType_1 = require("./DateRangeType");
 /**
  * Check if a given object implements the ARInvoiceCriteriaTypeAdditionalFilter interface.
@@ -39,8 +38,8 @@ function ARInvoiceCriteriaTypeAdditionalFilterFromJSONTyped(json, ignoreDiscrimi
         'dateRange': !(0, runtime_1.exists)(json, 'dateRange') ? undefined : (0, DateRangeType_1.DateRangeTypeFromJSON)(json['dateRange']),
         'referenceWildCard': !(0, runtime_1.exists)(json, 'referenceWildCard') ? undefined : json['referenceWildCard'],
         'supplementWildCard': !(0, runtime_1.exists)(json, 'supplementWildCard') ? undefined : json['supplementWildCard'],
-        'transactionCode': !(0, runtime_1.exists)(json, 'transactionCode') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['transactionCode']),
-        'transactionSubGroup': !(0, runtime_1.exists)(json, 'transactionSubGroup') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['transactionSubGroup']),
+        'transactionCode': !(0, runtime_1.exists)(json, 'transactionCode') ? undefined : json['transactionCode'],
+        'transactionSubGroup': !(0, runtime_1.exists)(json, 'transactionSubGroup') ? undefined : json['transactionSubGroup'],
     };
 }
 exports.ARInvoiceCriteriaTypeAdditionalFilterFromJSONTyped = ARInvoiceCriteriaTypeAdditionalFilterFromJSONTyped;
@@ -57,8 +56,8 @@ function ARInvoiceCriteriaTypeAdditionalFilterToJSON(value) {
         'dateRange': (0, DateRangeType_1.DateRangeTypeToJSON)(value.dateRange),
         'referenceWildCard': value.referenceWildCard,
         'supplementWildCard': value.supplementWildCard,
-        'transactionCode': (0, CodeListType_1.CodeListTypeToJSON)(value.transactionCode),
-        'transactionSubGroup': (0, CodeListType_1.CodeListTypeToJSON)(value.transactionSubGroup),
+        'transactionCode': value.transactionCode,
+        'transactionSubGroup': value.transactionSubGroup,
     };
 }
 exports.ARInvoiceCriteriaTypeAdditionalFilterToJSON = ARInvoiceCriteriaTypeAdditionalFilterToJSON;

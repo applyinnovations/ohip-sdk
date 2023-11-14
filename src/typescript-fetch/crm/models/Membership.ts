@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ProfileIdList } from './ProfileIdList';
-import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ProfileMembershipType } from './ProfileMembershipType';
 import {
     ProfileMembershipTypeFromJSON,
     ProfileMembershipTypeFromJSONTyped,
     ProfileMembershipTypeToJSON,
 } from './ProfileMembershipType';
-import type { WarningsType } from './WarningsType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
+import type { WarningType } from './WarningType';
+import {
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for create membership. This object contains unique identifiers for each profile and list of membership details to be created. The standard optional Opera Context element is also included.
@@ -46,16 +46,16 @@ import {
 export interface Membership {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Membership
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof Membership
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * Detailed information of membership related to the profile
      * @type {Array<ProfileMembershipType>}
@@ -63,11 +63,11 @@ export interface Membership {
      */
     profileMemberships?: Array<ProfileMembershipType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Membership
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function MembershipFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'profileMemberships': !exists(json, 'profileMemberships') ? undefined : ((json['profileMemberships'] as Array<any>).map(ProfileMembershipTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function MembershipToJSON(value?: Membership | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'profileMemberships': value.profileMemberships === undefined ? undefined : ((value.profileMemberships as Array<any>).map(ProfileMembershipTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -17,7 +17,6 @@ exports.ServiceRequestToJSON = exports.ServiceRequestFromJSONTyped = exports.Ser
 const runtime_1 = require("../runtime");
 const CodeDescriptionType_1 = require("./CodeDescriptionType");
 const ProfileId_1 = require("./ProfileId");
-const ReservationIdList_1 = require("./ReservationIdList");
 const ServiceRequestStatusType_1 = require("./ServiceRequestStatusType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -53,7 +52,7 @@ function ServiceRequestFromJSONTyped(json, ignoreDiscriminator) {
         'openDate': !(0, runtime_1.exists)(json, 'openDate') ? undefined : json['openDate'],
         'priority': !(0, runtime_1.exists)(json, 'priority') ? undefined : json['priority'],
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, ProfileId_1.ProfileIdFromJSON)(json['profileId']),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'serviceRequestId': !(0, runtime_1.exists)(json, 'serviceRequestId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['serviceRequestId']),
         'status': !(0, runtime_1.exists)(json, 'status') ? undefined : (0, ServiceRequestStatusType_1.ServiceRequestStatusTypeFromJSON)(json['status']),
     };
@@ -83,7 +82,7 @@ function ServiceRequestToJSON(value) {
         'openDate': value.openDate,
         'priority': value.priority,
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'serviceRequestId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.serviceRequestId),
         'status': (0, ServiceRequestStatusType_1.ServiceRequestStatusTypeToJSON)(value.status),
     };

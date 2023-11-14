@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { PrepaidCardInfoType } from './PrepaidCardInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response for fetch Prepaid card balance operation
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface PrepaidCardBalanceDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PrepaidCardBalanceDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {PrepaidCardInfoType}
@@ -31,11 +31,11 @@ export interface PrepaidCardBalanceDetails {
      */
     prepaidCardDetails?: PrepaidCardInfoType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PrepaidCardBalanceDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PrepaidCardBalanceDetails interface.

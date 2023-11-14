@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { SetBlockOwnersType } from './SetBlockOwnersType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to change block owners.
  * @export
@@ -26,16 +26,16 @@ export interface BlockOwnersToChange {
     criteria?: SetBlockOwnersType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockOwnersToChange
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockOwnersToChange
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockOwnersToChange interface.

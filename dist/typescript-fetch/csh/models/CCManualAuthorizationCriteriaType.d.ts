@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CurrencyAmountType } from './CurrencyAmountType';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Type for registering a manual authorization.
  * @export
@@ -42,11 +42,11 @@ export interface CCManualAuthorizationCriteriaType {
      */
     manualApprovalCode?: string;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CCManualAuthorizationCriteriaType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the CCManualAuthorizationCriteriaType interface.

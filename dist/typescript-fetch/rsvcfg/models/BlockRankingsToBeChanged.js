@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockRankingsToBeChangedToJSON = exports.BlockRankingsToBeChangedFromJSONTyped = exports.BlockRankingsToBeChangedFromJSON = exports.instanceOfBlockRankingsToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const BlockRankingsType_1 = require("./BlockRankingsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const BlockRankingType_1 = require("./BlockRankingType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BlockRankingsToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function BlockRankingsToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blockRankings': !(0, runtime_1.exists)(json, 'blockRankings') ? undefined : (0, BlockRankingsType_1.BlockRankingsTypeFromJSON)(json['blockRankings']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'blockRankings': !(0, runtime_1.exists)(json, 'blockRankings') ? undefined : (json['blockRankings'].map(BlockRankingType_1.BlockRankingTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BlockRankingsToBeChangedFromJSONTyped = BlockRankingsToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function BlockRankingsToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'blockRankings': (0, BlockRankingsType_1.BlockRankingsTypeToJSON)(value.blockRankings),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'blockRankings': value.blockRankings === undefined ? undefined : (value.blockRankings.map(BlockRankingType_1.BlockRankingTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BlockRankingsToBeChangedToJSON = BlockRankingsToBeChangedToJSON;

@@ -19,12 +19,12 @@ import {
     BlockInfoTypeFromJSONTyped,
     BlockInfoTypeToJSON,
 } from './BlockInfoType';
-import type { BlockStatusStatisticsType } from './BlockStatusStatisticsType';
+import type { BlockStatusStatisticType } from './BlockStatusStatisticType';
 import {
-    BlockStatusStatisticsTypeFromJSON,
-    BlockStatusStatisticsTypeFromJSONTyped,
-    BlockStatusStatisticsTypeToJSON,
-} from './BlockStatusStatisticsType';
+    BlockStatusStatisticTypeFromJSON,
+    BlockStatusStatisticTypeFromJSONTyped,
+    BlockStatusStatisticTypeToJSON,
+} from './BlockStatusStatisticType';
 
 /**
  * Information and statistic summary for a particular block.
@@ -39,11 +39,11 @@ export interface BlockDetailStatisticType {
      */
     blockInformation?: BlockInfoType;
     /**
-     * 
-     * @type {BlockStatusStatisticsType}
+     * Summary statistics of a block for each date.
+     * @type {Array<BlockStatusStatisticType>}
      * @memberof BlockDetailStatisticType
      */
-    blockStatistics?: BlockStatusStatisticsType;
+    blockStatistics?: Array<BlockStatusStatisticType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function BlockDetailStatisticTypeFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         'blockInformation': !exists(json, 'blockInformation') ? undefined : BlockInfoTypeFromJSON(json['blockInformation']),
-        'blockStatistics': !exists(json, 'blockStatistics') ? undefined : BlockStatusStatisticsTypeFromJSON(json['blockStatistics']),
+        'blockStatistics': !exists(json, 'blockStatistics') ? undefined : ((json['blockStatistics'] as Array<any>).map(BlockStatusStatisticTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function BlockDetailStatisticTypeToJSON(value?: BlockDetailStatisticType 
     return {
         
         'blockInformation': BlockInfoTypeToJSON(value.blockInformation),
-        'blockStatistics': BlockStatusStatisticsTypeToJSON(value.blockStatistics),
+        'blockStatistics': value.blockStatistics === undefined ? undefined : ((value.blockStatistics as Array<any>).map(BlockStatusStatisticTypeToJSON)),
     };
 }
 

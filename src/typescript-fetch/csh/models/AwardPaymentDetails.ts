@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for fetching a membership transaction.
@@ -52,10 +52,10 @@ export interface AwardPaymentDetails {
     folioView?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AwardPaymentDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * The number of points that are redeemed for this award.
      * @type {number}
@@ -75,11 +75,11 @@ export interface AwardPaymentDetails {
      */
     voucherNo?: string;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AwardPaymentDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -104,11 +104,11 @@ export function AwardPaymentDetailsFromJSONTyped(json: any, ignoreDiscriminator:
         'awardType': !exists(json, 'awardType') ? undefined : json['awardType'],
         'billAmount': !exists(json, 'billAmount') ? undefined : json['billAmount'],
         'folioView': !exists(json, 'folioView') ? undefined : json['folioView'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'pointsRequired': !exists(json, 'pointsRequired') ? undefined : json['pointsRequired'],
         'redeemAmount': !exists(json, 'redeemAmount') ? undefined : json['redeemAmount'],
         'voucherNo': !exists(json, 'voucherNo') ? undefined : json['voucherNo'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -124,11 +124,11 @@ export function AwardPaymentDetailsToJSON(value?: AwardPaymentDetails | null): a
         'awardType': value.awardType,
         'billAmount': value.billAmount,
         'folioView': value.folioView,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'pointsRequired': value.pointsRequired,
         'redeemAmount': value.redeemAmount,
         'voucherNo': value.voucherNo,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

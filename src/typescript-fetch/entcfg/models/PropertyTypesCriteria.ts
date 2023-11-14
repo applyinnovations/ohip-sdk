@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { PropertyTypesType } from './PropertyTypesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { PropertyTypeType } from './PropertyTypeType';
 import {
-    PropertyTypesTypeFromJSON,
-    PropertyTypesTypeFromJSONTyped,
-    PropertyTypesTypeToJSON,
-} from './PropertyTypesType';
-import type { WarningsType } from './WarningsType';
+    PropertyTypeTypeFromJSON,
+    PropertyTypeTypeFromJSONTyped,
+    PropertyTypeTypeToJSON,
+} from './PropertyTypeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Property Types.
@@ -40,22 +40,22 @@ import {
 export interface PropertyTypesCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PropertyTypesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {PropertyTypesType}
+     * List of Property Types.
+     * @type {Array<PropertyTypeType>}
      * @memberof PropertyTypesCriteria
      */
-    propertyTypes?: PropertyTypesType;
+    propertyTypes?: Array<PropertyTypeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PropertyTypesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function PropertyTypesCriteriaFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'propertyTypes': !exists(json, 'propertyTypes') ? undefined : PropertyTypesTypeFromJSON(json['propertyTypes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'propertyTypes': !exists(json, 'propertyTypes') ? undefined : ((json['propertyTypes'] as Array<any>).map(PropertyTypeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function PropertyTypesCriteriaToJSON(value?: PropertyTypesCriteria | null
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'propertyTypes': PropertyTypesTypeToJSON(value.propertyTypes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'propertyTypes': value.propertyTypes === undefined ? undefined : ((value.propertyTypes as Array<any>).map(PropertyTypeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

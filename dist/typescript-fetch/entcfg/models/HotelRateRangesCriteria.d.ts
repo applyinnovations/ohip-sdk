@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelRateRangesType } from './HotelRateRangesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelRateRangeType } from './HotelRateRangeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new Rate Ranges for hotels.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface HotelRateRangesCriteria {
     /**
-     *
-     * @type {HotelRateRangesType}
+     * Lists of rate ranges of the hotel.
+     * @type {Array<HotelRateRangeType>}
      * @memberof HotelRateRangesCriteria
      */
-    hotelRateRanges?: HotelRateRangesType;
+    hotelRateRanges?: Array<HotelRateRangeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelRateRangesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelRateRangesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HotelRateRangesCriteria interface.

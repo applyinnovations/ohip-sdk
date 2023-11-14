@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CopyCateringPkgType } from './CopyCateringPkgType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for Copying Catering Package/Template to another block.
  * @export
@@ -24,11 +24,11 @@ export interface CopyCateringPackage {
      */
     criteria?: CopyCateringPkgType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CopyCateringPackage
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CopyCateringPackage interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ReservationMethodsType } from './ReservationMethodsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ReservationMethodType } from './ReservationMethodType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Reservation Methods.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ReservationMethodsCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationMethodsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ReservationMethodsType}
+     * List of Reservation Methods.
+     * @type {Array<ReservationMethodType>}
      * @memberof ReservationMethodsCriteria
      */
-    reservationMethods?: ReservationMethodsType;
+    reservationMethods?: Array<ReservationMethodType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationMethodsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationMethodsCriteria interface.

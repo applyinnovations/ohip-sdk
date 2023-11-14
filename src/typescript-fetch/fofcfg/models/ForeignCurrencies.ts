@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ForeignCurrenciesType } from './ForeignCurrenciesType';
+import type { ForeignCurrencyType } from './ForeignCurrencyType';
 import {
-    ForeignCurrenciesTypeFromJSON,
-    ForeignCurrenciesTypeFromJSONTyped,
-    ForeignCurrenciesTypeToJSON,
-} from './ForeignCurrenciesType';
-import type { Links } from './Links';
+    ForeignCurrencyTypeFromJSON,
+    ForeignCurrencyTypeFromJSONTyped,
+    ForeignCurrencyTypeToJSON,
+} from './ForeignCurrencyType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface ForeignCurrencies {
     /**
-     * 
-     * @type {ForeignCurrenciesType}
+     * List of the Foreign Currencies to be configured or fetched
+     * @type {Array<ForeignCurrencyType>}
      * @memberof ForeignCurrencies
      */
-    foreignCurrencies?: ForeignCurrenciesType;
+    foreignCurrencies?: Array<ForeignCurrencyType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ForeignCurrencies
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ForeignCurrencies
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ForeignCurrenciesFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'foreignCurrencies': !exists(json, 'foreignCurrencies') ? undefined : ForeignCurrenciesTypeFromJSON(json['foreignCurrencies']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'foreignCurrencies': !exists(json, 'foreignCurrencies') ? undefined : ((json['foreignCurrencies'] as Array<any>).map(ForeignCurrencyTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ForeignCurrenciesToJSON(value?: ForeignCurrencies | null): any {
     }
     return {
         
-        'foreignCurrencies': ForeignCurrenciesTypeToJSON(value.foreignCurrencies),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'foreignCurrencies': value.foreignCurrencies === undefined ? undefined : ((value.foreignCurrencies as Array<any>).map(ForeignCurrencyTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

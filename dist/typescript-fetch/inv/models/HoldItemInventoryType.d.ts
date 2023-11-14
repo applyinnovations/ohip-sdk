@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { HeldByType } from './HeldByType';
-import type { HoldItemInfoListType } from './HoldItemInfoListType';
+import type { HoldItemInfoType } from './HoldItemInfoType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Request parameter for holding an Item Inventory.
@@ -31,11 +31,11 @@ export interface HoldItemInventoryType {
      */
     heldById?: UniqueIDType;
     /**
-     *
-     * @type {HoldItemInfoListType}
+     * Info of an item inventory that is requested for Hold.
+     * @type {Array<HoldItemInfoType>}
      * @memberof HoldItemInventoryType
      */
-    holdItemInfoList?: HoldItemInfoListType;
+    holdItemInfoList?: Array<HoldItemInfoType>;
     /**
      * Hotel Code whose Item Inventory is being requested.
      * @type {string}

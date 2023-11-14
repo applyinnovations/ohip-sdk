@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelReservationTracesType } from './HotelReservationTracesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelReservationTraceType } from './HotelReservationTraceType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Return object to the request for information regarding traces.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface Traces {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Traces
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {HotelReservationTracesType}
+     * List of Reservation Traces.
+     * @type {Array<HotelReservationTraceType>}
      * @memberof Traces
      */
-    traces?: HotelReservationTracesType;
+    traces?: Array<HotelReservationTraceType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Traces
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Traces interface.

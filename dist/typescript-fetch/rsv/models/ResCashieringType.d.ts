@@ -11,7 +11,7 @@
  */
 import type { BedTaxReportingType } from './BedTaxReportingType';
 import type { BillingPrivilegesType } from './BillingPrivilegesType';
-import type { FolioTextsType } from './FolioTextsType';
+import type { FolioTextsTypeInner } from './FolioTextsTypeInner';
 import type { ResCompAccountingType } from './ResCompAccountingType';
 import type { ResPreConfiguredRoutingInstrType } from './ResPreConfiguredRoutingInstrType';
 import type { ResRevenueBalanceType } from './ResRevenueBalanceType';
@@ -41,11 +41,11 @@ export interface ResCashieringType {
      */
     compAccounting?: ResCompAccountingType;
     /**
-     *
-     * @type {FolioTextsType}
+     * This stores the description for the type of tax calculation especially with tax exemption, etc.
+     * @type {Array<FolioTextsTypeInner>}
      * @memberof ResCashieringType
      */
-    folioTexts?: FolioTextsType;
+    folioTexts?: Array<FolioTextsTypeInner>;
     /**
      * Date of the last Room And Tax posting. Used primarily to know the date in case of Advance Billing.
      * @type {Date}

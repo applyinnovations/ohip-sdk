@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipStatusCodesType } from './MembershipStatusCodesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipStatusCodeType } from './MembershipStatusCodeType';
 import {
-    MembershipStatusCodesTypeFromJSON,
-    MembershipStatusCodesTypeFromJSONTyped,
-    MembershipStatusCodesTypeToJSON,
-} from './MembershipStatusCodesType';
-import type { WarningsType } from './WarningsType';
+    MembershipStatusCodeTypeFromJSON,
+    MembershipStatusCodeTypeFromJSONTyped,
+    MembershipStatusCodeTypeToJSON,
+} from './MembershipStatusCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Membership Status Codes.
@@ -40,22 +40,22 @@ import {
 export interface MembershipStatusCodesToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipStatusCodesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MembershipStatusCodesType}
+     * List of Membership Status Codes.
+     * @type {Array<MembershipStatusCodeType>}
      * @memberof MembershipStatusCodesToBeChanged
      */
-    membershipStatusCodes?: MembershipStatusCodesType;
+    membershipStatusCodes?: Array<MembershipStatusCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipStatusCodesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MembershipStatusCodesToBeChangedFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'membershipStatusCodes': !exists(json, 'membershipStatusCodes') ? undefined : MembershipStatusCodesTypeFromJSON(json['membershipStatusCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'membershipStatusCodes': !exists(json, 'membershipStatusCodes') ? undefined : ((json['membershipStatusCodes'] as Array<any>).map(MembershipStatusCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MembershipStatusCodesToBeChangedToJSON(value?: MembershipStatusC
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'membershipStatusCodes': MembershipStatusCodesTypeToJSON(value.membershipStatusCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'membershipStatusCodes': value.membershipStatusCodes === undefined ? undefined : ((value.membershipStatusCodes as Array<any>).map(MembershipStatusCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

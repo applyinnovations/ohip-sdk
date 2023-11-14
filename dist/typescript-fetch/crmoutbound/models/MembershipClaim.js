@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipClaimToJSON = exports.MembershipClaimFromJSONTyped = exports.MembershipClaimFromJSON = exports.instanceOfMembershipClaim = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const MembershipClaimDetailsType_1 = require("./MembershipClaimDetailsType");
 /**
  * Check if a given object implements the MembershipClaim interface.
@@ -35,7 +35,7 @@ function MembershipClaimFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'membershipClaimDetails': !(0, runtime_1.exists)(json, 'membershipClaimDetails') ? undefined : (0, MembershipClaimDetailsType_1.MembershipClaimDetailsTypeFromJSON)(json['membershipClaimDetails']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.MembershipClaimFromJSONTyped = MembershipClaimFromJSONTyped;
@@ -48,7 +48,7 @@ function MembershipClaimToJSON(value) {
     }
     return {
         'membershipClaimDetails': (0, MembershipClaimDetailsType_1.MembershipClaimDetailsTypeToJSON)(value.membershipClaimDetails),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.MembershipClaimToJSON = MembershipClaimToJSON;

@@ -19,18 +19,12 @@ import {
     BaseFunctionSpaceRateTypeFromJSONTyped,
     BaseFunctionSpaceRateTypeToJSON,
 } from './BaseFunctionSpaceRateType';
-import type { CodeListType } from './CodeListType';
+import type { ComboElementRoomType } from './ComboElementRoomType';
 import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-import type { ComboRoomsType } from './ComboRoomsType';
-import {
-    ComboRoomsTypeFromJSON,
-    ComboRoomsTypeFromJSONTyped,
-    ComboRoomsTypeToJSON,
-} from './ComboRoomsType';
+    ComboElementRoomTypeFromJSON,
+    ComboElementRoomTypeFromJSONTyped,
+    ComboElementRoomTypeToJSON,
+} from './ComboElementRoomType';
 import type { FunctionSpaceAlternateType } from './FunctionSpaceAlternateType';
 import {
     FunctionSpaceAlternateTypeFromJSON,
@@ -88,16 +82,16 @@ export interface FunctionSpaceConfigType {
     combo?: boolean;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof FunctionSpaceConfigType
      */
-    comboElements?: CodeListType;
+    comboElements?: Array<string>;
     /**
-     * 
-     * @type {ComboRoomsType}
+     * This type holds a collection of combo elements for a function space.
+     * @type {Array<ComboElementRoomType>}
      * @memberof FunctionSpaceConfigType
      */
-    comboRooms?: ComboRoomsType;
+    comboRooms?: Array<ComboElementRoomType>;
     /**
      * 
      * @type {TranslationTextType2000}
@@ -278,8 +272,8 @@ export function FunctionSpaceConfigTypeFromJSONTyped(json: any, ignoreDiscrimina
         'alternate': !exists(json, 'alternate') ? undefined : FunctionSpaceAlternateTypeFromJSON(json['alternate']),
         'capacity': !exists(json, 'capacity') ? undefined : RoomCapacityTypeFromJSON(json['capacity']),
         'combo': !exists(json, 'combo') ? undefined : json['combo'],
-        'comboElements': !exists(json, 'comboElements') ? undefined : CodeListTypeFromJSON(json['comboElements']),
-        'comboRooms': !exists(json, 'comboRooms') ? undefined : ComboRoomsTypeFromJSON(json['comboRooms']),
+        'comboElements': !exists(json, 'comboElements') ? undefined : json['comboElements'],
+        'comboRooms': !exists(json, 'comboRooms') ? undefined : ((json['comboRooms'] as Array<any>).map(ComboElementRoomTypeFromJSON)),
         'description': !exists(json, 'description') ? undefined : TranslationTextType2000FromJSON(json['description']),
         'dimension': !exists(json, 'dimension') ? undefined : FunctionSpaceDimensionTypeFromJSON(json['dimension']),
         'displayInDiary': !exists(json, 'displayInDiary') ? undefined : json['displayInDiary'],
@@ -321,8 +315,8 @@ export function FunctionSpaceConfigTypeToJSON(value?: FunctionSpaceConfigType | 
         'alternate': FunctionSpaceAlternateTypeToJSON(value.alternate),
         'capacity': RoomCapacityTypeToJSON(value.capacity),
         'combo': value.combo,
-        'comboElements': CodeListTypeToJSON(value.comboElements),
-        'comboRooms': ComboRoomsTypeToJSON(value.comboRooms),
+        'comboElements': value.comboElements,
+        'comboRooms': value.comboRooms === undefined ? undefined : ((value.comboRooms as Array<any>).map(ComboElementRoomTypeToJSON)),
         'description': TranslationTextType2000ToJSON(value.description),
         'dimension': FunctionSpaceDimensionTypeToJSON(value.dimension),
         'displayInDiary': value.displayInDiary,

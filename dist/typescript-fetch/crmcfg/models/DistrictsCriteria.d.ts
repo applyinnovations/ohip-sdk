@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DistrictsType } from './DistrictsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { DistrictType } from './DistrictType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Districts.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface DistrictsCriteria {
     /**
-     *
-     * @type {DistrictsType}
+     * List of Districts.
+     * @type {Array<DistrictType>}
      * @memberof DistrictsCriteria
      */
-    districts?: DistrictsType;
+    districts?: Array<DistrictType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DistrictsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DistrictsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DistrictsCriteria interface.

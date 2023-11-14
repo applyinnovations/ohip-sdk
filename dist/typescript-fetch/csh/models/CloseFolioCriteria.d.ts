@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CloseFolioCriteriaType } from './CloseFolioCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to close an Open Folio Reservation. The Property should be using the Open Folio Functionality to use this operation.
  * @export
@@ -26,16 +26,16 @@ export interface CloseFolioCriteria {
     criteria?: CloseFolioCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CloseFolioCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CloseFolioCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CloseFolioCriteria interface.

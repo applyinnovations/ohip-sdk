@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BookingChannelsInfoType } from './BookingChannelsInfoType';
-import type { ChannelRoomMappingsSourceDescriptionsType } from './ChannelRoomMappingsSourceDescriptionsType';
+import type { BookingChannelInfoType } from './BookingChannelInfoType';
+import type { ChannelRoomMappingSourceDescriptionsType } from './ChannelRoomMappingSourceDescriptionsType';
 /**
  * Additional details about the booking channels and source descriptions for a hotel room type referenced within the fetched results.
  * @export
@@ -18,17 +18,17 @@ import type { ChannelRoomMappingsSourceDescriptionsType } from './ChannelRoomMap
  */
 export interface ChannelRoomMappingMasterInfoType {
     /**
-     *
-     * @type {BookingChannelsInfoType}
+     * Additional detail about booking channel.
+     * @type {Array<BookingChannelInfoType>}
      * @memberof ChannelRoomMappingMasterInfoType
      */
-    bookingChannelsInfo?: BookingChannelsInfoType;
+    bookingChannelsInfo?: Array<BookingChannelInfoType>;
     /**
-     *
-     * @type {ChannelRoomMappingsSourceDescriptionsType}
+     * This type holds hotel-channel room type mapping source descriptions.
+     * @type {Array<ChannelRoomMappingSourceDescriptionsType>}
      * @memberof ChannelRoomMappingMasterInfoType
      */
-    sourceDescriptions?: ChannelRoomMappingsSourceDescriptionsType;
+    sourceDescriptions?: Array<ChannelRoomMappingSourceDescriptionsType>;
 }
 /**
  * Check if a given object implements the ChannelRoomMappingMasterInfoType interface.

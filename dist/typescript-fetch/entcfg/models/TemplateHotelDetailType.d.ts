@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { TemplateHotelDetailValuesType } from './TemplateHotelDetailValuesType';
+import type { TemplateHotelDetailValueType } from './TemplateHotelDetailValueType';
 /**
  * Base details used for storing information about a hotel detail.
  * @export
@@ -41,11 +41,11 @@ export interface TemplateHotelDetailType {
      */
     sequence?: number;
     /**
-     *
-     * @type {TemplateHotelDetailValuesType}
+     * Collection of template level hotel detail values.
+     * @type {Array<TemplateHotelDetailValueType>}
      * @memberof TemplateHotelDetailType
      */
-    templateHotelDetailValues?: TemplateHotelDetailValuesType;
+    templateHotelDetailValues?: Array<TemplateHotelDetailValueType>;
 }
 /**
  * Check if a given object implements the TemplateHotelDetailType interface.

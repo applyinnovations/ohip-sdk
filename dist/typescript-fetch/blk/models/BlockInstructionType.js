@@ -15,11 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockInstructionTypeToJSON = exports.BlockInstructionTypeFromJSONTyped = exports.BlockInstructionTypeFromJSON = exports.instanceOfBlockInstructionType = void 0;
 const runtime_1 = require("../runtime");
-const AttachmentsType_1 = require("./AttachmentsType");
+const AttachmentType_1 = require("./AttachmentType");
 const BlockAccessExclusionsType_1 = require("./BlockAccessExclusionsType");
 const BlockAlternateDateType_1 = require("./BlockAlternateDateType");
 const BlockDetailsType_1 = require("./BlockDetailsType");
-const BlockIdList_1 = require("./BlockIdList");
 const BlockInstructionTypeBlockProfiles_1 = require("./BlockInstructionTypeBlockProfiles");
 const BlockInstructionTypeBlockSecurity_1 = require("./BlockInstructionTypeBlockSecurity");
 const BlockInstructionTypeComments_1 = require("./BlockInstructionTypeComments");
@@ -27,22 +26,23 @@ const BlockInstructionTypeExternalAttributes_1 = require("./BlockInstructionType
 const BlockInstructionTypeGenericRoomAllocations_1 = require("./BlockInstructionTypeGenericRoomAllocations");
 const BlockInstructionTypeResponseInstructions_1 = require("./BlockInstructionTypeResponseInstructions");
 const BlockInstructionTypeRoomAllocations_1 = require("./BlockInstructionTypeRoomAllocations");
-const BlockInventoryItemsType_1 = require("./BlockInventoryItemsType");
+const BlockInventoryItemType_1 = require("./BlockInventoryItemType");
 const BlockOwnersType_1 = require("./BlockOwnersType");
 const BlockPackageType_1 = require("./BlockPackageType");
 const BlockReservationDetailsType_1 = require("./BlockReservationDetailsType");
 const BlockRestrictionsType_1 = require("./BlockRestrictionsType");
 const BlockStatisticsSummaryType_1 = require("./BlockStatisticsSummaryType");
 const BlockStatisticsType_1 = require("./BlockStatisticsType");
-const BlockTracesType_1 = require("./BlockTracesType");
-const BlockWashSchedulesType_1 = require("./BlockWashSchedulesType");
+const BlockTraceType_1 = require("./BlockTraceType");
+const BlockWashScheduleType_1 = require("./BlockWashScheduleType");
 const CateringType_1 = require("./CateringType");
-const ExternalReferencesType_1 = require("./ExternalReferencesType");
-const IndicatorsType_1 = require("./IndicatorsType");
+const ExternalReferenceType_1 = require("./ExternalReferenceType");
+const IndicatorType_1 = require("./IndicatorType");
 const MasterBlockInfoType_1 = require("./MasterBlockInfoType");
 const RateProgramType_1 = require("./RateProgramType");
 const ReservationPoliciesType_1 = require("./ReservationPoliciesType");
 const SellMessageConfigsType_1 = require("./SellMessageConfigsType");
+const UniqueIDType_1 = require("./UniqueIDType");
 const UserDefinedFieldsType_1 = require("./UserDefinedFieldsType");
 /**
  * Check if a given object implements the BlockInstructionType interface.
@@ -63,10 +63,10 @@ function BlockInstructionTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'accessExclusions': !(0, runtime_1.exists)(json, 'accessExclusions') ? undefined : (0, BlockAccessExclusionsType_1.BlockAccessExclusionsTypeFromJSON)(json['accessExclusions']),
         'alternateDates': !(0, runtime_1.exists)(json, 'alternateDates') ? undefined : (json['alternateDates'].map(BlockAlternateDateType_1.BlockAlternateDateTypeFromJSON)),
-        'attachments': !(0, runtime_1.exists)(json, 'attachments') ? undefined : (0, AttachmentsType_1.AttachmentsTypeFromJSON)(json['attachments']),
+        'attachments': !(0, runtime_1.exists)(json, 'attachments') ? undefined : (json['attachments'].map(AttachmentType_1.AttachmentTypeFromJSON)),
         'blockDetails': !(0, runtime_1.exists)(json, 'blockDetails') ? undefined : (0, BlockDetailsType_1.BlockDetailsTypeFromJSON)(json['blockDetails']),
-        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (0, BlockIdList_1.BlockIdListFromJSON)(json['blockIdList']),
-        'blockIndicators': !(0, runtime_1.exists)(json, 'blockIndicators') ? undefined : (0, IndicatorsType_1.IndicatorsTypeFromJSON)(json['blockIndicators']),
+        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'blockIndicators': !(0, runtime_1.exists)(json, 'blockIndicators') ? undefined : (json['blockIndicators'].map(IndicatorType_1.IndicatorTypeFromJSON)),
         'blockOwners': !(0, runtime_1.exists)(json, 'blockOwners') ? undefined : (0, BlockOwnersType_1.BlockOwnersTypeFromJSON)(json['blockOwners']),
         'blockPackages': !(0, runtime_1.exists)(json, 'blockPackages') ? undefined : (json['blockPackages'].map(BlockPackageType_1.BlockPackageTypeFromJSON)),
         'blockProfiles': !(0, runtime_1.exists)(json, 'blockProfiles') ? undefined : (0, BlockInstructionTypeBlockProfiles_1.BlockInstructionTypeBlockProfilesFromJSON)(json['blockProfiles']),
@@ -77,10 +77,10 @@ function BlockInstructionTypeFromJSONTyped(json, ignoreDiscriminator) {
         'createDateTime': !(0, runtime_1.exists)(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !(0, runtime_1.exists)(json, 'creatorId') ? undefined : json['creatorId'],
         'externalAttributes': !(0, runtime_1.exists)(json, 'externalAttributes') ? undefined : (0, BlockInstructionTypeExternalAttributes_1.BlockInstructionTypeExternalAttributesFromJSON)(json['externalAttributes']),
-        'externalReferences': !(0, runtime_1.exists)(json, 'externalReferences') ? undefined : (0, ExternalReferencesType_1.ExternalReferencesTypeFromJSON)(json['externalReferences']),
+        'externalReferences': !(0, runtime_1.exists)(json, 'externalReferences') ? undefined : (json['externalReferences'].map(ExternalReferenceType_1.ExternalReferenceTypeFromJSON)),
         'genericRoomAllocations': !(0, runtime_1.exists)(json, 'genericRoomAllocations') ? undefined : (0, BlockInstructionTypeGenericRoomAllocations_1.BlockInstructionTypeGenericRoomAllocationsFromJSON)(json['genericRoomAllocations']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'inventoryItems': !(0, runtime_1.exists)(json, 'inventoryItems') ? undefined : (0, BlockInventoryItemsType_1.BlockInventoryItemsTypeFromJSON)(json['inventoryItems']),
+        'inventoryItems': !(0, runtime_1.exists)(json, 'inventoryItems') ? undefined : (json['inventoryItems'].map(BlockInventoryItemType_1.BlockInventoryItemTypeFromJSON)),
         'lastModifierId': !(0, runtime_1.exists)(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'markAsRecentlyAccessed': !(0, runtime_1.exists)(json, 'markAsRecentlyAccessed') ? undefined : json['markAsRecentlyAccessed'],
@@ -94,9 +94,9 @@ function BlockInstructionTypeFromJSONTyped(json, ignoreDiscriminator) {
         'roomAllocations': !(0, runtime_1.exists)(json, 'roomAllocations') ? undefined : (0, BlockInstructionTypeRoomAllocations_1.BlockInstructionTypeRoomAllocationsFromJSON)(json['roomAllocations']),
         'sellMessages': !(0, runtime_1.exists)(json, 'sellMessages') ? undefined : (0, SellMessageConfigsType_1.SellMessageConfigsTypeFromJSON)(json['sellMessages']),
         'statistics': !(0, runtime_1.exists)(json, 'statistics') ? undefined : (json['statistics'].map(BlockStatisticsSummaryType_1.BlockStatisticsSummaryTypeFromJSON)),
-        'traces': !(0, runtime_1.exists)(json, 'traces') ? undefined : (0, BlockTracesType_1.BlockTracesTypeFromJSON)(json['traces']),
+        'traces': !(0, runtime_1.exists)(json, 'traces') ? undefined : (json['traces'].map(BlockTraceType_1.BlockTraceTypeFromJSON)),
         'userDefinedFields': !(0, runtime_1.exists)(json, 'userDefinedFields') ? undefined : (0, UserDefinedFieldsType_1.UserDefinedFieldsTypeFromJSON)(json['userDefinedFields']),
-        'washSchedules': !(0, runtime_1.exists)(json, 'washSchedules') ? undefined : (0, BlockWashSchedulesType_1.BlockWashSchedulesTypeFromJSON)(json['washSchedules']),
+        'washSchedules': !(0, runtime_1.exists)(json, 'washSchedules') ? undefined : (json['washSchedules'].map(BlockWashScheduleType_1.BlockWashScheduleTypeFromJSON)),
     };
 }
 exports.BlockInstructionTypeFromJSONTyped = BlockInstructionTypeFromJSONTyped;
@@ -110,10 +110,10 @@ function BlockInstructionTypeToJSON(value) {
     return {
         'accessExclusions': (0, BlockAccessExclusionsType_1.BlockAccessExclusionsTypeToJSON)(value.accessExclusions),
         'alternateDates': value.alternateDates === undefined ? undefined : (value.alternateDates.map(BlockAlternateDateType_1.BlockAlternateDateTypeToJSON)),
-        'attachments': (0, AttachmentsType_1.AttachmentsTypeToJSON)(value.attachments),
+        'attachments': value.attachments === undefined ? undefined : (value.attachments.map(AttachmentType_1.AttachmentTypeToJSON)),
         'blockDetails': (0, BlockDetailsType_1.BlockDetailsTypeToJSON)(value.blockDetails),
-        'blockIdList': (0, BlockIdList_1.BlockIdListToJSON)(value.blockIdList),
-        'blockIndicators': (0, IndicatorsType_1.IndicatorsTypeToJSON)(value.blockIndicators),
+        'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'blockIndicators': value.blockIndicators === undefined ? undefined : (value.blockIndicators.map(IndicatorType_1.IndicatorTypeToJSON)),
         'blockOwners': (0, BlockOwnersType_1.BlockOwnersTypeToJSON)(value.blockOwners),
         'blockPackages': value.blockPackages === undefined ? undefined : (value.blockPackages.map(BlockPackageType_1.BlockPackageTypeToJSON)),
         'blockProfiles': (0, BlockInstructionTypeBlockProfiles_1.BlockInstructionTypeBlockProfilesToJSON)(value.blockProfiles),
@@ -124,10 +124,10 @@ function BlockInstructionTypeToJSON(value) {
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
         'externalAttributes': (0, BlockInstructionTypeExternalAttributes_1.BlockInstructionTypeExternalAttributesToJSON)(value.externalAttributes),
-        'externalReferences': (0, ExternalReferencesType_1.ExternalReferencesTypeToJSON)(value.externalReferences),
+        'externalReferences': value.externalReferences === undefined ? undefined : (value.externalReferences.map(ExternalReferenceType_1.ExternalReferenceTypeToJSON)),
         'genericRoomAllocations': (0, BlockInstructionTypeGenericRoomAllocations_1.BlockInstructionTypeGenericRoomAllocationsToJSON)(value.genericRoomAllocations),
         'hotelId': value.hotelId,
-        'inventoryItems': (0, BlockInventoryItemsType_1.BlockInventoryItemsTypeToJSON)(value.inventoryItems),
+        'inventoryItems': value.inventoryItems === undefined ? undefined : (value.inventoryItems.map(BlockInventoryItemType_1.BlockInventoryItemTypeToJSON)),
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'markAsRecentlyAccessed': value.markAsRecentlyAccessed,
@@ -141,9 +141,9 @@ function BlockInstructionTypeToJSON(value) {
         'roomAllocations': (0, BlockInstructionTypeRoomAllocations_1.BlockInstructionTypeRoomAllocationsToJSON)(value.roomAllocations),
         'sellMessages': (0, SellMessageConfigsType_1.SellMessageConfigsTypeToJSON)(value.sellMessages),
         'statistics': value.statistics === undefined ? undefined : (value.statistics.map(BlockStatisticsSummaryType_1.BlockStatisticsSummaryTypeToJSON)),
-        'traces': (0, BlockTracesType_1.BlockTracesTypeToJSON)(value.traces),
+        'traces': value.traces === undefined ? undefined : (value.traces.map(BlockTraceType_1.BlockTraceTypeToJSON)),
         'userDefinedFields': (0, UserDefinedFieldsType_1.UserDefinedFieldsTypeToJSON)(value.userDefinedFields),
-        'washSchedules': (0, BlockWashSchedulesType_1.BlockWashSchedulesTypeToJSON)(value.washSchedules),
+        'washSchedules': value.washSchedules === undefined ? undefined : (value.washSchedules.map(BlockWashScheduleType_1.BlockWashScheduleTypeToJSON)),
     };
 }
 exports.BlockInstructionTypeToJSON = BlockInstructionTypeToJSON;

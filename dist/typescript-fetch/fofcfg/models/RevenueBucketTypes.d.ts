@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RevenueBucketTypesType } from './RevenueBucketTypesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RevenueBucketTypeType } from './RevenueBucketTypeType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface RevenueBucketTypes {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RevenueBucketTypes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RevenueBucketTypesType}
+     * Holds Revenue Bucket Type details.
+     * @type {Array<RevenueBucketTypeType>}
      * @memberof RevenueBucketTypes
      */
-    revenueBucketTypes?: RevenueBucketTypesType;
+    revenueBucketTypes?: Array<RevenueBucketTypeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RevenueBucketTypes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RevenueBucketTypes interface.

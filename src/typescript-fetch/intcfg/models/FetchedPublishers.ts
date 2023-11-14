@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { ExternalSystemType } from './ExternalSystemType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { PublishersType } from './PublishersType';
+    ExternalSystemTypeFromJSON,
+    ExternalSystemTypeFromJSONTyped,
+    ExternalSystemTypeToJSON,
+} from './ExternalSystemType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    PublishersTypeFromJSON,
-    PublishersTypeFromJSONTyped,
-    PublishersTypeToJSON,
-} from './PublishersType';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response to request to fetch the external systems
@@ -40,22 +40,22 @@ import {
 export interface FetchedPublishers {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchedPublishers
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {PublishersType}
+     * Information of all the publishers for a given subscriber.
+     * @type {Array<ExternalSystemType>}
      * @memberof FetchedPublishers
      */
-    publishers?: PublishersType;
+    publishers?: Array<ExternalSystemType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchedPublishers
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FetchedPublishersFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'publishers': !exists(json, 'publishers') ? undefined : PublishersTypeFromJSON(json['publishers']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'publishers': !exists(json, 'publishers') ? undefined : ((json['publishers'] as Array<any>).map(ExternalSystemTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FetchedPublishersToJSON(value?: FetchedPublishers | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'publishers': PublishersTypeToJSON(value.publishers),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'publishers': value.publishers === undefined ? undefined : ((value.publishers as Array<any>).map(ExternalSystemTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

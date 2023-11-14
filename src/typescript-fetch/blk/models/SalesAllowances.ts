@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { SalesAllowancesType } from './SalesAllowancesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { SalesAllowanceType } from './SalesAllowanceType';
 import {
-    SalesAllowancesTypeFromJSON,
-    SalesAllowancesTypeFromJSONTyped,
-    SalesAllowancesTypeToJSON,
-} from './SalesAllowancesType';
-import type { WarningsType } from './WarningsType';
+    SalesAllowanceTypeFromJSON,
+    SalesAllowanceTypeFromJSONTyped,
+    SalesAllowanceTypeToJSON,
+} from './SalesAllowanceType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response returned by fetch corrected sales allowances.
@@ -40,22 +40,22 @@ import {
 export interface SalesAllowances {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SalesAllowances
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {SalesAllowancesType}
+     * Collection of Sales Allowances.
+     * @type {Array<SalesAllowanceType>}
      * @memberof SalesAllowances
      */
-    salesAllowances?: SalesAllowancesType;
+    salesAllowances?: Array<SalesAllowanceType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SalesAllowances
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function SalesAllowancesFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'salesAllowances': !exists(json, 'salesAllowances') ? undefined : SalesAllowancesTypeFromJSON(json['salesAllowances']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'salesAllowances': !exists(json, 'salesAllowances') ? undefined : ((json['salesAllowances'] as Array<any>).map(SalesAllowanceTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function SalesAllowancesToJSON(value?: SalesAllowances | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'salesAllowances': SalesAllowancesTypeToJSON(value.salesAllowances),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'salesAllowances': value.salesAllowances === undefined ? undefined : ((value.salesAllowances as Array<any>).map(SalesAllowanceTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

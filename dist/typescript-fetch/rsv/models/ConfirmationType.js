@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConfirmationTypeToJSON = exports.ConfirmationTypeFromJSONTyped = exports.ConfirmationTypeFromJSON = exports.instanceOfConfirmationType = void 0;
 const runtime_1 = require("../runtime");
-const ConfDeliveryInfoTypes_1 = require("./ConfDeliveryInfoTypes");
+const ConfDeliveryInfoType_1 = require("./ConfDeliveryInfoType");
 const ConfRecipientInfoType_1 = require("./ConfRecipientInfoType");
 const ConfirmationStyle_1 = require("./ConfirmationStyle");
 /**
@@ -36,7 +36,7 @@ function ConfirmationTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'confirmationStyleInfo': !(0, runtime_1.exists)(json, 'confirmationStyleInfo') ? undefined : (0, ConfirmationStyle_1.ConfirmationStyleFromJSON)(json['confirmationStyleInfo']),
-        'deliveryInfo': !(0, runtime_1.exists)(json, 'deliveryInfo') ? undefined : (0, ConfDeliveryInfoTypes_1.ConfDeliveryInfoTypesFromJSON)(json['deliveryInfo']),
+        'deliveryInfo': !(0, runtime_1.exists)(json, 'deliveryInfo') ? undefined : (json['deliveryInfo'].map(ConfDeliveryInfoType_1.ConfDeliveryInfoTypeFromJSON)),
         'fromEmail': !(0, runtime_1.exists)(json, 'fromEmail') ? undefined : json['fromEmail'],
         'id': !(0, runtime_1.exists)(json, 'id') ? undefined : json['id'],
         'idContext': !(0, runtime_1.exists)(json, 'idContext') ? undefined : json['idContext'],
@@ -57,7 +57,7 @@ function ConfirmationTypeToJSON(value) {
     }
     return {
         'confirmationStyleInfo': (0, ConfirmationStyle_1.ConfirmationStyleToJSON)(value.confirmationStyleInfo),
-        'deliveryInfo': (0, ConfDeliveryInfoTypes_1.ConfDeliveryInfoTypesToJSON)(value.deliveryInfo),
+        'deliveryInfo': value.deliveryInfo === undefined ? undefined : (value.deliveryInfo.map(ConfDeliveryInfoType_1.ConfDeliveryInfoTypeToJSON)),
         'fromEmail': value.fromEmail,
         'id': value.id,
         'idContext': value.idContext,

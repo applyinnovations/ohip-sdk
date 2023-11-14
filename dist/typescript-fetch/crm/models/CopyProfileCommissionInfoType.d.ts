@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 import type { CodeDescriptionType } from './CodeDescriptionType';
-import type { CodeListType } from './CodeListType';
 import type { ProfileId } from './ProfileId';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -45,10 +44,10 @@ export interface CopyProfileCommissionInfoType {
     profileId?: ProfileId;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyProfileCommissionInfoType
      */
-    targetHotelCodes?: CodeListType;
+    targetHotelCodes?: Array<string>;
     /**
      * Used in CRUD operations. When set to true, proceed validating pending commissions
      * @type {boolean}

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { NationalitiesType } from './NationalitiesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { NationalityType } from './NationalityType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Nationalities.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface NationalitiesToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof NationalitiesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {NationalitiesType}
+     * List of Nationalities.
+     * @type {Array<NationalityType>}
      * @memberof NationalitiesToBeChanged
      */
-    nationalities?: NationalitiesType;
+    nationalities?: Array<NationalityType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof NationalitiesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the NationalitiesToBeChanged interface.

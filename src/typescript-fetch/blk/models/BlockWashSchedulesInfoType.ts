@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockIdList } from './BlockIdList';
+import type { BlockWashScheduleType } from './BlockWashScheduleType';
 import {
-    BlockIdListFromJSON,
-    BlockIdListFromJSONTyped,
-    BlockIdListToJSON,
-} from './BlockIdList';
-import type { BlockWashSchedulesType } from './BlockWashSchedulesType';
+    BlockWashScheduleTypeFromJSON,
+    BlockWashScheduleTypeFromJSONTyped,
+    BlockWashScheduleTypeToJSON,
+} from './BlockWashScheduleType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    BlockWashSchedulesTypeFromJSON,
-    BlockWashSchedulesTypeFromJSONTyped,
-    BlockWashSchedulesTypeToJSON,
-} from './BlockWashSchedulesType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * The criteria based on which the block wash schedules will be created/ changed.
@@ -33,17 +33,17 @@ import {
  */
 export interface BlockWashSchedulesInfoType {
     /**
-     * 
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof BlockWashSchedulesInfoType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
-     * 
-     * @type {BlockWashSchedulesType}
+     * Wash Schedule attached to the block, which allows to release inventory based on selected wash schedule type.
+     * @type {Array<BlockWashScheduleType>}
      * @memberof BlockWashSchedulesInfoType
      */
-    blockWashSchedules?: BlockWashSchedulesType;
+    blockWashSchedules?: Array<BlockWashScheduleType>;
     /**
      * Hotel Code to which the block wash schedules will be created/ changed.
      * @type {string}
@@ -71,8 +71,8 @@ export function BlockWashSchedulesInfoTypeFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : BlockIdListFromJSON(json['blockIdList']),
-        'blockWashSchedules': !exists(json, 'blockWashSchedules') ? undefined : BlockWashSchedulesTypeFromJSON(json['blockWashSchedules']),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'blockWashSchedules': !exists(json, 'blockWashSchedules') ? undefined : ((json['blockWashSchedules'] as Array<any>).map(BlockWashScheduleTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
     };
 }
@@ -86,8 +86,8 @@ export function BlockWashSchedulesInfoTypeToJSON(value?: BlockWashSchedulesInfoT
     }
     return {
         
-        'blockIdList': BlockIdListToJSON(value.blockIdList),
-        'blockWashSchedules': BlockWashSchedulesTypeToJSON(value.blockWashSchedules),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
+        'blockWashSchedules': value.blockWashSchedules === undefined ? undefined : ((value.blockWashSchedules as Array<any>).map(BlockWashScheduleTypeToJSON)),
         'hotelId': value.hotelId,
     };
 }

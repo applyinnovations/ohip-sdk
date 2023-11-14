@@ -11,7 +11,6 @@
  */
 import type { AccountId } from './AccountId';
 import type { BlockId } from './BlockId';
-import type { CodeListType } from './CodeListType';
 import type { ContactId } from './ContactId';
 import type { EmailID } from './EmailID';
 /**
@@ -76,10 +75,10 @@ export interface EmailInfoResponseType {
     hasEmailAttachments?: boolean;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof EmailInfoResponseType
      */
-    hotelCodes?: CodeListType;
+    hotelCodes?: Array<string>;
     /**
      * Email address of the Sender.
      * @type {string}

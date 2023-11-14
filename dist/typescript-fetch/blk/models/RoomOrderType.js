@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomOrderTypeToJSON = exports.RoomOrderTypeFromJSONTyped = exports.RoomOrderTypeFromJSON = exports.instanceOfRoomOrderType = void 0;
 const runtime_1 = require("../runtime");
-const BlockIdList_1 = require("./BlockIdList");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the RoomOrderType interface.
  */
@@ -33,7 +33,7 @@ function RoomOrderTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (0, BlockIdList_1.BlockIdListFromJSON)(json['blockIdList']),
+        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'genericRoomTypes': !(0, runtime_1.exists)(json, 'genericRoomTypes') ? undefined : json['genericRoomTypes'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'roomTypes': !(0, runtime_1.exists)(json, 'roomTypes') ? undefined : json['roomTypes'],
@@ -48,7 +48,7 @@ function RoomOrderTypeToJSON(value) {
         return null;
     }
     return {
-        'blockIdList': (0, BlockIdList_1.BlockIdListToJSON)(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'genericRoomTypes': value.genericRoomTypes,
         'hotelId': value.hotelId,
         'roomTypes': value.roomTypes,

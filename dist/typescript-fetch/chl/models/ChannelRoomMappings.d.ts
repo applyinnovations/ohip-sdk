@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChannelRoomMappingsType } from './ChannelRoomMappingsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ChannelRoomMappingType } from './ChannelRoomMappingType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for Channel Room Mapping creation.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ChannelRoomMappings {
     /**
-     *
-     * @type {ChannelRoomMappingsType}
+     * Hotel-channel room type mapping information.
+     * @type {Array<ChannelRoomMappingType>}
      * @memberof ChannelRoomMappings
      */
-    channelRoomMappings?: ChannelRoomMappingsType;
+    channelRoomMappings?: Array<ChannelRoomMappingType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelRoomMappings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelRoomMappings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelRoomMappings interface.

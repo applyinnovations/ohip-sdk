@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockCancellationReasonsType } from './BlockCancellationReasonsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BlockCancellationReasonType } from './BlockCancellationReasonType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Block Cancellation Reasons.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BlockCancellationReasonsCriteria {
     /**
-     *
-     * @type {BlockCancellationReasonsType}
+     * List of Block Cancellation Reasons.
+     * @type {Array<BlockCancellationReasonType>}
      * @memberof BlockCancellationReasonsCriteria
      */
-    blockCancellationReasons?: BlockCancellationReasonsType;
+    blockCancellationReasons?: Array<BlockCancellationReasonType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockCancellationReasonsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockCancellationReasonsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockCancellationReasonsCriteria interface.

@@ -19,12 +19,12 @@ import {
     RoomOwnerReferralListFromJSONTyped,
     RoomOwnerReferralListToJSON,
 } from './RoomOwnerReferralList';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Room Owner Referral records.
@@ -39,11 +39,11 @@ export interface CreateRoomOwnerReferralDetails {
      */
     roomOwnerReferrals?: RoomOwnerReferralList;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateRoomOwnerReferralDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function CreateRoomOwnerReferralDetailsFromJSONTyped(json: any, ignoreDis
     return {
         
         'roomOwnerReferrals': !exists(json, 'roomOwnerReferrals') ? undefined : RoomOwnerReferralListFromJSON(json['roomOwnerReferrals']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function CreateRoomOwnerReferralDetailsToJSON(value?: CreateRoomOwnerRefe
     return {
         
         'roomOwnerReferrals': RoomOwnerReferralListToJSON(value.roomOwnerReferrals),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

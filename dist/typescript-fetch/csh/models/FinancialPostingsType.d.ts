@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CurrencyAmountType } from './CurrencyAmountType';
-import type { DetailPostingsType } from './DetailPostingsType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+import type { DetailPostingType } from './DetailPostingType';
+import type { TrxInfoType } from './TrxInfoType';
 /**
  * Collection of Reservations and their information.
  * @export
@@ -25,11 +25,11 @@ export interface FinancialPostingsType {
      */
     overallTotal?: CurrencyAmountType;
     /**
-     *
-     * @type {DetailPostingsType}
+     * Details of the transaction(Posting).
+     * @type {Array<DetailPostingType>}
      * @memberof FinancialPostingsType
      */
-    postings?: DetailPostingsType;
+    postings?: Array<DetailPostingType>;
     /**
      *
      * @type {CurrencyAmountType}
@@ -55,11 +55,11 @@ export interface FinancialPostingsType {
      */
     totalForAllPages?: CurrencyAmountType;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof FinancialPostingsType
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
 }
 /**
  * Check if a given object implements the FinancialPostingsType interface.

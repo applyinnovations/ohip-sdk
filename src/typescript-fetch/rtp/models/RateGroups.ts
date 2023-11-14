@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RateGroupsType } from './RateGroupsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RateGroupType } from './RateGroupType';
 import {
-    RateGroupsTypeFromJSON,
-    RateGroupsTypeFromJSONTyped,
-    RateGroupsTypeToJSON,
-} from './RateGroupsType';
-import type { WarningsType } from './WarningsType';
+    RateGroupTypeFromJSON,
+    RateGroupTypeFromJSONTyped,
+    RateGroupTypeToJSON,
+} from './RateGroupType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface RateGroups {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RateGroups
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RateGroupsType}
+     * Collection of Rate Groups.
+     * @type {Array<RateGroupType>}
      * @memberof RateGroups
      */
-    rateGroups?: RateGroupsType;
+    rateGroups?: Array<RateGroupType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RateGroups
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RateGroupsFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'rateGroups': !exists(json, 'rateGroups') ? undefined : RateGroupsTypeFromJSON(json['rateGroups']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'rateGroups': !exists(json, 'rateGroups') ? undefined : ((json['rateGroups'] as Array<any>).map(RateGroupTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RateGroupsToJSON(value?: RateGroups | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'rateGroups': RateGroupsTypeToJSON(value.rateGroups),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'rateGroups': value.rateGroups === undefined ? undefined : ((value.rateGroups as Array<any>).map(RateGroupTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

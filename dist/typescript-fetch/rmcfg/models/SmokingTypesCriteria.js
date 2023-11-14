@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SmokingTypesCriteriaToJSON = exports.SmokingTypesCriteriaFromJSONTyped = exports.SmokingTypesCriteriaFromJSON = exports.instanceOfSmokingTypesCriteria = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const SmokingTypesType_1 = require("./SmokingTypesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const SmokingTypeType_1 = require("./SmokingTypeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the SmokingTypesCriteria interface.
  */
@@ -35,9 +35,9 @@ function SmokingTypesCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'smokingTypes': !(0, runtime_1.exists)(json, 'smokingTypes') ? undefined : (0, SmokingTypesType_1.SmokingTypesTypeFromJSON)(json['smokingTypes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'smokingTypes': !(0, runtime_1.exists)(json, 'smokingTypes') ? undefined : (json['smokingTypes'].map(SmokingTypeType_1.SmokingTypeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.SmokingTypesCriteriaFromJSONTyped = SmokingTypesCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function SmokingTypesCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'smokingTypes': (0, SmokingTypesType_1.SmokingTypesTypeToJSON)(value.smokingTypes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'smokingTypes': value.smokingTypes === undefined ? undefined : (value.smokingTypes.map(SmokingTypeType_1.SmokingTypeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.SmokingTypesCriteriaToJSON = SmokingTypesCriteriaToJSON;

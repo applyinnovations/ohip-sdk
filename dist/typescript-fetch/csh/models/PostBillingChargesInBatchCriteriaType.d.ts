@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChargesCriteriaType } from './ChargesCriteriaType';
-import type { Reservations } from './Reservations';
+import type { ChargeCriteriaType } from './ChargeCriteriaType';
+import type { ReservationId } from './ReservationId';
 /**
  * Criteria type for posting charges.
  * @export
@@ -18,11 +18,11 @@ import type { Reservations } from './Reservations';
  */
 export interface PostBillingChargesInBatchCriteriaType {
     /**
-     *
-     * @type {ChargesCriteriaType}
+     * Collection of Charges to be posted.
+     * @type {Array<ChargeCriteriaType>}
      * @memberof PostBillingChargesInBatchCriteriaType
      */
-    charges?: ChargesCriteriaType;
+    charges?: Array<ChargeCriteriaType>;
     /**
      * Property where the charges are to be posted.
      * @type {string}
@@ -30,11 +30,11 @@ export interface PostBillingChargesInBatchCriteriaType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {Reservations}
+     * Unique identifier for a reservation.
+     * @type {Array<ReservationId>}
      * @memberof PostBillingChargesInBatchCriteriaType
      */
-    reservations?: Reservations;
+    reservations?: Array<ReservationId>;
 }
 /**
  * Check if a given object implements the PostBillingChargesInBatchCriteriaType interface.

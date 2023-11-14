@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 /**
  * The selected Channel Rate Codes for update.
  * @export
@@ -18,16 +17,16 @@ import type { CodeListType } from './CodeListType';
 export interface PublishRatePlanTypeChannelCodes {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PublishRatePlanTypeChannelCodes
      */
-    channelRatePlanCodes?: CodeListType;
+    channelRatePlanCodes?: Array<string>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PublishRatePlanTypeChannelCodes
      */
-    channelRoomTypes?: CodeListType;
+    channelRoomTypes?: Array<string>;
 }
 /**
  * Check if a given object implements the PublishRatePlanTypeChannelCodes interface.

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RoomFeaturesType } from './RoomFeaturesType';
+import type { RoomFeatureType } from './RoomFeatureType';
 import {
-    RoomFeaturesTypeFromJSON,
-    RoomFeaturesTypeFromJSONTyped,
-    RoomFeaturesTypeToJSON,
-} from './RoomFeaturesType';
+    RoomFeatureTypeFromJSON,
+    RoomFeatureTypeFromJSONTyped,
+    RoomFeatureTypeToJSON,
+} from './RoomFeatureType';
 
 /**
  * Basic information of room type.
@@ -75,11 +75,11 @@ export interface RoomTypeShortInfoType {
      */
     roomClass?: string;
     /**
-     * 
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof RoomTypeShortInfoType
      */
-    roomFeatures?: RoomFeaturesType;
+    roomFeatures?: Array<RoomFeatureType>;
     /**
      * Room type of the room.
      * @type {string}
@@ -127,7 +127,7 @@ export function RoomTypeShortInfoTypeFromJSONTyped(json: any, ignoreDiscriminato
         'minimumOccupancy': !exists(json, 'minimumOccupancy') ? undefined : json['minimumOccupancy'],
         'pseudoRoom': !exists(json, 'pseudoRoom') ? undefined : json['pseudoRoom'],
         'roomClass': !exists(json, 'roomClass') ? undefined : json['roomClass'],
-        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : RoomFeaturesTypeFromJSON(json['roomFeatures']),
+        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : ((json['roomFeatures'] as Array<any>).map(RoomFeatureTypeFromJSON)),
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
         'shortDescription': !exists(json, 'shortDescription') ? undefined : json['shortDescription'],
         'smokingPreference': !exists(json, 'smokingPreference') ? undefined : json['smokingPreference'],
@@ -151,7 +151,7 @@ export function RoomTypeShortInfoTypeToJSON(value?: RoomTypeShortInfoType | null
         'minimumOccupancy': value.minimumOccupancy,
         'pseudoRoom': value.pseudoRoom,
         'roomClass': value.roomClass,
-        'roomFeatures': RoomFeaturesTypeToJSON(value.roomFeatures),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : ((value.roomFeatures as Array<any>).map(RoomFeatureTypeToJSON)),
         'roomType': value.roomType,
         'shortDescription': value.shortDescription,
         'smokingPreference': value.smokingPreference,

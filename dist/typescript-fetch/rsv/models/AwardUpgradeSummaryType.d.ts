@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AwardUpgradeDetailsType } from './AwardUpgradeDetailsType';
+import type { AwardUpgradeDetailType } from './AwardUpgradeDetailType';
 /**
  *
  * @export
@@ -23,11 +23,11 @@ export interface AwardUpgradeSummaryType {
      */
     awardCode?: string;
     /**
-     *
-     * @type {AwardUpgradeDetailsType}
+     * Daily Details related to award upgrade.
+     * @type {Array<AwardUpgradeDetailType>}
      * @memberof AwardUpgradeSummaryType
      */
-    awardUpgradeDetails?: AwardUpgradeDetailsType;
+    awardUpgradeDetails?: Array<AwardUpgradeDetailType>;
     /**
      * From Room type associated with the award.
      * @type {string}

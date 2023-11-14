@@ -21,10 +21,10 @@ const MasterAccountTypeRoomRate_1 = require("./MasterAccountTypeRoomRate");
 const PMSResStatusType_1 = require("./PMSResStatusType");
 const ResCashieringType_1 = require("./ResCashieringType");
 const ResGuestType_1 = require("./ResGuestType");
-const ReservationIdList_1 = require("./ReservationIdList");
-const ReservationPaymentMethodsType_1 = require("./ReservationPaymentMethodsType");
+const ReservationPaymentMethodType_1 = require("./ReservationPaymentMethodType");
 const ReservationProfileType_1 = require("./ReservationProfileType");
 const TimeSpanType_1 = require("./TimeSpanType");
+const UniqueIDType_1 = require("./UniqueIDType");
 const UserDefinedFieldsType_1 = require("./UserDefinedFieldsType");
 /**
  * Check if a given object implements the MasterAccountType interface.
@@ -49,8 +49,8 @@ function MasterAccountTypeFromJSONTyped(json, ignoreDiscriminator) {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'reservationBlock': !(0, runtime_1.exists)(json, 'reservationBlock') ? undefined : (0, MasterAccountTypeReservationBlock_1.MasterAccountTypeReservationBlockFromJSON)(json['reservationBlock']),
         'reservationGuest': !(0, runtime_1.exists)(json, 'reservationGuest') ? undefined : (0, ResGuestType_1.ResGuestTypeFromJSON)(json['reservationGuest']),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
-        'reservationPaymentMethods': !(0, runtime_1.exists)(json, 'reservationPaymentMethods') ? undefined : (0, ReservationPaymentMethodsType_1.ReservationPaymentMethodsTypeFromJSON)(json['reservationPaymentMethods']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'reservationPaymentMethods': !(0, runtime_1.exists)(json, 'reservationPaymentMethods') ? undefined : (json['reservationPaymentMethods'].map(ReservationPaymentMethodType_1.ReservationPaymentMethodTypeFromJSON)),
         'reservationProfiles': !(0, runtime_1.exists)(json, 'reservationProfiles') ? undefined : (json['reservationProfiles'].map(ReservationProfileType_1.ReservationProfileTypeFromJSON)),
         'reservationStatus': !(0, runtime_1.exists)(json, 'reservationStatus') ? undefined : (0, PMSResStatusType_1.PMSResStatusTypeFromJSON)(json['reservationStatus']),
         'roomRate': !(0, runtime_1.exists)(json, 'roomRate') ? undefined : (0, MasterAccountTypeRoomRate_1.MasterAccountTypeRoomRateFromJSON)(json['roomRate']),
@@ -73,8 +73,8 @@ function MasterAccountTypeToJSON(value) {
         'hotelId': value.hotelId,
         'reservationBlock': (0, MasterAccountTypeReservationBlock_1.MasterAccountTypeReservationBlockToJSON)(value.reservationBlock),
         'reservationGuest': (0, ResGuestType_1.ResGuestTypeToJSON)(value.reservationGuest),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
-        'reservationPaymentMethods': (0, ReservationPaymentMethodsType_1.ReservationPaymentMethodsTypeToJSON)(value.reservationPaymentMethods),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'reservationPaymentMethods': value.reservationPaymentMethods === undefined ? undefined : (value.reservationPaymentMethods.map(ReservationPaymentMethodType_1.ReservationPaymentMethodTypeToJSON)),
         'reservationProfiles': value.reservationProfiles === undefined ? undefined : (value.reservationProfiles.map(ReservationProfileType_1.ReservationProfileTypeToJSON)),
         'reservationStatus': (0, PMSResStatusType_1.PMSResStatusTypeToJSON)(value.reservationStatus),
         'roomRate': (0, MasterAccountTypeRoomRate_1.MasterAccountTypeRoomRateToJSON)(value.roomRate),

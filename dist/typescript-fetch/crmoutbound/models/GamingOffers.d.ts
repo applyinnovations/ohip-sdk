@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GamingOffersType } from './GamingOffersType';
-import type { Links } from './Links';
+import type { CodeDescriptionType } from './CodeDescriptionType';
+import type { InstanceLink } from './InstanceLink';
 /**
  * Response object for fetching offers from external system.
  * @export
@@ -18,17 +18,17 @@ import type { Links } from './Links';
  */
 export interface GamingOffers {
     /**
-     *
-     * @type {GamingOffersType}
+     * Offers that are availabl to be attached
+     * @type {Array<CodeDescriptionType>}
      * @memberof GamingOffers
      */
-    gamingOffersInfo?: GamingOffersType;
+    gamingOffersInfo?: Array<CodeDescriptionType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GamingOffers
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the GamingOffers interface.

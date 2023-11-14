@@ -13,18 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
+import type { MembershipTypeLevelType } from './MembershipTypeLevelType';
 import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-import type { MembershipTypeLevelListType } from './MembershipTypeLevelListType';
-import {
-    MembershipTypeLevelListTypeFromJSON,
-    MembershipTypeLevelListTypeFromJSONTyped,
-    MembershipTypeLevelListTypeToJSON,
-} from './MembershipTypeLevelListType';
+    MembershipTypeLevelTypeFromJSON,
+    MembershipTypeLevelTypeFromJSONTyped,
+    MembershipTypeLevelTypeToJSON,
+} from './MembershipTypeLevelType';
 import type { PreCheckInRuleTypeType } from './PreCheckInRuleTypeType';
 import {
     PreCheckInRuleTypeTypeFromJSON,
@@ -58,16 +52,16 @@ export interface PreCheckInRuleType {
     hotelId?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PreCheckInRuleType
      */
-    marketCodes?: CodeListType;
+    marketCodes?: Array<string>;
     /**
-     * 
-     * @type {MembershipTypeLevelListType}
+     * Code type for Rule Details
+     * @type {Array<MembershipTypeLevelType>}
      * @memberof PreCheckInRuleType
      */
-    memberships?: MembershipTypeLevelListType;
+    memberships?: Array<MembershipTypeLevelType>;
     /**
      * 
      * @type {TimeSpanType}
@@ -76,22 +70,22 @@ export interface PreCheckInRuleType {
     newTimeSpan?: TimeSpanType;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PreCheckInRuleType
      */
-    originCodes?: CodeListType;
+    originCodes?: Array<string>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PreCheckInRuleType
      */
-    ratePlans?: CodeListType;
+    ratePlans?: Array<string>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PreCheckInRuleType
      */
-    reservationTypes?: CodeListType;
+    reservationTypes?: Array<string>;
     /**
      * 
      * @type {PreCheckInRuleTypeType}
@@ -100,10 +94,10 @@ export interface PreCheckInRuleType {
     ruleType?: PreCheckInRuleTypeType;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PreCheckInRuleType
      */
-    specials?: CodeListType;
+    specials?: Array<string>;
     /**
      * 
      * @type {PreCheckInTimeRuleTypes}
@@ -118,10 +112,10 @@ export interface PreCheckInRuleType {
     timeSpan?: TimeSpanType;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PreCheckInRuleType
      */
-    vIPCodes?: CodeListType;
+    vIPCodes?: Array<string>;
 }
 
 /**
@@ -144,17 +138,17 @@ export function PreCheckInRuleTypeFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'marketCodes': !exists(json, 'marketCodes') ? undefined : CodeListTypeFromJSON(json['marketCodes']),
-        'memberships': !exists(json, 'memberships') ? undefined : MembershipTypeLevelListTypeFromJSON(json['memberships']),
+        'marketCodes': !exists(json, 'marketCodes') ? undefined : json['marketCodes'],
+        'memberships': !exists(json, 'memberships') ? undefined : ((json['memberships'] as Array<any>).map(MembershipTypeLevelTypeFromJSON)),
         'newTimeSpan': !exists(json, 'newTimeSpan') ? undefined : TimeSpanTypeFromJSON(json['newTimeSpan']),
-        'originCodes': !exists(json, 'originCodes') ? undefined : CodeListTypeFromJSON(json['originCodes']),
-        'ratePlans': !exists(json, 'ratePlans') ? undefined : CodeListTypeFromJSON(json['ratePlans']),
-        'reservationTypes': !exists(json, 'reservationTypes') ? undefined : CodeListTypeFromJSON(json['reservationTypes']),
+        'originCodes': !exists(json, 'originCodes') ? undefined : json['originCodes'],
+        'ratePlans': !exists(json, 'ratePlans') ? undefined : json['ratePlans'],
+        'reservationTypes': !exists(json, 'reservationTypes') ? undefined : json['reservationTypes'],
         'ruleType': !exists(json, 'ruleType') ? undefined : PreCheckInRuleTypeTypeFromJSON(json['ruleType']),
-        'specials': !exists(json, 'specials') ? undefined : CodeListTypeFromJSON(json['specials']),
+        'specials': !exists(json, 'specials') ? undefined : json['specials'],
         'timeLimit': !exists(json, 'timeLimit') ? undefined : PreCheckInTimeRuleTypesFromJSON(json['timeLimit']),
         'timeSpan': !exists(json, 'timeSpan') ? undefined : TimeSpanTypeFromJSON(json['timeSpan']),
-        'vIPCodes': !exists(json, 'vIPCodes') ? undefined : CodeListTypeFromJSON(json['vIPCodes']),
+        'vIPCodes': !exists(json, 'vIPCodes') ? undefined : json['vIPCodes'],
     };
 }
 
@@ -168,17 +162,17 @@ export function PreCheckInRuleTypeToJSON(value?: PreCheckInRuleType | null): any
     return {
         
         'hotelId': value.hotelId,
-        'marketCodes': CodeListTypeToJSON(value.marketCodes),
-        'memberships': MembershipTypeLevelListTypeToJSON(value.memberships),
+        'marketCodes': value.marketCodes,
+        'memberships': value.memberships === undefined ? undefined : ((value.memberships as Array<any>).map(MembershipTypeLevelTypeToJSON)),
         'newTimeSpan': TimeSpanTypeToJSON(value.newTimeSpan),
-        'originCodes': CodeListTypeToJSON(value.originCodes),
-        'ratePlans': CodeListTypeToJSON(value.ratePlans),
-        'reservationTypes': CodeListTypeToJSON(value.reservationTypes),
+        'originCodes': value.originCodes,
+        'ratePlans': value.ratePlans,
+        'reservationTypes': value.reservationTypes,
         'ruleType': PreCheckInRuleTypeTypeToJSON(value.ruleType),
-        'specials': CodeListTypeToJSON(value.specials),
+        'specials': value.specials,
         'timeLimit': PreCheckInTimeRuleTypesToJSON(value.timeLimit),
         'timeSpan': TimeSpanTypeToJSON(value.timeSpan),
-        'vIPCodes': CodeListTypeToJSON(value.vIPCodes),
+        'vIPCodes': value.vIPCodes,
     };
 }
 

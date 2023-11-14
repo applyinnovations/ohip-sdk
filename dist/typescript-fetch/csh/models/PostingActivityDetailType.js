@@ -17,7 +17,7 @@ exports.PostingActivityDetailTypeToJSON = exports.PostingActivityDetailTypeFromJ
 const runtime_1 = require("../runtime");
 const ActivityLogType_1 = require("./ActivityLogType");
 const ReservationId_1 = require("./ReservationId");
-const SummaryPostingsType_1 = require("./SummaryPostingsType");
+const SummaryPostingType_1 = require("./SummaryPostingType");
 /**
  * Check if a given object implements the PostingActivityDetailType interface.
  */
@@ -37,8 +37,8 @@ function PostingActivityDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'activity': !(0, runtime_1.exists)(json, 'activity') ? undefined : (0, ActivityLogType_1.ActivityLogTypeFromJSON)(json['activity']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'newInfo': !(0, runtime_1.exists)(json, 'newInfo') ? undefined : (0, SummaryPostingsType_1.SummaryPostingsTypeFromJSON)(json['newInfo']),
-        'oldInfo': !(0, runtime_1.exists)(json, 'oldInfo') ? undefined : (0, SummaryPostingsType_1.SummaryPostingsTypeFromJSON)(json['oldInfo']),
+        'newInfo': !(0, runtime_1.exists)(json, 'newInfo') ? undefined : (json['newInfo'].map(SummaryPostingType_1.SummaryPostingTypeFromJSON)),
+        'oldInfo': !(0, runtime_1.exists)(json, 'oldInfo') ? undefined : (json['oldInfo'].map(SummaryPostingType_1.SummaryPostingTypeFromJSON)),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
     };
 }
@@ -53,8 +53,8 @@ function PostingActivityDetailTypeToJSON(value) {
     return {
         'activity': (0, ActivityLogType_1.ActivityLogTypeToJSON)(value.activity),
         'hotelId': value.hotelId,
-        'newInfo': (0, SummaryPostingsType_1.SummaryPostingsTypeToJSON)(value.newInfo),
-        'oldInfo': (0, SummaryPostingsType_1.SummaryPostingsTypeToJSON)(value.oldInfo),
+        'newInfo': value.newInfo === undefined ? undefined : (value.newInfo.map(SummaryPostingType_1.SummaryPostingTypeToJSON)),
+        'oldInfo': value.oldInfo === undefined ? undefined : (value.oldInfo.map(SummaryPostingType_1.SummaryPostingTypeToJSON)),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
     };
 }

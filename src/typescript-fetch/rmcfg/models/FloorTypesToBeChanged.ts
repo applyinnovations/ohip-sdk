@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FloorTypesType } from './FloorTypesType';
+import type { FloorTypeType } from './FloorTypeType';
 import {
-    FloorTypesTypeFromJSON,
-    FloorTypesTypeFromJSONTyped,
-    FloorTypesTypeToJSON,
-} from './FloorTypesType';
-import type { Links } from './Links';
+    FloorTypeTypeFromJSON,
+    FloorTypeTypeFromJSONTyped,
+    FloorTypeTypeToJSON,
+} from './FloorTypeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Floor Types.
@@ -39,23 +39,23 @@ import {
  */
 export interface FloorTypesToBeChanged {
     /**
-     * 
-     * @type {FloorTypesType}
+     * List of Floor Types.
+     * @type {Array<FloorTypeType>}
      * @memberof FloorTypesToBeChanged
      */
-    floorTypes?: FloorTypesType;
+    floorTypes?: Array<FloorTypeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FloorTypesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FloorTypesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FloorTypesToBeChangedFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'floorTypes': !exists(json, 'floorTypes') ? undefined : FloorTypesTypeFromJSON(json['floorTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'floorTypes': !exists(json, 'floorTypes') ? undefined : ((json['floorTypes'] as Array<any>).map(FloorTypeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FloorTypesToBeChangedToJSON(value?: FloorTypesToBeChanged | null
     }
     return {
         
-        'floorTypes': FloorTypesTypeToJSON(value.floorTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'floorTypes': value.floorTypes === undefined ? undefined : ((value.floorTypes as Array<any>).map(FloorTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

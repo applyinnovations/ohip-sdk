@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ProfileLinksType } from './ProfileLinksType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ProfileLinkType } from './ProfileLinkType';
 import {
-    ProfileLinksTypeFromJSON,
-    ProfileLinksTypeFromJSONTyped,
-    ProfileLinksTypeToJSON,
-} from './ProfileLinksType';
-import type { WarningsType } from './WarningsType';
+    ProfileLinkTypeFromJSON,
+    ProfileLinkTypeFromJSONTyped,
+    ProfileLinkTypeToJSON,
+} from './ProfileLinkType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetch profile links
@@ -40,22 +40,22 @@ import {
 export interface ProfileLinks {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileLinks
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ProfileLinksType}
+     * Holds the collection of profile link objects
+     * @type {Array<ProfileLinkType>}
      * @memberof ProfileLinks
      */
-    profileLinks?: ProfileLinksType;
+    profileLinks?: Array<ProfileLinkType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileLinks
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ProfileLinksFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'profileLinks': !exists(json, 'profileLinks') ? undefined : ProfileLinksTypeFromJSON(json['profileLinks']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'profileLinks': !exists(json, 'profileLinks') ? undefined : ((json['profileLinks'] as Array<any>).map(ProfileLinkTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ProfileLinksToJSON(value?: ProfileLinks | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'profileLinks': ProfileLinksTypeToJSON(value.profileLinks),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'profileLinks': value.profileLinks === undefined ? undefined : ((value.profileLinks as Array<any>).map(ProfileLinkTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

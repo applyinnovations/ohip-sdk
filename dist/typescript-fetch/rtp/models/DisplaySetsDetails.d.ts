@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DisplaySetsType } from './DisplaySetsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { DisplaySetType } from './DisplaySetType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Display Sets.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface DisplaySetsDetails {
     /**
-     *
-     * @type {DisplaySetsType}
+     * List of Display Sets.
+     * @type {Array<DisplaySetType>}
      * @memberof DisplaySetsDetails
      */
-    displaySets?: DisplaySetsType;
+    displaySets?: Array<DisplaySetType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DisplaySetsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DisplaySetsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DisplaySetsDetails interface.

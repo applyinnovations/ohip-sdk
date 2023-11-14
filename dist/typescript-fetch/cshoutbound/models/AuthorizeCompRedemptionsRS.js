@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthorizeCompRedemptionsRSToJSON = exports.AuthorizeCompRedemptionsRSFromJSONTyped = exports.AuthorizeCompRedemptionsRSFromJSON = exports.instanceOfAuthorizeCompRedemptionsRS = void 0;
 const runtime_1 = require("../runtime");
-const AuthorizeCompRedemptionsRSCompRedemptionsType_1 = require("./AuthorizeCompRedemptionsRSCompRedemptionsType");
-const WarningsType_1 = require("./WarningsType");
+const AuthorizeCompRedemptionsRSCompRedemptionType_1 = require("./AuthorizeCompRedemptionsRSCompRedemptionType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AuthorizeCompRedemptionsRS interface.
  */
@@ -34,8 +34,8 @@ function AuthorizeCompRedemptionsRSFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'compRedemptions': !(0, runtime_1.exists)(json, 'compRedemptions') ? undefined : (0, AuthorizeCompRedemptionsRSCompRedemptionsType_1.AuthorizeCompRedemptionsRSCompRedemptionsTypeFromJSON)(json['compRedemptions']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'compRedemptions': !(0, runtime_1.exists)(json, 'compRedemptions') ? undefined : (json['compRedemptions'].map(AuthorizeCompRedemptionsRSCompRedemptionType_1.AuthorizeCompRedemptionsRSCompRedemptionTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AuthorizeCompRedemptionsRSFromJSONTyped = AuthorizeCompRedemptionsRSFromJSONTyped;
@@ -47,8 +47,8 @@ function AuthorizeCompRedemptionsRSToJSON(value) {
         return null;
     }
     return {
-        'compRedemptions': (0, AuthorizeCompRedemptionsRSCompRedemptionsType_1.AuthorizeCompRedemptionsRSCompRedemptionsTypeToJSON)(value.compRedemptions),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : (value.compRedemptions.map(AuthorizeCompRedemptionsRSCompRedemptionType_1.AuthorizeCompRedemptionsRSCompRedemptionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AuthorizeCompRedemptionsRSToJSON = AuthorizeCompRedemptionsRSToJSON;

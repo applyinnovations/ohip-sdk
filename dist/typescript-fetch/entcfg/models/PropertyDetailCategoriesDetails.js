@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PropertyDetailCategoriesDetailsToJSON = exports.PropertyDetailCategoriesDetailsFromJSONTyped = exports.PropertyDetailCategoriesDetailsFromJSON = exports.instanceOfPropertyDetailCategoriesDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const PropertyDetailCategoriesType_1 = require("./PropertyDetailCategoriesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const PropertyDetailCategoryType_1 = require("./PropertyDetailCategoryType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PropertyDetailCategoriesDetails interface.
  */
@@ -35,9 +35,9 @@ function PropertyDetailCategoriesDetailsFromJSONTyped(json, ignoreDiscriminator)
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'propertyDetailCategories': !(0, runtime_1.exists)(json, 'propertyDetailCategories') ? undefined : (0, PropertyDetailCategoriesType_1.PropertyDetailCategoriesTypeFromJSON)(json['propertyDetailCategories']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'propertyDetailCategories': !(0, runtime_1.exists)(json, 'propertyDetailCategories') ? undefined : (json['propertyDetailCategories'].map(PropertyDetailCategoryType_1.PropertyDetailCategoryTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PropertyDetailCategoriesDetailsFromJSONTyped = PropertyDetailCategoriesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function PropertyDetailCategoriesDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'propertyDetailCategories': (0, PropertyDetailCategoriesType_1.PropertyDetailCategoriesTypeToJSON)(value.propertyDetailCategories),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'propertyDetailCategories': value.propertyDetailCategories === undefined ? undefined : (value.propertyDetailCategories.map(PropertyDetailCategoryType_1.PropertyDetailCategoryTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PropertyDetailCategoriesDetailsToJSON = PropertyDetailCategoriesDetailsToJSON;

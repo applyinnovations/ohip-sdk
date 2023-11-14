@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationReversePolicyCriteriaType } from './ReservationReversePolicyCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request type to reverse deposit policy of a reservation.(This is applicable only when advance deposit handling is set to '17') ReverseDepositPolicy operation will reverse the policy by creating a new request with same opposite amount.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ReverseDepositPolicy {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReverseDepositPolicy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationReversePolicyCriteriaType}
@@ -31,11 +31,11 @@ export interface ReverseDepositPolicy {
      */
     policy?: ReservationReversePolicyCriteriaType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReverseDepositPolicy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReverseDepositPolicy interface.

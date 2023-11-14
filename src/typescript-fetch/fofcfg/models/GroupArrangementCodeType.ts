@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { TranslationTextType2000 } from './TranslationTextType2000';
 import {
     TranslationTextType2000FromJSON,
@@ -70,10 +64,10 @@ export interface GroupArrangementCodeType {
     taxTypeCode?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof GroupArrangementCodeType
      */
-    transactionCodes?: CodeListType;
+    transactionCodes?: Array<string>;
 }
 
 /**
@@ -101,7 +95,7 @@ export function GroupArrangementCodeTypeFromJSONTyped(json: any, ignoreDiscrimin
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'revenue': !exists(json, 'revenue') ? undefined : json['revenue'],
         'taxTypeCode': !exists(json, 'taxTypeCode') ? undefined : json['taxTypeCode'],
-        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : CodeListTypeFromJSON(json['transactionCodes']),
+        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : json['transactionCodes'],
     };
 }
 
@@ -120,7 +114,7 @@ export function GroupArrangementCodeTypeToJSON(value?: GroupArrangementCodeType 
         'hotelId': value.hotelId,
         'revenue': value.revenue,
         'taxTypeCode': value.taxTypeCode,
-        'transactionCodes': CodeListTypeToJSON(value.transactionCodes),
+        'transactionCodes': value.transactionCodes,
     };
 }
 

@@ -12,7 +12,6 @@
 import type { CashieringPaymentMethodType } from './CashieringPaymentMethodType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { PaymentTaxType } from './PaymentTaxType';
-import type { PaymentTaxesType } from './PaymentTaxesType';
 import type { PostPaymentActionType } from './PostPaymentActionType';
 import type { ReservationId } from './ReservationId';
 /**
@@ -58,11 +57,11 @@ export interface BillingPaymentCriteria {
      */
     comments?: string;
     /**
-     *
-     * @type {PaymentTaxesType}
+     * Payment Tax record.
+     * @type {Array<PaymentTaxType>}
      * @memberof BillingPaymentCriteria
      */
-    creditablePaymentTaxes?: PaymentTaxesType;
+    creditablePaymentTaxes?: Array<PaymentTaxType>;
     /**
      *
      * @type {number}

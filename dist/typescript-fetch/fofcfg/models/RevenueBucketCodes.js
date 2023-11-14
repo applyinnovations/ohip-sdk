@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RevenueBucketCodesToJSON = exports.RevenueBucketCodesFromJSONTyped = exports.RevenueBucketCodesFromJSON = exports.instanceOfRevenueBucketCodes = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RevenueBucketCodesType_1 = require("./RevenueBucketCodesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RevenueBucketCodeType_1 = require("./RevenueBucketCodeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RevenueBucketCodes interface.
  */
@@ -35,9 +35,9 @@ function RevenueBucketCodesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'revenueBucketCodes': !(0, runtime_1.exists)(json, 'revenueBucketCodes') ? undefined : (0, RevenueBucketCodesType_1.RevenueBucketCodesTypeFromJSON)(json['revenueBucketCodes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'revenueBucketCodes': !(0, runtime_1.exists)(json, 'revenueBucketCodes') ? undefined : (json['revenueBucketCodes'].map(RevenueBucketCodeType_1.RevenueBucketCodeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RevenueBucketCodesFromJSONTyped = RevenueBucketCodesFromJSONTyped;
@@ -49,9 +49,9 @@ function RevenueBucketCodesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'revenueBucketCodes': (0, RevenueBucketCodesType_1.RevenueBucketCodesTypeToJSON)(value.revenueBucketCodes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'revenueBucketCodes': value.revenueBucketCodes === undefined ? undefined : (value.revenueBucketCodes.map(RevenueBucketCodeType_1.RevenueBucketCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RevenueBucketCodesToJSON = RevenueBucketCodesToJSON;

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockIdList } from './BlockIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    BlockIdListFromJSON,
-    BlockIdListFromJSONTyped,
-    BlockIdListToJSON,
-} from './BlockIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Block Information for create rooming list operation.
@@ -27,11 +27,11 @@ import {
  */
 export interface RoomingListBlockInfoType {
     /**
-     * 
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RoomingListBlockInfoType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * Hotel code for the block
      * @type {string}
@@ -59,7 +59,7 @@ export function RoomingListBlockInfoTypeFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : BlockIdListFromJSON(json['blockIdList']),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
     };
 }
@@ -73,7 +73,7 @@ export function RoomingListBlockInfoTypeToJSON(value?: RoomingListBlockInfoType 
     }
     return {
         
-        'blockIdList': BlockIdListToJSON(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'hotelId': value.hotelId,
     };
 }

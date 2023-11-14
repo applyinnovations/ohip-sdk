@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CycleFiscalPeriodsType } from './CycleFiscalPeriodsType';
+import type { CycleFiscalPeriodType } from './CycleFiscalPeriodType';
 import {
-    CycleFiscalPeriodsTypeFromJSON,
-    CycleFiscalPeriodsTypeFromJSONTyped,
-    CycleFiscalPeriodsTypeToJSON,
-} from './CycleFiscalPeriodsType';
+    CycleFiscalPeriodTypeFromJSON,
+    CycleFiscalPeriodTypeFromJSONTyped,
+    CycleFiscalPeriodTypeToJSON,
+} from './CycleFiscalPeriodType';
 
 /**
  * Details of the Cycle Fiscal Periods
@@ -27,11 +27,11 @@ import {
  */
 export interface FiscalPeriodsCycleFiscalPeriods {
     /**
-     * 
-     * @type {CycleFiscalPeriodsType}
+     * List of Cycle Fiscal Periods.
+     * @type {Array<CycleFiscalPeriodType>}
      * @memberof FiscalPeriodsCycleFiscalPeriods
      */
-    cycleFiscalPeriods?: CycleFiscalPeriodsType;
+    cycleFiscalPeriods?: Array<CycleFiscalPeriodType>;
     /**
      * If true all overlapping periods will be deleted. No further confirmation required.
      * @type {boolean}
@@ -59,7 +59,7 @@ export function FiscalPeriodsCycleFiscalPeriodsFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'cycleFiscalPeriods': !exists(json, 'cycleFiscalPeriods') ? undefined : CycleFiscalPeriodsTypeFromJSON(json['cycleFiscalPeriods']),
+        'cycleFiscalPeriods': !exists(json, 'cycleFiscalPeriods') ? undefined : ((json['cycleFiscalPeriods'] as Array<any>).map(CycleFiscalPeriodTypeFromJSON)),
         'forceDelete': !exists(json, 'forceDelete') ? undefined : json['forceDelete'],
     };
 }
@@ -73,7 +73,7 @@ export function FiscalPeriodsCycleFiscalPeriodsToJSON(value?: FiscalPeriodsCycle
     }
     return {
         
-        'cycleFiscalPeriods': CycleFiscalPeriodsTypeToJSON(value.cycleFiscalPeriods),
+        'cycleFiscalPeriods': value.cycleFiscalPeriods === undefined ? undefined : ((value.cycleFiscalPeriods as Array<any>).map(CycleFiscalPeriodTypeToJSON)),
         'forceDelete': value.forceDelete,
     };
 }

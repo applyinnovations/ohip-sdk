@@ -15,12 +15,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PutProfileRequestToJSON = exports.PutProfileRequestFromJSONTyped = exports.PutProfileRequestFromJSON = exports.instanceOfPutProfileRequest = void 0;
 const runtime_1 = require("../runtime");
-const ExternalReferencesType_1 = require("./ExternalReferencesType");
-const Links_1 = require("./Links");
-const ProfileAllowedActionsType_1 = require("./ProfileAllowedActionsType");
-const ProfileIdList_1 = require("./ProfileIdList");
+const ExternalReferenceType_1 = require("./ExternalReferenceType");
+const InstanceLink_1 = require("./InstanceLink");
+const ProfileAllowedActionType_1 = require("./ProfileAllowedActionType");
 const ProfileType_1 = require("./ProfileType");
-const WarningsType_1 = require("./WarningsType");
+const UniqueIDType_1 = require("./UniqueIDType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PutProfileRequest interface.
  */
@@ -38,12 +38,12 @@ function PutProfileRequestFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'externalReferences': !(0, runtime_1.exists)(json, 'externalReferences') ? undefined : (0, ExternalReferencesType_1.ExternalReferencesTypeFromJSON)(json['externalReferences']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'profileAllowedActions': !(0, runtime_1.exists)(json, 'profileAllowedActions') ? undefined : (0, ProfileAllowedActionsType_1.ProfileAllowedActionsTypeFromJSON)(json['profileAllowedActions']),
+        'externalReferences': !(0, runtime_1.exists)(json, 'externalReferences') ? undefined : (json['externalReferences'].map(ExternalReferenceType_1.ExternalReferenceTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'profileAllowedActions': !(0, runtime_1.exists)(json, 'profileAllowedActions') ? undefined : (json['profileAllowedActions'].map(ProfileAllowedActionType_1.ProfileAllowedActionTypeFromJSON)),
         'profileDetails': !(0, runtime_1.exists)(json, 'profileDetails') ? undefined : (0, ProfileType_1.ProfileTypeFromJSON)(json['profileDetails']),
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PutProfileRequestFromJSONTyped = PutProfileRequestFromJSONTyped;
@@ -55,12 +55,12 @@ function PutProfileRequestToJSON(value) {
         return null;
     }
     return {
-        'externalReferences': (0, ExternalReferencesType_1.ExternalReferencesTypeToJSON)(value.externalReferences),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'profileAllowedActions': (0, ProfileAllowedActionsType_1.ProfileAllowedActionsTypeToJSON)(value.profileAllowedActions),
+        'externalReferences': value.externalReferences === undefined ? undefined : (value.externalReferences.map(ExternalReferenceType_1.ExternalReferenceTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'profileAllowedActions': value.profileAllowedActions === undefined ? undefined : (value.profileAllowedActions.map(ProfileAllowedActionType_1.ProfileAllowedActionTypeToJSON)),
         'profileDetails': (0, ProfileType_1.ProfileTypeToJSON)(value.profileDetails),
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PutProfileRequestToJSON = PutProfileRequestToJSON;

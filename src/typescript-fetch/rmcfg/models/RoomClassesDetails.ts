@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomClassesType } from './RoomClassesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomClassType } from './RoomClassType';
 import {
-    RoomClassesTypeFromJSON,
-    RoomClassesTypeFromJSONTyped,
-    RoomClassesTypeToJSON,
-} from './RoomClassesType';
-import type { WarningsType } from './WarningsType';
+    RoomClassTypeFromJSON,
+    RoomClassTypeFromJSONTyped,
+    RoomClassTypeToJSON,
+} from './RoomClassType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching existing hotel level room classes.
@@ -40,22 +40,22 @@ import {
 export interface RoomClassesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomClassesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RoomClassesType}
+     * Collection of hotel level room classes with attached room types.
+     * @type {Array<RoomClassType>}
      * @memberof RoomClassesDetails
      */
-    roomClasses?: RoomClassesType;
+    roomClasses?: Array<RoomClassType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomClassesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RoomClassesDetailsFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'roomClasses': !exists(json, 'roomClasses') ? undefined : RoomClassesTypeFromJSON(json['roomClasses']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'roomClasses': !exists(json, 'roomClasses') ? undefined : ((json['roomClasses'] as Array<any>).map(RoomClassTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RoomClassesDetailsToJSON(value?: RoomClassesDetails | null): any
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'roomClasses': RoomClassesTypeToJSON(value.roomClasses),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'roomClasses': value.roomClasses === undefined ? undefined : ((value.roomClasses as Array<any>).map(RoomClassTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

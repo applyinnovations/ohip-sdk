@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CallStatisticsToJSON = exports.CallStatisticsFromJSONTyped = exports.CallStatisticsFromJSON = exports.instanceOfCallStatistics = void 0;
 const runtime_1 = require("../runtime");
-const CallStatisticsListType_1 = require("./CallStatisticsListType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CallStatisticsType_1 = require("./CallStatisticsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CallStatistics interface.
  */
@@ -35,9 +35,9 @@ function CallStatisticsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'callStatisticsList': !(0, runtime_1.exists)(json, 'callStatisticsList') ? undefined : (0, CallStatisticsListType_1.CallStatisticsListTypeFromJSON)(json['callStatisticsList']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'callStatisticsList': !(0, runtime_1.exists)(json, 'callStatisticsList') ? undefined : (json['callStatisticsList'].map(CallStatisticsType_1.CallStatisticsTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CallStatisticsFromJSONTyped = CallStatisticsFromJSONTyped;
@@ -49,9 +49,9 @@ function CallStatisticsToJSON(value) {
         return null;
     }
     return {
-        'callStatisticsList': (0, CallStatisticsListType_1.CallStatisticsListTypeToJSON)(value.callStatisticsList),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'callStatisticsList': value.callStatisticsList === undefined ? undefined : (value.callStatisticsList.map(CallStatisticsType_1.CallStatisticsTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CallStatisticsToJSON = CallStatisticsToJSON;

@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AwardUpgradeSummaryTypeToJSON = exports.AwardUpgradeSummaryTypeFromJSONTyped = exports.AwardUpgradeSummaryTypeFromJSON = exports.instanceOfAwardUpgradeSummaryType = void 0;
 const runtime_1 = require("../runtime");
-const AwardUpgradeDetailsType_1 = require("./AwardUpgradeDetailsType");
+const AwardUpgradeDetailType_1 = require("./AwardUpgradeDetailType");
 /**
  * Check if a given object implements the AwardUpgradeSummaryType interface.
  */
@@ -34,7 +34,7 @@ function AwardUpgradeSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'awardCode': !(0, runtime_1.exists)(json, 'awardCode') ? undefined : json['awardCode'],
-        'awardUpgradeDetails': !(0, runtime_1.exists)(json, 'awardUpgradeDetails') ? undefined : (0, AwardUpgradeDetailsType_1.AwardUpgradeDetailsTypeFromJSON)(json['awardUpgradeDetails']),
+        'awardUpgradeDetails': !(0, runtime_1.exists)(json, 'awardUpgradeDetails') ? undefined : (json['awardUpgradeDetails'].map(AwardUpgradeDetailType_1.AwardUpgradeDetailTypeFromJSON)),
         'fromRoomType': !(0, runtime_1.exists)(json, 'fromRoomType') ? undefined : json['fromRoomType'],
         'penaltyCharge': !(0, runtime_1.exists)(json, 'penaltyCharge') ? undefined : json['penaltyCharge'],
         'penaltyDays': !(0, runtime_1.exists)(json, 'penaltyDays') ? undefined : json['penaltyDays'],
@@ -54,7 +54,7 @@ function AwardUpgradeSummaryTypeToJSON(value) {
     }
     return {
         'awardCode': value.awardCode,
-        'awardUpgradeDetails': (0, AwardUpgradeDetailsType_1.AwardUpgradeDetailsTypeToJSON)(value.awardUpgradeDetails),
+        'awardUpgradeDetails': value.awardUpgradeDetails === undefined ? undefined : (value.awardUpgradeDetails.map(AwardUpgradeDetailType_1.AwardUpgradeDetailTypeToJSON)),
         'fromRoomType': value.fromRoomType,
         'penaltyCharge': value.penaltyCharge,
         'penaltyDays': value.penaltyDays,

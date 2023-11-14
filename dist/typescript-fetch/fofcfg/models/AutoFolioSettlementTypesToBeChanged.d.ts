@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AutoFolioSettlementTypesType } from './AutoFolioSettlementTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AutoFolioSettlementTypeType } from './AutoFolioSettlementTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Auto Folio Settlement Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AutoFolioSettlementTypesToBeChanged {
     /**
-     *
-     * @type {AutoFolioSettlementTypesType}
+     * List of Auto Folio Settlement Types.
+     * @type {Array<AutoFolioSettlementTypeType>}
      * @memberof AutoFolioSettlementTypesToBeChanged
      */
-    autoFolioSettlementTypes?: AutoFolioSettlementTypesType;
+    autoFolioSettlementTypes?: Array<AutoFolioSettlementTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AutoFolioSettlementTypesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoFolioSettlementTypesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AutoFolioSettlementTypesToBeChanged interface.

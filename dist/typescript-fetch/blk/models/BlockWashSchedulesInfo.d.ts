@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { BlockWashSchedulesInfoType } from './BlockWashSchedulesInfoType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object to change multiple Block Wash Schedules under the selected block.
  * @export
@@ -26,16 +26,16 @@ export interface BlockWashSchedulesInfo {
     blockWashSchedulesInfo?: BlockWashSchedulesInfoType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockWashSchedulesInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockWashSchedulesInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockWashSchedulesInfo interface.

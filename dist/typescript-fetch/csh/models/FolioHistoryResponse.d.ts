@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FoliosType } from './FoliosType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { FolioSummaryType } from './FolioSummaryType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for the fetch Folio History.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FolioHistoryResponse {
     /**
-     *
-     * @type {FoliosType}
+     * Folio History details.
+     * @type {Array<FolioSummaryType>}
      * @memberof FolioHistoryResponse
      */
-    folioHistory?: FoliosType;
+    folioHistory?: Array<FolioSummaryType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FolioHistoryResponse
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FolioHistoryResponse
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FolioHistoryResponse interface.

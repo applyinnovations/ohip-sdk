@@ -25,12 +25,12 @@ import {
     CurrencyAmountTypeFromJSONTyped,
     CurrencyAmountTypeToJSON,
 } from './CurrencyAmountType';
-import type { ResAttachedProfileListType } from './ResAttachedProfileListType';
+import type { ResAttachedProfileType } from './ResAttachedProfileType';
 import {
-    ResAttachedProfileListTypeFromJSON,
-    ResAttachedProfileListTypeFromJSONTyped,
-    ResAttachedProfileListTypeToJSON,
-} from './ResAttachedProfileListType';
+    ResAttachedProfileTypeFromJSON,
+    ResAttachedProfileTypeFromJSONTyped,
+    ResAttachedProfileTypeToJSON,
+} from './ResAttachedProfileType';
 import type { ResGuaranteeFetchInstructionsType } from './ResGuaranteeFetchInstructionsType';
 import {
     ResGuaranteeFetchInstructionsTypeFromJSON,
@@ -100,10 +100,10 @@ export interface ResGuaranteeSearchType {
     ratePlanCode?: string;
     /**
      * 
-     * @type {ResAttachedProfileListType}
+     * @type {Array<ResAttachedProfileType>}
      * @memberof ResGuaranteeSearchType
      */
-    resAttachedProfiles?: ResAttachedProfileListType;
+    resAttachedProfiles?: Array<ResAttachedProfileType>;
     /**
      * 
      * @type {UniqueIDType}
@@ -161,7 +161,7 @@ export function ResGuaranteeSearchTypeFromJSONTyped(json: any, ignoreDiscriminat
         'guaranteeCode': !exists(json, 'guaranteeCode') ? undefined : json['guaranteeCode'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
-        'resAttachedProfiles': !exists(json, 'resAttachedProfiles') ? undefined : ResAttachedProfileListTypeFromJSON(json['resAttachedProfiles']),
+        'resAttachedProfiles': !exists(json, 'resAttachedProfiles') ? undefined : ((json['resAttachedProfiles'] as Array<any>).map(ResAttachedProfileTypeFromJSON)),
         'resGuestId': !exists(json, 'resGuestId') ? undefined : UniqueIDTypeFromJSON(json['resGuestId']),
         'reservationPackages': !exists(json, 'reservationPackages') ? undefined : ((json['reservationPackages'] as Array<any>).map(ReservationPackageTypeFromJSON)),
         'resvRateAmount': !exists(json, 'resvRateAmount') ? undefined : CurrencyAmountTypeFromJSON(json['resvRateAmount']),
@@ -185,7 +185,7 @@ export function ResGuaranteeSearchTypeToJSON(value?: ResGuaranteeSearchType | nu
         'guaranteeCode': value.guaranteeCode,
         'hotelId': value.hotelId,
         'ratePlanCode': value.ratePlanCode,
-        'resAttachedProfiles': ResAttachedProfileListTypeToJSON(value.resAttachedProfiles),
+        'resAttachedProfiles': value.resAttachedProfiles === undefined ? undefined : ((value.resAttachedProfiles as Array<any>).map(ResAttachedProfileTypeToJSON)),
         'resGuestId': UniqueIDTypeToJSON(value.resGuestId),
         'reservationPackages': value.reservationPackages === undefined ? undefined : ((value.reservationPackages as Array<any>).map(ReservationPackageTypeToJSON)),
         'resvRateAmount': CurrencyAmountTypeToJSON(value.resvRateAmount),

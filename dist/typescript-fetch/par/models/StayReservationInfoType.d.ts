@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { PMSResStatusType } from './PMSResStatusType';
-import type { ResAttachedProfileListType } from './ResAttachedProfileListType';
-import type { ReservationIdList } from './ReservationIdList';
+import type { ResAttachedProfileType } from './ResAttachedProfileType';
 import type { StayInfoType } from './StayInfoType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * The Reservation class contains the current reservation being created or altered.
  * @export
@@ -21,10 +21,10 @@ import type { StayInfoType } from './StayInfoType';
 export interface StayReservationInfoType {
     /**
      *
-     * @type {ResAttachedProfileListType}
+     * @type {Array<ResAttachedProfileType>}
      * @memberof StayReservationInfoType
      */
-    attachedProfiles?: ResAttachedProfileListType;
+    attachedProfiles?: Array<ResAttachedProfileType>;
     /**
      *
      * @type {PMSResStatusType}
@@ -38,11 +38,11 @@ export interface StayReservationInfoType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof StayReservationInfoType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {PMSResStatusType}

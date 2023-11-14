@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MarketingCitiesByRegionDetailsToJSON = exports.MarketingCitiesByRegionDetailsFromJSONTyped = exports.MarketingCitiesByRegionDetailsFromJSON = exports.instanceOfMarketingCitiesByRegionDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RegionsType_1 = require("./RegionsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RegionType_1 = require("./RegionType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MarketingCitiesByRegionDetails interface.
  */
@@ -35,9 +35,9 @@ function MarketingCitiesByRegionDetailsFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'marketingCities': !(0, runtime_1.exists)(json, 'marketingCities') ? undefined : (0, RegionsType_1.RegionsTypeFromJSON)(json['marketingCities']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'marketingCities': !(0, runtime_1.exists)(json, 'marketingCities') ? undefined : (json['marketingCities'].map(RegionType_1.RegionTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MarketingCitiesByRegionDetailsFromJSONTyped = MarketingCitiesByRegionDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function MarketingCitiesByRegionDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'marketingCities': (0, RegionsType_1.RegionsTypeToJSON)(value.marketingCities),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'marketingCities': value.marketingCities === undefined ? undefined : (value.marketingCities.map(RegionType_1.RegionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MarketingCitiesByRegionDetailsToJSON = MarketingCitiesByRegionDetailsToJSON;

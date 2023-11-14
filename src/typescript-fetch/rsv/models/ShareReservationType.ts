@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DailyRatesType } from './DailyRatesType';
+import type { DailyRateType } from './DailyRateType';
 import {
-    DailyRatesTypeFromJSON,
-    DailyRatesTypeFromJSONTyped,
-    DailyRatesTypeToJSON,
-} from './DailyRatesType';
+    DailyRateTypeFromJSON,
+    DailyRateTypeFromJSONTyped,
+    DailyRateTypeToJSON,
+} from './DailyRateType';
 import type { ReservationId } from './ReservationId';
 import {
     ReservationIdFromJSON,
@@ -33,11 +33,11 @@ import {
  */
 export interface ShareReservationType {
     /**
-     * 
-     * @type {DailyRatesType}
+     * Defines room rate information on a daily basis.
+     * @type {Array<DailyRateType>}
      * @memberof ShareReservationType
      */
-    dailyRates?: DailyRatesType;
+    dailyRates?: Array<DailyRateType>;
     /**
      * 
      * @type {ReservationId}
@@ -65,7 +65,7 @@ export function ShareReservationTypeFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'dailyRates': !exists(json, 'dailyRates') ? undefined : DailyRatesTypeFromJSON(json['dailyRates']),
+        'dailyRates': !exists(json, 'dailyRates') ? undefined : ((json['dailyRates'] as Array<any>).map(DailyRateTypeFromJSON)),
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
     };
 }
@@ -79,7 +79,7 @@ export function ShareReservationTypeToJSON(value?: ShareReservationType | null):
     }
     return {
         
-        'dailyRates': DailyRatesTypeToJSON(value.dailyRates),
+        'dailyRates': value.dailyRates === undefined ? undefined : ((value.dailyRates as Array<any>).map(DailyRateTypeToJSON)),
         'reservationId': ReservationIdToJSON(value.reservationId),
     };
 }

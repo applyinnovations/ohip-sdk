@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { AutoGenerateTaskSheetsCriteriaType } from './AutoGenerateTaskSheetsCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request for generating housekeeping Task Sheets automatically. To generate task sheets automatically the minimum required criteria is the Task Date, Task Code, Number of Attendants/Tasksheets required and the Room Statuses. Based on the criteria defined, task sheets will be created and the rooms will be assigned to the Tasksheets. Example: if the criteria defines that Dirty room status to be used to generate 5 sheets, then only those rooms which have the status = Dirty will be used and will be assigned to the 5 sheets.
  * @export
@@ -26,16 +26,16 @@ export interface TaskSheets {
     criteria?: AutoGenerateTaskSheetsCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TaskSheets
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TaskSheets
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TaskSheets interface.

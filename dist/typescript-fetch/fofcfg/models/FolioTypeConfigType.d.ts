@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FolioReportsType } from './FolioReportsType';
+import type { FolioReportType } from './FolioReportType';
 import type { FolioTypeProfileAttributes } from './FolioTypeProfileAttributes';
 /**
  * Information detail for uniquely identifying a Folio Type Name.
@@ -102,11 +102,11 @@ export interface FolioTypeConfigType {
      */
     fiscalFolio?: boolean;
     /**
-     *
-     * @type {FolioReportsType}
+     * Information details of the Folio Reports associated with Folio Type Name.
+     * @type {Array<FolioReportType>}
      * @memberof FolioTypeConfigType
      */
-    folioReports?: FolioReportsType;
+    folioReports?: Array<FolioReportType>;
     /**
      * Flag to indicate if the Folio Type has been used to create a Folio.
      * @type {boolean}

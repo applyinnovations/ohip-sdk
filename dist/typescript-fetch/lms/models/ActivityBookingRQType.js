@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ActivityBookingRQTypeToJSON = exports.ActivityBookingRQTypeFromJSONTyped = exports.ActivityBookingRQTypeFromJSON = exports.instanceOfActivityBookingRQType = void 0;
 const runtime_1 = require("../runtime");
-const ActivityList_1 = require("./ActivityList");
+const ActivityListInner_1 = require("./ActivityListInner");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ActivityBookingRQType interface.
@@ -34,7 +34,7 @@ function ActivityBookingRQTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'activities': !(0, runtime_1.exists)(json, 'activities') ? undefined : (0, ActivityList_1.ActivityListFromJSON)(json['activities']),
+        'activities': !(0, runtime_1.exists)(json, 'activities') ? undefined : (json['activities'].map(ActivityListInner_1.ActivityListInnerFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['profileId']),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['reservationId']),
@@ -49,7 +49,7 @@ function ActivityBookingRQTypeToJSON(value) {
         return null;
     }
     return {
-        'activities': (0, ActivityList_1.ActivityListToJSON)(value.activities),
+        'activities': value.activities === undefined ? undefined : (value.activities.map(ActivityListInner_1.ActivityListInnerToJSON)),
         'hotelId': value.hotelId,
         'profileId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.profileId),
         'reservationId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.reservationId),

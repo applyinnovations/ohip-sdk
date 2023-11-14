@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockWashSchedulesType } from './BlockWashSchedulesType';
+import type { BlockWashScheduleType } from './BlockWashScheduleType';
 import {
-    BlockWashSchedulesTypeFromJSON,
-    BlockWashSchedulesTypeFromJSONTyped,
-    BlockWashSchedulesTypeToJSON,
-} from './BlockWashSchedulesType';
-import type { Links } from './Links';
+    BlockWashScheduleTypeFromJSON,
+    BlockWashScheduleTypeFromJSONTyped,
+    BlockWashScheduleTypeToJSON,
+} from './BlockWashScheduleType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object to fetch all the Block Wash Schedules. Each Block Wash Schedule will contain all the information like Wash Date, Room Type, Occupancy detail, Sell limit and Wash by percent value if exists.
@@ -39,23 +39,23 @@ import {
  */
 export interface BlockWashSchedules {
     /**
-     * 
-     * @type {BlockWashSchedulesType}
+     * Wash Schedule attached to the block, which allows to release inventory based on selected wash schedule type.
+     * @type {Array<BlockWashScheduleType>}
      * @memberof BlockWashSchedules
      */
-    blockWashSchedules?: BlockWashSchedulesType;
+    blockWashSchedules?: Array<BlockWashScheduleType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockWashSchedules
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockWashSchedules
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function BlockWashSchedulesFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'blockWashSchedules': !exists(json, 'blockWashSchedules') ? undefined : BlockWashSchedulesTypeFromJSON(json['blockWashSchedules']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'blockWashSchedules': !exists(json, 'blockWashSchedules') ? undefined : ((json['blockWashSchedules'] as Array<any>).map(BlockWashScheduleTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function BlockWashSchedulesToJSON(value?: BlockWashSchedules | null): any
     }
     return {
         
-        'blockWashSchedules': BlockWashSchedulesTypeToJSON(value.blockWashSchedules),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'blockWashSchedules': value.blockWashSchedules === undefined ? undefined : ((value.blockWashSchedules as Array<any>).map(BlockWashScheduleTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

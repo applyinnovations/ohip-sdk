@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { MasterInfoType } from './MasterInfoType';
 import {
     MasterInfoTypeFromJSON,
@@ -31,12 +31,12 @@ import {
     ReservationsDetailsReservationsFromJSONTyped,
     ReservationsDetailsReservationsToJSON,
 } from './ReservationsDetailsReservations';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object to the Fetch Reservation Request operation. Based on the criteria, reservation information is returned.
@@ -46,10 +46,10 @@ import {
 export interface ReservationsDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {Array<MasterInfoType>}
@@ -63,11 +63,11 @@ export interface ReservationsDetails {
      */
     reservations?: ReservationsDetailsReservations;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function ReservationsDetailsFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'masterInfoList': !exists(json, 'masterInfoList') ? undefined : ((json['masterInfoList'] as Array<any>).map(MasterInfoTypeFromJSON)),
         'reservations': !exists(json, 'reservations') ? undefined : ReservationsDetailsReservationsFromJSON(json['reservations']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function ReservationsDetailsToJSON(value?: ReservationsDetails | null): a
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'masterInfoList': value.masterInfoList === undefined ? undefined : ((value.masterInfoList as Array<any>).map(MasterInfoTypeToJSON)),
         'reservations': ReservationsDetailsReservationsToJSON(value.reservations),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

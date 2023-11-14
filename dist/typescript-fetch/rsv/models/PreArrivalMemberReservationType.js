@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PreArrivalMemberReservationTypeToJSON = exports.PreArrivalMemberReservationTypeFromJSONTyped = exports.PreArrivalMemberReservationTypeFromJSON = exports.instanceOfPreArrivalMemberReservationType = void 0;
 const runtime_1 = require("../runtime");
-const ReservationIdList_1 = require("./ReservationIdList");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the PreArrivalMemberReservationType interface.
  */
@@ -36,7 +36,7 @@ function PreArrivalMemberReservationTypeFromJSONTyped(json, ignoreDiscriminator)
         'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
         'createDateTime': !(0, runtime_1.exists)(json, 'createDateTime') ? undefined : json['createDateTime'],
         'membershipId': !(0, runtime_1.exists)(json, 'membershipId') ? undefined : json['membershipId'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.PreArrivalMemberReservationTypeFromJSONTyped = PreArrivalMemberReservationTypeFromJSONTyped;
@@ -51,7 +51,7 @@ function PreArrivalMemberReservationTypeToJSON(value) {
         'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
         'createDateTime': value.createDateTime,
         'membershipId': value.membershipId,
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.PreArrivalMemberReservationTypeToJSON = PreArrivalMemberReservationTypeToJSON;

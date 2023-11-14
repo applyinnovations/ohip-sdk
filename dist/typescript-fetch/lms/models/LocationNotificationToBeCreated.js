@@ -17,10 +17,10 @@ exports.LocationNotificationToBeCreatedToJSON = exports.LocationNotificationToBe
 const runtime_1 = require("../runtime");
 const DateTimeSpanType_1 = require("./DateTimeSpanType");
 const FormattedTextTextType_1 = require("./FormattedTextTextType");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const LocationNotificationStatus_1 = require("./LocationNotificationStatus");
 const UniqueIDType_1 = require("./UniqueIDType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the LocationNotificationToBeCreated interface.
  */
@@ -40,13 +40,13 @@ function LocationNotificationToBeCreatedFromJSONTyped(json, ignoreDiscriminator)
     return {
         'activityTime': !(0, runtime_1.exists)(json, 'activityTime') ? undefined : (0, DateTimeSpanType_1.DateTimeSpanTypeFromJSON)(json['activityTime']),
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : (0, FormattedTextTextType_1.FormattedTextTextTypeFromJSON)(json['description']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'locationNotificationStatus': !(0, runtime_1.exists)(json, 'locationNotificationStatus') ? undefined : (0, LocationNotificationStatus_1.LocationNotificationStatusFromJSON)(json['locationNotificationStatus']),
         'locationText': !(0, runtime_1.exists)(json, 'locationText') ? undefined : (0, FormattedTextTextType_1.FormattedTextTextTypeFromJSON)(json['locationText']),
         'otherLocationNotificationStatus': !(0, runtime_1.exists)(json, 'otherLocationNotificationStatus') ? undefined : json['otherLocationNotificationStatus'],
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['profileId']),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['reservationId']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.LocationNotificationToBeCreatedFromJSONTyped = LocationNotificationToBeCreatedFromJSONTyped;
@@ -60,13 +60,13 @@ function LocationNotificationToBeCreatedToJSON(value) {
     return {
         'activityTime': (0, DateTimeSpanType_1.DateTimeSpanTypeToJSON)(value.activityTime),
         'description': (0, FormattedTextTextType_1.FormattedTextTextTypeToJSON)(value.description),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'locationNotificationStatus': (0, LocationNotificationStatus_1.LocationNotificationStatusToJSON)(value.locationNotificationStatus),
         'locationText': (0, FormattedTextTextType_1.FormattedTextTextTypeToJSON)(value.locationText),
         'otherLocationNotificationStatus': value.otherLocationNotificationStatus,
         'profileId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.profileId),
         'reservationId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.reservationId),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.LocationNotificationToBeCreatedToJSON = LocationNotificationToBeCreatedToJSON;

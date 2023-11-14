@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CalendarTaskAttachmentsToJSON = exports.CalendarTaskAttachmentsFromJSONTyped = exports.CalendarTaskAttachmentsFromJSON = exports.instanceOfCalendarTaskAttachments = void 0;
 const runtime_1 = require("../runtime");
-const AttachmentsType_1 = require("./AttachmentsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const AttachmentType_1 = require("./AttachmentType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CalendarTaskAttachments interface.
  */
@@ -35,9 +35,9 @@ function CalendarTaskAttachmentsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'calendarTaskAttachments': !(0, runtime_1.exists)(json, 'calendarTaskAttachments') ? undefined : (0, AttachmentsType_1.AttachmentsTypeFromJSON)(json['calendarTaskAttachments']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'calendarTaskAttachments': !(0, runtime_1.exists)(json, 'calendarTaskAttachments') ? undefined : (json['calendarTaskAttachments'].map(AttachmentType_1.AttachmentTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CalendarTaskAttachmentsFromJSONTyped = CalendarTaskAttachmentsFromJSONTyped;
@@ -49,9 +49,9 @@ function CalendarTaskAttachmentsToJSON(value) {
         return null;
     }
     return {
-        'calendarTaskAttachments': (0, AttachmentsType_1.AttachmentsTypeToJSON)(value.calendarTaskAttachments),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'calendarTaskAttachments': value.calendarTaskAttachments === undefined ? undefined : (value.calendarTaskAttachments.map(AttachmentType_1.AttachmentTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CalendarTaskAttachmentsToJSON = CalendarTaskAttachmentsToJSON;

@@ -11,10 +11,9 @@
  */
 import type { ApplyEventAttendeesChangesToEventsType } from './ApplyEventAttendeesChangesToEventsType';
 import type { BookingStatusDetailType } from './BookingStatusDetailType';
+import type { BookingStatusHistoryType } from './BookingStatusHistoryType';
 import type { CancellationDetailsType } from './CancellationDetailsType';
-import type { CateringNextStatusListType } from './CateringNextStatusListType';
 import type { CateringRevenueType } from './CateringRevenueType';
-import type { CateringStatusChangeHistoryType } from './CateringStatusChangeHistoryType';
 import type { EventAttendeesType } from './EventAttendeesType';
 import type { EventOrderType } from './EventOrderType';
 import type { ResourceDiscountTypeType } from './ResourceDiscountTypeType';
@@ -61,11 +60,11 @@ export interface CateringType {
      */
     cateringInternalStatus?: string;
     /**
-     *
-     * @type {CateringNextStatusListType}
+     * Next catering status of the business block.
+     * @type {Array<BookingStatusDetailType>}
      * @memberof CateringType
      */
-    cateringNextStatusList?: CateringNextStatusListType;
+    cateringNextStatusList?: Array<BookingStatusDetailType>;
     /**
      * Catering Owner of the block.
      * @type {string}
@@ -85,11 +84,11 @@ export interface CateringType {
      */
     cateringStatus?: BookingStatusDetailType;
     /**
-     *
-     * @type {CateringStatusChangeHistoryType}
+     * Collection of catering status history.
+     * @type {Array<BookingStatusHistoryType>}
      * @memberof CateringType
      */
-    cateringStatusChangeHistory?: CateringStatusChangeHistoryType;
+    cateringStatusChangeHistory?: Array<BookingStatusHistoryType>;
     /**
      * Catering contract number for the block.
      * @type {string}

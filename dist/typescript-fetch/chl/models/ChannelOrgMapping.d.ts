@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ChannelOrgMappingType } from './ChannelOrgMappingType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for Create Channel to ORG and CRO Mapping.
  * @export
@@ -26,16 +26,16 @@ export interface ChannelOrgMapping {
     channelOrgMappingDetails?: ChannelOrgMappingType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelOrgMapping
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelOrgMapping
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelOrgMapping interface.

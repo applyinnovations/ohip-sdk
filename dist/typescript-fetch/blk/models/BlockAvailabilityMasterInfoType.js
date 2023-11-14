@@ -17,7 +17,6 @@ exports.BlockAvailabilityMasterInfoTypeToJSON = exports.BlockAvailabilityMasterI
 const runtime_1 = require("../runtime");
 const BlockAvailabilityRatePlanInfo_1 = require("./BlockAvailabilityRatePlanInfo");
 const BlockAvailabilityRoomTypeInfo_1 = require("./BlockAvailabilityRoomTypeInfo");
-const CodeListType_1 = require("./CodeListType");
 const CurrencyExchangeRateType_1 = require("./CurrencyExchangeRateType");
 /**
  * Check if a given object implements the BlockAvailabilityMasterInfoType interface.
@@ -38,7 +37,7 @@ function BlockAvailabilityMasterInfoTypeFromJSONTyped(json, ignoreDiscriminator)
     return {
         'currencyExchangeRates': !(0, runtime_1.exists)(json, 'currencyExchangeRates') ? undefined : (json['currencyExchangeRates'].map(CurrencyExchangeRateType_1.CurrencyExchangeRateTypeFromJSON)),
         'fetchedRoomTypes': !(0, runtime_1.exists)(json, 'fetchedRoomTypes') ? undefined : (json['fetchedRoomTypes'].map(BlockAvailabilityRoomTypeInfo_1.BlockAvailabilityRoomTypeInfoFromJSON)),
-        'masterRoomTypes': !(0, runtime_1.exists)(json, 'masterRoomTypes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['masterRoomTypes']),
+        'masterRoomTypes': !(0, runtime_1.exists)(json, 'masterRoomTypes') ? undefined : json['masterRoomTypes'],
         'ratePlans': !(0, runtime_1.exists)(json, 'ratePlans') ? undefined : (json['ratePlans'].map(BlockAvailabilityRatePlanInfo_1.BlockAvailabilityRatePlanInfoFromJSON)),
     };
 }
@@ -53,7 +52,7 @@ function BlockAvailabilityMasterInfoTypeToJSON(value) {
     return {
         'currencyExchangeRates': value.currencyExchangeRates === undefined ? undefined : (value.currencyExchangeRates.map(CurrencyExchangeRateType_1.CurrencyExchangeRateTypeToJSON)),
         'fetchedRoomTypes': value.fetchedRoomTypes === undefined ? undefined : (value.fetchedRoomTypes.map(BlockAvailabilityRoomTypeInfo_1.BlockAvailabilityRoomTypeInfoToJSON)),
-        'masterRoomTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.masterRoomTypes),
+        'masterRoomTypes': value.masterRoomTypes,
         'ratePlans': value.ratePlans === undefined ? undefined : (value.ratePlans.map(BlockAvailabilityRatePlanInfo_1.BlockAvailabilityRatePlanInfoToJSON)),
     };
 }

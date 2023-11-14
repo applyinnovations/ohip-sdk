@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { AddressType } from './AddressType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching City and State based on search criteria. This object contains address information,Success,Warnings and Errors related to this operation.
  * @export
@@ -26,16 +26,16 @@ export interface CityState {
     addressType?: AddressType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CityState
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CityState
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CityState interface.

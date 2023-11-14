@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfileSummaryInfoTypeToJSON = exports.ProfileSummaryInfoTypeFromJSONTyped = exports.ProfileSummaryInfoTypeFromJSON = exports.instanceOfProfileSummaryInfoType = void 0;
 const runtime_1 = require("../runtime");
-const ProfileIdList_1 = require("./ProfileIdList");
 const ProfileSummaryType_1 = require("./ProfileSummaryType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ProfileSummaryInfoType interface.
  */
@@ -35,7 +35,7 @@ function ProfileSummaryInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'profile': !(0, runtime_1.exists)(json, 'profile') ? undefined : (0, ProfileSummaryType_1.ProfileSummaryTypeFromJSON)(json['profile']),
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.ProfileSummaryInfoTypeFromJSONTyped = ProfileSummaryInfoTypeFromJSONTyped;
@@ -48,7 +48,7 @@ function ProfileSummaryInfoTypeToJSON(value) {
     }
     return {
         'profile': (0, ProfileSummaryType_1.ProfileSummaryTypeToJSON)(value.profile),
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.ProfileSummaryInfoTypeToJSON = ProfileSummaryInfoTypeToJSON;

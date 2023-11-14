@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ARAccountTraceCriteriaType } from './ARAccountTraceCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to create a Trace for an Account.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface AccountTrace {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AccountTrace
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ARAccountTraceCriteriaType}
@@ -31,11 +31,11 @@ export interface AccountTrace {
      */
     traceInfo?: ARAccountTraceCriteriaType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AccountTrace
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AccountTrace interface.

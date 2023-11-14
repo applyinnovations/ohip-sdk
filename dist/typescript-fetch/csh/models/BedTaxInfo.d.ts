@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BedTaxInfoTypes } from './BedTaxInfoTypes';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BedTaxInfoType } from './BedTaxInfoType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for bed transaction info
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BedTaxInfo {
     /**
-     *
-     * @type {BedTaxInfoTypes}
+     * List of Bed Tax info.
+     * @type {Array<BedTaxInfoType>}
      * @memberof BedTaxInfo
      */
-    bedTaxInfoTypes?: BedTaxInfoTypes;
+    bedTaxInfoTypes?: Array<BedTaxInfoType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BedTaxInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BedTaxInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BedTaxInfo interface.

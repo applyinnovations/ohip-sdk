@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AccountForecastsType } from './AccountForecastsType';
+import type { AccountForecastType } from './AccountForecastType';
 import {
-    AccountForecastsTypeFromJSON,
-    AccountForecastsTypeFromJSONTyped,
-    AccountForecastsTypeToJSON,
-} from './AccountForecastsType';
-import type { Links } from './Links';
+    AccountForecastTypeFromJSON,
+    AccountForecastTypeFromJSONTyped,
+    AccountForecastTypeToJSON,
+} from './AccountForecastType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for showing forecast information of account profile.
@@ -39,11 +39,11 @@ import {
  */
 export interface AccountForecasts {
     /**
-     * 
-     * @type {AccountForecastsType}
+     * Detail Information about Account Forecast.
+     * @type {Array<AccountForecastType>}
      * @memberof AccountForecasts
      */
-    accountForecastDetails?: AccountForecastsType;
+    accountForecastDetails?: Array<AccountForecastType>;
     /**
      * Total number of rows returned
      * @type {number}
@@ -64,10 +64,10 @@ export interface AccountForecasts {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AccountForecasts
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -87,11 +87,11 @@ export interface AccountForecasts {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AccountForecasts
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -113,15 +113,15 @@ export function AccountForecastsFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'accountForecastDetails': !exists(json, 'accountForecastDetails') ? undefined : AccountForecastsTypeFromJSON(json['accountForecastDetails']),
+        'accountForecastDetails': !exists(json, 'accountForecastDetails') ? undefined : ((json['accountForecastDetails'] as Array<any>).map(AccountForecastTypeFromJSON)),
         'count': !exists(json, 'count') ? undefined : json['count'],
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -134,15 +134,15 @@ export function AccountForecastsToJSON(value?: AccountForecasts | null): any {
     }
     return {
         
-        'accountForecastDetails': AccountForecastsTypeToJSON(value.accountForecastDetails),
+        'accountForecastDetails': value.accountForecastDetails === undefined ? undefined : ((value.accountForecastDetails as Array<any>).map(AccountForecastTypeToJSON)),
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

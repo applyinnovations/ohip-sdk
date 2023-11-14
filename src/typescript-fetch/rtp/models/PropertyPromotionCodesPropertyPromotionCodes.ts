@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PropertyPromotionCodesType } from './PropertyPromotionCodesType';
+import type { PropertyPromotionCodeType } from './PropertyPromotionCodeType';
 import {
-    PropertyPromotionCodesTypeFromJSON,
-    PropertyPromotionCodesTypeFromJSONTyped,
-    PropertyPromotionCodesTypeToJSON,
-} from './PropertyPromotionCodesType';
+    PropertyPromotionCodeTypeFromJSON,
+    PropertyPromotionCodeTypeFromJSONTyped,
+    PropertyPromotionCodeTypeToJSON,
+} from './PropertyPromotionCodeType';
 
 /**
  * Collection of Property promotions.
@@ -51,11 +51,11 @@ export interface PropertyPromotionCodesPropertyPromotionCodes {
      */
     offset?: number;
     /**
-     * 
-     * @type {PropertyPromotionCodesType}
+     * A property promotion.
+     * @type {Array<PropertyPromotionCodeType>}
      * @memberof PropertyPromotionCodesPropertyPromotionCodes
      */
-    propertyPromotionCodes?: PropertyPromotionCodesType;
+    propertyPromotionCodes?: Array<PropertyPromotionCodeType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -93,7 +93,7 @@ export function PropertyPromotionCodesPropertyPromotionCodesFromJSONTyped(json: 
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
-        'propertyPromotionCodes': !exists(json, 'propertyPromotionCodes') ? undefined : PropertyPromotionCodesTypeFromJSON(json['propertyPromotionCodes']),
+        'propertyPromotionCodes': !exists(json, 'propertyPromotionCodes') ? undefined : ((json['propertyPromotionCodes'] as Array<any>).map(PropertyPromotionCodeTypeFromJSON)),
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
     };
@@ -112,7 +112,7 @@ export function PropertyPromotionCodesPropertyPromotionCodesToJSON(value?: Prope
         'hasMore': value.hasMore,
         'limit': value.limit,
         'offset': value.offset,
-        'propertyPromotionCodes': PropertyPromotionCodesTypeToJSON(value.propertyPromotionCodes),
+        'propertyPromotionCodes': value.propertyPromotionCodes === undefined ? undefined : ((value.propertyPromotionCodes as Array<any>).map(PropertyPromotionCodeTypeToJSON)),
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
     };

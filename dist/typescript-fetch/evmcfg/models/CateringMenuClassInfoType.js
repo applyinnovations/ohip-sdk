@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringMenuClassInfoTypeToJSON = exports.CateringMenuClassInfoTypeFromJSONTyped = exports.CateringMenuClassInfoTypeFromJSON = exports.instanceOfCateringMenuClassInfoType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 /**
  * Check if a given object implements the CateringMenuClassInfoType interface.
  */
@@ -33,7 +32,7 @@ function CateringMenuClassInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'eventTypes': !(0, runtime_1.exists)(json, 'eventTypes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['eventTypes']),
+        'eventTypes': !(0, runtime_1.exists)(json, 'eventTypes') ? undefined : json['eventTypes'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
         'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
         'name': !(0, runtime_1.exists)(json, 'name') ? undefined : json['name'],
@@ -49,7 +48,7 @@ function CateringMenuClassInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'eventTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.eventTypes),
+        'eventTypes': value.eventTypes,
         'inactive': value.inactive,
         'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
         'name': value.name,

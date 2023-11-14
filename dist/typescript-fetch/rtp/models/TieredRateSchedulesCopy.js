@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TieredRateSchedulesCopyToJSON = exports.TieredRateSchedulesCopyFromJSONTyped = exports.TieredRateSchedulesCopyFromJSON = exports.instanceOfTieredRateSchedulesCopy = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const RateOffsetType_1 = require("./RateOffsetType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
-const WarningsType_1 = require("./WarningsType");
+const UniqueIDType_1 = require("./UniqueIDType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TieredRateSchedulesCopy interface.
  */
@@ -41,10 +41,10 @@ function TieredRateSchedulesCopyFromJSONTyped(json, ignoreDiscriminator) {
         'copyFromTierId': !(0, runtime_1.exists)(json, 'copyFromTierId') ? undefined : json['copyFromTierId'],
         'copyToTierId': !(0, runtime_1.exists)(json, 'copyToTierId') ? undefined : json['copyToTierId'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
-        'ratePlanSchedulesIdList': !(0, runtime_1.exists)(json, 'ratePlanSchedulesIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['ratePlanSchedulesIdList']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'ratePlanSchedulesIdList': !(0, runtime_1.exists)(json, 'ratePlanSchedulesIdList') ? undefined : (json['ratePlanSchedulesIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TieredRateSchedulesCopyFromJSONTyped = TieredRateSchedulesCopyFromJSONTyped;
@@ -61,10 +61,10 @@ function TieredRateSchedulesCopyToJSON(value) {
         'copyFromTierId': value.copyFromTierId,
         'copyToTierId': value.copyToTierId,
         'hotelId': value.hotelId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'ratePlanCode': value.ratePlanCode,
-        'ratePlanSchedulesIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.ratePlanSchedulesIdList),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'ratePlanSchedulesIdList': value.ratePlanSchedulesIdList === undefined ? undefined : (value.ratePlanSchedulesIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TieredRateSchedulesCopyToJSON = TieredRateSchedulesCopyToJSON;

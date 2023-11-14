@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { BlockSummariesType } from './BlockSummariesType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MasterInfoType } from './MasterInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * It also contains Success,Warnings and Errors related to this operation.
  * @export
@@ -27,10 +27,10 @@ export interface BlockSummaries {
     blockSummaries?: BlockSummariesType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockSummaries
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Refer to Generic common types document.
      * @type {Array<MasterInfoType>}
@@ -38,11 +38,11 @@ export interface BlockSummaries {
      */
     masterInfoList?: Array<MasterInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockSummaries
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockSummaries interface.

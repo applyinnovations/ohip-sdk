@@ -13,36 +13,42 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AlternateHotelsType } from './AlternateHotelsType';
+import type { AlternateHotelType } from './AlternateHotelType';
 import {
-    AlternateHotelsTypeFromJSON,
-    AlternateHotelsTypeFromJSONTyped,
-    AlternateHotelsTypeToJSON,
-} from './AlternateHotelsType';
-import type { DirectionsType } from './DirectionsType';
+    AlternateHotelTypeFromJSON,
+    AlternateHotelTypeFromJSONTyped,
+    AlternateHotelTypeToJSON,
+} from './AlternateHotelType';
+import type { CommentInfoType } from './CommentInfoType';
 import {
-    DirectionsTypeFromJSON,
-    DirectionsTypeFromJSONTyped,
-    DirectionsTypeToJSON,
-} from './DirectionsType';
-import type { GeneralNotesType } from './GeneralNotesType';
+    CommentInfoTypeFromJSON,
+    CommentInfoTypeFromJSONTyped,
+    CommentInfoTypeToJSON,
+} from './CommentInfoType';
+import type { DirectionType } from './DirectionType';
 import {
-    GeneralNotesTypeFromJSON,
-    GeneralNotesTypeFromJSONTyped,
-    GeneralNotesTypeToJSON,
-} from './GeneralNotesType';
-import type { HotelAirportsType } from './HotelAirportsType';
+    DirectionTypeFromJSON,
+    DirectionTypeFromJSONTyped,
+    DirectionTypeToJSON,
+} from './DirectionType';
+import type { GeneralNoteType } from './GeneralNoteType';
 import {
-    HotelAirportsTypeFromJSON,
-    HotelAirportsTypeFromJSONTyped,
-    HotelAirportsTypeToJSON,
-} from './HotelAirportsType';
-import type { HotelAttractionsType } from './HotelAttractionsType';
+    GeneralNoteTypeFromJSON,
+    GeneralNoteTypeFromJSONTyped,
+    GeneralNoteTypeToJSON,
+} from './GeneralNoteType';
+import type { HotelAirportType } from './HotelAirportType';
 import {
-    HotelAttractionsTypeFromJSON,
-    HotelAttractionsTypeFromJSONTyped,
-    HotelAttractionsTypeToJSON,
-} from './HotelAttractionsType';
+    HotelAirportTypeFromJSON,
+    HotelAirportTypeFromJSONTyped,
+    HotelAirportTypeToJSON,
+} from './HotelAirportType';
+import type { HotelAttractionType } from './HotelAttractionType';
+import {
+    HotelAttractionTypeFromJSON,
+    HotelAttractionTypeFromJSONTyped,
+    HotelAttractionTypeToJSON,
+} from './HotelAttractionType';
 import type { HotelBrochureTypeAccommodationDetails } from './HotelBrochureTypeAccommodationDetails';
 import {
     HotelBrochureTypeAccommodationDetailsFromJSON,
@@ -85,12 +91,12 @@ import {
     HotelConferenceFacilitiesTypeFromJSONTyped,
     HotelConferenceFacilitiesTypeToJSON,
 } from './HotelConferenceFacilitiesType';
-import type { HotelContactsType } from './HotelContactsType';
+import type { HotelContactType } from './HotelContactType';
 import {
-    HotelContactsTypeFromJSON,
-    HotelContactsTypeFromJSONTyped,
-    HotelContactsTypeToJSON,
-} from './HotelContactsType';
+    HotelContactTypeFromJSON,
+    HotelContactTypeFromJSONTyped,
+    HotelContactTypeToJSON,
+} from './HotelContactType';
 import type { HotelCorporateInformationsType } from './HotelCorporateInformationsType';
 import {
     HotelCorporateInformationsTypeFromJSON,
@@ -103,54 +109,48 @@ import {
     HotelEventSpacesTypeFromJSONTyped,
     HotelEventSpacesTypeToJSON,
 } from './HotelEventSpacesType';
-import type { HotelFeaturesType } from './HotelFeaturesType';
+import type { HotelFeatureType } from './HotelFeatureType';
 import {
-    HotelFeaturesTypeFromJSON,
-    HotelFeaturesTypeFromJSONTyped,
-    HotelFeaturesTypeToJSON,
-} from './HotelFeaturesType';
-import type { HotelNotesType } from './HotelNotesType';
+    HotelFeatureTypeFromJSON,
+    HotelFeatureTypeFromJSONTyped,
+    HotelFeatureTypeToJSON,
+} from './HotelFeatureType';
+import type { HotelPackageType } from './HotelPackageType';
 import {
-    HotelNotesTypeFromJSON,
-    HotelNotesTypeFromJSONTyped,
-    HotelNotesTypeToJSON,
-} from './HotelNotesType';
-import type { HotelPackagesType } from './HotelPackagesType';
+    HotelPackageTypeFromJSON,
+    HotelPackageTypeFromJSONTyped,
+    HotelPackageTypeToJSON,
+} from './HotelPackageType';
+import type { HotelRateRangeType } from './HotelRateRangeType';
 import {
-    HotelPackagesTypeFromJSON,
-    HotelPackagesTypeFromJSONTyped,
-    HotelPackagesTypeToJSON,
-} from './HotelPackagesType';
-import type { HotelRateRangesType } from './HotelRateRangesType';
+    HotelRateRangeTypeFromJSON,
+    HotelRateRangeTypeFromJSONTyped,
+    HotelRateRangeTypeToJSON,
+} from './HotelRateRangeType';
+import type { HotelRestaurantType } from './HotelRestaurantType';
 import {
-    HotelRateRangesTypeFromJSON,
-    HotelRateRangesTypeFromJSONTyped,
-    HotelRateRangesTypeToJSON,
-} from './HotelRateRangesType';
-import type { HotelRestaurantsType } from './HotelRestaurantsType';
+    HotelRestaurantTypeFromJSON,
+    HotelRestaurantTypeFromJSONTyped,
+    HotelRestaurantTypeToJSON,
+} from './HotelRestaurantType';
+import type { HotelTransportationType } from './HotelTransportationType';
 import {
-    HotelRestaurantsTypeFromJSON,
-    HotelRestaurantsTypeFromJSONTyped,
-    HotelRestaurantsTypeToJSON,
-} from './HotelRestaurantsType';
-import type { HotelTransportationsType } from './HotelTransportationsType';
+    HotelTransportationTypeFromJSON,
+    HotelTransportationTypeFromJSONTyped,
+    HotelTransportationTypeToJSON,
+} from './HotelTransportationType';
+import type { HotelUserDefinedFieldType } from './HotelUserDefinedFieldType';
 import {
-    HotelTransportationsTypeFromJSON,
-    HotelTransportationsTypeFromJSONTyped,
-    HotelTransportationsTypeToJSON,
-} from './HotelTransportationsType';
-import type { HotelUserDefinedFieldsType } from './HotelUserDefinedFieldsType';
+    HotelUserDefinedFieldTypeFromJSON,
+    HotelUserDefinedFieldTypeFromJSONTyped,
+    HotelUserDefinedFieldTypeToJSON,
+} from './HotelUserDefinedFieldType';
+import type { MeetingRoomType } from './MeetingRoomType';
 import {
-    HotelUserDefinedFieldsTypeFromJSON,
-    HotelUserDefinedFieldsTypeFromJSONTyped,
-    HotelUserDefinedFieldsTypeToJSON,
-} from './HotelUserDefinedFieldsType';
-import type { MeetingRoomsType } from './MeetingRoomsType';
-import {
-    MeetingRoomsTypeFromJSON,
-    MeetingRoomsTypeFromJSONTyped,
-    MeetingRoomsTypeToJSON,
-} from './MeetingRoomsType';
+    MeetingRoomTypeFromJSON,
+    MeetingRoomTypeFromJSONTyped,
+    MeetingRoomTypeToJSON,
+} from './MeetingRoomType';
 
 /**
  * Contains the basic configuration information about a Hotel.
@@ -172,16 +172,16 @@ export interface HotelBrochureType {
     address?: HotelBrochureTypeAddress;
     /**
      * 
-     * @type {AlternateHotelsType}
+     * @type {Array<AlternateHotelType>}
      * @memberof HotelBrochureType
      */
-    alternateHotels?: AlternateHotelsType;
+    alternateHotels?: Array<AlternateHotelType>;
     /**
      * 
-     * @type {HotelAttractionsType}
+     * @type {Array<HotelAttractionType>}
      * @memberof HotelBrochureType
      */
-    attractions?: HotelAttractionsType;
+    attractions?: Array<HotelAttractionType>;
     /**
      * 
      * @type {string}
@@ -213,11 +213,11 @@ export interface HotelBrochureType {
      */
     currentTime?: string;
     /**
-     * 
-     * @type {DirectionsType}
+     * Collection of direction details to get into Hotel.
+     * @type {Array<DirectionType>}
      * @memberof HotelBrochureType
      */
-    directions?: DirectionsType;
+    directions?: Array<DirectionType>;
     /**
      * 
      * @type {HotelBrochureTypeGeneralInformation}
@@ -225,23 +225,23 @@ export interface HotelBrochureType {
      */
     generalInformation?: HotelBrochureTypeGeneralInformation;
     /**
-     * 
-     * @type {GeneralNotesType}
+     * Collection of general notes about the Hotel.
+     * @type {Array<GeneralNoteType>}
      * @memberof HotelBrochureType
      */
-    generalNotes?: GeneralNotesType;
+    generalNotes?: Array<GeneralNoteType>;
+    /**
+     * Collection of Airport details of the Hotel
+     * @type {Array<HotelAirportType>}
+     * @memberof HotelBrochureType
+     */
+    hotelAirports?: Array<HotelAirportType>;
     /**
      * 
-     * @type {HotelAirportsType}
+     * @type {Array<HotelAttractionType>}
      * @memberof HotelBrochureType
      */
-    hotelAirports?: HotelAirportsType;
-    /**
-     * 
-     * @type {HotelAttractionsType}
-     * @memberof HotelBrochureType
-     */
-    hotelAttractions?: HotelAttractionsType;
+    hotelAttractions?: Array<HotelAttractionType>;
     /**
      * The IATA city code; for example DCA, ORD.
      * @type {string}
@@ -261,11 +261,11 @@ export interface HotelBrochureType {
      */
     hotelConferenceFacilities?: HotelConferenceFacilitiesType;
     /**
-     * 
-     * @type {HotelContactsType}
+     * Lists of contacts of the hotel.
+     * @type {Array<HotelContactType>}
      * @memberof HotelBrochureType
      */
-    hotelContacts?: HotelContactsType;
+    hotelContacts?: Array<HotelContactType>;
     /**
      * 
      * @type {HotelCorporateInformationsType}
@@ -279,11 +279,11 @@ export interface HotelBrochureType {
      */
     hotelEventSpaces?: HotelEventSpacesType;
     /**
-     * 
-     * @type {HotelFeaturesType}
+     * Collection of Features in the Hotel
+     * @type {Array<HotelFeatureType>}
      * @memberof HotelBrochureType
      */
-    hotelFeatures?: HotelFeaturesType;
+    hotelFeatures?: Array<HotelFeatureType>;
     /**
      * The code that uniquely identifies a single hotel property. The hotel code is decided between vendors.
      * @type {string}
@@ -292,10 +292,10 @@ export interface HotelBrochureType {
     hotelId?: string;
     /**
      * 
-     * @type {HotelUserDefinedFieldsType}
+     * @type {Array<HotelUserDefinedFieldType>}
      * @memberof HotelBrochureType
      */
-    hotelMiscellaneousInformation?: HotelUserDefinedFieldsType;
+    hotelMiscellaneousInformation?: Array<HotelUserDefinedFieldType>;
     /**
      * A text field used to communicate the proper name of the hotel.
      * @type {string}
@@ -303,41 +303,41 @@ export interface HotelBrochureType {
      */
     hotelName?: string;
     /**
-     * 
-     * @type {HotelNotesType}
+     * List of Notes of the hotel.
+     * @type {Array<CommentInfoType>}
      * @memberof HotelBrochureType
      */
-    hotelNotes?: HotelNotesType;
+    hotelNotes?: Array<CommentInfoType>;
     /**
      * 
-     * @type {HotelPackagesType}
+     * @type {Array<HotelPackageType>}
      * @memberof HotelBrochureType
      */
-    hotelPackages?: HotelPackagesType;
+    hotelPackages?: Array<HotelPackageType>;
+    /**
+     * Lists of rate ranges of the hotel.
+     * @type {Array<HotelRateRangeType>}
+     * @memberof HotelBrochureType
+     */
+    hotelRateRanges?: Array<HotelRateRangeType>;
     /**
      * 
-     * @type {HotelRateRangesType}
+     * @type {Array<HotelRestaurantType>}
      * @memberof HotelBrochureType
      */
-    hotelRateRanges?: HotelRateRangesType;
+    hotelRestaurants?: Array<HotelRestaurantType>;
     /**
      * 
-     * @type {HotelRestaurantsType}
+     * @type {Array<HotelTransportationType>}
      * @memberof HotelBrochureType
      */
-    hotelRestaurants?: HotelRestaurantsType;
+    hotelTransportations?: Array<HotelTransportationType>;
     /**
-     * 
-     * @type {HotelTransportationsType}
+     * List of meeting rooms of the hotel.
+     * @type {Array<MeetingRoomType>}
      * @memberof HotelBrochureType
      */
-    hotelTransportations?: HotelTransportationsType;
-    /**
-     * 
-     * @type {MeetingRoomsType}
-     * @memberof HotelBrochureType
-     */
-    meetingRooms?: MeetingRoomsType;
+    meetingRooms?: Array<MeetingRoomType>;
     /**
      * 
      * @type {HotelBrochureTypePrimaryDetails}
@@ -373,34 +373,34 @@ export function HotelBrochureTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         
         'accommodationDetails': !exists(json, 'accommodationDetails') ? undefined : HotelBrochureTypeAccommodationDetailsFromJSON(json['accommodationDetails']),
         'address': !exists(json, 'address') ? undefined : HotelBrochureTypeAddressFromJSON(json['address']),
-        'alternateHotels': !exists(json, 'alternateHotels') ? undefined : AlternateHotelsTypeFromJSON(json['alternateHotels']),
-        'attractions': !exists(json, 'attractions') ? undefined : HotelAttractionsTypeFromJSON(json['attractions']),
+        'alternateHotels': !exists(json, 'alternateHotels') ? undefined : ((json['alternateHotels'] as Array<any>).map(AlternateHotelTypeFromJSON)),
+        'attractions': !exists(json, 'attractions') ? undefined : ((json['attractions'] as Array<any>).map(HotelAttractionTypeFromJSON)),
         'baseLanguage': !exists(json, 'baseLanguage') ? undefined : json['baseLanguage'],
         'chainCode': !exists(json, 'chainCode') ? undefined : json['chainCode'],
         'chainName': !exists(json, 'chainName') ? undefined : json['chainName'],
         'communication': !exists(json, 'communication') ? undefined : HotelBrochureTypeCommunicationFromJSON(json['communication']),
         'currentTime': !exists(json, 'currentTime') ? undefined : json['currentTime'],
-        'directions': !exists(json, 'directions') ? undefined : DirectionsTypeFromJSON(json['directions']),
+        'directions': !exists(json, 'directions') ? undefined : ((json['directions'] as Array<any>).map(DirectionTypeFromJSON)),
         'generalInformation': !exists(json, 'generalInformation') ? undefined : HotelBrochureTypeGeneralInformationFromJSON(json['generalInformation']),
-        'generalNotes': !exists(json, 'generalNotes') ? undefined : GeneralNotesTypeFromJSON(json['generalNotes']),
-        'hotelAirports': !exists(json, 'hotelAirports') ? undefined : HotelAirportsTypeFromJSON(json['hotelAirports']),
-        'hotelAttractions': !exists(json, 'hotelAttractions') ? undefined : HotelAttractionsTypeFromJSON(json['hotelAttractions']),
+        'generalNotes': !exists(json, 'generalNotes') ? undefined : ((json['generalNotes'] as Array<any>).map(GeneralNoteTypeFromJSON)),
+        'hotelAirports': !exists(json, 'hotelAirports') ? undefined : ((json['hotelAirports'] as Array<any>).map(HotelAirportTypeFromJSON)),
+        'hotelAttractions': !exists(json, 'hotelAttractions') ? undefined : ((json['hotelAttractions'] as Array<any>).map(HotelAttractionTypeFromJSON)),
         'hotelCityCode': !exists(json, 'hotelCityCode') ? undefined : json['hotelCityCode'],
         'hotelCodeContext': !exists(json, 'hotelCodeContext') ? undefined : json['hotelCodeContext'],
         'hotelConferenceFacilities': !exists(json, 'hotelConferenceFacilities') ? undefined : HotelConferenceFacilitiesTypeFromJSON(json['hotelConferenceFacilities']),
-        'hotelContacts': !exists(json, 'hotelContacts') ? undefined : HotelContactsTypeFromJSON(json['hotelContacts']),
+        'hotelContacts': !exists(json, 'hotelContacts') ? undefined : ((json['hotelContacts'] as Array<any>).map(HotelContactTypeFromJSON)),
         'hotelCorporateInformations': !exists(json, 'hotelCorporateInformations') ? undefined : HotelCorporateInformationsTypeFromJSON(json['hotelCorporateInformations']),
         'hotelEventSpaces': !exists(json, 'hotelEventSpaces') ? undefined : HotelEventSpacesTypeFromJSON(json['hotelEventSpaces']),
-        'hotelFeatures': !exists(json, 'hotelFeatures') ? undefined : HotelFeaturesTypeFromJSON(json['hotelFeatures']),
+        'hotelFeatures': !exists(json, 'hotelFeatures') ? undefined : ((json['hotelFeatures'] as Array<any>).map(HotelFeatureTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'hotelMiscellaneousInformation': !exists(json, 'hotelMiscellaneousInformation') ? undefined : HotelUserDefinedFieldsTypeFromJSON(json['hotelMiscellaneousInformation']),
+        'hotelMiscellaneousInformation': !exists(json, 'hotelMiscellaneousInformation') ? undefined : ((json['hotelMiscellaneousInformation'] as Array<any>).map(HotelUserDefinedFieldTypeFromJSON)),
         'hotelName': !exists(json, 'hotelName') ? undefined : json['hotelName'],
-        'hotelNotes': !exists(json, 'hotelNotes') ? undefined : HotelNotesTypeFromJSON(json['hotelNotes']),
-        'hotelPackages': !exists(json, 'hotelPackages') ? undefined : HotelPackagesTypeFromJSON(json['hotelPackages']),
-        'hotelRateRanges': !exists(json, 'hotelRateRanges') ? undefined : HotelRateRangesTypeFromJSON(json['hotelRateRanges']),
-        'hotelRestaurants': !exists(json, 'hotelRestaurants') ? undefined : HotelRestaurantsTypeFromJSON(json['hotelRestaurants']),
-        'hotelTransportations': !exists(json, 'hotelTransportations') ? undefined : HotelTransportationsTypeFromJSON(json['hotelTransportations']),
-        'meetingRooms': !exists(json, 'meetingRooms') ? undefined : MeetingRoomsTypeFromJSON(json['meetingRooms']),
+        'hotelNotes': !exists(json, 'hotelNotes') ? undefined : ((json['hotelNotes'] as Array<any>).map(CommentInfoTypeFromJSON)),
+        'hotelPackages': !exists(json, 'hotelPackages') ? undefined : ((json['hotelPackages'] as Array<any>).map(HotelPackageTypeFromJSON)),
+        'hotelRateRanges': !exists(json, 'hotelRateRanges') ? undefined : ((json['hotelRateRanges'] as Array<any>).map(HotelRateRangeTypeFromJSON)),
+        'hotelRestaurants': !exists(json, 'hotelRestaurants') ? undefined : ((json['hotelRestaurants'] as Array<any>).map(HotelRestaurantTypeFromJSON)),
+        'hotelTransportations': !exists(json, 'hotelTransportations') ? undefined : ((json['hotelTransportations'] as Array<any>).map(HotelTransportationTypeFromJSON)),
+        'meetingRooms': !exists(json, 'meetingRooms') ? undefined : ((json['meetingRooms'] as Array<any>).map(MeetingRoomTypeFromJSON)),
         'primaryDetails': !exists(json, 'primaryDetails') ? undefined : HotelBrochureTypePrimaryDetailsFromJSON(json['primaryDetails']),
         'propertyControls': !exists(json, 'propertyControls') ? undefined : HotelBrochureTypePropertyControlsFromJSON(json['propertyControls']),
     };
@@ -417,34 +417,34 @@ export function HotelBrochureTypeToJSON(value?: HotelBrochureType | null): any {
         
         'accommodationDetails': HotelBrochureTypeAccommodationDetailsToJSON(value.accommodationDetails),
         'address': HotelBrochureTypeAddressToJSON(value.address),
-        'alternateHotels': AlternateHotelsTypeToJSON(value.alternateHotels),
-        'attractions': HotelAttractionsTypeToJSON(value.attractions),
+        'alternateHotels': value.alternateHotels === undefined ? undefined : ((value.alternateHotels as Array<any>).map(AlternateHotelTypeToJSON)),
+        'attractions': value.attractions === undefined ? undefined : ((value.attractions as Array<any>).map(HotelAttractionTypeToJSON)),
         'baseLanguage': value.baseLanguage,
         'chainCode': value.chainCode,
         'chainName': value.chainName,
         'communication': HotelBrochureTypeCommunicationToJSON(value.communication),
         'currentTime': value.currentTime,
-        'directions': DirectionsTypeToJSON(value.directions),
+        'directions': value.directions === undefined ? undefined : ((value.directions as Array<any>).map(DirectionTypeToJSON)),
         'generalInformation': HotelBrochureTypeGeneralInformationToJSON(value.generalInformation),
-        'generalNotes': GeneralNotesTypeToJSON(value.generalNotes),
-        'hotelAirports': HotelAirportsTypeToJSON(value.hotelAirports),
-        'hotelAttractions': HotelAttractionsTypeToJSON(value.hotelAttractions),
+        'generalNotes': value.generalNotes === undefined ? undefined : ((value.generalNotes as Array<any>).map(GeneralNoteTypeToJSON)),
+        'hotelAirports': value.hotelAirports === undefined ? undefined : ((value.hotelAirports as Array<any>).map(HotelAirportTypeToJSON)),
+        'hotelAttractions': value.hotelAttractions === undefined ? undefined : ((value.hotelAttractions as Array<any>).map(HotelAttractionTypeToJSON)),
         'hotelCityCode': value.hotelCityCode,
         'hotelCodeContext': value.hotelCodeContext,
         'hotelConferenceFacilities': HotelConferenceFacilitiesTypeToJSON(value.hotelConferenceFacilities),
-        'hotelContacts': HotelContactsTypeToJSON(value.hotelContacts),
+        'hotelContacts': value.hotelContacts === undefined ? undefined : ((value.hotelContacts as Array<any>).map(HotelContactTypeToJSON)),
         'hotelCorporateInformations': HotelCorporateInformationsTypeToJSON(value.hotelCorporateInformations),
         'hotelEventSpaces': HotelEventSpacesTypeToJSON(value.hotelEventSpaces),
-        'hotelFeatures': HotelFeaturesTypeToJSON(value.hotelFeatures),
+        'hotelFeatures': value.hotelFeatures === undefined ? undefined : ((value.hotelFeatures as Array<any>).map(HotelFeatureTypeToJSON)),
         'hotelId': value.hotelId,
-        'hotelMiscellaneousInformation': HotelUserDefinedFieldsTypeToJSON(value.hotelMiscellaneousInformation),
+        'hotelMiscellaneousInformation': value.hotelMiscellaneousInformation === undefined ? undefined : ((value.hotelMiscellaneousInformation as Array<any>).map(HotelUserDefinedFieldTypeToJSON)),
         'hotelName': value.hotelName,
-        'hotelNotes': HotelNotesTypeToJSON(value.hotelNotes),
-        'hotelPackages': HotelPackagesTypeToJSON(value.hotelPackages),
-        'hotelRateRanges': HotelRateRangesTypeToJSON(value.hotelRateRanges),
-        'hotelRestaurants': HotelRestaurantsTypeToJSON(value.hotelRestaurants),
-        'hotelTransportations': HotelTransportationsTypeToJSON(value.hotelTransportations),
-        'meetingRooms': MeetingRoomsTypeToJSON(value.meetingRooms),
+        'hotelNotes': value.hotelNotes === undefined ? undefined : ((value.hotelNotes as Array<any>).map(CommentInfoTypeToJSON)),
+        'hotelPackages': value.hotelPackages === undefined ? undefined : ((value.hotelPackages as Array<any>).map(HotelPackageTypeToJSON)),
+        'hotelRateRanges': value.hotelRateRanges === undefined ? undefined : ((value.hotelRateRanges as Array<any>).map(HotelRateRangeTypeToJSON)),
+        'hotelRestaurants': value.hotelRestaurants === undefined ? undefined : ((value.hotelRestaurants as Array<any>).map(HotelRestaurantTypeToJSON)),
+        'hotelTransportations': value.hotelTransportations === undefined ? undefined : ((value.hotelTransportations as Array<any>).map(HotelTransportationTypeToJSON)),
+        'meetingRooms': value.meetingRooms === undefined ? undefined : ((value.meetingRooms as Array<any>).map(MeetingRoomTypeToJSON)),
         'primaryDetails': HotelBrochureTypePrimaryDetailsToJSON(value.primaryDetails),
         'propertyControls': HotelBrochureTypePropertyControlsToJSON(value.propertyControls),
     };

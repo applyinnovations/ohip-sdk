@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { MembershipAwardPointsType } from './MembershipAwardPointsType';
 import {
     MembershipAwardPointsTypeFromJSON,
@@ -37,12 +31,6 @@ import {
     MembershipTransactionTierPointsTypeFromJSONTyped,
     MembershipTransactionTierPointsTypeToJSON,
 } from './MembershipTransactionTierPointsType';
-import type { ReservationIdList } from './ReservationIdList';
-import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
 import type { TimeSpanType } from './TimeSpanType';
 import {
     TimeSpanTypeFromJSON,
@@ -87,11 +75,11 @@ export interface MembershipTransactionDetailsType {
      */
     transactionDate?: Date;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MembershipTransactionDetailsType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * The property currency at the originating PMS.
      * @type {string}
@@ -112,10 +100,10 @@ export interface MembershipTransactionDetailsType {
     ratePromotion?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof MembershipTransactionDetailsType
      */
-    profilePromotions?: CodeListType;
+    profilePromotions?: Array<string>;
     /**
      * For adjustments, the date when the points are to be credited.
      * @type {Date}
@@ -243,11 +231,11 @@ export function MembershipTransactionDetailsTypeFromJSONTyped(json: any, ignoreD
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'transactionType': !exists(json, 'transactionType') ? undefined : json['transactionType'],
         'transactionDate': !exists(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'currency': !exists(json, 'currency') ? undefined : json['currency'],
         'stayTimeSpan': !exists(json, 'stayTimeSpan') ? undefined : TimeSpanTypeFromJSON(json['stayTimeSpan']),
         'ratePromotion': !exists(json, 'ratePromotion') ? undefined : json['ratePromotion'],
-        'profilePromotions': !exists(json, 'profilePromotions') ? undefined : CodeListTypeFromJSON(json['profilePromotions']),
+        'profilePromotions': !exists(json, 'profilePromotions') ? undefined : json['profilePromotions'],
         'pointsCreditDate': !exists(json, 'pointsCreditDate') ? undefined : (new Date(json['pointsCreditDate'])),
         'averageRateAmount': !exists(json, 'averageRateAmount') ? undefined : json['averageRateAmount'],
         'adjustment': !exists(json, 'adjustment') ? undefined : json['adjustment'],
@@ -281,11 +269,11 @@ export function MembershipTransactionDetailsTypeToJSON(value?: MembershipTransac
         'hotelId': value.hotelId,
         'transactionType': value.transactionType,
         'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'currency': value.currency,
         'stayTimeSpan': TimeSpanTypeToJSON(value.stayTimeSpan),
         'ratePromotion': value.ratePromotion,
-        'profilePromotions': CodeListTypeToJSON(value.profilePromotions),
+        'profilePromotions': value.profilePromotions,
         'pointsCreditDate': value.pointsCreditDate === undefined ? undefined : (value.pointsCreditDate.toISOString().substring(0,10)),
         'averageRateAmount': value.averageRateAmount,
         'adjustment': value.adjustment,

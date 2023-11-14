@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ActivityLocationsType } from './ActivityLocationsType';
+import type { ActivityLocationType } from './ActivityLocationType';
 import {
-    ActivityLocationsTypeFromJSON,
-    ActivityLocationsTypeFromJSONTyped,
-    ActivityLocationsTypeToJSON,
-} from './ActivityLocationsType';
-import type { Links } from './Links';
+    ActivityLocationTypeFromJSON,
+    ActivityLocationTypeFromJSONTyped,
+    ActivityLocationTypeToJSON,
+} from './ActivityLocationType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object after fetching the Activity Locations.
@@ -39,23 +39,23 @@ import {
  */
 export interface FetchActivityLocations {
     /**
-     * 
-     * @type {ActivityLocationsType}
+     * Collection of Activity Locations.
+     * @type {Array<ActivityLocationType>}
      * @memberof FetchActivityLocations
      */
-    activityLocations?: ActivityLocationsType;
+    activityLocations?: Array<ActivityLocationType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchActivityLocations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchActivityLocations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FetchActivityLocationsFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'activityLocations': !exists(json, 'activityLocations') ? undefined : ActivityLocationsTypeFromJSON(json['activityLocations']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'activityLocations': !exists(json, 'activityLocations') ? undefined : ((json['activityLocations'] as Array<any>).map(ActivityLocationTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FetchActivityLocationsToJSON(value?: FetchActivityLocations | nu
     }
     return {
         
-        'activityLocations': ActivityLocationsTypeToJSON(value.activityLocations),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'activityLocations': value.activityLocations === undefined ? undefined : ((value.activityLocations as Array<any>).map(ActivityLocationTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

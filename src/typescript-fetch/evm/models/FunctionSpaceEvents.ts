@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { SharedFunctionSpaceEventsType } from './SharedFunctionSpaceEventsType';
 import {
     SharedFunctionSpaceEventsTypeFromJSON,
     SharedFunctionSpaceEventsTypeFromJSONTyped,
     SharedFunctionSpaceEventsTypeToJSON,
 } from './SharedFunctionSpaceEventsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching events shared by function space.
@@ -40,10 +40,10 @@ import {
 export interface FunctionSpaceEvents {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FunctionSpaceEvents
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {SharedFunctionSpaceEventsType}
@@ -51,11 +51,11 @@ export interface FunctionSpaceEvents {
      */
     sharedFunctionSpaceEvents?: SharedFunctionSpaceEventsType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FunctionSpaceEvents
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FunctionSpaceEventsFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'sharedFunctionSpaceEvents': !exists(json, 'sharedFunctionSpaceEvents') ? undefined : SharedFunctionSpaceEventsTypeFromJSON(json['sharedFunctionSpaceEvents']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FunctionSpaceEventsToJSON(value?: FunctionSpaceEvents | null): a
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'sharedFunctionSpaceEvents': SharedFunctionSpaceEventsTypeToJSON(value.sharedFunctionSpaceEvents),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

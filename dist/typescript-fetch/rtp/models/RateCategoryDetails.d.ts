@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RateCategoryDetailsHotelRateCategories } from './RateCategoryDetailsHotelRateCategories';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Rate Categories for a property.
  * @export
@@ -26,16 +26,16 @@ export interface RateCategoryDetails {
     hotelRateCategories?: RateCategoryDetailsHotelRateCategories;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RateCategoryDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RateCategoryDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RateCategoryDetails interface.

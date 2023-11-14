@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomChargeExemptionsConfigToJSON = exports.CustomChargeExemptionsConfigFromJSONTyped = exports.CustomChargeExemptionsConfigFromJSON = exports.instanceOfCustomChargeExemptionsConfig = void 0;
 const runtime_1 = require("../runtime");
-const CustomChargeExemptionsConfigType_1 = require("./CustomChargeExemptionsConfigType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CustomChargeExemptionConfigType_1 = require("./CustomChargeExemptionConfigType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CustomChargeExemptionsConfig interface.
  */
@@ -35,9 +35,9 @@ function CustomChargeExemptionsConfigFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'customChargeExemptionsConfig': !(0, runtime_1.exists)(json, 'customChargeExemptionsConfig') ? undefined : (0, CustomChargeExemptionsConfigType_1.CustomChargeExemptionsConfigTypeFromJSON)(json['customChargeExemptionsConfig']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'customChargeExemptionsConfig': !(0, runtime_1.exists)(json, 'customChargeExemptionsConfig') ? undefined : (json['customChargeExemptionsConfig'].map(CustomChargeExemptionConfigType_1.CustomChargeExemptionConfigTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CustomChargeExemptionsConfigFromJSONTyped = CustomChargeExemptionsConfigFromJSONTyped;
@@ -49,9 +49,9 @@ function CustomChargeExemptionsConfigToJSON(value) {
         return null;
     }
     return {
-        'customChargeExemptionsConfig': (0, CustomChargeExemptionsConfigType_1.CustomChargeExemptionsConfigTypeToJSON)(value.customChargeExemptionsConfig),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'customChargeExemptionsConfig': value.customChargeExemptionsConfig === undefined ? undefined : (value.customChargeExemptionsConfig.map(CustomChargeExemptionConfigType_1.CustomChargeExemptionConfigTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CustomChargeExemptionsConfigToJSON = CustomChargeExemptionsConfigToJSON;

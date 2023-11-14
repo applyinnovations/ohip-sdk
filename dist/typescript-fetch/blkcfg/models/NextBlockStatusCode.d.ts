@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { NextBlockStatusCodeListType } from './NextBlockStatusCodeListType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { NextBlockStatusCodeType } from './NextBlockStatusCodeType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for change block status code flow. Batch insert/update/delete of next status code list of a particular status code.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface NextBlockStatusCode {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof NextBlockStatusCode
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {NextBlockStatusCodeListType}
+     * Block status code with its next configured and/or available status codes.
+     * @type {Array<NextBlockStatusCodeType>}
      * @memberof NextBlockStatusCode
      */
-    nextBlockStatusCodeList?: NextBlockStatusCodeListType;
+    nextBlockStatusCodeList?: Array<NextBlockStatusCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof NextBlockStatusCode
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the NextBlockStatusCode interface.

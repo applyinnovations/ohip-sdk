@@ -19,18 +19,18 @@ import {
     CodeDescriptionTypeFromJSONTyped,
     CodeDescriptionTypeToJSON,
 } from './CodeDescriptionType';
-import type { FacilityCodesForecastType } from './FacilityCodesForecastType';
+import type { FacilityCodeForecastType } from './FacilityCodeForecastType';
 import {
-    FacilityCodesForecastTypeFromJSON,
-    FacilityCodesForecastTypeFromJSONTyped,
-    FacilityCodesForecastTypeToJSON,
-} from './FacilityCodesForecastType';
-import type { ForecastQuantitiesType } from './ForecastQuantitiesType';
+    FacilityCodeForecastTypeFromJSON,
+    FacilityCodeForecastTypeFromJSONTyped,
+    FacilityCodeForecastTypeToJSON,
+} from './FacilityCodeForecastType';
+import type { ForecastQuantityType } from './ForecastQuantityType';
 import {
-    ForecastQuantitiesTypeFromJSON,
-    ForecastQuantitiesTypeFromJSONTyped,
-    ForecastQuantitiesTypeToJSON,
-} from './ForecastQuantitiesType';
+    ForecastQuantityTypeFromJSON,
+    ForecastQuantityTypeFromJSONTyped,
+    ForecastQuantityTypeToJSON,
+} from './ForecastQuantityType';
 
 /**
  * A facility task and its forecast.
@@ -39,11 +39,11 @@ import {
  */
 export interface FacilityTaskForecastType {
     /**
-     * 
-     * @type {FacilityCodesForecastType}
+     * Collection of facility codes with their forecasts.
+     * @type {Array<FacilityCodeForecastType>}
      * @memberof FacilityTaskForecastType
      */
-    facilityCodes?: FacilityCodesForecastType;
+    facilityCodes?: Array<FacilityCodeForecastType>;
     /**
      * 
      * @type {CodeDescriptionType}
@@ -51,11 +51,11 @@ export interface FacilityTaskForecastType {
      */
     task?: CodeDescriptionType;
     /**
-     * 
-     * @type {ForecastQuantitiesType}
+     * Collection of dates and their quantities.
+     * @type {Array<ForecastQuantityType>}
      * @memberof FacilityTaskForecastType
      */
-    taskForecast?: ForecastQuantitiesType;
+    taskForecast?: Array<ForecastQuantityType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FacilityTaskForecastTypeFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'facilityCodes': !exists(json, 'facilityCodes') ? undefined : FacilityCodesForecastTypeFromJSON(json['facilityCodes']),
+        'facilityCodes': !exists(json, 'facilityCodes') ? undefined : ((json['facilityCodes'] as Array<any>).map(FacilityCodeForecastTypeFromJSON)),
         'task': !exists(json, 'task') ? undefined : CodeDescriptionTypeFromJSON(json['task']),
-        'taskForecast': !exists(json, 'taskForecast') ? undefined : ForecastQuantitiesTypeFromJSON(json['taskForecast']),
+        'taskForecast': !exists(json, 'taskForecast') ? undefined : ((json['taskForecast'] as Array<any>).map(ForecastQuantityTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FacilityTaskForecastTypeToJSON(value?: FacilityTaskForecastType 
     }
     return {
         
-        'facilityCodes': FacilityCodesForecastTypeToJSON(value.facilityCodes),
+        'facilityCodes': value.facilityCodes === undefined ? undefined : ((value.facilityCodes as Array<any>).map(FacilityCodeForecastTypeToJSON)),
         'task': CodeDescriptionTypeToJSON(value.task),
-        'taskForecast': ForecastQuantitiesTypeToJSON(value.taskForecast),
+        'taskForecast': value.taskForecast === undefined ? undefined : ((value.taskForecast as Array<any>).map(ForecastQuantityTypeToJSON)),
     };
 }
 

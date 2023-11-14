@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelTurnAwayCodesType } from './HotelTurnAwayCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelTurnAwayCodeType } from './HotelTurnAwayCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching hotel turnaway codes
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface HotelTurnAwayCodes {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelTurnAwayCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {HotelTurnAwayCodesType}
+     * Turnaway code details for hotels.
+     * @type {Array<HotelTurnAwayCodeType>}
      * @memberof HotelTurnAwayCodes
      */
-    turnAwayCodes?: HotelTurnAwayCodesType;
+    turnAwayCodes?: Array<HotelTurnAwayCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelTurnAwayCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HotelTurnAwayCodes interface.

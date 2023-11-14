@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EffectiveRatesType } from './EffectiveRatesType';
+import type { EffectiveRateType } from './EffectiveRateType';
 import type { OverrideInstructionType } from './OverrideInstructionType';
 import type { RateChangeInstructionType } from './RateChangeInstructionType';
 import type { ShareDistributionInstructionType } from './ShareDistributionInstructionType';
@@ -26,11 +26,11 @@ export interface CombineShareInstructionType {
      */
     distributionType?: ShareDistributionInstructionType;
     /**
-     *
-     * @type {EffectiveRatesType}
+     * Collection of effective rate amount per guest on specific dates.
+     * @type {Array<EffectiveRateType>}
      * @memberof CombineShareInstructionType
      */
-    effectiveRates?: EffectiveRatesType;
+    effectiveRates?: Array<EffectiveRateType>;
     /**
      *
      * @type {OverrideInstructionType}

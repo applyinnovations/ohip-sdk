@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MaturedDepositsType } from './MaturedDepositsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MaturedDepositType } from './MaturedDepositType';
 import {
-    MaturedDepositsTypeFromJSON,
-    MaturedDepositsTypeFromJSONTyped,
-    MaturedDepositsTypeToJSON,
-} from './MaturedDepositsType';
-import type { WarningsType } from './WarningsType';
+    MaturedDepositTypeFromJSON,
+    MaturedDepositTypeFromJSONTyped,
+    MaturedDepositTypeToJSON,
+} from './MaturedDepositType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response of matured deposits.
@@ -40,22 +40,22 @@ import {
 export interface MaturedDepositsDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MaturedDepositsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MaturedDepositsType}
+     * Detailed information of matured deposits.
+     * @type {Array<MaturedDepositType>}
      * @memberof MaturedDepositsDetails
      */
-    maturedDeposits?: MaturedDepositsType;
+    maturedDeposits?: Array<MaturedDepositType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MaturedDepositsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MaturedDepositsDetailsFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'maturedDeposits': !exists(json, 'maturedDeposits') ? undefined : MaturedDepositsTypeFromJSON(json['maturedDeposits']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'maturedDeposits': !exists(json, 'maturedDeposits') ? undefined : ((json['maturedDeposits'] as Array<any>).map(MaturedDepositTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MaturedDepositsDetailsToJSON(value?: MaturedDepositsDetails | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'maturedDeposits': MaturedDepositsTypeToJSON(value.maturedDeposits),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'maturedDeposits': value.maturedDeposits === undefined ? undefined : ((value.maturedDeposits as Array<any>).map(MaturedDepositTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

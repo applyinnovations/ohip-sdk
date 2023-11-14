@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelBillingStatementsType } from './ChannelBillingStatementsType';
+import type { ChannelBillingStatementType } from './ChannelBillingStatementType';
 import {
-    ChannelBillingStatementsTypeFromJSON,
-    ChannelBillingStatementsTypeFromJSONTyped,
-    ChannelBillingStatementsTypeToJSON,
-} from './ChannelBillingStatementsType';
-import type { Links } from './Links';
+    ChannelBillingStatementTypeFromJSON,
+    ChannelBillingStatementTypeFromJSONTyped,
+    ChannelBillingStatementTypeToJSON,
+} from './ChannelBillingStatementType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to Change channel billing statements.
@@ -39,23 +39,23 @@ import {
  */
 export interface ChannelBillingStatements {
     /**
-     * 
-     * @type {ChannelBillingStatementsType}
+     * Provides detailed information regarding channel billing statement.
+     * @type {Array<ChannelBillingStatementType>}
      * @memberof ChannelBillingStatements
      */
-    channelBillingStatements?: ChannelBillingStatementsType;
+    channelBillingStatements?: Array<ChannelBillingStatementType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelBillingStatements
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelBillingStatements
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ChannelBillingStatementsFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'channelBillingStatements': !exists(json, 'channelBillingStatements') ? undefined : ChannelBillingStatementsTypeFromJSON(json['channelBillingStatements']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'channelBillingStatements': !exists(json, 'channelBillingStatements') ? undefined : ((json['channelBillingStatements'] as Array<any>).map(ChannelBillingStatementTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ChannelBillingStatementsToJSON(value?: ChannelBillingStatements 
     }
     return {
         
-        'channelBillingStatements': ChannelBillingStatementsTypeToJSON(value.channelBillingStatements),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'channelBillingStatements': value.channelBillingStatements === undefined ? undefined : ((value.channelBillingStatements as Array<any>).map(ChannelBillingStatementTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

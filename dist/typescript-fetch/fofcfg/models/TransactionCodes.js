@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TransactionCodesToJSON = exports.TransactionCodesFromJSONTyped = exports.TransactionCodesFromJSON = exports.instanceOfTransactionCodes = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TrxCodeUsagesType_1 = require("./TrxCodeUsagesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TrxCodeUsageType_1 = require("./TrxCodeUsageType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TransactionCodes interface.
  */
@@ -35,9 +35,9 @@ function TransactionCodesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'trxCodeUsages': !(0, runtime_1.exists)(json, 'trxCodeUsages') ? undefined : (0, TrxCodeUsagesType_1.TrxCodeUsagesTypeFromJSON)(json['trxCodeUsages']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'trxCodeUsages': !(0, runtime_1.exists)(json, 'trxCodeUsages') ? undefined : (json['trxCodeUsages'].map(TrxCodeUsageType_1.TrxCodeUsageTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TransactionCodesFromJSONTyped = TransactionCodesFromJSONTyped;
@@ -49,9 +49,9 @@ function TransactionCodesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'trxCodeUsages': (0, TrxCodeUsagesType_1.TrxCodeUsagesTypeToJSON)(value.trxCodeUsages),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'trxCodeUsages': value.trxCodeUsages === undefined ? undefined : (value.trxCodeUsages.map(TrxCodeUsageType_1.TrxCodeUsageTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TransactionCodesToJSON = TransactionCodesToJSON;

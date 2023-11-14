@@ -16,9 +16,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CombineShareValidationsToJSON = exports.CombineShareValidationsFromJSONTyped = exports.CombineShareValidationsFromJSON = exports.instanceOfCombineShareValidations = void 0;
 const runtime_1 = require("../runtime");
 const CombineShareFromProfileType_1 = require("./CombineShareFromProfileType");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const UniqueIDType_1 = require("./UniqueIDType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CombineShareValidations interface.
  */
@@ -38,10 +38,10 @@ function CombineShareValidationsFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'existingReservationId': !(0, runtime_1.exists)(json, 'existingReservationId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['existingReservationId']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'newReservation': !(0, runtime_1.exists)(json, 'newReservation') ? undefined : (0, CombineShareFromProfileType_1.CombineShareFromProfileTypeFromJSON)(json['newReservation']),
         'shareToReservationId': !(0, runtime_1.exists)(json, 'shareToReservationId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['shareToReservationId']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CombineShareValidationsFromJSONTyped = CombineShareValidationsFromJSONTyped;
@@ -55,10 +55,10 @@ function CombineShareValidationsToJSON(value) {
     return {
         'existingReservationId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.existingReservationId),
         'hotelId': value.hotelId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'newReservation': (0, CombineShareFromProfileType_1.CombineShareFromProfileTypeToJSON)(value.newReservation),
         'shareToReservationId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.shareToReservationId),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CombineShareValidationsToJSON = CombineShareValidationsToJSON;

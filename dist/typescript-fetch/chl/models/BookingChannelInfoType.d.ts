@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { HotelMappingType } from './HotelMappingType';
-import type { ParametersType } from './ParametersType';
+import type { ParameterType } from './ParameterType';
 /**
  *
  * @export
@@ -30,11 +30,11 @@ export interface BookingChannelInfoType {
      */
     bookingChannelType?: string;
     /**
-     *
-     * @type {ParametersType}
+     * Collection of generic Name-Value-Pair parameters.
+     * @type {Array<ParameterType>}
      * @memberof BookingChannelInfoType
      */
-    configurationParameters?: ParametersType;
+    configurationParameters?: Array<ParameterType>;
     /**
      * Hotel Code mapping for the Booking Channel.
      * @type {Array<HotelMappingType>}

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CopyConfigurationCodesType } from './CopyConfigurationCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CopyConfigurationCodeType } from './CopyConfigurationCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface TaxBracketsCopy {
     /**
-     *
-     * @type {CopyConfigurationCodesType}
+     * Information needed to copy configuration code from one property to the other.
+     * @type {Array<CopyConfigurationCodeType>}
      * @memberof TaxBracketsCopy
      */
-    copyInstructions?: CopyConfigurationCodesType;
+    copyInstructions?: Array<CopyConfigurationCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TaxBracketsCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TaxBracketsCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TaxBracketsCopy interface.

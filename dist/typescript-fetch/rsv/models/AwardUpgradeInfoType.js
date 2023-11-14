@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AwardUpgradeInfoTypeToJSON = exports.AwardUpgradeInfoTypeFromJSONTyped = exports.AwardUpgradeInfoTypeFromJSON = exports.instanceOfAwardUpgradeInfoType = void 0;
 const runtime_1 = require("../runtime");
-const AwardUpgradeSummariesType_1 = require("./AwardUpgradeSummariesType");
+const AwardUpgradeSummaryType_1 = require("./AwardUpgradeSummaryType");
 const TimeSpanType_1 = require("./TimeSpanType");
 /**
  * Check if a given object implements the AwardUpgradeInfoType interface.
@@ -34,7 +34,7 @@ function AwardUpgradeInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'awardUpgradeSummaries': !(0, runtime_1.exists)(json, 'awardUpgradeSummaries') ? undefined : (0, AwardUpgradeSummariesType_1.AwardUpgradeSummariesTypeFromJSON)(json['awardUpgradeSummaries']),
+        'awardUpgradeSummaries': !(0, runtime_1.exists)(json, 'awardUpgradeSummaries') ? undefined : (json['awardUpgradeSummaries'].map(AwardUpgradeSummaryType_1.AwardUpgradeSummaryTypeFromJSON)),
         'fromRoomType': !(0, runtime_1.exists)(json, 'fromRoomType') ? undefined : json['fromRoomType'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'membershipCardNo': !(0, runtime_1.exists)(json, 'membershipCardNo') ? undefined : json['membershipCardNo'],
@@ -53,7 +53,7 @@ function AwardUpgradeInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'awardUpgradeSummaries': (0, AwardUpgradeSummariesType_1.AwardUpgradeSummariesTypeToJSON)(value.awardUpgradeSummaries),
+        'awardUpgradeSummaries': value.awardUpgradeSummaries === undefined ? undefined : (value.awardUpgradeSummaries.map(AwardUpgradeSummaryType_1.AwardUpgradeSummaryTypeToJSON)),
         'fromRoomType': value.fromRoomType,
         'hotelId': value.hotelId,
         'membershipCardNo': value.membershipCardNo,

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { QueueRoomsTextCriteriaType } from './QueueRoomsTextCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to deliver a text message via Queue Reservations (for a guest) or Queue Rush (for housekeeping).
  * @export
@@ -26,16 +26,16 @@ export interface DeliverQueueRoomsTextMessage {
     criteria?: QueueRoomsTextCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DeliverQueueRoomsTextMessage
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DeliverQueueRoomsTextMessage
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DeliverQueueRoomsTextMessage interface.

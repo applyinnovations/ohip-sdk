@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WaitlistCodesType } from './WaitlistCodesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WaitlistCodeType } from './WaitlistCodeType';
 import {
-    WaitlistCodesTypeFromJSON,
-    WaitlistCodesTypeFromJSONTyped,
-    WaitlistCodesTypeToJSON,
-} from './WaitlistCodesType';
-import type { WarningsType } from './WarningsType';
+    WaitlistCodeTypeFromJSON,
+    WaitlistCodeTypeFromJSONTyped,
+    WaitlistCodeTypeToJSON,
+} from './WaitlistCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Waitlist Codes.
@@ -40,22 +40,22 @@ import {
 export interface WaitlistCodesToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof WaitlistCodesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WaitlistCodesType}
+     * List of Waitlist Codes.
+     * @type {Array<WaitlistCodeType>}
      * @memberof WaitlistCodesToBeChanged
      */
-    waitlistCodes?: WaitlistCodesType;
+    waitlistCodes?: Array<WaitlistCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof WaitlistCodesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function WaitlistCodesToBeChangedFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'waitlistCodes': !exists(json, 'waitlistCodes') ? undefined : WaitlistCodesTypeFromJSON(json['waitlistCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'waitlistCodes': !exists(json, 'waitlistCodes') ? undefined : ((json['waitlistCodes'] as Array<any>).map(WaitlistCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function WaitlistCodesToBeChangedToJSON(value?: WaitlistCodesToBeChanged 
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'waitlistCodes': WaitlistCodesTypeToJSON(value.waitlistCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'waitlistCodes': value.waitlistCodes === undefined ? undefined : ((value.waitlistCodes as Array<any>).map(WaitlistCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

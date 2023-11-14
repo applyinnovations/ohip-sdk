@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HousekeepingCreditRulesType } from './HousekeepingCreditRulesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HousekeepingCreditRuleType } from './HousekeepingCreditRuleType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing housekeeping credit rules.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface HousekeepingCreditRulesToBeChanged {
     /**
-     *
-     * @type {HousekeepingCreditRulesType}
+     * The information of housekeeping credit rule for configuration.
+     * @type {Array<HousekeepingCreditRuleType>}
      * @memberof HousekeepingCreditRulesToBeChanged
      */
-    creditRules?: HousekeepingCreditRulesType;
+    creditRules?: Array<HousekeepingCreditRuleType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HousekeepingCreditRulesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HousekeepingCreditRulesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HousekeepingCreditRulesToBeChanged interface.

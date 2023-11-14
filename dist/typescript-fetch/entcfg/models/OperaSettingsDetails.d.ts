@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ApplicationSettingGroupType } from './ApplicationSettingGroupType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * The result element containing the requested application settings.
  * @export
@@ -32,16 +32,16 @@ export interface OperaSettingsDetails {
     groups?: Array<ApplicationSettingGroupType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof OperaSettingsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OperaSettingsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the OperaSettingsDetails interface.

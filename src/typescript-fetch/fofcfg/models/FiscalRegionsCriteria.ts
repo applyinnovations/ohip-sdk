@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FiscalRegionsType } from './FiscalRegionsType';
+import type { FiscalRegionType } from './FiscalRegionType';
 import {
-    FiscalRegionsTypeFromJSON,
-    FiscalRegionsTypeFromJSONTyped,
-    FiscalRegionsTypeToJSON,
-} from './FiscalRegionsType';
-import type { Links } from './Links';
+    FiscalRegionTypeFromJSON,
+    FiscalRegionTypeFromJSONTyped,
+    FiscalRegionTypeToJSON,
+} from './FiscalRegionType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Fiscal Regions.
@@ -39,23 +39,23 @@ import {
  */
 export interface FiscalRegionsCriteria {
     /**
-     * 
-     * @type {FiscalRegionsType}
+     * List of Fiscal Regions.
+     * @type {Array<FiscalRegionType>}
      * @memberof FiscalRegionsCriteria
      */
-    fiscalRegions?: FiscalRegionsType;
+    fiscalRegions?: Array<FiscalRegionType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FiscalRegionsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FiscalRegionsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FiscalRegionsCriteriaFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'fiscalRegions': !exists(json, 'fiscalRegions') ? undefined : FiscalRegionsTypeFromJSON(json['fiscalRegions']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'fiscalRegions': !exists(json, 'fiscalRegions') ? undefined : ((json['fiscalRegions'] as Array<any>).map(FiscalRegionTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FiscalRegionsCriteriaToJSON(value?: FiscalRegionsCriteria | null
     }
     return {
         
-        'fiscalRegions': FiscalRegionsTypeToJSON(value.fiscalRegions),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'fiscalRegions': value.fiscalRegions === undefined ? undefined : ((value.fiscalRegions as Array<any>).map(FiscalRegionTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

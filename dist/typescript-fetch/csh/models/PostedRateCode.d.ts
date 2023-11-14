@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { SummaryPostingsType } from './SummaryPostingsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { SummaryPostingType } from './SummaryPostingType';
+import type { WarningType } from './WarningType';
 /**
  * Response for the operation that posts a Rate Code amount on the reservation.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface PostedRateCode {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostedRateCode
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {SummaryPostingsType}
+     * List of postings.
+     * @type {Array<SummaryPostingType>}
      * @memberof PostedRateCode
      */
-    postings?: SummaryPostingsType;
+    postings?: Array<SummaryPostingType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostedRateCode
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PostedRateCode interface.

@@ -10,18 +10,17 @@
  * Do not edit the class manually.
  */
 import type { BlockType } from './BlockType';
+import type { CateringEventResourceType } from './CateringEventResourceType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { EventDetailType } from './EventDetailType';
 import type { EventFunctionSpaceType } from './EventFunctionSpaceType';
-import type { EventNotesType } from './EventNotesType';
+import type { EventInfoType } from './EventInfoType';
+import type { EventNoteType } from './EventNoteType';
 import type { EventPrimaryInfoType } from './EventPrimaryInfoType';
 import type { EventProcessInstructionsType } from './EventProcessInstructionsType';
-import type { EventResourcesListType } from './EventResourcesListType';
 import type { EventRevenuesInformationType } from './EventRevenuesInformationType';
-import type { EventsInfoType } from './EventsInfoType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import type { LightEventDetailType } from './LightEventDetailType';
-import type { LightEventsDetailType } from './LightEventsDetailType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Catering Event information.
@@ -30,17 +29,17 @@ import type { UniqueIDType } from './UniqueIDType';
  */
 export interface WaitlistedEventType {
     /**
-     *
-     * @type {LightEventsDetailType}
+     * Pertain event few information about events.
+     * @type {Array<LightEventDetailType>}
      * @memberof WaitlistedEventType
      */
-    altEventsDetail?: LightEventsDetailType;
+    altEventsDetail?: Array<LightEventDetailType>;
     /**
-     *
-     * @type {EventsInfoType}
+     * Pertain event information.
+     * @type {Array<EventInfoType>}
      * @memberof WaitlistedEventType
      */
-    currentEventsHoldingFunctionSpace?: EventsInfoType;
+    currentEventsHoldingFunctionSpace?: Array<EventInfoType>;
     /**
      *
      * @type {BlockType}
@@ -54,17 +53,17 @@ export interface WaitlistedEventType {
      */
     eventDetail?: EventDetailType;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof WaitlistedEventType
      */
-    eventIndicators?: IndicatorsType;
+    eventIndicators?: Array<IndicatorType>;
     /**
-     *
-     * @type {EventNotesType}
+     * Pertain event information.
+     * @type {Array<EventNoteType>}
      * @memberof WaitlistedEventType
      */
-    eventNotes?: EventNotesType;
+    eventNotes?: Array<EventNoteType>;
     /**
      *
      * @type {EventPrimaryInfoType}
@@ -72,11 +71,11 @@ export interface WaitlistedEventType {
      */
     eventPrimaryInfo?: EventPrimaryInfoType;
     /**
-     *
-     * @type {EventResourcesListType}
+     * Event resources information.
+     * @type {Array<CateringEventResourceType>}
      * @memberof WaitlistedEventType
      */
-    eventResources?: EventResourcesListType;
+    eventResources?: Array<CateringEventResourceType>;
     /**
      *
      * @type {EventRevenuesInformationType}
@@ -114,11 +113,11 @@ export interface WaitlistedEventType {
      */
     processInstructions?: EventProcessInstructionsType;
     /**
-     *
-     * @type {LightEventsDetailType}
+     * Pertain event few information about events.
+     * @type {Array<LightEventDetailType>}
      * @memberof WaitlistedEventType
      */
-    subEventsDetail?: LightEventsDetailType;
+    subEventsDetail?: Array<LightEventDetailType>;
     /**
      * Date when waitlist was modified.
      * @type {Date}

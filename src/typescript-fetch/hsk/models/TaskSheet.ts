@@ -19,18 +19,18 @@ import {
     HousekeepingTaskTypeFromJSONTyped,
     HousekeepingTaskTypeToJSON,
 } from './HousekeepingTaskType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request of Changing a Task Sheet. The task instructions, total credits, attendant information and room information can be changed on a task sheet. Task Instructions , Total Credits and Attendants will be replaced with what is sent in this request. Example: If the task instructions is null in the request, the task instructions on the task sheet will be updated to null. If rooms are sent as part of this request, this will replace the existing rooms on the task sheet. If rooms are not sent, then the original rooms will remain. The task date, hotel code, task sheet number and task code is required to search for the task sheet which has to be changed
@@ -40,10 +40,10 @@ import {
 export interface TaskSheet {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TaskSheet
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {HousekeepingTaskType}
@@ -51,11 +51,11 @@ export interface TaskSheet {
      */
     taskSheetDetails?: HousekeepingTaskType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TaskSheet
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TaskSheetFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'taskSheetDetails': !exists(json, 'taskSheetDetails') ? undefined : HousekeepingTaskTypeFromJSON(json['taskSheetDetails']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TaskSheetToJSON(value?: TaskSheet | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'taskSheetDetails': HousekeepingTaskTypeToJSON(value.taskSheetDetails),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

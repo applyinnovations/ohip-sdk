@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ExternalProfileType } from './ExternalProfileType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 /**
  * Response object for fetching profile from external CRM System. This object contains profile details, preferences and incidents.
  * @export
@@ -25,10 +25,10 @@ export interface ExternalProfile {
     profileInfo?: ExternalProfileType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExternalProfile
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the ExternalProfile interface.

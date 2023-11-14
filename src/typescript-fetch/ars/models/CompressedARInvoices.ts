@@ -19,18 +19,18 @@ import {
     ARInvoiceTypeFromJSONTyped,
     ARInvoiceTypeToJSON,
 } from './ARInvoiceType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for the request to compress two or more invoices.
@@ -46,16 +46,16 @@ export interface CompressedARInvoices {
     invoice?: ARInvoiceType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CompressedARInvoices
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CompressedARInvoices
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -78,8 +78,8 @@ export function CompressedARInvoicesFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'invoice': !exists(json, 'invoice') ? undefined : ARInvoiceTypeFromJSON(json['invoice']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -93,8 +93,8 @@ export function CompressedARInvoicesToJSON(value?: CompressedARInvoices | null):
     return {
         
         'invoice': ARInvoiceTypeToJSON(value.invoice),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

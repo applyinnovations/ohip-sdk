@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { RoomOwnershipType } from './RoomOwnershipType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating room ownership records.
  * @export
@@ -30,11 +30,11 @@ export interface CreateRoomOwnerDetails {
      */
     roomOwner?: RoomOwnershipType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateRoomOwnerDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreateRoomOwnerDetails interface.

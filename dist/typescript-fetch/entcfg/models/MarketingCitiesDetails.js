@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MarketingCitiesDetailsToJSON = exports.MarketingCitiesDetailsFromJSONTyped = exports.MarketingCitiesDetailsFromJSON = exports.instanceOfMarketingCitiesDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const MarketingCitiesType_1 = require("./MarketingCitiesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const MarketingCityConfigType_1 = require("./MarketingCityConfigType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MarketingCitiesDetails interface.
  */
@@ -38,12 +38,12 @@ function MarketingCitiesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         'count': !(0, runtime_1.exists)(json, 'count') ? undefined : json['count'],
         'hasMore': !(0, runtime_1.exists)(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'marketingCities': !(0, runtime_1.exists)(json, 'marketingCities') ? undefined : (0, MarketingCitiesType_1.MarketingCitiesTypeFromJSON)(json['marketingCities']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'marketingCities': !(0, runtime_1.exists)(json, 'marketingCities') ? undefined : (json['marketingCities'].map(MarketingCityConfigType_1.MarketingCityConfigTypeFromJSON)),
         'offset': !(0, runtime_1.exists)(json, 'offset') ? undefined : json['offset'],
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !(0, runtime_1.exists)(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MarketingCitiesDetailsFromJSONTyped = MarketingCitiesDetailsFromJSONTyped;
@@ -58,12 +58,12 @@ function MarketingCitiesDetailsToJSON(value) {
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'marketingCities': (0, MarketingCitiesType_1.MarketingCitiesTypeToJSON)(value.marketingCities),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'marketingCities': value.marketingCities === undefined ? undefined : (value.marketingCities.map(MarketingCityConfigType_1.MarketingCityConfigTypeToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MarketingCitiesDetailsToJSON = MarketingCitiesDetailsToJSON;

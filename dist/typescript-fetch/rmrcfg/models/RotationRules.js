@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RotationRulesToJSON = exports.RotationRulesFromJSONTyped = exports.RotationRulesFromJSON = exports.instanceOfRotationRules = void 0;
 const runtime_1 = require("../runtime");
 const RotationRulesType_1 = require("./RotationRulesType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RotationRules interface.
  */
@@ -35,7 +35,7 @@ function RotationRulesFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'rotationRules': !(0, runtime_1.exists)(json, 'rotationRules') ? undefined : (0, RotationRulesType_1.RotationRulesTypeFromJSON)(json['rotationRules']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RotationRulesFromJSONTyped = RotationRulesFromJSONTyped;
@@ -48,7 +48,7 @@ function RotationRulesToJSON(value) {
     }
     return {
         'rotationRules': (0, RotationRulesType_1.RotationRulesTypeToJSON)(value.rotationRules),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RotationRulesToJSON = RotationRulesToJSON;

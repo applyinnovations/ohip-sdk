@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RoomMoveReasonsType } from './RoomMoveReasonsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RoomMoveReasonType } from './RoomMoveReasonType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Room Move Reasons.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface RoomMoveReasonsCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomMoveReasonsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RoomMoveReasonsType}
+     * List of Room Move Reasons.
+     * @type {Array<RoomMoveReasonType>}
      * @memberof RoomMoveReasonsCriteria
      */
-    roomMoveReasons?: RoomMoveReasonsType;
+    roomMoveReasons?: Array<RoomMoveReasonType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomMoveReasonsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomMoveReasonsCriteria interface.

@@ -25,18 +25,18 @@ import {
     HotelReservationsTypeFromJSONTyped,
     HotelReservationsTypeToJSON,
 } from './HotelReservationsType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Create Reservation Response Type
@@ -52,10 +52,10 @@ export interface CreateReservationType {
     channelInformation?: ChannelResvRSInfoType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreateReservationType
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {HotelReservationsType}
@@ -63,11 +63,11 @@ export interface CreateReservationType {
      */
     reservations?: HotelReservationsType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateReservationType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -90,9 +90,9 @@ export function CreateReservationTypeFromJSONTyped(json: any, ignoreDiscriminato
     return {
         
         'channelInformation': !exists(json, 'channelInformation') ? undefined : ChannelResvRSInfoTypeFromJSON(json['channelInformation']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservations': !exists(json, 'reservations') ? undefined : HotelReservationsTypeFromJSON(json['reservations']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -106,9 +106,9 @@ export function CreateReservationTypeToJSON(value?: CreateReservationType | null
     return {
         
         'channelInformation': ChannelResvRSInfoTypeToJSON(value.channelInformation),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservations': HotelReservationsTypeToJSON(value.reservations),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

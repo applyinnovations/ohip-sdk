@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ExportListType } from './ExportListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object including a list of available exports.
  * @export
@@ -26,16 +26,16 @@ export interface ExportsAvailable {
     exports?: ExportListType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExportsAvailable
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ExportsAvailable
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ExportsAvailable interface.

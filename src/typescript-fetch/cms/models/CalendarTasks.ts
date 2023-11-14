@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CalendarTaskCountListType } from './CalendarTaskCountListType';
+import type { CalendarTaskCountType } from './CalendarTaskCountType';
 import {
-    CalendarTaskCountListTypeFromJSON,
-    CalendarTaskCountListTypeFromJSONTyped,
-    CalendarTaskCountListTypeToJSON,
-} from './CalendarTaskCountListType';
-import type { CalendarTaskListType } from './CalendarTaskListType';
+    CalendarTaskCountTypeFromJSON,
+    CalendarTaskCountTypeFromJSONTyped,
+    CalendarTaskCountTypeToJSON,
+} from './CalendarTaskCountType';
+import type { CalendarTaskType } from './CalendarTaskType';
 import {
-    CalendarTaskListTypeFromJSON,
-    CalendarTaskListTypeFromJSONTyped,
-    CalendarTaskListTypeToJSON,
-} from './CalendarTaskListType';
-import type { Links } from './Links';
+    CalendarTaskTypeFromJSON,
+    CalendarTaskTypeFromJSONTyped,
+    CalendarTaskTypeToJSON,
+} from './CalendarTaskType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for fetching calendar tasks.
@@ -45,29 +45,29 @@ import {
  */
 export interface CalendarTasks {
     /**
-     * 
-     * @type {CalendarTaskCountListType}
+     * Defines summary count of calendar tasks that belongs to specific classification.
+     * @type {Array<CalendarTaskCountType>}
      * @memberof CalendarTasks
      */
-    countSummary?: CalendarTaskCountListType;
+    countSummary?: Array<CalendarTaskCountType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CalendarTasks
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {CalendarTaskListType}
+     * Detailed information regarding calendar task.
+     * @type {Array<CalendarTaskType>}
      * @memberof CalendarTasks
      */
-    taskSummary?: CalendarTaskListType;
+    taskSummary?: Array<CalendarTaskType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CalendarTasks
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function CalendarTasksFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'countSummary': !exists(json, 'countSummary') ? undefined : CalendarTaskCountListTypeFromJSON(json['countSummary']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'taskSummary': !exists(json, 'taskSummary') ? undefined : CalendarTaskListTypeFromJSON(json['taskSummary']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'countSummary': !exists(json, 'countSummary') ? undefined : ((json['countSummary'] as Array<any>).map(CalendarTaskCountTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'taskSummary': !exists(json, 'taskSummary') ? undefined : ((json['taskSummary'] as Array<any>).map(CalendarTaskTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function CalendarTasksToJSON(value?: CalendarTasks | null): any {
     }
     return {
         
-        'countSummary': CalendarTaskCountListTypeToJSON(value.countSummary),
-        'links': LinksToJSON(value.links),
-        'taskSummary': CalendarTaskListTypeToJSON(value.taskSummary),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'countSummary': value.countSummary === undefined ? undefined : ((value.countSummary as Array<any>).map(CalendarTaskCountTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'taskSummary': value.taskSummary === undefined ? undefined : ((value.taskSummary as Array<any>).map(CalendarTaskTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

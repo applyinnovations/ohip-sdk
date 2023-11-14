@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * The object contains the applicatble code for creation of new policy schedule.
@@ -31,16 +30,16 @@ export interface CreatePolicyApplicableCodesType {
     blockId?: UniqueIDType;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CreatePolicyApplicableCodesType
      */
-    creditRatings?: CodeListType;
+    creditRatings?: Array<string>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CreatePolicyApplicableCodesType
      */
-    guaranteeCodes?: CodeListType;
+    guaranteeCodes?: Array<string>;
     /**
      * create schedule for this Hotel code.
      * @type {string}
@@ -49,10 +48,10 @@ export interface CreatePolicyApplicableCodesType {
     hotelId?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CreatePolicyApplicableCodesType
      */
-    ratePlanCodes?: CodeListType;
+    ratePlanCodes?: Array<string>;
     /**
      * create schedule for this Season Code.
      * @type {string}

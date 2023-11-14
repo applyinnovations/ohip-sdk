@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ECouponCodeTypeToJSON = exports.ECouponCodeTypeFromJSONTyped = exports.ECouponCodeTypeFromJSON = exports.instanceOfECouponCodeType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 /**
  * Check if a given object implements the ECouponCodeType interface.
  */
@@ -40,7 +39,7 @@ function ECouponCodeTypeFromJSONTyped(json, ignoreDiscriminator) {
         'hotel': !(0, runtime_1.exists)(json, 'hotel') ? undefined : json['hotel'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
         'postingRoom': !(0, runtime_1.exists)(json, 'postingRoom') ? undefined : json['postingRoom'],
-        'ratePlans': !(0, runtime_1.exists)(json, 'ratePlans') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['ratePlans']),
+        'ratePlans': !(0, runtime_1.exists)(json, 'ratePlans') ? undefined : json['ratePlans'],
         'welcomeOffer': !(0, runtime_1.exists)(json, 'welcomeOffer') ? undefined : json['welcomeOffer'],
     };
 }
@@ -60,7 +59,7 @@ function ECouponCodeTypeToJSON(value) {
         'hotel': value.hotel,
         'inactive': value.inactive,
         'postingRoom': value.postingRoom,
-        'ratePlans': (0, CodeListType_1.CodeListTypeToJSON)(value.ratePlans),
+        'ratePlans': value.ratePlans,
         'welcomeOffer': value.welcomeOffer,
     };
 }

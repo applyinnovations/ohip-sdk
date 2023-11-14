@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CateringEventChangeListType } from './CateringEventChangeListType';
+import type { CateringEventChangeInfoType } from './CateringEventChangeInfoType';
 import {
-    CateringEventChangeListTypeFromJSON,
-    CateringEventChangeListTypeFromJSONTyped,
-    CateringEventChangeListTypeToJSON,
-} from './CateringEventChangeListType';
-import type { CateringEventRevenueChangeListType } from './CateringEventRevenueChangeListType';
+    CateringEventChangeInfoTypeFromJSON,
+    CateringEventChangeInfoTypeFromJSONTyped,
+    CateringEventChangeInfoTypeToJSON,
+} from './CateringEventChangeInfoType';
+import type { EventRevenueChangeType } from './EventRevenueChangeType';
 import {
-    CateringEventRevenueChangeListTypeFromJSON,
-    CateringEventRevenueChangeListTypeFromJSONTyped,
-    CateringEventRevenueChangeListTypeToJSON,
-} from './CateringEventRevenueChangeListType';
-import type { CateringEventStatusChangeListType } from './CateringEventStatusChangeListType';
+    EventRevenueChangeTypeFromJSON,
+    EventRevenueChangeTypeFromJSONTyped,
+    EventRevenueChangeTypeToJSON,
+} from './EventRevenueChangeType';
+import type { EventStatusChangeType } from './EventStatusChangeType';
 import {
-    CateringEventStatusChangeListTypeFromJSON,
-    CateringEventStatusChangeListTypeFromJSONTyped,
-    CateringEventStatusChangeListTypeToJSON,
-} from './CateringEventStatusChangeListType';
+    EventStatusChangeTypeFromJSON,
+    EventStatusChangeTypeFromJSONTyped,
+    EventStatusChangeTypeToJSON,
+} from './EventStatusChangeType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface CateringEventChangeType {
     /**
      * 
-     * @type {CateringEventChangeListType}
+     * @type {Array<CateringEventChangeInfoType>}
      * @memberof CateringEventChangeType
      */
-    changeList?: CateringEventChangeListType;
+    changeList?: Array<CateringEventChangeInfoType>;
     /**
-     * 
-     * @type {CateringEventRevenueChangeListType}
+     * Event Revenue Changes Details
+     * @type {Array<EventRevenueChangeType>}
      * @memberof CateringEventChangeType
      */
-    revenueChangeList?: CateringEventRevenueChangeListType;
+    revenueChangeList?: Array<EventRevenueChangeType>;
     /**
-     * 
-     * @type {CateringEventStatusChangeListType}
+     * Event Status Changes Details
+     * @type {Array<EventStatusChangeType>}
      * @memberof CateringEventChangeType
      */
-    statusChangeList?: CateringEventStatusChangeListType;
+    statusChangeList?: Array<EventStatusChangeType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CateringEventChangeTypeFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'changeList': !exists(json, 'changeList') ? undefined : CateringEventChangeListTypeFromJSON(json['changeList']),
-        'revenueChangeList': !exists(json, 'revenueChangeList') ? undefined : CateringEventRevenueChangeListTypeFromJSON(json['revenueChangeList']),
-        'statusChangeList': !exists(json, 'statusChangeList') ? undefined : CateringEventStatusChangeListTypeFromJSON(json['statusChangeList']),
+        'changeList': !exists(json, 'changeList') ? undefined : ((json['changeList'] as Array<any>).map(CateringEventChangeInfoTypeFromJSON)),
+        'revenueChangeList': !exists(json, 'revenueChangeList') ? undefined : ((json['revenueChangeList'] as Array<any>).map(EventRevenueChangeTypeFromJSON)),
+        'statusChangeList': !exists(json, 'statusChangeList') ? undefined : ((json['statusChangeList'] as Array<any>).map(EventStatusChangeTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CateringEventChangeTypeToJSON(value?: CateringEventChangeType | 
     }
     return {
         
-        'changeList': CateringEventChangeListTypeToJSON(value.changeList),
-        'revenueChangeList': CateringEventRevenueChangeListTypeToJSON(value.revenueChangeList),
-        'statusChangeList': CateringEventStatusChangeListTypeToJSON(value.statusChangeList),
+        'changeList': value.changeList === undefined ? undefined : ((value.changeList as Array<any>).map(CateringEventChangeInfoTypeToJSON)),
+        'revenueChangeList': value.revenueChangeList === undefined ? undefined : ((value.revenueChangeList as Array<any>).map(EventRevenueChangeTypeToJSON)),
+        'statusChangeList': value.statusChangeList === undefined ? undefined : ((value.statusChangeList as Array<any>).map(EventStatusChangeTypeToJSON)),
     };
 }
 

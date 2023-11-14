@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelActiveEndOfDaysType } from './HotelActiveEndOfDaysType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelActiveEndOfDayType } from './HotelActiveEndOfDayType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for fetching active end of day status for multiple hotels.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BusinessDate {
     /**
-     *
-     * @type {HotelActiveEndOfDaysType}
+     * Collection of hotels and its active end of days.
+     * @type {Array<HotelActiveEndOfDayType>}
      * @memberof BusinessDate
      */
-    hotels?: HotelActiveEndOfDaysType;
+    hotels?: Array<HotelActiveEndOfDayType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BusinessDate
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BusinessDate
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BusinessDate interface.

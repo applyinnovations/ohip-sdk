@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChannelAccountsInformationType } from './ChannelAccountsInformationType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ChannelAccountInformationType } from './ChannelAccountInformationType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object to create the channel accounts.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ChannelAccounts {
     /**
-     *
-     * @type {ChannelAccountsInformationType}
+     * Channel account information object to hold details of channel account.
+     * @type {Array<ChannelAccountInformationType>}
      * @memberof ChannelAccounts
      */
-    channelAccounts?: ChannelAccountsInformationType;
+    channelAccounts?: Array<ChannelAccountInformationType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelAccounts
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelAccounts
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelAccounts interface.

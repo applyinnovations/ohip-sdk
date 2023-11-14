@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ConfigHotelPreferencesType } from './ConfigHotelPreferencesType';
+import type { ConfigHotelPreferenceType } from './ConfigHotelPreferenceType';
 import type { TranslationTextType50 } from './TranslationTextType50';
 /**
  * Common code type for code, description, seq and inactive
@@ -48,11 +48,11 @@ export interface RoomFeatureConfigType {
      */
     inactive?: boolean;
     /**
-     *
-     * @type {ConfigHotelPreferencesType}
+     * This type holds a collection of preferences at the property level.
+     * @type {Array<ConfigHotelPreferenceType>}
      * @memberof RoomFeatureConfigType
      */
-    mappedPreferenceCodes?: ConfigHotelPreferencesType;
+    mappedPreferenceCodes?: Array<ConfigHotelPreferenceType>;
     /**
      * Display sequence for the code type.
      * @type {number}

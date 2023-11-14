@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelBillingStatementsToJSON = exports.ChannelBillingStatementsFromJSONTyped = exports.ChannelBillingStatementsFromJSON = exports.instanceOfChannelBillingStatements = void 0;
 const runtime_1 = require("../runtime");
-const ChannelBillingStatementsType_1 = require("./ChannelBillingStatementsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ChannelBillingStatementType_1 = require("./ChannelBillingStatementType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChannelBillingStatements interface.
  */
@@ -35,9 +35,9 @@ function ChannelBillingStatementsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'channelBillingStatements': !(0, runtime_1.exists)(json, 'channelBillingStatements') ? undefined : (0, ChannelBillingStatementsType_1.ChannelBillingStatementsTypeFromJSON)(json['channelBillingStatements']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'channelBillingStatements': !(0, runtime_1.exists)(json, 'channelBillingStatements') ? undefined : (json['channelBillingStatements'].map(ChannelBillingStatementType_1.ChannelBillingStatementTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChannelBillingStatementsFromJSONTyped = ChannelBillingStatementsFromJSONTyped;
@@ -49,9 +49,9 @@ function ChannelBillingStatementsToJSON(value) {
         return null;
     }
     return {
-        'channelBillingStatements': (0, ChannelBillingStatementsType_1.ChannelBillingStatementsTypeToJSON)(value.channelBillingStatements),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'channelBillingStatements': value.channelBillingStatements === undefined ? undefined : (value.channelBillingStatements.map(ChannelBillingStatementType_1.ChannelBillingStatementTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChannelBillingStatementsToJSON = ChannelBillingStatementsToJSON;

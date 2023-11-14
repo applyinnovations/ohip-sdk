@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { HousekeepingAttendantsScheduleType } from './HousekeepingAttendantsScheduleType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request for creating the attendant schedule.
  * @export
@@ -26,16 +26,16 @@ export interface AttendantSchedule {
     attendantsScheduleInfo?: HousekeepingAttendantsScheduleType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AttendantSchedule
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AttendantSchedule
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AttendantSchedule interface.

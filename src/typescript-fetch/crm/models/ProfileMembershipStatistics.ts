@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { MembershipStatisticsType } from './MembershipStatisticsType';
 import {
     MembershipStatisticsTypeFromJSON,
     MembershipStatisticsTypeFromJSONTyped,
     MembershipStatisticsTypeToJSON,
 } from './MembershipStatisticsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response of the WS operation FetchProfileMembershipPoints. It contains the summary statistics and/or the details of each of the membership transactions and its points.
@@ -40,10 +40,10 @@ import {
 export interface ProfileMembershipStatistics {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileMembershipStatistics
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {MembershipStatisticsType}
@@ -51,11 +51,11 @@ export interface ProfileMembershipStatistics {
      */
     membershipStatistics?: MembershipStatisticsType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileMembershipStatistics
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ProfileMembershipStatisticsFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'membershipStatistics': !exists(json, 'membershipStatistics') ? undefined : MembershipStatisticsTypeFromJSON(json['membershipStatistics']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ProfileMembershipStatisticsToJSON(value?: ProfileMembershipStati
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'membershipStatistics': MembershipStatisticsTypeToJSON(value.membershipStatistics),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

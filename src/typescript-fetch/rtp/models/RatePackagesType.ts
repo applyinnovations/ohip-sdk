@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RatePackageCodeListType } from './RatePackageCodeListType';
+import type { RatePackageCodeType } from './RatePackageCodeType';
 import {
-    RatePackageCodeListTypeFromJSON,
-    RatePackageCodeListTypeFromJSONTyped,
-    RatePackageCodeListTypeToJSON,
-} from './RatePackageCodeListType';
+    RatePackageCodeTypeFromJSON,
+    RatePackageCodeTypeFromJSONTyped,
+    RatePackageCodeTypeToJSON,
+} from './RatePackageCodeType';
 import type { RatePackageGroupType } from './RatePackageGroupType';
 import {
     RatePackageGroupTypeFromJSON,
@@ -39,11 +39,11 @@ export interface RatePackagesType {
      */
     packageGroups?: Array<RatePackageGroupType>;
     /**
-     * 
-     * @type {RatePackageCodeListType}
+     * Rate Package Full Information
+     * @type {Array<RatePackageCodeType>}
      * @memberof RatePackagesType
      */
-    packages?: RatePackageCodeListType;
+    packages?: Array<RatePackageCodeType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function RatePackagesTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'packageGroups': !exists(json, 'packageGroups') ? undefined : ((json['packageGroups'] as Array<any>).map(RatePackageGroupTypeFromJSON)),
-        'packages': !exists(json, 'packages') ? undefined : RatePackageCodeListTypeFromJSON(json['packages']),
+        'packages': !exists(json, 'packages') ? undefined : ((json['packages'] as Array<any>).map(RatePackageCodeTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function RatePackagesTypeToJSON(value?: RatePackagesType | null): any {
     return {
         
         'packageGroups': value.packageGroups === undefined ? undefined : ((value.packageGroups as Array<any>).map(RatePackageGroupTypeToJSON)),
-        'packages': RatePackageCodeListTypeToJSON(value.packages),
+        'packages': value.packages === undefined ? undefined : ((value.packages as Array<any>).map(RatePackageCodeTypeToJSON)),
     };
 }
 

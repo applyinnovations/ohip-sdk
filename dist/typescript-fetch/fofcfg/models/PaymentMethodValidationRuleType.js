@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PaymentMethodValidationRuleTypeToJSON = exports.PaymentMethodValidationRuleTypeFromJSONTyped = exports.PaymentMethodValidationRuleTypeFromJSON = exports.instanceOfPaymentMethodValidationRuleType = void 0;
 const runtime_1 = require("../runtime");
-const CardRangesType_1 = require("./CardRangesType");
+const CardRangeType_1 = require("./CardRangeType");
 const CardValidationRuleTypeType_1 = require("./CardValidationRuleTypeType");
 /**
  * Check if a given object implements the PaymentMethodValidationRuleType interface.
@@ -37,7 +37,7 @@ function PaymentMethodValidationRuleTypeFromJSONTyped(json, ignoreDiscriminator)
         'formula': !(0, runtime_1.exists)(json, 'formula') ? undefined : json['formula'],
         'length': !(0, runtime_1.exists)(json, 'length') ? undefined : json['length'],
         'prefix': !(0, runtime_1.exists)(json, 'prefix') ? undefined : json['prefix'],
-        'ranges': !(0, runtime_1.exists)(json, 'ranges') ? undefined : (0, CardRangesType_1.CardRangesTypeFromJSON)(json['ranges']),
+        'ranges': !(0, runtime_1.exists)(json, 'ranges') ? undefined : (json['ranges'].map(CardRangeType_1.CardRangeTypeFromJSON)),
         'rule': !(0, runtime_1.exists)(json, 'rule') ? undefined : (0, CardValidationRuleTypeType_1.CardValidationRuleTypeTypeFromJSON)(json['rule']),
     };
 }
@@ -53,7 +53,7 @@ function PaymentMethodValidationRuleTypeToJSON(value) {
         'formula': value.formula,
         'length': value.length,
         'prefix': value.prefix,
-        'ranges': (0, CardRangesType_1.CardRangesTypeToJSON)(value.ranges),
+        'ranges': value.ranges === undefined ? undefined : (value.ranges.map(CardRangeType_1.CardRangeTypeToJSON)),
         'rule': (0, CardValidationRuleTypeType_1.CardValidationRuleTypeTypeToJSON)(value.rule),
     };
 }

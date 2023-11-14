@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RestrictionsType } from './RestrictionsType';
+import type { CreateRestrictionType } from './CreateRestrictionType';
+import type { InstanceLink } from './InstanceLink';
 /**
  * Request for configuring restrictions.
  * @export
@@ -19,16 +19,16 @@ import type { RestrictionsType } from './RestrictionsType';
 export interface Restrictions {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Restrictions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RestrictionsType}
+     * Collection of restrictions to be configured.
+     * @type {Array<CreateRestrictionType>}
      * @memberof Restrictions
      */
-    restrictions?: RestrictionsType;
+    restrictions?: Array<CreateRestrictionType>;
 }
 /**
  * Check if a given object implements the Restrictions interface.

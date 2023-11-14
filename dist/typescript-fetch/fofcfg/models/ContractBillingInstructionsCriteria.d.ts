@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ContractBillingInstructionsType } from './ContractBillingInstructionsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ContractBillingInstructionType } from './ContractBillingInstructionType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Contract Billing Instructions.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ContractBillingInstructionsCriteria {
     /**
-     *
-     * @type {ContractBillingInstructionsType}
+     * List of Contract Billing Instructions.
+     * @type {Array<ContractBillingInstructionType>}
      * @memberof ContractBillingInstructionsCriteria
      */
-    contractBillingInstructions?: ContractBillingInstructionsType;
+    contractBillingInstructions?: Array<ContractBillingInstructionType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ContractBillingInstructionsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ContractBillingInstructionsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ContractBillingInstructionsCriteria interface.

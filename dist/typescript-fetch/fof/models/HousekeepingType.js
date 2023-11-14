@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HousekeepingTypeToJSON = exports.HousekeepingTypeFromJSONTyped = exports.HousekeepingTypeFromJSON = exports.instanceOfHousekeepingType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const GuestHousekeepingServiceRequestType_1 = require("./GuestHousekeepingServiceRequestType");
 const RoomCleaningPriorityType_1 = require("./RoomCleaningPriorityType");
 const RoomConditionType_1 = require("./RoomConditionType");
@@ -39,7 +38,7 @@ function HousekeepingTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'cleaningPriority': !(0, runtime_1.exists)(json, 'cleaningPriority') ? undefined : (0, RoomCleaningPriorityType_1.RoomCleaningPriorityTypeFromJSON)(json['cleaningPriority']),
-        'facilityTaskCode': !(0, runtime_1.exists)(json, 'facilityTaskCode') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['facilityTaskCode']),
+        'facilityTaskCode': !(0, runtime_1.exists)(json, 'facilityTaskCode') ? undefined : json['facilityTaskCode'],
         'guestServiceRequest': !(0, runtime_1.exists)(json, 'guestServiceRequest') ? undefined : (0, GuestHousekeepingServiceRequestType_1.GuestHousekeepingServiceRequestTypeFromJSON)(json['guestServiceRequest']),
         'linenChange': !(0, runtime_1.exists)(json, 'linenChange') ? undefined : json['linenChange'],
         'roomCondition': !(0, runtime_1.exists)(json, 'roomCondition') ? undefined : (0, RoomConditionType_1.RoomConditionTypeFromJSON)(json['roomCondition']),
@@ -57,7 +56,7 @@ function HousekeepingTypeToJSON(value) {
     }
     return {
         'cleaningPriority': (0, RoomCleaningPriorityType_1.RoomCleaningPriorityTypeToJSON)(value.cleaningPriority),
-        'facilityTaskCode': (0, CodeListType_1.CodeListTypeToJSON)(value.facilityTaskCode),
+        'facilityTaskCode': value.facilityTaskCode,
         'guestServiceRequest': (0, GuestHousekeepingServiceRequestType_1.GuestHousekeepingServiceRequestTypeToJSON)(value.guestServiceRequest),
         'linenChange': value.linenChange,
         'roomCondition': (0, RoomConditionType_1.RoomConditionTypeToJSON)(value.roomCondition),

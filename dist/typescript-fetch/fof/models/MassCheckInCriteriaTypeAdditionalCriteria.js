@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MassCheckInCriteriaTypeAdditionalCriteriaToJSON = exports.MassCheckInCriteriaTypeAdditionalCriteriaFromJSONTyped = exports.MassCheckInCriteriaTypeAdditionalCriteriaFromJSON = exports.instanceOfMassCheckInCriteriaTypeAdditionalCriteria = void 0;
 const runtime_1 = require("../runtime");
-const RoomStatusListType_1 = require("./RoomStatusListType");
+const HousekeepingRoomStatusType_1 = require("./HousekeepingRoomStatusType");
 /**
  * Check if a given object implements the MassCheckInCriteriaTypeAdditionalCriteria interface.
  */
@@ -33,7 +33,7 @@ function MassCheckInCriteriaTypeAdditionalCriteriaFromJSONTyped(json, ignoreDisc
         return json;
     }
     return {
-        'roomStatuses': !(0, runtime_1.exists)(json, 'roomStatuses') ? undefined : (0, RoomStatusListType_1.RoomStatusListTypeFromJSON)(json['roomStatuses']),
+        'roomStatuses': !(0, runtime_1.exists)(json, 'roomStatuses') ? undefined : (json['roomStatuses'].map(HousekeepingRoomStatusType_1.HousekeepingRoomStatusTypeFromJSON)),
     };
 }
 exports.MassCheckInCriteriaTypeAdditionalCriteriaFromJSONTyped = MassCheckInCriteriaTypeAdditionalCriteriaFromJSONTyped;
@@ -45,7 +45,7 @@ function MassCheckInCriteriaTypeAdditionalCriteriaToJSON(value) {
         return null;
     }
     return {
-        'roomStatuses': (0, RoomStatusListType_1.RoomStatusListTypeToJSON)(value.roomStatuses),
+        'roomStatuses': value.roomStatuses === undefined ? undefined : (value.roomStatuses.map(HousekeepingRoomStatusType_1.HousekeepingRoomStatusTypeToJSON)),
     };
 }
 exports.MassCheckInCriteriaTypeAdditionalCriteriaToJSON = MassCheckInCriteriaTypeAdditionalCriteriaToJSON;

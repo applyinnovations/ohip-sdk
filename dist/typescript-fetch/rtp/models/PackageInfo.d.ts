@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { PackageCodeType } from './PackageCodeType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to create a package.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface PackageInfo {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PackageInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {PackageCodeType}
@@ -31,11 +31,11 @@ export interface PackageInfo {
      */
     packageCode?: PackageCodeType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PackageInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PackageInfo interface.

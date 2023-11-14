@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RecentlyAccessedReservationsType } from './RecentlyAccessedReservationsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RecentlyAccessedReservationType } from './RecentlyAccessedReservationType';
 import {
-    RecentlyAccessedReservationsTypeFromJSON,
-    RecentlyAccessedReservationsTypeFromJSONTyped,
-    RecentlyAccessedReservationsTypeToJSON,
-} from './RecentlyAccessedReservationsType';
-import type { WarningsType } from './WarningsType';
+    RecentlyAccessedReservationTypeFromJSON,
+    RecentlyAccessedReservationTypeFromJSONTyped,
+    RecentlyAccessedReservationTypeToJSON,
+} from './RecentlyAccessedReservationType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response with the fetched recently accessed reservations.
@@ -40,22 +40,22 @@ import {
 export interface RecentlyAccessedReservations {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RecentlyAccessedReservations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RecentlyAccessedReservationsType}
+     * A single recently accessed reservation.
+     * @type {Array<RecentlyAccessedReservationType>}
      * @memberof RecentlyAccessedReservations
      */
-    reservations?: RecentlyAccessedReservationsType;
+    reservations?: Array<RecentlyAccessedReservationType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RecentlyAccessedReservations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RecentlyAccessedReservationsFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'reservations': !exists(json, 'reservations') ? undefined : RecentlyAccessedReservationsTypeFromJSON(json['reservations']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'reservations': !exists(json, 'reservations') ? undefined : ((json['reservations'] as Array<any>).map(RecentlyAccessedReservationTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RecentlyAccessedReservationsToJSON(value?: RecentlyAccessedReser
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'reservations': RecentlyAccessedReservationsTypeToJSON(value.reservations),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'reservations': value.reservations === undefined ? undefined : ((value.reservations as Array<any>).map(RecentlyAccessedReservationTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

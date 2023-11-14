@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { SalesManagerGoalsType } from './SalesManagerGoalsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { SalesManagerGoalType } from './SalesManagerGoalType';
 import {
-    SalesManagerGoalsTypeFromJSON,
-    SalesManagerGoalsTypeFromJSONTyped,
-    SalesManagerGoalsTypeToJSON,
-} from './SalesManagerGoalsType';
-import type { WarningsType } from './WarningsType';
+    SalesManagerGoalTypeFromJSON,
+    SalesManagerGoalTypeFromJSONTyped,
+    SalesManagerGoalTypeToJSON,
+} from './SalesManagerGoalType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * You can use this API to retrieve individual Sales Manager Goals for a hotel, you can narrow the results using different search criteria
@@ -40,22 +40,22 @@ import {
 export interface SalesManagerGoalsInfo {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SalesManagerGoalsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {SalesManagerGoalsType}
+     * Detail Information about Sales Manager's goal.
+     * @type {Array<SalesManagerGoalType>}
      * @memberof SalesManagerGoalsInfo
      */
-    salesManagerGoals?: SalesManagerGoalsType;
+    salesManagerGoals?: Array<SalesManagerGoalType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SalesManagerGoalsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function SalesManagerGoalsInfoFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'salesManagerGoals': !exists(json, 'salesManagerGoals') ? undefined : SalesManagerGoalsTypeFromJSON(json['salesManagerGoals']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'salesManagerGoals': !exists(json, 'salesManagerGoals') ? undefined : ((json['salesManagerGoals'] as Array<any>).map(SalesManagerGoalTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function SalesManagerGoalsInfoToJSON(value?: SalesManagerGoalsInfo | null
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'salesManagerGoals': SalesManagerGoalsTypeToJSON(value.salesManagerGoals),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'salesManagerGoals': value.salesManagerGoals === undefined ? undefined : ((value.salesManagerGoals as Array<any>).map(SalesManagerGoalTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ParametersType } from './ParametersType';
+import type { ParameterType } from './ParameterType';
 import {
-    ParametersTypeFromJSON,
-    ParametersTypeFromJSONTyped,
-    ParametersTypeToJSON,
-} from './ParametersType';
+    ParameterTypeFromJSON,
+    ParameterTypeFromJSONTyped,
+    ParameterTypeToJSON,
+} from './ParameterType';
 import type { SystemCarrierType } from './SystemCarrierType';
 import {
     SystemCarrierTypeFromJSON,
@@ -81,11 +81,11 @@ export interface ChannelType {
      */
     errorCodes?: Array<SystemErrorType>;
     /**
-     * 
-     * @type {ParametersType}
+     * Collection of generic Name-Value-Pair parameters.
+     * @type {Array<ParameterType>}
      * @memberof ChannelType
      */
-    parameters?: ParametersType;
+    parameters?: Array<ParameterType>;
     /**
      * External system rate categories details.
      * @type {Array<SystemRateCategoryType>}
@@ -140,7 +140,7 @@ export function ChannelTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'addOnLicense': !exists(json, 'addOnLicense') ? undefined : json['addOnLicense'],
         'carriers': !exists(json, 'carriers') ? undefined : ((json['carriers'] as Array<any>).map(SystemCarrierTypeFromJSON)),
         'errorCodes': !exists(json, 'errorCodes') ? undefined : ((json['errorCodes'] as Array<any>).map(SystemErrorTypeFromJSON)),
-        'parameters': !exists(json, 'parameters') ? undefined : ParametersTypeFromJSON(json['parameters']),
+        'parameters': !exists(json, 'parameters') ? undefined : ((json['parameters'] as Array<any>).map(ParameterTypeFromJSON)),
         'rateCategories': !exists(json, 'rateCategories') ? undefined : ((json['rateCategories'] as Array<any>).map(SystemRateCategoryTypeFromJSON)),
         'rateLevels': !exists(json, 'rateLevels') ? undefined : ((json['rateLevels'] as Array<any>).map(SystemRateLevelTypeFromJSON)),
         'roomTypes': !exists(json, 'roomTypes') ? undefined : ((json['roomTypes'] as Array<any>).map(SystemRoomTypeTypeFromJSON)),
@@ -161,7 +161,7 @@ export function ChannelTypeToJSON(value?: ChannelType | null): any {
         'addOnLicense': value.addOnLicense,
         'carriers': value.carriers === undefined ? undefined : ((value.carriers as Array<any>).map(SystemCarrierTypeToJSON)),
         'errorCodes': value.errorCodes === undefined ? undefined : ((value.errorCodes as Array<any>).map(SystemErrorTypeToJSON)),
-        'parameters': ParametersTypeToJSON(value.parameters),
+        'parameters': value.parameters === undefined ? undefined : ((value.parameters as Array<any>).map(ParameterTypeToJSON)),
         'rateCategories': value.rateCategories === undefined ? undefined : ((value.rateCategories as Array<any>).map(SystemRateCategoryTypeToJSON)),
         'rateLevels': value.rateLevels === undefined ? undefined : ((value.rateLevels as Array<any>).map(SystemRateLevelTypeToJSON)),
         'roomTypes': value.roomTypes === undefined ? undefined : ((value.roomTypes as Array<any>).map(SystemRoomTypeTypeToJSON)),

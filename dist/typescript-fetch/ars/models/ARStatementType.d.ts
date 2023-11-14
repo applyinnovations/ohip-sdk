@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ARInvoicesType } from './ARInvoicesType';
+import type { ARInvoiceType } from './ARInvoiceType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { StatementType } from './StatementType';
 import type { UniqueIDType } from './UniqueIDType';
@@ -44,11 +44,11 @@ export interface ARStatementType {
      */
     inclFolios?: boolean;
     /**
-     *
-     * @type {ARInvoicesType}
+     * A collection of AR Invoices.
+     * @type {Array<ARInvoiceType>}
      * @memberof ARStatementType
      */
-    invoices?: ARInvoicesType;
+    invoices?: Array<ARInvoiceType>;
     /**
      * The Statement Report name which should be used for printing.
      * @type {string}

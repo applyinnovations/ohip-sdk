@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WakeUpCallsType } from './WakeUpCallsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WakeUpCallType } from './WakeUpCallType';
 import {
-    WakeUpCallsTypeFromJSON,
-    WakeUpCallsTypeFromJSONTyped,
-    WakeUpCallsTypeToJSON,
-} from './WakeUpCallsType';
-import type { WarningsType } from './WarningsType';
+    WakeUpCallTypeFromJSON,
+    WakeUpCallTypeFromJSONTyped,
+    WakeUpCallTypeToJSON,
+} from './WakeUpCallType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Fetch wake up calls response.
@@ -39,23 +39,23 @@ import {
  */
 export interface WakeUpCalls {
     /**
-     * 
-     * @type {WakeUpCallsType}
+     * List of the wake up calls
+     * @type {Array<WakeUpCallType>}
      * @memberof WakeUpCalls
      */
-    calls?: WakeUpCallsType;
+    calls?: Array<WakeUpCallType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof WakeUpCalls
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof WakeUpCalls
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function WakeUpCallsFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'calls': !exists(json, 'calls') ? undefined : WakeUpCallsTypeFromJSON(json['calls']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'calls': !exists(json, 'calls') ? undefined : ((json['calls'] as Array<any>).map(WakeUpCallTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function WakeUpCallsToJSON(value?: WakeUpCalls | null): any {
     }
     return {
         
-        'calls': WakeUpCallsTypeToJSON(value.calls),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'calls': value.calls === undefined ? undefined : ((value.calls as Array<any>).map(WakeUpCallTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

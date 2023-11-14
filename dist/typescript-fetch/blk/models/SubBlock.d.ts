@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { SubBlockCriteria } from './SubBlockCriteria';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to create new sub block.
  * @export
@@ -26,16 +26,16 @@ export interface SubBlock {
     criteria?: SubBlockCriteria;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SubBlock
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SubBlock
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SubBlock interface.

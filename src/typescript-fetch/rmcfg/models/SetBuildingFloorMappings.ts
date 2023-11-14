@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BuildingFloorMappingsType } from './BuildingFloorMappingsType';
+import type { BuildingFloorMappingType } from './BuildingFloorMappingType';
 import {
-    BuildingFloorMappingsTypeFromJSON,
-    BuildingFloorMappingsTypeFromJSONTyped,
-    BuildingFloorMappingsTypeToJSON,
-} from './BuildingFloorMappingsType';
-import type { Links } from './Links';
+    BuildingFloorMappingTypeFromJSON,
+    BuildingFloorMappingTypeFromJSONTyped,
+    BuildingFloorMappingTypeToJSON,
+} from './BuildingFloorMappingType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for setting floor mappings to buildings.
@@ -39,23 +39,23 @@ import {
  */
 export interface SetBuildingFloorMappings {
     /**
-     * 
-     * @type {BuildingFloorMappingsType}
+     * Collection of Floor to Building mapping details.
+     * @type {Array<BuildingFloorMappingType>}
      * @memberof SetBuildingFloorMappings
      */
-    buildingFloorMappings?: BuildingFloorMappingsType;
+    buildingFloorMappings?: Array<BuildingFloorMappingType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SetBuildingFloorMappings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SetBuildingFloorMappings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function SetBuildingFloorMappingsFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'buildingFloorMappings': !exists(json, 'buildingFloorMappings') ? undefined : BuildingFloorMappingsTypeFromJSON(json['buildingFloorMappings']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'buildingFloorMappings': !exists(json, 'buildingFloorMappings') ? undefined : ((json['buildingFloorMappings'] as Array<any>).map(BuildingFloorMappingTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function SetBuildingFloorMappingsToJSON(value?: SetBuildingFloorMappings 
     }
     return {
         
-        'buildingFloorMappings': BuildingFloorMappingsTypeToJSON(value.buildingFloorMappings),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'buildingFloorMappings': value.buildingFloorMappings === undefined ? undefined : ((value.buildingFloorMappings as Array<any>).map(BuildingFloorMappingTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

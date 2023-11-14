@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlockInventoryStatistic, InventoryStatistics } from '../models/index';
+import type { BlockInventoryStatistic, StatisticType } from '../models/index';
 export interface GetBlockInventoryStatisticsRequest {
     hotelId: string;
     authorization?: string;
@@ -112,12 +112,12 @@ export declare class INVStatsApi extends runtime.BaseAPI {
      * Use this API to retrieve the inventory data for a specified hotel. Narrow down your results using the query parameters such as a date range, room type, room class, and/or tentative inventory included. Maximum days limit with a single request is 30 days.<p><strong>OperationId:</strong>getInventoryStatistics</p>
      * Get hotel inventory
      */
-    getInventoryStatisticsRaw(requestParameters: GetInventoryStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InventoryStatistics>>;
+    getInventoryStatisticsRaw(requestParameters: GetInventoryStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<StatisticType>>>;
     /**
      * Use this API to retrieve the inventory data for a specified hotel. Narrow down your results using the query parameters such as a date range, room type, room class, and/or tentative inventory included. Maximum days limit with a single request is 30 days.<p><strong>OperationId:</strong>getInventoryStatistics</p>
      * Get hotel inventory
      */
-    getInventoryStatistics(requestParameters: GetInventoryStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InventoryStatistics>;
+    getInventoryStatistics(requestParameters: GetInventoryStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<StatisticType>>;
 }
 /**
  * @export

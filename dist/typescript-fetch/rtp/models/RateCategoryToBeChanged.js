@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RateCategoryToBeChangedToJSON = exports.RateCategoryToBeChangedFromJSONTyped = exports.RateCategoryToBeChangedFromJSON = exports.instanceOfRateCategoryToBeChanged = void 0;
 const runtime_1 = require("../runtime");
 const HotelRateCategoryType_1 = require("./HotelRateCategoryType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RateCategoryToBeChanged interface.
  */
@@ -36,8 +36,8 @@ function RateCategoryToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'hotelRateCategory': !(0, runtime_1.exists)(json, 'hotelRateCategory') ? undefined : (0, HotelRateCategoryType_1.HotelRateCategoryTypeFromJSON)(json['hotelRateCategory']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RateCategoryToBeChangedFromJSONTyped = RateCategoryToBeChangedFromJSONTyped;
@@ -50,8 +50,8 @@ function RateCategoryToBeChangedToJSON(value) {
     }
     return {
         'hotelRateCategory': (0, HotelRateCategoryType_1.HotelRateCategoryTypeToJSON)(value.hotelRateCategory),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RateCategoryToBeChangedToJSON = RateCategoryToBeChangedToJSON;

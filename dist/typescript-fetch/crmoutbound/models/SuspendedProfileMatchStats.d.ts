@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { SuspendedProfileMatchStatsType } from './SuspendedProfileMatchStatsType';
+import type { InstanceLink } from './InstanceLink';
+import type { SuspendedProfileMatchStatType } from './SuspendedProfileMatchStatType';
 /**
  * Response object for fetch suspended profile match statistics. This object contains collection of MatchCriteria,Threshold points,profile type.
  * @export
@@ -18,17 +18,17 @@ import type { SuspendedProfileMatchStatsType } from './SuspendedProfileMatchStat
  */
 export interface SuspendedProfileMatchStats {
     /**
-     *
-     * @type {SuspendedProfileMatchStatsType}
+     * Collection of suspended profile match statistics.
+     * @type {Array<SuspendedProfileMatchStatType>}
      * @memberof SuspendedProfileMatchStats
      */
-    suspendedProfileMatchStat?: SuspendedProfileMatchStatsType;
+    suspendedProfileMatchStat?: Array<SuspendedProfileMatchStatType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SuspendedProfileMatchStats
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the SuspendedProfileMatchStats interface.

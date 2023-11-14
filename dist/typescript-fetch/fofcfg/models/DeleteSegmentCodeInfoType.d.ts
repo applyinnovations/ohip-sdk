@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 import type { BudgetInfoDeleteType } from './BudgetInfoDeleteType';
-import type { CodeListType } from './CodeListType';
 import type { MonthNoType } from './MonthNoType';
 import type { SegmentNameType } from './SegmentNameType';
 /**
@@ -51,10 +50,10 @@ export interface DeleteSegmentCodeInfoType {
     segment?: SegmentNameType;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof DeleteSegmentCodeInfoType
      */
-    segmentCode?: CodeListType;
+    segmentCode?: Array<string>;
     /**
      * segment code group.
      * @type {string}

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { TranslationsTextType } from './TranslationsTextType';
+import type { TranslationsTextTypeInner } from './TranslationsTextTypeInner';
 import {
-    TranslationsTextTypeFromJSON,
-    TranslationsTextTypeFromJSONTyped,
-    TranslationsTextTypeToJSON,
-} from './TranslationsTextType';
+    TranslationsTextTypeInnerFromJSON,
+    TranslationsTextTypeInnerFromJSONTyped,
+    TranslationsTextTypeInnerToJSON,
+} from './TranslationsTextTypeInner';
 
 /**
  * Contains Multiple translated texts and language codes.
@@ -33,11 +33,11 @@ export interface TranslationTextType30 {
      */
     defaultText?: string;
     /**
-     * 
-     * @type {TranslationsTextType}
+     * Language code for the translation.
+     * @type {Array<TranslationsTextTypeInner>}
      * @memberof TranslationTextType30
      */
-    translatedTexts?: TranslationsTextType;
+    translatedTexts?: Array<TranslationsTextTypeInner>;
 }
 
 /**
@@ -60,7 +60,7 @@ export function TranslationTextType30FromJSONTyped(json: any, ignoreDiscriminato
     return {
         
         'defaultText': !exists(json, 'defaultText') ? undefined : json['defaultText'],
-        'translatedTexts': !exists(json, 'translatedTexts') ? undefined : TranslationsTextTypeFromJSON(json['translatedTexts']),
+        'translatedTexts': !exists(json, 'translatedTexts') ? undefined : ((json['translatedTexts'] as Array<any>).map(TranslationsTextTypeInnerFromJSON)),
     };
 }
 
@@ -74,7 +74,7 @@ export function TranslationTextType30ToJSON(value?: TranslationTextType30 | null
     return {
         
         'defaultText': value.defaultText,
-        'translatedTexts': TranslationsTextTypeToJSON(value.translatedTexts),
+        'translatedTexts': value.translatedTexts === undefined ? undefined : ((value.translatedTexts as Array<any>).map(TranslationsTextTypeInnerToJSON)),
     };
 }
 

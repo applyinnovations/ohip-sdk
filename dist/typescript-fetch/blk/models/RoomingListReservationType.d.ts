@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ErrorsType } from './ErrorsType';
+import type { ErrorType } from './ErrorType';
 import type { HotelReservationType } from './HotelReservationType';
-import type { RoutingInfoListType } from './RoutingInfoListType';
+import type { RoutingInfoType } from './RoutingInfoType';
 /**
  * This is used when changing block reservations in bulk.
  * @export
@@ -19,11 +19,11 @@ import type { RoutingInfoListType } from './RoutingInfoListType';
  */
 export interface RoomingListReservationType {
     /**
-     *
-     * @type {ErrorsType}
+     * An error that occurred during the processing of a message.
+     * @type {Array<ErrorType>}
      * @memberof RoomingListReservationType
      */
-    errors?: ErrorsType;
+    errors?: Array<ErrorType>;
     /**
      *
      * @type {HotelReservationType}
@@ -37,11 +37,11 @@ export interface RoomingListReservationType {
      */
     roomingListSequence?: number;
     /**
-     *
-     * @type {RoutingInfoListType}
+     * A routing info object can either be of type Folio OR of type Room with its corresponding instructions.
+     * @type {Array<RoutingInfoType>}
      * @memberof RoomingListReservationType
      */
-    routingInstructions?: RoutingInfoListType;
+    routingInstructions?: Array<RoutingInfoType>;
     /**
      * Returning an empty element of this type indicates the successful processing of an message. This is used in conjunction with the Warning Type to report any warnings or business errors.
      * @type {object}

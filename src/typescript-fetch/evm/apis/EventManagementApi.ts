@@ -22,7 +22,7 @@ import type {
   CateringEventPostings,
   CateringEventPostingsDetail,
   CateringEventsBulkUpdate,
-  CateringEventsBulkUpdateStatus,
+  CateringEventsProcessedInfoType,
   CateringPackageRevenue,
   CateringPackages,
   ChangeCateringPackageRevenueRequest,
@@ -70,8 +70,8 @@ import {
     CateringEventPostingsDetailToJSON,
     CateringEventsBulkUpdateFromJSON,
     CateringEventsBulkUpdateToJSON,
-    CateringEventsBulkUpdateStatusFromJSON,
-    CateringEventsBulkUpdateStatusToJSON,
+    CateringEventsProcessedInfoTypeFromJSON,
+    CateringEventsProcessedInfoTypeToJSON,
     CateringPackageRevenueFromJSON,
     CateringPackageRevenueToJSON,
     CateringPackagesFromJSON,
@@ -718,7 +718,7 @@ export class EventManagementApi extends runtime.BaseAPI {
      * You can use this API to update one/more catering events for the same block <p><strong>OperationId:</strong>cateringEventsBulkUpdate</p>
      * Update multiple catering events
      */
-    async cateringEventsBulkUpdateRaw(requestParameters: CateringEventsBulkUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CateringEventsBulkUpdateStatus>> {
+    async cateringEventsBulkUpdateRaw(requestParameters: CateringEventsBulkUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CateringEventsProcessedInfoType>>> {
         if (requestParameters.cateringEventsBulkUpdate === null || requestParameters.cateringEventsBulkUpdate === undefined) {
             throw new runtime.RequiredError('cateringEventsBulkUpdate','Required parameter requestParameters.cateringEventsBulkUpdate was null or undefined when calling cateringEventsBulkUpdate.');
         }
@@ -757,14 +757,14 @@ export class EventManagementApi extends runtime.BaseAPI {
             body: CateringEventsBulkUpdateToJSON(requestParameters.cateringEventsBulkUpdate),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CateringEventsBulkUpdateStatusFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CateringEventsProcessedInfoTypeFromJSON));
     }
 
     /**
      * You can use this API to update one/more catering events for the same block <p><strong>OperationId:</strong>cateringEventsBulkUpdate</p>
      * Update multiple catering events
      */
-    async cateringEventsBulkUpdate(requestParameters: CateringEventsBulkUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CateringEventsBulkUpdateStatus> {
+    async cateringEventsBulkUpdate(requestParameters: CateringEventsBulkUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CateringEventsProcessedInfoType>> {
         const response = await this.cateringEventsBulkUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }

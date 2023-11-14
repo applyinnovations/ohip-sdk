@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ItemPoolsType } from './ItemPoolsType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    ItemPoolsTypeFromJSON,
-    ItemPoolsTypeFromJSONTyped,
-    ItemPoolsTypeToJSON,
-} from './ItemPoolsType';
-import type { Links } from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ItemPoolType } from './ItemPoolType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    ItemPoolTypeFromJSON,
+    ItemPoolTypeFromJSONTyped,
+    ItemPoolTypeToJSON,
+} from './ItemPoolType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object which holds collection of Item Pools.
@@ -39,23 +39,23 @@ import {
  */
 export interface ItemPoolsInfo {
     /**
-     * 
-     * @type {ItemPoolsType}
+     * Item Pools details for hotels.
+     * @type {Array<ItemPoolType>}
      * @memberof ItemPoolsInfo
      */
-    itemPools?: ItemPoolsType;
+    itemPools?: Array<ItemPoolType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ItemPoolsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ItemPoolsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ItemPoolsInfoFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'itemPools': !exists(json, 'itemPools') ? undefined : ItemPoolsTypeFromJSON(json['itemPools']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'itemPools': !exists(json, 'itemPools') ? undefined : ((json['itemPools'] as Array<any>).map(ItemPoolTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ItemPoolsInfoToJSON(value?: ItemPoolsInfo | null): any {
     }
     return {
         
-        'itemPools': ItemPoolsTypeToJSON(value.itemPools),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'itemPools': value.itemPools === undefined ? undefined : ((value.itemPools as Array<any>).map(ItemPoolTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

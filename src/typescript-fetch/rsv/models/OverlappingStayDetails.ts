@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ValidationsReturnType } from './ValidationsReturnType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ValidationReturnType } from './ValidationReturnType';
 import {
-    ValidationsReturnTypeFromJSON,
-    ValidationsReturnTypeFromJSONTyped,
-    ValidationsReturnTypeToJSON,
-} from './ValidationsReturnType';
-import type { WarningsType } from './WarningsType';
+    ValidationReturnTypeFromJSON,
+    ValidationReturnTypeFromJSONTyped,
+    ValidationReturnTypeToJSON,
+} from './ValidationReturnType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for checking overlapping stays of reservations.
@@ -40,22 +40,22 @@ import {
 export interface OverlappingStayDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof OverlappingStayDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
-     * @type {ValidationsReturnType}
+     * @type {Array<ValidationReturnType>}
      * @memberof OverlappingStayDetails
      */
-    overlappingStayMessages?: ValidationsReturnType;
+    overlappingStayMessages?: Array<ValidationReturnType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OverlappingStayDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function OverlappingStayDetailsFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'overlappingStayMessages': !exists(json, 'overlappingStayMessages') ? undefined : ValidationsReturnTypeFromJSON(json['overlappingStayMessages']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'overlappingStayMessages': !exists(json, 'overlappingStayMessages') ? undefined : ((json['overlappingStayMessages'] as Array<any>).map(ValidationReturnTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function OverlappingStayDetailsToJSON(value?: OverlappingStayDetails | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'overlappingStayMessages': ValidationsReturnTypeToJSON(value.overlappingStayMessages),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'overlappingStayMessages': value.overlappingStayMessages === undefined ? undefined : ((value.overlappingStayMessages as Array<any>).map(ValidationReturnTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateOutOfOrderServiceReasonsToBeChangedToJSON = exports.TemplateOutOfOrderServiceReasonsToBeChangedFromJSONTyped = exports.TemplateOutOfOrderServiceReasonsToBeChangedFromJSON = exports.instanceOfTemplateOutOfOrderServiceReasonsToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TemplateOutOfOrderServiceReasonsType_1 = require("./TemplateOutOfOrderServiceReasonsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TemplateOutOfOrderServiceReasonType_1 = require("./TemplateOutOfOrderServiceReasonType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TemplateOutOfOrderServiceReasonsToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function TemplateOutOfOrderServiceReasonsToBeChangedFromJSONTyped(json, ignoreDi
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'templateOutOfOrderServiceReasons': !(0, runtime_1.exists)(json, 'templateOutOfOrderServiceReasons') ? undefined : (0, TemplateOutOfOrderServiceReasonsType_1.TemplateOutOfOrderServiceReasonsTypeFromJSON)(json['templateOutOfOrderServiceReasons']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'templateOutOfOrderServiceReasons': !(0, runtime_1.exists)(json, 'templateOutOfOrderServiceReasons') ? undefined : (json['templateOutOfOrderServiceReasons'].map(TemplateOutOfOrderServiceReasonType_1.TemplateOutOfOrderServiceReasonTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TemplateOutOfOrderServiceReasonsToBeChangedFromJSONTyped = TemplateOutOfOrderServiceReasonsToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function TemplateOutOfOrderServiceReasonsToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'templateOutOfOrderServiceReasons': (0, TemplateOutOfOrderServiceReasonsType_1.TemplateOutOfOrderServiceReasonsTypeToJSON)(value.templateOutOfOrderServiceReasons),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'templateOutOfOrderServiceReasons': value.templateOutOfOrderServiceReasons === undefined ? undefined : (value.templateOutOfOrderServiceReasons.map(TemplateOutOfOrderServiceReasonType_1.TemplateOutOfOrderServiceReasonTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TemplateOutOfOrderServiceReasonsToBeChangedToJSON = TemplateOutOfOrderServiceReasonsToBeChangedToJSON;

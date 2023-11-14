@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelUseTypeToJSON = exports.HotelUseTypeFromJSONTyped = exports.HotelUseTypeFromJSON = exports.instanceOfHotelUseType = void 0;
 const runtime_1 = require("../runtime");
-const AccessRestrictionsType_1 = require("./AccessRestrictionsType");
+const BlockAccessRestrictionType_1 = require("./BlockAccessRestrictionType");
 /**
  * Check if a given object implements the HotelUseType interface.
  */
@@ -33,7 +33,7 @@ function HotelUseTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'accessRestrictions': !(0, runtime_1.exists)(json, 'accessRestrictions') ? undefined : (0, AccessRestrictionsType_1.AccessRestrictionsTypeFromJSON)(json['accessRestrictions']),
+        'accessRestrictions': !(0, runtime_1.exists)(json, 'accessRestrictions') ? undefined : (json['accessRestrictions'].map(BlockAccessRestrictionType_1.BlockAccessRestrictionTypeFromJSON)),
         'hotelUseOnly': !(0, runtime_1.exists)(json, 'hotelUseOnly') ? undefined : json['hotelUseOnly'],
         'hotelUseReason': !(0, runtime_1.exists)(json, 'hotelUseReason') ? undefined : json['hotelUseReason'],
     };
@@ -47,7 +47,7 @@ function HotelUseTypeToJSON(value) {
         return null;
     }
     return {
-        'accessRestrictions': (0, AccessRestrictionsType_1.AccessRestrictionsTypeToJSON)(value.accessRestrictions),
+        'accessRestrictions': value.accessRestrictions === undefined ? undefined : (value.accessRestrictions.map(BlockAccessRestrictionType_1.BlockAccessRestrictionTypeToJSON)),
         'hotelUseOnly': value.hotelUseOnly,
         'hotelUseReason': value.hotelUseReason,
     };

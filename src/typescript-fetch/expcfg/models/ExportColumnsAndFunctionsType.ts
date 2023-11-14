@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ExpDataSourceColumnsType } from './ExpDataSourceColumnsType';
+import type { ExpDataSourceColumnType } from './ExpDataSourceColumnType';
 import {
-    ExpDataSourceColumnsTypeFromJSON,
-    ExpDataSourceColumnsTypeFromJSONTyped,
-    ExpDataSourceColumnsTypeToJSON,
-} from './ExpDataSourceColumnsType';
-import type { ExpFunctionsType } from './ExpFunctionsType';
+    ExpDataSourceColumnTypeFromJSON,
+    ExpDataSourceColumnTypeFromJSONTyped,
+    ExpDataSourceColumnTypeToJSON,
+} from './ExpDataSourceColumnType';
+import type { ExpFunctionType } from './ExpFunctionType';
 import {
-    ExpFunctionsTypeFromJSON,
-    ExpFunctionsTypeFromJSONTyped,
-    ExpFunctionsTypeToJSON,
-} from './ExpFunctionsType';
+    ExpFunctionTypeFromJSON,
+    ExpFunctionTypeFromJSONTyped,
+    ExpFunctionTypeToJSON,
+} from './ExpFunctionType';
 
 /**
  * Contains columns, pre post functions and export functions
@@ -33,23 +33,23 @@ import {
  */
 export interface ExportColumnsAndFunctionsType {
     /**
-     * 
-     * @type {ExpDataSourceColumnsType}
+     * Function parameters
+     * @type {Array<ExpDataSourceColumnType>}
      * @memberof ExportColumnsAndFunctionsType
      */
-    dbColumns?: ExpDataSourceColumnsType;
+    dbColumns?: Array<ExpDataSourceColumnType>;
     /**
-     * 
-     * @type {ExpFunctionsType}
+     * Function parameters
+     * @type {Array<ExpFunctionType>}
      * @memberof ExportColumnsAndFunctionsType
      */
-    functions?: ExpFunctionsType;
+    functions?: Array<ExpFunctionType>;
     /**
-     * 
-     * @type {ExpFunctionsType}
+     * Function parameters
+     * @type {Array<ExpFunctionType>}
      * @memberof ExportColumnsAndFunctionsType
      */
-    prePostFunctions?: ExpFunctionsType;
+    prePostFunctions?: Array<ExpFunctionType>;
 }
 
 /**
@@ -71,9 +71,9 @@ export function ExportColumnsAndFunctionsTypeFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'dbColumns': !exists(json, 'dbColumns') ? undefined : ExpDataSourceColumnsTypeFromJSON(json['dbColumns']),
-        'functions': !exists(json, 'functions') ? undefined : ExpFunctionsTypeFromJSON(json['functions']),
-        'prePostFunctions': !exists(json, 'prePostFunctions') ? undefined : ExpFunctionsTypeFromJSON(json['prePostFunctions']),
+        'dbColumns': !exists(json, 'dbColumns') ? undefined : ((json['dbColumns'] as Array<any>).map(ExpDataSourceColumnTypeFromJSON)),
+        'functions': !exists(json, 'functions') ? undefined : ((json['functions'] as Array<any>).map(ExpFunctionTypeFromJSON)),
+        'prePostFunctions': !exists(json, 'prePostFunctions') ? undefined : ((json['prePostFunctions'] as Array<any>).map(ExpFunctionTypeFromJSON)),
     };
 }
 
@@ -86,9 +86,9 @@ export function ExportColumnsAndFunctionsTypeToJSON(value?: ExportColumnsAndFunc
     }
     return {
         
-        'dbColumns': ExpDataSourceColumnsTypeToJSON(value.dbColumns),
-        'functions': ExpFunctionsTypeToJSON(value.functions),
-        'prePostFunctions': ExpFunctionsTypeToJSON(value.prePostFunctions),
+        'dbColumns': value.dbColumns === undefined ? undefined : ((value.dbColumns as Array<any>).map(ExpDataSourceColumnTypeToJSON)),
+        'functions': value.functions === undefined ? undefined : ((value.functions as Array<any>).map(ExpFunctionTypeToJSON)),
+        'prePostFunctions': value.prePostFunctions === undefined ? undefined : ((value.prePostFunctions as Array<any>).map(ExpFunctionTypeToJSON)),
     };
 }
 

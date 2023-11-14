@@ -19,12 +19,12 @@ import {
     CurrencyAmountTypeFromJSONTyped,
     CurrencyAmountTypeToJSON,
 } from './CurrencyAmountType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Criteria information for posting a charge.
@@ -69,11 +69,11 @@ export interface ChargeCriteriaType {
      */
     checkNumber?: string;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ChargeCriteriaType
      */
-    financialTransactionIdList?: UniqueIDListType;
+    financialTransactionIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {number}
@@ -143,7 +143,7 @@ export function ChargeCriteriaTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'autoPosting': !exists(json, 'autoPosting') ? undefined : json['autoPosting'],
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
         'checkNumber': !exists(json, 'checkNumber') ? undefined : json['checkNumber'],
-        'financialTransactionIdList': !exists(json, 'financialTransactionIdList') ? undefined : UniqueIDListTypeFromJSON(json['financialTransactionIdList']),
+        'financialTransactionIdList': !exists(json, 'financialTransactionIdList') ? undefined : ((json['financialTransactionIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'folioWindowNo': !exists(json, 'folioWindowNo') ? undefined : json['folioWindowNo'],
         'postingQuantity': !exists(json, 'postingQuantity') ? undefined : json['postingQuantity'],
         'postingReference': !exists(json, 'postingReference') ? undefined : json['postingReference'],
@@ -169,7 +169,7 @@ export function ChargeCriteriaTypeToJSON(value?: ChargeCriteriaType | null): any
         'autoPosting': value.autoPosting,
         'cashierId': value.cashierId,
         'checkNumber': value.checkNumber,
-        'financialTransactionIdList': UniqueIDListTypeToJSON(value.financialTransactionIdList),
+        'financialTransactionIdList': value.financialTransactionIdList === undefined ? undefined : ((value.financialTransactionIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'folioWindowNo': value.folioWindowNo,
         'postingQuantity': value.postingQuantity,
         'postingReference': value.postingReference,

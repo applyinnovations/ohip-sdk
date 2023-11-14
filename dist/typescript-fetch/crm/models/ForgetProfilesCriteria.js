@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ForgetProfilesCriteriaToJSON = exports.ForgetProfilesCriteriaFromJSONTyped = exports.ForgetProfilesCriteriaFromJSON = exports.instanceOfForgetProfilesCriteria = void 0;
 const runtime_1 = require("../runtime");
 const ForgetProfilesCriteriaType_1 = require("./ForgetProfilesCriteriaType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ForgetProfilesCriteria interface.
  */
@@ -35,9 +35,9 @@ function ForgetProfilesCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'validateForgetProfilesCriteria': !(0, runtime_1.exists)(json, 'validateForgetProfilesCriteria') ? undefined : (0, ForgetProfilesCriteriaType_1.ForgetProfilesCriteriaTypeFromJSON)(json['validateForgetProfilesCriteria']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ForgetProfilesCriteriaFromJSONTyped = ForgetProfilesCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function ForgetProfilesCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'validateForgetProfilesCriteria': (0, ForgetProfilesCriteriaType_1.ForgetProfilesCriteriaTypeToJSON)(value.validateForgetProfilesCriteria),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ForgetProfilesCriteriaToJSON = ForgetProfilesCriteriaToJSON;

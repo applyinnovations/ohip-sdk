@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyRoomTypeToJSON = exports.CopyRoomTypeFromJSONTyped = exports.CopyRoomTypeFromJSON = exports.instanceOfCopyRoomType = void 0;
 const runtime_1 = require("../runtime");
-const CopyNewRoomsType_1 = require("./CopyNewRoomsType");
+const CopyNewRoomType_1 = require("./CopyNewRoomType");
 /**
  * Check if a given object implements the CopyRoomType interface.
  */
@@ -34,7 +34,7 @@ function CopyRoomTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'newRooms': !(0, runtime_1.exists)(json, 'newRooms') ? undefined : (0, CopyNewRoomsType_1.CopyNewRoomsTypeFromJSON)(json['newRooms']),
+        'newRooms': !(0, runtime_1.exists)(json, 'newRooms') ? undefined : (json['newRooms'].map(CopyNewRoomType_1.CopyNewRoomTypeFromJSON)),
         'roomId': !(0, runtime_1.exists)(json, 'roomId') ? undefined : json['roomId'],
     };
 }
@@ -48,7 +48,7 @@ function CopyRoomTypeToJSON(value) {
     }
     return {
         'hotelId': value.hotelId,
-        'newRooms': (0, CopyNewRoomsType_1.CopyNewRoomsTypeToJSON)(value.newRooms),
+        'newRooms': value.newRooms === undefined ? undefined : (value.newRooms.map(CopyNewRoomType_1.CopyNewRoomTypeToJSON)),
         'roomId': value.roomId,
     };
 }

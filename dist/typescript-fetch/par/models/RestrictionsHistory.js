@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RestrictionsHistoryToJSON = exports.RestrictionsHistoryFromJSONTyped = exports.RestrictionsHistoryFromJSON = exports.instanceOfRestrictionsHistory = void 0;
 const runtime_1 = require("../runtime");
 const FetchRestrictionsHistoryRSType_1 = require("./FetchRestrictionsHistoryRSType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RestrictionsHistory interface.
  */
@@ -35,9 +35,9 @@ function RestrictionsHistoryFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'restrictionsHistory': !(0, runtime_1.exists)(json, 'restrictionsHistory') ? undefined : (0, FetchRestrictionsHistoryRSType_1.FetchRestrictionsHistoryRSTypeFromJSON)(json['restrictionsHistory']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RestrictionsHistoryFromJSONTyped = RestrictionsHistoryFromJSONTyped;
@@ -49,9 +49,9 @@ function RestrictionsHistoryToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'restrictionsHistory': (0, FetchRestrictionsHistoryRSType_1.FetchRestrictionsHistoryRSTypeToJSON)(value.restrictionsHistory),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RestrictionsHistoryToJSON = RestrictionsHistoryToJSON;

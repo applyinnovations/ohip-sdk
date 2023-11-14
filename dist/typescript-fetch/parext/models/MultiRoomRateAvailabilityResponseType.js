@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MultiRoomRateAvailabilityResponseTypeToJSON = exports.MultiRoomRateAvailabilityResponseTypeFromJSONTyped = exports.MultiRoomRateAvailabilityResponseTypeFromJSON = exports.instanceOfMultiRoomRateAvailabilityResponseType = void 0;
 const runtime_1 = require("../runtime");
 const MultiRoomRateAvailabilityType_1 = require("./MultiRoomRateAvailabilityType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MultiRoomRateAvailabilityResponseType interface.
  */
@@ -35,7 +35,7 @@ function MultiRoomRateAvailabilityResponseTypeFromJSONTyped(json, ignoreDiscrimi
     }
     return {
         'hotelAvailability': !(0, runtime_1.exists)(json, 'hotelAvailability') ? undefined : (json['hotelAvailability'].map(MultiRoomRateAvailabilityType_1.MultiRoomRateAvailabilityTypeFromJSON)),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MultiRoomRateAvailabilityResponseTypeFromJSONTyped = MultiRoomRateAvailabilityResponseTypeFromJSONTyped;
@@ -48,7 +48,7 @@ function MultiRoomRateAvailabilityResponseTypeToJSON(value) {
     }
     return {
         'hotelAvailability': value.hotelAvailability === undefined ? undefined : (value.hotelAvailability.map(MultiRoomRateAvailabilityType_1.MultiRoomRateAvailabilityTypeToJSON)),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MultiRoomRateAvailabilityResponseTypeToJSON = MultiRoomRateAvailabilityResponseTypeToJSON;

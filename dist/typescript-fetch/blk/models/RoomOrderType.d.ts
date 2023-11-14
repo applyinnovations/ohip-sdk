@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockIdList } from './BlockIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -17,11 +17,11 @@ import type { BlockIdList } from './BlockIdList';
  */
 export interface RoomOrderType {
     /**
-     *
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RoomOrderType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * Room Type.
      * @type {Array<string>}

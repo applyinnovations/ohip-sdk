@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyActivityLocationsRSToJSON = exports.CopyActivityLocationsRSFromJSONTyped = exports.CopyActivityLocationsRSFromJSON = exports.instanceOfCopyActivityLocationsRS = void 0;
 const runtime_1 = require("../runtime");
-const ErrorsType_1 = require("./ErrorsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ErrorType_1 = require("./ErrorType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CopyActivityLocationsRS interface.
  */
@@ -38,14 +38,14 @@ function CopyActivityLocationsRSFromJSONTyped(json, ignoreDiscriminator) {
         'correlationId': !(0, runtime_1.exists)(json, 'correlationId') ? undefined : json['correlationId'],
         'echoToken': !(0, runtime_1.exists)(json, 'echoToken') ? undefined : json['echoToken'],
         'enforceAllowed': !(0, runtime_1.exists)(json, 'enforceAllowed') ? undefined : json['enforceAllowed'],
-        'errors': !(0, runtime_1.exists)(json, 'errors') ? undefined : (0, ErrorsType_1.ErrorsTypeFromJSON)(json['errors']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'errors': !(0, runtime_1.exists)(json, 'errors') ? undefined : (json['errors'].map(ErrorType_1.ErrorTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'retryAllowed': !(0, runtime_1.exists)(json, 'retryAllowed') ? undefined : json['retryAllowed'],
         'success': !(0, runtime_1.exists)(json, 'success') ? undefined : json['success'],
         'timeStamp': !(0, runtime_1.exists)(json, 'timeStamp') ? undefined : json['timeStamp'],
         'useLocalAllowed': !(0, runtime_1.exists)(json, 'useLocalAllowed') ? undefined : json['useLocalAllowed'],
         'version': !(0, runtime_1.exists)(json, 'version') ? undefined : json['version'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CopyActivityLocationsRSFromJSONTyped = CopyActivityLocationsRSFromJSONTyped;
@@ -60,14 +60,14 @@ function CopyActivityLocationsRSToJSON(value) {
         'correlationId': value.correlationId,
         'echoToken': value.echoToken,
         'enforceAllowed': value.enforceAllowed,
-        'errors': (0, ErrorsType_1.ErrorsTypeToJSON)(value.errors),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'errors': value.errors === undefined ? undefined : (value.errors.map(ErrorType_1.ErrorTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'retryAllowed': value.retryAllowed,
         'success': value.success,
         'timeStamp': value.timeStamp,
         'useLocalAllowed': value.useLocalAllowed,
         'version': value.version,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CopyActivityLocationsRSToJSON = CopyActivityLocationsRSToJSON;

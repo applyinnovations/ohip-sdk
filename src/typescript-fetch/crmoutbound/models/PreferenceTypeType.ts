@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { PreferenceType } from './PreferenceType';
 import {
     PreferenceTypeFromJSON,
@@ -106,10 +106,10 @@ export interface PreferenceTypeType {
     lastModifierId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PreferenceTypeType
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -143,7 +143,7 @@ export function PreferenceTypeTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'creatorId': !exists(json, 'creatorId') ? undefined : json['creatorId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -168,7 +168,7 @@ export function PreferenceTypeTypeToJSON(value?: PreferenceTypeType | null): any
         'creatorId': value.creatorId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'lastModifierId': value.lastModifierId,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

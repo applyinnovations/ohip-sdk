@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DestinationCodesToBeChangedToJSON = exports.DestinationCodesToBeChangedFromJSONTyped = exports.DestinationCodesToBeChangedFromJSON = exports.instanceOfDestinationCodesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const DestinationCodesType_1 = require("./DestinationCodesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const DestinationCodeType_1 = require("./DestinationCodeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the DestinationCodesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function DestinationCodesToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'destinationCodes': !(0, runtime_1.exists)(json, 'destinationCodes') ? undefined : (0, DestinationCodesType_1.DestinationCodesTypeFromJSON)(json['destinationCodes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'destinationCodes': !(0, runtime_1.exists)(json, 'destinationCodes') ? undefined : (json['destinationCodes'].map(DestinationCodeType_1.DestinationCodeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.DestinationCodesToBeChangedFromJSONTyped = DestinationCodesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function DestinationCodesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'destinationCodes': (0, DestinationCodesType_1.DestinationCodesTypeToJSON)(value.destinationCodes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'destinationCodes': value.destinationCodes === undefined ? undefined : (value.destinationCodes.map(DestinationCodeType_1.DestinationCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.DestinationCodesToBeChangedToJSON = DestinationCodesToBeChangedToJSON;

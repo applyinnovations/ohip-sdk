@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AdditionalAmountListType } from './AdditionalAmountListType';
-import type { AdditionalDetailListType } from './AdditionalDetailListType';
+import type { AdditionalAmountType } from './AdditionalAmountType';
+import type { AdditionalDetailType } from './AdditionalDetailType';
 import type { EnhancedDescriptionType } from './EnhancedDescriptionType';
 import type { ParityRateTypeRateAmounts } from './ParityRateTypeRateAmounts';
 import type { ParityRateTypeTotalPricingAmounts } from './ParityRateTypeTotalPricingAmounts';
@@ -22,16 +22,16 @@ import type { ParityRateTypeTotalPricingAmounts } from './ParityRateTypeTotalPri
 export interface ParityRateType {
     /**
      *
-     * @type {AdditionalAmountListType}
+     * @type {Array<AdditionalAmountType>}
      * @memberof ParityRateType
      */
-    additionalAmounts?: AdditionalAmountListType;
+    additionalAmounts?: Array<AdditionalAmountType>;
     /**
      *
-     * @type {AdditionalDetailListType}
+     * @type {Array<AdditionalDetailType>}
      * @memberof ParityRateType
      */
-    additionalDetailList?: AdditionalDetailListType;
+    additionalDetailList?: Array<AdditionalDetailType>;
     /**
      * A monetary amount.
      * @type {number}

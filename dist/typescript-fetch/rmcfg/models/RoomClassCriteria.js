@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomClassCriteriaToJSON = exports.RoomClassCriteriaFromJSONTyped = exports.RoomClassCriteriaFromJSON = exports.instanceOfRoomClassCriteria = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const RoomClassType_1 = require("./RoomClassType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomClassCriteria interface.
  */
@@ -35,9 +35,9 @@ function RoomClassCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'roomClass': !(0, runtime_1.exists)(json, 'roomClass') ? undefined : (0, RoomClassType_1.RoomClassTypeFromJSON)(json['roomClass']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomClassCriteriaFromJSONTyped = RoomClassCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function RoomClassCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'roomClass': (0, RoomClassType_1.RoomClassTypeToJSON)(value.roomClass),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomClassCriteriaToJSON = RoomClassCriteriaToJSON;

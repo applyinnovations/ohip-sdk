@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AccountTypesType } from './AccountTypesType';
+import type { AccountTypeType } from './AccountTypeType';
 import {
-    AccountTypesTypeFromJSON,
-    AccountTypesTypeFromJSONTyped,
-    AccountTypesTypeToJSON,
-} from './AccountTypesType';
-import type { Links } from './Links';
+    AccountTypeTypeFromJSON,
+    AccountTypeTypeFromJSONTyped,
+    AccountTypeTypeToJSON,
+} from './AccountTypeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Account Types.
@@ -39,23 +39,23 @@ import {
  */
 export interface AccountTypesDetails {
     /**
-     * 
-     * @type {AccountTypesType}
+     * List of Account Types.
+     * @type {Array<AccountTypeType>}
      * @memberof AccountTypesDetails
      */
-    accountTypes?: AccountTypesType;
+    accountTypes?: Array<AccountTypeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AccountTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AccountTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function AccountTypesDetailsFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'accountTypes': !exists(json, 'accountTypes') ? undefined : AccountTypesTypeFromJSON(json['accountTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'accountTypes': !exists(json, 'accountTypes') ? undefined : ((json['accountTypes'] as Array<any>).map(AccountTypeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function AccountTypesDetailsToJSON(value?: AccountTypesDetails | null): a
     }
     return {
         
-        'accountTypes': AccountTypesTypeToJSON(value.accountTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'accountTypes': value.accountTypes === undefined ? undefined : ((value.accountTypes as Array<any>).map(AccountTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

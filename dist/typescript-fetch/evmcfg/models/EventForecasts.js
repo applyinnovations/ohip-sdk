@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EventForecastsToJSON = exports.EventForecastsFromJSONTyped = exports.EventForecastsFromJSON = exports.instanceOfEventForecasts = void 0;
 const runtime_1 = require("../runtime");
-const EventForecastListType_1 = require("./EventForecastListType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const EventForecastType_1 = require("./EventForecastType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the EventForecasts interface.
  */
@@ -35,9 +35,9 @@ function EventForecastsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'eventForecasts': !(0, runtime_1.exists)(json, 'eventForecasts') ? undefined : (0, EventForecastListType_1.EventForecastListTypeFromJSON)(json['eventForecasts']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'eventForecasts': !(0, runtime_1.exists)(json, 'eventForecasts') ? undefined : (json['eventForecasts'].map(EventForecastType_1.EventForecastTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.EventForecastsFromJSONTyped = EventForecastsFromJSONTyped;
@@ -49,9 +49,9 @@ function EventForecastsToJSON(value) {
         return null;
     }
     return {
-        'eventForecasts': (0, EventForecastListType_1.EventForecastListTypeToJSON)(value.eventForecasts),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'eventForecasts': value.eventForecasts === undefined ? undefined : (value.eventForecasts.map(EventForecastType_1.EventForecastTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.EventForecastsToJSON = EventForecastsToJSON;

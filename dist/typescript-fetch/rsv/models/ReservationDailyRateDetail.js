@@ -16,9 +16,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationDailyRateDetailToJSON = exports.ReservationDailyRateDetailFromJSONTyped = exports.ReservationDailyRateDetailFromJSON = exports.instanceOfReservationDailyRateDetail = void 0;
 const runtime_1 = require("../runtime");
 const DailyRateDetailType_1 = require("./DailyRateDetailType");
-const Links_1 = require("./Links");
-const ReservationIdList_1 = require("./ReservationIdList");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const UniqueIDType_1 = require("./UniqueIDType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ReservationDailyRateDetail interface.
  */
@@ -37,10 +37,10 @@ function ReservationDailyRateDetailFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'newDetail': !(0, runtime_1.exists)(json, 'newDetail') ? undefined : (0, DailyRateDetailType_1.DailyRateDetailTypeFromJSON)(json['newDetail']),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ReservationDailyRateDetailFromJSONTyped = ReservationDailyRateDetailFromJSONTyped;
@@ -53,10 +53,10 @@ function ReservationDailyRateDetailToJSON(value) {
     }
     return {
         'hotelId': value.hotelId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'newDetail': (0, DailyRateDetailType_1.DailyRateDetailTypeToJSON)(value.newDetail),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ReservationDailyRateDetailToJSON = ReservationDailyRateDetailToJSON;

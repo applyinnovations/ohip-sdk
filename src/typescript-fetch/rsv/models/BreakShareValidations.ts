@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReservationId } from './ReservationId';
 import {
     ReservationIdFromJSON,
     ReservationIdFromJSONTyped,
     ReservationIdToJSON,
 } from './ReservationId';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request for Break Share operation validations. This request should be done prior to the actual Break Share operation request. Based on the validations returned from this request the appropriate parameters can be returned in the actual break share request.
@@ -46,10 +46,10 @@ export interface BreakShareValidations {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BreakShareValidations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ReservationId}
@@ -57,11 +57,11 @@ export interface BreakShareValidations {
      */
     reservationId?: ReservationId;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BreakShareValidations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -84,9 +84,9 @@ export function BreakShareValidationsFromJSONTyped(json: any, ignoreDiscriminato
     return {
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -100,9 +100,9 @@ export function BreakShareValidationsToJSON(value?: BreakShareValidations | null
     return {
         
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservationId': ReservationIdToJSON(value.reservationId),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

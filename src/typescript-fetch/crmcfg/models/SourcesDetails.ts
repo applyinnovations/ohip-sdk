@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { SourcesType } from './SourcesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { SourceType } from './SourceType';
 import {
-    SourcesTypeFromJSON,
-    SourcesTypeFromJSONTyped,
-    SourcesTypeToJSON,
-} from './SourcesType';
-import type { WarningsType } from './WarningsType';
+    SourceTypeFromJSON,
+    SourceTypeFromJSONTyped,
+    SourceTypeToJSON,
+} from './SourceType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Sources.
@@ -40,22 +40,22 @@ import {
 export interface SourcesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SourcesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {SourcesType}
+     * List of Sources.
+     * @type {Array<SourceType>}
      * @memberof SourcesDetails
      */
-    sources?: SourcesType;
+    sources?: Array<SourceType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SourcesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function SourcesDetailsFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'sources': !exists(json, 'sources') ? undefined : SourcesTypeFromJSON(json['sources']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'sources': !exists(json, 'sources') ? undefined : ((json['sources'] as Array<any>).map(SourceTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function SourcesDetailsToJSON(value?: SourcesDetails | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'sources': SourcesTypeToJSON(value.sources),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'sources': value.sources === undefined ? undefined : ((value.sources as Array<any>).map(SourceTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

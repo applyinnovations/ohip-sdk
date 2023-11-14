@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomFeatureRatingsToJSON = exports.RoomFeatureRatingsFromJSONTyped = exports.RoomFeatureRatingsFromJSON = exports.instanceOfRoomFeatureRatings = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RoomFeatureRatingsInfoType_1 = require("./RoomFeatureRatingsInfoType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RoomFeatureRatingInfoType_1 = require("./RoomFeatureRatingInfoType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomFeatureRatings interface.
  */
@@ -35,9 +35,9 @@ function RoomFeatureRatingsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'roomFeatureRatingsInfo': !(0, runtime_1.exists)(json, 'roomFeatureRatingsInfo') ? undefined : (0, RoomFeatureRatingsInfoType_1.RoomFeatureRatingsInfoTypeFromJSON)(json['roomFeatureRatingsInfo']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'roomFeatureRatingsInfo': !(0, runtime_1.exists)(json, 'roomFeatureRatingsInfo') ? undefined : (json['roomFeatureRatingsInfo'].map(RoomFeatureRatingInfoType_1.RoomFeatureRatingInfoTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomFeatureRatingsFromJSONTyped = RoomFeatureRatingsFromJSONTyped;
@@ -49,9 +49,9 @@ function RoomFeatureRatingsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'roomFeatureRatingsInfo': (0, RoomFeatureRatingsInfoType_1.RoomFeatureRatingsInfoTypeToJSON)(value.roomFeatureRatingsInfo),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'roomFeatureRatingsInfo': value.roomFeatureRatingsInfo === undefined ? undefined : (value.roomFeatureRatingsInfo.map(RoomFeatureRatingInfoType_1.RoomFeatureRatingInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomFeatureRatingsToJSON = RoomFeatureRatingsToJSON;

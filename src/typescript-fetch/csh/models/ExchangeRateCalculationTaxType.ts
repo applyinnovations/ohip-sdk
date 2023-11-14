@@ -19,12 +19,12 @@ import {
     CurrencyAmountTypeFromJSONTyped,
     CurrencyAmountTypeToJSON,
 } from './CurrencyAmountType';
-import type { ExchangeRateTransactionGenerateTaxesType } from './ExchangeRateTransactionGenerateTaxesType';
+import type { ExchangeRateTransactionGenerateTaxType } from './ExchangeRateTransactionGenerateTaxType';
 import {
-    ExchangeRateTransactionGenerateTaxesTypeFromJSON,
-    ExchangeRateTransactionGenerateTaxesTypeFromJSONTyped,
-    ExchangeRateTransactionGenerateTaxesTypeToJSON,
-} from './ExchangeRateTransactionGenerateTaxesType';
+    ExchangeRateTransactionGenerateTaxTypeFromJSON,
+    ExchangeRateTransactionGenerateTaxTypeFromJSONTyped,
+    ExchangeRateTransactionGenerateTaxTypeToJSON,
+} from './ExchangeRateTransactionGenerateTaxType';
 
 /**
  * Detailed information about exchange rate calculation service tax.
@@ -39,11 +39,11 @@ export interface ExchangeRateCalculationTaxType {
      */
     baseAmount?: number;
     /**
-     * 
-     * @type {ExchangeRateTransactionGenerateTaxesType}
+     * Exchange rate calculation tax information based on Transaction Code Generate.
+     * @type {Array<ExchangeRateTransactionGenerateTaxType>}
      * @memberof ExchangeRateCalculationTaxType
      */
-    exchangeRateTransactionGenerateTaxes?: ExchangeRateTransactionGenerateTaxesType;
+    exchangeRateTransactionGenerateTaxes?: Array<ExchangeRateTransactionGenerateTaxType>;
     /**
      * Maximum service tax in local currency to be charged.
      * @type {number}
@@ -90,7 +90,7 @@ export function ExchangeRateCalculationTaxTypeFromJSONTyped(json: any, ignoreDis
     return {
         
         'baseAmount': !exists(json, 'baseAmount') ? undefined : json['baseAmount'],
-        'exchangeRateTransactionGenerateTaxes': !exists(json, 'exchangeRateTransactionGenerateTaxes') ? undefined : ExchangeRateTransactionGenerateTaxesTypeFromJSON(json['exchangeRateTransactionGenerateTaxes']),
+        'exchangeRateTransactionGenerateTaxes': !exists(json, 'exchangeRateTransactionGenerateTaxes') ? undefined : ((json['exchangeRateTransactionGenerateTaxes'] as Array<any>).map(ExchangeRateTransactionGenerateTaxTypeFromJSON)),
         'maxServiceTax': !exists(json, 'maxServiceTax') ? undefined : json['maxServiceTax'],
         'minServiceTax': !exists(json, 'minServiceTax') ? undefined : json['minServiceTax'],
         'percentage': !exists(json, 'percentage') ? undefined : json['percentage'],
@@ -108,7 +108,7 @@ export function ExchangeRateCalculationTaxTypeToJSON(value?: ExchangeRateCalcula
     return {
         
         'baseAmount': value.baseAmount,
-        'exchangeRateTransactionGenerateTaxes': ExchangeRateTransactionGenerateTaxesTypeToJSON(value.exchangeRateTransactionGenerateTaxes),
+        'exchangeRateTransactionGenerateTaxes': value.exchangeRateTransactionGenerateTaxes === undefined ? undefined : ((value.exchangeRateTransactionGenerateTaxes as Array<any>).map(ExchangeRateTransactionGenerateTaxTypeToJSON)),
         'maxServiceTax': value.maxServiceTax,
         'minServiceTax': value.minServiceTax,
         'percentage': value.percentage,

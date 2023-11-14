@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ReservationTransactionDiversionsType } from './ReservationTransactionDiversionsType';
+import type { ReservationTransactionDiversionType } from './ReservationTransactionDiversionType';
 /**
  * List of transaction diversions attached to the reservation.
  * @export
@@ -24,10 +24,10 @@ export interface HotelReservationTypeTransactionDiversions {
     actionType?: string;
     /**
      *
-     * @type {Array<ReservationTransactionDiversionsType>}
+     * @type {Array<Array<ReservationTransactionDiversionType>>}
      * @memberof HotelReservationTypeTransactionDiversions
      */
-    transactionDiversions?: Array<ReservationTransactionDiversionsType>;
+    transactionDiversions?: Array<Array<ReservationTransactionDiversionType>>;
 }
 /**
  * Check if a given object implements the HotelReservationTypeTransactionDiversions interface.

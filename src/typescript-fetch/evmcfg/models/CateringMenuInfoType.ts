@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import {
     CurrencyAmountTypeFromJSON,
@@ -82,10 +76,10 @@ export interface CateringMenuInfoType {
     description?: TranslationTextType2000;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CateringMenuInfoType
      */
-    dietaryList?: CodeListType;
+    dietaryList?: Array<string>;
     /**
      * 
      * @type {DateRangeType}
@@ -94,10 +88,10 @@ export interface CateringMenuInfoType {
     eventDateRange?: DateRangeType;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CateringMenuInfoType
      */
-    eventTypes?: CodeListType;
+    eventTypes?: Array<string>;
     /**
      * Selection will note this Menu is Inactive and unable to be added to a Catering Event.
      * @type {boolean}
@@ -207,9 +201,9 @@ export function CateringMenuInfoTypeFromJSONTyped(json: any, ignoreDiscriminator
         'consumptionBased': !exists(json, 'consumptionBased') ? undefined : json['consumptionBased'],
         'courseCount': !exists(json, 'courseCount') ? undefined : json['courseCount'],
         'description': !exists(json, 'description') ? undefined : TranslationTextType2000FromJSON(json['description']),
-        'dietaryList': !exists(json, 'dietaryList') ? undefined : CodeListTypeFromJSON(json['dietaryList']),
+        'dietaryList': !exists(json, 'dietaryList') ? undefined : json['dietaryList'],
         'eventDateRange': !exists(json, 'eventDateRange') ? undefined : DateRangeTypeFromJSON(json['eventDateRange']),
-        'eventTypes': !exists(json, 'eventTypes') ? undefined : CodeListTypeFromJSON(json['eventTypes']),
+        'eventTypes': !exists(json, 'eventTypes') ? undefined : json['eventTypes'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
         'includedInMenu': !exists(json, 'includedInMenu') ? undefined : json['includedInMenu'],
         'includedInPrice': !exists(json, 'includedInPrice') ? undefined : json['includedInPrice'],
@@ -240,9 +234,9 @@ export function CateringMenuInfoTypeToJSON(value?: CateringMenuInfoType | null):
         'consumptionBased': value.consumptionBased,
         'courseCount': value.courseCount,
         'description': TranslationTextType2000ToJSON(value.description),
-        'dietaryList': CodeListTypeToJSON(value.dietaryList),
+        'dietaryList': value.dietaryList,
         'eventDateRange': DateRangeTypeToJSON(value.eventDateRange),
-        'eventTypes': CodeListTypeToJSON(value.eventTypes),
+        'eventTypes': value.eventTypes,
         'inactive': value.inactive,
         'includedInMenu': value.includedInMenu,
         'includedInPrice': value.includedInPrice,

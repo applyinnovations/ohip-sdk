@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ProfileType } from './ProfileType';
 import {
     ProfileTypeFromJSON,
     ProfileTypeFromJSONTyped,
     ProfileTypeToJSON,
 } from './ProfileType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
-import type { WarningsType } from './WarningsType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Profile Resource will be merged.
@@ -46,10 +46,10 @@ import {
 export interface ProfileToBeMerged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileToBeMerged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ProfileType}
@@ -57,17 +57,17 @@ export interface ProfileToBeMerged {
      */
     profileDetails?: ProfileType;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ProfileToBeMerged
      */
-    victimProfileId?: UniqueIDListType;
+    victimProfileId?: Array<UniqueIDType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileToBeMerged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function ProfileToBeMergedFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'profileDetails': !exists(json, 'profileDetails') ? undefined : ProfileTypeFromJSON(json['profileDetails']),
-        'victimProfileId': !exists(json, 'victimProfileId') ? undefined : UniqueIDListTypeFromJSON(json['victimProfileId']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'victimProfileId': !exists(json, 'victimProfileId') ? undefined : ((json['victimProfileId'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function ProfileToBeMergedToJSON(value?: ProfileToBeMerged | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'profileDetails': ProfileTypeToJSON(value.profileDetails),
-        'victimProfileId': UniqueIDListTypeToJSON(value.victimProfileId),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'victimProfileId': value.victimProfileId === undefined ? undefined : ((value.victimProfileId as Array<any>).map(UniqueIDTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

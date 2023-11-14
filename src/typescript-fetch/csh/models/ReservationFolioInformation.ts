@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReservationFolioInfoType } from './ReservationFolioInfoType';
 import {
     ReservationFolioInfoTypeFromJSON,
     ReservationFolioInfoTypeFromJSONTyped,
     ReservationFolioInfoTypeToJSON,
 } from './ReservationFolioInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for the Create Proforma WS. After the proforma is created by this request, the Opera Proforma report should be called to generate the actual physical Proforma report. The response can have the summary of the Guests Proforma Folio, if requested.
@@ -40,10 +40,10 @@ import {
 export interface ReservationFolioInformation {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationFolioInformation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ReservationFolioInfoType}
@@ -51,11 +51,11 @@ export interface ReservationFolioInformation {
      */
     reservationFolioInformation?: ReservationFolioInfoType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationFolioInformation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ReservationFolioInformationFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservationFolioInformation': !exists(json, 'reservationFolioInformation') ? undefined : ReservationFolioInfoTypeFromJSON(json['reservationFolioInformation']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ReservationFolioInformationToJSON(value?: ReservationFolioInform
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservationFolioInformation': ReservationFolioInfoTypeToJSON(value.reservationFolioInformation),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

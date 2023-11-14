@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockDailyStatisticsDatesType } from './BlockDailyStatisticsDatesType';
+import type { BlockDailyStatisticsDateType } from './BlockDailyStatisticsDateType';
 import {
-    BlockDailyStatisticsDatesTypeFromJSON,
-    BlockDailyStatisticsDatesTypeFromJSONTyped,
-    BlockDailyStatisticsDatesTypeToJSON,
-} from './BlockDailyStatisticsDatesType';
-import type { BlockIdList } from './BlockIdList';
-import {
-    BlockIdListFromJSON,
-    BlockIdListFromJSONTyped,
-    BlockIdListToJSON,
-} from './BlockIdList';
+    BlockDailyStatisticsDateTypeFromJSON,
+    BlockDailyStatisticsDateTypeFromJSONTyped,
+    BlockDailyStatisticsDateTypeToJSON,
+} from './BlockDailyStatisticsDateType';
 import type { TimeSpanType } from './TimeSpanType';
 import {
     TimeSpanTypeFromJSON,
     TimeSpanTypeFromJSONTyped,
     TimeSpanTypeToJSON,
 } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -45,11 +45,11 @@ export interface BlocksDailyStatisticsTypeInner {
      */
     blockCode?: string;
     /**
-     * 
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof BlocksDailyStatisticsTypeInner
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * Name of the block.
      * @type {string}
@@ -64,10 +64,10 @@ export interface BlocksDailyStatisticsTypeInner {
     hotelId?: string;
     /**
      * Collection of daily statistics per allotment date.
-     * @type {Array<BlockDailyStatisticsDatesType>}
+     * @type {Array<Array<BlockDailyStatisticsDateType>>}
      * @memberof BlocksDailyStatisticsTypeInner
      */
-    stayDates?: Array<BlockDailyStatisticsDatesType>;
+    stayDates?: Array<Array<BlockDailyStatisticsDateType>>;
     /**
      * 
      * @type {TimeSpanType}
@@ -96,10 +96,10 @@ export function BlocksDailyStatisticsTypeInnerFromJSONTyped(json: any, ignoreDis
     return {
         
         'blockCode': !exists(json, 'blockCode') ? undefined : json['blockCode'],
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : BlockIdListFromJSON(json['blockIdList']),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'blockName': !exists(json, 'blockName') ? undefined : json['blockName'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'stayDates': !exists(json, 'stayDates') ? undefined : ((json['stayDates'] as Array<any>).map(BlockDailyStatisticsDatesTypeFromJSON)),
+        'stayDates': !exists(json, 'stayDates') ? undefined : json['stayDates'],
         'timeSpan': !exists(json, 'timeSpan') ? undefined : TimeSpanTypeFromJSON(json['timeSpan']),
     };
 }
@@ -114,10 +114,10 @@ export function BlocksDailyStatisticsTypeInnerToJSON(value?: BlocksDailyStatisti
     return {
         
         'blockCode': value.blockCode,
-        'blockIdList': BlockIdListToJSON(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'blockName': value.blockName,
         'hotelId': value.hotelId,
-        'stayDates': value.stayDates === undefined ? undefined : ((value.stayDates as Array<any>).map(BlockDailyStatisticsDatesTypeToJSON)),
+        'stayDates': value.stayDates,
         'timeSpan': TimeSpanTypeToJSON(value.timeSpan),
     };
 }

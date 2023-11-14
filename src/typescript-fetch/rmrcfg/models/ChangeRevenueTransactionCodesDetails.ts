@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ErrorsType } from './ErrorsType';
+import type { ErrorType } from './ErrorType';
 import {
-    ErrorsTypeFromJSON,
-    ErrorsTypeFromJSONTyped,
-    ErrorsTypeToJSON,
-} from './ErrorsType';
-import type { WarningsType } from './WarningsType';
+    ErrorTypeFromJSON,
+    ErrorTypeFromJSONTyped,
+    ErrorTypeToJSON,
+} from './ErrorType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Existing Operations Responses will eventually be modified to be extended from this type.
@@ -51,11 +51,11 @@ export interface ChangeRevenueTransactionCodesDetails {
      */
     enforceAllowed?: boolean;
     /**
-     * 
-     * @type {ErrorsType}
+     * An error that occurred during the processing of a message.
+     * @type {Array<ErrorType>}
      * @memberof ChangeRevenueTransactionCodesDetails
      */
-    errors?: ErrorsType;
+    errors?: Array<ErrorType>;
     /**
      * Indicates if the operation supports the ability to retry the request.
      * @type {boolean}
@@ -87,11 +87,11 @@ export interface ChangeRevenueTransactionCodesDetails {
      */
     version?: string;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeRevenueTransactionCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -116,13 +116,13 @@ export function ChangeRevenueTransactionCodesDetailsFromJSONTyped(json: any, ign
         'correlationId': !exists(json, 'correlationId') ? undefined : json['correlationId'],
         'echoToken': !exists(json, 'echoToken') ? undefined : json['echoToken'],
         'enforceAllowed': !exists(json, 'enforceAllowed') ? undefined : json['enforceAllowed'],
-        'errors': !exists(json, 'errors') ? undefined : ErrorsTypeFromJSON(json['errors']),
+        'errors': !exists(json, 'errors') ? undefined : ((json['errors'] as Array<any>).map(ErrorTypeFromJSON)),
         'retryAllowed': !exists(json, 'retryAllowed') ? undefined : json['retryAllowed'],
         'success': !exists(json, 'success') ? undefined : json['success'],
         'timeStamp': !exists(json, 'timeStamp') ? undefined : json['timeStamp'],
         'useLocalAllowed': !exists(json, 'useLocalAllowed') ? undefined : json['useLocalAllowed'],
         'version': !exists(json, 'version') ? undefined : json['version'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -138,13 +138,13 @@ export function ChangeRevenueTransactionCodesDetailsToJSON(value?: ChangeRevenue
         'correlationId': value.correlationId,
         'echoToken': value.echoToken,
         'enforceAllowed': value.enforceAllowed,
-        'errors': ErrorsTypeToJSON(value.errors),
+        'errors': value.errors === undefined ? undefined : ((value.errors as Array<any>).map(ErrorTypeToJSON)),
         'retryAllowed': value.retryAllowed,
         'success': value.success,
         'timeStamp': value.timeStamp,
         'useLocalAllowed': value.useLocalAllowed,
         'version': value.version,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ScriptsType } from './ScriptsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ScriptType } from './ScriptType';
 import {
-    ScriptsTypeFromJSON,
-    ScriptsTypeFromJSONTyped,
-    ScriptsTypeToJSON,
-} from './ScriptsType';
-import type { WarningsType } from './WarningsType';
+    ScriptTypeFromJSON,
+    ScriptTypeFromJSONTyped,
+    ScriptTypeToJSON,
+} from './ScriptType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Scripts.
@@ -40,22 +40,22 @@ import {
 export interface ScriptsCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ScriptsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ScriptsType}
+     * A Script associated to either Chain, CRO or Property and to a Language and/or Membership Type.
+     * @type {Array<ScriptType>}
      * @memberof ScriptsCriteria
      */
-    scripts?: ScriptsType;
+    scripts?: Array<ScriptType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ScriptsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ScriptsCriteriaFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'scripts': !exists(json, 'scripts') ? undefined : ScriptsTypeFromJSON(json['scripts']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'scripts': !exists(json, 'scripts') ? undefined : ((json['scripts'] as Array<any>).map(ScriptTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ScriptsCriteriaToJSON(value?: ScriptsCriteria | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'scripts': ScriptsTypeToJSON(value.scripts),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'scripts': value.scripts === undefined ? undefined : ((value.scripts as Array<any>).map(ScriptTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

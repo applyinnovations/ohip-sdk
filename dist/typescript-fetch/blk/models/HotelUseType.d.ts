@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AccessRestrictionsType } from './AccessRestrictionsType';
+import type { BlockAccessRestrictionType } from './BlockAccessRestrictionType';
 /**
  *
  * @export
@@ -17,11 +17,11 @@ import type { AccessRestrictionsType } from './AccessRestrictionsType';
  */
 export interface HotelUseType {
     /**
-     *
-     * @type {AccessRestrictionsType}
+     * Block access exclusion/restriction type.
+     * @type {Array<BlockAccessRestrictionType>}
      * @memberof HotelUseType
      */
-    accessRestrictions?: AccessRestrictionsType;
+    accessRestrictions?: Array<BlockAccessRestrictionType>;
     /**
      * Indicates whether this business block can be updated only by the Hotel to which it belongs. This is used to communicate to CRO that the business block can be only updated by the Hotel.
      * @type {boolean}

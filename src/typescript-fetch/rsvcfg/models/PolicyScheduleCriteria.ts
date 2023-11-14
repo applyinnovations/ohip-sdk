@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { PolicyScheduleType } from './PolicyScheduleType';
 import {
     PolicyScheduleTypeFromJSON,
     PolicyScheduleTypeFromJSONTyped,
     PolicyScheduleTypeToJSON,
 } from './PolicyScheduleType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Creates the Policy schedule based on the details provided by the request.
@@ -40,10 +40,10 @@ import {
 export interface PolicyScheduleCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PolicyScheduleCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {PolicyScheduleType}
@@ -51,11 +51,11 @@ export interface PolicyScheduleCriteria {
      */
     policySchedule?: PolicyScheduleType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PolicyScheduleCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function PolicyScheduleCriteriaFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'policySchedule': !exists(json, 'policySchedule') ? undefined : PolicyScheduleTypeFromJSON(json['policySchedule']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function PolicyScheduleCriteriaToJSON(value?: PolicyScheduleCriteria | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'policySchedule': PolicyScheduleTypeToJSON(value.policySchedule),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

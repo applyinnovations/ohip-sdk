@@ -13,36 +13,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CateringMenuDetailListType } from './CateringMenuDetailListType';
+import type { CateringMenuDetailType } from './CateringMenuDetailType';
 import {
-    CateringMenuDetailListTypeFromJSON,
-    CateringMenuDetailListTypeFromJSONTyped,
-    CateringMenuDetailListTypeToJSON,
-} from './CateringMenuDetailListType';
+    CateringMenuDetailTypeFromJSON,
+    CateringMenuDetailTypeFromJSONTyped,
+    CateringMenuDetailTypeToJSON,
+} from './CateringMenuDetailType';
 import type { CateringMenuInfoType } from './CateringMenuInfoType';
 import {
     CateringMenuInfoTypeFromJSON,
     CateringMenuInfoTypeFromJSONTyped,
     CateringMenuInfoTypeToJSON,
 } from './CateringMenuInfoType';
-import type { CateringMenuRevListType } from './CateringMenuRevListType';
+import type { CateringMenuRevType } from './CateringMenuRevType';
 import {
-    CateringMenuRevListTypeFromJSON,
-    CateringMenuRevListTypeFromJSONTyped,
-    CateringMenuRevListTypeToJSON,
-} from './CateringMenuRevListType';
-import type { CateringMultiChoiceMenuListType } from './CateringMultiChoiceMenuListType';
+    CateringMenuRevTypeFromJSON,
+    CateringMenuRevTypeFromJSONTyped,
+    CateringMenuRevTypeToJSON,
+} from './CateringMenuRevType';
+import type { CateringMultiChoiceMenuType } from './CateringMultiChoiceMenuType';
 import {
-    CateringMultiChoiceMenuListTypeFromJSON,
-    CateringMultiChoiceMenuListTypeFromJSONTyped,
-    CateringMultiChoiceMenuListTypeToJSON,
-} from './CateringMultiChoiceMenuListType';
-import type { EventResourceNotesType } from './EventResourceNotesType';
+    CateringMultiChoiceMenuTypeFromJSON,
+    CateringMultiChoiceMenuTypeFromJSONTyped,
+    CateringMultiChoiceMenuTypeToJSON,
+} from './CateringMultiChoiceMenuType';
+import type { EventResourceNoteType } from './EventResourceNoteType';
 import {
-    EventResourceNotesTypeFromJSON,
-    EventResourceNotesTypeFromJSONTyped,
-    EventResourceNotesTypeToJSON,
-} from './EventResourceNotesType';
+    EventResourceNoteTypeFromJSON,
+    EventResourceNoteTypeFromJSONTyped,
+    EventResourceNoteTypeToJSON,
+} from './EventResourceNoteType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -81,29 +81,29 @@ export interface CateringMenuType {
      */
     info?: CateringMenuInfoType;
     /**
-     * 
-     * @type {CateringMenuDetailListType}
+     * List of Values of Catering Menu Detail.
+     * @type {Array<CateringMenuDetailType>}
      * @memberof CateringMenuType
      */
-    menuDetailList?: CateringMenuDetailListType;
+    menuDetailList?: Array<CateringMenuDetailType>;
     /**
-     * 
-     * @type {EventResourceNotesType}
+     * Contains event resource note information.
+     * @type {Array<EventResourceNoteType>}
      * @memberof CateringMenuType
      */
-    menuNoteList?: EventResourceNotesType;
+    menuNoteList?: Array<EventResourceNoteType>;
     /**
-     * 
-     * @type {CateringMultiChoiceMenuListType}
+     * This type holds Multi choice Menu.
+     * @type {Array<CateringMultiChoiceMenuType>}
      * @memberof CateringMenuType
      */
-    multiChoiceList?: CateringMultiChoiceMenuListType;
+    multiChoiceList?: Array<CateringMultiChoiceMenuType>;
     /**
-     * 
-     * @type {CateringMenuRevListType}
+     * This type holds revenue list.
+     * @type {Array<CateringMenuRevType>}
      * @memberof CateringMenuType
      */
-    revenueList?: CateringMenuRevListType;
+    revenueList?: Array<CateringMenuRevType>;
 }
 
 /**
@@ -129,10 +129,10 @@ export function CateringMenuTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'id': !exists(json, 'id') ? undefined : UniqueIDTypeFromJSON(json['id']),
         'info': !exists(json, 'info') ? undefined : CateringMenuInfoTypeFromJSON(json['info']),
-        'menuDetailList': !exists(json, 'menuDetailList') ? undefined : CateringMenuDetailListTypeFromJSON(json['menuDetailList']),
-        'menuNoteList': !exists(json, 'menuNoteList') ? undefined : EventResourceNotesTypeFromJSON(json['menuNoteList']),
-        'multiChoiceList': !exists(json, 'multiChoiceList') ? undefined : CateringMultiChoiceMenuListTypeFromJSON(json['multiChoiceList']),
-        'revenueList': !exists(json, 'revenueList') ? undefined : CateringMenuRevListTypeFromJSON(json['revenueList']),
+        'menuDetailList': !exists(json, 'menuDetailList') ? undefined : ((json['menuDetailList'] as Array<any>).map(CateringMenuDetailTypeFromJSON)),
+        'menuNoteList': !exists(json, 'menuNoteList') ? undefined : ((json['menuNoteList'] as Array<any>).map(EventResourceNoteTypeFromJSON)),
+        'multiChoiceList': !exists(json, 'multiChoiceList') ? undefined : ((json['multiChoiceList'] as Array<any>).map(CateringMultiChoiceMenuTypeFromJSON)),
+        'revenueList': !exists(json, 'revenueList') ? undefined : ((json['revenueList'] as Array<any>).map(CateringMenuRevTypeFromJSON)),
     };
 }
 
@@ -149,10 +149,10 @@ export function CateringMenuTypeToJSON(value?: CateringMenuType | null): any {
         'hotelId': value.hotelId,
         'id': UniqueIDTypeToJSON(value.id),
         'info': CateringMenuInfoTypeToJSON(value.info),
-        'menuDetailList': CateringMenuDetailListTypeToJSON(value.menuDetailList),
-        'menuNoteList': EventResourceNotesTypeToJSON(value.menuNoteList),
-        'multiChoiceList': CateringMultiChoiceMenuListTypeToJSON(value.multiChoiceList),
-        'revenueList': CateringMenuRevListTypeToJSON(value.revenueList),
+        'menuDetailList': value.menuDetailList === undefined ? undefined : ((value.menuDetailList as Array<any>).map(CateringMenuDetailTypeToJSON)),
+        'menuNoteList': value.menuNoteList === undefined ? undefined : ((value.menuNoteList as Array<any>).map(EventResourceNoteTypeToJSON)),
+        'multiChoiceList': value.multiChoiceList === undefined ? undefined : ((value.multiChoiceList as Array<any>).map(CateringMultiChoiceMenuTypeToJSON)),
+        'revenueList': value.revenueList === undefined ? undefined : ((value.revenueList as Array<any>).map(CateringMenuRevTypeToJSON)),
     };
 }
 

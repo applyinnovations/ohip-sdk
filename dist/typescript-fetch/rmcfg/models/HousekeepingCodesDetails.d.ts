@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HousekeepingCodesConfigType } from './HousekeepingCodesConfigType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HousekeepingCodeConfigType } from './HousekeepingCodeConfigType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching housekeeping codes.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface HousekeepingCodesDetails {
     /**
-     *
-     * @type {HousekeepingCodesConfigType}
+     * List of the housekeeping codes to be configured or fetched
+     * @type {Array<HousekeepingCodeConfigType>}
      * @memberof HousekeepingCodesDetails
      */
-    codes?: HousekeepingCodesConfigType;
+    codes?: Array<HousekeepingCodeConfigType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HousekeepingCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HousekeepingCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HousekeepingCodesDetails interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FiscalRegionsType } from './FiscalRegionsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { FiscalRegionType } from './FiscalRegionType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Fiscal Regions.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FiscalRegionsToBeChanged {
     /**
-     *
-     * @type {FiscalRegionsType}
+     * List of Fiscal Regions.
+     * @type {Array<FiscalRegionType>}
      * @memberof FiscalRegionsToBeChanged
      */
-    fiscalRegions?: FiscalRegionsType;
+    fiscalRegions?: Array<FiscalRegionType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FiscalRegionsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FiscalRegionsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FiscalRegionsToBeChanged interface.

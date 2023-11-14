@@ -16,9 +16,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GuestCheckDetailsToJSON = exports.GuestCheckDetailsFromJSONTyped = exports.GuestCheckDetailsFromJSON = exports.instanceOfGuestCheckDetails = void 0;
 const runtime_1 = require("../runtime");
 const CheckDetailsType_1 = require("./CheckDetailsType");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const ReservationId_1 = require("./ReservationId");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the GuestCheckDetails interface.
  */
@@ -37,9 +37,9 @@ function GuestCheckDetailsFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'checkDetails': !(0, runtime_1.exists)(json, 'checkDetails') ? undefined : (0, CheckDetailsType_1.CheckDetailsTypeFromJSON)(json['checkDetails']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.GuestCheckDetailsFromJSONTyped = GuestCheckDetailsFromJSONTyped;
@@ -52,9 +52,9 @@ function GuestCheckDetailsToJSON(value) {
     }
     return {
         'checkDetails': (0, CheckDetailsType_1.CheckDetailsTypeToJSON)(value.checkDetails),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.GuestCheckDetailsToJSON = GuestCheckDetailsToJSON;

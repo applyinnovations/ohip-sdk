@@ -25,24 +25,24 @@ import {
     HotelReservationInstructionTypeFromJSONTyped,
     HotelReservationInstructionTypeToJSON,
 } from './HotelReservationInstructionType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReservationsInstructionsType } from './ReservationsInstructionsType';
 import {
     ReservationsInstructionsTypeFromJSON,
     ReservationsInstructionsTypeFromJSONTyped,
     ReservationsInstructionsTypeToJSON,
 } from './ReservationsInstructionsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request method to change a reservations information.
@@ -58,10 +58,10 @@ export interface ChangeReservation {
     channelInformation?: ChannelResvRQInfoType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangeReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * A collection of Reservations with information that needs to be changed.
      * @type {Array<HotelReservationInstructionType>}
@@ -75,11 +75,11 @@ export interface ChangeReservation {
      */
     reservationsInstructionsType?: ReservationsInstructionsType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -102,10 +102,10 @@ export function ChangeReservationFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'channelInformation': !exists(json, 'channelInformation') ? undefined : ChannelResvRQInfoTypeFromJSON(json['channelInformation']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservations': !exists(json, 'reservations') ? undefined : ((json['reservations'] as Array<any>).map(HotelReservationInstructionTypeFromJSON)),
         'reservationsInstructionsType': !exists(json, 'reservationsInstructionsType') ? undefined : ReservationsInstructionsTypeFromJSON(json['reservationsInstructionsType']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -119,10 +119,10 @@ export function ChangeReservationToJSON(value?: ChangeReservation | null): any {
     return {
         
         'channelInformation': ChannelResvRQInfoTypeToJSON(value.channelInformation),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservations': value.reservations === undefined ? undefined : ((value.reservations as Array<any>).map(HotelReservationInstructionTypeToJSON)),
         'reservationsInstructionsType': ReservationsInstructionsTypeToJSON(value.reservationsInstructionsType),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ComponentBlockOutDatesToJSON = exports.ComponentBlockOutDatesFromJSONTyped = exports.ComponentBlockOutDatesFromJSON = exports.instanceOfComponentBlockOutDates = void 0;
 const runtime_1 = require("../runtime");
 const DateTimeSpanType_1 = require("./DateTimeSpanType");
-const ReservationIdList_1 = require("./ReservationIdList");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ComponentBlockOutDates interface.
  */
@@ -35,7 +35,7 @@ function ComponentBlockOutDatesFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'dateTimeSpan': !(0, runtime_1.exists)(json, 'dateTimeSpan') ? undefined : (0, DateTimeSpanType_1.DateTimeSpanTypeFromJSON)(json['dateTimeSpan']),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.ComponentBlockOutDatesFromJSONTyped = ComponentBlockOutDatesFromJSONTyped;
@@ -48,7 +48,7 @@ function ComponentBlockOutDatesToJSON(value) {
     }
     return {
         'dateTimeSpan': (0, DateTimeSpanType_1.DateTimeSpanTypeToJSON)(value.dateTimeSpan),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.ComponentBlockOutDatesToJSON = ComponentBlockOutDatesToJSON;

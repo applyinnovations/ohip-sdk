@@ -11,11 +11,10 @@
  */
 import type { AddressInfoType } from './AddressInfoType';
 import type { ChannelAccountDetailsType } from './ChannelAccountDetailsType';
-import type { CodeListType } from './CodeListType';
 import type { EmailInfoType } from './EmailInfoType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import type { TelephoneInfoType } from './TelephoneInfoType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * To hold channel account detailed information.
  * @export
@@ -35,11 +34,11 @@ export interface ChannelAccountSummaryType {
      */
     addressInfo?: AddressInfoType;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof ChannelAccountSummaryType
      */
-    channelAccountIndicators?: IndicatorsType;
+    channelAccountIndicators?: Array<IndicatorType>;
     /**
      * Channel account contract ends on date.
      * @type {Date}
@@ -60,10 +59,10 @@ export interface ChannelAccountSummaryType {
     hotelId?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ChannelAccountSummaryType
      */
-    hotels?: CodeListType;
+    hotels?: Array<string>;
     /**
      * Indicates whether the account is inactive or not.
      * @type {boolean}
@@ -71,11 +70,11 @@ export interface ChannelAccountSummaryType {
      */
     inactive?: boolean;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ChannelAccountSummaryType
      */
-    profileIdList?: UniqueIDListType;
+    profileIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {TelephoneInfoType}

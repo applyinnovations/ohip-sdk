@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ItemIDListType } from './ItemIDListType';
 /**
  * A type which holds the Item pool.
  * @export
@@ -47,11 +46,11 @@ export interface ItemPoolType {
      */
     itemClass?: string;
     /**
-     *
-     * @type {ItemIDListType}
+     * Collection of Item Id which belongs to Item Code.
+     * @type {Array<number>}
      * @memberof ItemPoolType
      */
-    itemIds?: ItemIDListType;
+    itemIds?: Array<number>;
 }
 /**
  * Check if a given object implements the ItemPoolType interface.

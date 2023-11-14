@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CycleFiscalPeriodsType } from './CycleFiscalPeriodsType';
+import type { CycleFiscalPeriodType } from './CycleFiscalPeriodType';
 /**
  * Details of the Cycle Fiscal Periods
  * @export
@@ -17,11 +17,11 @@ import type { CycleFiscalPeriodsType } from './CycleFiscalPeriodsType';
  */
 export interface FiscalPeriodsCycleFiscalPeriods {
     /**
-     *
-     * @type {CycleFiscalPeriodsType}
+     * List of Cycle Fiscal Periods.
+     * @type {Array<CycleFiscalPeriodType>}
      * @memberof FiscalPeriodsCycleFiscalPeriods
      */
-    cycleFiscalPeriods?: CycleFiscalPeriodsType;
+    cycleFiscalPeriods?: Array<CycleFiscalPeriodType>;
     /**
      * If true all overlapping periods will be deleted. No further confirmation required.
      * @type {boolean}

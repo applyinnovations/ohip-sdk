@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CommissionCodesSummaryType } from './CommissionCodesSummaryType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CommissionCodeSummaryInfoType } from './CommissionCodeSummaryInfoType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching commission codes.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CommissionCodesSummary {
     /**
-     *
-     * @type {CommissionCodesSummaryType}
+     * Commission code details.
+     * @type {Array<CommissionCodeSummaryInfoType>}
      * @memberof CommissionCodesSummary
      */
-    commissionCodesSummary?: CommissionCodesSummaryType;
+    commissionCodesSummary?: Array<CommissionCodeSummaryInfoType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CommissionCodesSummary
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CommissionCodesSummary
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CommissionCodesSummary interface.

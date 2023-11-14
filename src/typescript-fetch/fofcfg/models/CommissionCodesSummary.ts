@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CommissionCodesSummaryType } from './CommissionCodesSummaryType';
+import type { CommissionCodeSummaryInfoType } from './CommissionCodeSummaryInfoType';
 import {
-    CommissionCodesSummaryTypeFromJSON,
-    CommissionCodesSummaryTypeFromJSONTyped,
-    CommissionCodesSummaryTypeToJSON,
-} from './CommissionCodesSummaryType';
-import type { Links } from './Links';
+    CommissionCodeSummaryInfoTypeFromJSON,
+    CommissionCodeSummaryInfoTypeFromJSONTyped,
+    CommissionCodeSummaryInfoTypeToJSON,
+} from './CommissionCodeSummaryInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching commission codes.
@@ -39,23 +39,23 @@ import {
  */
 export interface CommissionCodesSummary {
     /**
-     * 
-     * @type {CommissionCodesSummaryType}
+     * Commission code details.
+     * @type {Array<CommissionCodeSummaryInfoType>}
      * @memberof CommissionCodesSummary
      */
-    commissionCodesSummary?: CommissionCodesSummaryType;
+    commissionCodesSummary?: Array<CommissionCodeSummaryInfoType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CommissionCodesSummary
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CommissionCodesSummary
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CommissionCodesSummaryFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'commissionCodesSummary': !exists(json, 'commissionCodesSummary') ? undefined : CommissionCodesSummaryTypeFromJSON(json['commissionCodesSummary']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'commissionCodesSummary': !exists(json, 'commissionCodesSummary') ? undefined : ((json['commissionCodesSummary'] as Array<any>).map(CommissionCodeSummaryInfoTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CommissionCodesSummaryToJSON(value?: CommissionCodesSummary | nu
     }
     return {
         
-        'commissionCodesSummary': CommissionCodesSummaryTypeToJSON(value.commissionCodesSummary),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'commissionCodesSummary': value.commissionCodesSummary === undefined ? undefined : ((value.commissionCodesSummary as Array<any>).map(CommissionCodeSummaryInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

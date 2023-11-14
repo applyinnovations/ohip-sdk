@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AuthorizeCompRedemptionsRQCompRedemptionsType } from './AuthorizeCompRedemptionsRQCompRedemptionsType';
+import type { AuthorizeCompRedemptionsRQCompRedemptionType } from './AuthorizeCompRedemptionsRQCompRedemptionType';
 /**
  * Request type of Complimentary Redemptions for approval.
  * @export
@@ -17,11 +17,11 @@ import type { AuthorizeCompRedemptionsRQCompRedemptionsType } from './AuthorizeC
  */
 export interface AuthorizeCompRedemptionsRQ {
     /**
-     *
-     * @type {AuthorizeCompRedemptionsRQCompRedemptionsType}
+     * Collection of Complimentary Redemptions for approval.
+     * @type {Array<AuthorizeCompRedemptionsRQCompRedemptionType>}
      * @memberof AuthorizeCompRedemptionsRQ
      */
-    compRedemptions?: AuthorizeCompRedemptionsRQCompRedemptionsType;
+    compRedemptions?: Array<AuthorizeCompRedemptionsRQCompRedemptionType>;
 }
 /**
  * Check if a given object implements the AuthorizeCompRedemptionsRQ interface.

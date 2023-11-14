@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CancellationCodesType } from './CancellationCodesType';
+import type { CancellationCodeType } from './CancellationCodeType';
 import {
-    CancellationCodesTypeFromJSON,
-    CancellationCodesTypeFromJSONTyped,
-    CancellationCodesTypeToJSON,
-} from './CancellationCodesType';
-import type { Links } from './Links';
+    CancellationCodeTypeFromJSON,
+    CancellationCodeTypeFromJSONTyped,
+    CancellationCodeTypeToJSON,
+} from './CancellationCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Cancellation Codes.
@@ -39,23 +39,23 @@ import {
  */
 export interface CancellationCodesCriteria {
     /**
-     * 
-     * @type {CancellationCodesType}
+     * List of Cancellation Codes.
+     * @type {Array<CancellationCodeType>}
      * @memberof CancellationCodesCriteria
      */
-    cancellationCodes?: CancellationCodesType;
+    cancellationCodes?: Array<CancellationCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CancellationCodesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CancellationCodesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CancellationCodesCriteriaFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'cancellationCodes': !exists(json, 'cancellationCodes') ? undefined : CancellationCodesTypeFromJSON(json['cancellationCodes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'cancellationCodes': !exists(json, 'cancellationCodes') ? undefined : ((json['cancellationCodes'] as Array<any>).map(CancellationCodeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CancellationCodesCriteriaToJSON(value?: CancellationCodesCriteri
     }
     return {
         
-        'cancellationCodes': CancellationCodesTypeToJSON(value.cancellationCodes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'cancellationCodes': value.cancellationCodes === undefined ? undefined : ((value.cancellationCodes as Array<any>).map(CancellationCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

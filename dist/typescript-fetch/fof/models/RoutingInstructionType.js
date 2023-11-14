@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoutingInstructionTypeToJSON = exports.RoutingInstructionTypeFromJSONTyped = exports.RoutingInstructionTypeFromJSON = exports.instanceOfRoutingInstructionType = void 0;
 const runtime_1 = require("../runtime");
-const BillingInstructionsType_1 = require("./BillingInstructionsType");
+const BillingInstructionType_1 = require("./BillingInstructionType");
 const RoutingInstructionTypeDuration_1 = require("./RoutingInstructionTypeDuration");
-const TrxCodesInfoType_1 = require("./TrxCodesInfoType");
+const TrxInfoType_1 = require("./TrxInfoType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the RoutingInstructionType interface.
@@ -36,14 +36,14 @@ function RoutingInstructionTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'billingInstructions': !(0, runtime_1.exists)(json, 'billingInstructions') ? undefined : (0, BillingInstructionsType_1.BillingInstructionsTypeFromJSON)(json['billingInstructions']),
+        'billingInstructions': !(0, runtime_1.exists)(json, 'billingInstructions') ? undefined : (json['billingInstructions'].map(BillingInstructionType_1.BillingInstructionTypeFromJSON)),
         'covers': !(0, runtime_1.exists)(json, 'covers') ? undefined : json['covers'],
         'creditLimit': !(0, runtime_1.exists)(json, 'creditLimit') ? undefined : json['creditLimit'],
         'duration': !(0, runtime_1.exists)(json, 'duration') ? undefined : (0, RoutingInstructionTypeDuration_1.RoutingInstructionTypeDurationFromJSON)(json['duration']),
         'limitUsed': !(0, runtime_1.exists)(json, 'limitUsed') ? undefined : json['limitUsed'],
         'percentageLimit': !(0, runtime_1.exists)(json, 'percentageLimit') ? undefined : json['percentageLimit'],
         'routingLinkId': !(0, runtime_1.exists)(json, 'routingLinkId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['routingLinkId']),
-        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (0, TrxCodesInfoType_1.TrxCodesInfoTypeFromJSON)(json['transactionCodes']),
+        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (json['transactionCodes'].map(TrxInfoType_1.TrxInfoTypeFromJSON)),
     };
 }
 exports.RoutingInstructionTypeFromJSONTyped = RoutingInstructionTypeFromJSONTyped;
@@ -55,14 +55,14 @@ function RoutingInstructionTypeToJSON(value) {
         return null;
     }
     return {
-        'billingInstructions': (0, BillingInstructionsType_1.BillingInstructionsTypeToJSON)(value.billingInstructions),
+        'billingInstructions': value.billingInstructions === undefined ? undefined : (value.billingInstructions.map(BillingInstructionType_1.BillingInstructionTypeToJSON)),
         'covers': value.covers,
         'creditLimit': value.creditLimit,
         'duration': (0, RoutingInstructionTypeDuration_1.RoutingInstructionTypeDurationToJSON)(value.duration),
         'limitUsed': value.limitUsed,
         'percentageLimit': value.percentageLimit,
         'routingLinkId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.routingLinkId),
-        'transactionCodes': (0, TrxCodesInfoType_1.TrxCodesInfoTypeToJSON)(value.transactionCodes),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : (value.transactionCodes.map(TrxInfoType_1.TrxInfoTypeToJSON)),
     };
 }
 exports.RoutingInstructionTypeToJSON = RoutingInstructionTypeToJSON;

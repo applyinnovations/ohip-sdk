@@ -19,18 +19,18 @@ import {
     EarlyDepartureInfoTypeFromJSONTyped,
     EarlyDepartureInfoTypeToJSON,
 } from './EarlyDepartureInfoType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for Early departure verification. Contains information regarding early departure penalty amount if applicable and any errors or warnings as to why the early departure cannot be done. Possible error codes are: FOF00152: An early departure could result in a change to the room rate, due to the reduced length of stay. FOF00153: Exchange Rates not setup for {currency code} . FOF00155: The partially consumed package(s) will be charged to the guest account. FOF00156: There is a Rate Code Restriction for {restriction information}. FOF00157: The reservation status is not valid for an early departure. FOF00158: Early Departure is not required as the reservation is already in Due Out status.
@@ -46,16 +46,16 @@ export interface EarlyDepartureInfo {
     earlyDepartureDetails?: EarlyDepartureInfoType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EarlyDepartureInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EarlyDepartureInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -78,8 +78,8 @@ export function EarlyDepartureInfoFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'earlyDepartureDetails': !exists(json, 'earlyDepartureDetails') ? undefined : EarlyDepartureInfoTypeFromJSON(json['earlyDepartureDetails']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -93,8 +93,8 @@ export function EarlyDepartureInfoToJSON(value?: EarlyDepartureInfo | null): any
     return {
         
         'earlyDepartureDetails': EarlyDepartureInfoTypeToJSON(value.earlyDepartureDetails),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

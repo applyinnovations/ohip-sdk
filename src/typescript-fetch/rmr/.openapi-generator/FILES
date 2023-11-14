@@ -11,7 +11,6 @@ models/GetReservationRotationPoints.ts
 models/GetReservationRotationPointsDetails.ts
 models/GetRoomRotationPoints.ts
 models/InstanceLink.ts
-models/Links.ts
 models/ProfileId.ts
 models/PutReservationRotationPointsDetails.ts
 models/RESTPaginationGroup.ts
@@ -31,6 +30,5 @@ models/RotationRuleCalculationRuleType.ts
 models/Status.ts
 models/UniqueIDType.ts
 models/WarningType.ts
-models/WarningsType.ts
 models/index.ts
 runtime.ts

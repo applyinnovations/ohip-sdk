@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateRoomMaintenanceReasonsType } from './TemplateRoomMaintenanceReasonsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TemplateRoomMaintenanceReasonType } from './TemplateRoomMaintenanceReasonType';
 import {
-    TemplateRoomMaintenanceReasonsTypeFromJSON,
-    TemplateRoomMaintenanceReasonsTypeFromJSONTyped,
-    TemplateRoomMaintenanceReasonsTypeToJSON,
-} from './TemplateRoomMaintenanceReasonsType';
-import type { WarningsType } from './WarningsType';
+    TemplateRoomMaintenanceReasonTypeFromJSON,
+    TemplateRoomMaintenanceReasonTypeFromJSONTyped,
+    TemplateRoomMaintenanceReasonTypeToJSON,
+} from './TemplateRoomMaintenanceReasonType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating new template room maintenance reasons.
@@ -40,22 +40,22 @@ import {
 export interface TemplateRoomMaintenanceReasonsCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateRoomMaintenanceReasonsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TemplateRoomMaintenanceReasonsType}
+     * Details for room maintenance reason at template level.
+     * @type {Array<TemplateRoomMaintenanceReasonType>}
      * @memberof TemplateRoomMaintenanceReasonsCriteria
      */
-    templateRoomMaintenanceReasons?: TemplateRoomMaintenanceReasonsType;
+    templateRoomMaintenanceReasons?: Array<TemplateRoomMaintenanceReasonType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateRoomMaintenanceReasonsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateRoomMaintenanceReasonsCriteriaFromJSONTyped(json: any, i
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'templateRoomMaintenanceReasons': !exists(json, 'templateRoomMaintenanceReasons') ? undefined : TemplateRoomMaintenanceReasonsTypeFromJSON(json['templateRoomMaintenanceReasons']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'templateRoomMaintenanceReasons': !exists(json, 'templateRoomMaintenanceReasons') ? undefined : ((json['templateRoomMaintenanceReasons'] as Array<any>).map(TemplateRoomMaintenanceReasonTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateRoomMaintenanceReasonsCriteriaToJSON(value?: TemplateRoo
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'templateRoomMaintenanceReasons': TemplateRoomMaintenanceReasonsTypeToJSON(value.templateRoomMaintenanceReasons),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'templateRoomMaintenanceReasons': value.templateRoomMaintenanceReasons === undefined ? undefined : ((value.templateRoomMaintenanceReasons as Array<any>).map(TemplateRoomMaintenanceReasonTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

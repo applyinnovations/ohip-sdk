@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationFolioInfoType } from './ReservationFolioInfoType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+import type { TrxInfoType } from './TrxInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response to the request to get Financial Information for a Reservation
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface Folio {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Folio
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationFolioInfoType}
@@ -32,17 +32,17 @@ export interface Folio {
      */
     reservationFolioInformation?: ReservationFolioInfoType;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof Folio
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Folio
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Folio interface.

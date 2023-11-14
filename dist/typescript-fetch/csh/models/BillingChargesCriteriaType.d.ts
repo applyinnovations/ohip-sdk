@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChargesCriteriaType } from './ChargesCriteriaType';
+import type { ChargeCriteriaType } from './ChargeCriteriaType';
 import type { ReservationId } from './ReservationId';
 /**
  * Criteria type for posting charges.
@@ -24,11 +24,11 @@ export interface BillingChargesCriteriaType {
      */
     cashierId?: number;
     /**
-     *
-     * @type {ChargesCriteriaType}
+     * Collection of Charges to be posted.
+     * @type {Array<ChargeCriteriaType>}
      * @memberof BillingChargesCriteriaType
      */
-    charges?: ChargesCriteriaType;
+    charges?: Array<ChargeCriteriaType>;
     /**
      * Property where the charges are to be posted.
      * @type {string}

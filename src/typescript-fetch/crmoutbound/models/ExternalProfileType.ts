@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { IncidentsType } from './IncidentsType';
+import type { IncidentType } from './IncidentType';
 import {
-    IncidentsTypeFromJSON,
-    IncidentsTypeFromJSONTyped,
-    IncidentsTypeToJSON,
-} from './IncidentsType';
-import type { ProfileIdList } from './ProfileIdList';
-import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
+    IncidentTypeFromJSON,
+    IncidentTypeFromJSONTyped,
+    IncidentTypeToJSON,
+} from './IncidentType';
 import type { ProfileType } from './ProfileType';
 import {
     ProfileTypeFromJSON,
     ProfileTypeFromJSONTyped,
     ProfileTypeToJSON,
 } from './ProfileType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Type provides the detailed information about the profile.
@@ -39,11 +39,11 @@ import {
  */
 export interface ExternalProfileType {
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ExternalProfileType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {ProfileType}
@@ -51,11 +51,11 @@ export interface ExternalProfileType {
      */
     profile?: ProfileType;
     /**
-     * 
-     * @type {IncidentsType}
+     * Collection of Incidents for the profile.
+     * @type {Array<IncidentType>}
      * @memberof ExternalProfileType
      */
-    incidents?: IncidentsType;
+    incidents?: Array<IncidentType>;
     /**
      * Guest Status for the Profile.
      * @type {string}
@@ -83,9 +83,9 @@ export function ExternalProfileTypeFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'profile': !exists(json, 'profile') ? undefined : ProfileTypeFromJSON(json['profile']),
-        'incidents': !exists(json, 'incidents') ? undefined : IncidentsTypeFromJSON(json['incidents']),
+        'incidents': !exists(json, 'incidents') ? undefined : ((json['incidents'] as Array<any>).map(IncidentTypeFromJSON)),
         'guestStatus': !exists(json, 'guestStatus') ? undefined : json['guestStatus'],
     };
 }
@@ -99,9 +99,9 @@ export function ExternalProfileTypeToJSON(value?: ExternalProfileType | null): a
     }
     return {
         
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'profile': ProfileTypeToJSON(value.profile),
-        'incidents': IncidentsTypeToJSON(value.incidents),
+        'incidents': value.incidents === undefined ? undefined : ((value.incidents as Array<any>).map(IncidentTypeToJSON)),
         'guestStatus': value.guestStatus,
     };
 }

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HousekeepingAttendantsConfigType } from './HousekeepingAttendantsConfigType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HousekeepingAttendantType } from './HousekeepingAttendantType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Housekeeping Attendants.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface HousekeepingAttendantsDetails {
     /**
-     *
-     * @type {HousekeepingAttendantsConfigType}
+     * Housekeeping Attendant Information.
+     * @type {Array<HousekeepingAttendantType>}
      * @memberof HousekeepingAttendantsDetails
      */
-    housekeepingAttendants?: HousekeepingAttendantsConfigType;
+    housekeepingAttendants?: Array<HousekeepingAttendantType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HousekeepingAttendantsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HousekeepingAttendantsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HousekeepingAttendantsDetails interface.

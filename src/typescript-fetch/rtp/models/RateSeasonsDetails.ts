@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RateSeasonsType } from './RateSeasonsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RateSeasonType } from './RateSeasonType';
 import {
-    RateSeasonsTypeFromJSON,
-    RateSeasonsTypeFromJSONTyped,
-    RateSeasonsTypeToJSON,
-} from './RateSeasonsType';
-import type { WarningsType } from './WarningsType';
+    RateSeasonTypeFromJSON,
+    RateSeasonTypeFromJSONTyped,
+    RateSeasonTypeToJSON,
+} from './RateSeasonType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching rate seasons for a hotel.
@@ -58,10 +58,10 @@ export interface RateSeasonsDetails {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RateSeasonsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -69,11 +69,11 @@ export interface RateSeasonsDetails {
      */
     offset?: number;
     /**
-     * 
-     * @type {RateSeasonsType}
+     * Hotel rate season details.
+     * @type {Array<RateSeasonType>}
      * @memberof RateSeasonsDetails
      */
-    rateSeasons?: RateSeasonsType;
+    rateSeasons?: Array<RateSeasonType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -87,11 +87,11 @@ export interface RateSeasonsDetails {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RateSeasonsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -116,12 +116,12 @@ export function RateSeasonsDetailsFromJSONTyped(json: any, ignoreDiscriminator: 
         'count': !exists(json, 'count') ? undefined : json['count'],
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
-        'rateSeasons': !exists(json, 'rateSeasons') ? undefined : RateSeasonsTypeFromJSON(json['rateSeasons']),
+        'rateSeasons': !exists(json, 'rateSeasons') ? undefined : ((json['rateSeasons'] as Array<any>).map(RateSeasonTypeFromJSON)),
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -137,12 +137,12 @@ export function RateSeasonsDetailsToJSON(value?: RateSeasonsDetails | null): any
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
-        'rateSeasons': RateSeasonsTypeToJSON(value.rateSeasons),
+        'rateSeasons': value.rateSeasons === undefined ? undefined : ((value.rateSeasons as Array<any>).map(RateSeasonTypeToJSON)),
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

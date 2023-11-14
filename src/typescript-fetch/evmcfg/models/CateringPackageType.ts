@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CateringPackageEventListType } from './CateringPackageEventListType';
+import type { CateringPackageEventType } from './CateringPackageEventType';
 import {
-    CateringPackageEventListTypeFromJSON,
-    CateringPackageEventListTypeFromJSONTyped,
-    CateringPackageEventListTypeToJSON,
-} from './CateringPackageEventListType';
+    CateringPackageEventTypeFromJSON,
+    CateringPackageEventTypeFromJSONTyped,
+    CateringPackageEventTypeToJSON,
+} from './CateringPackageEventType';
 import type { CateringPackageInfoType } from './CateringPackageInfoType';
 import {
     CateringPackageInfoTypeFromJSON,
     CateringPackageInfoTypeFromJSONTyped,
     CateringPackageInfoTypeToJSON,
 } from './CateringPackageInfoType';
-import type { CateringPackagePricingListType } from './CateringPackagePricingListType';
+import type { CateringPackagePricingType } from './CateringPackagePricingType';
 import {
-    CateringPackagePricingListTypeFromJSON,
-    CateringPackagePricingListTypeFromJSONTyped,
-    CateringPackagePricingListTypeToJSON,
-} from './CateringPackagePricingListType';
+    CateringPackagePricingTypeFromJSON,
+    CateringPackagePricingTypeFromJSONTyped,
+    CateringPackagePricingTypeToJSON,
+} from './CateringPackagePricingType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -45,11 +45,11 @@ import {
  */
 export interface CateringPackageType {
     /**
-     * 
-     * @type {CateringPackageEventListType}
+     * Collection of multiple Events associated with a particular Catering Packages.
+     * @type {Array<CateringPackageEventType>}
      * @memberof CateringPackageType
      */
-    eventsList?: CateringPackageEventListType;
+    eventsList?: Array<CateringPackageEventType>;
     /**
      * Hotel Code associated with the Catering Package.
      * @type {string}
@@ -69,11 +69,11 @@ export interface CateringPackageType {
      */
     pkgId?: UniqueIDType;
     /**
-     * 
-     * @type {CateringPackagePricingListType}
+     * Collection of multiple Pricing Details associated with a particular Catering Package.
+     * @type {Array<CateringPackagePricingType>}
      * @memberof CateringPackageType
      */
-    pricingList?: CateringPackagePricingListType;
+    pricingList?: Array<CateringPackagePricingType>;
 }
 
 /**
@@ -95,11 +95,11 @@ export function CateringPackageTypeFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'eventsList': !exists(json, 'eventsList') ? undefined : CateringPackageEventListTypeFromJSON(json['eventsList']),
+        'eventsList': !exists(json, 'eventsList') ? undefined : ((json['eventsList'] as Array<any>).map(CateringPackageEventTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'packageDetail': !exists(json, 'packageDetail') ? undefined : CateringPackageInfoTypeFromJSON(json['packageDetail']),
         'pkgId': !exists(json, 'pkgId') ? undefined : UniqueIDTypeFromJSON(json['pkgId']),
-        'pricingList': !exists(json, 'pricingList') ? undefined : CateringPackagePricingListTypeFromJSON(json['pricingList']),
+        'pricingList': !exists(json, 'pricingList') ? undefined : ((json['pricingList'] as Array<any>).map(CateringPackagePricingTypeFromJSON)),
     };
 }
 
@@ -112,11 +112,11 @@ export function CateringPackageTypeToJSON(value?: CateringPackageType | null): a
     }
     return {
         
-        'eventsList': CateringPackageEventListTypeToJSON(value.eventsList),
+        'eventsList': value.eventsList === undefined ? undefined : ((value.eventsList as Array<any>).map(CateringPackageEventTypeToJSON)),
         'hotelId': value.hotelId,
         'packageDetail': CateringPackageInfoTypeToJSON(value.packageDetail),
         'pkgId': UniqueIDTypeToJSON(value.pkgId),
-        'pricingList': CateringPackagePricingListTypeToJSON(value.pricingList),
+        'pricingList': value.pricingList === undefined ? undefined : ((value.pricingList as Array<any>).map(CateringPackagePricingTypeToJSON)),
     };
 }
 

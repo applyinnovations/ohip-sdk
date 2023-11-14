@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserDefinedFieldsTypeToJSON = exports.UserDefinedFieldsTypeFromJSONTyped = exports.UserDefinedFieldsTypeFromJSON = exports.instanceOfUserDefinedFieldsType = void 0;
 const runtime_1 = require("../runtime");
-const CharacterUDFsType_1 = require("./CharacterUDFsType");
-const DateUDFsType_1 = require("./DateUDFsType");
-const NumericUDFsType_1 = require("./NumericUDFsType");
+const CharacterUDFType_1 = require("./CharacterUDFType");
+const DateUDFType_1 = require("./DateUDFType");
+const NumericUDFType_1 = require("./NumericUDFType");
 /**
  * Check if a given object implements the UserDefinedFieldsType interface.
  */
@@ -35,9 +35,9 @@ function UserDefinedFieldsTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'characterUDFs': !(0, runtime_1.exists)(json, 'characterUDFs') ? undefined : (0, CharacterUDFsType_1.CharacterUDFsTypeFromJSON)(json['characterUDFs']),
-        'numericUDFs': !(0, runtime_1.exists)(json, 'numericUDFs') ? undefined : (0, NumericUDFsType_1.NumericUDFsTypeFromJSON)(json['numericUDFs']),
-        'dateUDFs': !(0, runtime_1.exists)(json, 'dateUDFs') ? undefined : (0, DateUDFsType_1.DateUDFsTypeFromJSON)(json['dateUDFs']),
+        'characterUDFs': !(0, runtime_1.exists)(json, 'characterUDFs') ? undefined : (json['characterUDFs'].map(CharacterUDFType_1.CharacterUDFTypeFromJSON)),
+        'numericUDFs': !(0, runtime_1.exists)(json, 'numericUDFs') ? undefined : (json['numericUDFs'].map(NumericUDFType_1.NumericUDFTypeFromJSON)),
+        'dateUDFs': !(0, runtime_1.exists)(json, 'dateUDFs') ? undefined : (json['dateUDFs'].map(DateUDFType_1.DateUDFTypeFromJSON)),
     };
 }
 exports.UserDefinedFieldsTypeFromJSONTyped = UserDefinedFieldsTypeFromJSONTyped;
@@ -49,9 +49,9 @@ function UserDefinedFieldsTypeToJSON(value) {
         return null;
     }
     return {
-        'characterUDFs': (0, CharacterUDFsType_1.CharacterUDFsTypeToJSON)(value.characterUDFs),
-        'numericUDFs': (0, NumericUDFsType_1.NumericUDFsTypeToJSON)(value.numericUDFs),
-        'dateUDFs': (0, DateUDFsType_1.DateUDFsTypeToJSON)(value.dateUDFs),
+        'characterUDFs': value.characterUDFs === undefined ? undefined : (value.characterUDFs.map(CharacterUDFType_1.CharacterUDFTypeToJSON)),
+        'numericUDFs': value.numericUDFs === undefined ? undefined : (value.numericUDFs.map(NumericUDFType_1.NumericUDFTypeToJSON)),
+        'dateUDFs': value.dateUDFs === undefined ? undefined : (value.dateUDFs.map(DateUDFType_1.DateUDFTypeToJSON)),
     };
 }
 exports.UserDefinedFieldsTypeToJSON = UserDefinedFieldsTypeToJSON;

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Holds Reservation Id and Hotel Code.
@@ -33,11 +33,11 @@ export interface CallTypeReservation {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CallTypeReservation
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -60,7 +60,7 @@ export function CallTypeReservationFromJSONTyped(json: any, ignoreDiscriminator:
     return {
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -74,7 +74,7 @@ export function CallTypeReservationToJSON(value?: CallTypeReservation | null): a
     return {
         
         'hotelId': value.hotelId,
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

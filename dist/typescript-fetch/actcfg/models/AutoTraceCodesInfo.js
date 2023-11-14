@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AutoTraceCodesInfoToJSON = exports.AutoTraceCodesInfoFromJSONTyped = exports.AutoTraceCodesInfoFromJSON = exports.instanceOfAutoTraceCodesInfo = void 0;
 const runtime_1 = require("../runtime");
-const AutoTraceCodesListType_1 = require("./AutoTraceCodesListType");
-const WarningsType_1 = require("./WarningsType");
+const AutoTraceCodeDetailType_1 = require("./AutoTraceCodeDetailType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AutoTraceCodesInfo interface.
  */
@@ -34,8 +34,8 @@ function AutoTraceCodesInfoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'autoTraceCodesConfig': !(0, runtime_1.exists)(json, 'autoTraceCodesConfig') ? undefined : (0, AutoTraceCodesListType_1.AutoTraceCodesListTypeFromJSON)(json['autoTraceCodesConfig']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'autoTraceCodesConfig': !(0, runtime_1.exists)(json, 'autoTraceCodesConfig') ? undefined : (json['autoTraceCodesConfig'].map(AutoTraceCodeDetailType_1.AutoTraceCodeDetailTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AutoTraceCodesInfoFromJSONTyped = AutoTraceCodesInfoFromJSONTyped;
@@ -47,8 +47,8 @@ function AutoTraceCodesInfoToJSON(value) {
         return null;
     }
     return {
-        'autoTraceCodesConfig': (0, AutoTraceCodesListType_1.AutoTraceCodesListTypeToJSON)(value.autoTraceCodesConfig),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'autoTraceCodesConfig': value.autoTraceCodesConfig === undefined ? undefined : (value.autoTraceCodesConfig.map(AutoTraceCodeDetailType_1.AutoTraceCodeDetailTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AutoTraceCodesInfoToJSON = AutoTraceCodesInfoToJSON;

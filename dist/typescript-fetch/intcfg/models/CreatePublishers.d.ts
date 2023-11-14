@@ -10,9 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ExternalSystemType } from './ExternalSystemType';
-import type { Links } from './Links';
-import type { PublishersType } from './PublishersType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to create publishers.
  * @export
@@ -21,16 +20,16 @@ import type { WarningsType } from './WarningsType';
 export interface CreatePublishers {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreatePublishers
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {PublishersType}
+     * Information of all the publishers for a given subscriber.
+     * @type {Array<ExternalSystemType>}
      * @memberof CreatePublishers
      */
-    publishers?: PublishersType;
+    publishers?: Array<ExternalSystemType>;
     /**
      *
      * @type {ExternalSystemType}
@@ -38,11 +37,11 @@ export interface CreatePublishers {
      */
     subscriber?: ExternalSystemType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreatePublishers
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreatePublishers interface.

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ActivityListType } from './ActivityListType';
+import type { ActivityDetailsType } from './ActivityDetailsType';
 import {
-    ActivityListTypeFromJSON,
-    ActivityListTypeFromJSONTyped,
-    ActivityListTypeToJSON,
-} from './ActivityListType';
-import type { Links } from './Links';
+    ActivityDetailsTypeFromJSON,
+    ActivityDetailsTypeFromJSONTyped,
+    ActivityDetailsTypeToJSON,
+} from './ActivityDetailsType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,11 +39,11 @@ import {
  */
 export interface PutActivitiesRequest {
     /**
-     * 
-     * @type {ActivityListType}
+     * Activity information in detail.
+     * @type {Array<ActivityDetailsType>}
      * @memberof PutActivitiesRequest
      */
-    activitiesInformation?: ActivityListType;
+    activitiesInformation?: Array<ActivityDetailsType>;
     /**
      * Signifies whether only activity details are being modified.
      * @type {boolean}
@@ -58,10 +58,10 @@ export interface PutActivitiesRequest {
     completeMode?: boolean;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PutActivitiesRequest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Signifies whether the linked activity details should be modified or not.
      * @type {boolean}
@@ -69,11 +69,11 @@ export interface PutActivitiesRequest {
      */
     updateLinkedActivities?: boolean;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PutActivitiesRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -95,12 +95,12 @@ export function PutActivitiesRequestFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'activitiesInformation': !exists(json, 'activitiesInformation') ? undefined : ActivityListTypeFromJSON(json['activitiesInformation']),
+        'activitiesInformation': !exists(json, 'activitiesInformation') ? undefined : ((json['activitiesInformation'] as Array<any>).map(ActivityDetailsTypeFromJSON)),
         'activityDetailsEditFlag': !exists(json, 'activityDetailsEditFlag') ? undefined : json['activityDetailsEditFlag'],
         'completeMode': !exists(json, 'completeMode') ? undefined : json['completeMode'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'updateLinkedActivities': !exists(json, 'updateLinkedActivities') ? undefined : json['updateLinkedActivities'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -113,12 +113,12 @@ export function PutActivitiesRequestToJSON(value?: PutActivitiesRequest | null):
     }
     return {
         
-        'activitiesInformation': ActivityListTypeToJSON(value.activitiesInformation),
+        'activitiesInformation': value.activitiesInformation === undefined ? undefined : ((value.activitiesInformation as Array<any>).map(ActivityDetailsTypeToJSON)),
         'activityDetailsEditFlag': value.activityDetailsEditFlag,
         'completeMode': value.completeMode,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'updateLinkedActivities': value.updateLinkedActivities,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

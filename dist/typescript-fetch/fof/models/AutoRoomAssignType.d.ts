@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ErrorsType } from './ErrorsType';
+import type { ErrorType } from './ErrorType';
 import type { ReservationId } from './ReservationId';
 import type { UniqueIDType } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Collection of error and warning if any.
  * @export
@@ -38,11 +38,11 @@ export interface AutoRoomAssignType {
      */
     departureDate?: string;
     /**
-     *
-     * @type {ErrorsType}
+     * An error that occurred during the processing of a message.
+     * @type {Array<ErrorType>}
      * @memberof AutoRoomAssignType
      */
-    errors?: ErrorsType;
+    errors?: Array<ErrorType>;
     /**
      * Guest name associated to the reservation.
      * @type {string}
@@ -62,11 +62,11 @@ export interface AutoRoomAssignType {
      */
     roomId?: string;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoRoomAssignType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AutoRoomAssignType interface.

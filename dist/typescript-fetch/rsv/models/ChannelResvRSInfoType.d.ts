@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChannelMarketingInfoType } from './ChannelMarketingInfoType';
+import type { ChannelMarketingInfoTypeInner } from './ChannelMarketingInfoTypeInner';
 import type { ChannelResvStatusType } from './ChannelResvStatusType';
 import type { ChannelSummaryInfoType } from './ChannelSummaryInfoType';
 /**
@@ -19,11 +19,11 @@ import type { ChannelSummaryInfoType } from './ChannelSummaryInfoType';
  */
 export interface ChannelResvRSInfoType {
     /**
-     *
-     * @type {ChannelMarketingInfoType}
+     * Marketing Text like cancel policy, deposit policy etc.
+     * @type {Array<ChannelMarketingInfoTypeInner>}
      * @memberof ChannelResvRSInfoType
      */
-    channelMarketingInfo?: ChannelMarketingInfoType;
+    channelMarketingInfo?: Array<ChannelMarketingInfoTypeInner>;
     /**
      *
      * @type {ChannelResvStatusType}

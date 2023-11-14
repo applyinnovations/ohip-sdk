@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.HasFuturePastBookingsSearchTypeToJSON = exports.HasFuturePastBookingsSearchTypeFromJSONTyped = exports.HasFuturePastBookingsSearchTypeFromJSON = exports.instanceOfHasFuturePastBookingsSearchType = exports.HasFuturePastBookingsSearchTypeSearchInEnum = exports.HasFuturePastBookingsSearchTypeSearchForEnum = void 0;
 const runtime_1 = require("../runtime");
 const HasFuturePastBookingsExclusionsType_1 = require("./HasFuturePastBookingsExclusionsType");
-const ProfileIdList_1 = require("./ProfileIdList");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * @export
  */
@@ -49,7 +49,7 @@ function HasFuturePastBookingsSearchTypeFromJSONTyped(json, ignoreDiscriminator)
     }
     return {
         'exclusions': !(0, runtime_1.exists)(json, 'exclusions') ? undefined : (0, HasFuturePastBookingsExclusionsType_1.HasFuturePastBookingsExclusionsTypeFromJSON)(json['exclusions']),
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'rateCode': !(0, runtime_1.exists)(json, 'rateCode') ? undefined : json['rateCode'],
         'searchFor': !(0, runtime_1.exists)(json, 'searchFor') ? undefined : json['searchFor'],
         'searchIn': !(0, runtime_1.exists)(json, 'searchIn') ? undefined : json['searchIn'],
@@ -65,7 +65,7 @@ function HasFuturePastBookingsSearchTypeToJSON(value) {
     }
     return {
         'exclusions': (0, HasFuturePastBookingsExclusionsType_1.HasFuturePastBookingsExclusionsTypeToJSON)(value.exclusions),
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'rateCode': value.rateCode,
         'searchFor': value.searchFor,
         'searchIn': value.searchIn,

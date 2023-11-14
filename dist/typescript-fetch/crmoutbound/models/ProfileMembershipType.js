@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfileMembershipTypeToJSON = exports.ProfileMembershipTypeFromJSONTyped = exports.ProfileMembershipTypeFromJSON = exports.instanceOfProfileMembershipType = void 0;
 const runtime_1 = require("../runtime");
-const BenefitsType_1 = require("./BenefitsType");
+const BenefitType_1 = require("./BenefitType");
 const CardReIssueType_1 = require("./CardReIssueType");
 const DowngradeType_1 = require("./DowngradeType");
 const MembershipEarningPreferenceType_1 = require("./MembershipEarningPreferenceType");
@@ -47,7 +47,7 @@ function ProfileMembershipTypeFromJSONTyped(json, ignoreDiscriminator) {
         'membershipClass': !(0, runtime_1.exists)(json, 'membershipClass') ? undefined : json['membershipClass'],
         'earningPreference': !(0, runtime_1.exists)(json, 'earningPreference') ? undefined : (0, MembershipEarningPreferenceType_1.MembershipEarningPreferenceTypeFromJSON)(json['earningPreference']),
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
-        'benefits': !(0, runtime_1.exists)(json, 'benefits') ? undefined : (0, BenefitsType_1.BenefitsTypeFromJSON)(json['benefits']),
+        'benefits': !(0, runtime_1.exists)(json, 'benefits') ? undefined : (json['benefits'].map(BenefitType_1.BenefitTypeFromJSON)),
         'tierAdministration': !(0, runtime_1.exists)(json, 'tierAdministration') ? undefined : (0, TierAdministrationType_1.TierAdministrationTypeFromJSON)(json['tierAdministration']),
         'downgrade': !(0, runtime_1.exists)(json, 'downgrade') ? undefined : (0, DowngradeType_1.DowngradeTypeFromJSON)(json['downgrade']),
         'reIssueNewCard': !(0, runtime_1.exists)(json, 'reIssueNewCard') ? undefined : (0, CardReIssueType_1.CardReIssueTypeFromJSON)(json['reIssueNewCard']),
@@ -97,7 +97,7 @@ function ProfileMembershipTypeToJSON(value) {
         'membershipClass': value.membershipClass,
         'earningPreference': (0, MembershipEarningPreferenceType_1.MembershipEarningPreferenceTypeToJSON)(value.earningPreference),
         'inactive': value.inactive,
-        'benefits': (0, BenefitsType_1.BenefitsTypeToJSON)(value.benefits),
+        'benefits': value.benefits === undefined ? undefined : (value.benefits.map(BenefitType_1.BenefitTypeToJSON)),
         'tierAdministration': (0, TierAdministrationType_1.TierAdministrationTypeToJSON)(value.tierAdministration),
         'downgrade': (0, DowngradeType_1.DowngradeTypeToJSON)(value.downgrade),
         'reIssueNewCard': (0, CardReIssueType_1.CardReIssueTypeToJSON)(value.reIssueNewCard),

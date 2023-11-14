@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CorporateOperatingUnitsType } from './CorporateOperatingUnitsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CorporateOperatingUnitType } from './CorporateOperatingUnitType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Corporate Operating Units.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CorporateOperatingUnitsToBeChanged {
     /**
-     *
-     * @type {CorporateOperatingUnitsType}
+     * List of Corporate Operating Units.
+     * @type {Array<CorporateOperatingUnitType>}
      * @memberof CorporateOperatingUnitsToBeChanged
      */
-    corporateOperatingUnits?: CorporateOperatingUnitsType;
+    corporateOperatingUnits?: Array<CorporateOperatingUnitType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CorporateOperatingUnitsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CorporateOperatingUnitsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CorporateOperatingUnitsToBeChanged interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockIdList } from './BlockIdList';
 import type { BlockOwnersType } from './BlockOwnersType';
 import type { BlockOwnershipType } from './BlockOwnershipType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Criteria to update block owners.
  * @export
@@ -19,11 +19,11 @@ import type { BlockOwnershipType } from './BlockOwnershipType';
  */
 export interface SetBlockOwnersType {
     /**
-     *
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof SetBlockOwnersType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {BlockOwnersType}

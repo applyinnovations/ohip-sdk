@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { TemplateHousekeepingTaskConfigType } from './TemplateHousekeepingTaskConfigType';
 import {
     TemplateHousekeepingTaskConfigTypeFromJSON,
     TemplateHousekeepingTaskConfigTypeFromJSONTyped,
     TemplateHousekeepingTaskConfigTypeToJSON,
 } from './TemplateHousekeepingTaskConfigType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching housekeeping tasks.
@@ -40,10 +40,10 @@ import {
 export interface TemplateHousekeepingTasksDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateHousekeepingTasksDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * List of the housekeeping tasks to be configured
      * @type {Array<TemplateHousekeepingTaskConfigType>}
@@ -51,11 +51,11 @@ export interface TemplateHousekeepingTasksDetails {
      */
     tasks?: Array<TemplateHousekeepingTaskConfigType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateHousekeepingTasksDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateHousekeepingTasksDetailsFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'tasks': !exists(json, 'tasks') ? undefined : ((json['tasks'] as Array<any>).map(TemplateHousekeepingTaskConfigTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateHousekeepingTasksDetailsToJSON(value?: TemplateHousekeep
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'tasks': value.tasks === undefined ? undefined : ((value.tasks as Array<any>).map(TemplateHousekeepingTaskConfigTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

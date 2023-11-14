@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ARStatementTypeToJSON = exports.ARStatementTypeFromJSONTyped = exports.ARStatementTypeFromJSON = exports.instanceOfARStatementType = void 0;
 const runtime_1 = require("../runtime");
-const ARInvoicesType_1 = require("./ARInvoicesType");
+const ARInvoiceType_1 = require("./ARInvoiceType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const StatementType_1 = require("./StatementType");
 const UniqueIDType_1 = require("./UniqueIDType");
@@ -40,7 +40,7 @@ function ARStatementTypeFromJSONTyped(json, ignoreDiscriminator) {
         'balance': !(0, runtime_1.exists)(json, 'balance') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['balance']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'inclFolios': !(0, runtime_1.exists)(json, 'inclFolios') ? undefined : json['inclFolios'],
-        'invoices': !(0, runtime_1.exists)(json, 'invoices') ? undefined : (0, ARInvoicesType_1.ARInvoicesTypeFromJSON)(json['invoices']),
+        'invoices': !(0, runtime_1.exists)(json, 'invoices') ? undefined : (json['invoices'].map(ARInvoiceType_1.ARInvoiceTypeFromJSON)),
         'reportFileName': !(0, runtime_1.exists)(json, 'reportFileName') ? undefined : json['reportFileName'],
         'reportSeqNo': !(0, runtime_1.exists)(json, 'reportSeqNo') ? undefined : json['reportSeqNo'],
         'statementName': !(0, runtime_1.exists)(json, 'statementName') ? undefined : json['statementName'],
@@ -61,7 +61,7 @@ function ARStatementTypeToJSON(value) {
         'balance': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.balance),
         'hotelId': value.hotelId,
         'inclFolios': value.inclFolios,
-        'invoices': (0, ARInvoicesType_1.ARInvoicesTypeToJSON)(value.invoices),
+        'invoices': value.invoices === undefined ? undefined : (value.invoices.map(ARInvoiceType_1.ARInvoiceTypeToJSON)),
         'reportFileName': value.reportFileName,
         'reportSeqNo': value.reportSeqNo,
         'statementName': value.statementName,

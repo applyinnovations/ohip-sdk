@@ -18,7 +18,7 @@ const runtime_1 = require("../runtime");
 const ProfileStatusType_1 = require("./ProfileStatusType");
 const ProfileTypeType_1 = require("./ProfileTypeType");
 const RelationshipAddressType_1 = require("./RelationshipAddressType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the RelationshipProfileSummaryType interface.
  */
@@ -43,7 +43,7 @@ function RelationshipProfileSummaryTypeFromJSONTyped(json, ignoreDiscriminator) 
         'ownerCode': !(0, runtime_1.exists)(json, 'ownerCode') ? undefined : json['ownerCode'],
         'primary': !(0, runtime_1.exists)(json, 'primary') ? undefined : json['primary'],
         'primaryOwnerCode': !(0, runtime_1.exists)(json, 'primaryOwnerCode') ? undefined : json['primaryOwnerCode'],
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'profileStatus': !(0, runtime_1.exists)(json, 'profileStatus') ? undefined : (0, ProfileStatusType_1.ProfileStatusTypeFromJSON)(json['profileStatus']),
         'profileType': !(0, runtime_1.exists)(json, 'profileType') ? undefined : (0, ProfileTypeType_1.ProfileTypeTypeFromJSON)(json['profileType']),
         'telephoneNumber': !(0, runtime_1.exists)(json, 'telephoneNumber') ? undefined : json['telephoneNumber'],
@@ -65,7 +65,7 @@ function RelationshipProfileSummaryTypeToJSON(value) {
         'ownerCode': value.ownerCode,
         'primary': value.primary,
         'primaryOwnerCode': value.primaryOwnerCode,
-        'profileIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'profileStatus': (0, ProfileStatusType_1.ProfileStatusTypeToJSON)(value.profileStatus),
         'profileType': (0, ProfileTypeType_1.ProfileTypeTypeToJSON)(value.profileType),
         'telephoneNumber': value.telephoneNumber,

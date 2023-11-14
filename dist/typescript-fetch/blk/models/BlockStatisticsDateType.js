@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockStatisticsDateTypeToJSON = exports.BlockStatisticsDateTypeFromJSONTyped = exports.BlockStatisticsDateTypeFromJSON = exports.instanceOfBlockStatisticsDateType = void 0;
 const runtime_1 = require("../runtime");
-const BlockRoomStatisticsListType_1 = require("./BlockRoomStatisticsListType");
+const BlockRoomStatisticsType_1 = require("./BlockRoomStatisticsType");
 /**
  * Check if a given object implements the BlockStatisticsDateType interface.
  */
@@ -34,7 +34,7 @@ function BlockStatisticsDateTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
-        'roomStatisticsList': !(0, runtime_1.exists)(json, 'roomStatisticsList') ? undefined : (0, BlockRoomStatisticsListType_1.BlockRoomStatisticsListTypeFromJSON)(json['roomStatisticsList']),
+        'roomStatisticsList': !(0, runtime_1.exists)(json, 'roomStatisticsList') ? undefined : (json['roomStatisticsList'].map(BlockRoomStatisticsType_1.BlockRoomStatisticsTypeFromJSON)),
         'total': !(0, runtime_1.exists)(json, 'total') ? undefined : json['total'],
     };
 }
@@ -48,7 +48,7 @@ function BlockStatisticsDateTypeToJSON(value) {
     }
     return {
         'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
-        'roomStatisticsList': (0, BlockRoomStatisticsListType_1.BlockRoomStatisticsListTypeToJSON)(value.roomStatisticsList),
+        'roomStatisticsList': value.roomStatisticsList === undefined ? undefined : (value.roomStatisticsList.map(BlockRoomStatisticsType_1.BlockRoomStatisticsTypeToJSON)),
         'total': value.total,
     };
 }

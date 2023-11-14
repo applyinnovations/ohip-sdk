@@ -9,25 +9,23 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockAliasesType } from './BlockAliasesType';
 import type { BlockClassificationType } from './BlockClassificationType';
 import type { BlockDetailsTypePrimaryOwners } from './BlockDetailsTypePrimaryOwners';
 import type { BlockDetailsTypePrimaryProfiles } from './BlockDetailsTypePrimaryProfiles';
 import type { BlockDetailsTypePrimaryRatePlanCodes } from './BlockDetailsTypePrimaryRatePlanCodes';
 import type { BlockDetailsTypeShoulderRatePlanCode } from './BlockDetailsTypeShoulderRatePlanCode';
-import type { BlockNextStatusListType } from './BlockNextStatusListType';
 import type { BlockNonCompeteType } from './BlockNonCompeteType';
 import type { BlockRateProtectionType } from './BlockRateProtectionType';
 import type { BlockSourceOfSaleType } from './BlockSourceOfSaleType';
-import type { BlockStatusChangeHistoryType } from './BlockStatusChangeHistoryType';
 import type { BookingStatusDetailType } from './BookingStatusDetailType';
+import type { BookingStatusHistoryType } from './BookingStatusHistoryType';
 import type { CancellationDetailsType } from './CancellationDetailsType';
 import type { CodeDescriptionType } from './CodeDescriptionType';
 import type { HotelUseType } from './HotelUseType';
 import type { MarketCodeInfoType } from './MarketCodeInfoType';
 import type { ReservationTypeInfoType } from './ReservationTypeInfoType';
-import type { SubBlockIdList } from './SubBlockIdList';
 import type { TimeSpanType } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Information about the Block Details
  * @export
@@ -47,11 +45,11 @@ export interface BlockDetailsType {
      */
     autoloadContractGrid?: boolean;
     /**
-     *
-     * @type {BlockAliasesType}
+     * List of Block Aliases.
+     * @type {Array<string>}
      * @memberof BlockDetailsType
      */
-    blockAliases?: BlockAliasesType;
+    blockAliases?: Array<string>;
     /**
      *
      * @type {BlockClassificationType}
@@ -71,11 +69,11 @@ export interface BlockDetailsType {
      */
     blockName?: string;
     /**
-     *
-     * @type {BlockNextStatusListType}
+     * Next booking status of the business block.
+     * @type {Array<BookingStatusDetailType>}
      * @memberof BlockDetailsType
      */
-    blockNextStatusList?: BlockNextStatusListType;
+    blockNextStatusList?: Array<BookingStatusDetailType>;
     /**
      * Origin information of the block PMS/ORS/SC/SFA
      * @type {string}
@@ -89,11 +87,11 @@ export interface BlockDetailsType {
      */
     blockStatus?: BookingStatusDetailType;
     /**
-     *
-     * @type {BlockStatusChangeHistoryType}
+     * Collection of block status history.
+     * @type {Array<BookingStatusHistoryType>}
      * @memberof BlockDetailsType
      */
-    blockStatusChangeHistory?: BlockStatusChangeHistoryType;
+    blockStatusChangeHistory?: Array<BookingStatusHistoryType>;
     /**
      * Internal type of the block.
      * @type {string}
@@ -293,11 +291,11 @@ export interface BlockDetailsType {
      */
     status?: string;
     /**
-     *
-     * @type {SubBlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof BlockDetailsType
      */
-    subBlockIdList?: SubBlockIdList;
+    subBlockIdList?: Array<UniqueIDType>;
     /**
      * Indicate if Master/Sub Blocks are Synchronized.
      * @type {boolean}

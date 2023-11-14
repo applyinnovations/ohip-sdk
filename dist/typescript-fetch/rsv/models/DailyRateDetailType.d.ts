@@ -11,7 +11,7 @@
  */
 import type { AmountType } from './AmountType';
 import type { GuestCountsType } from './GuestCountsType';
-import type { PromotionsType } from './PromotionsType';
+import type { PromotionType } from './PromotionType';
 /**
  * Rate details for the different dates of a reservation.
  * @export
@@ -61,11 +61,11 @@ export interface DailyRateDetailType {
      */
     marketCode?: string;
     /**
-     *
-     * @type {PromotionsType}
+     * Type to specify a rate promotion. Usually attached to a reservation to indicate a specific promotion is applied to the reservation.
+     * @type {Array<PromotionType>}
      * @memberof DailyRateDetailType
      */
-    promotions?: PromotionsType;
+    promotions?: Array<PromotionType>;
     /**
      *
      * @type {AmountType}

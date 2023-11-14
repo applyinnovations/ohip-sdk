@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CashiersType } from './CashiersType';
+import type { CashierType } from './CashierType';
 import {
-    CashiersTypeFromJSON,
-    CashiersTypeFromJSONTyped,
-    CashiersTypeToJSON,
-} from './CashiersType';
-import type { Links } from './Links';
+    CashierTypeFromJSON,
+    CashierTypeFromJSONTyped,
+    CashierTypeToJSON,
+} from './CashierType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface Cashiers {
     /**
-     * 
-     * @type {CashiersType}
+     * Details about a cashier.
+     * @type {Array<CashierType>}
      * @memberof Cashiers
      */
-    cashiers?: CashiersType;
+    cashiers?: Array<CashierType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Cashiers
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Cashiers
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CashiersFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     }
     return {
         
-        'cashiers': !exists(json, 'cashiers') ? undefined : CashiersTypeFromJSON(json['cashiers']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'cashiers': !exists(json, 'cashiers') ? undefined : ((json['cashiers'] as Array<any>).map(CashierTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CashiersToJSON(value?: Cashiers | null): any {
     }
     return {
         
-        'cashiers': CashiersTypeToJSON(value.cashiers),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'cashiers': value.cashiers === undefined ? undefined : ((value.cashiers as Array<any>).map(CashierTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

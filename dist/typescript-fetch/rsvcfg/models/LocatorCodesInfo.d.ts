@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { LocatorCodesType } from './LocatorCodesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { LocatorCodeType } from './LocatorCodeType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching locator codes.
  * @export
@@ -32,16 +32,16 @@ export interface LocatorCodesInfo {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof LocatorCodesInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {LocatorCodesType}
+     * Collection of locator codes.
+     * @type {Array<LocatorCodeType>}
      * @memberof LocatorCodesInfo
      */
-    locatorCodes?: LocatorCodesType;
+    locatorCodes?: Array<LocatorCodeType>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -61,11 +61,11 @@ export interface LocatorCodesInfo {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof LocatorCodesInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the LocatorCodesInfo interface.

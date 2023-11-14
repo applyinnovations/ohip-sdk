@@ -15,8 +15,8 @@ import type { BlockOwnersType } from './BlockOwnersType';
 import type { BookingStatusType } from './BookingStatusType';
 import type { CustomFieldsType } from './CustomFieldsType';
 import type { HotelUseType } from './HotelUseType';
-import type { IndicatorsType } from './IndicatorsType';
-import type { SearchMatchesType } from './SearchMatchesType';
+import type { IndicatorType } from './IndicatorType';
+import type { SearchMatchType } from './SearchMatchType';
 /**
  *
  * @export
@@ -42,11 +42,11 @@ export interface BlockSummaryType {
      */
     blockCode?: string;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof BlockSummaryType
      */
-    blockIndicators?: IndicatorsType;
+    blockIndicators?: Array<IndicatorType>;
     /**
      * Block name for this block.
      * @type {string}
@@ -198,11 +198,11 @@ export interface BlockSummaryType {
      */
     rooms?: number;
     /**
-     *
-     * @type {SearchMatchesType}
+     * List of Generic Name-Value-Pair Parameters used for super search matches.
+     * @type {Array<SearchMatchType>}
      * @memberof BlockSummaryType
      */
-    searchMatches?: SearchMatchesType;
+    searchMatches?: Array<SearchMatchType>;
     /**
      * Shoulder end date for this block.
      * @type {Date}

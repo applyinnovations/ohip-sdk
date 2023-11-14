@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DailyItemInventoryCountsListType } from './DailyItemInventoryCountsListType';
-import type { ItemInventoryCountsListType } from './ItemInventoryCountsListType';
+import type { DailyItemInventoryCountsType } from './DailyItemInventoryCountsType';
+import type { ItemInventoryCountsType } from './ItemInventoryCountsType';
 import type { TimeSpanType } from './TimeSpanType';
 import type { TimeWindowType } from './TimeWindowType';
 /**
@@ -50,11 +50,11 @@ export interface PoolItemInventoryCountsType {
      */
     fixedCharge?: boolean;
     /**
-     *
-     * @type {DailyItemInventoryCountsListType}
+     * Inventory counts for the given date.
+     * @type {Array<DailyItemInventoryCountsType>}
      * @memberof PoolItemInventoryCountsType
      */
-    inventories?: DailyItemInventoryCountsListType;
+    inventories?: Array<DailyItemInventoryCountsType>;
     /**
      * ID reference for the hold Item
      * @type {number}
@@ -80,11 +80,11 @@ export interface PoolItemInventoryCountsType {
      */
     outsideStay?: boolean;
     /**
-     *
-     * @type {ItemInventoryCountsListType}
+     * Provides item's brief information and a collection of Inventory counts for the given dates for the item.
+     * @type {Array<ItemInventoryCountsType>}
      * @memberof PoolItemInventoryCountsType
      */
-    poolItems?: ItemInventoryCountsListType;
+    poolItems?: Array<ItemInventoryCountsType>;
     /**
      * Quantity of hold Item
      * @type {number}

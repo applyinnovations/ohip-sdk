@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TracesType } from './TracesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MiscTraceType } from './MiscTraceType';
 import {
-    TracesTypeFromJSON,
-    TracesTypeFromJSONTyped,
-    TracesTypeToJSON,
-} from './TracesType';
-import type { WarningsType } from './WarningsType';
+    MiscTraceTypeFromJSON,
+    MiscTraceTypeFromJSONTyped,
+    MiscTraceTypeToJSON,
+} from './MiscTraceType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Fetch traces response.
@@ -40,22 +40,22 @@ import {
 export interface TracesByDateRange {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TracesByDateRange
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TracesType}
+     * List of the traces
+     * @type {Array<MiscTraceType>}
      * @memberof TracesByDateRange
      */
-    tracesInfoList?: TracesType;
+    tracesInfoList?: Array<MiscTraceType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TracesByDateRange
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TracesByDateRangeFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'tracesInfoList': !exists(json, 'tracesInfoList') ? undefined : TracesTypeFromJSON(json['tracesInfoList']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'tracesInfoList': !exists(json, 'tracesInfoList') ? undefined : ((json['tracesInfoList'] as Array<any>).map(MiscTraceTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TracesByDateRangeToJSON(value?: TracesByDateRange | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'tracesInfoList': TracesTypeToJSON(value.tracesInfoList),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'tracesInfoList': value.tracesInfoList === undefined ? undefined : ((value.tracesInfoList as Array<any>).map(MiscTraceTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

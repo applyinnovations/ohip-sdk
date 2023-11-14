@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { EventSpaceMaxOccupanciesType } from './EventSpaceMaxOccupanciesType';
-import {
-    EventSpaceMaxOccupanciesTypeFromJSON,
-    EventSpaceMaxOccupanciesTypeFromJSONTyped,
-    EventSpaceMaxOccupanciesTypeToJSON,
-} from './EventSpaceMaxOccupanciesType';
-
 /**
  * The summary info of hotel event space
  * @export
@@ -33,11 +26,11 @@ export interface HotelEventSpaceSummaryType {
      */
     maxCapacity?: number;
     /**
-     * 
-     * @type {EventSpaceMaxOccupanciesType}
+     * List of event space max occupancy.
+     * @type {Array<number>}
      * @memberof HotelEventSpaceSummaryType
      */
-    maxOccupancies?: EventSpaceMaxOccupanciesType;
+    maxOccupancies?: Array<number>;
     /**
      * The total event space number which has the same space type, max capacity and setup style.
      * @type {number}
@@ -72,7 +65,7 @@ export function HotelEventSpaceSummaryTypeFromJSONTyped(json: any, ignoreDiscrim
     return {
         
         'maxCapacity': !exists(json, 'maxCapacity') ? undefined : json['maxCapacity'],
-        'maxOccupancies': !exists(json, 'maxOccupancies') ? undefined : EventSpaceMaxOccupanciesTypeFromJSON(json['maxOccupancies']),
+        'maxOccupancies': !exists(json, 'maxOccupancies') ? undefined : json['maxOccupancies'],
         'no': !exists(json, 'no') ? undefined : json['no'],
         'spaceType': !exists(json, 'spaceType') ? undefined : json['spaceType'],
     };
@@ -88,7 +81,7 @@ export function HotelEventSpaceSummaryTypeToJSON(value?: HotelEventSpaceSummaryT
     return {
         
         'maxCapacity': value.maxCapacity,
-        'maxOccupancies': EventSpaceMaxOccupanciesTypeToJSON(value.maxOccupancies),
+        'maxOccupancies': value.maxOccupancies,
         'no': value.no,
         'spaceType': value.spaceType,
     };

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FunctionSpaceSetupStylesCriteriaToJSON = exports.FunctionSpaceSetupStylesCriteriaFromJSONTyped = exports.FunctionSpaceSetupStylesCriteriaFromJSON = exports.instanceOfFunctionSpaceSetupStylesCriteria = void 0;
 const runtime_1 = require("../runtime");
-const FunctionSpaceSetupStylesType_1 = require("./FunctionSpaceSetupStylesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const FunctionSpaceSetupStyleType_1 = require("./FunctionSpaceSetupStyleType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FunctionSpaceSetupStylesCriteria interface.
  */
@@ -35,9 +35,9 @@ function FunctionSpaceSetupStylesCriteriaFromJSONTyped(json, ignoreDiscriminator
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'setupStyles': !(0, runtime_1.exists)(json, 'setupStyles') ? undefined : (0, FunctionSpaceSetupStylesType_1.FunctionSpaceSetupStylesTypeFromJSON)(json['setupStyles']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'setupStyles': !(0, runtime_1.exists)(json, 'setupStyles') ? undefined : (json['setupStyles'].map(FunctionSpaceSetupStyleType_1.FunctionSpaceSetupStyleTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FunctionSpaceSetupStylesCriteriaFromJSONTyped = FunctionSpaceSetupStylesCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function FunctionSpaceSetupStylesCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'setupStyles': (0, FunctionSpaceSetupStylesType_1.FunctionSpaceSetupStylesTypeToJSON)(value.setupStyles),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'setupStyles': value.setupStyles === undefined ? undefined : (value.setupStyles.map(FunctionSpaceSetupStyleType_1.FunctionSpaceSetupStyleTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FunctionSpaceSetupStylesCriteriaToJSON = FunctionSpaceSetupStylesCriteriaToJSON;

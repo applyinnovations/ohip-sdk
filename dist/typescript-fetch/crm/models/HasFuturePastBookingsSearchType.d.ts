@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { HasFuturePastBookingsExclusionsType } from './HasFuturePastBookingsExclusionsType';
-import type { ProfileIdList } from './ProfileIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Search type for verifying whether there are future and/or past business blocks and/or reservations exist for a Profile.
  * @export
@@ -24,11 +24,11 @@ export interface HasFuturePastBookingsSearchType {
      */
     exclusions?: HasFuturePastBookingsExclusionsType;
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof HasFuturePastBookingsSearchType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * Unique identifier of the rate code of business block or reservation.
      * @type {string}

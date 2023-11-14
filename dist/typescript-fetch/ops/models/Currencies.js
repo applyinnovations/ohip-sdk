@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CurrenciesToJSON = exports.CurrenciesFromJSONTyped = exports.CurrenciesFromJSON = exports.instanceOfCurrencies = void 0;
 const runtime_1 = require("../runtime");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the Currencies interface.
  */
@@ -34,7 +34,7 @@ function CurrenciesFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'currencyList': !(0, runtime_1.exists)(json, 'currencyList') ? undefined : json['currencyList'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CurrenciesFromJSONTyped = CurrenciesFromJSONTyped;
@@ -47,7 +47,7 @@ function CurrenciesToJSON(value) {
     }
     return {
         'currencyList': value.currencyList,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CurrenciesToJSON = CurrenciesToJSON;

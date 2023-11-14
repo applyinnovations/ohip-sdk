@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RecentlyAccessedBlockTypeToJSON = exports.RecentlyAccessedBlockTypeFromJSONTyped = exports.RecentlyAccessedBlockTypeFromJSON = exports.instanceOfRecentlyAccessedBlockType = void 0;
 const runtime_1 = require("../runtime");
-const BlockIdList_1 = require("./BlockIdList");
 const TimeSpanType_1 = require("./TimeSpanType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the RecentlyAccessedBlockType interface.
  */
@@ -36,7 +36,7 @@ function RecentlyAccessedBlockTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'accessDate': !(0, runtime_1.exists)(json, 'accessDate') ? undefined : (new Date(json['accessDate'])),
         'blockCode': !(0, runtime_1.exists)(json, 'blockCode') ? undefined : json['blockCode'],
-        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (0, BlockIdList_1.BlockIdListFromJSON)(json['blockIdList']),
+        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'blockName': !(0, runtime_1.exists)(json, 'blockName') ? undefined : json['blockName'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'hotelName': !(0, runtime_1.exists)(json, 'hotelName') ? undefined : json['hotelName'],
@@ -54,7 +54,7 @@ function RecentlyAccessedBlockTypeToJSON(value) {
     return {
         'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0, 10)),
         'blockCode': value.blockCode,
-        'blockIdList': (0, BlockIdList_1.BlockIdListToJSON)(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'blockName': value.blockName,
         'hotelId': value.hotelId,
         'hotelName': value.hotelName,

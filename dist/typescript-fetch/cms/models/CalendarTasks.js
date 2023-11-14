@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CalendarTasksToJSON = exports.CalendarTasksFromJSONTyped = exports.CalendarTasksFromJSON = exports.instanceOfCalendarTasks = void 0;
 const runtime_1 = require("../runtime");
-const CalendarTaskCountListType_1 = require("./CalendarTaskCountListType");
-const CalendarTaskListType_1 = require("./CalendarTaskListType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CalendarTaskCountType_1 = require("./CalendarTaskCountType");
+const CalendarTaskType_1 = require("./CalendarTaskType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CalendarTasks interface.
  */
@@ -36,10 +36,10 @@ function CalendarTasksFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'countSummary': !(0, runtime_1.exists)(json, 'countSummary') ? undefined : (0, CalendarTaskCountListType_1.CalendarTaskCountListTypeFromJSON)(json['countSummary']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'taskSummary': !(0, runtime_1.exists)(json, 'taskSummary') ? undefined : (0, CalendarTaskListType_1.CalendarTaskListTypeFromJSON)(json['taskSummary']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'countSummary': !(0, runtime_1.exists)(json, 'countSummary') ? undefined : (json['countSummary'].map(CalendarTaskCountType_1.CalendarTaskCountTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'taskSummary': !(0, runtime_1.exists)(json, 'taskSummary') ? undefined : (json['taskSummary'].map(CalendarTaskType_1.CalendarTaskTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CalendarTasksFromJSONTyped = CalendarTasksFromJSONTyped;
@@ -51,10 +51,10 @@ function CalendarTasksToJSON(value) {
         return null;
     }
     return {
-        'countSummary': (0, CalendarTaskCountListType_1.CalendarTaskCountListTypeToJSON)(value.countSummary),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'taskSummary': (0, CalendarTaskListType_1.CalendarTaskListTypeToJSON)(value.taskSummary),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'countSummary': value.countSummary === undefined ? undefined : (value.countSummary.map(CalendarTaskCountType_1.CalendarTaskCountTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'taskSummary': value.taskSummary === undefined ? undefined : (value.taskSummary.map(CalendarTaskType_1.CalendarTaskTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CalendarTasksToJSON = CalendarTasksToJSON;

@@ -19,12 +19,12 @@ import {
     CustomValueInfoTypeFromJSONTyped,
     CustomValueInfoTypeToJSON,
 } from './CustomValueInfoType';
-import type { CustomVarianceInfoType } from './CustomVarianceInfoType';
+import type { MonthlyCustomVarianceInfoType } from './MonthlyCustomVarianceInfoType';
 import {
-    CustomVarianceInfoTypeFromJSON,
-    CustomVarianceInfoTypeFromJSONTyped,
-    CustomVarianceInfoTypeToJSON,
-} from './CustomVarianceInfoType';
+    MonthlyCustomVarianceInfoTypeFromJSON,
+    MonthlyCustomVarianceInfoTypeFromJSONTyped,
+    MonthlyCustomVarianceInfoTypeToJSON,
+} from './MonthlyCustomVarianceInfoType';
 
 /**
  * Budget Forecast information for Custom segment.
@@ -33,17 +33,17 @@ import {
  */
 export interface CustomCodeTotalInformationType {
     /**
-     * 
-     * @type {CustomVarianceInfoType}
+     * Monthly Value Variance information.
+     * @type {Array<MonthlyCustomVarianceInfoType>}
      * @memberof CustomCodeTotalInformationType
      */
-    aBVarianceTotalInfo?: CustomVarianceInfoType;
+    aBVarianceTotalInfo?: Array<MonthlyCustomVarianceInfoType>;
     /**
-     * 
-     * @type {CustomVarianceInfoType}
+     * Monthly Value Variance information.
+     * @type {Array<MonthlyCustomVarianceInfoType>}
      * @memberof CustomCodeTotalInformationType
      */
-    aFVarianceTotalInfo?: CustomVarianceInfoType;
+    aFVarianceTotalInfo?: Array<MonthlyCustomVarianceInfoType>;
     /**
      * 
      * @type {CustomValueInfoType}
@@ -57,11 +57,11 @@ export interface CustomCodeTotalInformationType {
      */
     budgetTotalInfo?: CustomValueInfoType;
     /**
-     * 
-     * @type {CustomVarianceInfoType}
+     * Monthly Value Variance information.
+     * @type {Array<MonthlyCustomVarianceInfoType>}
      * @memberof CustomCodeTotalInformationType
      */
-    fBVarianceTotalInfo?: CustomVarianceInfoType;
+    fBVarianceTotalInfo?: Array<MonthlyCustomVarianceInfoType>;
     /**
      * 
      * @type {CustomValueInfoType}
@@ -89,11 +89,11 @@ export function CustomCodeTotalInformationTypeFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'aBVarianceTotalInfo': !exists(json, 'aBVarianceTotalInfo') ? undefined : CustomVarianceInfoTypeFromJSON(json['aBVarianceTotalInfo']),
-        'aFVarianceTotalInfo': !exists(json, 'aFVarianceTotalInfo') ? undefined : CustomVarianceInfoTypeFromJSON(json['aFVarianceTotalInfo']),
+        'aBVarianceTotalInfo': !exists(json, 'aBVarianceTotalInfo') ? undefined : ((json['aBVarianceTotalInfo'] as Array<any>).map(MonthlyCustomVarianceInfoTypeFromJSON)),
+        'aFVarianceTotalInfo': !exists(json, 'aFVarianceTotalInfo') ? undefined : ((json['aFVarianceTotalInfo'] as Array<any>).map(MonthlyCustomVarianceInfoTypeFromJSON)),
         'actualTotalInfo': !exists(json, 'actualTotalInfo') ? undefined : CustomValueInfoTypeFromJSON(json['actualTotalInfo']),
         'budgetTotalInfo': !exists(json, 'budgetTotalInfo') ? undefined : CustomValueInfoTypeFromJSON(json['budgetTotalInfo']),
-        'fBVarianceTotalInfo': !exists(json, 'fBVarianceTotalInfo') ? undefined : CustomVarianceInfoTypeFromJSON(json['fBVarianceTotalInfo']),
+        'fBVarianceTotalInfo': !exists(json, 'fBVarianceTotalInfo') ? undefined : ((json['fBVarianceTotalInfo'] as Array<any>).map(MonthlyCustomVarianceInfoTypeFromJSON)),
         'forecastTotalInfo': !exists(json, 'forecastTotalInfo') ? undefined : CustomValueInfoTypeFromJSON(json['forecastTotalInfo']),
     };
 }
@@ -107,11 +107,11 @@ export function CustomCodeTotalInformationTypeToJSON(value?: CustomCodeTotalInfo
     }
     return {
         
-        'aBVarianceTotalInfo': CustomVarianceInfoTypeToJSON(value.aBVarianceTotalInfo),
-        'aFVarianceTotalInfo': CustomVarianceInfoTypeToJSON(value.aFVarianceTotalInfo),
+        'aBVarianceTotalInfo': value.aBVarianceTotalInfo === undefined ? undefined : ((value.aBVarianceTotalInfo as Array<any>).map(MonthlyCustomVarianceInfoTypeToJSON)),
+        'aFVarianceTotalInfo': value.aFVarianceTotalInfo === undefined ? undefined : ((value.aFVarianceTotalInfo as Array<any>).map(MonthlyCustomVarianceInfoTypeToJSON)),
         'actualTotalInfo': CustomValueInfoTypeToJSON(value.actualTotalInfo),
         'budgetTotalInfo': CustomValueInfoTypeToJSON(value.budgetTotalInfo),
-        'fBVarianceTotalInfo': CustomVarianceInfoTypeToJSON(value.fBVarianceTotalInfo),
+        'fBVarianceTotalInfo': value.fBVarianceTotalInfo === undefined ? undefined : ((value.fBVarianceTotalInfo as Array<any>).map(MonthlyCustomVarianceInfoTypeToJSON)),
         'forecastTotalInfo': CustomValueInfoTypeToJSON(value.forecastTotalInfo),
     };
 }

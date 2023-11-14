@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AROldBalanceChargeTypeToJSON = exports.AROldBalanceChargeTypeFromJSONTyped = exports.AROldBalanceChargeTypeFromJSON = exports.instanceOfAROldBalanceChargeType = void 0;
 const runtime_1 = require("../runtime");
-const ARTaxCodesType_1 = require("./ARTaxCodesType");
+const ARTaxCodeType_1 = require("./ARTaxCodeType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 /**
  * Check if a given object implements the AROldBalanceChargeType interface.
@@ -41,7 +41,7 @@ function AROldBalanceChargeTypeFromJSONTyped(json, ignoreDiscriminator) {
         'paid': !(0, runtime_1.exists)(json, 'paid') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['paid']),
         'postingReference': !(0, runtime_1.exists)(json, 'postingReference') ? undefined : json['postingReference'],
         'postingRemark': !(0, runtime_1.exists)(json, 'postingRemark') ? undefined : json['postingRemark'],
-        'taxCodes': !(0, runtime_1.exists)(json, 'taxCodes') ? undefined : (0, ARTaxCodesType_1.ARTaxCodesTypeFromJSON)(json['taxCodes']),
+        'taxCodes': !(0, runtime_1.exists)(json, 'taxCodes') ? undefined : (json['taxCodes'].map(ARTaxCodeType_1.ARTaxCodeTypeFromJSON)),
     };
 }
 exports.AROldBalanceChargeTypeFromJSONTyped = AROldBalanceChargeTypeFromJSONTyped;
@@ -60,7 +60,7 @@ function AROldBalanceChargeTypeToJSON(value) {
         'paid': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.paid),
         'postingReference': value.postingReference,
         'postingRemark': value.postingRemark,
-        'taxCodes': (0, ARTaxCodesType_1.ARTaxCodesTypeToJSON)(value.taxCodes),
+        'taxCodes': value.taxCodes === undefined ? undefined : (value.taxCodes.map(ARTaxCodeType_1.ARTaxCodeTypeToJSON)),
     };
 }
 exports.AROldBalanceChargeTypeToJSON = AROldBalanceChargeTypeToJSON;

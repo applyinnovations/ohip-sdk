@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringMenuItemClassesInfoToJSON = exports.CateringMenuItemClassesInfoFromJSONTyped = exports.CateringMenuItemClassesInfoFromJSON = exports.instanceOfCateringMenuItemClassesInfo = void 0;
 const runtime_1 = require("../runtime");
-const CateringMenuItemClassListType_1 = require("./CateringMenuItemClassListType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CateringMenuItemClassType_1 = require("./CateringMenuItemClassType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CateringMenuItemClassesInfo interface.
  */
@@ -38,12 +38,12 @@ function CateringMenuItemClassesInfoFromJSONTyped(json, ignoreDiscriminator) {
         'count': !(0, runtime_1.exists)(json, 'count') ? undefined : json['count'],
         'hasMore': !(0, runtime_1.exists)(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'menuItemClassList': !(0, runtime_1.exists)(json, 'menuItemClassList') ? undefined : (0, CateringMenuItemClassListType_1.CateringMenuItemClassListTypeFromJSON)(json['menuItemClassList']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'menuItemClassList': !(0, runtime_1.exists)(json, 'menuItemClassList') ? undefined : (json['menuItemClassList'].map(CateringMenuItemClassType_1.CateringMenuItemClassTypeFromJSON)),
         'offset': !(0, runtime_1.exists)(json, 'offset') ? undefined : json['offset'],
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !(0, runtime_1.exists)(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CateringMenuItemClassesInfoFromJSONTyped = CateringMenuItemClassesInfoFromJSONTyped;
@@ -58,12 +58,12 @@ function CateringMenuItemClassesInfoToJSON(value) {
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'menuItemClassList': (0, CateringMenuItemClassListType_1.CateringMenuItemClassListTypeToJSON)(value.menuItemClassList),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'menuItemClassList': value.menuItemClassList === undefined ? undefined : (value.menuItemClassList.map(CateringMenuItemClassType_1.CateringMenuItemClassTypeToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CateringMenuItemClassesInfoToJSON = CateringMenuItemClassesInfoToJSON;

@@ -20,7 +20,7 @@ import type { FolioTypeValidationType } from './FolioTypeValidationType';
 import type { NameValueHeaderDetailType } from './NameValueHeaderDetailType';
 import type { ProfileId } from './ProfileId';
 import type { ReservationId } from './ReservationId';
-import type { TransactionsType } from './TransactionsType';
+import type { TransactionType } from './TransactionType';
 /**
  * Generate Folio Criteria type to be used for folio generation request
  * @export
@@ -160,11 +160,11 @@ export interface GenerateFolioCriteriaType {
      */
     transactionServiceType?: string;
     /**
-     *
-     * @type {TransactionsType}
+     * List of transaction information.
+     * @type {Array<TransactionType>}
      * @memberof GenerateFolioCriteriaType
      */
-    transactions?: TransactionsType;
+    transactions?: Array<TransactionType>;
 }
 /**
  * Check if a given object implements the GenerateFolioCriteriaType interface.

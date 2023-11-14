@@ -15,8 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmailMessageTypeToJSON = exports.EmailMessageTypeFromJSONTyped = exports.EmailMessageTypeFromJSON = exports.instanceOfEmailMessageType = void 0;
 const runtime_1 = require("../runtime");
-const BasicEmailListType_1 = require("./BasicEmailListType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the EmailMessageType interface.
  */
@@ -41,8 +40,8 @@ function EmailMessageTypeFromJSONTyped(json, ignoreDiscriminator) {
         'hasAttachment': !(0, runtime_1.exists)(json, 'hasAttachment') ? undefined : json['hasAttachment'],
         'messageId': !(0, runtime_1.exists)(json, 'messageId') ? undefined : json['messageId'],
         'subject': !(0, runtime_1.exists)(json, 'subject') ? undefined : json['subject'],
-        'toAddress': !(0, runtime_1.exists)(json, 'toAddress') ? undefined : (0, BasicEmailListType_1.BasicEmailListTypeFromJSON)(json['toAddress']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'toAddress': !(0, runtime_1.exists)(json, 'toAddress') ? undefined : json['toAddress'],
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.EmailMessageTypeFromJSONTyped = EmailMessageTypeFromJSONTyped;
@@ -61,8 +60,8 @@ function EmailMessageTypeToJSON(value) {
         'hasAttachment': value.hasAttachment,
         'messageId': value.messageId,
         'subject': value.subject,
-        'toAddress': (0, BasicEmailListType_1.BasicEmailListTypeToJSON)(value.toAddress),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'toAddress': value.toAddress,
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.EmailMessageTypeToJSON = EmailMessageTypeToJSON;

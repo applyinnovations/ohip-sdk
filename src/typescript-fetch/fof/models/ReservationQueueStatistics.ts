@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReservationQueueStatisticsType } from './ReservationQueueStatisticsType';
 import {
     ReservationQueueStatisticsTypeFromJSON,
     ReservationQueueStatisticsTypeFromJSONTyped,
     ReservationQueueStatisticsTypeToJSON,
 } from './ReservationQueueStatisticsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for the fetch of current Reservations In Queue statistics. Contains the statistic information.
@@ -40,10 +40,10 @@ import {
 export interface ReservationQueueStatistics {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationQueueStatistics
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ReservationQueueStatisticsType}
@@ -51,11 +51,11 @@ export interface ReservationQueueStatistics {
      */
     statistics?: ReservationQueueStatisticsType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationQueueStatistics
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ReservationQueueStatisticsFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'statistics': !exists(json, 'statistics') ? undefined : ReservationQueueStatisticsTypeFromJSON(json['statistics']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ReservationQueueStatisticsToJSON(value?: ReservationQueueStatist
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'statistics': ReservationQueueStatisticsTypeToJSON(value.statistics),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

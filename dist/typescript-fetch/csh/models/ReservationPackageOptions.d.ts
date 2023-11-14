@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { InstanceLink } from './InstanceLink';
 import type { LinkedAllowanceReservationsInfoType } from './LinkedAllowanceReservationsInfoType';
-import type { Links } from './Links';
-import type { PackagePostingsType } from './PackagePostingsType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+import type { PackagePostingType } from './PackagePostingType';
+import type { TrxInfoType } from './TrxInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response to fetch reservation package options.
  * @export
@@ -28,28 +28,28 @@ export interface ReservationPackageOptions {
     linkedAllowanceReservationsInfo?: LinkedAllowanceReservationsInfoType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationPackageOptions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {PackagePostingsType}
+     * List of package postings.
+     * @type {Array<PackagePostingType>}
      * @memberof ReservationPackageOptions
      */
-    packagePostings?: PackagePostingsType;
+    packagePostings?: Array<PackagePostingType>;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof ReservationPackageOptions
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationPackageOptions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationPackageOptions interface.

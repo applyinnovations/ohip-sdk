@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FiscalPeriodsType } from './FiscalPeriodsType';
+import type { FiscalPeriodType } from './FiscalPeriodType';
 import {
-    FiscalPeriodsTypeFromJSON,
-    FiscalPeriodsTypeFromJSONTyped,
-    FiscalPeriodsTypeToJSON,
-} from './FiscalPeriodsType';
-import type { Links } from './Links';
+    FiscalPeriodTypeFromJSON,
+    FiscalPeriodTypeFromJSONTyped,
+    FiscalPeriodTypeToJSON,
+} from './FiscalPeriodType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface FiscalPeriodsInfo {
     /**
-     * 
-     * @type {FiscalPeriodsType}
+     * List of Fiscal Periods.
+     * @type {Array<FiscalPeriodType>}
      * @memberof FiscalPeriodsInfo
      */
-    fiscalPeriods?: FiscalPeriodsType;
+    fiscalPeriods?: Array<FiscalPeriodType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FiscalPeriodsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FiscalPeriodsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FiscalPeriodsInfoFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'fiscalPeriods': !exists(json, 'fiscalPeriods') ? undefined : FiscalPeriodsTypeFromJSON(json['fiscalPeriods']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'fiscalPeriods': !exists(json, 'fiscalPeriods') ? undefined : ((json['fiscalPeriods'] as Array<any>).map(FiscalPeriodTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FiscalPeriodsInfoToJSON(value?: FiscalPeriodsInfo | null): any {
     }
     return {
         
-        'fiscalPeriods': FiscalPeriodsTypeToJSON(value.fiscalPeriods),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'fiscalPeriods': value.fiscalPeriods === undefined ? undefined : ((value.fiscalPeriods as Array<any>).map(FiscalPeriodTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

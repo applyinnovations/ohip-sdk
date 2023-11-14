@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EffectiveRateTypeToJSON = exports.EffectiveRateTypeFromJSONTyped = exports.EffectiveRateTypeFromJSON = exports.instanceOfEffectiveRateType = void 0;
 const runtime_1 = require("../runtime");
-const RateByAgeBucketsType_1 = require("./RateByAgeBucketsType");
+const RateByAgeBucketType_1 = require("./RateByAgeBucketType");
 /**
  * Check if a given object implements the EffectiveRateType interface.
  */
@@ -47,7 +47,7 @@ function EffectiveRateTypeFromJSONTyped(json, ignoreDiscriminator) {
         'onePersonRate': !(0, runtime_1.exists)(json, 'onePersonRate') ? undefined : json['onePersonRate'],
         'overrideFloorAmount': !(0, runtime_1.exists)(json, 'overrideFloorAmount') ? undefined : json['overrideFloorAmount'],
         'pointsRequired': !(0, runtime_1.exists)(json, 'pointsRequired') ? undefined : json['pointsRequired'],
-        'rateByAgeBuckets': !(0, runtime_1.exists)(json, 'rateByAgeBuckets') ? undefined : (0, RateByAgeBucketsType_1.RateByAgeBucketsTypeFromJSON)(json['rateByAgeBuckets']),
+        'rateByAgeBuckets': !(0, runtime_1.exists)(json, 'rateByAgeBuckets') ? undefined : (json['rateByAgeBuckets'].map(RateByAgeBucketType_1.RateByAgeBucketTypeFromJSON)),
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : json['roomType'],
         'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
@@ -80,7 +80,7 @@ function EffectiveRateTypeToJSON(value) {
         'onePersonRate': value.onePersonRate,
         'overrideFloorAmount': value.overrideFloorAmount,
         'pointsRequired': value.pointsRequired,
-        'rateByAgeBuckets': (0, RateByAgeBucketsType_1.RateByAgeBucketsTypeToJSON)(value.rateByAgeBuckets),
+        'rateByAgeBuckets': value.rateByAgeBuckets === undefined ? undefined : (value.rateByAgeBuckets.map(RateByAgeBucketType_1.RateByAgeBucketTypeToJSON)),
         'ratePlanCode': value.ratePlanCode,
         'roomType': value.roomType,
         'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),

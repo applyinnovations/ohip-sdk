@@ -19,12 +19,12 @@ import {
     CateringMenuItemClassInfoTypeFromJSONTyped,
     CateringMenuItemClassInfoTypeToJSON,
 } from './CateringMenuItemClassInfoType';
-import type { CateringMenuItemListType } from './CateringMenuItemListType';
+import type { CateringMenuItemType } from './CateringMenuItemType';
 import {
-    CateringMenuItemListTypeFromJSON,
-    CateringMenuItemListTypeFromJSONTyped,
-    CateringMenuItemListTypeToJSON,
-} from './CateringMenuItemListType';
+    CateringMenuItemTypeFromJSON,
+    CateringMenuItemTypeFromJSONTyped,
+    CateringMenuItemTypeToJSON,
+} from './CateringMenuItemType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -51,11 +51,11 @@ export interface CateringMenuItemClassType {
      */
     itemClassInfo?: CateringMenuItemClassInfoType;
     /**
-     * 
-     * @type {CateringMenuItemListType}
+     * List of Values of Menu Item.
+     * @type {Array<CateringMenuItemType>}
      * @memberof CateringMenuItemClassType
      */
-    itemList?: CateringMenuItemListType;
+    itemList?: Array<CateringMenuItemType>;
 }
 
 /**
@@ -79,7 +79,7 @@ export function CateringMenuItemClassTypeFromJSONTyped(json: any, ignoreDiscrimi
         
         'id': !exists(json, 'id') ? undefined : UniqueIDTypeFromJSON(json['id']),
         'itemClassInfo': !exists(json, 'itemClassInfo') ? undefined : CateringMenuItemClassInfoTypeFromJSON(json['itemClassInfo']),
-        'itemList': !exists(json, 'itemList') ? undefined : CateringMenuItemListTypeFromJSON(json['itemList']),
+        'itemList': !exists(json, 'itemList') ? undefined : ((json['itemList'] as Array<any>).map(CateringMenuItemTypeFromJSON)),
     };
 }
 
@@ -94,7 +94,7 @@ export function CateringMenuItemClassTypeToJSON(value?: CateringMenuItemClassTyp
         
         'id': UniqueIDTypeToJSON(value.id),
         'itemClassInfo': CateringMenuItemClassInfoTypeToJSON(value.itemClassInfo),
-        'itemList': CateringMenuItemListTypeToJSON(value.itemList),
+        'itemList': value.itemList === undefined ? undefined : ((value.itemList as Array<any>).map(CateringMenuItemTypeToJSON)),
     };
 }
 

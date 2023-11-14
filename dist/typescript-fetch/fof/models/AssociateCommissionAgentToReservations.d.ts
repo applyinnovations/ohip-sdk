@@ -12,8 +12,8 @@
 import type { CommissionAgentIDType } from './CommissionAgentIDType';
 import type { CommissionReservationInstructionsType } from './CommissionReservationInstructionsType';
 import type { HotelReservationsIDType } from './HotelReservationsIDType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request type for associating reservations to Travel Agent or Source Profile.
  * @export
@@ -34,10 +34,10 @@ export interface AssociateCommissionAgentToReservations {
     instructions?: CommissionReservationInstructionsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AssociateCommissionAgentToReservations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {HotelReservationsIDType}
@@ -45,11 +45,11 @@ export interface AssociateCommissionAgentToReservations {
      */
     reservations?: HotelReservationsIDType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AssociateCommissionAgentToReservations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AssociateCommissionAgentToReservations interface.

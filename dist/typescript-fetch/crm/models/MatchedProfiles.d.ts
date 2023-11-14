@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MatchProfileType } from './MatchProfileType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for the match profiles.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface MatchedProfiles {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MatchedProfiles
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {MatchProfileType}
@@ -31,11 +31,11 @@ export interface MatchedProfiles {
      */
     matchProfiles?: MatchProfileType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MatchedProfiles
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MatchedProfiles interface.

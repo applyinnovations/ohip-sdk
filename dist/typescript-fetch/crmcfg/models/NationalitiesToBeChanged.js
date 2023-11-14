@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NationalitiesToBeChangedToJSON = exports.NationalitiesToBeChangedFromJSONTyped = exports.NationalitiesToBeChangedFromJSON = exports.instanceOfNationalitiesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const NationalitiesType_1 = require("./NationalitiesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const NationalityType_1 = require("./NationalityType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the NationalitiesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function NationalitiesToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'nationalities': !(0, runtime_1.exists)(json, 'nationalities') ? undefined : (0, NationalitiesType_1.NationalitiesTypeFromJSON)(json['nationalities']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'nationalities': !(0, runtime_1.exists)(json, 'nationalities') ? undefined : (json['nationalities'].map(NationalityType_1.NationalityTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.NationalitiesToBeChangedFromJSONTyped = NationalitiesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function NationalitiesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'nationalities': (0, NationalitiesType_1.NationalitiesTypeToJSON)(value.nationalities),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'nationalities': value.nationalities === undefined ? undefined : (value.nationalities.map(NationalityType_1.NationalityTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.NationalitiesToBeChangedToJSON = NationalitiesToBeChangedToJSON;

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
-import type { WashCodesType } from './WashCodesType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
+import type { WashCodeType } from './WashCodeType';
 import {
-    WashCodesTypeFromJSON,
-    WashCodesTypeFromJSONTyped,
-    WashCodesTypeToJSON,
-} from './WashCodesType';
+    WashCodeTypeFromJSON,
+    WashCodeTypeFromJSONTyped,
+    WashCodeTypeToJSON,
+} from './WashCodeType';
 
 /**
  * Response object for FetchWashSchedule operation which will contain all the information of 'WashCodes' like Days prior to arrival, Occupancy detail, Sell limit and Wash by percent value if exists.
@@ -40,22 +40,22 @@ import {
 export interface WashScheduleDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof WashScheduleDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof WashScheduleDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
     /**
-     * 
-     * @type {WashCodesType}
+     * Wash Code, which will allow the user to define standard schedules that can be attached to blocks prior to the block's cutoff date to automate this process.
+     * @type {Array<WashCodeType>}
      * @memberof WashScheduleDetails
      */
-    washCodes?: WashCodesType;
+    washCodes?: Array<WashCodeType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function WashScheduleDetailsFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
-        'washCodes': !exists(json, 'washCodes') ? undefined : WashCodesTypeFromJSON(json['washCodes']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
+        'washCodes': !exists(json, 'washCodes') ? undefined : ((json['washCodes'] as Array<any>).map(WashCodeTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function WashScheduleDetailsToJSON(value?: WashScheduleDetails | null): a
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
-        'washCodes': WashCodesTypeToJSON(value.washCodes),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
+        'washCodes': value.washCodes === undefined ? undefined : ((value.washCodes as Array<any>).map(WashCodeTypeToJSON)),
     };
 }
 

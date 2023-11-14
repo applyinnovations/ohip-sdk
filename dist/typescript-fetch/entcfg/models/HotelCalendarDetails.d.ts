@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { HotelCalendarType } from './HotelCalendarType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching calendar entries for a hotel.
  * @export
@@ -26,16 +26,16 @@ export interface HotelCalendarDetails {
     hotelCalendar?: HotelCalendarType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelCalendarDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelCalendarDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HotelCalendarDetails interface.

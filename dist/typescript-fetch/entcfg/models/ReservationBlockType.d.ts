@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockIdList } from './BlockIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Key information about the block for a reservation.
  * @export
@@ -17,11 +17,11 @@ import type { BlockIdList } from './BlockIdList';
  */
 export interface ReservationBlockType {
     /**
-     *
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ReservationBlockType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * The Name of the block that is attached to the reservation.
      * @type {string}

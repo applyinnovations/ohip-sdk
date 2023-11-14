@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { EffectiveRatesType } from './EffectiveRatesType';
+import type { EffectiveRateType } from './EffectiveRateType';
 import {
-    EffectiveRatesTypeFromJSON,
-    EffectiveRatesTypeFromJSONTyped,
-    EffectiveRatesTypeToJSON,
-} from './EffectiveRatesType';
+    EffectiveRateTypeFromJSON,
+    EffectiveRateTypeFromJSONTyped,
+    EffectiveRateTypeToJSON,
+} from './EffectiveRateType';
 
 /**
  * Instruction to apply new effective rates to the reservations.
@@ -27,11 +27,11 @@ import {
  */
 export interface ChangeShareRateAmountTypeChangeShareRateInstructions {
     /**
-     * 
-     * @type {EffectiveRatesType}
+     * Collection of effective rate amount per guest on specific dates.
+     * @type {Array<EffectiveRateType>}
      * @memberof ChangeShareRateAmountTypeChangeShareRateInstructions
      */
-    effectiveRates?: EffectiveRatesType;
+    effectiveRates?: Array<EffectiveRateType>;
     /**
      * After the change rate operation, return the new list of Sharer Reservaitions.
      * @type {boolean}
@@ -59,7 +59,7 @@ export function ChangeShareRateAmountTypeChangeShareRateInstructionsFromJSONType
     }
     return {
         
-        'effectiveRates': !exists(json, 'effectiveRates') ? undefined : EffectiveRatesTypeFromJSON(json['effectiveRates']),
+        'effectiveRates': !exists(json, 'effectiveRates') ? undefined : ((json['effectiveRates'] as Array<any>).map(EffectiveRateTypeFromJSON)),
         'returnShareReservations': !exists(json, 'returnShareReservations') ? undefined : json['returnShareReservations'],
     };
 }
@@ -73,7 +73,7 @@ export function ChangeShareRateAmountTypeChangeShareRateInstructionsToJSON(value
     }
     return {
         
-        'effectiveRates': EffectiveRatesTypeToJSON(value.effectiveRates),
+        'effectiveRates': value.effectiveRates === undefined ? undefined : ((value.effectiveRates as Array<any>).map(EffectiveRateTypeToJSON)),
         'returnShareReservations': value.returnShareReservations,
     };
 }

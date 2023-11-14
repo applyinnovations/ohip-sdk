@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { GuestMessageTemplatesType } from './GuestMessageTemplatesType';
+import type { GuestMessageTemplateType } from './GuestMessageTemplateType';
 import {
-    GuestMessageTemplatesTypeFromJSON,
-    GuestMessageTemplatesTypeFromJSONTyped,
-    GuestMessageTemplatesTypeToJSON,
-} from './GuestMessageTemplatesType';
-import type { Links } from './Links';
+    GuestMessageTemplateTypeFromJSON,
+    GuestMessageTemplateTypeFromJSONTyped,
+    GuestMessageTemplateTypeToJSON,
+} from './GuestMessageTemplateType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for information regarding guest message templates.
@@ -39,23 +39,23 @@ import {
  */
 export interface GuestMessageTemplates {
     /**
-     * 
-     * @type {GuestMessageTemplatesType}
+     * Collection of guest messages templates.
+     * @type {Array<GuestMessageTemplateType>}
      * @memberof GuestMessageTemplates
      */
-    guestMessageTemplates?: GuestMessageTemplatesType;
+    guestMessageTemplates?: Array<GuestMessageTemplateType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuestMessageTemplates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuestMessageTemplates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function GuestMessageTemplatesFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'guestMessageTemplates': !exists(json, 'guestMessageTemplates') ? undefined : GuestMessageTemplatesTypeFromJSON(json['guestMessageTemplates']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'guestMessageTemplates': !exists(json, 'guestMessageTemplates') ? undefined : ((json['guestMessageTemplates'] as Array<any>).map(GuestMessageTemplateTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function GuestMessageTemplatesToJSON(value?: GuestMessageTemplates | null
     }
     return {
         
-        'guestMessageTemplates': GuestMessageTemplatesTypeToJSON(value.guestMessageTemplates),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'guestMessageTemplates': value.guestMessageTemplates === undefined ? undefined : ((value.guestMessageTemplates as Array<any>).map(GuestMessageTemplateTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

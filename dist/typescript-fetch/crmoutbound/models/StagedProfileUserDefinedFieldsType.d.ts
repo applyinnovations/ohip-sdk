@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { StagedProfileCharacterUDFsType } from './StagedProfileCharacterUDFsType';
-import type { StagedProfileDateUDFsType } from './StagedProfileDateUDFsType';
-import type { StagedProfileNumericUDFsType } from './StagedProfileNumericUDFsType';
+import type { StagedProfileCharacterUDFType } from './StagedProfileCharacterUDFType';
+import type { StagedProfileDateUDFType } from './StagedProfileDateUDFType';
+import type { StagedProfileNumericUDFType } from './StagedProfileNumericUDFType';
 /**
  * Used to hold user defined fields(UDFs) for staged profile.
  * @export
@@ -19,23 +19,23 @@ import type { StagedProfileNumericUDFsType } from './StagedProfileNumericUDFsTyp
  */
 export interface StagedProfileUserDefinedFieldsType {
     /**
-     *
-     * @type {StagedProfileCharacterUDFsType}
+     * Used to hold collection of user defined fields of Character/String Type.
+     * @type {Array<StagedProfileCharacterUDFType>}
      * @memberof StagedProfileUserDefinedFieldsType
      */
-    characterUDFs?: StagedProfileCharacterUDFsType;
+    characterUDFs?: Array<StagedProfileCharacterUDFType>;
     /**
-     *
-     * @type {StagedProfileNumericUDFsType}
+     * Used to hold collection of user defined fields of Numeric Type.
+     * @type {Array<StagedProfileNumericUDFType>}
      * @memberof StagedProfileUserDefinedFieldsType
      */
-    numericUDFs?: StagedProfileNumericUDFsType;
+    numericUDFs?: Array<StagedProfileNumericUDFType>;
     /**
-     *
-     * @type {StagedProfileDateUDFsType}
+     * Used to hold collection of user defined fields of Date Type.
+     * @type {Array<StagedProfileDateUDFType>}
      * @memberof StagedProfileUserDefinedFieldsType
      */
-    dateUDFs?: StagedProfileDateUDFsType;
+    dateUDFs?: Array<StagedProfileDateUDFType>;
 }
 /**
  * Check if a given object implements the StagedProfileUserDefinedFieldsType interface.

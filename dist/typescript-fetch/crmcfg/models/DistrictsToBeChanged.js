@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DistrictsToBeChangedToJSON = exports.DistrictsToBeChangedFromJSONTyped = exports.DistrictsToBeChangedFromJSON = exports.instanceOfDistrictsToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const DistrictsType_1 = require("./DistrictsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const DistrictType_1 = require("./DistrictType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the DistrictsToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function DistrictsToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'districts': !(0, runtime_1.exists)(json, 'districts') ? undefined : (0, DistrictsType_1.DistrictsTypeFromJSON)(json['districts']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'districts': !(0, runtime_1.exists)(json, 'districts') ? undefined : (json['districts'].map(DistrictType_1.DistrictTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.DistrictsToBeChangedFromJSONTyped = DistrictsToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function DistrictsToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'districts': (0, DistrictsType_1.DistrictsTypeToJSON)(value.districts),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'districts': value.districts === undefined ? undefined : (value.districts.map(DistrictType_1.DistrictTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.DistrictsToBeChangedToJSON = DistrictsToBeChangedToJSON;

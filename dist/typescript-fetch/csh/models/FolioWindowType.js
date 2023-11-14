@@ -24,7 +24,7 @@ const FolioType_1 = require("./FolioType");
 const FolioWindowExchangeAmounts_1 = require("./FolioWindowExchangeAmounts");
 const PayeeInfoType_1 = require("./PayeeInfoType");
 const ReservationPaymentMethodType_1 = require("./ReservationPaymentMethodType");
-const TransactionServiceTypesType_1 = require("./TransactionServiceTypesType");
+const TransactionServiceTypeType_1 = require("./TransactionServiceTypeType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the FolioWindowType interface.
@@ -68,7 +68,7 @@ function FolioWindowTypeFromJSONTyped(json, ignoreDiscriminator) {
         'paymentMethod': !(0, runtime_1.exists)(json, 'paymentMethod') ? undefined : (0, ReservationPaymentMethodType_1.ReservationPaymentMethodTypeFromJSON)(json['paymentMethod']),
         'receiptNo': !(0, runtime_1.exists)(json, 'receiptNo') ? undefined : json['receiptNo'],
         'revenue': !(0, runtime_1.exists)(json, 'revenue') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['revenue']),
-        'serviceTypeInfo': !(0, runtime_1.exists)(json, 'serviceTypeInfo') ? undefined : (0, TransactionServiceTypesType_1.TransactionServiceTypesTypeFromJSON)(json['serviceTypeInfo']),
+        'serviceTypeInfo': !(0, runtime_1.exists)(json, 'serviceTypeInfo') ? undefined : (json['serviceTypeInfo'].map(TransactionServiceTypeType_1.TransactionServiceTypeTypeFromJSON)),
         'simpleFolio': !(0, runtime_1.exists)(json, 'simpleFolio') ? undefined : json['simpleFolio'],
         'storedFolioId': !(0, runtime_1.exists)(json, 'storedFolioId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['storedFolioId']),
         'storedFolioName': !(0, runtime_1.exists)(json, 'storedFolioName') ? undefined : json['storedFolioName'],
@@ -112,7 +112,7 @@ function FolioWindowTypeToJSON(value) {
         'paymentMethod': (0, ReservationPaymentMethodType_1.ReservationPaymentMethodTypeToJSON)(value.paymentMethod),
         'receiptNo': value.receiptNo,
         'revenue': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.revenue),
-        'serviceTypeInfo': (0, TransactionServiceTypesType_1.TransactionServiceTypesTypeToJSON)(value.serviceTypeInfo),
+        'serviceTypeInfo': value.serviceTypeInfo === undefined ? undefined : (value.serviceTypeInfo.map(TransactionServiceTypeType_1.TransactionServiceTypeTypeToJSON)),
         'simpleFolio': value.simpleFolio,
         'storedFolioId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.storedFolioId),
         'storedFolioName': value.storedFolioName,

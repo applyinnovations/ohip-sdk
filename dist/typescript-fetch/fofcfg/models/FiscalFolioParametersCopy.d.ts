@@ -11,8 +11,8 @@
  */
 import type { CopyFiscalFolioParametersType } from './CopyFiscalFolioParametersType';
 import type { GenericHotelCodeCodeType } from './GenericHotelCodeCodeType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for copying Fiscal Folio Parameters to other hotel code(s).
  * @export
@@ -33,16 +33,16 @@ export interface FiscalFolioParametersCopy {
     fiscalFolioParameters?: Array<CopyFiscalFolioParametersType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FiscalFolioParametersCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FiscalFolioParametersCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FiscalFolioParametersCopy interface.

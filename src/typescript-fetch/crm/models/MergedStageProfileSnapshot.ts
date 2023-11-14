@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { StagedProfileType } from './StagedProfileType';
 import {
     StagedProfileTypeFromJSON,
     StagedProfileTypeFromJSONTyped,
     StagedProfileTypeToJSON,
 } from './StagedProfileType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object to fetch merge profile based on stage and opera profile.
@@ -40,10 +40,10 @@ import {
 export interface MergedStageProfileSnapshot {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MergedStageProfileSnapshot
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {StagedProfileType}
@@ -51,11 +51,11 @@ export interface MergedStageProfileSnapshot {
      */
     mergeStageProfile?: StagedProfileType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MergedStageProfileSnapshot
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MergedStageProfileSnapshotFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'mergeStageProfile': !exists(json, 'mergeStageProfile') ? undefined : StagedProfileTypeFromJSON(json['mergeStageProfile']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MergedStageProfileSnapshotToJSON(value?: MergedStageProfileSnaps
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'mergeStageProfile': StagedProfileTypeToJSON(value.mergeStageProfile),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

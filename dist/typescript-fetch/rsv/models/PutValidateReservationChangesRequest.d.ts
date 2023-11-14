@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 import type { HotelReservationType } from './HotelReservationType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { TimeSpanType } from './TimeSpanType';
 import type { ValidateReservationChangesInstructions } from './ValidateReservationChangesInstructions';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -28,10 +28,10 @@ export interface PutValidateReservationChangesRequest {
     instructions?: ValidateReservationChangesInstructions;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PutValidateReservationChangesRequest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {HotelReservationType}
@@ -45,11 +45,11 @@ export interface PutValidateReservationChangesRequest {
      */
     timeSpan?: TimeSpanType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PutValidateReservationChangesRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PutValidateReservationChangesRequest interface.

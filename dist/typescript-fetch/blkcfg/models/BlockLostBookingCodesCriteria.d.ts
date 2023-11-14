@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockLostBookingCodesType } from './BlockLostBookingCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BlockLostBookingCodeType } from './BlockLostBookingCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Block Lost Booking Codes.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BlockLostBookingCodesCriteria {
     /**
-     *
-     * @type {BlockLostBookingCodesType}
+     * List of Block Lost Booking Codes.
+     * @type {Array<BlockLostBookingCodeType>}
      * @memberof BlockLostBookingCodesCriteria
      */
-    blockLostBookingCodes?: BlockLostBookingCodesType;
+    blockLostBookingCodes?: Array<BlockLostBookingCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockLostBookingCodesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockLostBookingCodesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockLostBookingCodesCriteria interface.

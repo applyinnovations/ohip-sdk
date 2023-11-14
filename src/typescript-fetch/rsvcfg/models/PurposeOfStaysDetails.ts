@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { PurposeOfStaysType } from './PurposeOfStaysType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { PurposeOfStayType } from './PurposeOfStayType';
 import {
-    PurposeOfStaysTypeFromJSON,
-    PurposeOfStaysTypeFromJSONTyped,
-    PurposeOfStaysTypeToJSON,
-} from './PurposeOfStaysType';
-import type { WarningsType } from './WarningsType';
+    PurposeOfStayTypeFromJSON,
+    PurposeOfStayTypeFromJSONTyped,
+    PurposeOfStayTypeToJSON,
+} from './PurposeOfStayType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Purpose Of Stays.
@@ -40,22 +40,22 @@ import {
 export interface PurposeOfStaysDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PurposeOfStaysDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {PurposeOfStaysType}
+     * List of Purpose Of Stays.
+     * @type {Array<PurposeOfStayType>}
      * @memberof PurposeOfStaysDetails
      */
-    purposeOfStays?: PurposeOfStaysType;
+    purposeOfStays?: Array<PurposeOfStayType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PurposeOfStaysDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function PurposeOfStaysDetailsFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'purposeOfStays': !exists(json, 'purposeOfStays') ? undefined : PurposeOfStaysTypeFromJSON(json['purposeOfStays']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'purposeOfStays': !exists(json, 'purposeOfStays') ? undefined : ((json['purposeOfStays'] as Array<any>).map(PurposeOfStayTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function PurposeOfStaysDetailsToJSON(value?: PurposeOfStaysDetails | null
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'purposeOfStays': PurposeOfStaysTypeToJSON(value.purposeOfStays),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'purposeOfStays': value.purposeOfStays === undefined ? undefined : ((value.purposeOfStays as Array<any>).map(PurposeOfStayTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

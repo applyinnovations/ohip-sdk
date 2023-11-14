@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ResCancellationPoliciesType } from './ResCancellationPoliciesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ResCancellationPolicyType } from './ResCancellationPolicyType';
 import {
-    ResCancellationPoliciesTypeFromJSON,
-    ResCancellationPoliciesTypeFromJSONTyped,
-    ResCancellationPoliciesTypeToJSON,
-} from './ResCancellationPoliciesType';
-import type { ResDepositPoliciesType } from './ResDepositPoliciesType';
+    ResCancellationPolicyTypeFromJSON,
+    ResCancellationPolicyTypeFromJSONTyped,
+    ResCancellationPolicyTypeToJSON,
+} from './ResCancellationPolicyType';
+import type { ResDepositPolicyType } from './ResDepositPolicyType';
 import {
-    ResDepositPoliciesTypeFromJSON,
-    ResDepositPoliciesTypeFromJSONTyped,
-    ResDepositPoliciesTypeToJSON,
-} from './ResDepositPoliciesType';
-import type { WarningsType } from './WarningsType';
+    ResDepositPolicyTypeFromJSON,
+    ResDepositPolicyTypeFromJSONTyped,
+    ResDepositPolicyTypeToJSON,
+} from './ResDepositPolicyType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response that contains deposit and cancellation policies attached with the reservation.
@@ -45,29 +45,29 @@ import {
  */
 export interface ReservationPolicies {
     /**
-     * 
-     * @type {ResCancellationPoliciesType}
+     * A list of reservation cancellation policies.
+     * @type {Array<ResCancellationPolicyType>}
      * @memberof ReservationPolicies
      */
-    cancellationPolicies?: ResCancellationPoliciesType;
+    cancellationPolicies?: Array<ResCancellationPolicyType>;
+    /**
+     * A list of deposit policies attached with the reservation.
+     * @type {Array<ResDepositPolicyType>}
+     * @memberof ReservationPolicies
+     */
+    depositPolicies?: Array<ResDepositPolicyType>;
     /**
      * 
-     * @type {ResDepositPoliciesType}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationPolicies
      */
-    depositPolicies?: ResDepositPoliciesType;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {Links}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationPolicies
      */
-    links?: Links;
-    /**
-     * 
-     * @type {WarningsType}
-     * @memberof ReservationPolicies
-     */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function ReservationPoliciesFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'cancellationPolicies': !exists(json, 'cancellationPolicies') ? undefined : ResCancellationPoliciesTypeFromJSON(json['cancellationPolicies']),
-        'depositPolicies': !exists(json, 'depositPolicies') ? undefined : ResDepositPoliciesTypeFromJSON(json['depositPolicies']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'cancellationPolicies': !exists(json, 'cancellationPolicies') ? undefined : ((json['cancellationPolicies'] as Array<any>).map(ResCancellationPolicyTypeFromJSON)),
+        'depositPolicies': !exists(json, 'depositPolicies') ? undefined : ((json['depositPolicies'] as Array<any>).map(ResDepositPolicyTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function ReservationPoliciesToJSON(value?: ReservationPolicies | null): a
     }
     return {
         
-        'cancellationPolicies': ResCancellationPoliciesTypeToJSON(value.cancellationPolicies),
-        'depositPolicies': ResDepositPoliciesTypeToJSON(value.depositPolicies),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'cancellationPolicies': value.cancellationPolicies === undefined ? undefined : ((value.cancellationPolicies as Array<any>).map(ResCancellationPolicyTypeToJSON)),
+        'depositPolicies': value.depositPolicies === undefined ? undefined : ((value.depositPolicies as Array<any>).map(ResDepositPolicyTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostCompRedemptionsRQCompRedemptionsType } from './PostCompRedemptionsRQCompRedemptionsType';
+import type { PostCompRedemptionsRQCompRedemptionType } from './PostCompRedemptionsRQCompRedemptionType';
 import {
-    PostCompRedemptionsRQCompRedemptionsTypeFromJSON,
-    PostCompRedemptionsRQCompRedemptionsTypeFromJSONTyped,
-    PostCompRedemptionsRQCompRedemptionsTypeToJSON,
-} from './PostCompRedemptionsRQCompRedemptionsType';
+    PostCompRedemptionsRQCompRedemptionTypeFromJSON,
+    PostCompRedemptionsRQCompRedemptionTypeFromJSONTyped,
+    PostCompRedemptionsRQCompRedemptionTypeToJSON,
+} from './PostCompRedemptionsRQCompRedemptionType';
 
 /**
  * Request type of Complimentary Redemptions posting.
@@ -27,11 +27,11 @@ import {
  */
 export interface PostCompRedemptionsRQ {
     /**
-     * 
-     * @type {PostCompRedemptionsRQCompRedemptionsType}
+     * Collection of Complimentary Redemptions for posting.
+     * @type {Array<PostCompRedemptionsRQCompRedemptionType>}
      * @memberof PostCompRedemptionsRQ
      */
-    compRedemptions?: PostCompRedemptionsRQCompRedemptionsType;
+    compRedemptions?: Array<PostCompRedemptionsRQCompRedemptionType>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function PostCompRedemptionsRQFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : PostCompRedemptionsRQCompRedemptionsTypeFromJSON(json['compRedemptions']),
+        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : ((json['compRedemptions'] as Array<any>).map(PostCompRedemptionsRQCompRedemptionTypeFromJSON)),
     };
 }
 
@@ -66,7 +66,7 @@ export function PostCompRedemptionsRQToJSON(value?: PostCompRedemptionsRQ | null
     }
     return {
         
-        'compRedemptions': PostCompRedemptionsRQCompRedemptionsTypeToJSON(value.compRedemptions),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : ((value.compRedemptions as Array<any>).map(PostCompRedemptionsRQCompRedemptionTypeToJSON)),
     };
 }
 

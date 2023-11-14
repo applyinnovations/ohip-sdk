@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RoomMoveDetailsType } from './RoomMoveDetailsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RoomMoveDetailType } from './RoomMoveDetailType';
+import type { WarningType } from './WarningType';
 /**
  * Response for the fetch room move history of a reservation.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface RoomMoveHistory {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomMoveHistory
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RoomMoveDetailsType}
+     * List of room move details
+     * @type {Array<RoomMoveDetailType>}
      * @memberof RoomMoveHistory
      */
-    roomMoveHistoryDetails?: RoomMoveDetailsType;
+    roomMoveHistoryDetails?: Array<RoomMoveDetailType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomMoveHistory
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomMoveHistory interface.

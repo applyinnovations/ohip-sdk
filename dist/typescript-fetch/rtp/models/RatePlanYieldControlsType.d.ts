@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 import type { RatePlanYieldableType } from './RatePlanYieldableType';
-import type { YieldMarketCodeListType } from './YieldMarketCodeListType';
 /**
  *
  * @export
@@ -30,11 +29,11 @@ export interface RatePlanYieldControlsType {
      */
     yieldAsRatePlanCode?: string;
     /**
-     *
-     * @type {YieldMarketCodeListType}
+     * Yield Market Code for the rate plan code.
+     * @type {Array<string>}
      * @memberof RatePlanYieldControlsType
      */
-    yieldMarketCodeList?: YieldMarketCodeListType;
+    yieldMarketCodeList?: Array<string>;
     /**
      *
      * @type {RatePlanYieldableType}

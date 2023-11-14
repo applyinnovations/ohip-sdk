@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MembershipAwardsListType } from './MembershipAwardsListType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MembershipAwardListType } from './MembershipAwardListType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching member issued award list.
  * @export
@@ -38,16 +38,16 @@ export interface MembershipIssueAwards {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipIssueAwards
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MembershipAwardsListType}
+     * List of Member Awards information.
+     * @type {Array<MembershipAwardListType>}
      * @memberof MembershipIssueAwards
      */
-    membershipAwardsList?: MembershipAwardsListType;
+    membershipAwardsList?: Array<MembershipAwardListType>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface MembershipIssueAwards {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipIssueAwards
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipIssueAwards interface.

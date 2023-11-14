@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CopyInventoryItemsType } from './CopyInventoryItemsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for copying Inventory Items Setup configuration
  * @export
@@ -26,16 +26,16 @@ export interface InventoryItemsCopy {
     copyInventoryItems?: CopyInventoryItemsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof InventoryItemsCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof InventoryItemsCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the InventoryItemsCopy interface.

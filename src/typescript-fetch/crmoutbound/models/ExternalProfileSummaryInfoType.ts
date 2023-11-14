@@ -19,12 +19,12 @@ import {
     ExternalProfileSummaryTypeFromJSONTyped,
     ExternalProfileSummaryTypeToJSON,
 } from './ExternalProfileSummaryType';
-import type { ProfileIdList } from './ProfileIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Summary information about a external profile and the associated Unique IDs.
@@ -33,11 +33,11 @@ import {
  */
 export interface ExternalProfileSummaryInfoType {
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ExternalProfileSummaryInfoType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {ExternalProfileSummaryType}
@@ -65,7 +65,7 @@ export function ExternalProfileSummaryInfoTypeFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'profile': !exists(json, 'profile') ? undefined : ExternalProfileSummaryTypeFromJSON(json['profile']),
     };
 }
@@ -79,7 +79,7 @@ export function ExternalProfileSummaryInfoTypeToJSON(value?: ExternalProfileSumm
     }
     return {
         
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'profile': ExternalProfileSummaryTypeToJSON(value.profile),
     };
 }

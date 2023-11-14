@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { InfluenceCodesType } from './InfluenceCodesType';
+import type { InfluenceCodeType } from './InfluenceCodeType';
 import {
-    InfluenceCodesTypeFromJSON,
-    InfluenceCodesTypeFromJSONTyped,
-    InfluenceCodesTypeToJSON,
-} from './InfluenceCodesType';
-import type { Links } from './Links';
+    InfluenceCodeTypeFromJSON,
+    InfluenceCodeTypeFromJSONTyped,
+    InfluenceCodeTypeToJSON,
+} from './InfluenceCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Influence Codes.
@@ -39,23 +39,23 @@ import {
  */
 export interface InfluenceCodesToBeChanged {
     /**
-     * 
-     * @type {InfluenceCodesType}
+     * List of Influence Codes.
+     * @type {Array<InfluenceCodeType>}
      * @memberof InfluenceCodesToBeChanged
      */
-    influenceCodes?: InfluenceCodesType;
+    influenceCodes?: Array<InfluenceCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof InfluenceCodesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof InfluenceCodesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function InfluenceCodesToBeChangedFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'influenceCodes': !exists(json, 'influenceCodes') ? undefined : InfluenceCodesTypeFromJSON(json['influenceCodes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'influenceCodes': !exists(json, 'influenceCodes') ? undefined : ((json['influenceCodes'] as Array<any>).map(InfluenceCodeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function InfluenceCodesToBeChangedToJSON(value?: InfluenceCodesToBeChange
     }
     return {
         
-        'influenceCodes': InfluenceCodesTypeToJSON(value.influenceCodes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'influenceCodes': value.influenceCodes === undefined ? undefined : ((value.influenceCodes as Array<any>).map(InfluenceCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

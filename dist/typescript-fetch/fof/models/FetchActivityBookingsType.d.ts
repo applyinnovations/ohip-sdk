@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ActivityList } from './ActivityList';
+import type { ActivityListInner } from './ActivityListInner';
 import type { AddressType } from './AddressType';
 import type { PersonNameType } from './PersonNameType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Used in the request message to describe the "filtering Criteria" when executing an activity lookup.
  * @export
@@ -20,11 +20,11 @@ import type { UniqueIDListType } from './UniqueIDListType';
  */
 export interface FetchActivityBookingsType {
     /**
-     *
-     * @type {ActivityList}
+     * A collection of Activity objects.
+     * @type {Array<ActivityListInner>}
      * @memberof FetchActivityBookingsType
      */
-    activities?: ActivityList;
+    activities?: Array<ActivityListInner>;
     /**
      *
      * @type {AddressType}
@@ -44,11 +44,11 @@ export interface FetchActivityBookingsType {
      */
     personName?: PersonNameType;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof FetchActivityBookingsType
      */
-    profileId?: UniqueIDListType;
+    profileId?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the FetchActivityBookingsType interface.

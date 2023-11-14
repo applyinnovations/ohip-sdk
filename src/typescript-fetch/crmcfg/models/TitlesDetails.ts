@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TitlesType } from './TitlesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TitleType } from './TitleType';
 import {
-    TitlesTypeFromJSON,
-    TitlesTypeFromJSONTyped,
-    TitlesTypeToJSON,
-} from './TitlesType';
-import type { WarningsType } from './WarningsType';
+    TitleTypeFromJSON,
+    TitleTypeFromJSONTyped,
+    TitleTypeToJSON,
+} from './TitleType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Titles.
@@ -40,22 +40,22 @@ import {
 export interface TitlesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TitlesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TitlesType}
+     * List of Titles.
+     * @type {Array<TitleType>}
      * @memberof TitlesDetails
      */
-    titles?: TitlesType;
+    titles?: Array<TitleType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TitlesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TitlesDetailsFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'titles': !exists(json, 'titles') ? undefined : TitlesTypeFromJSON(json['titles']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'titles': !exists(json, 'titles') ? undefined : ((json['titles'] as Array<any>).map(TitleTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TitlesDetailsToJSON(value?: TitlesDetails | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'titles': TitlesTypeToJSON(value.titles),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'titles': value.titles === undefined ? undefined : ((value.titles as Array<any>).map(TitleTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WaitlistedEventsGroupsType } from './WaitlistedEventsGroupsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WaitlistedEventType } from './WaitlistedEventType';
 import {
-    WaitlistedEventsGroupsTypeFromJSON,
-    WaitlistedEventsGroupsTypeFromJSONTyped,
-    WaitlistedEventsGroupsTypeToJSON,
-} from './WaitlistedEventsGroupsType';
-import type { WarningsType } from './WarningsType';
+    WaitlistedEventTypeFromJSON,
+    WaitlistedEventTypeFromJSONTyped,
+    WaitlistedEventTypeToJSON,
+} from './WaitlistedEventType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for retrieving waitlisted and current events holding the function space.
@@ -40,22 +40,22 @@ import {
 export interface WaitlistedEvents {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof WaitlistedEvents
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WaitlistedEventsGroupsType}
+     * Collection of events waitlisted for a function space.
+     * @type {Array<Array<WaitlistedEventType>>}
      * @memberof WaitlistedEvents
      */
-    waitlistedEventsGroups?: WaitlistedEventsGroupsType;
+    waitlistedEventsGroups?: Array<Array<WaitlistedEventType>>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof WaitlistedEvents
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function WaitlistedEventsFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'waitlistedEventsGroups': !exists(json, 'waitlistedEventsGroups') ? undefined : WaitlistedEventsGroupsTypeFromJSON(json['waitlistedEventsGroups']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'waitlistedEventsGroups': !exists(json, 'waitlistedEventsGroups') ? undefined : json['waitlistedEventsGroups'],
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function WaitlistedEventsToJSON(value?: WaitlistedEvents | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'waitlistedEventsGroups': WaitlistedEventsGroupsTypeToJSON(value.waitlistedEventsGroups),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'waitlistedEventsGroups': value.waitlistedEventsGroups,
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EventTypesType } from './EventTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { EventTypeConfigType } from './EventTypeConfigType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object of the Function Space Event Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FunctionSpaceEventTypesDetails {
     /**
-     *
-     * @type {EventTypesType}
+     * Collection of Event Type
+     * @type {Array<EventTypeConfigType>}
      * @memberof FunctionSpaceEventTypesDetails
      */
-    eventTypes?: EventTypesType;
+    eventTypes?: Array<EventTypeConfigType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FunctionSpaceEventTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FunctionSpaceEventTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FunctionSpaceEventTypesDetails interface.

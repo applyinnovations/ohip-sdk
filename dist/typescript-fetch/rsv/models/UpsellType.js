@@ -18,7 +18,7 @@ const runtime_1 = require("../runtime");
 const AmountPointsType_1 = require("./AmountPointsType");
 const RoomTypeInfoType_1 = require("./RoomTypeInfoType");
 const UniqueIDType_1 = require("./UniqueIDType");
-const UpsellDailyRatesType_1 = require("./UpsellDailyRatesType");
+const UpsellDailyRateType_1 = require("./UpsellDailyRateType");
 /**
  * Check if a given object implements the UpsellType interface.
  */
@@ -39,7 +39,7 @@ function UpsellTypeFromJSONTyped(json, ignoreDiscriminator) {
         'firstNightAmount': !(0, runtime_1.exists)(json, 'firstNightAmount') ? undefined : (0, AmountPointsType_1.AmountPointsTypeFromJSON)(json['firstNightAmount']),
         'percentageSavings': !(0, runtime_1.exists)(json, 'percentageSavings') ? undefined : json['percentageSavings'],
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
-        'rates': !(0, runtime_1.exists)(json, 'rates') ? undefined : (0, UpsellDailyRatesType_1.UpsellDailyRatesTypeFromJSON)(json['rates']),
+        'rates': !(0, runtime_1.exists)(json, 'rates') ? undefined : (json['rates'].map(UpsellDailyRateType_1.UpsellDailyRateTypeFromJSON)),
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : (0, RoomTypeInfoType_1.RoomTypeInfoTypeFromJSON)(json['roomType']),
         'ruleCode': !(0, runtime_1.exists)(json, 'ruleCode') ? undefined : json['ruleCode'],
         'ruleDescription': !(0, runtime_1.exists)(json, 'ruleDescription') ? undefined : json['ruleDescription'],
@@ -60,7 +60,7 @@ function UpsellTypeToJSON(value) {
         'firstNightAmount': (0, AmountPointsType_1.AmountPointsTypeToJSON)(value.firstNightAmount),
         'percentageSavings': value.percentageSavings,
         'ratePlanCode': value.ratePlanCode,
-        'rates': (0, UpsellDailyRatesType_1.UpsellDailyRatesTypeToJSON)(value.rates),
+        'rates': value.rates === undefined ? undefined : (value.rates.map(UpsellDailyRateType_1.UpsellDailyRateTypeToJSON)),
         'roomType': (0, RoomTypeInfoType_1.RoomTypeInfoTypeToJSON)(value.roomType),
         'ruleCode': value.ruleCode,
         'ruleDescription': value.ruleDescription,

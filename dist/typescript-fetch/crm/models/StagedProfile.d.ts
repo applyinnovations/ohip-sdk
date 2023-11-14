@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { StagedProfileChangeInstructionsType } from './StagedProfileChangeInstructionsType';
 import type { StagedProfileType } from './StagedProfileType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing the staged profile.
  * @export
@@ -27,10 +27,10 @@ export interface StagedProfile {
     changeInstructions?: StagedProfileChangeInstructionsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof StagedProfile
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {StagedProfileType}
@@ -38,11 +38,11 @@ export interface StagedProfile {
      */
     stagedProfile?: StagedProfileType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof StagedProfile
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the StagedProfile interface.

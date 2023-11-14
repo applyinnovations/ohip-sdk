@@ -19,12 +19,12 @@ import {
     ReverseCompRedemptionsCriteriaFromJSONTyped,
     ReverseCompRedemptionsCriteriaToJSON,
 } from './ReverseCompRedemptionsCriteria';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request type of complimentary bucket redemptions reversal.
@@ -39,11 +39,11 @@ export interface ReverseCompRedemptions {
      */
     criteria?: ReverseCompRedemptionsCriteria;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReverseCompRedemptions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function ReverseCompRedemptionsFromJSONTyped(json: any, ignoreDiscriminat
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : ReverseCompRedemptionsCriteriaFromJSON(json['criteria']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function ReverseCompRedemptionsToJSON(value?: ReverseCompRedemptions | nu
     return {
         
         'criteria': ReverseCompRedemptionsCriteriaToJSON(value.criteria),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RecentlyAccessedProfileType } from './RecentlyAccessedProfileType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response with the fetched recently accessed profiles.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface RecentlyAccessedProfiles {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RecentlyAccessedProfiles
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * List of recently accessed profiles.
      * @type {Array<RecentlyAccessedProfileType>}
@@ -31,11 +31,11 @@ export interface RecentlyAccessedProfiles {
      */
     profiles?: Array<RecentlyAccessedProfileType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RecentlyAccessedProfiles
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RecentlyAccessedProfiles interface.

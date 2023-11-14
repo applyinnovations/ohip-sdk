@@ -13,36 +13,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DetailPostingsType } from './DetailPostingsType';
+import type { DetailPostingType } from './DetailPostingType';
 import {
-    DetailPostingsTypeFromJSON,
-    DetailPostingsTypeFromJSONTyped,
-    DetailPostingsTypeToJSON,
-} from './DetailPostingsType';
+    DetailPostingTypeFromJSON,
+    DetailPostingTypeFromJSONTyped,
+    DetailPostingTypeToJSON,
+} from './DetailPostingType';
 import type { FolioWindowType } from './FolioWindowType';
 import {
     FolioWindowTypeFromJSON,
     FolioWindowTypeFromJSONTyped,
     FolioWindowTypeToJSON,
 } from './FolioWindowType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for the request to create a Credit Folio.
@@ -58,28 +58,28 @@ export interface PostedCreditBill {
     folioWindow?: Array<FolioWindowType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostedCreditBill
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {DetailPostingsType}
+     * Details of the transaction(Posting).
+     * @type {Array<DetailPostingType>}
      * @memberof PostedCreditBill
      */
-    payments?: DetailPostingsType;
+    payments?: Array<DetailPostingType>;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof PostedCreditBill
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostedCreditBill
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -102,10 +102,10 @@ export function PostedCreditBillFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'folioWindow': !exists(json, 'folioWindow') ? undefined : ((json['folioWindow'] as Array<any>).map(FolioWindowTypeFromJSON)),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'payments': !exists(json, 'payments') ? undefined : DetailPostingsTypeFromJSON(json['payments']),
-        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : TrxCodesInfoTypeFromJSON(json['trxCodesInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'payments': !exists(json, 'payments') ? undefined : ((json['payments'] as Array<any>).map(DetailPostingTypeFromJSON)),
+        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : ((json['trxCodesInfo'] as Array<any>).map(TrxInfoTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -119,10 +119,10 @@ export function PostedCreditBillToJSON(value?: PostedCreditBill | null): any {
     return {
         
         'folioWindow': value.folioWindow === undefined ? undefined : ((value.folioWindow as Array<any>).map(FolioWindowTypeToJSON)),
-        'links': LinksToJSON(value.links),
-        'payments': DetailPostingsTypeToJSON(value.payments),
-        'trxCodesInfo': TrxCodesInfoTypeToJSON(value.trxCodesInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'payments': value.payments === undefined ? undefined : ((value.payments as Array<any>).map(DetailPostingTypeToJSON)),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : ((value.trxCodesInfo as Array<any>).map(TrxInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

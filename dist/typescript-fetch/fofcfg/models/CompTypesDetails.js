@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CompTypesDetailsToJSON = exports.CompTypesDetailsFromJSONTyped = exports.CompTypesDetailsFromJSON = exports.instanceOfCompTypesDetails = void 0;
 const runtime_1 = require("../runtime");
-const CompTypesType_1 = require("./CompTypesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CompTypeType_1 = require("./CompTypeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CompTypesDetails interface.
  */
@@ -35,9 +35,9 @@ function CompTypesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'compTypes': !(0, runtime_1.exists)(json, 'compTypes') ? undefined : (0, CompTypesType_1.CompTypesTypeFromJSON)(json['compTypes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'compTypes': !(0, runtime_1.exists)(json, 'compTypes') ? undefined : (json['compTypes'].map(CompTypeType_1.CompTypeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CompTypesDetailsFromJSONTyped = CompTypesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function CompTypesDetailsToJSON(value) {
         return null;
     }
     return {
-        'compTypes': (0, CompTypesType_1.CompTypesTypeToJSON)(value.compTypes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'compTypes': value.compTypes === undefined ? undefined : (value.compTypes.map(CompTypeType_1.CompTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CompTypesDetailsToJSON = CompTypesDetailsToJSON;

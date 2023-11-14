@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CustomChargesType } from './CustomChargesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CustomChargeType } from './CustomChargeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new Custom Charges.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CustomChargesConfig {
     /**
-     *
-     * @type {CustomChargesType}
+     * Details for Custom Charges Codes.
+     * @type {Array<CustomChargeType>}
      * @memberof CustomChargesConfig
      */
-    customCharges?: CustomChargesType;
+    customCharges?: Array<CustomChargeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CustomChargesConfig
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CustomChargesConfig
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CustomChargesConfig interface.

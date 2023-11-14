@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipClaimTypesType } from './MembershipClaimTypesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipClaimTypeType } from './MembershipClaimTypeType';
 import {
-    MembershipClaimTypesTypeFromJSON,
-    MembershipClaimTypesTypeFromJSONTyped,
-    MembershipClaimTypesTypeToJSON,
-} from './MembershipClaimTypesType';
-import type { WarningsType } from './WarningsType';
+    MembershipClaimTypeTypeFromJSON,
+    MembershipClaimTypeTypeFromJSONTyped,
+    MembershipClaimTypeTypeToJSON,
+} from './MembershipClaimTypeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Membership Claim Types.
@@ -40,22 +40,22 @@ import {
 export interface MembershipClaimTypesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipClaimTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MembershipClaimTypesType}
+     * List of Membership Claim Types.
+     * @type {Array<MembershipClaimTypeType>}
      * @memberof MembershipClaimTypesDetails
      */
-    membershipClaimTypes?: MembershipClaimTypesType;
+    membershipClaimTypes?: Array<MembershipClaimTypeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipClaimTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MembershipClaimTypesDetailsFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'membershipClaimTypes': !exists(json, 'membershipClaimTypes') ? undefined : MembershipClaimTypesTypeFromJSON(json['membershipClaimTypes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'membershipClaimTypes': !exists(json, 'membershipClaimTypes') ? undefined : ((json['membershipClaimTypes'] as Array<any>).map(MembershipClaimTypeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MembershipClaimTypesDetailsToJSON(value?: MembershipClaimTypesDe
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'membershipClaimTypes': MembershipClaimTypesTypeToJSON(value.membershipClaimTypes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'membershipClaimTypes': value.membershipClaimTypes === undefined ? undefined : ((value.membershipClaimTypes as Array<any>).map(MembershipClaimTypeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -31,12 +31,12 @@ import {
     PayeeInfoTypeFromJSONTyped,
     PayeeInfoTypeToJSON,
 } from './PayeeInfoType';
-import type { SummaryPostingsType } from './SummaryPostingsType';
+import type { SummaryPostingType } from './SummaryPostingType';
 import {
-    SummaryPostingsTypeFromJSON,
-    SummaryPostingsTypeFromJSONTyped,
-    SummaryPostingsTypeToJSON,
-} from './SummaryPostingsType';
+    SummaryPostingTypeFromJSON,
+    SummaryPostingTypeFromJSONTyped,
+    SummaryPostingTypeToJSON,
+} from './SummaryPostingType';
 
 /**
  * Represents a single page in a reservation's ledger which will contain transactions and payee information.
@@ -123,11 +123,11 @@ export interface FolioType {
      */
     payeeInfo?: PayeeInfoType;
     /**
-     * 
-     * @type {SummaryPostingsType}
+     * List of postings.
+     * @type {Array<SummaryPostingType>}
      * @memberof FolioType
      */
-    postings?: SummaryPostingsType;
+    postings?: Array<SummaryPostingType>;
     /**
      * Folio Revison number.
      * @type {number}
@@ -174,7 +174,7 @@ export function FolioTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'internalFolioWindowID': !exists(json, 'internalFolioWindowID') ? undefined : json['internalFolioWindowID'],
         'invoiceNo': !exists(json, 'invoiceNo') ? undefined : json['invoiceNo'],
         'payeeInfo': !exists(json, 'payeeInfo') ? undefined : PayeeInfoTypeFromJSON(json['payeeInfo']),
-        'postings': !exists(json, 'postings') ? undefined : SummaryPostingsTypeFromJSON(json['postings']),
+        'postings': !exists(json, 'postings') ? undefined : ((json['postings'] as Array<any>).map(SummaryPostingTypeFromJSON)),
         'revisionNo': !exists(json, 'revisionNo') ? undefined : json['revisionNo'],
         'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
     };
@@ -202,7 +202,7 @@ export function FolioTypeToJSON(value?: FolioType | null): any {
         'internalFolioWindowID': value.internalFolioWindowID,
         'invoiceNo': value.invoiceNo,
         'payeeInfo': PayeeInfoTypeToJSON(value.payeeInfo),
-        'postings': SummaryPostingsTypeToJSON(value.postings),
+        'postings': value.postings === undefined ? undefined : ((value.postings as Array<any>).map(SummaryPostingTypeToJSON)),
         'revisionNo': value.revisionNo,
         'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
     };

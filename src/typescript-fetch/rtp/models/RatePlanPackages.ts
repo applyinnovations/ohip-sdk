@@ -19,24 +19,24 @@ import {
     GenericHotelCodeCodeTypeFromJSONTyped,
     GenericHotelCodeCodeTypeToJSON,
 } from './GenericHotelCodeCodeType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { RatePackagesType } from './RatePackagesType';
 import {
     RatePackagesTypeFromJSON,
     RatePackagesTypeFromJSONTyped,
     RatePackagesTypeToJSON,
 } from './RatePackagesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to attach package codes and package groups to a rate plan.
@@ -46,10 +46,10 @@ import {
 export interface RatePlanPackages {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RatePlanPackages
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {RatePackagesType}
@@ -63,11 +63,11 @@ export interface RatePlanPackages {
      */
     ratePlan?: GenericHotelCodeCodeType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RatePlanPackages
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function RatePlanPackagesFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'packages': !exists(json, 'packages') ? undefined : RatePackagesTypeFromJSON(json['packages']),
         'ratePlan': !exists(json, 'ratePlan') ? undefined : GenericHotelCodeCodeTypeFromJSON(json['ratePlan']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function RatePlanPackagesToJSON(value?: RatePlanPackages | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'packages': RatePackagesTypeToJSON(value.packages),
         'ratePlan': GenericHotelCodeCodeTypeToJSON(value.ratePlan),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

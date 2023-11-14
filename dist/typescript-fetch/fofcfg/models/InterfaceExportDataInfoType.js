@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InterfaceExportDataInfoTypeToJSON = exports.InterfaceExportDataInfoTypeFromJSONTyped = exports.InterfaceExportDataInfoTypeFromJSON = exports.instanceOfInterfaceExportDataInfoType = void 0;
 const runtime_1 = require("../runtime");
-const InterfaceExportDataDetailsType_1 = require("./InterfaceExportDataDetailsType");
+const InterfaceExportDataDetailType_1 = require("./InterfaceExportDataDetailType");
 /**
  * Check if a given object implements the InterfaceExportDataInfoType interface.
  */
@@ -33,8 +33,8 @@ function InterfaceExportDataInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'interfaceExportDataDetails': !(0, runtime_1.exists)(json, 'interfaceExportDataDetails') ? undefined : (0, InterfaceExportDataDetailsType_1.InterfaceExportDataDetailsTypeFromJSON)(json['interfaceExportDataDetails']),
-        'interfaceExportDataMandatoryDetails': !(0, runtime_1.exists)(json, 'interfaceExportDataMandatoryDetails') ? undefined : (0, InterfaceExportDataDetailsType_1.InterfaceExportDataDetailsTypeFromJSON)(json['interfaceExportDataMandatoryDetails']),
+        'interfaceExportDataDetails': !(0, runtime_1.exists)(json, 'interfaceExportDataDetails') ? undefined : (json['interfaceExportDataDetails'].map(InterfaceExportDataDetailType_1.InterfaceExportDataDetailTypeFromJSON)),
+        'interfaceExportDataMandatoryDetails': !(0, runtime_1.exists)(json, 'interfaceExportDataMandatoryDetails') ? undefined : (json['interfaceExportDataMandatoryDetails'].map(InterfaceExportDataDetailType_1.InterfaceExportDataDetailTypeFromJSON)),
     };
 }
 exports.InterfaceExportDataInfoTypeFromJSONTyped = InterfaceExportDataInfoTypeFromJSONTyped;
@@ -46,8 +46,8 @@ function InterfaceExportDataInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'interfaceExportDataDetails': (0, InterfaceExportDataDetailsType_1.InterfaceExportDataDetailsTypeToJSON)(value.interfaceExportDataDetails),
-        'interfaceExportDataMandatoryDetails': (0, InterfaceExportDataDetailsType_1.InterfaceExportDataDetailsTypeToJSON)(value.interfaceExportDataMandatoryDetails),
+        'interfaceExportDataDetails': value.interfaceExportDataDetails === undefined ? undefined : (value.interfaceExportDataDetails.map(InterfaceExportDataDetailType_1.InterfaceExportDataDetailTypeToJSON)),
+        'interfaceExportDataMandatoryDetails': value.interfaceExportDataMandatoryDetails === undefined ? undefined : (value.interfaceExportDataMandatoryDetails.map(InterfaceExportDataDetailType_1.InterfaceExportDataDetailTypeToJSON)),
     };
 }
 exports.InterfaceExportDataInfoTypeToJSON = InterfaceExportDataInfoTypeToJSON;

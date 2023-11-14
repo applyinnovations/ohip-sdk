@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ARInvoicePostingsType } from './ARInvoicePostingsType';
-import type { Links } from './Links';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+import type { ARInvoicePostingType } from './ARInvoicePostingType';
+import type { InstanceLink } from './InstanceLink';
+import type { TrxInfoType } from './TrxInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response to the request to fetch postings for an invoice
  * @export
@@ -20,29 +20,29 @@ import type { WarningsType } from './WarningsType';
  */
 export interface InvoicePostings {
     /**
-     *
-     * @type {ARInvoicePostingsType}
+     * Invoice posting detail.
+     * @type {Array<ARInvoicePostingType>}
      * @memberof InvoicePostings
      */
-    invoicePostingsDetails?: ARInvoicePostingsType;
+    invoicePostingsDetails?: Array<ARInvoicePostingType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof InvoicePostings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof InvoicePostings
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof InvoicePostings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the InvoicePostings interface.

@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { DateTimeSpanType } from './DateTimeSpanType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -38,10 +37,10 @@ export interface WaitlistedEventsSearchType {
     blockName?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof WaitlistedEventsSearchType
      */
-    functionSpaceCode?: CodeListType;
+    functionSpaceCode?: Array<string>;
     /**
      * Hotel code of Function Space.
      * @type {string}

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DefaultValuesType } from './DefaultValuesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { DefaultValueType } from './DefaultValueType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface DefaultValues {
     /**
-     *
-     * @type {DefaultValuesType}
+     * A collection of default values.
+     * @type {Array<DefaultValueType>}
      * @memberof DefaultValues
      */
-    defaultValues?: DefaultValuesType;
+    defaultValues?: Array<DefaultValueType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DefaultValues
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DefaultValues
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DefaultValues interface.

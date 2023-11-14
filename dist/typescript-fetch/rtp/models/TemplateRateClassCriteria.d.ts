@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { TemplateRateClassType } from './TemplateRateClassType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to create new template rate class.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateRateClassCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateRateClassCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {TemplateRateClassType}
@@ -31,11 +31,11 @@ export interface TemplateRateClassCriteria {
      */
     templateRateClass?: TemplateRateClassType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateRateClassCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateRateClassCriteria interface.

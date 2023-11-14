@@ -19,12 +19,12 @@ import {
     ProfileTypeTypeFromJSONTyped,
     ProfileTypeTypeToJSON,
 } from './ProfileTypeType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -33,11 +33,11 @@ import {
  */
 export interface RelationshipProfileType {
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RelationshipProfileType
      */
-    profileIdList?: UniqueIDListType;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {ProfileTypeType}
@@ -65,7 +65,7 @@ export function RelationshipProfileTypeFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : UniqueIDListTypeFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'profileType': !exists(json, 'profileType') ? undefined : ProfileTypeTypeFromJSON(json['profileType']),
     };
 }
@@ -79,7 +79,7 @@ export function RelationshipProfileTypeToJSON(value?: RelationshipProfileType | 
     }
     return {
         
-        'profileIdList': UniqueIDListTypeToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'profileType': ProfileTypeTypeToJSON(value.profileType),
     };
 }

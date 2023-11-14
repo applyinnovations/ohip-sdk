@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { PropertyDetailCategoriesType } from './PropertyDetailCategoriesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { PropertyDetailCategoryType } from './PropertyDetailCategoryType';
 import {
-    PropertyDetailCategoriesTypeFromJSON,
-    PropertyDetailCategoriesTypeFromJSONTyped,
-    PropertyDetailCategoriesTypeToJSON,
-} from './PropertyDetailCategoriesType';
-import type { WarningsType } from './WarningsType';
+    PropertyDetailCategoryTypeFromJSON,
+    PropertyDetailCategoryTypeFromJSONTyped,
+    PropertyDetailCategoryTypeToJSON,
+} from './PropertyDetailCategoryType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Property Detail Categories.
@@ -40,22 +40,22 @@ import {
 export interface PropertyDetailCategoriesCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PropertyDetailCategoriesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {PropertyDetailCategoriesType}
+     * List of Property Detail Categories.
+     * @type {Array<PropertyDetailCategoryType>}
      * @memberof PropertyDetailCategoriesCriteria
      */
-    propertyDetailCategories?: PropertyDetailCategoriesType;
+    propertyDetailCategories?: Array<PropertyDetailCategoryType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PropertyDetailCategoriesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function PropertyDetailCategoriesCriteriaFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'propertyDetailCategories': !exists(json, 'propertyDetailCategories') ? undefined : PropertyDetailCategoriesTypeFromJSON(json['propertyDetailCategories']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'propertyDetailCategories': !exists(json, 'propertyDetailCategories') ? undefined : ((json['propertyDetailCategories'] as Array<any>).map(PropertyDetailCategoryTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function PropertyDetailCategoriesCriteriaToJSON(value?: PropertyDetailCat
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'propertyDetailCategories': PropertyDetailCategoriesTypeToJSON(value.propertyDetailCategories),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'propertyDetailCategories': value.propertyDetailCategories === undefined ? undefined : ((value.propertyDetailCategories as Array<any>).map(PropertyDetailCategoryTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AccountForecastsType } from './AccountForecastsType';
+import type { AccountForecastType } from './AccountForecastType';
 import {
-    AccountForecastsTypeFromJSON,
-    AccountForecastsTypeFromJSONTyped,
-    AccountForecastsTypeToJSON,
-} from './AccountForecastsType';
-import type { Links } from './Links';
+    AccountForecastTypeFromJSON,
+    AccountForecastTypeFromJSONTyped,
+    AccountForecastTypeToJSON,
+} from './AccountForecastType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface ForecastsInformation {
     /**
-     * 
-     * @type {AccountForecastsType}
+     * Detail Information about Account Forecast.
+     * @type {Array<AccountForecastType>}
      * @memberof ForecastsInformation
      */
-    forecastsInformation?: AccountForecastsType;
+    forecastsInformation?: Array<AccountForecastType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ForecastsInformation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ForecastsInformation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ForecastsInformationFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'forecastsInformation': !exists(json, 'forecastsInformation') ? undefined : AccountForecastsTypeFromJSON(json['forecastsInformation']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'forecastsInformation': !exists(json, 'forecastsInformation') ? undefined : ((json['forecastsInformation'] as Array<any>).map(AccountForecastTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ForecastsInformationToJSON(value?: ForecastsInformation | null):
     }
     return {
         
-        'forecastsInformation': AccountForecastsTypeToJSON(value.forecastsInformation),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'forecastsInformation': value.forecastsInformation === undefined ? undefined : ((value.forecastsInformation as Array<any>).map(AccountForecastTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

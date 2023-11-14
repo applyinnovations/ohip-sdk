@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomRatingsInfoType } from './RoomRatingsInfoType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomRatingInfoType } from './RoomRatingInfoType';
 import {
-    RoomRatingsInfoTypeFromJSON,
-    RoomRatingsInfoTypeFromJSONTyped,
-    RoomRatingsInfoTypeToJSON,
-} from './RoomRatingsInfoType';
-import type { WarningsType } from './WarningsType';
+    RoomRatingInfoTypeFromJSON,
+    RoomRatingInfoTypeFromJSONTyped,
+    RoomRatingInfoTypeToJSON,
+} from './RoomRatingInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for modifying room rating details.
@@ -40,22 +40,22 @@ import {
 export interface RoomRatingsInfo {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomRatingsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RoomRatingsInfoType}
+     * Collection of rooms and their ratings.
+     * @type {Array<RoomRatingInfoType>}
      * @memberof RoomRatingsInfo
      */
-    roomRatingsInfo?: RoomRatingsInfoType;
+    roomRatingsInfo?: Array<RoomRatingInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomRatingsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RoomRatingsInfoFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'roomRatingsInfo': !exists(json, 'roomRatingsInfo') ? undefined : RoomRatingsInfoTypeFromJSON(json['roomRatingsInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'roomRatingsInfo': !exists(json, 'roomRatingsInfo') ? undefined : ((json['roomRatingsInfo'] as Array<any>).map(RoomRatingInfoTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RoomRatingsInfoToJSON(value?: RoomRatingsInfo | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'roomRatingsInfo': RoomRatingsInfoTypeToJSON(value.roomRatingsInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'roomRatingsInfo': value.roomRatingsInfo === undefined ? undefined : ((value.roomRatingsInfo as Array<any>).map(RoomRatingInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

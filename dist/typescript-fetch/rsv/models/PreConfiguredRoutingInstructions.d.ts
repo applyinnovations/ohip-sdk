@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { PreConfiguredRoutingInstrListType } from './PreConfiguredRoutingInstrListType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { PreConfiguredRoutingInstrType } from './PreConfiguredRoutingInstrType';
+import type { WarningType } from './WarningType';
 /**
  * This is the Response Message to the request for Pre-Configured Routing Instructions.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface PreConfiguredRoutingInstructions {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PreConfiguredRoutingInstructions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {PreConfiguredRoutingInstrListType}
+     * Set of Pre-Configured Routing Instructions.
+     * @type {Array<PreConfiguredRoutingInstrType>}
      * @memberof PreConfiguredRoutingInstructions
      */
-    routingInstructions?: PreConfiguredRoutingInstrListType;
+    routingInstructions?: Array<PreConfiguredRoutingInstrType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PreConfiguredRoutingInstructions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PreConfiguredRoutingInstructions interface.

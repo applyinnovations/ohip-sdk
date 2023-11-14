@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockConversionsCriteriaToJSON = exports.BlockConversionsCriteriaFromJSONTyped = exports.BlockConversionsCriteriaFromJSON = exports.instanceOfBlockConversionsCriteria = void 0;
 const runtime_1 = require("../runtime");
-const BlockConversionsType_1 = require("./BlockConversionsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const BlockConversionType_1 = require("./BlockConversionType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BlockConversionsCriteria interface.
  */
@@ -35,9 +35,9 @@ function BlockConversionsCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blockConversions': !(0, runtime_1.exists)(json, 'blockConversions') ? undefined : (0, BlockConversionsType_1.BlockConversionsTypeFromJSON)(json['blockConversions']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'blockConversions': !(0, runtime_1.exists)(json, 'blockConversions') ? undefined : (json['blockConversions'].map(BlockConversionType_1.BlockConversionTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BlockConversionsCriteriaFromJSONTyped = BlockConversionsCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function BlockConversionsCriteriaToJSON(value) {
         return null;
     }
     return {
-        'blockConversions': (0, BlockConversionsType_1.BlockConversionsTypeToJSON)(value.blockConversions),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'blockConversions': value.blockConversions === undefined ? undefined : (value.blockConversions.map(BlockConversionType_1.BlockConversionTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BlockConversionsCriteriaToJSON = BlockConversionsCriteriaToJSON;

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AttractionTemplatesType } from './AttractionTemplatesType';
+import type { AttractionTemplateType } from './AttractionTemplateType';
 import {
-    AttractionTemplatesTypeFromJSON,
-    AttractionTemplatesTypeFromJSONTyped,
-    AttractionTemplatesTypeToJSON,
-} from './AttractionTemplatesType';
-import type { Links } from './Links';
+    AttractionTemplateTypeFromJSON,
+    AttractionTemplateTypeFromJSONTyped,
+    AttractionTemplateTypeToJSON,
+} from './AttractionTemplateType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for information regarding attraction templates.
@@ -39,23 +39,23 @@ import {
  */
 export interface AttractionTemplatesDetails {
     /**
-     * 
-     * @type {AttractionTemplatesType}
+     * Collection of attraction templates.
+     * @type {Array<AttractionTemplateType>}
      * @memberof AttractionTemplatesDetails
      */
-    attractionTemplates?: AttractionTemplatesType;
+    attractionTemplates?: Array<AttractionTemplateType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AttractionTemplatesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AttractionTemplatesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function AttractionTemplatesDetailsFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'attractionTemplates': !exists(json, 'attractionTemplates') ? undefined : AttractionTemplatesTypeFromJSON(json['attractionTemplates']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'attractionTemplates': !exists(json, 'attractionTemplates') ? undefined : ((json['attractionTemplates'] as Array<any>).map(AttractionTemplateTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function AttractionTemplatesDetailsToJSON(value?: AttractionTemplatesDeta
     }
     return {
         
-        'attractionTemplates': AttractionTemplatesTypeToJSON(value.attractionTemplates),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'attractionTemplates': value.attractionTemplates === undefined ? undefined : ((value.attractionTemplates as Array<any>).map(AttractionTemplateTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

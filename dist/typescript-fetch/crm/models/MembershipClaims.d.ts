@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MembershipClaimSummaryListType } from './MembershipClaimSummaryListType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MembershipClaimSummaryType } from './MembershipClaimSummaryType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching membership claims.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MembershipClaims {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipClaims
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MembershipClaimSummaryListType}
+     * Contains summary information of the claim.
+     * @type {Array<MembershipClaimSummaryType>}
      * @memberof MembershipClaims
      */
-    membershipClaimsDetail?: MembershipClaimSummaryListType;
+    membershipClaimsDetail?: Array<MembershipClaimSummaryType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipClaims
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipClaims interface.

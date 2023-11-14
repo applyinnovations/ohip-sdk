@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FunctionSpacesDetailsToJSON = exports.FunctionSpacesDetailsFromJSONTyped = exports.FunctionSpacesDetailsFromJSON = exports.instanceOfFunctionSpacesDetails = void 0;
 const runtime_1 = require("../runtime");
-const FunctionSpacesSummaryType_1 = require("./FunctionSpacesSummaryType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const FunctionSpaceSummaryType_1 = require("./FunctionSpaceSummaryType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FunctionSpacesDetails interface.
  */
@@ -36,14 +36,14 @@ function FunctionSpacesDetailsFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'count': !(0, runtime_1.exists)(json, 'count') ? undefined : json['count'],
-        'functionSpaces': !(0, runtime_1.exists)(json, 'functionSpaces') ? undefined : (0, FunctionSpacesSummaryType_1.FunctionSpacesSummaryTypeFromJSON)(json['functionSpaces']),
+        'functionSpaces': !(0, runtime_1.exists)(json, 'functionSpaces') ? undefined : (json['functionSpaces'].map(FunctionSpaceSummaryType_1.FunctionSpaceSummaryTypeFromJSON)),
         'hasMore': !(0, runtime_1.exists)(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'offset': !(0, runtime_1.exists)(json, 'offset') ? undefined : json['offset'],
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !(0, runtime_1.exists)(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FunctionSpacesDetailsFromJSONTyped = FunctionSpacesDetailsFromJSONTyped;
@@ -56,14 +56,14 @@ function FunctionSpacesDetailsToJSON(value) {
     }
     return {
         'count': value.count,
-        'functionSpaces': (0, FunctionSpacesSummaryType_1.FunctionSpacesSummaryTypeToJSON)(value.functionSpaces),
+        'functionSpaces': value.functionSpaces === undefined ? undefined : (value.functionSpaces.map(FunctionSpaceSummaryType_1.FunctionSpaceSummaryTypeToJSON)),
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FunctionSpacesDetailsToJSON = FunctionSpacesDetailsToJSON;

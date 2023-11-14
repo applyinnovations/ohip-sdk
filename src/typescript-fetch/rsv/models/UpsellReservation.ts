@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReservationId } from './ReservationId';
 import {
     ReservationIdFromJSON,
@@ -31,12 +31,12 @@ import {
     UpsellTypeFromJSONTyped,
     UpsellTypeToJSON,
 } from './UpsellType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to upsell a reservation.
@@ -52,10 +52,10 @@ export interface UpsellReservation {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof UpsellReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Indicates whether to override validation or not.
      * @type {boolean}
@@ -75,11 +75,11 @@ export interface UpsellReservation {
      */
     upsell?: UpsellType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof UpsellReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -102,11 +102,11 @@ export function UpsellReservationFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'override': !exists(json, 'override') ? undefined : json['override'],
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
         'upsell': !exists(json, 'upsell') ? undefined : UpsellTypeFromJSON(json['upsell']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -120,11 +120,11 @@ export function UpsellReservationToJSON(value?: UpsellReservation | null): any {
     return {
         
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'override': value.override,
         'reservationId': ReservationIdToJSON(value.reservationId),
         'upsell': UpsellTypeToJSON(value.upsell),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

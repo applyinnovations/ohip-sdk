@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BrandCodesType } from './BrandCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BrandCodeType } from './BrandCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Brand Codes.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BrandCodesToBeChanged {
     /**
-     *
-     * @type {BrandCodesType}
+     * List of Brand Codes.
+     * @type {Array<BrandCodeType>}
      * @memberof BrandCodesToBeChanged
      */
-    brandCodes?: BrandCodesType;
+    brandCodes?: Array<BrandCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BrandCodesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BrandCodesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BrandCodesToBeChanged interface.

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { RoomTypesSummaryType } from './RoomTypesSummaryType';
 import {
     RoomTypesSummaryTypeFromJSON,
@@ -31,12 +31,12 @@ import {
     RoomTypesTypeFromJSONTyped,
     RoomTypesTypeToJSON,
 } from './RoomTypesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for Fetching existing Room Types.
@@ -64,10 +64,10 @@ export interface RoomTypesDetails {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -99,11 +99,11 @@ export interface RoomTypesDetails {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -128,13 +128,13 @@ export function RoomTypesDetailsFromJSONTyped(json: any, ignoreDiscriminator: bo
         'count': !exists(json, 'count') ? undefined : json['count'],
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'roomTypes': !exists(json, 'roomTypes') ? undefined : ((json['roomTypes'] as Array<any>).map(RoomTypesTypeFromJSON)),
         'roomTypesSummary': !exists(json, 'roomTypesSummary') ? undefined : ((json['roomTypesSummary'] as Array<any>).map(RoomTypesSummaryTypeFromJSON)),
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -150,13 +150,13 @@ export function RoomTypesDetailsToJSON(value?: RoomTypesDetails | null): any {
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
         'roomTypes': value.roomTypes === undefined ? undefined : ((value.roomTypes as Array<any>).map(RoomTypesTypeToJSON)),
         'roomTypesSummary': value.roomTypesSummary === undefined ? undefined : ((value.roomTypesSummary as Array<any>).map(RoomTypesSummaryTypeToJSON)),
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

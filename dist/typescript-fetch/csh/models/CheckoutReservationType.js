@@ -17,7 +17,7 @@ exports.CheckoutReservationTypeToJSON = exports.CheckoutReservationTypeFromJSONT
 const runtime_1 = require("../runtime");
 const CashieringEventType_1 = require("./CashieringEventType");
 const CheckoutInstructionsType_1 = require("./CheckoutInstructionsType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CheckoutReservationType interface.
  */
@@ -43,7 +43,7 @@ function CheckoutReservationTypeFromJSONTyped(json, ignoreDiscriminator) {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'mobileCheckout': !(0, runtime_1.exists)(json, 'mobileCheckout') ? undefined : json['mobileCheckout'],
         'mobileCheckoutFolioEmail': !(0, runtime_1.exists)(json, 'mobileCheckoutFolioEmail') ? undefined : json['mobileCheckoutFolioEmail'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'stopCheckout': !(0, runtime_1.exists)(json, 'stopCheckout') ? undefined : json['stopCheckout'],
     };
 }
@@ -64,7 +64,7 @@ function CheckoutReservationTypeToJSON(value) {
         'hotelId': value.hotelId,
         'mobileCheckout': value.mobileCheckout,
         'mobileCheckoutFolioEmail': value.mobileCheckoutFolioEmail,
-        'reservationIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'stopCheckout': value.stopCheckout,
     };
 }

@@ -17,8 +17,8 @@ exports.ResGuestTypeProfileInfoToJSON = exports.ResGuestTypeProfileInfoFromJSONT
 const runtime_1 = require("../runtime");
 const ExternalReferenceType_1 = require("./ExternalReferenceType");
 const ProfileCashieringDetailType_1 = require("./ProfileCashieringDetailType");
-const ProfileIdList_1 = require("./ProfileIdList");
 const ProfileType_1 = require("./ProfileType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ResGuestTypeProfileInfo interface.
  */
@@ -39,7 +39,7 @@ function ResGuestTypeProfileInfoFromJSONTyped(json, ignoreDiscriminator) {
         'externalReference': !(0, runtime_1.exists)(json, 'externalReference') ? undefined : (0, ExternalReferenceType_1.ExternalReferenceTypeFromJSON)(json['externalReference']),
         'profile': !(0, runtime_1.exists)(json, 'profile') ? undefined : (0, ProfileType_1.ProfileTypeFromJSON)(json['profile']),
         'profileCashieringDetail': !(0, runtime_1.exists)(json, 'profileCashieringDetail') ? undefined : (0, ProfileCashieringDetailType_1.ProfileCashieringDetailTypeFromJSON)(json['profileCashieringDetail']),
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'registrationCardNo': !(0, runtime_1.exists)(json, 'registrationCardNo') ? undefined : json['registrationCardNo'],
     };
 }
@@ -55,7 +55,7 @@ function ResGuestTypeProfileInfoToJSON(value) {
         'externalReference': (0, ExternalReferenceType_1.ExternalReferenceTypeToJSON)(value.externalReference),
         'profile': (0, ProfileType_1.ProfileTypeToJSON)(value.profile),
         'profileCashieringDetail': (0, ProfileCashieringDetailType_1.ProfileCashieringDetailTypeToJSON)(value.profileCashieringDetail),
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'registrationCardNo': value.registrationCardNo,
     };
 }

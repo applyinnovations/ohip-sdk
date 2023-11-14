@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BusinessEventDetailsType } from './BusinessEventDetailsType';
+import type { BusinessEventDetailType } from './BusinessEventDetailType';
 import {
-    BusinessEventDetailsTypeFromJSON,
-    BusinessEventDetailsTypeFromJSONTyped,
-    BusinessEventDetailsTypeToJSON,
-} from './BusinessEventDetailsType';
+    BusinessEventDetailTypeFromJSON,
+    BusinessEventDetailTypeFromJSONTyped,
+    BusinessEventDetailTypeToJSON,
+} from './BusinessEventDetailType';
 import type { BusinessEventHeaderType } from './BusinessEventHeaderType';
 import {
     BusinessEventHeaderTypeFromJSON,
@@ -34,10 +34,10 @@ import {
 export interface BusinessEventType {
     /**
      * 
-     * @type {BusinessEventDetailsType}
+     * @type {Array<BusinessEventDetailType>}
      * @memberof BusinessEventType
      */
-    details?: BusinessEventDetailsType;
+    details?: Array<BusinessEventDetailType>;
     /**
      * 
      * @type {BusinessEventHeaderType}
@@ -65,7 +65,7 @@ export function BusinessEventTypeFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'details': !exists(json, 'details') ? undefined : BusinessEventDetailsTypeFromJSON(json['details']),
+        'details': !exists(json, 'details') ? undefined : ((json['details'] as Array<any>).map(BusinessEventDetailTypeFromJSON)),
         'header': !exists(json, 'header') ? undefined : BusinessEventHeaderTypeFromJSON(json['header']),
     };
 }
@@ -79,7 +79,7 @@ export function BusinessEventTypeToJSON(value?: BusinessEventType | null): any {
     }
     return {
         
-        'details': BusinessEventDetailsTypeToJSON(value.details),
+        'details': value.details === undefined ? undefined : ((value.details as Array<any>).map(BusinessEventDetailTypeToJSON)),
         'header': BusinessEventHeaderTypeToJSON(value.header),
     };
 }

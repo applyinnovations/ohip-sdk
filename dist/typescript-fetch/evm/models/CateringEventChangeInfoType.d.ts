@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CateringEventChangeActions } from './CateringEventChangeActions';
-import type { CateringEventChangeDetailListType } from './CateringEventChangeDetailListType';
+import type { CateringEventChangeDetailType } from './CateringEventChangeDetailType';
 import type { CateringEventChangeSources } from './CateringEventChangeSources';
 import type { LogUserInfoType } from './LogUserInfoType';
 import type { UniqueIDType } from './UniqueIDType';
@@ -46,10 +46,10 @@ export interface CateringEventChangeInfoType {
     changeUserInfo?: LogUserInfoType;
     /**
      *
-     * @type {CateringEventChangeDetailListType}
+     * @type {Array<CateringEventChangeDetailType>}
      * @memberof CateringEventChangeInfoType
      */
-    eventChangeDetailList?: CateringEventChangeDetailListType;
+    eventChangeDetailList?: Array<CateringEventChangeDetailType>;
     /**
      *
      * @type {UniqueIDType}

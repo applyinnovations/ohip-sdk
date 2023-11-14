@@ -37,12 +37,12 @@ import {
     ProfileIdFromJSONTyped,
     ProfileIdToJSON,
 } from './ProfileId';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Criteria to search and retrieve wake up calls.
@@ -111,11 +111,11 @@ export interface WakeUpCallResvInfoType {
      */
     profileId?: ProfileId;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof WakeUpCallResvInfoType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {PMSResStatusType}
@@ -177,7 +177,7 @@ export function WakeUpCallResvInfoTypeFromJSONTyped(json: any, ignoreDiscriminat
         'membershipLevel': !exists(json, 'membershipLevel') ? undefined : json['membershipLevel'],
         'membershipType': !exists(json, 'membershipType') ? undefined : CodeDescriptionTypeFromJSON(json['membershipType']),
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'reservationStatus': !exists(json, 'reservationStatus') ? undefined : PMSResStatusTypeFromJSON(json['reservationStatus']),
         'room': !exists(json, 'room') ? undefined : json['room'],
         'roomPhoneNumber': !exists(json, 'roomPhoneNumber') ? undefined : json['roomPhoneNumber'],
@@ -205,7 +205,7 @@ export function WakeUpCallResvInfoTypeToJSON(value?: WakeUpCallResvInfoType | nu
         'membershipLevel': value.membershipLevel,
         'membershipType': CodeDescriptionTypeToJSON(value.membershipType),
         'profileId': ProfileIdToJSON(value.profileId),
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'reservationStatus': PMSResStatusTypeToJSON(value.reservationStatus),
         'room': value.room,
         'roomPhoneNumber': value.roomPhoneNumber,

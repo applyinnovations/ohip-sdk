@@ -11,7 +11,7 @@
  */
 import type { LinkedProfileTypeType } from './LinkedProfileTypeType';
 import type { ProfileType } from './ProfileType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * A collection of Unique IDs of Profiles.
  * @export
@@ -37,11 +37,11 @@ export interface ActivityLinkedProfilesType {
      */
     profile?: ProfileType;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ActivityLinkedProfilesType
      */
-    profileIdList?: UniqueIDListType;
+    profileIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the ActivityLinkedProfilesType interface.

@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { ItemClassTypeType } from './ItemClassTypeType';
 import {
     ItemClassTypeTypeFromJSON,
@@ -52,10 +46,10 @@ export interface ItemClassType {
     code?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ItemClassType
      */
-    departments?: CodeListType;
+    departments?: Array<string>;
     /**
      * 
      * @type {TranslationTextType200}
@@ -82,10 +76,10 @@ export interface ItemClassType {
     displaySequence?: number;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ItemClassType
      */
-    eventTypes?: CodeListType;
+    eventTypes?: Array<string>;
     /**
      * Code of the Hotel.
      * @type {string}
@@ -133,12 +127,12 @@ export function ItemClassTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
         
         'classId': !exists(json, 'classId') ? undefined : json['classId'],
         'code': !exists(json, 'code') ? undefined : json['code'],
-        'departments': !exists(json, 'departments') ? undefined : CodeListTypeFromJSON(json['departments']),
+        'departments': !exists(json, 'departments') ? undefined : json['departments'],
         'description': !exists(json, 'description') ? undefined : TranslationTextType200FromJSON(json['description']),
         'discountOverrideWarnings': !exists(json, 'discountOverrideWarnings') ? undefined : json['discountOverrideWarnings'],
         'discountable': !exists(json, 'discountable') ? undefined : json['discountable'],
         'displaySequence': !exists(json, 'displaySequence') ? undefined : json['displaySequence'],
-        'eventTypes': !exists(json, 'eventTypes') ? undefined : CodeListTypeFromJSON(json['eventTypes']),
+        'eventTypes': !exists(json, 'eventTypes') ? undefined : json['eventTypes'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'overrideWarnings': !exists(json, 'overrideWarnings') ? undefined : json['overrideWarnings'],
         'type': !exists(json, 'type') ? undefined : ItemClassTypeTypeFromJSON(json['type']),
@@ -157,12 +151,12 @@ export function ItemClassTypeToJSON(value?: ItemClassType | null): any {
         
         'classId': value.classId,
         'code': value.code,
-        'departments': CodeListTypeToJSON(value.departments),
+        'departments': value.departments,
         'description': TranslationTextType200ToJSON(value.description),
         'discountOverrideWarnings': value.discountOverrideWarnings,
         'discountable': value.discountable,
         'displaySequence': value.displaySequence,
-        'eventTypes': CodeListTypeToJSON(value.eventTypes),
+        'eventTypes': value.eventTypes,
         'hotelId': value.hotelId,
         'overrideWarnings': value.overrideWarnings,
         'type': ItemClassTypeTypeToJSON(value.type),

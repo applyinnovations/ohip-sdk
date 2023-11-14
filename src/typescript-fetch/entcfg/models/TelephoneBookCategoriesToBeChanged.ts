@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TelephoneCategoriesType } from './TelephoneCategoriesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TelephoneCategoryType } from './TelephoneCategoryType';
 import {
-    TelephoneCategoriesTypeFromJSON,
-    TelephoneCategoriesTypeFromJSONTyped,
-    TelephoneCategoriesTypeToJSON,
-} from './TelephoneCategoriesType';
-import type { WarningsType } from './WarningsType';
+    TelephoneCategoryTypeFromJSON,
+    TelephoneCategoryTypeFromJSONTyped,
+    TelephoneCategoryTypeToJSON,
+} from './TelephoneCategoryType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for Telephone Book Category.
@@ -40,22 +40,22 @@ import {
 export interface TelephoneBookCategoriesToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TelephoneBookCategoriesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TelephoneCategoriesType}
+     * This type holds collection of Telephone Categories with complete information.
+     * @type {Array<TelephoneCategoryType>}
      * @memberof TelephoneBookCategoriesToBeChanged
      */
-    telephoneCategories?: TelephoneCategoriesType;
+    telephoneCategories?: Array<TelephoneCategoryType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TelephoneBookCategoriesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TelephoneBookCategoriesToBeChangedFromJSONTyped(json: any, ignor
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'telephoneCategories': !exists(json, 'telephoneCategories') ? undefined : TelephoneCategoriesTypeFromJSON(json['telephoneCategories']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'telephoneCategories': !exists(json, 'telephoneCategories') ? undefined : ((json['telephoneCategories'] as Array<any>).map(TelephoneCategoryTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TelephoneBookCategoriesToBeChangedToJSON(value?: TelephoneBookCa
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'telephoneCategories': TelephoneCategoriesTypeToJSON(value.telephoneCategories),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'telephoneCategories': value.telephoneCategories === undefined ? undefined : ((value.telephoneCategories as Array<any>).map(TelephoneCategoryTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

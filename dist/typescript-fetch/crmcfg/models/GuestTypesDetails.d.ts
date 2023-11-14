@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GuestTypesType } from './GuestTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { GuestTypeType } from './GuestTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Guest Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface GuestTypesDetails {
     /**
-     *
-     * @type {GuestTypesType}
+     * List of Guest Types.
+     * @type {Array<GuestTypeType>}
      * @memberof GuestTypesDetails
      */
-    guestTypes?: GuestTypesType;
+    guestTypes?: Array<GuestTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuestTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuestTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GuestTypesDetails interface.

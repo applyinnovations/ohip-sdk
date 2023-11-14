@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MarketingCitiesType } from './MarketingCitiesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MarketingCityConfigType } from './MarketingCityConfigType';
 import {
-    MarketingCitiesTypeFromJSON,
-    MarketingCitiesTypeFromJSONTyped,
-    MarketingCitiesTypeToJSON,
-} from './MarketingCitiesType';
-import type { WarningsType } from './WarningsType';
+    MarketingCityConfigTypeFromJSON,
+    MarketingCityConfigTypeFromJSONTyped,
+    MarketingCityConfigTypeToJSON,
+} from './MarketingCityConfigType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for modifying marketing cities for hotels.
@@ -40,22 +40,22 @@ import {
 export interface MarketingCitiesToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MarketingCitiesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MarketingCitiesType}
+     * Marketing city details for a hotel.
+     * @type {Array<MarketingCityConfigType>}
      * @memberof MarketingCitiesToBeChanged
      */
-    marketingCities?: MarketingCitiesType;
+    marketingCities?: Array<MarketingCityConfigType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MarketingCitiesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MarketingCitiesToBeChangedFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'marketingCities': !exists(json, 'marketingCities') ? undefined : MarketingCitiesTypeFromJSON(json['marketingCities']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'marketingCities': !exists(json, 'marketingCities') ? undefined : ((json['marketingCities'] as Array<any>).map(MarketingCityConfigTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MarketingCitiesToBeChangedToJSON(value?: MarketingCitiesToBeChan
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'marketingCities': MarketingCitiesTypeToJSON(value.marketingCities),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'marketingCities': value.marketingCities === undefined ? undefined : ((value.marketingCities as Array<any>).map(MarketingCityConfigTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

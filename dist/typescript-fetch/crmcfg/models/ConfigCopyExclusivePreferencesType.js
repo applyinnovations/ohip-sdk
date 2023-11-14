@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConfigCopyExclusivePreferencesTypeToJSON = exports.ConfigCopyExclusivePreferencesTypeFromJSONTyped = exports.ConfigCopyExclusivePreferencesTypeFromJSON = exports.instanceOfConfigCopyExclusivePreferencesType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const ConfigExclusivePrefCodeAndGroupType_1 = require("./ConfigExclusivePrefCodeAndGroupType");
 /**
  * Check if a given object implements the ConfigCopyExclusivePreferencesType interface.
@@ -34,7 +33,7 @@ function ConfigCopyExclusivePreferencesTypeFromJSONTyped(json, ignoreDiscriminat
         return json;
     }
     return {
-        'hotelCodes': !(0, runtime_1.exists)(json, 'hotelCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['hotelCodes']),
+        'hotelCodes': !(0, runtime_1.exists)(json, 'hotelCodes') ? undefined : json['hotelCodes'],
         'templateExclusivePreference': !(0, runtime_1.exists)(json, 'templateExclusivePreference') ? undefined : (json['templateExclusivePreference'].map(ConfigExclusivePrefCodeAndGroupType_1.ConfigExclusivePrefCodeAndGroupTypeFromJSON)),
     };
 }
@@ -47,7 +46,7 @@ function ConfigCopyExclusivePreferencesTypeToJSON(value) {
         return null;
     }
     return {
-        'hotelCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.hotelCodes),
+        'hotelCodes': value.hotelCodes,
         'templateExclusivePreference': value.templateExclusivePreference === undefined ? undefined : (value.templateExclusivePreference.map(ConfigExclusivePrefCodeAndGroupType_1.ConfigExclusivePrefCodeAndGroupTypeToJSON)),
     };
 }

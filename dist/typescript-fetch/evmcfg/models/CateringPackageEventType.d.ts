@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CateringPackageEventNoteListType } from './CateringPackageEventNoteListType';
-import type { CateringPackageResourceListType } from './CateringPackageResourceListType';
+import type { CateringPackageEventNoteType } from './CateringPackageEventNoteType';
+import type { CateringPackageEventResourceType } from './CateringPackageEventResourceType';
 import type { DateTimeSpanType } from './DateTimeSpanType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -74,17 +74,17 @@ export interface CateringPackageEventType {
      */
     masterEventId?: UniqueIDType;
     /**
-     *
-     * @type {CateringPackageEventNoteListType}
+     * Collection of multiple Event Notes associated with a particular Catering Package Event.
+     * @type {Array<CateringPackageEventNoteType>}
      * @memberof CateringPackageEventType
      */
-    notes?: CateringPackageEventNoteListType;
+    notes?: Array<CateringPackageEventNoteType>;
     /**
-     *
-     * @type {CateringPackageResourceListType}
+     * Collection of multiple Resources associated with a particular Catering Package Event.
+     * @type {Array<CateringPackageEventResourceType>}
      * @memberof CateringPackageEventType
      */
-    resources?: CateringPackageResourceListType;
+    resources?: Array<CateringPackageEventResourceType>;
     /**
      * Room details for the Catering Package Event.
      * @type {string}

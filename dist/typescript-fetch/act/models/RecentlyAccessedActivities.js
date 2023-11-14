@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RecentlyAccessedActivitiesToJSON = exports.RecentlyAccessedActivitiesFromJSONTyped = exports.RecentlyAccessedActivitiesFromJSON = exports.instanceOfRecentlyAccessedActivities = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RecentlyAccessedActivitiesType_1 = require("./RecentlyAccessedActivitiesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RecentlyAccessedActivityType_1 = require("./RecentlyAccessedActivityType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RecentlyAccessedActivities interface.
  */
@@ -35,9 +35,9 @@ function RecentlyAccessedActivitiesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'activities': !(0, runtime_1.exists)(json, 'activities') ? undefined : (0, RecentlyAccessedActivitiesType_1.RecentlyAccessedActivitiesTypeFromJSON)(json['activities']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'activities': !(0, runtime_1.exists)(json, 'activities') ? undefined : (json['activities'].map(RecentlyAccessedActivityType_1.RecentlyAccessedActivityTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RecentlyAccessedActivitiesFromJSONTyped = RecentlyAccessedActivitiesFromJSONTyped;
@@ -49,9 +49,9 @@ function RecentlyAccessedActivitiesToJSON(value) {
         return null;
     }
     return {
-        'activities': (0, RecentlyAccessedActivitiesType_1.RecentlyAccessedActivitiesTypeToJSON)(value.activities),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'activities': value.activities === undefined ? undefined : (value.activities.map(RecentlyAccessedActivityType_1.RecentlyAccessedActivityTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RecentlyAccessedActivitiesToJSON = RecentlyAccessedActivitiesToJSON;

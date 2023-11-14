@@ -15,8 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ListOfValuesCriteriaTypeToJSON = exports.ListOfValuesCriteriaTypeFromJSONTyped = exports.ListOfValuesCriteriaTypeFromJSON = exports.instanceOfListOfValuesCriteriaType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
-const ParametersType_1 = require("./ParametersType");
+const ParameterType_1 = require("./ParameterType");
 /**
  * Check if a given object implements the ListOfValuesCriteriaType interface.
  */
@@ -34,11 +33,11 @@ function ListOfValuesCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'excludeCodeList': !(0, runtime_1.exists)(json, 'excludeCodeList') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['excludeCodeList']),
+        'excludeCodeList': !(0, runtime_1.exists)(json, 'excludeCodeList') ? undefined : json['excludeCodeList'],
         'includeInactive': !(0, runtime_1.exists)(json, 'includeInactive') ? undefined : json['includeInactive'],
         'itemCodes': !(0, runtime_1.exists)(json, 'itemCodes') ? undefined : json['itemCodes'],
         'lovName': !(0, runtime_1.exists)(json, 'lovName') ? undefined : json['lovName'],
-        'parameters': !(0, runtime_1.exists)(json, 'parameters') ? undefined : (0, ParametersType_1.ParametersTypeFromJSON)(json['parameters']),
+        'parameters': !(0, runtime_1.exists)(json, 'parameters') ? undefined : (json['parameters'].map(ParameterType_1.ParameterTypeFromJSON)),
     };
 }
 exports.ListOfValuesCriteriaTypeFromJSONTyped = ListOfValuesCriteriaTypeFromJSONTyped;
@@ -50,11 +49,11 @@ function ListOfValuesCriteriaTypeToJSON(value) {
         return null;
     }
     return {
-        'excludeCodeList': (0, CodeListType_1.CodeListTypeToJSON)(value.excludeCodeList),
+        'excludeCodeList': value.excludeCodeList,
         'includeInactive': value.includeInactive,
         'itemCodes': value.itemCodes,
         'lovName': value.lovName,
-        'parameters': (0, ParametersType_1.ParametersTypeToJSON)(value.parameters),
+        'parameters': value.parameters === undefined ? undefined : (value.parameters.map(ParameterType_1.ParameterTypeToJSON)),
     };
 }
 exports.ListOfValuesCriteriaTypeToJSON = ListOfValuesCriteriaTypeToJSON;

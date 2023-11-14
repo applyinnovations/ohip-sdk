@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationHousekeepingScheduleType } from './ReservationHousekeepingScheduleType';
 import type { ReservationId } from './ReservationId';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * An updated schedule for the reservation after the reset.
  * @export
@@ -33,10 +33,10 @@ export interface ScheduledSearch {
     housekeepingSchedule?: ReservationHousekeepingScheduleType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ScheduledSearch
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationId}
@@ -44,11 +44,11 @@ export interface ScheduledSearch {
      */
     reservationId?: ReservationId;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ScheduledSearch
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ScheduledSearch interface.

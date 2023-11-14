@@ -25,18 +25,12 @@ import {
     EventIdFromJSONTyped,
     EventIdToJSON,
 } from './EventId';
-import type { ResourceCopyAndMoveListType } from './ResourceCopyAndMoveListType';
+import type { ResourceCopyAndMoveType } from './ResourceCopyAndMoveType';
 import {
-    ResourceCopyAndMoveListTypeFromJSON,
-    ResourceCopyAndMoveListTypeFromJSONTyped,
-    ResourceCopyAndMoveListTypeToJSON,
-} from './ResourceCopyAndMoveListType';
-import type { UniqueIDListType } from './UniqueIDListType';
-import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    ResourceCopyAndMoveTypeFromJSON,
+    ResourceCopyAndMoveTypeFromJSONTyped,
+    ResourceCopyAndMoveTypeToJSON,
+} from './ResourceCopyAndMoveType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -81,11 +75,11 @@ export interface CopyAndMoveEventResourcesType {
      */
     overrideCopyAndMoveResourceProcessWarnings?: boolean;
     /**
-     * 
-     * @type {ResourceCopyAndMoveListType}
+     * Resource Type and its UniqueID.
+     * @type {Array<ResourceCopyAndMoveType>}
      * @memberof CopyAndMoveEventResourcesType
      */
-    resourceIdList?: ResourceCopyAndMoveListType;
+    resourceIdList?: Array<ResourceCopyAndMoveType>;
     /**
      * 
      * @type {UniqueIDType}
@@ -93,11 +87,11 @@ export interface CopyAndMoveEventResourcesType {
      */
     targetBlockId?: UniqueIDType;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CopyAndMoveEventResourcesType
      */
-    targetEventIdList?: UniqueIDListType;
+    targetEventIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -124,9 +118,9 @@ export function CopyAndMoveEventResourcesTypeFromJSONTyped(json: any, ignoreDisc
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'includeAsPackage': !exists(json, 'includeAsPackage') ? undefined : json['includeAsPackage'],
         'overrideCopyAndMoveResourceProcessWarnings': !exists(json, 'overrideCopyAndMoveResourceProcessWarnings') ? undefined : json['overrideCopyAndMoveResourceProcessWarnings'],
-        'resourceIdList': !exists(json, 'resourceIdList') ? undefined : ResourceCopyAndMoveListTypeFromJSON(json['resourceIdList']),
+        'resourceIdList': !exists(json, 'resourceIdList') ? undefined : ((json['resourceIdList'] as Array<any>).map(ResourceCopyAndMoveTypeFromJSON)),
         'targetBlockId': !exists(json, 'targetBlockId') ? undefined : UniqueIDTypeFromJSON(json['targetBlockId']),
-        'targetEventIdList': !exists(json, 'targetEventIdList') ? undefined : UniqueIDListTypeFromJSON(json['targetEventIdList']),
+        'targetEventIdList': !exists(json, 'targetEventIdList') ? undefined : ((json['targetEventIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -144,9 +138,9 @@ export function CopyAndMoveEventResourcesTypeToJSON(value?: CopyAndMoveEventReso
         'hotelId': value.hotelId,
         'includeAsPackage': value.includeAsPackage,
         'overrideCopyAndMoveResourceProcessWarnings': value.overrideCopyAndMoveResourceProcessWarnings,
-        'resourceIdList': ResourceCopyAndMoveListTypeToJSON(value.resourceIdList),
+        'resourceIdList': value.resourceIdList === undefined ? undefined : ((value.resourceIdList as Array<any>).map(ResourceCopyAndMoveTypeToJSON)),
         'targetBlockId': UniqueIDTypeToJSON(value.targetBlockId),
-        'targetEventIdList': UniqueIDListTypeToJSON(value.targetEventIdList),
+        'targetEventIdList': value.targetEventIdList === undefined ? undefined : ((value.targetEventIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

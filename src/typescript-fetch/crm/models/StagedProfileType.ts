@@ -31,12 +31,12 @@ import {
     StagedProfileAddressTypeFromJSONTyped,
     StagedProfileAddressTypeToJSON,
 } from './StagedProfileAddressType';
-import type { StagedProfileCommentInfosType } from './StagedProfileCommentInfosType';
+import type { StagedProfileCommentInfoType } from './StagedProfileCommentInfoType';
 import {
-    StagedProfileCommentInfosTypeFromJSON,
-    StagedProfileCommentInfosTypeFromJSONTyped,
-    StagedProfileCommentInfosTypeToJSON,
-} from './StagedProfileCommentInfosType';
+    StagedProfileCommentInfoTypeFromJSON,
+    StagedProfileCommentInfoTypeFromJSONTyped,
+    StagedProfileCommentInfoTypeToJSON,
+} from './StagedProfileCommentInfoType';
 import type { StagedProfileCompanyType } from './StagedProfileCompanyType';
 import {
     StagedProfileCompanyTypeFromJSON,
@@ -109,12 +109,12 @@ import {
     StagedProfileUserDefinedFieldsTypeFromJSONTyped,
     StagedProfileUserDefinedFieldsTypeToJSON,
 } from './StagedProfileUserDefinedFieldsType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Detailed information about the staged profile.
@@ -129,11 +129,11 @@ export interface StagedProfileType {
      */
     addresses?: Array<StagedProfileAddressType>;
     /**
-     * 
-     * @type {StagedProfileCommentInfosType}
+     * List of Notes for the customer.
+     * @type {Array<StagedProfileCommentInfoType>}
      * @memberof StagedProfileType
      */
-    comments?: StagedProfileCommentInfosType;
+    comments?: Array<StagedProfileCommentInfoType>;
     /**
      * 
      * @type {StagedProfileCompanyType}
@@ -207,11 +207,11 @@ export interface StagedProfileType {
      */
     privacyInfo?: PrivacyInfoType;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof StagedProfileType
      */
-    profileIdList?: UniqueIDListType;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * Type of the staged profile.
      * @type {string}
@@ -270,7 +270,7 @@ export function StagedProfileTypeFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'addresses': !exists(json, 'addresses') ? undefined : ((json['addresses'] as Array<any>).map(StagedProfileAddressTypeFromJSON)),
-        'comments': !exists(json, 'comments') ? undefined : StagedProfileCommentInfosTypeFromJSON(json['comments']),
+        'comments': !exists(json, 'comments') ? undefined : ((json['comments'] as Array<any>).map(StagedProfileCommentInfoTypeFromJSON)),
         'company': !exists(json, 'company') ? undefined : StagedProfileCompanyTypeFromJSON(json['company']),
         'customer': !exists(json, 'customer') ? undefined : StagedProfileCustomerTypeFromJSON(json['customer']),
         'emails': !exists(json, 'emails') ? undefined : ((json['emails'] as Array<any>).map(StagedProfileEmailTypeFromJSON)),
@@ -283,7 +283,7 @@ export function StagedProfileTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'negotiatedRates': !exists(json, 'negotiatedRates') ? undefined : ((json['negotiatedRates'] as Array<any>).map(StagedProfileNegotiatedRateTypeFromJSON)),
         'preferences': !exists(json, 'preferences') ? undefined : ((json['preferences'] as Array<any>).map(StagedProfilePreferenceTypeFromJSON)),
         'privacyInfo': !exists(json, 'privacyInfo') ? undefined : PrivacyInfoTypeFromJSON(json['privacyInfo']),
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : UniqueIDListTypeFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'profileType': !exists(json, 'profileType') ? undefined : json['profileType'],
         'routingInstructions': !exists(json, 'routingInstructions') ? undefined : ((json['routingInstructions'] as Array<any>).map(StagedProfileRoutingInstructionTypeFromJSON)),
         'stageStatus': !exists(json, 'stageStatus') ? undefined : json['stageStatus'],
@@ -303,7 +303,7 @@ export function StagedProfileTypeToJSON(value?: StagedProfileType | null): any {
     return {
         
         'addresses': value.addresses === undefined ? undefined : ((value.addresses as Array<any>).map(StagedProfileAddressTypeToJSON)),
-        'comments': StagedProfileCommentInfosTypeToJSON(value.comments),
+        'comments': value.comments === undefined ? undefined : ((value.comments as Array<any>).map(StagedProfileCommentInfoTypeToJSON)),
         'company': StagedProfileCompanyTypeToJSON(value.company),
         'customer': StagedProfileCustomerTypeToJSON(value.customer),
         'emails': value.emails === undefined ? undefined : ((value.emails as Array<any>).map(StagedProfileEmailTypeToJSON)),
@@ -316,7 +316,7 @@ export function StagedProfileTypeToJSON(value?: StagedProfileType | null): any {
         'negotiatedRates': value.negotiatedRates === undefined ? undefined : ((value.negotiatedRates as Array<any>).map(StagedProfileNegotiatedRateTypeToJSON)),
         'preferences': value.preferences === undefined ? undefined : ((value.preferences as Array<any>).map(StagedProfilePreferenceTypeToJSON)),
         'privacyInfo': PrivacyInfoTypeToJSON(value.privacyInfo),
-        'profileIdList': UniqueIDListTypeToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'profileType': value.profileType,
         'routingInstructions': value.routingInstructions === undefined ? undefined : ((value.routingInstructions as Array<any>).map(StagedProfileRoutingInstructionTypeToJSON)),
         'stageStatus': value.stageStatus,

@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ValidateRoomClassInUseToJSON = exports.ValidateRoomClassInUseFromJSONTyped = exports.ValidateRoomClassInUseFromJSON = exports.instanceOfValidateRoomClassInUse = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ValidateRoomClassInUse interface.
  */
@@ -35,9 +35,9 @@ function ValidateRoomClassInUseFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : json['roomType'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ValidateRoomClassInUseFromJSONTyped = ValidateRoomClassInUseFromJSONTyped;
@@ -50,9 +50,9 @@ function ValidateRoomClassInUseToJSON(value) {
     }
     return {
         'hotelId': value.hotelId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'roomType': value.roomType,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ValidateRoomClassInUseToJSON = ValidateRoomClassInUseToJSON;

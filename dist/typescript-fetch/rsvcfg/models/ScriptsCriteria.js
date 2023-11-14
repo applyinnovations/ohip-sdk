@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ScriptsCriteriaToJSON = exports.ScriptsCriteriaFromJSONTyped = exports.ScriptsCriteriaFromJSON = exports.instanceOfScriptsCriteria = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const ScriptsType_1 = require("./ScriptsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const ScriptType_1 = require("./ScriptType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ScriptsCriteria interface.
  */
@@ -35,9 +35,9 @@ function ScriptsCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'scripts': !(0, runtime_1.exists)(json, 'scripts') ? undefined : (0, ScriptsType_1.ScriptsTypeFromJSON)(json['scripts']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'scripts': !(0, runtime_1.exists)(json, 'scripts') ? undefined : (json['scripts'].map(ScriptType_1.ScriptTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ScriptsCriteriaFromJSONTyped = ScriptsCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function ScriptsCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'scripts': (0, ScriptsType_1.ScriptsTypeToJSON)(value.scripts),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'scripts': value.scripts === undefined ? undefined : (value.scripts.map(ScriptType_1.ScriptTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ScriptsCriteriaToJSON = ScriptsCriteriaToJSON;

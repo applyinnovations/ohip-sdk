@@ -11,9 +11,9 @@
  */
 import type { BookingChannelInfoType } from './BookingChannelInfoType';
 import type { HotelChannelInfoType } from './HotelChannelInfoType';
-import type { Links } from './Links';
-import type { MarketingTextsType } from './MarketingTextsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MarketingTextType } from './MarketingTextType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching channel marketing texts.
  * @export
@@ -34,22 +34,22 @@ export interface ChannelMarketingTextsInfo {
     hotelsInfo?: Array<HotelChannelInfoType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelMarketingTextsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
-     * @type {MarketingTextsType}
+     * @type {Array<MarketingTextType>}
      * @memberof ChannelMarketingTextsInfo
      */
-    marketingTexts?: MarketingTextsType;
+    marketingTexts?: Array<MarketingTextType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelMarketingTextsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelMarketingTextsInfo interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AirlineTransactionsType } from './AirlineTransactionsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AirlineTransactionType } from './AirlineTransactionType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for fetching membership transactions processed by the airline.
  * @export
@@ -38,10 +38,10 @@ export interface AirlineTransactionsStatus {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AirlineTransactionsStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -61,17 +61,17 @@ export interface AirlineTransactionsStatus {
      */
     totalResults?: number;
     /**
-     *
-     * @type {AirlineTransactionsType}
+     * Contains details of the membership transaction processing status, provided by the airline.
+     * @type {Array<AirlineTransactionType>}
      * @memberof AirlineTransactionsStatus
      */
-    transactions?: AirlineTransactionsType;
+    transactions?: Array<AirlineTransactionType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AirlineTransactionsStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AirlineTransactionsStatus interface.

@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ARBalanceType } from './ARBalanceType';
-import type { ARInvoicesType } from './ARInvoicesType';
-import type { ARPaymentsType } from './ARPaymentsType';
+import type { ARInvoiceType } from './ARInvoiceType';
+import type { ARPaymentType } from './ARPaymentType';
 import type { ProfileId } from './ProfileId';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -45,11 +45,11 @@ export interface ARAccountInvoicesPaymentsType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {ARInvoicesType}
+     * A collection of AR Invoices.
+     * @type {Array<ARInvoiceType>}
      * @memberof ARAccountInvoicesPaymentsType
      */
-    invoices?: ARInvoicesType;
+    invoices?: Array<ARInvoiceType>;
     /**
      * Month End Calculation.
      * @type {boolean}
@@ -63,11 +63,11 @@ export interface ARAccountInvoicesPaymentsType {
      */
     paymentDueDays?: string;
     /**
-     *
-     * @type {ARPaymentsType}
+     * A collection of AR Payments.
+     * @type {Array<ARPaymentType>}
      * @memberof ARAccountInvoicesPaymentsType
      */
-    payments?: ARPaymentsType;
+    payments?: Array<ARPaymentType>;
     /**
      *
      * @type {ProfileId}

@@ -19,12 +19,12 @@ import {
     CateringInfoTypeFromJSONTyped,
     CateringInfoTypeToJSON,
 } from './CateringInfoType';
-import type { CateringVarianceInfoType } from './CateringVarianceInfoType';
+import type { MonthlyCateringVarianceInfoType } from './MonthlyCateringVarianceInfoType';
 import {
-    CateringVarianceInfoTypeFromJSON,
-    CateringVarianceInfoTypeFromJSONTyped,
-    CateringVarianceInfoTypeToJSON,
-} from './CateringVarianceInfoType';
+    MonthlyCateringVarianceInfoTypeFromJSON,
+    MonthlyCateringVarianceInfoTypeFromJSONTyped,
+    MonthlyCateringVarianceInfoTypeToJSON,
+} from './MonthlyCateringVarianceInfoType';
 
 /**
  * Budget Forecast information for Catering segment code.
@@ -33,17 +33,17 @@ import {
  */
 export interface CateringCodeInformationType {
     /**
-     * 
-     * @type {CateringVarianceInfoType}
+     * Monthly Variance information.
+     * @type {Array<MonthlyCateringVarianceInfoType>}
      * @memberof CateringCodeInformationType
      */
-    aBVarianceInfo?: CateringVarianceInfoType;
+    aBVarianceInfo?: Array<MonthlyCateringVarianceInfoType>;
     /**
-     * 
-     * @type {CateringVarianceInfoType}
+     * Monthly Variance information.
+     * @type {Array<MonthlyCateringVarianceInfoType>}
      * @memberof CateringCodeInformationType
      */
-    aFVarianceInfo?: CateringVarianceInfoType;
+    aFVarianceInfo?: Array<MonthlyCateringVarianceInfoType>;
     /**
      * 
      * @type {CateringInfoType}
@@ -75,11 +75,11 @@ export interface CateringCodeInformationType {
      */
     cateringCodeGrp?: string;
     /**
-     * 
-     * @type {CateringVarianceInfoType}
+     * Monthly Variance information.
+     * @type {Array<MonthlyCateringVarianceInfoType>}
      * @memberof CateringCodeInformationType
      */
-    fBVarianceInfo?: CateringVarianceInfoType;
+    fBVarianceInfo?: Array<MonthlyCateringVarianceInfoType>;
     /**
      * 
      * @type {CateringInfoType}
@@ -107,14 +107,14 @@ export function CateringCodeInformationTypeFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'aBVarianceInfo': !exists(json, 'aBVarianceInfo') ? undefined : CateringVarianceInfoTypeFromJSON(json['aBVarianceInfo']),
-        'aFVarianceInfo': !exists(json, 'aFVarianceInfo') ? undefined : CateringVarianceInfoTypeFromJSON(json['aFVarianceInfo']),
+        'aBVarianceInfo': !exists(json, 'aBVarianceInfo') ? undefined : ((json['aBVarianceInfo'] as Array<any>).map(MonthlyCateringVarianceInfoTypeFromJSON)),
+        'aFVarianceInfo': !exists(json, 'aFVarianceInfo') ? undefined : ((json['aFVarianceInfo'] as Array<any>).map(MonthlyCateringVarianceInfoTypeFromJSON)),
         'actualInfo': !exists(json, 'actualInfo') ? undefined : CateringInfoTypeFromJSON(json['actualInfo']),
         'budgetInfo': !exists(json, 'budgetInfo') ? undefined : CateringInfoTypeFromJSON(json['budgetInfo']),
         'cateringCode': !exists(json, 'cateringCode') ? undefined : json['cateringCode'],
         'cateringCodeDescription': !exists(json, 'cateringCodeDescription') ? undefined : json['cateringCodeDescription'],
         'cateringCodeGrp': !exists(json, 'cateringCodeGrp') ? undefined : json['cateringCodeGrp'],
-        'fBVarianceInfo': !exists(json, 'fBVarianceInfo') ? undefined : CateringVarianceInfoTypeFromJSON(json['fBVarianceInfo']),
+        'fBVarianceInfo': !exists(json, 'fBVarianceInfo') ? undefined : ((json['fBVarianceInfo'] as Array<any>).map(MonthlyCateringVarianceInfoTypeFromJSON)),
         'forecastInfo': !exists(json, 'forecastInfo') ? undefined : CateringInfoTypeFromJSON(json['forecastInfo']),
     };
 }
@@ -128,14 +128,14 @@ export function CateringCodeInformationTypeToJSON(value?: CateringCodeInformatio
     }
     return {
         
-        'aBVarianceInfo': CateringVarianceInfoTypeToJSON(value.aBVarianceInfo),
-        'aFVarianceInfo': CateringVarianceInfoTypeToJSON(value.aFVarianceInfo),
+        'aBVarianceInfo': value.aBVarianceInfo === undefined ? undefined : ((value.aBVarianceInfo as Array<any>).map(MonthlyCateringVarianceInfoTypeToJSON)),
+        'aFVarianceInfo': value.aFVarianceInfo === undefined ? undefined : ((value.aFVarianceInfo as Array<any>).map(MonthlyCateringVarianceInfoTypeToJSON)),
         'actualInfo': CateringInfoTypeToJSON(value.actualInfo),
         'budgetInfo': CateringInfoTypeToJSON(value.budgetInfo),
         'cateringCode': value.cateringCode,
         'cateringCodeDescription': value.cateringCodeDescription,
         'cateringCodeGrp': value.cateringCodeGrp,
-        'fBVarianceInfo': CateringVarianceInfoTypeToJSON(value.fBVarianceInfo),
+        'fBVarianceInfo': value.fBVarianceInfo === undefined ? undefined : ((value.fBVarianceInfo as Array<any>).map(MonthlyCateringVarianceInfoTypeToJSON)),
         'forecastInfo': CateringInfoTypeToJSON(value.forecastInfo),
     };
 }

@@ -11,8 +11,8 @@
  */
 import type { AutoFolioSettlementCriteriaType } from './AutoFolioSettlementCriteriaType';
 import type { CashieringEventType } from './CashieringEventType';
-import type { PaymentMethodsSearchType } from './PaymentMethodsSearchType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { PaymentMethodSearchType } from './PaymentMethodSearchType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -62,11 +62,11 @@ export interface AutoSettlementType {
      */
     minimumWindowBalance?: number;
     /**
-     *
-     * @type {PaymentMethodsSearchType}
+     * Defines the payment method to search reservations.
+     * @type {Array<PaymentMethodSearchType>}
      * @memberof AutoSettlementType
      */
-    paymentMethods?: PaymentMethodsSearchType;
+    paymentMethods?: Array<PaymentMethodSearchType>;
     /**
      *
      * @type {AutoFolioSettlementCriteriaType}
@@ -74,11 +74,11 @@ export interface AutoSettlementType {
      */
     reservationCriteria?: AutoFolioSettlementCriteriaType;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof AutoSettlementType
      */
-    reservationIdList?: UniqueIDListType;
+    reservationIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the AutoSettlementType interface.

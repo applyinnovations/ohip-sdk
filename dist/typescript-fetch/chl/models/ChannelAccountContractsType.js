@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelAccountContractsTypeToJSON = exports.ChannelAccountContractsTypeFromJSONTyped = exports.ChannelAccountContractsTypeFromJSON = exports.instanceOfChannelAccountContractsType = void 0;
 const runtime_1 = require("../runtime");
-const ChannelAccountContractsInformationType_1 = require("./ChannelAccountContractsInformationType");
+const ChannelAccountContractInformationType_1 = require("./ChannelAccountContractInformationType");
 const ProfileId_1 = require("./ProfileId");
 /**
  * Check if a given object implements the ChannelAccountContractsType interface.
@@ -36,7 +36,7 @@ function ChannelAccountContractsTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'accountCode': !(0, runtime_1.exists)(json, 'accountCode') ? undefined : json['accountCode'],
         'accountName': !(0, runtime_1.exists)(json, 'accountName') ? undefined : json['accountName'],
-        'channelAccountContractsInformation': !(0, runtime_1.exists)(json, 'channelAccountContractsInformation') ? undefined : (0, ChannelAccountContractsInformationType_1.ChannelAccountContractsInformationTypeFromJSON)(json['channelAccountContractsInformation']),
+        'channelAccountContractsInformation': !(0, runtime_1.exists)(json, 'channelAccountContractsInformation') ? undefined : (json['channelAccountContractsInformation'].map(ChannelAccountContractInformationType_1.ChannelAccountContractInformationTypeFromJSON)),
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, ProfileId_1.ProfileIdFromJSON)(json['profileId']),
     };
 }
@@ -51,7 +51,7 @@ function ChannelAccountContractsTypeToJSON(value) {
     return {
         'accountCode': value.accountCode,
         'accountName': value.accountName,
-        'channelAccountContractsInformation': (0, ChannelAccountContractsInformationType_1.ChannelAccountContractsInformationTypeToJSON)(value.channelAccountContractsInformation),
+        'channelAccountContractsInformation': value.channelAccountContractsInformation === undefined ? undefined : (value.channelAccountContractsInformation.map(ChannelAccountContractInformationType_1.ChannelAccountContractInformationTypeToJSON)),
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
     };
 }

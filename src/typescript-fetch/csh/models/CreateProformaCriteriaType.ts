@@ -19,12 +19,12 @@ import {
     ProformaResponseInstructionTypeFromJSONTyped,
     ProformaResponseInstructionTypeToJSON,
 } from './ProformaResponseInstructionType';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Criteria for creating Proforma transactions for a reservation. These transactions will be used by the Opera Proforma Report.
@@ -39,11 +39,11 @@ export interface CreateProformaCriteriaType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CreateProformaCriteriaType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {ProformaResponseInstructionType}
@@ -72,7 +72,7 @@ export function CreateProformaCriteriaTypeFromJSONTyped(json: any, ignoreDiscrim
     return {
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'responseInstruction': !exists(json, 'responseInstruction') ? undefined : ProformaResponseInstructionTypeFromJSON(json['responseInstruction']),
     };
 }
@@ -87,7 +87,7 @@ export function CreateProformaCriteriaTypeToJSON(value?: CreateProformaCriteriaT
     return {
         
         'hotelId': value.hotelId,
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'responseInstruction': ProformaResponseInstructionTypeToJSON(value.responseInstruction),
     };
 }

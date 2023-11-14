@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipSearchTypeToJSON = exports.MembershipSearchTypeFromJSONTyped = exports.MembershipSearchTypeFromJSON = exports.instanceOfMembershipSearchType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 /**
  * Check if a given object implements the MembershipSearchType interface.
  */
@@ -35,8 +34,8 @@ function MembershipSearchTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'associatedReservationsOnly': !(0, runtime_1.exists)(json, 'associatedReservationsOnly') ? undefined : json['associatedReservationsOnly'],
         'membershipId': !(0, runtime_1.exists)(json, 'membershipId') ? undefined : json['membershipId'],
-        'membershipLevel': !(0, runtime_1.exists)(json, 'membershipLevel') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['membershipLevel']),
-        'membershipType': !(0, runtime_1.exists)(json, 'membershipType') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['membershipType']),
+        'membershipLevel': !(0, runtime_1.exists)(json, 'membershipLevel') ? undefined : json['membershipLevel'],
+        'membershipType': !(0, runtime_1.exists)(json, 'membershipType') ? undefined : json['membershipType'],
     };
 }
 exports.MembershipSearchTypeFromJSONTyped = MembershipSearchTypeFromJSONTyped;
@@ -50,8 +49,8 @@ function MembershipSearchTypeToJSON(value) {
     return {
         'associatedReservationsOnly': value.associatedReservationsOnly,
         'membershipId': value.membershipId,
-        'membershipLevel': (0, CodeListType_1.CodeListTypeToJSON)(value.membershipLevel),
-        'membershipType': (0, CodeListType_1.CodeListTypeToJSON)(value.membershipType),
+        'membershipLevel': value.membershipLevel,
+        'membershipType': value.membershipType,
     };
 }
 exports.MembershipSearchTypeToJSON = MembershipSearchTypeToJSON;

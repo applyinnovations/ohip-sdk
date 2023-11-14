@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RelationshipsSummary } from './RelationshipsSummary';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ProfileRelationships {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileRelationships
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {RelationshipsSummary}
@@ -31,11 +31,11 @@ export interface ProfileRelationships {
      */
     relationships?: RelationshipsSummary;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileRelationships
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileRelationships interface.

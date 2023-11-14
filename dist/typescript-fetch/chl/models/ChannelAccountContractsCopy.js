@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelAccountContractsCopyToJSON = exports.ChannelAccountContractsCopyFromJSONTyped = exports.ChannelAccountContractsCopyFromJSON = exports.instanceOfChannelAccountContractsCopy = void 0;
 const runtime_1 = require("../runtime");
-const ChannelAccountContractsCopyType_1 = require("./ChannelAccountContractsCopyType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ChannelAccountContractCopyType_1 = require("./ChannelAccountContractCopyType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChannelAccountContractsCopy interface.
  */
@@ -35,9 +35,9 @@ function ChannelAccountContractsCopyFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'channelAccountContractsCopy': !(0, runtime_1.exists)(json, 'channelAccountContractsCopy') ? undefined : (0, ChannelAccountContractsCopyType_1.ChannelAccountContractsCopyTypeFromJSON)(json['channelAccountContractsCopy']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'channelAccountContractsCopy': !(0, runtime_1.exists)(json, 'channelAccountContractsCopy') ? undefined : (json['channelAccountContractsCopy'].map(ChannelAccountContractCopyType_1.ChannelAccountContractCopyTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChannelAccountContractsCopyFromJSONTyped = ChannelAccountContractsCopyFromJSONTyped;
@@ -49,9 +49,9 @@ function ChannelAccountContractsCopyToJSON(value) {
         return null;
     }
     return {
-        'channelAccountContractsCopy': (0, ChannelAccountContractsCopyType_1.ChannelAccountContractsCopyTypeToJSON)(value.channelAccountContractsCopy),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'channelAccountContractsCopy': value.channelAccountContractsCopy === undefined ? undefined : (value.channelAccountContractsCopy.map(ChannelAccountContractCopyType_1.ChannelAccountContractCopyTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChannelAccountContractsCopyToJSON = ChannelAccountContractsCopyToJSON;

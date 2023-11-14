@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CustomNumberTemplateConfigurationListType } from './CustomNumberTemplateConfigurationListType';
+import type { CustomNumberTemplateConfigurationType } from './CustomNumberTemplateConfigurationType';
 import {
-    CustomNumberTemplateConfigurationListTypeFromJSON,
-    CustomNumberTemplateConfigurationListTypeFromJSONTyped,
-    CustomNumberTemplateConfigurationListTypeToJSON,
-} from './CustomNumberTemplateConfigurationListType';
-import type { Links } from './Links';
+    CustomNumberTemplateConfigurationTypeFromJSON,
+    CustomNumberTemplateConfigurationTypeFromJSONTyped,
+    CustomNumberTemplateConfigurationTypeToJSON,
+} from './CustomNumberTemplateConfigurationType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching template custom number configurations.
@@ -39,23 +39,23 @@ import {
  */
 export interface TemplateCustomNumberConfigDetails {
     /**
-     * 
-     * @type {CustomNumberTemplateConfigurationListType}
+     * Details about template custom number configuration.
+     * @type {Array<CustomNumberTemplateConfigurationType>}
      * @memberof TemplateCustomNumberConfigDetails
      */
-    customNumberConfigurationList?: CustomNumberTemplateConfigurationListType;
+    customNumberConfigurationList?: Array<CustomNumberTemplateConfigurationType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateCustomNumberConfigDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateCustomNumberConfigDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateCustomNumberConfigDetailsFromJSONTyped(json: any, ignore
     }
     return {
         
-        'customNumberConfigurationList': !exists(json, 'customNumberConfigurationList') ? undefined : CustomNumberTemplateConfigurationListTypeFromJSON(json['customNumberConfigurationList']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'customNumberConfigurationList': !exists(json, 'customNumberConfigurationList') ? undefined : ((json['customNumberConfigurationList'] as Array<any>).map(CustomNumberTemplateConfigurationTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateCustomNumberConfigDetailsToJSON(value?: TemplateCustomNu
     }
     return {
         
-        'customNumberConfigurationList': CustomNumberTemplateConfigurationListTypeToJSON(value.customNumberConfigurationList),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'customNumberConfigurationList': value.customNumberConfigurationList === undefined ? undefined : ((value.customNumberConfigurationList as Array<any>).map(CustomNumberTemplateConfigurationTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -15,8 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyTransactionSubgroupsTypeToJSON = exports.CopyTransactionSubgroupsTypeFromJSONTyped = exports.CopyTransactionSubgroupsTypeFromJSON = exports.instanceOfCopyTransactionSubgroupsType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
-const TemplateTransactionSubgroupIDsType_1 = require("./TemplateTransactionSubgroupIDsType");
+const TemplateTransactionSubgroupIDType_1 = require("./TemplateTransactionSubgroupIDType");
 /**
  * Check if a given object implements the CopyTransactionSubgroupsType interface.
  */
@@ -34,8 +33,8 @@ function CopyTransactionSubgroupsTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'hotels': !(0, runtime_1.exists)(json, 'hotels') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['hotels']),
-        'transactionSubgroups': !(0, runtime_1.exists)(json, 'transactionSubgroups') ? undefined : (0, TemplateTransactionSubgroupIDsType_1.TemplateTransactionSubgroupIDsTypeFromJSON)(json['transactionSubgroups']),
+        'hotels': !(0, runtime_1.exists)(json, 'hotels') ? undefined : json['hotels'],
+        'transactionSubgroups': !(0, runtime_1.exists)(json, 'transactionSubgroups') ? undefined : (json['transactionSubgroups'].map(TemplateTransactionSubgroupIDType_1.TemplateTransactionSubgroupIDTypeFromJSON)),
     };
 }
 exports.CopyTransactionSubgroupsTypeFromJSONTyped = CopyTransactionSubgroupsTypeFromJSONTyped;
@@ -47,8 +46,8 @@ function CopyTransactionSubgroupsTypeToJSON(value) {
         return null;
     }
     return {
-        'hotels': (0, CodeListType_1.CodeListTypeToJSON)(value.hotels),
-        'transactionSubgroups': (0, TemplateTransactionSubgroupIDsType_1.TemplateTransactionSubgroupIDsTypeToJSON)(value.transactionSubgroups),
+        'hotels': value.hotels,
+        'transactionSubgroups': value.transactionSubgroups === undefined ? undefined : (value.transactionSubgroups.map(TemplateTransactionSubgroupIDType_1.TemplateTransactionSubgroupIDTypeToJSON)),
     };
 }
 exports.CopyTransactionSubgroupsTypeToJSON = CopyTransactionSubgroupsTypeToJSON;

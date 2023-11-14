@@ -25,12 +25,6 @@ import {
     ProfileIdFromJSONTyped,
     ProfileIdToJSON,
 } from './ProfileId';
-import type { ReservationIdList } from './ReservationIdList';
-import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
 import type { ServiceRequestStatusType } from './ServiceRequestStatusType';
 import {
     ServiceRequestStatusTypeFromJSON,
@@ -141,11 +135,11 @@ export interface ServiceRequest {
      */
     profileId?: ProfileId;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ServiceRequest
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * The room number in which the service request was created.
      * @type {string}
@@ -200,7 +194,7 @@ export function ServiceRequestFromJSONTyped(json: any, ignoreDiscriminator: bool
         'openDate': !exists(json, 'openDate') ? undefined : json['openDate'],
         'priority': !exists(json, 'priority') ? undefined : json['priority'],
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'room': !exists(json, 'room') ? undefined : json['room'],
         'serviceRequestId': !exists(json, 'serviceRequestId') ? undefined : UniqueIDTypeFromJSON(json['serviceRequestId']),
         'status': !exists(json, 'status') ? undefined : ServiceRequestStatusTypeFromJSON(json['status']),
@@ -231,7 +225,7 @@ export function ServiceRequestToJSON(value?: ServiceRequest | null): any {
         'openDate': value.openDate,
         'priority': value.priority,
         'profileId': ProfileIdToJSON(value.profileId),
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'room': value.room,
         'serviceRequestId': UniqueIDTypeToJSON(value.serviceRequestId),
         'status': ServiceRequestStatusTypeToJSON(value.status),

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 import type { ActivityId } from './ActivityId';
-import type { CodeListType } from './CodeListType';
 /**
  * Provides the data to create linked activities to an activity .
  * @export
@@ -31,10 +30,10 @@ export interface LinkedActivitiesType {
     hotelId?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof LinkedActivitiesType
      */
-    ownerCodeList?: CodeListType;
+    ownerCodeList?: Array<string>;
 }
 /**
  * Check if a given object implements the LinkedActivitiesType interface.

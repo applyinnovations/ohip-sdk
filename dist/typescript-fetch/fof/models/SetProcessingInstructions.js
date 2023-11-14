@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SetProcessingInstructionsToJSON = exports.SetProcessingInstructionsFromJSONTyped = exports.SetProcessingInstructionsFromJSON = exports.instanceOfSetProcessingInstructions = void 0;
 const runtime_1 = require("../runtime");
-const CommissionProcessingAgentsType_1 = require("./CommissionProcessingAgentsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CommissionProcessingAgentType_1 = require("./CommissionProcessingAgentType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the SetProcessingInstructions interface.
  */
@@ -35,9 +35,9 @@ function SetProcessingInstructionsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'agents': !(0, runtime_1.exists)(json, 'agents') ? undefined : (0, CommissionProcessingAgentsType_1.CommissionProcessingAgentsTypeFromJSON)(json['agents']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'agents': !(0, runtime_1.exists)(json, 'agents') ? undefined : (json['agents'].map(CommissionProcessingAgentType_1.CommissionProcessingAgentTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.SetProcessingInstructionsFromJSONTyped = SetProcessingInstructionsFromJSONTyped;
@@ -49,9 +49,9 @@ function SetProcessingInstructionsToJSON(value) {
         return null;
     }
     return {
-        'agents': (0, CommissionProcessingAgentsType_1.CommissionProcessingAgentsTypeToJSON)(value.agents),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'agents': value.agents === undefined ? undefined : (value.agents.map(CommissionProcessingAgentType_1.CommissionProcessingAgentTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.SetProcessingInstructionsToJSON = SetProcessingInstructionsToJSON;

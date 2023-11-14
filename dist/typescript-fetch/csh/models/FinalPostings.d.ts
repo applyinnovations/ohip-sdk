@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { CheckoutReservationType } from './CheckoutReservationType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ResponseInstructionType } from './ResponseInstructionType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to apply any final charges or payments to a reservation prior to checkout. This operation should be called prior to the guest settlement which would then reflect the balance the guest has to pay.
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface FinalPostings {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FinalPostings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {CheckoutReservationType}
@@ -38,11 +38,11 @@ export interface FinalPostings {
      */
     responseInstruction?: ResponseInstructionType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FinalPostings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FinalPostings interface.

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChargesCriteriaType } from './ChargesCriteriaType';
+import type { ChargeCriteriaType } from './ChargeCriteriaType';
 import {
-    ChargesCriteriaTypeFromJSON,
-    ChargesCriteriaTypeFromJSONTyped,
-    ChargesCriteriaTypeToJSON,
-} from './ChargesCriteriaType';
+    ChargeCriteriaTypeFromJSON,
+    ChargeCriteriaTypeFromJSONTyped,
+    ChargeCriteriaTypeToJSON,
+} from './ChargeCriteriaType';
 import type { FiscalServiceType } from './FiscalServiceType';
 import {
     FiscalServiceTypeFromJSON,
@@ -57,11 +57,11 @@ export interface SaleCriteriaType {
      */
     cashierId?: number;
     /**
-     * 
-     * @type {ChargesCriteriaType}
+     * Collection of Charges to be posted.
+     * @type {Array<ChargeCriteriaType>}
      * @memberof SaleCriteriaType
      */
-    charges?: ChargesCriteriaType;
+    charges?: Array<ChargeCriteriaType>;
     /**
      * 
      * @type {FiscalServiceType}
@@ -132,7 +132,7 @@ export function SaleCriteriaTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
-        'charges': !exists(json, 'charges') ? undefined : ChargesCriteriaTypeFromJSON(json['charges']),
+        'charges': !exists(json, 'charges') ? undefined : ((json['charges'] as Array<any>).map(ChargeCriteriaTypeFromJSON)),
         'fiscalFolioInfo': !exists(json, 'fiscalFolioInfo') ? undefined : FiscalServiceTypeFromJSON(json['fiscalFolioInfo']),
         'fiscalTerminalId': !exists(json, 'fiscalTerminalId') ? undefined : json['fiscalTerminalId'],
         'folioNameValue': !exists(json, 'folioNameValue') ? undefined : ((json['folioNameValue'] as Array<any>).map(NameValueHeaderDetailTypeFromJSON)),
@@ -154,7 +154,7 @@ export function SaleCriteriaTypeToJSON(value?: SaleCriteriaType | null): any {
     return {
         
         'cashierId': value.cashierId,
-        'charges': ChargesCriteriaTypeToJSON(value.charges),
+        'charges': value.charges === undefined ? undefined : ((value.charges as Array<any>).map(ChargeCriteriaTypeToJSON)),
         'fiscalFolioInfo': FiscalServiceTypeToJSON(value.fiscalFolioInfo),
         'fiscalTerminalId': value.fiscalTerminalId,
         'folioNameValue': value.folioNameValue === undefined ? undefined : ((value.folioNameValue as Array<any>).map(NameValueHeaderDetailTypeToJSON)),

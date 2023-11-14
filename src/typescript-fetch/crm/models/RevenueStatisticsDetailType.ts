@@ -13,18 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ProfileIdList } from './ProfileIdList';
-import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
-import type { ReservationIdList } from './ReservationIdList';
-import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
 import type { RevenueBucketListType } from './RevenueBucketListType';
 import {
     RevenueBucketListTypeFromJSON,
@@ -37,6 +25,12 @@ import {
     TimeSpanTypeFromJSONTyped,
     TimeSpanTypeToJSON,
 } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * The different statistics from the revenue of a profile.
@@ -69,17 +63,17 @@ export interface RevenueStatisticsDetailType {
      */
     localRevenue?: number;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RevenueStatisticsDetailType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RevenueStatisticsDetailType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {RevenueBucketListType}
@@ -123,8 +117,8 @@ export function RevenueStatisticsDetailTypeFromJSONTyped(json: any, ignoreDiscri
         'guestName': !exists(json, 'guestName') ? undefined : json['guestName'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'localRevenue': !exists(json, 'localRevenue') ? undefined : json['localRevenue'],
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'revenueBuckets': !exists(json, 'revenueBuckets') ? undefined : RevenueBucketListTypeFromJSON(json['revenueBuckets']),
         'revenueType': !exists(json, 'revenueType') ? undefined : json['revenueType'],
         'stayTimeSpan': !exists(json, 'stayTimeSpan') ? undefined : TimeSpanTypeFromJSON(json['stayTimeSpan']),
@@ -144,8 +138,8 @@ export function RevenueStatisticsDetailTypeToJSON(value?: RevenueStatisticsDetai
         'guestName': value.guestName,
         'hotelId': value.hotelId,
         'localRevenue': value.localRevenue,
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'revenueBuckets': RevenueBucketListTypeToJSON(value.revenueBuckets),
         'revenueType': value.revenueType,
         'stayTimeSpan': TimeSpanTypeToJSON(value.stayTimeSpan),

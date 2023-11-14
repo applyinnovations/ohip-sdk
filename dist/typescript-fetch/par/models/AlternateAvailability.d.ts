@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AlternateAvailDatesType } from './AlternateAvailDatesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AlternateAvailDateType } from './AlternateAvailDateType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetch alternate availability operation
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AlternateAvailability {
     /**
-     *
-     * @type {AlternateAvailDatesType}
+     * List of alternate dates.
+     * @type {Array<AlternateAvailDateType>}
      * @memberof AlternateAvailability
      */
-    alternates?: AlternateAvailDatesType;
+    alternates?: Array<AlternateAvailDateType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AlternateAvailability
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AlternateAvailability
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AlternateAvailability interface.

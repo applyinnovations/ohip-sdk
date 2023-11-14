@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { PreConfiguredRoutingInstrListType } from './PreConfiguredRoutingInstrListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { PreConfiguredRoutingInstrType } from './PreConfiguredRoutingInstrType';
 import {
-    PreConfiguredRoutingInstrListTypeFromJSON,
-    PreConfiguredRoutingInstrListTypeFromJSONTyped,
-    PreConfiguredRoutingInstrListTypeToJSON,
-} from './PreConfiguredRoutingInstrListType';
-import type { WarningsType } from './WarningsType';
+    PreConfiguredRoutingInstrTypeFromJSON,
+    PreConfiguredRoutingInstrTypeFromJSONTyped,
+    PreConfiguredRoutingInstrTypeToJSON,
+} from './PreConfiguredRoutingInstrType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * This is the Response Message to the request for Pre-Configured Routing Instructions.
@@ -40,22 +40,22 @@ import {
 export interface PreConfiguredRoutingInstructions {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PreConfiguredRoutingInstructions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {PreConfiguredRoutingInstrListType}
+     * Set of Pre-Configured Routing Instructions.
+     * @type {Array<PreConfiguredRoutingInstrType>}
      * @memberof PreConfiguredRoutingInstructions
      */
-    routingInstructions?: PreConfiguredRoutingInstrListType;
+    routingInstructions?: Array<PreConfiguredRoutingInstrType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PreConfiguredRoutingInstructions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function PreConfiguredRoutingInstructionsFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'routingInstructions': !exists(json, 'routingInstructions') ? undefined : PreConfiguredRoutingInstrListTypeFromJSON(json['routingInstructions']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'routingInstructions': !exists(json, 'routingInstructions') ? undefined : ((json['routingInstructions'] as Array<any>).map(PreConfiguredRoutingInstrTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function PreConfiguredRoutingInstructionsToJSON(value?: PreConfiguredRout
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'routingInstructions': PreConfiguredRoutingInstrListTypeToJSON(value.routingInstructions),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'routingInstructions': value.routingInstructions === undefined ? undefined : ((value.routingInstructions as Array<any>).map(PreConfiguredRoutingInstrTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

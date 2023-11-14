@@ -16,9 +16,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RatePlanTransactionDetailsTypeToJSON = exports.RatePlanTransactionDetailsTypeFromJSONTyped = exports.RatePlanTransactionDetailsTypeFromJSON = exports.instanceOfRatePlanTransactionDetailsType = void 0;
 const runtime_1 = require("../runtime");
 const ExchangePostingType_1 = require("./ExchangePostingType");
-const RatePlanAdvancedPostingRhythmsType_1 = require("./RatePlanAdvancedPostingRhythmsType");
+const RatePlanAdvancedPostingRhythmType_1 = require("./RatePlanAdvancedPostingRhythmType");
 const RatePlanPostingRhythmType_1 = require("./RatePlanPostingRhythmType");
-const RatePlanRoomTransactionCodesType_1 = require("./RatePlanRoomTransactionCodesType");
+const RatePlanRoomTransactionCodeType_1 = require("./RatePlanRoomTransactionCodeType");
 const TranslationTextType2000_1 = require("./TranslationTextType2000");
 /**
  * Check if a given object implements the RatePlanTransactionDetailsType interface.
@@ -37,14 +37,14 @@ function RatePlanTransactionDetailsTypeFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'advancedPostingRhythms': !(0, runtime_1.exists)(json, 'advancedPostingRhythms') ? undefined : (0, RatePlanAdvancedPostingRhythmsType_1.RatePlanAdvancedPostingRhythmsTypeFromJSON)(json['advancedPostingRhythms']),
+        'advancedPostingRhythms': !(0, runtime_1.exists)(json, 'advancedPostingRhythms') ? undefined : (json['advancedPostingRhythms'].map(RatePlanAdvancedPostingRhythmType_1.RatePlanAdvancedPostingRhythmTypeFromJSON)),
         'currencyCode': !(0, runtime_1.exists)(json, 'currencyCode') ? undefined : json['currencyCode'],
         'exchangePosting': !(0, runtime_1.exists)(json, 'exchangePosting') ? undefined : (0, ExchangePostingType_1.ExchangePostingTypeFromJSON)(json['exchangePosting']),
         'folioText': !(0, runtime_1.exists)(json, 'folioText') ? undefined : (0, TranslationTextType2000_1.TranslationTextType2000FromJSON)(json['folioText']),
         'packageTransactionCode': !(0, runtime_1.exists)(json, 'packageTransactionCode') ? undefined : json['packageTransactionCode'],
         'postingRhythm': !(0, runtime_1.exists)(json, 'postingRhythm') ? undefined : (0, RatePlanPostingRhythmType_1.RatePlanPostingRhythmTypeFromJSON)(json['postingRhythm']),
         'rateIncludesTax': !(0, runtime_1.exists)(json, 'rateIncludesTax') ? undefined : json['rateIncludesTax'],
-        'roomTransactionCodes': !(0, runtime_1.exists)(json, 'roomTransactionCodes') ? undefined : (0, RatePlanRoomTransactionCodesType_1.RatePlanRoomTransactionCodesTypeFromJSON)(json['roomTransactionCodes']),
+        'roomTransactionCodes': !(0, runtime_1.exists)(json, 'roomTransactionCodes') ? undefined : (json['roomTransactionCodes'].map(RatePlanRoomTransactionCodeType_1.RatePlanRoomTransactionCodeTypeFromJSON)),
         'transactionCode': !(0, runtime_1.exists)(json, 'transactionCode') ? undefined : json['transactionCode'],
     };
 }
@@ -57,14 +57,14 @@ function RatePlanTransactionDetailsTypeToJSON(value) {
         return null;
     }
     return {
-        'advancedPostingRhythms': (0, RatePlanAdvancedPostingRhythmsType_1.RatePlanAdvancedPostingRhythmsTypeToJSON)(value.advancedPostingRhythms),
+        'advancedPostingRhythms': value.advancedPostingRhythms === undefined ? undefined : (value.advancedPostingRhythms.map(RatePlanAdvancedPostingRhythmType_1.RatePlanAdvancedPostingRhythmTypeToJSON)),
         'currencyCode': value.currencyCode,
         'exchangePosting': (0, ExchangePostingType_1.ExchangePostingTypeToJSON)(value.exchangePosting),
         'folioText': (0, TranslationTextType2000_1.TranslationTextType2000ToJSON)(value.folioText),
         'packageTransactionCode': value.packageTransactionCode,
         'postingRhythm': (0, RatePlanPostingRhythmType_1.RatePlanPostingRhythmTypeToJSON)(value.postingRhythm),
         'rateIncludesTax': value.rateIncludesTax,
-        'roomTransactionCodes': (0, RatePlanRoomTransactionCodesType_1.RatePlanRoomTransactionCodesTypeToJSON)(value.roomTransactionCodes),
+        'roomTransactionCodes': value.roomTransactionCodes === undefined ? undefined : (value.roomTransactionCodes.map(RatePlanRoomTransactionCodeType_1.RatePlanRoomTransactionCodeTypeToJSON)),
         'transactionCode': value.transactionCode,
     };
 }

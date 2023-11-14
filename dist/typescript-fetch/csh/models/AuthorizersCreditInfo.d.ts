@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AuthorizersCreditType } from './AuthorizersCreditType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AuthorizerCreditType } from './AuthorizerCreditType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Returns credit information of Comp Accounting Authorizers.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AuthorizersCreditInfo {
     /**
-     *
-     * @type {AuthorizersCreditType}
+     * List of Comp Accounting Authorizers Credits
+     * @type {Array<AuthorizerCreditType>}
      * @memberof AuthorizersCreditInfo
      */
-    authorizersCreditType?: AuthorizersCreditType;
+    authorizersCreditType?: Array<AuthorizerCreditType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AuthorizersCreditInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AuthorizersCreditInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AuthorizersCreditInfo interface.

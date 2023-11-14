@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FunctionSpaceAlternateTypeToJSON = exports.FunctionSpaceAlternateTypeFromJSONTyped = exports.FunctionSpaceAlternateTypeFromJSON = exports.instanceOfFunctionSpaceAlternateType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 /**
  * Check if a given object implements the FunctionSpaceAlternateType interface.
  */
@@ -33,7 +32,7 @@ function FunctionSpaceAlternateTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'excludedCateringEventTypes': !(0, runtime_1.exists)(json, 'excludedCateringEventTypes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['excludedCateringEventTypes']),
+        'excludedCateringEventTypes': !(0, runtime_1.exists)(json, 'excludedCateringEventTypes') ? undefined : json['excludedCateringEventTypes'],
         'forceAlternate': !(0, runtime_1.exists)(json, 'forceAlternate') ? undefined : json['forceAlternate'],
     };
 }
@@ -46,7 +45,7 @@ function FunctionSpaceAlternateTypeToJSON(value) {
         return null;
     }
     return {
-        'excludedCateringEventTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.excludedCateringEventTypes),
+        'excludedCateringEventTypes': value.excludedCateringEventTypes,
         'forceAlternate': value.forceAlternate,
     };
 }

@@ -18,7 +18,7 @@ import type { ProfileStatusType } from './ProfileStatusType';
 import type { ProfileTypeType } from './ProfileTypeType';
 import type { TelephoneInfoType } from './TelephoneInfoType';
 import type { URLInfoType } from './URLInfoType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -68,11 +68,11 @@ export interface RelationshipProfileType {
      */
     primaryOwner?: OwnerType;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RelationshipProfileType
      */
-    profileIdList?: UniqueIDListType;
+    profileIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {ProfileTypeType}

@@ -19,12 +19,12 @@ import {
     ARInvoiceCriteriaTypeFromJSONTyped,
     ARInvoiceCriteriaTypeToJSON,
 } from './ARInvoiceCriteriaType';
-import type { ARInvoicePostingsType } from './ARInvoicePostingsType';
+import type { ARInvoicePostingType } from './ARInvoicePostingType';
 import {
-    ARInvoicePostingsTypeFromJSON,
-    ARInvoicePostingsTypeFromJSONTyped,
-    ARInvoicePostingsTypeToJSON,
-} from './ARInvoicePostingsType';
+    ARInvoicePostingTypeFromJSON,
+    ARInvoicePostingTypeFromJSONTyped,
+    ARInvoicePostingTypeToJSON,
+} from './ARInvoicePostingType';
 
 /**
  * From Invoice and Invoice posting detail.
@@ -39,11 +39,11 @@ export interface ARTransferPostingsCriteriaTypeFromInvoice {
      */
     invoice?: ARInvoiceCriteriaType;
     /**
-     * 
-     * @type {ARInvoicePostingsType}
+     * Invoice posting detail.
+     * @type {Array<ARInvoicePostingType>}
      * @memberof ARTransferPostingsCriteriaTypeFromInvoice
      */
-    invoicePostings?: ARInvoicePostingsType;
+    invoicePostings?: Array<ARInvoicePostingType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function ARTransferPostingsCriteriaTypeFromInvoiceFromJSONTyped(json: any
     return {
         
         'invoice': !exists(json, 'invoice') ? undefined : ARInvoiceCriteriaTypeFromJSON(json['invoice']),
-        'invoicePostings': !exists(json, 'invoicePostings') ? undefined : ARInvoicePostingsTypeFromJSON(json['invoicePostings']),
+        'invoicePostings': !exists(json, 'invoicePostings') ? undefined : ((json['invoicePostings'] as Array<any>).map(ARInvoicePostingTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function ARTransferPostingsCriteriaTypeFromInvoiceToJSON(value?: ARTransf
     return {
         
         'invoice': ARInvoiceCriteriaTypeToJSON(value.invoice),
-        'invoicePostings': ARInvoicePostingsTypeToJSON(value.invoicePostings),
+        'invoicePostings': value.invoicePostings === undefined ? undefined : ((value.invoicePostings as Array<any>).map(ARInvoicePostingTypeToJSON)),
     };
 }
 

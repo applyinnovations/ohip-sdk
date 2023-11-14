@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 import type { GuaranteeRequirementsType } from './GuaranteeRequirementsType';
-import type { PaymentTypesType } from './PaymentTypesType';
 import type { TranslationTextType80 } from './TranslationTextType80';
 /**
  * Specifies Guarantee Code attributes.
@@ -49,11 +48,11 @@ export interface GuaranteeType {
      */
     orderSequence?: number;
     /**
-     *
-     * @type {PaymentTypesType}
+     * Payment card code like AX,VI etc.
+     * @type {Array<string>}
      * @memberof GuaranteeType
      */
-    paymentTypes?: PaymentTypesType;
+    paymentTypes?: Array<string>;
     /**
      *
      * @type {GuaranteeRequirementsType}

@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { AddressType } from './AddressType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching full address based on ID from external system.
  * @export
@@ -26,16 +26,16 @@ export interface ValidatedAddress {
     addressValidationInfo?: AddressType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ValidatedAddress
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ValidatedAddress
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ValidatedAddress interface.

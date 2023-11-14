@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HousekeepingSectionGroupsType } from './HousekeepingSectionGroupsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HousekeepingSectionGroupType } from './HousekeepingSectionGroupType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object to create House Keeping Section Groups for resort.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface HousekeepingSectionGroupsCriteria {
     /**
-     *
-     * @type {HousekeepingSectionGroupsType}
+     * List of the housekeeping section groups to be configured or fetched
+     * @type {Array<HousekeepingSectionGroupType>}
      * @memberof HousekeepingSectionGroupsCriteria
      */
-    housekeepingSectionGroups?: HousekeepingSectionGroupsType;
+    housekeepingSectionGroups?: Array<HousekeepingSectionGroupType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HousekeepingSectionGroupsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HousekeepingSectionGroupsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HousekeepingSectionGroupsCriteria interface.

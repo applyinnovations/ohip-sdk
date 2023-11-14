@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GuestMessagesType } from './GuestMessagesType';
-import type { Links } from './Links';
-import type { ReservationIdList } from './ReservationIdList';
-import type { WarningsType } from './WarningsType';
+import type { GuestMessageType } from './GuestMessageType';
+import type { InstanceLink } from './InstanceLink';
+import type { UniqueIDType } from './UniqueIDType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating the Guest Messages for a Reservation.
  * @export
@@ -20,11 +20,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CreateGuestMessages {
     /**
-     *
-     * @type {GuestMessagesType}
+     * Holds the Message Information
+     * @type {Array<GuestMessageType>}
      * @memberof CreateGuestMessages
      */
-    guestMessages?: GuestMessagesType;
+    guestMessages?: Array<GuestMessageType>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -33,22 +33,22 @@ export interface CreateGuestMessages {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreateGuestMessages
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CreateGuestMessages
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateGuestMessages
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreateGuestMessages interface.

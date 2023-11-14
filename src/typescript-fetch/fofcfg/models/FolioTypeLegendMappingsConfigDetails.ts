@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FolioTypeLegendMappingsConfigType } from './FolioTypeLegendMappingsConfigType';
+import type { FolioTypeLegendMappingConfigType } from './FolioTypeLegendMappingConfigType';
 import {
-    FolioTypeLegendMappingsConfigTypeFromJSON,
-    FolioTypeLegendMappingsConfigTypeFromJSONTyped,
-    FolioTypeLegendMappingsConfigTypeToJSON,
-} from './FolioTypeLegendMappingsConfigType';
-import type { Links } from './Links';
+    FolioTypeLegendMappingConfigTypeFromJSON,
+    FolioTypeLegendMappingConfigTypeFromJSONTyped,
+    FolioTypeLegendMappingConfigTypeToJSON,
+} from './FolioTypeLegendMappingConfigType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetch folio type legend mapping.
@@ -39,23 +39,23 @@ import {
  */
 export interface FolioTypeLegendMappingsConfigDetails {
     /**
-     * 
-     * @type {FolioTypeLegendMappingsConfigType}
+     * Details about folio type legened mapping.
+     * @type {Array<FolioTypeLegendMappingConfigType>}
      * @memberof FolioTypeLegendMappingsConfigDetails
      */
-    legends?: FolioTypeLegendMappingsConfigType;
+    legends?: Array<FolioTypeLegendMappingConfigType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FolioTypeLegendMappingsConfigDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FolioTypeLegendMappingsConfigDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FolioTypeLegendMappingsConfigDetailsFromJSONTyped(json: any, ign
     }
     return {
         
-        'legends': !exists(json, 'legends') ? undefined : FolioTypeLegendMappingsConfigTypeFromJSON(json['legends']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'legends': !exists(json, 'legends') ? undefined : ((json['legends'] as Array<any>).map(FolioTypeLegendMappingConfigTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FolioTypeLegendMappingsConfigDetailsToJSON(value?: FolioTypeLege
     }
     return {
         
-        'legends': FolioTypeLegendMappingsConfigTypeToJSON(value.legends),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'legends': value.legends === undefined ? undefined : ((value.legends as Array<any>).map(FolioTypeLegendMappingConfigTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

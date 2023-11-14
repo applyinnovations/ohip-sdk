@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockCateringPackageDetailsToJSON = exports.BlockCateringPackageDetailsFromJSONTyped = exports.BlockCateringPackageDetailsFromJSON = exports.instanceOfBlockCateringPackageDetails = void 0;
 const runtime_1 = require("../runtime");
-const CreateCateringPackageProcessedInfoList_1 = require("./CreateCateringPackageProcessedInfoList");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CateringEventsProcessedInfoType_1 = require("./CateringEventsProcessedInfoType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BlockCateringPackageDetails interface.
  */
@@ -35,9 +35,9 @@ function BlockCateringPackageDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'createCateringPackageProcessedInfoList': !(0, runtime_1.exists)(json, 'createCateringPackageProcessedInfoList') ? undefined : (0, CreateCateringPackageProcessedInfoList_1.CreateCateringPackageProcessedInfoListFromJSON)(json['createCateringPackageProcessedInfoList']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'createCateringPackageProcessedInfoList': !(0, runtime_1.exists)(json, 'createCateringPackageProcessedInfoList') ? undefined : (json['createCateringPackageProcessedInfoList'].map(CateringEventsProcessedInfoType_1.CateringEventsProcessedInfoTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BlockCateringPackageDetailsFromJSONTyped = BlockCateringPackageDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function BlockCateringPackageDetailsToJSON(value) {
         return null;
     }
     return {
-        'createCateringPackageProcessedInfoList': (0, CreateCateringPackageProcessedInfoList_1.CreateCateringPackageProcessedInfoListToJSON)(value.createCateringPackageProcessedInfoList),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'createCateringPackageProcessedInfoList': value.createCateringPackageProcessedInfoList === undefined ? undefined : (value.createCateringPackageProcessedInfoList.map(CateringEventsProcessedInfoType_1.CateringEventsProcessedInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BlockCateringPackageDetailsToJSON = BlockCateringPackageDetailsToJSON;

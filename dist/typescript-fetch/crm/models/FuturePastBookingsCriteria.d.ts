@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { HasFuturePastBookingsSearchType } from './HasFuturePastBookingsSearchType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request for information regarding existence of profile in future and/or past business blocks and/or reservations.
  * @export
@@ -26,16 +26,16 @@ export interface FuturePastBookingsCriteria {
     criteria?: HasFuturePastBookingsSearchType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FuturePastBookingsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FuturePastBookingsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FuturePastBookingsCriteria interface.

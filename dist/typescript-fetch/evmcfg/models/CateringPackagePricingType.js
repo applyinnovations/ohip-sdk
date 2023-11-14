@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringPackagePricingTypeToJSON = exports.CateringPackagePricingTypeFromJSONTyped = exports.CateringPackagePricingTypeFromJSON = exports.instanceOfCateringPackagePricingType = void 0;
 const runtime_1 = require("../runtime");
-const CateringPackageRevenueListType_1 = require("./CateringPackageRevenueListType");
+const CateringPackageRevenueType_1 = require("./CateringPackageRevenueType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const DateTimeSpanType_1 = require("./DateTimeSpanType");
 const UniqueIDType_1 = require("./UniqueIDType");
@@ -45,7 +45,7 @@ function CateringPackagePricingTypeFromJSONTyped(json, ignoreDiscriminator) {
         'maxAttendees': !(0, runtime_1.exists)(json, 'maxAttendees') ? undefined : json['maxAttendees'],
         'minAttendees': !(0, runtime_1.exists)(json, 'minAttendees') ? undefined : json['minAttendees'],
         'priceCode': !(0, runtime_1.exists)(json, 'priceCode') ? undefined : json['priceCode'],
-        'revenueDetails': !(0, runtime_1.exists)(json, 'revenueDetails') ? undefined : (0, CateringPackageRevenueListType_1.CateringPackageRevenueListTypeFromJSON)(json['revenueDetails']),
+        'revenueDetails': !(0, runtime_1.exists)(json, 'revenueDetails') ? undefined : (json['revenueDetails'].map(CateringPackageRevenueType_1.CateringPackageRevenueTypeFromJSON)),
         'sellDate': !(0, runtime_1.exists)(json, 'sellDate') ? undefined : (0, DateTimeSpanType_1.DateTimeSpanTypeFromJSON)(json['sellDate']),
         'totalPrice': !(0, runtime_1.exists)(json, 'totalPrice') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['totalPrice']),
         'webBookable': !(0, runtime_1.exists)(json, 'webBookable') ? undefined : json['webBookable'],
@@ -69,7 +69,7 @@ function CateringPackagePricingTypeToJSON(value) {
         'maxAttendees': value.maxAttendees,
         'minAttendees': value.minAttendees,
         'priceCode': value.priceCode,
-        'revenueDetails': (0, CateringPackageRevenueListType_1.CateringPackageRevenueListTypeToJSON)(value.revenueDetails),
+        'revenueDetails': value.revenueDetails === undefined ? undefined : (value.revenueDetails.map(CateringPackageRevenueType_1.CateringPackageRevenueTypeToJSON)),
         'sellDate': (0, DateTimeSpanType_1.DateTimeSpanTypeToJSON)(value.sellDate),
         'totalPrice': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.totalPrice),
         'webBookable': value.webBookable,

@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CheckProfileTypeToJSON = exports.CheckProfileTypeFromJSONTyped = exports.CheckProfileTypeFromJSON = exports.instanceOfCheckProfileType = void 0;
 const runtime_1 = require("../runtime");
-const CheckProfileResultsType_1 = require("./CheckProfileResultsType");
+const CheckProfileResultType_1 = require("./CheckProfileResultType");
 const ProfileId_1 = require("./ProfileId");
 /**
  * Check if a given object implements the CheckProfileType interface.
@@ -35,7 +35,7 @@ function CheckProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, ProfileId_1.ProfileIdFromJSON)(json['profileId']),
-        'results': !(0, runtime_1.exists)(json, 'results') ? undefined : (0, CheckProfileResultsType_1.CheckProfileResultsTypeFromJSON)(json['results']),
+        'results': !(0, runtime_1.exists)(json, 'results') ? undefined : (json['results'].map(CheckProfileResultType_1.CheckProfileResultTypeFromJSON)),
     };
 }
 exports.CheckProfileTypeFromJSONTyped = CheckProfileTypeFromJSONTyped;
@@ -48,7 +48,7 @@ function CheckProfileTypeToJSON(value) {
     }
     return {
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
-        'results': (0, CheckProfileResultsType_1.CheckProfileResultsTypeToJSON)(value.results),
+        'results': value.results === undefined ? undefined : (value.results.map(CheckProfileResultType_1.CheckProfileResultTypeToJSON)),
     };
 }
 exports.CheckProfileTypeToJSON = CheckProfileTypeToJSON;

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { NumberDescriptionsType } from './NumberDescriptionsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { NumberDescriptionType } from './NumberDescriptionType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface NumberDescriptions {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof NumberDescriptions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {NumberDescriptionsType}
+     * Individual number and description.
+     * @type {Array<NumberDescriptionType>}
      * @memberof NumberDescriptions
      */
-    numberDescriptions?: NumberDescriptionsType;
+    numberDescriptions?: Array<NumberDescriptionType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof NumberDescriptions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the NumberDescriptions interface.

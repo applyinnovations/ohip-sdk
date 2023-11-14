@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ARAccountsType } from './ARAccountsType';
+import type { ARAccountType } from './ARAccountType';
 import {
-    ARAccountsTypeFromJSON,
-    ARAccountsTypeFromJSONTyped,
-    ARAccountsTypeToJSON,
-} from './ARAccountsType';
+    ARAccountTypeFromJSON,
+    ARAccountTypeFromJSONTyped,
+    ARAccountTypeToJSON,
+} from './ARAccountType';
 import type { ARAgingInfoType } from './ARAgingInfoType';
 import {
     ARAgingInfoTypeFromJSON,
@@ -33,11 +33,11 @@ import {
  */
 export interface ARProfileAgingInfoTypeHotelInner {
     /**
-     * 
-     * @type {ARAccountsType}
+     * Information regarding the AR Account.
+     * @type {Array<ARAccountType>}
      * @memberof ARProfileAgingInfoTypeHotelInner
      */
-    accountAging?: ARAccountsType;
+    accountAging?: Array<ARAccountType>;
     /**
      * Property Code for the Aging information.
      * @type {string}
@@ -71,7 +71,7 @@ export function ARProfileAgingInfoTypeHotelInnerFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'accountAging': !exists(json, 'accountAging') ? undefined : ARAccountsTypeFromJSON(json['accountAging']),
+        'accountAging': !exists(json, 'accountAging') ? undefined : ((json['accountAging'] as Array<any>).map(ARAccountTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'totalHotelAging': !exists(json, 'totalHotelAging') ? undefined : ARAgingInfoTypeFromJSON(json['totalHotelAging']),
     };
@@ -86,7 +86,7 @@ export function ARProfileAgingInfoTypeHotelInnerToJSON(value?: ARProfileAgingInf
     }
     return {
         
-        'accountAging': ARAccountsTypeToJSON(value.accountAging),
+        'accountAging': value.accountAging === undefined ? undefined : ((value.accountAging as Array<any>).map(ARAccountTypeToJSON)),
         'hotelId': value.hotelId,
         'totalHotelAging': ARAgingInfoTypeToJSON(value.totalHotelAging),
     };

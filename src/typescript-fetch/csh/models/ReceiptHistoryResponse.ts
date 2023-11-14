@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ReceiptsType } from './ReceiptsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ReceiptSummaryType } from './ReceiptSummaryType';
 import {
-    ReceiptsTypeFromJSON,
-    ReceiptsTypeFromJSONTyped,
-    ReceiptsTypeToJSON,
-} from './ReceiptsType';
-import type { WarningsType } from './WarningsType';
+    ReceiptSummaryTypeFromJSON,
+    ReceiptSummaryTypeFromJSONTyped,
+    ReceiptSummaryTypeToJSON,
+} from './ReceiptSummaryType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for the fetch Receipt History.
@@ -40,22 +40,22 @@ import {
 export interface ReceiptHistoryResponse {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReceiptHistoryResponse
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ReceiptsType}
+     * Receipt History details.
+     * @type {Array<ReceiptSummaryType>}
      * @memberof ReceiptHistoryResponse
      */
-    receiptHistory?: ReceiptsType;
+    receiptHistory?: Array<ReceiptSummaryType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReceiptHistoryResponse
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ReceiptHistoryResponseFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'receiptHistory': !exists(json, 'receiptHistory') ? undefined : ReceiptsTypeFromJSON(json['receiptHistory']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'receiptHistory': !exists(json, 'receiptHistory') ? undefined : ((json['receiptHistory'] as Array<any>).map(ReceiptSummaryTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ReceiptHistoryResponseToJSON(value?: ReceiptHistoryResponse | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'receiptHistory': ReceiptsTypeToJSON(value.receiptHistory),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'receiptHistory': value.receiptHistory === undefined ? undefined : ((value.receiptHistory as Array<any>).map(ReceiptSummaryTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

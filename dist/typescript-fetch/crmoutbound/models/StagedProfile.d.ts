@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { StagedProfileChangeInstructionsType } from './StagedProfileChangeInstructionsType';
 import type { StagedProfileType } from './StagedProfileType';
 /**
@@ -32,10 +32,10 @@ export interface StagedProfile {
     changeInstructions?: StagedProfileChangeInstructionsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof StagedProfile
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the StagedProfile interface.

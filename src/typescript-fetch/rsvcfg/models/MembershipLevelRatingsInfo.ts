@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipLevelRatingsInfoType } from './MembershipLevelRatingsInfoType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipLevelRatingInfoType } from './MembershipLevelRatingInfoType';
 import {
-    MembershipLevelRatingsInfoTypeFromJSON,
-    MembershipLevelRatingsInfoTypeFromJSONTyped,
-    MembershipLevelRatingsInfoTypeToJSON,
-} from './MembershipLevelRatingsInfoType';
-import type { WarningsType } from './WarningsType';
+    MembershipLevelRatingInfoTypeFromJSON,
+    MembershipLevelRatingInfoTypeFromJSONTyped,
+    MembershipLevelRatingInfoTypeToJSON,
+} from './MembershipLevelRatingInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching the membership levels and their rating details.
@@ -52,16 +52,16 @@ export interface MembershipLevelRatingsInfo {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipLevelRatingsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MembershipLevelRatingsInfoType}
+     * Collection of membership levels and their ratings.
+     * @type {Array<MembershipLevelRatingInfoType>}
      * @memberof MembershipLevelRatingsInfo
      */
-    membershipLevelRatingsInfo?: MembershipLevelRatingsInfoType;
+    membershipLevelRatingsInfo?: Array<MembershipLevelRatingInfoType>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -81,11 +81,11 @@ export interface MembershipLevelRatingsInfo {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipLevelRatingsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -109,12 +109,12 @@ export function MembershipLevelRatingsInfoFromJSONTyped(json: any, ignoreDiscrim
         
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'membershipLevelRatingsInfo': !exists(json, 'membershipLevelRatingsInfo') ? undefined : MembershipLevelRatingsInfoTypeFromJSON(json['membershipLevelRatingsInfo']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'membershipLevelRatingsInfo': !exists(json, 'membershipLevelRatingsInfo') ? undefined : ((json['membershipLevelRatingsInfo'] as Array<any>).map(MembershipLevelRatingInfoTypeFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -129,12 +129,12 @@ export function MembershipLevelRatingsInfoToJSON(value?: MembershipLevelRatingsI
         
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
-        'membershipLevelRatingsInfo': MembershipLevelRatingsInfoTypeToJSON(value.membershipLevelRatingsInfo),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'membershipLevelRatingsInfo': value.membershipLevelRatingsInfo === undefined ? undefined : ((value.membershipLevelRatingsInfo as Array<any>).map(MembershipLevelRatingInfoTypeToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -16,9 +16,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RatePlanPostingRhythmsToJSON = exports.RatePlanPostingRhythmsFromJSONTyped = exports.RatePlanPostingRhythmsFromJSON = exports.instanceOfRatePlanPostingRhythms = void 0;
 const runtime_1 = require("../runtime");
 const GenericHotelCodeCodeType_1 = require("./GenericHotelCodeCodeType");
-const Links_1 = require("./Links");
-const RatePlanAdvancedPostingRhythmsType_1 = require("./RatePlanAdvancedPostingRhythmsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RatePlanAdvancedPostingRhythmType_1 = require("./RatePlanAdvancedPostingRhythmType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RatePlanPostingRhythms interface.
  */
@@ -36,10 +36,10 @@ function RatePlanPostingRhythmsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'postingRhythms': !(0, runtime_1.exists)(json, 'postingRhythms') ? undefined : (0, RatePlanAdvancedPostingRhythmsType_1.RatePlanAdvancedPostingRhythmsTypeFromJSON)(json['postingRhythms']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'postingRhythms': !(0, runtime_1.exists)(json, 'postingRhythms') ? undefined : (json['postingRhythms'].map(RatePlanAdvancedPostingRhythmType_1.RatePlanAdvancedPostingRhythmTypeFromJSON)),
         'ratePlan': !(0, runtime_1.exists)(json, 'ratePlan') ? undefined : (0, GenericHotelCodeCodeType_1.GenericHotelCodeCodeTypeFromJSON)(json['ratePlan']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RatePlanPostingRhythmsFromJSONTyped = RatePlanPostingRhythmsFromJSONTyped;
@@ -51,10 +51,10 @@ function RatePlanPostingRhythmsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'postingRhythms': (0, RatePlanAdvancedPostingRhythmsType_1.RatePlanAdvancedPostingRhythmsTypeToJSON)(value.postingRhythms),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'postingRhythms': value.postingRhythms === undefined ? undefined : (value.postingRhythms.map(RatePlanAdvancedPostingRhythmType_1.RatePlanAdvancedPostingRhythmTypeToJSON)),
         'ratePlan': (0, GenericHotelCodeCodeType_1.GenericHotelCodeCodeTypeToJSON)(value.ratePlan),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RatePlanPostingRhythmsToJSON = RatePlanPostingRhythmsToJSON;

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CashierClosureNoType } from './CashierClosureNoType';
-import type { CashierClosureReportsType } from './CashierClosureReportsType';
+import type { CashierReportType } from './CashierReportType';
 /**
  * Cashier closure Information.
  * @export
@@ -60,11 +60,11 @@ export interface CashierClosureInfoType {
      */
     openDate?: Date;
     /**
-     *
-     * @type {CashierClosureReportsType}
+     * Information of the Cashier.
+     * @type {Array<CashierReportType>}
      * @memberof CashierClosureInfoType
      */
-    reportsList?: CashierClosureReportsType;
+    reportsList?: Array<CashierReportType>;
 }
 /**
  * Check if a given object implements the CashierClosureInfoType interface.

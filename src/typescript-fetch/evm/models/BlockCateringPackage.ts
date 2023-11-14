@@ -19,18 +19,18 @@ import {
     BlockCateringPackageTypeFromJSONTyped,
     BlockCateringPackageTypeToJSON,
 } from './BlockCateringPackageType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for adding Catering Package/Template Events to block .
@@ -46,10 +46,10 @@ export interface BlockCateringPackage {
     criteria?: BlockCateringPackageType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockCateringPackage
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Indicates what number of retry attempt this request represents. If this is the original request, RetryCount should be set to 0.
      * @type {number}
@@ -57,11 +57,11 @@ export interface BlockCateringPackage {
      */
     requestCount?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockCateringPackage
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -84,9 +84,9 @@ export function BlockCateringPackageFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : BlockCateringPackageTypeFromJSON(json['criteria']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'requestCount': !exists(json, 'requestCount') ? undefined : json['requestCount'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -100,9 +100,9 @@ export function BlockCateringPackageToJSON(value?: BlockCateringPackage | null):
     return {
         
         'criteria': BlockCateringPackageTypeToJSON(value.criteria),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'requestCount': value.requestCount,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

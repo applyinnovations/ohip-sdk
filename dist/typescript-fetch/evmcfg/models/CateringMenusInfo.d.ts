@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CateringMenuListType } from './CateringMenuListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CateringMenuType } from './CateringMenuType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object to fetch Menu .
  * @export
@@ -38,16 +38,16 @@ export interface CateringMenusInfo {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringMenusInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {CateringMenuListType}
+     * List of Values of Menu.
+     * @type {Array<CateringMenuType>}
      * @memberof CateringMenusInfo
      */
-    menuList?: CateringMenuListType;
+    menuList?: Array<CateringMenuType>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface CateringMenusInfo {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringMenusInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CateringMenusInfo interface.

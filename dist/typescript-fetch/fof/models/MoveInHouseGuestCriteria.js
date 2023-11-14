@@ -17,8 +17,8 @@ exports.MoveInHouseGuestCriteriaToJSON = exports.MoveInHouseGuestCriteriaFromJSO
 const runtime_1 = require("../runtime");
 const HotelRoomsOrderBy_1 = require("./HotelRoomsOrderBy");
 const HousekeepingRoomStatusType_1 = require("./HousekeepingRoomStatusType");
-const ReservationIdList_1 = require("./ReservationIdList");
 const ReservationRoomSelectionOverrideType_1 = require("./ReservationRoomSelectionOverrideType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the MoveInHouseGuestCriteria interface.
  */
@@ -39,12 +39,12 @@ function MoveInHouseGuestCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'includeDepartureRooms': !(0, runtime_1.exists)(json, 'includeDepartureRooms') ? undefined : json['includeDepartureRooms'],
-        'includedSharers': !(0, runtime_1.exists)(json, 'includedSharers') ? undefined : (json['includedSharers'].map(ReservationIdList_1.ReservationIdListFromJSON)),
+        'includedSharers': !(0, runtime_1.exists)(json, 'includedSharers') ? undefined : json['includedSharers'],
         'oldRoomStatus': !(0, runtime_1.exists)(json, 'oldRoomStatus') ? undefined : (0, HousekeepingRoomStatusType_1.HousekeepingRoomStatusTypeFromJSON)(json['oldRoomStatus']),
         'orderBy': !(0, runtime_1.exists)(json, 'orderBy') ? undefined : (0, HotelRoomsOrderBy_1.HotelRoomsOrderByFromJSON)(json['orderBy']),
         'overrideInstructions': !(0, runtime_1.exists)(json, 'overrideInstructions') ? undefined : (0, ReservationRoomSelectionOverrideType_1.ReservationRoomSelectionOverrideTypeFromJSON)(json['overrideInstructions']),
         'reasonCode': !(0, runtime_1.exists)(json, 'reasonCode') ? undefined : json['reasonCode'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'roomId': !(0, runtime_1.exists)(json, 'roomId') ? undefined : json['roomId'],
         'roomNumberLocked': !(0, runtime_1.exists)(json, 'roomNumberLocked') ? undefined : json['roomNumberLocked'],
         'updateRoomTypeCharged': !(0, runtime_1.exists)(json, 'updateRoomTypeCharged') ? undefined : json['updateRoomTypeCharged'],
@@ -62,12 +62,12 @@ function MoveInHouseGuestCriteriaToJSON(value) {
         'description': value.description,
         'hotelId': value.hotelId,
         'includeDepartureRooms': value.includeDepartureRooms,
-        'includedSharers': value.includedSharers === undefined ? undefined : (value.includedSharers.map(ReservationIdList_1.ReservationIdListToJSON)),
+        'includedSharers': value.includedSharers,
         'oldRoomStatus': (0, HousekeepingRoomStatusType_1.HousekeepingRoomStatusTypeToJSON)(value.oldRoomStatus),
         'orderBy': (0, HotelRoomsOrderBy_1.HotelRoomsOrderByToJSON)(value.orderBy),
         'overrideInstructions': (0, ReservationRoomSelectionOverrideType_1.ReservationRoomSelectionOverrideTypeToJSON)(value.overrideInstructions),
         'reasonCode': value.reasonCode,
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'roomId': value.roomId,
         'roomNumberLocked': value.roomNumberLocked,
         'updateRoomTypeCharged': value.updateRoomTypeCharged,

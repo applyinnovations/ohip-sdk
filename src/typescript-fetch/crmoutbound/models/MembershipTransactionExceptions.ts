@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipTransactionExceptionsType } from './MembershipTransactionExceptionsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipTransactionExceptionType } from './MembershipTransactionExceptionType';
 import {
-    MembershipTransactionExceptionsTypeFromJSON,
-    MembershipTransactionExceptionsTypeFromJSONTyped,
-    MembershipTransactionExceptionsTypeToJSON,
-} from './MembershipTransactionExceptionsType';
+    MembershipTransactionExceptionTypeFromJSON,
+    MembershipTransactionExceptionTypeFromJSONTyped,
+    MembershipTransactionExceptionTypeToJSON,
+} from './MembershipTransactionExceptionType';
 
 /**
  * Response object for fetching membership transaction exceptions.
@@ -33,17 +33,17 @@ import {
  */
 export interface MembershipTransactionExceptions {
     /**
-     * 
-     * @type {MembershipTransactionExceptionsType}
+     * Contains Membership transaction exception information.
+     * @type {Array<MembershipTransactionExceptionType>}
      * @memberof MembershipTransactionExceptions
      */
-    memberTransactionExceptions?: MembershipTransactionExceptionsType;
+    memberTransactionExceptions?: Array<MembershipTransactionExceptionType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipTransactionExceptions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function MembershipTransactionExceptionsFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'memberTransactionExceptions': !exists(json, 'memberTransactionExceptions') ? undefined : MembershipTransactionExceptionsTypeFromJSON(json['memberTransactionExceptions']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'memberTransactionExceptions': !exists(json, 'memberTransactionExceptions') ? undefined : ((json['memberTransactionExceptions'] as Array<any>).map(MembershipTransactionExceptionTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function MembershipTransactionExceptionsToJSON(value?: MembershipTransact
     }
     return {
         
-        'memberTransactionExceptions': MembershipTransactionExceptionsTypeToJSON(value.memberTransactionExceptions),
-        'links': LinksToJSON(value.links),
+        'memberTransactionExceptions': value.memberTransactionExceptions === undefined ? undefined : ((value.memberTransactionExceptions as Array<any>).map(MembershipTransactionExceptionTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

@@ -10,8 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CodeDescriptionType } from './CodeDescriptionType';
-import type { CodeListType } from './CodeListType';
-import type { ConfigHousekeepingRoomScheduleTaskSuppliesType } from './ConfigHousekeepingRoomScheduleTaskSuppliesType';
+import type { ConfigHousekeepingRoomScheduleTaskSupplyType } from './ConfigHousekeepingRoomScheduleTaskSupplyType';
 import type { FrequencyTypeType } from './FrequencyTypeType';
 import type { TimeSpanDaysOfWeekType } from './TimeSpanDaysOfWeekType';
 /**
@@ -88,10 +87,10 @@ export interface ConfigHousekeepingRoomScheduleType {
     hotelId?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigHousekeepingRoomScheduleType
      */
-    marketCodes?: CodeListType;
+    marketCodes?: Array<string>;
     /**
      * Automatically moves the task up one day if it falls on the day before the guest's departure. It will only be available when the schedule is set to every 3 days or more.
      * @type {boolean}
@@ -106,10 +105,10 @@ export interface ConfigHousekeepingRoomScheduleType {
     priority?: number;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigHousekeepingRoomScheduleType
      */
-    rateCodes?: CodeListType;
+    rateCodes?: Array<string>;
     /**
      *
      * @type {CodeDescriptionType}
@@ -124,22 +123,22 @@ export interface ConfigHousekeepingRoomScheduleType {
     sequence?: number;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigHousekeepingRoomScheduleType
      */
-    specialRequests?: CodeListType;
+    specialRequests?: Array<string>;
+    /**
+     * This type holds a collection of housekeeping task supplies attached to a room type.
+     * @type {Array<ConfigHousekeepingRoomScheduleTaskSupplyType>}
+     * @memberof ConfigHousekeepingRoomScheduleType
+     */
+    taskSupplies?: Array<ConfigHousekeepingRoomScheduleTaskSupplyType>;
     /**
      *
-     * @type {ConfigHousekeepingRoomScheduleTaskSuppliesType}
+     * @type {Array<string>}
      * @memberof ConfigHousekeepingRoomScheduleType
      */
-    taskSupplies?: ConfigHousekeepingRoomScheduleTaskSuppliesType;
-    /**
-     *
-     * @type {CodeListType}
-     * @memberof ConfigHousekeepingRoomScheduleType
-     */
-    vIPStatuses?: CodeListType;
+    vIPStatuses?: Array<string>;
 }
 /**
  * Check if a given object implements the ConfigHousekeepingRoomScheduleType interface.

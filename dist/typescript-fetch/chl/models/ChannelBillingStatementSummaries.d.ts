@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChannelBillingStatementSummariesType } from './ChannelBillingStatementSummariesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ChannelBillingStatementSummaryType } from './ChannelBillingStatementSummaryType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object of the channel billing statements fetch request.
  * @export
@@ -19,11 +19,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ChannelBillingStatementSummaries {
     /**
-     *
-     * @type {ChannelBillingStatementSummariesType}
+     * Holds summary of channel billing statement.
+     * @type {Array<ChannelBillingStatementSummaryType>}
      * @memberof ChannelBillingStatementSummaries
      */
-    channelBillingStatementsSummary?: ChannelBillingStatementSummariesType;
+    channelBillingStatementsSummary?: Array<ChannelBillingStatementSummaryType>;
     /**
      * Total number of rows returned
      * @type {number}
@@ -44,10 +44,10 @@ export interface ChannelBillingStatementSummaries {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelBillingStatementSummaries
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface ChannelBillingStatementSummaries {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelBillingStatementSummaries
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelBillingStatementSummaries interface.

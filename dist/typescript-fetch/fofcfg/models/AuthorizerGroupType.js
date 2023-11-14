@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthorizerGroupTypeToJSON = exports.AuthorizerGroupTypeFromJSONTyped = exports.AuthorizerGroupTypeFromJSON = exports.instanceOfAuthorizerGroupType = void 0;
 const runtime_1 = require("../runtime");
-const AuthorizerTrxLimitsType_1 = require("./AuthorizerTrxLimitsType");
+const AuthorizerTrxLimitType_1 = require("./AuthorizerTrxLimitType");
 /**
  * Check if a given object implements the AuthorizerGroupType interface.
  */
@@ -37,7 +37,7 @@ function AuthorizerGroupTypeFromJSONTyped(json, ignoreDiscriminator) {
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'rateCode': !(0, runtime_1.exists)(json, 'rateCode') ? undefined : json['rateCode'],
-        'transactionLimits': !(0, runtime_1.exists)(json, 'transactionLimits') ? undefined : (0, AuthorizerTrxLimitsType_1.AuthorizerTrxLimitsTypeFromJSON)(json['transactionLimits']),
+        'transactionLimits': !(0, runtime_1.exists)(json, 'transactionLimits') ? undefined : (json['transactionLimits'].map(AuthorizerTrxLimitType_1.AuthorizerTrxLimitTypeFromJSON)),
     };
 }
 exports.AuthorizerGroupTypeFromJSONTyped = AuthorizerGroupTypeFromJSONTyped;
@@ -53,7 +53,7 @@ function AuthorizerGroupTypeToJSON(value) {
         'description': value.description,
         'hotelId': value.hotelId,
         'rateCode': value.rateCode,
-        'transactionLimits': (0, AuthorizerTrxLimitsType_1.AuthorizerTrxLimitsTypeToJSON)(value.transactionLimits),
+        'transactionLimits': value.transactionLimits === undefined ? undefined : (value.transactionLimits.map(AuthorizerTrxLimitType_1.AuthorizerTrxLimitTypeToJSON)),
     };
 }
 exports.AuthorizerGroupTypeToJSON = AuthorizerGroupTypeToJSON;

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FunctionArgumentsType } from './FunctionArgumentsType';
+import type { FunctionArgumentType } from './FunctionArgumentType';
 /**
  * Defines UDF rule for generates.
  * @export
@@ -23,11 +23,11 @@ export interface UDFGenerateType {
      */
     uDF?: string;
     /**
-     *
-     * @type {FunctionArgumentsType}
+     * Collection of function arguments and their corresponding values.
+     * @type {Array<FunctionArgumentType>}
      * @memberof UDFGenerateType
      */
-    uDFFunctionArguments?: FunctionArgumentsType;
+    uDFFunctionArguments?: Array<FunctionArgumentType>;
     /**
      * The function name of the User Defined Function used to calculate generates.
      * @type {string}

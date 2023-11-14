@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CateringPackageEventListType } from './CateringPackageEventListType';
+import type { CateringPackageEventType } from './CateringPackageEventType';
 import type { CateringPackageInfoType } from './CateringPackageInfoType';
-import type { CateringPackagePricingListType } from './CateringPackagePricingListType';
+import type { CateringPackagePricingType } from './CateringPackagePricingType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Type used for managing Catering Package.
@@ -20,11 +20,11 @@ import type { UniqueIDType } from './UniqueIDType';
  */
 export interface CateringPackageType {
     /**
-     *
-     * @type {CateringPackageEventListType}
+     * Collection of multiple Events associated with a particular Catering Packages.
+     * @type {Array<CateringPackageEventType>}
      * @memberof CateringPackageType
      */
-    eventsList?: CateringPackageEventListType;
+    eventsList?: Array<CateringPackageEventType>;
     /**
      * Hotel Code associated with the Catering Package.
      * @type {string}
@@ -44,11 +44,11 @@ export interface CateringPackageType {
      */
     pkgId?: UniqueIDType;
     /**
-     *
-     * @type {CateringPackagePricingListType}
+     * Collection of multiple Pricing Details associated with a particular Catering Package.
+     * @type {Array<CateringPackagePricingType>}
      * @memberof CateringPackageType
      */
-    pricingList?: CateringPackagePricingListType;
+    pricingList?: Array<CateringPackagePricingType>;
 }
 /**
  * Check if a given object implements the CateringPackageType interface.

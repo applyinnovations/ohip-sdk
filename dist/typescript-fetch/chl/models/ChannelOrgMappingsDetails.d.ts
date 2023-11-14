@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChannelOrgMappingsType } from './ChannelOrgMappingsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ChannelOrgMappingType } from './ChannelOrgMappingType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for Fetch Channel to ORG and CRO Mapping.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ChannelOrgMappingsDetails {
     /**
-     *
-     * @type {ChannelOrgMappingsType}
+     * Respresents information of the Channel Code, OrgCode and Default Login Resort used for mapping.
+     * @type {Array<ChannelOrgMappingType>}
      * @memberof ChannelOrgMappingsDetails
      */
-    channelOrgMappingsDetails?: ChannelOrgMappingsType;
+    channelOrgMappingsDetails?: Array<ChannelOrgMappingType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelOrgMappingsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelOrgMappingsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelOrgMappingsDetails interface.

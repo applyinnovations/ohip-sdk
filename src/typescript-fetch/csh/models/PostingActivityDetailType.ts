@@ -25,12 +25,12 @@ import {
     ReservationIdFromJSONTyped,
     ReservationIdToJSON,
 } from './ReservationId';
-import type { SummaryPostingsType } from './SummaryPostingsType';
+import type { SummaryPostingType } from './SummaryPostingType';
 import {
-    SummaryPostingsTypeFromJSON,
-    SummaryPostingsTypeFromJSONTyped,
-    SummaryPostingsTypeToJSON,
-} from './SummaryPostingsType';
+    SummaryPostingTypeFromJSON,
+    SummaryPostingTypeFromJSONTyped,
+    SummaryPostingTypeToJSON,
+} from './SummaryPostingType';
 
 /**
  * Details of a Posting transaction change.
@@ -51,17 +51,17 @@ export interface PostingActivityDetailType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {SummaryPostingsType}
+     * List of postings.
+     * @type {Array<SummaryPostingType>}
      * @memberof PostingActivityDetailType
      */
-    newInfo?: SummaryPostingsType;
+    newInfo?: Array<SummaryPostingType>;
     /**
-     * 
-     * @type {SummaryPostingsType}
+     * List of postings.
+     * @type {Array<SummaryPostingType>}
      * @memberof PostingActivityDetailType
      */
-    oldInfo?: SummaryPostingsType;
+    oldInfo?: Array<SummaryPostingType>;
     /**
      * 
      * @type {ReservationId}
@@ -91,8 +91,8 @@ export function PostingActivityDetailTypeFromJSONTyped(json: any, ignoreDiscrimi
         
         'activity': !exists(json, 'activity') ? undefined : ActivityLogTypeFromJSON(json['activity']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'newInfo': !exists(json, 'newInfo') ? undefined : SummaryPostingsTypeFromJSON(json['newInfo']),
-        'oldInfo': !exists(json, 'oldInfo') ? undefined : SummaryPostingsTypeFromJSON(json['oldInfo']),
+        'newInfo': !exists(json, 'newInfo') ? undefined : ((json['newInfo'] as Array<any>).map(SummaryPostingTypeFromJSON)),
+        'oldInfo': !exists(json, 'oldInfo') ? undefined : ((json['oldInfo'] as Array<any>).map(SummaryPostingTypeFromJSON)),
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
     };
 }
@@ -108,8 +108,8 @@ export function PostingActivityDetailTypeToJSON(value?: PostingActivityDetailTyp
         
         'activity': ActivityLogTypeToJSON(value.activity),
         'hotelId': value.hotelId,
-        'newInfo': SummaryPostingsTypeToJSON(value.newInfo),
-        'oldInfo': SummaryPostingsTypeToJSON(value.oldInfo),
+        'newInfo': value.newInfo === undefined ? undefined : ((value.newInfo as Array<any>).map(SummaryPostingTypeToJSON)),
+        'oldInfo': value.oldInfo === undefined ? undefined : ((value.oldInfo as Array<any>).map(SummaryPostingTypeToJSON)),
         'reservationId': ReservationIdToJSON(value.reservationId),
     };
 }

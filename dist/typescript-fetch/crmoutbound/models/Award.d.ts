@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MemberAwardType } from './MemberAwardType';
 /**
  * Request object to redeem award.
@@ -25,10 +25,10 @@ export interface Award {
     memberAward?: MemberAwardType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Award
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the Award interface.

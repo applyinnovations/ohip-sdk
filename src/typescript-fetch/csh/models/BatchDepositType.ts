@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Reservations } from './Reservations';
+import type { ReservationId } from './ReservationId';
 import {
-    ReservationsFromJSON,
-    ReservationsFromJSONTyped,
-    ReservationsToJSON,
-} from './Reservations';
+    ReservationIdFromJSON,
+    ReservationIdFromJSONTyped,
+    ReservationIdToJSON,
+} from './ReservationId';
 
 /**
  * Contains criteria for batch deposit for reservations.
@@ -39,11 +39,11 @@ export interface BatchDepositType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {Reservations}
+     * Unique identifier for a reservation.
+     * @type {Array<ReservationId>}
      * @memberof BatchDepositType
      */
-    reservations?: Reservations;
+    reservations?: Array<ReservationId>;
 }
 
 /**
@@ -67,7 +67,7 @@ export function BatchDepositTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'reservations': !exists(json, 'reservations') ? undefined : ReservationsFromJSON(json['reservations']),
+        'reservations': !exists(json, 'reservations') ? undefined : ((json['reservations'] as Array<any>).map(ReservationIdFromJSON)),
     };
 }
 
@@ -82,7 +82,7 @@ export function BatchDepositTypeToJSON(value?: BatchDepositType | null): any {
         
         'cashierId': value.cashierId,
         'hotelId': value.hotelId,
-        'reservations': ReservationsToJSON(value.reservations),
+        'reservations': value.reservations === undefined ? undefined : ((value.reservations as Array<any>).map(ReservationIdToJSON)),
     };
 }
 

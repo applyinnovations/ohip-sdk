@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RedeemPrepaidCardsStatusToJSON = exports.RedeemPrepaidCardsStatusFromJSONTyped = exports.RedeemPrepaidCardsStatusFromJSON = exports.instanceOfRedeemPrepaidCardsStatus = void 0;
 const runtime_1 = require("../runtime");
-const PrepaidCardsInfoType_1 = require("./PrepaidCardsInfoType");
-const WarningsType_1 = require("./WarningsType");
+const PrepaidCardInfoType_1 = require("./PrepaidCardInfoType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RedeemPrepaidCardsStatus interface.
  */
@@ -34,8 +34,8 @@ function RedeemPrepaidCardsStatusFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'prepaidCards': !(0, runtime_1.exists)(json, 'prepaidCards') ? undefined : (0, PrepaidCardsInfoType_1.PrepaidCardsInfoTypeFromJSON)(json['prepaidCards']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'prepaidCards': !(0, runtime_1.exists)(json, 'prepaidCards') ? undefined : (json['prepaidCards'].map(PrepaidCardInfoType_1.PrepaidCardInfoTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RedeemPrepaidCardsStatusFromJSONTyped = RedeemPrepaidCardsStatusFromJSONTyped;
@@ -47,8 +47,8 @@ function RedeemPrepaidCardsStatusToJSON(value) {
         return null;
     }
     return {
-        'prepaidCards': (0, PrepaidCardsInfoType_1.PrepaidCardsInfoTypeToJSON)(value.prepaidCards),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'prepaidCards': value.prepaidCards === undefined ? undefined : (value.prepaidCards.map(PrepaidCardInfoType_1.PrepaidCardInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RedeemPrepaidCardsStatusToJSON = RedeemPrepaidCardsStatusToJSON;

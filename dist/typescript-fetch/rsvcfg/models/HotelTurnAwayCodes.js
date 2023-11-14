@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelTurnAwayCodesToJSON = exports.HotelTurnAwayCodesFromJSONTyped = exports.HotelTurnAwayCodesFromJSON = exports.instanceOfHotelTurnAwayCodes = void 0;
 const runtime_1 = require("../runtime");
-const HotelTurnAwayCodesType_1 = require("./HotelTurnAwayCodesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HotelTurnAwayCodeType_1 = require("./HotelTurnAwayCodeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the HotelTurnAwayCodes interface.
  */
@@ -35,9 +35,9 @@ function HotelTurnAwayCodesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'turnAwayCodes': !(0, runtime_1.exists)(json, 'turnAwayCodes') ? undefined : (0, HotelTurnAwayCodesType_1.HotelTurnAwayCodesTypeFromJSON)(json['turnAwayCodes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'turnAwayCodes': !(0, runtime_1.exists)(json, 'turnAwayCodes') ? undefined : (json['turnAwayCodes'].map(HotelTurnAwayCodeType_1.HotelTurnAwayCodeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.HotelTurnAwayCodesFromJSONTyped = HotelTurnAwayCodesFromJSONTyped;
@@ -49,9 +49,9 @@ function HotelTurnAwayCodesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'turnAwayCodes': (0, HotelTurnAwayCodesType_1.HotelTurnAwayCodesTypeToJSON)(value.turnAwayCodes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'turnAwayCodes': value.turnAwayCodes === undefined ? undefined : (value.turnAwayCodes.map(HotelTurnAwayCodeType_1.HotelTurnAwayCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.HotelTurnAwayCodesToJSON = HotelTurnAwayCodesToJSON;

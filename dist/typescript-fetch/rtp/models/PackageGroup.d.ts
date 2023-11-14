@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { HotelPackageGroupsType } from './HotelPackageGroupsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface PackageGroup {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PackageGroup
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {HotelPackageGroupsType}
@@ -31,11 +31,11 @@ export interface PackageGroup {
      */
     packageGroups?: HotelPackageGroupsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PackageGroup
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PackageGroup interface.

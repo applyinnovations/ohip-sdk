@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FolioReportsType } from './FolioReportsType';
+import type { FolioReportType } from './FolioReportType';
 import {
-    FolioReportsTypeFromJSON,
-    FolioReportsTypeFromJSONTyped,
-    FolioReportsTypeToJSON,
-} from './FolioReportsType';
+    FolioReportTypeFromJSON,
+    FolioReportTypeFromJSONTyped,
+    FolioReportTypeToJSON,
+} from './FolioReportType';
 import type { FolioTypeProfileAttributes } from './FolioTypeProfileAttributes';
 import {
     FolioTypeProfileAttributesFromJSON,
@@ -117,11 +117,11 @@ export interface FolioTypeConfigType {
      */
     fiscalFolio?: boolean;
     /**
-     * 
-     * @type {FolioReportsType}
+     * Information details of the Folio Reports associated with Folio Type Name.
+     * @type {Array<FolioReportType>}
      * @memberof FolioTypeConfigType
      */
-    folioReports?: FolioReportsType;
+    folioReports?: Array<FolioReportType>;
     /**
      * Flag to indicate if the Folio Type has been used to create a Folio.
      * @type {boolean}
@@ -253,7 +253,7 @@ export function FolioTypeConfigTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'depositFolio': !exists(json, 'depositFolio') ? undefined : json['depositFolio'],
         'documentCode': !exists(json, 'documentCode') ? undefined : json['documentCode'],
         'fiscalFolio': !exists(json, 'fiscalFolio') ? undefined : json['fiscalFolio'],
-        'folioReports': !exists(json, 'folioReports') ? undefined : FolioReportsTypeFromJSON(json['folioReports']),
+        'folioReports': !exists(json, 'folioReports') ? undefined : ((json['folioReports'] as Array<any>).map(FolioReportTypeFromJSON)),
         'folioUsed': !exists(json, 'folioUsed') ? undefined : json['folioUsed'],
         'guestClassification': !exists(json, 'guestClassification') ? undefined : json['guestClassification'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -296,7 +296,7 @@ export function FolioTypeConfigTypeToJSON(value?: FolioTypeConfigType | null): a
         'depositFolio': value.depositFolio,
         'documentCode': value.documentCode,
         'fiscalFolio': value.fiscalFolio,
-        'folioReports': FolioReportsTypeToJSON(value.folioReports),
+        'folioReports': value.folioReports === undefined ? undefined : ((value.folioReports as Array<any>).map(FolioReportTypeToJSON)),
         'folioUsed': value.folioUsed,
         'guestClassification': value.guestClassification,
         'hotelId': value.hotelId,

@@ -13,18 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ItemHoldIDListType } from './ItemHoldIDListType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    ItemHoldIDListTypeFromJSON,
-    ItemHoldIDListTypeFromJSONTyped,
-    ItemHoldIDListTypeToJSON,
-} from './ItemHoldIDListType';
-import type { Links } from './Links';
-import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ResInventoryItemsType } from './ResInventoryItemsType';
 import {
     ResInventoryItemsTypeFromJSON,
@@ -37,12 +31,12 @@ import {
     ReservationIdFromJSONTyped,
     ReservationIdToJSON,
 } from './ReservationId';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to reserve inventory Items for a reservation.
@@ -63,17 +57,17 @@ export interface ReserveInventoryItems {
      */
     inventoryItems?: ResInventoryItemsType;
     /**
-     * 
-     * @type {ItemHoldIDListType}
+     * ID of an Hold Item
+     * @type {Array<number>}
      * @memberof ReserveInventoryItems
      */
-    itemHoldIdList?: ItemHoldIDListType;
+    itemHoldIdList?: Array<number>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReserveInventoryItems
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ReservationId}
@@ -81,11 +75,11 @@ export interface ReserveInventoryItems {
      */
     reservationId?: ReservationId;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReserveInventoryItems
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -109,10 +103,10 @@ export function ReserveInventoryItemsFromJSONTyped(json: any, ignoreDiscriminato
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'inventoryItems': !exists(json, 'inventoryItems') ? undefined : ResInventoryItemsTypeFromJSON(json['inventoryItems']),
-        'itemHoldIdList': !exists(json, 'itemHoldIdList') ? undefined : ItemHoldIDListTypeFromJSON(json['itemHoldIdList']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'itemHoldIdList': !exists(json, 'itemHoldIdList') ? undefined : json['itemHoldIdList'],
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -127,10 +121,10 @@ export function ReserveInventoryItemsToJSON(value?: ReserveInventoryItems | null
         
         'hotelId': value.hotelId,
         'inventoryItems': ResInventoryItemsTypeToJSON(value.inventoryItems),
-        'itemHoldIdList': ItemHoldIDListTypeToJSON(value.itemHoldIdList),
-        'links': LinksToJSON(value.links),
+        'itemHoldIdList': value.itemHoldIdList,
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservationId': ReservationIdToJSON(value.reservationId),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

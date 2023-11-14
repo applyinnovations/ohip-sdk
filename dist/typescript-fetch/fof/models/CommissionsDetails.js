@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommissionsDetailsToJSON = exports.CommissionsDetailsFromJSONTyped = exports.CommissionsDetailsFromJSON = exports.instanceOfCommissionsDetails = void 0;
 const runtime_1 = require("../runtime");
-const CommissionInfoListType_1 = require("./CommissionInfoListType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CommissionInfoType_1 = require("./CommissionInfoType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CommissionsDetails interface.
  */
@@ -35,15 +35,15 @@ function CommissionsDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'commissionInfoList': !(0, runtime_1.exists)(json, 'commissionInfoList') ? undefined : (0, CommissionInfoListType_1.CommissionInfoListTypeFromJSON)(json['commissionInfoList']),
+        'commissionInfoList': !(0, runtime_1.exists)(json, 'commissionInfoList') ? undefined : (json['commissionInfoList'].map(CommissionInfoType_1.CommissionInfoTypeFromJSON)),
         'count': !(0, runtime_1.exists)(json, 'count') ? undefined : json['count'],
         'hasMore': !(0, runtime_1.exists)(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'offset': !(0, runtime_1.exists)(json, 'offset') ? undefined : json['offset'],
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !(0, runtime_1.exists)(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CommissionsDetailsFromJSONTyped = CommissionsDetailsFromJSONTyped;
@@ -55,15 +55,15 @@ function CommissionsDetailsToJSON(value) {
         return null;
     }
     return {
-        'commissionInfoList': (0, CommissionInfoListType_1.CommissionInfoListTypeToJSON)(value.commissionInfoList),
+        'commissionInfoList': value.commissionInfoList === undefined ? undefined : (value.commissionInfoList.map(CommissionInfoType_1.CommissionInfoTypeToJSON)),
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CommissionsDetailsToJSON = CommissionsDetailsToJSON;

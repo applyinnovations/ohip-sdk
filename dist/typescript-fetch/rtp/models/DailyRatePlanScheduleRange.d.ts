@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { DailyRatePlanScheduleRangeDailyRateScheduleRange } from './DailyRatePlanScheduleRangeDailyRateScheduleRange';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * A Request message that sets the rate plan schedules for daily rates as a range.
  * @export
@@ -26,16 +26,16 @@ export interface DailyRatePlanScheduleRange {
     dailyRateScheduleRange?: DailyRatePlanScheduleRangeDailyRateScheduleRange;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DailyRatePlanScheduleRange
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DailyRatePlanScheduleRange
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DailyRatePlanScheduleRange interface.

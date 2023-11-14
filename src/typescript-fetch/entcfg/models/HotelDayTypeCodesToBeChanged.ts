@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelDayTypeCodesType } from './HotelDayTypeCodesType';
+import type { HotelDayTypeCodeType } from './HotelDayTypeCodeType';
 import {
-    HotelDayTypeCodesTypeFromJSON,
-    HotelDayTypeCodesTypeFromJSONTyped,
-    HotelDayTypeCodesTypeToJSON,
-} from './HotelDayTypeCodesType';
-import type { Links } from './Links';
+    HotelDayTypeCodeTypeFromJSON,
+    HotelDayTypeCodeTypeFromJSONTyped,
+    HotelDayTypeCodeTypeToJSON,
+} from './HotelDayTypeCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for modifying day type codes for a hotel.
@@ -39,23 +39,23 @@ import {
  */
 export interface HotelDayTypeCodesToBeChanged {
     /**
-     * 
-     * @type {HotelDayTypeCodesType}
+     * Details for day type code at hotel level.
+     * @type {Array<HotelDayTypeCodeType>}
      * @memberof HotelDayTypeCodesToBeChanged
      */
-    hotelDayTypeCodes?: HotelDayTypeCodesType;
+    hotelDayTypeCodes?: Array<HotelDayTypeCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelDayTypeCodesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelDayTypeCodesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function HotelDayTypeCodesToBeChangedFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'hotelDayTypeCodes': !exists(json, 'hotelDayTypeCodes') ? undefined : HotelDayTypeCodesTypeFromJSON(json['hotelDayTypeCodes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'hotelDayTypeCodes': !exists(json, 'hotelDayTypeCodes') ? undefined : ((json['hotelDayTypeCodes'] as Array<any>).map(HotelDayTypeCodeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function HotelDayTypeCodesToBeChangedToJSON(value?: HotelDayTypeCodesToBe
     }
     return {
         
-        'hotelDayTypeCodes': HotelDayTypeCodesTypeToJSON(value.hotelDayTypeCodes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'hotelDayTypeCodes': value.hotelDayTypeCodes === undefined ? undefined : ((value.hotelDayTypeCodes as Array<any>).map(HotelDayTypeCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

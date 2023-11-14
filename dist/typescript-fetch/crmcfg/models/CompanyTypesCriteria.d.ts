@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CompanyTypesType } from './CompanyTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CompanyTypeType } from './CompanyTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Company Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CompanyTypesCriteria {
     /**
-     *
-     * @type {CompanyTypesType}
+     * List of Company Types.
+     * @type {Array<CompanyTypeType>}
      * @memberof CompanyTypesCriteria
      */
-    companyTypes?: CompanyTypesType;
+    companyTypes?: Array<CompanyTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CompanyTypesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CompanyTypesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CompanyTypesCriteria interface.

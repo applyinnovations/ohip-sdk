@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AddressTypesDetailsToJSON = exports.AddressTypesDetailsFromJSONTyped = exports.AddressTypesDetailsFromJSON = exports.instanceOfAddressTypesDetails = void 0;
 const runtime_1 = require("../runtime");
-const AddressTypesType_1 = require("./AddressTypesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const AddressTypeType_1 = require("./AddressTypeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AddressTypesDetails interface.
  */
@@ -35,9 +35,9 @@ function AddressTypesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'addressTypes': !(0, runtime_1.exists)(json, 'addressTypes') ? undefined : (0, AddressTypesType_1.AddressTypesTypeFromJSON)(json['addressTypes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'addressTypes': !(0, runtime_1.exists)(json, 'addressTypes') ? undefined : (json['addressTypes'].map(AddressTypeType_1.AddressTypeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AddressTypesDetailsFromJSONTyped = AddressTypesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function AddressTypesDetailsToJSON(value) {
         return null;
     }
     return {
-        'addressTypes': (0, AddressTypesType_1.AddressTypesTypeToJSON)(value.addressTypes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'addressTypes': value.addressTypes === undefined ? undefined : (value.addressTypes.map(AddressTypeType_1.AddressTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AddressTypesDetailsToJSON = AddressTypesDetailsToJSON;

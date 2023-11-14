@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RevenueTypesInfoToJSON = exports.RevenueTypesInfoFromJSONTyped = exports.RevenueTypesInfoFromJSON = exports.instanceOfRevenueTypesInfo = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RevenueTypesType_1 = require("./RevenueTypesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RevenueTypeType_1 = require("./RevenueTypeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RevenueTypesInfo interface.
  */
@@ -35,9 +35,9 @@ function RevenueTypesInfoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'revenueTypes': !(0, runtime_1.exists)(json, 'revenueTypes') ? undefined : (0, RevenueTypesType_1.RevenueTypesTypeFromJSON)(json['revenueTypes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'revenueTypes': !(0, runtime_1.exists)(json, 'revenueTypes') ? undefined : (json['revenueTypes'].map(RevenueTypeType_1.RevenueTypeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RevenueTypesInfoFromJSONTyped = RevenueTypesInfoFromJSONTyped;
@@ -49,9 +49,9 @@ function RevenueTypesInfoToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'revenueTypes': (0, RevenueTypesType_1.RevenueTypesTypeToJSON)(value.revenueTypes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'revenueTypes': value.revenueTypes === undefined ? undefined : (value.revenueTypes.map(RevenueTypeType_1.RevenueTypeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RevenueTypesInfoToJSON = RevenueTypesInfoToJSON;

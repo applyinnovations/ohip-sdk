@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NextBlockStatusCodeTypeToJSON = exports.NextBlockStatusCodeTypeFromJSONTyped = exports.NextBlockStatusCodeTypeFromJSON = exports.instanceOfNextBlockStatusCodeType = void 0;
 const runtime_1 = require("../runtime");
-const NextBlockStatusCodeInfoListType_1 = require("./NextBlockStatusCodeInfoListType");
+const NextBlockStatusCodeInfoType_1 = require("./NextBlockStatusCodeInfoType");
 /**
  * Check if a given object implements the NextBlockStatusCodeType interface.
  */
@@ -33,8 +33,8 @@ function NextBlockStatusCodeTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'nextAvailableStatusList': !(0, runtime_1.exists)(json, 'nextAvailableStatusList') ? undefined : (0, NextBlockStatusCodeInfoListType_1.NextBlockStatusCodeInfoListTypeFromJSON)(json['nextAvailableStatusList']),
-        'nextConfiguredStatusList': !(0, runtime_1.exists)(json, 'nextConfiguredStatusList') ? undefined : (0, NextBlockStatusCodeInfoListType_1.NextBlockStatusCodeInfoListTypeFromJSON)(json['nextConfiguredStatusList']),
+        'nextAvailableStatusList': !(0, runtime_1.exists)(json, 'nextAvailableStatusList') ? undefined : (json['nextAvailableStatusList'].map(NextBlockStatusCodeInfoType_1.NextBlockStatusCodeInfoTypeFromJSON)),
+        'nextConfiguredStatusList': !(0, runtime_1.exists)(json, 'nextConfiguredStatusList') ? undefined : (json['nextConfiguredStatusList'].map(NextBlockStatusCodeInfoType_1.NextBlockStatusCodeInfoTypeFromJSON)),
         'status': !(0, runtime_1.exists)(json, 'status') ? undefined : json['status'],
     };
 }
@@ -47,8 +47,8 @@ function NextBlockStatusCodeTypeToJSON(value) {
         return null;
     }
     return {
-        'nextAvailableStatusList': (0, NextBlockStatusCodeInfoListType_1.NextBlockStatusCodeInfoListTypeToJSON)(value.nextAvailableStatusList),
-        'nextConfiguredStatusList': (0, NextBlockStatusCodeInfoListType_1.NextBlockStatusCodeInfoListTypeToJSON)(value.nextConfiguredStatusList),
+        'nextAvailableStatusList': value.nextAvailableStatusList === undefined ? undefined : (value.nextAvailableStatusList.map(NextBlockStatusCodeInfoType_1.NextBlockStatusCodeInfoTypeToJSON)),
+        'nextConfiguredStatusList': value.nextConfiguredStatusList === undefined ? undefined : (value.nextConfiguredStatusList.map(NextBlockStatusCodeInfoType_1.NextBlockStatusCodeInfoTypeToJSON)),
         'status': value.status,
     };
 }

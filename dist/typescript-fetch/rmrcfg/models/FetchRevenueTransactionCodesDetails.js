@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FetchRevenueTransactionCodesDetailsToJSON = exports.FetchRevenueTransactionCodesDetailsFromJSONTyped = exports.FetchRevenueTransactionCodesDetailsFromJSON = exports.instanceOfFetchRevenueTransactionCodesDetails = void 0;
 const runtime_1 = require("../runtime");
-const RotationRevenueTransactionCodesType_1 = require("./RotationRevenueTransactionCodesType");
-const WarningsType_1 = require("./WarningsType");
+const RotationRevenueTransactionCodeType_1 = require("./RotationRevenueTransactionCodeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FetchRevenueTransactionCodesDetails interface.
  */
@@ -34,8 +34,8 @@ function FetchRevenueTransactionCodesDetailsFromJSONTyped(json, ignoreDiscrimina
         return json;
     }
     return {
-        'revenueTransactionCodes': !(0, runtime_1.exists)(json, 'revenueTransactionCodes') ? undefined : (0, RotationRevenueTransactionCodesType_1.RotationRevenueTransactionCodesTypeFromJSON)(json['revenueTransactionCodes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'revenueTransactionCodes': !(0, runtime_1.exists)(json, 'revenueTransactionCodes') ? undefined : (json['revenueTransactionCodes'].map(RotationRevenueTransactionCodeType_1.RotationRevenueTransactionCodeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FetchRevenueTransactionCodesDetailsFromJSONTyped = FetchRevenueTransactionCodesDetailsFromJSONTyped;
@@ -47,8 +47,8 @@ function FetchRevenueTransactionCodesDetailsToJSON(value) {
         return null;
     }
     return {
-        'revenueTransactionCodes': (0, RotationRevenueTransactionCodesType_1.RotationRevenueTransactionCodesTypeToJSON)(value.revenueTransactionCodes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'revenueTransactionCodes': value.revenueTransactionCodes === undefined ? undefined : (value.revenueTransactionCodes.map(RotationRevenueTransactionCodeType_1.RotationRevenueTransactionCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FetchRevenueTransactionCodesDetailsToJSON = FetchRevenueTransactionCodesDetailsToJSON;

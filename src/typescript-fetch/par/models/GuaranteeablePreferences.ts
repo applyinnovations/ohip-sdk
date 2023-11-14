@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AvailablePreferencesType } from './AvailablePreferencesType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    AvailablePreferencesTypeFromJSON,
-    AvailablePreferencesTypeFromJSONTyped,
-    AvailablePreferencesTypeToJSON,
-} from './AvailablePreferencesType';
-import type { Links } from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RequestedAvailablePreferenceType } from './RequestedAvailablePreferenceType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    RequestedAvailablePreferenceTypeFromJSON,
+    RequestedAvailablePreferenceTypeFromJSONTyped,
+    RequestedAvailablePreferenceTypeToJSON,
+} from './RequestedAvailablePreferenceType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response of Guarantee-able Preferences Request.
@@ -39,23 +39,23 @@ import {
  */
 export interface GuaranteeablePreferences {
     /**
-     * 
-     * @type {AvailablePreferencesType}
+     * Collection of Requested and Available Guaranteeable Preference Codes.
+     * @type {Array<RequestedAvailablePreferenceType>}
      * @memberof GuaranteeablePreferences
      */
-    availablePreferences?: AvailablePreferencesType;
+    availablePreferences?: Array<RequestedAvailablePreferenceType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuaranteeablePreferences
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuaranteeablePreferences
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function GuaranteeablePreferencesFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'availablePreferences': !exists(json, 'availablePreferences') ? undefined : AvailablePreferencesTypeFromJSON(json['availablePreferences']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'availablePreferences': !exists(json, 'availablePreferences') ? undefined : ((json['availablePreferences'] as Array<any>).map(RequestedAvailablePreferenceTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function GuaranteeablePreferencesToJSON(value?: GuaranteeablePreferences 
     }
     return {
         
-        'availablePreferences': AvailablePreferencesTypeToJSON(value.availablePreferences),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'availablePreferences': value.availablePreferences === undefined ? undefined : ((value.availablePreferences as Array<any>).map(RequestedAvailablePreferenceTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

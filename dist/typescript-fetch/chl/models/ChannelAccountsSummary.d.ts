@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChannelAccountsSummaryType } from './ChannelAccountsSummaryType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ChannelAccountSummaryType } from './ChannelAccountSummaryType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object of the Channel accounts fetch request.
  * @export
@@ -19,11 +19,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ChannelAccountsSummary {
     /**
-     *
-     * @type {ChannelAccountsSummaryType}
+     * This type holds collection of channel accounts summary information.
+     * @type {Array<ChannelAccountSummaryType>}
      * @memberof ChannelAccountsSummary
      */
-    channelAccounts?: ChannelAccountsSummaryType;
+    channelAccounts?: Array<ChannelAccountSummaryType>;
     /**
      * Total number of rows returned
      * @type {number}
@@ -44,10 +44,10 @@ export interface ChannelAccountsSummary {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelAccountsSummary
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface ChannelAccountsSummary {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelAccountsSummary
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelAccountsSummary interface.

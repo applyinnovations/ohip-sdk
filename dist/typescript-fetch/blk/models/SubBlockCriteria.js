@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SubBlockCriteriaToJSON = exports.SubBlockCriteriaFromJSONTyped = exports.SubBlockCriteriaFromJSON = exports.instanceOfSubBlockCriteria = void 0;
 const runtime_1 = require("../runtime");
-const BlockIdList_1 = require("./BlockIdList");
 const CreateSubBlockBaseInfoType_1 = require("./CreateSubBlockBaseInfoType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the SubBlockCriteria interface.
  */
@@ -34,7 +34,7 @@ function SubBlockCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (0, BlockIdList_1.BlockIdListFromJSON)(json['blockIdList']),
+        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'masterBlockHotelCode': !(0, runtime_1.exists)(json, 'masterBlockHotelCode') ? undefined : json['masterBlockHotelCode'],
         'subBlockInfo': !(0, runtime_1.exists)(json, 'subBlockInfo') ? undefined : (json['subBlockInfo'].map(CreateSubBlockBaseInfoType_1.CreateSubBlockBaseInfoTypeFromJSON)),
     };
@@ -48,7 +48,7 @@ function SubBlockCriteriaToJSON(value) {
         return null;
     }
     return {
-        'blockIdList': (0, BlockIdList_1.BlockIdListToJSON)(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'masterBlockHotelCode': value.masterBlockHotelCode,
         'subBlockInfo': value.subBlockInfo === undefined ? undefined : (value.subBlockInfo.map(CreateSubBlockBaseInfoType_1.CreateSubBlockBaseInfoTypeToJSON)),
     };

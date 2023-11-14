@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { MergeCodesType } from './MergeCodesType';
+import type { MergeCodeType } from './MergeCodeType';
 import type { ScriptLocationsType } from './ScriptLocationsType';
 import type { ScriptTypeType } from './ScriptTypeType';
 import type { UniqueIDType } from './UniqueIDType';
@@ -38,11 +38,11 @@ export interface ScriptType {
      */
     membershipType?: string;
     /**
-     *
-     * @type {MergeCodesType}
+     * A Merge Code.
+     * @type {Array<MergeCodeType>}
      * @memberof ScriptType
      */
-    mergeCodes?: MergeCodesType;
+    mergeCodes?: Array<MergeCodeType>;
     /**
      * Script.
      * @type {string}

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BuildingFloorMappingsDetailsToJSON = exports.BuildingFloorMappingsDetailsFromJSONTyped = exports.BuildingFloorMappingsDetailsFromJSON = exports.instanceOfBuildingFloorMappingsDetails = void 0;
 const runtime_1 = require("../runtime");
-const BuildingFloorMappingsType_1 = require("./BuildingFloorMappingsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const BuildingFloorMappingType_1 = require("./BuildingFloorMappingType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BuildingFloorMappingsDetails interface.
  */
@@ -35,9 +35,9 @@ function BuildingFloorMappingsDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'buildingFloorMappings': !(0, runtime_1.exists)(json, 'buildingFloorMappings') ? undefined : (0, BuildingFloorMappingsType_1.BuildingFloorMappingsTypeFromJSON)(json['buildingFloorMappings']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'buildingFloorMappings': !(0, runtime_1.exists)(json, 'buildingFloorMappings') ? undefined : (json['buildingFloorMappings'].map(BuildingFloorMappingType_1.BuildingFloorMappingTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BuildingFloorMappingsDetailsFromJSONTyped = BuildingFloorMappingsDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function BuildingFloorMappingsDetailsToJSON(value) {
         return null;
     }
     return {
-        'buildingFloorMappings': (0, BuildingFloorMappingsType_1.BuildingFloorMappingsTypeToJSON)(value.buildingFloorMappings),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'buildingFloorMappings': value.buildingFloorMappings === undefined ? undefined : (value.buildingFloorMappings.map(BuildingFloorMappingType_1.BuildingFloorMappingTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BuildingFloorMappingsDetailsToJSON = BuildingFloorMappingsDetailsToJSON;

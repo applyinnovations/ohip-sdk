@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PreferenceCodesType } from './PreferenceCodesType';
+import type { CodeDescriptionType } from './CodeDescriptionType';
 import {
-    PreferenceCodesTypeFromJSON,
-    PreferenceCodesTypeFromJSONTyped,
-    PreferenceCodesTypeToJSON,
-} from './PreferenceCodesType';
+    CodeDescriptionTypeFromJSON,
+    CodeDescriptionTypeFromJSONTyped,
+    CodeDescriptionTypeToJSON,
+} from './CodeDescriptionType';
 
 /**
  * Base details common between both template and property level Exclusive preference ids.
@@ -45,11 +45,11 @@ export interface ConfigHotelExclusivePreferenceType {
      */
     orderSequence?: number;
     /**
-     * 
-     * @type {PreferenceCodesType}
+     * Specifies the preference code and its description mapped to the exclusive preference.
+     * @type {Array<CodeDescriptionType>}
      * @memberof ConfigHotelExclusivePreferenceType
      */
-    preferenceCodes?: PreferenceCodesType;
+    preferenceCodes?: Array<CodeDescriptionType>;
     /**
      * Specifies the preference group the Exclusive preference belongs to.
      * @type {string}
@@ -80,7 +80,7 @@ export function ConfigHotelExclusivePreferenceTypeFromJSONTyped(json: any, ignor
         'code': !exists(json, 'code') ? undefined : json['code'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'orderSequence': !exists(json, 'orderSequence') ? undefined : json['orderSequence'],
-        'preferenceCodes': !exists(json, 'preferenceCodes') ? undefined : PreferenceCodesTypeFromJSON(json['preferenceCodes']),
+        'preferenceCodes': !exists(json, 'preferenceCodes') ? undefined : ((json['preferenceCodes'] as Array<any>).map(CodeDescriptionTypeFromJSON)),
         'preferenceGroup': !exists(json, 'preferenceGroup') ? undefined : json['preferenceGroup'],
     };
 }
@@ -97,7 +97,7 @@ export function ConfigHotelExclusivePreferenceTypeToJSON(value?: ConfigHotelExcl
         'code': value.code,
         'hotelId': value.hotelId,
         'orderSequence': value.orderSequence,
-        'preferenceCodes': PreferenceCodesTypeToJSON(value.preferenceCodes),
+        'preferenceCodes': value.preferenceCodes === undefined ? undefined : ((value.preferenceCodes as Array<any>).map(CodeDescriptionTypeToJSON)),
         'preferenceGroup': value.preferenceGroup,
     };
 }

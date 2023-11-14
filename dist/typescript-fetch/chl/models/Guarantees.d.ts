@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GuaranteesMappingType } from './GuaranteesMappingType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { GuaranteeMappingType } from './GuaranteeMappingType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing external system guarantees.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface Guarantees {
     /**
-     *
-     * @type {GuaranteesMappingType}
+     * Information about an external system guarantee mapping.
+     * @type {Array<GuaranteeMappingType>}
      * @memberof Guarantees
      */
-    guarantees?: GuaranteesMappingType;
+    guarantees?: Array<GuaranteeMappingType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Guarantees
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Guarantees
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Guarantees interface.

@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RecentlyAccessedReservationTypeToJSON = exports.RecentlyAccessedReservationTypeFromJSONTyped = exports.RecentlyAccessedReservationTypeFromJSON = exports.instanceOfRecentlyAccessedReservationType = void 0;
 const runtime_1 = require("../runtime");
 const PMSResStatusType_1 = require("./PMSResStatusType");
-const ReservationIdList_1 = require("./ReservationIdList");
 const TimeSpanType_1 = require("./TimeSpanType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the RecentlyAccessedReservationType interface.
  */
@@ -40,7 +40,7 @@ function RecentlyAccessedReservationTypeFromJSONTyped(json, ignoreDiscriminator)
         'guestLastName': !(0, runtime_1.exists)(json, 'guestLastName') ? undefined : json['guestLastName'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'hotelName': !(0, runtime_1.exists)(json, 'hotelName') ? undefined : json['hotelName'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'reservationStatus': !(0, runtime_1.exists)(json, 'reservationStatus') ? undefined : (0, PMSResStatusType_1.PMSResStatusTypeFromJSON)(json['reservationStatus']),
         'timeSpan': !(0, runtime_1.exists)(json, 'timeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['timeSpan']),
     };
@@ -59,7 +59,7 @@ function RecentlyAccessedReservationTypeToJSON(value) {
         'guestLastName': value.guestLastName,
         'hotelId': value.hotelId,
         'hotelName': value.hotelName,
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'reservationStatus': (0, PMSResStatusType_1.PMSResStatusTypeToJSON)(value.reservationStatus),
         'timeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.timeSpan),
     };

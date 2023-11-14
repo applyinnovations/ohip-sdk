@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { LOVNamesType } from './LOVNamesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { LOVNameType } from './LOVNameType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ListOfValueNames {
     /**
-     *
-     * @type {LOVNamesType}
+     * List of List of Value names along with all parameters applicable for the LOV.
+     * @type {Array<LOVNameType>}
      * @memberof ListOfValueNames
      */
-    lOVNames?: LOVNamesType;
+    lOVNames?: Array<LOVNameType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ListOfValueNames
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ListOfValueNames
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ListOfValueNames interface.

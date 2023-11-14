@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomPreferencePrioritiesType } from './RoomPreferencePrioritiesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomPreferencePriorityType } from './RoomPreferencePriorityType';
 import {
-    RoomPreferencePrioritiesTypeFromJSON,
-    RoomPreferencePrioritiesTypeFromJSONTyped,
-    RoomPreferencePrioritiesTypeToJSON,
-} from './RoomPreferencePrioritiesType';
-import type { WarningsType } from './WarningsType';
+    RoomPreferencePriorityTypeFromJSON,
+    RoomPreferencePriorityTypeFromJSONTyped,
+    RoomPreferencePriorityTypeToJSON,
+} from './RoomPreferencePriorityType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Room Preference Priorities.
@@ -40,22 +40,22 @@ import {
 export interface RoomPreferencePrioritiesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomPreferencePrioritiesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RoomPreferencePrioritiesType}
+     * List of Room Preference Priorities.
+     * @type {Array<RoomPreferencePriorityType>}
      * @memberof RoomPreferencePrioritiesDetails
      */
-    roomPreferencePriorities?: RoomPreferencePrioritiesType;
+    roomPreferencePriorities?: Array<RoomPreferencePriorityType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomPreferencePrioritiesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RoomPreferencePrioritiesDetailsFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'roomPreferencePriorities': !exists(json, 'roomPreferencePriorities') ? undefined : RoomPreferencePrioritiesTypeFromJSON(json['roomPreferencePriorities']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'roomPreferencePriorities': !exists(json, 'roomPreferencePriorities') ? undefined : ((json['roomPreferencePriorities'] as Array<any>).map(RoomPreferencePriorityTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RoomPreferencePrioritiesDetailsToJSON(value?: RoomPreferencePrio
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'roomPreferencePriorities': RoomPreferencePrioritiesTypeToJSON(value.roomPreferencePriorities),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'roomPreferencePriorities': value.roomPreferencePriorities === undefined ? undefined : ((value.roomPreferencePriorities as Array<any>).map(RoomPreferencePriorityTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

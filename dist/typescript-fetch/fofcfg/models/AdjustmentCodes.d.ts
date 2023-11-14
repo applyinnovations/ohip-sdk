@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AdjustmentCodesType } from './AdjustmentCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AdjustmentCodeType } from './AdjustmentCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AdjustmentCodes {
     /**
-     *
-     * @type {AdjustmentCodesType}
+     * Holds Adjustment Code details.
+     * @type {Array<AdjustmentCodeType>}
      * @memberof AdjustmentCodes
      */
-    adjustmentCodes?: AdjustmentCodesType;
+    adjustmentCodes?: Array<AdjustmentCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AdjustmentCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AdjustmentCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AdjustmentCodes interface.

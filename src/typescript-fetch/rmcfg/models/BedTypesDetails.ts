@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BedTypesType } from './BedTypesType';
+import type { BedTypeType } from './BedTypeType';
 import {
-    BedTypesTypeFromJSON,
-    BedTypesTypeFromJSONTyped,
-    BedTypesTypeToJSON,
-} from './BedTypesType';
-import type { Links } from './Links';
+    BedTypeTypeFromJSON,
+    BedTypeTypeFromJSONTyped,
+    BedTypeTypeToJSON,
+} from './BedTypeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Bed Types.
@@ -39,23 +39,23 @@ import {
  */
 export interface BedTypesDetails {
     /**
-     * 
-     * @type {BedTypesType}
+     * Bed Type Enumeration element.
+     * @type {Array<BedTypeType>}
      * @memberof BedTypesDetails
      */
-    bedTypes?: BedTypesType;
+    bedTypes?: Array<BedTypeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BedTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BedTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function BedTypesDetailsFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'bedTypes': !exists(json, 'bedTypes') ? undefined : BedTypesTypeFromJSON(json['bedTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'bedTypes': !exists(json, 'bedTypes') ? undefined : ((json['bedTypes'] as Array<any>).map(BedTypeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function BedTypesDetailsToJSON(value?: BedTypesDetails | null): any {
     }
     return {
         
-        'bedTypes': BedTypesTypeToJSON(value.bedTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'bedTypes': value.bedTypes === undefined ? undefined : ((value.bedTypes as Array<any>).map(BedTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

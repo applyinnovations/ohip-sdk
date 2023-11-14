@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { TrxOwnershipType } from './TrxOwnershipType';
 /**
  * Change Transaction Code Ownership configuration details.
@@ -31,10 +30,10 @@ export interface ChangeTransactionCodeOwnershipType {
     ownershipStatus?: TrxOwnershipType;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ChangeTransactionCodeOwnershipType
      */
-    transactionCodes?: CodeListType;
+    transactionCodes?: Array<string>;
 }
 /**
  * Check if a given object implements the ChangeTransactionCodeOwnershipType interface.

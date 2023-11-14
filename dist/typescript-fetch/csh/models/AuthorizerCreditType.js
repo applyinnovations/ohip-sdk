@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthorizerCreditTypeToJSON = exports.AuthorizerCreditTypeFromJSONTyped = exports.AuthorizerCreditTypeFromJSON = exports.instanceOfAuthorizerCreditType = void 0;
 const runtime_1 = require("../runtime");
-const AuthorizerCreditDetailsType_1 = require("./AuthorizerCreditDetailsType");
+const AuthorizerCreditDetailType_1 = require("./AuthorizerCreditDetailType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -36,7 +36,7 @@ function AuthorizerCreditTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'actualAmount': !(0, runtime_1.exists)(json, 'actualAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['actualAmount']),
-        'authorizerCreditDetails': !(0, runtime_1.exists)(json, 'authorizerCreditDetails') ? undefined : (0, AuthorizerCreditDetailsType_1.AuthorizerCreditDetailsTypeFromJSON)(json['authorizerCreditDetails']),
+        'authorizerCreditDetails': !(0, runtime_1.exists)(json, 'authorizerCreditDetails') ? undefined : (json['authorizerCreditDetails'].map(AuthorizerCreditDetailType_1.AuthorizerCreditDetailTypeFromJSON)),
         'authorizerId': !(0, runtime_1.exists)(json, 'authorizerId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['authorizerId']),
         'authorizerName': !(0, runtime_1.exists)(json, 'authorizerName') ? undefined : json['authorizerName'],
         'authorizerRateCode': !(0, runtime_1.exists)(json, 'authorizerRateCode') ? undefined : json['authorizerRateCode'],
@@ -57,7 +57,7 @@ function AuthorizerCreditTypeToJSON(value) {
     }
     return {
         'actualAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.actualAmount),
-        'authorizerCreditDetails': (0, AuthorizerCreditDetailsType_1.AuthorizerCreditDetailsTypeToJSON)(value.authorizerCreditDetails),
+        'authorizerCreditDetails': value.authorizerCreditDetails === undefined ? undefined : (value.authorizerCreditDetails.map(AuthorizerCreditDetailType_1.AuthorizerCreditDetailTypeToJSON)),
         'authorizerId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.authorizerId),
         'authorizerName': value.authorizerName,
         'authorizerRateCode': value.authorizerRateCode,

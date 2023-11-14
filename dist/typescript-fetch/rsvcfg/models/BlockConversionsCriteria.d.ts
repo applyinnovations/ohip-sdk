@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockConversionsType } from './BlockConversionsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BlockConversionType } from './BlockConversionType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Block Conversions.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BlockConversionsCriteria {
     /**
-     *
-     * @type {BlockConversionsType}
+     * List of Block Conversions.
+     * @type {Array<BlockConversionType>}
      * @memberof BlockConversionsCriteria
      */
-    blockConversions?: BlockConversionsType;
+    blockConversions?: Array<BlockConversionType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockConversionsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockConversionsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockConversionsCriteria interface.

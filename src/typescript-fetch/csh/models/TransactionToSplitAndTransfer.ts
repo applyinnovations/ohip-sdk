@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { TrxSplitAndTransferCriteriaType } from './TrxSplitAndTransferCriteriaType';
 import {
     TrxSplitAndTransferCriteriaTypeFromJSON,
     TrxSplitAndTransferCriteriaTypeFromJSONTyped,
     TrxSplitAndTransferCriteriaTypeToJSON,
 } from './TrxSplitAndTransferCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to split a transaction on a reservation and transfer the new transaction to a different reservation or a different window on the same reservation. Splitting of transactions requires a In-house target reservation, a list of transactions for a In-house reservation and a valid amount or a percentage by which the amount can be split. Based on parameters, certain transactions cannot be split. Transaction which are included in an invoice cannot be split Transactions where the generates resides elsewhere(reservation or window) cannot be split. Automatically generated transactions such as taxes, cannot be split by itself. Deposits which were part of a deposit folio cannot be split. After the split is done the transaction is transferred to the target reservation/window.
@@ -46,16 +46,16 @@ export interface TransactionToSplitAndTransfer {
     criteria?: TrxSplitAndTransferCriteriaType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransactionToSplitAndTransfer
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransactionToSplitAndTransfer
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -78,8 +78,8 @@ export function TransactionToSplitAndTransferFromJSONTyped(json: any, ignoreDisc
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : TrxSplitAndTransferCriteriaTypeFromJSON(json['criteria']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -93,8 +93,8 @@ export function TransactionToSplitAndTransferToJSON(value?: TransactionToSplitAn
     return {
         
         'criteria': TrxSplitAndTransferCriteriaTypeToJSON(value.criteria),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

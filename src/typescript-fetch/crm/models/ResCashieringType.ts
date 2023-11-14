@@ -25,12 +25,12 @@ import {
     BillingPrivilegesTypeFromJSONTyped,
     BillingPrivilegesTypeToJSON,
 } from './BillingPrivilegesType';
-import type { FolioTextsType } from './FolioTextsType';
+import type { FolioTextsTypeInner } from './FolioTextsTypeInner';
 import {
-    FolioTextsTypeFromJSON,
-    FolioTextsTypeFromJSONTyped,
-    FolioTextsTypeToJSON,
-} from './FolioTextsType';
+    FolioTextsTypeInnerFromJSON,
+    FolioTextsTypeInnerFromJSONTyped,
+    FolioTextsTypeInnerToJSON,
+} from './FolioTextsTypeInner';
 import type { ResCompAccountingType } from './ResCompAccountingType';
 import {
     ResCompAccountingTypeFromJSON,
@@ -93,11 +93,11 @@ export interface ResCashieringType {
      */
     financiallyResponsible?: boolean;
     /**
-     * 
-     * @type {FolioTextsType}
+     * This stores the description for the type of tax calculation especially with tax exemption, etc.
+     * @type {Array<FolioTextsTypeInner>}
      * @memberof ResCashieringType
      */
-    folioTexts?: FolioTextsType;
+    folioTexts?: Array<FolioTextsTypeInner>;
     /**
      * Date of the last Room And Tax posting. Used primarily to know the date in case of Advance Billing.
      * @type {Date}
@@ -177,7 +177,7 @@ export function ResCashieringTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'billingPrivileges': !exists(json, 'billingPrivileges') ? undefined : BillingPrivilegesTypeFromJSON(json['billingPrivileges']),
         'compAccounting': !exists(json, 'compAccounting') ? undefined : ResCompAccountingTypeFromJSON(json['compAccounting']),
         'financiallyResponsible': !exists(json, 'financiallyResponsible') ? undefined : json['financiallyResponsible'],
-        'folioTexts': !exists(json, 'folioTexts') ? undefined : FolioTextsTypeFromJSON(json['folioTexts']),
+        'folioTexts': !exists(json, 'folioTexts') ? undefined : ((json['folioTexts'] as Array<any>).map(FolioTextsTypeInnerFromJSON)),
         'lastRoomAndTaxPostedDate': !exists(json, 'lastRoomAndTaxPostedDate') ? undefined : (new Date(json['lastRoomAndTaxPostedDate'])),
         'periodicFolio': !exists(json, 'periodicFolio') ? undefined : ResPeriodicFolioTypeFromJSON(json['periodicFolio']),
         'proratedBilling': !exists(json, 'proratedBilling') ? undefined : json['proratedBilling'],
@@ -203,7 +203,7 @@ export function ResCashieringTypeToJSON(value?: ResCashieringType | null): any {
         'billingPrivileges': BillingPrivilegesTypeToJSON(value.billingPrivileges),
         'compAccounting': ResCompAccountingTypeToJSON(value.compAccounting),
         'financiallyResponsible': value.financiallyResponsible,
-        'folioTexts': FolioTextsTypeToJSON(value.folioTexts),
+        'folioTexts': value.folioTexts === undefined ? undefined : ((value.folioTexts as Array<any>).map(FolioTextsTypeInnerToJSON)),
         'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate === undefined ? undefined : (value.lastRoomAndTaxPostedDate.toISOString().substring(0,10)),
         'periodicFolio': ResPeriodicFolioTypeToJSON(value.periodicFolio),
         'proratedBilling': value.proratedBilling,

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateEventCodesType } from './TemplateEventCodesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TemplateEventCodeType } from './TemplateEventCodeType';
 import {
-    TemplateEventCodesTypeFromJSON,
-    TemplateEventCodesTypeFromJSONTyped,
-    TemplateEventCodesTypeToJSON,
-} from './TemplateEventCodesType';
-import type { WarningsType } from './WarningsType';
+    TemplateEventCodeTypeFromJSON,
+    TemplateEventCodeTypeFromJSONTyped,
+    TemplateEventCodeTypeToJSON,
+} from './TemplateEventCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching template Event Codes.
@@ -40,22 +40,22 @@ import {
 export interface TemplateEventCodesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateEventCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TemplateEventCodesType}
+     * Details for Event Code at template level.
+     * @type {Array<TemplateEventCodeType>}
      * @memberof TemplateEventCodesDetails
      */
-    templateEventCodes?: TemplateEventCodesType;
+    templateEventCodes?: Array<TemplateEventCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateEventCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateEventCodesDetailsFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'templateEventCodes': !exists(json, 'templateEventCodes') ? undefined : TemplateEventCodesTypeFromJSON(json['templateEventCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'templateEventCodes': !exists(json, 'templateEventCodes') ? undefined : ((json['templateEventCodes'] as Array<any>).map(TemplateEventCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateEventCodesDetailsToJSON(value?: TemplateEventCodesDetail
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'templateEventCodes': TemplateEventCodesTypeToJSON(value.templateEventCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'templateEventCodes': value.templateEventCodes === undefined ? undefined : ((value.templateEventCodes as Array<any>).map(TemplateEventCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { SourceGroupType } from './SourceGroupType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object that holds the details of Source Group to be created.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface SourceGroupCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SourceGroupCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {SourceGroupType}
@@ -31,11 +31,11 @@ export interface SourceGroupCriteria {
      */
     sourceGroup?: SourceGroupType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SourceGroupCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SourceGroupCriteria interface.

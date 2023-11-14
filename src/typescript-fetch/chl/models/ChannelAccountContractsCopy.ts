@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelAccountContractsCopyType } from './ChannelAccountContractsCopyType';
+import type { ChannelAccountContractCopyType } from './ChannelAccountContractCopyType';
 import {
-    ChannelAccountContractsCopyTypeFromJSON,
-    ChannelAccountContractsCopyTypeFromJSONTyped,
-    ChannelAccountContractsCopyTypeToJSON,
-} from './ChannelAccountContractsCopyType';
-import type { Links } from './Links';
+    ChannelAccountContractCopyTypeFromJSON,
+    ChannelAccountContractCopyTypeFromJSONTyped,
+    ChannelAccountContractCopyTypeToJSON,
+} from './ChannelAccountContractCopyType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to copy the channel account contract and create a new contract.
@@ -39,23 +39,23 @@ import {
  */
 export interface ChannelAccountContractsCopy {
     /**
-     * 
-     * @type {ChannelAccountContractsCopyType}
+     * List of channel account contracts information to create a copy of.
+     * @type {Array<ChannelAccountContractCopyType>}
      * @memberof ChannelAccountContractsCopy
      */
-    channelAccountContractsCopy?: ChannelAccountContractsCopyType;
+    channelAccountContractsCopy?: Array<ChannelAccountContractCopyType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelAccountContractsCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelAccountContractsCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ChannelAccountContractsCopyFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'channelAccountContractsCopy': !exists(json, 'channelAccountContractsCopy') ? undefined : ChannelAccountContractsCopyTypeFromJSON(json['channelAccountContractsCopy']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'channelAccountContractsCopy': !exists(json, 'channelAccountContractsCopy') ? undefined : ((json['channelAccountContractsCopy'] as Array<any>).map(ChannelAccountContractCopyTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ChannelAccountContractsCopyToJSON(value?: ChannelAccountContract
     }
     return {
         
-        'channelAccountContractsCopy': ChannelAccountContractsCopyTypeToJSON(value.channelAccountContractsCopy),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'channelAccountContractsCopy': value.channelAccountContractsCopy === undefined ? undefined : ((value.channelAccountContractsCopy as Array<any>).map(ChannelAccountContractCopyTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

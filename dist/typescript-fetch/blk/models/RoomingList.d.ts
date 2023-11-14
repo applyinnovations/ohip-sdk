@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RoomingListBlockInfoType } from './RoomingListBlockInfoType';
 import type { RoomingListReservationsType } from './RoomingListReservationsType';
-import type { RoomingListSharesType } from './RoomingListSharesType';
-import type { WarningsType } from './WarningsType';
+import type { RoomingListShareType } from './RoomingListShareType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating rooming list reservations. The standard optional Opera Context element is also included.
  * @export
@@ -28,10 +28,10 @@ export interface RoomingList {
     blockInfo?: RoomingListBlockInfoType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomingList
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {RoomingListReservationsType}
@@ -39,17 +39,17 @@ export interface RoomingList {
      */
     reservations?: RoomingListReservationsType;
     /**
-     *
-     * @type {RoomingListSharesType}
+     * Contains a set of rooming list reservations that need to be shared.
+     * @type {Array<RoomingListShareType>}
      * @memberof RoomingList
      */
-    shares?: RoomingListSharesType;
+    shares?: Array<RoomingListShareType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomingList
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomingList interface.

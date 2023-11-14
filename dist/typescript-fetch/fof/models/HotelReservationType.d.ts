@@ -9,36 +9,36 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ActivityLookUpList } from './ActivityLookUpList';
 import type { AdvanceCheckInType } from './AdvanceCheckInType';
-import type { AlertsType } from './AlertsType';
+import type { AlertType } from './AlertType';
 import type { AssociatedResType } from './AssociatedResType';
-import type { AttachmentsType } from './AttachmentsType';
-import type { AwardsType } from './AwardsType';
-import type { CallHistoryType } from './CallHistoryType';
+import type { AttachmentType } from './AttachmentType';
+import type { AwardType } from './AwardType';
+import type { CallType } from './CallType';
 import type { CateringResInfoType } from './CateringResInfoType';
 import type { CommentInfoType } from './CommentInfoType';
 import type { CompAuthorizerInfoType } from './CompAuthorizerInfoType';
-import type { ConfirmationsType } from './ConfirmationsType';
-import type { CustomChargeExemptionsType } from './CustomChargeExemptionsType';
-import type { ECouponsType } from './ECouponsType';
-import type { ExternalReferencesType } from './ExternalReferencesType';
-import type { FixedChargesType } from './FixedChargesType';
-import type { FoliosShortInfoType } from './FoliosShortInfoType';
-import type { GuestMessagesType } from './GuestMessagesType';
-import type { HotelReservationTracesType } from './HotelReservationTracesType';
+import type { ConfirmationType } from './ConfirmationType';
+import type { CustomChargeExemptionType } from './CustomChargeExemptionType';
+import type { ECouponType } from './ECouponType';
+import type { ExternalReferenceType } from './ExternalReferenceType';
+import type { FetchActivityBookingsType } from './FetchActivityBookingsType';
+import type { FixedChargeType } from './FixedChargeType';
+import type { FolioShortInfoType } from './FolioShortInfoType';
+import type { GuestMessageType } from './GuestMessageType';
+import type { HotelReservationTraceType } from './HotelReservationTraceType';
 import type { HotelReservationTypeCancellation } from './HotelReservationTypeCancellation';
 import type { HotelReservationTypeReservationProfiles } from './HotelReservationTypeReservationProfiles';
 import type { HotelReservationTypeTransactionDiversions } from './HotelReservationTypeTransactionDiversions';
 import type { HotelReservationsType } from './HotelReservationsType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import type { LinkedReservationsInfoType } from './LinkedReservationsInfoType';
 import type { MembershipType } from './MembershipType';
 import type { NameValueDetailType } from './NameValueDetailType';
-import type { OverrideInstructionsType } from './OverrideInstructionsType';
+import type { OverrideInstructionType } from './OverrideInstructionType';
 import type { PMSResStatusType } from './PMSResStatusType';
 import type { PreferenceTypeType } from './PreferenceTypeType';
-import type { PrepaidCardsType } from './PrepaidCardsType';
+import type { PrepaidCardType } from './PrepaidCardType';
 import type { ResAccessRestrictionType } from './ResAccessRestrictionType';
 import type { ResCashieringType } from './ResCashieringType';
 import type { ResCommunicationType } from './ResCommunicationType';
@@ -46,24 +46,24 @@ import type { ResGuestAdditionalInfoType } from './ResGuestAdditionalInfoType';
 import type { ResGuestType } from './ResGuestType';
 import type { ResHousekeepingType } from './ResHousekeepingType';
 import type { ResInventoryItemsType } from './ResInventoryItemsType';
-import type { ResSharedGuestListType } from './ResSharedGuestListType';
+import type { ResSharedGuestInfoType } from './ResSharedGuestInfoType';
 import type { ResStatClassificationType } from './ResStatClassificationType';
-import type { ReservationAllowedActionsType } from './ReservationAllowedActionsType';
+import type { ReservationAllowedActionType } from './ReservationAllowedActionType';
 import type { ReservationDisplayColorInfoType } from './ReservationDisplayColorInfoType';
-import type { ReservationECertificatesType } from './ReservationECertificatesType';
-import type { ReservationIdList } from './ReservationIdList';
-import type { ReservationLocatorsType } from './ReservationLocatorsType';
+import type { ReservationECertificateType } from './ReservationECertificateType';
+import type { ReservationLocatorType } from './ReservationLocatorType';
 import type { ReservationMembershipType } from './ReservationMembershipType';
 import type { ReservationPackageType } from './ReservationPackageType';
-import type { ReservationPaymentMethodsType } from './ReservationPaymentMethodsType';
+import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
 import type { ReservationPoliciesType } from './ReservationPoliciesType';
 import type { ReservationQueueInformationType } from './ReservationQueueInformationType';
 import type { RoomStayType } from './RoomStayType';
-import type { RoutingInfoListType } from './RoutingInfoListType';
-import type { ServiceRequests } from './ServiceRequests';
+import type { RoutingInfoType } from './RoutingInfoType';
+import type { ServiceRequest } from './ServiceRequest';
 import type { SourceOfSaleType } from './SourceOfSaleType';
-import type { TicketsType } from './TicketsType';
-import type { TrackItItemsType } from './TrackItItemsType';
+import type { TicketType } from './TicketType';
+import type { TrackItItemType } from './TrackItItemType';
+import type { UniqueIDType } from './UniqueIDType';
 import type { UserDefinedFieldsType } from './UserDefinedFieldsType';
 import type { WaitlistResType } from './WaitlistResType';
 /**
@@ -97,11 +97,11 @@ export interface HotelReservationType {
      */
     advanceCheckIn?: AdvanceCheckInType;
     /**
-     *
-     * @type {AlertsType}
+     * List of alerts.
+     * @type {Array<AlertType>}
      * @memberof HotelReservationType
      */
-    alerts?: AlertsType;
+    alerts?: Array<AlertType>;
     /**
      * Flag to allow auto checkin
      * @type {boolean}
@@ -127,11 +127,11 @@ export interface HotelReservationType {
      */
     allowPreRegistration?: boolean;
     /**
-     *
-     * @type {ReservationAllowedActionsType}
+     * Allowed action.
+     * @type {Array<ReservationAllowedActionType>}
      * @memberof HotelReservationType
      */
-    allowedActions?: ReservationAllowedActionsType;
+    allowedActions?: Array<ReservationAllowedActionType>;
     /**
      *
      * @type {AssociatedResType}
@@ -139,11 +139,11 @@ export interface HotelReservationType {
      */
     associatedReservations?: AssociatedResType;
     /**
-     *
-     * @type {AttachmentsType}
+     * Attachment List.
+     * @type {Array<AttachmentType>}
      * @memberof HotelReservationType
      */
-    attachments?: AttachmentsType;
+    attachments?: Array<AttachmentType>;
     /**
      * This flag will force to borrow from house if borrow required for number of rooms requested, this will only applicable when reservation is attached to a Block.
      * @type {boolean}
@@ -151,11 +151,11 @@ export interface HotelReservationType {
      */
     autoBorrowFromHouse?: boolean;
     /**
-     *
-     * @type {CallHistoryType}
+     * Holds call information.
+     * @type {Array<CallType>}
      * @memberof HotelReservationType
      */
-    callHistory?: CallHistoryType;
+    callHistory?: Array<CallType>;
     /**
      *
      * @type {HotelReservationTypeCancellation}
@@ -199,11 +199,11 @@ export interface HotelReservationType {
      */
     computedReservationStatus?: PMSResStatusType;
     /**
-     *
-     * @type {ConfirmationsType}
+     * List of confirmation letters.
+     * @type {Array<ConfirmationType>}
      * @memberof HotelReservationType
      */
-    confirmationLetters?: ConfirmationsType;
+    confirmationLetters?: Array<ConfirmationType>;
     /**
      * Business Date when the reservation was created.
      * @type {Date}
@@ -223,11 +223,11 @@ export interface HotelReservationType {
      */
     creatorId?: string;
     /**
-     *
-     * @type {CustomChargeExemptionsType}
+     * List of Custom Charge Exemptions.
+     * @type {Array<CustomChargeExemptionType>}
      * @memberof HotelReservationType
      */
-    customChargeExemptionDetails?: CustomChargeExemptionsType;
+    customChargeExemptionDetails?: Array<CustomChargeExemptionType>;
     /**
      *
      * @type {NameValueDetailType}
@@ -253,17 +253,17 @@ export interface HotelReservationType {
      */
     displayColorDetails?: ReservationDisplayColorInfoType;
     /**
-     *
-     * @type {ReservationECertificatesType}
+     * Collection of ECertificateType object.
+     * @type {Array<ReservationECertificateType>}
      * @memberof HotelReservationType
      */
-    eCertificates?: ReservationECertificatesType;
+    eCertificates?: Array<ReservationECertificateType>;
     /**
-     *
-     * @type {ECouponsType}
+     * Collection of ECouponType object.
+     * @type {Array<ECouponType>}
      * @memberof HotelReservationType
      */
-    eCoupons?: ECouponsType;
+    eCoupons?: Array<ECouponType>;
     /**
      *
      * @type {boolean}
@@ -271,23 +271,23 @@ export interface HotelReservationType {
      */
     extSystemSync?: boolean;
     /**
-     *
-     * @type {ExternalReferencesType}
+     * This type contains unique information of external reference.
+     * @type {Array<ExternalReferenceType>}
      * @memberof HotelReservationType
      */
-    externalReferences?: ExternalReferencesType;
+    externalReferences?: Array<ExternalReferenceType>;
     /**
-     *
-     * @type {FixedChargesType}
+     * Holds fixed charge detail.
+     * @type {Array<FixedChargeType>}
      * @memberof HotelReservationType
      */
-    fixedCharges?: FixedChargesType;
+    fixedCharges?: Array<FixedChargeType>;
     /**
-     *
-     * @type {FoliosShortInfoType}
+     * This type contains a list of generated bills for a reservation.
+     * @type {Array<FolioShortInfoType>}
      * @memberof HotelReservationType
      */
-    folios?: FoliosShortInfoType;
+    folios?: Array<FolioShortInfoType>;
     /**
      * List of Notes for the Guest related to the profile.
      * @type {Array<CommentInfoType>}
@@ -301,11 +301,11 @@ export interface HotelReservationType {
      */
     guestMemberships?: Array<MembershipType>;
     /**
-     *
-     * @type {GuestMessagesType}
+     * Holds the Message Information
+     * @type {Array<GuestMessageType>}
      * @memberof HotelReservationType
      */
-    guestMessages?: GuestMessagesType;
+    guestMessages?: Array<GuestMessageType>;
     /**
      *
      * @type {boolean}
@@ -349,11 +349,11 @@ export interface HotelReservationType {
      */
     linkedReservation?: LinkedReservationsInfoType;
     /**
-     *
-     * @type {ReservationLocatorsType}
+     * Holds the Locator Information.
+     * @type {Array<ReservationLocatorType>}
      * @memberof HotelReservationType
      */
-    locators?: ReservationLocatorsType;
+    locators?: Array<ReservationLocatorType>;
     /**
      * An id representing the record lock for this reservation. When passed, update operation will verify that this lock is still valid.
      * @type {number}
@@ -385,11 +385,11 @@ export interface HotelReservationType {
      */
     overrideExternalChecks?: boolean;
     /**
-     *
-     * @type {OverrideInstructionsType}
+     * List of override actions done.
+     * @type {Array<OverrideInstructionType>}
      * @memberof HotelReservationType
      */
-    overrideInstructions?: OverrideInstructionsType;
+    overrideInstructions?: Array<OverrideInstructionType>;
     /**
      * Indicates to Override the Room Inventory Check if applicable.
      * @type {boolean}
@@ -421,11 +421,11 @@ export interface HotelReservationType {
      */
     preferenceCollection?: Array<PreferenceTypeType>;
     /**
-     *
-     * @type {PrepaidCardsType}
+     * Holds fixed charge detail.
+     * @type {Array<PrepaidCardType>}
      * @memberof HotelReservationType
      */
-    prepaidCards?: PrepaidCardsType;
+    prepaidCards?: Array<PrepaidCardType>;
     /**
      * Name of the Chain for the primary enrollment
      * @type {string}
@@ -445,11 +445,11 @@ export interface HotelReservationType {
      */
     printRate?: boolean;
     /**
-     *
-     * @type {AwardsType}
+     * List of awards.
+     * @type {Array<AwardType>}
      * @memberof HotelReservationType
      */
-    profileAwards?: AwardsType;
+    profileAwards?: Array<AwardType>;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
      * @type {Date}
@@ -469,17 +469,17 @@ export interface HotelReservationType {
      */
     reinstateDate?: Date;
     /**
-     *
-     * @type {ActivityLookUpList}
+     * Criteria for fetching Activity Bookings.
+     * @type {Array<FetchActivityBookingsType>}
      * @memberof HotelReservationType
      */
-    reservationActivities?: ActivityLookUpList;
+    reservationActivities?: Array<FetchActivityBookingsType>;
     /**
-     *
-     * @type {AwardsType}
+     * List of awards.
+     * @type {Array<AwardType>}
      * @memberof HotelReservationType
      */
-    reservationAwards?: AwardsType;
+    reservationAwards?: Array<AwardType>;
     /**
      *
      * @type {ResCommunicationType}
@@ -493,17 +493,17 @@ export interface HotelReservationType {
      */
     reservationGuests?: Array<ResGuestType>;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof HotelReservationType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof HotelReservationType
      */
-    reservationIndicators?: IndicatorsType;
+    reservationIndicators?: Array<IndicatorType>;
     /**
      * List of reservation memberships.
      * @type {Array<ReservationMembershipType>}
@@ -517,11 +517,11 @@ export interface HotelReservationType {
      */
     reservationPackages?: Array<ReservationPackageType>;
     /**
-     *
-     * @type {ReservationPaymentMethodsType}
+     * Defines reservation payment methods.
+     * @type {Array<ReservationPaymentMethodType>}
      * @memberof HotelReservationType
      */
-    reservationPaymentMethods?: ReservationPaymentMethodsType;
+    reservationPaymentMethods?: Array<ReservationPaymentMethodType>;
     /**
      *
      * @type {ReservationPoliciesType}
@@ -553,29 +553,29 @@ export interface HotelReservationType {
      */
     roomStayReservation?: boolean;
     /**
-     *
-     * @type {RoutingInfoListType}
+     * A routing info object can either be of type Folio OR of type Room with its corresponding instructions.
+     * @type {Array<RoutingInfoType>}
      * @memberof HotelReservationType
      */
-    routingInstructions?: RoutingInfoListType;
+    routingInstructions?: Array<RoutingInfoType>;
     /**
-     *
-     * @type {ActivityLookUpList}
+     * Criteria for fetching Activity Bookings.
+     * @type {Array<FetchActivityBookingsType>}
      * @memberof HotelReservationType
      */
-    scheduledActivities?: ActivityLookUpList;
+    scheduledActivities?: Array<FetchActivityBookingsType>;
     /**
-     *
-     * @type {ServiceRequests}
+     * Service request.
+     * @type {Array<ServiceRequest>}
      * @memberof HotelReservationType
      */
-    serviceRequests?: ServiceRequests;
+    serviceRequests?: Array<ServiceRequest>;
     /**
-     *
-     * @type {ResSharedGuestListType}
+     * Collection of shared guest reservations.
+     * @type {Array<ResSharedGuestInfoType>}
      * @memberof HotelReservationType
      */
-    sharedGuests?: ResSharedGuestListType;
+    sharedGuests?: Array<ResSharedGuestInfoType>;
     /**
      *
      * @type {HotelReservationsType}
@@ -595,23 +595,23 @@ export interface HotelReservationType {
      */
     statisticalClassification?: ResStatClassificationType;
     /**
-     *
-     * @type {TicketsType}
+     * Collection of TicketType objects.
+     * @type {Array<TicketType>}
      * @memberof HotelReservationType
      */
-    tickets?: TicketsType;
+    tickets?: Array<TicketType>;
+    /**
+     * List of Reservation Traces.
+     * @type {Array<HotelReservationTraceType>}
+     * @memberof HotelReservationType
+     */
+    traces?: Array<HotelReservationTraceType>;
     /**
      *
-     * @type {HotelReservationTracesType}
+     * @type {Array<TrackItItemType>}
      * @memberof HotelReservationType
      */
-    traces?: HotelReservationTracesType;
-    /**
-     *
-     * @type {TrackItItemsType}
-     * @memberof HotelReservationType
-     */
-    trackItItems?: TrackItItemsType;
+    trackItItems?: Array<TrackItItemType>;
     /**
      *
      * @type {HotelReservationTypeTransactionDiversions}
@@ -643,11 +643,11 @@ export interface HotelReservationType {
      */
     walkIn?: boolean;
     /**
-     *
-     * @type {AttachmentsType}
+     * Attachment List.
+     * @type {Array<AttachmentType>}
      * @memberof HotelReservationType
      */
-    webRegistrationCards?: AttachmentsType;
+    webRegistrationCards?: Array<AttachmentType>;
 }
 /**
  * Check if a given object implements the HotelReservationType interface.

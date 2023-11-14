@@ -11,10 +11,10 @@
  */
 import type { ChannelResvRQInfoType } from './ChannelResvRQInfoType';
 import type { HotelReservationsType } from './HotelReservationsType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationInstructionType } from './ReservationInstructionType';
 import type { ReservationsInstructionsType } from './ReservationsInstructionsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to create reservations. Includes instructions for information which needs to be returned.
  * @export
@@ -35,10 +35,10 @@ export interface CreateReservation {
     fetchInstructions?: Array<ReservationInstructionType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreateReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {HotelReservationsType}
@@ -52,11 +52,11 @@ export interface CreateReservation {
      */
     reservationsInstructionsType?: ReservationsInstructionsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreateReservation interface.

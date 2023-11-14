@@ -9,10 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CommissionNotesListType } from './CommissionNotesListType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationId } from './ReservationId';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response type for fetching commission notes.
  * @export
@@ -20,11 +19,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CommissionNotesDetails {
     /**
-     *
-     * @type {CommissionNotesListType}
+     * Commission Note for the reservation.
+     * @type {Array<string>}
      * @memberof CommissionNotesDetails
      */
-    commissionNotesList?: CommissionNotesListType;
+    commissionNotesList?: Array<string>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -33,10 +32,10 @@ export interface CommissionNotesDetails {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CommissionNotesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationId}
@@ -44,11 +43,11 @@ export interface CommissionNotesDetails {
      */
     reservationId?: ReservationId;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CommissionNotesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CommissionNotesDetails interface.

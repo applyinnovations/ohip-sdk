@@ -11,7 +11,7 @@
  */
 import type { CodeDescriptionType } from './CodeDescriptionType';
 import type { LetterTypeType } from './LetterTypeType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Provide unique identification of Hotel Letter associated with a Booking Channel.
  * @export
@@ -49,11 +49,11 @@ export interface ChannelHotelLetterType {
      */
     letterType?: LetterTypeType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelHotelLetterType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelHotelLetterType interface.

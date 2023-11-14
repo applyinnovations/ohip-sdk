@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TransportationCriteriaToJSON = exports.TransportationCriteriaFromJSONTyped = exports.TransportationCriteriaFromJSON = exports.instanceOfTransportationCriteria = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TransportationListType_1 = require("./TransportationListType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TransportationType_1 = require("./TransportationType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TransportationCriteria interface.
  */
@@ -35,9 +35,9 @@ function TransportationCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'transportationList': !(0, runtime_1.exists)(json, 'transportationList') ? undefined : (0, TransportationListType_1.TransportationListTypeFromJSON)(json['transportationList']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'transportationList': !(0, runtime_1.exists)(json, 'transportationList') ? undefined : (json['transportationList'].map(TransportationType_1.TransportationTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TransportationCriteriaFromJSONTyped = TransportationCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function TransportationCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'transportationList': (0, TransportationListType_1.TransportationListTypeToJSON)(value.transportationList),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'transportationList': value.transportationList === undefined ? undefined : (value.transportationList.map(TransportationType_1.TransportationTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TransportationCriteriaToJSON = TransportationCriteriaToJSON;

@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { BlockAllocationWashType } from './BlockAllocationWashType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for block wash operation.
  * @export
@@ -26,16 +26,16 @@ export interface BlockAllocationWash {
     blockAllocationWashType?: BlockAllocationWashType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockAllocationWash
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockAllocationWash
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockAllocationWash interface.

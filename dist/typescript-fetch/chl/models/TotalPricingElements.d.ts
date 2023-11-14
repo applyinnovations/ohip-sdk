@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TotalPricingElementsType } from './TotalPricingElementsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TotalPricingElementType } from './TotalPricingElementType';
+import type { WarningType } from './WarningType';
 /**
  * Response object to populate total pricing elements of the GDS channel.
  * @export
@@ -38,10 +38,10 @@ export interface TotalPricingElements {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TotalPricingElements
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -55,11 +55,11 @@ export interface TotalPricingElements {
      */
     totalPages?: number;
     /**
-     *
-     * @type {TotalPricingElementsType}
+     * List of Total Pricing Element Type
+     * @type {Array<TotalPricingElementType>}
      * @memberof TotalPricingElements
      */
-    totalPricingElements?: TotalPricingElementsType;
+    totalPricingElements?: Array<TotalPricingElementType>;
     /**
      * Total number of rows queried
      * @type {number}
@@ -67,11 +67,11 @@ export interface TotalPricingElements {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TotalPricingElements
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TotalPricingElements interface.

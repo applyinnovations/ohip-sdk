@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { TaxBracketAmountsType } from './TaxBracketAmountsType';
+import type { TaxBracketAmountType } from './TaxBracketAmountType';
 import type { TranslationTextType2000 } from './TranslationTextType2000';
 /**
  * This gives information for uniquely identifying a tax bracket detail.
@@ -30,11 +30,11 @@ export interface TaxBracketType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {TaxBracketAmountsType}
+     * Details used for storing information about a tax bracket amount.
+     * @type {Array<TaxBracketAmountType>}
      * @memberof TaxBracketType
      */
-    taxBracketAmounts?: TaxBracketAmountsType;
+    taxBracketAmounts?: Array<TaxBracketAmountType>;
     /**
      * Tax Percentage for which this Tax Bracket applies.
      * @type {number}

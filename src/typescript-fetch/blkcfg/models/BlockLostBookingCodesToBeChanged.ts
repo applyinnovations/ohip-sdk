@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockLostBookingCodesType } from './BlockLostBookingCodesType';
+import type { BlockLostBookingCodeType } from './BlockLostBookingCodeType';
 import {
-    BlockLostBookingCodesTypeFromJSON,
-    BlockLostBookingCodesTypeFromJSONTyped,
-    BlockLostBookingCodesTypeToJSON,
-} from './BlockLostBookingCodesType';
-import type { Links } from './Links';
+    BlockLostBookingCodeTypeFromJSON,
+    BlockLostBookingCodeTypeFromJSONTyped,
+    BlockLostBookingCodeTypeToJSON,
+} from './BlockLostBookingCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Block Lost Booking Codes.
@@ -39,23 +39,23 @@ import {
  */
 export interface BlockLostBookingCodesToBeChanged {
     /**
-     * 
-     * @type {BlockLostBookingCodesType}
+     * List of Block Lost Booking Codes.
+     * @type {Array<BlockLostBookingCodeType>}
      * @memberof BlockLostBookingCodesToBeChanged
      */
-    blockLostBookingCodes?: BlockLostBookingCodesType;
+    blockLostBookingCodes?: Array<BlockLostBookingCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockLostBookingCodesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockLostBookingCodesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function BlockLostBookingCodesToBeChangedFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'blockLostBookingCodes': !exists(json, 'blockLostBookingCodes') ? undefined : BlockLostBookingCodesTypeFromJSON(json['blockLostBookingCodes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'blockLostBookingCodes': !exists(json, 'blockLostBookingCodes') ? undefined : ((json['blockLostBookingCodes'] as Array<any>).map(BlockLostBookingCodeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function BlockLostBookingCodesToBeChangedToJSON(value?: BlockLostBookingC
     }
     return {
         
-        'blockLostBookingCodes': BlockLostBookingCodesTypeToJSON(value.blockLostBookingCodes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'blockLostBookingCodes': value.blockLostBookingCodes === undefined ? undefined : ((value.blockLostBookingCodes as Array<any>).map(BlockLostBookingCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

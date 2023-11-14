@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TrackItItemsType } from './TrackItItemsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TrackItItemType } from './TrackItItemType';
+import type { WarningType } from './WarningType';
 /**
  * Response object that retrieves Track It items.
  * @export
@@ -26,22 +26,22 @@ export interface TrackItItems {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TrackItItems
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
-     * @type {TrackItItemsType}
+     * @type {Array<TrackItItemType>}
      * @memberof TrackItItems
      */
-    trackItItemsInfo?: TrackItItemsType;
+    trackItItemsInfo?: Array<TrackItItemType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TrackItItems
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TrackItItems interface.

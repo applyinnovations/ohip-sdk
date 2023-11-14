@@ -25,12 +25,12 @@ import {
     ResGuaranteeTypeFromJSONTyped,
     ResGuaranteeTypeToJSON,
 } from './ResGuaranteeType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -57,11 +57,11 @@ export interface ReservationSummaryType {
      */
     guestLastName?: string;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ReservationSummaryType
      */
-    reservationIdList?: UniqueIDListType;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {DateRangeType}
@@ -92,7 +92,7 @@ export function ReservationSummaryTypeFromJSONTyped(json: any, ignoreDiscriminat
         'guarantee': !exists(json, 'guarantee') ? undefined : ResGuaranteeTypeFromJSON(json['guarantee']),
         'guestFirstName': !exists(json, 'guestFirstName') ? undefined : json['guestFirstName'],
         'guestLastName': !exists(json, 'guestLastName') ? undefined : json['guestLastName'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : UniqueIDListTypeFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'stayPeriod': !exists(json, 'stayPeriod') ? undefined : DateRangeTypeFromJSON(json['stayPeriod']),
     };
 }
@@ -109,7 +109,7 @@ export function ReservationSummaryTypeToJSON(value?: ReservationSummaryType | nu
         'guarantee': ResGuaranteeTypeToJSON(value.guarantee),
         'guestFirstName': value.guestFirstName,
         'guestLastName': value.guestLastName,
-        'reservationIdList': UniqueIDListTypeToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'stayPeriod': DateRangeTypeToJSON(value.stayPeriod),
     };
 }

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ForeignCurrenciesToJSON = exports.ForeignCurrenciesFromJSONTyped = exports.ForeignCurrenciesFromJSON = exports.instanceOfForeignCurrencies = void 0;
 const runtime_1 = require("../runtime");
-const ForeignCurrenciesType_1 = require("./ForeignCurrenciesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ForeignCurrencyType_1 = require("./ForeignCurrencyType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ForeignCurrencies interface.
  */
@@ -35,9 +35,9 @@ function ForeignCurrenciesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'foreignCurrencies': !(0, runtime_1.exists)(json, 'foreignCurrencies') ? undefined : (0, ForeignCurrenciesType_1.ForeignCurrenciesTypeFromJSON)(json['foreignCurrencies']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'foreignCurrencies': !(0, runtime_1.exists)(json, 'foreignCurrencies') ? undefined : (json['foreignCurrencies'].map(ForeignCurrencyType_1.ForeignCurrencyTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ForeignCurrenciesFromJSONTyped = ForeignCurrenciesFromJSONTyped;
@@ -49,9 +49,9 @@ function ForeignCurrenciesToJSON(value) {
         return null;
     }
     return {
-        'foreignCurrencies': (0, ForeignCurrenciesType_1.ForeignCurrenciesTypeToJSON)(value.foreignCurrencies),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'foreignCurrencies': value.foreignCurrencies === undefined ? undefined : (value.foreignCurrencies.map(ForeignCurrencyType_1.ForeignCurrencyTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ForeignCurrenciesToJSON = ForeignCurrenciesToJSON;

@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for batch zero balance check out.
  * @export
@@ -19,10 +19,10 @@ import type { WarningsType } from './WarningsType';
 export interface BatchZeroBalanceCheckoutDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BatchZeroBalanceCheckoutDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Used for Character Strings, length 0 to 40.
      * @type {string}
@@ -36,11 +36,11 @@ export interface BatchZeroBalanceCheckoutDetails {
      */
     resvCount?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BatchZeroBalanceCheckoutDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BatchZeroBalanceCheckoutDetails interface.

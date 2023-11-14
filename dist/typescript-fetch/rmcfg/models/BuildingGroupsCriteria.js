@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BuildingGroupsCriteriaToJSON = exports.BuildingGroupsCriteriaFromJSONTyped = exports.BuildingGroupsCriteriaFromJSON = exports.instanceOfBuildingGroupsCriteria = void 0;
 const runtime_1 = require("../runtime");
-const BuildingGroupsType_1 = require("./BuildingGroupsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const BuildingGroupType_1 = require("./BuildingGroupType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BuildingGroupsCriteria interface.
  */
@@ -35,9 +35,9 @@ function BuildingGroupsCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'buildingGroups': !(0, runtime_1.exists)(json, 'buildingGroups') ? undefined : (0, BuildingGroupsType_1.BuildingGroupsTypeFromJSON)(json['buildingGroups']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'buildingGroups': !(0, runtime_1.exists)(json, 'buildingGroups') ? undefined : (json['buildingGroups'].map(BuildingGroupType_1.BuildingGroupTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BuildingGroupsCriteriaFromJSONTyped = BuildingGroupsCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function BuildingGroupsCriteriaToJSON(value) {
         return null;
     }
     return {
-        'buildingGroups': (0, BuildingGroupsType_1.BuildingGroupsTypeToJSON)(value.buildingGroups),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'buildingGroups': value.buildingGroups === undefined ? undefined : (value.buildingGroups.map(BuildingGroupType_1.BuildingGroupTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BuildingGroupsCriteriaToJSON = BuildingGroupsCriteriaToJSON;

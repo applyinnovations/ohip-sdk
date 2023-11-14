@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RevenueBucketCodeTypeToJSON = exports.RevenueBucketCodeTypeFromJSONTyped = exports.RevenueBucketCodeTypeFromJSON = exports.instanceOfRevenueBucketCodeType = void 0;
 const runtime_1 = require("../runtime");
 const BucketTypeType_1 = require("./BucketTypeType");
-const TrxCodesInfoType_1 = require("./TrxCodesInfoType");
+const TrxInfoType_1 = require("./TrxInfoType");
 /**
  * Check if a given object implements the RevenueBucketCodeType interface.
  */
@@ -41,7 +41,7 @@ function RevenueBucketCodeTypeFromJSONTyped(json, ignoreDiscriminator) {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'pointsEligible': !(0, runtime_1.exists)(json, 'pointsEligible') ? undefined : json['pointsEligible'],
         'revenueBucketType': !(0, runtime_1.exists)(json, 'revenueBucketType') ? undefined : json['revenueBucketType'],
-        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (0, TrxCodesInfoType_1.TrxCodesInfoTypeFromJSON)(json['transactionCodes']),
+        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (json['transactionCodes'].map(TrxInfoType_1.TrxInfoTypeFromJSON)),
     };
 }
 exports.RevenueBucketCodeTypeFromJSONTyped = RevenueBucketCodeTypeFromJSONTyped;
@@ -60,7 +60,7 @@ function RevenueBucketCodeTypeToJSON(value) {
         'hotelId': value.hotelId,
         'pointsEligible': value.pointsEligible,
         'revenueBucketType': value.revenueBucketType,
-        'transactionCodes': (0, TrxCodesInfoType_1.TrxCodesInfoTypeToJSON)(value.transactionCodes),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : (value.transactionCodes.map(TrxInfoType_1.TrxInfoTypeToJSON)),
     };
 }
 exports.RevenueBucketCodeTypeToJSON = RevenueBucketCodeTypeToJSON;

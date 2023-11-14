@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { FolioTypesInfoType } from './FolioTypesInfoType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Information regarding the Folio Types.
  * @export
@@ -26,16 +26,16 @@ export interface FolioTypesInfo {
     folioInfo?: Array<FolioTypesInfoType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FolioTypesInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FolioTypesInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FolioTypesInfo interface.

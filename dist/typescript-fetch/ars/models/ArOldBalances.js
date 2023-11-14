@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ArOldBalancesToJSON = exports.ArOldBalancesFromJSONTyped = exports.ArOldBalancesFromJSON = exports.instanceOfArOldBalances = void 0;
 const runtime_1 = require("../runtime");
-const AROldBalancePostingsType_1 = require("./AROldBalancePostingsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const AROldBalancePostingType_1 = require("./AROldBalancePostingType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ArOldBalances interface.
  */
@@ -35,9 +35,9 @@ function ArOldBalancesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'oldBalances': !(0, runtime_1.exists)(json, 'oldBalances') ? undefined : (0, AROldBalancePostingsType_1.AROldBalancePostingsTypeFromJSON)(json['oldBalances']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'oldBalances': !(0, runtime_1.exists)(json, 'oldBalances') ? undefined : (json['oldBalances'].map(AROldBalancePostingType_1.AROldBalancePostingTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ArOldBalancesFromJSONTyped = ArOldBalancesFromJSONTyped;
@@ -49,9 +49,9 @@ function ArOldBalancesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'oldBalances': (0, AROldBalancePostingsType_1.AROldBalancePostingsTypeToJSON)(value.oldBalances),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'oldBalances': value.oldBalances === undefined ? undefined : (value.oldBalances.map(AROldBalancePostingType_1.AROldBalancePostingTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ArOldBalancesToJSON = ArOldBalancesToJSON;

@@ -17,7 +17,7 @@ exports.ReservationSummaryTypeToJSON = exports.ReservationSummaryTypeFromJSONTyp
 const runtime_1 = require("../runtime");
 const DateRangeType_1 = require("./DateRangeType");
 const ResGuaranteeType_1 = require("./ResGuaranteeType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ReservationSummaryType interface.
  */
@@ -38,7 +38,7 @@ function ReservationSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
         'guarantee': !(0, runtime_1.exists)(json, 'guarantee') ? undefined : (0, ResGuaranteeType_1.ResGuaranteeTypeFromJSON)(json['guarantee']),
         'guestFirstName': !(0, runtime_1.exists)(json, 'guestFirstName') ? undefined : json['guestFirstName'],
         'guestLastName': !(0, runtime_1.exists)(json, 'guestLastName') ? undefined : json['guestLastName'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'stayPeriod': !(0, runtime_1.exists)(json, 'stayPeriod') ? undefined : (0, DateRangeType_1.DateRangeTypeFromJSON)(json['stayPeriod']),
     };
 }
@@ -54,7 +54,7 @@ function ReservationSummaryTypeToJSON(value) {
         'guarantee': (0, ResGuaranteeType_1.ResGuaranteeTypeToJSON)(value.guarantee),
         'guestFirstName': value.guestFirstName,
         'guestLastName': value.guestLastName,
-        'reservationIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'stayPeriod': (0, DateRangeType_1.DateRangeTypeToJSON)(value.stayPeriod),
     };
 }

@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FacilityTotalForecastTypeToJSON = exports.FacilityTotalForecastTypeFromJSONTyped = exports.FacilityTotalForecastTypeFromJSON = exports.instanceOfFacilityTotalForecastType = void 0;
 const runtime_1 = require("../runtime");
-const FacilityCodesForecastType_1 = require("./FacilityCodesForecastType");
-const ForecastTotalsQuantitiesType_1 = require("./ForecastTotalsQuantitiesType");
+const FacilityCodeForecastType_1 = require("./FacilityCodeForecastType");
+const ForecastTotalsQuantityType_1 = require("./ForecastTotalsQuantityType");
 /**
  * Check if a given object implements the FacilityTotalForecastType interface.
  */
@@ -34,8 +34,8 @@ function FacilityTotalForecastTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'totalFacilityCodes': !(0, runtime_1.exists)(json, 'totalFacilityCodes') ? undefined : (0, FacilityCodesForecastType_1.FacilityCodesForecastTypeFromJSON)(json['totalFacilityCodes']),
-        'totals': !(0, runtime_1.exists)(json, 'totals') ? undefined : (0, ForecastTotalsQuantitiesType_1.ForecastTotalsQuantitiesTypeFromJSON)(json['totals']),
+        'totalFacilityCodes': !(0, runtime_1.exists)(json, 'totalFacilityCodes') ? undefined : (json['totalFacilityCodes'].map(FacilityCodeForecastType_1.FacilityCodeForecastTypeFromJSON)),
+        'totals': !(0, runtime_1.exists)(json, 'totals') ? undefined : (json['totals'].map(ForecastTotalsQuantityType_1.ForecastTotalsQuantityTypeFromJSON)),
     };
 }
 exports.FacilityTotalForecastTypeFromJSONTyped = FacilityTotalForecastTypeFromJSONTyped;
@@ -47,8 +47,8 @@ function FacilityTotalForecastTypeToJSON(value) {
         return null;
     }
     return {
-        'totalFacilityCodes': (0, FacilityCodesForecastType_1.FacilityCodesForecastTypeToJSON)(value.totalFacilityCodes),
-        'totals': (0, ForecastTotalsQuantitiesType_1.ForecastTotalsQuantitiesTypeToJSON)(value.totals),
+        'totalFacilityCodes': value.totalFacilityCodes === undefined ? undefined : (value.totalFacilityCodes.map(FacilityCodeForecastType_1.FacilityCodeForecastTypeToJSON)),
+        'totals': value.totals === undefined ? undefined : (value.totals.map(ForecastTotalsQuantityType_1.ForecastTotalsQuantityTypeToJSON)),
     };
 }
 exports.FacilityTotalForecastTypeToJSON = FacilityTotalForecastTypeToJSON;

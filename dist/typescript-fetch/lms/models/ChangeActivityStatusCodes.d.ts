@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ActivityStatusCodesType } from './ActivityStatusCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ActivityStatusCodeType } from './ActivityStatusCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Activity Status Codes.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ChangeActivityStatusCodes {
     /**
-     *
-     * @type {ActivityStatusCodesType}
+     * Activity Status Codes object.
+     * @type {Array<ActivityStatusCodeType>}
      * @memberof ChangeActivityStatusCodes
      */
-    activityStatusCodes?: ActivityStatusCodesType;
+    activityStatusCodes?: Array<ActivityStatusCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangeActivityStatusCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeActivityStatusCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChangeActivityStatusCodes interface.

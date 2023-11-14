@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CopyCustomChargeExemptionConfigType } from './CopyCustomChargeExemptionConfigType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -26,16 +26,16 @@ export interface CustomChargeExemptionsConfigCopy {
     customChargeExemptionsConfigCopy?: Array<CopyCustomChargeExemptionConfigType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CustomChargeExemptionsConfigCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CustomChargeExemptionsConfigCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CustomChargeExemptionsConfigCopy interface.

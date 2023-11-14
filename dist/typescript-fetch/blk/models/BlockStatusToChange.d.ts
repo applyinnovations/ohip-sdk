@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ChangeBlockStatusType } from './ChangeBlockStatusType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing the booking status of the business block.
  * @export
@@ -38,10 +38,10 @@ export interface BlockStatusToChange {
     changeBlockStatus?: ChangeBlockStatusType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockStatusToChange
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Indicator if the request is a verification on whether the block status can be changed.
      * @type {boolean}
@@ -49,11 +49,11 @@ export interface BlockStatusToChange {
      */
     verificationOnly?: boolean;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockStatusToChange
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockStatusToChange interface.

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { TrxSplitAndTransferCriteriaTypeSplitDetails } from './TrxSplitAndTransferCriteriaTypeSplitDetails';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Type to define the criteria for Splitting and Transferring the new transaction.
  * @export
@@ -42,11 +42,11 @@ export interface TrxSplitAndTransferCriteriaType {
      */
     targetFolioWindowNo?: number;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof TrxSplitAndTransferCriteriaType
      */
-    targetReservationIdList?: UniqueIDListType;
+    targetReservationIdList?: Array<UniqueIDType>;
     /**
      * The unique transaction number of this transaction.
      * @type {Array<number>}

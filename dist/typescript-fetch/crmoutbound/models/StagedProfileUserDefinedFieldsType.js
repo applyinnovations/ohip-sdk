@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StagedProfileUserDefinedFieldsTypeToJSON = exports.StagedProfileUserDefinedFieldsTypeFromJSONTyped = exports.StagedProfileUserDefinedFieldsTypeFromJSON = exports.instanceOfStagedProfileUserDefinedFieldsType = void 0;
 const runtime_1 = require("../runtime");
-const StagedProfileCharacterUDFsType_1 = require("./StagedProfileCharacterUDFsType");
-const StagedProfileDateUDFsType_1 = require("./StagedProfileDateUDFsType");
-const StagedProfileNumericUDFsType_1 = require("./StagedProfileNumericUDFsType");
+const StagedProfileCharacterUDFType_1 = require("./StagedProfileCharacterUDFType");
+const StagedProfileDateUDFType_1 = require("./StagedProfileDateUDFType");
+const StagedProfileNumericUDFType_1 = require("./StagedProfileNumericUDFType");
 /**
  * Check if a given object implements the StagedProfileUserDefinedFieldsType interface.
  */
@@ -35,9 +35,9 @@ function StagedProfileUserDefinedFieldsTypeFromJSONTyped(json, ignoreDiscriminat
         return json;
     }
     return {
-        'characterUDFs': !(0, runtime_1.exists)(json, 'characterUDFs') ? undefined : (0, StagedProfileCharacterUDFsType_1.StagedProfileCharacterUDFsTypeFromJSON)(json['characterUDFs']),
-        'numericUDFs': !(0, runtime_1.exists)(json, 'numericUDFs') ? undefined : (0, StagedProfileNumericUDFsType_1.StagedProfileNumericUDFsTypeFromJSON)(json['numericUDFs']),
-        'dateUDFs': !(0, runtime_1.exists)(json, 'dateUDFs') ? undefined : (0, StagedProfileDateUDFsType_1.StagedProfileDateUDFsTypeFromJSON)(json['dateUDFs']),
+        'characterUDFs': !(0, runtime_1.exists)(json, 'characterUDFs') ? undefined : (json['characterUDFs'].map(StagedProfileCharacterUDFType_1.StagedProfileCharacterUDFTypeFromJSON)),
+        'numericUDFs': !(0, runtime_1.exists)(json, 'numericUDFs') ? undefined : (json['numericUDFs'].map(StagedProfileNumericUDFType_1.StagedProfileNumericUDFTypeFromJSON)),
+        'dateUDFs': !(0, runtime_1.exists)(json, 'dateUDFs') ? undefined : (json['dateUDFs'].map(StagedProfileDateUDFType_1.StagedProfileDateUDFTypeFromJSON)),
     };
 }
 exports.StagedProfileUserDefinedFieldsTypeFromJSONTyped = StagedProfileUserDefinedFieldsTypeFromJSONTyped;
@@ -49,9 +49,9 @@ function StagedProfileUserDefinedFieldsTypeToJSON(value) {
         return null;
     }
     return {
-        'characterUDFs': (0, StagedProfileCharacterUDFsType_1.StagedProfileCharacterUDFsTypeToJSON)(value.characterUDFs),
-        'numericUDFs': (0, StagedProfileNumericUDFsType_1.StagedProfileNumericUDFsTypeToJSON)(value.numericUDFs),
-        'dateUDFs': (0, StagedProfileDateUDFsType_1.StagedProfileDateUDFsTypeToJSON)(value.dateUDFs),
+        'characterUDFs': value.characterUDFs === undefined ? undefined : (value.characterUDFs.map(StagedProfileCharacterUDFType_1.StagedProfileCharacterUDFTypeToJSON)),
+        'numericUDFs': value.numericUDFs === undefined ? undefined : (value.numericUDFs.map(StagedProfileNumericUDFType_1.StagedProfileNumericUDFTypeToJSON)),
+        'dateUDFs': value.dateUDFs === undefined ? undefined : (value.dateUDFs.map(StagedProfileDateUDFType_1.StagedProfileDateUDFTypeToJSON)),
     };
 }
 exports.StagedProfileUserDefinedFieldsTypeToJSON = StagedProfileUserDefinedFieldsTypeToJSON;

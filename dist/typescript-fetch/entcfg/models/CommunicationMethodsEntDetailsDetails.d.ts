@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CommunicationMethodsEntDetailsType } from './CommunicationMethodsEntDetailsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CommunicationMethodsEntDetailType } from './CommunicationMethodsEntDetailType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Communication Methods Ent Details.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CommunicationMethodsEntDetailsDetails {
     /**
-     *
-     * @type {CommunicationMethodsEntDetailsType}
+     * List of Communication Methods Ent Details.
+     * @type {Array<CommunicationMethodsEntDetailType>}
      * @memberof CommunicationMethodsEntDetailsDetails
      */
-    communicationMethodsEntDetails?: CommunicationMethodsEntDetailsType;
+    communicationMethodsEntDetails?: Array<CommunicationMethodsEntDetailType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CommunicationMethodsEntDetailsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CommunicationMethodsEntDetailsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CommunicationMethodsEntDetailsDetails interface.

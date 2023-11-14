@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { MenuTypeType } from './MenuTypeType';
 /**
  *
@@ -25,10 +24,10 @@ export interface CateringMenuItemClassInfoType {
     className?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CateringMenuItemClassInfoType
      */
-    eventTypeList?: CodeListType;
+    eventTypeList?: Array<string>;
     /**
      * The Hotel code which the menu item class belongs to
      * @type {string}
@@ -49,10 +48,10 @@ export interface CateringMenuItemClassInfoType {
     menuType?: MenuTypeType;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CateringMenuItemClassInfoType
      */
-    responsibleDepartmentList?: CodeListType;
+    responsibleDepartmentList?: Array<string>;
     /**
      * Sequence of the Menu Class
      * @type {number}

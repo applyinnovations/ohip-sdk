@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelPoliciesInfoType } from './ChannelPoliciesInfoType';
+import type { ChannelPolicyType } from './ChannelPolicyType';
 import {
-    ChannelPoliciesInfoTypeFromJSON,
-    ChannelPoliciesInfoTypeFromJSONTyped,
-    ChannelPoliciesInfoTypeToJSON,
-} from './ChannelPoliciesInfoType';
-import type { Links } from './Links';
+    ChannelPolicyTypeFromJSON,
+    ChannelPolicyTypeFromJSONTyped,
+    ChannelPolicyTypeToJSON,
+} from './ChannelPolicyType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for fetching Policies, guarantee, and deposit Details.
@@ -39,23 +39,23 @@ import {
  */
 export interface ChannelPolicies {
     /**
-     * 
-     * @type {ChannelPoliciesInfoType}
+     * To list down all the policies associated with the relevant input request.
+     * @type {Array<ChannelPolicyType>}
      * @memberof ChannelPolicies
      */
-    channelPoliciesInfo?: ChannelPoliciesInfoType;
+    channelPoliciesInfo?: Array<ChannelPolicyType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelPolicies
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelPolicies
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ChannelPoliciesFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'channelPoliciesInfo': !exists(json, 'channelPoliciesInfo') ? undefined : ChannelPoliciesInfoTypeFromJSON(json['channelPoliciesInfo']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'channelPoliciesInfo': !exists(json, 'channelPoliciesInfo') ? undefined : ((json['channelPoliciesInfo'] as Array<any>).map(ChannelPolicyTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ChannelPoliciesToJSON(value?: ChannelPolicies | null): any {
     }
     return {
         
-        'channelPoliciesInfo': ChannelPoliciesInfoTypeToJSON(value.channelPoliciesInfo),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'channelPoliciesInfo': value.channelPoliciesInfo === undefined ? undefined : ((value.channelPoliciesInfo as Array<any>).map(ChannelPolicyTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

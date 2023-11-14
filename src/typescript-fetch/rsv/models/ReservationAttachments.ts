@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AttachmentsType } from './AttachmentsType';
+import type { AttachmentType } from './AttachmentType';
 import {
-    AttachmentsTypeFromJSON,
-    AttachmentsTypeFromJSONTyped,
-    AttachmentsTypeToJSON,
-} from './AttachmentsType';
-import type { Links } from './Links';
+    AttachmentTypeFromJSON,
+    AttachmentTypeFromJSONTyped,
+    AttachmentTypeToJSON,
+} from './AttachmentType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Return object to the request for information regarding reservation attachments.
@@ -40,22 +40,22 @@ import {
 export interface ReservationAttachments {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationAttachments
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {AttachmentsType}
+     * Attachment List.
+     * @type {Array<AttachmentType>}
      * @memberof ReservationAttachments
      */
-    reservationAttachments?: AttachmentsType;
+    reservationAttachments?: Array<AttachmentType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationAttachments
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ReservationAttachmentsFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'reservationAttachments': !exists(json, 'reservationAttachments') ? undefined : AttachmentsTypeFromJSON(json['reservationAttachments']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'reservationAttachments': !exists(json, 'reservationAttachments') ? undefined : ((json['reservationAttachments'] as Array<any>).map(AttachmentTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ReservationAttachmentsToJSON(value?: ReservationAttachments | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'reservationAttachments': AttachmentsTypeToJSON(value.reservationAttachments),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'reservationAttachments': value.reservationAttachments === undefined ? undefined : ((value.reservationAttachments as Array<any>).map(AttachmentTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

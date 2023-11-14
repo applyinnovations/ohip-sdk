@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExportConfigurationTypeToJSON = exports.ExportConfigurationTypeFromJSONTyped = exports.ExportConfigurationTypeFromJSON = exports.instanceOfExportConfigurationType = void 0;
 const runtime_1 = require("../runtime");
-const ExportColumnsType_1 = require("./ExportColumnsType");
-const ExportComponentsType_1 = require("./ExportComponentsType");
+const ExportColumnDetailType_1 = require("./ExportColumnDetailType");
+const ExportComponentType_1 = require("./ExportComponentType");
 const ExportDataSetupType_1 = require("./ExportDataSetupType");
 const ExportDestinationType_1 = require("./ExportDestinationType");
 const ExportGenerateConfigurationType_1 = require("./ExportGenerateConfigurationType");
@@ -39,8 +39,8 @@ function ExportConfigurationTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'columns': !(0, runtime_1.exists)(json, 'columns') ? undefined : (0, ExportColumnsType_1.ExportColumnsTypeFromJSON)(json['columns']),
-        'components': !(0, runtime_1.exists)(json, 'components') ? undefined : (0, ExportComponentsType_1.ExportComponentsTypeFromJSON)(json['components']),
+        'columns': !(0, runtime_1.exists)(json, 'columns') ? undefined : (json['columns'].map(ExportColumnDetailType_1.ExportColumnDetailTypeFromJSON)),
+        'components': !(0, runtime_1.exists)(json, 'components') ? undefined : (json['components'].map(ExportComponentType_1.ExportComponentTypeFromJSON)),
         'dataSetup': !(0, runtime_1.exists)(json, 'dataSetup') ? undefined : (0, ExportDataSetupType_1.ExportDataSetupTypeFromJSON)(json['dataSetup']),
         'destinationSetup': !(0, runtime_1.exists)(json, 'destinationSetup') ? undefined : (0, ExportDestinationType_1.ExportDestinationTypeFromJSON)(json['destinationSetup']),
         'generateConfigSetup': !(0, runtime_1.exists)(json, 'generateConfigSetup') ? undefined : (0, ExportGenerateConfigurationType_1.ExportGenerateConfigurationTypeFromJSON)(json['generateConfigSetup']),
@@ -57,8 +57,8 @@ function ExportConfigurationTypeToJSON(value) {
         return null;
     }
     return {
-        'columns': (0, ExportColumnsType_1.ExportColumnsTypeToJSON)(value.columns),
-        'components': (0, ExportComponentsType_1.ExportComponentsTypeToJSON)(value.components),
+        'columns': value.columns === undefined ? undefined : (value.columns.map(ExportColumnDetailType_1.ExportColumnDetailTypeToJSON)),
+        'components': value.components === undefined ? undefined : (value.components.map(ExportComponentType_1.ExportComponentTypeToJSON)),
         'dataSetup': (0, ExportDataSetupType_1.ExportDataSetupTypeToJSON)(value.dataSetup),
         'destinationSetup': (0, ExportDestinationType_1.ExportDestinationTypeToJSON)(value.destinationSetup),
         'generateConfigSetup': (0, ExportGenerateConfigurationType_1.ExportGenerateConfigurationTypeToJSON)(value.generateConfigSetup),

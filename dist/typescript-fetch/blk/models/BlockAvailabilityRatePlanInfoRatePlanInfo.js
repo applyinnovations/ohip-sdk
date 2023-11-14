@@ -18,7 +18,7 @@ const runtime_1 = require("../runtime");
 const BookingChannelMappingType_1 = require("./BookingChannelMappingType");
 const CancelPenaltyType_1 = require("./CancelPenaltyType");
 const GuaranteeType_1 = require("./GuaranteeType");
-const MealPlansType_1 = require("./MealPlansType");
+const MealPlanCodeType_1 = require("./MealPlanCodeType");
 const ProfileTypeType_1 = require("./ProfileTypeType");
 const RatePlanChannelInfoType_1 = require("./RatePlanChannelInfoType");
 const RatePlanCommissionType_1 = require("./RatePlanCommissionType");
@@ -46,7 +46,7 @@ function BlockAvailabilityRatePlanInfoRatePlanInfoFromJSONTyped(json, ignoreDisc
         'guarantee': !(0, runtime_1.exists)(json, 'guarantee') ? undefined : (0, GuaranteeType_1.GuaranteeTypeFromJSON)(json['guarantee']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'longInfo': !(0, runtime_1.exists)(json, 'longInfo') ? undefined : json['longInfo'],
-        'mealPlans': !(0, runtime_1.exists)(json, 'mealPlans') ? undefined : (0, MealPlansType_1.MealPlansTypeFromJSON)(json['mealPlans']),
+        'mealPlans': !(0, runtime_1.exists)(json, 'mealPlans') ? undefined : (json['mealPlans'].map(MealPlanCodeType_1.MealPlanCodeTypeFromJSON)),
         'negotiatedBy': !(0, runtime_1.exists)(json, 'negotiatedBy') ? undefined : (0, ProfileTypeType_1.ProfileTypeTypeFromJSON)(json['negotiatedBy']),
         'rateCommission': !(0, runtime_1.exists)(json, 'rateCommission') ? undefined : (0, RatePlanCommissionType_1.RatePlanCommissionTypeFromJSON)(json['rateCommission']),
         'ratePlanCategory': !(0, runtime_1.exists)(json, 'ratePlanCategory') ? undefined : json['ratePlanCategory'],
@@ -75,7 +75,7 @@ function BlockAvailabilityRatePlanInfoRatePlanInfoToJSON(value) {
         'guarantee': (0, GuaranteeType_1.GuaranteeTypeToJSON)(value.guarantee),
         'hotelId': value.hotelId,
         'longInfo': value.longInfo,
-        'mealPlans': (0, MealPlansType_1.MealPlansTypeToJSON)(value.mealPlans),
+        'mealPlans': value.mealPlans === undefined ? undefined : (value.mealPlans.map(MealPlanCodeType_1.MealPlanCodeTypeToJSON)),
         'negotiatedBy': (0, ProfileTypeType_1.ProfileTypeTypeToJSON)(value.negotiatedBy),
         'rateCommission': (0, RatePlanCommissionType_1.RatePlanCommissionTypeToJSON)(value.rateCommission),
         'ratePlanCategory': value.ratePlanCategory,

@@ -15,13 +15,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RatePlanScheduleDetailTypeToJSON = exports.RatePlanScheduleDetailTypeFromJSONTyped = exports.RatePlanScheduleDetailTypeFromJSON = exports.instanceOfRatePlanScheduleDetailType = void 0;
 const runtime_1 = require("../runtime");
+const AdjustmentDetailType_1 = require("./AdjustmentDetailType");
 const AdvancedBaseRateOffsetType_1 = require("./AdvancedBaseRateOffsetType");
 const OccupantThresholdPricingType_1 = require("./OccupantThresholdPricingType");
 const RateAmountBoundariesType_1 = require("./RateAmountBoundariesType");
 const RatePackagesType_1 = require("./RatePackagesType");
 const RatePlanScheduleClassificationsType_1 = require("./RatePlanScheduleClassificationsType");
-const RoomTypeListType_1 = require("./RoomTypeListType");
-const ScheduleAdjustmentDetailsType_1 = require("./ScheduleAdjustmentDetailsType");
 const ScheduleRateAmountsType_1 = require("./ScheduleRateAmountsType");
 /**
  * Check if a given object implements the RatePlanScheduleDetailType interface.
@@ -40,7 +39,7 @@ function RatePlanScheduleDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'adjustmentDetails': !(0, runtime_1.exists)(json, 'adjustmentDetails') ? undefined : (0, ScheduleAdjustmentDetailsType_1.ScheduleAdjustmentDetailsTypeFromJSON)(json['adjustmentDetails']),
+        'adjustmentDetails': !(0, runtime_1.exists)(json, 'adjustmentDetails') ? undefined : (json['adjustmentDetails'].map(AdjustmentDetailType_1.AdjustmentDetailTypeFromJSON)),
         'advancedBaseRateOffset': !(0, runtime_1.exists)(json, 'advancedBaseRateOffset') ? undefined : (0, AdvancedBaseRateOffsetType_1.AdvancedBaseRateOffsetTypeFromJSON)(json['advancedBaseRateOffset']),
         'advancedDailyBaseRatePlanCode': !(0, runtime_1.exists)(json, 'advancedDailyBaseRatePlanCode') ? undefined : json['advancedDailyBaseRatePlanCode'],
         'classifications': !(0, runtime_1.exists)(json, 'classifications') ? undefined : (0, RatePlanScheduleClassificationsType_1.RatePlanScheduleClassificationsTypeFromJSON)(json['classifications']),
@@ -51,7 +50,7 @@ function RatePlanScheduleDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         'rateAmountBoundaries': !(0, runtime_1.exists)(json, 'rateAmountBoundaries') ? undefined : (0, RateAmountBoundariesType_1.RateAmountBoundariesTypeFromJSON)(json['rateAmountBoundaries']),
         'rateAmounts': !(0, runtime_1.exists)(json, 'rateAmounts') ? undefined : (0, ScheduleRateAmountsType_1.ScheduleRateAmountsTypeFromJSON)(json['rateAmounts']),
         'rateSchedulePackages': !(0, runtime_1.exists)(json, 'rateSchedulePackages') ? undefined : (0, RatePackagesType_1.RatePackagesTypeFromJSON)(json['rateSchedulePackages']),
-        'roomTypeList': !(0, runtime_1.exists)(json, 'roomTypeList') ? undefined : (0, RoomTypeListType_1.RoomTypeListTypeFromJSON)(json['roomTypeList']),
+        'roomTypeList': !(0, runtime_1.exists)(json, 'roomTypeList') ? undefined : json['roomTypeList'],
         'saturday': !(0, runtime_1.exists)(json, 'saturday') ? undefined : json['saturday'],
         'seasonCode': !(0, runtime_1.exists)(json, 'seasonCode') ? undefined : json['seasonCode'],
         'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
@@ -71,7 +70,7 @@ function RatePlanScheduleDetailTypeToJSON(value) {
         return null;
     }
     return {
-        'adjustmentDetails': (0, ScheduleAdjustmentDetailsType_1.ScheduleAdjustmentDetailsTypeToJSON)(value.adjustmentDetails),
+        'adjustmentDetails': value.adjustmentDetails === undefined ? undefined : (value.adjustmentDetails.map(AdjustmentDetailType_1.AdjustmentDetailTypeToJSON)),
         'advancedBaseRateOffset': (0, AdvancedBaseRateOffsetType_1.AdvancedBaseRateOffsetTypeToJSON)(value.advancedBaseRateOffset),
         'advancedDailyBaseRatePlanCode': value.advancedDailyBaseRatePlanCode,
         'classifications': (0, RatePlanScheduleClassificationsType_1.RatePlanScheduleClassificationsTypeToJSON)(value.classifications),
@@ -82,7 +81,7 @@ function RatePlanScheduleDetailTypeToJSON(value) {
         'rateAmountBoundaries': (0, RateAmountBoundariesType_1.RateAmountBoundariesTypeToJSON)(value.rateAmountBoundaries),
         'rateAmounts': (0, ScheduleRateAmountsType_1.ScheduleRateAmountsTypeToJSON)(value.rateAmounts),
         'rateSchedulePackages': (0, RatePackagesType_1.RatePackagesTypeToJSON)(value.rateSchedulePackages),
-        'roomTypeList': (0, RoomTypeListType_1.RoomTypeListTypeToJSON)(value.roomTypeList),
+        'roomTypeList': value.roomTypeList,
         'saturday': value.saturday,
         'seasonCode': value.seasonCode,
         'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),

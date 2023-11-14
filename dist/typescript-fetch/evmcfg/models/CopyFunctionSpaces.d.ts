@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CopyFunctionSpaceType } from './CopyFunctionSpaceType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating multiple function spaces based on an existing function space. New function space may have different name, display name on function dairy, order of display and combo elements. The rest of the details will be copied from the source function space.
  * @export
@@ -26,16 +26,16 @@ export interface CopyFunctionSpaces {
     copyFunctionSpace?: CopyFunctionSpaceType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CopyFunctionSpaces
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CopyFunctionSpaces
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CopyFunctionSpaces interface.

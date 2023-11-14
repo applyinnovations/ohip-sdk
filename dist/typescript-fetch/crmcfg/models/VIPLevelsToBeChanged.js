@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.VIPLevelsToBeChangedToJSON = exports.VIPLevelsToBeChangedFromJSONTyped = exports.VIPLevelsToBeChangedFromJSON = exports.instanceOfVIPLevelsToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const VIPLevelsType_1 = require("./VIPLevelsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const VIPLevelType_1 = require("./VIPLevelType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the VIPLevelsToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function VIPLevelsToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'vIPLevels': !(0, runtime_1.exists)(json, 'vIPLevels') ? undefined : (0, VIPLevelsType_1.VIPLevelsTypeFromJSON)(json['vIPLevels']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'vIPLevels': !(0, runtime_1.exists)(json, 'vIPLevels') ? undefined : (json['vIPLevels'].map(VIPLevelType_1.VIPLevelTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.VIPLevelsToBeChangedFromJSONTyped = VIPLevelsToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function VIPLevelsToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'vIPLevels': (0, VIPLevelsType_1.VIPLevelsTypeToJSON)(value.vIPLevels),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'vIPLevels': value.vIPLevels === undefined ? undefined : (value.vIPLevels.map(VIPLevelType_1.VIPLevelTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.VIPLevelsToBeChangedToJSON = VIPLevelsToBeChangedToJSON;

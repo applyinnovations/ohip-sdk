@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationOveragePaymentsType } from './ReservationOveragePaymentsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to start the Credit Limit Overage process for the reservations with a folio window balance equal or higher to the credit limit set for the credit card payment method of that folio window.
  * @export
@@ -26,16 +26,16 @@ export interface CreditLimitOveragePayments {
     criteria?: ReservationOveragePaymentsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreditLimitOveragePayments
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreditLimitOveragePayments
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreditLimitOveragePayments interface.

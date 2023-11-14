@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RatePlanBasedOnRateTypeDynamicBaseRateToJSON = exports.RatePlanBasedOnRateTypeDynamicBaseRateFromJSONTyped = exports.RatePlanBasedOnRateTypeDynamicBaseRateFromJSON = exports.instanceOfRatePlanBasedOnRateTypeDynamicBaseRate = void 0;
 const runtime_1 = require("../runtime");
-const RatePlanCodeListType_1 = require("./RatePlanCodeListType");
 /**
  * Check if a given object implements the RatePlanBasedOnRateTypeDynamicBaseRate interface.
  */
@@ -34,7 +33,7 @@ function RatePlanBasedOnRateTypeDynamicBaseRateFromJSONTyped(json, ignoreDiscrim
     }
     return {
         'compareWithRateSchedules': !(0, runtime_1.exists)(json, 'compareWithRateSchedules') ? undefined : json['compareWithRateSchedules'],
-        'dependentRatePlans': !(0, runtime_1.exists)(json, 'dependentRatePlans') ? undefined : (0, RatePlanCodeListType_1.RatePlanCodeListTypeFromJSON)(json['dependentRatePlans']),
+        'dependentRatePlans': !(0, runtime_1.exists)(json, 'dependentRatePlans') ? undefined : json['dependentRatePlans'],
         'dynamicBaseAmount': !(0, runtime_1.exists)(json, 'dynamicBaseAmount') ? undefined : json['dynamicBaseAmount'],
         'dynamicBasedOnRatePlan': !(0, runtime_1.exists)(json, 'dynamicBasedOnRatePlan') ? undefined : json['dynamicBasedOnRatePlan'],
         'flatOrPercentage': !(0, runtime_1.exists)(json, 'flatOrPercentage') ? undefined : json['flatOrPercentage'],
@@ -51,7 +50,7 @@ function RatePlanBasedOnRateTypeDynamicBaseRateToJSON(value) {
     }
     return {
         'compareWithRateSchedules': value.compareWithRateSchedules,
-        'dependentRatePlans': (0, RatePlanCodeListType_1.RatePlanCodeListTypeToJSON)(value.dependentRatePlans),
+        'dependentRatePlans': value.dependentRatePlans,
         'dynamicBaseAmount': value.dynamicBaseAmount,
         'dynamicBasedOnRatePlan': value.dynamicBasedOnRatePlan,
         'flatOrPercentage': value.flatOrPercentage,

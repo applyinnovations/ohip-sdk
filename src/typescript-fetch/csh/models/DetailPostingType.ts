@@ -79,12 +79,12 @@ import {
     ReservationPaymentMethodTypeFromJSONTyped,
     ReservationPaymentMethodTypeToJSON,
 } from './ReservationPaymentMethodType';
-import type { SummaryPostingsType } from './SummaryPostingsType';
+import type { SummaryPostingType } from './SummaryPostingType';
 import {
-    SummaryPostingsTypeFromJSON,
-    SummaryPostingsTypeFromJSONTyped,
-    SummaryPostingsTypeToJSON,
-} from './SummaryPostingsType';
+    SummaryPostingTypeFromJSON,
+    SummaryPostingTypeFromJSONTyped,
+    SummaryPostingTypeToJSON,
+} from './SummaryPostingType';
 import type { TransactionARInfoType } from './TransactionARInfoType';
 import {
     TransactionARInfoTypeFromJSON,
@@ -103,12 +103,12 @@ import {
     TransactionCurrencyExchangeInfoTypeFromJSONTyped,
     TransactionCurrencyExchangeInfoTypeToJSON,
 } from './TransactionCurrencyExchangeInfoType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Posting information of the transaction.
@@ -249,11 +249,11 @@ export interface DetailPostingType {
      */
     fbaCertificate?: boolean;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof DetailPostingType
      */
-    financialTransactionIdList?: UniqueIDListType;
+    financialTransactionIdList?: Array<UniqueIDType>;
     /**
      * The Fiscal Bill number of this posting
      * @type {string}
@@ -429,11 +429,11 @@ export interface DetailPostingType {
      */
     stampDuty?: boolean;
     /**
-     * 
-     * @type {SummaryPostingsType}
+     * List of postings.
+     * @type {Array<SummaryPostingType>}
      * @memberof DetailPostingType
      */
-    subPostings?: SummaryPostingsType;
+    subPostings?: Array<SummaryPostingType>;
     /**
      * Cross property posting hotel code.
      * @type {string}
@@ -531,7 +531,7 @@ export function DetailPostingTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'exchange': !exists(json, 'exchange') ? undefined : ExchangeAmountsFromJSON(json['exchange']),
         'exchangeInformation': !exists(json, 'exchangeInformation') ? undefined : json['exchangeInformation'],
         'fbaCertificate': !exists(json, 'fbaCertificate') ? undefined : json['fbaCertificate'],
-        'financialTransactionIdList': !exists(json, 'financialTransactionIdList') ? undefined : UniqueIDListTypeFromJSON(json['financialTransactionIdList']),
+        'financialTransactionIdList': !exists(json, 'financialTransactionIdList') ? undefined : ((json['financialTransactionIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'fiscalBillNo': !exists(json, 'fiscalBillNo') ? undefined : json['fiscalBillNo'],
         'folioNo': !exists(json, 'folioNo') ? undefined : json['folioNo'],
         'folioNoWithPrefix': !exists(json, 'folioNoWithPrefix') ? undefined : json['folioNoWithPrefix'],
@@ -561,7 +561,7 @@ export function DetailPostingTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'roundingDifferenceTrx': !exists(json, 'roundingDifferenceTrx') ? undefined : json['roundingDifferenceTrx'],
         'serviceRecovery': !exists(json, 'serviceRecovery') ? undefined : json['serviceRecovery'],
         'stampDuty': !exists(json, 'stampDuty') ? undefined : json['stampDuty'],
-        'subPostings': !exists(json, 'subPostings') ? undefined : SummaryPostingsTypeFromJSON(json['subPostings']),
+        'subPostings': !exists(json, 'subPostings') ? undefined : ((json['subPostings'] as Array<any>).map(SummaryPostingTypeFromJSON)),
         'targetHotel': !exists(json, 'targetHotel') ? undefined : json['targetHotel'],
         'taxInvoiceNo': !exists(json, 'taxInvoiceNo') ? undefined : json['taxInvoiceNo'],
         'transactionAmount': !exists(json, 'transactionAmount') ? undefined : json['transactionAmount'],
@@ -605,7 +605,7 @@ export function DetailPostingTypeToJSON(value?: DetailPostingType | null): any {
         'exchange': ExchangeAmountsToJSON(value.exchange),
         'exchangeInformation': value.exchangeInformation,
         'fbaCertificate': value.fbaCertificate,
-        'financialTransactionIdList': UniqueIDListTypeToJSON(value.financialTransactionIdList),
+        'financialTransactionIdList': value.financialTransactionIdList === undefined ? undefined : ((value.financialTransactionIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'fiscalBillNo': value.fiscalBillNo,
         'folioNo': value.folioNo,
         'folioNoWithPrefix': value.folioNoWithPrefix,
@@ -635,7 +635,7 @@ export function DetailPostingTypeToJSON(value?: DetailPostingType | null): any {
         'roundingDifferenceTrx': value.roundingDifferenceTrx,
         'serviceRecovery': value.serviceRecovery,
         'stampDuty': value.stampDuty,
-        'subPostings': SummaryPostingsTypeToJSON(value.subPostings),
+        'subPostings': value.subPostings === undefined ? undefined : ((value.subPostings as Array<any>).map(SummaryPostingTypeToJSON)),
         'targetHotel': value.targetHotel,
         'taxInvoiceNo': value.taxInvoiceNo,
         'transactionAmount': value.transactionAmount,

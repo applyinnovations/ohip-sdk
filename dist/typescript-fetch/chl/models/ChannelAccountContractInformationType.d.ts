@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChannelAccountContractElementsType } from './ChannelAccountContractElementsType';
+import type { ContractElementInformationType } from './ContractElementInformationType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * To hold channel account contract detailed information.
@@ -24,11 +24,11 @@ export interface ChannelAccountContractInformationType {
      */
     beginDate?: Date;
     /**
-     *
-     * @type {ChannelAccountContractElementsType}
+     * Channel account contract elements information object to hold details of contract elements.
+     * @type {Array<ContractElementInformationType>}
      * @memberof ChannelAccountContractInformationType
      */
-    channelAccountContractElements?: ChannelAccountContractElementsType;
+    channelAccountContractElements?: Array<ContractElementInformationType>;
     /**
      *
      * @type {UniqueIDType}

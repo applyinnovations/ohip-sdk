@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PrepaidCardInfoTypeToJSON = exports.PrepaidCardInfoTypeFromJSONTyped = exports.PrepaidCardInfoTypeFromJSON = exports.instanceOfPrepaidCardInfoType = void 0;
 const runtime_1 = require("../runtime");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
-const PrepaidCardTransactionsType_1 = require("./PrepaidCardTransactionsType");
+const PrepaidCardTransactionInfoType_1 = require("./PrepaidCardTransactionInfoType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the PrepaidCardInfoType interface.
@@ -46,7 +46,7 @@ function PrepaidCardInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'interfaceId': !(0, runtime_1.exists)(json, 'interfaceId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['interfaceId']),
         'issueDate': !(0, runtime_1.exists)(json, 'issueDate') ? undefined : (new Date(json['issueDate'])),
         'operaTransactionsActive': !(0, runtime_1.exists)(json, 'operaTransactionsActive') ? undefined : json['operaTransactionsActive'],
-        'prepaidCardTransactions': !(0, runtime_1.exists)(json, 'prepaidCardTransactions') ? undefined : (0, PrepaidCardTransactionsType_1.PrepaidCardTransactionsTypeFromJSON)(json['prepaidCardTransactions']),
+        'prepaidCardTransactions': !(0, runtime_1.exists)(json, 'prepaidCardTransactions') ? undefined : (json['prepaidCardTransactions'].map(PrepaidCardTransactionInfoType_1.PrepaidCardTransactionInfoTypeFromJSON)),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['reservationId']),
         'reservedAmount': !(0, runtime_1.exists)(json, 'reservedAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['reservedAmount']),
         'totalCredit': !(0, runtime_1.exists)(json, 'totalCredit') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['totalCredit']),
@@ -75,7 +75,7 @@ function PrepaidCardInfoTypeToJSON(value) {
         'interfaceId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.interfaceId),
         'issueDate': value.issueDate === undefined ? undefined : (value.issueDate.toISOString().substring(0, 10)),
         'operaTransactionsActive': value.operaTransactionsActive,
-        'prepaidCardTransactions': (0, PrepaidCardTransactionsType_1.PrepaidCardTransactionsTypeToJSON)(value.prepaidCardTransactions),
+        'prepaidCardTransactions': value.prepaidCardTransactions === undefined ? undefined : (value.prepaidCardTransactions.map(PrepaidCardTransactionInfoType_1.PrepaidCardTransactionInfoTypeToJSON)),
         'reservationId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.reservationId),
         'reservedAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.reservedAmount),
         'totalCredit': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.totalCredit),

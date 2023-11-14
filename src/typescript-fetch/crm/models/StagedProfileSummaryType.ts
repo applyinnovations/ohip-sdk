@@ -31,12 +31,12 @@ import {
     StagedProfileStatusFromJSONTyped,
     StagedProfileStatusToJSON,
 } from './StagedProfileStatus';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Basic information about staged profile.
@@ -63,11 +63,11 @@ export interface StagedProfileSummaryType {
      */
     importDate?: Date;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof StagedProfileSummaryType
      */
-    profileIdList?: UniqueIDListType;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {ProfileNameType}
@@ -116,7 +116,7 @@ export function StagedProfileSummaryTypeFromJSONTyped(json: any, ignoreDiscrimin
         'country': !exists(json, 'country') ? undefined : CountryNameTypeFromJSON(json['country']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'importDate': !exists(json, 'importDate') ? undefined : (new Date(json['importDate'])),
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : UniqueIDListTypeFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'profileName': !exists(json, 'profileName') ? undefined : ProfileNameTypeFromJSON(json['profileName']),
         'profileType': !exists(json, 'profileType') ? undefined : json['profileType'],
         'region': !exists(json, 'region') ? undefined : json['region'],
@@ -136,7 +136,7 @@ export function StagedProfileSummaryTypeToJSON(value?: StagedProfileSummaryType 
         'country': CountryNameTypeToJSON(value.country),
         'hotelId': value.hotelId,
         'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substring(0,10)),
-        'profileIdList': UniqueIDListTypeToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'profileName': ProfileNameTypeToJSON(value.profileName),
         'profileType': value.profileType,
         'region': value.region,

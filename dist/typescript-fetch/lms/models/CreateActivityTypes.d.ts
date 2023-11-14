@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ActivityTypesType } from './ActivityTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ActivityTypeDetailType } from './ActivityTypeDetailType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Activity Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CreateActivityTypes {
     /**
-     *
-     * @type {ActivityTypesType}
+     * Collection of Activity Types.
+     * @type {Array<ActivityTypeDetailType>}
      * @memberof CreateActivityTypes
      */
-    activityTypes?: ActivityTypesType;
+    activityTypes?: Array<ActivityTypeDetailType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreateActivityTypes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateActivityTypes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreateActivityTypes interface.

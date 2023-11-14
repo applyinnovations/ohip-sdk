@@ -13,18 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelCodeListType } from './HotelCodeListType';
+import type { TraceTextType } from './TraceTextType';
 import {
-    HotelCodeListTypeFromJSON,
-    HotelCodeListTypeFromJSONTyped,
-    HotelCodeListTypeToJSON,
-} from './HotelCodeListType';
-import type { TraceTextsType } from './TraceTextsType';
-import {
-    TraceTextsTypeFromJSON,
-    TraceTextsTypeFromJSONTyped,
-    TraceTextsTypeToJSON,
-} from './TraceTextsType';
+    TraceTextTypeFromJSON,
+    TraceTextTypeFromJSONTyped,
+    TraceTextTypeToJSON,
+} from './TraceTextType';
 
 /**
  * Copy Trace texts criteria type to copy multiple trace texts from one Hotel to another Hotel.
@@ -33,17 +27,17 @@ import {
  */
 export interface CopyTraceTextsCriteriaType {
     /**
-     * 
-     * @type {HotelCodeListType}
+     * Hotel code.
+     * @type {Array<string>}
      * @memberof CopyTraceTextsCriteriaType
      */
-    targetHotels?: HotelCodeListType;
+    targetHotels?: Array<string>;
     /**
-     * 
-     * @type {TraceTextsType}
+     * Collection of trace texts.
+     * @type {Array<TraceTextType>}
      * @memberof CopyTraceTextsCriteriaType
      */
-    traceTexts?: TraceTextsType;
+    traceTexts?: Array<TraceTextType>;
 }
 
 /**
@@ -65,8 +59,8 @@ export function CopyTraceTextsCriteriaTypeFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'targetHotels': !exists(json, 'targetHotels') ? undefined : HotelCodeListTypeFromJSON(json['targetHotels']),
-        'traceTexts': !exists(json, 'traceTexts') ? undefined : TraceTextsTypeFromJSON(json['traceTexts']),
+        'targetHotels': !exists(json, 'targetHotels') ? undefined : json['targetHotels'],
+        'traceTexts': !exists(json, 'traceTexts') ? undefined : ((json['traceTexts'] as Array<any>).map(TraceTextTypeFromJSON)),
     };
 }
 
@@ -79,8 +73,8 @@ export function CopyTraceTextsCriteriaTypeToJSON(value?: CopyTraceTextsCriteriaT
     }
     return {
         
-        'targetHotels': HotelCodeListTypeToJSON(value.targetHotels),
-        'traceTexts': TraceTextsTypeToJSON(value.traceTexts),
+        'targetHotels': value.targetHotels,
+        'traceTexts': value.traceTexts === undefined ? undefined : ((value.traceTexts as Array<any>).map(TraceTextTypeToJSON)),
     };
 }
 

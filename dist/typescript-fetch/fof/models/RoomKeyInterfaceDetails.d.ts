@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RoomKeyInterfaceDetailsType } from './RoomKeyInterfaceDetailsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RoomKeyInterfaceDetailType } from './RoomKeyInterfaceDetailType';
+import type { WarningType } from './WarningType';
 /**
  * Response with the configuration details of active room key interfaces including the available key encoders.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface RoomKeyInterfaceDetails {
     /**
-     *
-     * @type {RoomKeyInterfaceDetailsType}
+     * Configuration details of room key interface.
+     * @type {Array<RoomKeyInterfaceDetailType>}
      * @memberof RoomKeyInterfaceDetails
      */
-    keyInterfaceDetails?: RoomKeyInterfaceDetailsType;
+    keyInterfaceDetails?: Array<RoomKeyInterfaceDetailType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomKeyInterfaceDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomKeyInterfaceDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomKeyInterfaceDetails interface.

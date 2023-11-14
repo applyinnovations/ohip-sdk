@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomMaintenanceTypeToJSON = exports.RoomMaintenanceTypeFromJSONTyped = exports.RoomMaintenanceTypeFromJSON = exports.instanceOfRoomMaintenanceType = void 0;
 const runtime_1 = require("../runtime");
 const AssignedUserType_1 = require("./AssignedUserType");
-const ImageResultsType_1 = require("./ImageResultsType");
+const ImageResultType_1 = require("./ImageResultType");
 const ResolveRoomMaintenanceType_1 = require("./ResolveRoomMaintenanceType");
 const RoomType_1 = require("./RoomType");
 const UniqueIDType_1 = require("./UniqueIDType");
@@ -40,7 +40,7 @@ function RoomMaintenanceTypeFromJSONTyped(json, ignoreDiscriminator) {
         'assignedUserInfo': !(0, runtime_1.exists)(json, 'assignedUserInfo') ? undefined : (0, AssignedUserType_1.AssignedUserTypeFromJSON)(json['assignedUserInfo']),
         'createDateTime': !(0, runtime_1.exists)(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !(0, runtime_1.exists)(json, 'creatorId') ? undefined : json['creatorId'],
-        'images': !(0, runtime_1.exists)(json, 'images') ? undefined : (0, ImageResultsType_1.ImageResultsTypeFromJSON)(json['images']),
+        'images': !(0, runtime_1.exists)(json, 'images') ? undefined : (json['images'].map(ImageResultType_1.ImageResultTypeFromJSON)),
         'lastModifierId': !(0, runtime_1.exists)(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'maintenanceCode': !(0, runtime_1.exists)(json, 'maintenanceCode') ? undefined : json['maintenanceCode'],
@@ -63,7 +63,7 @@ function RoomMaintenanceTypeToJSON(value) {
         'assignedUserInfo': (0, AssignedUserType_1.AssignedUserTypeToJSON)(value.assignedUserInfo),
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
-        'images': (0, ImageResultsType_1.ImageResultsTypeToJSON)(value.images),
+        'images': value.images === undefined ? undefined : (value.images.map(ImageResultType_1.ImageResultTypeToJSON)),
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'maintenanceCode': value.maintenanceCode,

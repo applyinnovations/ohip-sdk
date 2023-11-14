@@ -17,8 +17,8 @@ exports.RoomKeyStatusToJSON = exports.RoomKeyStatusFromJSONTyped = exports.RoomK
 const runtime_1 = require("../runtime");
 const DateRangeType_1 = require("./DateRangeType");
 const DateTimeRangeType_1 = require("./DateTimeRangeType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomKeyStatus interface.
  */
@@ -41,10 +41,10 @@ function RoomKeyStatusFromJSONTyped(json, ignoreDiscriminator) {
         'guestFirstName': !(0, runtime_1.exists)(json, 'guestFirstName') ? undefined : json['guestFirstName'],
         'guestLastName': !(0, runtime_1.exists)(json, 'guestLastName') ? undefined : json['guestLastName'],
         'keyOptions': !(0, runtime_1.exists)(json, 'keyOptions') ? undefined : json['keyOptions'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'room': !(0, runtime_1.exists)(json, 'room') ? undefined : json['room'],
         'validUntil': !(0, runtime_1.exists)(json, 'validUntil') ? undefined : json['validUntil'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomKeyStatusFromJSONTyped = RoomKeyStatusFromJSONTyped;
@@ -61,10 +61,10 @@ function RoomKeyStatusToJSON(value) {
         'guestFirstName': value.guestFirstName,
         'guestLastName': value.guestLastName,
         'keyOptions': value.keyOptions,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'room': value.room,
         'validUntil': value.validUntil,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomKeyStatusToJSON = RoomKeyStatusToJSON;

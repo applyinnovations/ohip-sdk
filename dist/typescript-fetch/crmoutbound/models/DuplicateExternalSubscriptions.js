@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DuplicateExternalSubscriptionsToJSON = exports.DuplicateExternalSubscriptionsFromJSONTyped = exports.DuplicateExternalSubscriptionsFromJSON = exports.instanceOfDuplicateExternalSubscriptions = void 0;
 const runtime_1 = require("../runtime");
-const DuplicateExternalSubscriptionsListType_1 = require("./DuplicateExternalSubscriptionsListType");
-const Links_1 = require("./Links");
+const DuplicateExternalSubscriptionsType_1 = require("./DuplicateExternalSubscriptionsType");
+const InstanceLink_1 = require("./InstanceLink");
 /**
  * Check if a given object implements the DuplicateExternalSubscriptions interface.
  */
@@ -34,13 +34,13 @@ function DuplicateExternalSubscriptionsFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'duplicateExternalSubscriptionsList': !(0, runtime_1.exists)(json, 'duplicateExternalSubscriptionsList') ? undefined : (0, DuplicateExternalSubscriptionsListType_1.DuplicateExternalSubscriptionsListTypeFromJSON)(json['duplicateExternalSubscriptionsList']),
+        'duplicateExternalSubscriptionsList': !(0, runtime_1.exists)(json, 'duplicateExternalSubscriptionsList') ? undefined : (json['duplicateExternalSubscriptionsList'].map(DuplicateExternalSubscriptionsType_1.DuplicateExternalSubscriptionsTypeFromJSON)),
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'pageNumber': !(0, runtime_1.exists)(json, 'pageNumber') ? undefined : json['pageNumber'],
         'maxFetchCount': !(0, runtime_1.exists)(json, 'maxFetchCount') ? undefined : json['maxFetchCount'],
         'allRowsFetched': !(0, runtime_1.exists)(json, 'allRowsFetched') ? undefined : json['allRowsFetched'],
         'totalRows': !(0, runtime_1.exists)(json, 'totalRows') ? undefined : json['totalRows'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.DuplicateExternalSubscriptionsFromJSONTyped = DuplicateExternalSubscriptionsFromJSONTyped;
@@ -52,13 +52,13 @@ function DuplicateExternalSubscriptionsToJSON(value) {
         return null;
     }
     return {
-        'duplicateExternalSubscriptionsList': (0, DuplicateExternalSubscriptionsListType_1.DuplicateExternalSubscriptionsListTypeToJSON)(value.duplicateExternalSubscriptionsList),
+        'duplicateExternalSubscriptionsList': value.duplicateExternalSubscriptionsList === undefined ? undefined : (value.duplicateExternalSubscriptionsList.map(DuplicateExternalSubscriptionsType_1.DuplicateExternalSubscriptionsTypeToJSON)),
         'totalPages': value.totalPages,
         'pageNumber': value.pageNumber,
         'maxFetchCount': value.maxFetchCount,
         'allRowsFetched': value.allRowsFetched,
         'totalRows': value.totalRows,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.DuplicateExternalSubscriptionsToJSON = DuplicateExternalSubscriptionsToJSON;

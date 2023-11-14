@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { CreditCardReaderDevicesType } from './CreditCardReaderDevicesType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ListOfDevicesType } from './ListOfDevicesType';
+    CreditCardReaderDevicesTypeFromJSON,
+    CreditCardReaderDevicesTypeFromJSONTyped,
+    CreditCardReaderDevicesTypeToJSON,
+} from './CreditCardReaderDevicesType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    ListOfDevicesTypeFromJSON,
-    ListOfDevicesTypeFromJSONTyped,
-    ListOfDevicesTypeToJSON,
-} from './ListOfDevicesType';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface CreditCardReaderDevices {
     /**
      * 
-     * @type {ListOfDevicesType}
+     * @type {Array<CreditCardReaderDevicesType>}
      * @memberof CreditCardReaderDevices
      */
-    devices?: ListOfDevicesType;
+    devices?: Array<CreditCardReaderDevicesType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreditCardReaderDevices
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreditCardReaderDevices
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CreditCardReaderDevicesFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'devices': !exists(json, 'devices') ? undefined : ListOfDevicesTypeFromJSON(json['devices']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'devices': !exists(json, 'devices') ? undefined : ((json['devices'] as Array<any>).map(CreditCardReaderDevicesTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CreditCardReaderDevicesToJSON(value?: CreditCardReaderDevices | 
     }
     return {
         
-        'devices': ListOfDevicesTypeToJSON(value.devices),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'devices': value.devices === undefined ? undefined : ((value.devices as Array<any>).map(CreditCardReaderDevicesTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

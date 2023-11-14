@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { EffectiveRatesType } from './EffectiveRatesType';
+import type { EffectiveRateType } from './EffectiveRateType';
 import {
-    EffectiveRatesTypeFromJSON,
-    EffectiveRatesTypeFromJSONTyped,
-    EffectiveRatesTypeToJSON,
-} from './EffectiveRatesType';
+    EffectiveRateTypeFromJSON,
+    EffectiveRateTypeFromJSONTyped,
+    EffectiveRateTypeToJSON,
+} from './EffectiveRateType';
 import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
 import {
     ReservationPaymentMethodTypeFromJSON,
@@ -45,11 +45,11 @@ import {
  */
 export interface ShareReservationInstructionType {
     /**
-     * 
-     * @type {EffectiveRatesType}
+     * Collection of effective rate amount per guest on specific dates.
+     * @type {Array<EffectiveRateType>}
      * @memberof ShareReservationInstructionType
      */
-    effectiveRates?: EffectiveRatesType;
+    effectiveRates?: Array<EffectiveRateType>;
     /**
      * Indicates whether fixed rate will be applied to all shares.
      * @type {boolean}
@@ -95,7 +95,7 @@ export function ShareReservationInstructionTypeFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'effectiveRates': !exists(json, 'effectiveRates') ? undefined : EffectiveRatesTypeFromJSON(json['effectiveRates']),
+        'effectiveRates': !exists(json, 'effectiveRates') ? undefined : ((json['effectiveRates'] as Array<any>).map(EffectiveRateTypeFromJSON)),
         'fixedRate': !exists(json, 'fixedRate') ? undefined : json['fixedRate'],
         'paymentMethod': !exists(json, 'paymentMethod') ? undefined : ReservationPaymentMethodTypeFromJSON(json['paymentMethod']),
         'rateAmountShare': !exists(json, 'rateAmountShare') ? undefined : ShareDistributionInstructionTypeFromJSON(json['rateAmountShare']),
@@ -112,7 +112,7 @@ export function ShareReservationInstructionTypeToJSON(value?: ShareReservationIn
     }
     return {
         
-        'effectiveRates': EffectiveRatesTypeToJSON(value.effectiveRates),
+        'effectiveRates': value.effectiveRates === undefined ? undefined : ((value.effectiveRates as Array<any>).map(EffectiveRateTypeToJSON)),
         'fixedRate': value.fixedRate,
         'paymentMethod': ReservationPaymentMethodTypeToJSON(value.paymentMethod),
         'rateAmountShare': ShareDistributionInstructionTypeToJSON(value.rateAmountShare),

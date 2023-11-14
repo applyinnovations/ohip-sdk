@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CheckPostBillingChargesOptionsType } from './CheckPostBillingChargesOptionsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CheckPostBillingChargesOptionsTypeInner } from './CheckPostBillingChargesOptionsTypeInner';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response when checking or inquiring the available options for a set of billing charges.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface BillingChargesStatus {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BillingChargesStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {CheckPostBillingChargesOptionsType}
+     * TAvailable options for this consumable
+     * @type {Array<CheckPostBillingChargesOptionsTypeInner>}
      * @memberof BillingChargesStatus
      */
-    options?: CheckPostBillingChargesOptionsType;
+    options?: Array<CheckPostBillingChargesOptionsTypeInner>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BillingChargesStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BillingChargesStatus interface.

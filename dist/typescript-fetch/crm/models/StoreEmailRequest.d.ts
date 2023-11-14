@@ -9,8 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BasicEmailListType } from './BasicEmailListType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -61,16 +60,16 @@ export interface StoreEmailRequest {
     subject?: string;
     /**
      *
-     * @type {BasicEmailListType}
+     * @type {Array<string>}
      * @memberof StoreEmailRequest
      */
-    toAddress?: BasicEmailListType;
+    toAddress?: Array<string>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof StoreEmailRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the StoreEmailRequest interface.

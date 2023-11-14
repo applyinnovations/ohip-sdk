@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DisplaySetsType } from './DisplaySetsType';
+import type { DisplaySetType } from './DisplaySetType';
 import {
-    DisplaySetsTypeFromJSON,
-    DisplaySetsTypeFromJSONTyped,
-    DisplaySetsTypeToJSON,
-} from './DisplaySetsType';
-import type { Links } from './Links';
+    DisplaySetTypeFromJSON,
+    DisplaySetTypeFromJSONTyped,
+    DisplaySetTypeToJSON,
+} from './DisplaySetType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Display Sets.
@@ -39,23 +39,23 @@ import {
  */
 export interface DisplaySetsCriteria {
     /**
-     * 
-     * @type {DisplaySetsType}
+     * List of Display Sets.
+     * @type {Array<DisplaySetType>}
      * @memberof DisplaySetsCriteria
      */
-    displaySets?: DisplaySetsType;
+    displaySets?: Array<DisplaySetType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DisplaySetsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DisplaySetsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function DisplaySetsCriteriaFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'displaySets': !exists(json, 'displaySets') ? undefined : DisplaySetsTypeFromJSON(json['displaySets']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'displaySets': !exists(json, 'displaySets') ? undefined : ((json['displaySets'] as Array<any>).map(DisplaySetTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function DisplaySetsCriteriaToJSON(value?: DisplaySetsCriteria | null): a
     }
     return {
         
-        'displaySets': DisplaySetsTypeToJSON(value.displaySets),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'displaySets': value.displaySets === undefined ? undefined : ((value.displaySets as Array<any>).map(DisplaySetTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

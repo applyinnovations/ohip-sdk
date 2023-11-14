@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ItemClassTypeToJSON = exports.ItemClassTypeFromJSONTyped = exports.ItemClassTypeFromJSON = exports.instanceOfItemClassType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const ItemClassTypeType_1 = require("./ItemClassTypeType");
 const TranslationTextType200_1 = require("./TranslationTextType200");
 /**
@@ -37,12 +36,12 @@ function ItemClassTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'classId': !(0, runtime_1.exists)(json, 'classId') ? undefined : json['classId'],
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
-        'departments': !(0, runtime_1.exists)(json, 'departments') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['departments']),
+        'departments': !(0, runtime_1.exists)(json, 'departments') ? undefined : json['departments'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : (0, TranslationTextType200_1.TranslationTextType200FromJSON)(json['description']),
         'discountOverrideWarnings': !(0, runtime_1.exists)(json, 'discountOverrideWarnings') ? undefined : json['discountOverrideWarnings'],
         'discountable': !(0, runtime_1.exists)(json, 'discountable') ? undefined : json['discountable'],
         'displaySequence': !(0, runtime_1.exists)(json, 'displaySequence') ? undefined : json['displaySequence'],
-        'eventTypes': !(0, runtime_1.exists)(json, 'eventTypes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['eventTypes']),
+        'eventTypes': !(0, runtime_1.exists)(json, 'eventTypes') ? undefined : json['eventTypes'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'overrideWarnings': !(0, runtime_1.exists)(json, 'overrideWarnings') ? undefined : json['overrideWarnings'],
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : (0, ItemClassTypeType_1.ItemClassTypeTypeFromJSON)(json['type']),
@@ -60,12 +59,12 @@ function ItemClassTypeToJSON(value) {
     return {
         'classId': value.classId,
         'code': value.code,
-        'departments': (0, CodeListType_1.CodeListTypeToJSON)(value.departments),
+        'departments': value.departments,
         'description': (0, TranslationTextType200_1.TranslationTextType200ToJSON)(value.description),
         'discountOverrideWarnings': value.discountOverrideWarnings,
         'discountable': value.discountable,
         'displaySequence': value.displaySequence,
-        'eventTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.eventTypes),
+        'eventTypes': value.eventTypes,
         'hotelId': value.hotelId,
         'overrideWarnings': value.overrideWarnings,
         'type': (0, ItemClassTypeType_1.ItemClassTypeTypeToJSON)(value.type),

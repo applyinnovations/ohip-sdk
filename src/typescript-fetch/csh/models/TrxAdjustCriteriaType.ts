@@ -19,12 +19,12 @@ import {
     AdjustmentDetailsTypeFromJSONTyped,
     AdjustmentDetailsTypeToJSON,
 } from './AdjustmentDetailsType';
-import type { CustomChargeExemptionsType } from './CustomChargeExemptionsType';
+import type { CustomChargeExemptionType } from './CustomChargeExemptionType';
 import {
-    CustomChargeExemptionsTypeFromJSON,
-    CustomChargeExemptionsTypeFromJSONTyped,
-    CustomChargeExemptionsTypeToJSON,
-} from './CustomChargeExemptionsType';
+    CustomChargeExemptionTypeFromJSON,
+    CustomChargeExemptionTypeFromJSONTyped,
+    CustomChargeExemptionTypeToJSON,
+} from './CustomChargeExemptionType';
 import type { ReservationId } from './ReservationId';
 import {
     ReservationIdFromJSON,
@@ -57,11 +57,11 @@ export interface TrxAdjustCriteriaType {
      */
     cashierId?: number;
     /**
-     * 
-     * @type {CustomChargeExemptionsType}
+     * List of Custom Charge Exemptions.
+     * @type {Array<CustomChargeExemptionType>}
      * @memberof TrxAdjustCriteriaType
      */
-    customChargeExemptionDetails?: CustomChargeExemptionsType;
+    customChargeExemptionDetails?: Array<CustomChargeExemptionType>;
     /**
      * 
      * @type {AdjustmentDetailsType}
@@ -116,7 +116,7 @@ export function TrxAdjustCriteriaTypeFromJSONTyped(json: any, ignoreDiscriminato
         'aRAccountNo': !exists(json, 'aRAccountNo') ? undefined : json['aRAccountNo'],
         'aRInvoiceNo': !exists(json, 'aRInvoiceNo') ? undefined : json['aRInvoiceNo'],
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
-        'customChargeExemptionDetails': !exists(json, 'customChargeExemptionDetails') ? undefined : CustomChargeExemptionsTypeFromJSON(json['customChargeExemptionDetails']),
+        'customChargeExemptionDetails': !exists(json, 'customChargeExemptionDetails') ? undefined : ((json['customChargeExemptionDetails'] as Array<any>).map(CustomChargeExemptionTypeFromJSON)),
         'details': !exists(json, 'details') ? undefined : AdjustmentDetailsTypeFromJSON(json['details']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'incomeAuditDate': !exists(json, 'incomeAuditDate') ? undefined : (new Date(json['incomeAuditDate'])),
@@ -137,7 +137,7 @@ export function TrxAdjustCriteriaTypeToJSON(value?: TrxAdjustCriteriaType | null
         'aRAccountNo': value.aRAccountNo,
         'aRInvoiceNo': value.aRInvoiceNo,
         'cashierId': value.cashierId,
-        'customChargeExemptionDetails': CustomChargeExemptionsTypeToJSON(value.customChargeExemptionDetails),
+        'customChargeExemptionDetails': value.customChargeExemptionDetails === undefined ? undefined : ((value.customChargeExemptionDetails as Array<any>).map(CustomChargeExemptionTypeToJSON)),
         'details': AdjustmentDetailsTypeToJSON(value.details),
         'hotelId': value.hotelId,
         'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0,10)),

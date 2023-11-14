@@ -19,12 +19,12 @@ import {
     ListOfValuesCriteriaTypeFromJSONTyped,
     ListOfValuesCriteriaTypeToJSON,
 } from './ListOfValuesCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,11 +39,11 @@ export interface ValidateListOfValues {
      */
     criteria?: ListOfValuesCriteriaType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ValidateListOfValues
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function ValidateListOfValuesFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : ListOfValuesCriteriaTypeFromJSON(json['criteria']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function ValidateListOfValuesToJSON(value?: ValidateListOfValues | null):
     return {
         
         'criteria': ListOfValuesCriteriaTypeToJSON(value.criteria),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

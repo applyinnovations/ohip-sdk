@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for starting a credit card authorization batch job, which contains the batch ID upon success.
  * @export
@@ -25,10 +25,10 @@ export interface BatchCCAuthToProcess {
     batchId?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BatchCCAuthToProcess
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Used for Character Strings, length 0 to 200.
      * @type {string}
@@ -36,11 +36,11 @@ export interface BatchCCAuthToProcess {
      */
     processId?: string;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BatchCCAuthToProcess
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BatchCCAuthToProcess interface.

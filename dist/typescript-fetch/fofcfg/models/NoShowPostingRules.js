@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NoShowPostingRulesToJSON = exports.NoShowPostingRulesFromJSONTyped = exports.NoShowPostingRulesFromJSON = exports.instanceOfNoShowPostingRules = void 0;
 const runtime_1 = require("../runtime");
-const HotelNoShowPostingRulesType_1 = require("./HotelNoShowPostingRulesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HotelNoShowPostingRuleType_1 = require("./HotelNoShowPostingRuleType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the NoShowPostingRules interface.
  */
@@ -35,9 +35,9 @@ function NoShowPostingRulesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'noShowPostingRules': !(0, runtime_1.exists)(json, 'noShowPostingRules') ? undefined : (0, HotelNoShowPostingRulesType_1.HotelNoShowPostingRulesTypeFromJSON)(json['noShowPostingRules']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'noShowPostingRules': !(0, runtime_1.exists)(json, 'noShowPostingRules') ? undefined : (json['noShowPostingRules'].map(HotelNoShowPostingRuleType_1.HotelNoShowPostingRuleTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.NoShowPostingRulesFromJSONTyped = NoShowPostingRulesFromJSONTyped;
@@ -49,9 +49,9 @@ function NoShowPostingRulesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'noShowPostingRules': (0, HotelNoShowPostingRulesType_1.HotelNoShowPostingRulesTypeToJSON)(value.noShowPostingRules),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'noShowPostingRules': value.noShowPostingRules === undefined ? undefined : (value.noShowPostingRules.map(HotelNoShowPostingRuleType_1.HotelNoShowPostingRuleTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.NoShowPostingRulesToJSON = NoShowPostingRulesToJSON;

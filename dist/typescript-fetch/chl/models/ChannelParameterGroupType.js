@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelParameterGroupTypeToJSON = exports.ChannelParameterGroupTypeFromJSONTyped = exports.ChannelParameterGroupTypeFromJSON = exports.instanceOfChannelParameterGroupType = void 0;
 const runtime_1 = require("../runtime");
-const ChannelParametersType_1 = require("./ChannelParametersType");
+const ChannelParameterType_1 = require("./ChannelParameterType");
 /**
  * Check if a given object implements the ChannelParameterGroupType interface.
  */
@@ -33,7 +33,7 @@ function ChannelParameterGroupTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'channelParameters': !(0, runtime_1.exists)(json, 'channelParameters') ? undefined : (0, ChannelParametersType_1.ChannelParametersTypeFromJSON)(json['channelParameters']),
+        'channelParameters': !(0, runtime_1.exists)(json, 'channelParameters') ? undefined : (json['channelParameters'].map(ChannelParameterType_1.ChannelParameterTypeFromJSON)),
         'groupDisplayName': !(0, runtime_1.exists)(json, 'groupDisplayName') ? undefined : json['groupDisplayName'],
         'groupName': !(0, runtime_1.exists)(json, 'groupName') ? undefined : json['groupName'],
     };
@@ -47,7 +47,7 @@ function ChannelParameterGroupTypeToJSON(value) {
         return null;
     }
     return {
-        'channelParameters': (0, ChannelParametersType_1.ChannelParametersTypeToJSON)(value.channelParameters),
+        'channelParameters': value.channelParameters === undefined ? undefined : (value.channelParameters.map(ChannelParameterType_1.ChannelParameterTypeToJSON)),
         'groupDisplayName': value.groupDisplayName,
         'groupName': value.groupName,
     };

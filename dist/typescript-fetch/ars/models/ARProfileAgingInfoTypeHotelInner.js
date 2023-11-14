@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ARProfileAgingInfoTypeHotelInnerToJSON = exports.ARProfileAgingInfoTypeHotelInnerFromJSONTyped = exports.ARProfileAgingInfoTypeHotelInnerFromJSON = exports.instanceOfARProfileAgingInfoTypeHotelInner = void 0;
 const runtime_1 = require("../runtime");
-const ARAccountsType_1 = require("./ARAccountsType");
+const ARAccountType_1 = require("./ARAccountType");
 const ARAgingInfoType_1 = require("./ARAgingInfoType");
 /**
  * Check if a given object implements the ARProfileAgingInfoTypeHotelInner interface.
@@ -34,7 +34,7 @@ function ARProfileAgingInfoTypeHotelInnerFromJSONTyped(json, ignoreDiscriminator
         return json;
     }
     return {
-        'accountAging': !(0, runtime_1.exists)(json, 'accountAging') ? undefined : (0, ARAccountsType_1.ARAccountsTypeFromJSON)(json['accountAging']),
+        'accountAging': !(0, runtime_1.exists)(json, 'accountAging') ? undefined : (json['accountAging'].map(ARAccountType_1.ARAccountTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'totalHotelAging': !(0, runtime_1.exists)(json, 'totalHotelAging') ? undefined : (0, ARAgingInfoType_1.ARAgingInfoTypeFromJSON)(json['totalHotelAging']),
     };
@@ -48,7 +48,7 @@ function ARProfileAgingInfoTypeHotelInnerToJSON(value) {
         return null;
     }
     return {
-        'accountAging': (0, ARAccountsType_1.ARAccountsTypeToJSON)(value.accountAging),
+        'accountAging': value.accountAging === undefined ? undefined : (value.accountAging.map(ARAccountType_1.ARAccountTypeToJSON)),
         'hotelId': value.hotelId,
         'totalHotelAging': (0, ARAgingInfoType_1.ARAgingInfoTypeToJSON)(value.totalHotelAging),
     };

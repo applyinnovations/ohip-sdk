@@ -9,12 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ClaimActivityLogListType } from './ClaimActivityLogListType';
+import type { ClaimActivityLogType } from './ClaimActivityLogType';
 import type { ClaimApprovalStatusType } from './ClaimApprovalStatusType';
 import type { ClaimRecordType } from './ClaimRecordType';
 import type { ClaimSourceType } from './ClaimSourceType';
 import type { ProfileId } from './ProfileId';
-import type { UniqueIDListType } from './UniqueIDListType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Summary information of a claim.
@@ -23,11 +22,11 @@ import type { UniqueIDType } from './UniqueIDType';
  */
 export interface MembershipClaimSummaryType {
     /**
-     *
-     * @type {ClaimActivityLogListType}
+     * Summary of claim activity log information.
+     * @type {Array<ClaimActivityLogType>}
      * @memberof MembershipClaimSummaryType
      */
-    activityLog?: ClaimActivityLogListType;
+    activityLog?: Array<ClaimActivityLogType>;
     /**
      *
      * @type {ClaimApprovalStatusType}
@@ -83,11 +82,11 @@ export interface MembershipClaimSummaryType {
      */
     closeDate?: Date;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MembershipClaimSummaryType
      */
-    confirmationNo?: UniqueIDListType;
+    confirmationNo?: Array<UniqueIDType>;
     /**
      * Departure date for the stay associated with this claim.
      * @type {Date}

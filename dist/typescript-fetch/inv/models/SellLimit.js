@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.SellLimitToJSON = exports.SellLimitFromJSONTyped = exports.SellLimitFromJSON = exports.instanceOfSellLimit = void 0;
 const runtime_1 = require("../runtime");
 const SellLimitByDateType_1 = require("./SellLimitByDateType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the SellLimit interface.
  */
@@ -35,7 +35,7 @@ function SellLimitFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'sellLimitsByDate': !(0, runtime_1.exists)(json, 'sellLimitsByDate') ? undefined : (0, SellLimitByDateType_1.SellLimitByDateTypeFromJSON)(json['sellLimitsByDate']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.SellLimitFromJSONTyped = SellLimitFromJSONTyped;
@@ -48,7 +48,7 @@ function SellLimitToJSON(value) {
     }
     return {
         'sellLimitsByDate': (0, SellLimitByDateType_1.SellLimitByDateTypeToJSON)(value.sellLimitsByDate),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.SellLimitToJSON = SellLimitToJSON;

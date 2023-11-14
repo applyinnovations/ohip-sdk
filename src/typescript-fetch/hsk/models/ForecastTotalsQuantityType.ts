@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RoomTypeTasksType } from './RoomTypeTasksType';
+import type { RoomTypeTaskType } from './RoomTypeTaskType';
 import {
-    RoomTypeTasksTypeFromJSON,
-    RoomTypeTasksTypeFromJSONTyped,
-    RoomTypeTasksTypeToJSON,
-} from './RoomTypeTasksType';
+    RoomTypeTaskTypeFromJSON,
+    RoomTypeTaskTypeFromJSONTyped,
+    RoomTypeTaskTypeToJSON,
+} from './RoomTypeTaskType';
 
 /**
  * Quatity data for a single day.
@@ -45,11 +45,11 @@ export interface ForecastTotalsQuantityType {
      */
     quantity?: number;
     /**
-     * 
-     * @type {RoomTypeTasksType}
+     * This is a break-down of the different room types and their tasks count on a date.
+     * @type {Array<RoomTypeTaskType>}
      * @memberof ForecastTotalsQuantityType
      */
-    roomTypeBreakDown?: RoomTypeTasksType;
+    roomTypeBreakDown?: Array<RoomTypeTaskType>;
     /**
      * Total Credits on the specified date.
      * @type {number}
@@ -80,7 +80,7 @@ export function ForecastTotalsQuantityTypeFromJSONTyped(json: any, ignoreDiscrim
         'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
         'isWeekend': !exists(json, 'isWeekend') ? undefined : json['isWeekend'],
         'quantity': !exists(json, 'quantity') ? undefined : json['quantity'],
-        'roomTypeBreakDown': !exists(json, 'roomTypeBreakDown') ? undefined : RoomTypeTasksTypeFromJSON(json['roomTypeBreakDown']),
+        'roomTypeBreakDown': !exists(json, 'roomTypeBreakDown') ? undefined : ((json['roomTypeBreakDown'] as Array<any>).map(RoomTypeTaskTypeFromJSON)),
         'totalCredits': !exists(json, 'totalCredits') ? undefined : json['totalCredits'],
     };
 }
@@ -97,7 +97,7 @@ export function ForecastTotalsQuantityTypeToJSON(value?: ForecastTotalsQuantityT
         'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
         'isWeekend': value.isWeekend,
         'quantity': value.quantity,
-        'roomTypeBreakDown': RoomTypeTasksTypeToJSON(value.roomTypeBreakDown),
+        'roomTypeBreakDown': value.roomTypeBreakDown === undefined ? undefined : ((value.roomTypeBreakDown as Array<any>).map(RoomTypeTaskTypeToJSON)),
         'totalCredits': value.totalCredits,
     };
 }

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { SmokingTypesType } from './SmokingTypesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { SmokingTypeType } from './SmokingTypeType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Smoking Types.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface SmokingTypesCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SmokingTypesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {SmokingTypesType}
+     * List of Smoking Types.
+     * @type {Array<SmokingTypeType>}
      * @memberof SmokingTypesCriteria
      */
-    smokingTypes?: SmokingTypesType;
+    smokingTypes?: Array<SmokingTypeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SmokingTypesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SmokingTypesCriteria interface.

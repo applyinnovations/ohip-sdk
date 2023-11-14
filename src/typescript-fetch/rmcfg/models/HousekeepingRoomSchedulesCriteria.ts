@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ConfigHousekeepingRoomSchedulesType } from './ConfigHousekeepingRoomSchedulesType';
+import type { ConfigHousekeepingRoomScheduleType } from './ConfigHousekeepingRoomScheduleType';
 import {
-    ConfigHousekeepingRoomSchedulesTypeFromJSON,
-    ConfigHousekeepingRoomSchedulesTypeFromJSONTyped,
-    ConfigHousekeepingRoomSchedulesTypeToJSON,
-} from './ConfigHousekeepingRoomSchedulesType';
-import type { Links } from './Links';
+    ConfigHousekeepingRoomScheduleTypeFromJSON,
+    ConfigHousekeepingRoomScheduleTypeFromJSONTyped,
+    ConfigHousekeepingRoomScheduleTypeToJSON,
+} from './ConfigHousekeepingRoomScheduleType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for associating housekeeping tasks and housekeeping codes to a room type.
@@ -39,23 +39,23 @@ import {
  */
 export interface HousekeepingRoomSchedulesCriteria {
     /**
-     * 
-     * @type {ConfigHousekeepingRoomSchedulesType}
+     * This type holds a collection of housekeeping tasks attached to a room type.
+     * @type {Array<ConfigHousekeepingRoomScheduleType>}
      * @memberof HousekeepingRoomSchedulesCriteria
      */
-    housekeepingRoomSchedules?: ConfigHousekeepingRoomSchedulesType;
+    housekeepingRoomSchedules?: Array<ConfigHousekeepingRoomScheduleType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HousekeepingRoomSchedulesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HousekeepingRoomSchedulesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function HousekeepingRoomSchedulesCriteriaFromJSONTyped(json: any, ignore
     }
     return {
         
-        'housekeepingRoomSchedules': !exists(json, 'housekeepingRoomSchedules') ? undefined : ConfigHousekeepingRoomSchedulesTypeFromJSON(json['housekeepingRoomSchedules']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'housekeepingRoomSchedules': !exists(json, 'housekeepingRoomSchedules') ? undefined : ((json['housekeepingRoomSchedules'] as Array<any>).map(ConfigHousekeepingRoomScheduleTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function HousekeepingRoomSchedulesCriteriaToJSON(value?: HousekeepingRoom
     }
     return {
         
-        'housekeepingRoomSchedules': ConfigHousekeepingRoomSchedulesTypeToJSON(value.housekeepingRoomSchedules),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'housekeepingRoomSchedules': value.housekeepingRoomSchedules === undefined ? undefined : ((value.housekeepingRoomSchedules as Array<any>).map(ConfigHousekeepingRoomScheduleTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

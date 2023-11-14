@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ErrorsType } from './ErrorsType';
+import type { ErrorType } from './ErrorType';
 import {
-    ErrorsTypeFromJSON,
-    ErrorsTypeFromJSONTyped,
-    ErrorsTypeToJSON,
-} from './ErrorsType';
+    ErrorTypeFromJSON,
+    ErrorTypeFromJSONTyped,
+    ErrorTypeToJSON,
+} from './ErrorType';
 import type { ReservationId } from './ReservationId';
 import {
     ReservationIdFromJSON,
     ReservationIdFromJSONTyped,
     ReservationIdToJSON,
 } from './ReservationId';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Result of charges in batch for each reservation.
@@ -51,11 +51,11 @@ export interface ReservationChargesInBatchInfoType {
      */
     departureDate?: string;
     /**
-     * 
-     * @type {ErrorsType}
+     * An error that occurred during the processing of a message.
+     * @type {Array<ErrorType>}
      * @memberof ReservationChargesInBatchInfoType
      */
-    errors?: ErrorsType;
+    errors?: Array<ErrorType>;
     /**
      * Guest name associated to the reservation.
      * @type {string}
@@ -87,11 +87,11 @@ export interface ReservationChargesInBatchInfoType {
      */
     success?: object;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationChargesInBatchInfoType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -115,13 +115,13 @@ export function ReservationChargesInBatchInfoTypeFromJSONTyped(json: any, ignore
         
         'arrivalDate': !exists(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'departureDate': !exists(json, 'departureDate') ? undefined : json['departureDate'],
-        'errors': !exists(json, 'errors') ? undefined : ErrorsTypeFromJSON(json['errors']),
+        'errors': !exists(json, 'errors') ? undefined : ((json['errors'] as Array<any>).map(ErrorTypeFromJSON)),
         'guestName': !exists(json, 'guestName') ? undefined : json['guestName'],
         'postingAllowed': !exists(json, 'postingAllowed') ? undefined : json['postingAllowed'],
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'success': !exists(json, 'success') ? undefined : json['success'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -136,13 +136,13 @@ export function ReservationChargesInBatchInfoTypeToJSON(value?: ReservationCharg
         
         'arrivalDate': value.arrivalDate,
         'departureDate': value.departureDate,
-        'errors': ErrorsTypeToJSON(value.errors),
+        'errors': value.errors === undefined ? undefined : ((value.errors as Array<any>).map(ErrorTypeToJSON)),
         'guestName': value.guestName,
         'postingAllowed': value.postingAllowed,
         'reservationId': ReservationIdToJSON(value.reservationId),
         'roomId': value.roomId,
         'success': value.success,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

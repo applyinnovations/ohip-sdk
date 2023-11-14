@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AutoTraceDefinitionListType } from './AutoTraceDefinitionListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AutoTraceDefinitionType } from './AutoTraceDefinitionType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object after fetching Auto Trace Definitions.
  * @export
@@ -19,11 +19,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AutoTraceDefinitionsDetails {
     /**
-     *
-     * @type {AutoTraceDefinitionListType}
+     * Auto Trace Definition.
+     * @type {Array<AutoTraceDefinitionType>}
      * @memberof AutoTraceDefinitionsDetails
      */
-    autoTraceDefinitions?: AutoTraceDefinitionListType;
+    autoTraceDefinitions?: Array<AutoTraceDefinitionType>;
     /**
      * Total number of rows returned
      * @type {number}
@@ -44,10 +44,10 @@ export interface AutoTraceDefinitionsDetails {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AutoTraceDefinitionsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface AutoTraceDefinitionsDetails {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoTraceDefinitionsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AutoTraceDefinitionsDetails interface.

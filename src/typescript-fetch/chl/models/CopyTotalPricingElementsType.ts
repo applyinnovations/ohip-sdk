@@ -13,18 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
+import type { TotalPricingElementType } from './TotalPricingElementType';
 import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-import type { TotalPricingElementsType } from './TotalPricingElementsType';
-import {
-    TotalPricingElementsTypeFromJSON,
-    TotalPricingElementsTypeFromJSONTyped,
-    TotalPricingElementsTypeToJSON,
-} from './TotalPricingElementsType';
+    TotalPricingElementTypeFromJSON,
+    TotalPricingElementTypeFromJSONTyped,
+    TotalPricingElementTypeToJSON,
+} from './TotalPricingElementType';
 
 /**
  * Total Pricing Elements to copy from single source property to multi target properties
@@ -34,16 +28,16 @@ import {
 export interface CopyTotalPricingElementsType {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyTotalPricingElementsType
      */
-    targetHotels?: CodeListType;
+    targetHotels?: Array<string>;
     /**
-     * 
-     * @type {TotalPricingElementsType}
+     * List of Total Pricing Element Type
+     * @type {Array<TotalPricingElementType>}
      * @memberof CopyTotalPricingElementsType
      */
-    totalPricingElements?: TotalPricingElementsType;
+    totalPricingElements?: Array<TotalPricingElementType>;
 }
 
 /**
@@ -65,8 +59,8 @@ export function CopyTotalPricingElementsTypeFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'targetHotels': !exists(json, 'targetHotels') ? undefined : CodeListTypeFromJSON(json['targetHotels']),
-        'totalPricingElements': !exists(json, 'totalPricingElements') ? undefined : TotalPricingElementsTypeFromJSON(json['totalPricingElements']),
+        'targetHotels': !exists(json, 'targetHotels') ? undefined : json['targetHotels'],
+        'totalPricingElements': !exists(json, 'totalPricingElements') ? undefined : ((json['totalPricingElements'] as Array<any>).map(TotalPricingElementTypeFromJSON)),
     };
 }
 
@@ -79,8 +73,8 @@ export function CopyTotalPricingElementsTypeToJSON(value?: CopyTotalPricingEleme
     }
     return {
         
-        'targetHotels': CodeListTypeToJSON(value.targetHotels),
-        'totalPricingElements': TotalPricingElementsTypeToJSON(value.totalPricingElements),
+        'targetHotels': value.targetHotels,
+        'totalPricingElements': value.totalPricingElements === undefined ? undefined : ((value.totalPricingElements as Array<any>).map(TotalPricingElementTypeToJSON)),
     };
 }
 

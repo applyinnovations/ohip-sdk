@@ -19,12 +19,12 @@ import {
     FlatAmtGenerateTypeFromJSONTyped,
     FlatAmtGenerateTypeToJSON,
 } from './FlatAmtGenerateType';
-import type { FunctionArgumentsType } from './FunctionArgumentsType';
+import type { FunctionArgumentType } from './FunctionArgumentType';
 import {
-    FunctionArgumentsTypeFromJSON,
-    FunctionArgumentsTypeFromJSONTyped,
-    FunctionArgumentsTypeToJSON,
-} from './FunctionArgumentsType';
+    FunctionArgumentTypeFromJSON,
+    FunctionArgumentTypeFromJSONTyped,
+    FunctionArgumentTypeToJSON,
+} from './FunctionArgumentType';
 import type { GeneratePostingRuleType } from './GeneratePostingRuleType';
 import {
     GeneratePostingRuleTypeFromJSON,
@@ -43,12 +43,12 @@ import {
     PercentageGenerateTypeFromJSONTyped,
     PercentageGenerateTypeToJSON,
 } from './PercentageGenerateType';
-import type { TaxTypesGenerateType } from './TaxTypesGenerateType';
+import type { TaxTypeGenerateType } from './TaxTypeGenerateType';
 import {
-    TaxTypesGenerateTypeFromJSON,
-    TaxTypesGenerateTypeFromJSONTyped,
-    TaxTypesGenerateTypeToJSON,
-} from './TaxTypesGenerateType';
+    TaxTypeGenerateTypeFromJSON,
+    TaxTypeGenerateTypeFromJSONTyped,
+    TaxTypeGenerateTypeToJSON,
+} from './TaxTypeGenerateType';
 
 /**
  * Defines the Calculation Rule for the generate.
@@ -81,11 +81,11 @@ export interface GenerateCalcRuleType {
      */
     roundingMethod?: GenerateRoundingMethodType;
     /**
-     * 
-     * @type {TaxTypesGenerateType}
+     * Defines the Calculation Rule for the Tax Type for a specific date schedule
+     * @type {Array<TaxTypeGenerateType>}
      * @memberof GenerateCalcRuleType
      */
-    taxTypeBased?: TaxTypesGenerateType;
+    taxTypeBased?: Array<TaxTypeGenerateType>;
     /**
      * Defines User Defined Function to calculate generates.
      * @type {string}
@@ -93,11 +93,11 @@ export interface GenerateCalcRuleType {
      */
     uDF?: string;
     /**
-     * 
-     * @type {FunctionArgumentsType}
+     * Collection of function arguments and their corresponding values.
+     * @type {Array<FunctionArgumentType>}
      * @memberof GenerateCalcRuleType
      */
-    uDFFunctionArguments?: FunctionArgumentsType;
+    uDFFunctionArguments?: Array<FunctionArgumentType>;
     /**
      * The function name of the User Defined Function used to calculate generates.
      * @type {string}
@@ -129,9 +129,9 @@ export function GenerateCalcRuleTypeFromJSONTyped(json: any, ignoreDiscriminator
         'percentage': !exists(json, 'percentage') ? undefined : PercentageGenerateTypeFromJSON(json['percentage']),
         'posting': !exists(json, 'posting') ? undefined : GeneratePostingRuleTypeFromJSON(json['posting']),
         'roundingMethod': !exists(json, 'roundingMethod') ? undefined : GenerateRoundingMethodTypeFromJSON(json['roundingMethod']),
-        'taxTypeBased': !exists(json, 'taxTypeBased') ? undefined : TaxTypesGenerateTypeFromJSON(json['taxTypeBased']),
+        'taxTypeBased': !exists(json, 'taxTypeBased') ? undefined : ((json['taxTypeBased'] as Array<any>).map(TaxTypeGenerateTypeFromJSON)),
         'uDF': !exists(json, 'uDF') ? undefined : json['uDF'],
-        'uDFFunctionArguments': !exists(json, 'uDFFunctionArguments') ? undefined : FunctionArgumentsTypeFromJSON(json['uDFFunctionArguments']),
+        'uDFFunctionArguments': !exists(json, 'uDFFunctionArguments') ? undefined : ((json['uDFFunctionArguments'] as Array<any>).map(FunctionArgumentTypeFromJSON)),
         'uDFFunctionName': !exists(json, 'uDFFunctionName') ? undefined : json['uDFFunctionName'],
     };
 }
@@ -149,9 +149,9 @@ export function GenerateCalcRuleTypeToJSON(value?: GenerateCalcRuleType | null):
         'percentage': PercentageGenerateTypeToJSON(value.percentage),
         'posting': GeneratePostingRuleTypeToJSON(value.posting),
         'roundingMethod': GenerateRoundingMethodTypeToJSON(value.roundingMethod),
-        'taxTypeBased': TaxTypesGenerateTypeToJSON(value.taxTypeBased),
+        'taxTypeBased': value.taxTypeBased === undefined ? undefined : ((value.taxTypeBased as Array<any>).map(TaxTypeGenerateTypeToJSON)),
         'uDF': value.uDF,
-        'uDFFunctionArguments': FunctionArgumentsTypeToJSON(value.uDFFunctionArguments),
+        'uDFFunctionArguments': value.uDFFunctionArguments === undefined ? undefined : ((value.uDFFunctionArguments as Array<any>).map(FunctionArgumentTypeToJSON)),
         'uDFFunctionName': value.uDFFunctionName,
     };
 }

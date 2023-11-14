@@ -20,6 +20,4 @@ __exportStar(require("./Currencies"), exports);
 __exportStar(require("./ErrorInstance"), exports);
 __exportStar(require("./ExceptionDetailType"), exports);
 __exportStar(require("./InstanceLink"), exports);
-__exportStar(require("./Links"), exports);
 __exportStar(require("./WarningType"), exports);
-__exportStar(require("./WarningsType"), exports);

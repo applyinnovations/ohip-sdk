@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RoomRoomsType } from './RoomRoomsType';
+import type { RoomRoomType } from './RoomRoomType';
 import {
-    RoomRoomsTypeFromJSON,
-    RoomRoomsTypeFromJSONTyped,
-    RoomRoomsTypeToJSON,
-} from './RoomRoomsType';
+    RoomRoomTypeFromJSON,
+    RoomRoomTypeFromJSONTyped,
+    RoomRoomTypeToJSON,
+} from './RoomRoomType';
 
 /**
  * Room component and its quantity for the component room type.
@@ -45,11 +45,11 @@ export interface RoomComponentType {
      */
     roomType?: string;
     /**
-     * 
-     * @type {RoomRoomsType}
+     * Collection of rooms.
+     * @type {Array<RoomRoomType>}
      * @memberof RoomComponentType
      */
-    rooms?: RoomRoomsType;
+    rooms?: Array<RoomRoomType>;
 }
 
 /**
@@ -74,7 +74,7 @@ export function RoomComponentTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'description': !exists(json, 'description') ? undefined : json['description'],
         'qty': !exists(json, 'qty') ? undefined : json['qty'],
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
-        'rooms': !exists(json, 'rooms') ? undefined : RoomRoomsTypeFromJSON(json['rooms']),
+        'rooms': !exists(json, 'rooms') ? undefined : ((json['rooms'] as Array<any>).map(RoomRoomTypeFromJSON)),
     };
 }
 
@@ -90,7 +90,7 @@ export function RoomComponentTypeToJSON(value?: RoomComponentType | null): any {
         'description': value.description,
         'qty': value.qty,
         'roomType': value.roomType,
-        'rooms': RoomRoomsTypeToJSON(value.rooms),
+        'rooms': value.rooms === undefined ? undefined : ((value.rooms as Array<any>).map(RoomRoomTypeToJSON)),
     };
 }
 

@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { CateringEventPostingsType } from './CateringEventPostingsType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationSnapshotsType } from './ReservationSnapshotsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -27,10 +27,10 @@ export interface ManageCateringEventPostingsRequest {
     cateringEventPostings?: CateringEventPostingsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ManageCateringEventPostingsRequest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationSnapshotsType}
@@ -38,11 +38,11 @@ export interface ManageCateringEventPostingsRequest {
      */
     postingMasterReservations?: ReservationSnapshotsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ManageCateringEventPostingsRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ManageCateringEventPostingsRequest interface.

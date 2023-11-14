@@ -24,9 +24,9 @@ import type {
   ChannelAccountContracts,
   ChannelAccountContractsCopy,
   ChannelAccountContractsDetailsCopy,
+  ChannelAccountType,
   ChannelAccounts,
   ChannelAccountsSummary,
-  ChannelAccountsToChange,
   ChannelAvailability,
   ChannelBillingStatement,
   ChannelBillingStatementDetails,
@@ -103,12 +103,12 @@ import {
     ChannelAccountContractsCopyToJSON,
     ChannelAccountContractsDetailsCopyFromJSON,
     ChannelAccountContractsDetailsCopyToJSON,
+    ChannelAccountTypeFromJSON,
+    ChannelAccountTypeToJSON,
     ChannelAccountsFromJSON,
     ChannelAccountsToJSON,
     ChannelAccountsSummaryFromJSON,
     ChannelAccountsSummaryToJSON,
-    ChannelAccountsToChangeFromJSON,
-    ChannelAccountsToChangeToJSON,
     ChannelAvailabilityFromJSON,
     ChannelAvailabilityToJSON,
     ChannelBillingStatementFromJSON,
@@ -1464,7 +1464,7 @@ export interface PutChannelAccountsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    channelAccountsToChange: ChannelAccountsToChange;
+    channelAccountsToChange: Array<ChannelAccountType>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -8413,7 +8413,7 @@ export class ChannelApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChannelAccountsToChangeToJSON(requestParameters.channelAccountsToChange),
+            body: requestParameters.channelAccountsToChange.map(ChannelAccountTypeToJSON),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));

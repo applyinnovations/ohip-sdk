@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BrandCodesType } from './BrandCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BrandCodeType } from './BrandCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Brand Codes.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BrandCodesDetails {
     /**
-     *
-     * @type {BrandCodesType}
+     * List of Brand Codes.
+     * @type {Array<BrandCodeType>}
      * @memberof BrandCodesDetails
      */
-    brandCodes?: BrandCodesType;
+    brandCodes?: Array<BrandCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BrandCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BrandCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BrandCodesDetails interface.

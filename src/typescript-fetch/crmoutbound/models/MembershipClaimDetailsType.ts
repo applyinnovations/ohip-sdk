@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ClaimActivityLogListType } from './ClaimActivityLogListType';
+import type { ClaimActivityLogType } from './ClaimActivityLogType';
 import {
-    ClaimActivityLogListTypeFromJSON,
-    ClaimActivityLogListTypeFromJSONTyped,
-    ClaimActivityLogListTypeToJSON,
-} from './ClaimActivityLogListType';
+    ClaimActivityLogTypeFromJSON,
+    ClaimActivityLogTypeFromJSONTyped,
+    ClaimActivityLogTypeToJSON,
+} from './ClaimActivityLogType';
 import type { ClaimAdjustmentPointsType } from './ClaimAdjustmentPointsType';
 import {
     ClaimAdjustmentPointsTypeFromJSON,
@@ -183,11 +183,11 @@ export interface MembershipClaimDetailsType {
      */
     claimPoints?: ClaimAdjustmentPointsType;
     /**
-     * 
-     * @type {ClaimActivityLogListType}
+     * Summary of claim activity log information.
+     * @type {Array<ClaimActivityLogType>}
      * @memberof MembershipClaimDetailsType
      */
-    activityLog?: ClaimActivityLogListType;
+    activityLog?: Array<ClaimActivityLogType>;
     /**
      * User who entered this claim.
      * @type {string}
@@ -233,7 +233,7 @@ export function MembershipClaimDetailsTypeFromJSONTyped(json: any, ignoreDiscrim
         'membership': !exists(json, 'membership') ? undefined : ClaimMembershipTypeFromJSON(json['membership']),
         'reservation': !exists(json, 'reservation') ? undefined : ClaimReservationInfoTypeFromJSON(json['reservation']),
         'claimPoints': !exists(json, 'claimPoints') ? undefined : ClaimAdjustmentPointsTypeFromJSON(json['claimPoints']),
-        'activityLog': !exists(json, 'activityLog') ? undefined : ClaimActivityLogListTypeFromJSON(json['activityLog']),
+        'activityLog': !exists(json, 'activityLog') ? undefined : ((json['activityLog'] as Array<any>).map(ClaimActivityLogTypeFromJSON)),
         'submitter': !exists(json, 'submitter') ? undefined : json['submitter'],
     };
 }
@@ -265,7 +265,7 @@ export function MembershipClaimDetailsTypeToJSON(value?: MembershipClaimDetailsT
         'membership': ClaimMembershipTypeToJSON(value.membership),
         'reservation': ClaimReservationInfoTypeToJSON(value.reservation),
         'claimPoints': ClaimAdjustmentPointsTypeToJSON(value.claimPoints),
-        'activityLog': ClaimActivityLogListTypeToJSON(value.activityLog),
+        'activityLog': value.activityLog === undefined ? undefined : ((value.activityLog as Array<any>).map(ClaimActivityLogTypeToJSON)),
         'submitter': value.submitter,
     };
 }

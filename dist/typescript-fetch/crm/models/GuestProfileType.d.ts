@@ -21,10 +21,10 @@ import type { CompanyProfileTypeRelationships } from './CompanyProfileTypeRelati
 import type { CompanyProfileTypeTelephones } from './CompanyProfileTypeTelephones';
 import type { CompanyProfileTypeURLs } from './CompanyProfileTypeURLs';
 import type { CustomerType } from './CustomerType';
-import type { ECertificatesType } from './ECertificatesType';
+import type { ECertificateType } from './ECertificateType';
 import type { GuestProfileTypeType } from './GuestProfileTypeType';
 import type { ImageSetType } from './ImageSetType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import type { LastStayInfoType } from './LastStayInfoType';
 import type { MailingActionsType } from './MailingActionsType';
 import type { PrivacyInfoType } from './PrivacyInfoType';
@@ -33,11 +33,11 @@ import type { ProfileCashieringType } from './ProfileCashieringType';
 import type { ProfileCommissionType } from './ProfileCommissionType';
 import type { ProfileRestrictions } from './ProfileRestrictions';
 import type { ProfileStatusType } from './ProfileStatusType';
-import type { ProfileSubscriptionListType } from './ProfileSubscriptionListType';
+import type { ProfileSubscriptionType } from './ProfileSubscriptionType';
 import type { ProfileTaxInfoType } from './ProfileTaxInfoType';
 import type { SalesInfoType } from './SalesInfoType';
 import type { UserDefinedFieldsType } from './UserDefinedFieldsType';
-import type { WebUserAccountsType } from './WebUserAccountsType';
+import type { WebUserAccountType } from './WebUserAccountType';
 /**
  * Type provides the detailed information about the profile and its children.
  * @export
@@ -87,11 +87,11 @@ export interface GuestProfileType {
      */
     customer?: CustomerType;
     /**
-     *
-     * @type {ECertificatesType}
+     * List of e-certificates for the profile.
+     * @type {Array<ECertificateType>}
      * @memberof GuestProfileType
      */
-    eCertificates?: ECertificatesType;
+    eCertificates?: Array<ECertificateType>;
     /**
      * Eligible for Fiscal Folio/Payload generation.
      * @type {string}
@@ -213,11 +213,11 @@ export interface GuestProfileType {
      */
     profileImage?: ImageSetType;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof GuestProfileType
      */
-    profileIndicators?: IndicatorsType;
+    profileIndicators?: Array<IndicatorType>;
     /**
      *
      * @type {CompanyProfileTypeProfileMemberships}
@@ -273,11 +273,11 @@ export interface GuestProfileType {
      */
     statusCode?: ProfileStatusType;
     /**
-     *
-     * @type {ProfileSubscriptionListType}
+     * Details of the OPERA Profile subscription to external system
+     * @type {Array<ProfileSubscriptionType>}
      * @memberof GuestProfileType
      */
-    subscriptions?: ProfileSubscriptionListType;
+    subscriptions?: Array<ProfileSubscriptionType>;
     /**
      *
      * @type {ProfileTaxInfoType}
@@ -309,11 +309,11 @@ export interface GuestProfileType {
      */
     userDefinedFields?: UserDefinedFieldsType;
     /**
-     *
-     * @type {WebUserAccountsType}
+     * Web User Accounts List.
+     * @type {Array<WebUserAccountType>}
      * @memberof GuestProfileType
      */
-    webUserAccounts?: WebUserAccountsType;
+    webUserAccounts?: Array<WebUserAccountType>;
 }
 /**
  * Check if a given object implements the GuestProfileType interface.

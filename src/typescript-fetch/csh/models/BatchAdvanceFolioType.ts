@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Reservations } from './Reservations';
+import type { ReservationId } from './ReservationId';
 import {
-    ReservationsFromJSON,
-    ReservationsFromJSONTyped,
-    ReservationsToJSON,
-} from './Reservations';
+    ReservationIdFromJSON,
+    ReservationIdFromJSONTyped,
+    ReservationIdToJSON,
+} from './ReservationId';
 
 /**
  * Contains criteria for process batch advance folio.
@@ -39,11 +39,11 @@ export interface BatchAdvanceFolioType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {Reservations}
+     * Unique identifier for a reservation.
+     * @type {Array<ReservationId>}
      * @memberof BatchAdvanceFolioType
      */
-    reservations?: Reservations;
+    reservations?: Array<ReservationId>;
 }
 
 /**
@@ -67,7 +67,7 @@ export function BatchAdvanceFolioTypeFromJSONTyped(json: any, ignoreDiscriminato
         
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'reservations': !exists(json, 'reservations') ? undefined : ReservationsFromJSON(json['reservations']),
+        'reservations': !exists(json, 'reservations') ? undefined : ((json['reservations'] as Array<any>).map(ReservationIdFromJSON)),
     };
 }
 
@@ -82,7 +82,7 @@ export function BatchAdvanceFolioTypeToJSON(value?: BatchAdvanceFolioType | null
         
         'cashierId': value.cashierId,
         'hotelId': value.hotelId,
-        'reservations': ReservationsToJSON(value.reservations),
+        'reservations': value.reservations === undefined ? undefined : ((value.reservations as Array<any>).map(ReservationIdToJSON)),
     };
 }
 

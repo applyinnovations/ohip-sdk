@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ConfirmationsType } from './ConfirmationsType';
+import type { ConfirmationType } from './ConfirmationType';
 import {
-    ConfirmationsTypeFromJSON,
-    ConfirmationsTypeFromJSONTyped,
-    ConfirmationsTypeToJSON,
-} from './ConfirmationsType';
-import type { Links } from './Links';
+    ConfirmationTypeFromJSON,
+    ConfirmationTypeFromJSONTyped,
+    ConfirmationTypeToJSON,
+} from './ConfirmationType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReservationId } from './ReservationId';
 import {
     ReservationIdFromJSON,
@@ -37,12 +37,12 @@ import {
     ResponseInstructionsTypeFromJSONTyped,
     ResponseInstructionsTypeToJSON,
 } from './ResponseInstructionsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object after creating a confirmation letter.
@@ -51,11 +51,11 @@ import {
  */
 export interface ConfirmationLettersDetails {
     /**
-     * 
-     * @type {ConfirmationsType}
+     * List of confirmation letters.
+     * @type {Array<ConfirmationType>}
      * @memberof ConfirmationLettersDetails
      */
-    confLetters?: ConfirmationsType;
+    confLetters?: Array<ConfirmationType>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -64,10 +64,10 @@ export interface ConfirmationLettersDetails {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ConfirmationLettersDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ReservationId}
@@ -81,11 +81,11 @@ export interface ConfirmationLettersDetails {
      */
     responseInstruction?: ResponseInstructionsType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ConfirmationLettersDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -107,12 +107,12 @@ export function ConfirmationLettersDetailsFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'confLetters': !exists(json, 'confLetters') ? undefined : ConfirmationsTypeFromJSON(json['confLetters']),
+        'confLetters': !exists(json, 'confLetters') ? undefined : ((json['confLetters'] as Array<any>).map(ConfirmationTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
         'responseInstruction': !exists(json, 'responseInstruction') ? undefined : ResponseInstructionsTypeFromJSON(json['responseInstruction']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -125,12 +125,12 @@ export function ConfirmationLettersDetailsToJSON(value?: ConfirmationLettersDeta
     }
     return {
         
-        'confLetters': ConfirmationsTypeToJSON(value.confLetters),
+        'confLetters': value.confLetters === undefined ? undefined : ((value.confLetters as Array<any>).map(ConfirmationTypeToJSON)),
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservationId': ReservationIdToJSON(value.reservationId),
         'responseInstruction': ResponseInstructionsTypeToJSON(value.responseInstruction),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

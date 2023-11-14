@@ -15,10 +15,10 @@ import type { CountryNameType } from './CountryNameType';
 import type { GuestLastStayInfoType } from './GuestLastStayInfoType';
 import type { MembershipInfoType } from './MembershipInfoType';
 import type { NameTypeType } from './NameTypeType';
-import type { ResAccompanyGuestListType } from './ResAccompanyGuestListType';
+import type { ResAccompanyGuestInfoType } from './ResAccompanyGuestInfoType';
 import type { ResGuestExternalInfoType } from './ResGuestExternalInfoType';
 import type { VIPType } from './VIPType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Specifies Company or Travel Agent profile using IATA or Corp. No.
  * @export
@@ -26,11 +26,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ResGuestInfoType {
     /**
-     *
-     * @type {ResAccompanyGuestListType}
+     * Collection of accompany guests
+     * @type {Array<ResAccompanyGuestInfoType>}
      * @memberof ResGuestInfoType
      */
-    accompanyGuests?: ResAccompanyGuestListType;
+    accompanyGuests?: Array<ResAccompanyGuestInfoType>;
     /**
      *
      * @type {AddressSearchType}
@@ -212,11 +212,11 @@ export interface ResGuestInfoType {
      */
     vip?: VIPType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ResGuestInfoType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ResGuestInfoType interface.

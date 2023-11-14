@@ -18,9 +18,9 @@ const runtime_1 = require("../runtime");
 const CancelReservationType_1 = require("./CancelReservationType");
 const CancellationReasonType_1 = require("./CancellationReasonType");
 const ChannelResvRQInfoType_1 = require("./ChannelResvRQInfoType");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const RateChangeInstructionType_1 = require("./RateChangeInstructionType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PostCancelReservationRequest interface.
  */
@@ -39,12 +39,12 @@ function PostCancelReservationRequestFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'channelInformation': !(0, runtime_1.exists)(json, 'channelInformation') ? undefined : (0, ChannelResvRQInfoType_1.ChannelResvRQInfoTypeFromJSON)(json['channelInformation']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'rateChangeInstruction': !(0, runtime_1.exists)(json, 'rateChangeInstruction') ? undefined : (0, RateChangeInstructionType_1.RateChangeInstructionTypeFromJSON)(json['rateChangeInstruction']),
         'reason': !(0, runtime_1.exists)(json, 'reason') ? undefined : (0, CancellationReasonType_1.CancellationReasonTypeFromJSON)(json['reason']),
         'reservations': !(0, runtime_1.exists)(json, 'reservations') ? undefined : (json['reservations'].map(CancelReservationType_1.CancelReservationTypeFromJSON)),
         'verificationOnly': !(0, runtime_1.exists)(json, 'verificationOnly') ? undefined : json['verificationOnly'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PostCancelReservationRequestFromJSONTyped = PostCancelReservationRequestFromJSONTyped;
@@ -57,12 +57,12 @@ function PostCancelReservationRequestToJSON(value) {
     }
     return {
         'channelInformation': (0, ChannelResvRQInfoType_1.ChannelResvRQInfoTypeToJSON)(value.channelInformation),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'rateChangeInstruction': (0, RateChangeInstructionType_1.RateChangeInstructionTypeToJSON)(value.rateChangeInstruction),
         'reason': (0, CancellationReasonType_1.CancellationReasonTypeToJSON)(value.reason),
         'reservations': value.reservations === undefined ? undefined : (value.reservations.map(CancelReservationType_1.CancelReservationTypeToJSON)),
         'verificationOnly': value.verificationOnly,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PostCancelReservationRequestToJSON = PostCancelReservationRequestToJSON;

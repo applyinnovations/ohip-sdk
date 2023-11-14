@@ -79,12 +79,12 @@ import {
     ReservationIdFromJSONTyped,
     ReservationIdToJSON,
 } from './ReservationId';
-import type { TransactionsType } from './TransactionsType';
+import type { TransactionType } from './TransactionType';
 import {
-    TransactionsTypeFromJSON,
-    TransactionsTypeFromJSONTyped,
-    TransactionsTypeToJSON,
-} from './TransactionsType';
+    TransactionTypeFromJSON,
+    TransactionTypeFromJSONTyped,
+    TransactionTypeToJSON,
+} from './TransactionType';
 
 /**
  * Generate Folio Criteria type to be used for folio generation request
@@ -225,11 +225,11 @@ export interface GenerateFolioCriteriaType {
      */
     transactionServiceType?: string;
     /**
-     * 
-     * @type {TransactionsType}
+     * List of transaction information.
+     * @type {Array<TransactionType>}
      * @memberof GenerateFolioCriteriaType
      */
-    transactions?: TransactionsType;
+    transactions?: Array<TransactionType>;
 }
 
 /**
@@ -273,7 +273,7 @@ export function GenerateFolioCriteriaTypeFromJSONTyped(json: any, ignoreDiscrimi
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
         'simpleFolio': !exists(json, 'simpleFolio') ? undefined : json['simpleFolio'],
         'transactionServiceType': !exists(json, 'transactionServiceType') ? undefined : json['transactionServiceType'],
-        'transactions': !exists(json, 'transactions') ? undefined : TransactionsTypeFromJSON(json['transactions']),
+        'transactions': !exists(json, 'transactions') ? undefined : ((json['transactions'] as Array<any>).map(TransactionTypeFromJSON)),
     };
 }
 
@@ -308,7 +308,7 @@ export function GenerateFolioCriteriaTypeToJSON(value?: GenerateFolioCriteriaTyp
         'reservationId': ReservationIdToJSON(value.reservationId),
         'simpleFolio': value.simpleFolio,
         'transactionServiceType': value.transactionServiceType,
-        'transactions': TransactionsTypeToJSON(value.transactions),
+        'transactions': value.transactions === undefined ? undefined : ((value.transactions as Array<any>).map(TransactionTypeToJSON)),
     };
 }
 

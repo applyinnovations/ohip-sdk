@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FiscalPartnerCodeListType } from './FiscalPartnerCodeListType';
-import {
-    FiscalPartnerCodeListTypeFromJSON,
-    FiscalPartnerCodeListTypeFromJSONTyped,
-    FiscalPartnerCodeListTypeToJSON,
-} from './FiscalPartnerCodeListType';
-
 /**
  * Fiscal Command details.
  * @export
@@ -40,10 +33,10 @@ export interface FiscalCommandType {
     fiscalCommandCode?: string;
     /**
      * 
-     * @type {FiscalPartnerCodeListType}
+     * @type {Array<string>}
      * @memberof FiscalCommandType
      */
-    fiscalPartnerCodes?: FiscalPartnerCodeListType;
+    fiscalPartnerCodes?: Array<string>;
     /**
      * Unique code of the hotel.
      * @type {string}
@@ -79,7 +72,7 @@ export function FiscalCommandTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         
         'description': !exists(json, 'description') ? undefined : json['description'],
         'fiscalCommandCode': !exists(json, 'fiscalCommandCode') ? undefined : json['fiscalCommandCode'],
-        'fiscalPartnerCodes': !exists(json, 'fiscalPartnerCodes') ? undefined : FiscalPartnerCodeListTypeFromJSON(json['fiscalPartnerCodes']),
+        'fiscalPartnerCodes': !exists(json, 'fiscalPartnerCodes') ? undefined : json['fiscalPartnerCodes'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
     };
@@ -96,7 +89,7 @@ export function FiscalCommandTypeToJSON(value?: FiscalCommandType | null): any {
         
         'description': value.description,
         'fiscalCommandCode': value.fiscalCommandCode,
-        'fiscalPartnerCodes': FiscalPartnerCodeListTypeToJSON(value.fiscalPartnerCodes),
+        'fiscalPartnerCodes': value.fiscalPartnerCodes,
         'hotelId': value.hotelId,
         'inactive': value.inactive,
     };

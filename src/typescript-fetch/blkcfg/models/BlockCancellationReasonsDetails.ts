@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockCancellationReasonsType } from './BlockCancellationReasonsType';
+import type { BlockCancellationReasonType } from './BlockCancellationReasonType';
 import {
-    BlockCancellationReasonsTypeFromJSON,
-    BlockCancellationReasonsTypeFromJSONTyped,
-    BlockCancellationReasonsTypeToJSON,
-} from './BlockCancellationReasonsType';
-import type { Links } from './Links';
+    BlockCancellationReasonTypeFromJSON,
+    BlockCancellationReasonTypeFromJSONTyped,
+    BlockCancellationReasonTypeToJSON,
+} from './BlockCancellationReasonType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Block Cancellation Reasons.
@@ -39,23 +39,23 @@ import {
  */
 export interface BlockCancellationReasonsDetails {
     /**
-     * 
-     * @type {BlockCancellationReasonsType}
+     * List of Block Cancellation Reasons.
+     * @type {Array<BlockCancellationReasonType>}
      * @memberof BlockCancellationReasonsDetails
      */
-    blockCancellationReasons?: BlockCancellationReasonsType;
+    blockCancellationReasons?: Array<BlockCancellationReasonType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockCancellationReasonsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockCancellationReasonsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function BlockCancellationReasonsDetailsFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'blockCancellationReasons': !exists(json, 'blockCancellationReasons') ? undefined : BlockCancellationReasonsTypeFromJSON(json['blockCancellationReasons']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'blockCancellationReasons': !exists(json, 'blockCancellationReasons') ? undefined : ((json['blockCancellationReasons'] as Array<any>).map(BlockCancellationReasonTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function BlockCancellationReasonsDetailsToJSON(value?: BlockCancellationR
     }
     return {
         
-        'blockCancellationReasons': BlockCancellationReasonsTypeToJSON(value.blockCancellationReasons),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'blockCancellationReasons': value.blockCancellationReasons === undefined ? undefined : ((value.blockCancellationReasons as Array<any>).map(BlockCancellationReasonTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

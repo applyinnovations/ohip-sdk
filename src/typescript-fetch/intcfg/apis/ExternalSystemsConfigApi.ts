@@ -31,9 +31,9 @@ import type {
   FetchedHotelInterfaceFailedMessages,
   FetchedHotelInterfaceSchemas,
   FetchedHotelInterfaces,
-  FetchedInterfaceRights,
   FetchedPublishers,
   FetchedUDFMappings,
+  InterfaceRightType,
   Status,
 } from '../models/index';
 import {
@@ -69,12 +69,12 @@ import {
     FetchedHotelInterfaceSchemasToJSON,
     FetchedHotelInterfacesFromJSON,
     FetchedHotelInterfacesToJSON,
-    FetchedInterfaceRightsFromJSON,
-    FetchedInterfaceRightsToJSON,
     FetchedPublishersFromJSON,
     FetchedPublishersToJSON,
     FetchedUDFMappingsFromJSON,
     FetchedUDFMappingsToJSON,
+    InterfaceRightTypeFromJSON,
+    InterfaceRightTypeToJSON,
     StatusFromJSON,
     StatusToJSON,
 } from '../models/index';
@@ -1039,7 +1039,7 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>getInterfaceRights</p>
      * Operation to fetch interface rights.
      */
-    async getInterfaceRightsRaw(requestParameters: GetInterfaceRightsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchedInterfaceRights>> {
+    async getInterfaceRightsRaw(requestParameters: GetInterfaceRightsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<InterfaceRightType>>> {
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -1091,14 +1091,14 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => FetchedInterfaceRightsFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(InterfaceRightTypeFromJSON));
     }
 
     /**
      *  <p><strong>OperationId:</strong>getInterfaceRights</p>
      * Operation to fetch interface rights.
      */
-    async getInterfaceRights(requestParameters: GetInterfaceRightsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FetchedInterfaceRights> {
+    async getInterfaceRights(requestParameters: GetInterfaceRightsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<InterfaceRightType>> {
         const response = await this.getInterfaceRightsRaw(requestParameters, initOverrides);
         return await response.value();
     }

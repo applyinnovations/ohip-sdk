@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { DateTimeSpanType } from './DateTimeSpanType';
 import {
     DateTimeSpanTypeFromJSON,
@@ -58,10 +52,10 @@ export interface WaitlistedEventsSearchType {
     blockName?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof WaitlistedEventsSearchType
      */
-    functionSpaceCode?: CodeListType;
+    functionSpaceCode?: Array<string>;
     /**
      * Hotel code of Function Space.
      * @type {string}
@@ -98,7 +92,7 @@ export function WaitlistedEventsSearchTypeFromJSONTyped(json: any, ignoreDiscrim
         'accountName': !exists(json, 'accountName') ? undefined : json['accountName'],
         'blockId': !exists(json, 'blockId') ? undefined : UniqueIDTypeFromJSON(json['blockId']),
         'blockName': !exists(json, 'blockName') ? undefined : json['blockName'],
-        'functionSpaceCode': !exists(json, 'functionSpaceCode') ? undefined : CodeListTypeFromJSON(json['functionSpaceCode']),
+        'functionSpaceCode': !exists(json, 'functionSpaceCode') ? undefined : json['functionSpaceCode'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'waitlistedTimeSpan': !exists(json, 'waitlistedTimeSpan') ? undefined : DateTimeSpanTypeFromJSON(json['waitlistedTimeSpan']),
     };
@@ -116,7 +110,7 @@ export function WaitlistedEventsSearchTypeToJSON(value?: WaitlistedEventsSearchT
         'accountName': value.accountName,
         'blockId': UniqueIDTypeToJSON(value.blockId),
         'blockName': value.blockName,
-        'functionSpaceCode': CodeListTypeToJSON(value.functionSpaceCode),
+        'functionSpaceCode': value.functionSpaceCode,
         'hotelId': value.hotelId,
         'waitlistedTimeSpan': DateTimeSpanTypeToJSON(value.waitlistedTimeSpan),
     };

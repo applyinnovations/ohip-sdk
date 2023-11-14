@@ -19,12 +19,12 @@ import {
     RotationRuleTypeFromJSONTyped,
     RotationRuleTypeToJSON,
 } from './RotationRuleType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for saving changes to room type rotation rules.
@@ -45,11 +45,11 @@ export interface RoomRotationRules {
      */
     rotationRules?: Array<RotationRuleType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomRotationRules
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -73,7 +73,7 @@ export function RoomRotationRulesFromJSONTyped(json: any, ignoreDiscriminator: b
         
         'forceRecalculate': !exists(json, 'forceRecalculate') ? undefined : json['forceRecalculate'],
         'rotationRules': !exists(json, 'rotationRules') ? undefined : ((json['rotationRules'] as Array<any>).map(RotationRuleTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -88,7 +88,7 @@ export function RoomRotationRulesToJSON(value?: RoomRotationRules | null): any {
         
         'forceRecalculate': value.forceRecalculate,
         'rotationRules': value.rotationRules === undefined ? undefined : ((value.rotationRules as Array<any>).map(RotationRuleTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

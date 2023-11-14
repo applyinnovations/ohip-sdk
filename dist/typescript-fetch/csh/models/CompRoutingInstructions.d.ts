@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ResvRoutingInfoListType } from './ResvRoutingInfoListType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ResvRoutingInfoType } from './ResvRoutingInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response object containing comp routing instructions for a reservation .
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface CompRoutingInstructions {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CompRoutingInstructions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ResvRoutingInfoListType}
+     * A comp routing info object
+     * @type {Array<ResvRoutingInfoType>}
      * @memberof CompRoutingInstructions
      */
-    resvRoutingInstructions?: ResvRoutingInfoListType;
+    resvRoutingInstructions?: Array<ResvRoutingInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CompRoutingInstructions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CompRoutingInstructions interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ConfigLanguagesType } from './ConfigLanguagesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ConfigLanguageType } from './ConfigLanguageType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing details of existing language records.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface LanguagesToBeChanged {
     /**
-     *
-     * @type {ConfigLanguagesType}
+     * This type holds a collection of languages.
+     * @type {Array<ConfigLanguageType>}
      * @memberof LanguagesToBeChanged
      */
-    languages?: ConfigLanguagesType;
+    languages?: Array<ConfigLanguageType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof LanguagesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof LanguagesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the LanguagesToBeChanged interface.

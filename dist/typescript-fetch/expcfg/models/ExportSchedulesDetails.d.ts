@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ExportSchedulesType } from './ExportSchedulesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ExportScheduleType } from './ExportScheduleType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Export Schedules collection matching the crieteria specified in the request
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ExportSchedulesDetails {
     /**
-     *
-     * @type {ExportSchedulesType}
+     * Export Schedule
+     * @type {Array<ExportScheduleType>}
      * @memberof ExportSchedulesDetails
      */
-    exportSchedules?: ExportSchedulesType;
+    exportSchedules?: Array<ExportScheduleType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExportSchedulesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ExportSchedulesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ExportSchedulesDetails interface.

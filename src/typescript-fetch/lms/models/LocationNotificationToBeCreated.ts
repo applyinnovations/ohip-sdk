@@ -25,12 +25,12 @@ import {
     FormattedTextTextTypeFromJSONTyped,
     FormattedTextTextTypeToJSON,
 } from './FormattedTextTextType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { LocationNotificationStatus } from './LocationNotificationStatus';
 import {
     LocationNotificationStatusFromJSON,
@@ -43,12 +43,12 @@ import {
     UniqueIDTypeFromJSONTyped,
     UniqueIDTypeToJSON,
 } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -70,10 +70,10 @@ export interface LocationNotificationToBeCreated {
     description?: FormattedTextTextType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof LocationNotificationToBeCreated
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {LocationNotificationStatus}
@@ -105,11 +105,11 @@ export interface LocationNotificationToBeCreated {
      */
     reservationId?: UniqueIDType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof LocationNotificationToBeCreated
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -133,13 +133,13 @@ export function LocationNotificationToBeCreatedFromJSONTyped(json: any, ignoreDi
         
         'activityTime': !exists(json, 'activityTime') ? undefined : DateTimeSpanTypeFromJSON(json['activityTime']),
         'description': !exists(json, 'description') ? undefined : FormattedTextTextTypeFromJSON(json['description']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'locationNotificationStatus': !exists(json, 'locationNotificationStatus') ? undefined : LocationNotificationStatusFromJSON(json['locationNotificationStatus']),
         'locationText': !exists(json, 'locationText') ? undefined : FormattedTextTextTypeFromJSON(json['locationText']),
         'otherLocationNotificationStatus': !exists(json, 'otherLocationNotificationStatus') ? undefined : json['otherLocationNotificationStatus'],
         'profileId': !exists(json, 'profileId') ? undefined : UniqueIDTypeFromJSON(json['profileId']),
         'reservationId': !exists(json, 'reservationId') ? undefined : UniqueIDTypeFromJSON(json['reservationId']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -154,13 +154,13 @@ export function LocationNotificationToBeCreatedToJSON(value?: LocationNotificati
         
         'activityTime': DateTimeSpanTypeToJSON(value.activityTime),
         'description': FormattedTextTextTypeToJSON(value.description),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'locationNotificationStatus': LocationNotificationStatusToJSON(value.locationNotificationStatus),
         'locationText': FormattedTextTextTypeToJSON(value.locationText),
         'otherLocationNotificationStatus': value.otherLocationNotificationStatus,
         'profileId': UniqueIDTypeToJSON(value.profileId),
         'reservationId': UniqueIDTypeToJSON(value.reservationId),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

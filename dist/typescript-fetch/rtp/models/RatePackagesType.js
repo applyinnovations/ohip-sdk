@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RatePackagesTypeToJSON = exports.RatePackagesTypeFromJSONTyped = exports.RatePackagesTypeFromJSON = exports.instanceOfRatePackagesType = void 0;
 const runtime_1 = require("../runtime");
-const RatePackageCodeListType_1 = require("./RatePackageCodeListType");
+const RatePackageCodeType_1 = require("./RatePackageCodeType");
 const RatePackageGroupType_1 = require("./RatePackageGroupType");
 /**
  * Check if a given object implements the RatePackagesType interface.
@@ -35,7 +35,7 @@ function RatePackagesTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'packageGroups': !(0, runtime_1.exists)(json, 'packageGroups') ? undefined : (json['packageGroups'].map(RatePackageGroupType_1.RatePackageGroupTypeFromJSON)),
-        'packages': !(0, runtime_1.exists)(json, 'packages') ? undefined : (0, RatePackageCodeListType_1.RatePackageCodeListTypeFromJSON)(json['packages']),
+        'packages': !(0, runtime_1.exists)(json, 'packages') ? undefined : (json['packages'].map(RatePackageCodeType_1.RatePackageCodeTypeFromJSON)),
     };
 }
 exports.RatePackagesTypeFromJSONTyped = RatePackagesTypeFromJSONTyped;
@@ -48,7 +48,7 @@ function RatePackagesTypeToJSON(value) {
     }
     return {
         'packageGroups': value.packageGroups === undefined ? undefined : (value.packageGroups.map(RatePackageGroupType_1.RatePackageGroupTypeToJSON)),
-        'packages': (0, RatePackageCodeListType_1.RatePackageCodeListTypeToJSON)(value.packages),
+        'packages': value.packages === undefined ? undefined : (value.packages.map(RatePackageCodeType_1.RatePackageCodeTypeToJSON)),
     };
 }
 exports.RatePackagesTypeToJSON = RatePackagesTypeToJSON;

@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ProfileType } from './ProfileType';
-import type { UniqueIDListType } from './UniqueIDListType';
-import type { WarningsType } from './WarningsType';
+import type { UniqueIDType } from './UniqueIDType';
+import type { WarningType } from './WarningType';
 /**
  * Profile Resource will be merged.
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface ProfileToBeMerged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileToBeMerged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ProfileType}
@@ -32,17 +32,17 @@ export interface ProfileToBeMerged {
      */
     profileDetails?: ProfileType;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ProfileToBeMerged
      */
-    victimProfileId?: UniqueIDListType;
+    victimProfileId?: Array<UniqueIDType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileToBeMerged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileToBeMerged interface.

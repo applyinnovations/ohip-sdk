@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AirportsType } from './AirportsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AirportType } from './AirportType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new airports for hotels.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AirportsCriteria {
     /**
-     *
-     * @type {AirportsType}
+     * Airport details for a hotel.
+     * @type {Array<AirportType>}
      * @memberof AirportsCriteria
      */
-    airports?: AirportsType;
+    airports?: Array<AirportType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AirportsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AirportsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AirportsCriteria interface.

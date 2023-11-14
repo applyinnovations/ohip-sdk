@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelSellLimitsToJSON = exports.ChannelSellLimitsFromJSONTyped = exports.ChannelSellLimitsFromJSON = exports.instanceOfChannelSellLimits = void 0;
 const runtime_1 = require("../runtime");
-const ChannelSellLimitSchedulesType_1 = require("./ChannelSellLimitSchedulesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ChannelSellLimitScheduleType_1 = require("./ChannelSellLimitScheduleType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChannelSellLimits interface.
  */
@@ -35,9 +35,9 @@ function ChannelSellLimitsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'sellLimits': !(0, runtime_1.exists)(json, 'sellLimits') ? undefined : (0, ChannelSellLimitSchedulesType_1.ChannelSellLimitSchedulesTypeFromJSON)(json['sellLimits']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'sellLimits': !(0, runtime_1.exists)(json, 'sellLimits') ? undefined : (json['sellLimits'].map(ChannelSellLimitScheduleType_1.ChannelSellLimitScheduleTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChannelSellLimitsFromJSONTyped = ChannelSellLimitsFromJSONTyped;
@@ -49,9 +49,9 @@ function ChannelSellLimitsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'sellLimits': (0, ChannelSellLimitSchedulesType_1.ChannelSellLimitSchedulesTypeToJSON)(value.sellLimits),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'sellLimits': value.sellLimits === undefined ? undefined : (value.sellLimits.map(ChannelSellLimitScheduleType_1.ChannelSellLimitScheduleTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChannelSellLimitsToJSON = ChannelSellLimitsToJSON;

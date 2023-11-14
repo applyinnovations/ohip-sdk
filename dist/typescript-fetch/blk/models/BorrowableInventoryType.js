@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BorrowableInventoryTypeToJSON = exports.BorrowableInventoryTypeFromJSONTyped = exports.BorrowableInventoryTypeFromJSON = exports.instanceOfBorrowableInventoryType = void 0;
 const runtime_1 = require("../runtime");
-const ErrorsType_1 = require("./ErrorsType");
-const WarningsType_1 = require("./WarningsType");
+const ErrorType_1 = require("./ErrorType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BorrowableInventoryType interface.
  */
@@ -36,10 +36,10 @@ function BorrowableInventoryTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'availableRooms': !(0, runtime_1.exists)(json, 'availableRooms') ? undefined : json['availableRooms'],
         'availableSellLimit': !(0, runtime_1.exists)(json, 'availableSellLimit') ? undefined : json['availableSellLimit'],
-        'errors': !(0, runtime_1.exists)(json, 'errors') ? undefined : (0, ErrorsType_1.ErrorsTypeFromJSON)(json['errors']),
+        'errors': !(0, runtime_1.exists)(json, 'errors') ? undefined : (json['errors'].map(ErrorType_1.ErrorTypeFromJSON)),
         'house': !(0, runtime_1.exists)(json, 'house') ? undefined : json['house'],
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : json['roomType'],
-        'warning': !(0, runtime_1.exists)(json, 'warning') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warning']),
+        'warning': !(0, runtime_1.exists)(json, 'warning') ? undefined : (json['warning'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BorrowableInventoryTypeFromJSONTyped = BorrowableInventoryTypeFromJSONTyped;
@@ -53,10 +53,10 @@ function BorrowableInventoryTypeToJSON(value) {
     return {
         'availableRooms': value.availableRooms,
         'availableSellLimit': value.availableSellLimit,
-        'errors': (0, ErrorsType_1.ErrorsTypeToJSON)(value.errors),
+        'errors': value.errors === undefined ? undefined : (value.errors.map(ErrorType_1.ErrorTypeToJSON)),
         'house': value.house,
         'roomType': value.roomType,
-        'warning': (0, WarningsType_1.WarningsTypeToJSON)(value.warning),
+        'warning': value.warning === undefined ? undefined : (value.warning.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BorrowableInventoryTypeToJSON = BorrowableInventoryTypeToJSON;

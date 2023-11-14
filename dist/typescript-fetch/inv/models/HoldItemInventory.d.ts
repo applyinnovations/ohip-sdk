@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { HoldItemInventoryType } from './HoldItemInventoryType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Object containing the item hold details.
  * @export
@@ -26,16 +26,16 @@ export interface HoldItemInventory {
     holdItemInfo?: HoldItemInventoryType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HoldItemInventory
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HoldItemInventory
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HoldItemInventory interface.

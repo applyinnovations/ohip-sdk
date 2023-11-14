@@ -18,7 +18,6 @@ const runtime_1 = require("../runtime");
 const CashieringPaymentMethodType_1 = require("./CashieringPaymentMethodType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const PaymentTaxType_1 = require("./PaymentTaxType");
-const PaymentTaxesType_1 = require("./PaymentTaxesType");
 const PostPaymentActionType_1 = require("./PostPaymentActionType");
 const ReservationId_1 = require("./ReservationId");
 /**
@@ -44,7 +43,7 @@ function BillingPaymentCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
         'changeDueAmount': !(0, runtime_1.exists)(json, 'changeDueAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['changeDueAmount']),
         'comments': !(0, runtime_1.exists)(json, 'comments') ? undefined : json['comments'],
-        'creditablePaymentTaxes': !(0, runtime_1.exists)(json, 'creditablePaymentTaxes') ? undefined : (0, PaymentTaxesType_1.PaymentTaxesTypeFromJSON)(json['creditablePaymentTaxes']),
+        'creditablePaymentTaxes': !(0, runtime_1.exists)(json, 'creditablePaymentTaxes') ? undefined : (json['creditablePaymentTaxes'].map(PaymentTaxType_1.PaymentTaxTypeFromJSON)),
         'folioWindowNo': !(0, runtime_1.exists)(json, 'folioWindowNo') ? undefined : json['folioWindowNo'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'manualPaymentTaxInfo': !(0, runtime_1.exists)(json, 'manualPaymentTaxInfo') ? undefined : (0, PaymentTaxType_1.PaymentTaxTypeFromJSON)(json['manualPaymentTaxInfo']),
@@ -74,7 +73,7 @@ function BillingPaymentCriteriaToJSON(value) {
         'cashierId': value.cashierId,
         'changeDueAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.changeDueAmount),
         'comments': value.comments,
-        'creditablePaymentTaxes': (0, PaymentTaxesType_1.PaymentTaxesTypeToJSON)(value.creditablePaymentTaxes),
+        'creditablePaymentTaxes': value.creditablePaymentTaxes === undefined ? undefined : (value.creditablePaymentTaxes.map(PaymentTaxType_1.PaymentTaxTypeToJSON)),
         'folioWindowNo': value.folioWindowNo,
         'hotelId': value.hotelId,
         'manualPaymentTaxInfo': (0, PaymentTaxType_1.PaymentTaxTypeToJSON)(value.manualPaymentTaxInfo),

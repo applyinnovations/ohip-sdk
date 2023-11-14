@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ResHousekeepingSetType } from './ResHousekeepingSetType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Operation to get set guest housekeeping instructions for the room.
  * @export
@@ -26,16 +26,16 @@ export interface GuestHousekeepingServiceRequest {
     guestHousekeepingInstructions?: ResHousekeepingSetType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuestHousekeepingServiceRequest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuestHousekeepingServiceRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GuestHousekeepingServiceRequest interface.

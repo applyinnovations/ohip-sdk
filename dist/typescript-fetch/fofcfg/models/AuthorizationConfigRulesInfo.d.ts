@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AuthorizationConfigRulesType } from './AuthorizationConfigRulesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AuthorizationConfigRuleType } from './AuthorizationConfigRuleType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AuthorizationConfigRulesInfo {
     /**
-     *
-     * @type {AuthorizationConfigRulesType}
+     * List of AuthorizationRuleType.
+     * @type {Array<AuthorizationConfigRuleType>}
      * @memberof AuthorizationConfigRulesInfo
      */
-    authorizationConfigRulesType?: AuthorizationConfigRulesType;
+    authorizationConfigRulesType?: Array<AuthorizationConfigRuleType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AuthorizationConfigRulesInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AuthorizationConfigRulesInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AuthorizationConfigRulesInfo interface.

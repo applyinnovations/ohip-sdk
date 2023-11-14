@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TraceTextsType } from './TraceTextsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TraceTextType } from './TraceTextType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching trace texts.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TraceTextsToBeFetched {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TraceTextsToBeFetched
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TraceTextsType}
+     * Collection of trace texts.
+     * @type {Array<TraceTextType>}
      * @memberof TraceTextsToBeFetched
      */
-    traceTexts?: TraceTextsType;
+    traceTexts?: Array<TraceTextType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TraceTextsToBeFetched
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TraceTextsToBeFetched interface.

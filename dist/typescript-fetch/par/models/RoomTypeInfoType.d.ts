@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { BookingChannelMappingType } from './BookingChannelMappingType';
-import type { RoomFeaturesType } from './RoomFeaturesType';
+import type { RoomFeatureType } from './RoomFeatureType';
 import type { RoomTypeAttributesType } from './RoomTypeAttributesType';
 /**
  *
@@ -73,11 +73,11 @@ export interface RoomTypeInfoType {
      */
     roomClass?: string;
     /**
-     *
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof RoomTypeInfoType
      */
-    roomFeatures?: RoomFeaturesType;
+    roomFeatures?: Array<RoomFeatureType>;
     /**
      * Represents the room qualifier code like Deluxe,Economy,Suite etc.
      * @type {string}

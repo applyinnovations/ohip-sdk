@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateProformaCriteriaTypeToJSON = exports.CreateProformaCriteriaTypeFromJSONTyped = exports.CreateProformaCriteriaTypeFromJSON = exports.instanceOfCreateProformaCriteriaType = void 0;
 const runtime_1 = require("../runtime");
 const ProformaResponseInstructionType_1 = require("./ProformaResponseInstructionType");
-const ReservationIdList_1 = require("./ReservationIdList");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CreateProformaCriteriaType interface.
  */
@@ -35,7 +35,7 @@ function CreateProformaCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'responseInstruction': !(0, runtime_1.exists)(json, 'responseInstruction') ? undefined : (0, ProformaResponseInstructionType_1.ProformaResponseInstructionTypeFromJSON)(json['responseInstruction']),
     };
 }
@@ -49,7 +49,7 @@ function CreateProformaCriteriaTypeToJSON(value) {
     }
     return {
         'hotelId': value.hotelId,
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'responseInstruction': (0, ProformaResponseInstructionType_1.ProformaResponseInstructionTypeToJSON)(value.responseInstruction),
     };
 }

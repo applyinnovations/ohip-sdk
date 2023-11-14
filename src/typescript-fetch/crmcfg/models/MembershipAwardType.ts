@@ -25,12 +25,12 @@ import {
     MembershipAwardBasedOnTypeFromJSONTyped,
     MembershipAwardBasedOnTypeToJSON,
 } from './MembershipAwardBasedOnType';
-import type { MembershipAwardDetailsType } from './MembershipAwardDetailsType';
+import type { MembershipAwardDetailType } from './MembershipAwardDetailType';
 import {
-    MembershipAwardDetailsTypeFromJSON,
-    MembershipAwardDetailsTypeFromJSONTyped,
-    MembershipAwardDetailsTypeToJSON,
-} from './MembershipAwardDetailsType';
+    MembershipAwardDetailTypeFromJSON,
+    MembershipAwardDetailTypeFromJSONTyped,
+    MembershipAwardDetailTypeToJSON,
+} from './MembershipAwardDetailType';
 import type { MembershipAwardFinancialTransactionInfoType } from './MembershipAwardFinancialTransactionInfoType';
 import {
     MembershipAwardFinancialTransactionInfoTypeFromJSON,
@@ -87,11 +87,11 @@ export interface MembershipAwardType {
      */
     awardCode?: string;
     /**
-     * 
-     * @type {MembershipAwardDetailsType}
+     * Membership Award Rate details.
+     * @type {Array<MembershipAwardDetailType>}
      * @memberof MembershipAwardType
      */
-    awardDetails?: MembershipAwardDetailsType;
+    awardDetails?: Array<MembershipAwardDetailType>;
     /**
      * Number of awards to be given.
      * @type {number}
@@ -212,7 +212,7 @@ export function MembershipAwardTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'autoConsume': !exists(json, 'autoConsume') ? undefined : json['autoConsume'],
         'awardBasedOn': !exists(json, 'awardBasedOn') ? undefined : MembershipAwardBasedOnTypeFromJSON(json['awardBasedOn']),
         'awardCode': !exists(json, 'awardCode') ? undefined : json['awardCode'],
-        'awardDetails': !exists(json, 'awardDetails') ? undefined : MembershipAwardDetailsTypeFromJSON(json['awardDetails']),
+        'awardDetails': !exists(json, 'awardDetails') ? undefined : ((json['awardDetails'] as Array<any>).map(MembershipAwardDetailTypeFromJSON)),
         'awardQuantity': !exists(json, 'awardQuantity') ? undefined : json['awardQuantity'],
         'billingGroup': !exists(json, 'billingGroup') ? undefined : json['billingGroup'],
         'dateRange': !exists(json, 'dateRange') ? undefined : DateRangeTypeFromJSON(json['dateRange']),
@@ -244,7 +244,7 @@ export function MembershipAwardTypeToJSON(value?: MembershipAwardType | null): a
         'autoConsume': value.autoConsume,
         'awardBasedOn': MembershipAwardBasedOnTypeToJSON(value.awardBasedOn),
         'awardCode': value.awardCode,
-        'awardDetails': MembershipAwardDetailsTypeToJSON(value.awardDetails),
+        'awardDetails': value.awardDetails === undefined ? undefined : ((value.awardDetails as Array<any>).map(MembershipAwardDetailTypeToJSON)),
         'awardQuantity': value.awardQuantity,
         'billingGroup': value.billingGroup,
         'dateRange': DateRangeTypeToJSON(value.dateRange),

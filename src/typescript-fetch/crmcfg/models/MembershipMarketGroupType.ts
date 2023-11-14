@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { MembershipMarketCodesType } from './MembershipMarketCodesType';
+import type { CodeDescriptionType } from './CodeDescriptionType';
 import {
-    MembershipMarketCodesTypeFromJSON,
-    MembershipMarketCodesTypeFromJSONTyped,
-    MembershipMarketCodesTypeToJSON,
-} from './MembershipMarketCodesType';
+    CodeDescriptionTypeFromJSON,
+    CodeDescriptionTypeFromJSONTyped,
+    CodeDescriptionTypeToJSON,
+} from './CodeDescriptionType';
 
 /**
  * Base type provides information about Membership Market/Property Groups Configuration.
@@ -45,11 +45,11 @@ export interface MembershipMarketGroupType {
      */
     displaySequence?: number;
     /**
-     * 
-     * @type {MembershipMarketCodesType}
+     * Membership Markets code and Description.
+     * @type {Array<CodeDescriptionType>}
      * @memberof MembershipMarketGroupType
      */
-    marketCodes?: MembershipMarketCodesType;
+    marketCodes?: Array<CodeDescriptionType>;
 }
 
 /**
@@ -74,7 +74,7 @@ export function MembershipMarketGroupTypeFromJSONTyped(json: any, ignoreDiscrimi
         'code': !exists(json, 'code') ? undefined : json['code'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'displaySequence': !exists(json, 'displaySequence') ? undefined : json['displaySequence'],
-        'marketCodes': !exists(json, 'marketCodes') ? undefined : MembershipMarketCodesTypeFromJSON(json['marketCodes']),
+        'marketCodes': !exists(json, 'marketCodes') ? undefined : ((json['marketCodes'] as Array<any>).map(CodeDescriptionTypeFromJSON)),
     };
 }
 
@@ -90,7 +90,7 @@ export function MembershipMarketGroupTypeToJSON(value?: MembershipMarketGroupTyp
         'code': value.code,
         'description': value.description,
         'displaySequence': value.displaySequence,
-        'marketCodes': MembershipMarketCodesTypeToJSON(value.marketCodes),
+        'marketCodes': value.marketCodes === undefined ? undefined : ((value.marketCodes as Array<any>).map(CodeDescriptionTypeToJSON)),
     };
 }
 

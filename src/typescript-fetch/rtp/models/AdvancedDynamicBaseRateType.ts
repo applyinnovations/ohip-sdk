@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RatePlanCodeListType } from './RatePlanCodeListType';
-import {
-    RatePlanCodeListTypeFromJSON,
-    RatePlanCodeListTypeFromJSONTyped,
-    RatePlanCodeListTypeToJSON,
-} from './RatePlanCodeListType';
-
 /**
  * Advanced Dynamic Base Rate type
  * @export
@@ -27,11 +20,11 @@ import {
  */
 export interface AdvancedDynamicBaseRateType {
     /**
-     * 
-     * @type {RatePlanCodeListType}
+     * Rate Plan code.
+     * @type {Array<string>}
      * @memberof AdvancedDynamicBaseRateType
      */
-    advancedDependentRatePlans?: RatePlanCodeListType;
+    advancedDependentRatePlans?: Array<string>;
     /**
      * Rate plan code used to Advanced Dynamically base the rate on.
      * @type {string}
@@ -71,7 +64,7 @@ export function AdvancedDynamicBaseRateTypeFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'advancedDependentRatePlans': !exists(json, 'advancedDependentRatePlans') ? undefined : RatePlanCodeListTypeFromJSON(json['advancedDependentRatePlans']),
+        'advancedDependentRatePlans': !exists(json, 'advancedDependentRatePlans') ? undefined : json['advancedDependentRatePlans'],
         'basedOnRatePlan': !exists(json, 'basedOnRatePlan') ? undefined : json['basedOnRatePlan'],
         'compareWithRateSchedules': !exists(json, 'compareWithRateSchedules') ? undefined : json['compareWithRateSchedules'],
         'rounding': !exists(json, 'rounding') ? undefined : json['rounding'],
@@ -87,7 +80,7 @@ export function AdvancedDynamicBaseRateTypeToJSON(value?: AdvancedDynamicBaseRat
     }
     return {
         
-        'advancedDependentRatePlans': RatePlanCodeListTypeToJSON(value.advancedDependentRatePlans),
+        'advancedDependentRatePlans': value.advancedDependentRatePlans,
         'basedOnRatePlan': value.basedOnRatePlan,
         'compareWithRateSchedules': value.compareWithRateSchedules,
         'rounding': value.rounding,

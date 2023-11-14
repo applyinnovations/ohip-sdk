@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { EffectiveRatesType } from './EffectiveRatesType';
+import type { EffectiveRateType } from './EffectiveRateType';
 import {
-    EffectiveRatesTypeFromJSON,
-    EffectiveRatesTypeFromJSONTyped,
-    EffectiveRatesTypeToJSON,
-} from './EffectiveRatesType';
+    EffectiveRateTypeFromJSON,
+    EffectiveRateTypeFromJSONTyped,
+    EffectiveRateTypeToJSON,
+} from './EffectiveRateType';
 import type { OverrideInstructionType } from './OverrideInstructionType';
 import {
     OverrideInstructionTypeFromJSON,
@@ -51,11 +51,11 @@ export interface CombineShareInstructionType {
      */
     distributionType?: ShareDistributionInstructionType;
     /**
-     * 
-     * @type {EffectiveRatesType}
+     * Collection of effective rate amount per guest on specific dates.
+     * @type {Array<EffectiveRateType>}
      * @memberof CombineShareInstructionType
      */
-    effectiveRates?: EffectiveRatesType;
+    effectiveRates?: Array<EffectiveRateType>;
     /**
      * 
      * @type {OverrideInstructionType}
@@ -108,7 +108,7 @@ export function CombineShareInstructionTypeFromJSONTyped(json: any, ignoreDiscri
     return {
         
         'distributionType': !exists(json, 'distributionType') ? undefined : ShareDistributionInstructionTypeFromJSON(json['distributionType']),
-        'effectiveRates': !exists(json, 'effectiveRates') ? undefined : EffectiveRatesTypeFromJSON(json['effectiveRates']),
+        'effectiveRates': !exists(json, 'effectiveRates') ? undefined : ((json['effectiveRates'] as Array<any>).map(EffectiveRateTypeFromJSON)),
         'overrideInstruction': !exists(json, 'overrideInstruction') ? undefined : OverrideInstructionTypeFromJSON(json['overrideInstruction']),
         'overrideInventoryCheck': !exists(json, 'overrideInventoryCheck') ? undefined : json['overrideInventoryCheck'],
         'overrideMaxOccupancyCheck': !exists(json, 'overrideMaxOccupancyCheck') ? undefined : json['overrideMaxOccupancyCheck'],
@@ -127,7 +127,7 @@ export function CombineShareInstructionTypeToJSON(value?: CombineShareInstructio
     return {
         
         'distributionType': ShareDistributionInstructionTypeToJSON(value.distributionType),
-        'effectiveRates': EffectiveRatesTypeToJSON(value.effectiveRates),
+        'effectiveRates': value.effectiveRates === undefined ? undefined : ((value.effectiveRates as Array<any>).map(EffectiveRateTypeToJSON)),
         'overrideInstruction': OverrideInstructionTypeToJSON(value.overrideInstruction),
         'overrideInventoryCheck': value.overrideInventoryCheck,
         'overrideMaxOccupancyCheck': value.overrideMaxOccupancyCheck,

@@ -31,12 +31,12 @@ import {
     HousekeepingRoomStatusTypeFromJSONTyped,
     HousekeepingRoomStatusTypeToJSON,
 } from './HousekeepingRoomStatusType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import {
-    IndicatorsTypeFromJSON,
-    IndicatorsTypeFromJSONTyped,
-    IndicatorsTypeToJSON,
-} from './IndicatorsType';
+    IndicatorTypeFromJSON,
+    IndicatorTypeFromJSONTyped,
+    IndicatorTypeToJSON,
+} from './IndicatorType';
 import type { PMSResStatusType } from './PMSResStatusType';
 import {
     PMSResStatusTypeFromJSON,
@@ -49,12 +49,12 @@ import {
     ResAccessRestrictionTypeFromJSONTyped,
     ResAccessRestrictionTypeToJSON,
 } from './ResAccessRestrictionType';
-import type { ResAttachedProfileListType } from './ResAttachedProfileListType';
+import type { ResAttachedProfileType } from './ResAttachedProfileType';
 import {
-    ResAttachedProfileListTypeFromJSON,
-    ResAttachedProfileListTypeFromJSONTyped,
-    ResAttachedProfileListTypeToJSON,
-} from './ResAttachedProfileListType';
+    ResAttachedProfileTypeFromJSON,
+    ResAttachedProfileTypeFromJSONTyped,
+    ResAttachedProfileTypeToJSON,
+} from './ResAttachedProfileType';
 import type { ResCashieringType } from './ResCashieringType';
 import {
     ResCashieringTypeFromJSON,
@@ -91,36 +91,30 @@ import {
     ResRevenueBalanceTypeFromJSONTyped,
     ResRevenueBalanceTypeToJSON,
 } from './ResRevenueBalanceType';
-import type { ResSharedGuestListType } from './ResSharedGuestListType';
+import type { ResSharedGuestInfoType } from './ResSharedGuestInfoType';
 import {
-    ResSharedGuestListTypeFromJSON,
-    ResSharedGuestListTypeFromJSONTyped,
-    ResSharedGuestListTypeToJSON,
-} from './ResSharedGuestListType';
-import type { ReservationAllowedActionsType } from './ReservationAllowedActionsType';
+    ResSharedGuestInfoTypeFromJSON,
+    ResSharedGuestInfoTypeFromJSONTyped,
+    ResSharedGuestInfoTypeToJSON,
+} from './ResSharedGuestInfoType';
+import type { ReservationAllowedActionType } from './ReservationAllowedActionType';
 import {
-    ReservationAllowedActionsTypeFromJSON,
-    ReservationAllowedActionsTypeFromJSONTyped,
-    ReservationAllowedActionsTypeToJSON,
-} from './ReservationAllowedActionsType';
+    ReservationAllowedActionTypeFromJSON,
+    ReservationAllowedActionTypeFromJSONTyped,
+    ReservationAllowedActionTypeToJSON,
+} from './ReservationAllowedActionType';
 import type { ReservationDepositType } from './ReservationDepositType';
 import {
     ReservationDepositTypeFromJSON,
     ReservationDepositTypeFromJSONTyped,
     ReservationDepositTypeToJSON,
 } from './ReservationDepositType';
-import type { ReservationFolioWindowsType } from './ReservationFolioWindowsType';
+import type { ReservationFolioWindowType } from './ReservationFolioWindowType';
 import {
-    ReservationFolioWindowsTypeFromJSON,
-    ReservationFolioWindowsTypeFromJSONTyped,
-    ReservationFolioWindowsTypeToJSON,
-} from './ReservationFolioWindowsType';
-import type { ReservationIdList } from './ReservationIdList';
-import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
+    ReservationFolioWindowTypeFromJSON,
+    ReservationFolioWindowTypeFromJSONTyped,
+    ReservationFolioWindowTypeToJSON,
+} from './ReservationFolioWindowType';
 import type { ReservationInterfaceStatusType } from './ReservationInterfaceStatusType';
 import {
     ReservationInterfaceStatusTypeFromJSON,
@@ -145,12 +139,12 @@ import {
     ReservationTurndownInfoTypeFromJSONTyped,
     ReservationTurndownInfoTypeToJSON,
 } from './ReservationTurndownInfoType';
-import type { SearchMatchesType } from './SearchMatchesType';
+import type { SearchMatchType } from './SearchMatchType';
 import {
-    SearchMatchesTypeFromJSON,
-    SearchMatchesTypeFromJSONTyped,
-    SearchMatchesTypeToJSON,
-} from './SearchMatchesType';
+    SearchMatchTypeFromJSON,
+    SearchMatchTypeFromJSONTyped,
+    SearchMatchTypeToJSON,
+} from './SearchMatchType';
 import type { SourceOfSaleType } from './SourceOfSaleType';
 import {
     SourceOfSaleTypeFromJSON,
@@ -195,11 +189,11 @@ import {
  */
 export interface StayDetailType {
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof StayDetailType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {StayInfoType}
@@ -213,17 +207,17 @@ export interface StayDetailType {
      */
     resGuest?: ResGuestInfoType;
     /**
-     * 
-     * @type {ResSharedGuestListType}
+     * Collection of shared guest reservations.
+     * @type {Array<ResSharedGuestInfoType>}
      * @memberof StayDetailType
      */
-    sharedGuests?: ResSharedGuestListType;
+    sharedGuests?: Array<ResSharedGuestInfoType>;
     /**
      * 
-     * @type {ResAttachedProfileListType}
+     * @type {Array<ResAttachedProfileType>}
      * @memberof StayDetailType
      */
-    attachedProfiles?: ResAttachedProfileListType;
+    attachedProfiles?: Array<ResAttachedProfileType>;
     /**
      * 
      * @type {ReservationPaymentMethodType}
@@ -231,11 +225,11 @@ export interface StayDetailType {
      */
     reservationPaymentMethod?: ReservationPaymentMethodType;
     /**
-     * 
-     * @type {ReservationFolioWindowsType}
+     * Collection of reservation folio windows.
+     * @type {Array<ReservationFolioWindowType>}
      * @memberof StayDetailType
      */
-    reservationFolioWindows?: ReservationFolioWindowsType;
+    reservationFolioWindows?: Array<ReservationFolioWindowType>;
     /**
      * Set of reservation preferences which belongs to the Specials group.
      * @type {string}
@@ -255,11 +249,11 @@ export interface StayDetailType {
      */
     displayColor?: string;
     /**
-     * 
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof StayDetailType
      */
-    reservationIndicators?: IndicatorsType;
+    reservationIndicators?: Array<IndicatorType>;
     /**
      * 
      * @type {HousekeepingRoomStatusType}
@@ -267,11 +261,11 @@ export interface StayDetailType {
      */
     roomStatus?: HousekeepingRoomStatusType;
     /**
-     * 
-     * @type {SearchMatchesType}
+     * List of Generic Name-Value-Pair Parameters used for super search matches.
+     * @type {Array<SearchMatchType>}
      * @memberof StayDetailType
      */
-    searchMatches?: SearchMatchesType;
+    searchMatches?: Array<SearchMatchType>;
     /**
      * 
      * @type {SourceOfSaleType}
@@ -315,11 +309,11 @@ export interface StayDetailType {
      */
     deposit?: ReservationDepositType;
     /**
-     * 
-     * @type {ReservationAllowedActionsType}
+     * Allowed action.
+     * @type {Array<ReservationAllowedActionType>}
      * @memberof StayDetailType
      */
-    allowedActions?: ReservationAllowedActionsType;
+    allowedActions?: Array<ReservationAllowedActionType>;
     /**
      * 
      * @type {ResRevenueBalanceType}
@@ -629,19 +623,19 @@ export function StayDetailTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'roomStay': !exists(json, 'roomStay') ? undefined : StayInfoTypeFromJSON(json['roomStay']),
         'resGuest': !exists(json, 'resGuest') ? undefined : ResGuestInfoTypeFromJSON(json['resGuest']),
-        'sharedGuests': !exists(json, 'sharedGuests') ? undefined : ResSharedGuestListTypeFromJSON(json['sharedGuests']),
-        'attachedProfiles': !exists(json, 'attachedProfiles') ? undefined : ResAttachedProfileListTypeFromJSON(json['attachedProfiles']),
+        'sharedGuests': !exists(json, 'sharedGuests') ? undefined : ((json['sharedGuests'] as Array<any>).map(ResSharedGuestInfoTypeFromJSON)),
+        'attachedProfiles': !exists(json, 'attachedProfiles') ? undefined : ((json['attachedProfiles'] as Array<any>).map(ResAttachedProfileTypeFromJSON)),
         'reservationPaymentMethod': !exists(json, 'reservationPaymentMethod') ? undefined : ReservationPaymentMethodTypeFromJSON(json['reservationPaymentMethod']),
-        'reservationFolioWindows': !exists(json, 'reservationFolioWindows') ? undefined : ReservationFolioWindowsTypeFromJSON(json['reservationFolioWindows']),
+        'reservationFolioWindows': !exists(json, 'reservationFolioWindows') ? undefined : ((json['reservationFolioWindows'] as Array<any>).map(ReservationFolioWindowTypeFromJSON)),
         'specials': !exists(json, 'specials') ? undefined : json['specials'],
         'lastPrivacyPromptDate': !exists(json, 'lastPrivacyPromptDate') ? undefined : (new Date(json['lastPrivacyPromptDate'])),
         'displayColor': !exists(json, 'displayColor') ? undefined : json['displayColor'],
-        'reservationIndicators': !exists(json, 'reservationIndicators') ? undefined : IndicatorsTypeFromJSON(json['reservationIndicators']),
+        'reservationIndicators': !exists(json, 'reservationIndicators') ? undefined : ((json['reservationIndicators'] as Array<any>).map(IndicatorTypeFromJSON)),
         'roomStatus': !exists(json, 'roomStatus') ? undefined : HousekeepingRoomStatusTypeFromJSON(json['roomStatus']),
-        'searchMatches': !exists(json, 'searchMatches') ? undefined : SearchMatchesTypeFromJSON(json['searchMatches']),
+        'searchMatches': !exists(json, 'searchMatches') ? undefined : ((json['searchMatches'] as Array<any>).map(SearchMatchTypeFromJSON)),
         'sourceOfSale': !exists(json, 'sourceOfSale') ? undefined : SourceOfSaleTypeFromJSON(json['sourceOfSale']),
         'waitlist': !exists(json, 'waitlist') ? undefined : WaitlistResTypeFromJSON(json['waitlist']),
         'queue': !exists(json, 'queue') ? undefined : ReservationQueueInformationTypeFromJSON(json['queue']),
@@ -649,7 +643,7 @@ export function StayDetailTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         'cashiering': !exists(json, 'cashiering') ? undefined : ResCashieringTypeFromJSON(json['cashiering']),
         'taxType': !exists(json, 'taxType') ? undefined : TaxTypeTypeFromJSON(json['taxType']),
         'deposit': !exists(json, 'deposit') ? undefined : ReservationDepositTypeFromJSON(json['deposit']),
-        'allowedActions': !exists(json, 'allowedActions') ? undefined : ReservationAllowedActionsTypeFromJSON(json['allowedActions']),
+        'allowedActions': !exists(json, 'allowedActions') ? undefined : ((json['allowedActions'] as Array<any>).map(ReservationAllowedActionTypeFromJSON)),
         'revenuesAndBalances': !exists(json, 'revenuesAndBalances') ? undefined : ResRevenueBalanceTypeFromJSON(json['revenuesAndBalances']),
         'hotelInterfaceStatusList': !exists(json, 'hotelInterfaceStatusList') ? undefined : ((json['hotelInterfaceStatusList'] as Array<any>).map(ReservationInterfaceStatusTypeFromJSON)),
         'guestPreferredCurrency': !exists(json, 'guestPreferredCurrency') ? undefined : json['guestPreferredCurrency'],
@@ -710,19 +704,19 @@ export function StayDetailTypeToJSON(value?: StayDetailType | null): any {
     }
     return {
         
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'roomStay': StayInfoTypeToJSON(value.roomStay),
         'resGuest': ResGuestInfoTypeToJSON(value.resGuest),
-        'sharedGuests': ResSharedGuestListTypeToJSON(value.sharedGuests),
-        'attachedProfiles': ResAttachedProfileListTypeToJSON(value.attachedProfiles),
+        'sharedGuests': value.sharedGuests === undefined ? undefined : ((value.sharedGuests as Array<any>).map(ResSharedGuestInfoTypeToJSON)),
+        'attachedProfiles': value.attachedProfiles === undefined ? undefined : ((value.attachedProfiles as Array<any>).map(ResAttachedProfileTypeToJSON)),
         'reservationPaymentMethod': ReservationPaymentMethodTypeToJSON(value.reservationPaymentMethod),
-        'reservationFolioWindows': ReservationFolioWindowsTypeToJSON(value.reservationFolioWindows),
+        'reservationFolioWindows': value.reservationFolioWindows === undefined ? undefined : ((value.reservationFolioWindows as Array<any>).map(ReservationFolioWindowTypeToJSON)),
         'specials': value.specials,
         'lastPrivacyPromptDate': value.lastPrivacyPromptDate === undefined ? undefined : (value.lastPrivacyPromptDate.toISOString().substring(0,10)),
         'displayColor': value.displayColor,
-        'reservationIndicators': IndicatorsTypeToJSON(value.reservationIndicators),
+        'reservationIndicators': value.reservationIndicators === undefined ? undefined : ((value.reservationIndicators as Array<any>).map(IndicatorTypeToJSON)),
         'roomStatus': HousekeepingRoomStatusTypeToJSON(value.roomStatus),
-        'searchMatches': SearchMatchesTypeToJSON(value.searchMatches),
+        'searchMatches': value.searchMatches === undefined ? undefined : ((value.searchMatches as Array<any>).map(SearchMatchTypeToJSON)),
         'sourceOfSale': SourceOfSaleTypeToJSON(value.sourceOfSale),
         'waitlist': WaitlistResTypeToJSON(value.waitlist),
         'queue': ReservationQueueInformationTypeToJSON(value.queue),
@@ -730,7 +724,7 @@ export function StayDetailTypeToJSON(value?: StayDetailType | null): any {
         'cashiering': ResCashieringTypeToJSON(value.cashiering),
         'taxType': TaxTypeTypeToJSON(value.taxType),
         'deposit': ReservationDepositTypeToJSON(value.deposit),
-        'allowedActions': ReservationAllowedActionsTypeToJSON(value.allowedActions),
+        'allowedActions': value.allowedActions === undefined ? undefined : ((value.allowedActions as Array<any>).map(ReservationAllowedActionTypeToJSON)),
         'revenuesAndBalances': ResRevenueBalanceTypeToJSON(value.revenuesAndBalances),
         'hotelInterfaceStatusList': value.hotelInterfaceStatusList === undefined ? undefined : ((value.hotelInterfaceStatusList as Array<any>).map(ReservationInterfaceStatusTypeToJSON)),
         'guestPreferredCurrency': value.guestPreferredCurrency,

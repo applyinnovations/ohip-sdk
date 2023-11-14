@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EventsInfoType } from './EventsInfoType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { EventInfoType } from './EventInfoType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ChangeEventsRequest {
     /**
-     *
-     * @type {EventsInfoType}
+     * Pertain event information.
+     * @type {Array<EventInfoType>}
      * @memberof ChangeEventsRequest
      */
-    eventDetails?: EventsInfoType;
+    eventDetails?: Array<EventInfoType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangeEventsRequest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeEventsRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChangeEventsRequest interface.

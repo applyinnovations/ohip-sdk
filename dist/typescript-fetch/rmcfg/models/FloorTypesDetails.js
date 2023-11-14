@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FloorTypesDetailsToJSON = exports.FloorTypesDetailsFromJSONTyped = exports.FloorTypesDetailsFromJSON = exports.instanceOfFloorTypesDetails = void 0;
 const runtime_1 = require("../runtime");
-const FloorTypesType_1 = require("./FloorTypesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const FloorTypeType_1 = require("./FloorTypeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FloorTypesDetails interface.
  */
@@ -35,9 +35,9 @@ function FloorTypesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'floorTypes': !(0, runtime_1.exists)(json, 'floorTypes') ? undefined : (0, FloorTypesType_1.FloorTypesTypeFromJSON)(json['floorTypes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'floorTypes': !(0, runtime_1.exists)(json, 'floorTypes') ? undefined : (json['floorTypes'].map(FloorTypeType_1.FloorTypeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FloorTypesDetailsFromJSONTyped = FloorTypesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function FloorTypesDetailsToJSON(value) {
         return null;
     }
     return {
-        'floorTypes': (0, FloorTypesType_1.FloorTypesTypeToJSON)(value.floorTypes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'floorTypes': value.floorTypes === undefined ? undefined : (value.floorTypes.map(FloorTypeType_1.FloorTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FloorTypesDetailsToJSON = FloorTypesDetailsToJSON;

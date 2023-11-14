@@ -17,7 +17,7 @@ exports.ReservationForCCAuthTypeToJSON = exports.ReservationForCCAuthTypeFromJSO
 const runtime_1 = require("../runtime");
 const HousekeepingRoomReservationStatusType_1 = require("./HousekeepingRoomReservationStatusType");
 const ReservationId_1 = require("./ReservationId");
-const ReservationPaymentMethodsType_1 = require("./ReservationPaymentMethodsType");
+const ReservationPaymentMethodType_1 = require("./ReservationPaymentMethodType");
 const StayDateInfoType_1 = require("./StayDateInfoType");
 const UniqueIDType_1 = require("./UniqueIDType");
 const VIPStatusType_1 = require("./VIPStatusType");
@@ -40,7 +40,7 @@ function ReservationForCCAuthTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'guestFirstName': !(0, runtime_1.exists)(json, 'guestFirstName') ? undefined : json['guestFirstName'],
         'guestName': !(0, runtime_1.exists)(json, 'guestName') ? undefined : json['guestName'],
-        'paymentMethods': !(0, runtime_1.exists)(json, 'paymentMethods') ? undefined : (0, ReservationPaymentMethodsType_1.ReservationPaymentMethodsTypeFromJSON)(json['paymentMethods']),
+        'paymentMethods': !(0, runtime_1.exists)(json, 'paymentMethods') ? undefined : (json['paymentMethods'].map(ReservationPaymentMethodType_1.ReservationPaymentMethodTypeFromJSON)),
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['profileId']),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
         'reservationStatusInfo': !(0, runtime_1.exists)(json, 'reservationStatusInfo') ? undefined : (0, HousekeepingRoomReservationStatusType_1.HousekeepingRoomReservationStatusTypeFromJSON)(json['reservationStatusInfo']),
@@ -60,7 +60,7 @@ function ReservationForCCAuthTypeToJSON(value) {
     return {
         'guestFirstName': value.guestFirstName,
         'guestName': value.guestName,
-        'paymentMethods': (0, ReservationPaymentMethodsType_1.ReservationPaymentMethodsTypeToJSON)(value.paymentMethods),
+        'paymentMethods': value.paymentMethods === undefined ? undefined : (value.paymentMethods.map(ReservationPaymentMethodType_1.ReservationPaymentMethodTypeToJSON)),
         'profileId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.profileId),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
         'reservationStatusInfo': (0, HousekeepingRoomReservationStatusType_1.HousekeepingRoomReservationStatusTypeToJSON)(value.reservationStatusInfo),

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { UserDefinedEnrollmentFieldsType } from './UserDefinedEnrollmentFieldsType';
+import type { UserDefinedEnrollmentFieldType } from './UserDefinedEnrollmentFieldType';
 import {
-    UserDefinedEnrollmentFieldsTypeFromJSON,
-    UserDefinedEnrollmentFieldsTypeFromJSONTyped,
-    UserDefinedEnrollmentFieldsTypeToJSON,
-} from './UserDefinedEnrollmentFieldsType';
+    UserDefinedEnrollmentFieldTypeFromJSON,
+    UserDefinedEnrollmentFieldTypeFromJSONTyped,
+    UserDefinedEnrollmentFieldTypeToJSON,
+} from './UserDefinedEnrollmentFieldType';
 
 /**
  * Represent Enrollment Match Rule and User Defined Enrollment fields/Attribute configuration for membership type.
@@ -39,11 +39,11 @@ export interface EnrollmentMatchRuleType {
      */
     membershipEnrollmentMatchRule?: string;
     /**
-     * 
-     * @type {UserDefinedEnrollmentFieldsType}
+     * Type that holds the User Defined Enrollment field/Attribute such as Communication, First Name , Last Name etc.
+     * @type {Array<UserDefinedEnrollmentFieldType>}
      * @memberof EnrollmentMatchRuleType
      */
-    userDefinedEnrollmentFields?: UserDefinedEnrollmentFieldsType;
+    userDefinedEnrollmentFields?: Array<UserDefinedEnrollmentFieldType>;
 }
 
 /**
@@ -67,7 +67,7 @@ export function EnrollmentMatchRuleTypeFromJSONTyped(json: any, ignoreDiscrimina
         
         'advancedEnrollment': !exists(json, 'advancedEnrollment') ? undefined : json['advancedEnrollment'],
         'membershipEnrollmentMatchRule': !exists(json, 'membershipEnrollmentMatchRule') ? undefined : json['membershipEnrollmentMatchRule'],
-        'userDefinedEnrollmentFields': !exists(json, 'userDefinedEnrollmentFields') ? undefined : UserDefinedEnrollmentFieldsTypeFromJSON(json['userDefinedEnrollmentFields']),
+        'userDefinedEnrollmentFields': !exists(json, 'userDefinedEnrollmentFields') ? undefined : ((json['userDefinedEnrollmentFields'] as Array<any>).map(UserDefinedEnrollmentFieldTypeFromJSON)),
     };
 }
 
@@ -82,7 +82,7 @@ export function EnrollmentMatchRuleTypeToJSON(value?: EnrollmentMatchRuleType | 
         
         'advancedEnrollment': value.advancedEnrollment,
         'membershipEnrollmentMatchRule': value.membershipEnrollmentMatchRule,
-        'userDefinedEnrollmentFields': UserDefinedEnrollmentFieldsTypeToJSON(value.userDefinedEnrollmentFields),
+        'userDefinedEnrollmentFields': value.userDefinedEnrollmentFields === undefined ? undefined : ((value.userDefinedEnrollmentFields as Array<any>).map(UserDefinedEnrollmentFieldTypeToJSON)),
     };
 }
 

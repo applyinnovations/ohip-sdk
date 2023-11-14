@@ -15,12 +15,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InventoryItemTypeToJSON = exports.InventoryItemTypeFromJSONTyped = exports.InventoryItemTypeFromJSON = exports.instanceOfInventoryItemType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
-const EventResourceNotesType_1 = require("./EventResourceNotesType");
+const EventResourceNoteType_1 = require("./EventResourceNoteType");
 const InventoryItemTypeSellInfo_1 = require("./InventoryItemTypeSellInfo");
-const ItemAttributesType_1 = require("./ItemAttributesType");
-const ItemRatesType_1 = require("./ItemRatesType");
-const ItemVendorsType_1 = require("./ItemVendorsType");
+const ItemAttributeType_1 = require("./ItemAttributeType");
+const ItemRateType_1 = require("./ItemRateType");
+const ItemVendorType_1 = require("./ItemVendorType");
 const TranslationTextType200_1 = require("./TranslationTextType200");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -40,10 +39,10 @@ function InventoryItemTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'attributes': !(0, runtime_1.exists)(json, 'attributes') ? undefined : (0, ItemAttributesType_1.ItemAttributesTypeFromJSON)(json['attributes']),
-        'departments': !(0, runtime_1.exists)(json, 'departments') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['departments']),
+        'attributes': !(0, runtime_1.exists)(json, 'attributes') ? undefined : (json['attributes'].map(ItemAttributeType_1.ItemAttributeTypeFromJSON)),
+        'departments': !(0, runtime_1.exists)(json, 'departments') ? undefined : json['departments'],
         'displaySequence': !(0, runtime_1.exists)(json, 'displaySequence') ? undefined : json['displaySequence'],
-        'eventTypes': !(0, runtime_1.exists)(json, 'eventTypes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['eventTypes']),
+        'eventTypes': !(0, runtime_1.exists)(json, 'eventTypes') ? undefined : json['eventTypes'],
         'externalOrder': !(0, runtime_1.exists)(json, 'externalOrder') ? undefined : json['externalOrder'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'itemClassCode': !(0, runtime_1.exists)(json, 'itemClassCode') ? undefined : json['itemClassCode'],
@@ -57,8 +56,8 @@ function InventoryItemTypeFromJSONTyped(json, ignoreDiscriminator) {
         'itemName': !(0, runtime_1.exists)(json, 'itemName') ? undefined : (0, TranslationTextType200_1.TranslationTextType200FromJSON)(json['itemName']),
         'itemPool': !(0, runtime_1.exists)(json, 'itemPool') ? undefined : json['itemPool'],
         'print': !(0, runtime_1.exists)(json, 'print') ? undefined : json['print'],
-        'rates': !(0, runtime_1.exists)(json, 'rates') ? undefined : (0, ItemRatesType_1.ItemRatesTypeFromJSON)(json['rates']),
-        'resourceNotes': !(0, runtime_1.exists)(json, 'resourceNotes') ? undefined : (0, EventResourceNotesType_1.EventResourceNotesTypeFromJSON)(json['resourceNotes']),
+        'rates': !(0, runtime_1.exists)(json, 'rates') ? undefined : (json['rates'].map(ItemRateType_1.ItemRateTypeFromJSON)),
+        'resourceNotes': !(0, runtime_1.exists)(json, 'resourceNotes') ? undefined : (json['resourceNotes'].map(EventResourceNoteType_1.EventResourceNoteTypeFromJSON)),
         'revenueType': !(0, runtime_1.exists)(json, 'revenueType') ? undefined : json['revenueType'],
         'revenueTypeEditable': !(0, runtime_1.exists)(json, 'revenueTypeEditable') ? undefined : json['revenueTypeEditable'],
         'sellInfo': !(0, runtime_1.exists)(json, 'sellInfo') ? undefined : (0, InventoryItemTypeSellInfo_1.InventoryItemTypeSellInfoFromJSON)(json['sellInfo']),
@@ -67,7 +66,7 @@ function InventoryItemTypeFromJSONTyped(json, ignoreDiscriminator) {
         'traceText': !(0, runtime_1.exists)(json, 'traceText') ? undefined : json['traceText'],
         'usedForEvents': !(0, runtime_1.exists)(json, 'usedForEvents') ? undefined : json['usedForEvents'],
         'usedForReservation': !(0, runtime_1.exists)(json, 'usedForReservation') ? undefined : json['usedForReservation'],
-        'vendors': !(0, runtime_1.exists)(json, 'vendors') ? undefined : (0, ItemVendorsType_1.ItemVendorsTypeFromJSON)(json['vendors']),
+        'vendors': !(0, runtime_1.exists)(json, 'vendors') ? undefined : (json['vendors'].map(ItemVendorType_1.ItemVendorTypeFromJSON)),
     };
 }
 exports.InventoryItemTypeFromJSONTyped = InventoryItemTypeFromJSONTyped;
@@ -79,10 +78,10 @@ function InventoryItemTypeToJSON(value) {
         return null;
     }
     return {
-        'attributes': (0, ItemAttributesType_1.ItemAttributesTypeToJSON)(value.attributes),
-        'departments': (0, CodeListType_1.CodeListTypeToJSON)(value.departments),
+        'attributes': value.attributes === undefined ? undefined : (value.attributes.map(ItemAttributeType_1.ItemAttributeTypeToJSON)),
+        'departments': value.departments,
         'displaySequence': value.displaySequence,
-        'eventTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.eventTypes),
+        'eventTypes': value.eventTypes,
         'externalOrder': value.externalOrder,
         'hotelId': value.hotelId,
         'itemClassCode': value.itemClassCode,
@@ -96,8 +95,8 @@ function InventoryItemTypeToJSON(value) {
         'itemName': (0, TranslationTextType200_1.TranslationTextType200ToJSON)(value.itemName),
         'itemPool': value.itemPool,
         'print': value.print,
-        'rates': (0, ItemRatesType_1.ItemRatesTypeToJSON)(value.rates),
-        'resourceNotes': (0, EventResourceNotesType_1.EventResourceNotesTypeToJSON)(value.resourceNotes),
+        'rates': value.rates === undefined ? undefined : (value.rates.map(ItemRateType_1.ItemRateTypeToJSON)),
+        'resourceNotes': value.resourceNotes === undefined ? undefined : (value.resourceNotes.map(EventResourceNoteType_1.EventResourceNoteTypeToJSON)),
         'revenueType': value.revenueType,
         'revenueTypeEditable': value.revenueTypeEditable,
         'sellInfo': (0, InventoryItemTypeSellInfo_1.InventoryItemTypeSellInfoToJSON)(value.sellInfo),
@@ -106,7 +105,7 @@ function InventoryItemTypeToJSON(value) {
         'traceText': value.traceText,
         'usedForEvents': value.usedForEvents,
         'usedForReservation': value.usedForReservation,
-        'vendors': (0, ItemVendorsType_1.ItemVendorsTypeToJSON)(value.vendors),
+        'vendors': value.vendors === undefined ? undefined : (value.vendors.map(ItemVendorType_1.ItemVendorTypeToJSON)),
     };
 }
 exports.InventoryItemTypeToJSON = InventoryItemTypeToJSON;

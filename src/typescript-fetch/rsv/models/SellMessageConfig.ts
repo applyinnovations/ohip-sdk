@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { SellMessageConfigsType } from './SellMessageConfigsType';
 import {
     SellMessageConfigsTypeFromJSON,
     SellMessageConfigsTypeFromJSONTyped,
     SellMessageConfigsTypeToJSON,
 } from './SellMessageConfigsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * This is the request message type for sell message update operation.
@@ -40,10 +40,10 @@ import {
 export interface SellMessageConfig {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SellMessageConfig
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {SellMessageConfigsType}
@@ -51,11 +51,11 @@ export interface SellMessageConfig {
      */
     sellMessageConfigs?: SellMessageConfigsType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SellMessageConfig
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function SellMessageConfigFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'sellMessageConfigs': !exists(json, 'sellMessageConfigs') ? undefined : SellMessageConfigsTypeFromJSON(json['sellMessageConfigs']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function SellMessageConfigToJSON(value?: SellMessageConfig | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'sellMessageConfigs': SellMessageConfigsTypeToJSON(value.sellMessageConfigs),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

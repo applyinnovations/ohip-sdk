@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { GlobalAlertsType } from './GlobalAlertsType';
+import type { GlobalAlertType } from './GlobalAlertType';
 import {
-    GlobalAlertsTypeFromJSON,
-    GlobalAlertsTypeFromJSONTyped,
-    GlobalAlertsTypeToJSON,
-} from './GlobalAlertsType';
-import type { Links } from './Links';
+    GlobalAlertTypeFromJSON,
+    GlobalAlertTypeFromJSONTyped,
+    GlobalAlertTypeToJSON,
+} from './GlobalAlertType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Global Alerts.
@@ -39,23 +39,23 @@ import {
  */
 export interface GlobalAlertsInfo {
     /**
-     * 
-     * @type {GlobalAlertsType}
+     * Collection of property level global alert details with attached global alert types.
+     * @type {Array<GlobalAlertType>}
      * @memberof GlobalAlertsInfo
      */
-    globalAlerts?: GlobalAlertsType;
+    globalAlerts?: Array<GlobalAlertType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GlobalAlertsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GlobalAlertsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function GlobalAlertsInfoFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'globalAlerts': !exists(json, 'globalAlerts') ? undefined : GlobalAlertsTypeFromJSON(json['globalAlerts']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'globalAlerts': !exists(json, 'globalAlerts') ? undefined : ((json['globalAlerts'] as Array<any>).map(GlobalAlertTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function GlobalAlertsInfoToJSON(value?: GlobalAlertsInfo | null): any {
     }
     return {
         
-        'globalAlerts': GlobalAlertsTypeToJSON(value.globalAlerts),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'globalAlerts': value.globalAlerts === undefined ? undefined : ((value.globalAlerts as Array<any>).map(GlobalAlertTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

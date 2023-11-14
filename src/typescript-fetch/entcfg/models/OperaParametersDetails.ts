@@ -19,18 +19,18 @@ import {
     ApplicationSettingSimpleTypeFromJSONTyped,
     ApplicationSettingSimpleTypeToJSON,
 } from './ApplicationSettingSimpleType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * The result element containing a collection of the requested application parameters.
@@ -40,10 +40,10 @@ import {
 export interface OperaParametersDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof OperaParametersDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Represents a single application parameter and its value.
      * @type {Array<ApplicationSettingSimpleType>}
@@ -51,11 +51,11 @@ export interface OperaParametersDetails {
      */
     parameters?: Array<ApplicationSettingSimpleType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OperaParametersDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function OperaParametersDetailsFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'parameters': !exists(json, 'parameters') ? undefined : ((json['parameters'] as Array<any>).map(ApplicationSettingSimpleTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function OperaParametersDetailsToJSON(value?: OperaParametersDetails | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'parameters': value.parameters === undefined ? undefined : ((value.parameters as Array<any>).map(ApplicationSettingSimpleTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

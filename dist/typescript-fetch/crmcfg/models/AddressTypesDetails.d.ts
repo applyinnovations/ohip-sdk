@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AddressTypesType } from './AddressTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AddressTypeType } from './AddressTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Address Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AddressTypesDetails {
     /**
-     *
-     * @type {AddressTypesType}
+     * Communication Role Enumeration element.
+     * @type {Array<AddressTypeType>}
      * @memberof AddressTypesDetails
      */
-    addressTypes?: AddressTypesType;
+    addressTypes?: Array<AddressTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AddressTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AddressTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AddressTypesDetails interface.

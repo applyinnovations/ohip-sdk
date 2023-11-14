@@ -11,9 +11,9 @@
  */
 import type { BlockId } from './BlockId';
 import type { BorrowInventoryType } from './BorrowInventoryType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { UniqueIDType } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * The standard optional Opera Context element is also included.
  * @export
@@ -52,10 +52,10 @@ export interface InventoryToBorrow {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof InventoryToBorrow
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Indicates whether to overbook the Sales Allowance in case there are no rooms left at the Generic Sales Allowance level.
      * @type {boolean}
@@ -69,11 +69,11 @@ export interface InventoryToBorrow {
      */
     roomType?: string;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof InventoryToBorrow
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the InventoryToBorrow interface.

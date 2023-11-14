@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ExpenseArrangementCodesType } from './ExpenseArrangementCodesType';
+import type { ExpenseArrangementCodeType } from './ExpenseArrangementCodeType';
 import {
-    ExpenseArrangementCodesTypeFromJSON,
-    ExpenseArrangementCodesTypeFromJSONTyped,
-    ExpenseArrangementCodesTypeToJSON,
-} from './ExpenseArrangementCodesType';
-import type { Links } from './Links';
+    ExpenseArrangementCodeTypeFromJSON,
+    ExpenseArrangementCodeTypeFromJSONTyped,
+    ExpenseArrangementCodeTypeToJSON,
+} from './ExpenseArrangementCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface ExpenseArrangementCodes {
     /**
-     * 
-     * @type {ExpenseArrangementCodesType}
+     * Details for expense arrangement code along with associated transaction codes.
+     * @type {Array<ExpenseArrangementCodeType>}
      * @memberof ExpenseArrangementCodes
      */
-    expenseArrangementCodes?: ExpenseArrangementCodesType;
+    expenseArrangementCodes?: Array<ExpenseArrangementCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExpenseArrangementCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ExpenseArrangementCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ExpenseArrangementCodesFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'expenseArrangementCodes': !exists(json, 'expenseArrangementCodes') ? undefined : ExpenseArrangementCodesTypeFromJSON(json['expenseArrangementCodes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'expenseArrangementCodes': !exists(json, 'expenseArrangementCodes') ? undefined : ((json['expenseArrangementCodes'] as Array<any>).map(ExpenseArrangementCodeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ExpenseArrangementCodesToJSON(value?: ExpenseArrangementCodes | 
     }
     return {
         
-        'expenseArrangementCodes': ExpenseArrangementCodesTypeToJSON(value.expenseArrangementCodes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'expenseArrangementCodes': value.expenseArrangementCodes === undefined ? undefined : ((value.expenseArrangementCodes as Array<any>).map(ExpenseArrangementCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

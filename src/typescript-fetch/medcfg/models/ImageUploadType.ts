@@ -19,12 +19,12 @@ import {
     ImageCodeTypeFromJSONTyped,
     ImageCodeTypeToJSON,
 } from './ImageCodeType';
-import type { ImageParametersType } from './ImageParametersType';
+import type { ImageParameterType } from './ImageParameterType';
 import {
-    ImageParametersTypeFromJSON,
-    ImageParametersTypeFromJSONTyped,
-    ImageParametersTypeToJSON,
-} from './ImageParametersType';
+    ImageParameterTypeFromJSON,
+    ImageParameterTypeFromJSONTyped,
+    ImageParameterTypeToJSON,
+} from './ImageParameterType';
 import type { ImageStyleType } from './ImageStyleType';
 import {
     ImageStyleTypeFromJSON,
@@ -75,11 +75,11 @@ export interface ImageUploadType {
      */
     imageId?: UniqueIDType;
     /**
-     * 
-     * @type {ImageParametersType}
+     * Collection of image parameters code / value pairs.
+     * @type {Array<ImageParameterType>}
      * @memberof ImageUploadType
      */
-    imageParameters?: ImageParametersType;
+    imageParameters?: Array<ImageParameterType>;
     /**
      * 
      * @type {ImageStyleType}
@@ -124,7 +124,7 @@ export function ImageUploadTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'image': !exists(json, 'image') ? undefined : json['image'],
         'imageCode': !exists(json, 'imageCode') ? undefined : ImageCodeTypeFromJSON(json['imageCode']),
         'imageId': !exists(json, 'imageId') ? undefined : UniqueIDTypeFromJSON(json['imageId']),
-        'imageParameters': !exists(json, 'imageParameters') ? undefined : ImageParametersTypeFromJSON(json['imageParameters']),
+        'imageParameters': !exists(json, 'imageParameters') ? undefined : ((json['imageParameters'] as Array<any>).map(ImageParameterTypeFromJSON)),
         'imageStyle': !exists(json, 'imageStyle') ? undefined : ImageStyleTypeFromJSON(json['imageStyle']),
         'languageCode': !exists(json, 'languageCode') ? undefined : json['languageCode'],
         'linkId': !exists(json, 'linkId') ? undefined : UniqueIDTypeFromJSON(json['linkId']),
@@ -145,7 +145,7 @@ export function ImageUploadTypeToJSON(value?: ImageUploadType | null): any {
         'image': value.image,
         'imageCode': ImageCodeTypeToJSON(value.imageCode),
         'imageId': UniqueIDTypeToJSON(value.imageId),
-        'imageParameters': ImageParametersTypeToJSON(value.imageParameters),
+        'imageParameters': value.imageParameters === undefined ? undefined : ((value.imageParameters as Array<any>).map(ImageParameterTypeToJSON)),
         'imageStyle': ImageStyleTypeToJSON(value.imageStyle),
         'languageCode': value.languageCode,
         'linkId': UniqueIDTypeToJSON(value.linkId),

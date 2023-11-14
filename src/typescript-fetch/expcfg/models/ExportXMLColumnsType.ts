@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ExportXMLAttributesType } from './ExportXMLAttributesType';
+import type { ExportXMLAttributeType } from './ExportXMLAttributeType';
 import {
-    ExportXMLAttributesTypeFromJSON,
-    ExportXMLAttributesTypeFromJSONTyped,
-    ExportXMLAttributesTypeToJSON,
-} from './ExportXMLAttributesType';
-import type { ExportXMLElementsType } from './ExportXMLElementsType';
+    ExportXMLAttributeTypeFromJSON,
+    ExportXMLAttributeTypeFromJSONTyped,
+    ExportXMLAttributeTypeToJSON,
+} from './ExportXMLAttributeType';
+import type { ExportXMLElementType } from './ExportXMLElementType';
 import {
-    ExportXMLElementsTypeFromJSON,
-    ExportXMLElementsTypeFromJSONTyped,
-    ExportXMLElementsTypeToJSON,
-} from './ExportXMLElementsType';
+    ExportXMLElementTypeFromJSON,
+    ExportXMLElementTypeFromJSONTyped,
+    ExportXMLElementTypeToJSON,
+} from './ExportXMLElementType';
 
 /**
  * XML Columns type that hold information to all the element and attribute configuations
@@ -33,17 +33,17 @@ import {
  */
 export interface ExportXMLColumnsType {
     /**
-     * 
-     * @type {ExportXMLAttributesType}
+     * XML attribute type that holds all the information related to attribute tag
+     * @type {Array<ExportXMLAttributeType>}
      * @memberof ExportXMLColumnsType
      */
-    attributes?: ExportXMLAttributesType;
+    attributes?: Array<ExportXMLAttributeType>;
     /**
-     * 
-     * @type {ExportXMLElementsType}
+     * XML element type that holds all the information related to element tag
+     * @type {Array<ExportXMLElementType>}
      * @memberof ExportXMLColumnsType
      */
-    elements?: ExportXMLElementsType;
+    elements?: Array<ExportXMLElementType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function ExportXMLColumnsTypeFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'attributes': !exists(json, 'attributes') ? undefined : ExportXMLAttributesTypeFromJSON(json['attributes']),
-        'elements': !exists(json, 'elements') ? undefined : ExportXMLElementsTypeFromJSON(json['elements']),
+        'attributes': !exists(json, 'attributes') ? undefined : ((json['attributes'] as Array<any>).map(ExportXMLAttributeTypeFromJSON)),
+        'elements': !exists(json, 'elements') ? undefined : ((json['elements'] as Array<any>).map(ExportXMLElementTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function ExportXMLColumnsTypeToJSON(value?: ExportXMLColumnsType | null):
     }
     return {
         
-        'attributes': ExportXMLAttributesTypeToJSON(value.attributes),
-        'elements': ExportXMLElementsTypeToJSON(value.elements),
+        'attributes': value.attributes === undefined ? undefined : ((value.attributes as Array<any>).map(ExportXMLAttributeTypeToJSON)),
+        'elements': value.elements === undefined ? undefined : ((value.elements as Array<any>).map(ExportXMLElementTypeToJSON)),
     };
 }
 

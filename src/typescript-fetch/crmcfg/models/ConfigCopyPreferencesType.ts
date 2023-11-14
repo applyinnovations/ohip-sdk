@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { ConfigTemplatePreferenceIDType } from './ConfigTemplatePreferenceIDType';
 import {
     ConfigTemplatePreferenceIDTypeFromJSON,
@@ -34,10 +28,10 @@ import {
 export interface ConfigCopyPreferencesType {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigCopyPreferencesType
      */
-    hotelCodes?: CodeListType;
+    hotelCodes?: Array<string>;
     /**
      * Template preference to be copied to the hotel(s).
      * @type {Array<ConfigTemplatePreferenceIDType>}
@@ -65,7 +59,7 @@ export function ConfigCopyPreferencesTypeFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'hotelCodes': !exists(json, 'hotelCodes') ? undefined : CodeListTypeFromJSON(json['hotelCodes']),
+        'hotelCodes': !exists(json, 'hotelCodes') ? undefined : json['hotelCodes'],
         'templatePreferences': !exists(json, 'templatePreferences') ? undefined : ((json['templatePreferences'] as Array<any>).map(ConfigTemplatePreferenceIDTypeFromJSON)),
     };
 }
@@ -79,7 +73,7 @@ export function ConfigCopyPreferencesTypeToJSON(value?: ConfigCopyPreferencesTyp
     }
     return {
         
-        'hotelCodes': CodeListTypeToJSON(value.hotelCodes),
+        'hotelCodes': value.hotelCodes,
         'templatePreferences': value.templatePreferences === undefined ? undefined : ((value.templatePreferences as Array<any>).map(ConfigTemplatePreferenceIDTypeToJSON)),
     };
 }

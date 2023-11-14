@@ -9,13 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { ActivityBlockInfoType } from './ActivityBlockInfoType';
 import type { ActivityDetailsTypeLinkedAccounts } from './ActivityDetailsTypeLinkedAccounts';
 import type { ActivityDetailsTypeLinkedContacts } from './ActivityDetailsTypeLinkedContacts';
 import type { ActivityId } from './ActivityId';
 import type { ActivityInfoType } from './ActivityInfoType';
-import type { AttachmentsType } from './AttachmentsType';
-import type { BlockListType } from './BlockListType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { AttachmentType } from './AttachmentType';
+import type { IndicatorType } from './IndicatorType';
 import type { LinkedActivityDetailsType } from './LinkedActivityDetailsType';
 /**
  * Complete Activity Related Information.
@@ -36,11 +36,11 @@ export interface ActivityDetailsType {
      */
     activityId?: ActivityId;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof ActivityDetailsType
      */
-    indicators?: IndicatorsType;
+    indicators?: Array<IndicatorType>;
     /**
      *
      * @type {ActivityDetailsTypeLinkedAccounts}
@@ -54,17 +54,17 @@ export interface ActivityDetailsType {
      */
     linkedActivities?: Array<LinkedActivityDetailsType>;
     /**
-     *
-     * @type {AttachmentsType}
+     * Attachment List.
+     * @type {Array<AttachmentType>}
      * @memberof ActivityDetailsType
      */
-    linkedAttachments?: AttachmentsType;
+    linkedAttachments?: Array<AttachmentType>;
     /**
-     *
-     * @type {BlockListType}
+     * List of Blocks that are linked to the Activity.
+     * @type {Array<ActivityBlockInfoType>}
      * @memberof ActivityDetailsType
      */
-    linkedBlocks?: BlockListType;
+    linkedBlocks?: Array<ActivityBlockInfoType>;
     /**
      *
      * @type {ActivityDetailsTypeLinkedContacts}

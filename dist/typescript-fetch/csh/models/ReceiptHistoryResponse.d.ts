@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ReceiptsType } from './ReceiptsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ReceiptSummaryType } from './ReceiptSummaryType';
+import type { WarningType } from './WarningType';
 /**
  * Response for the fetch Receipt History.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ReceiptHistoryResponse {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReceiptHistoryResponse
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ReceiptsType}
+     * Receipt History details.
+     * @type {Array<ReceiptSummaryType>}
      * @memberof ReceiptHistoryResponse
      */
-    receiptHistory?: ReceiptsType;
+    receiptHistory?: Array<ReceiptSummaryType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReceiptHistoryResponse
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReceiptHistoryResponse interface.

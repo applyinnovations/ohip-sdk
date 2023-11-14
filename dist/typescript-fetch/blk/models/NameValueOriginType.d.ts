@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { NameValueModuleType } from './NameValueModuleType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Contains origin details.
  * @export
@@ -48,11 +48,11 @@ export interface NameValueOriginType {
      */
     type?: string;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof NameValueOriginType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the NameValueOriginType interface.

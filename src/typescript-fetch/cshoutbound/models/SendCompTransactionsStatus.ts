@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CompTransactionsInfoType } from './CompTransactionsInfoType';
+import type { CompTransactionInfoType } from './CompTransactionInfoType';
 import {
-    CompTransactionsInfoTypeFromJSON,
-    CompTransactionsInfoTypeFromJSONTyped,
-    CompTransactionsInfoTypeToJSON,
-} from './CompTransactionsInfoType';
-import type { Links } from './Links';
+    CompTransactionInfoTypeFromJSON,
+    CompTransactionInfoTypeFromJSONTyped,
+    CompTransactionInfoTypeToJSON,
+} from './CompTransactionInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface SendCompTransactionsStatus {
     /**
-     * 
-     * @type {CompTransactionsInfoType}
+     * List of comp transactions.
+     * @type {Array<CompTransactionInfoType>}
      * @memberof SendCompTransactionsStatus
      */
-    compPostings?: CompTransactionsInfoType;
+    compPostings?: Array<CompTransactionInfoType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SendCompTransactionsStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SendCompTransactionsStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function SendCompTransactionsStatusFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'compPostings': !exists(json, 'compPostings') ? undefined : CompTransactionsInfoTypeFromJSON(json['compPostings']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'compPostings': !exists(json, 'compPostings') ? undefined : ((json['compPostings'] as Array<any>).map(CompTransactionInfoTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function SendCompTransactionsStatusToJSON(value?: SendCompTransactionsSta
     }
     return {
         
-        'compPostings': CompTransactionsInfoTypeToJSON(value.compPostings),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'compPostings': value.compPostings === undefined ? undefined : ((value.compPostings as Array<any>).map(CompTransactionInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

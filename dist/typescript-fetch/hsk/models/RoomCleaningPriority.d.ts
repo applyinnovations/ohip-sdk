@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { HousekeepingRoomsType } from './HousekeepingRoomsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to set a list of rooms as priority for cleaning. This will set a flag as priority and a priority number at the bottom of the current priority line.
  * @export
@@ -26,16 +26,16 @@ export interface RoomCleaningPriority {
     criteria?: HousekeepingRoomsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomCleaningPriority
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomCleaningPriority
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomCleaningPriority interface.

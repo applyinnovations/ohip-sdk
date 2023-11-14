@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ConfigHotelPreferencesType } from './ConfigHotelPreferencesType';
+import type { ConfigHotelPreferenceType } from './ConfigHotelPreferenceType';
 import {
-    ConfigHotelPreferencesTypeFromJSON,
-    ConfigHotelPreferencesTypeFromJSONTyped,
-    ConfigHotelPreferencesTypeToJSON,
-} from './ConfigHotelPreferencesType';
+    ConfigHotelPreferenceTypeFromJSON,
+    ConfigHotelPreferenceTypeFromJSONTyped,
+    ConfigHotelPreferenceTypeToJSON,
+} from './ConfigHotelPreferenceType';
 import type { TranslationTextType50 } from './TranslationTextType50';
 import {
     TranslationTextType50FromJSON,
@@ -63,11 +63,11 @@ export interface RoomFeatureConfigType {
      */
     inactive?: boolean;
     /**
-     * 
-     * @type {ConfigHotelPreferencesType}
+     * This type holds a collection of preferences at the property level.
+     * @type {Array<ConfigHotelPreferenceType>}
      * @memberof RoomFeatureConfigType
      */
-    mappedPreferenceCodes?: ConfigHotelPreferencesType;
+    mappedPreferenceCodes?: Array<ConfigHotelPreferenceType>;
     /**
      * Display sequence for the code type.
      * @type {number}
@@ -100,7 +100,7 @@ export function RoomFeatureConfigTypeFromJSONTyped(json: any, ignoreDiscriminato
         'groupCode': !exists(json, 'groupCode') ? undefined : json['groupCode'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
-        'mappedPreferenceCodes': !exists(json, 'mappedPreferenceCodes') ? undefined : ConfigHotelPreferencesTypeFromJSON(json['mappedPreferenceCodes']),
+        'mappedPreferenceCodes': !exists(json, 'mappedPreferenceCodes') ? undefined : ((json['mappedPreferenceCodes'] as Array<any>).map(ConfigHotelPreferenceTypeFromJSON)),
         'sequence': !exists(json, 'sequence') ? undefined : json['sequence'],
     };
 }
@@ -119,7 +119,7 @@ export function RoomFeatureConfigTypeToJSON(value?: RoomFeatureConfigType | null
         'groupCode': value.groupCode,
         'hotelId': value.hotelId,
         'inactive': value.inactive,
-        'mappedPreferenceCodes': ConfigHotelPreferencesTypeToJSON(value.mappedPreferenceCodes),
+        'mappedPreferenceCodes': value.mappedPreferenceCodes === undefined ? undefined : ((value.mappedPreferenceCodes as Array<any>).map(ConfigHotelPreferenceTypeToJSON)),
         'sequence': value.sequence,
     };
 }

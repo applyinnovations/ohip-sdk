@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CCBatchSettlementsType } from './CCBatchSettlementsType';
+import type { CCBatchSettlementType } from './CCBatchSettlementType';
 import {
-    CCBatchSettlementsTypeFromJSON,
-    CCBatchSettlementsTypeFromJSONTyped,
-    CCBatchSettlementsTypeToJSON,
-} from './CCBatchSettlementsType';
-import type { Links } from './Links';
+    CCBatchSettlementTypeFromJSON,
+    CCBatchSettlementTypeFromJSONTyped,
+    CCBatchSettlementTypeToJSON,
+} from './CCBatchSettlementType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for credit card settlements.
@@ -39,23 +39,23 @@ import {
  */
 export interface CcBatchSettlements {
     /**
-     * 
-     * @type {CCBatchSettlementsType}
+     * List of Settlement transaction details for credit card transaction.
+     * @type {Array<CCBatchSettlementType>}
      * @memberof CcBatchSettlements
      */
-    batchSettlements?: CCBatchSettlementsType;
+    batchSettlements?: Array<CCBatchSettlementType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CcBatchSettlements
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CcBatchSettlements
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CcBatchSettlementsFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'batchSettlements': !exists(json, 'batchSettlements') ? undefined : CCBatchSettlementsTypeFromJSON(json['batchSettlements']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'batchSettlements': !exists(json, 'batchSettlements') ? undefined : ((json['batchSettlements'] as Array<any>).map(CCBatchSettlementTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CcBatchSettlementsToJSON(value?: CcBatchSettlements | null): any
     }
     return {
         
-        'batchSettlements': CCBatchSettlementsTypeToJSON(value.batchSettlements),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'batchSettlements': value.batchSettlements === undefined ? undefined : ((value.batchSettlements as Array<any>).map(CCBatchSettlementTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

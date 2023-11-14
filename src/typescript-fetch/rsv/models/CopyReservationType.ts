@@ -25,12 +25,12 @@ import {
     HotelReservationInstructionTypeFromJSONTyped,
     HotelReservationInstructionTypeToJSON,
 } from './HotelReservationInstructionType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -57,11 +57,11 @@ export interface CopyReservationType {
      */
     newReservation?: HotelReservationInstructionType;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CopyReservationType
      */
-    sourceReservationId?: UniqueIDListType;
+    sourceReservationId?: Array<UniqueIDType>;
 }
 
 /**
@@ -86,7 +86,7 @@ export function CopyReservationTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'instructions': !exists(json, 'instructions') ? undefined : CopyReservationTypeInstructionsFromJSON(json['instructions']),
         'newReservation': !exists(json, 'newReservation') ? undefined : HotelReservationInstructionTypeFromJSON(json['newReservation']),
-        'sourceReservationId': !exists(json, 'sourceReservationId') ? undefined : UniqueIDListTypeFromJSON(json['sourceReservationId']),
+        'sourceReservationId': !exists(json, 'sourceReservationId') ? undefined : ((json['sourceReservationId'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -102,7 +102,7 @@ export function CopyReservationTypeToJSON(value?: CopyReservationType | null): a
         'hotelId': value.hotelId,
         'instructions': CopyReservationTypeInstructionsToJSON(value.instructions),
         'newReservation': HotelReservationInstructionTypeToJSON(value.newReservation),
-        'sourceReservationId': UniqueIDListTypeToJSON(value.sourceReservationId),
+        'sourceReservationId': value.sourceReservationId === undefined ? undefined : ((value.sourceReservationId as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

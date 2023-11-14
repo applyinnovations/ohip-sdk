@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { CheckedInReservationInstructionType } from './CheckedInReservationInstructionType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationReservation } from './ReservationReservation';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Validation checks includes the following: - Reservation is not valid to be checked in. - Split is still required before the reservation can be checked in. - Room information is missing. - Payment information is missing. - The status of the room needs to be reviewed. - Sharers was impacted. The check-in process affected the reservation details of shared guests on the reservation. - Sharers was not impacted. The check-in process has not affected the reservation details of shared guests on the reservation.
  * @export
@@ -33,10 +33,10 @@ export interface Reservation {
     includeNotifications?: boolean;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Reservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationReservation}
@@ -44,11 +44,11 @@ export interface Reservation {
      */
     reservation?: ReservationReservation;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Reservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Reservation interface.

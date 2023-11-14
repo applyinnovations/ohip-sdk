@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CheckResultsType } from './CheckResultsType';
+import type { CheckResultType } from './CheckResultType';
 import type { ReservationId } from './ReservationId';
 /**
  * Reservation and the status of its allowed actions, attached records, and indicators.
@@ -30,11 +30,11 @@ export interface CheckReservationType {
      */
     reservationId?: ReservationId;
     /**
-     *
-     * @type {CheckResultsType}
+     * Collection of status of allowed actions, attached records, and indicators of the reservation.
+     * @type {Array<CheckResultType>}
      * @memberof CheckReservationType
      */
-    results?: CheckResultsType;
+    results?: Array<CheckResultType>;
 }
 /**
  * Check if a given object implements the CheckReservationType interface.

@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ECouponCopyTypeToJSON = exports.ECouponCopyTypeFromJSONTyped = exports.ECouponCopyTypeFromJSON = exports.instanceOfECouponCopyType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 /**
  * Check if a given object implements the ECouponCopyType interface.
  */
@@ -33,9 +32,9 @@ function ECouponCopyTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'eCouponCodes': !(0, runtime_1.exists)(json, 'eCouponCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['eCouponCodes']),
+        'eCouponCodes': !(0, runtime_1.exists)(json, 'eCouponCodes') ? undefined : json['eCouponCodes'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'targetHotelCodes': !(0, runtime_1.exists)(json, 'targetHotelCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['targetHotelCodes']),
+        'targetHotelCodes': !(0, runtime_1.exists)(json, 'targetHotelCodes') ? undefined : json['targetHotelCodes'],
     };
 }
 exports.ECouponCopyTypeFromJSONTyped = ECouponCopyTypeFromJSONTyped;
@@ -47,9 +46,9 @@ function ECouponCopyTypeToJSON(value) {
         return null;
     }
     return {
-        'eCouponCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.eCouponCodes),
+        'eCouponCodes': value.eCouponCodes,
         'hotelId': value.hotelId,
-        'targetHotelCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.targetHotelCodes),
+        'targetHotelCodes': value.targetHotelCodes,
     };
 }
 exports.ECouponCopyTypeToJSON = ECouponCopyTypeToJSON;

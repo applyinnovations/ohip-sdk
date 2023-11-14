@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomingListBlockInfoTypeToJSON = exports.RoomingListBlockInfoTypeFromJSONTyped = exports.RoomingListBlockInfoTypeFromJSON = exports.instanceOfRoomingListBlockInfoType = void 0;
 const runtime_1 = require("../runtime");
-const BlockIdList_1 = require("./BlockIdList");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the RoomingListBlockInfoType interface.
  */
@@ -33,7 +33,7 @@ function RoomingListBlockInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (0, BlockIdList_1.BlockIdListFromJSON)(json['blockIdList']),
+        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
     };
 }
@@ -46,7 +46,7 @@ function RoomingListBlockInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'blockIdList': (0, BlockIdList_1.BlockIdListToJSON)(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'hotelId': value.hotelId,
     };
 }

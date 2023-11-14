@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { HotelReservationType } from './HotelReservationType';
-import type { RoutingInfoListType } from './RoutingInfoListType';
+import type { RoutingInfoType } from './RoutingInfoType';
 /**
  * This is used when changing block reservations in bulk.
  * @export
@@ -24,11 +24,11 @@ export interface ReservationSnapshotType {
      */
     hotelReservation?: HotelReservationType;
     /**
-     *
-     * @type {RoutingInfoListType}
+     * A routing info object can either be of type Folio OR of type Room with its corresponding instructions.
+     * @type {Array<RoutingInfoType>}
      * @memberof ReservationSnapshotType
      */
-    routingInstructions?: RoutingInfoListType;
+    routingInstructions?: Array<RoutingInfoType>;
 }
 /**
  * Check if a given object implements the ReservationSnapshotType interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelRoomMaintenanceReasonsType } from './HotelRoomMaintenanceReasonsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelRoomMaintenanceReasonType } from './HotelRoomMaintenanceReasonType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching room maintenance reasons for a hotel.
  * @export
@@ -31,11 +31,11 @@ export interface HotelRoomMaintenanceReasonsDetails {
      */
     hasMore?: boolean;
     /**
-     *
-     * @type {HotelRoomMaintenanceReasonsType}
+     * Details for room maintenance reason at hotel level.
+     * @type {Array<HotelRoomMaintenanceReasonType>}
      * @memberof HotelRoomMaintenanceReasonsDetails
      */
-    hotelRoomMaintenanceReasons?: HotelRoomMaintenanceReasonsType;
+    hotelRoomMaintenanceReasons?: Array<HotelRoomMaintenanceReasonType>;
     /**
      * Indicates maximum number of records a Web Service should return.
      * @type {number}
@@ -44,10 +44,10 @@ export interface HotelRoomMaintenanceReasonsDetails {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelRoomMaintenanceReasonsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface HotelRoomMaintenanceReasonsDetails {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelRoomMaintenanceReasonsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HotelRoomMaintenanceReasonsDetails interface.

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { PreferenceGroupsType } from './PreferenceGroupsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { PreferenceGroupType } from './PreferenceGroupType';
 import {
-    PreferenceGroupsTypeFromJSON,
-    PreferenceGroupsTypeFromJSONTyped,
-    PreferenceGroupsTypeToJSON,
-} from './PreferenceGroupsType';
-import type { WarningsType } from './WarningsType';
+    PreferenceGroupTypeFromJSON,
+    PreferenceGroupTypeFromJSONTyped,
+    PreferenceGroupTypeToJSON,
+} from './PreferenceGroupType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching preference groups.
@@ -40,22 +40,22 @@ import {
 export interface PreferenceGroups {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PreferenceGroups
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {PreferenceGroupsType}
+     * Collection of preference groups.
+     * @type {Array<PreferenceGroupType>}
      * @memberof PreferenceGroups
      */
-    preferenceGroups?: PreferenceGroupsType;
+    preferenceGroups?: Array<PreferenceGroupType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PreferenceGroups
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function PreferenceGroupsFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'preferenceGroups': !exists(json, 'preferenceGroups') ? undefined : PreferenceGroupsTypeFromJSON(json['preferenceGroups']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'preferenceGroups': !exists(json, 'preferenceGroups') ? undefined : ((json['preferenceGroups'] as Array<any>).map(PreferenceGroupTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function PreferenceGroupsToJSON(value?: PreferenceGroups | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'preferenceGroups': PreferenceGroupsTypeToJSON(value.preferenceGroups),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'preferenceGroups': value.preferenceGroups === undefined ? undefined : ((value.preferenceGroups as Array<any>).map(PreferenceGroupTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

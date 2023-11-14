@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CommissionCodesType } from './CommissionCodesType';
+import type { CommissionCodeInfoType } from './CommissionCodeInfoType';
 import {
-    CommissionCodesTypeFromJSON,
-    CommissionCodesTypeFromJSONTyped,
-    CommissionCodesTypeToJSON,
-} from './CommissionCodesType';
-import type { Links } from './Links';
+    CommissionCodeInfoTypeFromJSON,
+    CommissionCodeInfoTypeFromJSONTyped,
+    CommissionCodeInfoTypeToJSON,
+} from './CommissionCodeInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to update commission codes.
@@ -39,23 +39,23 @@ import {
  */
 export interface CommissionCodes {
     /**
-     * 
-     * @type {CommissionCodesType}
+     * Commission code details object.
+     * @type {Array<CommissionCodeInfoType>}
      * @memberof CommissionCodes
      */
-    commissionCodes?: CommissionCodesType;
+    commissionCodes?: Array<CommissionCodeInfoType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CommissionCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CommissionCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CommissionCodesFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'commissionCodes': !exists(json, 'commissionCodes') ? undefined : CommissionCodesTypeFromJSON(json['commissionCodes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'commissionCodes': !exists(json, 'commissionCodes') ? undefined : ((json['commissionCodes'] as Array<any>).map(CommissionCodeInfoTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CommissionCodesToJSON(value?: CommissionCodes | null): any {
     }
     return {
         
-        'commissionCodes': CommissionCodesTypeToJSON(value.commissionCodes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'commissionCodes': value.commissionCodes === undefined ? undefined : ((value.commissionCodes as Array<any>).map(CommissionCodeInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

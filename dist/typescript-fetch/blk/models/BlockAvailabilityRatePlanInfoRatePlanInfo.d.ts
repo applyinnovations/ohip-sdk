@@ -12,7 +12,7 @@
 import type { BookingChannelMappingType } from './BookingChannelMappingType';
 import type { CancelPenaltyType } from './CancelPenaltyType';
 import type { GuaranteeType } from './GuaranteeType';
-import type { MealPlansType } from './MealPlansType';
+import type { MealPlanCodeType } from './MealPlanCodeType';
 import type { ProfileTypeType } from './ProfileTypeType';
 import type { RatePlanChannelInfoType } from './RatePlanChannelInfoType';
 import type { RatePlanCommissionType } from './RatePlanCommissionType';
@@ -65,11 +65,11 @@ export interface BlockAvailabilityRatePlanInfoRatePlanInfo {
      */
     longInfo?: string;
     /**
-     *
-     * @type {MealPlansType}
+     * Meal plan codes associated with the rate codes.
+     * @type {Array<MealPlanCodeType>}
      * @memberof BlockAvailabilityRatePlanInfoRatePlanInfo
      */
-    mealPlans?: MealPlansType;
+    mealPlans?: Array<MealPlanCodeType>;
     /**
      *
      * @type {ProfileTypeType}

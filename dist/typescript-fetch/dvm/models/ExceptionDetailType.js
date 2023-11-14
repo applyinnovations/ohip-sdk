@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExceptionDetailTypeToJSON = exports.ExceptionDetailTypeFromJSONTyped = exports.ExceptionDetailTypeFromJSON = exports.instanceOfExceptionDetailType = void 0;
 const runtime_1 = require("../runtime");
 const ErrorInstance_1 = require("./ErrorInstance");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 /**
  * Check if a given object implements the ExceptionDetailType interface.
  */
@@ -38,7 +38,7 @@ function ExceptionDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'detail': !(0, runtime_1.exists)(json, 'detail') ? undefined : json['detail'],
         'instance': !(0, runtime_1.exists)(json, 'instance') ? undefined : json['instance'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'oerrorCode': !(0, runtime_1.exists)(json, 'o:errorCode') ? undefined : json['o:errorCode'],
         'oerrorDetails': !(0, runtime_1.exists)(json, 'o:errorDetails') ? undefined : (json['o:errorDetails'].map(ErrorInstance_1.ErrorInstanceFromJSON)),
         'oerrorPath': !(0, runtime_1.exists)(json, 'o:errorPath') ? undefined : json['o:errorPath'],
@@ -58,7 +58,7 @@ function ExceptionDetailTypeToJSON(value) {
     return {
         'detail': value.detail,
         'instance': value.instance,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'o:errorCode': value.oerrorCode,
         'o:errorDetails': value.oerrorDetails === undefined ? undefined : (value.oerrorDetails.map(ErrorInstance_1.ErrorInstanceToJSON)),
         'o:errorPath': value.oerrorPath,

@@ -17,7 +17,7 @@ exports.BlockRatePlanInfoTypeToJSON = exports.BlockRatePlanInfoTypeFromJSONTyped
 const runtime_1 = require("../runtime");
 const CancelPenaltyType_1 = require("./CancelPenaltyType");
 const GuaranteeType_1 = require("./GuaranteeType");
-const MealPlansType_1 = require("./MealPlansType");
+const MealPlanCodeType_1 = require("./MealPlanCodeType");
 /**
  * Check if a given object implements the BlockRatePlanInfoType interface.
  */
@@ -42,7 +42,7 @@ function BlockRatePlanInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'longInfo': !(0, runtime_1.exists)(json, 'longInfo') ? undefined : json['longInfo'],
         'marketCode': !(0, runtime_1.exists)(json, 'marketCode') ? undefined : json['marketCode'],
-        'mealPlans': !(0, runtime_1.exists)(json, 'mealPlans') ? undefined : (0, MealPlansType_1.MealPlansTypeFromJSON)(json['mealPlans']),
+        'mealPlans': !(0, runtime_1.exists)(json, 'mealPlans') ? undefined : (json['mealPlans'].map(MealPlanCodeType_1.MealPlanCodeTypeFromJSON)),
         'negotiated': !(0, runtime_1.exists)(json, 'negotiated') ? undefined : json['negotiated'],
         'primary': !(0, runtime_1.exists)(json, 'primary') ? undefined : json['primary'],
         'ratePlanCategory': !(0, runtime_1.exists)(json, 'ratePlanCategory') ? undefined : json['ratePlanCategory'],
@@ -72,7 +72,7 @@ function BlockRatePlanInfoTypeToJSON(value) {
         'hotelId': value.hotelId,
         'longInfo': value.longInfo,
         'marketCode': value.marketCode,
-        'mealPlans': (0, MealPlansType_1.MealPlansTypeToJSON)(value.mealPlans),
+        'mealPlans': value.mealPlans === undefined ? undefined : (value.mealPlans.map(MealPlanCodeType_1.MealPlanCodeTypeToJSON)),
         'negotiated': value.negotiated,
         'primary': value.primary,
         'ratePlanCategory': value.ratePlanCategory,

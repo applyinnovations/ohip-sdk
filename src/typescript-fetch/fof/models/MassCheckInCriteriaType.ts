@@ -19,12 +19,12 @@ import {
     MassCheckInCriteriaTypeAdditionalCriteriaFromJSONTyped,
     MassCheckInCriteriaTypeAdditionalCriteriaToJSON,
 } from './MassCheckInCriteriaTypeAdditionalCriteria';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * This will have details of reservations and advance criteria for performing Mass Checkin of Reservations
@@ -45,11 +45,11 @@ export interface MassCheckInCriteriaType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MassCheckInCriteriaType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -73,7 +73,7 @@ export function MassCheckInCriteriaTypeFromJSONTyped(json: any, ignoreDiscrimina
         
         'additionalCriteria': !exists(json, 'additionalCriteria') ? undefined : MassCheckInCriteriaTypeAdditionalCriteriaFromJSON(json['additionalCriteria']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -88,7 +88,7 @@ export function MassCheckInCriteriaTypeToJSON(value?: MassCheckInCriteriaType | 
         
         'additionalCriteria': MassCheckInCriteriaTypeAdditionalCriteriaToJSON(value.additionalCriteria),
         'hotelId': value.hotelId,
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

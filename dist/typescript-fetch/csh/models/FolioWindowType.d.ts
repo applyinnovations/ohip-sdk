@@ -18,7 +18,7 @@ import type { FolioType } from './FolioType';
 import type { FolioWindowExchangeAmounts } from './FolioWindowExchangeAmounts';
 import type { PayeeInfoType } from './PayeeInfoType';
 import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
-import type { TransactionServiceTypesType } from './TransactionServiceTypesType';
+import type { TransactionServiceTypeType } from './TransactionServiceTypeType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * A folio window view which holds the set of folios for a reservation.
@@ -177,11 +177,11 @@ export interface FolioWindowType {
      */
     revenue?: CurrencyAmountType;
     /**
-     *
-     * @type {TransactionServiceTypesType}
+     * Details about service type postings.
+     * @type {Array<TransactionServiceTypeType>}
      * @memberof FolioWindowType
      */
-    serviceTypeInfo?: TransactionServiceTypesType;
+    serviceTypeInfo?: Array<TransactionServiceTypeType>;
     /**
      * This flag signifies that generated Folio is Normal or Simple Folio. Certain countries of the World mandate a simple folio when the invoice amount is less than defined threshold.
      * @type {boolean}

@@ -31,24 +31,24 @@ import {
     ChannelResvRSInfoTypeFromJSONTyped,
     ChannelResvRSInfoTypeToJSON,
 } from './ChannelResvRSInfoType';
-import type { DailyRatesType } from './DailyRatesType';
+import type { DailyRateType } from './DailyRateType';
 import {
-    DailyRatesTypeFromJSON,
-    DailyRatesTypeFromJSONTyped,
-    DailyRatesTypeToJSON,
-} from './DailyRatesType';
-import type { Links } from './Links';
+    DailyRateTypeFromJSON,
+    DailyRateTypeFromJSONTyped,
+    DailyRateTypeToJSON,
+} from './DailyRateType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for the request to cancel reservations. Response contains the reservations which were successfully canceled.
@@ -70,22 +70,22 @@ export interface CancelReservationDetails {
     cxlActivityLog?: Array<CancellationActivityType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CancelReservationDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {DailyRatesType}
+     * Defines room rate information on a daily basis.
+     * @type {Array<DailyRateType>}
      * @memberof CancelReservationDetails
      */
-    newRates?: DailyRatesType;
+    newRates?: Array<DailyRateType>;
     /**
-     * 
-     * @type {DailyRatesType}
+     * Defines room rate information on a daily basis.
+     * @type {Array<DailyRateType>}
      * @memberof CancelReservationDetails
      */
-    oldRates?: DailyRatesType;
+    oldRates?: Array<DailyRateType>;
     /**
      * Information regarding the reservation which was canceled.
      * @type {Array<CancelReservationType>}
@@ -93,11 +93,11 @@ export interface CancelReservationDetails {
      */
     reservations?: Array<CancelReservationType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CancelReservationDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -121,11 +121,11 @@ export function CancelReservationDetailsFromJSONTyped(json: any, ignoreDiscrimin
         
         'channelInformation': !exists(json, 'channelInformation') ? undefined : ChannelResvRSInfoTypeFromJSON(json['channelInformation']),
         'cxlActivityLog': !exists(json, 'cxlActivityLog') ? undefined : ((json['cxlActivityLog'] as Array<any>).map(CancellationActivityTypeFromJSON)),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'newRates': !exists(json, 'newRates') ? undefined : DailyRatesTypeFromJSON(json['newRates']),
-        'oldRates': !exists(json, 'oldRates') ? undefined : DailyRatesTypeFromJSON(json['oldRates']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'newRates': !exists(json, 'newRates') ? undefined : ((json['newRates'] as Array<any>).map(DailyRateTypeFromJSON)),
+        'oldRates': !exists(json, 'oldRates') ? undefined : ((json['oldRates'] as Array<any>).map(DailyRateTypeFromJSON)),
         'reservations': !exists(json, 'reservations') ? undefined : ((json['reservations'] as Array<any>).map(CancelReservationTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -140,11 +140,11 @@ export function CancelReservationDetailsToJSON(value?: CancelReservationDetails 
         
         'channelInformation': ChannelResvRSInfoTypeToJSON(value.channelInformation),
         'cxlActivityLog': value.cxlActivityLog === undefined ? undefined : ((value.cxlActivityLog as Array<any>).map(CancellationActivityTypeToJSON)),
-        'links': LinksToJSON(value.links),
-        'newRates': DailyRatesTypeToJSON(value.newRates),
-        'oldRates': DailyRatesTypeToJSON(value.oldRates),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'newRates': value.newRates === undefined ? undefined : ((value.newRates as Array<any>).map(DailyRateTypeToJSON)),
+        'oldRates': value.oldRates === undefined ? undefined : ((value.oldRates as Array<any>).map(DailyRateTypeToJSON)),
         'reservations': value.reservations === undefined ? undefined : ((value.reservations as Array<any>).map(CancelReservationTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

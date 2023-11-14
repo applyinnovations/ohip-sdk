@@ -19,24 +19,24 @@ import {
     HSKStatReportCodeTypeFromJSONTyped,
     HSKStatReportCodeTypeToJSON,
 } from './HSKStatReportCodeType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { StatisticsMetricSetInner } from './StatisticsMetricSetInner';
 import {
     StatisticsMetricSetInnerFromJSON,
     StatisticsMetricSetInnerFromJSONTyped,
     StatisticsMetricSetInnerToJSON,
 } from './StatisticsMetricSetInner';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response element for frontOffice statistics.
@@ -52,10 +52,10 @@ export interface Statistics {
     calendarDate?: Date;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Statistics
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Base statistic set holder which defines the span of the statistical data.
      * @type {Array<StatisticsMetricSetInner>}
@@ -69,11 +69,11 @@ export interface Statistics {
      */
     statisticsCode?: HSKStatReportCodeType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Statistics
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -96,10 +96,10 @@ export function StatisticsFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     return {
         
         'calendarDate': !exists(json, 'calendarDate') ? undefined : (new Date(json['calendarDate'])),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'metricSet': !exists(json, 'metricSet') ? undefined : ((json['metricSet'] as Array<any>).map(StatisticsMetricSetInnerFromJSON)),
         'statisticsCode': !exists(json, 'statisticsCode') ? undefined : HSKStatReportCodeTypeFromJSON(json['statisticsCode']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -113,10 +113,10 @@ export function StatisticsToJSON(value?: Statistics | null): any {
     return {
         
         'calendarDate': value.calendarDate === undefined ? undefined : (value.calendarDate.toISOString().substring(0,10)),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'metricSet': value.metricSet === undefined ? undefined : ((value.metricSet as Array<any>).map(StatisticsMetricSetInnerToJSON)),
         'statisticsCode': HSKStatReportCodeTypeToJSON(value.statisticsCode),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

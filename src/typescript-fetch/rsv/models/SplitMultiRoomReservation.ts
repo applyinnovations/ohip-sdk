@@ -19,12 +19,12 @@ import {
     CopyReservationPaymentMethodsTypeFromJSONTyped,
     CopyReservationPaymentMethodsTypeToJSON,
 } from './CopyReservationPaymentMethodsType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReservationId } from './ReservationId';
 import {
     ReservationIdFromJSON,
@@ -37,12 +37,12 @@ import {
     SplitMultiRoomReservationResponseInstructionsFromJSONTyped,
     SplitMultiRoomReservationResponseInstructionsToJSON,
 } from './SplitMultiRoomReservationResponseInstructions';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to split multi-room reservation into separate reservations.
@@ -58,10 +58,10 @@ export interface SplitMultiRoomReservation {
     copyPaymentInformation?: boolean;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SplitMultiRoomReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * An identifier representing the record lock for the reservation under process. When passed, the operation will verify that the lock is still valid.
      * @type {number}
@@ -93,11 +93,11 @@ export interface SplitMultiRoomReservation {
      */
     splitAll?: boolean;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SplitMultiRoomReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -120,13 +120,13 @@ export function SplitMultiRoomReservationFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'copyPaymentInformation': !exists(json, 'copyPaymentInformation') ? undefined : json['copyPaymentInformation'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'lockHandle': !exists(json, 'lockHandle') ? undefined : json['lockHandle'],
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
         'reservationPaymentMethods': !exists(json, 'reservationPaymentMethods') ? undefined : CopyReservationPaymentMethodsTypeFromJSON(json['reservationPaymentMethods']),
         'responseInstructions': !exists(json, 'responseInstructions') ? undefined : SplitMultiRoomReservationResponseInstructionsFromJSON(json['responseInstructions']),
         'splitAll': !exists(json, 'splitAll') ? undefined : json['splitAll'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -140,13 +140,13 @@ export function SplitMultiRoomReservationToJSON(value?: SplitMultiRoomReservatio
     return {
         
         'copyPaymentInformation': value.copyPaymentInformation,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'lockHandle': value.lockHandle,
         'reservationId': ReservationIdToJSON(value.reservationId),
         'reservationPaymentMethods': CopyReservationPaymentMethodsTypeToJSON(value.reservationPaymentMethods),
         'responseInstructions': SplitMultiRoomReservationResponseInstructionsToJSON(value.responseInstructions),
         'splitAll': value.splitAll,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -25,12 +25,12 @@ import {
     DepartureTaskInfoTypeFromJSONTyped,
     DepartureTaskInfoTypeToJSON,
 } from './DepartureTaskInfoType';
-import type { FacilityCodesType } from './FacilityCodesType';
+import type { FacilityCodeType } from './FacilityCodeType';
 import {
-    FacilityCodesTypeFromJSON,
-    FacilityCodesTypeFromJSONTyped,
-    FacilityCodesTypeToJSON,
-} from './FacilityCodesType';
+    FacilityCodeTypeFromJSON,
+    FacilityCodeTypeFromJSONTyped,
+    FacilityCodeTypeToJSON,
+} from './FacilityCodeType';
 import type { HousekeepingCreditsType } from './HousekeepingCreditsType';
 import {
     HousekeepingCreditsTypeFromJSON,
@@ -225,11 +225,11 @@ export interface TaskCompanionTaskRoom {
      */
     taskSheetCompleted?: boolean;
     /**
-     * 
-     * @type {FacilityCodesType}
+     * List of the facility codes.
+     * @type {Array<FacilityCodeType>}
      * @memberof TaskCompanionTaskRoom
      */
-    totalSupplies?: FacilityCodesType;
+    totalSupplies?: Array<FacilityCodeType>;
 }
 
 /**
@@ -275,7 +275,7 @@ export function TaskCompanionTaskRoomFromJSONTyped(json: any, ignoreDiscriminato
         'taskInstructions': !exists(json, 'taskInstructions') ? undefined : json['taskInstructions'],
         'taskSeqNo': !exists(json, 'taskSeqNo') ? undefined : json['taskSeqNo'],
         'taskSheetCompleted': !exists(json, 'taskSheetCompleted') ? undefined : json['taskSheetCompleted'],
-        'totalSupplies': !exists(json, 'totalSupplies') ? undefined : FacilityCodesTypeFromJSON(json['totalSupplies']),
+        'totalSupplies': !exists(json, 'totalSupplies') ? undefined : ((json['totalSupplies'] as Array<any>).map(FacilityCodeTypeFromJSON)),
     };
 }
 
@@ -312,7 +312,7 @@ export function TaskCompanionTaskRoomToJSON(value?: TaskCompanionTaskRoom | null
         'taskInstructions': value.taskInstructions,
         'taskSeqNo': value.taskSeqNo,
         'taskSheetCompleted': value.taskSheetCompleted,
-        'totalSupplies': FacilityCodesTypeToJSON(value.totalSupplies),
+        'totalSupplies': value.totalSupplies === undefined ? undefined : ((value.totalSupplies as Array<any>).map(FacilityCodeTypeToJSON)),
     };
 }
 

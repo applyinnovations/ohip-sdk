@@ -19,12 +19,12 @@ import {
     NameValueModuleTypeFromJSONTyped,
     NameValueModuleTypeToJSON,
 } from './NameValueModuleType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Contains origin details.
@@ -63,11 +63,11 @@ export interface NameValueOriginType {
      */
     type?: string;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof NameValueOriginType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -94,7 +94,7 @@ export function NameValueOriginTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'idContext': !exists(json, 'idContext') ? undefined : json['idContext'],
         'originName': !exists(json, 'originName') ? undefined : NameValueModuleTypeFromJSON(json['originName']),
         'type': !exists(json, 'type') ? undefined : json['type'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -112,7 +112,7 @@ export function NameValueOriginTypeToJSON(value?: NameValueOriginType | null): a
         'idContext': value.idContext,
         'originName': NameValueModuleTypeToJSON(value.originName),
         'type': value.type,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

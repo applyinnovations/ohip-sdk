@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { VaultHTTPTransactionMessageType } from './VaultHTTPTransactionMessageType';
 import {
     VaultHTTPTransactionMessageTypeFromJSON,
     VaultHTTPTransactionMessageTypeFromJSONTyped,
     VaultHTTPTransactionMessageTypeToJSON,
 } from './VaultHTTPTransactionMessageType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to register the vault HTTP transaction.
@@ -46,16 +46,16 @@ export interface VaultTransaction {
     httpTransactionMessage?: VaultHTTPTransactionMessageType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof VaultTransaction
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof VaultTransaction
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -78,8 +78,8 @@ export function VaultTransactionFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'httpTransactionMessage': !exists(json, 'httpTransactionMessage') ? undefined : VaultHTTPTransactionMessageTypeFromJSON(json['httpTransactionMessage']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -93,8 +93,8 @@ export function VaultTransactionToJSON(value?: VaultTransaction | null): any {
     return {
         
         'httpTransactionMessage': VaultHTTPTransactionMessageTypeToJSON(value.httpTransactionMessage),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

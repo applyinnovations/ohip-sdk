@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringPackageTypeToJSON = exports.CateringPackageTypeFromJSONTyped = exports.CateringPackageTypeFromJSON = exports.instanceOfCateringPackageType = void 0;
 const runtime_1 = require("../runtime");
-const CateringPackageEventListType_1 = require("./CateringPackageEventListType");
+const CateringPackageEventType_1 = require("./CateringPackageEventType");
 const CateringPackageInfoType_1 = require("./CateringPackageInfoType");
-const CateringPackagePricingListType_1 = require("./CateringPackagePricingListType");
+const CateringPackagePricingType_1 = require("./CateringPackagePricingType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CateringPackageType interface.
@@ -36,11 +36,11 @@ function CateringPackageTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'eventsList': !(0, runtime_1.exists)(json, 'eventsList') ? undefined : (0, CateringPackageEventListType_1.CateringPackageEventListTypeFromJSON)(json['eventsList']),
+        'eventsList': !(0, runtime_1.exists)(json, 'eventsList') ? undefined : (json['eventsList'].map(CateringPackageEventType_1.CateringPackageEventTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'packageDetail': !(0, runtime_1.exists)(json, 'packageDetail') ? undefined : (0, CateringPackageInfoType_1.CateringPackageInfoTypeFromJSON)(json['packageDetail']),
         'pkgId': !(0, runtime_1.exists)(json, 'pkgId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['pkgId']),
-        'pricingList': !(0, runtime_1.exists)(json, 'pricingList') ? undefined : (0, CateringPackagePricingListType_1.CateringPackagePricingListTypeFromJSON)(json['pricingList']),
+        'pricingList': !(0, runtime_1.exists)(json, 'pricingList') ? undefined : (json['pricingList'].map(CateringPackagePricingType_1.CateringPackagePricingTypeFromJSON)),
     };
 }
 exports.CateringPackageTypeFromJSONTyped = CateringPackageTypeFromJSONTyped;
@@ -52,11 +52,11 @@ function CateringPackageTypeToJSON(value) {
         return null;
     }
     return {
-        'eventsList': (0, CateringPackageEventListType_1.CateringPackageEventListTypeToJSON)(value.eventsList),
+        'eventsList': value.eventsList === undefined ? undefined : (value.eventsList.map(CateringPackageEventType_1.CateringPackageEventTypeToJSON)),
         'hotelId': value.hotelId,
         'packageDetail': (0, CateringPackageInfoType_1.CateringPackageInfoTypeToJSON)(value.packageDetail),
         'pkgId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.pkgId),
-        'pricingList': (0, CateringPackagePricingListType_1.CateringPackagePricingListTypeToJSON)(value.pricingList),
+        'pricingList': value.pricingList === undefined ? undefined : (value.pricingList.map(CateringPackagePricingType_1.CateringPackagePricingTypeToJSON)),
     };
 }
 exports.CateringPackageTypeToJSON = CateringPackageTypeToJSON;

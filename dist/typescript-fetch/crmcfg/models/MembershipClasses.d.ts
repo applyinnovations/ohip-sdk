@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MembershipClassesType } from './MembershipClassesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MembershipClassType } from './MembershipClassType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Membership Class.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MembershipClasses {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipClasses
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MembershipClassesType}
+     * List of the Membership Class to be configured or fetched
+     * @type {Array<MembershipClassType>}
      * @memberof MembershipClasses
      */
-    membershipClasses?: MembershipClassesType;
+    membershipClasses?: Array<MembershipClassType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipClasses
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipClasses interface.

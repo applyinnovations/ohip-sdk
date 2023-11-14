@@ -11,7 +11,7 @@
  */
 import type { ProfileId } from './ProfileId';
 import type { ReservationId } from './ReservationId';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Possible overlapping stay information of a reservation.
  * @export
@@ -25,11 +25,11 @@ export interface OverlappingStayInfoType {
      */
     end?: Date;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof OverlappingStayInfoType
      */
-    excludedReservations?: UniqueIDListType;
+    excludedReservations?: Array<UniqueIDType>;
     /**
      * Hotel Code of the reservation.
      * @type {string}

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockStatusCodeListType } from './BlockStatusCodeListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BlockStatusCodeType } from './BlockStatusCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching block status codes.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface StatusCodeDetails {
     /**
-     *
-     * @type {BlockStatusCodeListType}
+     * Block status code information.
+     * @type {Array<BlockStatusCodeType>}
      * @memberof StatusCodeDetails
      */
-    blockStatusCodes?: BlockStatusCodeListType;
+    blockStatusCodes?: Array<BlockStatusCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof StatusCodeDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof StatusCodeDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the StatusCodeDetails interface.

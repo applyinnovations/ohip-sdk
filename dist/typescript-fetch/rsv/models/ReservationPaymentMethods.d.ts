@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationId } from './ReservationId';
-import type { ReservationPaymentMethodsType } from './ReservationPaymentMethodsType';
-import type { WarningsType } from './WarningsType';
+import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
+import type { WarningType } from './WarningType';
 /**
  * Method to create a reservation's payment methods.
  * @export
@@ -27,10 +27,10 @@ export interface ReservationPaymentMethods {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationPaymentMethods
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationId}
@@ -38,17 +38,17 @@ export interface ReservationPaymentMethods {
      */
     reservationId?: ReservationId;
     /**
-     *
-     * @type {ReservationPaymentMethodsType}
+     * Defines reservation payment methods.
+     * @type {Array<ReservationPaymentMethodType>}
      * @memberof ReservationPaymentMethods
      */
-    reservationPaymentMethods?: ReservationPaymentMethodsType;
+    reservationPaymentMethods?: Array<ReservationPaymentMethodType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationPaymentMethods
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationPaymentMethods interface.

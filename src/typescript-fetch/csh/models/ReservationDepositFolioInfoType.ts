@@ -25,12 +25,12 @@ import {
     DepositMaturityTypeFromJSONTyped,
     DepositMaturityTypeToJSON,
 } from './DepositMaturityType';
-import type { DepositPostingsType } from './DepositPostingsType';
+import type { DepositPostingType } from './DepositPostingType';
 import {
-    DepositPostingsTypeFromJSON,
-    DepositPostingsTypeFromJSONTyped,
-    DepositPostingsTypeToJSON,
-} from './DepositPostingsType';
+    DepositPostingTypeFromJSON,
+    DepositPostingTypeFromJSONTyped,
+    DepositPostingTypeToJSON,
+} from './DepositPostingType';
 import type { DepositType } from './DepositType';
 import {
     DepositTypeFromJSON,
@@ -81,11 +81,11 @@ export interface ReservationDepositFolioInfoType {
      */
     depositType?: DepositType;
     /**
-     * 
-     * @type {DepositPostingsType}
+     * A List of Deposit Payments.
+     * @type {Array<DepositPostingType>}
      * @memberof ReservationDepositFolioInfoType
      */
-    deposits?: DepositPostingsType;
+    deposits?: Array<DepositPostingType>;
     /**
      * 
      * @type {ReservationPolicySummaryType}
@@ -140,7 +140,7 @@ export function ReservationDepositFolioInfoTypeFromJSONTyped(json: any, ignoreDi
         'advanceFolioGenerated': !exists(json, 'advanceFolioGenerated') ? undefined : json['advanceFolioGenerated'],
         'depositMaturityType': !exists(json, 'depositMaturityType') ? undefined : DepositMaturityTypeFromJSON(json['depositMaturityType']),
         'depositType': !exists(json, 'depositType') ? undefined : DepositTypeFromJSON(json['depositType']),
-        'deposits': !exists(json, 'deposits') ? undefined : DepositPostingsTypeFromJSON(json['deposits']),
+        'deposits': !exists(json, 'deposits') ? undefined : ((json['deposits'] as Array<any>).map(DepositPostingTypeFromJSON)),
         'policySummaryInfo': !exists(json, 'policySummaryInfo') ? undefined : ReservationPolicySummaryTypeFromJSON(json['policySummaryInfo']),
         'projectedRevenue': !exists(json, 'projectedRevenue') ? undefined : ProjectedRevenueTypeFromJSON(json['projectedRevenue']),
         'reservationInfo': !exists(json, 'reservationInfo') ? undefined : ReservationInfoTypeFromJSON(json['reservationInfo']),
@@ -161,7 +161,7 @@ export function ReservationDepositFolioInfoTypeToJSON(value?: ReservationDeposit
         'advanceFolioGenerated': value.advanceFolioGenerated,
         'depositMaturityType': DepositMaturityTypeToJSON(value.depositMaturityType),
         'depositType': DepositTypeToJSON(value.depositType),
-        'deposits': DepositPostingsTypeToJSON(value.deposits),
+        'deposits': value.deposits === undefined ? undefined : ((value.deposits as Array<any>).map(DepositPostingTypeToJSON)),
         'policySummaryInfo': ReservationPolicySummaryTypeToJSON(value.policySummaryInfo),
         'projectedRevenue': ProjectedRevenueTypeToJSON(value.projectedRevenue),
         'reservationInfo': ReservationInfoTypeToJSON(value.reservationInfo),

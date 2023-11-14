@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { PropertiesMappingType } from './PropertiesMappingType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { PropertyMappingType } from './PropertyMappingType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing existing external system properties.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface Properties {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Properties
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {PropertiesMappingType}
+     * Information about an external property mapping.
+     * @type {Array<PropertyMappingType>}
      * @memberof Properties
      */
-    properties?: PropertiesMappingType;
+    properties?: Array<PropertyMappingType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Properties
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Properties interface.

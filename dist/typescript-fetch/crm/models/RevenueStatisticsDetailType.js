@@ -15,10 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RevenueStatisticsDetailTypeToJSON = exports.RevenueStatisticsDetailTypeFromJSONTyped = exports.RevenueStatisticsDetailTypeFromJSON = exports.instanceOfRevenueStatisticsDetailType = void 0;
 const runtime_1 = require("../runtime");
-const ProfileIdList_1 = require("./ProfileIdList");
-const ReservationIdList_1 = require("./ReservationIdList");
 const RevenueBucketListType_1 = require("./RevenueBucketListType");
 const TimeSpanType_1 = require("./TimeSpanType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the RevenueStatisticsDetailType interface.
  */
@@ -40,8 +39,8 @@ function RevenueStatisticsDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         'guestName': !(0, runtime_1.exists)(json, 'guestName') ? undefined : json['guestName'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'localRevenue': !(0, runtime_1.exists)(json, 'localRevenue') ? undefined : json['localRevenue'],
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'revenueBuckets': !(0, runtime_1.exists)(json, 'revenueBuckets') ? undefined : (0, RevenueBucketListType_1.RevenueBucketListTypeFromJSON)(json['revenueBuckets']),
         'revenueType': !(0, runtime_1.exists)(json, 'revenueType') ? undefined : json['revenueType'],
         'stayTimeSpan': !(0, runtime_1.exists)(json, 'stayTimeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['stayTimeSpan']),
@@ -60,8 +59,8 @@ function RevenueStatisticsDetailTypeToJSON(value) {
         'guestName': value.guestName,
         'hotelId': value.hotelId,
         'localRevenue': value.localRevenue,
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'revenueBuckets': (0, RevenueBucketListType_1.RevenueBucketListTypeToJSON)(value.revenueBuckets),
         'revenueType': value.revenueType,
         'stayTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.stayTimeSpan),

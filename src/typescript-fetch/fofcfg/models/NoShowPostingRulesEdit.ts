@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { NoShowPostingRulesEditType } from './NoShowPostingRulesEditType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { NoShowPostingRuleEditType } from './NoShowPostingRuleEditType';
 import {
-    NoShowPostingRulesEditTypeFromJSON,
-    NoShowPostingRulesEditTypeFromJSONTyped,
-    NoShowPostingRulesEditTypeToJSON,
-} from './NoShowPostingRulesEditType';
-import type { WarningsType } from './WarningsType';
+    NoShowPostingRuleEditTypeFromJSON,
+    NoShowPostingRuleEditTypeFromJSONTyped,
+    NoShowPostingRuleEditTypeToJSON,
+} from './NoShowPostingRuleEditType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface NoShowPostingRulesEdit {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof NoShowPostingRulesEdit
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {NoShowPostingRulesEditType}
+     * Contains new rules along with associated old rules to edit.
+     * @type {Array<NoShowPostingRuleEditType>}
      * @memberof NoShowPostingRulesEdit
      */
-    noShowPostingRules?: NoShowPostingRulesEditType;
+    noShowPostingRules?: Array<NoShowPostingRuleEditType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof NoShowPostingRulesEdit
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function NoShowPostingRulesEditFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'noShowPostingRules': !exists(json, 'noShowPostingRules') ? undefined : NoShowPostingRulesEditTypeFromJSON(json['noShowPostingRules']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'noShowPostingRules': !exists(json, 'noShowPostingRules') ? undefined : ((json['noShowPostingRules'] as Array<any>).map(NoShowPostingRuleEditTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function NoShowPostingRulesEditToJSON(value?: NoShowPostingRulesEdit | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'noShowPostingRules': NoShowPostingRulesEditTypeToJSON(value.noShowPostingRules),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'noShowPostingRules': value.noShowPostingRules === undefined ? undefined : ((value.noShowPostingRules as Array<any>).map(NoShowPostingRuleEditTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

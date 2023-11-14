@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { FiscalPayloadType } from './FiscalPayloadType';
 import {
     FiscalPayloadTypeFromJSON,
@@ -58,10 +52,10 @@ export interface FiscalPartnerType {
     partnerCode?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof FiscalPartnerType
      */
-    paymentTypes?: CodeListType;
+    paymentTypes?: Array<string>;
     /**
      * Priority order for processing.
      * @type {number}
@@ -93,7 +87,7 @@ export function FiscalPartnerTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'fiscalPayloadTypes': !exists(json, 'fiscalPayloadTypes') ? undefined : (new Set((json['fiscalPayloadTypes'] as Array<any>).map(FiscalPayloadTypeFromJSON))),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'partnerCode': !exists(json, 'partnerCode') ? undefined : json['partnerCode'],
-        'paymentTypes': !exists(json, 'paymentTypes') ? undefined : CodeListTypeFromJSON(json['paymentTypes']),
+        'paymentTypes': !exists(json, 'paymentTypes') ? undefined : json['paymentTypes'],
         'priority': !exists(json, 'priority') ? undefined : json['priority'],
     };
 }
@@ -111,7 +105,7 @@ export function FiscalPartnerTypeToJSON(value?: FiscalPartnerType | null): any {
         'fiscalPayloadTypes': value.fiscalPayloadTypes === undefined ? undefined : (Array.from(value.fiscalPayloadTypes as Set<any>).map(FiscalPayloadTypeToJSON)),
         'hotelId': value.hotelId,
         'partnerCode': value.partnerCode,
-        'paymentTypes': CodeListTypeToJSON(value.paymentTypes),
+        'paymentTypes': value.paymentTypes,
         'priority': value.priority,
     };
 }

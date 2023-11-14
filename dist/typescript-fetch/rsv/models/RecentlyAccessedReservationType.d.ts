@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { PMSResStatusType } from './PMSResStatusType';
-import type { ReservationIdList } from './ReservationIdList';
 import type { TimeSpanType } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * A recently used reservation record.
  * @export
@@ -49,11 +49,11 @@ export interface RecentlyAccessedReservationType {
      */
     hotelName?: string;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RecentlyAccessedReservationType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {PMSResStatusType}

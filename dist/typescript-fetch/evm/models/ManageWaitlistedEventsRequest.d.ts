@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { WaitlistedEventProcessingInstructionsType } from './WaitlistedEventProcessingInstructionsType';
+import type { WaitlistedEventType } from './WaitlistedEventType';
 import type { WaitlistedEventsSearchType } from './WaitlistedEventsSearchType';
-import type { WaitlistedEventsType } from './WaitlistedEventsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -28,10 +28,10 @@ export interface ManageWaitlistedEventsRequest {
     criteria?: WaitlistedEventsSearchType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ManageWaitlistedEventsRequest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {WaitlistedEventProcessingInstructionsType}
@@ -39,17 +39,17 @@ export interface ManageWaitlistedEventsRequest {
      */
     processingInstructions?: WaitlistedEventProcessingInstructionsType;
     /**
-     *
-     * @type {WaitlistedEventsType}
+     * Pertain waitlisted event Information.
+     * @type {Array<WaitlistedEventType>}
      * @memberof ManageWaitlistedEventsRequest
      */
-    waitlistedEvents?: WaitlistedEventsType;
+    waitlistedEvents?: Array<WaitlistedEventType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ManageWaitlistedEventsRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ManageWaitlistedEventsRequest interface.

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { GuestMessageCodesType } from './GuestMessageCodesType';
+import type { GuestMessageCodeType } from './GuestMessageCodeType';
 import {
-    GuestMessageCodesTypeFromJSON,
-    GuestMessageCodesTypeFromJSONTyped,
-    GuestMessageCodesTypeToJSON,
-} from './GuestMessageCodesType';
-import type { Links } from './Links';
+    GuestMessageCodeTypeFromJSON,
+    GuestMessageCodeTypeFromJSONTyped,
+    GuestMessageCodeTypeToJSON,
+} from './GuestMessageCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating a new guest message.
@@ -39,23 +39,23 @@ import {
  */
 export interface GuestMessages {
     /**
-     * 
-     * @type {GuestMessageCodesType}
+     * Collection of guest messages with attached guest message types.
+     * @type {Array<GuestMessageCodeType>}
      * @memberof GuestMessages
      */
-    guestMessages?: GuestMessageCodesType;
+    guestMessages?: Array<GuestMessageCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuestMessages
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuestMessages
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function GuestMessagesFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'guestMessages': !exists(json, 'guestMessages') ? undefined : GuestMessageCodesTypeFromJSON(json['guestMessages']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'guestMessages': !exists(json, 'guestMessages') ? undefined : ((json['guestMessages'] as Array<any>).map(GuestMessageCodeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function GuestMessagesToJSON(value?: GuestMessages | null): any {
     }
     return {
         
-        'guestMessages': GuestMessageCodesTypeToJSON(value.guestMessages),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'guestMessages': value.guestMessages === undefined ? undefined : ((value.guestMessages as Array<any>).map(GuestMessageCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

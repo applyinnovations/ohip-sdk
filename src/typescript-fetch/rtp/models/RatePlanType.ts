@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import {
-    IndicatorsTypeFromJSON,
-    IndicatorsTypeFromJSONTyped,
-    IndicatorsTypeToJSON,
-} from './IndicatorsType';
+    IndicatorTypeFromJSON,
+    IndicatorTypeFromJSONTyped,
+    IndicatorTypeToJSON,
+} from './IndicatorType';
 import type { RateAccessExclusionType } from './RateAccessExclusionType';
 import {
     RateAccessExclusionTypeFromJSON,
@@ -31,12 +31,12 @@ import {
     RatePackagesTypeFromJSONTyped,
     RatePackagesTypeToJSON,
 } from './RatePackagesType';
-import type { RatePlanBasedOnRatesType } from './RatePlanBasedOnRatesType';
+import type { RatePlanBasedOnRateType } from './RatePlanBasedOnRateType';
 import {
-    RatePlanBasedOnRatesTypeFromJSON,
-    RatePlanBasedOnRatesTypeFromJSONTyped,
-    RatePlanBasedOnRatesTypeToJSON,
-} from './RatePlanBasedOnRatesType';
+    RatePlanBasedOnRateTypeFromJSON,
+    RatePlanBasedOnRateTypeFromJSONTyped,
+    RatePlanBasedOnRateTypeToJSON,
+} from './RatePlanBasedOnRateType';
 import type { RatePlanClassificationsType } from './RatePlanClassificationsType';
 import {
     RatePlanClassificationsTypeFromJSON,
@@ -79,12 +79,12 @@ import {
     RatePlanExternalAttributesTypeFromJSONTyped,
     RatePlanExternalAttributesTypeToJSON,
 } from './RatePlanExternalAttributesType';
-import type { RatePlanNotesType } from './RatePlanNotesType';
+import type { RatePlanNoteType } from './RatePlanNoteType';
 import {
-    RatePlanNotesTypeFromJSON,
-    RatePlanNotesTypeFromJSONTyped,
-    RatePlanNotesTypeToJSON,
-} from './RatePlanNotesType';
+    RatePlanNoteTypeFromJSON,
+    RatePlanNoteTypeFromJSONTyped,
+    RatePlanNoteTypeToJSON,
+} from './RatePlanNoteType';
 import type { RatePlanPrimaryDetailsType } from './RatePlanPrimaryDetailsType';
 import {
     RatePlanPrimaryDetailsTypeFromJSON,
@@ -115,12 +115,12 @@ import {
     RatePlanTypeNegotiatedRatesFromJSONTyped,
     RatePlanTypeNegotiatedRatesToJSON,
 } from './RatePlanTypeNegotiatedRates';
-import type { RateRoomTypeListType } from './RateRoomTypeListType';
+import type { RateRoomTypeDetailType } from './RateRoomTypeDetailType';
 import {
-    RateRoomTypeListTypeFromJSON,
-    RateRoomTypeListTypeFromJSONTyped,
-    RateRoomTypeListTypeToJSON,
-} from './RateRoomTypeListType';
+    RateRoomTypeDetailTypeFromJSON,
+    RateRoomTypeDetailTypeFromJSONTyped,
+    RateRoomTypeDetailTypeToJSON,
+} from './RateRoomTypeDetailType';
 
 /**
  * The Rate plan code Details.
@@ -148,10 +148,10 @@ export interface RatePlanType {
     advancedDailyRate?: boolean;
     /**
      * 
-     * @type {RatePlanNotesType}
+     * @type {Array<RatePlanNoteType>}
      * @memberof RatePlanType
      */
-    approvalNotes?: RatePlanNotesType;
+    approvalNotes?: Array<RatePlanNoteType>;
     /**
      * Is rate plan code of BAR Rate type?
      * @type {boolean}
@@ -339,11 +339,11 @@ export interface RatePlanType {
      */
     ratePackages?: RatePackagesType;
     /**
-     * 
-     * @type {RatePlanBasedOnRatesType}
+     * Rate plan type based on rates.
+     * @type {Array<RatePlanBasedOnRateType>}
      * @memberof RatePlanType
      */
-    ratePlanBasedOnRates?: RatePlanBasedOnRatesType;
+    ratePlanBasedOnRates?: Array<RatePlanBasedOnRateType>;
     /**
      * Rate plan Code
      * @type {string}
@@ -351,11 +351,11 @@ export interface RatePlanType {
      */
     ratePlanCode?: string;
     /**
-     * 
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof RatePlanType
      */
-    ratePlanCodeIndicators?: IndicatorsType;
+    ratePlanCodeIndicators?: Array<IndicatorType>;
     /**
      * 
      * @type {RatePlanScheduleInfoType}
@@ -369,11 +369,11 @@ export interface RatePlanType {
      */
     redemption?: boolean;
     /**
-     * 
-     * @type {RateRoomTypeListType}
+     * Details of each room type
+     * @type {Array<RateRoomTypeDetailType>}
      * @memberof RatePlanType
      */
-    roomTypeList?: RateRoomTypeListType;
+    roomTypeList?: Array<RateRoomTypeDetailType>;
     /**
      * 
      * @type {RatePlanRoutingInstructionsType}
@@ -422,7 +422,7 @@ export function RatePlanTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'accessExclusions': !exists(json, 'accessExclusions') ? undefined : ((json['accessExclusions'] as Array<any>).map(RateAccessExclusionTypeFromJSON)),
         'advancedDailyBase': !exists(json, 'advancedDailyBase') ? undefined : json['advancedDailyBase'],
         'advancedDailyRate': !exists(json, 'advancedDailyRate') ? undefined : json['advancedDailyRate'],
-        'approvalNotes': !exists(json, 'approvalNotes') ? undefined : RatePlanNotesTypeFromJSON(json['approvalNotes']),
+        'approvalNotes': !exists(json, 'approvalNotes') ? undefined : ((json['approvalNotes'] as Array<any>).map(RatePlanNoteTypeFromJSON)),
         'bARRate': !exists(json, 'bARRate') ? undefined : json['bARRate'],
         'classifications': !exists(json, 'classifications') ? undefined : RatePlanClassificationsTypeFromJSON(json['classifications']),
         'complimentary': !exists(json, 'complimentary') ? undefined : json['complimentary'],
@@ -454,12 +454,12 @@ export function RatePlanTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'rateCommission': !exists(json, 'rateCommission') ? undefined : RatePlanCommissionTypeFromJSON(json['rateCommission']),
         'rateDeposit': !exists(json, 'rateDeposit') ? undefined : RatePlanDepositTypeFromJSON(json['rateDeposit']),
         'ratePackages': !exists(json, 'ratePackages') ? undefined : RatePackagesTypeFromJSON(json['ratePackages']),
-        'ratePlanBasedOnRates': !exists(json, 'ratePlanBasedOnRates') ? undefined : RatePlanBasedOnRatesTypeFromJSON(json['ratePlanBasedOnRates']),
+        'ratePlanBasedOnRates': !exists(json, 'ratePlanBasedOnRates') ? undefined : ((json['ratePlanBasedOnRates'] as Array<any>).map(RatePlanBasedOnRateTypeFromJSON)),
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
-        'ratePlanCodeIndicators': !exists(json, 'ratePlanCodeIndicators') ? undefined : IndicatorsTypeFromJSON(json['ratePlanCodeIndicators']),
+        'ratePlanCodeIndicators': !exists(json, 'ratePlanCodeIndicators') ? undefined : ((json['ratePlanCodeIndicators'] as Array<any>).map(IndicatorTypeFromJSON)),
         'ratePlanScheduleInfo': !exists(json, 'ratePlanScheduleInfo') ? undefined : RatePlanScheduleInfoTypeFromJSON(json['ratePlanScheduleInfo']),
         'redemption': !exists(json, 'redemption') ? undefined : json['redemption'],
-        'roomTypeList': !exists(json, 'roomTypeList') ? undefined : RateRoomTypeListTypeFromJSON(json['roomTypeList']),
+        'roomTypeList': !exists(json, 'roomTypeList') ? undefined : ((json['roomTypeList'] as Array<any>).map(RateRoomTypeDetailTypeFromJSON)),
         'routingInstructions': !exists(json, 'routingInstructions') ? undefined : RatePlanRoutingInstructionsTypeFromJSON(json['routingInstructions']),
         'supressRate': !exists(json, 'supressRate') ? undefined : json['supressRate'],
         'tiered': !exists(json, 'tiered') ? undefined : json['tiered'],
@@ -479,7 +479,7 @@ export function RatePlanTypeToJSON(value?: RatePlanType | null): any {
         'accessExclusions': value.accessExclusions === undefined ? undefined : ((value.accessExclusions as Array<any>).map(RateAccessExclusionTypeToJSON)),
         'advancedDailyBase': value.advancedDailyBase,
         'advancedDailyRate': value.advancedDailyRate,
-        'approvalNotes': RatePlanNotesTypeToJSON(value.approvalNotes),
+        'approvalNotes': value.approvalNotes === undefined ? undefined : ((value.approvalNotes as Array<any>).map(RatePlanNoteTypeToJSON)),
         'bARRate': value.bARRate,
         'classifications': RatePlanClassificationsTypeToJSON(value.classifications),
         'complimentary': value.complimentary,
@@ -511,12 +511,12 @@ export function RatePlanTypeToJSON(value?: RatePlanType | null): any {
         'rateCommission': RatePlanCommissionTypeToJSON(value.rateCommission),
         'rateDeposit': RatePlanDepositTypeToJSON(value.rateDeposit),
         'ratePackages': RatePackagesTypeToJSON(value.ratePackages),
-        'ratePlanBasedOnRates': RatePlanBasedOnRatesTypeToJSON(value.ratePlanBasedOnRates),
+        'ratePlanBasedOnRates': value.ratePlanBasedOnRates === undefined ? undefined : ((value.ratePlanBasedOnRates as Array<any>).map(RatePlanBasedOnRateTypeToJSON)),
         'ratePlanCode': value.ratePlanCode,
-        'ratePlanCodeIndicators': IndicatorsTypeToJSON(value.ratePlanCodeIndicators),
+        'ratePlanCodeIndicators': value.ratePlanCodeIndicators === undefined ? undefined : ((value.ratePlanCodeIndicators as Array<any>).map(IndicatorTypeToJSON)),
         'ratePlanScheduleInfo': RatePlanScheduleInfoTypeToJSON(value.ratePlanScheduleInfo),
         'redemption': value.redemption,
-        'roomTypeList': RateRoomTypeListTypeToJSON(value.roomTypeList),
+        'roomTypeList': value.roomTypeList === undefined ? undefined : ((value.roomTypeList as Array<any>).map(RateRoomTypeDetailTypeToJSON)),
         'routingInstructions': RatePlanRoutingInstructionsTypeToJSON(value.routingInstructions),
         'supressRate': value.supressRate,
         'tiered': value.tiered,

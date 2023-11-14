@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomTypeShortInfoTypeToJSON = exports.RoomTypeShortInfoTypeFromJSONTyped = exports.RoomTypeShortInfoTypeFromJSON = exports.instanceOfRoomTypeShortInfoType = void 0;
 const runtime_1 = require("../runtime");
-const RoomFeaturesType_1 = require("./RoomFeaturesType");
+const RoomFeatureType_1 = require("./RoomFeatureType");
 /**
  * Check if a given object implements the RoomTypeShortInfoType interface.
  */
@@ -41,7 +41,7 @@ function RoomTypeShortInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'minimumOccupancy': !(0, runtime_1.exists)(json, 'minimumOccupancy') ? undefined : json['minimumOccupancy'],
         'pseudoRoom': !(0, runtime_1.exists)(json, 'pseudoRoom') ? undefined : json['pseudoRoom'],
         'roomClass': !(0, runtime_1.exists)(json, 'roomClass') ? undefined : json['roomClass'],
-        'roomFeatures': !(0, runtime_1.exists)(json, 'roomFeatures') ? undefined : (0, RoomFeaturesType_1.RoomFeaturesTypeFromJSON)(json['roomFeatures']),
+        'roomFeatures': !(0, runtime_1.exists)(json, 'roomFeatures') ? undefined : (json['roomFeatures'].map(RoomFeatureType_1.RoomFeatureTypeFromJSON)),
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : json['roomType'],
         'shortDescription': !(0, runtime_1.exists)(json, 'shortDescription') ? undefined : json['shortDescription'],
         'smokingPreference': !(0, runtime_1.exists)(json, 'smokingPreference') ? undefined : json['smokingPreference'],
@@ -64,7 +64,7 @@ function RoomTypeShortInfoTypeToJSON(value) {
         'minimumOccupancy': value.minimumOccupancy,
         'pseudoRoom': value.pseudoRoom,
         'roomClass': value.roomClass,
-        'roomFeatures': (0, RoomFeaturesType_1.RoomFeaturesTypeToJSON)(value.roomFeatures),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : (value.roomFeatures.map(RoomFeatureType_1.RoomFeatureTypeToJSON)),
         'roomType': value.roomType,
         'shortDescription': value.shortDescription,
         'smokingPreference': value.smokingPreference,

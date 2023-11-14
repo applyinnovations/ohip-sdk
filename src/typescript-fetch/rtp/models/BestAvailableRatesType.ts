@@ -25,12 +25,6 @@ import {
     BestAvailableRatesTypeLengthOfStayFromJSONTyped,
     BestAvailableRatesTypeLengthOfStayToJSON,
 } from './BestAvailableRatesTypeLengthOfStay';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { DateRangeType } from './DateRangeType';
 import {
     DateRangeTypeFromJSON,
@@ -70,10 +64,10 @@ export interface BestAvailableRatesType {
     lengthOfStay?: BestAvailableRatesTypeLengthOfStay;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof BestAvailableRatesType
      */
-    rateCode?: CodeListType;
+    rateCode?: Array<string>;
 }
 
 /**
@@ -99,7 +93,7 @@ export function BestAvailableRatesTypeFromJSONTyped(json: any, ignoreDiscriminat
         'duration': !exists(json, 'duration') ? undefined : BestAvailableRatesTypeDurationFromJSON(json['duration']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'lengthOfStay': !exists(json, 'lengthOfStay') ? undefined : BestAvailableRatesTypeLengthOfStayFromJSON(json['lengthOfStay']),
-        'rateCode': !exists(json, 'rateCode') ? undefined : CodeListTypeFromJSON(json['rateCode']),
+        'rateCode': !exists(json, 'rateCode') ? undefined : json['rateCode'],
     };
 }
 
@@ -116,7 +110,7 @@ export function BestAvailableRatesTypeToJSON(value?: BestAvailableRatesType | nu
         'duration': BestAvailableRatesTypeDurationToJSON(value.duration),
         'hotelId': value.hotelId,
         'lengthOfStay': BestAvailableRatesTypeLengthOfStayToJSON(value.lengthOfStay),
-        'rateCode': CodeListTypeToJSON(value.rateCode),
+        'rateCode': value.rateCode,
     };
 }
 

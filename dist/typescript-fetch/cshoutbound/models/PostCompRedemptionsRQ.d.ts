@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { PostCompRedemptionsRQCompRedemptionsType } from './PostCompRedemptionsRQCompRedemptionsType';
+import type { PostCompRedemptionsRQCompRedemptionType } from './PostCompRedemptionsRQCompRedemptionType';
 /**
  * Request type of Complimentary Redemptions posting.
  * @export
@@ -17,11 +17,11 @@ import type { PostCompRedemptionsRQCompRedemptionsType } from './PostCompRedempt
  */
 export interface PostCompRedemptionsRQ {
     /**
-     *
-     * @type {PostCompRedemptionsRQCompRedemptionsType}
+     * Collection of Complimentary Redemptions for posting.
+     * @type {Array<PostCompRedemptionsRQCompRedemptionType>}
      * @memberof PostCompRedemptionsRQ
      */
-    compRedemptions?: PostCompRedemptionsRQCompRedemptionsType;
+    compRedemptions?: Array<PostCompRedemptionsRQCompRedemptionType>;
 }
 /**
  * Check if a given object implements the PostCompRedemptionsRQ interface.

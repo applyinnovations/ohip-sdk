@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AddtionalCodeInfoType } from './AddtionalCodeInfoType';
+import type { AddtionalCodeInfoTypeInner } from './AddtionalCodeInfoTypeInner';
 import {
-    AddtionalCodeInfoTypeFromJSON,
-    AddtionalCodeInfoTypeFromJSONTyped,
-    AddtionalCodeInfoTypeToJSON,
-} from './AddtionalCodeInfoType';
+    AddtionalCodeInfoTypeInnerFromJSON,
+    AddtionalCodeInfoTypeInnerFromJSONTyped,
+    AddtionalCodeInfoTypeInnerToJSON,
+} from './AddtionalCodeInfoTypeInner';
 
 /**
  * 
@@ -27,11 +27,11 @@ import {
  */
 export interface CodeInfoType {
     /**
-     * 
-     * @type {AddtionalCodeInfoType}
+     * Holds name of additional code information
+     * @type {Array<AddtionalCodeInfoTypeInner>}
      * @memberof CodeInfoType
      */
-    addtionalCodeInfo?: AddtionalCodeInfoType;
+    addtionalCodeInfo?: Array<AddtionalCodeInfoTypeInner>;
     /**
      * 
      * @type {string}
@@ -71,7 +71,7 @@ export function CodeInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'addtionalCodeInfo': !exists(json, 'addtionalCodeInfo') ? undefined : AddtionalCodeInfoTypeFromJSON(json['addtionalCodeInfo']),
+        'addtionalCodeInfo': !exists(json, 'addtionalCodeInfo') ? undefined : ((json['addtionalCodeInfo'] as Array<any>).map(AddtionalCodeInfoTypeInnerFromJSON)),
         'code': !exists(json, 'code') ? undefined : json['code'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -87,7 +87,7 @@ export function CodeInfoTypeToJSON(value?: CodeInfoType | null): any {
     }
     return {
         
-        'addtionalCodeInfo': AddtionalCodeInfoTypeToJSON(value.addtionalCodeInfo),
+        'addtionalCodeInfo': value.addtionalCodeInfo === undefined ? undefined : ((value.addtionalCodeInfo as Array<any>).map(AddtionalCodeInfoTypeInnerToJSON)),
         'code': value.code,
         'description': value.description,
         'hotelId': value.hotelId,

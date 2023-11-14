@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CommissionReservationFailuresType } from './CommissionReservationFailuresType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CommissionReservationFailureType } from './CommissionReservationFailureType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response type for associating reservations to Travel Agent or Source Profile.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AssociateCommissionAgentToReservationsStatus {
     /**
-     *
-     * @type {CommissionReservationFailuresType}
+     * Reservation that wasn't successfully associated with the agent.
+     * @type {Array<CommissionReservationFailureType>}
      * @memberof AssociateCommissionAgentToReservationsStatus
      */
-    commissionReservationFailures?: CommissionReservationFailuresType;
+    commissionReservationFailures?: Array<CommissionReservationFailureType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AssociateCommissionAgentToReservationsStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AssociateCommissionAgentToReservationsStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AssociateCommissionAgentToReservationsStatus interface.

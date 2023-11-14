@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EventSpaceMaxOccupanciesType } from './EventSpaceMaxOccupanciesType';
 /**
  * The summary info of hotel event space
  * @export
@@ -23,11 +22,11 @@ export interface HotelEventSpaceSummaryType {
      */
     maxCapacity?: number;
     /**
-     *
-     * @type {EventSpaceMaxOccupanciesType}
+     * List of event space max occupancy.
+     * @type {Array<number>}
      * @memberof HotelEventSpaceSummaryType
      */
-    maxOccupancies?: EventSpaceMaxOccupanciesType;
+    maxOccupancies?: Array<number>;
     /**
      * The total event space number which has the same space type, max capacity and setup style.
      * @type {number}

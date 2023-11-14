@@ -9,8 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
-import type { MembershipTypeLevelListType } from './MembershipTypeLevelListType';
+import type { MembershipTypeLevelType } from './MembershipTypeLevelType';
 import type { PreCheckInRuleTypeType } from './PreCheckInRuleTypeType';
 import type { PreCheckInTimeRuleTypes } from './PreCheckInTimeRuleTypes';
 import type { TimeSpanType } from './TimeSpanType';
@@ -28,16 +27,16 @@ export interface PreCheckInRuleType {
     hotelId?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PreCheckInRuleType
      */
-    marketCodes?: CodeListType;
+    marketCodes?: Array<string>;
     /**
-     *
-     * @type {MembershipTypeLevelListType}
+     * Code type for Rule Details
+     * @type {Array<MembershipTypeLevelType>}
      * @memberof PreCheckInRuleType
      */
-    memberships?: MembershipTypeLevelListType;
+    memberships?: Array<MembershipTypeLevelType>;
     /**
      *
      * @type {TimeSpanType}
@@ -46,22 +45,22 @@ export interface PreCheckInRuleType {
     newTimeSpan?: TimeSpanType;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PreCheckInRuleType
      */
-    originCodes?: CodeListType;
+    originCodes?: Array<string>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PreCheckInRuleType
      */
-    ratePlans?: CodeListType;
+    ratePlans?: Array<string>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PreCheckInRuleType
      */
-    reservationTypes?: CodeListType;
+    reservationTypes?: Array<string>;
     /**
      *
      * @type {PreCheckInRuleTypeType}
@@ -70,10 +69,10 @@ export interface PreCheckInRuleType {
     ruleType?: PreCheckInRuleTypeType;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PreCheckInRuleType
      */
-    specials?: CodeListType;
+    specials?: Array<string>;
     /**
      *
      * @type {PreCheckInTimeRuleTypes}
@@ -88,10 +87,10 @@ export interface PreCheckInRuleType {
     timeSpan?: TimeSpanType;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PreCheckInRuleType
      */
-    vIPCodes?: CodeListType;
+    vIPCodes?: Array<string>;
 }
 /**
  * Check if a given object implements the PreCheckInRuleType interface.

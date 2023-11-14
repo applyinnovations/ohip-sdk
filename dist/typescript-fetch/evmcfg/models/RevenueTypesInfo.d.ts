@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RevenueTypesType } from './RevenueTypesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RevenueTypeType } from './RevenueTypeType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Revenue Types Setup configurations.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface RevenueTypesInfo {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RevenueTypesInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RevenueTypesType}
+     * List of Revenue Types to be configured
+     * @type {Array<RevenueTypeType>}
      * @memberof RevenueTypesInfo
      */
-    revenueTypes?: RevenueTypesType;
+    revenueTypes?: Array<RevenueTypeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RevenueTypesInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RevenueTypesInfo interface.

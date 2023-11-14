@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ErrorsType } from './ErrorsType';
+import type { ErrorType } from './ErrorType';
 import {
-    ErrorsTypeFromJSON,
-    ErrorsTypeFromJSONTyped,
-    ErrorsTypeToJSON,
-} from './ErrorsType';
+    ErrorTypeFromJSON,
+    ErrorTypeFromJSONTyped,
+    ErrorTypeToJSON,
+} from './ErrorType';
 import type { ReservationInfoType } from './ReservationInfoType';
 import {
     ReservationInfoTypeFromJSON,
     ReservationInfoTypeFromJSONTyped,
     ReservationInfoTypeToJSON,
 } from './ReservationInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Collection of error and warning if any.
@@ -39,11 +39,11 @@ import {
  */
 export interface CommissionReservationFailureType {
     /**
-     * 
-     * @type {ErrorsType}
+     * An error that occurred during the processing of a message.
+     * @type {Array<ErrorType>}
      * @memberof CommissionReservationFailureType
      */
-    errors?: ErrorsType;
+    errors?: Array<ErrorType>;
     /**
      * 
      * @type {ReservationInfoType}
@@ -51,11 +51,11 @@ export interface CommissionReservationFailureType {
      */
     reservationInfo?: ReservationInfoType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CommissionReservationFailureType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CommissionReservationFailureTypeFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'errors': !exists(json, 'errors') ? undefined : ErrorsTypeFromJSON(json['errors']),
+        'errors': !exists(json, 'errors') ? undefined : ((json['errors'] as Array<any>).map(ErrorTypeFromJSON)),
         'reservationInfo': !exists(json, 'reservationInfo') ? undefined : ReservationInfoTypeFromJSON(json['reservationInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CommissionReservationFailureTypeToJSON(value?: CommissionReserva
     }
     return {
         
-        'errors': ErrorsTypeToJSON(value.errors),
+        'errors': value.errors === undefined ? undefined : ((value.errors as Array<any>).map(ErrorTypeToJSON)),
         'reservationInfo': ReservationInfoTypeToJSON(value.reservationInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

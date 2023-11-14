@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChannelSellLimitSchedulesType } from './ChannelSellLimitSchedulesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ChannelSellLimitScheduleType } from './ChannelSellLimitScheduleType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object containing sell limit schedules set for the channel or channel room type.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ChannelSellLimits {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelSellLimits
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ChannelSellLimitSchedulesType}
+     * Details about a sell limit schedule for a channel or channel room type.
+     * @type {Array<ChannelSellLimitScheduleType>}
      * @memberof ChannelSellLimits
      */
-    sellLimits?: ChannelSellLimitSchedulesType;
+    sellLimits?: Array<ChannelSellLimitScheduleType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelSellLimits
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelSellLimits interface.

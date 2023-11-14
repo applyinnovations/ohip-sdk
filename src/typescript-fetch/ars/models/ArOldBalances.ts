@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AROldBalancePostingsType } from './AROldBalancePostingsType';
+import type { AROldBalancePostingType } from './AROldBalancePostingType';
 import {
-    AROldBalancePostingsTypeFromJSON,
-    AROldBalancePostingsTypeFromJSONTyped,
-    AROldBalancePostingsTypeToJSON,
-} from './AROldBalancePostingsType';
-import type { Links } from './Links';
+    AROldBalancePostingTypeFromJSON,
+    AROldBalancePostingTypeFromJSONTyped,
+    AROldBalancePostingTypeToJSON,
+} from './AROldBalancePostingType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to Post AR Old Balances
@@ -40,22 +40,22 @@ import {
 export interface ArOldBalances {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ArOldBalances
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {AROldBalancePostingsType}
+     * Collections of Old Balance Postings
+     * @type {Array<AROldBalancePostingType>}
      * @memberof ArOldBalances
      */
-    oldBalances?: AROldBalancePostingsType;
+    oldBalances?: Array<AROldBalancePostingType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ArOldBalances
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ArOldBalancesFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'oldBalances': !exists(json, 'oldBalances') ? undefined : AROldBalancePostingsTypeFromJSON(json['oldBalances']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'oldBalances': !exists(json, 'oldBalances') ? undefined : ((json['oldBalances'] as Array<any>).map(AROldBalancePostingTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ArOldBalancesToJSON(value?: ArOldBalances | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'oldBalances': AROldBalancePostingsTypeToJSON(value.oldBalances),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'oldBalances': value.oldBalances === undefined ? undefined : ((value.oldBalances as Array<any>).map(AROldBalancePostingTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

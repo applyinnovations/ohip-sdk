@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { PayDaysType } from './PayDaysType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { PayDayType } from './PayDayType';
 import {
-    PayDaysTypeFromJSON,
-    PayDaysTypeFromJSONTyped,
-    PayDaysTypeToJSON,
-} from './PayDaysType';
-import type { WarningsType } from './WarningsType';
+    PayDayTypeFromJSON,
+    PayDayTypeFromJSONTyped,
+    PayDayTypeToJSON,
+} from './PayDayType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Pay Days.
@@ -40,22 +40,22 @@ import {
 export interface PayDaysCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PayDaysCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {PayDaysType}
+     * List of Pay Days.
+     * @type {Array<PayDayType>}
      * @memberof PayDaysCriteria
      */
-    payDays?: PayDaysType;
+    payDays?: Array<PayDayType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PayDaysCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function PayDaysCriteriaFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'payDays': !exists(json, 'payDays') ? undefined : PayDaysTypeFromJSON(json['payDays']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'payDays': !exists(json, 'payDays') ? undefined : ((json['payDays'] as Array<any>).map(PayDayTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function PayDaysCriteriaToJSON(value?: PayDaysCriteria | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'payDays': PayDaysTypeToJSON(value.payDays),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'payDays': value.payDays === undefined ? undefined : ((value.payDays as Array<any>).map(PayDayTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

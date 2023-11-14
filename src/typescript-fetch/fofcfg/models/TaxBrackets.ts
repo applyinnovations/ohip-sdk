@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TaxBracketsType } from './TaxBracketsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TaxBracketType } from './TaxBracketType';
 import {
-    TaxBracketsTypeFromJSON,
-    TaxBracketsTypeFromJSONTyped,
-    TaxBracketsTypeToJSON,
-} from './TaxBracketsType';
-import type { WarningsType } from './WarningsType';
+    TaxBracketTypeFromJSON,
+    TaxBracketTypeFromJSONTyped,
+    TaxBracketTypeToJSON,
+} from './TaxBracketType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface TaxBrackets {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TaxBrackets
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TaxBracketsType}
+     * Details used for storing information about a tax bracket.
+     * @type {Array<TaxBracketType>}
      * @memberof TaxBrackets
      */
-    taxBrackets?: TaxBracketsType;
+    taxBrackets?: Array<TaxBracketType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TaxBrackets
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TaxBracketsFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'taxBrackets': !exists(json, 'taxBrackets') ? undefined : TaxBracketsTypeFromJSON(json['taxBrackets']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'taxBrackets': !exists(json, 'taxBrackets') ? undefined : ((json['taxBrackets'] as Array<any>).map(TaxBracketTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TaxBracketsToJSON(value?: TaxBrackets | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'taxBrackets': TaxBracketsTypeToJSON(value.taxBrackets),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'taxBrackets': value.taxBrackets === undefined ? undefined : ((value.taxBrackets as Array<any>).map(TaxBracketTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

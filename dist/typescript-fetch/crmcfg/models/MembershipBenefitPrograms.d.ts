@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MembershipBenefitProgramsType } from './MembershipBenefitProgramsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MembershipBenefitProgramType } from './MembershipBenefitProgramType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for modifying membership benefit programs.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MembershipBenefitPrograms {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipBenefitPrograms
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MembershipBenefitProgramsType}
+     * Membership Benefit Program details.
+     * @type {Array<MembershipBenefitProgramType>}
      * @memberof MembershipBenefitPrograms
      */
-    membershipBenefitPrograms?: MembershipBenefitProgramsType;
+    membershipBenefitPrograms?: Array<MembershipBenefitProgramType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipBenefitPrograms
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipBenefitPrograms interface.

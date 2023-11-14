@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TemplateEventCodesType } from './TemplateEventCodesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TemplateEventCodeType } from './TemplateEventCodeType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new template Event Codes.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateEventCodesCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateEventCodesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TemplateEventCodesType}
+     * Details for Event Code at template level.
+     * @type {Array<TemplateEventCodeType>}
      * @memberof TemplateEventCodesCriteria
      */
-    templateEventCodes?: TemplateEventCodesType;
+    templateEventCodes?: Array<TemplateEventCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateEventCodesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateEventCodesCriteria interface.

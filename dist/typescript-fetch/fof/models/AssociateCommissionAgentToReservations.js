@@ -18,8 +18,8 @@ const runtime_1 = require("../runtime");
 const CommissionAgentIDType_1 = require("./CommissionAgentIDType");
 const CommissionReservationInstructionsType_1 = require("./CommissionReservationInstructionsType");
 const HotelReservationsIDType_1 = require("./HotelReservationsIDType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AssociateCommissionAgentToReservations interface.
  */
@@ -39,9 +39,9 @@ function AssociateCommissionAgentToReservationsFromJSONTyped(json, ignoreDiscrim
     return {
         'commissionAgent': !(0, runtime_1.exists)(json, 'commissionAgent') ? undefined : (0, CommissionAgentIDType_1.CommissionAgentIDTypeFromJSON)(json['commissionAgent']),
         'instructions': !(0, runtime_1.exists)(json, 'instructions') ? undefined : (0, CommissionReservationInstructionsType_1.CommissionReservationInstructionsTypeFromJSON)(json['instructions']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'reservations': !(0, runtime_1.exists)(json, 'reservations') ? undefined : (0, HotelReservationsIDType_1.HotelReservationsIDTypeFromJSON)(json['reservations']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AssociateCommissionAgentToReservationsFromJSONTyped = AssociateCommissionAgentToReservationsFromJSONTyped;
@@ -55,9 +55,9 @@ function AssociateCommissionAgentToReservationsToJSON(value) {
     return {
         'commissionAgent': (0, CommissionAgentIDType_1.CommissionAgentIDTypeToJSON)(value.commissionAgent),
         'instructions': (0, CommissionReservationInstructionsType_1.CommissionReservationInstructionsTypeToJSON)(value.instructions),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'reservations': (0, HotelReservationsIDType_1.HotelReservationsIDTypeToJSON)(value.reservations),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AssociateCommissionAgentToReservationsToJSON = AssociateCommissionAgentToReservationsToJSON;

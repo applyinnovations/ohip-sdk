@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ConfigTemplatePreferencesType } from './ConfigTemplatePreferencesType';
+import type { ConfigTemplatePreferenceType } from './ConfigTemplatePreferenceType';
 import {
-    ConfigTemplatePreferencesTypeFromJSON,
-    ConfigTemplatePreferencesTypeFromJSONTyped,
-    ConfigTemplatePreferencesTypeToJSON,
-} from './ConfigTemplatePreferencesType';
-import type { Links } from './Links';
+    ConfigTemplatePreferenceTypeFromJSON,
+    ConfigTemplatePreferenceTypeFromJSONTyped,
+    ConfigTemplatePreferenceTypeToJSON,
+} from './ConfigTemplatePreferenceType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching preferences at the template level.
@@ -40,22 +40,22 @@ import {
 export interface TemplatePreferences {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplatePreferences
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ConfigTemplatePreferencesType}
+     * This type holds a collection of preferences at the template level.
+     * @type {Array<ConfigTemplatePreferenceType>}
      * @memberof TemplatePreferences
      */
-    templatePreferences?: ConfigTemplatePreferencesType;
+    templatePreferences?: Array<ConfigTemplatePreferenceType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplatePreferences
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplatePreferencesFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'templatePreferences': !exists(json, 'templatePreferences') ? undefined : ConfigTemplatePreferencesTypeFromJSON(json['templatePreferences']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'templatePreferences': !exists(json, 'templatePreferences') ? undefined : ((json['templatePreferences'] as Array<any>).map(ConfigTemplatePreferenceTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplatePreferencesToJSON(value?: TemplatePreferences | null): a
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'templatePreferences': ConfigTemplatePreferencesTypeToJSON(value.templatePreferences),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'templatePreferences': value.templatePreferences === undefined ? undefined : ((value.templatePreferences as Array<any>).map(ConfigTemplatePreferenceTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { TemplateMarketCodeType } from './TemplateMarketCodeType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object that holds the details of template Market Code to be created.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateMarketCodeCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateMarketCodeCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {TemplateMarketCodeType}
@@ -31,11 +31,11 @@ export interface TemplateMarketCodeCriteria {
      */
     templateMarketCode?: TemplateMarketCodeType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateMarketCodeCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateMarketCodeCriteria interface.

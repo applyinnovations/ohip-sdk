@@ -67,12 +67,12 @@ import {
     ReservationPaymentMethodTypeFromJSONTyped,
     ReservationPaymentMethodTypeToJSON,
 } from './ReservationPaymentMethodType';
-import type { TransactionServiceTypesType } from './TransactionServiceTypesType';
+import type { TransactionServiceTypeType } from './TransactionServiceTypeType';
 import {
-    TransactionServiceTypesTypeFromJSON,
-    TransactionServiceTypesTypeFromJSONTyped,
-    TransactionServiceTypesTypeToJSON,
-} from './TransactionServiceTypesType';
+    TransactionServiceTypeTypeFromJSON,
+    TransactionServiceTypeTypeFromJSONTyped,
+    TransactionServiceTypeTypeToJSON,
+} from './TransactionServiceTypeType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -237,11 +237,11 @@ export interface FolioWindowType {
      */
     revenue?: CurrencyAmountType;
     /**
-     * 
-     * @type {TransactionServiceTypesType}
+     * Details about service type postings.
+     * @type {Array<TransactionServiceTypeType>}
      * @memberof FolioWindowType
      */
-    serviceTypeInfo?: TransactionServiceTypesType;
+    serviceTypeInfo?: Array<TransactionServiceTypeType>;
     /**
      * This flag signifies that generated Folio is Normal or Simple Folio. Certain countries of the World mandate a simple folio when the invoice amount is less than defined threshold.
      * @type {boolean}
@@ -330,7 +330,7 @@ export function FolioWindowTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'paymentMethod': !exists(json, 'paymentMethod') ? undefined : ReservationPaymentMethodTypeFromJSON(json['paymentMethod']),
         'receiptNo': !exists(json, 'receiptNo') ? undefined : json['receiptNo'],
         'revenue': !exists(json, 'revenue') ? undefined : CurrencyAmountTypeFromJSON(json['revenue']),
-        'serviceTypeInfo': !exists(json, 'serviceTypeInfo') ? undefined : TransactionServiceTypesTypeFromJSON(json['serviceTypeInfo']),
+        'serviceTypeInfo': !exists(json, 'serviceTypeInfo') ? undefined : ((json['serviceTypeInfo'] as Array<any>).map(TransactionServiceTypeTypeFromJSON)),
         'simpleFolio': !exists(json, 'simpleFolio') ? undefined : json['simpleFolio'],
         'storedFolioId': !exists(json, 'storedFolioId') ? undefined : UniqueIDTypeFromJSON(json['storedFolioId']),
         'storedFolioName': !exists(json, 'storedFolioName') ? undefined : json['storedFolioName'],
@@ -375,7 +375,7 @@ export function FolioWindowTypeToJSON(value?: FolioWindowType | null): any {
         'paymentMethod': ReservationPaymentMethodTypeToJSON(value.paymentMethod),
         'receiptNo': value.receiptNo,
         'revenue': CurrencyAmountTypeToJSON(value.revenue),
-        'serviceTypeInfo': TransactionServiceTypesTypeToJSON(value.serviceTypeInfo),
+        'serviceTypeInfo': value.serviceTypeInfo === undefined ? undefined : ((value.serviceTypeInfo as Array<any>).map(TransactionServiceTypeTypeToJSON)),
         'simpleFolio': value.simpleFolio,
         'storedFolioId': UniqueIDTypeToJSON(value.storedFolioId),
         'storedFolioName': value.storedFolioName,

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationAwardsToJSON = exports.ReservationAwardsFromJSONTyped = exports.ReservationAwardsFromJSON = exports.instanceOfReservationAwards = void 0;
 const runtime_1 = require("../runtime");
-const AwardsType_1 = require("./AwardsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const AwardType_1 = require("./AwardType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ReservationAwards interface.
  */
@@ -35,9 +35,9 @@ function ReservationAwardsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'reservationAwards': !(0, runtime_1.exists)(json, 'reservationAwards') ? undefined : (0, AwardsType_1.AwardsTypeFromJSON)(json['reservationAwards']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'reservationAwards': !(0, runtime_1.exists)(json, 'reservationAwards') ? undefined : (json['reservationAwards'].map(AwardType_1.AwardTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ReservationAwardsFromJSONTyped = ReservationAwardsFromJSONTyped;
@@ -49,9 +49,9 @@ function ReservationAwardsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'reservationAwards': (0, AwardsType_1.AwardsTypeToJSON)(value.reservationAwards),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'reservationAwards': value.reservationAwards === undefined ? undefined : (value.reservationAwards.map(AwardType_1.AwardTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ReservationAwardsToJSON = ReservationAwardsToJSON;

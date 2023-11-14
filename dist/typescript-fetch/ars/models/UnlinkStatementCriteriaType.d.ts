@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { InvoiceTrxNoList } from './InvoiceTrxNoList';
 /**
  * Criteria for unlinking invoice from statement.
  * @export
@@ -29,11 +28,11 @@ export interface UnlinkStatementCriteriaType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {InvoiceTrxNoList}
+     * Transaction Number .
+     * @type {Array<number>}
      * @memberof UnlinkStatementCriteriaType
      */
-    invoiceTrxNoList?: InvoiceTrxNoList;
+    invoiceTrxNoList?: Array<number>;
 }
 /**
  * Check if a given object implements the UnlinkStatementCriteriaType interface.

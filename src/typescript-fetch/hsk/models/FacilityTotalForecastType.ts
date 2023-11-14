@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FacilityCodesForecastType } from './FacilityCodesForecastType';
+import type { FacilityCodeForecastType } from './FacilityCodeForecastType';
 import {
-    FacilityCodesForecastTypeFromJSON,
-    FacilityCodesForecastTypeFromJSONTyped,
-    FacilityCodesForecastTypeToJSON,
-} from './FacilityCodesForecastType';
-import type { ForecastTotalsQuantitiesType } from './ForecastTotalsQuantitiesType';
+    FacilityCodeForecastTypeFromJSON,
+    FacilityCodeForecastTypeFromJSONTyped,
+    FacilityCodeForecastTypeToJSON,
+} from './FacilityCodeForecastType';
+import type { ForecastTotalsQuantityType } from './ForecastTotalsQuantityType';
 import {
-    ForecastTotalsQuantitiesTypeFromJSON,
-    ForecastTotalsQuantitiesTypeFromJSONTyped,
-    ForecastTotalsQuantitiesTypeToJSON,
-} from './ForecastTotalsQuantitiesType';
+    ForecastTotalsQuantityTypeFromJSON,
+    ForecastTotalsQuantityTypeFromJSONTyped,
+    ForecastTotalsQuantityTypeToJSON,
+} from './ForecastTotalsQuantityType';
 
 /**
  * The Total of the forecasts.
@@ -33,17 +33,17 @@ import {
  */
 export interface FacilityTotalForecastType {
     /**
-     * 
-     * @type {FacilityCodesForecastType}
+     * Collection of facility codes with their forecasts.
+     * @type {Array<FacilityCodeForecastType>}
      * @memberof FacilityTotalForecastType
      */
-    totalFacilityCodes?: FacilityCodesForecastType;
+    totalFacilityCodes?: Array<FacilityCodeForecastType>;
     /**
-     * 
-     * @type {ForecastTotalsQuantitiesType}
+     * Collection of dates and their total quantities.
+     * @type {Array<ForecastTotalsQuantityType>}
      * @memberof FacilityTotalForecastType
      */
-    totals?: ForecastTotalsQuantitiesType;
+    totals?: Array<ForecastTotalsQuantityType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function FacilityTotalForecastTypeFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'totalFacilityCodes': !exists(json, 'totalFacilityCodes') ? undefined : FacilityCodesForecastTypeFromJSON(json['totalFacilityCodes']),
-        'totals': !exists(json, 'totals') ? undefined : ForecastTotalsQuantitiesTypeFromJSON(json['totals']),
+        'totalFacilityCodes': !exists(json, 'totalFacilityCodes') ? undefined : ((json['totalFacilityCodes'] as Array<any>).map(FacilityCodeForecastTypeFromJSON)),
+        'totals': !exists(json, 'totals') ? undefined : ((json['totals'] as Array<any>).map(ForecastTotalsQuantityTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function FacilityTotalForecastTypeToJSON(value?: FacilityTotalForecastTyp
     }
     return {
         
-        'totalFacilityCodes': FacilityCodesForecastTypeToJSON(value.totalFacilityCodes),
-        'totals': ForecastTotalsQuantitiesTypeToJSON(value.totals),
+        'totalFacilityCodes': value.totalFacilityCodes === undefined ? undefined : ((value.totalFacilityCodes as Array<any>).map(FacilityCodeForecastTypeToJSON)),
+        'totals': value.totals === undefined ? undefined : ((value.totals as Array<any>).map(ForecastTotalsQuantityTypeToJSON)),
     };
 }
 

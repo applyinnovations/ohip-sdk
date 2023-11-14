@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { KeywordTypesType } from './KeywordTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { KeywordTypeType } from './KeywordTypeType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Keyword Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface KeywordTypesDetails {
     /**
-     *
-     * @type {KeywordTypesType}
+     * List of Keyword Types.
+     * @type {Array<KeywordTypeType>}
      * @memberof KeywordTypesDetails
      */
-    keywordTypes?: KeywordTypesType;
+    keywordTypes?: Array<KeywordTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof KeywordTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof KeywordTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the KeywordTypesDetails interface.

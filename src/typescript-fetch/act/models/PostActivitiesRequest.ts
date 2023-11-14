@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ActivityListType } from './ActivityListType';
+import type { ActivityDetailsType } from './ActivityDetailsType';
 import {
-    ActivityListTypeFromJSON,
-    ActivityListTypeFromJSONTyped,
-    ActivityListTypeToJSON,
-} from './ActivityListType';
-import type { Links } from './Links';
+    ActivityDetailsTypeFromJSON,
+    ActivityDetailsTypeFromJSONTyped,
+    ActivityDetailsTypeToJSON,
+} from './ActivityDetailsType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface PostActivitiesRequest {
     /**
-     * 
-     * @type {ActivityListType}
+     * Activity information in detail.
+     * @type {Array<ActivityDetailsType>}
      * @memberof PostActivitiesRequest
      */
-    activitiesInformation?: ActivityListType;
+    activitiesInformation?: Array<ActivityDetailsType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostActivitiesRequest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostActivitiesRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function PostActivitiesRequestFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'activitiesInformation': !exists(json, 'activitiesInformation') ? undefined : ActivityListTypeFromJSON(json['activitiesInformation']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'activitiesInformation': !exists(json, 'activitiesInformation') ? undefined : ((json['activitiesInformation'] as Array<any>).map(ActivityDetailsTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function PostActivitiesRequestToJSON(value?: PostActivitiesRequest | null
     }
     return {
         
-        'activitiesInformation': ActivityListTypeToJSON(value.activitiesInformation),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'activitiesInformation': value.activitiesInformation === undefined ? undefined : ((value.activitiesInformation as Array<any>).map(ActivityDetailsTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

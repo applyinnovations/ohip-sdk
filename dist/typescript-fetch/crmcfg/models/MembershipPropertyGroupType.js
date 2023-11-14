@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipPropertyGroupTypeToJSON = exports.MembershipPropertyGroupTypeFromJSONTyped = exports.MembershipPropertyGroupTypeFromJSON = exports.instanceOfMembershipPropertyGroupType = void 0;
 const runtime_1 = require("../runtime");
-const MembershipPropertyCodesType_1 = require("./MembershipPropertyCodesType");
+const CodeDescriptionType_1 = require("./CodeDescriptionType");
 /**
  * Check if a given object implements the MembershipPropertyGroupType interface.
  */
@@ -36,7 +36,7 @@ function MembershipPropertyGroupTypeFromJSONTyped(json, ignoreDiscriminator) {
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'displaySequence': !(0, runtime_1.exists)(json, 'displaySequence') ? undefined : json['displaySequence'],
-        'hotels': !(0, runtime_1.exists)(json, 'hotels') ? undefined : (0, MembershipPropertyCodesType_1.MembershipPropertyCodesTypeFromJSON)(json['hotels']),
+        'hotels': !(0, runtime_1.exists)(json, 'hotels') ? undefined : (json['hotels'].map(CodeDescriptionType_1.CodeDescriptionTypeFromJSON)),
     };
 }
 exports.MembershipPropertyGroupTypeFromJSONTyped = MembershipPropertyGroupTypeFromJSONTyped;
@@ -51,7 +51,7 @@ function MembershipPropertyGroupTypeToJSON(value) {
         'code': value.code,
         'description': value.description,
         'displaySequence': value.displaySequence,
-        'hotels': (0, MembershipPropertyCodesType_1.MembershipPropertyCodesTypeToJSON)(value.hotels),
+        'hotels': value.hotels === undefined ? undefined : (value.hotels.map(CodeDescriptionType_1.CodeDescriptionTypeToJSON)),
     };
 }
 exports.MembershipPropertyGroupTypeToJSON = MembershipPropertyGroupTypeToJSON;

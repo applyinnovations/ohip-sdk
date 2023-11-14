@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RecentlyAccessedProfilesToJSON = exports.RecentlyAccessedProfilesFromJSONTyped = exports.RecentlyAccessedProfilesFromJSON = exports.instanceOfRecentlyAccessedProfiles = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const RecentlyAccessedProfileType_1 = require("./RecentlyAccessedProfileType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RecentlyAccessedProfiles interface.
  */
@@ -35,9 +35,9 @@ function RecentlyAccessedProfilesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'profiles': !(0, runtime_1.exists)(json, 'profiles') ? undefined : (json['profiles'].map(RecentlyAccessedProfileType_1.RecentlyAccessedProfileTypeFromJSON)),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RecentlyAccessedProfilesFromJSONTyped = RecentlyAccessedProfilesFromJSONTyped;
@@ -49,9 +49,9 @@ function RecentlyAccessedProfilesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'profiles': value.profiles === undefined ? undefined : (value.profiles.map(RecentlyAccessedProfileType_1.RecentlyAccessedProfileTypeToJSON)),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RecentlyAccessedProfilesToJSON = RecentlyAccessedProfilesToJSON;

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TrackItActionsConfigType } from './TrackItActionsConfigType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TrackItActionConfigType } from './TrackItActionConfigType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new Track it Actions.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TrackItActionsCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TrackItActionsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TrackItActionsConfigType}
+     * Track It Action Collection element.
+     * @type {Array<TrackItActionConfigType>}
      * @memberof TrackItActionsCriteria
      */
-    trackItActions?: TrackItActionsConfigType;
+    trackItActions?: Array<TrackItActionConfigType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TrackItActionsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TrackItActionsCriteria interface.

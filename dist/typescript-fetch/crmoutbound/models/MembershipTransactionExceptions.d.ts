@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MembershipTransactionExceptionsType } from './MembershipTransactionExceptionsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MembershipTransactionExceptionType } from './MembershipTransactionExceptionType';
 /**
  * Response object for fetching membership transaction exceptions.
  * @export
@@ -18,17 +18,17 @@ import type { MembershipTransactionExceptionsType } from './MembershipTransactio
  */
 export interface MembershipTransactionExceptions {
     /**
-     *
-     * @type {MembershipTransactionExceptionsType}
+     * Contains Membership transaction exception information.
+     * @type {Array<MembershipTransactionExceptionType>}
      * @memberof MembershipTransactionExceptions
      */
-    memberTransactionExceptions?: MembershipTransactionExceptionsType;
+    memberTransactionExceptions?: Array<MembershipTransactionExceptionType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipTransactionExceptions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the MembershipTransactionExceptions interface.

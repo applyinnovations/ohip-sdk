@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelDayTypesType } from './HotelDayTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelDayTypeType } from './HotelDayTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for setting day type for specified date range.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface SetDayTypes {
     /**
-     *
-     * @type {HotelDayTypesType}
+     * Collection of type details.
+     * @type {Array<HotelDayTypeType>}
      * @memberof SetDayTypes
      */
-    hotelDayTypes?: HotelDayTypesType;
+    hotelDayTypes?: Array<HotelDayTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SetDayTypes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SetDayTypes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SetDayTypes interface.

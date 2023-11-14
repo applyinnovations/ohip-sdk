@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ProfileCommissionAccountInfoListType } from './ProfileCommissionAccountInfoListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ProfileCommissionAccountInfoType } from './ProfileCommissionAccountInfoType';
 import {
-    ProfileCommissionAccountInfoListTypeFromJSON,
-    ProfileCommissionAccountInfoListTypeFromJSONTyped,
-    ProfileCommissionAccountInfoListTypeToJSON,
-} from './ProfileCommissionAccountInfoListType';
+    ProfileCommissionAccountInfoTypeFromJSON,
+    ProfileCommissionAccountInfoTypeFromJSONTyped,
+    ProfileCommissionAccountInfoTypeToJSON,
+} from './ProfileCommissionAccountInfoType';
 
 /**
  * Response object for fetching profile commission detail.
@@ -33,17 +33,17 @@ import {
  */
 export interface ProfileCommissionAccountInfo {
     /**
-     * 
-     * @type {ProfileCommissionAccountInfoListType}
+     * Profile commission info which contains bank account and commission code details.
+     * @type {Array<ProfileCommissionAccountInfoType>}
      * @memberof ProfileCommissionAccountInfo
      */
-    profileCommissionAccountInfoList?: ProfileCommissionAccountInfoListType;
+    profileCommissionAccountInfoList?: Array<ProfileCommissionAccountInfoType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileCommissionAccountInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function ProfileCommissionAccountInfoFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'profileCommissionAccountInfoList': !exists(json, 'profileCommissionAccountInfoList') ? undefined : ProfileCommissionAccountInfoListTypeFromJSON(json['profileCommissionAccountInfoList']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'profileCommissionAccountInfoList': !exists(json, 'profileCommissionAccountInfoList') ? undefined : ((json['profileCommissionAccountInfoList'] as Array<any>).map(ProfileCommissionAccountInfoTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function ProfileCommissionAccountInfoToJSON(value?: ProfileCommissionAcco
     }
     return {
         
-        'profileCommissionAccountInfoList': ProfileCommissionAccountInfoListTypeToJSON(value.profileCommissionAccountInfoList),
-        'links': LinksToJSON(value.links),
+        'profileCommissionAccountInfoList': value.profileCommissionAccountInfoList === undefined ? undefined : ((value.profileCommissionAccountInfoList as Array<any>).map(ProfileCommissionAccountInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

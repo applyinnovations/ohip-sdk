@@ -11,8 +11,8 @@
  */
 import type { BlockStatisticsAllotedRoomsType } from './BlockStatisticsAllotedRoomsType';
 import type { BlockStatisticsDetailsType } from './BlockStatisticsDetailsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * The response object that returns Block Statistics information.
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface BlockStatistics {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockStatistics
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {BlockStatisticsAllotedRoomsType}
@@ -38,11 +38,11 @@ export interface BlockStatistics {
      */
     statisticsDetails?: BlockStatisticsDetailsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockStatistics
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockStatistics interface.

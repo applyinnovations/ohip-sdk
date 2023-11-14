@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GroupArrangementCodesToJSON = exports.GroupArrangementCodesFromJSONTyped = exports.GroupArrangementCodesFromJSON = exports.instanceOfGroupArrangementCodes = void 0;
 const runtime_1 = require("../runtime");
-const GroupArrangementCodesType_1 = require("./GroupArrangementCodesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const GroupArrangementCodeType_1 = require("./GroupArrangementCodeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the GroupArrangementCodes interface.
  */
@@ -35,9 +35,9 @@ function GroupArrangementCodesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'groupArrangementCodes': !(0, runtime_1.exists)(json, 'groupArrangementCodes') ? undefined : (0, GroupArrangementCodesType_1.GroupArrangementCodesTypeFromJSON)(json['groupArrangementCodes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'groupArrangementCodes': !(0, runtime_1.exists)(json, 'groupArrangementCodes') ? undefined : (json['groupArrangementCodes'].map(GroupArrangementCodeType_1.GroupArrangementCodeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.GroupArrangementCodesFromJSONTyped = GroupArrangementCodesFromJSONTyped;
@@ -49,9 +49,9 @@ function GroupArrangementCodesToJSON(value) {
         return null;
     }
     return {
-        'groupArrangementCodes': (0, GroupArrangementCodesType_1.GroupArrangementCodesTypeToJSON)(value.groupArrangementCodes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'groupArrangementCodes': value.groupArrangementCodes === undefined ? undefined : (value.groupArrangementCodes.map(GroupArrangementCodeType_1.GroupArrangementCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.GroupArrangementCodesToJSON = GroupArrangementCodesToJSON;

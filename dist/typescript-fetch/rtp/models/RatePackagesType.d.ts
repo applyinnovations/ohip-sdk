@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RatePackageCodeListType } from './RatePackageCodeListType';
+import type { RatePackageCodeType } from './RatePackageCodeType';
 import type { RatePackageGroupType } from './RatePackageGroupType';
 /**
  *
@@ -24,11 +24,11 @@ export interface RatePackagesType {
      */
     packageGroups?: Array<RatePackageGroupType>;
     /**
-     *
-     * @type {RatePackageCodeListType}
+     * Rate Package Full Information
+     * @type {Array<RatePackageCodeType>}
      * @memberof RatePackagesType
      */
-    packages?: RatePackageCodeListType;
+    packages?: Array<RatePackageCodeType>;
 }
 /**
  * Check if a given object implements the RatePackagesType interface.

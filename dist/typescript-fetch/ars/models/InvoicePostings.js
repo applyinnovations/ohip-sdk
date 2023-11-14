@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InvoicePostingsToJSON = exports.InvoicePostingsFromJSONTyped = exports.InvoicePostingsFromJSON = exports.instanceOfInvoicePostings = void 0;
 const runtime_1 = require("../runtime");
-const ARInvoicePostingsType_1 = require("./ARInvoicePostingsType");
-const Links_1 = require("./Links");
-const TrxCodesInfoType_1 = require("./TrxCodesInfoType");
-const WarningsType_1 = require("./WarningsType");
+const ARInvoicePostingType_1 = require("./ARInvoicePostingType");
+const InstanceLink_1 = require("./InstanceLink");
+const TrxInfoType_1 = require("./TrxInfoType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the InvoicePostings interface.
  */
@@ -36,10 +36,10 @@ function InvoicePostingsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'invoicePostingsDetails': !(0, runtime_1.exists)(json, 'invoicePostingsDetails') ? undefined : (0, ARInvoicePostingsType_1.ARInvoicePostingsTypeFromJSON)(json['invoicePostingsDetails']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'trxCodesInfo': !(0, runtime_1.exists)(json, 'trxCodesInfo') ? undefined : (0, TrxCodesInfoType_1.TrxCodesInfoTypeFromJSON)(json['trxCodesInfo']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'invoicePostingsDetails': !(0, runtime_1.exists)(json, 'invoicePostingsDetails') ? undefined : (json['invoicePostingsDetails'].map(ARInvoicePostingType_1.ARInvoicePostingTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'trxCodesInfo': !(0, runtime_1.exists)(json, 'trxCodesInfo') ? undefined : (json['trxCodesInfo'].map(TrxInfoType_1.TrxInfoTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.InvoicePostingsFromJSONTyped = InvoicePostingsFromJSONTyped;
@@ -51,10 +51,10 @@ function InvoicePostingsToJSON(value) {
         return null;
     }
     return {
-        'invoicePostingsDetails': (0, ARInvoicePostingsType_1.ARInvoicePostingsTypeToJSON)(value.invoicePostingsDetails),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'trxCodesInfo': (0, TrxCodesInfoType_1.TrxCodesInfoTypeToJSON)(value.trxCodesInfo),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'invoicePostingsDetails': value.invoicePostingsDetails === undefined ? undefined : (value.invoicePostingsDetails.map(ARInvoicePostingType_1.ARInvoicePostingTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : (value.trxCodesInfo.map(TrxInfoType_1.TrxInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.InvoicePostingsToJSON = InvoicePostingsToJSON;

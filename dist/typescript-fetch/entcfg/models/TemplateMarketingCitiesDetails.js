@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateMarketingCitiesDetailsToJSON = exports.TemplateMarketingCitiesDetailsFromJSONTyped = exports.TemplateMarketingCitiesDetailsFromJSON = exports.instanceOfTemplateMarketingCitiesDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TemplateMarketingCitiesType_1 = require("./TemplateMarketingCitiesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TemplateMarketingCityConfigType_1 = require("./TemplateMarketingCityConfigType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TemplateMarketingCitiesDetails interface.
  */
@@ -35,9 +35,9 @@ function TemplateMarketingCitiesDetailsFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'templateMarketingCities': !(0, runtime_1.exists)(json, 'templateMarketingCities') ? undefined : (0, TemplateMarketingCitiesType_1.TemplateMarketingCitiesTypeFromJSON)(json['templateMarketingCities']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'templateMarketingCities': !(0, runtime_1.exists)(json, 'templateMarketingCities') ? undefined : (json['templateMarketingCities'].map(TemplateMarketingCityConfigType_1.TemplateMarketingCityConfigTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TemplateMarketingCitiesDetailsFromJSONTyped = TemplateMarketingCitiesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function TemplateMarketingCitiesDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'templateMarketingCities': (0, TemplateMarketingCitiesType_1.TemplateMarketingCitiesTypeToJSON)(value.templateMarketingCities),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'templateMarketingCities': value.templateMarketingCities === undefined ? undefined : (value.templateMarketingCities.map(TemplateMarketingCityConfigType_1.TemplateMarketingCityConfigTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TemplateMarketingCitiesDetailsToJSON = TemplateMarketingCitiesDetailsToJSON;

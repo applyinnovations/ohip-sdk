@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelStatementAccountTypeToJSON = exports.ChannelStatementAccountTypeFromJSONTyped = exports.ChannelStatementAccountTypeFromJSON = exports.instanceOfChannelStatementAccountType = void 0;
 const runtime_1 = require("../runtime");
-const ChannelStatementDetailsType_1 = require("./ChannelStatementDetailsType");
+const ChannelStatementDetailType_1 = require("./ChannelStatementDetailType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -37,7 +37,7 @@ function ChannelStatementAccountTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'accountCode': !(0, runtime_1.exists)(json, 'accountCode') ? undefined : json['accountCode'],
         'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
-        'channelAccountStatementDetails': !(0, runtime_1.exists)(json, 'channelAccountStatementDetails') ? undefined : (0, ChannelStatementDetailsType_1.ChannelStatementDetailsTypeFromJSON)(json['channelAccountStatementDetails']),
+        'channelAccountStatementDetails': !(0, runtime_1.exists)(json, 'channelAccountStatementDetails') ? undefined : (json['channelAccountStatementDetails'].map(ChannelStatementDetailType_1.ChannelStatementDetailTypeFromJSON)),
         'contractId': !(0, runtime_1.exists)(json, 'contractId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['contractId']),
         'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
         'note': !(0, runtime_1.exists)(json, 'note') ? undefined : json['note'],
@@ -56,7 +56,7 @@ function ChannelStatementAccountTypeToJSON(value) {
     return {
         'accountCode': value.accountCode,
         'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
-        'channelAccountStatementDetails': (0, ChannelStatementDetailsType_1.ChannelStatementDetailsTypeToJSON)(value.channelAccountStatementDetails),
+        'channelAccountStatementDetails': value.channelAccountStatementDetails === undefined ? undefined : (value.channelAccountStatementDetails.map(ChannelStatementDetailType_1.ChannelStatementDetailTypeToJSON)),
         'contractId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.contractId),
         'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
         'note': value.note,

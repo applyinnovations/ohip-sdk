@@ -13,42 +13,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { EventItemTypeSellInfo } from './EventItemTypeSellInfo';
 import {
     EventItemTypeSellInfoFromJSON,
     EventItemTypeSellInfoFromJSONTyped,
     EventItemTypeSellInfoToJSON,
 } from './EventItemTypeSellInfo';
-import type { EventResourceNotesType } from './EventResourceNotesType';
+import type { EventResourceNoteType } from './EventResourceNoteType';
 import {
-    EventResourceNotesTypeFromJSON,
-    EventResourceNotesTypeFromJSONTyped,
-    EventResourceNotesTypeToJSON,
-} from './EventResourceNotesType';
-import type { ItemAttributesType } from './ItemAttributesType';
+    EventResourceNoteTypeFromJSON,
+    EventResourceNoteTypeFromJSONTyped,
+    EventResourceNoteTypeToJSON,
+} from './EventResourceNoteType';
+import type { ItemAttributeType } from './ItemAttributeType';
 import {
-    ItemAttributesTypeFromJSON,
-    ItemAttributesTypeFromJSONTyped,
-    ItemAttributesTypeToJSON,
-} from './ItemAttributesType';
-import type { ItemRatesType } from './ItemRatesType';
+    ItemAttributeTypeFromJSON,
+    ItemAttributeTypeFromJSONTyped,
+    ItemAttributeTypeToJSON,
+} from './ItemAttributeType';
+import type { ItemRateType } from './ItemRateType';
 import {
-    ItemRatesTypeFromJSON,
-    ItemRatesTypeFromJSONTyped,
-    ItemRatesTypeToJSON,
-} from './ItemRatesType';
-import type { ItemVendorsType } from './ItemVendorsType';
+    ItemRateTypeFromJSON,
+    ItemRateTypeFromJSONTyped,
+    ItemRateTypeToJSON,
+} from './ItemRateType';
+import type { ItemVendorType } from './ItemVendorType';
 import {
-    ItemVendorsTypeFromJSON,
-    ItemVendorsTypeFromJSONTyped,
-    ItemVendorsTypeToJSON,
-} from './ItemVendorsType';
+    ItemVendorTypeFromJSON,
+    ItemVendorTypeFromJSONTyped,
+    ItemVendorTypeToJSON,
+} from './ItemVendorType';
 import type { TranslationTextType200 } from './TranslationTextType200';
 import {
     TranslationTextType200FromJSON,
@@ -105,17 +99,17 @@ export interface EventItemType {
      */
     attributeId?: UniqueIDType;
     /**
-     * 
-     * @type {ItemAttributesType}
+     * List of Item Attributes.
+     * @type {Array<ItemAttributeType>}
      * @memberof EventItemType
      */
-    attributes?: ItemAttributesType;
+    attributes?: Array<ItemAttributeType>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof EventItemType
      */
-    departments?: CodeListType;
+    departments?: Array<string>;
     /**
      * Discount to be applied to the price.
      * @type {number}
@@ -142,10 +136,10 @@ export interface EventItemType {
     eventStartDate?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof EventItemType
      */
-    eventTypes?: CodeListType;
+    eventTypes?: Array<string>;
     /**
      * Shows the price the external source charges for the item
      * @type {number}
@@ -297,17 +291,17 @@ export interface EventItemType {
      */
     quantity?: number;
     /**
-     * 
-     * @type {ItemRatesType}
+     * List of Item Rates.
+     * @type {Array<ItemRateType>}
      * @memberof EventItemType
      */
-    rates?: ItemRatesType;
+    rates?: Array<ItemRateType>;
     /**
-     * 
-     * @type {EventResourceNotesType}
+     * Contains event resource comment information.
+     * @type {Array<EventResourceNoteType>}
      * @memberof EventItemType
      */
-    resourceNotes?: EventResourceNotesType;
+    resourceNotes?: Array<EventResourceNoteType>;
     /**
      * The Revenue Type of the Item.
      * @type {string}
@@ -363,11 +357,11 @@ export interface EventItemType {
      */
     vendorPrice?: number;
     /**
-     * 
-     * @type {ItemVendorsType}
+     * List of Item Vendors.
+     * @type {Array<ItemVendorType>}
      * @memberof EventItemType
      */
-    vendors?: ItemVendorsType;
+    vendors?: Array<ItemVendorType>;
 }
 
 /**
@@ -395,13 +389,13 @@ export function EventItemTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
         'actualInternalQuantity': !exists(json, 'actualInternalQuantity') ? undefined : json['actualInternalQuantity'],
         'actualQuantity': !exists(json, 'actualQuantity') ? undefined : json['actualQuantity'],
         'attributeId': !exists(json, 'attributeId') ? undefined : UniqueIDTypeFromJSON(json['attributeId']),
-        'attributes': !exists(json, 'attributes') ? undefined : ItemAttributesTypeFromJSON(json['attributes']),
-        'departments': !exists(json, 'departments') ? undefined : CodeListTypeFromJSON(json['departments']),
+        'attributes': !exists(json, 'attributes') ? undefined : ((json['attributes'] as Array<any>).map(ItemAttributeTypeFromJSON)),
+        'departments': !exists(json, 'departments') ? undefined : json['departments'],
         'discount': !exists(json, 'discount') ? undefined : json['discount'],
         'displaySequence': !exists(json, 'displaySequence') ? undefined : json['displaySequence'],
         'eventEndDate': !exists(json, 'eventEndDate') ? undefined : json['eventEndDate'],
         'eventStartDate': !exists(json, 'eventStartDate') ? undefined : json['eventStartDate'],
-        'eventTypes': !exists(json, 'eventTypes') ? undefined : CodeListTypeFromJSON(json['eventTypes']),
+        'eventTypes': !exists(json, 'eventTypes') ? undefined : json['eventTypes'],
         'externalCostPerUnit': !exists(json, 'externalCostPerUnit') ? undefined : json['externalCostPerUnit'],
         'externalOrder': !exists(json, 'externalOrder') ? undefined : json['externalOrder'],
         'externalQuantity': !exists(json, 'externalQuantity') ? undefined : json['externalQuantity'],
@@ -427,8 +421,8 @@ export function EventItemTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
         'priceCode': !exists(json, 'priceCode') ? undefined : json['priceCode'],
         'print': !exists(json, 'print') ? undefined : json['print'],
         'quantity': !exists(json, 'quantity') ? undefined : json['quantity'],
-        'rates': !exists(json, 'rates') ? undefined : ItemRatesTypeFromJSON(json['rates']),
-        'resourceNotes': !exists(json, 'resourceNotes') ? undefined : EventResourceNotesTypeFromJSON(json['resourceNotes']),
+        'rates': !exists(json, 'rates') ? undefined : ((json['rates'] as Array<any>).map(ItemRateTypeFromJSON)),
+        'resourceNotes': !exists(json, 'resourceNotes') ? undefined : ((json['resourceNotes'] as Array<any>).map(EventResourceNoteTypeFromJSON)),
         'revenueType': !exists(json, 'revenueType') ? undefined : json['revenueType'],
         'revenueTypeEditable': !exists(json, 'revenueTypeEditable') ? undefined : json['revenueTypeEditable'],
         'sellInfo': !exists(json, 'sellInfo') ? undefined : EventItemTypeSellInfoFromJSON(json['sellInfo']),
@@ -438,7 +432,7 @@ export function EventItemTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
         'usedForEvents': !exists(json, 'usedForEvents') ? undefined : json['usedForEvents'],
         'usedForReservation': !exists(json, 'usedForReservation') ? undefined : json['usedForReservation'],
         'vendorPrice': !exists(json, 'vendorPrice') ? undefined : json['vendorPrice'],
-        'vendors': !exists(json, 'vendors') ? undefined : ItemVendorsTypeFromJSON(json['vendors']),
+        'vendors': !exists(json, 'vendors') ? undefined : ((json['vendors'] as Array<any>).map(ItemVendorTypeFromJSON)),
     };
 }
 
@@ -457,13 +451,13 @@ export function EventItemTypeToJSON(value?: EventItemType | null): any {
         'actualInternalQuantity': value.actualInternalQuantity,
         'actualQuantity': value.actualQuantity,
         'attributeId': UniqueIDTypeToJSON(value.attributeId),
-        'attributes': ItemAttributesTypeToJSON(value.attributes),
-        'departments': CodeListTypeToJSON(value.departments),
+        'attributes': value.attributes === undefined ? undefined : ((value.attributes as Array<any>).map(ItemAttributeTypeToJSON)),
+        'departments': value.departments,
         'discount': value.discount,
         'displaySequence': value.displaySequence,
         'eventEndDate': value.eventEndDate,
         'eventStartDate': value.eventStartDate,
-        'eventTypes': CodeListTypeToJSON(value.eventTypes),
+        'eventTypes': value.eventTypes,
         'externalCostPerUnit': value.externalCostPerUnit,
         'externalOrder': value.externalOrder,
         'externalQuantity': value.externalQuantity,
@@ -489,8 +483,8 @@ export function EventItemTypeToJSON(value?: EventItemType | null): any {
         'priceCode': value.priceCode,
         'print': value.print,
         'quantity': value.quantity,
-        'rates': ItemRatesTypeToJSON(value.rates),
-        'resourceNotes': EventResourceNotesTypeToJSON(value.resourceNotes),
+        'rates': value.rates === undefined ? undefined : ((value.rates as Array<any>).map(ItemRateTypeToJSON)),
+        'resourceNotes': value.resourceNotes === undefined ? undefined : ((value.resourceNotes as Array<any>).map(EventResourceNoteTypeToJSON)),
         'revenueType': value.revenueType,
         'revenueTypeEditable': value.revenueTypeEditable,
         'sellInfo': EventItemTypeSellInfoToJSON(value.sellInfo),
@@ -500,7 +494,7 @@ export function EventItemTypeToJSON(value?: EventItemType | null): any {
         'usedForEvents': value.usedForEvents,
         'usedForReservation': value.usedForReservation,
         'vendorPrice': value.vendorPrice,
-        'vendors': ItemVendorsTypeToJSON(value.vendors),
+        'vendors': value.vendors === undefined ? undefined : ((value.vendors as Array<any>).map(ItemVendorTypeToJSON)),
     };
 }
 

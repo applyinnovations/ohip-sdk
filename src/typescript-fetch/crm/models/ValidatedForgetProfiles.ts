@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ForgetProfileResultListType } from './ForgetProfileResultListType';
+import type { ForgetProfileResultType } from './ForgetProfileResultType';
 import {
-    ForgetProfileResultListTypeFromJSON,
-    ForgetProfileResultListTypeFromJSONTyped,
-    ForgetProfileResultListTypeToJSON,
-} from './ForgetProfileResultListType';
-import type { Links } from './Links';
+    ForgetProfileResultTypeFromJSON,
+    ForgetProfileResultTypeFromJSONTyped,
+    ForgetProfileResultTypeToJSON,
+} from './ForgetProfileResultType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for validating profiles for forgetting.
@@ -40,22 +40,22 @@ import {
 export interface ValidatedForgetProfiles {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ValidatedForgetProfiles
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ForgetProfileResultListType}
+     * Result of processing/validation for forgetting a profile.
+     * @type {Array<ForgetProfileResultType>}
      * @memberof ValidatedForgetProfiles
      */
-    validateForgetProfilesResults?: ForgetProfileResultListType;
+    validateForgetProfilesResults?: Array<ForgetProfileResultType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ValidatedForgetProfiles
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ValidatedForgetProfilesFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'validateForgetProfilesResults': !exists(json, 'validateForgetProfilesResults') ? undefined : ForgetProfileResultListTypeFromJSON(json['validateForgetProfilesResults']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'validateForgetProfilesResults': !exists(json, 'validateForgetProfilesResults') ? undefined : ((json['validateForgetProfilesResults'] as Array<any>).map(ForgetProfileResultTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ValidatedForgetProfilesToJSON(value?: ValidatedForgetProfiles | 
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'validateForgetProfilesResults': ForgetProfileResultListTypeToJSON(value.validateForgetProfilesResults),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'validateForgetProfilesResults': value.validateForgetProfilesResults === undefined ? undefined : ((value.validateForgetProfilesResults as Array<any>).map(ForgetProfileResultTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

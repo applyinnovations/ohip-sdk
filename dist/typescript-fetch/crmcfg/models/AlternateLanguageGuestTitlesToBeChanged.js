@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AlternateLanguageGuestTitlesToBeChangedToJSON = exports.AlternateLanguageGuestTitlesToBeChangedFromJSONTyped = exports.AlternateLanguageGuestTitlesToBeChangedFromJSON = exports.instanceOfAlternateLanguageGuestTitlesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const GuestTitlesType_1 = require("./GuestTitlesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const GuestTitleType_1 = require("./GuestTitleType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AlternateLanguageGuestTitlesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function AlternateLanguageGuestTitlesToBeChangedFromJSONTyped(json, ignoreDiscri
         return json;
     }
     return {
-        'alternateLanguageGuestTitles': !(0, runtime_1.exists)(json, 'alternateLanguageGuestTitles') ? undefined : (0, GuestTitlesType_1.GuestTitlesTypeFromJSON)(json['alternateLanguageGuestTitles']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'alternateLanguageGuestTitles': !(0, runtime_1.exists)(json, 'alternateLanguageGuestTitles') ? undefined : (json['alternateLanguageGuestTitles'].map(GuestTitleType_1.GuestTitleTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AlternateLanguageGuestTitlesToBeChangedFromJSONTyped = AlternateLanguageGuestTitlesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function AlternateLanguageGuestTitlesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'alternateLanguageGuestTitles': (0, GuestTitlesType_1.GuestTitlesTypeToJSON)(value.alternateLanguageGuestTitles),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'alternateLanguageGuestTitles': value.alternateLanguageGuestTitles === undefined ? undefined : (value.alternateLanguageGuestTitles.map(GuestTitleType_1.GuestTitleTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AlternateLanguageGuestTitlesToBeChangedToJSON = AlternateLanguageGuestTitlesToBeChangedToJSON;

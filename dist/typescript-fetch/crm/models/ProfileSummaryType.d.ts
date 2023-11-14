@@ -15,13 +15,13 @@ import type { CodeDescriptionType } from './CodeDescriptionType';
 import type { CountryNameType } from './CountryNameType';
 import type { DirectBillingType } from './DirectBillingType';
 import type { EmailInfoType } from './EmailInfoType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import type { LastStayInfoType } from './LastStayInfoType';
-import type { OwnersType } from './OwnersType';
+import type { OwnerType } from './OwnerType';
 import type { PrimaryProfileInfoType } from './PrimaryProfileInfoType';
 import type { ProfileAccessType } from './ProfileAccessType';
 import type { ProfileAdditionalInfoType } from './ProfileAdditionalInfoType';
-import type { ProfileAllowedActionsType } from './ProfileAllowedActionsType';
+import type { ProfileAllowedActionType } from './ProfileAllowedActionType';
 import type { ProfileCashieringType } from './ProfileCashieringType';
 import type { ProfileMembershipType } from './ProfileMembershipType';
 import type { ProfileNameType } from './ProfileNameType';
@@ -31,7 +31,7 @@ import type { ProfileSummaryTypeFormerName } from './ProfileSummaryTypeFormerNam
 import type { ProfileTaxInfoType } from './ProfileTaxInfoType';
 import type { ProfileTypeType } from './ProfileTypeType';
 import type { SalesInfoType } from './SalesInfoType';
-import type { SearchMatchesType } from './SearchMatchesType';
+import type { SearchMatchType } from './SearchMatchType';
 import type { TelephoneInfoType } from './TelephoneInfoType';
 import type { URLInfoType } from './URLInfoType';
 import type { VIPStatusType } from './VIPStatusType';
@@ -60,11 +60,11 @@ export interface ProfileSummaryType {
      */
     addressInfo?: AddressInfoType;
     /**
-     *
-     * @type {ProfileAllowedActionsType}
+     * Allowed actions for profile operations.
+     * @type {Array<ProfileAllowedActionType>}
      * @memberof ProfileSummaryType
      */
-    allowedActions?: ProfileAllowedActionsType;
+    allowedActions?: Array<ProfileAllowedActionType>;
     /**
      *
      * @type {ProfileNameType}
@@ -144,11 +144,11 @@ export interface ProfileSummaryType {
      */
     lastStayInfo?: LastStayInfoType;
     /**
-     *
-     * @type {OwnersType}
+     * Generic type for a list of owners.
+     * @type {Array<OwnerType>}
      * @memberof ProfileSummaryType
      */
-    owners?: OwnersType;
+    owners?: Array<OwnerType>;
     /**
      *
      * @type {PrimaryProfileInfoType}
@@ -174,11 +174,11 @@ export interface ProfileSummaryType {
      */
     profileAccessType?: ProfileAccessType;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof ProfileSummaryType
      */
-    profileIndicators?: IndicatorsType;
+    profileIndicators?: Array<IndicatorType>;
     /**
      *
      * @type {ProfileMembershipType}
@@ -216,11 +216,11 @@ export interface ProfileSummaryType {
      */
     salesInfo?: SalesInfoType;
     /**
-     *
-     * @type {SearchMatchesType}
+     * List of Generic Name-Value-Pair Parameters used for super search matches.
+     * @type {Array<SearchMatchType>}
      * @memberof ProfileSummaryType
      */
-    searchMatches?: SearchMatchesType;
+    searchMatches?: Array<SearchMatchType>;
     /**
      *
      * @type {ProfileStatusType}

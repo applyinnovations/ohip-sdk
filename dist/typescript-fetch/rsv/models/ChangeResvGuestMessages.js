@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChangeResvGuestMessagesToJSON = exports.ChangeResvGuestMessagesFromJSONTyped = exports.ChangeResvGuestMessagesFromJSON = exports.instanceOfChangeResvGuestMessages = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const ResvGuestMessagesType_1 = require("./ResvGuestMessagesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const ResvGuestMessageType_1 = require("./ResvGuestMessageType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChangeResvGuestMessages interface.
  */
@@ -35,10 +35,10 @@ function ChangeResvGuestMessagesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'guestMessages': !(0, runtime_1.exists)(json, 'guestMessages') ? undefined : (0, ResvGuestMessagesType_1.ResvGuestMessagesTypeFromJSON)(json['guestMessages']),
+        'guestMessages': !(0, runtime_1.exists)(json, 'guestMessages') ? undefined : (json['guestMessages'].map(ResvGuestMessageType_1.ResvGuestMessageTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChangeResvGuestMessagesFromJSONTyped = ChangeResvGuestMessagesFromJSONTyped;
@@ -50,10 +50,10 @@ function ChangeResvGuestMessagesToJSON(value) {
         return null;
     }
     return {
-        'guestMessages': (0, ResvGuestMessagesType_1.ResvGuestMessagesTypeToJSON)(value.guestMessages),
+        'guestMessages': value.guestMessages === undefined ? undefined : (value.guestMessages.map(ResvGuestMessageType_1.ResvGuestMessageTypeToJSON)),
         'hotelId': value.hotelId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChangeResvGuestMessagesToJSON = ChangeResvGuestMessagesToJSON;

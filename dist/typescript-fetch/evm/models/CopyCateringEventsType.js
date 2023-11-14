@@ -18,8 +18,6 @@ const runtime_1 = require("../runtime");
 const BlockId_1 = require("./BlockId");
 const CateringEventCopyInstructionType_1 = require("./CateringEventCopyInstructionType");
 const CopyStatusModeType_1 = require("./CopyStatusModeType");
-const DatesType_1 = require("./DatesType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CopyCateringEventsType interface.
@@ -42,9 +40,9 @@ function CopyCateringEventsTypeFromJSONTyped(json, ignoreDiscriminator) {
         'copyAsSnapshot': !(0, runtime_1.exists)(json, 'copyAsSnapshot') ? undefined : json['copyAsSnapshot'],
         'copyInstructions': !(0, runtime_1.exists)(json, 'copyInstructions') ? undefined : (json['copyInstructions'].map(CateringEventCopyInstructionType_1.CateringEventCopyInstructionTypeFromJSON)),
         'copyStatusMode': !(0, runtime_1.exists)(json, 'copyStatusMode') ? undefined : (0, CopyStatusModeType_1.CopyStatusModeTypeFromJSON)(json['copyStatusMode']),
-        'copyToDates': !(0, runtime_1.exists)(json, 'copyToDates') ? undefined : (0, DatesType_1.DatesTypeFromJSON)(json['copyToDates']),
+        'copyToDates': !(0, runtime_1.exists)(json, 'copyToDates') ? undefined : json['copyToDates'],
         'copyToPackageId': !(0, runtime_1.exists)(json, 'copyToPackageId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['copyToPackageId']),
-        'eventIdList': !(0, runtime_1.exists)(json, 'eventIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['eventIdList']),
+        'eventIdList': !(0, runtime_1.exists)(json, 'eventIdList') ? undefined : (json['eventIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
     };
 }
@@ -61,9 +59,9 @@ function CopyCateringEventsTypeToJSON(value) {
         'copyAsSnapshot': value.copyAsSnapshot,
         'copyInstructions': value.copyInstructions === undefined ? undefined : (value.copyInstructions.map(CateringEventCopyInstructionType_1.CateringEventCopyInstructionTypeToJSON)),
         'copyStatusMode': (0, CopyStatusModeType_1.CopyStatusModeTypeToJSON)(value.copyStatusMode),
-        'copyToDates': (0, DatesType_1.DatesTypeToJSON)(value.copyToDates),
+        'copyToDates': value.copyToDates,
         'copyToPackageId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.copyToPackageId),
-        'eventIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.eventIdList),
+        'eventIdList': value.eventIdList === undefined ? undefined : (value.eventIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'hotelId': value.hotelId,
     };
 }

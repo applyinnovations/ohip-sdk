@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RoomRotationAdjustmentReasonsType } from './RoomRotationAdjustmentReasonsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RoomRotationAdjustmentReasonType } from './RoomRotationAdjustmentReasonType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Room Rotation Adjustment Reasons.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ChangeAdjustmentReasonsDetails {
     /**
-     *
-     * @type {RoomRotationAdjustmentReasonsType}
+     * Room Rotation Adjustment Reason Enumeration element.
+     * @type {Array<RoomRotationAdjustmentReasonType>}
      * @memberof ChangeAdjustmentReasonsDetails
      */
-    adjustmentReasons?: RoomRotationAdjustmentReasonsType;
+    adjustmentReasons?: Array<RoomRotationAdjustmentReasonType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangeAdjustmentReasonsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeAdjustmentReasonsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChangeAdjustmentReasonsDetails interface.

@@ -37,12 +37,12 @@ import {
     PersonNameTypeFromJSONTyped,
     PersonNameTypeToJSON,
 } from './PersonNameType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Represents a single instance of a scheduled activity.
@@ -51,11 +51,11 @@ import {
  */
 export interface ActivityListInner {
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ActivityListInner
      */
-    activityIds?: UniqueIDListType;
+    activityIds?: Array<UniqueIDType>;
     /**
      * 
      * @type {CurrencyAmountType}
@@ -185,7 +185,7 @@ export function ActivityListInnerFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'activityIds': !exists(json, 'activityIds') ? undefined : UniqueIDListTypeFromJSON(json['activityIds']),
+        'activityIds': !exists(json, 'activityIds') ? undefined : ((json['activityIds'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'amount': !exists(json, 'amount') ? undefined : CurrencyAmountTypeFromJSON(json['amount']),
         'deposit': !exists(json, 'deposit') ? undefined : ActivityListInnerDepositFromJSON(json['deposit']),
         'description': !exists(json, 'description') ? undefined : json['description'],
@@ -216,7 +216,7 @@ export function ActivityListInnerToJSON(value?: ActivityListInner | null): any {
     }
     return {
         
-        'activityIds': UniqueIDListTypeToJSON(value.activityIds),
+        'activityIds': value.activityIds === undefined ? undefined : ((value.activityIds as Array<any>).map(UniqueIDTypeToJSON)),
         'amount': CurrencyAmountTypeToJSON(value.amount),
         'deposit': ActivityListInnerDepositToJSON(value.deposit),
         'description': value.description,

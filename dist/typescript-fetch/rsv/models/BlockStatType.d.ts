@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockIdList } from './BlockIdList';
-import type { RoomPoolStatsType } from './RoomPoolStatsType';
+import type { RoomPoolStatType } from './RoomPoolStatType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Statistics of one block.
  * @export
@@ -18,17 +18,17 @@ import type { RoomPoolStatsType } from './RoomPoolStatsType';
  */
 export interface BlockStatType {
     /**
-     *
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof BlockStatType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
-     *
-     * @type {RoomPoolStatsType}
+     * Statistics of one room pool.
+     * @type {Array<RoomPoolStatType>}
      * @memberof BlockStatType
      */
-    roomPoolStats?: RoomPoolStatsType;
+    roomPoolStats?: Array<RoomPoolStatType>;
 }
 /**
  * Check if a given object implements the BlockStatType interface.

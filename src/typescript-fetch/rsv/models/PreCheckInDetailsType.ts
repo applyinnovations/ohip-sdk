@@ -19,12 +19,12 @@ import {
     ReservationArrivalInfoTypeFromJSONTyped,
     ReservationArrivalInfoTypeToJSON,
 } from './ReservationArrivalInfoType';
-import type { ReservationPaymentMethodsType } from './ReservationPaymentMethodsType';
+import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
 import {
-    ReservationPaymentMethodsTypeFromJSON,
-    ReservationPaymentMethodsTypeFromJSONTyped,
-    ReservationPaymentMethodsTypeToJSON,
-} from './ReservationPaymentMethodsType';
+    ReservationPaymentMethodTypeFromJSON,
+    ReservationPaymentMethodTypeFromJSONTyped,
+    ReservationPaymentMethodTypeToJSON,
+} from './ReservationPaymentMethodType';
 import type { TransportInfoType } from './TransportInfoType';
 import {
     TransportInfoTypeFromJSON,
@@ -63,11 +63,11 @@ export interface PreCheckInDetailsType {
      */
     guestPreferredCurrency?: string;
     /**
-     * 
-     * @type {ReservationPaymentMethodsType}
+     * Defines reservation payment methods.
+     * @type {Array<ReservationPaymentMethodType>}
      * @memberof PreCheckInDetailsType
      */
-    reservationPaymentMethods?: ReservationPaymentMethodsType;
+    reservationPaymentMethods?: Array<ReservationPaymentMethodType>;
     /**
      * Room Number to be assigned to the reservation.
      * @type {string}
@@ -99,7 +99,7 @@ export function PreCheckInDetailsTypeFromJSONTyped(json: any, ignoreDiscriminato
         'arrival': !exists(json, 'arrival') ? undefined : ReservationArrivalInfoTypeFromJSON(json['arrival']),
         'arrivalTransport': !exists(json, 'arrivalTransport') ? undefined : TransportInfoTypeFromJSON(json['arrivalTransport']),
         'guestPreferredCurrency': !exists(json, 'guestPreferredCurrency') ? undefined : json['guestPreferredCurrency'],
-        'reservationPaymentMethods': !exists(json, 'reservationPaymentMethods') ? undefined : ReservationPaymentMethodsTypeFromJSON(json['reservationPaymentMethods']),
+        'reservationPaymentMethods': !exists(json, 'reservationPaymentMethods') ? undefined : ((json['reservationPaymentMethods'] as Array<any>).map(ReservationPaymentMethodTypeFromJSON)),
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
     };
 }
@@ -117,7 +117,7 @@ export function PreCheckInDetailsTypeToJSON(value?: PreCheckInDetailsType | null
         'arrival': ReservationArrivalInfoTypeToJSON(value.arrival),
         'arrivalTransport': TransportInfoTypeToJSON(value.arrivalTransport),
         'guestPreferredCurrency': value.guestPreferredCurrency,
-        'reservationPaymentMethods': ReservationPaymentMethodsTypeToJSON(value.reservationPaymentMethods),
+        'reservationPaymentMethods': value.reservationPaymentMethods === undefined ? undefined : ((value.reservationPaymentMethods as Array<any>).map(ReservationPaymentMethodTypeToJSON)),
         'roomId': value.roomId,
     };
 }

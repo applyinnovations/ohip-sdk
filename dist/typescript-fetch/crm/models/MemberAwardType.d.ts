@@ -9,11 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { MemberAwardDetailsType } from './MemberAwardDetailsType';
+import type { MemberAwardDetailType } from './MemberAwardDetailType';
 import type { MemberAwardProcessType } from './MemberAwardProcessType';
-import type { ProfileIdList } from './ProfileIdList';
-import type { ReservationIdList } from './ReservationIdList';
 import type { TimeSpanType } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -63,11 +62,11 @@ export interface MemberAwardType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {MemberAwardDetailsType}
+     * Details related to member award per stay date.
+     * @type {Array<MemberAwardDetailType>}
      * @memberof MemberAwardType
      */
-    memberAwardDetails?: MemberAwardDetailsType;
+    memberAwardDetails?: Array<MemberAwardDetailType>;
     /**
      * Member points after award transaction.
      * @type {number}
@@ -99,17 +98,17 @@ export interface MemberAwardType {
      */
     membershipType?: string;
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MemberAwardType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MemberAwardType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {TimeSpanType}

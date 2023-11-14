@@ -22,9 +22,9 @@ import type { CompanyProfileTypeTelephones } from './CompanyProfileTypeTelephone
 import type { CompanyProfileTypeType } from './CompanyProfileTypeType';
 import type { CompanyProfileTypeURLs } from './CompanyProfileTypeURLs';
 import type { CompanyType } from './CompanyType';
-import type { ECertificatesType } from './ECertificatesType';
+import type { ECertificateType } from './ECertificateType';
 import type { ImageSetType } from './ImageSetType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import type { LastStayInfoType } from './LastStayInfoType';
 import type { MailingActionsType } from './MailingActionsType';
 import type { PrivacyInfoType } from './PrivacyInfoType';
@@ -33,11 +33,11 @@ import type { ProfileCashieringType } from './ProfileCashieringType';
 import type { ProfileCommissionType } from './ProfileCommissionType';
 import type { ProfileRestrictions } from './ProfileRestrictions';
 import type { ProfileStatusType } from './ProfileStatusType';
-import type { ProfileSubscriptionListType } from './ProfileSubscriptionListType';
+import type { ProfileSubscriptionType } from './ProfileSubscriptionType';
 import type { ProfileTaxInfoType } from './ProfileTaxInfoType';
 import type { SalesInfoType } from './SalesInfoType';
 import type { UserDefinedFieldsType } from './UserDefinedFieldsType';
-import type { WebUserAccountsType } from './WebUserAccountsType';
+import type { WebUserAccountType } from './WebUserAccountType';
 /**
  * Type provides the detailed information about the profile and its children.
  * @export
@@ -93,11 +93,11 @@ export interface CompanyProfileType {
      */
     creatorId?: string;
     /**
-     *
-     * @type {ECertificatesType}
+     * List of e-certificates for the profile.
+     * @type {Array<ECertificateType>}
      * @memberof CompanyProfileType
      */
-    eCertificates?: ECertificatesType;
+    eCertificates?: Array<ECertificateType>;
     /**
      * Eligible for Fiscal Folio/Payload generation.
      * @type {string}
@@ -219,11 +219,11 @@ export interface CompanyProfileType {
      */
     profileImage?: ImageSetType;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof CompanyProfileType
      */
-    profileIndicators?: IndicatorsType;
+    profileIndicators?: Array<IndicatorType>;
     /**
      *
      * @type {CompanyProfileTypeProfileMemberships}
@@ -279,11 +279,11 @@ export interface CompanyProfileType {
      */
     statusCode?: ProfileStatusType;
     /**
-     *
-     * @type {ProfileSubscriptionListType}
+     * Details of the OPERA Profile subscription to external system
+     * @type {Array<ProfileSubscriptionType>}
      * @memberof CompanyProfileType
      */
-    subscriptions?: ProfileSubscriptionListType;
+    subscriptions?: Array<ProfileSubscriptionType>;
     /**
      *
      * @type {ProfileTaxInfoType}
@@ -321,11 +321,11 @@ export interface CompanyProfileType {
      */
     userDefinedFields?: UserDefinedFieldsType;
     /**
-     *
-     * @type {WebUserAccountsType}
+     * Web User Accounts List.
+     * @type {Array<WebUserAccountType>}
      * @memberof CompanyProfileType
      */
-    webUserAccounts?: WebUserAccountsType;
+    webUserAccounts?: Array<WebUserAccountType>;
 }
 /**
  * Check if a given object implements the CompanyProfileType interface.

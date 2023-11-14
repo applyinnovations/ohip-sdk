@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TransactionDiversionsToJSON = exports.TransactionDiversionsFromJSONTyped = exports.TransactionDiversionsFromJSON = exports.instanceOfTransactionDiversions = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const ReservationTransactionDiversionsType_1 = require("./ReservationTransactionDiversionsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const ReservationTransactionDiversionType_1 = require("./ReservationTransactionDiversionType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TransactionDiversions interface.
  */
@@ -35,9 +35,9 @@ function TransactionDiversionsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'transactionDiversions': !(0, runtime_1.exists)(json, 'transactionDiversions') ? undefined : (0, ReservationTransactionDiversionsType_1.ReservationTransactionDiversionsTypeFromJSON)(json['transactionDiversions']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'transactionDiversions': !(0, runtime_1.exists)(json, 'transactionDiversions') ? undefined : (json['transactionDiversions'].map(ReservationTransactionDiversionType_1.ReservationTransactionDiversionTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TransactionDiversionsFromJSONTyped = TransactionDiversionsFromJSONTyped;
@@ -49,9 +49,9 @@ function TransactionDiversionsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'transactionDiversions': (0, ReservationTransactionDiversionsType_1.ReservationTransactionDiversionsTypeToJSON)(value.transactionDiversions),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'transactionDiversions': value.transactionDiversions === undefined ? undefined : (value.transactionDiversions.map(ReservationTransactionDiversionType_1.ReservationTransactionDiversionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TransactionDiversionsToJSON = TransactionDiversionsToJSON;

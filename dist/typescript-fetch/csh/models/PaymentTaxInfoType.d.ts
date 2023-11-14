@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { PaymentTaxesType } from './PaymentTaxesType';
+import type { PaymentTaxType } from './PaymentTaxType';
 import type { ReservationId } from './ReservationId';
 /**
  * Type for Package Tax Information for Thailand Tax functionality.
@@ -30,11 +30,11 @@ export interface PaymentTaxInfoType {
      */
     reservationId?: ReservationId;
     /**
-     *
-     * @type {PaymentTaxesType}
+     * Payment Tax record.
+     * @type {Array<PaymentTaxType>}
      * @memberof PaymentTaxInfoType
      */
-    taxes?: PaymentTaxesType;
+    taxes?: Array<PaymentTaxType>;
 }
 /**
  * Check if a given object implements the PaymentTaxInfoType interface.

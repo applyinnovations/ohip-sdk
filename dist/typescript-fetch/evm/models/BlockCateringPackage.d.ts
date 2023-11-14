@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { BlockCateringPackageType } from './BlockCateringPackageType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for adding Catering Package/Template Events to block .
  * @export
@@ -26,10 +26,10 @@ export interface BlockCateringPackage {
     criteria?: BlockCateringPackageType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockCateringPackage
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Indicates what number of retry attempt this request represents. If this is the original request, RetryCount should be set to 0.
      * @type {number}
@@ -37,11 +37,11 @@ export interface BlockCateringPackage {
      */
     requestCount?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockCateringPackage
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockCateringPackage interface.

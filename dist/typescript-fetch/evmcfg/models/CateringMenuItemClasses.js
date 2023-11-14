@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringMenuItemClassesToJSON = exports.CateringMenuItemClassesFromJSONTyped = exports.CateringMenuItemClassesFromJSON = exports.instanceOfCateringMenuItemClasses = void 0;
 const runtime_1 = require("../runtime");
-const CateringMenuItemClassListType_1 = require("./CateringMenuItemClassListType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CateringMenuItemClassType_1 = require("./CateringMenuItemClassType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CateringMenuItemClasses interface.
  */
@@ -35,9 +35,9 @@ function CateringMenuItemClassesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'menuItemClasses': !(0, runtime_1.exists)(json, 'menuItemClasses') ? undefined : (0, CateringMenuItemClassListType_1.CateringMenuItemClassListTypeFromJSON)(json['menuItemClasses']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'menuItemClasses': !(0, runtime_1.exists)(json, 'menuItemClasses') ? undefined : (json['menuItemClasses'].map(CateringMenuItemClassType_1.CateringMenuItemClassTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CateringMenuItemClassesFromJSONTyped = CateringMenuItemClassesFromJSONTyped;
@@ -49,9 +49,9 @@ function CateringMenuItemClassesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'menuItemClasses': (0, CateringMenuItemClassListType_1.CateringMenuItemClassListTypeToJSON)(value.menuItemClasses),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'menuItemClasses': value.menuItemClasses === undefined ? undefined : (value.menuItemClasses.map(CateringMenuItemClassType_1.CateringMenuItemClassTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CateringMenuItemClassesToJSON = CateringMenuItemClassesToJSON;

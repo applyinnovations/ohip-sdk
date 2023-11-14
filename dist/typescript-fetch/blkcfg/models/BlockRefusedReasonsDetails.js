@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockRefusedReasonsDetailsToJSON = exports.BlockRefusedReasonsDetailsFromJSONTyped = exports.BlockRefusedReasonsDetailsFromJSON = exports.instanceOfBlockRefusedReasonsDetails = void 0;
 const runtime_1 = require("../runtime");
-const BlockRefusedReasonsType_1 = require("./BlockRefusedReasonsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const BlockRefusedReasonType_1 = require("./BlockRefusedReasonType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BlockRefusedReasonsDetails interface.
  */
@@ -35,9 +35,9 @@ function BlockRefusedReasonsDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blockRefusedReasons': !(0, runtime_1.exists)(json, 'blockRefusedReasons') ? undefined : (0, BlockRefusedReasonsType_1.BlockRefusedReasonsTypeFromJSON)(json['blockRefusedReasons']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'blockRefusedReasons': !(0, runtime_1.exists)(json, 'blockRefusedReasons') ? undefined : (json['blockRefusedReasons'].map(BlockRefusedReasonType_1.BlockRefusedReasonTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BlockRefusedReasonsDetailsFromJSONTyped = BlockRefusedReasonsDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function BlockRefusedReasonsDetailsToJSON(value) {
         return null;
     }
     return {
-        'blockRefusedReasons': (0, BlockRefusedReasonsType_1.BlockRefusedReasonsTypeToJSON)(value.blockRefusedReasons),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'blockRefusedReasons': value.blockRefusedReasons === undefined ? undefined : (value.blockRefusedReasons.map(BlockRefusedReasonType_1.BlockRefusedReasonTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BlockRefusedReasonsDetailsToJSON = BlockRefusedReasonsDetailsToJSON;

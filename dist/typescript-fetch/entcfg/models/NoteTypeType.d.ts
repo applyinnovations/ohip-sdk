@@ -9,9 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
-import type { DefaultNoteTextsDetailType } from './DefaultNoteTextsDetailType';
-import type { GenericHotelCodeCodeListType } from './GenericHotelCodeCodeListType';
+import type { DefaultNoteTextDetailType } from './DefaultNoteTextDetailType';
+import type { GenericHotelCodeCodeType } from './GenericHotelCodeCodeType';
 /**
  * Note Types Information Type.
  * @export
@@ -49,11 +48,11 @@ export interface NoteTypeType {
      */
     departmentNotes?: boolean;
     /**
-     *
-     * @type {GenericHotelCodeCodeListType}
+     * List of HotelCode and Code combinations.
+     * @type {Array<GenericHotelCodeCodeType>}
      * @memberof NoteTypeType
      */
-    departments?: GenericHotelCodeCodeListType;
+    departments?: Array<GenericHotelCodeCodeType>;
     /**
      * Description of the Note Types Code.
      * @type {string}
@@ -92,10 +91,10 @@ export interface NoteTypeType {
     noteGroup?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof NoteTypeType
      */
-    notificationAreas?: CodeListType;
+    notificationAreas?: Array<string>;
     /**
      * Indicates if the Note Types Code is override internal.
      * @type {boolean}
@@ -103,11 +102,11 @@ export interface NoteTypeType {
      */
     overrideInternal?: boolean;
     /**
-     *
-     * @type {DefaultNoteTextsDetailType}
+     * Collection of individual Default Note Text details.
+     * @type {Array<DefaultNoteTextDetailType>}
      * @memberof NoteTypeType
      */
-    propertyDefaultNoteTexts?: DefaultNoteTextsDetailType;
+    propertyDefaultNoteTexts?: Array<DefaultNoteTextDetailType>;
 }
 /**
  * Check if a given object implements the NoteTypeType interface.

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ResvGuestMessagesType } from './ResvGuestMessagesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ResvGuestMessageType } from './ResvGuestMessageType';
 import {
-    ResvGuestMessagesTypeFromJSON,
-    ResvGuestMessagesTypeFromJSONTyped,
-    ResvGuestMessagesTypeToJSON,
-} from './ResvGuestMessagesType';
-import type { WarningsType } from './WarningsType';
+    ResvGuestMessageTypeFromJSON,
+    ResvGuestMessageTypeFromJSONTyped,
+    ResvGuestMessageTypeToJSON,
+} from './ResvGuestMessageType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object to the request to create Guest Messages for a Reservation.
@@ -39,23 +39,23 @@ import {
  */
 export interface GuestMessagesDetails {
     /**
-     * 
-     * @type {ResvGuestMessagesType}
+     * Holds the Message Information
+     * @type {Array<ResvGuestMessageType>}
      * @memberof GuestMessagesDetails
      */
-    guestMessages?: ResvGuestMessagesType;
+    guestMessages?: Array<ResvGuestMessageType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuestMessagesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuestMessagesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function GuestMessagesDetailsFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'guestMessages': !exists(json, 'guestMessages') ? undefined : ResvGuestMessagesTypeFromJSON(json['guestMessages']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'guestMessages': !exists(json, 'guestMessages') ? undefined : ((json['guestMessages'] as Array<any>).map(ResvGuestMessageTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function GuestMessagesDetailsToJSON(value?: GuestMessagesDetails | null):
     }
     return {
         
-        'guestMessages': ResvGuestMessagesTypeToJSON(value.guestMessages),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'guestMessages': value.guestMessages === undefined ? undefined : ((value.guestMessages as Array<any>).map(ResvGuestMessageTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

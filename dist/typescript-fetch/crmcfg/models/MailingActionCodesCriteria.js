@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MailingActionCodesCriteriaToJSON = exports.MailingActionCodesCriteriaFromJSONTyped = exports.MailingActionCodesCriteriaFromJSON = exports.instanceOfMailingActionCodesCriteria = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const MailingActionCodesType_1 = require("./MailingActionCodesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const MailingActionCodeType_1 = require("./MailingActionCodeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MailingActionCodesCriteria interface.
  */
@@ -35,9 +35,9 @@ function MailingActionCodesCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'mailingActionCodes': !(0, runtime_1.exists)(json, 'mailingActionCodes') ? undefined : (0, MailingActionCodesType_1.MailingActionCodesTypeFromJSON)(json['mailingActionCodes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'mailingActionCodes': !(0, runtime_1.exists)(json, 'mailingActionCodes') ? undefined : (json['mailingActionCodes'].map(MailingActionCodeType_1.MailingActionCodeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MailingActionCodesCriteriaFromJSONTyped = MailingActionCodesCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function MailingActionCodesCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'mailingActionCodes': (0, MailingActionCodesType_1.MailingActionCodesTypeToJSON)(value.mailingActionCodes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'mailingActionCodes': value.mailingActionCodes === undefined ? undefined : (value.mailingActionCodes.map(MailingActionCodeType_1.MailingActionCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MailingActionCodesCriteriaToJSON = MailingActionCodesCriteriaToJSON;

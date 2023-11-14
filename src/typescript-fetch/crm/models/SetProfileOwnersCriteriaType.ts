@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { OwnersType } from './OwnersType';
+import type { OwnerType } from './OwnerType';
 import {
-    OwnersTypeFromJSON,
-    OwnersTypeFromJSONTyped,
-    OwnersTypeToJSON,
-} from './OwnersType';
-import type { ProfileIdList } from './ProfileIdList';
+    OwnerTypeFromJSON,
+    OwnerTypeFromJSONTyped,
+    OwnerTypeToJSON,
+} from './OwnerType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Criteria to update the profile owners.
@@ -33,17 +33,17 @@ import {
  */
 export interface SetProfileOwnersCriteriaType {
     /**
-     * 
-     * @type {OwnersType}
+     * Generic type for a list of owners.
+     * @type {Array<OwnerType>}
      * @memberof SetProfileOwnersCriteriaType
      */
-    owners?: OwnersType;
+    owners?: Array<OwnerType>;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof SetProfileOwnersCriteriaType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function SetProfileOwnersCriteriaTypeFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'owners': !exists(json, 'owners') ? undefined : OwnersTypeFromJSON(json['owners']),
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
+        'owners': !exists(json, 'owners') ? undefined : ((json['owners'] as Array<any>).map(OwnerTypeFromJSON)),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function SetProfileOwnersCriteriaTypeToJSON(value?: SetProfileOwnersCrite
     }
     return {
         
-        'owners': OwnersTypeToJSON(value.owners),
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
+        'owners': value.owners === undefined ? undefined : ((value.owners as Array<any>).map(OwnerTypeToJSON)),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

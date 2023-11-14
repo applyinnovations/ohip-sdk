@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CompAuthorizersType } from './CompAuthorizersType';
+import type { CompAuthorizerType } from './CompAuthorizerType';
 import {
-    CompAuthorizersTypeFromJSON,
-    CompAuthorizersTypeFromJSONTyped,
-    CompAuthorizersTypeToJSON,
-} from './CompAuthorizersType';
-import type { Links } from './Links';
+    CompAuthorizerTypeFromJSON,
+    CompAuthorizerTypeFromJSONTyped,
+    CompAuthorizerTypeToJSON,
+} from './CompAuthorizerType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface CompAuthorizers {
     /**
-     * 
-     * @type {CompAuthorizersType}
+     * Information associated for an authorizer.
+     * @type {Array<CompAuthorizerType>}
      * @memberof CompAuthorizers
      */
-    compAuthorizerInfo?: CompAuthorizersType;
+    compAuthorizerInfo?: Array<CompAuthorizerType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CompAuthorizers
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CompAuthorizers
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CompAuthorizersFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'compAuthorizerInfo': !exists(json, 'compAuthorizerInfo') ? undefined : CompAuthorizersTypeFromJSON(json['compAuthorizerInfo']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'compAuthorizerInfo': !exists(json, 'compAuthorizerInfo') ? undefined : ((json['compAuthorizerInfo'] as Array<any>).map(CompAuthorizerTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CompAuthorizersToJSON(value?: CompAuthorizers | null): any {
     }
     return {
         
-        'compAuthorizerInfo': CompAuthorizersTypeToJSON(value.compAuthorizerInfo),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'compAuthorizerInfo': value.compAuthorizerInfo === undefined ? undefined : ((value.compAuthorizerInfo as Array<any>).map(CompAuthorizerTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

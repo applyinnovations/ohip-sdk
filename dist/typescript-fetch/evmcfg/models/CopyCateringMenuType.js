@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyCateringMenuTypeToJSON = exports.CopyCateringMenuTypeFromJSONTyped = exports.CopyCateringMenuTypeFromJSON = exports.instanceOfCopyCateringMenuType = void 0;
 const runtime_1 = require("../runtime");
-const CateringMenuClassListType_1 = require("./CateringMenuClassListType");
+const CateringMenuClassType_1 = require("./CateringMenuClassType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CopyCateringMenuType interface.
@@ -35,7 +35,7 @@ function CopyCateringMenuTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'menuClassList': !(0, runtime_1.exists)(json, 'menuClassList') ? undefined : (0, CateringMenuClassListType_1.CateringMenuClassListTypeFromJSON)(json['menuClassList']),
+        'menuClassList': !(0, runtime_1.exists)(json, 'menuClassList') ? undefined : (json['menuClassList'].map(CateringMenuClassType_1.CateringMenuClassTypeFromJSON)),
         'menuId': !(0, runtime_1.exists)(json, 'menuId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['menuId']),
     };
 }
@@ -49,7 +49,7 @@ function CopyCateringMenuTypeToJSON(value) {
     }
     return {
         'hotelId': value.hotelId,
-        'menuClassList': (0, CateringMenuClassListType_1.CateringMenuClassListTypeToJSON)(value.menuClassList),
+        'menuClassList': value.menuClassList === undefined ? undefined : (value.menuClassList.map(CateringMenuClassType_1.CateringMenuClassTypeToJSON)),
         'menuId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.menuId),
     };
 }

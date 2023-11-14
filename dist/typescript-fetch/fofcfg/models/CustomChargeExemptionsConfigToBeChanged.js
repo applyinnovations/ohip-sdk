@@ -15,8 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomChargeExemptionsConfigToBeChangedToJSON = exports.CustomChargeExemptionsConfigToBeChangedFromJSONTyped = exports.CustomChargeExemptionsConfigToBeChangedFromJSON = exports.instanceOfCustomChargeExemptionsConfigToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const CustomChargeExemptionsConfigType_1 = require("./CustomChargeExemptionsConfigType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CustomChargeExemptionsConfigToBeChanged interface.
  */
@@ -34,8 +33,8 @@ function CustomChargeExemptionsConfigToBeChangedFromJSONTyped(json, ignoreDiscri
         return json;
     }
     return {
-        'customChargeExemptionsConfig': !(0, runtime_1.exists)(json, 'customChargeExemptionsConfig') ? undefined : (json['customChargeExemptionsConfig'].map(CustomChargeExemptionsConfigType_1.CustomChargeExemptionsConfigTypeFromJSON)),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'customChargeExemptionsConfig': !(0, runtime_1.exists)(json, 'customChargeExemptionsConfig') ? undefined : json['customChargeExemptionsConfig'],
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CustomChargeExemptionsConfigToBeChangedFromJSONTyped = CustomChargeExemptionsConfigToBeChangedFromJSONTyped;
@@ -47,8 +46,8 @@ function CustomChargeExemptionsConfigToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'customChargeExemptionsConfig': value.customChargeExemptionsConfig === undefined ? undefined : (value.customChargeExemptionsConfig.map(CustomChargeExemptionsConfigType_1.CustomChargeExemptionsConfigTypeToJSON)),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'customChargeExemptionsConfig': value.customChargeExemptionsConfig,
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CustomChargeExemptionsConfigToBeChangedToJSON = CustomChargeExemptionsConfigToBeChangedToJSON;

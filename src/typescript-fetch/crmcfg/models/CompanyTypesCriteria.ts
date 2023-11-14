@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CompanyTypesType } from './CompanyTypesType';
+import type { CompanyTypeType } from './CompanyTypeType';
 import {
-    CompanyTypesTypeFromJSON,
-    CompanyTypesTypeFromJSONTyped,
-    CompanyTypesTypeToJSON,
-} from './CompanyTypesType';
-import type { Links } from './Links';
+    CompanyTypeTypeFromJSON,
+    CompanyTypeTypeFromJSONTyped,
+    CompanyTypeTypeToJSON,
+} from './CompanyTypeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Company Types.
@@ -39,23 +39,23 @@ import {
  */
 export interface CompanyTypesCriteria {
     /**
-     * 
-     * @type {CompanyTypesType}
+     * List of Company Types.
+     * @type {Array<CompanyTypeType>}
      * @memberof CompanyTypesCriteria
      */
-    companyTypes?: CompanyTypesType;
+    companyTypes?: Array<CompanyTypeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CompanyTypesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CompanyTypesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CompanyTypesCriteriaFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'companyTypes': !exists(json, 'companyTypes') ? undefined : CompanyTypesTypeFromJSON(json['companyTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'companyTypes': !exists(json, 'companyTypes') ? undefined : ((json['companyTypes'] as Array<any>).map(CompanyTypeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CompanyTypesCriteriaToJSON(value?: CompanyTypesCriteria | null):
     }
     return {
         
-        'companyTypes': CompanyTypesTypeToJSON(value.companyTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'companyTypes': value.companyTypes === undefined ? undefined : ((value.companyTypes as Array<any>).map(CompanyTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

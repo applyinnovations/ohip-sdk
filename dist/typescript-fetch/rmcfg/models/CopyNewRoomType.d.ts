@@ -9,9 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { HousekeepingCreditsType } from './HousekeepingCreditsType';
-import type { RoomFeaturesType } from './RoomFeaturesType';
+import type { RoomFeatureType } from './RoomFeatureType';
 import type { RoomSectionType } from './RoomSectionType';
 /**
  * Room details that may differ from the base existing room. If any of Floor, RoomFeatures, HousekeepingCredits and RoomSection types is not passed together with this type, it means that it is expected to be empty for the new room; otherwise, they will have the value of the base existing room. Connecting rooms attached to the base existing room will not be created for the new room.
@@ -21,10 +20,10 @@ import type { RoomSectionType } from './RoomSectionType';
 export interface CopyNewRoomType {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyNewRoomType
      */
-    floors?: CodeListType;
+    floors?: Array<string>;
     /**
      * Housekeeping credits of the room. This may include stayover, departure, pickup and turndown credits.
      * @type {Array<HousekeepingCreditsType>}
@@ -32,11 +31,11 @@ export interface CopyNewRoomType {
      */
     housekeepingCredits?: Array<HousekeepingCreditsType>;
     /**
-     *
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof CopyNewRoomType
      */
-    roomFeatures?: RoomFeaturesType;
+    roomFeatures?: Array<RoomFeatureType>;
     /**
      * Room number of the new room to be created.
      * @type {string}

@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AutoTraceDefinitionListType } from './AutoTraceDefinitionListType';
+import type { AutoTraceDefinitionType } from './AutoTraceDefinitionType';
 import {
-    AutoTraceDefinitionListTypeFromJSON,
-    AutoTraceDefinitionListTypeFromJSONTyped,
-    AutoTraceDefinitionListTypeToJSON,
-} from './AutoTraceDefinitionListType';
-import type { WarningsType } from './WarningsType';
+    AutoTraceDefinitionTypeFromJSON,
+    AutoTraceDefinitionTypeFromJSONTyped,
+    AutoTraceDefinitionTypeToJSON,
+} from './AutoTraceDefinitionType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating/changing Auto Trace Definitions.
@@ -33,17 +33,17 @@ import {
  */
 export interface AutoTraceDefinitionsInfo {
     /**
-     * 
-     * @type {AutoTraceDefinitionListType}
+     * Auto Trace Definition.
+     * @type {Array<AutoTraceDefinitionType>}
      * @memberof AutoTraceDefinitionsInfo
      */
-    autoTraceDefinitions?: AutoTraceDefinitionListType;
+    autoTraceDefinitions?: Array<AutoTraceDefinitionType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoTraceDefinitionsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function AutoTraceDefinitionsInfoFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'autoTraceDefinitions': !exists(json, 'autoTraceDefinitions') ? undefined : AutoTraceDefinitionListTypeFromJSON(json['autoTraceDefinitions']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'autoTraceDefinitions': !exists(json, 'autoTraceDefinitions') ? undefined : ((json['autoTraceDefinitions'] as Array<any>).map(AutoTraceDefinitionTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function AutoTraceDefinitionsInfoToJSON(value?: AutoTraceDefinitionsInfo 
     }
     return {
         
-        'autoTraceDefinitions': AutoTraceDefinitionListTypeToJSON(value.autoTraceDefinitions),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'autoTraceDefinitions': value.autoTraceDefinitions === undefined ? undefined : ((value.autoTraceDefinitions as Array<any>).map(AutoTraceDefinitionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

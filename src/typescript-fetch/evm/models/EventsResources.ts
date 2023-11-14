@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { EventsResourcesListType } from './EventsResourcesListType';
+import type { EventInfoType } from './EventInfoType';
 import {
-    EventsResourcesListTypeFromJSON,
-    EventsResourcesListTypeFromJSONTyped,
-    EventsResourcesListTypeToJSON,
-} from './EventsResourcesListType';
-import type { Links } from './Links';
+    EventInfoTypeFromJSON,
+    EventInfoTypeFromJSONTyped,
+    EventInfoTypeToJSON,
+} from './EventInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching event resources.
@@ -39,23 +39,23 @@ import {
  */
 export interface EventsResources {
     /**
-     * 
-     * @type {EventsResourcesListType}
+     * Event resource information.
+     * @type {Array<EventInfoType>}
      * @memberof EventsResources
      */
-    eventsResourcesList?: EventsResourcesListType;
+    eventsResourcesList?: Array<EventInfoType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EventsResources
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EventsResources
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function EventsResourcesFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'eventsResourcesList': !exists(json, 'eventsResourcesList') ? undefined : EventsResourcesListTypeFromJSON(json['eventsResourcesList']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'eventsResourcesList': !exists(json, 'eventsResourcesList') ? undefined : ((json['eventsResourcesList'] as Array<any>).map(EventInfoTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function EventsResourcesToJSON(value?: EventsResources | null): any {
     }
     return {
         
-        'eventsResourcesList': EventsResourcesListTypeToJSON(value.eventsResourcesList),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'eventsResourcesList': value.eventsResourcesList === undefined ? undefined : ((value.eventsResourcesList as Array<any>).map(EventInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

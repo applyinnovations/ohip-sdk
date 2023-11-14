@@ -17,7 +17,6 @@ exports.GuaranteeConfigTypeToJSON = exports.GuaranteeConfigTypeFromJSONTyped = e
 const runtime_1 = require("../runtime");
 const GuaranteeConfigTypeMassCancellation_1 = require("./GuaranteeConfigTypeMassCancellation");
 const GuaranteeRequirementsType_1 = require("./GuaranteeRequirementsType");
-const PaymentTypesType_1 = require("./PaymentTypesType");
 const TranslationTextType80_1 = require("./TranslationTextType80");
 /**
  * Check if a given object implements the GuaranteeConfigType interface.
@@ -43,7 +42,7 @@ function GuaranteeConfigTypeFromJSONTyped(json, ignoreDiscriminator) {
         'massCancellation': !(0, runtime_1.exists)(json, 'massCancellation') ? undefined : (0, GuaranteeConfigTypeMassCancellation_1.GuaranteeConfigTypeMassCancellationFromJSON)(json['massCancellation']),
         'onHold': !(0, runtime_1.exists)(json, 'onHold') ? undefined : json['onHold'],
         'orderSequence': !(0, runtime_1.exists)(json, 'orderSequence') ? undefined : json['orderSequence'],
-        'paymentTypes': !(0, runtime_1.exists)(json, 'paymentTypes') ? undefined : (0, PaymentTypesType_1.PaymentTypesTypeFromJSON)(json['paymentTypes']),
+        'paymentTypes': !(0, runtime_1.exists)(json, 'paymentTypes') ? undefined : json['paymentTypes'],
         'requirements': !(0, runtime_1.exists)(json, 'requirements') ? undefined : (0, GuaranteeRequirementsType_1.GuaranteeRequirementsTypeFromJSON)(json['requirements']),
         'reserveInventory': !(0, runtime_1.exists)(json, 'reserveInventory') ? undefined : json['reserveInventory'],
         'shortDescription': !(0, runtime_1.exists)(json, 'shortDescription') ? undefined : (0, TranslationTextType80_1.TranslationTextType80FromJSON)(json['shortDescription']),
@@ -65,7 +64,7 @@ function GuaranteeConfigTypeToJSON(value) {
         'massCancellation': (0, GuaranteeConfigTypeMassCancellation_1.GuaranteeConfigTypeMassCancellationToJSON)(value.massCancellation),
         'onHold': value.onHold,
         'orderSequence': value.orderSequence,
-        'paymentTypes': (0, PaymentTypesType_1.PaymentTypesTypeToJSON)(value.paymentTypes),
+        'paymentTypes': value.paymentTypes,
         'requirements': (0, GuaranteeRequirementsType_1.GuaranteeRequirementsTypeToJSON)(value.requirements),
         'reserveInventory': value.reserveInventory,
         'shortDescription': (0, TranslationTextType80_1.TranslationTextType80ToJSON)(value.shortDescription),

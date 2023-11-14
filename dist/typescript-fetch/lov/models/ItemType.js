@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ItemTypeToJSON = exports.ItemTypeFromJSONTyped = exports.ItemTypeFromJSON = exports.instanceOfItemType = void 0;
 const runtime_1 = require("../runtime");
-const ParametersType_1 = require("./ParametersType");
+const ParameterType_1 = require("./ParameterType");
 /**
  * Check if a given object implements the ItemType interface.
  */
@@ -36,7 +36,7 @@ function ItemTypeFromJSONTyped(json, ignoreDiscriminator) {
         'active': !(0, runtime_1.exists)(json, 'active') ? undefined : json['active'],
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
-        'flexfields': !(0, runtime_1.exists)(json, 'flexfields') ? undefined : (0, ParametersType_1.ParametersTypeFromJSON)(json['flexfields']),
+        'flexfields': !(0, runtime_1.exists)(json, 'flexfields') ? undefined : (json['flexfields'].map(ParameterType_1.ParameterTypeFromJSON)),
         'name': !(0, runtime_1.exists)(json, 'name') ? undefined : json['name'],
         'shortDescription': !(0, runtime_1.exists)(json, 'shortDescription') ? undefined : json['shortDescription'],
     };
@@ -53,7 +53,7 @@ function ItemTypeToJSON(value) {
         'active': value.active,
         'code': value.code,
         'description': value.description,
-        'flexfields': (0, ParametersType_1.ParametersTypeToJSON)(value.flexfields),
+        'flexfields': value.flexfields === undefined ? undefined : (value.flexfields.map(ParameterType_1.ParameterTypeToJSON)),
         'name': value.name,
         'shortDescription': value.shortDescription,
     };

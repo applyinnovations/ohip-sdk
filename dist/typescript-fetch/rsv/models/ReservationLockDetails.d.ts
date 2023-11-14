@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { OperaRecordLock } from './OperaRecordLock';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * This response will indicate whether the requested lock has been granted or some other user owns the lock.
  * @export
@@ -32,16 +32,16 @@ export interface ReservationLockDetails {
     existingReservationLock?: OperaRecordLock;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationLockDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationLockDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationLockDetails interface.

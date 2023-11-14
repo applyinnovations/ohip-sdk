@@ -13,36 +13,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { InstanceLink } from './InstanceLink';
+import {
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { LinkedAllowanceReservationsInfoType } from './LinkedAllowanceReservationsInfoType';
 import {
     LinkedAllowanceReservationsInfoTypeFromJSON,
     LinkedAllowanceReservationsInfoTypeFromJSONTyped,
     LinkedAllowanceReservationsInfoTypeToJSON,
 } from './LinkedAllowanceReservationsInfoType';
-import type { Links } from './Links';
+import type { PackagePostingType } from './PackagePostingType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { PackagePostingsType } from './PackagePostingsType';
+    PackagePostingTypeFromJSON,
+    PackagePostingTypeFromJSONTyped,
+    PackagePostingTypeToJSON,
+} from './PackagePostingType';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    PackagePostingsTypeFromJSON,
-    PackagePostingsTypeFromJSONTyped,
-    PackagePostingsTypeToJSON,
-} from './PackagePostingsType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
+import type { WarningType } from './WarningType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
-import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response to fetch reservation package options.
@@ -58,28 +58,28 @@ export interface ReservationPackageOptions {
     linkedAllowanceReservationsInfo?: LinkedAllowanceReservationsInfoType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationPackageOptions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {PackagePostingsType}
+     * List of package postings.
+     * @type {Array<PackagePostingType>}
      * @memberof ReservationPackageOptions
      */
-    packagePostings?: PackagePostingsType;
+    packagePostings?: Array<PackagePostingType>;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof ReservationPackageOptions
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationPackageOptions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -102,10 +102,10 @@ export function ReservationPackageOptionsFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'linkedAllowanceReservationsInfo': !exists(json, 'linkedAllowanceReservationsInfo') ? undefined : LinkedAllowanceReservationsInfoTypeFromJSON(json['linkedAllowanceReservationsInfo']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'packagePostings': !exists(json, 'packagePostings') ? undefined : PackagePostingsTypeFromJSON(json['packagePostings']),
-        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : TrxCodesInfoTypeFromJSON(json['trxCodesInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'packagePostings': !exists(json, 'packagePostings') ? undefined : ((json['packagePostings'] as Array<any>).map(PackagePostingTypeFromJSON)),
+        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : ((json['trxCodesInfo'] as Array<any>).map(TrxInfoTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -119,10 +119,10 @@ export function ReservationPackageOptionsToJSON(value?: ReservationPackageOption
     return {
         
         'linkedAllowanceReservationsInfo': LinkedAllowanceReservationsInfoTypeToJSON(value.linkedAllowanceReservationsInfo),
-        'links': LinksToJSON(value.links),
-        'packagePostings': PackagePostingsTypeToJSON(value.packagePostings),
-        'trxCodesInfo': TrxCodesInfoTypeToJSON(value.trxCodesInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'packagePostings': value.packagePostings === undefined ? undefined : ((value.packagePostings as Array<any>).map(PackagePostingTypeToJSON)),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : ((value.trxCodesInfo as Array<any>).map(TrxInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DestinationCodesType } from './DestinationCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { DestinationCodeType } from './DestinationCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Destination Codes.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface DestinationCodesCriteria {
     /**
-     *
-     * @type {DestinationCodesType}
+     * List of Destination Codes.
+     * @type {Array<DestinationCodeType>}
      * @memberof DestinationCodesCriteria
      */
-    destinationCodes?: DestinationCodesType;
+    destinationCodes?: Array<DestinationCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DestinationCodesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DestinationCodesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DestinationCodesCriteria interface.

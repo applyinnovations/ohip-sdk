@@ -277,7 +277,7 @@ class InventoryAsyncApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, index_1.SellLimitsByDateToJSON)(requestParameters.sellLimitsByDate),
+                body: requestParameters.sellLimitsByDate.map(index_1.SellLimitByDateTypeToJSON),
             }, initOverrides);
             return new runtime.VoidApiResponse(response);
         });

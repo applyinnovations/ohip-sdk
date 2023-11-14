@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { PaymentMethodValidationRuleType } from './PaymentMethodValidationRuleType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface DefaultPaymentMethodRule {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DefaultPaymentMethodRule
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {PaymentMethodValidationRuleType}
@@ -31,11 +31,11 @@ export interface DefaultPaymentMethodRule {
      */
     rule?: PaymentMethodValidationRuleType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DefaultPaymentMethodRule
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DefaultPaymentMethodRule interface.

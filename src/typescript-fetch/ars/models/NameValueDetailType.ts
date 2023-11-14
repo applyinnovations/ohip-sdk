@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { NameValuesType } from './NameValuesType';
+import type { NameValueType } from './NameValueType';
 import {
-    NameValuesTypeFromJSON,
-    NameValuesTypeFromJSONTyped,
-    NameValuesTypeToJSON,
-} from './NameValuesType';
+    NameValueTypeFromJSON,
+    NameValueTypeFromJSONTyped,
+    NameValueTypeToJSON,
+} from './NameValueType';
 
 /**
  * Detailed information returned during name value search.
@@ -27,11 +27,11 @@ import {
  */
 export interface NameValueDetailType {
     /**
-     * 
-     * @type {NameValuesType}
+     * List of name value pairs.
+     * @type {Array<NameValueType>}
      * @memberof NameValueDetailType
      */
-    nameValues?: NameValuesType;
+    nameValues?: Array<NameValueType>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function NameValueDetailTypeFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'nameValues': !exists(json, 'nameValues') ? undefined : NameValuesTypeFromJSON(json['nameValues']),
+        'nameValues': !exists(json, 'nameValues') ? undefined : ((json['nameValues'] as Array<any>).map(NameValueTypeFromJSON)),
     };
 }
 
@@ -66,7 +66,7 @@ export function NameValueDetailTypeToJSON(value?: NameValueDetailType | null): a
     }
     return {
         
-        'nameValues': NameValuesTypeToJSON(value.nameValues),
+        'nameValues': value.nameValues === undefined ? undefined : ((value.nameValues as Array<any>).map(NameValueTypeToJSON)),
     };
 }
 

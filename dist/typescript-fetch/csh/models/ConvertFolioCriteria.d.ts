@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ConvertFolioType } from './ConvertFolioType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to convert folio from a Non Fiscal Folio type to a Fiscal Folio Type. Functionality is used in Italy and is only available when the country mode is set to Italy.
  * @export
@@ -26,16 +26,16 @@ export interface ConvertFolioCriteria {
     criteria?: ConvertFolioType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ConvertFolioCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ConvertFolioCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ConvertFolioCriteria interface.

@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipClaimDetailsTypeToJSON = exports.MembershipClaimDetailsTypeFromJSONTyped = exports.MembershipClaimDetailsTypeFromJSON = exports.instanceOfMembershipClaimDetailsType = void 0;
 const runtime_1 = require("../runtime");
-const ClaimActivityLogListType_1 = require("./ClaimActivityLogListType");
+const ClaimActivityLogType_1 = require("./ClaimActivityLogType");
 const ClaimAdjustmentPointsType_1 = require("./ClaimAdjustmentPointsType");
 const ClaimApprovalStatusType_1 = require("./ClaimApprovalStatusType");
 const ClaimMembershipType_1 = require("./ClaimMembershipType");
@@ -41,7 +41,7 @@ function MembershipClaimDetailsTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'activityLog': !(0, runtime_1.exists)(json, 'activityLog') ? undefined : (0, ClaimActivityLogListType_1.ClaimActivityLogListTypeFromJSON)(json['activityLog']),
+        'activityLog': !(0, runtime_1.exists)(json, 'activityLog') ? undefined : (json['activityLog'].map(ClaimActivityLogType_1.ClaimActivityLogTypeFromJSON)),
         'approvalStatus': !(0, runtime_1.exists)(json, 'approvalStatus') ? undefined : (0, ClaimApprovalStatusType_1.ClaimApprovalStatusTypeFromJSON)(json['approvalStatus']),
         'callerInformation': !(0, runtime_1.exists)(json, 'callerInformation') ? undefined : json['callerInformation'],
         'callerName': !(0, runtime_1.exists)(json, 'callerName') ? undefined : json['callerName'],
@@ -72,7 +72,7 @@ function MembershipClaimDetailsTypeToJSON(value) {
         return null;
     }
     return {
-        'activityLog': (0, ClaimActivityLogListType_1.ClaimActivityLogListTypeToJSON)(value.activityLog),
+        'activityLog': value.activityLog === undefined ? undefined : (value.activityLog.map(ClaimActivityLogType_1.ClaimActivityLogTypeToJSON)),
         'approvalStatus': (0, ClaimApprovalStatusType_1.ClaimApprovalStatusTypeToJSON)(value.approvalStatus),
         'callerInformation': value.callerInformation,
         'callerName': value.callerName,

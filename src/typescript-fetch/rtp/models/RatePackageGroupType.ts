@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RatePackageCodeListType } from './RatePackageCodeListType';
+import type { RatePackageCodeType } from './RatePackageCodeType';
 import {
-    RatePackageCodeListTypeFromJSON,
-    RatePackageCodeListTypeFromJSONTyped,
-    RatePackageCodeListTypeToJSON,
-} from './RatePackageCodeListType';
+    RatePackageCodeTypeFromJSON,
+    RatePackageCodeTypeFromJSONTyped,
+    RatePackageCodeTypeToJSON,
+} from './RatePackageCodeType';
 
 /**
  * Information about a package group common to all usages.
@@ -39,11 +39,11 @@ export interface RatePackageGroupType {
      */
     description?: string;
     /**
-     * 
-     * @type {RatePackageCodeListType}
+     * Rate Package Full Information
+     * @type {Array<RatePackageCodeType>}
      * @memberof RatePackageGroupType
      */
-    packages?: RatePackageCodeListType;
+    packages?: Array<RatePackageCodeType>;
     /**
      * Can Package group be sold separately?
      * @type {boolean}
@@ -85,7 +85,7 @@ export function RatePackageGroupTypeFromJSONTyped(json: any, ignoreDiscriminator
         
         'code': !exists(json, 'code') ? undefined : json['code'],
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'packages': !exists(json, 'packages') ? undefined : RatePackageCodeListTypeFromJSON(json['packages']),
+        'packages': !exists(json, 'packages') ? undefined : ((json['packages'] as Array<any>).map(RatePackageCodeTypeFromJSON)),
         'sellSeparate': !exists(json, 'sellSeparate') ? undefined : json['sellSeparate'],
         'shortDescription': !exists(json, 'shortDescription') ? undefined : json['shortDescription'],
         'webBookable': !exists(json, 'webBookable') ? undefined : json['webBookable'],
@@ -103,7 +103,7 @@ export function RatePackageGroupTypeToJSON(value?: RatePackageGroupType | null):
         
         'code': value.code,
         'description': value.description,
-        'packages': RatePackageCodeListTypeToJSON(value.packages),
+        'packages': value.packages === undefined ? undefined : ((value.packages as Array<any>).map(RatePackageCodeTypeToJSON)),
         'sellSeparate': value.sellSeparate,
         'shortDescription': value.shortDescription,
         'webBookable': value.webBookable,

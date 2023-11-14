@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CopyConfigurationCodeType } from './CopyConfigurationCodeType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface CopyTrackItLocations {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CopyTrackItLocations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * List of Track it Locations to be copied.
      * @type {Array<CopyConfigurationCodeType>}
@@ -31,11 +31,11 @@ export interface CopyTrackItLocations {
      */
     trackItLocations?: Array<CopyConfigurationCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CopyTrackItLocations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CopyTrackItLocations interface.

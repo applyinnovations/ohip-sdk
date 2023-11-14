@@ -11,9 +11,9 @@
  */
 import type { ChannelResvRQInfoType } from './ChannelResvRQInfoType';
 import type { HotelReservationInstructionType } from './HotelReservationInstructionType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationsInstructionsType } from './ReservationsInstructionsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request method to change a reservations information.
  * @export
@@ -28,10 +28,10 @@ export interface ChangeReservation {
     channelInformation?: ChannelResvRQInfoType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangeReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * A collection of Reservations with information that needs to be changed.
      * @type {Array<HotelReservationInstructionType>}
@@ -45,11 +45,11 @@ export interface ChangeReservation {
      */
     reservationsInstructionsType?: ReservationsInstructionsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChangeReservation interface.

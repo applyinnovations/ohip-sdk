@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 import type { CodeDescriptionType } from './CodeDescriptionType';
-import type { CodeListType } from './CodeListType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 /**
  * Type which holds Collecting Agent Taxes primary details.
@@ -38,10 +37,10 @@ export interface CollectingAgentTaxType {
     hotelId?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CollectingAgentTaxType
      */
-    newTaxType?: CodeListType;
+    newTaxType?: Array<string>;
     /**
      * Percentage used to calculate the Taxes
      * @type {number}
@@ -62,10 +61,10 @@ export interface CollectingAgentTaxType {
     taxTransactionCode?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CollectingAgentTaxType
      */
-    taxType?: CodeListType;
+    taxType?: Array<string>;
     /**
      * Primary Key Sequence.
      * @type {number}

@@ -19,12 +19,6 @@ import {
     CashieringPaymentMethodTypeFromJSONTyped,
     CashieringPaymentMethodTypeToJSON,
 } from './CashieringPaymentMethodType';
-import type { CompRedemptionsType } from './CompRedemptionsType';
-import {
-    CompRedemptionsTypeFromJSON,
-    CompRedemptionsTypeFromJSONTyped,
-    CompRedemptionsTypeToJSON,
-} from './CompRedemptionsType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import {
     CurrencyAmountTypeFromJSON,
@@ -37,24 +31,18 @@ import {
     PaymentTaxTypeFromJSONTyped,
     PaymentTaxTypeToJSON,
 } from './PaymentTaxType';
-import type { PaymentTaxesType } from './PaymentTaxesType';
-import {
-    PaymentTaxesTypeFromJSON,
-    PaymentTaxesTypeFromJSONTyped,
-    PaymentTaxesTypeToJSON,
-} from './PaymentTaxesType';
 import type { PostPaymentActionType } from './PostPaymentActionType';
 import {
     PostPaymentActionTypeFromJSON,
     PostPaymentActionTypeFromJSONTyped,
     PostPaymentActionTypeToJSON,
 } from './PostPaymentActionType';
-import type { PrepaidCardRedemptionsType } from './PrepaidCardRedemptionsType';
+import type { PrepaidCardRedemptionType } from './PrepaidCardRedemptionType';
 import {
-    PrepaidCardRedemptionsTypeFromJSON,
-    PrepaidCardRedemptionsTypeFromJSONTyped,
-    PrepaidCardRedemptionsTypeToJSON,
-} from './PrepaidCardRedemptionsType';
+    PrepaidCardRedemptionTypeFromJSON,
+    PrepaidCardRedemptionTypeFromJSONTyped,
+    PrepaidCardRedemptionTypeToJSON,
+} from './PrepaidCardRedemptionType';
 import type { ProfileId } from './ProfileId';
 import {
     ProfileIdFromJSON,
@@ -67,6 +55,12 @@ import {
     ReceiptTypeFromJSONTyped,
     ReceiptTypeToJSON,
 } from './ReceiptType';
+import type { RedemptionType } from './RedemptionType';
+import {
+    RedemptionTypeFromJSON,
+    RedemptionTypeFromJSONTyped,
+    RedemptionTypeToJSON,
+} from './RedemptionType';
 import type { ReservationId } from './ReservationId';
 import {
     ReservationIdFromJSON,
@@ -129,17 +123,17 @@ export interface DepositPaymentCriteriaType {
      */
     comments?: string;
     /**
-     * 
-     * @type {CompRedemptionsType}
+     * Information regarding Complimentary Bucket Redemption object.
+     * @type {Array<RedemptionType>}
      * @memberof DepositPaymentCriteriaType
      */
-    compRedemptions?: CompRedemptionsType;
+    compRedemptions?: Array<RedemptionType>;
     /**
-     * 
-     * @type {PaymentTaxesType}
+     * Payment Tax record.
+     * @type {Array<PaymentTaxType>}
      * @memberof DepositPaymentCriteriaType
      */
-    creditablePaymentTaxes?: PaymentTaxesType;
+    creditablePaymentTaxes?: Array<PaymentTaxType>;
     /**
      * 
      * @type {UniqueIDType}
@@ -213,11 +207,11 @@ export interface DepositPaymentCriteriaType {
      */
     postingRemark?: string;
     /**
-     * 
-     * @type {PrepaidCardRedemptionsType}
+     * A prepaid redemption info object to be used for posting a payment.
+     * @type {Array<PrepaidCardRedemptionType>}
      * @memberof DepositPaymentCriteriaType
      */
-    prepaidCardRedemptions?: PrepaidCardRedemptionsType;
+    prepaidCardRedemptions?: Array<PrepaidCardRedemptionType>;
     /**
      * 
      * @type {ProfileId}
@@ -282,8 +276,8 @@ export function DepositPaymentCriteriaTypeFromJSONTyped(json: any, ignoreDiscrim
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
         'changeDueAmount': !exists(json, 'changeDueAmount') ? undefined : CurrencyAmountTypeFromJSON(json['changeDueAmount']),
         'comments': !exists(json, 'comments') ? undefined : json['comments'],
-        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : CompRedemptionsTypeFromJSON(json['compRedemptions']),
-        'creditablePaymentTaxes': !exists(json, 'creditablePaymentTaxes') ? undefined : PaymentTaxesTypeFromJSON(json['creditablePaymentTaxes']),
+        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : ((json['compRedemptions'] as Array<any>).map(RedemptionTypeFromJSON)),
+        'creditablePaymentTaxes': !exists(json, 'creditablePaymentTaxes') ? undefined : ((json['creditablePaymentTaxes'] as Array<any>).map(PaymentTaxTypeFromJSON)),
         'depositPolicyId': !exists(json, 'depositPolicyId') ? undefined : UniqueIDTypeFromJSON(json['depositPolicyId']),
         'folioWindowNo': !exists(json, 'folioWindowNo') ? undefined : json['folioWindowNo'],
         'guaranteeCode': !exists(json, 'guaranteeCode') ? undefined : json['guaranteeCode'],
@@ -296,7 +290,7 @@ export function DepositPaymentCriteriaTypeFromJSONTyped(json: any, ignoreDiscrim
         'postingAmount': !exists(json, 'postingAmount') ? undefined : CurrencyAmountTypeFromJSON(json['postingAmount']),
         'postingReference': !exists(json, 'postingReference') ? undefined : json['postingReference'],
         'postingRemark': !exists(json, 'postingRemark') ? undefined : json['postingRemark'],
-        'prepaidCardRedemptions': !exists(json, 'prepaidCardRedemptions') ? undefined : PrepaidCardRedemptionsTypeFromJSON(json['prepaidCardRedemptions']),
+        'prepaidCardRedemptions': !exists(json, 'prepaidCardRedemptions') ? undefined : ((json['prepaidCardRedemptions'] as Array<any>).map(PrepaidCardRedemptionTypeFromJSON)),
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
         'receiptType': !exists(json, 'receiptType') ? undefined : ReceiptTypeFromJSON(json['receiptType']),
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
@@ -322,8 +316,8 @@ export function DepositPaymentCriteriaTypeToJSON(value?: DepositPaymentCriteriaT
         'cashierId': value.cashierId,
         'changeDueAmount': CurrencyAmountTypeToJSON(value.changeDueAmount),
         'comments': value.comments,
-        'compRedemptions': CompRedemptionsTypeToJSON(value.compRedemptions),
-        'creditablePaymentTaxes': PaymentTaxesTypeToJSON(value.creditablePaymentTaxes),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : ((value.compRedemptions as Array<any>).map(RedemptionTypeToJSON)),
+        'creditablePaymentTaxes': value.creditablePaymentTaxes === undefined ? undefined : ((value.creditablePaymentTaxes as Array<any>).map(PaymentTaxTypeToJSON)),
         'depositPolicyId': UniqueIDTypeToJSON(value.depositPolicyId),
         'folioWindowNo': value.folioWindowNo,
         'guaranteeCode': value.guaranteeCode,
@@ -336,7 +330,7 @@ export function DepositPaymentCriteriaTypeToJSON(value?: DepositPaymentCriteriaT
         'postingAmount': CurrencyAmountTypeToJSON(value.postingAmount),
         'postingReference': value.postingReference,
         'postingRemark': value.postingRemark,
-        'prepaidCardRedemptions': PrepaidCardRedemptionsTypeToJSON(value.prepaidCardRedemptions),
+        'prepaidCardRedemptions': value.prepaidCardRedemptions === undefined ? undefined : ((value.prepaidCardRedemptions as Array<any>).map(PrepaidCardRedemptionTypeToJSON)),
         'profileId': ProfileIdToJSON(value.profileId),
         'receiptType': ReceiptTypeToJSON(value.receiptType),
         'reservationId': ReservationIdToJSON(value.reservationId),

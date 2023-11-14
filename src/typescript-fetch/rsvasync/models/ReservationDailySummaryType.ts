@@ -25,12 +25,6 @@ import {
     PMSResStatusTypeFromJSONTyped,
     PMSResStatusTypeToJSON,
 } from './PMSResStatusType';
-import type { ReservationIdList } from './ReservationIdList';
-import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -213,11 +207,11 @@ export interface ReservationDailySummaryType {
      */
     originOfBooking?: string;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ReservationDailySummaryType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {UniqueIDType}
@@ -327,7 +321,7 @@ export function ReservationDailySummaryTypeFromJSONTyped(json: any, ignoreDiscri
         'nationality': !exists(json, 'nationality') ? undefined : json['nationality'],
         'noOfRooms': !exists(json, 'noOfRooms') ? undefined : json['noOfRooms'],
         'originOfBooking': !exists(json, 'origin_of_booking') ? undefined : json['origin_of_booking'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'resvContactId': !exists(json, 'resvContactId') ? undefined : UniqueIDTypeFromJSON(json['resvContactId']),
         'resvContactName': !exists(json, 'resvContactName') ? undefined : json['resvContactName'],
         'resvStatus': !exists(json, 'resvStatus') ? undefined : PMSResStatusTypeFromJSON(json['resvStatus']),
@@ -378,7 +372,7 @@ export function ReservationDailySummaryTypeToJSON(value?: ReservationDailySummar
         'nationality': value.nationality,
         'noOfRooms': value.noOfRooms,
         'origin_of_booking': value.originOfBooking,
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'resvContactId': UniqueIDTypeToJSON(value.resvContactId),
         'resvContactName': value.resvContactName,
         'resvStatus': PMSResStatusTypeToJSON(value.resvStatus),

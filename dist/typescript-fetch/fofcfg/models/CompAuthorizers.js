@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CompAuthorizersToJSON = exports.CompAuthorizersFromJSONTyped = exports.CompAuthorizersFromJSON = exports.instanceOfCompAuthorizers = void 0;
 const runtime_1 = require("../runtime");
-const CompAuthorizersType_1 = require("./CompAuthorizersType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CompAuthorizerType_1 = require("./CompAuthorizerType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CompAuthorizers interface.
  */
@@ -35,9 +35,9 @@ function CompAuthorizersFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'compAuthorizerInfo': !(0, runtime_1.exists)(json, 'compAuthorizerInfo') ? undefined : (0, CompAuthorizersType_1.CompAuthorizersTypeFromJSON)(json['compAuthorizerInfo']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'compAuthorizerInfo': !(0, runtime_1.exists)(json, 'compAuthorizerInfo') ? undefined : (json['compAuthorizerInfo'].map(CompAuthorizerType_1.CompAuthorizerTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CompAuthorizersFromJSONTyped = CompAuthorizersFromJSONTyped;
@@ -49,9 +49,9 @@ function CompAuthorizersToJSON(value) {
         return null;
     }
     return {
-        'compAuthorizerInfo': (0, CompAuthorizersType_1.CompAuthorizersTypeToJSON)(value.compAuthorizerInfo),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'compAuthorizerInfo': value.compAuthorizerInfo === undefined ? undefined : (value.compAuthorizerInfo.map(CompAuthorizerType_1.CompAuthorizerTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CompAuthorizersToJSON = CompAuthorizersToJSON;

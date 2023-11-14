@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReservationChargesInBatchInfoType } from './ReservationChargesInBatchInfoType';
 import {
     ReservationChargesInBatchInfoTypeFromJSON,
     ReservationChargesInBatchInfoTypeFromJSONTyped,
     ReservationChargesInBatchInfoTypeToJSON,
 } from './ReservationChargesInBatchInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Operation response to post billing charge with list of reservations.
@@ -40,10 +40,10 @@ import {
 export interface PostedBillingChargesInBatch {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostedBillingChargesInBatch
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Information regarding charges in batch result for each reservation.
      * @type {Array<ReservationChargesInBatchInfoType>}
@@ -51,11 +51,11 @@ export interface PostedBillingChargesInBatch {
      */
     reservationBatchChargeInfoList?: Array<ReservationChargesInBatchInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostedBillingChargesInBatch
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function PostedBillingChargesInBatchFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservationBatchChargeInfoList': !exists(json, 'reservationBatchChargeInfoList') ? undefined : ((json['reservationBatchChargeInfoList'] as Array<any>).map(ReservationChargesInBatchInfoTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function PostedBillingChargesInBatchToJSON(value?: PostedBillingChargesIn
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservationBatchChargeInfoList': value.reservationBatchChargeInfoList === undefined ? undefined : ((value.reservationBatchChargeInfoList as Array<any>).map(ReservationChargesInBatchInfoTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

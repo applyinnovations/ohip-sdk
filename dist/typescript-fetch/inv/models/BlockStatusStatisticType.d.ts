@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { StatisticUnitsType } from './StatisticUnitsType';
+import type { StatisticUnitType } from './StatisticUnitType';
 /**
  * Contains summary statistic for a block on a particular statistic date.
  * @export
@@ -23,11 +23,11 @@ export interface BlockStatusStatisticType {
      */
     statisticDate?: Date;
     /**
-     *
-     * @type {StatisticUnitsType}
+     * Unit type to hold statistic code and value pair.
+     * @type {Array<StatisticUnitType>}
      * @memberof BlockStatusStatisticType
      */
-    statusSummaryStatistic?: StatisticUnitsType;
+    statusSummaryStatistic?: Array<StatisticUnitType>;
 }
 /**
  * Check if a given object implements the BlockStatusStatisticType interface.

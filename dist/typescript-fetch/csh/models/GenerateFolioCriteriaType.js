@@ -26,7 +26,7 @@ const FolioTypeValidationType_1 = require("./FolioTypeValidationType");
 const NameValueHeaderDetailType_1 = require("./NameValueHeaderDetailType");
 const ProfileId_1 = require("./ProfileId");
 const ReservationId_1 = require("./ReservationId");
-const TransactionsType_1 = require("./TransactionsType");
+const TransactionType_1 = require("./TransactionType");
 /**
  * Check if a given object implements the GenerateFolioCriteriaType interface.
  */
@@ -66,7 +66,7 @@ function GenerateFolioCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
         'simpleFolio': !(0, runtime_1.exists)(json, 'simpleFolio') ? undefined : json['simpleFolio'],
         'transactionServiceType': !(0, runtime_1.exists)(json, 'transactionServiceType') ? undefined : json['transactionServiceType'],
-        'transactions': !(0, runtime_1.exists)(json, 'transactions') ? undefined : (0, TransactionsType_1.TransactionsTypeFromJSON)(json['transactions']),
+        'transactions': !(0, runtime_1.exists)(json, 'transactions') ? undefined : (json['transactions'].map(TransactionType_1.TransactionTypeFromJSON)),
     };
 }
 exports.GenerateFolioCriteriaTypeFromJSONTyped = GenerateFolioCriteriaTypeFromJSONTyped;
@@ -100,7 +100,7 @@ function GenerateFolioCriteriaTypeToJSON(value) {
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
         'simpleFolio': value.simpleFolio,
         'transactionServiceType': value.transactionServiceType,
-        'transactions': (0, TransactionsType_1.TransactionsTypeToJSON)(value.transactions),
+        'transactions': value.transactions === undefined ? undefined : (value.transactions.map(TransactionType_1.TransactionTypeToJSON)),
     };
 }
 exports.GenerateFolioCriteriaTypeToJSON = GenerateFolioCriteriaTypeToJSON;

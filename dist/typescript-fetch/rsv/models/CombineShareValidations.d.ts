@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { CombineShareFromProfileType } from './CombineShareFromProfileType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { UniqueIDType } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to validate a combine share operation. This would be done prior to the actual Combine Share operation. Based on the validations returned from this request, the appropriate values can be returned to the Combine Share operation request.
  * @export
@@ -33,10 +33,10 @@ export interface CombineShareValidations {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CombineShareValidations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {CombineShareFromProfileType}
@@ -50,11 +50,11 @@ export interface CombineShareValidations {
      */
     shareToReservationId?: UniqueIDType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CombineShareValidations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CombineShareValidations interface.

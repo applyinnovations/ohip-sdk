@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { RateOffsetType } from './RateOffsetType';
 import {
     RateOffsetTypeFromJSON,
     RateOffsetTypeFromJSONTyped,
     RateOffsetTypeToJSON,
 } from './RateOffsetType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
-import type { WarningsType } from './WarningsType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to copy the specified tier 1 rate schedules into the specified tiers.
@@ -76,10 +76,10 @@ export interface TieredRateSchedulesCopy {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TieredRateSchedulesCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -87,17 +87,17 @@ export interface TieredRateSchedulesCopy {
      */
     ratePlanCode?: string;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof TieredRateSchedulesCopy
      */
-    ratePlanSchedulesIdList?: UniqueIDListType;
+    ratePlanSchedulesIdList?: Array<UniqueIDType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TieredRateSchedulesCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -124,10 +124,10 @@ export function TieredRateSchedulesCopyFromJSONTyped(json: any, ignoreDiscrimina
         'copyFromTierId': !exists(json, 'copyFromTierId') ? undefined : json['copyFromTierId'],
         'copyToTierId': !exists(json, 'copyToTierId') ? undefined : json['copyToTierId'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
-        'ratePlanSchedulesIdList': !exists(json, 'ratePlanSchedulesIdList') ? undefined : UniqueIDListTypeFromJSON(json['ratePlanSchedulesIdList']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'ratePlanSchedulesIdList': !exists(json, 'ratePlanSchedulesIdList') ? undefined : ((json['ratePlanSchedulesIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -145,10 +145,10 @@ export function TieredRateSchedulesCopyToJSON(value?: TieredRateSchedulesCopy | 
         'copyFromTierId': value.copyFromTierId,
         'copyToTierId': value.copyToTierId,
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'ratePlanCode': value.ratePlanCode,
-        'ratePlanSchedulesIdList': UniqueIDListTypeToJSON(value.ratePlanSchedulesIdList),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'ratePlanSchedulesIdList': value.ratePlanSchedulesIdList === undefined ? undefined : ((value.ratePlanSchedulesIdList as Array<any>).map(UniqueIDTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

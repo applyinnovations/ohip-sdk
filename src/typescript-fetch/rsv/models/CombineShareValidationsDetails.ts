@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ValidationsReturnType } from './ValidationsReturnType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ValidationReturnType } from './ValidationReturnType';
 import {
-    ValidationsReturnTypeFromJSON,
-    ValidationsReturnTypeFromJSONTyped,
-    ValidationsReturnTypeToJSON,
-} from './ValidationsReturnType';
-import type { WarningsType } from './WarningsType';
+    ValidationReturnTypeFromJSON,
+    ValidationReturnTypeFromJSONTyped,
+    ValidationReturnTypeToJSON,
+} from './ValidationReturnType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for the Combine Share Validation request. This returns all validation messages which may be required for the combine share operation.
@@ -40,22 +40,22 @@ import {
 export interface CombineShareValidationsDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CombineShareValidationsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
-     * @type {ValidationsReturnType}
+     * @type {Array<ValidationReturnType>}
      * @memberof CombineShareValidationsDetails
      */
-    returnedValidations?: ValidationsReturnType;
+    returnedValidations?: Array<ValidationReturnType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CombineShareValidationsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CombineShareValidationsDetailsFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'returnedValidations': !exists(json, 'returnedValidations') ? undefined : ValidationsReturnTypeFromJSON(json['returnedValidations']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'returnedValidations': !exists(json, 'returnedValidations') ? undefined : ((json['returnedValidations'] as Array<any>).map(ValidationReturnTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CombineShareValidationsDetailsToJSON(value?: CombineShareValidat
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'returnedValidations': ValidationsReturnTypeToJSON(value.returnedValidations),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'returnedValidations': value.returnedValidations === undefined ? undefined : ((value.returnedValidations as Array<any>).map(ValidationReturnTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockIdList } from './BlockIdList';
 import type { BlockSummaryType } from './BlockSummaryType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -24,11 +24,11 @@ export interface BlockSummariesTypeBlockInfoInner {
      */
     block?: BlockSummaryType;
     /**
-     *
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof BlockSummariesTypeBlockInfoInner
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the BlockSummariesTypeBlockInfoInner interface.

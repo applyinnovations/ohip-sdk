@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ChannelGuaranteeCodeMappingType } from './ChannelGuaranteeCodeMappingType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating a new channel-hotel guarantee code mapping.
  * @export
@@ -26,16 +26,16 @@ export interface ChannelGuaranteeCodeMappings {
     channelGuaranteeCodeMapping?: ChannelGuaranteeCodeMappingType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelGuaranteeCodeMappings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelGuaranteeCodeMappings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelGuaranteeCodeMappings interface.

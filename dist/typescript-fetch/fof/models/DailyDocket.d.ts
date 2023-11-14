@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DailyDocketType } from './DailyDocketType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { DailyDocketEntryType } from './DailyDocketEntryType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching log book entries.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface DailyDocket {
     /**
-     *
-     * @type {DailyDocketType}
+     * log book entry.
+     * @type {Array<DailyDocketEntryType>}
      * @memberof DailyDocket
      */
-    dailyDocketEntries?: DailyDocketType;
+    dailyDocketEntries?: Array<DailyDocketEntryType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DailyDocket
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DailyDocket
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DailyDocket interface.

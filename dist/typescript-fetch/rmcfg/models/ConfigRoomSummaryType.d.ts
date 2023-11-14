@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { RatePlanRatingType } from './RatePlanRatingType';
-import type { RoomComponentsType } from './RoomComponentsType';
-import type { RoomFeaturesType } from './RoomFeaturesType';
-import type { RoomRoomsType } from './RoomRoomsType';
+import type { RoomComponentType } from './RoomComponentType';
+import type { RoomFeatureType } from './RoomFeatureType';
+import type { RoomRoomType } from './RoomRoomType';
 import type { RoomTypeShortInfoType } from './RoomTypeShortInfoType';
 import type { TranslationTextType2000 } from './TranslationTextType2000';
 /**
@@ -34,11 +34,11 @@ export interface ConfigRoomSummaryType {
      */
     building?: string;
     /**
-     *
-     * @type {RoomRoomsType}
+     * Collection of rooms.
+     * @type {Array<RoomRoomType>}
      * @memberof ConfigRoomSummaryType
      */
-    connectingRooms?: RoomRoomsType;
+    connectingRooms?: Array<RoomRoomType>;
     /**
      *
      * @type {TranslationTextType2000}
@@ -82,11 +82,11 @@ export interface ConfigRoomSummaryType {
      */
     roomAssignmentRating?: RatePlanRatingType;
     /**
-     *
-     * @type {RoomComponentsType}
+     * Component of a room.
+     * @type {Array<RoomComponentType>}
      * @memberof ConfigRoomSummaryType
      */
-    roomComponents?: RoomComponentsType;
+    roomComponents?: Array<RoomComponentType>;
     /**
      * Detail Long Description Of The Room.
      * @type {string}
@@ -94,11 +94,11 @@ export interface ConfigRoomSummaryType {
      */
     roomDescription?: string;
     /**
-     *
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof ConfigRoomSummaryType
      */
-    roomFeatures?: RoomFeaturesType;
+    roomFeatures?: Array<RoomFeatureType>;
     /**
      * Code of the room.
      * @type {string}

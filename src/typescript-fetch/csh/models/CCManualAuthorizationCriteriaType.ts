@@ -19,12 +19,12 @@ import {
     CurrencyAmountTypeFromJSONTyped,
     CurrencyAmountTypeToJSON,
 } from './CurrencyAmountType';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Type for registering a manual authorization.
@@ -57,11 +57,11 @@ export interface CCManualAuthorizationCriteriaType {
      */
     manualApprovalCode?: string;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CCManualAuthorizationCriteriaType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -87,7 +87,7 @@ export function CCManualAuthorizationCriteriaTypeFromJSONTyped(json: any, ignore
         'folioView': !exists(json, 'folioView') ? undefined : json['folioView'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'manualApprovalCode': !exists(json, 'manualApprovalCode') ? undefined : json['manualApprovalCode'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -104,7 +104,7 @@ export function CCManualAuthorizationCriteriaTypeToJSON(value?: CCManualAuthoriz
         'folioView': value.folioView,
         'hotelId': value.hotelId,
         'manualApprovalCode': value.manualApprovalCode,
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

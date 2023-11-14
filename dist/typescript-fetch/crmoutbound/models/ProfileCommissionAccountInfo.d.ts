@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ProfileCommissionAccountInfoListType } from './ProfileCommissionAccountInfoListType';
+import type { InstanceLink } from './InstanceLink';
+import type { ProfileCommissionAccountInfoType } from './ProfileCommissionAccountInfoType';
 /**
  * Response object for fetching profile commission detail.
  * @export
@@ -18,17 +18,17 @@ import type { ProfileCommissionAccountInfoListType } from './ProfileCommissionAc
  */
 export interface ProfileCommissionAccountInfo {
     /**
-     *
-     * @type {ProfileCommissionAccountInfoListType}
+     * Profile commission info which contains bank account and commission code details.
+     * @type {Array<ProfileCommissionAccountInfoType>}
      * @memberof ProfileCommissionAccountInfo
      */
-    profileCommissionAccountInfoList?: ProfileCommissionAccountInfoListType;
+    profileCommissionAccountInfoList?: Array<ProfileCommissionAccountInfoType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileCommissionAccountInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the ProfileCommissionAccountInfo interface.

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ChannelErrorsErrors } from './ChannelErrorsErrors';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating channel errors.
  * @export
@@ -24,11 +24,11 @@ export interface ChannelErrors {
      */
     errors?: ChannelErrorsErrors;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelErrors
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelErrors interface.

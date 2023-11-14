@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { StatisticUnitsType } from './StatisticUnitsType';
+import type { StatisticUnitType } from './StatisticUnitType';
 import {
-    StatisticUnitsTypeFromJSON,
-    StatisticUnitsTypeFromJSONTyped,
-    StatisticUnitsTypeToJSON,
-} from './StatisticUnitsType';
+    StatisticUnitTypeFromJSON,
+    StatisticUnitTypeFromJSONTyped,
+    StatisticUnitTypeToJSON,
+} from './StatisticUnitType';
 
 /**
  * Contains summary statistic for a block on a particular statistic date.
@@ -33,11 +33,11 @@ export interface BlockStatusStatisticType {
      */
     statisticDate?: Date;
     /**
-     * 
-     * @type {StatisticUnitsType}
+     * Unit type to hold statistic code and value pair.
+     * @type {Array<StatisticUnitType>}
      * @memberof BlockStatusStatisticType
      */
-    statusSummaryStatistic?: StatisticUnitsType;
+    statusSummaryStatistic?: Array<StatisticUnitType>;
 }
 
 /**
@@ -60,7 +60,7 @@ export function BlockStatusStatisticTypeFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         'statisticDate': !exists(json, 'statisticDate') ? undefined : (new Date(json['statisticDate'])),
-        'statusSummaryStatistic': !exists(json, 'statusSummaryStatistic') ? undefined : StatisticUnitsTypeFromJSON(json['statusSummaryStatistic']),
+        'statusSummaryStatistic': !exists(json, 'statusSummaryStatistic') ? undefined : ((json['statusSummaryStatistic'] as Array<any>).map(StatisticUnitTypeFromJSON)),
     };
 }
 
@@ -74,7 +74,7 @@ export function BlockStatusStatisticTypeToJSON(value?: BlockStatusStatisticType 
     return {
         
         'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0,10)),
-        'statusSummaryStatistic': StatisticUnitsTypeToJSON(value.statusSummaryStatistic),
+        'statusSummaryStatistic': value.statusSummaryStatistic === undefined ? undefined : ((value.statusSummaryStatistic as Array<any>).map(StatisticUnitTypeToJSON)),
     };
 }
 

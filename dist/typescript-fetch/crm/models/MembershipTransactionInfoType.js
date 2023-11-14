@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipTransactionInfoTypeToJSON = exports.MembershipTransactionInfoTypeFromJSONTyped = exports.MembershipTransactionInfoTypeFromJSON = exports.instanceOfMembershipTransactionInfoType = void 0;
 const runtime_1 = require("../runtime");
-const ReservationIdList_1 = require("./ReservationIdList");
 const TimeSpanType_1 = require("./TimeSpanType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the MembershipTransactionInfoType interface.
  */
@@ -37,7 +37,7 @@ function MembershipTransactionInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'currencyCode': !(0, runtime_1.exists)(json, 'currencyCode') ? undefined : json['currencyCode'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'nights': !(0, runtime_1.exists)(json, 'nights') ? undefined : json['nights'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'stay': !(0, runtime_1.exists)(json, 'stay') ? undefined : json['stay'],
         'stayTimeSpan': !(0, runtime_1.exists)(json, 'stayTimeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['stayTimeSpan']),
         'transactionDate': !(0, runtime_1.exists)(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
@@ -56,7 +56,7 @@ function MembershipTransactionInfoTypeToJSON(value) {
         'currencyCode': value.currencyCode,
         'hotelId': value.hotelId,
         'nights': value.nights,
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'stay': value.stay,
         'stayTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.stayTimeSpan),
         'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0, 10)),

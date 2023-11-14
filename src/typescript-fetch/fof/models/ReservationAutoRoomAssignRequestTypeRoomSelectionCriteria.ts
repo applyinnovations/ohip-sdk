@@ -31,12 +31,12 @@ import {
     ReservationIdFromJSONTyped,
     ReservationIdToJSON,
 } from './ReservationId';
-import type { RoomFeaturesType } from './RoomFeaturesType';
+import type { RoomFeatureType } from './RoomFeatureType';
 import {
-    RoomFeaturesTypeFromJSON,
-    RoomFeaturesTypeFromJSONTyped,
-    RoomFeaturesTypeToJSON,
-} from './RoomFeaturesType';
+    RoomFeatureTypeFromJSON,
+    RoomFeatureTypeFromJSONTyped,
+    RoomFeatureTypeToJSON,
+} from './RoomFeatureType';
 import type { RoomRangeType } from './RoomRangeType';
 import {
     RoomRangeTypeFromJSON,
@@ -75,11 +75,11 @@ export interface ReservationAutoRoomAssignRequestTypeRoomSelectionCriteria {
      */
     excludeFloorPreferences?: Array<string>;
     /**
-     * 
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof ReservationAutoRoomAssignRequestTypeRoomSelectionCriteria
      */
-    excludeRoomFeatures?: RoomFeaturesType;
+    excludeRoomFeatures?: Array<RoomFeatureType>;
     /**
      * The floor of room to be fetched.
      * @type {string}
@@ -183,11 +183,11 @@ export interface ReservationAutoRoomAssignRequestTypeRoomSelectionCriteria {
      */
     roomClass?: string;
     /**
-     * 
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof ReservationAutoRoomAssignRequestTypeRoomSelectionCriteria
      */
-    roomFeatures?: RoomFeaturesType;
+    roomFeatures?: Array<RoomFeatureType>;
     /**
      * 
      * @type {string}
@@ -254,7 +254,7 @@ export function ReservationAutoRoomAssignRequestTypeRoomSelectionCriteriaFromJSO
         'connectingRoomsOnly': !exists(json, 'connectingRoomsOnly') ? undefined : json['connectingRoomsOnly'],
         'departureTime': !exists(json, 'departureTime') ? undefined : json['departureTime'],
         'excludeFloorPreferences': !exists(json, 'excludeFloorPreferences') ? undefined : json['excludeFloorPreferences'],
-        'excludeRoomFeatures': !exists(json, 'excludeRoomFeatures') ? undefined : RoomFeaturesTypeFromJSON(json['excludeRoomFeatures']),
+        'excludeRoomFeatures': !exists(json, 'excludeRoomFeatures') ? undefined : ((json['excludeRoomFeatures'] as Array<any>).map(RoomFeatureTypeFromJSON)),
         'floor': !exists(json, 'floor') ? undefined : json['floor'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'hotelRoomDateRange': !exists(json, 'hotelRoomDateRange') ? undefined : TimeSpanTypeFromJSON(json['hotelRoomDateRange']),
@@ -272,7 +272,7 @@ export function ReservationAutoRoomAssignRequestTypeRoomSelectionCriteriaFromJSO
         'pseudoRoomsOnly': !exists(json, 'pseudoRoomsOnly') ? undefined : json['pseudoRoomsOnly'],
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
         'roomClass': !exists(json, 'roomClass') ? undefined : json['roomClass'],
-        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : RoomFeaturesTypeFromJSON(json['roomFeatures']),
+        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : ((json['roomFeatures'] as Array<any>).map(RoomFeatureTypeFromJSON)),
         'roomNumberWildcard': !exists(json, 'roomNumberWildcard') ? undefined : json['roomNumberWildcard'],
         'roomRange': !exists(json, 'roomRange') ? undefined : RoomRangeTypeFromJSON(json['roomRange']),
         'roomStatusFilter': !exists(json, 'roomStatusFilter') ? undefined : ReservationAutoRoomAssignRequestTypeRoomSelectionCriteriaRoomStatusFilterFromJSON(json['roomStatusFilter']),
@@ -295,7 +295,7 @@ export function ReservationAutoRoomAssignRequestTypeRoomSelectionCriteriaToJSON(
         'connectingRoomsOnly': value.connectingRoomsOnly,
         'departureTime': value.departureTime,
         'excludeFloorPreferences': value.excludeFloorPreferences,
-        'excludeRoomFeatures': RoomFeaturesTypeToJSON(value.excludeRoomFeatures),
+        'excludeRoomFeatures': value.excludeRoomFeatures === undefined ? undefined : ((value.excludeRoomFeatures as Array<any>).map(RoomFeatureTypeToJSON)),
         'floor': value.floor,
         'hotelId': value.hotelId,
         'hotelRoomDateRange': TimeSpanTypeToJSON(value.hotelRoomDateRange),
@@ -313,7 +313,7 @@ export function ReservationAutoRoomAssignRequestTypeRoomSelectionCriteriaToJSON(
         'pseudoRoomsOnly': value.pseudoRoomsOnly,
         'reservationId': ReservationIdToJSON(value.reservationId),
         'roomClass': value.roomClass,
-        'roomFeatures': RoomFeaturesTypeToJSON(value.roomFeatures),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : ((value.roomFeatures as Array<any>).map(RoomFeatureTypeToJSON)),
         'roomNumberWildcard': value.roomNumberWildcard,
         'roomRange': RoomRangeTypeToJSON(value.roomRange),
         'roomStatusFilter': ReservationAutoRoomAssignRequestTypeRoomSelectionCriteriaRoomStatusFilterToJSON(value.roomStatusFilter),

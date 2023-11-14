@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TaxTypesToJSON = exports.TaxTypesFromJSONTyped = exports.TaxTypesFromJSON = exports.instanceOfTaxTypes = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TaxTypesType_1 = require("./TaxTypesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TaxTypeType_1 = require("./TaxTypeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TaxTypes interface.
  */
@@ -35,9 +35,9 @@ function TaxTypesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'taxTypes': !(0, runtime_1.exists)(json, 'taxTypes') ? undefined : (0, TaxTypesType_1.TaxTypesTypeFromJSON)(json['taxTypes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'taxTypes': !(0, runtime_1.exists)(json, 'taxTypes') ? undefined : (json['taxTypes'].map(TaxTypeType_1.TaxTypeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TaxTypesFromJSONTyped = TaxTypesFromJSONTyped;
@@ -49,9 +49,9 @@ function TaxTypesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'taxTypes': (0, TaxTypesType_1.TaxTypesTypeToJSON)(value.taxTypes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'taxTypes': value.taxTypes === undefined ? undefined : (value.taxTypes.map(TaxTypeType_1.TaxTypeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TaxTypesToJSON = TaxTypesToJSON;

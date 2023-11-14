@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PostCompRedemptionsRQToJSON = exports.PostCompRedemptionsRQFromJSONTyped = exports.PostCompRedemptionsRQFromJSON = exports.instanceOfPostCompRedemptionsRQ = void 0;
 const runtime_1 = require("../runtime");
-const PostCompRedemptionsRQCompRedemptionsType_1 = require("./PostCompRedemptionsRQCompRedemptionsType");
+const PostCompRedemptionsRQCompRedemptionType_1 = require("./PostCompRedemptionsRQCompRedemptionType");
 /**
  * Check if a given object implements the PostCompRedemptionsRQ interface.
  */
@@ -33,7 +33,7 @@ function PostCompRedemptionsRQFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'compRedemptions': !(0, runtime_1.exists)(json, 'compRedemptions') ? undefined : (0, PostCompRedemptionsRQCompRedemptionsType_1.PostCompRedemptionsRQCompRedemptionsTypeFromJSON)(json['compRedemptions']),
+        'compRedemptions': !(0, runtime_1.exists)(json, 'compRedemptions') ? undefined : (json['compRedemptions'].map(PostCompRedemptionsRQCompRedemptionType_1.PostCompRedemptionsRQCompRedemptionTypeFromJSON)),
     };
 }
 exports.PostCompRedemptionsRQFromJSONTyped = PostCompRedemptionsRQFromJSONTyped;
@@ -45,7 +45,7 @@ function PostCompRedemptionsRQToJSON(value) {
         return null;
     }
     return {
-        'compRedemptions': (0, PostCompRedemptionsRQCompRedemptionsType_1.PostCompRedemptionsRQCompRedemptionsTypeToJSON)(value.compRedemptions),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : (value.compRedemptions.map(PostCompRedemptionsRQCompRedemptionType_1.PostCompRedemptionsRQCompRedemptionTypeToJSON)),
     };
 }
 exports.PostCompRedemptionsRQToJSON = PostCompRedemptionsRQToJSON;

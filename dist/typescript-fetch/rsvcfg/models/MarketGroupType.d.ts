@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { MarketCodesType } from './MarketCodesType';
+import type { MarketCodeType } from './MarketCodeType';
 import type { TranslationTextType50 } from './TranslationTextType50';
 /**
  * Common code type for code, description, seq and inactive
@@ -42,11 +42,11 @@ export interface MarketGroupType {
      */
     inactive?: boolean;
     /**
-     *
-     * @type {MarketCodesType}
+     * Collection of Market Codes.
+     * @type {Array<MarketCodeType>}
      * @memberof MarketGroupType
      */
-    marketCodes?: MarketCodesType;
+    marketCodes?: Array<MarketCodeType>;
     /**
      *
      * @type {number}

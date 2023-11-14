@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FolioCopyLegendsType } from './FolioCopyLegendsType';
+import type { FolioCopyLegendType } from './FolioCopyLegendType';
 import {
-    FolioCopyLegendsTypeFromJSON,
-    FolioCopyLegendsTypeFromJSONTyped,
-    FolioCopyLegendsTypeToJSON,
-} from './FolioCopyLegendsType';
-import type { Links } from './Links';
+    FolioCopyLegendTypeFromJSON,
+    FolioCopyLegendTypeFromJSONTyped,
+    FolioCopyLegendTypeToJSON,
+} from './FolioCopyLegendType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface FolioCopyLegends {
     /**
-     * 
-     * @type {FolioCopyLegendsType}
+     * Details about folio copy legends.
+     * @type {Array<FolioCopyLegendType>}
      * @memberof FolioCopyLegends
      */
-    legends?: FolioCopyLegendsType;
+    legends?: Array<FolioCopyLegendType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FolioCopyLegends
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FolioCopyLegends
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FolioCopyLegendsFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'legends': !exists(json, 'legends') ? undefined : FolioCopyLegendsTypeFromJSON(json['legends']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'legends': !exists(json, 'legends') ? undefined : ((json['legends'] as Array<any>).map(FolioCopyLegendTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FolioCopyLegendsToJSON(value?: FolioCopyLegends | null): any {
     }
     return {
         
-        'legends': FolioCopyLegendsTypeToJSON(value.legends),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'legends': value.legends === undefined ? undefined : ((value.legends as Array<any>).map(FolioCopyLegendTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -25,30 +25,24 @@ import {
     BookingStatusDetailTypeFromJSONTyped,
     BookingStatusDetailTypeToJSON,
 } from './BookingStatusDetailType';
+import type { BookingStatusHistoryType } from './BookingStatusHistoryType';
+import {
+    BookingStatusHistoryTypeFromJSON,
+    BookingStatusHistoryTypeFromJSONTyped,
+    BookingStatusHistoryTypeToJSON,
+} from './BookingStatusHistoryType';
 import type { CancellationDetailsType } from './CancellationDetailsType';
 import {
     CancellationDetailsTypeFromJSON,
     CancellationDetailsTypeFromJSONTyped,
     CancellationDetailsTypeToJSON,
 } from './CancellationDetailsType';
-import type { CateringNextStatusListType } from './CateringNextStatusListType';
-import {
-    CateringNextStatusListTypeFromJSON,
-    CateringNextStatusListTypeFromJSONTyped,
-    CateringNextStatusListTypeToJSON,
-} from './CateringNextStatusListType';
 import type { CateringRevenueType } from './CateringRevenueType';
 import {
     CateringRevenueTypeFromJSON,
     CateringRevenueTypeFromJSONTyped,
     CateringRevenueTypeToJSON,
 } from './CateringRevenueType';
-import type { CateringStatusChangeHistoryType } from './CateringStatusChangeHistoryType';
-import {
-    CateringStatusChangeHistoryTypeFromJSON,
-    CateringStatusChangeHistoryTypeFromJSONTyped,
-    CateringStatusChangeHistoryTypeToJSON,
-} from './CateringStatusChangeHistoryType';
 import type { EventAttendeesType } from './EventAttendeesType';
 import {
     EventAttendeesTypeFromJSON,
@@ -111,11 +105,11 @@ export interface CateringType {
      */
     cateringInternalStatus?: string;
     /**
-     * 
-     * @type {CateringNextStatusListType}
+     * Next catering status of the business block.
+     * @type {Array<BookingStatusDetailType>}
      * @memberof CateringType
      */
-    cateringNextStatusList?: CateringNextStatusListType;
+    cateringNextStatusList?: Array<BookingStatusDetailType>;
     /**
      * Catering Owner of the block.
      * @type {string}
@@ -135,11 +129,11 @@ export interface CateringType {
      */
     cateringStatus?: BookingStatusDetailType;
     /**
-     * 
-     * @type {CateringStatusChangeHistoryType}
+     * Collection of catering status history.
+     * @type {Array<BookingStatusHistoryType>}
      * @memberof CateringType
      */
-    cateringStatusChangeHistory?: CateringStatusChangeHistoryType;
+    cateringStatusChangeHistory?: Array<BookingStatusHistoryType>;
     /**
      * Catering contract number for the block.
      * @type {string}
@@ -245,11 +239,11 @@ export function CateringTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'boardInfo': !exists(json, 'boardInfo') ? undefined : json['boardInfo'],
         'cancellationDetails': !exists(json, 'cancellationDetails') ? undefined : CancellationDetailsTypeFromJSON(json['cancellationDetails']),
         'cateringInternalStatus': !exists(json, 'cateringInternalStatus') ? undefined : json['cateringInternalStatus'],
-        'cateringNextStatusList': !exists(json, 'cateringNextStatusList') ? undefined : CateringNextStatusListTypeFromJSON(json['cateringNextStatusList']),
+        'cateringNextStatusList': !exists(json, 'cateringNextStatusList') ? undefined : ((json['cateringNextStatusList'] as Array<any>).map(BookingStatusDetailTypeFromJSON)),
         'cateringOwner': !exists(json, 'cateringOwner') ? undefined : json['cateringOwner'],
         'cateringRevenue': !exists(json, 'cateringRevenue') ? undefined : CateringRevenueTypeFromJSON(json['cateringRevenue']),
         'cateringStatus': !exists(json, 'cateringStatus') ? undefined : BookingStatusDetailTypeFromJSON(json['cateringStatus']),
-        'cateringStatusChangeHistory': !exists(json, 'cateringStatusChangeHistory') ? undefined : CateringStatusChangeHistoryTypeFromJSON(json['cateringStatusChangeHistory']),
+        'cateringStatusChangeHistory': !exists(json, 'cateringStatusChangeHistory') ? undefined : ((json['cateringStatusChangeHistory'] as Array<any>).map(BookingStatusHistoryTypeFromJSON)),
         'contractNumber': !exists(json, 'contractNumber') ? undefined : json['contractNumber'],
         'decisionDate': !exists(json, 'decisionDate') ? undefined : (new Date(json['decisionDate'])),
         'eventAttendees': !exists(json, 'eventAttendees') ? undefined : EventAttendeesTypeFromJSON(json['eventAttendees']),
@@ -281,11 +275,11 @@ export function CateringTypeToJSON(value?: CateringType | null): any {
         'boardInfo': value.boardInfo,
         'cancellationDetails': CancellationDetailsTypeToJSON(value.cancellationDetails),
         'cateringInternalStatus': value.cateringInternalStatus,
-        'cateringNextStatusList': CateringNextStatusListTypeToJSON(value.cateringNextStatusList),
+        'cateringNextStatusList': value.cateringNextStatusList === undefined ? undefined : ((value.cateringNextStatusList as Array<any>).map(BookingStatusDetailTypeToJSON)),
         'cateringOwner': value.cateringOwner,
         'cateringRevenue': CateringRevenueTypeToJSON(value.cateringRevenue),
         'cateringStatus': BookingStatusDetailTypeToJSON(value.cateringStatus),
-        'cateringStatusChangeHistory': CateringStatusChangeHistoryTypeToJSON(value.cateringStatusChangeHistory),
+        'cateringStatusChangeHistory': value.cateringStatusChangeHistory === undefined ? undefined : ((value.cateringStatusChangeHistory as Array<any>).map(BookingStatusHistoryTypeToJSON)),
         'contractNumber': value.contractNumber,
         'decisionDate': value.decisionDate === undefined ? undefined : (value.decisionDate.toISOString().substring(0,10)),
         'eventAttendees': EventAttendeesTypeToJSON(value.eventAttendees),

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ProfileIdList } from './ProfileIdList';
+import type { InstanceLink } from './InstanceLink';
 import type { ProfileType } from './ProfileType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Object for creation of profiles. This object contains profile details with unique identifiers for each profile.
  * @export
@@ -19,11 +19,11 @@ import type { ProfileType } from './ProfileType';
  */
 export interface Profile {
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof Profile
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {ProfileType}
@@ -32,10 +32,10 @@ export interface Profile {
     profileDetails?: ProfileType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Profile
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the Profile interface.

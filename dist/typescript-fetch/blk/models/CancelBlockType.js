@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CancelBlockTypeToJSON = exports.CancelBlockTypeFromJSONTyped = exports.CancelBlockTypeFromJSON = exports.instanceOfCancelBlockType = void 0;
 const runtime_1 = require("../runtime");
-const BlockIdList_1 = require("./BlockIdList");
 const CancellationDetailsType_1 = require("./CancellationDetailsType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CancelBlockType interface.
  */
@@ -34,7 +34,7 @@ function CancelBlockTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (0, BlockIdList_1.BlockIdListFromJSON)(json['blockIdList']),
+        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'cancellationDetails': !(0, runtime_1.exists)(json, 'cancellationDetails') ? undefined : (0, CancellationDetailsType_1.CancellationDetailsTypeFromJSON)(json['cancellationDetails']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'pMReservationsCancellationDetails': !(0, runtime_1.exists)(json, 'pMReservationsCancellationDetails') ? undefined : (0, CancellationDetailsType_1.CancellationDetailsTypeFromJSON)(json['pMReservationsCancellationDetails']),
@@ -50,7 +50,7 @@ function CancelBlockTypeToJSON(value) {
         return null;
     }
     return {
-        'blockIdList': (0, BlockIdList_1.BlockIdListToJSON)(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'cancellationDetails': (0, CancellationDetailsType_1.CancellationDetailsTypeToJSON)(value.cancellationDetails),
         'hotelId': value.hotelId,
         'pMReservationsCancellationDetails': (0, CancellationDetailsType_1.CancellationDetailsTypeToJSON)(value.pMReservationsCancellationDetails),

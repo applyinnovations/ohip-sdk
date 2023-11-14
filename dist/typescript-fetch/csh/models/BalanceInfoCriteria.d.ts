@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 import type { CurrencyAmountType } from './CurrencyAmountType';
-import type { Links } from './Links';
-import type { SummaryPostingsType } from './SummaryPostingsType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { SummaryPostingType } from './SummaryPostingType';
+import type { TrxInfoType } from './TrxInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response for the fetch balance request. This will contain the current balance for the criteria requested.
  * @export
@@ -28,28 +28,28 @@ export interface BalanceInfoCriteria {
     balance?: CurrencyAmountType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BalanceInfoCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {SummaryPostingsType}
+     * List of postings.
+     * @type {Array<SummaryPostingType>}
      * @memberof BalanceInfoCriteria
      */
-    postings?: SummaryPostingsType;
+    postings?: Array<SummaryPostingType>;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof BalanceInfoCriteria
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BalanceInfoCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BalanceInfoCriteria interface.

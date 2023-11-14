@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ShareReservationInstructionTypeToJSON = exports.ShareReservationInstructionTypeFromJSONTyped = exports.ShareReservationInstructionTypeFromJSON = exports.instanceOfShareReservationInstructionType = void 0;
 const runtime_1 = require("../runtime");
-const EffectiveRatesType_1 = require("./EffectiveRatesType");
+const EffectiveRateType_1 = require("./EffectiveRateType");
 const ReservationPaymentMethodType_1 = require("./ReservationPaymentMethodType");
 const ShareDistributionInstructionType_1 = require("./ShareDistributionInstructionType");
 const ShareTypeType_1 = require("./ShareTypeType");
@@ -36,7 +36,7 @@ function ShareReservationInstructionTypeFromJSONTyped(json, ignoreDiscriminator)
         return json;
     }
     return {
-        'effectiveRates': !(0, runtime_1.exists)(json, 'effectiveRates') ? undefined : (0, EffectiveRatesType_1.EffectiveRatesTypeFromJSON)(json['effectiveRates']),
+        'effectiveRates': !(0, runtime_1.exists)(json, 'effectiveRates') ? undefined : (json['effectiveRates'].map(EffectiveRateType_1.EffectiveRateTypeFromJSON)),
         'fixedRate': !(0, runtime_1.exists)(json, 'fixedRate') ? undefined : json['fixedRate'],
         'paymentMethod': !(0, runtime_1.exists)(json, 'paymentMethod') ? undefined : (0, ReservationPaymentMethodType_1.ReservationPaymentMethodTypeFromJSON)(json['paymentMethod']),
         'rateAmountShare': !(0, runtime_1.exists)(json, 'rateAmountShare') ? undefined : (0, ShareDistributionInstructionType_1.ShareDistributionInstructionTypeFromJSON)(json['rateAmountShare']),
@@ -52,7 +52,7 @@ function ShareReservationInstructionTypeToJSON(value) {
         return null;
     }
     return {
-        'effectiveRates': (0, EffectiveRatesType_1.EffectiveRatesTypeToJSON)(value.effectiveRates),
+        'effectiveRates': value.effectiveRates === undefined ? undefined : (value.effectiveRates.map(EffectiveRateType_1.EffectiveRateTypeToJSON)),
         'fixedRate': value.fixedRate,
         'paymentMethod': (0, ReservationPaymentMethodType_1.ReservationPaymentMethodTypeToJSON)(value.paymentMethod),
         'rateAmountShare': (0, ShareDistributionInstructionType_1.ShareDistributionInstructionTypeToJSON)(value.rateAmountShare),

@@ -17,10 +17,9 @@ exports.CateringTypeToJSON = exports.CateringTypeFromJSONTyped = exports.Caterin
 const runtime_1 = require("../runtime");
 const ApplyEventAttendeesChangesToEventsType_1 = require("./ApplyEventAttendeesChangesToEventsType");
 const BookingStatusDetailType_1 = require("./BookingStatusDetailType");
+const BookingStatusHistoryType_1 = require("./BookingStatusHistoryType");
 const CancellationDetailsType_1 = require("./CancellationDetailsType");
-const CateringNextStatusListType_1 = require("./CateringNextStatusListType");
 const CateringRevenueType_1 = require("./CateringRevenueType");
-const CateringStatusChangeHistoryType_1 = require("./CateringStatusChangeHistoryType");
 const EventAttendeesType_1 = require("./EventAttendeesType");
 const EventOrderType_1 = require("./EventOrderType");
 const ResourceDiscountTypeType_1 = require("./ResourceDiscountTypeType");
@@ -47,11 +46,11 @@ function CateringTypeFromJSONTyped(json, ignoreDiscriminator) {
         'boardInfo': !(0, runtime_1.exists)(json, 'boardInfo') ? undefined : json['boardInfo'],
         'cancellationDetails': !(0, runtime_1.exists)(json, 'cancellationDetails') ? undefined : (0, CancellationDetailsType_1.CancellationDetailsTypeFromJSON)(json['cancellationDetails']),
         'cateringInternalStatus': !(0, runtime_1.exists)(json, 'cateringInternalStatus') ? undefined : json['cateringInternalStatus'],
-        'cateringNextStatusList': !(0, runtime_1.exists)(json, 'cateringNextStatusList') ? undefined : (0, CateringNextStatusListType_1.CateringNextStatusListTypeFromJSON)(json['cateringNextStatusList']),
+        'cateringNextStatusList': !(0, runtime_1.exists)(json, 'cateringNextStatusList') ? undefined : (json['cateringNextStatusList'].map(BookingStatusDetailType_1.BookingStatusDetailTypeFromJSON)),
         'cateringOwner': !(0, runtime_1.exists)(json, 'cateringOwner') ? undefined : json['cateringOwner'],
         'cateringRevenue': !(0, runtime_1.exists)(json, 'cateringRevenue') ? undefined : (0, CateringRevenueType_1.CateringRevenueTypeFromJSON)(json['cateringRevenue']),
         'cateringStatus': !(0, runtime_1.exists)(json, 'cateringStatus') ? undefined : (0, BookingStatusDetailType_1.BookingStatusDetailTypeFromJSON)(json['cateringStatus']),
-        'cateringStatusChangeHistory': !(0, runtime_1.exists)(json, 'cateringStatusChangeHistory') ? undefined : (0, CateringStatusChangeHistoryType_1.CateringStatusChangeHistoryTypeFromJSON)(json['cateringStatusChangeHistory']),
+        'cateringStatusChangeHistory': !(0, runtime_1.exists)(json, 'cateringStatusChangeHistory') ? undefined : (json['cateringStatusChangeHistory'].map(BookingStatusHistoryType_1.BookingStatusHistoryTypeFromJSON)),
         'contractNumber': !(0, runtime_1.exists)(json, 'contractNumber') ? undefined : json['contractNumber'],
         'decisionDate': !(0, runtime_1.exists)(json, 'decisionDate') ? undefined : (new Date(json['decisionDate'])),
         'eventAttendees': !(0, runtime_1.exists)(json, 'eventAttendees') ? undefined : (0, EventAttendeesType_1.EventAttendeesTypeFromJSON)(json['eventAttendees']),
@@ -82,11 +81,11 @@ function CateringTypeToJSON(value) {
         'boardInfo': value.boardInfo,
         'cancellationDetails': (0, CancellationDetailsType_1.CancellationDetailsTypeToJSON)(value.cancellationDetails),
         'cateringInternalStatus': value.cateringInternalStatus,
-        'cateringNextStatusList': (0, CateringNextStatusListType_1.CateringNextStatusListTypeToJSON)(value.cateringNextStatusList),
+        'cateringNextStatusList': value.cateringNextStatusList === undefined ? undefined : (value.cateringNextStatusList.map(BookingStatusDetailType_1.BookingStatusDetailTypeToJSON)),
         'cateringOwner': value.cateringOwner,
         'cateringRevenue': (0, CateringRevenueType_1.CateringRevenueTypeToJSON)(value.cateringRevenue),
         'cateringStatus': (0, BookingStatusDetailType_1.BookingStatusDetailTypeToJSON)(value.cateringStatus),
-        'cateringStatusChangeHistory': (0, CateringStatusChangeHistoryType_1.CateringStatusChangeHistoryTypeToJSON)(value.cateringStatusChangeHistory),
+        'cateringStatusChangeHistory': value.cateringStatusChangeHistory === undefined ? undefined : (value.cateringStatusChangeHistory.map(BookingStatusHistoryType_1.BookingStatusHistoryTypeToJSON)),
         'contractNumber': value.contractNumber,
         'decisionDate': value.decisionDate === undefined ? undefined : (value.decisionDate.toISOString().substring(0, 10)),
         'eventAttendees': (0, EventAttendeesType_1.EventAttendeesTypeToJSON)(value.eventAttendees),

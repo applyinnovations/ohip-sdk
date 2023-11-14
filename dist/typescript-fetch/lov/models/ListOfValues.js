@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ListOfValuesToJSON = exports.ListOfValuesFromJSONTyped = exports.ListOfValuesFromJSON = exports.instanceOfListOfValues = void 0;
 const runtime_1 = require("../runtime");
 const ListOfValuesType_1 = require("./ListOfValuesType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ListOfValues interface.
  */
@@ -35,7 +35,7 @@ function ListOfValuesFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'listOfValues': !(0, runtime_1.exists)(json, 'listOfValues') ? undefined : (0, ListOfValuesType_1.ListOfValuesTypeFromJSON)(json['listOfValues']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ListOfValuesFromJSONTyped = ListOfValuesFromJSONTyped;
@@ -48,7 +48,7 @@ function ListOfValuesToJSON(value) {
     }
     return {
         'listOfValues': (0, ListOfValuesType_1.ListOfValuesTypeToJSON)(value.listOfValues),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ListOfValuesToJSON = ListOfValuesToJSON;

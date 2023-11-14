@@ -19,12 +19,12 @@ import {
     CopyAndMoveEventResourcesTypeFromJSONTyped,
     CopyAndMoveEventResourcesTypeToJSON,
 } from './CopyAndMoveEventResourcesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,11 +39,11 @@ export interface CopyEventResourcesRequest {
      */
     criteria?: CopyAndMoveEventResourcesType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CopyEventResourcesRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function CopyEventResourcesRequestFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : CopyAndMoveEventResourcesTypeFromJSON(json['criteria']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function CopyEventResourcesRequestToJSON(value?: CopyEventResourcesReques
     return {
         
         'criteria': CopyAndMoveEventResourcesTypeToJSON(value.criteria),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

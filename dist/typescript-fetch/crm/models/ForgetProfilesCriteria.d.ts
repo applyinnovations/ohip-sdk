@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ForgetProfilesCriteriaType } from './ForgetProfilesCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Operation to validate profiles for forgetting.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ForgetProfilesCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ForgetProfilesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ForgetProfilesCriteriaType}
@@ -31,11 +31,11 @@ export interface ForgetProfilesCriteria {
      */
     validateForgetProfilesCriteria?: ForgetProfilesCriteriaType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ForgetProfilesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ForgetProfilesCriteria interface.

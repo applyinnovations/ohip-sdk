@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TransactionDiversionRulesType } from './TransactionDiversionRulesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TransactionDiversionRuleType } from './TransactionDiversionRuleType';
 import {
-    TransactionDiversionRulesTypeFromJSON,
-    TransactionDiversionRulesTypeFromJSONTyped,
-    TransactionDiversionRulesTypeToJSON,
-} from './TransactionDiversionRulesType';
-import type { WarningsType } from './WarningsType';
+    TransactionDiversionRuleTypeFromJSON,
+    TransactionDiversionRuleTypeFromJSONTyped,
+    TransactionDiversionRuleTypeToJSON,
+} from './TransactionDiversionRuleType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface TransactionDiversionRules {
     /**
-     * 
-     * @type {TransactionDiversionRulesType}
+     * Collection of Transaction Diversion Rule List
+     * @type {Array<TransactionDiversionRuleType>}
      * @memberof TransactionDiversionRules
      */
-    diversionRules?: TransactionDiversionRulesType;
+    diversionRules?: Array<TransactionDiversionRuleType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransactionDiversionRules
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransactionDiversionRules
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TransactionDiversionRulesFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'diversionRules': !exists(json, 'diversionRules') ? undefined : TransactionDiversionRulesTypeFromJSON(json['diversionRules']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'diversionRules': !exists(json, 'diversionRules') ? undefined : ((json['diversionRules'] as Array<any>).map(TransactionDiversionRuleTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TransactionDiversionRulesToJSON(value?: TransactionDiversionRule
     }
     return {
         
-        'diversionRules': TransactionDiversionRulesTypeToJSON(value.diversionRules),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'diversionRules': value.diversionRules === undefined ? undefined : ((value.diversionRules as Array<any>).map(TransactionDiversionRuleTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

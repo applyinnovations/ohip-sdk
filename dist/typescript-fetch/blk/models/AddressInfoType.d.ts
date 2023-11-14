@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { AddressType } from './AddressType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Provides address information.
  * @export
@@ -42,11 +42,11 @@ export interface AddressInfoType {
      */
     type?: string;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AddressInfoType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AddressInfoType interface.

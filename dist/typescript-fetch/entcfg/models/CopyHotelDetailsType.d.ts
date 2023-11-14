@@ -9,8 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
-import type { TemplateHotelDetailsIDType } from './TemplateHotelDetailsIDType';
+import type { TemplateHotelDetailIDType } from './TemplateHotelDetailIDType';
 /**
  * Instructions for copying template hotel details to hotel(s).
  * @export
@@ -19,16 +18,16 @@ import type { TemplateHotelDetailsIDType } from './TemplateHotelDetailsIDType';
 export interface CopyHotelDetailsType {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyHotelDetailsType
      */
-    hotels?: CodeListType;
+    hotels?: Array<string>;
     /**
-     *
-     * @type {TemplateHotelDetailsIDType}
+     * Collection of template level hotel detail identifiers.
+     * @type {Array<TemplateHotelDetailIDType>}
      * @memberof CopyHotelDetailsType
      */
-    templateHotelDetails?: TemplateHotelDetailsIDType;
+    templateHotelDetails?: Array<TemplateHotelDetailIDType>;
 }
 /**
  * Check if a given object implements the CopyHotelDetailsType interface.

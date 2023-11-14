@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WashScheduleDetailsToJSON = exports.WashScheduleDetailsFromJSONTyped = exports.WashScheduleDetailsFromJSON = exports.instanceOfWashScheduleDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
-const WashCodesType_1 = require("./WashCodesType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
+const WashCodeType_1 = require("./WashCodeType");
 /**
  * Check if a given object implements the WashScheduleDetails interface.
  */
@@ -35,9 +35,9 @@ function WashScheduleDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
-        'washCodes': !(0, runtime_1.exists)(json, 'washCodes') ? undefined : (0, WashCodesType_1.WashCodesTypeFromJSON)(json['washCodes']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
+        'washCodes': !(0, runtime_1.exists)(json, 'washCodes') ? undefined : (json['washCodes'].map(WashCodeType_1.WashCodeTypeFromJSON)),
     };
 }
 exports.WashScheduleDetailsFromJSONTyped = WashScheduleDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function WashScheduleDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
-        'washCodes': (0, WashCodesType_1.WashCodesTypeToJSON)(value.washCodes),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
+        'washCodes': value.washCodes === undefined ? undefined : (value.washCodes.map(WashCodeType_1.WashCodeTypeToJSON)),
     };
 }
 exports.WashScheduleDetailsToJSON = WashScheduleDetailsToJSON;

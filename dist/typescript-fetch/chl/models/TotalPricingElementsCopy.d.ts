@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CopyTotalPricingElementsType } from './CopyTotalPricingElementsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object to copy the total pricing elements into the target properties.
  * @export
@@ -26,16 +26,16 @@ export interface TotalPricingElementsCopy {
     copyInstructions?: CopyTotalPricingElementsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TotalPricingElementsCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TotalPricingElementsCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TotalPricingElementsCopy interface.

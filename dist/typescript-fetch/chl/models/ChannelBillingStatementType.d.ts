@@ -9,8 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChannelStatementAccountsType } from './ChannelStatementAccountsType';
-import type { CodeListType } from './CodeListType';
+import type { ChannelStatementAccountType } from './ChannelStatementAccountType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -21,10 +20,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface ChannelBillingStatementType {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ChannelBillingStatementType
      */
-    accountCodeList?: CodeListType;
+    accountCodeList?: Array<string>;
     /**
      * Holds begin date of the statement.
      * @type {Date}
@@ -32,11 +31,11 @@ export interface ChannelBillingStatementType {
      */
     beginDate?: Date;
     /**
-     *
-     * @type {ChannelStatementAccountsType}
+     * Provides detailed information regarding Channel Account contract.
+     * @type {Array<ChannelStatementAccountType>}
      * @memberof ChannelBillingStatementType
      */
-    channelAccountStatements?: ChannelStatementAccountsType;
+    channelAccountStatements?: Array<ChannelStatementAccountType>;
     /**
      * Flag to identify Statements generated were dirty or not.
      * @type {boolean}

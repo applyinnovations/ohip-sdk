@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyCateringEventsResponseToJSON = exports.CopyCateringEventsResponseFromJSONTyped = exports.CopyCateringEventsResponseFromJSON = exports.instanceOfCopyCateringEventsResponse = void 0;
 const runtime_1 = require("../runtime");
-const CopyCateringEventsProcessedInfoList_1 = require("./CopyCateringEventsProcessedInfoList");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CateringEventsProcessedInfoType_1 = require("./CateringEventsProcessedInfoType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CopyCateringEventsResponse interface.
  */
@@ -35,9 +35,9 @@ function CopyCateringEventsResponseFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'copyCateringEventsProcessedInfoList': !(0, runtime_1.exists)(json, 'copyCateringEventsProcessedInfoList') ? undefined : (0, CopyCateringEventsProcessedInfoList_1.CopyCateringEventsProcessedInfoListFromJSON)(json['copyCateringEventsProcessedInfoList']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'copyCateringEventsProcessedInfoList': !(0, runtime_1.exists)(json, 'copyCateringEventsProcessedInfoList') ? undefined : (json['copyCateringEventsProcessedInfoList'].map(CateringEventsProcessedInfoType_1.CateringEventsProcessedInfoTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CopyCateringEventsResponseFromJSONTyped = CopyCateringEventsResponseFromJSONTyped;
@@ -49,9 +49,9 @@ function CopyCateringEventsResponseToJSON(value) {
         return null;
     }
     return {
-        'copyCateringEventsProcessedInfoList': (0, CopyCateringEventsProcessedInfoList_1.CopyCateringEventsProcessedInfoListToJSON)(value.copyCateringEventsProcessedInfoList),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'copyCateringEventsProcessedInfoList': value.copyCateringEventsProcessedInfoList === undefined ? undefined : (value.copyCateringEventsProcessedInfoList.map(CateringEventsProcessedInfoType_1.CateringEventsProcessedInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CopyCateringEventsResponseToJSON = CopyCateringEventsResponseToJSON;

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { MarketGroupType } from './MarketGroupType';
 import {
     MarketGroupTypeFromJSON,
     MarketGroupTypeFromJSONTyped,
     MarketGroupTypeToJSON,
 } from './MarketGroupType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for fetch Market Groups.
@@ -58,10 +58,10 @@ export interface MarketGroupsDetails {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MarketGroupsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Collection of Market Groups.
      * @type {Array<MarketGroupType>}
@@ -87,11 +87,11 @@ export interface MarketGroupsDetails {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MarketGroupsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -116,12 +116,12 @@ export function MarketGroupsDetailsFromJSONTyped(json: any, ignoreDiscriminator:
         'count': !exists(json, 'count') ? undefined : json['count'],
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'marketGroups': !exists(json, 'marketGroups') ? undefined : ((json['marketGroups'] as Array<any>).map(MarketGroupTypeFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -137,12 +137,12 @@ export function MarketGroupsDetailsToJSON(value?: MarketGroupsDetails | null): a
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'marketGroups': value.marketGroups === undefined ? undefined : ((value.marketGroups as Array<any>).map(MarketGroupTypeToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

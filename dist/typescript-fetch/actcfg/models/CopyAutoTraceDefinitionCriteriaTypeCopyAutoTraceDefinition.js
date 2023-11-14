@@ -15,9 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionToJSON = exports.CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionFromJSONTyped = exports.CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionFromJSON = exports.instanceOfCopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinition = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionCopyInstructions_1 = require("./CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionCopyInstructions");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinition interface.
  */
@@ -37,8 +36,8 @@ function CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionFromJSONTyped
     return {
         'copyInstructions': !(0, runtime_1.exists)(json, 'copyInstructions') ? undefined : (0, CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionCopyInstructions_1.CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionCopyInstructionsFromJSON)(json['copyInstructions']),
         'sourceHotelCode': !(0, runtime_1.exists)(json, 'sourceHotelCode') ? undefined : json['sourceHotelCode'],
-        'targetHotelCode': !(0, runtime_1.exists)(json, 'targetHotelCode') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['targetHotelCode']),
-        'traceDefinitionCodeList': !(0, runtime_1.exists)(json, 'traceDefinitionCodeList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['traceDefinitionCodeList']),
+        'targetHotelCode': !(0, runtime_1.exists)(json, 'targetHotelCode') ? undefined : json['targetHotelCode'],
+        'traceDefinitionCodeList': !(0, runtime_1.exists)(json, 'traceDefinitionCodeList') ? undefined : (json['traceDefinitionCodeList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionFromJSONTyped = CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionFromJSONTyped;
@@ -52,8 +51,8 @@ function CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionToJSON(value)
     return {
         'copyInstructions': (0, CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionCopyInstructions_1.CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionCopyInstructionsToJSON)(value.copyInstructions),
         'sourceHotelCode': value.sourceHotelCode,
-        'targetHotelCode': (0, CodeListType_1.CodeListTypeToJSON)(value.targetHotelCode),
-        'traceDefinitionCodeList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.traceDefinitionCodeList),
+        'targetHotelCode': value.targetHotelCode,
+        'traceDefinitionCodeList': value.traceDefinitionCodeList === undefined ? undefined : (value.traceDefinitionCodeList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionToJSON = CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionToJSON;

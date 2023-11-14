@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { RelativePositionType } from './RelativePositionType';
-import type { TransportationCodeListType } from './TransportationCodeListType';
+import type { TransportationCodeType } from './TransportationCodeType';
 /**
  * Airport details of the Hotel
  * @export
@@ -48,11 +48,11 @@ export interface HotelAirportType {
      */
     relativePosition?: RelativePositionType;
     /**
-     *
-     * @type {TransportationCodeListType}
+     * List of available transportations from airport to get into Hotel.
+     * @type {Array<TransportationCodeType>}
      * @memberof HotelAirportType
      */
-    transportationList?: TransportationCodeListType;
+    transportationList?: Array<TransportationCodeType>;
 }
 /**
  * Check if a given object implements the HotelAirportType interface.

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelNotesType } from './HotelNotesType';
+import type { CommentInfoType } from './CommentInfoType';
 import {
-    HotelNotesTypeFromJSON,
-    HotelNotesTypeFromJSONTyped,
-    HotelNotesTypeToJSON,
-} from './HotelNotesType';
-import type { Links } from './Links';
+    CommentInfoTypeFromJSON,
+    CommentInfoTypeFromJSONTyped,
+    CommentInfoTypeToJSON,
+} from './CommentInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing hotel Notes for hotels.
@@ -39,23 +39,23 @@ import {
  */
 export interface HotelNotesToBeChanged {
     /**
-     * 
-     * @type {HotelNotesType}
+     * List of Notes of the hotel.
+     * @type {Array<CommentInfoType>}
      * @memberof HotelNotesToBeChanged
      */
-    hotelNotes?: HotelNotesType;
+    hotelNotes?: Array<CommentInfoType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelNotesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelNotesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function HotelNotesToBeChangedFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'hotelNotes': !exists(json, 'hotelNotes') ? undefined : HotelNotesTypeFromJSON(json['hotelNotes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'hotelNotes': !exists(json, 'hotelNotes') ? undefined : ((json['hotelNotes'] as Array<any>).map(CommentInfoTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function HotelNotesToBeChangedToJSON(value?: HotelNotesToBeChanged | null
     }
     return {
         
-        'hotelNotes': HotelNotesTypeToJSON(value.hotelNotes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'hotelNotes': value.hotelNotes === undefined ? undefined : ((value.hotelNotes as Array<any>).map(CommentInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ConfigTemplateExclusivePreferencesType } from './ConfigTemplateExclusivePreferencesType';
+import type { ConfigExclusivePreferenceBaseType } from './ConfigExclusivePreferenceBaseType';
 import {
-    ConfigTemplateExclusivePreferencesTypeFromJSON,
-    ConfigTemplateExclusivePreferencesTypeFromJSONTyped,
-    ConfigTemplateExclusivePreferencesTypeToJSON,
-} from './ConfigTemplateExclusivePreferencesType';
-import type { Links } from './Links';
+    ConfigExclusivePreferenceBaseTypeFromJSON,
+    ConfigExclusivePreferenceBaseTypeFromJSONTyped,
+    ConfigExclusivePreferenceBaseTypeToJSON,
+} from './ConfigExclusivePreferenceBaseType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching exclusive preferences at the template level.
@@ -40,22 +40,22 @@ import {
 export interface TemplateExclusivePreferences {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateExclusivePreferences
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ConfigTemplateExclusivePreferencesType}
+     * Base details common between both template and property level exclusive preferences.
+     * @type {Array<ConfigExclusivePreferenceBaseType>}
      * @memberof TemplateExclusivePreferences
      */
-    templateExclusivePreferences?: ConfigTemplateExclusivePreferencesType;
+    templateExclusivePreferences?: Array<ConfigExclusivePreferenceBaseType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateExclusivePreferences
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateExclusivePreferencesFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'templateExclusivePreferences': !exists(json, 'templateExclusivePreferences') ? undefined : ConfigTemplateExclusivePreferencesTypeFromJSON(json['templateExclusivePreferences']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'templateExclusivePreferences': !exists(json, 'templateExclusivePreferences') ? undefined : ((json['templateExclusivePreferences'] as Array<any>).map(ConfigExclusivePreferenceBaseTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateExclusivePreferencesToJSON(value?: TemplateExclusivePref
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'templateExclusivePreferences': ConfigTemplateExclusivePreferencesTypeToJSON(value.templateExclusivePreferences),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'templateExclusivePreferences': value.templateExclusivePreferences === undefined ? undefined : ((value.templateExclusivePreferences as Array<any>).map(ConfigExclusivePreferenceBaseTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

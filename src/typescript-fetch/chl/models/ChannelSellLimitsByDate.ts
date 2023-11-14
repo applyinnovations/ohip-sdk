@@ -19,12 +19,12 @@ import {
     ChannelSellLimitsByDateTypeFromJSONTyped,
     ChannelSellLimitsByDateTypeToJSON,
 } from './ChannelSellLimitsByDateType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to create or update sell limits for the channel or channel room type by day. Advanced logic is implemented to combine consecutive blocks of sell limits into a single schedule which have the same limits configured. Existing schedules can also be split as needed to account for overlapping schedules.
@@ -45,11 +45,11 @@ export interface ChannelSellLimitsByDate {
      */
     sellLimits?: ChannelSellLimitsByDateType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelSellLimitsByDate
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -73,7 +73,7 @@ export function ChannelSellLimitsByDateFromJSONTyped(json: any, ignoreDiscrimina
         
         'adjustOverlappingSchedules': !exists(json, 'adjustOverlappingSchedules') ? undefined : json['adjustOverlappingSchedules'],
         'sellLimits': !exists(json, 'sellLimits') ? undefined : ChannelSellLimitsByDateTypeFromJSON(json['sellLimits']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -88,7 +88,7 @@ export function ChannelSellLimitsByDateToJSON(value?: ChannelSellLimitsByDate | 
         
         'adjustOverlappingSchedules': value.adjustOverlappingSchedules,
         'sellLimits': ChannelSellLimitsByDateTypeToJSON(value.sellLimits),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

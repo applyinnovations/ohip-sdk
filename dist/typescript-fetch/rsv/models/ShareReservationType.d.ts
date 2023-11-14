@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DailyRatesType } from './DailyRatesType';
+import type { DailyRateType } from './DailyRateType';
 import type { ReservationId } from './ReservationId';
 /**
  *
@@ -18,11 +18,11 @@ import type { ReservationId } from './ReservationId';
  */
 export interface ShareReservationType {
     /**
-     *
-     * @type {DailyRatesType}
+     * Defines room rate information on a daily basis.
+     * @type {Array<DailyRateType>}
      * @memberof ShareReservationType
      */
-    dailyRates?: DailyRatesType;
+    dailyRates?: Array<DailyRateType>;
     /**
      *
      * @type {ReservationId}

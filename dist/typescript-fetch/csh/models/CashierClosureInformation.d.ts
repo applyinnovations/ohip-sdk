@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CashierClosureInfoTypes } from './CashierClosureInfoTypes';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CashierClosureInfoType } from './CashierClosureInfoType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response to the request to get financial details for a Posting Activity. This will return the before and after values for the transactions which were changed.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CashierClosureInformation {
     /**
-     *
-     * @type {CashierClosureInfoTypes}
+     * Information of the Cashier.
+     * @type {Array<CashierClosureInfoType>}
      * @memberof CashierClosureInformation
      */
-    cashierClosureInfo?: CashierClosureInfoTypes;
+    cashierClosureInfo?: Array<CashierClosureInfoType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CashierClosureInformation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CashierClosureInformation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CashierClosureInformation interface.

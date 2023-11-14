@@ -17,7 +17,6 @@ exports.MoveReservationHotelCriteriaTypeToJSON = exports.MoveReservationHotelCri
 const runtime_1 = require("../runtime");
 const HotelReservationInstructionType_1 = require("./HotelReservationInstructionType");
 const ReservationId_1 = require("./ReservationId");
-const ReservationIdList_1 = require("./ReservationIdList");
 /**
  * Check if a given object implements the MoveReservationHotelCriteriaType interface.
  */
@@ -37,7 +36,7 @@ function MoveReservationHotelCriteriaTypeFromJSONTyped(json, ignoreDiscriminator
     return {
         'configuredReservation': !(0, runtime_1.exists)(json, 'configuredReservation') ? undefined : (0, HotelReservationInstructionType_1.HotelReservationInstructionTypeFromJSON)(json['configuredReservation']),
         'destinationHotelCode': !(0, runtime_1.exists)(json, 'destinationHotelCode') ? undefined : json['destinationHotelCode'],
-        'includedSharers': !(0, runtime_1.exists)(json, 'includedSharers') ? undefined : (json['includedSharers'].map(ReservationIdList_1.ReservationIdListFromJSON)),
+        'includedSharers': !(0, runtime_1.exists)(json, 'includedSharers') ? undefined : json['includedSharers'],
         'moveReasonCode': !(0, runtime_1.exists)(json, 'moveReasonCode') ? undefined : json['moveReasonCode'],
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
         'sourceHotelCode': !(0, runtime_1.exists)(json, 'sourceHotelCode') ? undefined : json['sourceHotelCode'],
@@ -54,7 +53,7 @@ function MoveReservationHotelCriteriaTypeToJSON(value) {
     return {
         'configuredReservation': (0, HotelReservationInstructionType_1.HotelReservationInstructionTypeToJSON)(value.configuredReservation),
         'destinationHotelCode': value.destinationHotelCode,
-        'includedSharers': value.includedSharers === undefined ? undefined : (value.includedSharers.map(ReservationIdList_1.ReservationIdListToJSON)),
+        'includedSharers': value.includedSharers,
         'moveReasonCode': value.moveReasonCode,
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
         'sourceHotelCode': value.sourceHotelCode,

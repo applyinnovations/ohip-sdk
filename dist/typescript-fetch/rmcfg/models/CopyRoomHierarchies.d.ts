@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CopyRoomHierarchiesCopyRoomHierarchies } from './CopyRoomHierarchiesCopyRoomHierarchies';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to copy room hierarchies
  * @export
@@ -26,16 +26,16 @@ export interface CopyRoomHierarchies {
     copyRoomHierarchies?: CopyRoomHierarchiesCopyRoomHierarchies;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CopyRoomHierarchies
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CopyRoomHierarchies
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CopyRoomHierarchies interface.

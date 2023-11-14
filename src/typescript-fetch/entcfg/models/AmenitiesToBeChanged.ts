@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ConfigHotelAmenitiesType } from './ConfigHotelAmenitiesType';
+import type { ConfigHotelAmenityType } from './ConfigHotelAmenityType';
 import {
-    ConfigHotelAmenitiesTypeFromJSON,
-    ConfigHotelAmenitiesTypeFromJSONTyped,
-    ConfigHotelAmenitiesTypeToJSON,
-} from './ConfigHotelAmenitiesType';
-import type { Links } from './Links';
+    ConfigHotelAmenityTypeFromJSON,
+    ConfigHotelAmenityTypeFromJSONTyped,
+    ConfigHotelAmenityTypeToJSON,
+} from './ConfigHotelAmenityType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing amenities at the property level.
@@ -39,23 +39,23 @@ import {
  */
 export interface AmenitiesToBeChanged {
     /**
-     * 
-     * @type {ConfigHotelAmenitiesType}
+     * This type holds a collection of amenities at the property level.
+     * @type {Array<ConfigHotelAmenityType>}
      * @memberof AmenitiesToBeChanged
      */
-    hotelAmenities?: ConfigHotelAmenitiesType;
+    hotelAmenities?: Array<ConfigHotelAmenityType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AmenitiesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AmenitiesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function AmenitiesToBeChangedFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'hotelAmenities': !exists(json, 'hotelAmenities') ? undefined : ConfigHotelAmenitiesTypeFromJSON(json['hotelAmenities']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'hotelAmenities': !exists(json, 'hotelAmenities') ? undefined : ((json['hotelAmenities'] as Array<any>).map(ConfigHotelAmenityTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function AmenitiesToBeChangedToJSON(value?: AmenitiesToBeChanged | null):
     }
     return {
         
-        'hotelAmenities': ConfigHotelAmenitiesTypeToJSON(value.hotelAmenities),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'hotelAmenities': value.hotelAmenities === undefined ? undefined : ((value.hotelAmenities as Array<any>).map(ConfigHotelAmenityTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

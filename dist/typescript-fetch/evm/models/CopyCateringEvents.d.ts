@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CopyCateringEventsType } from './CopyCateringEventsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for copying events.
  * @export
@@ -24,11 +24,11 @@ export interface CopyCateringEvents {
      */
     criteria?: CopyCateringEventsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CopyCateringEvents
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CopyCateringEvents interface.

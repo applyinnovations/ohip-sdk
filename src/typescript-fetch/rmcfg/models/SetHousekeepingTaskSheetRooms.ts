@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HousekeepingTaskSheetRoomsType } from './HousekeepingTaskSheetRoomsType';
+import type { HousekeepingTaskSheetRoomType } from './HousekeepingTaskSheetRoomType';
 import {
-    HousekeepingTaskSheetRoomsTypeFromJSON,
-    HousekeepingTaskSheetRoomsTypeFromJSONTyped,
-    HousekeepingTaskSheetRoomsTypeToJSON,
-} from './HousekeepingTaskSheetRoomsType';
-import type { Links } from './Links';
+    HousekeepingTaskSheetRoomTypeFromJSON,
+    HousekeepingTaskSheetRoomTypeFromJSONTyped,
+    HousekeepingTaskSheetRoomTypeToJSON,
+} from './HousekeepingTaskSheetRoomType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for setting details about housekeeping tasksheet rooms.
@@ -39,23 +39,23 @@ import {
  */
 export interface SetHousekeepingTaskSheetRooms {
     /**
-     * 
-     * @type {HousekeepingTaskSheetRoomsType}
+     * Collection of housekeeping room details
+     * @type {Array<HousekeepingTaskSheetRoomType>}
      * @memberof SetHousekeepingTaskSheetRooms
      */
-    housekeepingTaskSheetRooms?: HousekeepingTaskSheetRoomsType;
+    housekeepingTaskSheetRooms?: Array<HousekeepingTaskSheetRoomType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SetHousekeepingTaskSheetRooms
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SetHousekeepingTaskSheetRooms
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function SetHousekeepingTaskSheetRoomsFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'housekeepingTaskSheetRooms': !exists(json, 'housekeepingTaskSheetRooms') ? undefined : HousekeepingTaskSheetRoomsTypeFromJSON(json['housekeepingTaskSheetRooms']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'housekeepingTaskSheetRooms': !exists(json, 'housekeepingTaskSheetRooms') ? undefined : ((json['housekeepingTaskSheetRooms'] as Array<any>).map(HousekeepingTaskSheetRoomTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function SetHousekeepingTaskSheetRoomsToJSON(value?: SetHousekeepingTaskS
     }
     return {
         
-        'housekeepingTaskSheetRooms': HousekeepingTaskSheetRoomsTypeToJSON(value.housekeepingTaskSheetRooms),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'housekeepingTaskSheetRooms': value.housekeepingTaskSheetRooms === undefined ? undefined : ((value.housekeepingTaskSheetRooms as Array<any>).map(HousekeepingTaskSheetRoomTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

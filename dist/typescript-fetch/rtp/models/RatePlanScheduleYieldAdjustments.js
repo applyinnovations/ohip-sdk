@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RatePlanScheduleYieldAdjustmentsToJSON = exports.RatePlanScheduleYieldAdjustmentsFromJSONTyped = exports.RatePlanScheduleYieldAdjustmentsFromJSON = exports.instanceOfRatePlanScheduleYieldAdjustments = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const ScheduleYieldInfoType_1 = require("./ScheduleYieldInfoType");
-const ScheduleYieldSummaryType_1 = require("./ScheduleYieldSummaryType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
+const YieldSummaryType_1 = require("./YieldSummaryType");
 /**
  * Check if a given object implements the RatePlanScheduleYieldAdjustments interface.
  */
@@ -36,10 +36,10 @@ function RatePlanScheduleYieldAdjustmentsFromJSONTyped(json, ignoreDiscriminator
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
         'yieldInfoList': !(0, runtime_1.exists)(json, 'yieldInfoList') ? undefined : (0, ScheduleYieldInfoType_1.ScheduleYieldInfoTypeFromJSON)(json['yieldInfoList']),
-        'yieldSummary': !(0, runtime_1.exists)(json, 'yieldSummary') ? undefined : (0, ScheduleYieldSummaryType_1.ScheduleYieldSummaryTypeFromJSON)(json['yieldSummary']),
+        'yieldSummary': !(0, runtime_1.exists)(json, 'yieldSummary') ? undefined : (json['yieldSummary'].map(YieldSummaryType_1.YieldSummaryTypeFromJSON)),
     };
 }
 exports.RatePlanScheduleYieldAdjustmentsFromJSONTyped = RatePlanScheduleYieldAdjustmentsFromJSONTyped;
@@ -51,10 +51,10 @@ function RatePlanScheduleYieldAdjustmentsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
         'yieldInfoList': (0, ScheduleYieldInfoType_1.ScheduleYieldInfoTypeToJSON)(value.yieldInfoList),
-        'yieldSummary': (0, ScheduleYieldSummaryType_1.ScheduleYieldSummaryTypeToJSON)(value.yieldSummary),
+        'yieldSummary': value.yieldSummary === undefined ? undefined : (value.yieldSummary.map(YieldSummaryType_1.YieldSummaryTypeToJSON)),
     };
 }
 exports.RatePlanScheduleYieldAdjustmentsToJSON = RatePlanScheduleYieldAdjustmentsToJSON;

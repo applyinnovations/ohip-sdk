@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockRankingsType } from './BlockRankingsType';
+import type { BlockRankingType } from './BlockRankingType';
 import {
-    BlockRankingsTypeFromJSON,
-    BlockRankingsTypeFromJSONTyped,
-    BlockRankingsTypeToJSON,
-} from './BlockRankingsType';
-import type { Links } from './Links';
+    BlockRankingTypeFromJSON,
+    BlockRankingTypeFromJSONTyped,
+    BlockRankingTypeToJSON,
+} from './BlockRankingType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Block Rankings.
@@ -39,23 +39,23 @@ import {
  */
 export interface BlockRankingsDetails {
     /**
-     * 
-     * @type {BlockRankingsType}
+     * List of Block Rankings.
+     * @type {Array<BlockRankingType>}
      * @memberof BlockRankingsDetails
      */
-    blockRankings?: BlockRankingsType;
+    blockRankings?: Array<BlockRankingType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockRankingsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockRankingsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function BlockRankingsDetailsFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'blockRankings': !exists(json, 'blockRankings') ? undefined : BlockRankingsTypeFromJSON(json['blockRankings']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'blockRankings': !exists(json, 'blockRankings') ? undefined : ((json['blockRankings'] as Array<any>).map(BlockRankingTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function BlockRankingsDetailsToJSON(value?: BlockRankingsDetails | null):
     }
     return {
         
-        'blockRankings': BlockRankingsTypeToJSON(value.blockRankings),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'blockRankings': value.blockRankings === undefined ? undefined : ((value.blockRankings as Array<any>).map(BlockRankingTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ConfigBankAccountsType } from './ConfigBankAccountsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ConfigBankAccountType } from './ConfigBankAccountType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object to edit Bank Accounts
  * @export
@@ -19,17 +19,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BankAccounts {
     /**
-     *
-     * @type {ConfigBankAccountsType}
+     * List of bank accounts.
+     * @type {Array<ConfigBankAccountType>}
      * @memberof BankAccounts
      */
-    bankAccounts?: ConfigBankAccountsType;
+    bankAccounts?: Array<ConfigBankAccountType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BankAccounts
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Update default confirmation response
      * @type {boolean}
@@ -43,11 +43,11 @@ export interface BankAccounts {
      */
     updateDefaultForCurrency?: boolean;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BankAccounts
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BankAccounts interface.

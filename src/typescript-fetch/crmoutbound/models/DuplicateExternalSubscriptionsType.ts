@@ -19,12 +19,12 @@ import {
     ProfileIdFromJSONTyped,
     ProfileIdToJSON,
 } from './ProfileId';
-import type { ProfileSubscriptionListType } from './ProfileSubscriptionListType';
+import type { ProfileSubscriptionType } from './ProfileSubscriptionType';
 import {
-    ProfileSubscriptionListTypeFromJSON,
-    ProfileSubscriptionListTypeFromJSONTyped,
-    ProfileSubscriptionListTypeToJSON,
-} from './ProfileSubscriptionListType';
+    ProfileSubscriptionTypeFromJSON,
+    ProfileSubscriptionTypeFromJSONTyped,
+    ProfileSubscriptionTypeToJSON,
+} from './ProfileSubscriptionType';
 
 /**
  * Contains subscription details about an OPERA Profile that is linked to multiple external profiles within the same external system.
@@ -45,11 +45,11 @@ export interface DuplicateExternalSubscriptionsType {
      */
     databaseId?: string;
     /**
-     * 
-     * @type {ProfileSubscriptionListType}
+     * Details of the OPERA Profile subscription to external system
+     * @type {Array<ProfileSubscriptionType>}
      * @memberof DuplicateExternalSubscriptionsType
      */
-    profileSubscriptions?: ProfileSubscriptionListType;
+    profileSubscriptions?: Array<ProfileSubscriptionType>;
 }
 
 /**
@@ -73,7 +73,7 @@ export function DuplicateExternalSubscriptionsTypeFromJSONTyped(json: any, ignor
         
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
         'databaseId': !exists(json, 'databaseId') ? undefined : json['databaseId'],
-        'profileSubscriptions': !exists(json, 'profileSubscriptions') ? undefined : ProfileSubscriptionListTypeFromJSON(json['profileSubscriptions']),
+        'profileSubscriptions': !exists(json, 'profileSubscriptions') ? undefined : ((json['profileSubscriptions'] as Array<any>).map(ProfileSubscriptionTypeFromJSON)),
     };
 }
 
@@ -88,7 +88,7 @@ export function DuplicateExternalSubscriptionsTypeToJSON(value?: DuplicateExtern
         
         'profileId': ProfileIdToJSON(value.profileId),
         'databaseId': value.databaseId,
-        'profileSubscriptions': ProfileSubscriptionListTypeToJSON(value.profileSubscriptions),
+        'profileSubscriptions': value.profileSubscriptions === undefined ? undefined : ((value.profileSubscriptions as Array<any>).map(ProfileSubscriptionTypeToJSON)),
     };
 }
 

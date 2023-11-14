@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { ConfigTemplatePreferenceIDType } from './ConfigTemplatePreferenceIDType';
 /**
  * Copy instructions for copying template preferences to hotel(s)
@@ -19,10 +18,10 @@ import type { ConfigTemplatePreferenceIDType } from './ConfigTemplatePreferenceI
 export interface ConfigCopyPreferencesType {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigCopyPreferencesType
      */
-    hotelCodes?: CodeListType;
+    hotelCodes?: Array<string>;
     /**
      * Template preference to be copied to the hotel(s).
      * @type {Array<ConfigTemplatePreferenceIDType>}

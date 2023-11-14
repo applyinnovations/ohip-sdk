@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RoomGroupsType } from './RoomGroupsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RoomGroupType } from './RoomGroupType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Room Groups.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface RoomGroupsCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomGroupsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RoomGroupsType}
+     * List of Room Pools.
+     * @type {Array<RoomGroupType>}
      * @memberof RoomGroupsCriteria
      */
-    roomGroups?: RoomGroupsType;
+    roomGroups?: Array<RoomGroupType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomGroupsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomGroupsCriteria interface.

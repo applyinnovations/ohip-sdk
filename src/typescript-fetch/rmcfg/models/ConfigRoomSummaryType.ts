@@ -19,24 +19,24 @@ import {
     RatePlanRatingTypeFromJSONTyped,
     RatePlanRatingTypeToJSON,
 } from './RatePlanRatingType';
-import type { RoomComponentsType } from './RoomComponentsType';
+import type { RoomComponentType } from './RoomComponentType';
 import {
-    RoomComponentsTypeFromJSON,
-    RoomComponentsTypeFromJSONTyped,
-    RoomComponentsTypeToJSON,
-} from './RoomComponentsType';
-import type { RoomFeaturesType } from './RoomFeaturesType';
+    RoomComponentTypeFromJSON,
+    RoomComponentTypeFromJSONTyped,
+    RoomComponentTypeToJSON,
+} from './RoomComponentType';
+import type { RoomFeatureType } from './RoomFeatureType';
 import {
-    RoomFeaturesTypeFromJSON,
-    RoomFeaturesTypeFromJSONTyped,
-    RoomFeaturesTypeToJSON,
-} from './RoomFeaturesType';
-import type { RoomRoomsType } from './RoomRoomsType';
+    RoomFeatureTypeFromJSON,
+    RoomFeatureTypeFromJSONTyped,
+    RoomFeatureTypeToJSON,
+} from './RoomFeatureType';
+import type { RoomRoomType } from './RoomRoomType';
 import {
-    RoomRoomsTypeFromJSON,
-    RoomRoomsTypeFromJSONTyped,
-    RoomRoomsTypeToJSON,
-} from './RoomRoomsType';
+    RoomRoomTypeFromJSON,
+    RoomRoomTypeFromJSONTyped,
+    RoomRoomTypeToJSON,
+} from './RoomRoomType';
 import type { RoomTypeShortInfoType } from './RoomTypeShortInfoType';
 import {
     RoomTypeShortInfoTypeFromJSON,
@@ -69,11 +69,11 @@ export interface ConfigRoomSummaryType {
      */
     building?: string;
     /**
-     * 
-     * @type {RoomRoomsType}
+     * Collection of rooms.
+     * @type {Array<RoomRoomType>}
      * @memberof ConfigRoomSummaryType
      */
-    connectingRooms?: RoomRoomsType;
+    connectingRooms?: Array<RoomRoomType>;
     /**
      * 
      * @type {TranslationTextType2000}
@@ -117,11 +117,11 @@ export interface ConfigRoomSummaryType {
      */
     roomAssignmentRating?: RatePlanRatingType;
     /**
-     * 
-     * @type {RoomComponentsType}
+     * Component of a room.
+     * @type {Array<RoomComponentType>}
      * @memberof ConfigRoomSummaryType
      */
-    roomComponents?: RoomComponentsType;
+    roomComponents?: Array<RoomComponentType>;
     /**
      * Detail Long Description Of The Room.
      * @type {string}
@@ -129,11 +129,11 @@ export interface ConfigRoomSummaryType {
      */
     roomDescription?: string;
     /**
-     * 
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof ConfigRoomSummaryType
      */
-    roomFeatures?: RoomFeaturesType;
+    roomFeatures?: Array<RoomFeatureType>;
     /**
      * Code of the room.
      * @type {string}
@@ -211,7 +211,7 @@ export function ConfigRoomSummaryTypeFromJSONTyped(json: any, ignoreDiscriminato
         
         'accessible': !exists(json, 'accessible') ? undefined : json['accessible'],
         'building': !exists(json, 'building') ? undefined : json['building'],
-        'connectingRooms': !exists(json, 'connectingRooms') ? undefined : RoomRoomsTypeFromJSON(json['connectingRooms']),
+        'connectingRooms': !exists(json, 'connectingRooms') ? undefined : ((json['connectingRooms'] as Array<any>).map(RoomRoomTypeFromJSON)),
         'description': !exists(json, 'description') ? undefined : TranslationTextType2000FromJSON(json['description']),
         'floor': !exists(json, 'floor') ? undefined : json['floor'],
         'floorDescription': !exists(json, 'floorDescription') ? undefined : json['floorDescription'],
@@ -219,9 +219,9 @@ export function ConfigRoomSummaryTypeFromJSONTyped(json: any, ignoreDiscriminato
         'meetingRoom': !exists(json, 'meetingRoom') ? undefined : json['meetingRoom'],
         'ownerRoom': !exists(json, 'ownerRoom') ? undefined : json['ownerRoom'],
         'roomAssignmentRating': !exists(json, 'roomAssignmentRating') ? undefined : RatePlanRatingTypeFromJSON(json['roomAssignmentRating']),
-        'roomComponents': !exists(json, 'roomComponents') ? undefined : RoomComponentsTypeFromJSON(json['roomComponents']),
+        'roomComponents': !exists(json, 'roomComponents') ? undefined : ((json['roomComponents'] as Array<any>).map(RoomComponentTypeFromJSON)),
         'roomDescription': !exists(json, 'roomDescription') ? undefined : json['roomDescription'],
-        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : RoomFeaturesTypeFromJSON(json['roomFeatures']),
+        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : ((json['roomFeatures'] as Array<any>).map(RoomFeatureTypeFromJSON)),
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'roomType': !exists(json, 'roomType') ? undefined : RoomTypeShortInfoTypeFromJSON(json['roomType']),
         'sellSequence': !exists(json, 'sellSequence') ? undefined : json['sellSequence'],
@@ -245,7 +245,7 @@ export function ConfigRoomSummaryTypeToJSON(value?: ConfigRoomSummaryType | null
         
         'accessible': value.accessible,
         'building': value.building,
-        'connectingRooms': RoomRoomsTypeToJSON(value.connectingRooms),
+        'connectingRooms': value.connectingRooms === undefined ? undefined : ((value.connectingRooms as Array<any>).map(RoomRoomTypeToJSON)),
         'description': TranslationTextType2000ToJSON(value.description),
         'floor': value.floor,
         'floorDescription': value.floorDescription,
@@ -253,9 +253,9 @@ export function ConfigRoomSummaryTypeToJSON(value?: ConfigRoomSummaryType | null
         'meetingRoom': value.meetingRoom,
         'ownerRoom': value.ownerRoom,
         'roomAssignmentRating': RatePlanRatingTypeToJSON(value.roomAssignmentRating),
-        'roomComponents': RoomComponentsTypeToJSON(value.roomComponents),
+        'roomComponents': value.roomComponents === undefined ? undefined : ((value.roomComponents as Array<any>).map(RoomComponentTypeToJSON)),
         'roomDescription': value.roomDescription,
-        'roomFeatures': RoomFeaturesTypeToJSON(value.roomFeatures),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : ((value.roomFeatures as Array<any>).map(RoomFeatureTypeToJSON)),
         'roomId': value.roomId,
         'roomType': RoomTypeShortInfoTypeToJSON(value.roomType),
         'sellSequence': value.sellSequence,

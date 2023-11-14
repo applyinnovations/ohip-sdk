@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { FolioTypeLegendMappingConfigType } from './FolioTypeLegendMappingConfigType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object to edit folio type legend mapping information.
  * @export
@@ -26,16 +26,16 @@ export interface FolioTypeLegendMappingConfigToBeChanged {
     criteria?: FolioTypeLegendMappingConfigType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FolioTypeLegendMappingConfigToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FolioTypeLegendMappingConfigToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FolioTypeLegendMappingConfigToBeChanged interface.

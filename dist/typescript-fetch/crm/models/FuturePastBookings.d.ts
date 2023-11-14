@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * This is the Response Message to information regarding existence of profile in future and/or past business blocks and/or reservations.
  * @export
@@ -19,10 +19,10 @@ import type { WarningsType } from './WarningsType';
 export interface FuturePastBookings {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FuturePastBookings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * response - whether there are future and/or past business blocks or reservations for the profile.
      * @type {boolean}
@@ -30,11 +30,11 @@ export interface FuturePastBookings {
      */
     response?: boolean;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FuturePastBookings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FuturePastBookings interface.

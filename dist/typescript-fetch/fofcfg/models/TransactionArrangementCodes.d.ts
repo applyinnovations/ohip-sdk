@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TransactionArrangementCodesType } from './TransactionArrangementCodesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TransactionArrangementCodeType } from './TransactionArrangementCodeType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TransactionArrangementCodes {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransactionArrangementCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TransactionArrangementCodesType}
+     * Contains transaction codes along with associated arrangement codes.
+     * @type {Array<TransactionArrangementCodeType>}
      * @memberof TransactionArrangementCodes
      */
-    transactionArrangementCodes?: TransactionArrangementCodesType;
+    transactionArrangementCodes?: Array<TransactionArrangementCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransactionArrangementCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TransactionArrangementCodes interface.

@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-
 /**
  * Function Space details that may be different from the source function space. If any of Space Name, Short Name, Custom Orders and Combo Element types are not passed together with this type, it means that it is expected that these would be copied from source function space
  * @export
@@ -28,10 +21,10 @@ import {
 export interface TargetFunctionSpaceType {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof TargetFunctionSpaceType
      */
-    comboElements?: CodeListType;
+    comboElements?: Array<string>;
     /**
      * The first custom order for sorting the function space display.
      * @type {number}
@@ -89,7 +82,7 @@ export function TargetFunctionSpaceTypeFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'comboElements': !exists(json, 'comboElements') ? undefined : CodeListTypeFromJSON(json['comboElements']),
+        'comboElements': !exists(json, 'comboElements') ? undefined : json['comboElements'],
         'orderBy1': !exists(json, 'orderBy1') ? undefined : json['orderBy1'],
         'orderBy2': !exists(json, 'orderBy2') ? undefined : json['orderBy2'],
         'orderBy3': !exists(json, 'orderBy3') ? undefined : json['orderBy3'],
@@ -108,7 +101,7 @@ export function TargetFunctionSpaceTypeToJSON(value?: TargetFunctionSpaceType | 
     }
     return {
         
-        'comboElements': CodeListTypeToJSON(value.comboElements),
+        'comboElements': value.comboElements,
         'orderBy1': value.orderBy1,
         'orderBy2': value.orderBy2,
         'orderBy3': value.orderBy3,

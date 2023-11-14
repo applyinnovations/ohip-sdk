@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ErrorsType } from './ErrorsType';
+import type { ErrorType } from './ErrorType';
 import type { ReservationInfoType } from './ReservationInfoType';
 /**
  * Information about the block reservation being changed.
@@ -18,11 +18,11 @@ import type { ReservationInfoType } from './ReservationInfoType';
  */
 export interface ChangeBlockReservationType {
     /**
-     *
-     * @type {ErrorsType}
+     * An error that occurred during the processing of a message.
+     * @type {Array<ErrorType>}
      * @memberof ChangeBlockReservationType
      */
-    errors?: ErrorsType;
+    errors?: Array<ErrorType>;
     /**
      *
      * @type {ReservationInfoType}

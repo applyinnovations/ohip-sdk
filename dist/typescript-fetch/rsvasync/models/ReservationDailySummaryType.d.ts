@@ -11,7 +11,6 @@
  */
 import type { DailySummaryType } from './DailySummaryType';
 import type { PMSResStatusType } from './PMSResStatusType';
-import type { ReservationIdList } from './ReservationIdList';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Daily summary information related to a reservation.
@@ -188,11 +187,11 @@ export interface ReservationDailySummaryType {
      */
     originOfBooking?: string;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ReservationDailySummaryType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {UniqueIDType}

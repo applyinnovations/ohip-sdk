@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ItemPoolTypeToJSON = exports.ItemPoolTypeFromJSONTyped = exports.ItemPoolTypeFromJSON = exports.instanceOfItemPoolType = void 0;
 const runtime_1 = require("../runtime");
-const ItemIDListType_1 = require("./ItemIDListType");
 /**
  * Check if a given object implements the ItemPoolType interface.
  */
@@ -38,7 +37,7 @@ function ItemPoolTypeFromJSONTyped(json, ignoreDiscriminator) {
         'displaySequence': !(0, runtime_1.exists)(json, 'displaySequence') ? undefined : json['displaySequence'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'itemClass': !(0, runtime_1.exists)(json, 'itemClass') ? undefined : json['itemClass'],
-        'itemIds': !(0, runtime_1.exists)(json, 'itemIds') ? undefined : (0, ItemIDListType_1.ItemIDListTypeFromJSON)(json['itemIds']),
+        'itemIds': !(0, runtime_1.exists)(json, 'itemIds') ? undefined : json['itemIds'],
     };
 }
 exports.ItemPoolTypeFromJSONTyped = ItemPoolTypeFromJSONTyped;
@@ -55,7 +54,7 @@ function ItemPoolTypeToJSON(value) {
         'displaySequence': value.displaySequence,
         'hotelId': value.hotelId,
         'itemClass': value.itemClass,
-        'itemIds': (0, ItemIDListType_1.ItemIDListTypeToJSON)(value.itemIds),
+        'itemIds': value.itemIds,
     };
 }
 exports.ItemPoolTypeToJSON = ItemPoolTypeToJSON;

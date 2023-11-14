@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TrxCodesPostingInfoType } from './TrxCodesPostingInfoType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TrxPostingInfoType } from './TrxPostingInfoType';
 import {
-    TrxCodesPostingInfoTypeFromJSON,
-    TrxCodesPostingInfoTypeFromJSONTyped,
-    TrxCodesPostingInfoTypeToJSON,
-} from './TrxCodesPostingInfoType';
-import type { WarningsType } from './WarningsType';
+    TrxPostingInfoTypeFromJSON,
+    TrxPostingInfoTypeFromJSONTyped,
+    TrxPostingInfoTypeToJSON,
+} from './TrxPostingInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response that contains either the Transaction Code list if fetch was successful or error(s) if not.
@@ -40,22 +40,22 @@ import {
 export interface TransactionCodes {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransactionCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TrxCodesPostingInfoType}
+     * List of TransactionCodes
+     * @type {Array<TrxPostingInfoType>}
      * @memberof TransactionCodes
      */
-    trxCodes?: TrxCodesPostingInfoType;
+    trxCodes?: Array<TrxPostingInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransactionCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TransactionCodesFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'trxCodes': !exists(json, 'trxCodes') ? undefined : TrxCodesPostingInfoTypeFromJSON(json['trxCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'trxCodes': !exists(json, 'trxCodes') ? undefined : ((json['trxCodes'] as Array<any>).map(TrxPostingInfoTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TransactionCodesToJSON(value?: TransactionCodes | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'trxCodes': TrxCodesPostingInfoTypeToJSON(value.trxCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'trxCodes': value.trxCodes === undefined ? undefined : ((value.trxCodes as Array<any>).map(TrxPostingInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

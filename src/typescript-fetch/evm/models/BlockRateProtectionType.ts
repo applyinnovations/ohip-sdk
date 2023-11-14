@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DatesType } from './DatesType';
-import {
-    DatesTypeFromJSON,
-    DatesTypeFromJSONTyped,
-    DatesTypeToJSON,
-} from './DatesType';
 import type { RateProtectionType } from './RateProtectionType';
 import {
     RateProtectionTypeFromJSON,
@@ -39,11 +33,11 @@ export interface BlockRateProtectionType {
      */
     criteria?: RateProtectionType;
     /**
-     * 
-     * @type {DatesType}
+     * Specifies a single date.
+     * @type {Array<Date>}
      * @memberof BlockRateProtectionType
      */
-    protectedDates?: DatesType;
+    protectedDates?: Array<Date>;
 }
 
 /**
@@ -66,7 +60,7 @@ export function BlockRateProtectionTypeFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : RateProtectionTypeFromJSON(json['criteria']),
-        'protectedDates': !exists(json, 'protectedDates') ? undefined : DatesTypeFromJSON(json['protectedDates']),
+        'protectedDates': !exists(json, 'protectedDates') ? undefined : json['protectedDates'],
     };
 }
 
@@ -80,7 +74,7 @@ export function BlockRateProtectionTypeToJSON(value?: BlockRateProtectionType | 
     return {
         
         'criteria': RateProtectionTypeToJSON(value.criteria),
-        'protectedDates': DatesTypeToJSON(value.protectedDates),
+        'protectedDates': value.protectedDates,
     };
 }
 

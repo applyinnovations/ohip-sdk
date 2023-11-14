@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CheckProfileResultsType } from './CheckProfileResultsType';
+import type { CheckProfileResultType } from './CheckProfileResultType';
 import {
-    CheckProfileResultsTypeFromJSON,
-    CheckProfileResultsTypeFromJSONTyped,
-    CheckProfileResultsTypeToJSON,
-} from './CheckProfileResultsType';
+    CheckProfileResultTypeFromJSON,
+    CheckProfileResultTypeFromJSONTyped,
+    CheckProfileResultTypeToJSON,
+} from './CheckProfileResultType';
 import type { ProfileId } from './ProfileId';
 import {
     ProfileIdFromJSON,
@@ -39,11 +39,11 @@ export interface CheckProfileType {
      */
     profileId?: ProfileId;
     /**
-     * 
-     * @type {CheckProfileResultsType}
+     * Collection of status of allowed actions, attached records, and indicators of the profile.
+     * @type {Array<CheckProfileResultType>}
      * @memberof CheckProfileType
      */
-    results?: CheckProfileResultsType;
+    results?: Array<CheckProfileResultType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function CheckProfileTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
-        'results': !exists(json, 'results') ? undefined : CheckProfileResultsTypeFromJSON(json['results']),
+        'results': !exists(json, 'results') ? undefined : ((json['results'] as Array<any>).map(CheckProfileResultTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function CheckProfileTypeToJSON(value?: CheckProfileType | null): any {
     return {
         
         'profileId': ProfileIdToJSON(value.profileId),
-        'results': CheckProfileResultsTypeToJSON(value.results),
+        'results': value.results === undefined ? undefined : ((value.results as Array<any>).map(CheckProfileResultTypeToJSON)),
     };
 }
 

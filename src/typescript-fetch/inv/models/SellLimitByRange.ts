@@ -19,12 +19,12 @@ import {
     SellLimitByDateRangeTypeFromJSONTyped,
     SellLimitByDateRangeTypeToJSON,
 } from './SellLimitByDateRangeType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * A Request message that sets sell limit for collection of date ranges for either of the levels House, room type or room class. You can specify the days of the week, number type group and the date range as part of the request.
@@ -39,11 +39,11 @@ export interface SellLimitByRange {
      */
     sellLimitsByDateRange?: Array<SellLimitByDateRangeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SellLimitByRange
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function SellLimitByRangeFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'sellLimitsByDateRange': !exists(json, 'sellLimitsByDateRange') ? undefined : ((json['sellLimitsByDateRange'] as Array<any>).map(SellLimitByDateRangeTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function SellLimitByRangeToJSON(value?: SellLimitByRange | null): any {
     return {
         
         'sellLimitsByDateRange': value.sellLimitsByDateRange === undefined ? undefined : ((value.sellLimitsByDateRange as Array<any>).map(SellLimitByDateRangeTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

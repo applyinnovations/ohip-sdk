@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RatePlanMasterInfoType } from './RatePlanMasterInfoType';
 import type { RatePlanScheduleListType } from './RatePlanScheduleListType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object to fetch rate plan schedules.
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface RatePlanSchedulesInfo {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RatePlanSchedulesInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {RatePlanMasterInfoType}
@@ -38,11 +38,11 @@ export interface RatePlanSchedulesInfo {
      */
     ratePlanScheduleList?: RatePlanScheduleListType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RatePlanSchedulesInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RatePlanSchedulesInfo interface.

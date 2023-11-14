@@ -19,12 +19,12 @@ import {
     CancelPrepaidCardTransactionCriteriaFromJSONTyped,
     CancelPrepaidCardTransactionCriteriaToJSON,
 } from './CancelPrepaidCardTransactionCriteria';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request type for cancel prepaid card transaction.
@@ -39,11 +39,11 @@ export interface CancelPrepaidCardTransaction {
      */
     criteria?: CancelPrepaidCardTransactionCriteria;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CancelPrepaidCardTransaction
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function CancelPrepaidCardTransactionFromJSONTyped(json: any, ignoreDiscr
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : CancelPrepaidCardTransactionCriteriaFromJSON(json['criteria']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function CancelPrepaidCardTransactionToJSON(value?: CancelPrepaidCardTran
     return {
         
         'criteria': CancelPrepaidCardTransactionCriteriaToJSON(value.criteria),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

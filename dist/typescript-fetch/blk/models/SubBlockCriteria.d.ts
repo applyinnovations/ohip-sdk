@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockIdList } from './BlockIdList';
 import type { CreateSubBlockBaseInfoType } from './CreateSubBlockBaseInfoType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Criteria to create new sub block.
  * @export
@@ -18,11 +18,11 @@ import type { CreateSubBlockBaseInfoType } from './CreateSubBlockBaseInfoType';
  */
 export interface SubBlockCriteria {
     /**
-     *
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof SubBlockCriteria
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}

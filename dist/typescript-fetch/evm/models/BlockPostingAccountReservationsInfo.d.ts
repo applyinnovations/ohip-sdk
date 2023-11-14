@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockPostingAccountReservationsType } from './BlockPostingAccountReservationsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BlockPostingReservationsType } from './BlockPostingReservationsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for retrieving block Posting account reservations.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BlockPostingAccountReservationsInfo {
     /**
-     *
-     * @type {BlockPostingAccountReservationsType}
+     * Fetch block's posting account reservations information.
+     * @type {Array<BlockPostingReservationsType>}
      * @memberof BlockPostingAccountReservationsInfo
      */
-    blockPostingAccountReservations?: BlockPostingAccountReservationsType;
+    blockPostingAccountReservations?: Array<BlockPostingReservationsType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockPostingAccountReservationsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockPostingAccountReservationsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockPostingAccountReservationsInfo interface.

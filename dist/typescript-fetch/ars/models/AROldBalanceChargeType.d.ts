@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ARTaxCodesType } from './ARTaxCodesType';
+import type { ARTaxCodeType } from './ARTaxCodeType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 /**
  * AR Old Balances Single Posting Type.
@@ -60,11 +60,11 @@ export interface AROldBalanceChargeType {
      */
     postingRemark?: string;
     /**
-     *
-     * @type {ARTaxCodesType}
+     * Values of atmost 20 Taxes entered.
+     * @type {Array<ARTaxCodeType>}
      * @memberof AROldBalanceChargeType
      */
-    taxCodes?: ARTaxCodesType;
+    taxCodes?: Array<ARTaxCodeType>;
 }
 /**
  * Check if a given object implements the AROldBalanceChargeType interface.

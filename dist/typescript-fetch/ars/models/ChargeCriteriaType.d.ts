@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CurrencyAmountType } from './CurrencyAmountType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Criteria information for posting a charge.
  * @export
@@ -54,11 +54,11 @@ export interface ChargeCriteriaType {
      */
     checkNumber?: string;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ChargeCriteriaType
      */
-    financialTransactionIdList?: UniqueIDListType;
+    financialTransactionIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {number}

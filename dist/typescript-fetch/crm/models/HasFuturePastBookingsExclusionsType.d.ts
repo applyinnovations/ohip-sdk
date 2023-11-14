@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Search type for excluding list of business blocks and/or reservations.
  * @export
@@ -17,17 +17,17 @@ import type { UniqueIDListType } from './UniqueIDListType';
  */
 export interface HasFuturePastBookingsExclusionsType {
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof HasFuturePastBookingsExclusionsType
      */
-    blockIdList?: UniqueIDListType;
+    blockIdList?: Array<UniqueIDType>;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof HasFuturePastBookingsExclusionsType
      */
-    reservationIdList?: UniqueIDListType;
+    reservationIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the HasFuturePastBookingsExclusionsType interface.

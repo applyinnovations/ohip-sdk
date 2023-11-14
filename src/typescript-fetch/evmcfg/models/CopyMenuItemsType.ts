@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CateringMenuItemClassListType } from './CateringMenuItemClassListType';
+import type { CateringMenuItemClassType } from './CateringMenuItemClassType';
 import {
-    CateringMenuItemClassListTypeFromJSON,
-    CateringMenuItemClassListTypeFromJSONTyped,
-    CateringMenuItemClassListTypeToJSON,
-} from './CateringMenuItemClassListType';
-import type { CateringMenuItemListType } from './CateringMenuItemListType';
+    CateringMenuItemClassTypeFromJSON,
+    CateringMenuItemClassTypeFromJSONTyped,
+    CateringMenuItemClassTypeToJSON,
+} from './CateringMenuItemClassType';
+import type { CateringMenuItemType } from './CateringMenuItemType';
 import {
-    CateringMenuItemListTypeFromJSON,
-    CateringMenuItemListTypeFromJSONTyped,
-    CateringMenuItemListTypeToJSON,
-} from './CateringMenuItemListType';
+    CateringMenuItemTypeFromJSON,
+    CateringMenuItemTypeFromJSONTyped,
+    CateringMenuItemTypeToJSON,
+} from './CateringMenuItemType';
 
 /**
  * 
@@ -39,17 +39,17 @@ export interface CopyMenuItemsType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {CateringMenuItemClassListType}
+     * List of Values of Menu Item Class.
+     * @type {Array<CateringMenuItemClassType>}
      * @memberof CopyMenuItemsType
      */
-    menuItemClassList?: CateringMenuItemClassListType;
+    menuItemClassList?: Array<CateringMenuItemClassType>;
     /**
-     * 
-     * @type {CateringMenuItemListType}
+     * List of Values of Menu Item.
+     * @type {Array<CateringMenuItemType>}
      * @memberof CopyMenuItemsType
      */
-    menuItemList?: CateringMenuItemListType;
+    menuItemList?: Array<CateringMenuItemType>;
 }
 
 /**
@@ -72,8 +72,8 @@ export function CopyMenuItemsTypeFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'menuItemClassList': !exists(json, 'menuItemClassList') ? undefined : CateringMenuItemClassListTypeFromJSON(json['menuItemClassList']),
-        'menuItemList': !exists(json, 'menuItemList') ? undefined : CateringMenuItemListTypeFromJSON(json['menuItemList']),
+        'menuItemClassList': !exists(json, 'menuItemClassList') ? undefined : ((json['menuItemClassList'] as Array<any>).map(CateringMenuItemClassTypeFromJSON)),
+        'menuItemList': !exists(json, 'menuItemList') ? undefined : ((json['menuItemList'] as Array<any>).map(CateringMenuItemTypeFromJSON)),
     };
 }
 
@@ -87,8 +87,8 @@ export function CopyMenuItemsTypeToJSON(value?: CopyMenuItemsType | null): any {
     return {
         
         'hotelId': value.hotelId,
-        'menuItemClassList': CateringMenuItemClassListTypeToJSON(value.menuItemClassList),
-        'menuItemList': CateringMenuItemListTypeToJSON(value.menuItemList),
+        'menuItemClassList': value.menuItemClassList === undefined ? undefined : ((value.menuItemClassList as Array<any>).map(CateringMenuItemClassTypeToJSON)),
+        'menuItemList': value.menuItemList === undefined ? undefined : ((value.menuItemList as Array<any>).map(CateringMenuItemTypeToJSON)),
     };
 }
 

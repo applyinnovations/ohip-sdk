@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FunctionArgumentsType } from './FunctionArgumentsType';
+import type { FunctionArgumentType } from './FunctionArgumentType';
 import {
-    FunctionArgumentsTypeFromJSON,
-    FunctionArgumentsTypeFromJSONTyped,
-    FunctionArgumentsTypeToJSON,
-} from './FunctionArgumentsType';
+    FunctionArgumentTypeFromJSON,
+    FunctionArgumentTypeFromJSONTyped,
+    FunctionArgumentTypeToJSON,
+} from './FunctionArgumentType';
 
 /**
  * Defines UDF rule for generates.
@@ -33,11 +33,11 @@ export interface UDFGenerateType {
      */
     uDF?: string;
     /**
-     * 
-     * @type {FunctionArgumentsType}
+     * Collection of function arguments and their corresponding values.
+     * @type {Array<FunctionArgumentType>}
      * @memberof UDFGenerateType
      */
-    uDFFunctionArguments?: FunctionArgumentsType;
+    uDFFunctionArguments?: Array<FunctionArgumentType>;
     /**
      * The function name of the User Defined Function used to calculate generates.
      * @type {string}
@@ -66,7 +66,7 @@ export function UDFGenerateTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
     return {
         
         'uDF': !exists(json, 'uDF') ? undefined : json['uDF'],
-        'uDFFunctionArguments': !exists(json, 'uDFFunctionArguments') ? undefined : FunctionArgumentsTypeFromJSON(json['uDFFunctionArguments']),
+        'uDFFunctionArguments': !exists(json, 'uDFFunctionArguments') ? undefined : ((json['uDFFunctionArguments'] as Array<any>).map(FunctionArgumentTypeFromJSON)),
         'uDFFunctionName': !exists(json, 'uDFFunctionName') ? undefined : json['uDFFunctionName'],
     };
 }
@@ -81,7 +81,7 @@ export function UDFGenerateTypeToJSON(value?: UDFGenerateType | null): any {
     return {
         
         'uDF': value.uDF,
-        'uDFFunctionArguments': FunctionArgumentsTypeToJSON(value.uDFFunctionArguments),
+        'uDFFunctionArguments': value.uDFFunctionArguments === undefined ? undefined : ((value.uDFFunctionArguments as Array<any>).map(FunctionArgumentTypeToJSON)),
         'uDFFunctionName': value.uDFFunctionName,
     };
 }

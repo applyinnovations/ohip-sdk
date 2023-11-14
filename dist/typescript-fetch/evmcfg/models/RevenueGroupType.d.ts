@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RevenueTypesType } from './RevenueTypesType';
+import type { RevenueTypeType } from './RevenueTypeType';
 import type { TranslationTextType200 } from './TranslationTextType200';
 /**
  * Provides information about Catering Revenue Group along with Revenue Type Code.
@@ -36,11 +36,11 @@ export interface RevenueGroupType {
      */
     inactive?: boolean;
     /**
-     *
-     * @type {RevenueTypesType}
+     * List of Revenue Types to be configured
+     * @type {Array<RevenueTypeType>}
      * @memberof RevenueGroupType
      */
-    revenueTypes?: RevenueTypesType;
+    revenueTypes?: Array<RevenueTypeType>;
     /**
      *
      * @type {TranslationTextType200}

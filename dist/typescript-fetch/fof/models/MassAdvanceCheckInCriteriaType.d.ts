@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Criteria for performing Mass Advance Check In of Reservations
  * @export
@@ -35,11 +35,11 @@ export interface MassAdvanceCheckInCriteriaType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MassAdvanceCheckInCriteriaType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the MassAdvanceCheckInCriteriaType interface.

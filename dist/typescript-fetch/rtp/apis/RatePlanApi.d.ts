@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlockRatePlans, CreateBestAvailableRates, DailyRatePlanScheduleRange, DistributedNegotiatedRates, GetBestAvailableRatesDetails, HotelPackageForecastGroups, HotelPackageForecastGroupsToChange, HotelPackageForecastGroupsToCreate, MassRateChangeStatus, MassRatePlanSchedules, NegotiatedRates, NegotiatedRatesDetails, OperaVersion, PackageFormulaRanges, PackageGroup, PackageGroupsInfo, PackageInfo, PackageRates, PackagesCopy, PackagesInfo, PromotionGroup, PromotionGroups, PromotionGroupsCopy, PropertyPromotionCode, PropertyPromotionCodes, RateAccessExclusions, RateActivityLog, RateGroups, RateGroupsInfo, RatePlan, RatePlanInfo, RatePlanPackages, RatePlanPostingRhythms, RatePlanScheduleToSplit, RatePlanScheduleYieldAdjustments, RatePlanSchedules, RatePlanSchedulesInfo, RatePlanSchedulesToCreate, RatePlansCopy, RatePlansCopyDetails, RatePlansSchedulesToManage, RatePlansSummary, RateStrategies, RateStrategiesToSet, RateStrategy, Status, TemplatePackageForecastGroups, TemplatePromotionCode, TemplatePromotionCodes, TieredRateSchedulesCopy, YieldAdjustments } from '../models/index';
+import type { BlockRatePlans, CopyPackageCodesType, CreateBestAvailableRates, DailyRatePlanScheduleRange, DistributedNegotiatedRates, GetBestAvailableRatesDetails, HotelPackageForecastGroups, HotelPackageForecastGroupsToChange, HotelPackageForecastGroupsToCreate, MassRateChangeStatus, MassRatePlanSchedules, NegotiatedRates, NegotiatedRatesDetails, OperaVersion, PackageFormulaRanges, PackageGroup, PackageGroupsInfo, PackageInfo, PackageRates, PackagesInfo, PromotionGroup, PromotionGroups, PromotionGroupsCopy, PropertyPromotionCode, PropertyPromotionCodes, RateAccessExclusions, RateActivityLog, RateGroups, RateGroupsInfo, RatePlan, RatePlanInfo, RatePlanPackages, RatePlanPostingRhythms, RatePlanScheduleToSplit, RatePlanScheduleYieldAdjustments, RatePlanSchedules, RatePlanSchedulesInfo, RatePlanSchedulesToCreate, RatePlansCopy, RatePlansCopyDetails, RatePlansSchedulesToManage, RatePlansSummary, RateStrategies, RateStrategiesToSet, RateStrategy, Status, TemplatePackageForecastGroups, TemplatePromotionCode, TemplatePromotionCodes, TieredRateSchedulesCopy, YieldAdjustments } from '../models/index';
 export interface CopyPackagesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    packagesCopy: PackagesCopy;
+    packagesCopy: Array<CopyPackageCodesType>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BestAvailableRateTypeToJSON = exports.BestAvailableRateTypeFromJSONTyped = exports.BestAvailableRateTypeFromJSON = exports.instanceOfBestAvailableRateType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 /**
  * Check if a given object implements the BestAvailableRateType interface.
  */
@@ -35,7 +34,7 @@ function BestAvailableRateTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
         'lengthOfStay': !(0, runtime_1.exists)(json, 'lengthOfStay') ? undefined : json['lengthOfStay'],
-        'rateCode': !(0, runtime_1.exists)(json, 'rateCode') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['rateCode']),
+        'rateCode': !(0, runtime_1.exists)(json, 'rateCode') ? undefined : json['rateCode'],
     };
 }
 exports.BestAvailableRateTypeFromJSONTyped = BestAvailableRateTypeFromJSONTyped;
@@ -49,7 +48,7 @@ function BestAvailableRateTypeToJSON(value) {
     return {
         'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
         'lengthOfStay': value.lengthOfStay,
-        'rateCode': (0, CodeListType_1.CodeListTypeToJSON)(value.rateCode),
+        'rateCode': value.rateCode,
     };
 }
 exports.BestAvailableRateTypeToJSON = BestAvailableRateTypeToJSON;

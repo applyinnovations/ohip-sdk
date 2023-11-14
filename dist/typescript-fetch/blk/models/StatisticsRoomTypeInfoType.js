@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.StatisticsRoomTypeInfoTypeToJSON = exports.StatisticsRoomTypeInfoTypeFromJSONTyped = exports.StatisticsRoomTypeInfoTypeFromJSON = exports.instanceOfStatisticsRoomTypeInfoType = void 0;
 const runtime_1 = require("../runtime");
 const BookingChannelMappingType_1 = require("./BookingChannelMappingType");
-const RoomFeaturesType_1 = require("./RoomFeaturesType");
+const RoomFeatureType_1 = require("./RoomFeatureType");
 const RoomTypeAttributesType_1 = require("./RoomTypeAttributesType");
 /**
  * Check if a given object implements the StatisticsRoomTypeInfoType interface.
@@ -45,7 +45,7 @@ function StatisticsRoomTypeInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'promotionCode': !(0, runtime_1.exists)(json, 'promotionCode') ? undefined : json['promotionCode'],
         'roomCategory': !(0, runtime_1.exists)(json, 'roomCategory') ? undefined : json['roomCategory'],
         'roomClass': !(0, runtime_1.exists)(json, 'roomClass') ? undefined : json['roomClass'],
-        'roomFeatures': !(0, runtime_1.exists)(json, 'roomFeatures') ? undefined : (0, RoomFeaturesType_1.RoomFeaturesTypeFromJSON)(json['roomFeatures']),
+        'roomFeatures': !(0, runtime_1.exists)(json, 'roomFeatures') ? undefined : (json['roomFeatures'].map(RoomFeatureType_1.RoomFeatureTypeFromJSON)),
         'roomQualifierCode': !(0, runtime_1.exists)(json, 'roomQualifierCode') ? undefined : json['roomQualifierCode'],
         'roomQualifierMatchIndicator': !(0, runtime_1.exists)(json, 'roomQualifierMatchIndicator') ? undefined : json['roomQualifierMatchIndicator'],
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : json['roomType'],
@@ -75,7 +75,7 @@ function StatisticsRoomTypeInfoTypeToJSON(value) {
         'promotionCode': value.promotionCode,
         'roomCategory': value.roomCategory,
         'roomClass': value.roomClass,
-        'roomFeatures': (0, RoomFeaturesType_1.RoomFeaturesTypeToJSON)(value.roomFeatures),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : (value.roomFeatures.map(RoomFeatureType_1.RoomFeatureTypeToJSON)),
         'roomQualifierCode': value.roomQualifierCode,
         'roomQualifierMatchIndicator': value.roomQualifierMatchIndicator,
         'roomType': value.roomType,

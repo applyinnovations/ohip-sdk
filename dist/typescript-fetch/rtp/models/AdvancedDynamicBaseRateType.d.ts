@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RatePlanCodeListType } from './RatePlanCodeListType';
 /**
  * Advanced Dynamic Base Rate type
  * @export
@@ -17,11 +16,11 @@ import type { RatePlanCodeListType } from './RatePlanCodeListType';
  */
 export interface AdvancedDynamicBaseRateType {
     /**
-     *
-     * @type {RatePlanCodeListType}
+     * Rate Plan code.
+     * @type {Array<string>}
      * @memberof AdvancedDynamicBaseRateType
      */
-    advancedDependentRatePlans?: RatePlanCodeListType;
+    advancedDependentRatePlans?: Array<string>;
     /**
      * Rate plan code used to Advanced Dynamically base the rate on.
      * @type {string}

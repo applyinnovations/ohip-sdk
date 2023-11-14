@@ -19,12 +19,12 @@ import {
     GenerateCalculationBucketsTypeFromJSONTyped,
     GenerateCalculationBucketsTypeToJSON,
 } from './GenerateCalculationBucketsType';
-import type { GeneratesType } from './GeneratesType';
+import type { GenerateType } from './GenerateType';
 import {
-    GeneratesTypeFromJSON,
-    GeneratesTypeFromJSONTyped,
-    GeneratesTypeToJSON,
-} from './GeneratesType';
+    GenerateTypeFromJSON,
+    GenerateTypeFromJSONTyped,
+    GenerateTypeToJSON,
+} from './GenerateType';
 
 /**
  * Defines the Generates Setup and its Calculation Rules.
@@ -39,11 +39,11 @@ export interface HotelTransactionGeneratesSetupType {
      */
     addBaseAmtTo?: GenerateCalculationBucketsType;
     /**
-     * 
-     * @type {GeneratesType}
+     * Defines the Generate and its Calculation Rules.
+     * @type {Array<GenerateType>}
      * @memberof HotelTransactionGeneratesSetupType
      */
-    generates?: GeneratesType;
+    generates?: Array<GenerateType>;
     /**
      * Hotel code.
      * @type {string}
@@ -90,7 +90,7 @@ export function HotelTransactionGeneratesSetupTypeFromJSONTyped(json: any, ignor
     return {
         
         'addBaseAmtTo': !exists(json, 'addBaseAmtTo') ? undefined : GenerateCalculationBucketsTypeFromJSON(json['addBaseAmtTo']),
-        'generates': !exists(json, 'generates') ? undefined : GeneratesTypeFromJSON(json['generates']),
+        'generates': !exists(json, 'generates') ? undefined : ((json['generates'] as Array<any>).map(GenerateTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'transactionCode': !exists(json, 'transactionCode') ? undefined : json['transactionCode'],
         'transactionGroup': !exists(json, 'transactionGroup') ? undefined : json['transactionGroup'],
@@ -108,7 +108,7 @@ export function HotelTransactionGeneratesSetupTypeToJSON(value?: HotelTransactio
     return {
         
         'addBaseAmtTo': GenerateCalculationBucketsTypeToJSON(value.addBaseAmtTo),
-        'generates': GeneratesTypeToJSON(value.generates),
+        'generates': value.generates === undefined ? undefined : ((value.generates as Array<any>).map(GenerateTypeToJSON)),
         'hotelId': value.hotelId,
         'transactionCode': value.transactionCode,
         'transactionGroup': value.transactionGroup,

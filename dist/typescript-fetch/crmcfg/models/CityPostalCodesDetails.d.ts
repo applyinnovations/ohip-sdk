@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CityPostalCodesType } from './CityPostalCodesType';
-import type { Links } from './Links';
+import type { CityPostalCodeType } from './CityPostalCodeType';
+import type { InstanceLink } from './InstanceLink';
 import type { MasterInfoType } from './MasterInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching city and postal codes.
  * @export
@@ -20,11 +20,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CityPostalCodesDetails {
     /**
-     *
-     * @type {CityPostalCodesType}
+     * Lists of City and Postal Codes.
+     * @type {Array<CityPostalCodeType>}
      * @memberof CityPostalCodesDetails
      */
-    cityPostalCodes?: CityPostalCodesType;
+    cityPostalCodes?: Array<CityPostalCodeType>;
     /**
      * Total number of rows returned
      * @type {number}
@@ -45,10 +45,10 @@ export interface CityPostalCodesDetails {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CityPostalCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Refer to Generic common types document.
      * @type {Array<MasterInfoType>}
@@ -74,11 +74,11 @@ export interface CityPostalCodesDetails {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CityPostalCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CityPostalCodesDetails interface.

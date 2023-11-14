@@ -19,12 +19,12 @@ import {
     HeldByTypeFromJSONTyped,
     HeldByTypeToJSON,
 } from './HeldByType';
-import type { ReleaseItemsInventoryHoldType } from './ReleaseItemsInventoryHoldType';
+import type { ReleaseItemInventoryHoldType } from './ReleaseItemInventoryHoldType';
 import {
-    ReleaseItemsInventoryHoldTypeFromJSON,
-    ReleaseItemsInventoryHoldTypeFromJSONTyped,
-    ReleaseItemsInventoryHoldTypeToJSON,
-} from './ReleaseItemsInventoryHoldType';
+    ReleaseItemInventoryHoldTypeFromJSON,
+    ReleaseItemInventoryHoldTypeFromJSONTyped,
+    ReleaseItemInventoryHoldTypeToJSON,
+} from './ReleaseItemInventoryHoldType';
 import type { TimeSpanType } from './TimeSpanType';
 import {
     TimeSpanTypeFromJSON,
@@ -37,12 +37,12 @@ import {
     UniqueIDTypeFromJSONTyped,
     UniqueIDTypeToJSON,
 } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for releasing a held item inventory/availability.
@@ -87,11 +87,11 @@ export interface ReleaseItemInventoryHold {
      */
     itemId?: UniqueIDType;
     /**
-     * 
-     * @type {ReleaseItemsInventoryHoldType}
+     * Collection of items for releasing an Items Inventory hold.
+     * @type {Array<ReleaseItemInventoryHoldType>}
      * @memberof ReleaseItemInventoryHold
      */
-    releaseItemsInventoryHoldInfo?: ReleaseItemsInventoryHoldType;
+    releaseItemsInventoryHoldInfo?: Array<ReleaseItemInventoryHoldType>;
     /**
      * 
      * @type {TimeSpanType}
@@ -99,11 +99,11 @@ export interface ReleaseItemInventoryHold {
      */
     reserveDates?: TimeSpanType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReleaseItemInventoryHold
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -131,9 +131,9 @@ export function ReleaseItemInventoryHoldFromJSONTyped(json: any, ignoreDiscrimin
         'itemCode': !exists(json, 'itemCode') ? undefined : json['itemCode'],
         'itemHoldId': !exists(json, 'itemHoldId') ? undefined : json['itemHoldId'],
         'itemId': !exists(json, 'itemId') ? undefined : UniqueIDTypeFromJSON(json['itemId']),
-        'releaseItemsInventoryHoldInfo': !exists(json, 'releaseItemsInventoryHoldInfo') ? undefined : ReleaseItemsInventoryHoldTypeFromJSON(json['releaseItemsInventoryHoldInfo']),
+        'releaseItemsInventoryHoldInfo': !exists(json, 'releaseItemsInventoryHoldInfo') ? undefined : ((json['releaseItemsInventoryHoldInfo'] as Array<any>).map(ReleaseItemInventoryHoldTypeFromJSON)),
         'reserveDates': !exists(json, 'reserveDates') ? undefined : TimeSpanTypeFromJSON(json['reserveDates']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -152,9 +152,9 @@ export function ReleaseItemInventoryHoldToJSON(value?: ReleaseItemInventoryHold 
         'itemCode': value.itemCode,
         'itemHoldId': value.itemHoldId,
         'itemId': UniqueIDTypeToJSON(value.itemId),
-        'releaseItemsInventoryHoldInfo': ReleaseItemsInventoryHoldTypeToJSON(value.releaseItemsInventoryHoldInfo),
+        'releaseItemsInventoryHoldInfo': value.releaseItemsInventoryHoldInfo === undefined ? undefined : ((value.releaseItemsInventoryHoldInfo as Array<any>).map(ReleaseItemInventoryHoldTypeToJSON)),
         'reserveDates': TimeSpanTypeToJSON(value.reserveDates),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

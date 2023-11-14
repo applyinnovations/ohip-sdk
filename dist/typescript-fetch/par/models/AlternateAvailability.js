@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AlternateAvailabilityToJSON = exports.AlternateAvailabilityFromJSONTyped = exports.AlternateAvailabilityFromJSON = exports.instanceOfAlternateAvailability = void 0;
 const runtime_1 = require("../runtime");
-const AlternateAvailDatesType_1 = require("./AlternateAvailDatesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const AlternateAvailDateType_1 = require("./AlternateAvailDateType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AlternateAvailability interface.
  */
@@ -35,9 +35,9 @@ function AlternateAvailabilityFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'alternates': !(0, runtime_1.exists)(json, 'alternates') ? undefined : (0, AlternateAvailDatesType_1.AlternateAvailDatesTypeFromJSON)(json['alternates']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'alternates': !(0, runtime_1.exists)(json, 'alternates') ? undefined : (json['alternates'].map(AlternateAvailDateType_1.AlternateAvailDateTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AlternateAvailabilityFromJSONTyped = AlternateAvailabilityFromJSONTyped;
@@ -49,9 +49,9 @@ function AlternateAvailabilityToJSON(value) {
         return null;
     }
     return {
-        'alternates': (0, AlternateAvailDatesType_1.AlternateAvailDatesTypeToJSON)(value.alternates),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'alternates': value.alternates === undefined ? undefined : (value.alternates.map(AlternateAvailDateType_1.AlternateAvailDateTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AlternateAvailabilityToJSON = AlternateAvailabilityToJSON;

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RateSeasonsType } from './RateSeasonsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RateSeasonType } from './RateSeasonType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new rate seasons for a hotel.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface RateSeasonsCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RateSeasonsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RateSeasonsType}
+     * Hotel rate season details.
+     * @type {Array<RateSeasonType>}
      * @memberof RateSeasonsCriteria
      */
-    rateSeasons?: RateSeasonsType;
+    rateSeasons?: Array<RateSeasonType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RateSeasonsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RateSeasonsCriteria interface.

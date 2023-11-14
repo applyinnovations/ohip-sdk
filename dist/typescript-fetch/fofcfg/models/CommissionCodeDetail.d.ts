@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CommissionCodeDetailType } from './CommissionCodeDetailType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching commission code details.
  * @export
@@ -26,16 +26,16 @@ export interface CommissionCodeDetail {
     commissionCodeDetail?: CommissionCodeDetailType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CommissionCodeDetail
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CommissionCodeDetail
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CommissionCodeDetail interface.

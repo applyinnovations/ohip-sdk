@@ -19,18 +19,18 @@ import {
     HotelRoomsOrderByFromJSONTyped,
     HotelRoomsOrderByToJSON,
 } from './HotelRoomsOrderBy';
-import type { ReservationIdList } from './ReservationIdList';
-import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
 import type { ReservationRoomSelectionOverrideType } from './ReservationRoomSelectionOverrideType';
 import {
     ReservationRoomSelectionOverrideTypeFromJSON,
     ReservationRoomSelectionOverrideTypeFromJSONTyped,
     ReservationRoomSelectionOverrideTypeToJSON,
 } from './ReservationRoomSelectionOverrideType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Defines search criteria needed to configure a room to a reservation.
@@ -52,10 +52,10 @@ export interface ReservationRoomSelectionType {
     includeDepartureRooms?: boolean;
     /**
      * Valid share reservation identifier.
-     * @type {Array<ReservationIdList>}
+     * @type {Array<Array<UniqueIDType>>}
      * @memberof ReservationRoomSelectionType
      */
-    includedSharers?: Array<ReservationIdList>;
+    includedSharers?: Array<Array<UniqueIDType>>;
     /**
      * 
      * @type {HotelRoomsOrderBy}
@@ -69,11 +69,11 @@ export interface ReservationRoomSelectionType {
      */
     overrideInstructions?: ReservationRoomSelectionOverrideType;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ReservationRoomSelectionType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * Room identifier which the reservation will hold.
      * @type {string}
@@ -115,10 +115,10 @@ export function ReservationRoomSelectionTypeFromJSONTyped(json: any, ignoreDiscr
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'includeDepartureRooms': !exists(json, 'includeDepartureRooms') ? undefined : json['includeDepartureRooms'],
-        'includedSharers': !exists(json, 'includedSharers') ? undefined : ((json['includedSharers'] as Array<any>).map(ReservationIdListFromJSON)),
+        'includedSharers': !exists(json, 'includedSharers') ? undefined : json['includedSharers'],
         'orderBy': !exists(json, 'orderBy') ? undefined : HotelRoomsOrderByFromJSON(json['orderBy']),
         'overrideInstructions': !exists(json, 'overrideInstructions') ? undefined : ReservationRoomSelectionOverrideTypeFromJSON(json['overrideInstructions']),
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'roomNumberLocked': !exists(json, 'roomNumberLocked') ? undefined : json['roomNumberLocked'],
         'updateRoomTypeCharged': !exists(json, 'updateRoomTypeCharged') ? undefined : json['updateRoomTypeCharged'],
@@ -136,10 +136,10 @@ export function ReservationRoomSelectionTypeToJSON(value?: ReservationRoomSelect
         
         'hotelId': value.hotelId,
         'includeDepartureRooms': value.includeDepartureRooms,
-        'includedSharers': value.includedSharers === undefined ? undefined : ((value.includedSharers as Array<any>).map(ReservationIdListToJSON)),
+        'includedSharers': value.includedSharers,
         'orderBy': HotelRoomsOrderByToJSON(value.orderBy),
         'overrideInstructions': ReservationRoomSelectionOverrideTypeToJSON(value.overrideInstructions),
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'roomId': value.roomId,
         'roomNumberLocked': value.roomNumberLocked,
         'updateRoomTypeCharged': value.updateRoomTypeCharged,

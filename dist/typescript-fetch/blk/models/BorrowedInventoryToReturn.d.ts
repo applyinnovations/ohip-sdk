@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 import type { BlockId } from './BlockId';
+import type { InstanceLink } from './InstanceLink';
 import type { InventoryToReturnType } from './InventoryToReturnType';
-import type { Links } from './Links';
 import type { UniqueIDType } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * The standard optional Opera Context element is also included.
  * @export
@@ -52,10 +52,10 @@ export interface BorrowedInventoryToReturn {
     inventoryToReturnList?: Array<InventoryToReturnType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BorrowedInventoryToReturn
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -63,11 +63,11 @@ export interface BorrowedInventoryToReturn {
      */
     roomType?: string;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BorrowedInventoryToReturn
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BorrowedInventoryToReturn interface.

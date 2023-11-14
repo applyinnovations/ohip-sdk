@@ -8,7 +8,6 @@ models/ErrorInstance.ts
 models/ExceptionDetailType.ts
 models/HotelAvailabilityStatus.ts
 models/InstanceLink.ts
-models/Links.ts
 models/MultiRoomRateAvailabilityRequestType.ts
 models/MultiRoomRateAvailabilityResponseType.ts
 models/MultiRoomRateAvailabilityType.ts
@@ -30,6 +29,5 @@ models/SearchRoomClassificationType.ts
 models/ShopBaseRequest.ts
 models/SortByType.ts
 models/WarningType.ts
-models/WarningsType.ts
 models/index.ts
 runtime.ts

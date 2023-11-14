@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AwardToJSON = exports.AwardFromJSONTyped = exports.AwardFromJSON = exports.instanceOfAward = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const MemberAwardType_1 = require("./MemberAwardType");
 /**
  * Check if a given object implements the Award interface.
@@ -35,7 +35,7 @@ function AwardFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'memberAward': !(0, runtime_1.exists)(json, 'memberAward') ? undefined : (0, MemberAwardType_1.MemberAwardTypeFromJSON)(json['memberAward']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.AwardFromJSONTyped = AwardFromJSONTyped;
@@ -48,7 +48,7 @@ function AwardToJSON(value) {
     }
     return {
         'memberAward': (0, MemberAwardType_1.MemberAwardTypeToJSON)(value.memberAward),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.AwardToJSON = AwardToJSON;

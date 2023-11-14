@@ -13,42 +13,42 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ExternalReferencesType } from './ExternalReferencesType';
+import type { ExternalReferenceType } from './ExternalReferenceType';
 import {
-    ExternalReferencesTypeFromJSON,
-    ExternalReferencesTypeFromJSONTyped,
-    ExternalReferencesTypeToJSON,
-} from './ExternalReferencesType';
-import type { Links } from './Links';
+    ExternalReferenceTypeFromJSON,
+    ExternalReferenceTypeFromJSONTyped,
+    ExternalReferenceTypeToJSON,
+} from './ExternalReferenceType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ProfileAllowedActionsType } from './ProfileAllowedActionsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ProfileAllowedActionType } from './ProfileAllowedActionType';
 import {
-    ProfileAllowedActionsTypeFromJSON,
-    ProfileAllowedActionsTypeFromJSONTyped,
-    ProfileAllowedActionsTypeToJSON,
-} from './ProfileAllowedActionsType';
-import type { ProfileIdList } from './ProfileIdList';
-import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
+    ProfileAllowedActionTypeFromJSON,
+    ProfileAllowedActionTypeFromJSONTyped,
+    ProfileAllowedActionTypeToJSON,
+} from './ProfileAllowedActionType';
 import type { ProfileType } from './ProfileType';
 import {
     ProfileTypeFromJSON,
     ProfileTypeFromJSONTyped,
     ProfileTypeToJSON,
 } from './ProfileType';
-import type { WarningsType } from './WarningsType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
+import type { WarningType } from './WarningType';
+import {
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Object for creation of profiles. This object contains profile details with unique identifiers for each profile.
@@ -57,23 +57,23 @@ import {
  */
 export interface Profile {
     /**
-     * 
-     * @type {ExternalReferencesType}
+     * This type contains unique information of external reference.
+     * @type {Array<ExternalReferenceType>}
      * @memberof Profile
      */
-    externalReferences?: ExternalReferencesType;
+    externalReferences?: Array<ExternalReferenceType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Profile
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ProfileAllowedActionsType}
+     * Allowed actions for profile operations.
+     * @type {Array<ProfileAllowedActionType>}
      * @memberof Profile
      */
-    profileAllowedActions?: ProfileAllowedActionsType;
+    profileAllowedActions?: Array<ProfileAllowedActionType>;
     /**
      * 
      * @type {ProfileType}
@@ -81,17 +81,17 @@ export interface Profile {
      */
     profileDetails?: ProfileType;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof Profile
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Profile
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -113,12 +113,12 @@ export function ProfileFromJSONTyped(json: any, ignoreDiscriminator: boolean): P
     }
     return {
         
-        'externalReferences': !exists(json, 'externalReferences') ? undefined : ExternalReferencesTypeFromJSON(json['externalReferences']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'profileAllowedActions': !exists(json, 'profileAllowedActions') ? undefined : ProfileAllowedActionsTypeFromJSON(json['profileAllowedActions']),
+        'externalReferences': !exists(json, 'externalReferences') ? undefined : ((json['externalReferences'] as Array<any>).map(ExternalReferenceTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'profileAllowedActions': !exists(json, 'profileAllowedActions') ? undefined : ((json['profileAllowedActions'] as Array<any>).map(ProfileAllowedActionTypeFromJSON)),
         'profileDetails': !exists(json, 'profileDetails') ? undefined : ProfileTypeFromJSON(json['profileDetails']),
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -131,12 +131,12 @@ export function ProfileToJSON(value?: Profile | null): any {
     }
     return {
         
-        'externalReferences': ExternalReferencesTypeToJSON(value.externalReferences),
-        'links': LinksToJSON(value.links),
-        'profileAllowedActions': ProfileAllowedActionsTypeToJSON(value.profileAllowedActions),
+        'externalReferences': value.externalReferences === undefined ? undefined : ((value.externalReferences as Array<any>).map(ExternalReferenceTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'profileAllowedActions': value.profileAllowedActions === undefined ? undefined : ((value.profileAllowedActions as Array<any>).map(ProfileAllowedActionTypeToJSON)),
         'profileDetails': ProfileTypeToJSON(value.profileDetails),
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

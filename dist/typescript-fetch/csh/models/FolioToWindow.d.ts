@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { FolioTransferCriteriaType } from './FolioTransferCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request for transaction folio(s) to specific window
  * @export
@@ -26,16 +26,16 @@ export interface FolioToWindow {
     criteria?: FolioTransferCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FolioToWindow
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FolioToWindow
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FolioToWindow interface.

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TerritoriesDetailsToJSON = exports.TerritoriesDetailsFromJSONTyped = exports.TerritoriesDetailsFromJSON = exports.instanceOfTerritoriesDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TerritoriesType_1 = require("./TerritoriesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TerritoryType_1 = require("./TerritoryType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TerritoriesDetails interface.
  */
@@ -35,9 +35,9 @@ function TerritoriesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'territories': !(0, runtime_1.exists)(json, 'territories') ? undefined : (0, TerritoriesType_1.TerritoriesTypeFromJSON)(json['territories']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'territories': !(0, runtime_1.exists)(json, 'territories') ? undefined : (json['territories'].map(TerritoryType_1.TerritoryTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TerritoriesDetailsFromJSONTyped = TerritoriesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function TerritoriesDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'territories': (0, TerritoriesType_1.TerritoriesTypeToJSON)(value.territories),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'territories': value.territories === undefined ? undefined : (value.territories.map(TerritoryType_1.TerritoryTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TerritoriesDetailsToJSON = TerritoriesDetailsToJSON;

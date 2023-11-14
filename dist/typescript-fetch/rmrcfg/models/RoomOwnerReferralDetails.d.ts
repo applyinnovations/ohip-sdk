@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RoomOwnerReferralList } from './RoomOwnerReferralList';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object containing Room Owner Referral details.
  * @export
@@ -26,10 +26,10 @@ export interface RoomOwnerReferralDetails {
     hasOwnershipRecords?: boolean;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomOwnerReferralDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {RoomOwnerReferralList}
@@ -37,11 +37,11 @@ export interface RoomOwnerReferralDetails {
      */
     roomOwnerReferrals?: RoomOwnerReferralList;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomOwnerReferralDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomOwnerReferralDetails interface.

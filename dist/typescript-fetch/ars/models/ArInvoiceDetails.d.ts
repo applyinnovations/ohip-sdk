@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ARInvoicesType } from './ARInvoicesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ARInvoiceType } from './ARInvoiceType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response to the request to create an invoice for an Account.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ArInvoiceDetails {
     /**
-     *
-     * @type {ARInvoicesType}
+     * A collection of AR Invoices.
+     * @type {Array<ARInvoiceType>}
      * @memberof ArInvoiceDetails
      */
-    invoice?: ARInvoicesType;
+    invoice?: Array<ARInvoiceType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ArInvoiceDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ArInvoiceDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ArInvoiceDetails interface.

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChargesCriteriaType } from './ChargesCriteriaType';
+import type { ChargeCriteriaType } from './ChargeCriteriaType';
 import {
-    ChargesCriteriaTypeFromJSON,
-    ChargesCriteriaTypeFromJSONTyped,
-    ChargesCriteriaTypeToJSON,
-} from './ChargesCriteriaType';
+    ChargeCriteriaTypeFromJSON,
+    ChargeCriteriaTypeFromJSONTyped,
+    ChargeCriteriaTypeToJSON,
+} from './ChargeCriteriaType';
 import type { ReservationId } from './ReservationId';
 import {
     ReservationIdFromJSON,
@@ -39,11 +39,11 @@ export interface BillingChargesCriteriaType {
      */
     cashierId?: number;
     /**
-     * 
-     * @type {ChargesCriteriaType}
+     * Collection of Charges to be posted.
+     * @type {Array<ChargeCriteriaType>}
      * @memberof BillingChargesCriteriaType
      */
-    charges?: ChargesCriteriaType;
+    charges?: Array<ChargeCriteriaType>;
     /**
      * Property where the charges are to be posted.
      * @type {string}
@@ -96,7 +96,7 @@ export function BillingChargesCriteriaTypeFromJSONTyped(json: any, ignoreDiscrim
     return {
         
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
-        'charges': !exists(json, 'charges') ? undefined : ChargesCriteriaTypeFromJSON(json['charges']),
+        'charges': !exists(json, 'charges') ? undefined : ((json['charges'] as Array<any>).map(ChargeCriteriaTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'incomeAuditDate': !exists(json, 'incomeAuditDate') ? undefined : (new Date(json['incomeAuditDate'])),
         'postIt': !exists(json, 'postIt') ? undefined : json['postIt'],
@@ -115,7 +115,7 @@ export function BillingChargesCriteriaTypeToJSON(value?: BillingChargesCriteriaT
     return {
         
         'cashierId': value.cashierId,
-        'charges': ChargesCriteriaTypeToJSON(value.charges),
+        'charges': value.charges === undefined ? undefined : ((value.charges as Array<any>).map(ChargeCriteriaTypeToJSON)),
         'hotelId': value.hotelId,
         'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0,10)),
         'postIt': value.postIt,

@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AutoTraceDefinitionListType } from './AutoTraceDefinitionListType';
-import type { WarningsType } from './WarningsType';
+import type { AutoTraceDefinitionType } from './AutoTraceDefinitionType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating/changing Auto Trace Definitions.
  * @export
@@ -18,17 +18,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AutoTraceDefinitionsInfo {
     /**
-     *
-     * @type {AutoTraceDefinitionListType}
+     * Auto Trace Definition.
+     * @type {Array<AutoTraceDefinitionType>}
      * @memberof AutoTraceDefinitionsInfo
      */
-    autoTraceDefinitions?: AutoTraceDefinitionListType;
+    autoTraceDefinitions?: Array<AutoTraceDefinitionType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoTraceDefinitionsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AutoTraceDefinitionsInfo interface.

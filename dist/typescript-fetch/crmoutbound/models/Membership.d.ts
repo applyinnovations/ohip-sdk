@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ProfileIdList } from './ProfileIdList';
+import type { InstanceLink } from './InstanceLink';
 import type { ProfileMembershipType } from './ProfileMembershipType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Request object for create membership. This object contains unique identifiers for each profile and list of membership details to be created. The standard optional Opera Context element is also included.
  * @export
@@ -19,11 +19,11 @@ import type { ProfileMembershipType } from './ProfileMembershipType';
  */
 export interface Membership {
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof Membership
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * Detailed information of membership related to the profile
      * @type {Array<ProfileMembershipType>}
@@ -32,10 +32,10 @@ export interface Membership {
     profileMemberships?: Array<ProfileMembershipType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Membership
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the Membership interface.

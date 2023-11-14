@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ProfileNameValidationsType } from './ProfileNameValidationsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ProfileNameValidationType } from './ProfileNameValidationType';
+import type { WarningType } from './WarningType';
 /**
  * Response for fetching Profile names.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ProfileNameValidations {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileNameValidations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ProfileNameValidationsType}
+     * List of the Profile name to be configured or fetched.
+     * @type {Array<ProfileNameValidationType>}
      * @memberof ProfileNameValidations
      */
-    profileNames?: ProfileNameValidationsType;
+    profileNames?: Array<ProfileNameValidationType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileNameValidations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileNameValidations interface.

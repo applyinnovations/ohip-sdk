@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CopyCateringPackageProcessedInfoList } from './CopyCateringPackageProcessedInfoList';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CateringEventsProcessedInfoType } from './CateringEventsProcessedInfoType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for copying packages.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CopyCateringPackageResponse {
     /**
-     *
-     * @type {CopyCateringPackageProcessedInfoList}
+     * Status/Info of the processed packages.
+     * @type {Array<CateringEventsProcessedInfoType>}
      * @memberof CopyCateringPackageResponse
      */
-    copyCateringPackageProcessedInfoList?: CopyCateringPackageProcessedInfoList;
+    copyCateringPackageProcessedInfoList?: Array<CateringEventsProcessedInfoType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CopyCateringPackageResponse
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CopyCateringPackageResponse
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CopyCateringPackageResponse interface.

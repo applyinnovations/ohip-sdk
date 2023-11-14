@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelAccountContractInformationTypeToJSON = exports.ChannelAccountContractInformationTypeFromJSONTyped = exports.ChannelAccountContractInformationTypeFromJSON = exports.instanceOfChannelAccountContractInformationType = void 0;
 const runtime_1 = require("../runtime");
-const ChannelAccountContractElementsType_1 = require("./ChannelAccountContractElementsType");
+const ContractElementInformationType_1 = require("./ContractElementInformationType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ChannelAccountContractInformationType interface.
@@ -35,7 +35,7 @@ function ChannelAccountContractInformationTypeFromJSONTyped(json, ignoreDiscrimi
     }
     return {
         'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
-        'channelAccountContractElements': !(0, runtime_1.exists)(json, 'channelAccountContractElements') ? undefined : (0, ChannelAccountContractElementsType_1.ChannelAccountContractElementsTypeFromJSON)(json['channelAccountContractElements']),
+        'channelAccountContractElements': !(0, runtime_1.exists)(json, 'channelAccountContractElements') ? undefined : (json['channelAccountContractElements'].map(ContractElementInformationType_1.ContractElementInformationTypeFromJSON)),
         'contractId': !(0, runtime_1.exists)(json, 'contractId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['contractId']),
         'contractNo': !(0, runtime_1.exists)(json, 'contractNo') ? undefined : json['contractNo'],
         'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
@@ -53,7 +53,7 @@ function ChannelAccountContractInformationTypeToJSON(value) {
     }
     return {
         'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
-        'channelAccountContractElements': (0, ChannelAccountContractElementsType_1.ChannelAccountContractElementsTypeToJSON)(value.channelAccountContractElements),
+        'channelAccountContractElements': value.channelAccountContractElements === undefined ? undefined : (value.channelAccountContractElements.map(ContractElementInformationType_1.ContractElementInformationTypeToJSON)),
         'contractId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.contractId),
         'contractNo': value.contractNo,
         'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),

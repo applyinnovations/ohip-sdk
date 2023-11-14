@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelOrgMappingsType } from './ChannelOrgMappingsType';
+import type { ChannelOrgMappingType } from './ChannelOrgMappingType';
 import {
-    ChannelOrgMappingsTypeFromJSON,
-    ChannelOrgMappingsTypeFromJSONTyped,
-    ChannelOrgMappingsTypeToJSON,
-} from './ChannelOrgMappingsType';
-import type { Links } from './Links';
+    ChannelOrgMappingTypeFromJSON,
+    ChannelOrgMappingTypeFromJSONTyped,
+    ChannelOrgMappingTypeToJSON,
+} from './ChannelOrgMappingType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for Fetch Channel to ORG and CRO Mapping.
@@ -39,23 +39,23 @@ import {
  */
 export interface ChannelOrgMappingsDetails {
     /**
-     * 
-     * @type {ChannelOrgMappingsType}
+     * Respresents information of the Channel Code, OrgCode and Default Login Resort used for mapping.
+     * @type {Array<ChannelOrgMappingType>}
      * @memberof ChannelOrgMappingsDetails
      */
-    channelOrgMappingsDetails?: ChannelOrgMappingsType;
+    channelOrgMappingsDetails?: Array<ChannelOrgMappingType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelOrgMappingsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelOrgMappingsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ChannelOrgMappingsDetailsFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'channelOrgMappingsDetails': !exists(json, 'channelOrgMappingsDetails') ? undefined : ChannelOrgMappingsTypeFromJSON(json['channelOrgMappingsDetails']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'channelOrgMappingsDetails': !exists(json, 'channelOrgMappingsDetails') ? undefined : ((json['channelOrgMappingsDetails'] as Array<any>).map(ChannelOrgMappingTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ChannelOrgMappingsDetailsToJSON(value?: ChannelOrgMappingsDetail
     }
     return {
         
-        'channelOrgMappingsDetails': ChannelOrgMappingsTypeToJSON(value.channelOrgMappingsDetails),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'channelOrgMappingsDetails': value.channelOrgMappingsDetails === undefined ? undefined : ((value.channelOrgMappingsDetails as Array<any>).map(ChannelOrgMappingTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

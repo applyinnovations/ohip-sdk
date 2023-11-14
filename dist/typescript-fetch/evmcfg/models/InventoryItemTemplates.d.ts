@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { InventoryItemTemplatesType } from './InventoryItemTemplatesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { InventoryItemTemplateType } from './InventoryItemTemplateType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching inventory item templates.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface InventoryItemTemplates {
     /**
-     *
-     * @type {InventoryItemTemplatesType}
+     * This type holds a collection of inventory item templates.
+     * @type {Array<InventoryItemTemplateType>}
      * @memberof InventoryItemTemplates
      */
-    inventoryItemTemplates?: InventoryItemTemplatesType;
+    inventoryItemTemplates?: Array<InventoryItemTemplateType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof InventoryItemTemplates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof InventoryItemTemplates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the InventoryItemTemplates interface.

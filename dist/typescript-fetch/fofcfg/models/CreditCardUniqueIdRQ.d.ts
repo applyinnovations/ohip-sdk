@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CreditCardUniqueIdType } from './CreditCardUniqueIdType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request for fetching credit card unique id.
  * @export
@@ -24,11 +24,11 @@ export interface CreditCardUniqueIdRQ {
      */
     creditCardUniqueId?: CreditCardUniqueIdType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreditCardUniqueIdRQ
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreditCardUniqueIdRQ interface.

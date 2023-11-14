@@ -18,9 +18,9 @@ const runtime_1 = require("../runtime");
 const CancelReservationType_1 = require("./CancelReservationType");
 const CancellationActivityType_1 = require("./CancellationActivityType");
 const ChannelResvRSInfoType_1 = require("./ChannelResvRSInfoType");
-const DailyRatesType_1 = require("./DailyRatesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const DailyRateType_1 = require("./DailyRateType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CancelReservationDetails interface.
  */
@@ -40,11 +40,11 @@ function CancelReservationDetailsFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'channelInformation': !(0, runtime_1.exists)(json, 'channelInformation') ? undefined : (0, ChannelResvRSInfoType_1.ChannelResvRSInfoTypeFromJSON)(json['channelInformation']),
         'cxlActivityLog': !(0, runtime_1.exists)(json, 'cxlActivityLog') ? undefined : (json['cxlActivityLog'].map(CancellationActivityType_1.CancellationActivityTypeFromJSON)),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'newRates': !(0, runtime_1.exists)(json, 'newRates') ? undefined : (0, DailyRatesType_1.DailyRatesTypeFromJSON)(json['newRates']),
-        'oldRates': !(0, runtime_1.exists)(json, 'oldRates') ? undefined : (0, DailyRatesType_1.DailyRatesTypeFromJSON)(json['oldRates']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'newRates': !(0, runtime_1.exists)(json, 'newRates') ? undefined : (json['newRates'].map(DailyRateType_1.DailyRateTypeFromJSON)),
+        'oldRates': !(0, runtime_1.exists)(json, 'oldRates') ? undefined : (json['oldRates'].map(DailyRateType_1.DailyRateTypeFromJSON)),
         'reservations': !(0, runtime_1.exists)(json, 'reservations') ? undefined : (json['reservations'].map(CancelReservationType_1.CancelReservationTypeFromJSON)),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CancelReservationDetailsFromJSONTyped = CancelReservationDetailsFromJSONTyped;
@@ -58,11 +58,11 @@ function CancelReservationDetailsToJSON(value) {
     return {
         'channelInformation': (0, ChannelResvRSInfoType_1.ChannelResvRSInfoTypeToJSON)(value.channelInformation),
         'cxlActivityLog': value.cxlActivityLog === undefined ? undefined : (value.cxlActivityLog.map(CancellationActivityType_1.CancellationActivityTypeToJSON)),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'newRates': (0, DailyRatesType_1.DailyRatesTypeToJSON)(value.newRates),
-        'oldRates': (0, DailyRatesType_1.DailyRatesTypeToJSON)(value.oldRates),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'newRates': value.newRates === undefined ? undefined : (value.newRates.map(DailyRateType_1.DailyRateTypeToJSON)),
+        'oldRates': value.oldRates === undefined ? undefined : (value.oldRates.map(DailyRateType_1.DailyRateTypeToJSON)),
         'reservations': value.reservations === undefined ? undefined : (value.reservations.map(CancelReservationType_1.CancelReservationTypeToJSON)),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CancelReservationDetailsToJSON = CancelReservationDetailsToJSON;

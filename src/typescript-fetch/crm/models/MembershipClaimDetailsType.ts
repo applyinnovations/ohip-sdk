@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ClaimActivityLogListType } from './ClaimActivityLogListType';
+import type { ClaimActivityLogType } from './ClaimActivityLogType';
 import {
-    ClaimActivityLogListTypeFromJSON,
-    ClaimActivityLogListTypeFromJSONTyped,
-    ClaimActivityLogListTypeToJSON,
-} from './ClaimActivityLogListType';
+    ClaimActivityLogTypeFromJSON,
+    ClaimActivityLogTypeFromJSONTyped,
+    ClaimActivityLogTypeToJSON,
+} from './ClaimActivityLogType';
 import type { ClaimAdjustmentPointsType } from './ClaimAdjustmentPointsType';
 import {
     ClaimAdjustmentPointsTypeFromJSON,
@@ -75,11 +75,11 @@ import {
  */
 export interface MembershipClaimDetailsType {
     /**
-     * 
-     * @type {ClaimActivityLogListType}
+     * Summary of claim activity log information.
+     * @type {Array<ClaimActivityLogType>}
      * @memberof MembershipClaimDetailsType
      */
-    activityLog?: ClaimActivityLogListType;
+    activityLog?: Array<ClaimActivityLogType>;
     /**
      * 
      * @type {ClaimApprovalStatusType}
@@ -215,7 +215,7 @@ export function MembershipClaimDetailsTypeFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'activityLog': !exists(json, 'activityLog') ? undefined : ClaimActivityLogListTypeFromJSON(json['activityLog']),
+        'activityLog': !exists(json, 'activityLog') ? undefined : ((json['activityLog'] as Array<any>).map(ClaimActivityLogTypeFromJSON)),
         'approvalStatus': !exists(json, 'approvalStatus') ? undefined : ClaimApprovalStatusTypeFromJSON(json['approvalStatus']),
         'callerInformation': !exists(json, 'callerInformation') ? undefined : json['callerInformation'],
         'callerName': !exists(json, 'callerName') ? undefined : json['callerName'],
@@ -247,7 +247,7 @@ export function MembershipClaimDetailsTypeToJSON(value?: MembershipClaimDetailsT
     }
     return {
         
-        'activityLog': ClaimActivityLogListTypeToJSON(value.activityLog),
+        'activityLog': value.activityLog === undefined ? undefined : ((value.activityLog as Array<any>).map(ClaimActivityLogTypeToJSON)),
         'approvalStatus': ClaimApprovalStatusTypeToJSON(value.approvalStatus),
         'callerInformation': value.callerInformation,
         'callerName': value.callerName,

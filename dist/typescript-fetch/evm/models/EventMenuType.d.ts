@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { EventMenuBasicInfoType } from './EventMenuBasicInfoType';
-import type { EventMenuItemsType } from './EventMenuItemsType';
-import type { EventMenuRevenuesType } from './EventMenuRevenuesType';
+import type { EventMenuItemType } from './EventMenuItemType';
+import type { EventMenuRevenueType } from './EventMenuRevenueType';
 /**
  * Information about event menu.
  * @export
@@ -32,16 +32,16 @@ export interface EventMenuType {
     hotelId?: string;
     /**
      *
-     * @type {EventMenuItemsType}
+     * @type {Array<EventMenuItemType>}
      * @memberof EventMenuType
      */
-    menuItems?: EventMenuItemsType;
+    menuItems?: Array<EventMenuItemType>;
     /**
      *
-     * @type {EventMenuRevenuesType}
+     * @type {Array<EventMenuRevenueType>}
      * @memberof EventMenuType
      */
-    revenues?: EventMenuRevenuesType;
+    revenues?: Array<EventMenuRevenueType>;
 }
 /**
  * Check if a given object implements the EventMenuType interface.

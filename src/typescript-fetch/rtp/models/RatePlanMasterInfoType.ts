@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RatePlanBasedOnRatesType } from './RatePlanBasedOnRatesType';
+import type { RatePlanBasedOnRateType } from './RatePlanBasedOnRateType';
 import {
-    RatePlanBasedOnRatesTypeFromJSON,
-    RatePlanBasedOnRatesTypeFromJSONTyped,
-    RatePlanBasedOnRatesTypeToJSON,
-} from './RatePlanBasedOnRatesType';
+    RatePlanBasedOnRateTypeFromJSON,
+    RatePlanBasedOnRateTypeFromJSONTyped,
+    RatePlanBasedOnRateTypeToJSON,
+} from './RatePlanBasedOnRateType';
 import type { RatePlanPrimaryDetailsType } from './RatePlanPrimaryDetailsType';
 import {
     RatePlanPrimaryDetailsTypeFromJSON,
     RatePlanPrimaryDetailsTypeFromJSONTyped,
     RatePlanPrimaryDetailsTypeToJSON,
 } from './RatePlanPrimaryDetailsType';
-import type { RateRoomTypeListType } from './RateRoomTypeListType';
+import type { RateRoomTypeDetailType } from './RateRoomTypeDetailType';
 import {
-    RateRoomTypeListTypeFromJSON,
-    RateRoomTypeListTypeFromJSONTyped,
-    RateRoomTypeListTypeToJSON,
-} from './RateRoomTypeListType';
-import type { RateTiersType } from './RateTiersType';
+    RateRoomTypeDetailTypeFromJSON,
+    RateRoomTypeDetailTypeFromJSONTyped,
+    RateRoomTypeDetailTypeToJSON,
+} from './RateRoomTypeDetailType';
+import type { RateTierType } from './RateTierType';
 import {
-    RateTiersTypeFromJSON,
-    RateTiersTypeFromJSONTyped,
-    RateTiersTypeToJSON,
-} from './RateTiersType';
+    RateTierTypeFromJSON,
+    RateTierTypeFromJSONTyped,
+    RateTierTypeToJSON,
+} from './RateTierType';
 
 /**
  * The Rate plan info type is used primarily by rate plan schedules to get basic rate plan header details.
@@ -99,11 +99,11 @@ export interface RatePlanMasterInfoType {
      */
     primaryDetails?: RatePlanPrimaryDetailsType;
     /**
-     * 
-     * @type {RatePlanBasedOnRatesType}
+     * Rate plan type based on rates.
+     * @type {Array<RatePlanBasedOnRateType>}
      * @memberof RatePlanMasterInfoType
      */
-    ratePlanBasedOnRates?: RatePlanBasedOnRatesType;
+    ratePlanBasedOnRates?: Array<RatePlanBasedOnRateType>;
     /**
      * Rate Plan Code of the rate plan.
      * @type {string}
@@ -111,17 +111,17 @@ export interface RatePlanMasterInfoType {
      */
     ratePlanCode?: string;
     /**
-     * 
-     * @type {RateTiersType}
+     * Details for each rate tier.
+     * @type {Array<RateTierType>}
      * @memberof RatePlanMasterInfoType
      */
-    rateTiers?: RateTiersType;
+    rateTiers?: Array<RateTierType>;
     /**
-     * 
-     * @type {RateRoomTypeListType}
+     * Details of each room type
+     * @type {Array<RateRoomTypeDetailType>}
      * @memberof RatePlanMasterInfoType
      */
-    roomTypeList?: RateRoomTypeListType;
+    roomTypeList?: Array<RateRoomTypeDetailType>;
     /**
      * Is Rate plan tiered?
      * @type {boolean}
@@ -158,10 +158,10 @@ export function RatePlanMasterInfoTypeFromJSONTyped(json: any, ignoreDiscriminat
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'houseUse': !exists(json, 'houseUse') ? undefined : json['houseUse'],
         'primaryDetails': !exists(json, 'primaryDetails') ? undefined : RatePlanPrimaryDetailsTypeFromJSON(json['primaryDetails']),
-        'ratePlanBasedOnRates': !exists(json, 'ratePlanBasedOnRates') ? undefined : RatePlanBasedOnRatesTypeFromJSON(json['ratePlanBasedOnRates']),
+        'ratePlanBasedOnRates': !exists(json, 'ratePlanBasedOnRates') ? undefined : ((json['ratePlanBasedOnRates'] as Array<any>).map(RatePlanBasedOnRateTypeFromJSON)),
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
-        'rateTiers': !exists(json, 'rateTiers') ? undefined : RateTiersTypeFromJSON(json['rateTiers']),
-        'roomTypeList': !exists(json, 'roomTypeList') ? undefined : RateRoomTypeListTypeFromJSON(json['roomTypeList']),
+        'rateTiers': !exists(json, 'rateTiers') ? undefined : ((json['rateTiers'] as Array<any>).map(RateTierTypeFromJSON)),
+        'roomTypeList': !exists(json, 'roomTypeList') ? undefined : ((json['roomTypeList'] as Array<any>).map(RateRoomTypeDetailTypeFromJSON)),
         'tiered': !exists(json, 'tiered') ? undefined : json['tiered'],
     };
 }
@@ -184,10 +184,10 @@ export function RatePlanMasterInfoTypeToJSON(value?: RatePlanMasterInfoType | nu
         'hotelId': value.hotelId,
         'houseUse': value.houseUse,
         'primaryDetails': RatePlanPrimaryDetailsTypeToJSON(value.primaryDetails),
-        'ratePlanBasedOnRates': RatePlanBasedOnRatesTypeToJSON(value.ratePlanBasedOnRates),
+        'ratePlanBasedOnRates': value.ratePlanBasedOnRates === undefined ? undefined : ((value.ratePlanBasedOnRates as Array<any>).map(RatePlanBasedOnRateTypeToJSON)),
         'ratePlanCode': value.ratePlanCode,
-        'rateTiers': RateTiersTypeToJSON(value.rateTiers),
-        'roomTypeList': RateRoomTypeListTypeToJSON(value.roomTypeList),
+        'rateTiers': value.rateTiers === undefined ? undefined : ((value.rateTiers as Array<any>).map(RateTierTypeToJSON)),
+        'roomTypeList': value.roomTypeList === undefined ? undefined : ((value.roomTypeList as Array<any>).map(RateRoomTypeDetailTypeToJSON)),
         'tiered': value.tiered,
     };
 }

@@ -15,8 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConfigUpsellRuleTypeToJSON = exports.ConfigUpsellRuleTypeFromJSONTyped = exports.ConfigUpsellRuleTypeFromJSON = exports.instanceOfConfigUpsellRuleType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
-const ConfigOccupancyLevelsType_1 = require("./ConfigOccupancyLevelsType");
+const ConfigOccupancyLevelType_1 = require("./ConfigOccupancyLevelType");
 const FormulaType_1 = require("./FormulaType");
 const RoundingRuleType_1 = require("./RoundingRuleType");
 const TrxInfoType_1 = require("./TrxInfoType");
@@ -37,7 +36,7 @@ function ConfigUpsellRuleTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'channels': !(0, runtime_1.exists)(json, 'channels') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['channels']),
+        'channels': !(0, runtime_1.exists)(json, 'channels') ? undefined : json['channels'],
         'currencyCode': !(0, runtime_1.exists)(json, 'currencyCode') ? undefined : json['currencyCode'],
         'daysInAdvance': !(0, runtime_1.exists)(json, 'daysInAdvance') ? undefined : json['daysInAdvance'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
@@ -45,12 +44,12 @@ function ConfigUpsellRuleTypeFromJSONTyped(json, ignoreDiscriminator) {
         'formula': !(0, runtime_1.exists)(json, 'formula') ? undefined : (0, FormulaType_1.FormulaTypeFromJSON)(json['formula']),
         'fromRoomTypeOrFromRoomClass': !(0, runtime_1.exists)(json, 'fromRoomTypeOrFromRoomClass') ? undefined : json['fromRoomTypeOrFromRoomClass'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'marketCodes': !(0, runtime_1.exists)(json, 'marketCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['marketCodes']),
-        'membershipTypes': !(0, runtime_1.exists)(json, 'membershipTypes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['membershipTypes']),
-        'occupancyLevelsType': !(0, runtime_1.exists)(json, 'occupancyLevelsType') ? undefined : (0, ConfigOccupancyLevelsType_1.ConfigOccupancyLevelsTypeFromJSON)(json['occupancyLevelsType']),
-        'rateCategories': !(0, runtime_1.exists)(json, 'rateCategories') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['rateCategories']),
-        'rateCodes': !(0, runtime_1.exists)(json, 'rateCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['rateCodes']),
-        'reservationTypes': !(0, runtime_1.exists)(json, 'reservationTypes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['reservationTypes']),
+        'marketCodes': !(0, runtime_1.exists)(json, 'marketCodes') ? undefined : json['marketCodes'],
+        'membershipTypes': !(0, runtime_1.exists)(json, 'membershipTypes') ? undefined : json['membershipTypes'],
+        'occupancyLevelsType': !(0, runtime_1.exists)(json, 'occupancyLevelsType') ? undefined : (json['occupancyLevelsType'].map(ConfigOccupancyLevelType_1.ConfigOccupancyLevelTypeFromJSON)),
+        'rateCategories': !(0, runtime_1.exists)(json, 'rateCategories') ? undefined : json['rateCategories'],
+        'rateCodes': !(0, runtime_1.exists)(json, 'rateCodes') ? undefined : json['rateCodes'],
+        'reservationTypes': !(0, runtime_1.exists)(json, 'reservationTypes') ? undefined : json['reservationTypes'],
         'roundingRule': !(0, runtime_1.exists)(json, 'roundingRule') ? undefined : (0, RoundingRuleType_1.RoundingRuleTypeFromJSON)(json['roundingRule']),
         'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
         'toRoomTypeOrToRoomClass': !(0, runtime_1.exists)(json, 'toRoomTypeOrToRoomClass') ? undefined : json['toRoomTypeOrToRoomClass'],
@@ -71,7 +70,7 @@ function ConfigUpsellRuleTypeToJSON(value) {
         return null;
     }
     return {
-        'channels': (0, CodeListType_1.CodeListTypeToJSON)(value.channels),
+        'channels': value.channels,
         'currencyCode': value.currencyCode,
         'daysInAdvance': value.daysInAdvance,
         'description': value.description,
@@ -79,12 +78,12 @@ function ConfigUpsellRuleTypeToJSON(value) {
         'formula': (0, FormulaType_1.FormulaTypeToJSON)(value.formula),
         'fromRoomTypeOrFromRoomClass': value.fromRoomTypeOrFromRoomClass,
         'hotelId': value.hotelId,
-        'marketCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.marketCodes),
-        'membershipTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.membershipTypes),
-        'occupancyLevelsType': (0, ConfigOccupancyLevelsType_1.ConfigOccupancyLevelsTypeToJSON)(value.occupancyLevelsType),
-        'rateCategories': (0, CodeListType_1.CodeListTypeToJSON)(value.rateCategories),
-        'rateCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.rateCodes),
-        'reservationTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.reservationTypes),
+        'marketCodes': value.marketCodes,
+        'membershipTypes': value.membershipTypes,
+        'occupancyLevelsType': value.occupancyLevelsType === undefined ? undefined : (value.occupancyLevelsType.map(ConfigOccupancyLevelType_1.ConfigOccupancyLevelTypeToJSON)),
+        'rateCategories': value.rateCategories,
+        'rateCodes': value.rateCodes,
+        'reservationTypes': value.reservationTypes,
         'roundingRule': (0, RoundingRuleType_1.RoundingRuleTypeToJSON)(value.roundingRule),
         'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
         'toRoomTypeOrToRoomClass': value.toRoomTypeOrToRoomClass,

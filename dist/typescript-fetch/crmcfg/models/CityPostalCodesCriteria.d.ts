@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CityPostalCodesType } from './CityPostalCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CityPostalCodeType } from './CityPostalCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new city and postal codes.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CityPostalCodesCriteria {
     /**
-     *
-     * @type {CityPostalCodesType}
+     * Lists of City and Postal Codes.
+     * @type {Array<CityPostalCodeType>}
      * @memberof CityPostalCodesCriteria
      */
-    cityPostalCodes?: CityPostalCodesType;
+    cityPostalCodes?: Array<CityPostalCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CityPostalCodesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CityPostalCodesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CityPostalCodesCriteria interface.

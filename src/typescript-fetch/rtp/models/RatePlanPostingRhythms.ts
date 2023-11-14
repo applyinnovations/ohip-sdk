@@ -19,24 +19,24 @@ import {
     GenericHotelCodeCodeTypeFromJSONTyped,
     GenericHotelCodeCodeTypeToJSON,
 } from './GenericHotelCodeCodeType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RatePlanAdvancedPostingRhythmsType } from './RatePlanAdvancedPostingRhythmsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RatePlanAdvancedPostingRhythmType } from './RatePlanAdvancedPostingRhythmType';
 import {
-    RatePlanAdvancedPostingRhythmsTypeFromJSON,
-    RatePlanAdvancedPostingRhythmsTypeFromJSONTyped,
-    RatePlanAdvancedPostingRhythmsTypeToJSON,
-} from './RatePlanAdvancedPostingRhythmsType';
-import type { WarningsType } from './WarningsType';
+    RatePlanAdvancedPostingRhythmTypeFromJSON,
+    RatePlanAdvancedPostingRhythmTypeFromJSONTyped,
+    RatePlanAdvancedPostingRhythmTypeToJSON,
+} from './RatePlanAdvancedPostingRhythmType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating new rate plan advanced posting rhythms.
@@ -46,16 +46,16 @@ import {
 export interface RatePlanPostingRhythms {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RatePlanPostingRhythms
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RatePlanAdvancedPostingRhythmsType}
+     * Posting rhythm details for a rate plan containing Buy x Get y functionality.
+     * @type {Array<RatePlanAdvancedPostingRhythmType>}
      * @memberof RatePlanPostingRhythms
      */
-    postingRhythms?: RatePlanAdvancedPostingRhythmsType;
+    postingRhythms?: Array<RatePlanAdvancedPostingRhythmType>;
     /**
      * 
      * @type {GenericHotelCodeCodeType}
@@ -63,11 +63,11 @@ export interface RatePlanPostingRhythms {
      */
     ratePlan?: GenericHotelCodeCodeType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RatePlanPostingRhythms
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function RatePlanPostingRhythmsFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'postingRhythms': !exists(json, 'postingRhythms') ? undefined : RatePlanAdvancedPostingRhythmsTypeFromJSON(json['postingRhythms']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'postingRhythms': !exists(json, 'postingRhythms') ? undefined : ((json['postingRhythms'] as Array<any>).map(RatePlanAdvancedPostingRhythmTypeFromJSON)),
         'ratePlan': !exists(json, 'ratePlan') ? undefined : GenericHotelCodeCodeTypeFromJSON(json['ratePlan']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function RatePlanPostingRhythmsToJSON(value?: RatePlanPostingRhythms | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'postingRhythms': RatePlanAdvancedPostingRhythmsTypeToJSON(value.postingRhythms),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'postingRhythms': value.postingRhythms === undefined ? undefined : ((value.postingRhythms as Array<any>).map(RatePlanAdvancedPostingRhythmTypeToJSON)),
         'ratePlan': GenericHotelCodeCodeTypeToJSON(value.ratePlan),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

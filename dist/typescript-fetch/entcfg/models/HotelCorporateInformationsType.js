@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelCorporateInformationsTypeToJSON = exports.HotelCorporateInformationsTypeFromJSONTyped = exports.HotelCorporateInformationsTypeFromJSON = exports.instanceOfHotelCorporateInformationsType = void 0;
 const runtime_1 = require("../runtime");
-const PrimaryCodesType_1 = require("./PrimaryCodesType");
+const PrimaryCodeType_1 = require("./PrimaryCodeType");
 /**
  * Check if a given object implements the HotelCorporateInformationsType interface.
  */
@@ -34,11 +34,11 @@ function HotelCorporateInformationsTypeFromJSONTyped(json, ignoreDiscriminator) 
     }
     return {
         'brandCode': !(0, runtime_1.exists)(json, 'brandCode') ? undefined : json['brandCode'],
-        'businessUnit': !(0, runtime_1.exists)(json, 'businessUnit') ? undefined : (0, PrimaryCodesType_1.PrimaryCodesTypeFromJSON)(json['businessUnit']),
-        'departmentCode': !(0, runtime_1.exists)(json, 'departmentCode') ? undefined : (0, PrimaryCodesType_1.PrimaryCodesTypeFromJSON)(json['departmentCode']),
-        'division': !(0, runtime_1.exists)(json, 'division') ? undefined : (0, PrimaryCodesType_1.PrimaryCodesTypeFromJSON)(json['division']),
+        'businessUnit': !(0, runtime_1.exists)(json, 'businessUnit') ? undefined : (json['businessUnit'].map(PrimaryCodeType_1.PrimaryCodeTypeFromJSON)),
+        'departmentCode': !(0, runtime_1.exists)(json, 'departmentCode') ? undefined : (json['departmentCode'].map(PrimaryCodeType_1.PrimaryCodeTypeFromJSON)),
+        'division': !(0, runtime_1.exists)(json, 'division') ? undefined : (json['division'].map(PrimaryCodeType_1.PrimaryCodeTypeFromJSON)),
         'hotelCategory': !(0, runtime_1.exists)(json, 'hotelCategory') ? undefined : json['hotelCategory'],
-        'opertingUnit': !(0, runtime_1.exists)(json, 'opertingUnit') ? undefined : (0, PrimaryCodesType_1.PrimaryCodesTypeFromJSON)(json['opertingUnit']),
+        'opertingUnit': !(0, runtime_1.exists)(json, 'opertingUnit') ? undefined : (json['opertingUnit'].map(PrimaryCodeType_1.PrimaryCodeTypeFromJSON)),
     };
 }
 exports.HotelCorporateInformationsTypeFromJSONTyped = HotelCorporateInformationsTypeFromJSONTyped;
@@ -51,11 +51,11 @@ function HotelCorporateInformationsTypeToJSON(value) {
     }
     return {
         'brandCode': value.brandCode,
-        'businessUnit': (0, PrimaryCodesType_1.PrimaryCodesTypeToJSON)(value.businessUnit),
-        'departmentCode': (0, PrimaryCodesType_1.PrimaryCodesTypeToJSON)(value.departmentCode),
-        'division': (0, PrimaryCodesType_1.PrimaryCodesTypeToJSON)(value.division),
+        'businessUnit': value.businessUnit === undefined ? undefined : (value.businessUnit.map(PrimaryCodeType_1.PrimaryCodeTypeToJSON)),
+        'departmentCode': value.departmentCode === undefined ? undefined : (value.departmentCode.map(PrimaryCodeType_1.PrimaryCodeTypeToJSON)),
+        'division': value.division === undefined ? undefined : (value.division.map(PrimaryCodeType_1.PrimaryCodeTypeToJSON)),
         'hotelCategory': value.hotelCategory,
-        'opertingUnit': (0, PrimaryCodesType_1.PrimaryCodesTypeToJSON)(value.opertingUnit),
+        'opertingUnit': value.opertingUnit === undefined ? undefined : (value.opertingUnit.map(PrimaryCodeType_1.PrimaryCodeTypeToJSON)),
     };
 }
 exports.HotelCorporateInformationsTypeToJSON = HotelCorporateInformationsTypeToJSON;

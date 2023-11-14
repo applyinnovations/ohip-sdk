@@ -25,12 +25,6 @@ import {
     CopyStatusModeTypeFromJSONTyped,
     CopyStatusModeTypeToJSON,
 } from './CopyStatusModeType';
-import type { DatesType } from './DatesType';
-import {
-    DatesTypeFromJSON,
-    DatesTypeFromJSONTyped,
-    DatesTypeToJSON,
-} from './DatesType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -69,11 +63,11 @@ export interface CopyCateringPkgType {
      */
     copyStatusMode?: CopyStatusModeType;
     /**
-     * 
-     * @type {DatesType}
+     * Specifies a single date.
+     * @type {Array<Date>}
      * @memberof CopyCateringPkgType
      */
-    copyToDates?: DatesType;
+    copyToDates?: Array<Date>;
     /**
      * Hotel code where the package will be copied.
      * @type {string}
@@ -123,7 +117,7 @@ export function CopyCateringPkgTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'copyAsSnapshot': !exists(json, 'copyAsSnapshot') ? undefined : json['copyAsSnapshot'],
         'copyInstructions': !exists(json, 'copyInstructions') ? undefined : ((json['copyInstructions'] as Array<any>).map(CateringPackageCopyInstructionTypeFromJSON)),
         'copyStatusMode': !exists(json, 'copyStatusMode') ? undefined : CopyStatusModeTypeFromJSON(json['copyStatusMode']),
-        'copyToDates': !exists(json, 'copyToDates') ? undefined : DatesTypeFromJSON(json['copyToDates']),
+        'copyToDates': !exists(json, 'copyToDates') ? undefined : json['copyToDates'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'packageId': !exists(json, 'packageId') ? undefined : UniqueIDTypeFromJSON(json['packageId']),
         'sourceBlockId': !exists(json, 'sourceBlockId') ? undefined : UniqueIDTypeFromJSON(json['sourceBlockId']),
@@ -144,7 +138,7 @@ export function CopyCateringPkgTypeToJSON(value?: CopyCateringPkgType | null): a
         'copyAsSnapshot': value.copyAsSnapshot,
         'copyInstructions': value.copyInstructions === undefined ? undefined : ((value.copyInstructions as Array<any>).map(CateringPackageCopyInstructionTypeToJSON)),
         'copyStatusMode': CopyStatusModeTypeToJSON(value.copyStatusMode),
-        'copyToDates': DatesTypeToJSON(value.copyToDates),
+        'copyToDates': value.copyToDates,
         'hotelId': value.hotelId,
         'packageId': UniqueIDTypeToJSON(value.packageId),
         'sourceBlockId': UniqueIDTypeToJSON(value.sourceBlockId),

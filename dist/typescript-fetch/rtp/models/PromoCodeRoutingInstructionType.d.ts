@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { AuthorizerInfoType } from './AuthorizerInfoType';
-import type { BillingInstructionsType } from './BillingInstructionsType';
+import type { BillingInstructionType } from './BillingInstructionType';
 import type { PromoCodeRoutingInstructionTypeDuration } from './PromoCodeRoutingInstructionTypeDuration';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+import type { TrxInfoType } from './TrxInfoType';
 /**
  * Routing limit can be one of the three: Credit Limit, Percetage Limit, Covers Limit
  * @export
@@ -38,11 +38,11 @@ export interface PromoCodeRoutingInstructionType {
      */
     autoPopulateRouting?: boolean;
     /**
-     *
-     * @type {BillingInstructionsType}
+     * Set of Billing Instruction codes.
+     * @type {Array<BillingInstructionType>}
      * @memberof PromoCodeRoutingInstructionType
      */
-    billingInstructions?: BillingInstructionsType;
+    billingInstructions?: Array<BillingInstructionType>;
     /**
      * User Defined Comments. Used for Comp Routing.
      * @type {string}
@@ -104,11 +104,11 @@ export interface PromoCodeRoutingInstructionType {
      */
     promptForAuthorizer?: boolean;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof PromoCodeRoutingInstructionType
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
 }
 /**
  * Check if a given object implements the PromoCodeRoutingInstructionType interface.

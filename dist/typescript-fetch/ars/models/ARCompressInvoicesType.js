@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ARCompressInvoicesTypeToJSON = exports.ARCompressInvoicesTypeFromJSONTyped = exports.ARCompressInvoicesTypeFromJSON = exports.instanceOfARCompressInvoicesType = void 0;
 const runtime_1 = require("../runtime");
 const ARAccountCriteriaType_1 = require("./ARAccountCriteriaType");
-const ARInvoicesType_1 = require("./ARInvoicesType");
+const ARInvoiceType_1 = require("./ARInvoiceType");
 /**
  * Check if a given object implements the ARCompressInvoicesType interface.
  */
@@ -37,7 +37,7 @@ function ARCompressInvoicesTypeFromJSONTyped(json, ignoreDiscriminator) {
         'account': !(0, runtime_1.exists)(json, 'account') ? undefined : (0, ARAccountCriteriaType_1.ARAccountCriteriaTypeFromJSON)(json['account']),
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
         'folioTypeName': !(0, runtime_1.exists)(json, 'folioTypeName') ? undefined : json['folioTypeName'],
-        'invoices': !(0, runtime_1.exists)(json, 'invoices') ? undefined : (0, ARInvoicesType_1.ARInvoicesTypeFromJSON)(json['invoices']),
+        'invoices': !(0, runtime_1.exists)(json, 'invoices') ? undefined : (json['invoices'].map(ARInvoiceType_1.ARInvoiceTypeFromJSON)),
         'reference': !(0, runtime_1.exists)(json, 'reference') ? undefined : json['reference'],
         'remark': !(0, runtime_1.exists)(json, 'remark') ? undefined : json['remark'],
     };
@@ -54,7 +54,7 @@ function ARCompressInvoicesTypeToJSON(value) {
         'account': (0, ARAccountCriteriaType_1.ARAccountCriteriaTypeToJSON)(value.account),
         'cashierId': value.cashierId,
         'folioTypeName': value.folioTypeName,
-        'invoices': (0, ARInvoicesType_1.ARInvoicesTypeToJSON)(value.invoices),
+        'invoices': value.invoices === undefined ? undefined : (value.invoices.map(ARInvoiceType_1.ARInvoiceTypeToJSON)),
         'reference': value.reference,
         'remark': value.remark,
     };

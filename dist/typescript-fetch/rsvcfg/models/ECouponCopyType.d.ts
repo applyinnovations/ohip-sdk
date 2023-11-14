@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 /**
  * Copy eCoupons from one Property to one or multiple properties.
  * @export
@@ -18,10 +17,10 @@ import type { CodeListType } from './CodeListType';
 export interface ECouponCopyType {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ECouponCopyType
      */
-    eCouponCodes?: CodeListType;
+    eCouponCodes?: Array<string>;
     /**
      * Source property from which copy operation will happen.
      * @type {string}
@@ -30,10 +29,10 @@ export interface ECouponCopyType {
     hotelId?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ECouponCopyType
      */
-    targetHotelCodes?: CodeListType;
+    targetHotelCodes?: Array<string>;
 }
 /**
  * Check if a given object implements the ECouponCopyType interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TemplateRoomMaintenanceReasonsType } from './TemplateRoomMaintenanceReasonsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TemplateRoomMaintenanceReasonType } from './TemplateRoomMaintenanceReasonType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new template room maintenance reasons.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateRoomMaintenanceReasonsCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateRoomMaintenanceReasonsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TemplateRoomMaintenanceReasonsType}
+     * Details for room maintenance reason at template level.
+     * @type {Array<TemplateRoomMaintenanceReasonType>}
      * @memberof TemplateRoomMaintenanceReasonsCriteria
      */
-    templateRoomMaintenanceReasons?: TemplateRoomMaintenanceReasonsType;
+    templateRoomMaintenanceReasons?: Array<TemplateRoomMaintenanceReasonType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateRoomMaintenanceReasonsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateRoomMaintenanceReasonsCriteria interface.

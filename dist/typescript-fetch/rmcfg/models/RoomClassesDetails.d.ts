@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RoomClassesType } from './RoomClassesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RoomClassType } from './RoomClassType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching existing hotel level room classes.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface RoomClassesDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomClassesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RoomClassesType}
+     * Collection of hotel level room classes with attached room types.
+     * @type {Array<RoomClassType>}
      * @memberof RoomClassesDetails
      */
-    roomClasses?: RoomClassesType;
+    roomClasses?: Array<RoomClassType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomClassesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomClassesDetails interface.

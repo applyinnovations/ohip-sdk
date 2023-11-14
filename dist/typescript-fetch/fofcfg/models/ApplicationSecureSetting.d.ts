@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ApplicationSecureSettingType } from './ApplicationSecureSettingType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ApplicationSecureSetting {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ApplicationSecureSetting
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Contains a single application setting to update.
      * @type {Array<ApplicationSecureSettingType>}
@@ -31,11 +31,11 @@ export interface ApplicationSecureSetting {
      */
     settings?: Array<ApplicationSecureSettingType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ApplicationSecureSetting
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ApplicationSecureSetting interface.

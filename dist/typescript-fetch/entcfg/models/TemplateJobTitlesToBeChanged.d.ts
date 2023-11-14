@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TemplateJobTitlesType } from './TemplateJobTitlesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TemplateJobTitleType } from './TemplateJobTitleType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for modifying template job titles.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateJobTitlesToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateJobTitlesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TemplateJobTitlesType}
+     * Template job title details.
+     * @type {Array<TemplateJobTitleType>}
      * @memberof TemplateJobTitlesToBeChanged
      */
-    templateJobTitles?: TemplateJobTitlesType;
+    templateJobTitles?: Array<TemplateJobTitleType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateJobTitlesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateJobTitlesToBeChanged interface.

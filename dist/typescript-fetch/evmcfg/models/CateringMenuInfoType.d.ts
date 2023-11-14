@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { DateRangeType } from './DateRangeType';
 import type { MenuTypeType } from './MenuTypeType';
@@ -47,10 +46,10 @@ export interface CateringMenuInfoType {
     description?: TranslationTextType2000;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CateringMenuInfoType
      */
-    dietaryList?: CodeListType;
+    dietaryList?: Array<string>;
     /**
      *
      * @type {DateRangeType}
@@ -59,10 +58,10 @@ export interface CateringMenuInfoType {
     eventDateRange?: DateRangeType;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CateringMenuInfoType
      */
-    eventTypes?: CodeListType;
+    eventTypes?: Array<string>;
     /**
      * Selection will note this Menu is Inactive and unable to be added to a Catering Event.
      * @type {boolean}

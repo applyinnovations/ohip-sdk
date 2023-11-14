@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BenefitsType } from './BenefitsType';
+import type { BenefitType } from './BenefitType';
 import {
-    BenefitsTypeFromJSON,
-    BenefitsTypeFromJSONTyped,
-    BenefitsTypeToJSON,
-} from './BenefitsType';
+    BenefitTypeFromJSON,
+    BenefitTypeFromJSONTyped,
+    BenefitTypeToJSON,
+} from './BenefitType';
 import type { CardReIssueType } from './CardReIssueType';
 import {
     CardReIssueTypeFromJSON,
@@ -57,11 +57,11 @@ import {
  */
 export interface ProfileMembershipType {
     /**
-     * 
-     * @type {BenefitsType}
+     * Basic information about membership benefit.
+     * @type {Array<BenefitType>}
      * @memberof ProfileMembershipType
      */
-    benefits?: BenefitsType;
+    benefits?: Array<BenefitType>;
     /**
      * Indicates how the award points for this membership type will be managed.
      * @type {boolean}
@@ -317,7 +317,7 @@ export function ProfileMembershipTypeFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'benefits': !exists(json, 'benefits') ? undefined : BenefitsTypeFromJSON(json['benefits']),
+        'benefits': !exists(json, 'benefits') ? undefined : ((json['benefits'] as Array<any>).map(BenefitTypeFromJSON)),
         'centralSetup': !exists(json, 'centralSetup') ? undefined : json['centralSetup'],
         'comment': !exists(json, 'comment') ? undefined : ParagraphTypeFromJSON(json['comment']),
         'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
@@ -369,7 +369,7 @@ export function ProfileMembershipTypeToJSON(value?: ProfileMembershipType | null
     }
     return {
         
-        'benefits': BenefitsTypeToJSON(value.benefits),
+        'benefits': value.benefits === undefined ? undefined : ((value.benefits as Array<any>).map(BenefitTypeToJSON)),
         'centralSetup': value.centralSetup,
         'comment': ParagraphTypeToJSON(value.comment),
         'createDateTime': value.createDateTime,

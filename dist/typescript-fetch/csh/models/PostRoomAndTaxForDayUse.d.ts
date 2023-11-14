@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { UniqueIDType } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -30,11 +30,11 @@ export interface PostRoomAndTaxForDayUse {
      */
     reservationId?: UniqueIDType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostRoomAndTaxForDayUse
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PostRoomAndTaxForDayUse interface.

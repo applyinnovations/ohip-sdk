@@ -12,7 +12,7 @@
 import type { AddressType } from './AddressType';
 import type { ChannelSummaryInfoType } from './ChannelSummaryInfoType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
-import type { CurrencyExchangeRatesType } from './CurrencyExchangeRatesType';
+import type { CurrencyExchangeRateType } from './CurrencyExchangeRateType';
 import type { HotelAmenityType } from './HotelAmenityType';
 import type { RateRoomDetailsType } from './RateRoomDetailsType';
 import type { RelativePositionType } from './RelativePositionType';
@@ -79,11 +79,11 @@ export interface AlternateHotelType {
      */
     contactNumbers?: Array<TelephoneType>;
     /**
-     *
-     * @type {CurrencyExchangeRatesType}
+     * Exchange Rate information for a currency code.
+     * @type {Array<CurrencyExchangeRateType>}
      * @memberof AlternateHotelType
      */
-    currencyExchangeRates?: CurrencyExchangeRatesType;
+    currencyExchangeRates?: Array<CurrencyExchangeRateType>;
     /**
      * Compass direction to the attraction from the hotel (North/South, etc).
      * @type {string}

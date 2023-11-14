@@ -11,8 +11,8 @@
  */
 import type { HotelRoomsOrderBy } from './HotelRoomsOrderBy';
 import type { HousekeepingRoomStatusType } from './HousekeepingRoomStatusType';
-import type { ReservationIdList } from './ReservationIdList';
 import type { ReservationRoomSelectionOverrideType } from './ReservationRoomSelectionOverrideType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Defines search criteria needed to configure a room to a reservation.
  * @export
@@ -39,10 +39,10 @@ export interface MoveInHouseGuestCriteria {
     includeDepartureRooms?: boolean;
     /**
      * Valid share reservation identifier.
-     * @type {Array<ReservationIdList>}
+     * @type {Array<Array<UniqueIDType>>}
      * @memberof MoveInHouseGuestCriteria
      */
-    includedSharers?: Array<ReservationIdList>;
+    includedSharers?: Array<Array<UniqueIDType>>;
     /**
      *
      * @type {HousekeepingRoomStatusType}
@@ -68,11 +68,11 @@ export interface MoveInHouseGuestCriteria {
      */
     reasonCode?: string;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MoveInHouseGuestCriteria
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * Room identifier which the reservation will hold.
      * @type {string}

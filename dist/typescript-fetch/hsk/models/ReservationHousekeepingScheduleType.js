@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationHousekeepingScheduleTypeToJSON = exports.ReservationHousekeepingScheduleTypeFromJSONTyped = exports.ReservationHousekeepingScheduleTypeFromJSON = exports.instanceOfReservationHousekeepingScheduleType = void 0;
 const runtime_1 = require("../runtime");
-const FacilityHousekeepingTasksType_1 = require("./FacilityHousekeepingTasksType");
+const FacilityHousekeepingTaskType_1 = require("./FacilityHousekeepingTaskType");
 /**
  * Check if a given object implements the ReservationHousekeepingScheduleType interface.
  */
@@ -36,7 +36,7 @@ function ReservationHousekeepingScheduleTypeFromJSONTyped(json, ignoreDiscrimina
         'customized': !(0, runtime_1.exists)(json, 'customized') ? undefined : json['customized'],
         'cycleStartDay': !(0, runtime_1.exists)(json, 'cycleStartDay') ? undefined : json['cycleStartDay'],
         'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
-        'facilityHousekeepingTasks': !(0, runtime_1.exists)(json, 'facilityHousekeepingTasks') ? undefined : (0, FacilityHousekeepingTasksType_1.FacilityHousekeepingTasksTypeFromJSON)(json['facilityHousekeepingTasks']),
+        'facilityHousekeepingTasks': !(0, runtime_1.exists)(json, 'facilityHousekeepingTasks') ? undefined : (json['facilityHousekeepingTasks'].map(FacilityHousekeepingTaskType_1.FacilityHousekeepingTaskTypeFromJSON)),
         'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
     };
 }
@@ -52,7 +52,7 @@ function ReservationHousekeepingScheduleTypeToJSON(value) {
         'customized': value.customized,
         'cycleStartDay': value.cycleStartDay,
         'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
-        'facilityHousekeepingTasks': (0, FacilityHousekeepingTasksType_1.FacilityHousekeepingTasksTypeToJSON)(value.facilityHousekeepingTasks),
+        'facilityHousekeepingTasks': value.facilityHousekeepingTasks === undefined ? undefined : (value.facilityHousekeepingTasks.map(FacilityHousekeepingTaskType_1.FacilityHousekeepingTaskTypeToJSON)),
         'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
     };
 }

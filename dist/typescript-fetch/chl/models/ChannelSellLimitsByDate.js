@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelSellLimitsByDateToJSON = exports.ChannelSellLimitsByDateFromJSONTyped = exports.ChannelSellLimitsByDateFromJSON = exports.instanceOfChannelSellLimitsByDate = void 0;
 const runtime_1 = require("../runtime");
 const ChannelSellLimitsByDateType_1 = require("./ChannelSellLimitsByDateType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChannelSellLimitsByDate interface.
  */
@@ -36,7 +36,7 @@ function ChannelSellLimitsByDateFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'adjustOverlappingSchedules': !(0, runtime_1.exists)(json, 'adjustOverlappingSchedules') ? undefined : json['adjustOverlappingSchedules'],
         'sellLimits': !(0, runtime_1.exists)(json, 'sellLimits') ? undefined : (0, ChannelSellLimitsByDateType_1.ChannelSellLimitsByDateTypeFromJSON)(json['sellLimits']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChannelSellLimitsByDateFromJSONTyped = ChannelSellLimitsByDateFromJSONTyped;
@@ -50,7 +50,7 @@ function ChannelSellLimitsByDateToJSON(value) {
     return {
         'adjustOverlappingSchedules': value.adjustOverlappingSchedules,
         'sellLimits': (0, ChannelSellLimitsByDateType_1.ChannelSellLimitsByDateTypeToJSON)(value.sellLimits),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChannelSellLimitsByDateToJSON = ChannelSellLimitsByDateToJSON;

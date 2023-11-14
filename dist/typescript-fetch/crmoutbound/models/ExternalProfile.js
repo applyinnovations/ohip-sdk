@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExternalProfileToJSON = exports.ExternalProfileFromJSONTyped = exports.ExternalProfileFromJSON = exports.instanceOfExternalProfile = void 0;
 const runtime_1 = require("../runtime");
 const ExternalProfileType_1 = require("./ExternalProfileType");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 /**
  * Check if a given object implements the ExternalProfile interface.
  */
@@ -35,7 +35,7 @@ function ExternalProfileFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'profileInfo': !(0, runtime_1.exists)(json, 'profileInfo') ? undefined : (0, ExternalProfileType_1.ExternalProfileTypeFromJSON)(json['profileInfo']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.ExternalProfileFromJSONTyped = ExternalProfileFromJSONTyped;
@@ -48,7 +48,7 @@ function ExternalProfileToJSON(value) {
     }
     return {
         'profileInfo': (0, ExternalProfileType_1.ExternalProfileTypeToJSON)(value.profileInfo),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.ExternalProfileToJSON = ExternalProfileToJSON;

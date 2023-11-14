@@ -19,12 +19,12 @@ import {
     PostCompRedemptionsCriteriaFromJSONTyped,
     PostCompRedemptionsCriteriaToJSON,
 } from './PostCompRedemptionsCriteria';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request type of complimentary bucket redemptions posting.
@@ -39,11 +39,11 @@ export interface PostCompRedemptions {
      */
     criteria?: PostCompRedemptionsCriteria;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostCompRedemptions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function PostCompRedemptionsFromJSONTyped(json: any, ignoreDiscriminator:
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : PostCompRedemptionsCriteriaFromJSON(json['criteria']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function PostCompRedemptionsToJSON(value?: PostCompRedemptions | null): a
     return {
         
         'criteria': PostCompRedemptionsCriteriaToJSON(value.criteria),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

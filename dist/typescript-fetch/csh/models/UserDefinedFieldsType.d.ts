@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CharacterUDFsType } from './CharacterUDFsType';
-import type { DateUDFsType } from './DateUDFsType';
-import type { NumericUDFsType } from './NumericUDFsType';
+import type { CharacterUDFType } from './CharacterUDFType';
+import type { DateUDFType } from './DateUDFType';
+import type { NumericUDFType } from './NumericUDFType';
 /**
  * A common type used to hold user defined fields(UDFs). This type should be used to handle UDFs on RReservation, Profiles, etc.
  * @export
@@ -19,23 +19,23 @@ import type { NumericUDFsType } from './NumericUDFsType';
  */
 export interface UserDefinedFieldsType {
     /**
-     *
-     * @type {CharacterUDFsType}
+     * Used to hold collection of user defined fields of Character/String Type.
+     * @type {Array<CharacterUDFType>}
      * @memberof UserDefinedFieldsType
      */
-    characterUDFs?: CharacterUDFsType;
+    characterUDFs?: Array<CharacterUDFType>;
     /**
-     *
-     * @type {DateUDFsType}
+     * Used to hold collection of user defined fields of Date Type.
+     * @type {Array<DateUDFType>}
      * @memberof UserDefinedFieldsType
      */
-    dateUDFs?: DateUDFsType;
+    dateUDFs?: Array<DateUDFType>;
     /**
-     *
-     * @type {NumericUDFsType}
+     * Used to hold collection of user defined fields of Numeric Type.
+     * @type {Array<NumericUDFType>}
      * @memberof UserDefinedFieldsType
      */
-    numericUDFs?: NumericUDFsType;
+    numericUDFs?: Array<NumericUDFType>;
 }
 /**
  * Check if a given object implements the UserDefinedFieldsType interface.

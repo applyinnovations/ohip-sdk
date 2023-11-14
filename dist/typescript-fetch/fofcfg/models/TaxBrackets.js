@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TaxBracketsToJSON = exports.TaxBracketsFromJSONTyped = exports.TaxBracketsFromJSON = exports.instanceOfTaxBrackets = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TaxBracketsType_1 = require("./TaxBracketsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TaxBracketType_1 = require("./TaxBracketType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TaxBrackets interface.
  */
@@ -35,9 +35,9 @@ function TaxBracketsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'taxBrackets': !(0, runtime_1.exists)(json, 'taxBrackets') ? undefined : (0, TaxBracketsType_1.TaxBracketsTypeFromJSON)(json['taxBrackets']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'taxBrackets': !(0, runtime_1.exists)(json, 'taxBrackets') ? undefined : (json['taxBrackets'].map(TaxBracketType_1.TaxBracketTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TaxBracketsFromJSONTyped = TaxBracketsFromJSONTyped;
@@ -49,9 +49,9 @@ function TaxBracketsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'taxBrackets': (0, TaxBracketsType_1.TaxBracketsTypeToJSON)(value.taxBrackets),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'taxBrackets': value.taxBrackets === undefined ? undefined : (value.taxBrackets.map(TaxBracketType_1.TaxBracketTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TaxBracketsToJSON = TaxBracketsToJSON;

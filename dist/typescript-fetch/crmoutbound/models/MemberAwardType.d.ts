@@ -9,11 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { MemberAwardDetailsType } from './MemberAwardDetailsType';
+import type { MemberAwardDetailType } from './MemberAwardDetailType';
 import type { MemberAwardProcessType } from './MemberAwardProcessType';
-import type { ProfileIdList } from './ProfileIdList';
-import type { ReservationIdList } from './ReservationIdList';
 import type { TimeSpanType } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -21,11 +20,11 @@ import type { TimeSpanType } from './TimeSpanType';
  */
 export interface MemberAwardType {
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MemberAwardType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * The type of the membership.
      * @type {string}
@@ -45,11 +44,11 @@ export interface MemberAwardType {
      */
     membershipLevel?: string;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MemberAwardType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * Number of adults associated with the reservation.
      * @type {number}
@@ -105,11 +104,11 @@ export interface MemberAwardType {
      */
     awardProcessType?: MemberAwardProcessType;
     /**
-     *
-     * @type {MemberAwardDetailsType}
+     * Details related to member award per stay date.
+     * @type {Array<MemberAwardDetailType>}
      * @memberof MemberAwardType
      */
-    memberAwardDetails?: MemberAwardDetailsType;
+    memberAwardDetails?: Array<MemberAwardDetailType>;
     /**
      * Property associated with the reservation.
      * @type {string}

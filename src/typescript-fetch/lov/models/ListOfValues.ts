@@ -19,12 +19,12 @@ import {
     ListOfValuesTypeFromJSONTyped,
     ListOfValuesTypeToJSON,
 } from './ListOfValuesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,11 +39,11 @@ export interface ListOfValues {
      */
     listOfValues?: ListOfValuesType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ListOfValues
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function ListOfValuesFromJSONTyped(json: any, ignoreDiscriminator: boolea
     return {
         
         'listOfValues': !exists(json, 'listOfValues') ? undefined : ListOfValuesTypeFromJSON(json['listOfValues']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function ListOfValuesToJSON(value?: ListOfValues | null): any {
     return {
         
         'listOfValues': ListOfValuesTypeToJSON(value.listOfValues),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConfigExclusivePreferenceBaseTypeToJSON = exports.ConfigExclusivePreferenceBaseTypeFromJSONTyped = exports.ConfigExclusivePreferenceBaseTypeFromJSON = exports.instanceOfConfigExclusivePreferenceBaseType = void 0;
 const runtime_1 = require("../runtime");
-const PreferenceCodesType_1 = require("./PreferenceCodesType");
+const CodeDescriptionType_1 = require("./CodeDescriptionType");
 /**
  * Check if a given object implements the ConfigExclusivePreferenceBaseType interface.
  */
@@ -35,7 +35,7 @@ function ConfigExclusivePreferenceBaseTypeFromJSONTyped(json, ignoreDiscriminato
     return {
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
         'orderSequence': !(0, runtime_1.exists)(json, 'orderSequence') ? undefined : json['orderSequence'],
-        'preferenceCodes': !(0, runtime_1.exists)(json, 'preferenceCodes') ? undefined : (0, PreferenceCodesType_1.PreferenceCodesTypeFromJSON)(json['preferenceCodes']),
+        'preferenceCodes': !(0, runtime_1.exists)(json, 'preferenceCodes') ? undefined : (json['preferenceCodes'].map(CodeDescriptionType_1.CodeDescriptionTypeFromJSON)),
         'preferenceGroup': !(0, runtime_1.exists)(json, 'preferenceGroup') ? undefined : json['preferenceGroup'],
     };
 }
@@ -50,7 +50,7 @@ function ConfigExclusivePreferenceBaseTypeToJSON(value) {
     return {
         'code': value.code,
         'orderSequence': value.orderSequence,
-        'preferenceCodes': (0, PreferenceCodesType_1.PreferenceCodesTypeToJSON)(value.preferenceCodes),
+        'preferenceCodes': value.preferenceCodes === undefined ? undefined : (value.preferenceCodes.map(CodeDescriptionType_1.CodeDescriptionTypeToJSON)),
         'preferenceGroup': value.preferenceGroup,
     };
 }

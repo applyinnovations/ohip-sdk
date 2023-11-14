@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BillingInstructionsType } from './BillingInstructionsType';
-import type { Links } from './Links';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+import type { BillingInstructionType } from './BillingInstructionType';
+import type { InstanceLink } from './InstanceLink';
+import type { TrxInfoType } from './TrxInfoType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,29 +20,29 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BillingInstructionCodes {
     /**
-     *
-     * @type {BillingInstructionsType}
+     * Set of Billing Instruction codes.
+     * @type {Array<BillingInstructionType>}
      * @memberof BillingInstructionCodes
      */
-    billingInstructions?: BillingInstructionsType;
+    billingInstructions?: Array<BillingInstructionType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BillingInstructionCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof BillingInstructionCodes
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BillingInstructionCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BillingInstructionCodes interface.

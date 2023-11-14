@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GamingRequestStatusInfoToJSON = exports.GamingRequestStatusInfoFromJSONTyped = exports.GamingRequestStatusInfoFromJSON = exports.instanceOfGamingRequestStatusInfo = void 0;
 const runtime_1 = require("../runtime");
-const GamingRequestStatusInfoType_1 = require("./GamingRequestStatusInfoType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const GamingRequestStatusType_1 = require("./GamingRequestStatusType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the GamingRequestStatusInfo interface.
  */
@@ -35,9 +35,9 @@ function GamingRequestStatusInfoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'statusInfo': !(0, runtime_1.exists)(json, 'statusInfo') ? undefined : (0, GamingRequestStatusInfoType_1.GamingRequestStatusInfoTypeFromJSON)(json['statusInfo']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'statusInfo': !(0, runtime_1.exists)(json, 'statusInfo') ? undefined : (json['statusInfo'].map(GamingRequestStatusType_1.GamingRequestStatusTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.GamingRequestStatusInfoFromJSONTyped = GamingRequestStatusInfoFromJSONTyped;
@@ -49,9 +49,9 @@ function GamingRequestStatusInfoToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'statusInfo': (0, GamingRequestStatusInfoType_1.GamingRequestStatusInfoTypeToJSON)(value.statusInfo),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'statusInfo': value.statusInfo === undefined ? undefined : (value.statusInfo.map(GamingRequestStatusType_1.GamingRequestStatusTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.GamingRequestStatusInfoToJSON = GamingRequestStatusInfoToJSON;

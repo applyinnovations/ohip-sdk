@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelsSummaryType } from './HotelsSummaryType';
+import type { HotelSummaryType } from './HotelSummaryType';
 import {
-    HotelsSummaryTypeFromJSON,
-    HotelsSummaryTypeFromJSONTyped,
-    HotelsSummaryTypeToJSON,
-} from './HotelsSummaryType';
-import type { Links } from './Links';
+    HotelSummaryTypeFromJSON,
+    HotelSummaryTypeFromJSONTyped,
+    HotelSummaryTypeToJSON,
+} from './HotelSummaryType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching lists of Property summary information.
@@ -39,23 +39,23 @@ import {
  */
 export interface HotelsDetails {
     /**
-     * 
-     * @type {HotelsSummaryType}
+     * Lists of Hotel summary information.
+     * @type {Array<HotelSummaryType>}
      * @memberof HotelsDetails
      */
-    hotelSummaryInfoList?: HotelsSummaryType;
+    hotelSummaryInfoList?: Array<HotelSummaryType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function HotelsDetailsFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'hotelSummaryInfoList': !exists(json, 'hotelSummaryInfoList') ? undefined : HotelsSummaryTypeFromJSON(json['hotelSummaryInfoList']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'hotelSummaryInfoList': !exists(json, 'hotelSummaryInfoList') ? undefined : ((json['hotelSummaryInfoList'] as Array<any>).map(HotelSummaryTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function HotelsDetailsToJSON(value?: HotelsDetails | null): any {
     }
     return {
         
-        'hotelSummaryInfoList': HotelsSummaryTypeToJSON(value.hotelSummaryInfoList),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'hotelSummaryInfoList': value.hotelSummaryInfoList === undefined ? undefined : ((value.hotelSummaryInfoList as Array<any>).map(HotelSummaryTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -19,12 +19,12 @@ import {
     FacilitySchedulerOptionTypeFromJSONTyped,
     FacilitySchedulerOptionTypeToJSON,
 } from './FacilitySchedulerOptionType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Instructions for Changing a Reservation.
@@ -51,11 +51,11 @@ export interface ChangeInstructionType {
      */
     overrideInventory?: boolean;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ChangeInstructionType
      */
-    shareReservations?: UniqueIDListType;
+    shareReservations?: Array<UniqueIDType>;
     /**
      * Indicates whether package prices will be updated with the latest configurations.
      * @type {boolean}
@@ -86,7 +86,7 @@ export function ChangeInstructionTypeFromJSONTyped(json: any, ignoreDiscriminato
         'changeAllShares': !exists(json, 'changeAllShares') ? undefined : json['changeAllShares'],
         'facilitySchedulerOption': !exists(json, 'facilitySchedulerOption') ? undefined : FacilitySchedulerOptionTypeFromJSON(json['facilitySchedulerOption']),
         'overrideInventory': !exists(json, 'overrideInventory') ? undefined : json['overrideInventory'],
-        'shareReservations': !exists(json, 'shareReservations') ? undefined : UniqueIDListTypeFromJSON(json['shareReservations']),
+        'shareReservations': !exists(json, 'shareReservations') ? undefined : ((json['shareReservations'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'updatePackagePrice': !exists(json, 'updatePackagePrice') ? undefined : json['updatePackagePrice'],
     };
 }
@@ -103,7 +103,7 @@ export function ChangeInstructionTypeToJSON(value?: ChangeInstructionType | null
         'changeAllShares': value.changeAllShares,
         'facilitySchedulerOption': FacilitySchedulerOptionTypeToJSON(value.facilitySchedulerOption),
         'overrideInventory': value.overrideInventory,
-        'shareReservations': UniqueIDListTypeToJSON(value.shareReservations),
+        'shareReservations': value.shareReservations === undefined ? undefined : ((value.shareReservations as Array<any>).map(UniqueIDTypeToJSON)),
         'updatePackagePrice': value.updatePackagePrice,
     };
 }

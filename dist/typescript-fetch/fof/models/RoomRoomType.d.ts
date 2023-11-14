@@ -11,7 +11,7 @@
  */
 import type { CodeDescriptionType } from './CodeDescriptionType';
 import type { RatePlanRatingType } from './RatePlanRatingType';
-import type { RoomFeaturesType } from './RoomFeaturesType';
+import type { RoomFeatureType } from './RoomFeatureType';
 import type { RoomTypeShortInfoType } from './RoomTypeShortInfoType';
 import type { TranslationTextType2000 } from './TranslationTextType2000';
 /**
@@ -75,11 +75,11 @@ export interface RoomRoomType {
      */
     roomDescription?: string;
     /**
-     *
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof RoomRoomType
      */
-    roomFeatures?: RoomFeaturesType;
+    roomFeatures?: Array<RoomFeatureType>;
     /**
      * Code of the room.
      * @type {string}

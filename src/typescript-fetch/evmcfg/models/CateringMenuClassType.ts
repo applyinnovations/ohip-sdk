@@ -19,12 +19,12 @@ import {
     CateringMenuClassInfoTypeFromJSONTyped,
     CateringMenuClassInfoTypeToJSON,
 } from './CateringMenuClassInfoType';
-import type { CateringMenuListType } from './CateringMenuListType';
+import type { CateringMenuType } from './CateringMenuType';
 import {
-    CateringMenuListTypeFromJSON,
-    CateringMenuListTypeFromJSONTyped,
-    CateringMenuListTypeToJSON,
-} from './CateringMenuListType';
+    CateringMenuTypeFromJSON,
+    CateringMenuTypeFromJSONTyped,
+    CateringMenuTypeToJSON,
+} from './CateringMenuType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -57,11 +57,11 @@ export interface CateringMenuClassType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {CateringMenuListType}
+     * List of Values of Menu.
+     * @type {Array<CateringMenuType>}
      * @memberof CateringMenuClassType
      */
-    menuList?: CateringMenuListType;
+    menuList?: Array<CateringMenuType>;
 }
 
 /**
@@ -86,7 +86,7 @@ export function CateringMenuClassTypeFromJSONTyped(json: any, ignoreDiscriminato
         'classId': !exists(json, 'classId') ? undefined : UniqueIDTypeFromJSON(json['classId']),
         'classInfo': !exists(json, 'classInfo') ? undefined : CateringMenuClassInfoTypeFromJSON(json['classInfo']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'menuList': !exists(json, 'menuList') ? undefined : CateringMenuListTypeFromJSON(json['menuList']),
+        'menuList': !exists(json, 'menuList') ? undefined : ((json['menuList'] as Array<any>).map(CateringMenuTypeFromJSON)),
     };
 }
 
@@ -102,7 +102,7 @@ export function CateringMenuClassTypeToJSON(value?: CateringMenuClassType | null
         'classId': UniqueIDTypeToJSON(value.classId),
         'classInfo': CateringMenuClassInfoTypeToJSON(value.classInfo),
         'hotelId': value.hotelId,
-        'menuList': CateringMenuListTypeToJSON(value.menuList),
+        'menuList': value.menuList === undefined ? undefined : ((value.menuList as Array<any>).map(CateringMenuTypeToJSON)),
     };
 }
 

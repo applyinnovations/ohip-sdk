@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { AdvanceRoomChargesInfoType } from './AdvanceRoomChargesInfoType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for the generate advance folio request. Post Advance Room Charges Request can return the below error codes : FOF00065 - Reservation ID or Resort was not supplied. FOF00147 - Reservation is currently not In-House. FOF00148 - Date range requested is not valid. FOF00149 - Advance Room Charges Posting was not completed successfully as there was an Error during posting. FOF00150 - Room Charges have already been posted for the requested dates. FOF00151 - Advance Room Charges could not be completed {the error message if any}.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface AdvanceRoomChargesReservationInfo {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AdvanceRoomChargesReservationInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {AdvanceRoomChargesInfoType}
@@ -31,11 +31,11 @@ export interface AdvanceRoomChargesReservationInfo {
      */
     reservationInfo?: AdvanceRoomChargesInfoType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AdvanceRoomChargesReservationInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AdvanceRoomChargesReservationInfo interface.

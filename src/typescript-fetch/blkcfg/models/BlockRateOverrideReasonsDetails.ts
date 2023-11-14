@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockRateOverrideReasonsType } from './BlockRateOverrideReasonsType';
+import type { BlockRateOverrideReasonType } from './BlockRateOverrideReasonType';
 import {
-    BlockRateOverrideReasonsTypeFromJSON,
-    BlockRateOverrideReasonsTypeFromJSONTyped,
-    BlockRateOverrideReasonsTypeToJSON,
-} from './BlockRateOverrideReasonsType';
-import type { Links } from './Links';
+    BlockRateOverrideReasonTypeFromJSON,
+    BlockRateOverrideReasonTypeFromJSONTyped,
+    BlockRateOverrideReasonTypeToJSON,
+} from './BlockRateOverrideReasonType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Block Rate Override Reasons.
@@ -39,23 +39,23 @@ import {
  */
 export interface BlockRateOverrideReasonsDetails {
     /**
-     * 
-     * @type {BlockRateOverrideReasonsType}
+     * List of Block Rate Override Reasons.
+     * @type {Array<BlockRateOverrideReasonType>}
      * @memberof BlockRateOverrideReasonsDetails
      */
-    blockRateOverrideReasons?: BlockRateOverrideReasonsType;
+    blockRateOverrideReasons?: Array<BlockRateOverrideReasonType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockRateOverrideReasonsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockRateOverrideReasonsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function BlockRateOverrideReasonsDetailsFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'blockRateOverrideReasons': !exists(json, 'blockRateOverrideReasons') ? undefined : BlockRateOverrideReasonsTypeFromJSON(json['blockRateOverrideReasons']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'blockRateOverrideReasons': !exists(json, 'blockRateOverrideReasons') ? undefined : ((json['blockRateOverrideReasons'] as Array<any>).map(BlockRateOverrideReasonTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function BlockRateOverrideReasonsDetailsToJSON(value?: BlockRateOverrideR
     }
     return {
         
-        'blockRateOverrideReasons': BlockRateOverrideReasonsTypeToJSON(value.blockRateOverrideReasons),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'blockRateOverrideReasons': value.blockRateOverrideReasons === undefined ? undefined : ((value.blockRateOverrideReasons as Array<any>).map(BlockRateOverrideReasonTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

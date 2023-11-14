@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelConferenceFacilitiesTypeToJSON = exports.HotelConferenceFacilitiesTypeFromJSONTyped = exports.HotelConferenceFacilitiesTypeFromJSON = exports.instanceOfHotelConferenceFacilitiesType = void 0;
 const runtime_1 = require("../runtime");
 const HotelBanquetSpaceType_1 = require("./HotelBanquetSpaceType");
-const HotelConferenceRoomsType_1 = require("./HotelConferenceRoomsType");
+const HotelConferenceRoomType_1 = require("./HotelConferenceRoomType");
 /**
  * Check if a given object implements the HotelConferenceFacilitiesType interface.
  */
@@ -35,7 +35,7 @@ function HotelConferenceFacilitiesTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'hotelBanquetSpace': !(0, runtime_1.exists)(json, 'hotelBanquetSpace') ? undefined : (0, HotelBanquetSpaceType_1.HotelBanquetSpaceTypeFromJSON)(json['hotelBanquetSpace']),
-        'hotelConferenceRooms': !(0, runtime_1.exists)(json, 'hotelConferenceRooms') ? undefined : (0, HotelConferenceRoomsType_1.HotelConferenceRoomsTypeFromJSON)(json['hotelConferenceRooms']),
+        'hotelConferenceRooms': !(0, runtime_1.exists)(json, 'hotelConferenceRooms') ? undefined : (json['hotelConferenceRooms'].map(HotelConferenceRoomType_1.HotelConferenceRoomTypeFromJSON)),
     };
 }
 exports.HotelConferenceFacilitiesTypeFromJSONTyped = HotelConferenceFacilitiesTypeFromJSONTyped;
@@ -48,7 +48,7 @@ function HotelConferenceFacilitiesTypeToJSON(value) {
     }
     return {
         'hotelBanquetSpace': (0, HotelBanquetSpaceType_1.HotelBanquetSpaceTypeToJSON)(value.hotelBanquetSpace),
-        'hotelConferenceRooms': (0, HotelConferenceRoomsType_1.HotelConferenceRoomsTypeToJSON)(value.hotelConferenceRooms),
+        'hotelConferenceRooms': value.hotelConferenceRooms === undefined ? undefined : (value.hotelConferenceRooms.map(HotelConferenceRoomType_1.HotelConferenceRoomTypeToJSON)),
     };
 }
 exports.HotelConferenceFacilitiesTypeToJSON = HotelConferenceFacilitiesTypeToJSON;

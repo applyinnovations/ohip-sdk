@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MarketingCitiesType } from './MarketingCitiesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MarketingCityConfigType } from './MarketingCityConfigType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new marketing cities for hotels.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MarketingCitiesCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MarketingCitiesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MarketingCitiesType}
+     * Marketing city details for a hotel.
+     * @type {Array<MarketingCityConfigType>}
      * @memberof MarketingCitiesCriteria
      */
-    marketingCities?: MarketingCitiesType;
+    marketingCities?: Array<MarketingCityConfigType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MarketingCitiesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MarketingCitiesCriteria interface.

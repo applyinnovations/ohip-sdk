@@ -20,7 +20,6 @@ const CommissionCodeType_1 = require("./CommissionCodeType");
 const CommissionStatusType_1 = require("./CommissionStatusType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const ResGuestInfoType_1 = require("./ResGuestInfoType");
-const ReservationIdList_1 = require("./ReservationIdList");
 const TimeSpanType_1 = require("./TimeSpanType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -61,7 +60,7 @@ function CommissionDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         'rateCode': !(0, runtime_1.exists)(json, 'rateCode') ? undefined : json['rateCode'],
         'recordLocator': !(0, runtime_1.exists)(json, 'recordLocator') ? undefined : json['recordLocator'],
         'remarks': !(0, runtime_1.exists)(json, 'remarks') ? undefined : json['remarks'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'reservationStatus': !(0, runtime_1.exists)(json, 'reservationStatus') ? undefined : json['reservationStatus'],
         'roomId': !(0, runtime_1.exists)(json, 'roomId') ? undefined : json['roomId'],
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : json['roomType'],
@@ -100,7 +99,7 @@ function CommissionDetailTypeToJSON(value) {
         'rateCode': value.rateCode,
         'recordLocator': value.recordLocator,
         'remarks': value.remarks,
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'reservationStatus': value.reservationStatus,
         'roomId': value.roomId,
         'roomType': value.roomType,

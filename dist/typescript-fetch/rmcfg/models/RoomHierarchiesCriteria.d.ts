@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CreateRoomHierarchiesType } from './CreateRoomHierarchiesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to create room hierarchies
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface RoomHierarchiesCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomHierarchiesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {CreateRoomHierarchiesType}
@@ -31,11 +31,11 @@ export interface RoomHierarchiesCriteria {
      */
     roomHierarchies?: CreateRoomHierarchiesType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomHierarchiesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomHierarchiesCriteria interface.

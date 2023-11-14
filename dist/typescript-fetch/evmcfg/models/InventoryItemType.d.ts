@@ -9,12 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
-import type { EventResourceNotesType } from './EventResourceNotesType';
+import type { EventResourceNoteType } from './EventResourceNoteType';
 import type { InventoryItemTypeSellInfo } from './InventoryItemTypeSellInfo';
-import type { ItemAttributesType } from './ItemAttributesType';
-import type { ItemRatesType } from './ItemRatesType';
-import type { ItemVendorsType } from './ItemVendorsType';
+import type { ItemAttributeType } from './ItemAttributeType';
+import type { ItemRateType } from './ItemRateType';
+import type { ItemVendorType } from './ItemVendorType';
 import type { TranslationTextType200 } from './TranslationTextType200';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -24,17 +23,17 @@ import type { UniqueIDType } from './UniqueIDType';
  */
 export interface InventoryItemType {
     /**
-     *
-     * @type {ItemAttributesType}
+     * List of Item Attributes.
+     * @type {Array<ItemAttributeType>}
      * @memberof InventoryItemType
      */
-    attributes?: ItemAttributesType;
+    attributes?: Array<ItemAttributeType>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof InventoryItemType
      */
-    departments?: CodeListType;
+    departments?: Array<string>;
     /**
      * The display sequence of the Item.
      * @type {number}
@@ -43,10 +42,10 @@ export interface InventoryItemType {
     displaySequence?: number;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof InventoryItemType
      */
-    eventTypes?: CodeListType;
+    eventTypes?: Array<string>;
     /**
      * Flag to define if the inventory item can be ordered externally when the item is marked as critical.
      * @type {boolean}
@@ -126,17 +125,17 @@ export interface InventoryItemType {
      */
     print?: boolean;
     /**
-     *
-     * @type {ItemRatesType}
+     * List of Item Rates.
+     * @type {Array<ItemRateType>}
      * @memberof InventoryItemType
      */
-    rates?: ItemRatesType;
+    rates?: Array<ItemRateType>;
     /**
-     *
-     * @type {EventResourceNotesType}
+     * Contains event resource note information.
+     * @type {Array<EventResourceNoteType>}
      * @memberof InventoryItemType
      */
-    resourceNotes?: EventResourceNotesType;
+    resourceNotes?: Array<EventResourceNoteType>;
     /**
      * The Revenue Type of the Item.
      * @type {string}
@@ -186,11 +185,11 @@ export interface InventoryItemType {
      */
     usedForReservation?: boolean;
     /**
-     *
-     * @type {ItemVendorsType}
+     * List of Item Vendors.
+     * @type {Array<ItemVendorType>}
      * @memberof InventoryItemType
      */
-    vendors?: ItemVendorsType;
+    vendors?: Array<ItemVendorType>;
 }
 /**
  * Check if a given object implements the InventoryItemType interface.

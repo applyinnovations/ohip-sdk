@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 /**
  * Detailed attributes of Menu Class .
  * @export
@@ -18,10 +17,10 @@ import type { CodeListType } from './CodeListType';
 export interface CateringMenuClassInfoType {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CateringMenuClassInfoType
      */
-    eventTypes?: CodeListType;
+    eventTypes?: Array<string>;
     /**
      * Return true, when this Menu Item Class will not be available to be associated to a Catering Event.
      * @type {boolean}

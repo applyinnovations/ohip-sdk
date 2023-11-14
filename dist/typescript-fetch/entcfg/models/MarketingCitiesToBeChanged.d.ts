@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MarketingCitiesType } from './MarketingCitiesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MarketingCityConfigType } from './MarketingCityConfigType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for modifying marketing cities for hotels.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MarketingCitiesToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MarketingCitiesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MarketingCitiesType}
+     * Marketing city details for a hotel.
+     * @type {Array<MarketingCityConfigType>}
      * @memberof MarketingCitiesToBeChanged
      */
-    marketingCities?: MarketingCitiesType;
+    marketingCities?: Array<MarketingCityConfigType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MarketingCitiesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MarketingCitiesToBeChanged interface.

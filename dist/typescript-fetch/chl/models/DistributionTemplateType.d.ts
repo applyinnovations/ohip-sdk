@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DistributionTemplateChannelRatesType } from './DistributionTemplateChannelRatesType';
+import type { DistributionTemplateChannelRateType } from './DistributionTemplateChannelRateType';
 /**
  * Information about a distribution template.
  * @export
@@ -17,11 +17,11 @@ import type { DistributionTemplateChannelRatesType } from './DistributionTemplat
  */
 export interface DistributionTemplateType {
     /**
-     *
-     * @type {DistributionTemplateChannelRatesType}
+     * Information about channel rate where distribution template will be distributed to.
+     * @type {Array<DistributionTemplateChannelRateType>}
      * @memberof DistributionTemplateType
      */
-    channelRates?: DistributionTemplateChannelRatesType;
+    channelRates?: Array<DistributionTemplateChannelRateType>;
     /**
      * Uniquely identifies the distribution template.
      * @type {string}

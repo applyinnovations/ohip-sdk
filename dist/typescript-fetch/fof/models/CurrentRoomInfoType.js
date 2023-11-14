@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CurrentRoomInfoTypeToJSON = exports.CurrentRoomInfoTypeFromJSONTyped = exports.CurrentRoomInfoTypeFromJSON = exports.instanceOfCurrentRoomInfoType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const ReservationRoomOwnershipType_1 = require("./ReservationRoomOwnershipType");
 /**
  * Check if a given object implements the CurrentRoomInfoType interface.
@@ -40,7 +39,7 @@ function CurrentRoomInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'roomOwnershipType': !(0, runtime_1.exists)(json, 'roomOwnershipType') ? undefined : (0, ReservationRoomOwnershipType_1.ReservationRoomOwnershipTypeFromJSON)(json['roomOwnershipType']),
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : json['roomType'],
         'roomViewCode': !(0, runtime_1.exists)(json, 'roomViewCode') ? undefined : json['roomViewCode'],
-        'suggestedRoomNumbers': !(0, runtime_1.exists)(json, 'suggestedRoomNumbers') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['suggestedRoomNumbers']),
+        'suggestedRoomNumbers': !(0, runtime_1.exists)(json, 'suggestedRoomNumbers') ? undefined : json['suggestedRoomNumbers'],
         'upgradedByAI': !(0, runtime_1.exists)(json, 'upgradedByAI') ? undefined : json['upgradedByAI'],
     };
 }
@@ -59,7 +58,7 @@ function CurrentRoomInfoTypeToJSON(value) {
         'roomOwnershipType': (0, ReservationRoomOwnershipType_1.ReservationRoomOwnershipTypeToJSON)(value.roomOwnershipType),
         'roomType': value.roomType,
         'roomViewCode': value.roomViewCode,
-        'suggestedRoomNumbers': (0, CodeListType_1.CodeListTypeToJSON)(value.suggestedRoomNumbers),
+        'suggestedRoomNumbers': value.suggestedRoomNumbers,
         'upgradedByAI': value.upgradedByAI,
     };
 }

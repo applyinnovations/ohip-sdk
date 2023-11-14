@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SalesManagerGoalsInfoToJSON = exports.SalesManagerGoalsInfoFromJSONTyped = exports.SalesManagerGoalsInfoFromJSON = exports.instanceOfSalesManagerGoalsInfo = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const SalesManagerGoalsType_1 = require("./SalesManagerGoalsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const SalesManagerGoalType_1 = require("./SalesManagerGoalType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the SalesManagerGoalsInfo interface.
  */
@@ -35,9 +35,9 @@ function SalesManagerGoalsInfoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'salesManagerGoals': !(0, runtime_1.exists)(json, 'salesManagerGoals') ? undefined : (0, SalesManagerGoalsType_1.SalesManagerGoalsTypeFromJSON)(json['salesManagerGoals']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'salesManagerGoals': !(0, runtime_1.exists)(json, 'salesManagerGoals') ? undefined : (json['salesManagerGoals'].map(SalesManagerGoalType_1.SalesManagerGoalTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.SalesManagerGoalsInfoFromJSONTyped = SalesManagerGoalsInfoFromJSONTyped;
@@ -49,9 +49,9 @@ function SalesManagerGoalsInfoToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'salesManagerGoals': (0, SalesManagerGoalsType_1.SalesManagerGoalsTypeToJSON)(value.salesManagerGoals),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'salesManagerGoals': value.salesManagerGoals === undefined ? undefined : (value.salesManagerGoals.map(SalesManagerGoalType_1.SalesManagerGoalTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.SalesManagerGoalsInfoToJSON = SalesManagerGoalsInfoToJSON;

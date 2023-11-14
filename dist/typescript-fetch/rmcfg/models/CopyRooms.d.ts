@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CopyRoomType } from './CopyRoomType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating multiple rooms based on an existing room. New rooms may have different floor preferences, room features, housekeeping credits and room sections. The rest of the details except for attached connecting rooms will be copied from the base existing room. Component rooms are not allowed to be copied.
  * @export
@@ -26,16 +26,16 @@ export interface CopyRooms {
     copyRoom?: CopyRoomType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CopyRooms
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CopyRooms
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CopyRooms interface.

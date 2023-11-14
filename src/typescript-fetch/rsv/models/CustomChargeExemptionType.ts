@@ -19,24 +19,24 @@ import {
     CodeDescriptionTypeFromJSONTyped,
     CodeDescriptionTypeToJSON,
 } from './CodeDescriptionType';
-import type { CustomChargeExemptionDatesType } from './CustomChargeExemptionDatesType';
+import type { CustomChargeExemptionDateType } from './CustomChargeExemptionDateType';
 import {
-    CustomChargeExemptionDatesTypeFromJSON,
-    CustomChargeExemptionDatesTypeFromJSONTyped,
-    CustomChargeExemptionDatesTypeToJSON,
-} from './CustomChargeExemptionDatesType';
+    CustomChargeExemptionDateTypeFromJSON,
+    CustomChargeExemptionDateTypeFromJSONTyped,
+    CustomChargeExemptionDateTypeToJSON,
+} from './CustomChargeExemptionDateType';
 import type { CustomChargeQuantityType } from './CustomChargeQuantityType';
 import {
     CustomChargeQuantityTypeFromJSON,
     CustomChargeQuantityTypeFromJSONTyped,
     CustomChargeQuantityTypeToJSON,
 } from './CustomChargeQuantityType';
-import type { ExcludedDatesType } from './ExcludedDatesType';
+import type { ExcludedDateType } from './ExcludedDateType';
 import {
-    ExcludedDatesTypeFromJSON,
-    ExcludedDatesTypeFromJSONTyped,
-    ExcludedDatesTypeToJSON,
-} from './ExcludedDatesType';
+    ExcludedDateTypeFromJSON,
+    ExcludedDateTypeFromJSONTyped,
+    ExcludedDateTypeToJSON,
+} from './ExcludedDateType';
 
 /**
  * Contains custom charges exemption information.
@@ -45,11 +45,11 @@ import {
  */
 export interface CustomChargeExemptionType {
     /**
-     * 
-     * @type {CustomChargeExemptionDatesType}
+     * Contains List of Custom Charge Exemption information for a day.
+     * @type {Array<CustomChargeExemptionDateType>}
      * @memberof CustomChargeExemptionType
      */
-    customChargeDates?: CustomChargeExemptionDatesType;
+    customChargeDates?: Array<CustomChargeExemptionDateType>;
     /**
      * 
      * @type {CustomChargeQuantityType}
@@ -63,11 +63,11 @@ export interface CustomChargeExemptionType {
      */
     customChargesExemption?: CodeDescriptionType;
     /**
-     * 
-     * @type {ExcludedDatesType}
+     * Contains list of dates which are valid for custom charge exemptions.
+     * @type {Array<ExcludedDateType>}
      * @memberof CustomChargeExemptionType
      */
-    excludedDates?: ExcludedDatesType;
+    excludedDates?: Array<ExcludedDateType>;
     /**
      * Exemption Percentage
      * @type {number}
@@ -101,10 +101,10 @@ export function CustomChargeExemptionTypeFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'customChargeDates': !exists(json, 'customChargeDates') ? undefined : CustomChargeExemptionDatesTypeFromJSON(json['customChargeDates']),
+        'customChargeDates': !exists(json, 'customChargeDates') ? undefined : ((json['customChargeDates'] as Array<any>).map(CustomChargeExemptionDateTypeFromJSON)),
         'customChargeQuantity': !exists(json, 'customChargeQuantity') ? undefined : CustomChargeQuantityTypeFromJSON(json['customChargeQuantity']),
         'customChargesExemption': !exists(json, 'customChargesExemption') ? undefined : CodeDescriptionTypeFromJSON(json['customChargesExemption']),
-        'excludedDates': !exists(json, 'excludedDates') ? undefined : ExcludedDatesTypeFromJSON(json['excludedDates']),
+        'excludedDates': !exists(json, 'excludedDates') ? undefined : ((json['excludedDates'] as Array<any>).map(ExcludedDateTypeFromJSON)),
         'percentage': !exists(json, 'percentage') ? undefined : json['percentage'],
         'propertyExemption': !exists(json, 'propertyExemption') ? undefined : json['propertyExemption'],
     };
@@ -119,10 +119,10 @@ export function CustomChargeExemptionTypeToJSON(value?: CustomChargeExemptionTyp
     }
     return {
         
-        'customChargeDates': CustomChargeExemptionDatesTypeToJSON(value.customChargeDates),
+        'customChargeDates': value.customChargeDates === undefined ? undefined : ((value.customChargeDates as Array<any>).map(CustomChargeExemptionDateTypeToJSON)),
         'customChargeQuantity': CustomChargeQuantityTypeToJSON(value.customChargeQuantity),
         'customChargesExemption': CodeDescriptionTypeToJSON(value.customChargesExemption),
-        'excludedDates': ExcludedDatesTypeToJSON(value.excludedDates),
+        'excludedDates': value.excludedDates === undefined ? undefined : ((value.excludedDates as Array<any>).map(ExcludedDateTypeToJSON)),
         'percentage': value.percentage,
         'propertyExemption': value.propertyExemption,
     };

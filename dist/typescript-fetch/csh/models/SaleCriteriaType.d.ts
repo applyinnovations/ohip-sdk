@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChargesCriteriaType } from './ChargesCriteriaType';
+import type { ChargeCriteriaType } from './ChargeCriteriaType';
 import type { FiscalServiceType } from './FiscalServiceType';
 import type { FolioReasonType } from './FolioReasonType';
 import type { NameValueHeaderDetailType } from './NameValueHeaderDetailType';
@@ -27,11 +27,11 @@ export interface SaleCriteriaType {
      */
     cashierId?: number;
     /**
-     *
-     * @type {ChargesCriteriaType}
+     * Collection of Charges to be posted.
+     * @type {Array<ChargeCriteriaType>}
      * @memberof SaleCriteriaType
      */
-    charges?: ChargesCriteriaType;
+    charges?: Array<ChargeCriteriaType>;
     /**
      *
      * @type {FiscalServiceType}

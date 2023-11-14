@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GuaranteePoliciesType } from './GuaranteePoliciesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { GuaranteePolicyType } from './GuaranteePolicyType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object to fetch reservation guarantees.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ReservationGuaranteesPolicies {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationGuaranteesPolicies
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {GuaranteePoliciesType}
+     * Guarantee Code information with cancellation penalty and deposit policy information.
+     * @type {Array<GuaranteePolicyType>}
      * @memberof ReservationGuaranteesPolicies
      */
-    resGuarantees?: GuaranteePoliciesType;
+    resGuarantees?: Array<GuaranteePolicyType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationGuaranteesPolicies
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationGuaranteesPolicies interface.

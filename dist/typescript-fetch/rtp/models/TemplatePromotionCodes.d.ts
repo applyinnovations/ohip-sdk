@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TemplatePromotionCodesType } from './TemplatePromotionCodesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TemplatePromotionCodeType } from './TemplatePromotionCodeType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TemplatePromotionCodes {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplatePromotionCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TemplatePromotionCodesType}
+     * A template promotion.
+     * @type {Array<TemplatePromotionCodeType>}
      * @memberof TemplatePromotionCodes
      */
-    templatePromotionCodes?: TemplatePromotionCodesType;
+    templatePromotionCodes?: Array<TemplatePromotionCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplatePromotionCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplatePromotionCodes interface.

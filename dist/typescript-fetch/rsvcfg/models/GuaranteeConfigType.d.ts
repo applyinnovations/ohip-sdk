@@ -11,7 +11,6 @@
  */
 import type { GuaranteeConfigTypeMassCancellation } from './GuaranteeConfigTypeMassCancellation';
 import type { GuaranteeRequirementsType } from './GuaranteeRequirementsType';
-import type { PaymentTypesType } from './PaymentTypesType';
 import type { TranslationTextType80 } from './TranslationTextType80';
 /**
  * Specifies Guarantee Code attributes.
@@ -62,11 +61,11 @@ export interface GuaranteeConfigType {
      */
     orderSequence?: number;
     /**
-     *
-     * @type {PaymentTypesType}
+     * Payment card code like AX,VI etc.
+     * @type {Array<string>}
      * @memberof GuaranteeConfigType
      */
-    paymentTypes?: PaymentTypesType;
+    paymentTypes?: Array<string>;
     /**
      *
      * @type {GuaranteeRequirementsType}

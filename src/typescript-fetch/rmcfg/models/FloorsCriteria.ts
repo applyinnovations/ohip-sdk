@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelFloorsType } from './HotelFloorsType';
+import type { HotelFloorType } from './HotelFloorType';
 import {
-    HotelFloorsTypeFromJSON,
-    HotelFloorsTypeFromJSONTyped,
-    HotelFloorsTypeToJSON,
-} from './HotelFloorsType';
-import type { Links } from './Links';
+    HotelFloorTypeFromJSON,
+    HotelFloorTypeFromJSONTyped,
+    HotelFloorTypeToJSON,
+} from './HotelFloorType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating floors at the hotel level.
@@ -39,23 +39,23 @@ import {
  */
 export interface FloorsCriteria {
     /**
-     * 
-     * @type {HotelFloorsType}
+     * This type holds a collection of floors at the hotel level.
+     * @type {Array<HotelFloorType>}
      * @memberof FloorsCriteria
      */
-    hotelFloors?: HotelFloorsType;
+    hotelFloors?: Array<HotelFloorType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FloorsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FloorsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FloorsCriteriaFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'hotelFloors': !exists(json, 'hotelFloors') ? undefined : HotelFloorsTypeFromJSON(json['hotelFloors']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'hotelFloors': !exists(json, 'hotelFloors') ? undefined : ((json['hotelFloors'] as Array<any>).map(HotelFloorTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FloorsCriteriaToJSON(value?: FloorsCriteria | null): any {
     }
     return {
         
-        'hotelFloors': HotelFloorsTypeToJSON(value.hotelFloors),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'hotelFloors': value.hotelFloors === undefined ? undefined : ((value.hotelFloors as Array<any>).map(HotelFloorTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

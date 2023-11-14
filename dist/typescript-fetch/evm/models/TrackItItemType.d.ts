@@ -14,7 +14,7 @@ import type { CodeDescriptionType } from './CodeDescriptionType';
 import type { TrackItActionType } from './TrackItActionType';
 import type { TrackItGroup } from './TrackItGroup';
 import type { TrackItId } from './TrackItId';
-import type { TrackItLogListType } from './TrackItLogListType';
+import type { TrackItLogType } from './TrackItLogType';
 import type { TrackItReservationInfoType } from './TrackItReservationInfoType';
 import type { TrackItType } from './TrackItType';
 /**
@@ -97,10 +97,10 @@ export interface TrackItItemType {
     trackItId?: TrackItId;
     /**
      *
-     * @type {TrackItLogListType}
+     * @type {Array<TrackItLogType>}
      * @memberof TrackItItemType
      */
-    trackItLogList?: TrackItLogListType;
+    trackItLogList?: Array<TrackItLogType>;
     /**
      *
      * @type {TrackItType}

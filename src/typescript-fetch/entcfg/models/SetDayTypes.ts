@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelDayTypesType } from './HotelDayTypesType';
+import type { HotelDayTypeType } from './HotelDayTypeType';
 import {
-    HotelDayTypesTypeFromJSON,
-    HotelDayTypesTypeFromJSONTyped,
-    HotelDayTypesTypeToJSON,
-} from './HotelDayTypesType';
-import type { Links } from './Links';
+    HotelDayTypeTypeFromJSON,
+    HotelDayTypeTypeFromJSONTyped,
+    HotelDayTypeTypeToJSON,
+} from './HotelDayTypeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for setting day type for specified date range.
@@ -39,23 +39,23 @@ import {
  */
 export interface SetDayTypes {
     /**
-     * 
-     * @type {HotelDayTypesType}
+     * Collection of type details.
+     * @type {Array<HotelDayTypeType>}
      * @memberof SetDayTypes
      */
-    hotelDayTypes?: HotelDayTypesType;
+    hotelDayTypes?: Array<HotelDayTypeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SetDayTypes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SetDayTypes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function SetDayTypesFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'hotelDayTypes': !exists(json, 'hotelDayTypes') ? undefined : HotelDayTypesTypeFromJSON(json['hotelDayTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'hotelDayTypes': !exists(json, 'hotelDayTypes') ? undefined : ((json['hotelDayTypes'] as Array<any>).map(HotelDayTypeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function SetDayTypesToJSON(value?: SetDayTypes | null): any {
     }
     return {
         
-        'hotelDayTypes': HotelDayTypesTypeToJSON(value.hotelDayTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'hotelDayTypes': value.hotelDayTypes === undefined ? undefined : ((value.hotelDayTypes as Array<any>).map(HotelDayTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

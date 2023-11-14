@@ -25,12 +25,6 @@ import {
     CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrderFromJSONTyped,
     CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrderToJSON,
 } from './CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrder';
-import type { RoomIds } from './RoomIds';
-import {
-    RoomIdsFromJSON,
-    RoomIdsFromJSONTyped,
-    RoomIdsToJSON,
-} from './RoomIds';
 
 /**
  * 
@@ -45,11 +39,11 @@ export interface CompleteRoomRepairCriteriaRoomRangeList {
      */
     range?: CompleteRoomRepairCriteriaRoomRangeListRange;
     /**
-     * 
-     * @type {RoomIds}
+     * Collection of room numbers to be process.
+     * @type {Array<string>}
      * @memberof CompleteRoomRepairCriteriaRoomRangeList
      */
-    roomIds?: RoomIds;
+    roomIds?: Array<string>;
     /**
      * 
      * @type {CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrder}
@@ -78,7 +72,7 @@ export function CompleteRoomRepairCriteriaRoomRangeListFromJSONTyped(json: any, 
     return {
         
         'range': !exists(json, 'range') ? undefined : CompleteRoomRepairCriteriaRoomRangeListRangeFromJSON(json['range']),
-        'roomIds': !exists(json, 'roomIds') ? undefined : RoomIdsFromJSON(json['roomIds']),
+        'roomIds': !exists(json, 'roomIds') ? undefined : json['roomIds'],
         'roomOutOfOrder': !exists(json, 'roomOutOfOrder') ? undefined : CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrderFromJSON(json['roomOutOfOrder']),
     };
 }
@@ -93,7 +87,7 @@ export function CompleteRoomRepairCriteriaRoomRangeListToJSON(value?: CompleteRo
     return {
         
         'range': CompleteRoomRepairCriteriaRoomRangeListRangeToJSON(value.range),
-        'roomIds': RoomIdsToJSON(value.roomIds),
+        'roomIds': value.roomIds,
         'roomOutOfOrder': CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrderToJSON(value.roomOutOfOrder),
     };
 }

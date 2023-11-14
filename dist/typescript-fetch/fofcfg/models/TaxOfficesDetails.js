@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TaxOfficesDetailsToJSON = exports.TaxOfficesDetailsFromJSONTyped = exports.TaxOfficesDetailsFromJSON = exports.instanceOfTaxOfficesDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TaxOfficesType_1 = require("./TaxOfficesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TaxOfficeType_1 = require("./TaxOfficeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TaxOfficesDetails interface.
  */
@@ -35,9 +35,9 @@ function TaxOfficesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'taxOffices': !(0, runtime_1.exists)(json, 'taxOffices') ? undefined : (0, TaxOfficesType_1.TaxOfficesTypeFromJSON)(json['taxOffices']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'taxOffices': !(0, runtime_1.exists)(json, 'taxOffices') ? undefined : (json['taxOffices'].map(TaxOfficeType_1.TaxOfficeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TaxOfficesDetailsFromJSONTyped = TaxOfficesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function TaxOfficesDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'taxOffices': (0, TaxOfficesType_1.TaxOfficesTypeToJSON)(value.taxOffices),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'taxOffices': value.taxOffices === undefined ? undefined : (value.taxOffices.map(TaxOfficeType_1.TaxOfficeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TaxOfficesDetailsToJSON = TaxOfficesDetailsToJSON;

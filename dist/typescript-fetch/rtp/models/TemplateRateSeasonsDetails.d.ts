@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TemplateRateSeasonsType } from './TemplateRateSeasonsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TemplateRateSeasonType } from './TemplateRateSeasonType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching template rate seasons.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateRateSeasonsDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateRateSeasonsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TemplateRateSeasonsType}
+     * Hotel rate season details.
+     * @type {Array<TemplateRateSeasonType>}
      * @memberof TemplateRateSeasonsDetails
      */
-    templateRateSeasons?: TemplateRateSeasonsType;
+    templateRateSeasons?: Array<TemplateRateSeasonType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateRateSeasonsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateRateSeasonsDetails interface.

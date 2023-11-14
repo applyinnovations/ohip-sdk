@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { BlockDetailInstructionType } from './BlockDetailInstructionType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { SubAllocationsType } from './SubAllocationsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creation of Sub Allocation. This object contains sub allocation details with unique identifiers for each sub allocation along with Master Allocation information. The standard optional Opera Context element is also included.
  * @export
@@ -27,10 +27,10 @@ export interface SubAllocation {
     fetchInstructions?: Array<BlockDetailInstructionType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SubAllocation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {SubAllocationsType}
@@ -38,11 +38,11 @@ export interface SubAllocation {
      */
     subAllocations?: SubAllocationsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SubAllocation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SubAllocation interface.

@@ -21,13 +21,13 @@ const HousekeepingType_1 = require("./HousekeepingType");
 const RatePlanRatingType_1 = require("./RatePlanRatingType");
 const ReservationInfoType_1 = require("./ReservationInfoType");
 const ReservationShortInfoType_1 = require("./ReservationShortInfoType");
-const RoomDiscrepanciesType_1 = require("./RoomDiscrepanciesType");
-const RoomFeaturesType_1 = require("./RoomFeaturesType");
+const RoomDiscrepancyType_1 = require("./RoomDiscrepancyType");
+const RoomFeatureType_1 = require("./RoomFeatureType");
 const RoomHoldType_1 = require("./RoomHoldType");
-const RoomRoomsType_1 = require("./RoomRoomsType");
+const RoomOutOfOrderType_1 = require("./RoomOutOfOrderType");
+const RoomRoomType_1 = require("./RoomRoomType");
 const RoomSectionType_1 = require("./RoomSectionType");
 const RoomTypeShortInfoType_1 = require("./RoomTypeShortInfoType");
-const RoomsOutOfOrderType_1 = require("./RoomsOutOfOrderType");
 const SitePlanSectionType_1 = require("./SitePlanSectionType");
 const TranslationTextType2000_1 = require("./TranslationTextType2000");
 const TurndownInfoType_1 = require("./TurndownInfoType");
@@ -56,11 +56,11 @@ function HSKTaskSheetDetailsInfoTypeRoomsInnerFromJSONTyped(json, ignoreDiscrimi
         'cleaningSequence': !(0, runtime_1.exists)(json, 'cleaningSequence') ? undefined : json['cleaningSequence'],
         'componentRoomNumber': !(0, runtime_1.exists)(json, 'componentRoomNumber') ? undefined : json['componentRoomNumber'],
         'componentRoomNumbers': !(0, runtime_1.exists)(json, 'componentRoomNumbers') ? undefined : json['componentRoomNumbers'],
-        'componentRooms': !(0, runtime_1.exists)(json, 'componentRooms') ? undefined : (0, RoomRoomsType_1.RoomRoomsTypeFromJSON)(json['componentRooms']),
-        'connectingRooms': !(0, runtime_1.exists)(json, 'connectingRooms') ? undefined : (0, RoomRoomsType_1.RoomRoomsTypeFromJSON)(json['connectingRooms']),
+        'componentRooms': !(0, runtime_1.exists)(json, 'componentRooms') ? undefined : (json['componentRooms'].map(RoomRoomType_1.RoomRoomTypeFromJSON)),
+        'connectingRooms': !(0, runtime_1.exists)(json, 'connectingRooms') ? undefined : (json['connectingRooms'].map(RoomRoomType_1.RoomRoomTypeFromJSON)),
         'defaultSequence': !(0, runtime_1.exists)(json, 'defaultSequence') ? undefined : json['defaultSequence'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : (0, TranslationTextType2000_1.TranslationTextType2000FromJSON)(json['description']),
-        'discrepancy': !(0, runtime_1.exists)(json, 'discrepancy') ? undefined : (0, RoomDiscrepanciesType_1.RoomDiscrepanciesTypeFromJSON)(json['discrepancy']),
+        'discrepancy': !(0, runtime_1.exists)(json, 'discrepancy') ? undefined : (json['discrepancy'].map(RoomDiscrepancyType_1.RoomDiscrepancyTypeFromJSON)),
         'floor': !(0, runtime_1.exists)(json, 'floor') ? undefined : json['floor'],
         'floorDescription': !(0, runtime_1.exists)(json, 'floorDescription') ? undefined : json['floorDescription'],
         'hasPriority': !(0, runtime_1.exists)(json, 'hasPriority') ? undefined : json['hasPriority'],
@@ -68,12 +68,12 @@ function HSKTaskSheetDetailsInfoTypeRoomsInnerFromJSONTyped(json, ignoreDiscrimi
         'housekeeping': !(0, runtime_1.exists)(json, 'housekeeping') ? undefined : (0, HousekeepingType_1.HousekeepingTypeFromJSON)(json['housekeeping']),
         'instructions': !(0, runtime_1.exists)(json, 'instructions') ? undefined : json['instructions'],
         'meetingRoom': !(0, runtime_1.exists)(json, 'meetingRoom') ? undefined : json['meetingRoom'],
-        'outOfOrder': !(0, runtime_1.exists)(json, 'outOfOrder') ? undefined : (0, RoomsOutOfOrderType_1.RoomsOutOfOrderTypeFromJSON)(json['outOfOrder']),
+        'outOfOrder': !(0, runtime_1.exists)(json, 'outOfOrder') ? undefined : (json['outOfOrder'].map(RoomOutOfOrderType_1.RoomOutOfOrderTypeFromJSON)),
         'reservationInfo': !(0, runtime_1.exists)(json, 'reservationInfo') ? undefined : (json['reservationInfo'].map(ReservationInfoType_1.ReservationInfoTypeFromJSON)),
         'resvInfo': !(0, runtime_1.exists)(json, 'resvInfo') ? undefined : (json['resvInfo'].map(ReservationShortInfoType_1.ReservationShortInfoTypeFromJSON)),
         'roomAssignmentRating': !(0, runtime_1.exists)(json, 'roomAssignmentRating') ? undefined : (0, RatePlanRatingType_1.RatePlanRatingTypeFromJSON)(json['roomAssignmentRating']),
         'roomDescription': !(0, runtime_1.exists)(json, 'roomDescription') ? undefined : json['roomDescription'],
-        'roomFeatures': !(0, runtime_1.exists)(json, 'roomFeatures') ? undefined : (0, RoomFeaturesType_1.RoomFeaturesTypeFromJSON)(json['roomFeatures']),
+        'roomFeatures': !(0, runtime_1.exists)(json, 'roomFeatures') ? undefined : (json['roomFeatures'].map(RoomFeatureType_1.RoomFeatureTypeFromJSON)),
         'roomId': !(0, runtime_1.exists)(json, 'roomId') ? undefined : json['roomId'],
         'roomSection': !(0, runtime_1.exists)(json, 'roomSection') ? undefined : (0, RoomSectionType_1.RoomSectionTypeFromJSON)(json['roomSection']),
         'roomSkipCount': !(0, runtime_1.exists)(json, 'roomSkipCount') ? undefined : json['roomSkipCount'],
@@ -104,11 +104,11 @@ function HSKTaskSheetDetailsInfoTypeRoomsInnerToJSON(value) {
         'cleaningSequence': value.cleaningSequence,
         'componentRoomNumber': value.componentRoomNumber,
         'componentRoomNumbers': value.componentRoomNumbers,
-        'componentRooms': (0, RoomRoomsType_1.RoomRoomsTypeToJSON)(value.componentRooms),
-        'connectingRooms': (0, RoomRoomsType_1.RoomRoomsTypeToJSON)(value.connectingRooms),
+        'componentRooms': value.componentRooms === undefined ? undefined : (value.componentRooms.map(RoomRoomType_1.RoomRoomTypeToJSON)),
+        'connectingRooms': value.connectingRooms === undefined ? undefined : (value.connectingRooms.map(RoomRoomType_1.RoomRoomTypeToJSON)),
         'defaultSequence': value.defaultSequence,
         'description': (0, TranslationTextType2000_1.TranslationTextType2000ToJSON)(value.description),
-        'discrepancy': (0, RoomDiscrepanciesType_1.RoomDiscrepanciesTypeToJSON)(value.discrepancy),
+        'discrepancy': value.discrepancy === undefined ? undefined : (value.discrepancy.map(RoomDiscrepancyType_1.RoomDiscrepancyTypeToJSON)),
         'floor': value.floor,
         'floorDescription': value.floorDescription,
         'hasPriority': value.hasPriority,
@@ -116,12 +116,12 @@ function HSKTaskSheetDetailsInfoTypeRoomsInnerToJSON(value) {
         'housekeeping': (0, HousekeepingType_1.HousekeepingTypeToJSON)(value.housekeeping),
         'instructions': value.instructions,
         'meetingRoom': value.meetingRoom,
-        'outOfOrder': (0, RoomsOutOfOrderType_1.RoomsOutOfOrderTypeToJSON)(value.outOfOrder),
+        'outOfOrder': value.outOfOrder === undefined ? undefined : (value.outOfOrder.map(RoomOutOfOrderType_1.RoomOutOfOrderTypeToJSON)),
         'reservationInfo': value.reservationInfo === undefined ? undefined : (value.reservationInfo.map(ReservationInfoType_1.ReservationInfoTypeToJSON)),
         'resvInfo': value.resvInfo === undefined ? undefined : (value.resvInfo.map(ReservationShortInfoType_1.ReservationShortInfoTypeToJSON)),
         'roomAssignmentRating': (0, RatePlanRatingType_1.RatePlanRatingTypeToJSON)(value.roomAssignmentRating),
         'roomDescription': value.roomDescription,
-        'roomFeatures': (0, RoomFeaturesType_1.RoomFeaturesTypeToJSON)(value.roomFeatures),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : (value.roomFeatures.map(RoomFeatureType_1.RoomFeatureTypeToJSON)),
         'roomId': value.roomId,
         'roomSection': (0, RoomSectionType_1.RoomSectionTypeToJSON)(value.roomSection),
         'roomSkipCount': value.roomSkipCount,

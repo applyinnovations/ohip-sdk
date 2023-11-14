@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ResHousekeepingType } from './ResHousekeepingType';
 import {
     ResHousekeepingTypeFromJSON,
@@ -37,12 +37,12 @@ import {
     ReservationIdFromJSONTyped,
     ReservationIdToJSON,
 } from './ReservationId';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Return object that contains a list of facility tasks for the reservation specified in RQ.
@@ -70,10 +70,10 @@ export interface Schedule {
     housekeepingSchedule?: ReservationHousekeepingScheduleType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Schedule
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ReservationId}
@@ -81,11 +81,11 @@ export interface Schedule {
      */
     reservationId?: ReservationId;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Schedule
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -110,9 +110,9 @@ export function ScheduleFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'guestHouseKeepingInstructions': !exists(json, 'guestHouseKeepingInstructions') ? undefined : ResHousekeepingTypeFromJSON(json['guestHouseKeepingInstructions']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'housekeepingSchedule': !exists(json, 'housekeepingSchedule') ? undefined : ReservationHousekeepingScheduleTypeFromJSON(json['housekeepingSchedule']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -128,9 +128,9 @@ export function ScheduleToJSON(value?: Schedule | null): any {
         'guestHouseKeepingInstructions': ResHousekeepingTypeToJSON(value.guestHouseKeepingInstructions),
         'hotelId': value.hotelId,
         'housekeepingSchedule': ReservationHousekeepingScheduleTypeToJSON(value.housekeepingSchedule),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservationId': ReservationIdToJSON(value.reservationId),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

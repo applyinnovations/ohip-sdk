@@ -11,8 +11,8 @@
  */
 import type { AuthorizationInfoType } from './AuthorizationInfoType';
 import type { CashieringPaymentMethodType } from './CashieringPaymentMethodType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response to the credit card authorization request.
  * @export
@@ -27,10 +27,10 @@ export interface AuthorizationInfo {
     authInfo?: AuthorizationInfoType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AuthorizationInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {CashieringPaymentMethodType}
@@ -38,11 +38,11 @@ export interface AuthorizationInfo {
      */
     payment?: CashieringPaymentMethodType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AuthorizationInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AuthorizationInfo interface.

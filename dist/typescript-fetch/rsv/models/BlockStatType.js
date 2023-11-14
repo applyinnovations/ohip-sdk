@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockStatTypeToJSON = exports.BlockStatTypeFromJSONTyped = exports.BlockStatTypeFromJSON = exports.instanceOfBlockStatType = void 0;
 const runtime_1 = require("../runtime");
-const BlockIdList_1 = require("./BlockIdList");
-const RoomPoolStatsType_1 = require("./RoomPoolStatsType");
+const RoomPoolStatType_1 = require("./RoomPoolStatType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the BlockStatType interface.
  */
@@ -34,8 +34,8 @@ function BlockStatTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (0, BlockIdList_1.BlockIdListFromJSON)(json['blockIdList']),
-        'roomPoolStats': !(0, runtime_1.exists)(json, 'roomPoolStats') ? undefined : (0, RoomPoolStatsType_1.RoomPoolStatsTypeFromJSON)(json['roomPoolStats']),
+        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'roomPoolStats': !(0, runtime_1.exists)(json, 'roomPoolStats') ? undefined : (json['roomPoolStats'].map(RoomPoolStatType_1.RoomPoolStatTypeFromJSON)),
     };
 }
 exports.BlockStatTypeFromJSONTyped = BlockStatTypeFromJSONTyped;
@@ -47,8 +47,8 @@ function BlockStatTypeToJSON(value) {
         return null;
     }
     return {
-        'blockIdList': (0, BlockIdList_1.BlockIdListToJSON)(value.blockIdList),
-        'roomPoolStats': (0, RoomPoolStatsType_1.RoomPoolStatsTypeToJSON)(value.roomPoolStats),
+        'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'roomPoolStats': value.roomPoolStats === undefined ? undefined : (value.roomPoolStats.map(RoomPoolStatType_1.RoomPoolStatTypeToJSON)),
     };
 }
 exports.BlockStatTypeToJSON = BlockStatTypeToJSON;

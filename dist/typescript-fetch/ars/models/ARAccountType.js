@@ -20,17 +20,17 @@ const ARAccountTypeLastReminderInfo_1 = require("./ARAccountTypeLastReminderInfo
 const ARAccountTypeLastStatementInfo_1 = require("./ARAccountTypeLastStatementInfo");
 const ARAgingInfoType_1 = require("./ARAgingInfoType");
 const ARBalanceType_1 = require("./ARBalanceType");
-const ARInvoicesType_1 = require("./ARInvoicesType");
-const ARPaymentsType_1 = require("./ARPaymentsType");
+const ARInvoiceType_1 = require("./ARInvoiceType");
+const ARPaymentType_1 = require("./ARPaymentType");
 const ARYearViewInfoType_1 = require("./ARYearViewInfoType");
 const AddressInfoType_1 = require("./AddressInfoType");
 const CommentInfoType_1 = require("./CommentInfoType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const EmailInfoType_1 = require("./EmailInfoType");
-const FixedChargesType_1 = require("./FixedChargesType");
-const IndicatorsType_1 = require("./IndicatorsType");
+const FixedChargeType_1 = require("./FixedChargeType");
+const IndicatorType_1 = require("./IndicatorType");
 const ProfileId_1 = require("./ProfileId");
-const SearchMatchesType_1 = require("./SearchMatchesType");
+const SearchMatchType_1 = require("./SearchMatchType");
 const TelephoneInfoType_1 = require("./TelephoneInfoType");
 const TraceType_1 = require("./TraceType");
 const UniqueIDType_1 = require("./UniqueIDType");
@@ -52,7 +52,7 @@ function ARAccountTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'accountId': !(0, runtime_1.exists)(json, 'accountId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['accountId']),
-        'accountIndicators': !(0, runtime_1.exists)(json, 'accountIndicators') ? undefined : (0, IndicatorsType_1.IndicatorsTypeFromJSON)(json['accountIndicators']),
+        'accountIndicators': !(0, runtime_1.exists)(json, 'accountIndicators') ? undefined : (json['accountIndicators'].map(IndicatorType_1.IndicatorTypeFromJSON)),
         'accountName': !(0, runtime_1.exists)(json, 'accountName') ? undefined : json['accountName'],
         'accountNo': !(0, runtime_1.exists)(json, 'accountNo') ? undefined : json['accountNo'],
         'accountTypeDescription': !(0, runtime_1.exists)(json, 'accountTypeDescription') ? undefined : json['accountTypeDescription'],
@@ -64,20 +64,20 @@ function ARAccountTypeFromJSONTyped(json, ignoreDiscriminator) {
         'creditLimit': !(0, runtime_1.exists)(json, 'creditLimit') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['creditLimit']),
         'email': !(0, runtime_1.exists)(json, 'email') ? undefined : (0, EmailInfoType_1.EmailInfoTypeFromJSON)(json['email']),
         'emailStatementsReminders': !(0, runtime_1.exists)(json, 'emailStatementsReminders') ? undefined : json['emailStatementsReminders'],
-        'fixedCharges': !(0, runtime_1.exists)(json, 'fixedCharges') ? undefined : (0, FixedChargesType_1.FixedChargesTypeFromJSON)(json['fixedCharges']),
+        'fixedCharges': !(0, runtime_1.exists)(json, 'fixedCharges') ? undefined : (json['fixedCharges'].map(FixedChargeType_1.FixedChargeTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'invoices': !(0, runtime_1.exists)(json, 'invoices') ? undefined : (0, ARInvoicesType_1.ARInvoicesTypeFromJSON)(json['invoices']),
+        'invoices': !(0, runtime_1.exists)(json, 'invoices') ? undefined : (json['invoices'].map(ARInvoiceType_1.ARInvoiceTypeFromJSON)),
         'lastReminderInfo': !(0, runtime_1.exists)(json, 'lastReminderInfo') ? undefined : (0, ARAccountTypeLastReminderInfo_1.ARAccountTypeLastReminderInfoFromJSON)(json['lastReminderInfo']),
         'lastStatementInfo': !(0, runtime_1.exists)(json, 'lastStatementInfo') ? undefined : (0, ARAccountTypeLastStatementInfo_1.ARAccountTypeLastStatementInfoFromJSON)(json['lastStatementInfo']),
         'monthEndCalcYN': !(0, runtime_1.exists)(json, 'monthEndCalcYN') ? undefined : json['monthEndCalcYN'],
         'notes': !(0, runtime_1.exists)(json, 'notes') ? undefined : (json['notes'].map(CommentInfoType_1.CommentInfoTypeFromJSON)),
         'paymentDueDays': !(0, runtime_1.exists)(json, 'paymentDueDays') ? undefined : json['paymentDueDays'],
-        'payments': !(0, runtime_1.exists)(json, 'payments') ? undefined : (0, ARPaymentsType_1.ARPaymentsTypeFromJSON)(json['payments']),
+        'payments': !(0, runtime_1.exists)(json, 'payments') ? undefined : (json['payments'].map(ARPaymentType_1.ARPaymentTypeFromJSON)),
         'permanent': !(0, runtime_1.exists)(json, 'permanent') ? undefined : json['permanent'],
         'primary': !(0, runtime_1.exists)(json, 'primary') ? undefined : json['primary'],
         'printFoliosWithStatement': !(0, runtime_1.exists)(json, 'printFoliosWithStatement') ? undefined : json['printFoliosWithStatement'],
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, ProfileId_1.ProfileIdFromJSON)(json['profileId']),
-        'searchMatches': !(0, runtime_1.exists)(json, 'searchMatches') ? undefined : (0, SearchMatchesType_1.SearchMatchesTypeFromJSON)(json['searchMatches']),
+        'searchMatches': !(0, runtime_1.exists)(json, 'searchMatches') ? undefined : (json['searchMatches'].map(SearchMatchType_1.SearchMatchTypeFromJSON)),
         'status': !(0, runtime_1.exists)(json, 'status') ? undefined : (0, ARAccountStatusType_1.ARAccountStatusTypeFromJSON)(json['status']),
         'summary': !(0, runtime_1.exists)(json, 'summary') ? undefined : (0, ARBalanceType_1.ARBalanceTypeFromJSON)(json['summary']),
         'telephones': !(0, runtime_1.exists)(json, 'telephones') ? undefined : (json['telephones'].map(TelephoneInfoType_1.TelephoneInfoTypeFromJSON)),
@@ -96,7 +96,7 @@ function ARAccountTypeToJSON(value) {
     }
     return {
         'accountId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.accountId),
-        'accountIndicators': (0, IndicatorsType_1.IndicatorsTypeToJSON)(value.accountIndicators),
+        'accountIndicators': value.accountIndicators === undefined ? undefined : (value.accountIndicators.map(IndicatorType_1.IndicatorTypeToJSON)),
         'accountName': value.accountName,
         'accountNo': value.accountNo,
         'accountTypeDescription': value.accountTypeDescription,
@@ -108,20 +108,20 @@ function ARAccountTypeToJSON(value) {
         'creditLimit': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.creditLimit),
         'email': (0, EmailInfoType_1.EmailInfoTypeToJSON)(value.email),
         'emailStatementsReminders': value.emailStatementsReminders,
-        'fixedCharges': (0, FixedChargesType_1.FixedChargesTypeToJSON)(value.fixedCharges),
+        'fixedCharges': value.fixedCharges === undefined ? undefined : (value.fixedCharges.map(FixedChargeType_1.FixedChargeTypeToJSON)),
         'hotelId': value.hotelId,
-        'invoices': (0, ARInvoicesType_1.ARInvoicesTypeToJSON)(value.invoices),
+        'invoices': value.invoices === undefined ? undefined : (value.invoices.map(ARInvoiceType_1.ARInvoiceTypeToJSON)),
         'lastReminderInfo': (0, ARAccountTypeLastReminderInfo_1.ARAccountTypeLastReminderInfoToJSON)(value.lastReminderInfo),
         'lastStatementInfo': (0, ARAccountTypeLastStatementInfo_1.ARAccountTypeLastStatementInfoToJSON)(value.lastStatementInfo),
         'monthEndCalcYN': value.monthEndCalcYN,
         'notes': value.notes === undefined ? undefined : (value.notes.map(CommentInfoType_1.CommentInfoTypeToJSON)),
         'paymentDueDays': value.paymentDueDays,
-        'payments': (0, ARPaymentsType_1.ARPaymentsTypeToJSON)(value.payments),
+        'payments': value.payments === undefined ? undefined : (value.payments.map(ARPaymentType_1.ARPaymentTypeToJSON)),
         'permanent': value.permanent,
         'primary': value.primary,
         'printFoliosWithStatement': value.printFoliosWithStatement,
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
-        'searchMatches': (0, SearchMatchesType_1.SearchMatchesTypeToJSON)(value.searchMatches),
+        'searchMatches': value.searchMatches === undefined ? undefined : (value.searchMatches.map(SearchMatchType_1.SearchMatchTypeToJSON)),
         'status': (0, ARAccountStatusType_1.ARAccountStatusTypeToJSON)(value.status),
         'summary': (0, ARBalanceType_1.ARBalanceTypeToJSON)(value.summary),
         'telephones': value.telephones === undefined ? undefined : (value.telephones.map(TelephoneInfoType_1.TelephoneInfoTypeToJSON)),

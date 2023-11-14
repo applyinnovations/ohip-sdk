@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { PaymentMethodValidationRuleType } from './PaymentMethodValidationRuleType';
 import {
     PaymentMethodValidationRuleTypeFromJSON,
     PaymentMethodValidationRuleTypeFromJSONTyped,
     PaymentMethodValidationRuleTypeToJSON,
 } from './PaymentMethodValidationRuleType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,10 +40,10 @@ import {
 export interface DefaultPaymentMethodRule {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DefaultPaymentMethodRule
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {PaymentMethodValidationRuleType}
@@ -51,11 +51,11 @@ export interface DefaultPaymentMethodRule {
      */
     rule?: PaymentMethodValidationRuleType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DefaultPaymentMethodRule
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function DefaultPaymentMethodRuleFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'rule': !exists(json, 'rule') ? undefined : PaymentMethodValidationRuleTypeFromJSON(json['rule']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function DefaultPaymentMethodRuleToJSON(value?: DefaultPaymentMethodRule 
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'rule': PaymentMethodValidationRuleTypeToJSON(value.rule),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

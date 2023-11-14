@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AddtionalCodeInfoType } from './AddtionalCodeInfoType';
+import type { AddtionalCodeInfoTypeInner } from './AddtionalCodeInfoTypeInner';
 /**
  *
  * @export
@@ -17,11 +17,11 @@ import type { AddtionalCodeInfoType } from './AddtionalCodeInfoType';
  */
 export interface CodeInfoType {
     /**
-     *
-     * @type {AddtionalCodeInfoType}
+     * Holds name of additional code information
+     * @type {Array<AddtionalCodeInfoTypeInner>}
      * @memberof CodeInfoType
      */
-    addtionalCodeInfo?: AddtionalCodeInfoType;
+    addtionalCodeInfo?: Array<AddtionalCodeInfoTypeInner>;
     /**
      *
      * @type {string}

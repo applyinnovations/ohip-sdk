@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RoomCondtionTemplateType } from './RoomCondtionTemplateType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for Modifying Room Condition Template.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface RoomConditionTemplateToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomConditionTemplateToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {RoomCondtionTemplateType}
@@ -31,11 +31,11 @@ export interface RoomConditionTemplateToBeChanged {
      */
     roomConditionTemplate?: RoomCondtionTemplateType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomConditionTemplateToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomConditionTemplateToBeChanged interface.

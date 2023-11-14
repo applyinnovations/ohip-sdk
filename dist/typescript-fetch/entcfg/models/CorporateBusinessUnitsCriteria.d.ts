@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CorporateBusinessUnitsType } from './CorporateBusinessUnitsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CorporateBusinessUnitType } from './CorporateBusinessUnitType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Corporate Business Units.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CorporateBusinessUnitsCriteria {
     /**
-     *
-     * @type {CorporateBusinessUnitsType}
+     * List of Corporate Business Units.
+     * @type {Array<CorporateBusinessUnitType>}
      * @memberof CorporateBusinessUnitsCriteria
      */
-    corporateBusinessUnits?: CorporateBusinessUnitsType;
+    corporateBusinessUnits?: Array<CorporateBusinessUnitType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CorporateBusinessUnitsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CorporateBusinessUnitsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CorporateBusinessUnitsCriteria interface.

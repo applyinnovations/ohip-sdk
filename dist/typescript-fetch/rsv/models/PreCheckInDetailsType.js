@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PreCheckInDetailsTypeToJSON = exports.PreCheckInDetailsTypeFromJSONTyped = exports.PreCheckInDetailsTypeFromJSON = exports.instanceOfPreCheckInDetailsType = void 0;
 const runtime_1 = require("../runtime");
 const ReservationArrivalInfoType_1 = require("./ReservationArrivalInfoType");
-const ReservationPaymentMethodsType_1 = require("./ReservationPaymentMethodsType");
+const ReservationPaymentMethodType_1 = require("./ReservationPaymentMethodType");
 const TransportInfoType_1 = require("./TransportInfoType");
 /**
  * Check if a given object implements the PreCheckInDetailsType interface.
@@ -39,7 +39,7 @@ function PreCheckInDetailsTypeFromJSONTyped(json, ignoreDiscriminator) {
         'arrival': !(0, runtime_1.exists)(json, 'arrival') ? undefined : (0, ReservationArrivalInfoType_1.ReservationArrivalInfoTypeFromJSON)(json['arrival']),
         'arrivalTransport': !(0, runtime_1.exists)(json, 'arrivalTransport') ? undefined : (0, TransportInfoType_1.TransportInfoTypeFromJSON)(json['arrivalTransport']),
         'guestPreferredCurrency': !(0, runtime_1.exists)(json, 'guestPreferredCurrency') ? undefined : json['guestPreferredCurrency'],
-        'reservationPaymentMethods': !(0, runtime_1.exists)(json, 'reservationPaymentMethods') ? undefined : (0, ReservationPaymentMethodsType_1.ReservationPaymentMethodsTypeFromJSON)(json['reservationPaymentMethods']),
+        'reservationPaymentMethods': !(0, runtime_1.exists)(json, 'reservationPaymentMethods') ? undefined : (json['reservationPaymentMethods'].map(ReservationPaymentMethodType_1.ReservationPaymentMethodTypeFromJSON)),
         'roomId': !(0, runtime_1.exists)(json, 'roomId') ? undefined : json['roomId'],
     };
 }
@@ -56,7 +56,7 @@ function PreCheckInDetailsTypeToJSON(value) {
         'arrival': (0, ReservationArrivalInfoType_1.ReservationArrivalInfoTypeToJSON)(value.arrival),
         'arrivalTransport': (0, TransportInfoType_1.TransportInfoTypeToJSON)(value.arrivalTransport),
         'guestPreferredCurrency': value.guestPreferredCurrency,
-        'reservationPaymentMethods': (0, ReservationPaymentMethodsType_1.ReservationPaymentMethodsTypeToJSON)(value.reservationPaymentMethods),
+        'reservationPaymentMethods': value.reservationPaymentMethods === undefined ? undefined : (value.reservationPaymentMethods.map(ReservationPaymentMethodType_1.ReservationPaymentMethodTypeToJSON)),
         'roomId': value.roomId,
     };
 }

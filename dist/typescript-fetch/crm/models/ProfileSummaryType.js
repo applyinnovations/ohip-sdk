@@ -21,13 +21,13 @@ const CodeDescriptionType_1 = require("./CodeDescriptionType");
 const CountryNameType_1 = require("./CountryNameType");
 const DirectBillingType_1 = require("./DirectBillingType");
 const EmailInfoType_1 = require("./EmailInfoType");
-const IndicatorsType_1 = require("./IndicatorsType");
+const IndicatorType_1 = require("./IndicatorType");
 const LastStayInfoType_1 = require("./LastStayInfoType");
-const OwnersType_1 = require("./OwnersType");
+const OwnerType_1 = require("./OwnerType");
 const PrimaryProfileInfoType_1 = require("./PrimaryProfileInfoType");
 const ProfileAccessType_1 = require("./ProfileAccessType");
 const ProfileAdditionalInfoType_1 = require("./ProfileAdditionalInfoType");
-const ProfileAllowedActionsType_1 = require("./ProfileAllowedActionsType");
+const ProfileAllowedActionType_1 = require("./ProfileAllowedActionType");
 const ProfileCashieringType_1 = require("./ProfileCashieringType");
 const ProfileMembershipType_1 = require("./ProfileMembershipType");
 const ProfileNameType_1 = require("./ProfileNameType");
@@ -37,7 +37,7 @@ const ProfileSummaryTypeFormerName_1 = require("./ProfileSummaryTypeFormerName")
 const ProfileTaxInfoType_1 = require("./ProfileTaxInfoType");
 const ProfileTypeType_1 = require("./ProfileTypeType");
 const SalesInfoType_1 = require("./SalesInfoType");
-const SearchMatchesType_1 = require("./SearchMatchesType");
+const SearchMatchType_1 = require("./SearchMatchType");
 const TelephoneInfoType_1 = require("./TelephoneInfoType");
 const URLInfoType_1 = require("./URLInfoType");
 const VIPStatusType_1 = require("./VIPStatusType");
@@ -61,7 +61,7 @@ function ProfileSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
         'aRAccount': !(0, runtime_1.exists)(json, 'aRAccount') ? undefined : (0, DirectBillingType_1.DirectBillingTypeFromJSON)(json['aRAccount']),
         'additionalInfo': !(0, runtime_1.exists)(json, 'additionalInfo') ? undefined : (0, ProfileAdditionalInfoType_1.ProfileAdditionalInfoTypeFromJSON)(json['additionalInfo']),
         'addressInfo': !(0, runtime_1.exists)(json, 'addressInfo') ? undefined : (0, AddressInfoType_1.AddressInfoTypeFromJSON)(json['addressInfo']),
-        'allowedActions': !(0, runtime_1.exists)(json, 'allowedActions') ? undefined : (0, ProfileAllowedActionsType_1.ProfileAllowedActionsTypeFromJSON)(json['allowedActions']),
+        'allowedActions': !(0, runtime_1.exists)(json, 'allowedActions') ? undefined : (json['allowedActions'].map(ProfileAllowedActionType_1.ProfileAllowedActionTypeFromJSON)),
         'altName': !(0, runtime_1.exists)(json, 'altName') ? undefined : (0, ProfileNameType_1.ProfileNameTypeFromJSON)(json['altName']),
         'anonymization': !(0, runtime_1.exists)(json, 'anonymization') ? undefined : (0, AnonymizationType_1.AnonymizationTypeFromJSON)(json['anonymization']),
         'cashiering': !(0, runtime_1.exists)(json, 'cashiering') ? undefined : (0, ProfileCashieringType_1.ProfileCashieringTypeFromJSON)(json['cashiering']),
@@ -75,19 +75,19 @@ function ProfileSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
         'lastModifierId': !(0, runtime_1.exists)(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'lastStayInfo': !(0, runtime_1.exists)(json, 'lastStayInfo') ? undefined : (0, LastStayInfoType_1.LastStayInfoTypeFromJSON)(json['lastStayInfo']),
-        'owners': !(0, runtime_1.exists)(json, 'owners') ? undefined : (0, OwnersType_1.OwnersTypeFromJSON)(json['owners']),
+        'owners': !(0, runtime_1.exists)(json, 'owners') ? undefined : (json['owners'].map(OwnerType_1.OwnerTypeFromJSON)),
         'primaryAccountInfo': !(0, runtime_1.exists)(json, 'primaryAccountInfo') ? undefined : (0, PrimaryProfileInfoType_1.PrimaryProfileInfoTypeFromJSON)(json['primaryAccountInfo']),
         'primaryCompany': !(0, runtime_1.exists)(json, 'primaryCompany') ? undefined : json['primaryCompany'],
         'privateProfile': !(0, runtime_1.exists)(json, 'privateProfile') ? undefined : json['privateProfile'],
         'profileAccessType': !(0, runtime_1.exists)(json, 'profileAccessType') ? undefined : (0, ProfileAccessType_1.ProfileAccessTypeFromJSON)(json['profileAccessType']),
-        'profileIndicators': !(0, runtime_1.exists)(json, 'profileIndicators') ? undefined : (0, IndicatorsType_1.IndicatorsTypeFromJSON)(json['profileIndicators']),
+        'profileIndicators': !(0, runtime_1.exists)(json, 'profileIndicators') ? undefined : (json['profileIndicators'].map(IndicatorType_1.IndicatorTypeFromJSON)),
         'profileMembership': !(0, runtime_1.exists)(json, 'profileMembership') ? undefined : (0, ProfileMembershipType_1.ProfileMembershipTypeFromJSON)(json['profileMembership']),
         'profileRestrictions': !(0, runtime_1.exists)(json, 'profileRestrictions') ? undefined : (0, ProfileRestrictions_1.ProfileRestrictionsFromJSON)(json['profileRestrictions']),
         'profileType': !(0, runtime_1.exists)(json, 'profileType') ? undefined : (0, ProfileTypeType_1.ProfileTypeTypeFromJSON)(json['profileType']),
         '_protected': !(0, runtime_1.exists)(json, 'protected') ? undefined : json['protected'],
         'registeredProperty': !(0, runtime_1.exists)(json, 'registeredProperty') ? undefined : json['registeredProperty'],
         'salesInfo': !(0, runtime_1.exists)(json, 'salesInfo') ? undefined : (0, SalesInfoType_1.SalesInfoTypeFromJSON)(json['salesInfo']),
-        'searchMatches': !(0, runtime_1.exists)(json, 'searchMatches') ? undefined : (0, SearchMatchesType_1.SearchMatchesTypeFromJSON)(json['searchMatches']),
+        'searchMatches': !(0, runtime_1.exists)(json, 'searchMatches') ? undefined : (json['searchMatches'].map(SearchMatchType_1.SearchMatchTypeFromJSON)),
         'statusCode': !(0, runtime_1.exists)(json, 'statusCode') ? undefined : (0, ProfileStatusType_1.ProfileStatusTypeFromJSON)(json['statusCode']),
         'subscription': !(0, runtime_1.exists)(json, 'subscription') ? undefined : json['subscription'],
         'taxInfo': !(0, runtime_1.exists)(json, 'taxInfo') ? undefined : (0, ProfileTaxInfoType_1.ProfileTaxInfoTypeFromJSON)(json['taxInfo']),
@@ -108,7 +108,7 @@ function ProfileSummaryTypeToJSON(value) {
         'aRAccount': (0, DirectBillingType_1.DirectBillingTypeToJSON)(value.aRAccount),
         'additionalInfo': (0, ProfileAdditionalInfoType_1.ProfileAdditionalInfoTypeToJSON)(value.additionalInfo),
         'addressInfo': (0, AddressInfoType_1.AddressInfoTypeToJSON)(value.addressInfo),
-        'allowedActions': (0, ProfileAllowedActionsType_1.ProfileAllowedActionsTypeToJSON)(value.allowedActions),
+        'allowedActions': value.allowedActions === undefined ? undefined : (value.allowedActions.map(ProfileAllowedActionType_1.ProfileAllowedActionTypeToJSON)),
         'altName': (0, ProfileNameType_1.ProfileNameTypeToJSON)(value.altName),
         'anonymization': (0, AnonymizationType_1.AnonymizationTypeToJSON)(value.anonymization),
         'cashiering': (0, ProfileCashieringType_1.ProfileCashieringTypeToJSON)(value.cashiering),
@@ -122,19 +122,19 @@ function ProfileSummaryTypeToJSON(value) {
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'lastStayInfo': (0, LastStayInfoType_1.LastStayInfoTypeToJSON)(value.lastStayInfo),
-        'owners': (0, OwnersType_1.OwnersTypeToJSON)(value.owners),
+        'owners': value.owners === undefined ? undefined : (value.owners.map(OwnerType_1.OwnerTypeToJSON)),
         'primaryAccountInfo': (0, PrimaryProfileInfoType_1.PrimaryProfileInfoTypeToJSON)(value.primaryAccountInfo),
         'primaryCompany': value.primaryCompany,
         'privateProfile': value.privateProfile,
         'profileAccessType': (0, ProfileAccessType_1.ProfileAccessTypeToJSON)(value.profileAccessType),
-        'profileIndicators': (0, IndicatorsType_1.IndicatorsTypeToJSON)(value.profileIndicators),
+        'profileIndicators': value.profileIndicators === undefined ? undefined : (value.profileIndicators.map(IndicatorType_1.IndicatorTypeToJSON)),
         'profileMembership': (0, ProfileMembershipType_1.ProfileMembershipTypeToJSON)(value.profileMembership),
         'profileRestrictions': (0, ProfileRestrictions_1.ProfileRestrictionsToJSON)(value.profileRestrictions),
         'profileType': (0, ProfileTypeType_1.ProfileTypeTypeToJSON)(value.profileType),
         'protected': value._protected,
         'registeredProperty': value.registeredProperty,
         'salesInfo': (0, SalesInfoType_1.SalesInfoTypeToJSON)(value.salesInfo),
-        'searchMatches': (0, SearchMatchesType_1.SearchMatchesTypeToJSON)(value.searchMatches),
+        'searchMatches': value.searchMatches === undefined ? undefined : (value.searchMatches.map(SearchMatchType_1.SearchMatchTypeToJSON)),
         'statusCode': (0, ProfileStatusType_1.ProfileStatusTypeToJSON)(value.statusCode),
         'subscription': value.subscription,
         'taxInfo': (0, ProfileTaxInfoType_1.ProfileTaxInfoTypeToJSON)(value.taxInfo),

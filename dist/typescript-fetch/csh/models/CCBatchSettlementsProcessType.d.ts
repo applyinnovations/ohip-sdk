@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Type for starting settlements job process.
  * @export
@@ -29,11 +29,11 @@ export interface CCBatchSettlementsProcessType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CCBatchSettlementsProcessType
      */
-    settlementIdList?: UniqueIDListType;
+    settlementIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the CCBatchSettlementsProcessType interface.

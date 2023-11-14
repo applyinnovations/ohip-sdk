@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StatusCodeDetailsToJSON = exports.StatusCodeDetailsFromJSONTyped = exports.StatusCodeDetailsFromJSON = exports.instanceOfStatusCodeDetails = void 0;
 const runtime_1 = require("../runtime");
-const BlockStatusCodeListType_1 = require("./BlockStatusCodeListType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const BlockStatusCodeType_1 = require("./BlockStatusCodeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the StatusCodeDetails interface.
  */
@@ -35,9 +35,9 @@ function StatusCodeDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blockStatusCodes': !(0, runtime_1.exists)(json, 'blockStatusCodes') ? undefined : (0, BlockStatusCodeListType_1.BlockStatusCodeListTypeFromJSON)(json['blockStatusCodes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'blockStatusCodes': !(0, runtime_1.exists)(json, 'blockStatusCodes') ? undefined : (json['blockStatusCodes'].map(BlockStatusCodeType_1.BlockStatusCodeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.StatusCodeDetailsFromJSONTyped = StatusCodeDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function StatusCodeDetailsToJSON(value) {
         return null;
     }
     return {
-        'blockStatusCodes': (0, BlockStatusCodeListType_1.BlockStatusCodeListTypeToJSON)(value.blockStatusCodes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'blockStatusCodes': value.blockStatusCodes === undefined ? undefined : (value.blockStatusCodes.map(BlockStatusCodeType_1.BlockStatusCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.StatusCodeDetailsToJSON = StatusCodeDetailsToJSON;

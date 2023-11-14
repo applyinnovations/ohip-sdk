@@ -15,9 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelEventSpacesTypeToJSON = exports.HotelEventSpacesTypeFromJSONTyped = exports.HotelEventSpacesTypeFromJSON = exports.instanceOfHotelEventSpacesType = void 0;
 const runtime_1 = require("../runtime");
-const HotelEventSpaceDetailsType_1 = require("./HotelEventSpaceDetailsType");
-const HotelEventSpaceSummariesType_1 = require("./HotelEventSpaceSummariesType");
-const HotelSetupStylesType_1 = require("./HotelSetupStylesType");
+const HotelEventSpaceDetailType_1 = require("./HotelEventSpaceDetailType");
+const HotelEventSpaceSummaryType_1 = require("./HotelEventSpaceSummaryType");
 /**
  * Check if a given object implements the HotelEventSpacesType interface.
  */
@@ -35,9 +34,9 @@ function HotelEventSpacesTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'eventSpaceDetails': !(0, runtime_1.exists)(json, 'eventSpaceDetails') ? undefined : (0, HotelEventSpaceDetailsType_1.HotelEventSpaceDetailsTypeFromJSON)(json['eventSpaceDetails']),
-        'eventSpaceSummaries': !(0, runtime_1.exists)(json, 'eventSpaceSummaries') ? undefined : (0, HotelEventSpaceSummariesType_1.HotelEventSpaceSummariesTypeFromJSON)(json['eventSpaceSummaries']),
-        'setupStyles': !(0, runtime_1.exists)(json, 'setupStyles') ? undefined : (0, HotelSetupStylesType_1.HotelSetupStylesTypeFromJSON)(json['setupStyles']),
+        'eventSpaceDetails': !(0, runtime_1.exists)(json, 'eventSpaceDetails') ? undefined : (json['eventSpaceDetails'].map(HotelEventSpaceDetailType_1.HotelEventSpaceDetailTypeFromJSON)),
+        'eventSpaceSummaries': !(0, runtime_1.exists)(json, 'eventSpaceSummaries') ? undefined : (json['eventSpaceSummaries'].map(HotelEventSpaceSummaryType_1.HotelEventSpaceSummaryTypeFromJSON)),
+        'setupStyles': !(0, runtime_1.exists)(json, 'setupStyles') ? undefined : json['setupStyles'],
     };
 }
 exports.HotelEventSpacesTypeFromJSONTyped = HotelEventSpacesTypeFromJSONTyped;
@@ -49,9 +48,9 @@ function HotelEventSpacesTypeToJSON(value) {
         return null;
     }
     return {
-        'eventSpaceDetails': (0, HotelEventSpaceDetailsType_1.HotelEventSpaceDetailsTypeToJSON)(value.eventSpaceDetails),
-        'eventSpaceSummaries': (0, HotelEventSpaceSummariesType_1.HotelEventSpaceSummariesTypeToJSON)(value.eventSpaceSummaries),
-        'setupStyles': (0, HotelSetupStylesType_1.HotelSetupStylesTypeToJSON)(value.setupStyles),
+        'eventSpaceDetails': value.eventSpaceDetails === undefined ? undefined : (value.eventSpaceDetails.map(HotelEventSpaceDetailType_1.HotelEventSpaceDetailTypeToJSON)),
+        'eventSpaceSummaries': value.eventSpaceSummaries === undefined ? undefined : (value.eventSpaceSummaries.map(HotelEventSpaceSummaryType_1.HotelEventSpaceSummaryTypeToJSON)),
+        'setupStyles': value.setupStyles,
     };
 }
 exports.HotelEventSpacesTypeToJSON = HotelEventSpacesTypeToJSON;

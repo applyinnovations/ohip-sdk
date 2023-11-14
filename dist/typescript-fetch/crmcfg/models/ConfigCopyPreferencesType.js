@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConfigCopyPreferencesTypeToJSON = exports.ConfigCopyPreferencesTypeFromJSONTyped = exports.ConfigCopyPreferencesTypeFromJSON = exports.instanceOfConfigCopyPreferencesType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const ConfigTemplatePreferenceIDType_1 = require("./ConfigTemplatePreferenceIDType");
 /**
  * Check if a given object implements the ConfigCopyPreferencesType interface.
@@ -34,7 +33,7 @@ function ConfigCopyPreferencesTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'hotelCodes': !(0, runtime_1.exists)(json, 'hotelCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['hotelCodes']),
+        'hotelCodes': !(0, runtime_1.exists)(json, 'hotelCodes') ? undefined : json['hotelCodes'],
         'templatePreferences': !(0, runtime_1.exists)(json, 'templatePreferences') ? undefined : (json['templatePreferences'].map(ConfigTemplatePreferenceIDType_1.ConfigTemplatePreferenceIDTypeFromJSON)),
     };
 }
@@ -47,7 +46,7 @@ function ConfigCopyPreferencesTypeToJSON(value) {
         return null;
     }
     return {
-        'hotelCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.hotelCodes),
+        'hotelCodes': value.hotelCodes,
         'templatePreferences': value.templatePreferences === undefined ? undefined : (value.templatePreferences.map(ConfigTemplatePreferenceIDType_1.ConfigTemplatePreferenceIDTypeToJSON)),
     };
 }

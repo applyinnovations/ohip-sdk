@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ReservationColorsType } from './ReservationColorsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ReservationColorType } from './ReservationColorType';
 import {
-    ReservationColorsTypeFromJSON,
-    ReservationColorsTypeFromJSONTyped,
-    ReservationColorsTypeToJSON,
-} from './ReservationColorsType';
-import type { WarningsType } from './WarningsType';
+    ReservationColorTypeFromJSON,
+    ReservationColorTypeFromJSONTyped,
+    ReservationColorTypeToJSON,
+} from './ReservationColorType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to change reservation colors.
@@ -40,22 +40,22 @@ import {
 export interface ReservationColorsToChange {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationColorsToChange
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ReservationColorsType}
+     * Collection of reservation colors.
+     * @type {Array<ReservationColorType>}
      * @memberof ReservationColorsToChange
      */
-    reservationColors?: ReservationColorsType;
+    reservationColors?: Array<ReservationColorType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationColorsToChange
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ReservationColorsToChangeFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'reservationColors': !exists(json, 'reservationColors') ? undefined : ReservationColorsTypeFromJSON(json['reservationColors']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'reservationColors': !exists(json, 'reservationColors') ? undefined : ((json['reservationColors'] as Array<any>).map(ReservationColorTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ReservationColorsToChangeToJSON(value?: ReservationColorsToChang
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'reservationColors': ReservationColorsTypeToJSON(value.reservationColors),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'reservationColors': value.reservationColors === undefined ? undefined : ((value.reservationColors as Array<any>).map(ReservationColorTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

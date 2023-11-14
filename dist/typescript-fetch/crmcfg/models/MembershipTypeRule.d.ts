@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MembershipTypeRuleDetailType } from './MembershipTypeRuleDetailType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching membership type rule.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface MembershipTypeRule {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipTypeRule
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {MembershipTypeRuleDetailType}
@@ -31,11 +31,11 @@ export interface MembershipTypeRule {
      */
     membershipTypeRule?: MembershipTypeRuleDetailType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipTypeRule
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipTypeRule interface.

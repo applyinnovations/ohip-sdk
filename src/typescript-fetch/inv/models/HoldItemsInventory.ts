@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { PoolItemInventoryCountsListType } from './PoolItemInventoryCountsListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { PoolItemInventoryCountsType } from './PoolItemInventoryCountsType';
 import {
-    PoolItemInventoryCountsListTypeFromJSON,
-    PoolItemInventoryCountsListTypeFromJSONTyped,
-    PoolItemInventoryCountsListTypeToJSON,
-} from './PoolItemInventoryCountsListType';
-import type { WarningsType } from './WarningsType';
+    PoolItemInventoryCountsTypeFromJSON,
+    PoolItemInventoryCountsTypeFromJSONTyped,
+    PoolItemInventoryCountsTypeToJSON,
+} from './PoolItemInventoryCountsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object to fetch the item hold details.
@@ -39,23 +39,23 @@ import {
  */
 export interface HoldItemsInventory {
     /**
-     * 
-     * @type {PoolItemInventoryCountsListType}
+     * Items/Item pool with brief information and its Inventory counts for the given dates.
+     * @type {Array<PoolItemInventoryCountsType>}
      * @memberof HoldItemsInventory
      */
-    itemsInventory?: PoolItemInventoryCountsListType;
+    itemsInventory?: Array<PoolItemInventoryCountsType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HoldItemsInventory
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HoldItemsInventory
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function HoldItemsInventoryFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'itemsInventory': !exists(json, 'itemsInventory') ? undefined : PoolItemInventoryCountsListTypeFromJSON(json['itemsInventory']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'itemsInventory': !exists(json, 'itemsInventory') ? undefined : ((json['itemsInventory'] as Array<any>).map(PoolItemInventoryCountsTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function HoldItemsInventoryToJSON(value?: HoldItemsInventory | null): any
     }
     return {
         
-        'itemsInventory': PoolItemInventoryCountsListTypeToJSON(value.itemsInventory),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'itemsInventory': value.itemsInventory === undefined ? undefined : ((value.itemsInventory as Array<any>).map(PoolItemInventoryCountsTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

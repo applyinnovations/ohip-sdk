@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockWashSchedulesInfoTypeToJSON = exports.BlockWashSchedulesInfoTypeFromJSONTyped = exports.BlockWashSchedulesInfoTypeFromJSON = exports.instanceOfBlockWashSchedulesInfoType = void 0;
 const runtime_1 = require("../runtime");
-const BlockIdList_1 = require("./BlockIdList");
-const BlockWashSchedulesType_1 = require("./BlockWashSchedulesType");
+const BlockWashScheduleType_1 = require("./BlockWashScheduleType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the BlockWashSchedulesInfoType interface.
  */
@@ -34,8 +34,8 @@ function BlockWashSchedulesInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (0, BlockIdList_1.BlockIdListFromJSON)(json['blockIdList']),
-        'blockWashSchedules': !(0, runtime_1.exists)(json, 'blockWashSchedules') ? undefined : (0, BlockWashSchedulesType_1.BlockWashSchedulesTypeFromJSON)(json['blockWashSchedules']),
+        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'blockWashSchedules': !(0, runtime_1.exists)(json, 'blockWashSchedules') ? undefined : (json['blockWashSchedules'].map(BlockWashScheduleType_1.BlockWashScheduleTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
     };
 }
@@ -48,8 +48,8 @@ function BlockWashSchedulesInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'blockIdList': (0, BlockIdList_1.BlockIdListToJSON)(value.blockIdList),
-        'blockWashSchedules': (0, BlockWashSchedulesType_1.BlockWashSchedulesTypeToJSON)(value.blockWashSchedules),
+        'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'blockWashSchedules': value.blockWashSchedules === undefined ? undefined : (value.blockWashSchedules.map(BlockWashScheduleType_1.BlockWashScheduleTypeToJSON)),
         'hotelId': value.hotelId,
     };
 }

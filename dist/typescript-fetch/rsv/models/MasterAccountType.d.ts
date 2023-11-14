@@ -15,10 +15,10 @@ import type { MasterAccountTypeRoomRate } from './MasterAccountTypeRoomRate';
 import type { PMSResStatusType } from './PMSResStatusType';
 import type { ResCashieringType } from './ResCashieringType';
 import type { ResGuestType } from './ResGuestType';
-import type { ReservationIdList } from './ReservationIdList';
-import type { ReservationPaymentMethodsType } from './ReservationPaymentMethodsType';
+import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
 import type { ReservationProfileType } from './ReservationProfileType';
 import type { TimeSpanType } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
 import type { UserDefinedFieldsType } from './UserDefinedFieldsType';
 /**
  * Details of the posting master reservation.
@@ -63,17 +63,17 @@ export interface MasterAccountType {
      */
     reservationGuest?: ResGuestType;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MasterAccountType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
-     *
-     * @type {ReservationPaymentMethodsType}
+     * Defines reservation payment methods.
+     * @type {Array<ReservationPaymentMethodType>}
      * @memberof MasterAccountType
      */
-    reservationPaymentMethods?: ReservationPaymentMethodsType;
+    reservationPaymentMethods?: Array<ReservationPaymentMethodType>;
     /**
      * Collection of non-guest profiles associated with the reservation.
      * @type {Array<ReservationProfileType>}

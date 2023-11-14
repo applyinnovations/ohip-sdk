@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReservationId } from './ReservationId';
 import {
     ReservationIdFromJSON,
     ReservationIdFromJSONTyped,
     ReservationIdToJSON,
 } from './ReservationId';
-import type { TicketsType } from './TicketsType';
+import type { TicketType } from './TicketType';
 import {
-    TicketsTypeFromJSON,
-    TicketsTypeFromJSONTyped,
-    TicketsTypeToJSON,
-} from './TicketsType';
-import type { WarningsType } from './WarningsType';
+    TicketTypeFromJSON,
+    TicketTypeFromJSONTyped,
+    TicketTypeToJSON,
+} from './TicketType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Common tickets request base type.
@@ -52,10 +52,10 @@ export interface TicketsInfo {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TicketsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ReservationId}
@@ -63,17 +63,17 @@ export interface TicketsInfo {
      */
     reservationId?: ReservationId;
     /**
-     * 
-     * @type {TicketsType}
+     * Collection of TicketType objects.
+     * @type {Array<TicketType>}
      * @memberof TicketsInfo
      */
-    tickets?: TicketsType;
+    tickets?: Array<TicketType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TicketsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -96,10 +96,10 @@ export function TicketsInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean
     return {
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
-        'tickets': !exists(json, 'tickets') ? undefined : TicketsTypeFromJSON(json['tickets']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'tickets': !exists(json, 'tickets') ? undefined : ((json['tickets'] as Array<any>).map(TicketTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -113,10 +113,10 @@ export function TicketsInfoToJSON(value?: TicketsInfo | null): any {
     return {
         
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservationId': ReservationIdToJSON(value.reservationId),
-        'tickets': TicketsTypeToJSON(value.tickets),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'tickets': value.tickets === undefined ? undefined : ((value.tickets as Array<any>).map(TicketTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

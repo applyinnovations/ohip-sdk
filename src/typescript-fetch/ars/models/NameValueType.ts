@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { NameValueDataTypeType } from './NameValueDataTypeType';
 import {
     NameValueDataTypeTypeFromJSON,
@@ -64,10 +58,10 @@ export interface NameValueType {
     origin?: NameValueOriginType;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof NameValueType
      */
-    usageInstruction?: CodeListType;
+    usageInstruction?: Array<string>;
     /**
      * Contains value for the record/column.
      * @type {string}
@@ -99,7 +93,7 @@ export function NameValueTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
         'formatString': !exists(json, 'formatString') ? undefined : json['formatString'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'origin': !exists(json, 'origin') ? undefined : NameValueOriginTypeFromJSON(json['origin']),
-        'usageInstruction': !exists(json, 'usageInstruction') ? undefined : CodeListTypeFromJSON(json['usageInstruction']),
+        'usageInstruction': !exists(json, 'usageInstruction') ? undefined : json['usageInstruction'],
         'value': !exists(json, 'value') ? undefined : json['value'],
     };
 }
@@ -117,7 +111,7 @@ export function NameValueTypeToJSON(value?: NameValueType | null): any {
         'formatString': value.formatString,
         'name': value.name,
         'origin': NameValueOriginTypeToJSON(value.origin),
-        'usageInstruction': CodeListTypeToJSON(value.usageInstruction),
+        'usageInstruction': value.usageInstruction,
         'value': value.value,
     };
 }

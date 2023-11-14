@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringEventPostingsDetailToJSON = exports.CateringEventPostingsDetailFromJSONTyped = exports.CateringEventPostingsDetailFromJSON = exports.instanceOfCateringEventPostingsDetail = void 0;
 const runtime_1 = require("../runtime");
-const BlockPostingAccountReservationsType_1 = require("./BlockPostingAccountReservationsType");
+const BlockPostingReservationsType_1 = require("./BlockPostingReservationsType");
 const CateringEventPostingsType_1 = require("./CateringEventPostingsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CateringEventPostingsDetail interface.
  */
@@ -37,9 +37,9 @@ function CateringEventPostingsDetailFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'cateringEventPostings': !(0, runtime_1.exists)(json, 'cateringEventPostings') ? undefined : (0, CateringEventPostingsType_1.CateringEventPostingsTypeFromJSON)(json['cateringEventPostings']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'postingMasterReservations': !(0, runtime_1.exists)(json, 'postingMasterReservations') ? undefined : (0, BlockPostingAccountReservationsType_1.BlockPostingAccountReservationsTypeFromJSON)(json['postingMasterReservations']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'postingMasterReservations': !(0, runtime_1.exists)(json, 'postingMasterReservations') ? undefined : (json['postingMasterReservations'].map(BlockPostingReservationsType_1.BlockPostingReservationsTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CateringEventPostingsDetailFromJSONTyped = CateringEventPostingsDetailFromJSONTyped;
@@ -52,9 +52,9 @@ function CateringEventPostingsDetailToJSON(value) {
     }
     return {
         'cateringEventPostings': (0, CateringEventPostingsType_1.CateringEventPostingsTypeToJSON)(value.cateringEventPostings),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'postingMasterReservations': (0, BlockPostingAccountReservationsType_1.BlockPostingAccountReservationsTypeToJSON)(value.postingMasterReservations),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'postingMasterReservations': value.postingMasterReservations === undefined ? undefined : (value.postingMasterReservations.map(BlockPostingReservationsType_1.BlockPostingReservationsTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CateringEventPostingsDetailToJSON = CateringEventPostingsDetailToJSON;

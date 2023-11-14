@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MasterAccountSummaryTypeToJSON = exports.MasterAccountSummaryTypeFromJSONTyped = exports.MasterAccountSummaryTypeFromJSON = exports.instanceOfMasterAccountSummaryType = void 0;
 const runtime_1 = require("../runtime");
-const ReservationIdList_1 = require("./ReservationIdList");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the MasterAccountSummaryType interface.
  */
@@ -39,7 +39,7 @@ function MasterAccountSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
         'lastModifierId': !(0, runtime_1.exists)(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.MasterAccountSummaryTypeFromJSONTyped = MasterAccountSummaryTypeFromJSONTyped;
@@ -57,7 +57,7 @@ function MasterAccountSummaryTypeToJSON(value) {
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.MasterAccountSummaryTypeToJSON = MasterAccountSummaryTypeToJSON;

@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MoveReservationHotelDetailsToJSON = exports.MoveReservationHotelDetailsFromJSONTyped = exports.MoveReservationHotelDetailsFromJSON = exports.instanceOfMoveReservationHotelDetails = void 0;
 const runtime_1 = require("../runtime");
 const HotelReservationType_1 = require("./HotelReservationType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MoveReservationHotelDetails interface.
  */
@@ -35,9 +35,9 @@ function MoveReservationHotelDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'reservation': !(0, runtime_1.exists)(json, 'reservation') ? undefined : (0, HotelReservationType_1.HotelReservationTypeFromJSON)(json['reservation']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MoveReservationHotelDetailsFromJSONTyped = MoveReservationHotelDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function MoveReservationHotelDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'reservation': (0, HotelReservationType_1.HotelReservationTypeToJSON)(value.reservation),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MoveReservationHotelDetailsToJSON = MoveReservationHotelDetailsToJSON;

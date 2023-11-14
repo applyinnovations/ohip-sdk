@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PostingsInfoTypeToJSON = exports.PostingsInfoTypeFromJSONTyped = exports.PostingsInfoTypeFromJSON = exports.instanceOfPostingsInfoType = void 0;
 const runtime_1 = require("../runtime");
-const DetailPostingsType_1 = require("./DetailPostingsType");
-const TrxCodesInfoType_1 = require("./TrxCodesInfoType");
+const DetailPostingType_1 = require("./DetailPostingType");
+const TrxInfoType_1 = require("./TrxInfoType");
 /**
  * Check if a given object implements the PostingsInfoType interface.
  */
@@ -34,8 +34,8 @@ function PostingsInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'transactions': !(0, runtime_1.exists)(json, 'transactions') ? undefined : (0, DetailPostingsType_1.DetailPostingsTypeFromJSON)(json['transactions']),
-        'trxCodesInfo': !(0, runtime_1.exists)(json, 'trxCodesInfo') ? undefined : (0, TrxCodesInfoType_1.TrxCodesInfoTypeFromJSON)(json['trxCodesInfo']),
+        'transactions': !(0, runtime_1.exists)(json, 'transactions') ? undefined : (json['transactions'].map(DetailPostingType_1.DetailPostingTypeFromJSON)),
+        'trxCodesInfo': !(0, runtime_1.exists)(json, 'trxCodesInfo') ? undefined : (json['trxCodesInfo'].map(TrxInfoType_1.TrxInfoTypeFromJSON)),
     };
 }
 exports.PostingsInfoTypeFromJSONTyped = PostingsInfoTypeFromJSONTyped;
@@ -47,8 +47,8 @@ function PostingsInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'transactions': (0, DetailPostingsType_1.DetailPostingsTypeToJSON)(value.transactions),
-        'trxCodesInfo': (0, TrxCodesInfoType_1.TrxCodesInfoTypeToJSON)(value.trxCodesInfo),
+        'transactions': value.transactions === undefined ? undefined : (value.transactions.map(DetailPostingType_1.DetailPostingTypeToJSON)),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : (value.trxCodesInfo.map(TrxInfoType_1.TrxInfoTypeToJSON)),
     };
 }
 exports.PostingsInfoTypeToJSON = PostingsInfoTypeToJSON;

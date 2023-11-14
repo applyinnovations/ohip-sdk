@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ActivityLocationsType } from './ActivityLocationsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ActivityLocationType } from './ActivityLocationType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object after fetching the Activity Locations.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FetchActivityLocations {
     /**
-     *
-     * @type {ActivityLocationsType}
+     * Collection of Activity Locations.
+     * @type {Array<ActivityLocationType>}
      * @memberof FetchActivityLocations
      */
-    activityLocations?: ActivityLocationsType;
+    activityLocations?: Array<ActivityLocationType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchActivityLocations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchActivityLocations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FetchActivityLocations interface.

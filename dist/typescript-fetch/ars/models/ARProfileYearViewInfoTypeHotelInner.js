@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ARProfileYearViewInfoTypeHotelInnerToJSON = exports.ARProfileYearViewInfoTypeHotelInnerFromJSONTyped = exports.ARProfileYearViewInfoTypeHotelInnerFromJSON = exports.instanceOfARProfileYearViewInfoTypeHotelInner = void 0;
 const runtime_1 = require("../runtime");
-const ARAccountsType_1 = require("./ARAccountsType");
+const ARAccountType_1 = require("./ARAccountType");
 const ARYearViewInfoType_1 = require("./ARYearViewInfoType");
 /**
  * Check if a given object implements the ARProfileYearViewInfoTypeHotelInner interface.
@@ -34,7 +34,7 @@ function ARProfileYearViewInfoTypeHotelInnerFromJSONTyped(json, ignoreDiscrimina
         return json;
     }
     return {
-        'account': !(0, runtime_1.exists)(json, 'account') ? undefined : (0, ARAccountsType_1.ARAccountsTypeFromJSON)(json['account']),
+        'account': !(0, runtime_1.exists)(json, 'account') ? undefined : (json['account'].map(ARAccountType_1.ARAccountTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'totalHotelYearView': !(0, runtime_1.exists)(json, 'totalHotelYearView') ? undefined : (0, ARYearViewInfoType_1.ARYearViewInfoTypeFromJSON)(json['totalHotelYearView']),
     };
@@ -48,7 +48,7 @@ function ARProfileYearViewInfoTypeHotelInnerToJSON(value) {
         return null;
     }
     return {
-        'account': (0, ARAccountsType_1.ARAccountsTypeToJSON)(value.account),
+        'account': value.account === undefined ? undefined : (value.account.map(ARAccountType_1.ARAccountTypeToJSON)),
         'hotelId': value.hotelId,
         'totalHotelYearView': (0, ARYearViewInfoType_1.ARYearViewInfoTypeToJSON)(value.totalHotelYearView),
     };

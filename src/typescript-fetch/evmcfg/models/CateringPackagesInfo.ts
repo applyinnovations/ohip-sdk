@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CateringPackageListType } from './CateringPackageListType';
+import type { CateringPackageType } from './CateringPackageType';
 import {
-    CateringPackageListTypeFromJSON,
-    CateringPackageListTypeFromJSONTyped,
-    CateringPackageListTypeToJSON,
-} from './CateringPackageListType';
-import type { Links } from './Links';
+    CateringPackageTypeFromJSON,
+    CateringPackageTypeFromJSONTyped,
+    CateringPackageTypeToJSON,
+} from './CateringPackageType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -58,10 +58,10 @@ export interface CateringPackagesInfo {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringPackagesInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -69,11 +69,11 @@ export interface CateringPackagesInfo {
      */
     offset?: number;
     /**
-     * 
-     * @type {CateringPackageListType}
+     * Collection of multiple Catering Packages.
+     * @type {Array<CateringPackageType>}
      * @memberof CateringPackagesInfo
      */
-    pkgTmplts?: CateringPackageListType;
+    pkgTmplts?: Array<CateringPackageType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -87,11 +87,11 @@ export interface CateringPackagesInfo {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringPackagesInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -116,12 +116,12 @@ export function CateringPackagesInfoFromJSONTyped(json: any, ignoreDiscriminator
         'count': !exists(json, 'count') ? undefined : json['count'],
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
-        'pkgTmplts': !exists(json, 'pkgTmplts') ? undefined : CateringPackageListTypeFromJSON(json['pkgTmplts']),
+        'pkgTmplts': !exists(json, 'pkgTmplts') ? undefined : ((json['pkgTmplts'] as Array<any>).map(CateringPackageTypeFromJSON)),
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -137,12 +137,12 @@ export function CateringPackagesInfoToJSON(value?: CateringPackagesInfo | null):
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
-        'pkgTmplts': CateringPackageListTypeToJSON(value.pkgTmplts),
+        'pkgTmplts': value.pkgTmplts === undefined ? undefined : ((value.pkgTmplts as Array<any>).map(CateringPackageTypeToJSON)),
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

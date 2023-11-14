@@ -11,7 +11,7 @@
  */
 import type { MasterInfoType } from './MasterInfoType';
 import type { ProfilesType } from './ProfilesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching multiple detailed profiles by unique identifiers..
  * @export
@@ -31,11 +31,11 @@ export interface ProfileDetails {
      */
     profiles?: ProfilesType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileDetails interface.

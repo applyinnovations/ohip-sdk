@@ -12,8 +12,8 @@
 import type { CardAuthorizationTransactionType } from './CardAuthorizationTransactionType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { ProfileId } from './ProfileId';
-import type { ReservationIdList } from './ReservationIdList';
 import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Authorization approval record.
  * @export
@@ -57,11 +57,11 @@ export interface VaultHTTPTransactionMessageTypeAuthorizationApproval {
      */
     profileId?: ProfileId;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof VaultHTTPTransactionMessageTypeAuthorizationApproval
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {CardAuthorizationTransactionType}

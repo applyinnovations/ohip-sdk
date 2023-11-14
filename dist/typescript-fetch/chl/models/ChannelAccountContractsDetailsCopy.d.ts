@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChannelAccountContractsCopyResponseType } from './ChannelAccountContractsCopyResponseType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ChannelAccountContractCopyResponseType } from './ChannelAccountContractCopyResponseType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object of the Channel account contract copy request.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ChannelAccountContractsDetailsCopy {
     /**
-     *
-     * @type {ChannelAccountContractsCopyResponseType}
+     * List of channel account contracts information to create a copy of.
+     * @type {Array<ChannelAccountContractCopyResponseType>}
      * @memberof ChannelAccountContractsDetailsCopy
      */
-    channelAccountContractsCopyResponse?: ChannelAccountContractsCopyResponseType;
+    channelAccountContractsCopyResponse?: Array<ChannelAccountContractCopyResponseType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelAccountContractsDetailsCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelAccountContractsDetailsCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelAccountContractsDetailsCopy interface.

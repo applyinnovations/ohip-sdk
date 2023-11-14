@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CheckIataNumberType } from './CheckIataNumberType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object to fetch IATA Number validation for Travel Agency Profile.
  * @export
@@ -26,16 +26,16 @@ export interface IataNumberDetails {
     checkIataNumberInfo?: CheckIataNumberType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof IataNumberDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof IataNumberDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the IataNumberDetails interface.

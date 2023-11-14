@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ARPaymentsCriteriaType } from './ARPaymentsCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to post a payment to an AR Account and apply the payment to Invoices..
  * @export
@@ -26,16 +26,16 @@ export interface ArPaymentsToBeCreated {
     criteria?: ARPaymentsCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ArPaymentsToBeCreated
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ArPaymentsToBeCreated
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ArPaymentsToBeCreated interface.

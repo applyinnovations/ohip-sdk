@@ -31,18 +31,18 @@ import {
     HotelReservationsIDTypeFromJSONTyped,
     HotelReservationsIDTypeToJSON,
 } from './HotelReservationsIDType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request type for associating reservations to Travel Agent or Source Profile.
@@ -64,10 +64,10 @@ export interface AssociateCommissionAgentToReservations {
     instructions?: CommissionReservationInstructionsType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AssociateCommissionAgentToReservations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {HotelReservationsIDType}
@@ -75,11 +75,11 @@ export interface AssociateCommissionAgentToReservations {
      */
     reservations?: HotelReservationsIDType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AssociateCommissionAgentToReservations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -103,9 +103,9 @@ export function AssociateCommissionAgentToReservationsFromJSONTyped(json: any, i
         
         'commissionAgent': !exists(json, 'commissionAgent') ? undefined : CommissionAgentIDTypeFromJSON(json['commissionAgent']),
         'instructions': !exists(json, 'instructions') ? undefined : CommissionReservationInstructionsTypeFromJSON(json['instructions']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservations': !exists(json, 'reservations') ? undefined : HotelReservationsIDTypeFromJSON(json['reservations']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -120,9 +120,9 @@ export function AssociateCommissionAgentToReservationsToJSON(value?: AssociateCo
         
         'commissionAgent': CommissionAgentIDTypeToJSON(value.commissionAgent),
         'instructions': CommissionReservationInstructionsTypeToJSON(value.instructions),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservations': HotelReservationsIDTypeToJSON(value.reservations),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

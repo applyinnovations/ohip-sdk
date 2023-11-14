@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CreateBlockRestrictionType } from './CreateBlockRestrictionType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request for CreateBlockRestriction operation.
  * @export
@@ -26,16 +26,16 @@ export interface BlockRestriction {
     createBlockRestriction?: CreateBlockRestrictionType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockRestriction
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockRestriction
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockRestriction interface.

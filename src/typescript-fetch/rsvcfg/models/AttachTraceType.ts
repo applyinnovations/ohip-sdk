@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-
 /**
  * Auto attach trace element.
  * @export
@@ -28,10 +21,10 @@ import {
 export interface AttachTraceType {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof AttachTraceType
      */
-    departments?: CodeListType;
+    departments?: Array<string>;
     /**
      * The trace text that will be sent to the selected department(s) when Trace is selected as the Rule Type.
      * @type {string}
@@ -59,7 +52,7 @@ export function AttachTraceTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'departments': !exists(json, 'departments') ? undefined : CodeListTypeFromJSON(json['departments']),
+        'departments': !exists(json, 'departments') ? undefined : json['departments'],
         'traceText': !exists(json, 'traceText') ? undefined : json['traceText'],
     };
 }
@@ -73,7 +66,7 @@ export function AttachTraceTypeToJSON(value?: AttachTraceType | null): any {
     }
     return {
         
-        'departments': CodeListTypeToJSON(value.departments),
+        'departments': value.departments,
         'traceText': value.traceText,
     };
 }

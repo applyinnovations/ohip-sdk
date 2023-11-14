@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { NextBlockStatusCodeListType } from './NextBlockStatusCodeListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { NextBlockStatusCodeType } from './NextBlockStatusCodeType';
 import {
-    NextBlockStatusCodeListTypeFromJSON,
-    NextBlockStatusCodeListTypeFromJSONTyped,
-    NextBlockStatusCodeListTypeToJSON,
-} from './NextBlockStatusCodeListType';
-import type { WarningsType } from './WarningsType';
+    NextBlockStatusCodeTypeFromJSON,
+    NextBlockStatusCodeTypeFromJSONTyped,
+    NextBlockStatusCodeTypeToJSON,
+} from './NextBlockStatusCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for change block status code flow. Batch insert/update/delete of next status code list of a particular status code.
@@ -40,22 +40,22 @@ import {
 export interface NextBlockStatusCode {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof NextBlockStatusCode
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {NextBlockStatusCodeListType}
+     * Block status code with its next configured and/or available status codes.
+     * @type {Array<NextBlockStatusCodeType>}
      * @memberof NextBlockStatusCode
      */
-    nextBlockStatusCodeList?: NextBlockStatusCodeListType;
+    nextBlockStatusCodeList?: Array<NextBlockStatusCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof NextBlockStatusCode
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function NextBlockStatusCodeFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'nextBlockStatusCodeList': !exists(json, 'nextBlockStatusCodeList') ? undefined : NextBlockStatusCodeListTypeFromJSON(json['nextBlockStatusCodeList']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'nextBlockStatusCodeList': !exists(json, 'nextBlockStatusCodeList') ? undefined : ((json['nextBlockStatusCodeList'] as Array<any>).map(NextBlockStatusCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function NextBlockStatusCodeToJSON(value?: NextBlockStatusCode | null): a
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'nextBlockStatusCodeList': NextBlockStatusCodeListTypeToJSON(value.nextBlockStatusCodeList),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'nextBlockStatusCodeList': value.nextBlockStatusCodeList === undefined ? undefined : ((value.nextBlockStatusCodeList as Array<any>).map(NextBlockStatusCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

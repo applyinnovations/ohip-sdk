@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { HotelReservationType } from './HotelReservationType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * This API will potentially remove the following information to a moved reservation: - Routing Instructions - All routing information will have to be configured in the new hotel. - Packages - All packages will need to be re-configured, if it exist, in the new hotel. - Imperfect Share - An imperfect share was requested to be moved and has been ignored.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface MoveReservationHotelDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MoveReservationHotelDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {HotelReservationType}
@@ -31,11 +31,11 @@ export interface MoveReservationHotelDetails {
      */
     reservation?: HotelReservationType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MoveReservationHotelDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MoveReservationHotelDetails interface.

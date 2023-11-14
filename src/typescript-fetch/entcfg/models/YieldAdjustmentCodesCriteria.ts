@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
-import type { YieldAdjustmentCodesType } from './YieldAdjustmentCodesType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
+import type { YieldAdjustmentCodeType } from './YieldAdjustmentCodeType';
 import {
-    YieldAdjustmentCodesTypeFromJSON,
-    YieldAdjustmentCodesTypeFromJSONTyped,
-    YieldAdjustmentCodesTypeToJSON,
-} from './YieldAdjustmentCodesType';
+    YieldAdjustmentCodeTypeFromJSON,
+    YieldAdjustmentCodeTypeFromJSONTyped,
+    YieldAdjustmentCodeTypeToJSON,
+} from './YieldAdjustmentCodeType';
 
 /**
  * Request object for creating new Yield AdjustmentCodes Configurations.
@@ -40,22 +40,22 @@ import {
 export interface YieldAdjustmentCodesCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof YieldAdjustmentCodesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof YieldAdjustmentCodesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
     /**
-     * 
-     * @type {YieldAdjustmentCodesType}
+     * Holds Yield AdjustmentCodes details.
+     * @type {Array<YieldAdjustmentCodeType>}
      * @memberof YieldAdjustmentCodesCriteria
      */
-    yieldAdjustmentCodes?: YieldAdjustmentCodesType;
+    yieldAdjustmentCodes?: Array<YieldAdjustmentCodeType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function YieldAdjustmentCodesCriteriaFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
-        'yieldAdjustmentCodes': !exists(json, 'yieldAdjustmentCodes') ? undefined : YieldAdjustmentCodesTypeFromJSON(json['yieldAdjustmentCodes']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
+        'yieldAdjustmentCodes': !exists(json, 'yieldAdjustmentCodes') ? undefined : ((json['yieldAdjustmentCodes'] as Array<any>).map(YieldAdjustmentCodeTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function YieldAdjustmentCodesCriteriaToJSON(value?: YieldAdjustmentCodesC
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
-        'yieldAdjustmentCodes': YieldAdjustmentCodesTypeToJSON(value.yieldAdjustmentCodes),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
+        'yieldAdjustmentCodes': value.yieldAdjustmentCodes === undefined ? undefined : ((value.yieldAdjustmentCodes as Array<any>).map(YieldAdjustmentCodeTypeToJSON)),
     };
 }
 

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MarketCodesDetailsToJSON = exports.MarketCodesDetailsFromJSONTyped = exports.MarketCodesDetailsFromJSON = exports.instanceOfMarketCodesDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const MarketCodesType_1 = require("./MarketCodesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const MarketCodeType_1 = require("./MarketCodeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MarketCodesDetails interface.
  */
@@ -38,12 +38,12 @@ function MarketCodesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         'count': !(0, runtime_1.exists)(json, 'count') ? undefined : json['count'],
         'hasMore': !(0, runtime_1.exists)(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'marketCodes': !(0, runtime_1.exists)(json, 'marketCodes') ? undefined : (0, MarketCodesType_1.MarketCodesTypeFromJSON)(json['marketCodes']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'marketCodes': !(0, runtime_1.exists)(json, 'marketCodes') ? undefined : (json['marketCodes'].map(MarketCodeType_1.MarketCodeTypeFromJSON)),
         'offset': !(0, runtime_1.exists)(json, 'offset') ? undefined : json['offset'],
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !(0, runtime_1.exists)(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MarketCodesDetailsFromJSONTyped = MarketCodesDetailsFromJSONTyped;
@@ -58,12 +58,12 @@ function MarketCodesDetailsToJSON(value) {
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'marketCodes': (0, MarketCodesType_1.MarketCodesTypeToJSON)(value.marketCodes),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'marketCodes': value.marketCodes === undefined ? undefined : (value.marketCodes.map(MarketCodeType_1.MarketCodeTypeToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MarketCodesDetailsToJSON = MarketCodesDetailsToJSON;

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthorizerGroupsToJSON = exports.AuthorizerGroupsFromJSONTyped = exports.AuthorizerGroupsFromJSON = exports.instanceOfAuthorizerGroups = void 0;
 const runtime_1 = require("../runtime");
-const AuthorizerGroupsType_1 = require("./AuthorizerGroupsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const AuthorizerGroupType_1 = require("./AuthorizerGroupType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AuthorizerGroups interface.
  */
@@ -35,9 +35,9 @@ function AuthorizerGroupsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'authorizerGroups': !(0, runtime_1.exists)(json, 'authorizerGroups') ? undefined : (0, AuthorizerGroupsType_1.AuthorizerGroupsTypeFromJSON)(json['authorizerGroups']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'authorizerGroups': !(0, runtime_1.exists)(json, 'authorizerGroups') ? undefined : (json['authorizerGroups'].map(AuthorizerGroupType_1.AuthorizerGroupTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AuthorizerGroupsFromJSONTyped = AuthorizerGroupsFromJSONTyped;
@@ -49,9 +49,9 @@ function AuthorizerGroupsToJSON(value) {
         return null;
     }
     return {
-        'authorizerGroups': (0, AuthorizerGroupsType_1.AuthorizerGroupsTypeToJSON)(value.authorizerGroups),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'authorizerGroups': value.authorizerGroups === undefined ? undefined : (value.authorizerGroups.map(AuthorizerGroupType_1.AuthorizerGroupTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AuthorizerGroupsToJSON = AuthorizerGroupsToJSON;

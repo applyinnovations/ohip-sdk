@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SuspendedProfileMatchStatsToJSON = exports.SuspendedProfileMatchStatsFromJSONTyped = exports.SuspendedProfileMatchStatsFromJSON = exports.instanceOfSuspendedProfileMatchStats = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const SuspendedProfileMatchStatsType_1 = require("./SuspendedProfileMatchStatsType");
+const InstanceLink_1 = require("./InstanceLink");
+const SuspendedProfileMatchStatType_1 = require("./SuspendedProfileMatchStatType");
 /**
  * Check if a given object implements the SuspendedProfileMatchStats interface.
  */
@@ -34,8 +34,8 @@ function SuspendedProfileMatchStatsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'suspendedProfileMatchStat': !(0, runtime_1.exists)(json, 'suspendedProfileMatchStat') ? undefined : (0, SuspendedProfileMatchStatsType_1.SuspendedProfileMatchStatsTypeFromJSON)(json['suspendedProfileMatchStat']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'suspendedProfileMatchStat': !(0, runtime_1.exists)(json, 'suspendedProfileMatchStat') ? undefined : (json['suspendedProfileMatchStat'].map(SuspendedProfileMatchStatType_1.SuspendedProfileMatchStatTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.SuspendedProfileMatchStatsFromJSONTyped = SuspendedProfileMatchStatsFromJSONTyped;
@@ -47,8 +47,8 @@ function SuspendedProfileMatchStatsToJSON(value) {
         return null;
     }
     return {
-        'suspendedProfileMatchStat': (0, SuspendedProfileMatchStatsType_1.SuspendedProfileMatchStatsTypeToJSON)(value.suspendedProfileMatchStat),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'suspendedProfileMatchStat': value.suspendedProfileMatchStat === undefined ? undefined : (value.suspendedProfileMatchStat.map(SuspendedProfileMatchStatType_1.SuspendedProfileMatchStatTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.SuspendedProfileMatchStatsToJSON = SuspendedProfileMatchStatsToJSON;

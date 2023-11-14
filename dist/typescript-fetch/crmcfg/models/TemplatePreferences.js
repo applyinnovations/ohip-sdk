@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplatePreferencesToJSON = exports.TemplatePreferencesFromJSONTyped = exports.TemplatePreferencesFromJSON = exports.instanceOfTemplatePreferences = void 0;
 const runtime_1 = require("../runtime");
-const ConfigTemplatePreferencesType_1 = require("./ConfigTemplatePreferencesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ConfigTemplatePreferenceType_1 = require("./ConfigTemplatePreferenceType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TemplatePreferences interface.
  */
@@ -35,9 +35,9 @@ function TemplatePreferencesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'templatePreferences': !(0, runtime_1.exists)(json, 'templatePreferences') ? undefined : (0, ConfigTemplatePreferencesType_1.ConfigTemplatePreferencesTypeFromJSON)(json['templatePreferences']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'templatePreferences': !(0, runtime_1.exists)(json, 'templatePreferences') ? undefined : (json['templatePreferences'].map(ConfigTemplatePreferenceType_1.ConfigTemplatePreferenceTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TemplatePreferencesFromJSONTyped = TemplatePreferencesFromJSONTyped;
@@ -49,9 +49,9 @@ function TemplatePreferencesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'templatePreferences': (0, ConfigTemplatePreferencesType_1.ConfigTemplatePreferencesTypeToJSON)(value.templatePreferences),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'templatePreferences': value.templatePreferences === undefined ? undefined : (value.templatePreferences.map(ConfigTemplatePreferenceType_1.ConfigTemplatePreferenceTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TemplatePreferencesToJSON = TemplatePreferencesToJSON;

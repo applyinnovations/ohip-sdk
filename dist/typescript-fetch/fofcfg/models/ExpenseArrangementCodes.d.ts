@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ExpenseArrangementCodesType } from './ExpenseArrangementCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ExpenseArrangementCodeType } from './ExpenseArrangementCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ExpenseArrangementCodes {
     /**
-     *
-     * @type {ExpenseArrangementCodesType}
+     * Details for expense arrangement code along with associated transaction codes.
+     * @type {Array<ExpenseArrangementCodeType>}
      * @memberof ExpenseArrangementCodes
      */
-    expenseArrangementCodes?: ExpenseArrangementCodesType;
+    expenseArrangementCodes?: Array<ExpenseArrangementCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExpenseArrangementCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ExpenseArrangementCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ExpenseArrangementCodes interface.

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { SellLimitByDateType } from './SellLimitByDateType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * A Request message that sets sell limit for a particular date for all the levels House, room type and room class. The request can contain the number type in which the sell limits is to be fetched for the different levels.
  * @export
@@ -24,11 +24,11 @@ export interface SellLimit {
      */
     sellLimitsByDate?: SellLimitByDateType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SellLimit
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SellLimit interface.

@@ -31,12 +31,12 @@ import {
     UniqueIDTypeFromJSONTyped,
     UniqueIDTypeToJSON,
 } from './UniqueIDType';
-import type { UpsellDailyRatesType } from './UpsellDailyRatesType';
+import type { UpsellDailyRateType } from './UpsellDailyRateType';
 import {
-    UpsellDailyRatesTypeFromJSON,
-    UpsellDailyRatesTypeFromJSONTyped,
-    UpsellDailyRatesTypeToJSON,
-} from './UpsellDailyRatesType';
+    UpsellDailyRateTypeFromJSON,
+    UpsellDailyRateTypeFromJSONTyped,
+    UpsellDailyRateTypeToJSON,
+} from './UpsellDailyRateType';
 
 /**
  * Holds upsell information
@@ -63,11 +63,11 @@ export interface UpsellType {
      */
     ratePlanCode?: string;
     /**
-     * 
-     * @type {UpsellDailyRatesType}
+     * Reservation date and its corresponding upsell rate amount
+     * @type {Array<UpsellDailyRateType>}
      * @memberof UpsellType
      */
-    rates?: UpsellDailyRatesType;
+    rates?: Array<UpsellDailyRateType>;
     /**
      * 
      * @type {RoomTypeInfoType}
@@ -128,7 +128,7 @@ export function UpsellTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'firstNightAmount': !exists(json, 'firstNightAmount') ? undefined : AmountPointsTypeFromJSON(json['firstNightAmount']),
         'percentageSavings': !exists(json, 'percentageSavings') ? undefined : json['percentageSavings'],
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
-        'rates': !exists(json, 'rates') ? undefined : UpsellDailyRatesTypeFromJSON(json['rates']),
+        'rates': !exists(json, 'rates') ? undefined : ((json['rates'] as Array<any>).map(UpsellDailyRateTypeFromJSON)),
         'roomType': !exists(json, 'roomType') ? undefined : RoomTypeInfoTypeFromJSON(json['roomType']),
         'ruleCode': !exists(json, 'ruleCode') ? undefined : json['ruleCode'],
         'ruleDescription': !exists(json, 'ruleDescription') ? undefined : json['ruleDescription'],
@@ -150,7 +150,7 @@ export function UpsellTypeToJSON(value?: UpsellType | null): any {
         'firstNightAmount': AmountPointsTypeToJSON(value.firstNightAmount),
         'percentageSavings': value.percentageSavings,
         'ratePlanCode': value.ratePlanCode,
-        'rates': UpsellDailyRatesTypeToJSON(value.rates),
+        'rates': value.rates === undefined ? undefined : ((value.rates as Array<any>).map(UpsellDailyRateTypeToJSON)),
         'roomType': RoomTypeInfoTypeToJSON(value.roomType),
         'ruleCode': value.ruleCode,
         'ruleDescription': value.ruleDescription,

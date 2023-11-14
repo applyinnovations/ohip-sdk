@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { MembershipPointsCalculationType } from './MembershipPointsCalculationType';
 import {
     MembershipPointsCalculationTypeFromJSON,
     MembershipPointsCalculationTypeFromJSONTyped,
     MembershipPointsCalculationTypeToJSON,
 } from './MembershipPointsCalculationType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to run membership points calculation job.
@@ -40,10 +40,10 @@ import {
 export interface MembershipPointsToCalculate {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipPointsToCalculate
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {MembershipPointsCalculationType}
@@ -51,11 +51,11 @@ export interface MembershipPointsToCalculate {
      */
     membershipPointsCalculation?: MembershipPointsCalculationType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipPointsToCalculate
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MembershipPointsToCalculateFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'membershipPointsCalculation': !exists(json, 'membershipPointsCalculation') ? undefined : MembershipPointsCalculationTypeFromJSON(json['membershipPointsCalculation']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MembershipPointsToCalculateToJSON(value?: MembershipPointsToCalc
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'membershipPointsCalculation': MembershipPointsCalculationTypeToJSON(value.membershipPointsCalculation),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

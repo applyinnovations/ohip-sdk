@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CardRangesType } from './CardRangesType';
+import type { CardRangeType } from './CardRangeType';
 import type { MembershipCardValidationRuleTypeType } from './MembershipCardValidationRuleTypeType';
 /**
  * Payment method card validation rules.
@@ -36,11 +36,11 @@ export interface MembershipCardValidationRuleType {
      */
     prefix?: string;
     /**
-     *
-     * @type {CardRangesType}
+     * Card number start and end range.
+     * @type {Array<CardRangeType>}
      * @memberof MembershipCardValidationRuleType
      */
-    ranges?: CardRangesType;
+    ranges?: Array<CardRangeType>;
     /**
      *
      * @type {MembershipCardValidationRuleTypeType}

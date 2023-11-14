@@ -12,9 +12,9 @@
 import type { CancelReservationType } from './CancelReservationType';
 import type { CancellationActivityType } from './CancellationActivityType';
 import type { ChannelResvRSInfoType } from './ChannelResvRSInfoType';
-import type { DailyRatesType } from './DailyRatesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { DailyRateType } from './DailyRateType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for the request to cancel reservations. Response contains the reservations which were successfully canceled.
  * @export
@@ -35,22 +35,22 @@ export interface CancelReservationDetails {
     cxlActivityLog?: Array<CancellationActivityType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CancelReservationDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {DailyRatesType}
+     * Defines room rate information on a daily basis.
+     * @type {Array<DailyRateType>}
      * @memberof CancelReservationDetails
      */
-    newRates?: DailyRatesType;
+    newRates?: Array<DailyRateType>;
     /**
-     *
-     * @type {DailyRatesType}
+     * Defines room rate information on a daily basis.
+     * @type {Array<DailyRateType>}
      * @memberof CancelReservationDetails
      */
-    oldRates?: DailyRatesType;
+    oldRates?: Array<DailyRateType>;
     /**
      * Information regarding the reservation which was canceled.
      * @type {Array<CancelReservationType>}
@@ -58,11 +58,11 @@ export interface CancelReservationDetails {
      */
     reservations?: Array<CancelReservationType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CancelReservationDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CancelReservationDetails interface.

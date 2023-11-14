@@ -17,7 +17,7 @@ exports.RoomRoomTypeToJSON = exports.RoomRoomTypeFromJSONTyped = exports.RoomRoo
 const runtime_1 = require("../runtime");
 const CodeDescriptionType_1 = require("./CodeDescriptionType");
 const RatePlanRatingType_1 = require("./RatePlanRatingType");
-const RoomFeaturesType_1 = require("./RoomFeaturesType");
+const RoomFeatureType_1 = require("./RoomFeatureType");
 const RoomTypeShortInfoType_1 = require("./RoomTypeShortInfoType");
 const TranslationTextType2000_1 = require("./TranslationTextType2000");
 /**
@@ -46,7 +46,7 @@ function RoomRoomTypeFromJSONTyped(json, ignoreDiscriminator) {
         'roomAssignmentRating': !(0, runtime_1.exists)(json, 'roomAssignmentRating') ? undefined : (0, RatePlanRatingType_1.RatePlanRatingTypeFromJSON)(json['roomAssignmentRating']),
         'roomCondition': !(0, runtime_1.exists)(json, 'roomCondition') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['roomCondition']),
         'roomDescription': !(0, runtime_1.exists)(json, 'roomDescription') ? undefined : json['roomDescription'],
-        'roomFeatures': !(0, runtime_1.exists)(json, 'roomFeatures') ? undefined : (0, RoomFeaturesType_1.RoomFeaturesTypeFromJSON)(json['roomFeatures']),
+        'roomFeatures': !(0, runtime_1.exists)(json, 'roomFeatures') ? undefined : (json['roomFeatures'].map(RoomFeatureType_1.RoomFeatureTypeFromJSON)),
         'roomId': !(0, runtime_1.exists)(json, 'roomId') ? undefined : json['roomId'],
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : (0, RoomTypeShortInfoType_1.RoomTypeShortInfoTypeFromJSON)(json['roomType']),
         'smokingPreference': !(0, runtime_1.exists)(json, 'smokingPreference') ? undefined : json['smokingPreference'],
@@ -71,7 +71,7 @@ function RoomRoomTypeToJSON(value) {
         'roomAssignmentRating': (0, RatePlanRatingType_1.RatePlanRatingTypeToJSON)(value.roomAssignmentRating),
         'roomCondition': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.roomCondition),
         'roomDescription': value.roomDescription,
-        'roomFeatures': (0, RoomFeaturesType_1.RoomFeaturesTypeToJSON)(value.roomFeatures),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : (value.roomFeatures.map(RoomFeatureType_1.RoomFeatureTypeToJSON)),
         'roomId': value.roomId,
         'roomType': (0, RoomTypeShortInfoType_1.RoomTypeShortInfoTypeToJSON)(value.roomType),
         'smokingPreference': value.smokingPreference,

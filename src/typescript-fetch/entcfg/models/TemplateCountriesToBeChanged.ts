@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateCountriesType } from './TemplateCountriesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TemplateCountryType } from './TemplateCountryType';
 import {
-    TemplateCountriesTypeFromJSON,
-    TemplateCountriesTypeFromJSONTyped,
-    TemplateCountriesTypeToJSON,
-} from './TemplateCountriesType';
-import type { WarningsType } from './WarningsType';
+    TemplateCountryTypeFromJSON,
+    TemplateCountryTypeFromJSONTyped,
+    TemplateCountryTypeToJSON,
+} from './TemplateCountryType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for modifying template Countries.
@@ -40,22 +40,22 @@ import {
 export interface TemplateCountriesToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateCountriesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TemplateCountriesType}
+     * Template of country details.
+     * @type {Array<TemplateCountryType>}
      * @memberof TemplateCountriesToBeChanged
      */
-    templateCountries?: TemplateCountriesType;
+    templateCountries?: Array<TemplateCountryType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateCountriesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateCountriesToBeChangedFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'templateCountries': !exists(json, 'templateCountries') ? undefined : TemplateCountriesTypeFromJSON(json['templateCountries']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'templateCountries': !exists(json, 'templateCountries') ? undefined : ((json['templateCountries'] as Array<any>).map(TemplateCountryTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateCountriesToBeChangedToJSON(value?: TemplateCountriesToBe
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'templateCountries': TemplateCountriesTypeToJSON(value.templateCountries),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'templateCountries': value.templateCountries === undefined ? undefined : ((value.templateCountries as Array<any>).map(TemplateCountryTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,36 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { InstanceLink } from './InstanceLink';
+import {
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { LinkReservationsCriteriaResponseInstruction } from './LinkReservationsCriteriaResponseInstruction';
 import {
     LinkReservationsCriteriaResponseInstructionFromJSON,
     LinkReservationsCriteriaResponseInstructionFromJSONTyped,
     LinkReservationsCriteriaResponseInstructionToJSON,
 } from './LinkReservationsCriteriaResponseInstruction';
-import type { Links } from './Links';
-import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ReservationIdList } from './ReservationIdList';
-import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
     UniqueIDTypeFromJSONTyped,
     UniqueIDTypeToJSON,
 } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to link a list of reservations with another existing reservation.
@@ -58,16 +52,16 @@ export interface LinkReservationsCriteria {
     linkToReservationId?: UniqueIDType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof LinkReservationsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof LinkReservationsCriteria
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {LinkReservationsCriteriaResponseInstruction}
@@ -75,11 +69,11 @@ export interface LinkReservationsCriteria {
      */
     responseInstruction?: LinkReservationsCriteriaResponseInstruction;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof LinkReservationsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -102,10 +96,10 @@ export function LinkReservationsCriteriaFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         'linkToReservationId': !exists(json, 'linkToReservationId') ? undefined : UniqueIDTypeFromJSON(json['linkToReservationId']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'responseInstruction': !exists(json, 'responseInstruction') ? undefined : LinkReservationsCriteriaResponseInstructionFromJSON(json['responseInstruction']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -119,10 +113,10 @@ export function LinkReservationsCriteriaToJSON(value?: LinkReservationsCriteria 
     return {
         
         'linkToReservationId': UniqueIDTypeToJSON(value.linkToReservationId),
-        'links': LinksToJSON(value.links),
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'responseInstruction': LinkReservationsCriteriaResponseInstructionToJSON(value.responseInstruction),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

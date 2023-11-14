@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ConfirmationsType } from './ConfirmationsType';
+import type { ConfirmationType } from './ConfirmationType';
 import {
-    ConfirmationsTypeFromJSON,
-    ConfirmationsTypeFromJSONTyped,
-    ConfirmationsTypeToJSON,
-} from './ConfirmationsType';
+    ConfirmationTypeFromJSON,
+    ConfirmationTypeFromJSONTyped,
+    ConfirmationTypeToJSON,
+} from './ConfirmationType';
 import type { ReservationInfoType } from './ReservationInfoType';
 import {
     ReservationInfoTypeFromJSON,
@@ -33,11 +33,11 @@ import {
  */
 export interface ReservationConfLettersType {
     /**
-     * 
-     * @type {ConfirmationsType}
+     * List of confirmation letters.
+     * @type {Array<ConfirmationType>}
      * @memberof ReservationConfLettersType
      */
-    confLetters?: ConfirmationsType;
+    confLetters?: Array<ConfirmationType>;
     /**
      * 
      * @type {ReservationInfoType}
@@ -65,7 +65,7 @@ export function ReservationConfLettersTypeFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'confLetters': !exists(json, 'confLetters') ? undefined : ConfirmationsTypeFromJSON(json['confLetters']),
+        'confLetters': !exists(json, 'confLetters') ? undefined : ((json['confLetters'] as Array<any>).map(ConfirmationTypeFromJSON)),
         'reservation': !exists(json, 'reservation') ? undefined : ReservationInfoTypeFromJSON(json['reservation']),
     };
 }
@@ -79,7 +79,7 @@ export function ReservationConfLettersTypeToJSON(value?: ReservationConfLettersT
     }
     return {
         
-        'confLetters': ConfirmationsTypeToJSON(value.confLetters),
+        'confLetters': value.confLetters === undefined ? undefined : ((value.confLetters as Array<any>).map(ConfirmationTypeToJSON)),
         'reservation': ReservationInfoTypeToJSON(value.reservation),
     };
 }

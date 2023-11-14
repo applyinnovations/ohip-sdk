@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { OperaRecordLock } from './OperaRecordLock';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * This response will indicate whether or not the extension was successful. This operation may return errors when the lock being requested to be extended no longer exists. This can happen when the lock has already expired and cleaned up.
  * @export
@@ -26,16 +26,16 @@ export interface ExtendedCashierLock {
     cashierLock?: OperaRecordLock;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExtendedCashierLock
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ExtendedCashierLock
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ExtendedCashierLock interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MailingActionCodesType } from './MailingActionCodesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MailingActionCodeType } from './MailingActionCodeType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Mailing Action Codes.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MailingActionCodesToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MailingActionCodesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MailingActionCodesType}
+     * List of Mailing Action Codes.
+     * @type {Array<MailingActionCodeType>}
      * @memberof MailingActionCodesToBeChanged
      */
-    mailingActionCodes?: MailingActionCodesType;
+    mailingActionCodes?: Array<MailingActionCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MailingActionCodesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MailingActionCodesToBeChanged interface.

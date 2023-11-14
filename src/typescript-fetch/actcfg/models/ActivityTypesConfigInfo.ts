@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ActivityConfigListType } from './ActivityConfigListType';
+import type { ActivityConfigTypeDetailType } from './ActivityConfigTypeDetailType';
 import {
-    ActivityConfigListTypeFromJSON,
-    ActivityConfigListTypeFromJSONTyped,
-    ActivityConfigListTypeToJSON,
-} from './ActivityConfigListType';
-import type { Links } from './Links';
+    ActivityConfigTypeDetailTypeFromJSON,
+    ActivityConfigTypeDetailTypeFromJSONTyped,
+    ActivityConfigTypeDetailTypeToJSON,
+} from './ActivityConfigTypeDetailType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating/changing activity types.
@@ -39,23 +39,23 @@ import {
  */
 export interface ActivityTypesConfigInfo {
     /**
-     * 
-     * @type {ActivityConfigListType}
+     * Detailed information of activity type.
+     * @type {Array<ActivityConfigTypeDetailType>}
      * @memberof ActivityTypesConfigInfo
      */
-    activityConfigTypes?: ActivityConfigListType;
+    activityConfigTypes?: Array<ActivityConfigTypeDetailType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ActivityTypesConfigInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ActivityTypesConfigInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ActivityTypesConfigInfoFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'activityConfigTypes': !exists(json, 'activityConfigTypes') ? undefined : ActivityConfigListTypeFromJSON(json['activityConfigTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'activityConfigTypes': !exists(json, 'activityConfigTypes') ? undefined : ((json['activityConfigTypes'] as Array<any>).map(ActivityConfigTypeDetailTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ActivityTypesConfigInfoToJSON(value?: ActivityTypesConfigInfo | 
     }
     return {
         
-        'activityConfigTypes': ActivityConfigListTypeToJSON(value.activityConfigTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'activityConfigTypes': value.activityConfigTypes === undefined ? undefined : ((value.activityConfigTypes as Array<any>).map(ActivityConfigTypeDetailTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

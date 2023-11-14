@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { OpportunityBlockInfoType } from './OpportunityBlockInfoType';
 import type { OpportunityEventInfoType } from './OpportunityEventInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Object containing details of the catering events which will be added to the Opportunity Block.
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface OpportunityEvents {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof OpportunityEvents
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {OpportunityBlockInfoType}
@@ -38,11 +38,11 @@ export interface OpportunityEvents {
      */
     opportunityEventDetails?: Array<OpportunityEventInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OpportunityEvents
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the OpportunityEvents interface.

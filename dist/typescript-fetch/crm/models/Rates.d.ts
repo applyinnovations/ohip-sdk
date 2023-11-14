@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MembershipTransactionRatesType } from './MembershipTransactionRatesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Membership Transaction Rates information.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface Rates {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Rates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {MembershipTransactionRatesType}
@@ -31,11 +31,11 @@ export interface Rates {
      */
     rate?: MembershipTransactionRatesType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Rates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Rates interface.

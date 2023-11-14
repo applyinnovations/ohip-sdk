@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.QuickInsertResourceStatusToJSON = exports.QuickInsertResourceStatusFromJSONTyped = exports.QuickInsertResourceStatusFromJSON = exports.instanceOfQuickInsertResourceStatus = void 0;
 const runtime_1 = require("../runtime");
-const CopyCateringEventsProcessedInfoList_1 = require("./CopyCateringEventsProcessedInfoList");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CateringEventsProcessedInfoType_1 = require("./CateringEventsProcessedInfoType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the QuickInsertResourceStatus interface.
  */
@@ -35,9 +35,9 @@ function QuickInsertResourceStatusFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'quickinsertResourcesProcessedInfo': !(0, runtime_1.exists)(json, 'quickinsertResourcesProcessedInfo') ? undefined : (0, CopyCateringEventsProcessedInfoList_1.CopyCateringEventsProcessedInfoListFromJSON)(json['quickinsertResourcesProcessedInfo']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'quickinsertResourcesProcessedInfo': !(0, runtime_1.exists)(json, 'quickinsertResourcesProcessedInfo') ? undefined : (json['quickinsertResourcesProcessedInfo'].map(CateringEventsProcessedInfoType_1.CateringEventsProcessedInfoTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.QuickInsertResourceStatusFromJSONTyped = QuickInsertResourceStatusFromJSONTyped;
@@ -49,9 +49,9 @@ function QuickInsertResourceStatusToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'quickinsertResourcesProcessedInfo': (0, CopyCateringEventsProcessedInfoList_1.CopyCateringEventsProcessedInfoListToJSON)(value.quickinsertResourcesProcessedInfo),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'quickinsertResourcesProcessedInfo': value.quickinsertResourcesProcessedInfo === undefined ? undefined : (value.quickinsertResourcesProcessedInfo.map(CateringEventsProcessedInfoType_1.CateringEventsProcessedInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.QuickInsertResourceStatusToJSON = QuickInsertResourceStatusToJSON;

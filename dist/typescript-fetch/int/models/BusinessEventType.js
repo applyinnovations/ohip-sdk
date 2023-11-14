@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BusinessEventTypeToJSON = exports.BusinessEventTypeFromJSONTyped = exports.BusinessEventTypeFromJSON = exports.instanceOfBusinessEventType = void 0;
 const runtime_1 = require("../runtime");
-const BusinessEventDetailsType_1 = require("./BusinessEventDetailsType");
+const BusinessEventDetailType_1 = require("./BusinessEventDetailType");
 const BusinessEventHeaderType_1 = require("./BusinessEventHeaderType");
 /**
  * Check if a given object implements the BusinessEventType interface.
@@ -34,7 +34,7 @@ function BusinessEventTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'details': !(0, runtime_1.exists)(json, 'details') ? undefined : (0, BusinessEventDetailsType_1.BusinessEventDetailsTypeFromJSON)(json['details']),
+        'details': !(0, runtime_1.exists)(json, 'details') ? undefined : (json['details'].map(BusinessEventDetailType_1.BusinessEventDetailTypeFromJSON)),
         'header': !(0, runtime_1.exists)(json, 'header') ? undefined : (0, BusinessEventHeaderType_1.BusinessEventHeaderTypeFromJSON)(json['header']),
     };
 }
@@ -47,7 +47,7 @@ function BusinessEventTypeToJSON(value) {
         return null;
     }
     return {
-        'details': (0, BusinessEventDetailsType_1.BusinessEventDetailsTypeToJSON)(value.details),
+        'details': value.details === undefined ? undefined : (value.details.map(BusinessEventDetailType_1.BusinessEventDetailTypeToJSON)),
         'header': (0, BusinessEventHeaderType_1.BusinessEventHeaderTypeToJSON)(value.header),
     };
 }

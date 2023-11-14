@@ -15,8 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PolicyApplicableCodesTypeToJSON = exports.PolicyApplicableCodesTypeFromJSONTyped = exports.PolicyApplicableCodesTypeFromJSON = exports.instanceOfPolicyApplicableCodesType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the PolicyApplicableCodesType interface.
  */
@@ -35,11 +34,11 @@ function PolicyApplicableCodesTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'blockCode': !(0, runtime_1.exists)(json, 'blockCode') ? undefined : json['blockCode'],
-        'blockIds': !(0, runtime_1.exists)(json, 'blockIds') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['blockIds']),
-        'creditRatings': !(0, runtime_1.exists)(json, 'creditRatings') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['creditRatings']),
-        'guaranteeCodes': !(0, runtime_1.exists)(json, 'guaranteeCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['guaranteeCodes']),
+        'blockIds': !(0, runtime_1.exists)(json, 'blockIds') ? undefined : (json['blockIds'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'creditRatings': !(0, runtime_1.exists)(json, 'creditRatings') ? undefined : json['creditRatings'],
+        'guaranteeCodes': !(0, runtime_1.exists)(json, 'guaranteeCodes') ? undefined : json['guaranteeCodes'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'ratePlanCodes': !(0, runtime_1.exists)(json, 'ratePlanCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['ratePlanCodes']),
+        'ratePlanCodes': !(0, runtime_1.exists)(json, 'ratePlanCodes') ? undefined : json['ratePlanCodes'],
         'seasonCode': !(0, runtime_1.exists)(json, 'seasonCode') ? undefined : json['seasonCode'],
     };
 }
@@ -53,11 +52,11 @@ function PolicyApplicableCodesTypeToJSON(value) {
     }
     return {
         'blockCode': value.blockCode,
-        'blockIds': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.blockIds),
-        'creditRatings': (0, CodeListType_1.CodeListTypeToJSON)(value.creditRatings),
-        'guaranteeCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.guaranteeCodes),
+        'blockIds': value.blockIds === undefined ? undefined : (value.blockIds.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'creditRatings': value.creditRatings,
+        'guaranteeCodes': value.guaranteeCodes,
         'hotelId': value.hotelId,
-        'ratePlanCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.ratePlanCodes),
+        'ratePlanCodes': value.ratePlanCodes,
         'seasonCode': value.seasonCode,
     };
 }

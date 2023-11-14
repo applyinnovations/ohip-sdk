@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelFolioTextsType } from './HotelFolioTextsType';
+import type { HotelFolioTextType } from './HotelFolioTextType';
 import {
-    HotelFolioTextsTypeFromJSON,
-    HotelFolioTextsTypeFromJSONTyped,
-    HotelFolioTextsTypeToJSON,
-} from './HotelFolioTextsType';
+    HotelFolioTextTypeFromJSON,
+    HotelFolioTextTypeFromJSONTyped,
+    HotelFolioTextTypeToJSON,
+} from './HotelFolioTextType';
 
 /**
  * A type which is used to insert Membership FolioTexts.
@@ -28,10 +28,10 @@ import {
 export interface MembershipFolioTextsType {
     /**
      * Folio Texts.
-     * @type {Array<HotelFolioTextsType>}
+     * @type {Array<Array<HotelFolioTextType>>}
      * @memberof MembershipFolioTextsType
      */
-    folioTexts?: Array<HotelFolioTextsType>;
+    folioTexts?: Array<Array<HotelFolioTextType>>;
     /**
      * Membership Level code.
      * @type {string}
@@ -65,7 +65,7 @@ export function MembershipFolioTextsTypeFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'folioTexts': !exists(json, 'folioTexts') ? undefined : ((json['folioTexts'] as Array<any>).map(HotelFolioTextsTypeFromJSON)),
+        'folioTexts': !exists(json, 'folioTexts') ? undefined : json['folioTexts'],
         'membershipLevel': !exists(json, 'membershipLevel') ? undefined : json['membershipLevel'],
         'membershipType': !exists(json, 'membershipType') ? undefined : json['membershipType'],
     };
@@ -80,7 +80,7 @@ export function MembershipFolioTextsTypeToJSON(value?: MembershipFolioTextsType 
     }
     return {
         
-        'folioTexts': value.folioTexts === undefined ? undefined : ((value.folioTexts as Array<any>).map(HotelFolioTextsTypeToJSON)),
+        'folioTexts': value.folioTexts,
         'membershipLevel': value.membershipLevel,
         'membershipType': value.membershipType,
     };

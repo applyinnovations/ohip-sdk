@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RegionsType } from './RegionsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RegionType } from './RegionType';
 import {
-    RegionsTypeFromJSON,
-    RegionsTypeFromJSONTyped,
-    RegionsTypeToJSON,
-} from './RegionsType';
-import type { WarningsType } from './WarningsType';
+    RegionTypeFromJSON,
+    RegionTypeFromJSONTyped,
+    RegionTypeToJSON,
+} from './RegionType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface MarketingCitiesByRegionDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MarketingCitiesByRegionDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RegionsType}
+     * List of Regions.
+     * @type {Array<RegionType>}
      * @memberof MarketingCitiesByRegionDetails
      */
-    marketingCities?: RegionsType;
+    marketingCities?: Array<RegionType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MarketingCitiesByRegionDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MarketingCitiesByRegionDetailsFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'marketingCities': !exists(json, 'marketingCities') ? undefined : RegionsTypeFromJSON(json['marketingCities']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'marketingCities': !exists(json, 'marketingCities') ? undefined : ((json['marketingCities'] as Array<any>).map(RegionTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MarketingCitiesByRegionDetailsToJSON(value?: MarketingCitiesByRe
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'marketingCities': RegionsTypeToJSON(value.marketingCities),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'marketingCities': value.marketingCities === undefined ? undefined : ((value.marketingCities as Array<any>).map(RegionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

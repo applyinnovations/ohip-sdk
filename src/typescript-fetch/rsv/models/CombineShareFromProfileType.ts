@@ -19,12 +19,12 @@ import {
     CopyReservationPaymentMethodsTypeFromJSONTyped,
     CopyReservationPaymentMethodsTypeToJSON,
 } from './CopyReservationPaymentMethodsType';
-import type { DailyRatesType } from './DailyRatesType';
+import type { DailyRateType } from './DailyRateType';
 import {
-    DailyRatesTypeFromJSON,
-    DailyRatesTypeFromJSONTyped,
-    DailyRatesTypeToJSON,
-} from './DailyRatesType';
+    DailyRateTypeFromJSON,
+    DailyRateTypeFromJSONTyped,
+    DailyRateTypeToJSON,
+} from './DailyRateType';
 import type { GuestCountsType } from './GuestCountsType';
 import {
     GuestCountsTypeFromJSON,
@@ -63,11 +63,11 @@ import {
  */
 export interface CombineShareFromProfileType {
     /**
-     * 
-     * @type {DailyRatesType}
+     * Defines room rate information on a daily basis.
+     * @type {Array<DailyRateType>}
      * @memberof CombineShareFromProfileType
      */
-    dailyRates?: DailyRatesType;
+    dailyRates?: Array<DailyRateType>;
     /**
      * 
      * @type {ResGuaranteeType}
@@ -125,7 +125,7 @@ export function CombineShareFromProfileTypeFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'dailyRates': !exists(json, 'dailyRates') ? undefined : DailyRatesTypeFromJSON(json['dailyRates']),
+        'dailyRates': !exists(json, 'dailyRates') ? undefined : ((json['dailyRates'] as Array<any>).map(DailyRateTypeFromJSON)),
         'guarantee': !exists(json, 'guarantee') ? undefined : ResGuaranteeTypeFromJSON(json['guarantee']),
         'guestCounts': !exists(json, 'guestCounts') ? undefined : GuestCountsTypeFromJSON(json['guestCounts']),
         'newSharerId': !exists(json, 'newSharerId') ? undefined : UniqueIDTypeFromJSON(json['newSharerId']),
@@ -144,7 +144,7 @@ export function CombineShareFromProfileTypeToJSON(value?: CombineShareFromProfil
     }
     return {
         
-        'dailyRates': DailyRatesTypeToJSON(value.dailyRates),
+        'dailyRates': value.dailyRates === undefined ? undefined : ((value.dailyRates as Array<any>).map(DailyRateTypeToJSON)),
         'guarantee': ResGuaranteeTypeToJSON(value.guarantee),
         'guestCounts': GuestCountsTypeToJSON(value.guestCounts),
         'newSharerId': UniqueIDTypeToJSON(value.newSharerId),

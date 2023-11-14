@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExportColumnsAndFunctionsTypeToJSON = exports.ExportColumnsAndFunctionsTypeFromJSONTyped = exports.ExportColumnsAndFunctionsTypeFromJSON = exports.instanceOfExportColumnsAndFunctionsType = void 0;
 const runtime_1 = require("../runtime");
-const ExpDataSourceColumnsType_1 = require("./ExpDataSourceColumnsType");
-const ExpFunctionsType_1 = require("./ExpFunctionsType");
+const ExpDataSourceColumnType_1 = require("./ExpDataSourceColumnType");
+const ExpFunctionType_1 = require("./ExpFunctionType");
 /**
  * Check if a given object implements the ExportColumnsAndFunctionsType interface.
  */
@@ -34,9 +34,9 @@ function ExportColumnsAndFunctionsTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'dbColumns': !(0, runtime_1.exists)(json, 'dbColumns') ? undefined : (0, ExpDataSourceColumnsType_1.ExpDataSourceColumnsTypeFromJSON)(json['dbColumns']),
-        'functions': !(0, runtime_1.exists)(json, 'functions') ? undefined : (0, ExpFunctionsType_1.ExpFunctionsTypeFromJSON)(json['functions']),
-        'prePostFunctions': !(0, runtime_1.exists)(json, 'prePostFunctions') ? undefined : (0, ExpFunctionsType_1.ExpFunctionsTypeFromJSON)(json['prePostFunctions']),
+        'dbColumns': !(0, runtime_1.exists)(json, 'dbColumns') ? undefined : (json['dbColumns'].map(ExpDataSourceColumnType_1.ExpDataSourceColumnTypeFromJSON)),
+        'functions': !(0, runtime_1.exists)(json, 'functions') ? undefined : (json['functions'].map(ExpFunctionType_1.ExpFunctionTypeFromJSON)),
+        'prePostFunctions': !(0, runtime_1.exists)(json, 'prePostFunctions') ? undefined : (json['prePostFunctions'].map(ExpFunctionType_1.ExpFunctionTypeFromJSON)),
     };
 }
 exports.ExportColumnsAndFunctionsTypeFromJSONTyped = ExportColumnsAndFunctionsTypeFromJSONTyped;
@@ -48,9 +48,9 @@ function ExportColumnsAndFunctionsTypeToJSON(value) {
         return null;
     }
     return {
-        'dbColumns': (0, ExpDataSourceColumnsType_1.ExpDataSourceColumnsTypeToJSON)(value.dbColumns),
-        'functions': (0, ExpFunctionsType_1.ExpFunctionsTypeToJSON)(value.functions),
-        'prePostFunctions': (0, ExpFunctionsType_1.ExpFunctionsTypeToJSON)(value.prePostFunctions),
+        'dbColumns': value.dbColumns === undefined ? undefined : (value.dbColumns.map(ExpDataSourceColumnType_1.ExpDataSourceColumnTypeToJSON)),
+        'functions': value.functions === undefined ? undefined : (value.functions.map(ExpFunctionType_1.ExpFunctionTypeToJSON)),
+        'prePostFunctions': value.prePostFunctions === undefined ? undefined : (value.prePostFunctions.map(ExpFunctionType_1.ExpFunctionTypeToJSON)),
     };
 }
 exports.ExportColumnsAndFunctionsTypeToJSON = ExportColumnsAndFunctionsTypeToJSON;

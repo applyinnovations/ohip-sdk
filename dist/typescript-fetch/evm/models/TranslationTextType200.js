@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TranslationTextType200ToJSON = exports.TranslationTextType200FromJSONTyped = exports.TranslationTextType200FromJSON = exports.instanceOfTranslationTextType200 = void 0;
 const runtime_1 = require("../runtime");
-const TranslationsTextType_1 = require("./TranslationsTextType");
+const TranslationsTextTypeInner_1 = require("./TranslationsTextTypeInner");
 /**
  * Check if a given object implements the TranslationTextType200 interface.
  */
@@ -34,7 +34,7 @@ function TranslationTextType200FromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'defaultText': !(0, runtime_1.exists)(json, 'defaultText') ? undefined : json['defaultText'],
-        'translations': !(0, runtime_1.exists)(json, 'translations') ? undefined : (0, TranslationsTextType_1.TranslationsTextTypeFromJSON)(json['translations']),
+        'translations': !(0, runtime_1.exists)(json, 'translations') ? undefined : (json['translations'].map(TranslationsTextTypeInner_1.TranslationsTextTypeInnerFromJSON)),
     };
 }
 exports.TranslationTextType200FromJSONTyped = TranslationTextType200FromJSONTyped;
@@ -47,7 +47,7 @@ function TranslationTextType200ToJSON(value) {
     }
     return {
         'defaultText': value.defaultText,
-        'translations': (0, TranslationsTextType_1.TranslationsTextTypeToJSON)(value.translations),
+        'translations': value.translations === undefined ? undefined : (value.translations.map(TranslationsTextTypeInner_1.TranslationsTextTypeInnerToJSON)),
     };
 }
 exports.TranslationTextType200ToJSON = TranslationTextType200ToJSON;

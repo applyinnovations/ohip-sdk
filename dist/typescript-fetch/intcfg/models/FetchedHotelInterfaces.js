@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FetchedHotelInterfacesToJSON = exports.FetchedHotelInterfacesFromJSONTyped = exports.FetchedHotelInterfacesFromJSON = exports.instanceOfFetchedHotelInterfaces = void 0;
 const runtime_1 = require("../runtime");
-const HotelInterfacesType_1 = require("./HotelInterfacesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HotelInterfaceType_1 = require("./HotelInterfaceType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FetchedHotelInterfaces interface.
  */
@@ -35,9 +35,9 @@ function FetchedHotelInterfacesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'hotelInterfaces': !(0, runtime_1.exists)(json, 'hotelInterfaces') ? undefined : (0, HotelInterfacesType_1.HotelInterfacesTypeFromJSON)(json['hotelInterfaces']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'hotelInterfaces': !(0, runtime_1.exists)(json, 'hotelInterfaces') ? undefined : (json['hotelInterfaces'].map(HotelInterfaceType_1.HotelInterfaceTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FetchedHotelInterfacesFromJSONTyped = FetchedHotelInterfacesFromJSONTyped;
@@ -49,9 +49,9 @@ function FetchedHotelInterfacesToJSON(value) {
         return null;
     }
     return {
-        'hotelInterfaces': (0, HotelInterfacesType_1.HotelInterfacesTypeToJSON)(value.hotelInterfaces),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'hotelInterfaces': value.hotelInterfaces === undefined ? undefined : (value.hotelInterfaces.map(HotelInterfaceType_1.HotelInterfaceTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FetchedHotelInterfacesToJSON = FetchedHotelInterfacesToJSON;

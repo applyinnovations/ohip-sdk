@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RevenueBucketTotalsType } from './RevenueBucketTotalsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RevenueBucketTotalType } from './RevenueBucketTotalType';
 import {
-    RevenueBucketTotalsTypeFromJSON,
-    RevenueBucketTotalsTypeFromJSONTyped,
-    RevenueBucketTotalsTypeToJSON,
-} from './RevenueBucketTotalsType';
-import type { WarningsType } from './WarningsType';
+    RevenueBucketTotalTypeFromJSON,
+    RevenueBucketTotalTypeFromJSONTyped,
+    RevenueBucketTotalTypeToJSON,
+} from './RevenueBucketTotalType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for revenue bucket totals for a reservation.
@@ -40,22 +40,22 @@ import {
 export interface RevenueBucketTotals {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RevenueBucketTotals
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RevenueBucketTotalsType}
+     * List of revenue bucket total details
+     * @type {Array<RevenueBucketTotalType>}
      * @memberof RevenueBucketTotals
      */
-    revenueBucketsInfo?: RevenueBucketTotalsType;
+    revenueBucketsInfo?: Array<RevenueBucketTotalType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RevenueBucketTotals
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RevenueBucketTotalsFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'revenueBucketsInfo': !exists(json, 'revenueBucketsInfo') ? undefined : RevenueBucketTotalsTypeFromJSON(json['revenueBucketsInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'revenueBucketsInfo': !exists(json, 'revenueBucketsInfo') ? undefined : ((json['revenueBucketsInfo'] as Array<any>).map(RevenueBucketTotalTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RevenueBucketTotalsToJSON(value?: RevenueBucketTotals | null): a
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'revenueBucketsInfo': RevenueBucketTotalsTypeToJSON(value.revenueBucketsInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'revenueBucketsInfo': value.revenueBucketsInfo === undefined ? undefined : ((value.revenueBucketsInfo as Array<any>).map(RevenueBucketTotalTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

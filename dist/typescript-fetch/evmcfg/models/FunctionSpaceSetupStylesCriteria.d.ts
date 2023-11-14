@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FunctionSpaceSetupStylesType } from './FunctionSpaceSetupStylesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { FunctionSpaceSetupStyleType } from './FunctionSpaceSetupStyleType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for adding function space setup styles.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface FunctionSpaceSetupStylesCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FunctionSpaceSetupStylesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {FunctionSpaceSetupStylesType}
+     * List of the function space setup styles to be configured or fetched
+     * @type {Array<FunctionSpaceSetupStyleType>}
      * @memberof FunctionSpaceSetupStylesCriteria
      */
-    setupStyles?: FunctionSpaceSetupStylesType;
+    setupStyles?: Array<FunctionSpaceSetupStyleType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FunctionSpaceSetupStylesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FunctionSpaceSetupStylesCriteria interface.

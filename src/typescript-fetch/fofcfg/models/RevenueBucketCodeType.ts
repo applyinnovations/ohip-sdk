@@ -19,12 +19,12 @@ import {
     BucketTypeTypeFromJSONTyped,
     BucketTypeTypeToJSON,
 } from './BucketTypeType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
 
 /**
  * This gives detailed information about a trx code arrangement.
@@ -75,11 +75,11 @@ export interface RevenueBucketCodeType {
      */
     revenueBucketType?: string;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof RevenueBucketCodeType
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
 }
 
 /**
@@ -108,7 +108,7 @@ export function RevenueBucketCodeTypeFromJSONTyped(json: any, ignoreDiscriminato
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'pointsEligible': !exists(json, 'pointsEligible') ? undefined : json['pointsEligible'],
         'revenueBucketType': !exists(json, 'revenueBucketType') ? undefined : json['revenueBucketType'],
-        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : TrxCodesInfoTypeFromJSON(json['transactionCodes']),
+        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : ((json['transactionCodes'] as Array<any>).map(TrxInfoTypeFromJSON)),
     };
 }
 
@@ -128,7 +128,7 @@ export function RevenueBucketCodeTypeToJSON(value?: RevenueBucketCodeType | null
         'hotelId': value.hotelId,
         'pointsEligible': value.pointsEligible,
         'revenueBucketType': value.revenueBucketType,
-        'transactionCodes': TrxCodesInfoTypeToJSON(value.transactionCodes),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : ((value.transactionCodes as Array<any>).map(TrxInfoTypeToJSON)),
     };
 }
 

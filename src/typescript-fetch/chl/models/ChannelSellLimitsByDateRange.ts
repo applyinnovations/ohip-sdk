@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelSellLimitSchedulesType } from './ChannelSellLimitSchedulesType';
+import type { ChannelSellLimitScheduleType } from './ChannelSellLimitScheduleType';
 import {
-    ChannelSellLimitSchedulesTypeFromJSON,
-    ChannelSellLimitSchedulesTypeFromJSONTyped,
-    ChannelSellLimitSchedulesTypeToJSON,
-} from './ChannelSellLimitSchedulesType';
-import type { WarningsType } from './WarningsType';
+    ChannelSellLimitScheduleTypeFromJSON,
+    ChannelSellLimitScheduleTypeFromJSONTyped,
+    ChannelSellLimitScheduleTypeToJSON,
+} from './ChannelSellLimitScheduleType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to create or update sell limit schedules for the channel or channel room type within a date range. Existing schedules can be split as needed to account for overlapping schedules.
@@ -39,17 +39,17 @@ export interface ChannelSellLimitsByDateRange {
      */
     adjustOverlappingSchedules?: boolean;
     /**
-     * 
-     * @type {ChannelSellLimitSchedulesType}
+     * Details about a sell limit schedule for a channel or channel room type.
+     * @type {Array<ChannelSellLimitScheduleType>}
      * @memberof ChannelSellLimitsByDateRange
      */
-    sellLimits?: ChannelSellLimitSchedulesType;
+    sellLimits?: Array<ChannelSellLimitScheduleType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelSellLimitsByDateRange
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -72,8 +72,8 @@ export function ChannelSellLimitsByDateRangeFromJSONTyped(json: any, ignoreDiscr
     return {
         
         'adjustOverlappingSchedules': !exists(json, 'adjustOverlappingSchedules') ? undefined : json['adjustOverlappingSchedules'],
-        'sellLimits': !exists(json, 'sellLimits') ? undefined : ChannelSellLimitSchedulesTypeFromJSON(json['sellLimits']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'sellLimits': !exists(json, 'sellLimits') ? undefined : ((json['sellLimits'] as Array<any>).map(ChannelSellLimitScheduleTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -87,8 +87,8 @@ export function ChannelSellLimitsByDateRangeToJSON(value?: ChannelSellLimitsByDa
     return {
         
         'adjustOverlappingSchedules': value.adjustOverlappingSchedules,
-        'sellLimits': ChannelSellLimitSchedulesTypeToJSON(value.sellLimits),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'sellLimits': value.sellLimits === undefined ? undefined : ((value.sellLimits as Array<any>).map(ChannelSellLimitScheduleTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

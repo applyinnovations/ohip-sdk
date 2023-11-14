@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RoomRotationPointsInfoType } from './RoomRotationPointsInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -56,10 +56,10 @@ export interface GetRoomRotationPoints {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GetRoomRotationPoints
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Indicates the index of the next applicable set(page).
      * @type {number}
@@ -91,11 +91,11 @@ export interface GetRoomRotationPoints {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GetRoomRotationPoints
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GetRoomRotationPoints interface.

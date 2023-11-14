@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { EntryPointsType } from './EntryPointsType';
+import type { EntryPointType } from './EntryPointType';
 import {
-    EntryPointsTypeFromJSON,
-    EntryPointsTypeFromJSONTyped,
-    EntryPointsTypeToJSON,
-} from './EntryPointsType';
-import type { Links } from './Links';
+    EntryPointTypeFromJSON,
+    EntryPointTypeFromJSONTyped,
+    EntryPointTypeToJSON,
+} from './EntryPointType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Entry Points.
@@ -39,23 +39,23 @@ import {
  */
 export interface EntryPointsToBeChanged {
     /**
-     * 
-     * @type {EntryPointsType}
+     * List of Entry Points.
+     * @type {Array<EntryPointType>}
      * @memberof EntryPointsToBeChanged
      */
-    entryPoints?: EntryPointsType;
+    entryPoints?: Array<EntryPointType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EntryPointsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EntryPointsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function EntryPointsToBeChangedFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'entryPoints': !exists(json, 'entryPoints') ? undefined : EntryPointsTypeFromJSON(json['entryPoints']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'entryPoints': !exists(json, 'entryPoints') ? undefined : ((json['entryPoints'] as Array<any>).map(EntryPointTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function EntryPointsToBeChangedToJSON(value?: EntryPointsToBeChanged | nu
     }
     return {
         
-        'entryPoints': EntryPointsTypeToJSON(value.entryPoints),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'entryPoints': value.entryPoints === undefined ? undefined : ((value.entryPoints as Array<any>).map(EntryPointTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

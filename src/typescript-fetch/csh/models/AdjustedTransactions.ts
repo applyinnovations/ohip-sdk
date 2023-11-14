@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { SummaryPostingsType } from './SummaryPostingsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { SummaryPostingType } from './SummaryPostingType';
 import {
-    SummaryPostingsTypeFromJSON,
-    SummaryPostingsTypeFromJSONTyped,
-    SummaryPostingsTypeToJSON,
-} from './SummaryPostingsType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+    SummaryPostingTypeFromJSON,
+    SummaryPostingTypeFromJSONTyped,
+    SummaryPostingTypeToJSON,
+} from './SummaryPostingType';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for the adjustment of transactions request. Contains any errors or warnings.
@@ -46,28 +46,28 @@ import {
 export interface AdjustedTransactions {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AdjustedTransactions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {SummaryPostingsType}
+     * List of postings.
+     * @type {Array<SummaryPostingType>}
      * @memberof AdjustedTransactions
      */
-    serviceRecoveryAdjustments?: SummaryPostingsType;
+    serviceRecoveryAdjustments?: Array<SummaryPostingType>;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof AdjustedTransactions
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AdjustedTransactions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function AdjustedTransactionsFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'serviceRecoveryAdjustments': !exists(json, 'serviceRecoveryAdjustments') ? undefined : SummaryPostingsTypeFromJSON(json['serviceRecoveryAdjustments']),
-        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : TrxCodesInfoTypeFromJSON(json['trxCodesInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'serviceRecoveryAdjustments': !exists(json, 'serviceRecoveryAdjustments') ? undefined : ((json['serviceRecoveryAdjustments'] as Array<any>).map(SummaryPostingTypeFromJSON)),
+        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : ((json['trxCodesInfo'] as Array<any>).map(TrxInfoTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function AdjustedTransactionsToJSON(value?: AdjustedTransactions | null):
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'serviceRecoveryAdjustments': SummaryPostingsTypeToJSON(value.serviceRecoveryAdjustments),
-        'trxCodesInfo': TrxCodesInfoTypeToJSON(value.trxCodesInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'serviceRecoveryAdjustments': value.serviceRecoveryAdjustments === undefined ? undefined : ((value.serviceRecoveryAdjustments as Array<any>).map(SummaryPostingTypeToJSON)),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : ((value.trxCodesInfo as Array<any>).map(TrxInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

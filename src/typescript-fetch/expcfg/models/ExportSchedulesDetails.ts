@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ExportSchedulesType } from './ExportSchedulesType';
+import type { ExportScheduleType } from './ExportScheduleType';
 import {
-    ExportSchedulesTypeFromJSON,
-    ExportSchedulesTypeFromJSONTyped,
-    ExportSchedulesTypeToJSON,
-} from './ExportSchedulesType';
-import type { Links } from './Links';
+    ExportScheduleTypeFromJSON,
+    ExportScheduleTypeFromJSONTyped,
+    ExportScheduleTypeToJSON,
+} from './ExportScheduleType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Export Schedules collection matching the crieteria specified in the request
@@ -39,23 +39,23 @@ import {
  */
 export interface ExportSchedulesDetails {
     /**
-     * 
-     * @type {ExportSchedulesType}
+     * Export Schedule
+     * @type {Array<ExportScheduleType>}
      * @memberof ExportSchedulesDetails
      */
-    exportSchedules?: ExportSchedulesType;
+    exportSchedules?: Array<ExportScheduleType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExportSchedulesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ExportSchedulesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ExportSchedulesDetailsFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'exportSchedules': !exists(json, 'exportSchedules') ? undefined : ExportSchedulesTypeFromJSON(json['exportSchedules']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'exportSchedules': !exists(json, 'exportSchedules') ? undefined : ((json['exportSchedules'] as Array<any>).map(ExportScheduleTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ExportSchedulesDetailsToJSON(value?: ExportSchedulesDetails | nu
     }
     return {
         
-        'exportSchedules': ExportSchedulesTypeToJSON(value.exportSchedules),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'exportSchedules': value.exportSchedules === undefined ? undefined : ((value.exportSchedules as Array<any>).map(ExportScheduleTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

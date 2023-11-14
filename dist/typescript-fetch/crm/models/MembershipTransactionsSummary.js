@@ -15,12 +15,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipTransactionsSummaryToJSON = exports.MembershipTransactionsSummaryFromJSONTyped = exports.MembershipTransactionsSummaryFromJSON = exports.instanceOfMembershipTransactionsSummary = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const MemberPointsSummaryType_1 = require("./MemberPointsSummaryType");
 const MemberTransactionRecentSummaryType_1 = require("./MemberTransactionRecentSummaryType");
 const MemberTransactionSummaryType_1 = require("./MemberTransactionSummaryType");
 const MembershipDetailsType_1 = require("./MembershipDetailsType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MembershipTransactionsSummary interface.
  */
@@ -38,12 +38,12 @@ function MembershipTransactionsSummaryFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'membershipDetails': !(0, runtime_1.exists)(json, 'membershipDetails') ? undefined : (0, MembershipDetailsType_1.MembershipDetailsTypeFromJSON)(json['membershipDetails']),
         'pointsSummary': !(0, runtime_1.exists)(json, 'pointsSummary') ? undefined : (0, MemberPointsSummaryType_1.MemberPointsSummaryTypeFromJSON)(json['pointsSummary']),
         'recentTransactionsSummary': !(0, runtime_1.exists)(json, 'recentTransactionsSummary') ? undefined : (0, MemberTransactionRecentSummaryType_1.MemberTransactionRecentSummaryTypeFromJSON)(json['recentTransactionsSummary']),
         'transactionsSummary': !(0, runtime_1.exists)(json, 'transactionsSummary') ? undefined : (0, MemberTransactionSummaryType_1.MemberTransactionSummaryTypeFromJSON)(json['transactionsSummary']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MembershipTransactionsSummaryFromJSONTyped = MembershipTransactionsSummaryFromJSONTyped;
@@ -55,12 +55,12 @@ function MembershipTransactionsSummaryToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'membershipDetails': (0, MembershipDetailsType_1.MembershipDetailsTypeToJSON)(value.membershipDetails),
         'pointsSummary': (0, MemberPointsSummaryType_1.MemberPointsSummaryTypeToJSON)(value.pointsSummary),
         'recentTransactionsSummary': (0, MemberTransactionRecentSummaryType_1.MemberTransactionRecentSummaryTypeToJSON)(value.recentTransactionsSummary),
         'transactionsSummary': (0, MemberTransactionSummaryType_1.MemberTransactionSummaryTypeToJSON)(value.transactionsSummary),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MembershipTransactionsSummaryToJSON = MembershipTransactionsSummaryToJSON;

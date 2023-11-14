@@ -25,18 +25,18 @@ import {
     ExportMappingMasterInfoTypeFromJSONTyped,
     ExportMappingMasterInfoTypeToJSON,
 } from './ExportMappingMasterInfoType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response to fetch codes linked to export mapping codes.
@@ -52,10 +52,10 @@ export interface ExportMappingLinkedCodes {
     linkedCodes?: Array<ExportMappingLinkedCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExportMappingLinkedCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ExportMappingMasterInfoType}
@@ -63,11 +63,11 @@ export interface ExportMappingLinkedCodes {
      */
     masterInfo?: ExportMappingMasterInfoType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ExportMappingLinkedCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -90,9 +90,9 @@ export function ExportMappingLinkedCodesFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         'linkedCodes': !exists(json, 'linkedCodes') ? undefined : ((json['linkedCodes'] as Array<any>).map(ExportMappingLinkedCodeTypeFromJSON)),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'masterInfo': !exists(json, 'masterInfo') ? undefined : ExportMappingMasterInfoTypeFromJSON(json['masterInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -106,9 +106,9 @@ export function ExportMappingLinkedCodesToJSON(value?: ExportMappingLinkedCodes 
     return {
         
         'linkedCodes': value.linkedCodes === undefined ? undefined : ((value.linkedCodes as Array<any>).map(ExportMappingLinkedCodeTypeToJSON)),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'masterInfo': ExportMappingMasterInfoTypeToJSON(value.masterInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

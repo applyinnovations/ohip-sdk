@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ConfigRoutingInstructionsType } from './ConfigRoutingInstructionsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ConfigRoutingInstructionType } from './ConfigRoutingInstructionType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface RoutingInstructions {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoutingInstructions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ConfigRoutingInstructionsType}
+     * This type holds a collection of routing instructions.
+     * @type {Array<ConfigRoutingInstructionType>}
      * @memberof RoutingInstructions
      */
-    routingInstructions?: ConfigRoutingInstructionsType;
+    routingInstructions?: Array<ConfigRoutingInstructionType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoutingInstructions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoutingInstructions interface.

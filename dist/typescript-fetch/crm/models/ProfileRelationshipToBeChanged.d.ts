@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ChangeRelationshipCriteriaType } from './ChangeRelationshipCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing profile relationship.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ProfileRelationshipToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileRelationshipToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ChangeRelationshipCriteriaType}
@@ -31,11 +31,11 @@ export interface ProfileRelationshipToBeChanged {
      */
     relationship?: ChangeRelationshipCriteriaType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileRelationshipToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileRelationshipToBeChanged interface.

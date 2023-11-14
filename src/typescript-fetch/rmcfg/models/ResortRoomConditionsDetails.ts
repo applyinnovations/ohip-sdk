@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomCondtionsType } from './RoomCondtionsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomCondtionType } from './RoomCondtionType';
 import {
-    RoomCondtionsTypeFromJSON,
-    RoomCondtionsTypeFromJSONTyped,
-    RoomCondtionsTypeToJSON,
-} from './RoomCondtionsType';
-import type { WarningsType } from './WarningsType';
+    RoomCondtionTypeFromJSON,
+    RoomCondtionTypeFromJSONTyped,
+    RoomCondtionTypeToJSON,
+} from './RoomCondtionType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for information regarding room condition configuration in a resort.
@@ -40,22 +40,22 @@ import {
 export interface ResortRoomConditionsDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ResortRoomConditionsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RoomCondtionsType}
+     * Collection of Resort Room Condition Configuration Type
+     * @type {Array<RoomCondtionType>}
      * @memberof ResortRoomConditionsDetails
      */
-    roomConditions?: RoomCondtionsType;
+    roomConditions?: Array<RoomCondtionType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ResortRoomConditionsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ResortRoomConditionsDetailsFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'roomConditions': !exists(json, 'roomConditions') ? undefined : RoomCondtionsTypeFromJSON(json['roomConditions']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'roomConditions': !exists(json, 'roomConditions') ? undefined : ((json['roomConditions'] as Array<any>).map(RoomCondtionTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ResortRoomConditionsDetailsToJSON(value?: ResortRoomConditionsDe
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'roomConditions': RoomCondtionsTypeToJSON(value.roomConditions),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'roomConditions': value.roomConditions === undefined ? undefined : ((value.roomConditions as Array<any>).map(RoomCondtionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

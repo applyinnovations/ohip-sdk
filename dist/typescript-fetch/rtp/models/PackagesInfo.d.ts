@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MasterInfoType } from './MasterInfoType';
 import type { PackagesInfoPackageCodesList } from './PackagesInfoPackageCodesList';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object to fetch list of packages.
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface PackagesInfo {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PackagesInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Refer to Generic common types document.
      * @type {Array<MasterInfoType>}
@@ -38,11 +38,11 @@ export interface PackagesInfo {
      */
     packageCodesList?: PackagesInfoPackageCodesList;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PackagesInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PackagesInfo interface.

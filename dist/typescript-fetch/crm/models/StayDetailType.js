@@ -18,27 +18,26 @@ const runtime_1 = require("../runtime");
 const AdvanceCheckInType_1 = require("./AdvanceCheckInType");
 const CommissionPayoutToType_1 = require("./CommissionPayoutToType");
 const HousekeepingRoomStatusType_1 = require("./HousekeepingRoomStatusType");
-const IndicatorsType_1 = require("./IndicatorsType");
+const IndicatorType_1 = require("./IndicatorType");
 const PMSResStatusType_1 = require("./PMSResStatusType");
 const ResAccessRestrictionType_1 = require("./ResAccessRestrictionType");
-const ResAttachedProfileListType_1 = require("./ResAttachedProfileListType");
+const ResAttachedProfileType_1 = require("./ResAttachedProfileType");
 const ResCashieringType_1 = require("./ResCashieringType");
 const ResCommunicationType_1 = require("./ResCommunicationType");
 const ResGuestInfoType_1 = require("./ResGuestInfoType");
 const ResHousekeepingType_1 = require("./ResHousekeepingType");
 const ResMobileNotificationsType_1 = require("./ResMobileNotificationsType");
 const ResRevenueBalanceType_1 = require("./ResRevenueBalanceType");
-const ResSharedGuestListType_1 = require("./ResSharedGuestListType");
-const ReservationAllowedActionsType_1 = require("./ReservationAllowedActionsType");
+const ResSharedGuestInfoType_1 = require("./ResSharedGuestInfoType");
+const ReservationAllowedActionType_1 = require("./ReservationAllowedActionType");
 const ReservationDepositType_1 = require("./ReservationDepositType");
-const ReservationFolioWindowsType_1 = require("./ReservationFolioWindowsType");
-const ReservationIdList_1 = require("./ReservationIdList");
+const ReservationFolioWindowType_1 = require("./ReservationFolioWindowType");
 const ReservationInfoTypeCancellationInfo_1 = require("./ReservationInfoTypeCancellationInfo");
 const ReservationInterfaceStatusType_1 = require("./ReservationInterfaceStatusType");
 const ReservationPaymentMethodType_1 = require("./ReservationPaymentMethodType");
 const ReservationQueueInformationType_1 = require("./ReservationQueueInformationType");
 const ReservationTurndownInfoType_1 = require("./ReservationTurndownInfoType");
-const SearchMatchesType_1 = require("./SearchMatchesType");
+const SearchMatchType_1 = require("./SearchMatchType");
 const SourceOfSaleType_1 = require("./SourceOfSaleType");
 const StayInfoType_1 = require("./StayInfoType");
 const TaxTypeType_1 = require("./TaxTypeType");
@@ -66,8 +65,8 @@ function StayDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         'allotmentCode': !(0, runtime_1.exists)(json, 'allotmentCode') ? undefined : json['allotmentCode'],
         'allowMobileCheckout': !(0, runtime_1.exists)(json, 'allowMobileCheckout') ? undefined : json['allowMobileCheckout'],
         'allowMobileViewFolio': !(0, runtime_1.exists)(json, 'allowMobileViewFolio') ? undefined : json['allowMobileViewFolio'],
-        'allowedActions': !(0, runtime_1.exists)(json, 'allowedActions') ? undefined : (0, ReservationAllowedActionsType_1.ReservationAllowedActionsTypeFromJSON)(json['allowedActions']),
-        'attachedProfiles': !(0, runtime_1.exists)(json, 'attachedProfiles') ? undefined : (0, ResAttachedProfileListType_1.ResAttachedProfileListTypeFromJSON)(json['attachedProfiles']),
+        'allowedActions': !(0, runtime_1.exists)(json, 'allowedActions') ? undefined : (json['allowedActions'].map(ReservationAllowedActionType_1.ReservationAllowedActionTypeFromJSON)),
+        'attachedProfiles': !(0, runtime_1.exists)(json, 'attachedProfiles') ? undefined : (json['attachedProfiles'].map(ResAttachedProfileType_1.ResAttachedProfileTypeFromJSON)),
         'bookedArrivalDate': !(0, runtime_1.exists)(json, 'bookedArrivalDate') ? undefined : (new Date(json['bookedArrivalDate'])),
         'bookedDepartureDate': !(0, runtime_1.exists)(json, 'bookedDepartureDate') ? undefined : (new Date(json['bookedDepartureDate'])),
         'bookedRoomType': !(0, runtime_1.exists)(json, 'bookedRoomType') ? undefined : json['bookedRoomType'],
@@ -106,10 +105,10 @@ function StayDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
         'queue': !(0, runtime_1.exists)(json, 'queue') ? undefined : (0, ReservationQueueInformationType_1.ReservationQueueInformationTypeFromJSON)(json['queue']),
         'reservationCommunication': !(0, runtime_1.exists)(json, 'reservationCommunication') ? undefined : (0, ResCommunicationType_1.ResCommunicationTypeFromJSON)(json['reservationCommunication']),
-        'reservationFolioWindows': !(0, runtime_1.exists)(json, 'reservationFolioWindows') ? undefined : (0, ReservationFolioWindowsType_1.ReservationFolioWindowsTypeFromJSON)(json['reservationFolioWindows']),
+        'reservationFolioWindows': !(0, runtime_1.exists)(json, 'reservationFolioWindows') ? undefined : (json['reservationFolioWindows'].map(ReservationFolioWindowType_1.ReservationFolioWindowTypeFromJSON)),
         'reservationGuest': !(0, runtime_1.exists)(json, 'reservationGuest') ? undefined : (0, ResGuestInfoType_1.ResGuestInfoTypeFromJSON)(json['reservationGuest']),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
-        'reservationIndicators': !(0, runtime_1.exists)(json, 'reservationIndicators') ? undefined : (0, IndicatorsType_1.IndicatorsTypeFromJSON)(json['reservationIndicators']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'reservationIndicators': !(0, runtime_1.exists)(json, 'reservationIndicators') ? undefined : (json['reservationIndicators'].map(IndicatorType_1.IndicatorTypeFromJSON)),
         'reservationPaymentMethod': !(0, runtime_1.exists)(json, 'reservationPaymentMethod') ? undefined : (0, ReservationPaymentMethodType_1.ReservationPaymentMethodTypeFromJSON)(json['reservationPaymentMethod']),
         'reservationSourceCode': !(0, runtime_1.exists)(json, 'reservationSourceCode') ? undefined : json['reservationSourceCode'],
         'reservationSourceType': !(0, runtime_1.exists)(json, 'reservationSourceType') ? undefined : json['reservationSourceType'],
@@ -118,9 +117,9 @@ function StayDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         'roomStatus': !(0, runtime_1.exists)(json, 'roomStatus') ? undefined : (0, HousekeepingRoomStatusType_1.HousekeepingRoomStatusTypeFromJSON)(json['roomStatus']),
         'roomStay': !(0, runtime_1.exists)(json, 'roomStay') ? undefined : (0, StayInfoType_1.StayInfoTypeFromJSON)(json['roomStay']),
         'roomStayReservation': !(0, runtime_1.exists)(json, 'roomStayReservation') ? undefined : json['roomStayReservation'],
-        'searchMatches': !(0, runtime_1.exists)(json, 'searchMatches') ? undefined : (0, SearchMatchesType_1.SearchMatchesTypeFromJSON)(json['searchMatches']),
+        'searchMatches': !(0, runtime_1.exists)(json, 'searchMatches') ? undefined : (json['searchMatches'].map(SearchMatchType_1.SearchMatchTypeFromJSON)),
         'shareNumber': !(0, runtime_1.exists)(json, 'shareNumber') ? undefined : json['shareNumber'],
-        'sharedGuests': !(0, runtime_1.exists)(json, 'sharedGuests') ? undefined : (0, ResSharedGuestListType_1.ResSharedGuestListTypeFromJSON)(json['sharedGuests']),
+        'sharedGuests': !(0, runtime_1.exists)(json, 'sharedGuests') ? undefined : (json['sharedGuests'].map(ResSharedGuestInfoType_1.ResSharedGuestInfoTypeFromJSON)),
         'sourceOfSale': !(0, runtime_1.exists)(json, 'sourceOfSale') ? undefined : (0, SourceOfSaleType_1.SourceOfSaleTypeFromJSON)(json['sourceOfSale']),
         'specials': !(0, runtime_1.exists)(json, 'specials') ? undefined : json['specials'],
         'stayRecordId': !(0, runtime_1.exists)(json, 'stayRecordId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['stayRecordId']),
@@ -146,8 +145,8 @@ function StayDetailTypeToJSON(value) {
         'allotmentCode': value.allotmentCode,
         'allowMobileCheckout': value.allowMobileCheckout,
         'allowMobileViewFolio': value.allowMobileViewFolio,
-        'allowedActions': (0, ReservationAllowedActionsType_1.ReservationAllowedActionsTypeToJSON)(value.allowedActions),
-        'attachedProfiles': (0, ResAttachedProfileListType_1.ResAttachedProfileListTypeToJSON)(value.attachedProfiles),
+        'allowedActions': value.allowedActions === undefined ? undefined : (value.allowedActions.map(ReservationAllowedActionType_1.ReservationAllowedActionTypeToJSON)),
+        'attachedProfiles': value.attachedProfiles === undefined ? undefined : (value.attachedProfiles.map(ResAttachedProfileType_1.ResAttachedProfileTypeToJSON)),
         'bookedArrivalDate': value.bookedArrivalDate === undefined ? undefined : (value.bookedArrivalDate.toISOString().substring(0, 10)),
         'bookedDepartureDate': value.bookedDepartureDate === undefined ? undefined : (value.bookedDepartureDate.toISOString().substring(0, 10)),
         'bookedRoomType': value.bookedRoomType,
@@ -186,10 +185,10 @@ function StayDetailTypeToJSON(value) {
         'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
         'queue': (0, ReservationQueueInformationType_1.ReservationQueueInformationTypeToJSON)(value.queue),
         'reservationCommunication': (0, ResCommunicationType_1.ResCommunicationTypeToJSON)(value.reservationCommunication),
-        'reservationFolioWindows': (0, ReservationFolioWindowsType_1.ReservationFolioWindowsTypeToJSON)(value.reservationFolioWindows),
+        'reservationFolioWindows': value.reservationFolioWindows === undefined ? undefined : (value.reservationFolioWindows.map(ReservationFolioWindowType_1.ReservationFolioWindowTypeToJSON)),
         'reservationGuest': (0, ResGuestInfoType_1.ResGuestInfoTypeToJSON)(value.reservationGuest),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
-        'reservationIndicators': (0, IndicatorsType_1.IndicatorsTypeToJSON)(value.reservationIndicators),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'reservationIndicators': value.reservationIndicators === undefined ? undefined : (value.reservationIndicators.map(IndicatorType_1.IndicatorTypeToJSON)),
         'reservationPaymentMethod': (0, ReservationPaymentMethodType_1.ReservationPaymentMethodTypeToJSON)(value.reservationPaymentMethod),
         'reservationSourceCode': value.reservationSourceCode,
         'reservationSourceType': value.reservationSourceType,
@@ -198,9 +197,9 @@ function StayDetailTypeToJSON(value) {
         'roomStatus': (0, HousekeepingRoomStatusType_1.HousekeepingRoomStatusTypeToJSON)(value.roomStatus),
         'roomStay': (0, StayInfoType_1.StayInfoTypeToJSON)(value.roomStay),
         'roomStayReservation': value.roomStayReservation,
-        'searchMatches': (0, SearchMatchesType_1.SearchMatchesTypeToJSON)(value.searchMatches),
+        'searchMatches': value.searchMatches === undefined ? undefined : (value.searchMatches.map(SearchMatchType_1.SearchMatchTypeToJSON)),
         'shareNumber': value.shareNumber,
-        'sharedGuests': (0, ResSharedGuestListType_1.ResSharedGuestListTypeToJSON)(value.sharedGuests),
+        'sharedGuests': value.sharedGuests === undefined ? undefined : (value.sharedGuests.map(ResSharedGuestInfoType_1.ResSharedGuestInfoTypeToJSON)),
         'sourceOfSale': (0, SourceOfSaleType_1.SourceOfSaleTypeToJSON)(value.sourceOfSale),
         'specials': value.specials,
         'stayRecordId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.stayRecordId),

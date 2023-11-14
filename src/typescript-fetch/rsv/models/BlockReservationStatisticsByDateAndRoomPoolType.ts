@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DailyStatsType } from './DailyStatsType';
+import type { DailyStatType } from './DailyStatType';
 import {
-    DailyStatsTypeFromJSON,
-    DailyStatsTypeFromJSONTyped,
-    DailyStatsTypeToJSON,
-} from './DailyStatsType';
+    DailyStatTypeFromJSON,
+    DailyStatTypeFromJSONTyped,
+    DailyStatTypeToJSON,
+} from './DailyStatType';
 
 /**
  * Statistics of block reservations summarized by date and room pools.
@@ -27,11 +27,11 @@ import {
  */
 export interface BlockReservationStatisticsByDateAndRoomPoolType {
     /**
-     * 
-     * @type {DailyStatsType}
+     * Statistics of one day.
+     * @type {Array<DailyStatType>}
      * @memberof BlockReservationStatisticsByDateAndRoomPoolType
      */
-    dailyStats?: DailyStatsType;
+    dailyStats?: Array<DailyStatType>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function BlockReservationStatisticsByDateAndRoomPoolTypeFromJSONTyped(jso
     }
     return {
         
-        'dailyStats': !exists(json, 'dailyStats') ? undefined : DailyStatsTypeFromJSON(json['dailyStats']),
+        'dailyStats': !exists(json, 'dailyStats') ? undefined : ((json['dailyStats'] as Array<any>).map(DailyStatTypeFromJSON)),
     };
 }
 
@@ -66,7 +66,7 @@ export function BlockReservationStatisticsByDateAndRoomPoolTypeToJSON(value?: Bl
     }
     return {
         
-        'dailyStats': DailyStatsTypeToJSON(value.dailyStats),
+        'dailyStats': value.dailyStats === undefined ? undefined : ((value.dailyStats as Array<any>).map(DailyStatTypeToJSON)),
     };
 }
 

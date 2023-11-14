@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RoomClassTemplatesType } from './RoomClassTemplatesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RoomClassTemplateType } from './RoomClassTemplateType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for information regarding template room classes.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface RoomClassTemplatesDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomClassTemplatesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RoomClassTemplatesType}
+     * Collection of template room classes.
+     * @type {Array<RoomClassTemplateType>}
      * @memberof RoomClassTemplatesDetails
      */
-    roomClassTemplates?: RoomClassTemplatesType;
+    roomClassTemplates?: Array<RoomClassTemplateType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomClassTemplatesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomClassTemplatesDetails interface.

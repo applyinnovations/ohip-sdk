@@ -73,12 +73,12 @@ import {
     ReservationPaymentMethodTypeFromJSONTyped,
     ReservationPaymentMethodTypeToJSON,
 } from './ReservationPaymentMethodType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Posting details.
@@ -201,11 +201,11 @@ export interface DepositPostingType {
      */
     fbaCertificate?: boolean;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof DepositPostingType
      */
-    financialTransactionIdList?: UniqueIDListType;
+    financialTransactionIdList?: Array<UniqueIDType>;
     /**
      * The Folio number of this posting, if there was a Folio already generated.
      * @type {number}
@@ -420,7 +420,7 @@ export function DepositPostingTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'depositTransactionId': !exists(json, 'depositTransactionId') ? undefined : json['depositTransactionId'],
         'exchange': !exists(json, 'exchange') ? undefined : ExchangeAmountsFromJSON(json['exchange']),
         'fbaCertificate': !exists(json, 'fbaCertificate') ? undefined : json['fbaCertificate'],
-        'financialTransactionIdList': !exists(json, 'financialTransactionIdList') ? undefined : UniqueIDListTypeFromJSON(json['financialTransactionIdList']),
+        'financialTransactionIdList': !exists(json, 'financialTransactionIdList') ? undefined : ((json['financialTransactionIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'folioNo': !exists(json, 'folioNo') ? undefined : json['folioNo'],
         'folioTypeName': !exists(json, 'folioTypeName') ? undefined : json['folioTypeName'],
         'groupTypeInfo': !exists(json, 'groupTypeInfo') ? undefined : PostingGroupTypeFromJSON(json['groupTypeInfo']),
@@ -481,7 +481,7 @@ export function DepositPostingTypeToJSON(value?: DepositPostingType | null): any
         'depositTransactionId': value.depositTransactionId,
         'exchange': ExchangeAmountsToJSON(value.exchange),
         'fbaCertificate': value.fbaCertificate,
-        'financialTransactionIdList': UniqueIDListTypeToJSON(value.financialTransactionIdList),
+        'financialTransactionIdList': value.financialTransactionIdList === undefined ? undefined : ((value.financialTransactionIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'folioNo': value.folioNo,
         'folioTypeName': value.folioTypeName,
         'groupTypeInfo': PostingGroupTypeToJSON(value.groupTypeInfo),

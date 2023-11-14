@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EffectiveRatesType } from './EffectiveRatesType';
+import type { EffectiveRateType } from './EffectiveRateType';
 import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
 import type { ShareDistributionInstructionType } from './ShareDistributionInstructionType';
 import type { ShareTypeType } from './ShareTypeType';
@@ -20,11 +20,11 @@ import type { ShareTypeType } from './ShareTypeType';
  */
 export interface ShareReservationInstructionType {
     /**
-     *
-     * @type {EffectiveRatesType}
+     * Collection of effective rate amount per guest on specific dates.
+     * @type {Array<EffectiveRateType>}
      * @memberof ShareReservationInstructionType
      */
-    effectiveRates?: EffectiveRatesType;
+    effectiveRates?: Array<EffectiveRateType>;
     /**
      * Indicates whether fixed rate will be applied to all shares.
      * @type {boolean}

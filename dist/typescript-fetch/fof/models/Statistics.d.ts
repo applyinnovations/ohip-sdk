@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { HSKStatReportCodeType } from './HSKStatReportCodeType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { StatisticsMetricSetInner } from './StatisticsMetricSetInner';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response element for frontOffice statistics.
  * @export
@@ -27,10 +27,10 @@ export interface Statistics {
     calendarDate?: Date;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Statistics
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Base statistic set holder which defines the span of the statistical data.
      * @type {Array<StatisticsMetricSetInner>}
@@ -44,11 +44,11 @@ export interface Statistics {
      */
     statisticsCode?: HSKStatReportCodeType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Statistics
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Statistics interface.

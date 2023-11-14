@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CreditCardsMappingType } from './CreditCardsMappingType';
+import type { CreditCardMappingType } from './CreditCardMappingType';
 import {
-    CreditCardsMappingTypeFromJSON,
-    CreditCardsMappingTypeFromJSONTyped,
-    CreditCardsMappingTypeToJSON,
-} from './CreditCardsMappingType';
-import type { Links } from './Links';
+    CreditCardMappingTypeFromJSON,
+    CreditCardMappingTypeFromJSONTyped,
+    CreditCardMappingTypeToJSON,
+} from './CreditCardMappingType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing existing external system credit cards.
@@ -39,23 +39,23 @@ import {
  */
 export interface CreditCards {
     /**
-     * 
-     * @type {CreditCardsMappingType}
+     * Information about an external system credit card mapping.
+     * @type {Array<CreditCardMappingType>}
      * @memberof CreditCards
      */
-    creditCards?: CreditCardsMappingType;
+    creditCards?: Array<CreditCardMappingType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreditCards
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreditCards
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CreditCardsFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'creditCards': !exists(json, 'creditCards') ? undefined : CreditCardsMappingTypeFromJSON(json['creditCards']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'creditCards': !exists(json, 'creditCards') ? undefined : ((json['creditCards'] as Array<any>).map(CreditCardMappingTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CreditCardsToJSON(value?: CreditCards | null): any {
     }
     return {
         
-        'creditCards': CreditCardsMappingTypeToJSON(value.creditCards),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'creditCards': value.creditCards === undefined ? undefined : ((value.creditCards as Array<any>).map(CreditCardMappingTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

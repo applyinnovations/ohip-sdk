@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateEventCodesToBeChangedToJSON = exports.TemplateEventCodesToBeChangedFromJSONTyped = exports.TemplateEventCodesToBeChangedFromJSON = exports.instanceOfTemplateEventCodesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TemplateEventCodesType_1 = require("./TemplateEventCodesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TemplateEventCodeType_1 = require("./TemplateEventCodeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TemplateEventCodesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function TemplateEventCodesToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'templateEventCodes': !(0, runtime_1.exists)(json, 'templateEventCodes') ? undefined : (0, TemplateEventCodesType_1.TemplateEventCodesTypeFromJSON)(json['templateEventCodes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'templateEventCodes': !(0, runtime_1.exists)(json, 'templateEventCodes') ? undefined : (json['templateEventCodes'].map(TemplateEventCodeType_1.TemplateEventCodeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TemplateEventCodesToBeChangedFromJSONTyped = TemplateEventCodesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function TemplateEventCodesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'templateEventCodes': (0, TemplateEventCodesType_1.TemplateEventCodesTypeToJSON)(value.templateEventCodes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'templateEventCodes': value.templateEventCodes === undefined ? undefined : (value.templateEventCodes.map(TemplateEventCodeType_1.TemplateEventCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TemplateEventCodesToBeChangedToJSON = TemplateEventCodesToBeChangedToJSON;

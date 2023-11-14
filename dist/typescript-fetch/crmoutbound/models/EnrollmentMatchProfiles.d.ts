@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EnrollmentMatchProfilesType } from './EnrollmentMatchProfilesType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
+import type { ProfileEnrollmentType } from './ProfileEnrollmentType';
 /**
  * Response object to fetch match profiles for enrollment.
  * @export
@@ -18,17 +18,17 @@ import type { Links } from './Links';
  */
 export interface EnrollmentMatchProfiles {
     /**
-     *
-     * @type {EnrollmentMatchProfilesType}
+     * Provide match profile details for enrollment.
+     * @type {Array<ProfileEnrollmentType>}
      * @memberof EnrollmentMatchProfiles
      */
-    enrollmentMatchProfilesDetail?: EnrollmentMatchProfilesType;
+    enrollmentMatchProfilesDetail?: Array<ProfileEnrollmentType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EnrollmentMatchProfiles
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the EnrollmentMatchProfiles interface.

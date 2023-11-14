@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CopyReservationPaymentMethodsType } from './CopyReservationPaymentMethodsType';
-import type { DailyRatesType } from './DailyRatesType';
+import type { DailyRateType } from './DailyRateType';
 import type { GuestCountsType } from './GuestCountsType';
 import type { ResGuaranteeType } from './ResGuaranteeType';
 import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
@@ -23,11 +23,11 @@ import type { UniqueIDType } from './UniqueIDType';
  */
 export interface CombineShareFromProfileType {
     /**
-     *
-     * @type {DailyRatesType}
+     * Defines room rate information on a daily basis.
+     * @type {Array<DailyRateType>}
      * @memberof CombineShareFromProfileType
      */
-    dailyRates?: DailyRatesType;
+    dailyRates?: Array<DailyRateType>;
     /**
      *
      * @type {ResGuaranteeType}

@@ -11,10 +11,10 @@
  */
 import type { DateTimeSpanType } from './DateTimeSpanType';
 import type { FormattedTextTextType } from './FormattedTextTextType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { LocationNotificationStatus } from './LocationNotificationStatus';
 import type { UniqueIDType } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -35,10 +35,10 @@ export interface LocationNotificationToBeCreated {
     description?: FormattedTextTextType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof LocationNotificationToBeCreated
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {LocationNotificationStatus}
@@ -70,11 +70,11 @@ export interface LocationNotificationToBeCreated {
      */
     reservationId?: UniqueIDType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof LocationNotificationToBeCreated
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the LocationNotificationToBeCreated interface.

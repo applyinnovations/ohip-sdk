@@ -19,12 +19,6 @@ import {
     CateringEventsAttendeesTypeFromJSONTyped,
     CateringEventsAttendeesTypeToJSON,
 } from './CateringEventsAttendeesType';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import {
     CurrencyAmountTypeFromJSON,
@@ -106,10 +100,10 @@ export interface EventMenuBasicInfoType {
     description?: TranslationTextType2000;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof EventMenuBasicInfoType
      */
-    dietaryList?: CodeListType;
+    dietaryList?: Array<string>;
     /**
      * Discount Percentage applied to Menu Amount.
      * @type {number}
@@ -124,10 +118,10 @@ export interface EventMenuBasicInfoType {
     eventDateRange?: DateRangeType;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof EventMenuBasicInfoType
      */
-    eventTypes?: CodeListType;
+    eventTypes?: Array<string>;
     /**
      * Hotel code where event will be organized.
      * @type {string}
@@ -262,10 +256,10 @@ export function EventMenuBasicInfoTypeFromJSONTyped(json: any, ignoreDiscriminat
         'consumptionBased': !exists(json, 'consumptionBased') ? undefined : json['consumptionBased'],
         'courseCount': !exists(json, 'courseCount') ? undefined : json['courseCount'],
         'description': !exists(json, 'description') ? undefined : TranslationTextType2000FromJSON(json['description']),
-        'dietaryList': !exists(json, 'dietaryList') ? undefined : CodeListTypeFromJSON(json['dietaryList']),
+        'dietaryList': !exists(json, 'dietaryList') ? undefined : json['dietaryList'],
         'discountPercentage': !exists(json, 'discountPercentage') ? undefined : json['discountPercentage'],
         'eventDateRange': !exists(json, 'eventDateRange') ? undefined : DateRangeTypeFromJSON(json['eventDateRange']),
-        'eventTypes': !exists(json, 'eventTypes') ? undefined : CodeListTypeFromJSON(json['eventTypes']),
+        'eventTypes': !exists(json, 'eventTypes') ? undefined : json['eventTypes'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
         'includedInMenu': !exists(json, 'includedInMenu') ? undefined : json['includedInMenu'],
@@ -301,10 +295,10 @@ export function EventMenuBasicInfoTypeToJSON(value?: EventMenuBasicInfoType | nu
         'consumptionBased': value.consumptionBased,
         'courseCount': value.courseCount,
         'description': TranslationTextType2000ToJSON(value.description),
-        'dietaryList': CodeListTypeToJSON(value.dietaryList),
+        'dietaryList': value.dietaryList,
         'discountPercentage': value.discountPercentage,
         'eventDateRange': DateRangeTypeToJSON(value.eventDateRange),
-        'eventTypes': CodeListTypeToJSON(value.eventTypes),
+        'eventTypes': value.eventTypes,
         'hotelId': value.hotelId,
         'inactive': value.inactive,
         'includedInMenu': value.includedInMenu,

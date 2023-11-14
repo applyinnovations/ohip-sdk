@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ModelFileToJSON = exports.ModelFileFromJSONTyped = exports.ModelFileFromJSON = exports.instanceOfModelFile = void 0;
 const runtime_1 = require("../runtime");
 const FileAttachmentType_1 = require("./FileAttachmentType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ModelFile interface.
  */
@@ -36,8 +36,8 @@ function ModelFileFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'fileDetails': !(0, runtime_1.exists)(json, 'fileDetails') ? undefined : (0, FileAttachmentType_1.FileAttachmentTypeFromJSON)(json['fileDetails']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ModelFileFromJSONTyped = ModelFileFromJSONTyped;
@@ -50,8 +50,8 @@ function ModelFileToJSON(value) {
     }
     return {
         'fileDetails': (0, FileAttachmentType_1.FileAttachmentTypeToJSON)(value.fileDetails),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ModelFileToJSON = ModelFileToJSON;

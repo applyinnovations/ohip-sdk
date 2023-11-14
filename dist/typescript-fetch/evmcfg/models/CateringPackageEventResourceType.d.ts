@@ -9,8 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CateringPackageResourceNoteListType } from './CateringPackageResourceNoteListType';
-import type { CodeListType } from './CodeListType';
+import type { CateringPackageResourceNoteType } from './CateringPackageResourceNoteType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { EventResourceType } from './EventResourceType';
 import type { UniqueIDType } from './UniqueIDType';
@@ -69,17 +68,17 @@ export interface CateringPackageEventResourceType {
      */
     resourceId?: string;
     /**
-     *
-     * @type {CateringPackageResourceNoteListType}
+     * Collection of multiple Resource Notes associated with a particular Catering Package Resource.
+     * @type {Array<CateringPackageResourceNoteType>}
      * @memberof CateringPackageEventResourceType
      */
-    resourceNotes?: CateringPackageResourceNoteListType;
+    resourceNotes?: Array<CateringPackageResourceNoteType>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CateringPackageEventResourceType
      */
-    revenueTypes?: CodeListType;
+    revenueTypes?: Array<string>;
     /**
      * RateCode associated with the Function Space.
      * @type {string}

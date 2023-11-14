@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RateClassesType } from './RateClassesType';
+import type { RateClassType } from './RateClassType';
 import {
-    RateClassesTypeFromJSON,
-    RateClassesTypeFromJSONTyped,
-    RateClassesTypeToJSON,
-} from './RateClassesType';
+    RateClassTypeFromJSON,
+    RateClassTypeFromJSONTyped,
+    RateClassTypeToJSON,
+} from './RateClassType';
 
 /**
  * Collection of rate classes.
@@ -51,11 +51,11 @@ export interface RateClassDetailsRateClasses {
      */
     offset?: number;
     /**
-     * 
-     * @type {RateClassesType}
+     * Collection of hotel rate classes.
+     * @type {Array<RateClassType>}
      * @memberof RateClassDetailsRateClasses
      */
-    rateClasses?: RateClassesType;
+    rateClasses?: Array<RateClassType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -93,7 +93,7 @@ export function RateClassDetailsRateClassesFromJSONTyped(json: any, ignoreDiscri
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
-        'rateClasses': !exists(json, 'rateClasses') ? undefined : RateClassesTypeFromJSON(json['rateClasses']),
+        'rateClasses': !exists(json, 'rateClasses') ? undefined : ((json['rateClasses'] as Array<any>).map(RateClassTypeFromJSON)),
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
     };
@@ -112,7 +112,7 @@ export function RateClassDetailsRateClassesToJSON(value?: RateClassDetailsRateCl
         'hasMore': value.hasMore,
         'limit': value.limit,
         'offset': value.offset,
-        'rateClasses': RateClassesTypeToJSON(value.rateClasses),
+        'rateClasses': value.rateClasses === undefined ? undefined : ((value.rateClasses as Array<any>).map(RateClassTypeToJSON)),
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
     };

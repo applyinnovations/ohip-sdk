@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RoomFeaturesType } from './RoomFeaturesType';
-import type { RoomTypeComponentsType } from './RoomTypeComponentsType';
+import type { RoomFeatureType } from './RoomFeatureType';
+import type { RoomTypeComponentType } from './RoomTypeComponentType';
 import type { RoomTypeTypeSuite } from './RoomTypeTypeSuite';
 import type { RoomTypeYieldableType } from './RoomTypeYieldableType';
 import type { TranslationTextType2000 } from './TranslationTextType2000';
@@ -57,11 +57,11 @@ export interface RoomTypeType {
      */
     bedType?: string;
     /**
-     *
-     * @type {RoomTypeComponentsType}
+     * Contains room components of a component room type.
+     * @type {Array<RoomTypeComponentType>}
      * @memberof RoomTypeType
      */
-    components?: RoomTypeComponentsType;
+    components?: Array<RoomTypeComponentType>;
     /**
      * Default occupancy for the room type.
      * @type {number}
@@ -75,11 +75,11 @@ export interface RoomTypeType {
      */
     description?: TranslationTextType2000;
     /**
-     *
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof RoomTypeType
      */
-    features?: RoomFeaturesType;
+    features?: Array<RoomFeatureType>;
     /**
      * Indicates room type is generic.
      * @type {boolean}

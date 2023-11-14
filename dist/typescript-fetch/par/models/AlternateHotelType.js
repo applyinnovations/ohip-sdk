@@ -18,7 +18,7 @@ const runtime_1 = require("../runtime");
 const AddressType_1 = require("./AddressType");
 const ChannelSummaryInfoType_1 = require("./ChannelSummaryInfoType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
-const CurrencyExchangeRatesType_1 = require("./CurrencyExchangeRatesType");
+const CurrencyExchangeRateType_1 = require("./CurrencyExchangeRateType");
 const HotelAmenityType_1 = require("./HotelAmenityType");
 const RateRoomDetailsType_1 = require("./RateRoomDetailsType");
 const RelativePositionType_1 = require("./RelativePositionType");
@@ -50,7 +50,7 @@ function AlternateHotelTypeFromJSONTyped(json, ignoreDiscriminator) {
         'channelSummaryInfo': !(0, runtime_1.exists)(json, 'channelSummaryInfo') ? undefined : (0, ChannelSummaryInfoType_1.ChannelSummaryInfoTypeFromJSON)(json['channelSummaryInfo']),
         'comments': !(0, runtime_1.exists)(json, 'comments') ? undefined : json['comments'],
         'contactNumbers': !(0, runtime_1.exists)(json, 'contactNumbers') ? undefined : (json['contactNumbers'].map(TelephoneType_1.TelephoneTypeFromJSON)),
-        'currencyExchangeRates': !(0, runtime_1.exists)(json, 'currencyExchangeRates') ? undefined : (0, CurrencyExchangeRatesType_1.CurrencyExchangeRatesTypeFromJSON)(json['currencyExchangeRates']),
+        'currencyExchangeRates': !(0, runtime_1.exists)(json, 'currencyExchangeRates') ? undefined : (json['currencyExchangeRates'].map(CurrencyExchangeRateType_1.CurrencyExchangeRateTypeFromJSON)),
         'direction': !(0, runtime_1.exists)(json, 'direction') ? undefined : json['direction'],
         'displayOrder': !(0, runtime_1.exists)(json, 'displayOrder') ? undefined : json['displayOrder'],
         'event': !(0, runtime_1.exists)(json, 'event') ? undefined : json['event'],
@@ -89,7 +89,7 @@ function AlternateHotelTypeToJSON(value) {
         'channelSummaryInfo': (0, ChannelSummaryInfoType_1.ChannelSummaryInfoTypeToJSON)(value.channelSummaryInfo),
         'comments': value.comments,
         'contactNumbers': value.contactNumbers === undefined ? undefined : (value.contactNumbers.map(TelephoneType_1.TelephoneTypeToJSON)),
-        'currencyExchangeRates': (0, CurrencyExchangeRatesType_1.CurrencyExchangeRatesTypeToJSON)(value.currencyExchangeRates),
+        'currencyExchangeRates': value.currencyExchangeRates === undefined ? undefined : (value.currencyExchangeRates.map(CurrencyExchangeRateType_1.CurrencyExchangeRateTypeToJSON)),
         'direction': value.direction,
         'displayOrder': value.displayOrder,
         'event': value.event,

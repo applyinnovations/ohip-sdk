@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { RoomHierarchyTypeType } from './RoomHierarchyTypeType';
 import {
     RoomHierarchyTypeTypeFromJSON,
@@ -40,10 +34,10 @@ export interface RoomHierarchySearchType {
     fromCode?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof RoomHierarchySearchType
      */
-    hotelCodes?: CodeListType;
+    hotelCodes?: Array<string>;
     /**
      * 
      * @type {RoomHierarchyTypeType}
@@ -78,7 +72,7 @@ export function RoomHierarchySearchTypeFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'fromCode': !exists(json, 'fromCode') ? undefined : json['fromCode'],
-        'hotelCodes': !exists(json, 'hotelCodes') ? undefined : CodeListTypeFromJSON(json['hotelCodes']),
+        'hotelCodes': !exists(json, 'hotelCodes') ? undefined : json['hotelCodes'],
         'roomHierarchyType': !exists(json, 'roomHierarchyType') ? undefined : RoomHierarchyTypeTypeFromJSON(json['roomHierarchyType']),
         'toCode': !exists(json, 'toCode') ? undefined : json['toCode'],
     };
@@ -94,7 +88,7 @@ export function RoomHierarchySearchTypeToJSON(value?: RoomHierarchySearchType | 
     return {
         
         'fromCode': value.fromCode,
-        'hotelCodes': CodeListTypeToJSON(value.hotelCodes),
+        'hotelCodes': value.hotelCodes,
         'roomHierarchyType': RoomHierarchyTypeTypeToJSON(value.roomHierarchyType),
         'toCode': value.toCode,
     };

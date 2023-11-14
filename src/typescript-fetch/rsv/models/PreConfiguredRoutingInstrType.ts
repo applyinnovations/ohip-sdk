@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BillingInstructionsType } from './BillingInstructionsType';
+import type { BillingInstructionType } from './BillingInstructionType';
 import {
-    BillingInstructionsTypeFromJSON,
-    BillingInstructionsTypeFromJSONTyped,
-    BillingInstructionsTypeToJSON,
-} from './BillingInstructionsType';
+    BillingInstructionTypeFromJSON,
+    BillingInstructionTypeFromJSONTyped,
+    BillingInstructionTypeToJSON,
+} from './BillingInstructionType';
 import type { PromoCodeCompRoutingType } from './PromoCodeCompRoutingType';
 import {
     PromoCodeCompRoutingTypeFromJSON,
@@ -31,12 +31,12 @@ import {
     ResAttachedProfileTypeFromJSONTyped,
     ResAttachedProfileTypeToJSON,
 } from './ResAttachedProfileType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
 
 /**
  * Routing can be promotion code complimentary routing or profile routing.
@@ -51,11 +51,11 @@ export interface PreConfiguredRoutingInstrType {
      */
     autoPopulateRouting?: string;
     /**
-     * 
-     * @type {BillingInstructionsType}
+     * Set of Billing Instruction codes.
+     * @type {Array<BillingInstructionType>}
      * @memberof PreConfiguredRoutingInstrType
      */
-    billingInstructions?: BillingInstructionsType;
+    billingInstructions?: Array<BillingInstructionType>;
     /**
      * 
      * @type {PromoCodeCompRoutingType}
@@ -75,11 +75,11 @@ export interface PreConfiguredRoutingInstrType {
      */
     reservationProfile?: ResAttachedProfileType;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof PreConfiguredRoutingInstrType
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
 }
 
 /**
@@ -102,11 +102,11 @@ export function PreConfiguredRoutingInstrTypeFromJSONTyped(json: any, ignoreDisc
     return {
         
         'autoPopulateRouting': !exists(json, 'autoPopulateRouting') ? undefined : json['autoPopulateRouting'],
-        'billingInstructions': !exists(json, 'billingInstructions') ? undefined : BillingInstructionsTypeFromJSON(json['billingInstructions']),
+        'billingInstructions': !exists(json, 'billingInstructions') ? undefined : ((json['billingInstructions'] as Array<any>).map(BillingInstructionTypeFromJSON)),
         'compRoutingInstructionType': !exists(json, 'compRoutingInstructionType') ? undefined : PromoCodeCompRoutingTypeFromJSON(json['compRoutingInstructionType']),
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'reservationProfile': !exists(json, 'reservationProfile') ? undefined : ResAttachedProfileTypeFromJSON(json['reservationProfile']),
-        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : TrxCodesInfoTypeFromJSON(json['transactionCodes']),
+        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : ((json['transactionCodes'] as Array<any>).map(TrxInfoTypeFromJSON)),
     };
 }
 
@@ -120,11 +120,11 @@ export function PreConfiguredRoutingInstrTypeToJSON(value?: PreConfiguredRouting
     return {
         
         'autoPopulateRouting': value.autoPopulateRouting,
-        'billingInstructions': BillingInstructionsTypeToJSON(value.billingInstructions),
+        'billingInstructions': value.billingInstructions === undefined ? undefined : ((value.billingInstructions as Array<any>).map(BillingInstructionTypeToJSON)),
         'compRoutingInstructionType': PromoCodeCompRoutingTypeToJSON(value.compRoutingInstructionType),
         'ratePlanCode': value.ratePlanCode,
         'reservationProfile': ResAttachedProfileTypeToJSON(value.reservationProfile),
-        'transactionCodes': TrxCodesInfoTypeToJSON(value.transactionCodes),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : ((value.transactionCodes as Array<any>).map(TrxInfoTypeToJSON)),
     };
 }
 

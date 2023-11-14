@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommissionPaymentsActivityDetailsToJSON = exports.CommissionPaymentsActivityDetailsFromJSONTyped = exports.CommissionPaymentsActivityDetailsFromJSON = exports.instanceOfCommissionPaymentsActivityDetails = void 0;
 const runtime_1 = require("../runtime");
-const CommissionPaymentsActivityType_1 = require("./CommissionPaymentsActivityType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CommissionPaymentActivityType_1 = require("./CommissionPaymentActivityType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CommissionPaymentsActivityDetails interface.
  */
@@ -35,9 +35,9 @@ function CommissionPaymentsActivityDetailsFromJSONTyped(json, ignoreDiscriminato
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'paymentsActivity': !(0, runtime_1.exists)(json, 'paymentsActivity') ? undefined : (0, CommissionPaymentsActivityType_1.CommissionPaymentsActivityTypeFromJSON)(json['paymentsActivity']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'paymentsActivity': !(0, runtime_1.exists)(json, 'paymentsActivity') ? undefined : (json['paymentsActivity'].map(CommissionPaymentActivityType_1.CommissionPaymentActivityTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CommissionPaymentsActivityDetailsFromJSONTyped = CommissionPaymentsActivityDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function CommissionPaymentsActivityDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'paymentsActivity': (0, CommissionPaymentsActivityType_1.CommissionPaymentsActivityTypeToJSON)(value.paymentsActivity),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'paymentsActivity': value.paymentsActivity === undefined ? undefined : (value.paymentsActivity.map(CommissionPaymentActivityType_1.CommissionPaymentActivityTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CommissionPaymentsActivityDetailsToJSON = CommissionPaymentsActivityDetailsToJSON;

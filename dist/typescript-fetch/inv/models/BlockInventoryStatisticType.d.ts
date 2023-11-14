@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockDetailStatisticsType } from './BlockDetailStatisticsType';
-import type { BlockSummaryStatisticsType } from './BlockSummaryStatisticsType';
+import type { BlockDetailStatisticType } from './BlockDetailStatisticType';
+import type { BlockSummaryStatisticType } from './BlockSummaryStatisticType';
 import type { SellMessagesType } from './SellMessagesType';
 /**
  * Summary and Detail statistics for block inventory.
@@ -19,17 +19,17 @@ import type { SellMessagesType } from './SellMessagesType';
  */
 export interface BlockInventoryStatisticType {
     /**
-     *
-     * @type {BlockDetailStatisticsType}
+     * Compose of block information and statistic summary for a particular block.
+     * @type {Array<BlockDetailStatisticType>}
      * @memberof BlockInventoryStatisticType
      */
-    blockDetailStatistics?: BlockDetailStatisticsType;
+    blockDetailStatistics?: Array<BlockDetailStatisticType>;
     /**
-     *
-     * @type {BlockSummaryStatisticsType}
+     * Statistic units group by status, booking and daily targets.
+     * @type {Array<BlockSummaryStatisticType>}
      * @memberof BlockInventoryStatisticType
      */
-    blockSummaryStatistics?: BlockSummaryStatisticsType;
+    blockSummaryStatistics?: Array<BlockSummaryStatisticType>;
     /**
      *
      * @type {SellMessagesType}

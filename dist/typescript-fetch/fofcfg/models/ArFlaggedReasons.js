@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ArFlaggedReasonsToJSON = exports.ArFlaggedReasonsFromJSONTyped = exports.ArFlaggedReasonsFromJSON = exports.instanceOfArFlaggedReasons = void 0;
 const runtime_1 = require("../runtime");
-const ARFlaggedReasonsType_1 = require("./ARFlaggedReasonsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ARFlaggedReasonType_1 = require("./ARFlaggedReasonType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ArFlaggedReasons interface.
  */
@@ -35,9 +35,9 @@ function ArFlaggedReasonsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'aRFlaggedReasons': !(0, runtime_1.exists)(json, 'aRFlaggedReasons') ? undefined : (0, ARFlaggedReasonsType_1.ARFlaggedReasonsTypeFromJSON)(json['aRFlaggedReasons']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'aRFlaggedReasons': !(0, runtime_1.exists)(json, 'aRFlaggedReasons') ? undefined : (json['aRFlaggedReasons'].map(ARFlaggedReasonType_1.ARFlaggedReasonTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ArFlaggedReasonsFromJSONTyped = ArFlaggedReasonsFromJSONTyped;
@@ -49,9 +49,9 @@ function ArFlaggedReasonsToJSON(value) {
         return null;
     }
     return {
-        'aRFlaggedReasons': (0, ARFlaggedReasonsType_1.ARFlaggedReasonsTypeToJSON)(value.aRFlaggedReasons),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'aRFlaggedReasons': value.aRFlaggedReasons === undefined ? undefined : (value.aRFlaggedReasons.map(ARFlaggedReasonType_1.ARFlaggedReasonTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ArFlaggedReasonsToJSON = ArFlaggedReasonsToJSON;

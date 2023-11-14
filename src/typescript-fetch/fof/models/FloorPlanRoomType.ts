@@ -43,30 +43,36 @@ import {
     ReservationShortInfoTypeFromJSONTyped,
     ReservationShortInfoTypeToJSON,
 } from './ReservationShortInfoType';
-import type { RoomDiscrepanciesType } from './RoomDiscrepanciesType';
+import type { RoomDiscrepancyType } from './RoomDiscrepancyType';
 import {
-    RoomDiscrepanciesTypeFromJSON,
-    RoomDiscrepanciesTypeFromJSONTyped,
-    RoomDiscrepanciesTypeToJSON,
-} from './RoomDiscrepanciesType';
-import type { RoomFeaturesType } from './RoomFeaturesType';
+    RoomDiscrepancyTypeFromJSON,
+    RoomDiscrepancyTypeFromJSONTyped,
+    RoomDiscrepancyTypeToJSON,
+} from './RoomDiscrepancyType';
+import type { RoomFeatureType } from './RoomFeatureType';
 import {
-    RoomFeaturesTypeFromJSON,
-    RoomFeaturesTypeFromJSONTyped,
-    RoomFeaturesTypeToJSON,
-} from './RoomFeaturesType';
+    RoomFeatureTypeFromJSON,
+    RoomFeatureTypeFromJSONTyped,
+    RoomFeatureTypeToJSON,
+} from './RoomFeatureType';
 import type { RoomHoldType } from './RoomHoldType';
 import {
     RoomHoldTypeFromJSON,
     RoomHoldTypeFromJSONTyped,
     RoomHoldTypeToJSON,
 } from './RoomHoldType';
-import type { RoomRoomsType } from './RoomRoomsType';
+import type { RoomOutOfOrderType } from './RoomOutOfOrderType';
 import {
-    RoomRoomsTypeFromJSON,
-    RoomRoomsTypeFromJSONTyped,
-    RoomRoomsTypeToJSON,
-} from './RoomRoomsType';
+    RoomOutOfOrderTypeFromJSON,
+    RoomOutOfOrderTypeFromJSONTyped,
+    RoomOutOfOrderTypeToJSON,
+} from './RoomOutOfOrderType';
+import type { RoomRoomType } from './RoomRoomType';
+import {
+    RoomRoomTypeFromJSON,
+    RoomRoomTypeFromJSONTyped,
+    RoomRoomTypeToJSON,
+} from './RoomRoomType';
 import type { RoomSectionType } from './RoomSectionType';
 import {
     RoomSectionTypeFromJSON,
@@ -79,12 +85,6 @@ import {
     RoomTypeShortInfoTypeFromJSONTyped,
     RoomTypeShortInfoTypeToJSON,
 } from './RoomTypeShortInfoType';
-import type { RoomsOutOfOrderType } from './RoomsOutOfOrderType';
-import {
-    RoomsOutOfOrderTypeFromJSON,
-    RoomsOutOfOrderTypeFromJSONTyped,
-    RoomsOutOfOrderTypeToJSON,
-} from './RoomsOutOfOrderType';
 import type { SitePlanSectionType } from './SitePlanSectionType';
 import {
     SitePlanSectionTypeFromJSON,
@@ -141,17 +141,17 @@ export interface FloorPlanRoomType {
      */
     componentRoomNumbers?: Array<string>;
     /**
-     * 
-     * @type {RoomRoomsType}
+     * Collection of rooms.
+     * @type {Array<RoomRoomType>}
      * @memberof FloorPlanRoomType
      */
-    componentRooms?: RoomRoomsType;
+    componentRooms?: Array<RoomRoomType>;
     /**
-     * 
-     * @type {RoomRoomsType}
+     * Collection of rooms.
+     * @type {Array<RoomRoomType>}
      * @memberof FloorPlanRoomType
      */
-    connectingRooms?: RoomRoomsType;
+    connectingRooms?: Array<RoomRoomType>;
     /**
      * 
      * @type {TranslationTextType2000}
@@ -159,11 +159,11 @@ export interface FloorPlanRoomType {
      */
     description?: TranslationTextType2000;
     /**
-     * 
-     * @type {RoomDiscrepanciesType}
+     * Room Discrepancies between front office and housekeeping room status and number of persons in the room.
+     * @type {Array<RoomDiscrepancyType>}
      * @memberof FloorPlanRoomType
      */
-    discrepancy?: RoomDiscrepanciesType;
+    discrepancy?: Array<RoomDiscrepancyType>;
     /**
      * Floor of the Room.
      * @type {string}
@@ -201,11 +201,11 @@ export interface FloorPlanRoomType {
      */
     meetingRoom?: boolean;
     /**
-     * 
-     * @type {RoomsOutOfOrderType}
+     * Date Range and reasons for a room being Out of Order/Out Of Service (If the room is OO/OS).
+     * @type {Array<RoomOutOfOrderType>}
      * @memberof FloorPlanRoomType
      */
-    outOfOrder?: RoomsOutOfOrderType;
+    outOfOrder?: Array<RoomOutOfOrderType>;
     /**
      * 
      * @type {Array<ReservationShortInfoType>}
@@ -225,11 +225,11 @@ export interface FloorPlanRoomType {
      */
     roomDescription?: string;
     /**
-     * 
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof FloorPlanRoomType
      */
-    roomFeatures?: RoomFeaturesType;
+    roomFeatures?: Array<RoomFeatureType>;
     /**
      * Code of the room.
      * @type {string}
@@ -298,21 +298,21 @@ export function FloorPlanRoomTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'building': !exists(json, 'building') ? undefined : json['building'],
         'componentRoomNumber': !exists(json, 'componentRoomNumber') ? undefined : json['componentRoomNumber'],
         'componentRoomNumbers': !exists(json, 'componentRoomNumbers') ? undefined : json['componentRoomNumbers'],
-        'componentRooms': !exists(json, 'componentRooms') ? undefined : RoomRoomsTypeFromJSON(json['componentRooms']),
-        'connectingRooms': !exists(json, 'connectingRooms') ? undefined : RoomRoomsTypeFromJSON(json['connectingRooms']),
+        'componentRooms': !exists(json, 'componentRooms') ? undefined : ((json['componentRooms'] as Array<any>).map(RoomRoomTypeFromJSON)),
+        'connectingRooms': !exists(json, 'connectingRooms') ? undefined : ((json['connectingRooms'] as Array<any>).map(RoomRoomTypeFromJSON)),
         'description': !exists(json, 'description') ? undefined : TranslationTextType2000FromJSON(json['description']),
-        'discrepancy': !exists(json, 'discrepancy') ? undefined : RoomDiscrepanciesTypeFromJSON(json['discrepancy']),
+        'discrepancy': !exists(json, 'discrepancy') ? undefined : ((json['discrepancy'] as Array<any>).map(RoomDiscrepancyTypeFromJSON)),
         'floor': !exists(json, 'floor') ? undefined : json['floor'],
         'floorDescription': !exists(json, 'floorDescription') ? undefined : json['floorDescription'],
         'guests': !exists(json, 'guests') ? undefined : ((json['guests'] as Array<any>).map(FloorPlanRoomGuestTypeFromJSON)),
         'hold': !exists(json, 'hold') ? undefined : RoomHoldTypeFromJSON(json['hold']),
         'housekeeping': !exists(json, 'housekeeping') ? undefined : HousekeepingTypeFromJSON(json['housekeeping']),
         'meetingRoom': !exists(json, 'meetingRoom') ? undefined : json['meetingRoom'],
-        'outOfOrder': !exists(json, 'outOfOrder') ? undefined : RoomsOutOfOrderTypeFromJSON(json['outOfOrder']),
+        'outOfOrder': !exists(json, 'outOfOrder') ? undefined : ((json['outOfOrder'] as Array<any>).map(RoomOutOfOrderTypeFromJSON)),
         'resvInfo': !exists(json, 'resvInfo') ? undefined : ((json['resvInfo'] as Array<any>).map(ReservationShortInfoTypeFromJSON)),
         'roomAssignmentRating': !exists(json, 'roomAssignmentRating') ? undefined : RatePlanRatingTypeFromJSON(json['roomAssignmentRating']),
         'roomDescription': !exists(json, 'roomDescription') ? undefined : json['roomDescription'],
-        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : RoomFeaturesTypeFromJSON(json['roomFeatures']),
+        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : ((json['roomFeatures'] as Array<any>).map(RoomFeatureTypeFromJSON)),
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'roomSection': !exists(json, 'roomSection') ? undefined : RoomSectionTypeFromJSON(json['roomSection']),
         'roomType': !exists(json, 'roomType') ? undefined : RoomTypeShortInfoTypeFromJSON(json['roomType']),
@@ -337,21 +337,21 @@ export function FloorPlanRoomTypeToJSON(value?: FloorPlanRoomType | null): any {
         'building': value.building,
         'componentRoomNumber': value.componentRoomNumber,
         'componentRoomNumbers': value.componentRoomNumbers,
-        'componentRooms': RoomRoomsTypeToJSON(value.componentRooms),
-        'connectingRooms': RoomRoomsTypeToJSON(value.connectingRooms),
+        'componentRooms': value.componentRooms === undefined ? undefined : ((value.componentRooms as Array<any>).map(RoomRoomTypeToJSON)),
+        'connectingRooms': value.connectingRooms === undefined ? undefined : ((value.connectingRooms as Array<any>).map(RoomRoomTypeToJSON)),
         'description': TranslationTextType2000ToJSON(value.description),
-        'discrepancy': RoomDiscrepanciesTypeToJSON(value.discrepancy),
+        'discrepancy': value.discrepancy === undefined ? undefined : ((value.discrepancy as Array<any>).map(RoomDiscrepancyTypeToJSON)),
         'floor': value.floor,
         'floorDescription': value.floorDescription,
         'guests': value.guests === undefined ? undefined : ((value.guests as Array<any>).map(FloorPlanRoomGuestTypeToJSON)),
         'hold': RoomHoldTypeToJSON(value.hold),
         'housekeeping': HousekeepingTypeToJSON(value.housekeeping),
         'meetingRoom': value.meetingRoom,
-        'outOfOrder': RoomsOutOfOrderTypeToJSON(value.outOfOrder),
+        'outOfOrder': value.outOfOrder === undefined ? undefined : ((value.outOfOrder as Array<any>).map(RoomOutOfOrderTypeToJSON)),
         'resvInfo': value.resvInfo === undefined ? undefined : ((value.resvInfo as Array<any>).map(ReservationShortInfoTypeToJSON)),
         'roomAssignmentRating': RatePlanRatingTypeToJSON(value.roomAssignmentRating),
         'roomDescription': value.roomDescription,
-        'roomFeatures': RoomFeaturesTypeToJSON(value.roomFeatures),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : ((value.roomFeatures as Array<any>).map(RoomFeatureTypeToJSON)),
         'roomId': value.roomId,
         'roomSection': RoomSectionTypeToJSON(value.roomSection),
         'roomType': RoomTypeShortInfoTypeToJSON(value.roomType),

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { PropertiesMappingType } from './PropertiesMappingType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { PropertyMappingType } from './PropertyMappingType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching external system properties.
  * @export
@@ -38,10 +38,10 @@ export interface PropertiesMapping {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PropertiesMapping
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -49,11 +49,11 @@ export interface PropertiesMapping {
      */
     offset?: number;
     /**
-     *
-     * @type {PropertiesMappingType}
+     * Information about an external property mapping.
+     * @type {Array<PropertyMappingType>}
      * @memberof PropertiesMapping
      */
-    propertiesMapping?: PropertiesMappingType;
+    propertiesMapping?: Array<PropertyMappingType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -67,11 +67,11 @@ export interface PropertiesMapping {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PropertiesMapping
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PropertiesMapping interface.

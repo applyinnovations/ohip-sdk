@@ -16,7 +16,7 @@ import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { DepositDetailPostingTypeUpdateInfo } from './DepositDetailPostingTypeUpdateInfo';
 import type { ExchangeAmounts } from './ExchangeAmounts';
 import type { PostingGroupType } from './PostingGroupType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Posting details.
  * @export
@@ -126,11 +126,11 @@ export interface PackagePostingType {
      */
     fbaCertificate?: boolean;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof PackagePostingType
      */
-    financialTransactionIdList?: UniqueIDListType;
+    financialTransactionIdList?: Array<UniqueIDType>;
     /**
      * Room number for linked reservation package allowance or consumption.
      * @type {string}

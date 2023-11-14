@@ -15,11 +15,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationPackageOptionsToJSON = exports.ReservationPackageOptionsFromJSONTyped = exports.ReservationPackageOptionsFromJSON = exports.instanceOfReservationPackageOptions = void 0;
 const runtime_1 = require("../runtime");
+const InstanceLink_1 = require("./InstanceLink");
 const LinkedAllowanceReservationsInfoType_1 = require("./LinkedAllowanceReservationsInfoType");
-const Links_1 = require("./Links");
-const PackagePostingsType_1 = require("./PackagePostingsType");
-const TrxCodesInfoType_1 = require("./TrxCodesInfoType");
-const WarningsType_1 = require("./WarningsType");
+const PackagePostingType_1 = require("./PackagePostingType");
+const TrxInfoType_1 = require("./TrxInfoType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ReservationPackageOptions interface.
  */
@@ -38,10 +38,10 @@ function ReservationPackageOptionsFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'linkedAllowanceReservationsInfo': !(0, runtime_1.exists)(json, 'linkedAllowanceReservationsInfo') ? undefined : (0, LinkedAllowanceReservationsInfoType_1.LinkedAllowanceReservationsInfoTypeFromJSON)(json['linkedAllowanceReservationsInfo']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'packagePostings': !(0, runtime_1.exists)(json, 'packagePostings') ? undefined : (0, PackagePostingsType_1.PackagePostingsTypeFromJSON)(json['packagePostings']),
-        'trxCodesInfo': !(0, runtime_1.exists)(json, 'trxCodesInfo') ? undefined : (0, TrxCodesInfoType_1.TrxCodesInfoTypeFromJSON)(json['trxCodesInfo']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'packagePostings': !(0, runtime_1.exists)(json, 'packagePostings') ? undefined : (json['packagePostings'].map(PackagePostingType_1.PackagePostingTypeFromJSON)),
+        'trxCodesInfo': !(0, runtime_1.exists)(json, 'trxCodesInfo') ? undefined : (json['trxCodesInfo'].map(TrxInfoType_1.TrxInfoTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ReservationPackageOptionsFromJSONTyped = ReservationPackageOptionsFromJSONTyped;
@@ -54,10 +54,10 @@ function ReservationPackageOptionsToJSON(value) {
     }
     return {
         'linkedAllowanceReservationsInfo': (0, LinkedAllowanceReservationsInfoType_1.LinkedAllowanceReservationsInfoTypeToJSON)(value.linkedAllowanceReservationsInfo),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'packagePostings': (0, PackagePostingsType_1.PackagePostingsTypeToJSON)(value.packagePostings),
-        'trxCodesInfo': (0, TrxCodesInfoType_1.TrxCodesInfoTypeToJSON)(value.trxCodesInfo),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'packagePostings': value.packagePostings === undefined ? undefined : (value.packagePostings.map(PackagePostingType_1.PackagePostingTypeToJSON)),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : (value.trxCodesInfo.map(TrxInfoType_1.TrxInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ReservationPackageOptionsToJSON = ReservationPackageOptionsToJSON;

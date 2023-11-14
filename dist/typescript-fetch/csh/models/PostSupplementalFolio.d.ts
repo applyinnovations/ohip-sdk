@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { SupplementalFolioCriteriaType } from './SupplementalFolioCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to post a Supplemental Folio for an existing Folio. Debit Bill ( Supplemental Folio ) Functionality parameter is required
  * @export
@@ -26,16 +26,16 @@ export interface PostSupplementalFolio {
     criteria?: SupplementalFolioCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostSupplementalFolio
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostSupplementalFolio
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PostSupplementalFolio interface.

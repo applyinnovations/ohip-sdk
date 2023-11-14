@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { GuaranteeConfigType } from './GuaranteeConfigType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object that holds the details of template Guarantee Code to be created.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateGuaranteeCodeCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateGuaranteeCodeCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {GuaranteeConfigType}
@@ -31,11 +31,11 @@ export interface TemplateGuaranteeCodeCriteria {
      */
     templateGuaranteeCode?: GuaranteeConfigType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateGuaranteeCodeCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateGuaranteeCodeCriteria interface.

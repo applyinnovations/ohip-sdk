@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FolioArrangementCodesToJSON = exports.FolioArrangementCodesFromJSONTyped = exports.FolioArrangementCodesFromJSON = exports.instanceOfFolioArrangementCodes = void 0;
 const runtime_1 = require("../runtime");
-const FolioArrangementCodesType_1 = require("./FolioArrangementCodesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const FolioArrangementCodeType_1 = require("./FolioArrangementCodeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FolioArrangementCodes interface.
  */
@@ -35,9 +35,9 @@ function FolioArrangementCodesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'folioArrangementCodes': !(0, runtime_1.exists)(json, 'folioArrangementCodes') ? undefined : (0, FolioArrangementCodesType_1.FolioArrangementCodesTypeFromJSON)(json['folioArrangementCodes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'folioArrangementCodes': !(0, runtime_1.exists)(json, 'folioArrangementCodes') ? undefined : (json['folioArrangementCodes'].map(FolioArrangementCodeType_1.FolioArrangementCodeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FolioArrangementCodesFromJSONTyped = FolioArrangementCodesFromJSONTyped;
@@ -49,9 +49,9 @@ function FolioArrangementCodesToJSON(value) {
         return null;
     }
     return {
-        'folioArrangementCodes': (0, FolioArrangementCodesType_1.FolioArrangementCodesTypeToJSON)(value.folioArrangementCodes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'folioArrangementCodes': value.folioArrangementCodes === undefined ? undefined : (value.folioArrangementCodes.map(FolioArrangementCodeType_1.FolioArrangementCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FolioArrangementCodesToJSON = FolioArrangementCodesToJSON;

@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ARTransactionTypeToJSON = exports.ARTransactionTypeFromJSONTyped = exports.ARTransactionTypeFromJSON = exports.instanceOfARTransactionType = void 0;
 const runtime_1 = require("../runtime");
-const AccountInvoicesInfoType_1 = require("./AccountInvoicesInfoType");
-const AccountPaymentsInfoType_1 = require("./AccountPaymentsInfoType");
+const AccountInvoiceInfoType_1 = require("./AccountInvoiceInfoType");
+const AccountPaymentInfoType_1 = require("./AccountPaymentInfoType");
 /**
  * Check if a given object implements the ARTransactionType interface.
  */
@@ -34,8 +34,8 @@ function ARTransactionTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'invoices': !(0, runtime_1.exists)(json, 'invoices') ? undefined : (0, AccountInvoicesInfoType_1.AccountInvoicesInfoTypeFromJSON)(json['invoices']),
-        'payments': !(0, runtime_1.exists)(json, 'payments') ? undefined : (0, AccountPaymentsInfoType_1.AccountPaymentsInfoTypeFromJSON)(json['payments']),
+        'invoices': !(0, runtime_1.exists)(json, 'invoices') ? undefined : (json['invoices'].map(AccountInvoiceInfoType_1.AccountInvoiceInfoTypeFromJSON)),
+        'payments': !(0, runtime_1.exists)(json, 'payments') ? undefined : (json['payments'].map(AccountPaymentInfoType_1.AccountPaymentInfoTypeFromJSON)),
     };
 }
 exports.ARTransactionTypeFromJSONTyped = ARTransactionTypeFromJSONTyped;
@@ -47,8 +47,8 @@ function ARTransactionTypeToJSON(value) {
         return null;
     }
     return {
-        'invoices': (0, AccountInvoicesInfoType_1.AccountInvoicesInfoTypeToJSON)(value.invoices),
-        'payments': (0, AccountPaymentsInfoType_1.AccountPaymentsInfoTypeToJSON)(value.payments),
+        'invoices': value.invoices === undefined ? undefined : (value.invoices.map(AccountInvoiceInfoType_1.AccountInvoiceInfoTypeToJSON)),
+        'payments': value.payments === undefined ? undefined : (value.payments.map(AccountPaymentInfoType_1.AccountPaymentInfoTypeToJSON)),
     };
 }
 exports.ARTransactionTypeToJSON = ARTransactionTypeToJSON;

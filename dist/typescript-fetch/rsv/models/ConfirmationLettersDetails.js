@@ -15,11 +15,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConfirmationLettersDetailsToJSON = exports.ConfirmationLettersDetailsFromJSONTyped = exports.ConfirmationLettersDetailsFromJSON = exports.instanceOfConfirmationLettersDetails = void 0;
 const runtime_1 = require("../runtime");
-const ConfirmationsType_1 = require("./ConfirmationsType");
-const Links_1 = require("./Links");
+const ConfirmationType_1 = require("./ConfirmationType");
+const InstanceLink_1 = require("./InstanceLink");
 const ReservationId_1 = require("./ReservationId");
 const ResponseInstructionsType_1 = require("./ResponseInstructionsType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ConfirmationLettersDetails interface.
  */
@@ -37,12 +37,12 @@ function ConfirmationLettersDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'confLetters': !(0, runtime_1.exists)(json, 'confLetters') ? undefined : (0, ConfirmationsType_1.ConfirmationsTypeFromJSON)(json['confLetters']),
+        'confLetters': !(0, runtime_1.exists)(json, 'confLetters') ? undefined : (json['confLetters'].map(ConfirmationType_1.ConfirmationTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
         'responseInstruction': !(0, runtime_1.exists)(json, 'responseInstruction') ? undefined : (0, ResponseInstructionsType_1.ResponseInstructionsTypeFromJSON)(json['responseInstruction']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ConfirmationLettersDetailsFromJSONTyped = ConfirmationLettersDetailsFromJSONTyped;
@@ -54,12 +54,12 @@ function ConfirmationLettersDetailsToJSON(value) {
         return null;
     }
     return {
-        'confLetters': (0, ConfirmationsType_1.ConfirmationsTypeToJSON)(value.confLetters),
+        'confLetters': value.confLetters === undefined ? undefined : (value.confLetters.map(ConfirmationType_1.ConfirmationTypeToJSON)),
         'hotelId': value.hotelId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
         'responseInstruction': (0, ResponseInstructionsType_1.ResponseInstructionsTypeToJSON)(value.responseInstruction),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ConfirmationLettersDetailsToJSON = ConfirmationLettersDetailsToJSON;

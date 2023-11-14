@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ItemPoolsType } from './ItemPoolsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ItemPoolType } from './ItemPoolType';
+import type { WarningType } from './WarningType';
 /**
  * Response object which holds collection of Item Pools.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ItemPoolsInfo {
     /**
-     *
-     * @type {ItemPoolsType}
+     * Item Pools details for hotels.
+     * @type {Array<ItemPoolType>}
      * @memberof ItemPoolsInfo
      */
-    itemPools?: ItemPoolsType;
+    itemPools?: Array<ItemPoolType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ItemPoolsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ItemPoolsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ItemPoolsInfo interface.

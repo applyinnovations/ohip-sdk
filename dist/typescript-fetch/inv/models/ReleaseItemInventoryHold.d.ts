@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 import type { HeldByType } from './HeldByType';
-import type { ReleaseItemsInventoryHoldType } from './ReleaseItemsInventoryHoldType';
+import type { ReleaseItemInventoryHoldType } from './ReleaseItemInventoryHoldType';
 import type { TimeSpanType } from './TimeSpanType';
 import type { UniqueIDType } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for releasing a held item inventory/availability.
  * @export
@@ -57,11 +57,11 @@ export interface ReleaseItemInventoryHold {
      */
     itemId?: UniqueIDType;
     /**
-     *
-     * @type {ReleaseItemsInventoryHoldType}
+     * Collection of items for releasing an Items Inventory hold.
+     * @type {Array<ReleaseItemInventoryHoldType>}
      * @memberof ReleaseItemInventoryHold
      */
-    releaseItemsInventoryHoldInfo?: ReleaseItemsInventoryHoldType;
+    releaseItemsInventoryHoldInfo?: Array<ReleaseItemInventoryHoldType>;
     /**
      *
      * @type {TimeSpanType}
@@ -69,11 +69,11 @@ export interface ReleaseItemInventoryHold {
      */
     reserveDates?: TimeSpanType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReleaseItemInventoryHold
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReleaseItemInventoryHold interface.

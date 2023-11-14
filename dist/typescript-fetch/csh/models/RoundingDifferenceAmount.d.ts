@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RoundingDifferenceAmountType } from './RoundingDifferenceAmountType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response to the request to fetch the rounding difference for a payment amount.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface RoundingDifferenceAmount {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoundingDifferenceAmount
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {RoundingDifferenceAmountType}
@@ -31,11 +31,11 @@ export interface RoundingDifferenceAmount {
      */
     roundingDifference?: RoundingDifferenceAmountType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoundingDifferenceAmount
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoundingDifferenceAmount interface.

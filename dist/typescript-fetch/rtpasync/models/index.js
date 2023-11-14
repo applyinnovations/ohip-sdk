@@ -16,26 +16,20 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /* tslint:disable */
 /* eslint-disable */
-__exportStar(require("./BestAvailableRateCodesType"), exports);
 __exportStar(require("./BestAvailableRatePlanType"), exports);
 __exportStar(require("./BestAvailableRatePlans"), exports);
 __exportStar(require("./BestAvailableRatePlansStatus"), exports);
-__exportStar(require("./BestAvailableRatePlansType"), exports);
 __exportStar(require("./DailyRatePlanScheduleType"), exports);
 __exportStar(require("./DailyRatePlanSchedules"), exports);
 __exportStar(require("./DailyRatePlanSchedulesStatus"), exports);
 __exportStar(require("./ErrorInstance"), exports);
 __exportStar(require("./ExceptionDetailType"), exports);
 __exportStar(require("./HurdleRateType"), exports);
-__exportStar(require("./HurdleRates"), exports);
 __exportStar(require("./HurdleRatesStatus"), exports);
 __exportStar(require("./InstanceLink"), exports);
-__exportStar(require("./Links"), exports);
 __exportStar(require("./RateByAgeBucketType"), exports);
-__exportStar(require("./RateByAgeBucketsType"), exports);
 __exportStar(require("./RatePlanDistributionType"), exports);
 __exportStar(require("./RatePlanType"), exports);
 __exportStar(require("./RatePlans"), exports);
 __exportStar(require("./ScheduleRateAmountsType"), exports);
 __exportStar(require("./WarningType"), exports);
-__exportStar(require("./WarningsType"), exports);

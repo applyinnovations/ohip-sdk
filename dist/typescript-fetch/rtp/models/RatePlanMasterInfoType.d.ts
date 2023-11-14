@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RatePlanBasedOnRatesType } from './RatePlanBasedOnRatesType';
+import type { RatePlanBasedOnRateType } from './RatePlanBasedOnRateType';
 import type { RatePlanPrimaryDetailsType } from './RatePlanPrimaryDetailsType';
-import type { RateRoomTypeListType } from './RateRoomTypeListType';
-import type { RateTiersType } from './RateTiersType';
+import type { RateRoomTypeDetailType } from './RateRoomTypeDetailType';
+import type { RateTierType } from './RateTierType';
 /**
  * The Rate plan info type is used primarily by rate plan schedules to get basic rate plan header details.
  * @export
@@ -74,11 +74,11 @@ export interface RatePlanMasterInfoType {
      */
     primaryDetails?: RatePlanPrimaryDetailsType;
     /**
-     *
-     * @type {RatePlanBasedOnRatesType}
+     * Rate plan type based on rates.
+     * @type {Array<RatePlanBasedOnRateType>}
      * @memberof RatePlanMasterInfoType
      */
-    ratePlanBasedOnRates?: RatePlanBasedOnRatesType;
+    ratePlanBasedOnRates?: Array<RatePlanBasedOnRateType>;
     /**
      * Rate Plan Code of the rate plan.
      * @type {string}
@@ -86,17 +86,17 @@ export interface RatePlanMasterInfoType {
      */
     ratePlanCode?: string;
     /**
-     *
-     * @type {RateTiersType}
+     * Details for each rate tier.
+     * @type {Array<RateTierType>}
      * @memberof RatePlanMasterInfoType
      */
-    rateTiers?: RateTiersType;
+    rateTiers?: Array<RateTierType>;
     /**
-     *
-     * @type {RateRoomTypeListType}
+     * Details of each room type
+     * @type {Array<RateRoomTypeDetailType>}
      * @memberof RatePlanMasterInfoType
      */
-    roomTypeList?: RateRoomTypeListType;
+    roomTypeList?: Array<RateRoomTypeDetailType>;
     /**
      * Is Rate plan tiered?
      * @type {boolean}

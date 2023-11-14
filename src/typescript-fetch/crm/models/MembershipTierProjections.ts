@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { MembershipTierProjectionType } from './MembershipTierProjectionType';
 import {
     MembershipTierProjectionTypeFromJSON,
     MembershipTierProjectionTypeFromJSONTyped,
     MembershipTierProjectionTypeToJSON,
 } from './MembershipTierProjectionType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Membership Tier Process Text.
@@ -40,10 +40,10 @@ import {
 export interface MembershipTierProjections {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipTierProjections
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {MembershipTierProjectionType}
@@ -51,11 +51,11 @@ export interface MembershipTierProjections {
      */
     membershipTierProjection?: MembershipTierProjectionType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipTierProjections
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MembershipTierProjectionsFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'membershipTierProjection': !exists(json, 'membershipTierProjection') ? undefined : MembershipTierProjectionTypeFromJSON(json['membershipTierProjection']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MembershipTierProjectionsToJSON(value?: MembershipTierProjection
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'membershipTierProjection': MembershipTierProjectionTypeToJSON(value.membershipTierProjection),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

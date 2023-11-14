@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomRotationUnitGradesType } from './RoomRotationUnitGradesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomRotationUnitGradeType } from './RoomRotationUnitGradeType';
 import {
-    RoomRotationUnitGradesTypeFromJSON,
-    RoomRotationUnitGradesTypeFromJSONTyped,
-    RoomRotationUnitGradesTypeToJSON,
-} from './RoomRotationUnitGradesType';
-import type { WarningsType } from './WarningsType';
+    RoomRotationUnitGradeTypeFromJSON,
+    RoomRotationUnitGradeTypeFromJSONTyped,
+    RoomRotationUnitGradeTypeToJSON,
+} from './RoomRotationUnitGradeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Room Rotation Owner Room Grade Codes.
@@ -40,22 +40,22 @@ import {
 export interface FetchUnitGradesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchUnitGradesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RoomRotationUnitGradesType}
+     * Room Rotation Owner Room Grade Enumeration element.
+     * @type {Array<RoomRotationUnitGradeType>}
      * @memberof FetchUnitGradesDetails
      */
-    unitGrades?: RoomRotationUnitGradesType;
+    unitGrades?: Array<RoomRotationUnitGradeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchUnitGradesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FetchUnitGradesDetailsFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'unitGrades': !exists(json, 'unitGrades') ? undefined : RoomRotationUnitGradesTypeFromJSON(json['unitGrades']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'unitGrades': !exists(json, 'unitGrades') ? undefined : ((json['unitGrades'] as Array<any>).map(RoomRotationUnitGradeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FetchUnitGradesDetailsToJSON(value?: FetchUnitGradesDetails | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'unitGrades': RoomRotationUnitGradesTypeToJSON(value.unitGrades),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'unitGrades': value.unitGrades === undefined ? undefined : ((value.unitGrades as Array<any>).map(RoomRotationUnitGradeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

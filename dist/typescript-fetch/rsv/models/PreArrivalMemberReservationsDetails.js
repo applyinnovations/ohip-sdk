@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PreArrivalMemberReservationsDetailsToJSON = exports.PreArrivalMemberReservationsDetailsFromJSONTyped = exports.PreArrivalMemberReservationsDetailsFromJSON = exports.instanceOfPreArrivalMemberReservationsDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const PreArrivalMemberReservationType_1 = require("./PreArrivalMemberReservationType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PreArrivalMemberReservationsDetails interface.
  */
@@ -35,9 +35,9 @@ function PreArrivalMemberReservationsDetailsFromJSONTyped(json, ignoreDiscrimina
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'preArrivalMemberReservationType': !(0, runtime_1.exists)(json, 'preArrivalMemberReservationType') ? undefined : (json['preArrivalMemberReservationType'].map(PreArrivalMemberReservationType_1.PreArrivalMemberReservationTypeFromJSON)),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PreArrivalMemberReservationsDetailsFromJSONTyped = PreArrivalMemberReservationsDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function PreArrivalMemberReservationsDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'preArrivalMemberReservationType': value.preArrivalMemberReservationType === undefined ? undefined : (value.preArrivalMemberReservationType.map(PreArrivalMemberReservationType_1.PreArrivalMemberReservationTypeToJSON)),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PreArrivalMemberReservationsDetailsToJSON = PreArrivalMemberReservationsDetailsToJSON;

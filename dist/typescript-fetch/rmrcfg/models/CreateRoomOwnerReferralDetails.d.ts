@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { RoomOwnerReferralList } from './RoomOwnerReferralList';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Room Owner Referral records.
  * @export
@@ -24,11 +24,11 @@ export interface CreateRoomOwnerReferralDetails {
      */
     roomOwnerReferrals?: RoomOwnerReferralList;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateRoomOwnerReferralDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreateRoomOwnerReferralDetails interface.

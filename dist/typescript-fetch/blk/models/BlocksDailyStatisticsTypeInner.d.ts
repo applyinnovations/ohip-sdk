@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockDailyStatisticsDatesType } from './BlockDailyStatisticsDatesType';
-import type { BlockIdList } from './BlockIdList';
+import type { BlockDailyStatisticsDateType } from './BlockDailyStatisticsDateType';
 import type { TimeSpanType } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -25,11 +25,11 @@ export interface BlocksDailyStatisticsTypeInner {
      */
     blockCode?: string;
     /**
-     *
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof BlocksDailyStatisticsTypeInner
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * Name of the block.
      * @type {string}
@@ -44,10 +44,10 @@ export interface BlocksDailyStatisticsTypeInner {
     hotelId?: string;
     /**
      * Collection of daily statistics per allotment date.
-     * @type {Array<BlockDailyStatisticsDatesType>}
+     * @type {Array<Array<BlockDailyStatisticsDateType>>}
      * @memberof BlocksDailyStatisticsTypeInner
      */
-    stayDates?: Array<BlockDailyStatisticsDatesType>;
+    stayDates?: Array<Array<BlockDailyStatisticsDateType>>;
     /**
      *
      * @type {TimeSpanType}

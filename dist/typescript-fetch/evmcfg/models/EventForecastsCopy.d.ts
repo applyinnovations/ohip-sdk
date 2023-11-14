@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CopyEventForecastsCriteriaType } from './CopyEventForecastsCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for Copying Event Forecasts to multiple hotels.
  * @export
@@ -26,16 +26,16 @@ export interface EventForecastsCopy {
     criteria?: CopyEventForecastsCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EventForecastsCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EventForecastsCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the EventForecastsCopy interface.

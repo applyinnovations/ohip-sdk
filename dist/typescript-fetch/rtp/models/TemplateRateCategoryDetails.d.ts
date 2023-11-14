@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TemplateRateCategoriesType } from './TemplateRateCategoriesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RateCategoryType } from './RateCategoryType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateRateCategoryDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateRateCategoryDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Collection of template rate categories.
-     * @type {Array<TemplateRateCategoriesType>}
+     * @type {Array<Array<RateCategoryType>>}
      * @memberof TemplateRateCategoryDetails
      */
-    templateRateCategories?: Array<TemplateRateCategoriesType>;
+    templateRateCategories?: Array<Array<RateCategoryType>>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateRateCategoryDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateRateCategoryDetails interface.

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { BlockInfoType } from './BlockInfoType';
-import type { BlockStatusStatisticsType } from './BlockStatusStatisticsType';
+import type { BlockStatusStatisticType } from './BlockStatusStatisticType';
 /**
  * Information and statistic summary for a particular block.
  * @export
@@ -24,11 +24,11 @@ export interface BlockDetailStatisticType {
      */
     blockInformation?: BlockInfoType;
     /**
-     *
-     * @type {BlockStatusStatisticsType}
+     * Summary statistics of a block for each date.
+     * @type {Array<BlockStatusStatisticType>}
      * @memberof BlockDetailStatisticType
      */
-    blockStatistics?: BlockStatusStatisticsType;
+    blockStatistics?: Array<BlockStatusStatisticType>;
 }
 /**
  * Check if a given object implements the BlockDetailStatisticType interface.

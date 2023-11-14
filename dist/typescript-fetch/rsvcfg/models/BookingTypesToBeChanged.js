@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BookingTypesToBeChangedToJSON = exports.BookingTypesToBeChangedFromJSONTyped = exports.BookingTypesToBeChangedFromJSON = exports.instanceOfBookingTypesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const BookingTypesType_1 = require("./BookingTypesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const BookingTypeType_1 = require("./BookingTypeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BookingTypesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function BookingTypesToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'bookingTypes': !(0, runtime_1.exists)(json, 'bookingTypes') ? undefined : (0, BookingTypesType_1.BookingTypesTypeFromJSON)(json['bookingTypes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'bookingTypes': !(0, runtime_1.exists)(json, 'bookingTypes') ? undefined : (json['bookingTypes'].map(BookingTypeType_1.BookingTypeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BookingTypesToBeChangedFromJSONTyped = BookingTypesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function BookingTypesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'bookingTypes': (0, BookingTypesType_1.BookingTypesTypeToJSON)(value.bookingTypes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'bookingTypes': value.bookingTypes === undefined ? undefined : (value.bookingTypes.map(BookingTypeType_1.BookingTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BookingTypesToBeChangedToJSON = BookingTypesToBeChangedToJSON;

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TravelAgentTypesType } from './TravelAgentTypesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TravelAgentTypeType } from './TravelAgentTypeType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Travel Agent Types.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TravelAgentTypesCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TravelAgentTypesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TravelAgentTypesType}
+     * List of Travel Agent Types.
+     * @type {Array<TravelAgentTypeType>}
      * @memberof TravelAgentTypesCriteria
      */
-    travelAgentTypes?: TravelAgentTypesType;
+    travelAgentTypes?: Array<TravelAgentTypeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TravelAgentTypesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TravelAgentTypesCriteria interface.

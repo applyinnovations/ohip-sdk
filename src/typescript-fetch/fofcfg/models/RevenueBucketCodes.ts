@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RevenueBucketCodesType } from './RevenueBucketCodesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RevenueBucketCodeType } from './RevenueBucketCodeType';
 import {
-    RevenueBucketCodesTypeFromJSON,
-    RevenueBucketCodesTypeFromJSONTyped,
-    RevenueBucketCodesTypeToJSON,
-} from './RevenueBucketCodesType';
-import type { WarningsType } from './WarningsType';
+    RevenueBucketCodeTypeFromJSON,
+    RevenueBucketCodeTypeFromJSONTyped,
+    RevenueBucketCodeTypeToJSON,
+} from './RevenueBucketCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface RevenueBucketCodes {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RevenueBucketCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RevenueBucketCodesType}
+     * Details for Revenue Bucket codes along with associated transaction codes.
+     * @type {Array<RevenueBucketCodeType>}
      * @memberof RevenueBucketCodes
      */
-    revenueBucketCodes?: RevenueBucketCodesType;
+    revenueBucketCodes?: Array<RevenueBucketCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RevenueBucketCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RevenueBucketCodesFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'revenueBucketCodes': !exists(json, 'revenueBucketCodes') ? undefined : RevenueBucketCodesTypeFromJSON(json['revenueBucketCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'revenueBucketCodes': !exists(json, 'revenueBucketCodes') ? undefined : ((json['revenueBucketCodes'] as Array<any>).map(RevenueBucketCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RevenueBucketCodesToJSON(value?: RevenueBucketCodes | null): any
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'revenueBucketCodes': RevenueBucketCodesTypeToJSON(value.revenueBucketCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'revenueBucketCodes': value.revenueBucketCodes === undefined ? undefined : ((value.revenueBucketCodes as Array<any>).map(RevenueBucketCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FixedChargesType } from './FixedChargesType';
+import type { FixedChargeType } from './FixedChargeType';
 import {
-    FixedChargesTypeFromJSON,
-    FixedChargesTypeFromJSONTyped,
-    FixedChargesTypeToJSON,
-} from './FixedChargesType';
-import type { Links } from './Links';
+    FixedChargeTypeFromJSON,
+    FixedChargeTypeFromJSONTyped,
+    FixedChargeTypeToJSON,
+} from './FixedChargeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
     UniqueIDTypeFromJSONTyped,
     UniqueIDTypeToJSON,
 } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Method to update fixed charges of a reservation.
@@ -45,11 +45,11 @@ import {
  */
 export interface FixedCharges {
     /**
-     * 
-     * @type {FixedChargesType}
+     * Holds fixed charge detail.
+     * @type {Array<FixedChargeType>}
      * @memberof FixedCharges
      */
-    fixedCharges?: FixedChargesType;
+    fixedCharges?: Array<FixedChargeType>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -58,10 +58,10 @@ export interface FixedCharges {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FixedCharges
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {UniqueIDType}
@@ -69,11 +69,11 @@ export interface FixedCharges {
      */
     reservationId?: UniqueIDType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FixedCharges
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -95,11 +95,11 @@ export function FixedChargesFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'fixedCharges': !exists(json, 'fixedCharges') ? undefined : FixedChargesTypeFromJSON(json['fixedCharges']),
+        'fixedCharges': !exists(json, 'fixedCharges') ? undefined : ((json['fixedCharges'] as Array<any>).map(FixedChargeTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservationId': !exists(json, 'reservationId') ? undefined : UniqueIDTypeFromJSON(json['reservationId']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -112,11 +112,11 @@ export function FixedChargesToJSON(value?: FixedCharges | null): any {
     }
     return {
         
-        'fixedCharges': FixedChargesTypeToJSON(value.fixedCharges),
+        'fixedCharges': value.fixedCharges === undefined ? undefined : ((value.fixedCharges as Array<any>).map(FixedChargeTypeToJSON)),
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservationId': UniqueIDTypeToJSON(value.reservationId),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

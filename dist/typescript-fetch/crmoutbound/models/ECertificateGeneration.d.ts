@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ECertificateGenerationDetailsType } from './ECertificateGenerationDetailsType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 /**
  * Request object to issue E-Certificate.
  * @export
@@ -25,10 +25,10 @@ export interface ECertificateGeneration {
     eCertificateGenerationDetails?: ECertificateGenerationDetailsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ECertificateGeneration
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the ECertificateGeneration interface.

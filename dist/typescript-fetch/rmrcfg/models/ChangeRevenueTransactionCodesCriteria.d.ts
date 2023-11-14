@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { RotationRevenueTransactionCodesChangeType } from './RotationRevenueTransactionCodesChangeType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for updating the rotation revenue status of a transaction code for a given property.
  * @export
@@ -24,11 +24,11 @@ export interface ChangeRevenueTransactionCodesCriteria {
      */
     revenueTransactionCodes?: RotationRevenueTransactionCodesChangeType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeRevenueTransactionCodesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChangeRevenueTransactionCodesCriteria interface.

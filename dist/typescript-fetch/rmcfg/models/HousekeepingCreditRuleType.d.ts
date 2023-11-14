@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { HousekeepingCreditRuleTravelTypeType } from './HousekeepingCreditRuleTravelTypeType';
 import type { HousekeepingCreditRuleTypeFacilityTaskRule } from './HousekeepingCreditRuleTypeFacilityTaskRule';
 import type { HousekeepingCreditRuleTypeType } from './HousekeepingCreditRuleTypeType';
@@ -22,10 +21,10 @@ import type { TimeSpanDaysOfWeekType } from './TimeSpanDaysOfWeekType';
 export interface HousekeepingCreditRuleType {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof HousekeepingCreditRuleType
      */
-    buildings?: CodeListType;
+    buildings?: Array<string>;
     /**
      * The additional credits which are applied to the task assignment sheet when the rule criteria has been met.
      * @type {number}

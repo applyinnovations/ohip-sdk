@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FetchCompRedemptionsRSToJSON = exports.FetchCompRedemptionsRSFromJSONTyped = exports.FetchCompRedemptionsRSFromJSON = exports.instanceOfFetchCompRedemptionsRS = void 0;
 const runtime_1 = require("../runtime");
-const FetchCompRedemptionsRSCompRedemptionsType_1 = require("./FetchCompRedemptionsRSCompRedemptionsType");
+const FetchCompRedemptionsRSCompRedemptionType_1 = require("./FetchCompRedemptionsRSCompRedemptionType");
 /**
  * Check if a given object implements the FetchCompRedemptionsRS interface.
  */
@@ -33,7 +33,7 @@ function FetchCompRedemptionsRSFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'compRedemptions': !(0, runtime_1.exists)(json, 'compRedemptions') ? undefined : (0, FetchCompRedemptionsRSCompRedemptionsType_1.FetchCompRedemptionsRSCompRedemptionsTypeFromJSON)(json['compRedemptions']),
+        'compRedemptions': !(0, runtime_1.exists)(json, 'compRedemptions') ? undefined : (json['compRedemptions'].map(FetchCompRedemptionsRSCompRedemptionType_1.FetchCompRedemptionsRSCompRedemptionTypeFromJSON)),
     };
 }
 exports.FetchCompRedemptionsRSFromJSONTyped = FetchCompRedemptionsRSFromJSONTyped;
@@ -45,7 +45,7 @@ function FetchCompRedemptionsRSToJSON(value) {
         return null;
     }
     return {
-        'compRedemptions': (0, FetchCompRedemptionsRSCompRedemptionsType_1.FetchCompRedemptionsRSCompRedemptionsTypeToJSON)(value.compRedemptions),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : (value.compRedemptions.map(FetchCompRedemptionsRSCompRedemptionType_1.FetchCompRedemptionsRSCompRedemptionTypeToJSON)),
     };
 }
 exports.FetchCompRedemptionsRSToJSON = FetchCompRedemptionsRSToJSON;

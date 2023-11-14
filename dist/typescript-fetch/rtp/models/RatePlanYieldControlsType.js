@@ -16,7 +16,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RatePlanYieldControlsTypeToJSON = exports.RatePlanYieldControlsTypeFromJSONTyped = exports.RatePlanYieldControlsTypeFromJSON = exports.instanceOfRatePlanYieldControlsType = void 0;
 const runtime_1 = require("../runtime");
 const RatePlanYieldableType_1 = require("./RatePlanYieldableType");
-const YieldMarketCodeListType_1 = require("./YieldMarketCodeListType");
 /**
  * Check if a given object implements the RatePlanYieldControlsType interface.
  */
@@ -36,7 +35,7 @@ function RatePlanYieldControlsTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'rateBucket': !(0, runtime_1.exists)(json, 'rateBucket') ? undefined : json['rateBucket'],
         'yieldAsRatePlanCode': !(0, runtime_1.exists)(json, 'yieldAsRatePlanCode') ? undefined : json['yieldAsRatePlanCode'],
-        'yieldMarketCodeList': !(0, runtime_1.exists)(json, 'yieldMarketCodeList') ? undefined : (0, YieldMarketCodeListType_1.YieldMarketCodeListTypeFromJSON)(json['yieldMarketCodeList']),
+        'yieldMarketCodeList': !(0, runtime_1.exists)(json, 'yieldMarketCodeList') ? undefined : json['yieldMarketCodeList'],
         'yieldable': !(0, runtime_1.exists)(json, 'yieldable') ? undefined : (0, RatePlanYieldableType_1.RatePlanYieldableTypeFromJSON)(json['yieldable']),
     };
 }
@@ -51,7 +50,7 @@ function RatePlanYieldControlsTypeToJSON(value) {
     return {
         'rateBucket': value.rateBucket,
         'yieldAsRatePlanCode': value.yieldAsRatePlanCode,
-        'yieldMarketCodeList': (0, YieldMarketCodeListType_1.YieldMarketCodeListTypeToJSON)(value.yieldMarketCodeList),
+        'yieldMarketCodeList': value.yieldMarketCodeList,
         'yieldable': (0, RatePlanYieldableType_1.RatePlanYieldableTypeToJSON)(value.yieldable),
     };
 }

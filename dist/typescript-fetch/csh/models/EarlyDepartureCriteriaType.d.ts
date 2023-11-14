@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Criteria type for verifying or changing an Early Departure reservation.
  * @export
@@ -53,11 +53,11 @@ export interface EarlyDepartureCriteriaType {
      */
     postEarlyDeparturePenalty?: boolean;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof EarlyDepartureCriteriaType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the EarlyDepartureCriteriaType interface.

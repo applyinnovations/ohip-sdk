@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ProfileIdList } from './ProfileIdList';
-import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
 import type { ResProfileTypeType } from './ResProfileTypeType';
 import {
     ResProfileTypeTypeFromJSON,
     ResProfileTypeTypeFromJSONTyped,
     ResProfileTypeTypeToJSON,
 } from './ResProfileTypeType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -39,11 +39,11 @@ export interface ResAttachedProfileType {
      */
     name?: string;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ResAttachedProfileType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {ResProfileTypeType}
@@ -72,7 +72,7 @@ export function ResAttachedProfileTypeFromJSONTyped(json: any, ignoreDiscriminat
     return {
         
         'name': !exists(json, 'name') ? undefined : json['name'],
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'resProfileType': !exists(json, 'resProfileType') ? undefined : ResProfileTypeTypeFromJSON(json['resProfileType']),
     };
 }
@@ -87,7 +87,7 @@ export function ResAttachedProfileTypeToJSON(value?: ResAttachedProfileType | nu
     return {
         
         'name': value.name,
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'resProfileType': ResProfileTypeTypeToJSON(value.resProfileType),
     };
 }

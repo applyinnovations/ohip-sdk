@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { InventoryCountsListType } from './InventoryCountsListType';
+import type { InventoryCountsType } from './InventoryCountsType';
 import type { InventoryLevelCountsListType } from './InventoryLevelCountsListType';
 /**
  * A collection of Reservation objects and Unique IDs of Reservation.
@@ -18,11 +18,11 @@ import type { InventoryLevelCountsListType } from './InventoryLevelCountsListTyp
  */
 export interface HotelInventoryType {
     /**
-     *
-     * @type {InventoryCountsListType}
+     * Collection of Inventory counts for the date ranges.
+     * @type {Array<InventoryCountsType>}
      * @memberof HotelInventoryType
      */
-    houseInventory?: InventoryCountsListType;
+    houseInventory?: Array<InventoryCountsType>;
     /**
      * Collection of Room Class level Inventory counts for the date ranges.
      * @type {Array<InventoryLevelCountsListType>}

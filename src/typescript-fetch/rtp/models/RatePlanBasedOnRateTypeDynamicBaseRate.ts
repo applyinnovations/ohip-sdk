@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RatePlanCodeListType } from './RatePlanCodeListType';
-import {
-    RatePlanCodeListTypeFromJSON,
-    RatePlanCodeListTypeFromJSONTyped,
-    RatePlanCodeListTypeToJSON,
-} from './RatePlanCodeListType';
-
 /**
  * Dynamic Base Rate type
  * @export
@@ -33,11 +26,11 @@ export interface RatePlanBasedOnRateTypeDynamicBaseRate {
      */
     compareWithRateSchedules?: boolean;
     /**
-     * 
-     * @type {RatePlanCodeListType}
+     * Rate Plan code.
+     * @type {Array<string>}
      * @memberof RatePlanBasedOnRateTypeDynamicBaseRate
      */
-    dependentRatePlans?: RatePlanCodeListType;
+    dependentRatePlans?: Array<string>;
     /**
      * Base Amount used for Dynamic base rate calculation.
      * @type {number}
@@ -84,7 +77,7 @@ export function RatePlanBasedOnRateTypeDynamicBaseRateFromJSONTyped(json: any, i
     return {
         
         'compareWithRateSchedules': !exists(json, 'compareWithRateSchedules') ? undefined : json['compareWithRateSchedules'],
-        'dependentRatePlans': !exists(json, 'dependentRatePlans') ? undefined : RatePlanCodeListTypeFromJSON(json['dependentRatePlans']),
+        'dependentRatePlans': !exists(json, 'dependentRatePlans') ? undefined : json['dependentRatePlans'],
         'dynamicBaseAmount': !exists(json, 'dynamicBaseAmount') ? undefined : json['dynamicBaseAmount'],
         'dynamicBasedOnRatePlan': !exists(json, 'dynamicBasedOnRatePlan') ? undefined : json['dynamicBasedOnRatePlan'],
         'flatOrPercentage': !exists(json, 'flatOrPercentage') ? undefined : json['flatOrPercentage'],
@@ -102,7 +95,7 @@ export function RatePlanBasedOnRateTypeDynamicBaseRateToJSON(value?: RatePlanBas
     return {
         
         'compareWithRateSchedules': value.compareWithRateSchedules,
-        'dependentRatePlans': RatePlanCodeListTypeToJSON(value.dependentRatePlans),
+        'dependentRatePlans': value.dependentRatePlans,
         'dynamicBaseAmount': value.dynamicBaseAmount,
         'dynamicBasedOnRatePlan': value.dynamicBasedOnRatePlan,
         'flatOrPercentage': value.flatOrPercentage,

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ChannelSellLimitsByDateType } from './ChannelSellLimitsByDateType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to create or update sell limits for the channel or channel room type by day. Advanced logic is implemented to combine consecutive blocks of sell limits into a single schedule which have the same limits configured. Existing schedules can also be split as needed to account for overlapping schedules.
  * @export
@@ -30,11 +30,11 @@ export interface ChannelSellLimitsByDate {
      */
     sellLimits?: ChannelSellLimitsByDateType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelSellLimitsByDate
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelSellLimitsByDate interface.

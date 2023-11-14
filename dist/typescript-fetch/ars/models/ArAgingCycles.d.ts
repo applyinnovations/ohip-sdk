@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ARAgingCyclesType } from './ARAgingCyclesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ARAgingType } from './ARAgingType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for Fetch AR Aging Cycles.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ArAgingCycles {
     /**
-     *
-     * @type {ARAgingCyclesType}
+     * Collections of AR Aging Cycles.
+     * @type {Array<ARAgingType>}
      * @memberof ArAgingCycles
      */
-    agingCycles?: ARAgingCyclesType;
+    agingCycles?: Array<ARAgingType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ArAgingCycles
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ArAgingCycles
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ArAgingCycles interface.

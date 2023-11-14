@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GuestCountsTypeToJSON = exports.GuestCountsTypeFromJSONTyped = exports.GuestCountsTypeFromJSON = exports.instanceOfGuestCountsType = void 0;
 const runtime_1 = require("../runtime");
-const ChildAgesType_1 = require("./ChildAgesType");
+const ChildAgeType_1 = require("./ChildAgeType");
 const ChildBucketsType_1 = require("./ChildBucketsType");
 /**
  * Check if a given object implements the GuestCountsType interface.
@@ -35,7 +35,7 @@ function GuestCountsTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'adults': !(0, runtime_1.exists)(json, 'adults') ? undefined : json['adults'],
-        'childAges': !(0, runtime_1.exists)(json, 'childAges') ? undefined : (0, ChildAgesType_1.ChildAgesTypeFromJSON)(json['childAges']),
+        'childAges': !(0, runtime_1.exists)(json, 'childAges') ? undefined : (json['childAges'].map(ChildAgeType_1.ChildAgeTypeFromJSON)),
         'childBuckets': !(0, runtime_1.exists)(json, 'childBuckets') ? undefined : (0, ChildBucketsType_1.ChildBucketsTypeFromJSON)(json['childBuckets']),
         'children': !(0, runtime_1.exists)(json, 'children') ? undefined : json['children'],
     };
@@ -50,7 +50,7 @@ function GuestCountsTypeToJSON(value) {
     }
     return {
         'adults': value.adults,
-        'childAges': (0, ChildAgesType_1.ChildAgesTypeToJSON)(value.childAges),
+        'childAges': value.childAges === undefined ? undefined : (value.childAges.map(ChildAgeType_1.ChildAgeTypeToJSON)),
         'childBuckets': (0, ChildBucketsType_1.ChildBucketsTypeToJSON)(value.childBuckets),
         'children': value.children,
     };

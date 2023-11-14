@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ShareDistributionCriteriaToJSON = exports.ShareDistributionCriteriaFromJSONTyped = exports.ShareDistributionCriteriaFromJSON = exports.instanceOfShareDistributionCriteria = void 0;
 const runtime_1 = require("../runtime");
 const ShareDistributionInstructionType_1 = require("./ShareDistributionInstructionType");
-const ShareReservationsType_1 = require("./ShareReservationsType");
+const ShareReservationType_1 = require("./ShareReservationType");
 /**
  * Check if a given object implements the ShareDistributionCriteria interface.
  */
@@ -35,7 +35,7 @@ function ShareDistributionCriteriaFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'distributionType': !(0, runtime_1.exists)(json, 'distributionType') ? undefined : (0, ShareDistributionInstructionType_1.ShareDistributionInstructionTypeFromJSON)(json['distributionType']),
-        'shareReservations': !(0, runtime_1.exists)(json, 'shareReservations') ? undefined : (0, ShareReservationsType_1.ShareReservationsTypeFromJSON)(json['shareReservations']),
+        'shareReservations': !(0, runtime_1.exists)(json, 'shareReservations') ? undefined : (json['shareReservations'].map(ShareReservationType_1.ShareReservationTypeFromJSON)),
     };
 }
 exports.ShareDistributionCriteriaFromJSONTyped = ShareDistributionCriteriaFromJSONTyped;
@@ -48,7 +48,7 @@ function ShareDistributionCriteriaToJSON(value) {
     }
     return {
         'distributionType': (0, ShareDistributionInstructionType_1.ShareDistributionInstructionTypeToJSON)(value.distributionType),
-        'shareReservations': (0, ShareReservationsType_1.ShareReservationsTypeToJSON)(value.shareReservations),
+        'shareReservations': value.shareReservations === undefined ? undefined : (value.shareReservations.map(ShareReservationType_1.ShareReservationTypeToJSON)),
     };
 }
 exports.ShareDistributionCriteriaToJSON = ShareDistributionCriteriaToJSON;

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomConditionTemplatesDetailsToJSON = exports.RoomConditionTemplatesDetailsFromJSONTyped = exports.RoomConditionTemplatesDetailsFromJSON = exports.instanceOfRoomConditionTemplatesDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RoomCondtionTemplatesType_1 = require("./RoomCondtionTemplatesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RoomCondtionTemplateType_1 = require("./RoomCondtionTemplateType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomConditionTemplatesDetails interface.
  */
@@ -35,9 +35,9 @@ function RoomConditionTemplatesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'roomConditionTemplates': !(0, runtime_1.exists)(json, 'roomConditionTemplates') ? undefined : (0, RoomCondtionTemplatesType_1.RoomCondtionTemplatesTypeFromJSON)(json['roomConditionTemplates']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'roomConditionTemplates': !(0, runtime_1.exists)(json, 'roomConditionTemplates') ? undefined : (json['roomConditionTemplates'].map(RoomCondtionTemplateType_1.RoomCondtionTemplateTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomConditionTemplatesDetailsFromJSONTyped = RoomConditionTemplatesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function RoomConditionTemplatesDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'roomConditionTemplates': (0, RoomCondtionTemplatesType_1.RoomCondtionTemplatesTypeToJSON)(value.roomConditionTemplates),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'roomConditionTemplates': value.roomConditionTemplates === undefined ? undefined : (value.roomConditionTemplates.map(RoomCondtionTemplateType_1.RoomCondtionTemplateTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomConditionTemplatesDetailsToJSON = RoomConditionTemplatesDetailsToJSON;

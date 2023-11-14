@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CurrencyAmountType } from './CurrencyAmountType';
-import type { ExchangeRateTransactionGenerateTaxesType } from './ExchangeRateTransactionGenerateTaxesType';
+import type { ExchangeRateTransactionGenerateTaxType } from './ExchangeRateTransactionGenerateTaxType';
 /**
  * Detailed information about exchange rate calculation service tax.
  * @export
@@ -24,11 +24,11 @@ export interface ExchangeRateCalculationTaxType {
      */
     baseAmount?: number;
     /**
-     *
-     * @type {ExchangeRateTransactionGenerateTaxesType}
+     * Exchange rate calculation tax information based on Transaction Code Generate.
+     * @type {Array<ExchangeRateTransactionGenerateTaxType>}
      * @memberof ExchangeRateCalculationTaxType
      */
-    exchangeRateTransactionGenerateTaxes?: ExchangeRateTransactionGenerateTaxesType;
+    exchangeRateTransactionGenerateTaxes?: Array<ExchangeRateTransactionGenerateTaxType>;
     /**
      * Maximum service tax in local currency to be charged.
      * @type {number}

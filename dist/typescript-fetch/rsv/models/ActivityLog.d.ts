@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ActivityLogListType } from './ActivityLogListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for the request for the reservation user activity log.
  * @export
@@ -26,16 +26,16 @@ export interface ActivityLog {
     activityLog?: ActivityLogListType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ActivityLog
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ActivityLog
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ActivityLog interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { OperaRecordLock } from './OperaRecordLock';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * This response will indicate whether or not the extension was successful. This operation may return errors when the lock being requested to be extended no longer exists. This can happen when the lock has already expired and cleaned up.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ExtendReservationLockDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExtendReservationLockDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {OperaRecordLock}
@@ -31,11 +31,11 @@ export interface ExtendReservationLockDetails {
      */
     reservationLock?: OperaRecordLock;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ExtendReservationLockDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ExtendReservationLockDetails interface.

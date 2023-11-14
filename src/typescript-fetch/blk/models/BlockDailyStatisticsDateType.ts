@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockDailyRoomStatisticsListType } from './BlockDailyRoomStatisticsListType';
+import type { BlockDailyRoomStatisticsType } from './BlockDailyRoomStatisticsType';
 import {
-    BlockDailyRoomStatisticsListTypeFromJSON,
-    BlockDailyRoomStatisticsListTypeFromJSONTyped,
-    BlockDailyRoomStatisticsListTypeToJSON,
-} from './BlockDailyRoomStatisticsListType';
+    BlockDailyRoomStatisticsTypeFromJSON,
+    BlockDailyRoomStatisticsTypeFromJSONTyped,
+    BlockDailyRoomStatisticsTypeToJSON,
+} from './BlockDailyRoomStatisticsType';
 
 /**
  * Holds the room type or generic room type(Room Pool) level statistics for an allotment date.
@@ -33,17 +33,17 @@ export interface BlockDailyStatisticsDateType {
      */
     date?: Date;
     /**
-     * 
-     * @type {BlockDailyRoomStatisticsListType}
+     * Collection of room type level statistics.
+     * @type {Array<BlockDailyRoomStatisticsType>}
      * @memberof BlockDailyStatisticsDateType
      */
-    genericRoomTypeStatisticsList?: BlockDailyRoomStatisticsListType;
+    genericRoomTypeStatisticsList?: Array<BlockDailyRoomStatisticsType>;
     /**
-     * 
-     * @type {BlockDailyRoomStatisticsListType}
+     * Collection of room type level statistics.
+     * @type {Array<BlockDailyRoomStatisticsType>}
      * @memberof BlockDailyStatisticsDateType
      */
-    roomTypeStatisticsList?: BlockDailyRoomStatisticsListType;
+    roomTypeStatisticsList?: Array<BlockDailyRoomStatisticsType>;
 }
 
 /**
@@ -66,8 +66,8 @@ export function BlockDailyStatisticsDateTypeFromJSONTyped(json: any, ignoreDiscr
     return {
         
         'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
-        'genericRoomTypeStatisticsList': !exists(json, 'genericRoomTypeStatisticsList') ? undefined : BlockDailyRoomStatisticsListTypeFromJSON(json['genericRoomTypeStatisticsList']),
-        'roomTypeStatisticsList': !exists(json, 'roomTypeStatisticsList') ? undefined : BlockDailyRoomStatisticsListTypeFromJSON(json['roomTypeStatisticsList']),
+        'genericRoomTypeStatisticsList': !exists(json, 'genericRoomTypeStatisticsList') ? undefined : ((json['genericRoomTypeStatisticsList'] as Array<any>).map(BlockDailyRoomStatisticsTypeFromJSON)),
+        'roomTypeStatisticsList': !exists(json, 'roomTypeStatisticsList') ? undefined : ((json['roomTypeStatisticsList'] as Array<any>).map(BlockDailyRoomStatisticsTypeFromJSON)),
     };
 }
 
@@ -81,8 +81,8 @@ export function BlockDailyStatisticsDateTypeToJSON(value?: BlockDailyStatisticsD
     return {
         
         'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
-        'genericRoomTypeStatisticsList': BlockDailyRoomStatisticsListTypeToJSON(value.genericRoomTypeStatisticsList),
-        'roomTypeStatisticsList': BlockDailyRoomStatisticsListTypeToJSON(value.roomTypeStatisticsList),
+        'genericRoomTypeStatisticsList': value.genericRoomTypeStatisticsList === undefined ? undefined : ((value.genericRoomTypeStatisticsList as Array<any>).map(BlockDailyRoomStatisticsTypeToJSON)),
+        'roomTypeStatisticsList': value.roomTypeStatisticsList === undefined ? undefined : ((value.roomTypeStatisticsList as Array<any>).map(BlockDailyRoomStatisticsTypeToJSON)),
     };
 }
 

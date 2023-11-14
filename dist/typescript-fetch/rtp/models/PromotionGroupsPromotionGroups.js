@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PromotionGroupsPromotionGroupsToJSON = exports.PromotionGroupsPromotionGroupsFromJSONTyped = exports.PromotionGroupsPromotionGroupsFromJSON = exports.instanceOfPromotionGroupsPromotionGroups = void 0;
 const runtime_1 = require("../runtime");
-const PromotionGroupsType_1 = require("./PromotionGroupsType");
+const PromotionGroupType_1 = require("./PromotionGroupType");
 /**
  * Check if a given object implements the PromotionGroupsPromotionGroups interface.
  */
@@ -36,7 +36,7 @@ function PromotionGroupsPromotionGroupsFromJSONTyped(json, ignoreDiscriminator) 
         'allRowsFetched': !(0, runtime_1.exists)(json, 'allRowsFetched') ? undefined : json['allRowsFetched'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
         'offset': !(0, runtime_1.exists)(json, 'offset') ? undefined : json['offset'],
-        'promotionGroups': !(0, runtime_1.exists)(json, 'promotionGroups') ? undefined : (0, PromotionGroupsType_1.PromotionGroupsTypeFromJSON)(json['promotionGroups']),
+        'promotionGroups': !(0, runtime_1.exists)(json, 'promotionGroups') ? undefined : (json['promotionGroups'].map(PromotionGroupType_1.PromotionGroupTypeFromJSON)),
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'totalRows': !(0, runtime_1.exists)(json, 'totalRows') ? undefined : json['totalRows'],
     };
@@ -53,7 +53,7 @@ function PromotionGroupsPromotionGroupsToJSON(value) {
         'allRowsFetched': value.allRowsFetched,
         'limit': value.limit,
         'offset': value.offset,
-        'promotionGroups': (0, PromotionGroupsType_1.PromotionGroupsTypeToJSON)(value.promotionGroups),
+        'promotionGroups': value.promotionGroups === undefined ? undefined : (value.promotionGroups.map(PromotionGroupType_1.PromotionGroupTypeToJSON)),
         'totalPages': value.totalPages,
         'totalRows': value.totalRows,
     };

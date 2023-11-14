@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DetailPostingsType } from './DetailPostingsType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+import type { DetailPostingType } from './DetailPostingType';
+import type { TrxInfoType } from './TrxInfoType';
 /**
  * This type is useful to hold the transaction details along the transaction code information.
  * @export
@@ -18,17 +18,17 @@ import type { TrxCodesInfoType } from './TrxCodesInfoType';
  */
 export interface PostingsInfoType {
     /**
-     *
-     * @type {DetailPostingsType}
+     * Details of the transaction(Posting).
+     * @type {Array<DetailPostingType>}
      * @memberof PostingsInfoType
      */
-    transactions?: DetailPostingsType;
+    transactions?: Array<DetailPostingType>;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof PostingsInfoType
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
 }
 /**
  * Check if a given object implements the PostingsInfoType interface.

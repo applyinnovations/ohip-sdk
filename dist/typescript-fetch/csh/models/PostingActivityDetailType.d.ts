@@ -11,7 +11,7 @@
  */
 import type { ActivityLogType } from './ActivityLogType';
 import type { ReservationId } from './ReservationId';
-import type { SummaryPostingsType } from './SummaryPostingsType';
+import type { SummaryPostingType } from './SummaryPostingType';
 /**
  * Details of a Posting transaction change.
  * @export
@@ -31,17 +31,17 @@ export interface PostingActivityDetailType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {SummaryPostingsType}
+     * List of postings.
+     * @type {Array<SummaryPostingType>}
      * @memberof PostingActivityDetailType
      */
-    newInfo?: SummaryPostingsType;
+    newInfo?: Array<SummaryPostingType>;
     /**
-     *
-     * @type {SummaryPostingsType}
+     * List of postings.
+     * @type {Array<SummaryPostingType>}
      * @memberof PostingActivityDetailType
      */
-    oldInfo?: SummaryPostingsType;
+    oldInfo?: Array<SummaryPostingType>;
     /**
      *
      * @type {ReservationId}

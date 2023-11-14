@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ProfileIdList } from './ProfileIdList';
 import type { ProfileType } from './ProfileType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Provides information for merged profile.
  * @export
@@ -24,11 +24,11 @@ export interface MergedProfileType {
      */
     profile?: ProfileType;
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MergedProfileType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the MergedProfileType interface.

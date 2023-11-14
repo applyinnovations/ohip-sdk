@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DistributionTemplatesToJSON = exports.DistributionTemplatesFromJSONTyped = exports.DistributionTemplatesFromJSON = exports.instanceOfDistributionTemplates = void 0;
 const runtime_1 = require("../runtime");
-const DistributionTemplatesType_1 = require("./DistributionTemplatesType");
-const HotelsDistributionTemplatesType_1 = require("./HotelsDistributionTemplatesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const DistributionTemplateType_1 = require("./DistributionTemplateType");
+const HotelDistributionTemplatesType_1 = require("./HotelDistributionTemplatesType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the DistributionTemplates interface.
  */
@@ -36,10 +36,10 @@ function DistributionTemplatesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'distributionTemplates': !(0, runtime_1.exists)(json, 'distributionTemplates') ? undefined : (0, DistributionTemplatesType_1.DistributionTemplatesTypeFromJSON)(json['distributionTemplates']),
-        'hotelsDistributionTemplates': !(0, runtime_1.exists)(json, 'hotelsDistributionTemplates') ? undefined : (0, HotelsDistributionTemplatesType_1.HotelsDistributionTemplatesTypeFromJSON)(json['hotelsDistributionTemplates']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'distributionTemplates': !(0, runtime_1.exists)(json, 'distributionTemplates') ? undefined : (json['distributionTemplates'].map(DistributionTemplateType_1.DistributionTemplateTypeFromJSON)),
+        'hotelsDistributionTemplates': !(0, runtime_1.exists)(json, 'hotelsDistributionTemplates') ? undefined : (json['hotelsDistributionTemplates'].map(HotelDistributionTemplatesType_1.HotelDistributionTemplatesTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.DistributionTemplatesFromJSONTyped = DistributionTemplatesFromJSONTyped;
@@ -51,10 +51,10 @@ function DistributionTemplatesToJSON(value) {
         return null;
     }
     return {
-        'distributionTemplates': (0, DistributionTemplatesType_1.DistributionTemplatesTypeToJSON)(value.distributionTemplates),
-        'hotelsDistributionTemplates': (0, HotelsDistributionTemplatesType_1.HotelsDistributionTemplatesTypeToJSON)(value.hotelsDistributionTemplates),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'distributionTemplates': value.distributionTemplates === undefined ? undefined : (value.distributionTemplates.map(DistributionTemplateType_1.DistributionTemplateTypeToJSON)),
+        'hotelsDistributionTemplates': value.hotelsDistributionTemplates === undefined ? undefined : (value.hotelsDistributionTemplates.map(HotelDistributionTemplatesType_1.HotelDistributionTemplatesTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.DistributionTemplatesToJSON = DistributionTemplatesToJSON;

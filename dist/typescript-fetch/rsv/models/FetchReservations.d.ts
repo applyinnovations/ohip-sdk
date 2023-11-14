@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { FetchReservationsReservationInfoList } from './FetchReservationsReservationInfoList';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MasterInfoType } from './MasterInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface FetchReservations {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchReservations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Refer to Generic common types document.
      * @type {Array<MasterInfoType>}
@@ -38,11 +38,11 @@ export interface FetchReservations {
      */
     reservationInfoList?: FetchReservationsReservationInfoList;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchReservations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FetchReservations interface.

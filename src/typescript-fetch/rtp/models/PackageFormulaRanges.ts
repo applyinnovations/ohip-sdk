@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { PackageFormulaRangesType } from './PackageFormulaRangesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { PackageFormulaRangeType } from './PackageFormulaRangeType';
 import {
-    PackageFormulaRangesTypeFromJSON,
-    PackageFormulaRangesTypeFromJSONTyped,
-    PackageFormulaRangesTypeToJSON,
-} from './PackageFormulaRangesType';
-import type { WarningsType } from './WarningsType';
+    PackageFormulaRangeTypeFromJSON,
+    PackageFormulaRangeTypeFromJSONTyped,
+    PackageFormulaRangeTypeToJSON,
+} from './PackageFormulaRangeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for the request to search for package formula ranges. Based on the hotel code and tax range type code, response can contain multiple package formula ranges
@@ -40,22 +40,22 @@ import {
 export interface PackageFormulaRanges {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PackageFormulaRanges
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {PackageFormulaRangesType}
+     * Collection of Package Formula Ranges.
+     * @type {Array<PackageFormulaRangeType>}
      * @memberof PackageFormulaRanges
      */
-    packageFormulaRanges?: PackageFormulaRangesType;
+    packageFormulaRanges?: Array<PackageFormulaRangeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PackageFormulaRanges
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function PackageFormulaRangesFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'packageFormulaRanges': !exists(json, 'packageFormulaRanges') ? undefined : PackageFormulaRangesTypeFromJSON(json['packageFormulaRanges']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'packageFormulaRanges': !exists(json, 'packageFormulaRanges') ? undefined : ((json['packageFormulaRanges'] as Array<any>).map(PackageFormulaRangeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function PackageFormulaRangesToJSON(value?: PackageFormulaRanges | null):
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'packageFormulaRanges': PackageFormulaRangesTypeToJSON(value.packageFormulaRanges),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'packageFormulaRanges': value.packageFormulaRanges === undefined ? undefined : ((value.packageFormulaRanges as Array<any>).map(PackageFormulaRangeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

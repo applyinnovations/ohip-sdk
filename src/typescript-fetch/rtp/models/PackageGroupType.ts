@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PackageCodeListType } from './PackageCodeListType';
+import type { PackageCodeType } from './PackageCodeType';
 import {
-    PackageCodeListTypeFromJSON,
-    PackageCodeListTypeFromJSONTyped,
-    PackageCodeListTypeToJSON,
-} from './PackageCodeListType';
+    PackageCodeTypeFromJSON,
+    PackageCodeTypeFromJSONTyped,
+    PackageCodeTypeToJSON,
+} from './PackageCodeType';
 
 /**
  * Information about a package group common to all usages.
@@ -39,11 +39,11 @@ export interface PackageGroupType {
      */
     description?: string;
     /**
-     * 
-     * @type {PackageCodeListType}
+     * Package Full Information
+     * @type {Array<PackageCodeType>}
      * @memberof PackageGroupType
      */
-    membersList?: PackageCodeListType;
+    membersList?: Array<PackageCodeType>;
     /**
      * Can Package group be sold separately?
      * @type {boolean}
@@ -85,7 +85,7 @@ export function PackageGroupTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'code': !exists(json, 'code') ? undefined : json['code'],
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'membersList': !exists(json, 'membersList') ? undefined : PackageCodeListTypeFromJSON(json['membersList']),
+        'membersList': !exists(json, 'membersList') ? undefined : ((json['membersList'] as Array<any>).map(PackageCodeTypeFromJSON)),
         'sellSeparate': !exists(json, 'sellSeparate') ? undefined : json['sellSeparate'],
         'shortDescription': !exists(json, 'shortDescription') ? undefined : json['shortDescription'],
         'webBookable': !exists(json, 'webBookable') ? undefined : json['webBookable'],
@@ -103,7 +103,7 @@ export function PackageGroupTypeToJSON(value?: PackageGroupType | null): any {
         
         'code': value.code,
         'description': value.description,
-        'membersList': PackageCodeListTypeToJSON(value.membersList),
+        'membersList': value.membersList === undefined ? undefined : ((value.membersList as Array<any>).map(PackageCodeTypeToJSON)),
         'sellSeparate': value.sellSeparate,
         'shortDescription': value.shortDescription,
         'webBookable': value.webBookable,

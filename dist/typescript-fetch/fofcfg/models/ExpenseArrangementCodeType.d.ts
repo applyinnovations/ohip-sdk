@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { TranslationTextType2000 } from './TranslationTextType2000';
 /**
  * Generic Type to specify unique/primary id for the code. mostly used for Hotel level configuration codes removal request.
@@ -55,10 +54,10 @@ export interface ExpenseArrangementCodeType {
     taxTypeCode?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ExpenseArrangementCodeType
      */
-    transactionCodes?: CodeListType;
+    transactionCodes?: Array<string>;
 }
 /**
  * Check if a given object implements the ExpenseArrangementCodeType interface.

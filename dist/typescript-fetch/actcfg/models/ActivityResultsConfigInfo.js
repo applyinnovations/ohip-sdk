@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ActivityResultsConfigInfoToJSON = exports.ActivityResultsConfigInfoFromJSONTyped = exports.ActivityResultsConfigInfoFromJSON = exports.instanceOfActivityResultsConfigInfo = void 0;
 const runtime_1 = require("../runtime");
-const ActivityResultsConfigListType_1 = require("./ActivityResultsConfigListType");
-const WarningsType_1 = require("./WarningsType");
+const ActivityResultsConfigDetailType_1 = require("./ActivityResultsConfigDetailType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ActivityResultsConfigInfo interface.
  */
@@ -34,8 +34,8 @@ function ActivityResultsConfigInfoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'activityResultsConfiguration': !(0, runtime_1.exists)(json, 'activityResultsConfiguration') ? undefined : (0, ActivityResultsConfigListType_1.ActivityResultsConfigListTypeFromJSON)(json['activityResultsConfiguration']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'activityResultsConfiguration': !(0, runtime_1.exists)(json, 'activityResultsConfiguration') ? undefined : (json['activityResultsConfiguration'].map(ActivityResultsConfigDetailType_1.ActivityResultsConfigDetailTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ActivityResultsConfigInfoFromJSONTyped = ActivityResultsConfigInfoFromJSONTyped;
@@ -47,8 +47,8 @@ function ActivityResultsConfigInfoToJSON(value) {
         return null;
     }
     return {
-        'activityResultsConfiguration': (0, ActivityResultsConfigListType_1.ActivityResultsConfigListTypeToJSON)(value.activityResultsConfiguration),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'activityResultsConfiguration': value.activityResultsConfiguration === undefined ? undefined : (value.activityResultsConfiguration.map(ActivityResultsConfigDetailType_1.ActivityResultsConfigDetailTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ActivityResultsConfigInfoToJSON = ActivityResultsConfigInfoToJSON;

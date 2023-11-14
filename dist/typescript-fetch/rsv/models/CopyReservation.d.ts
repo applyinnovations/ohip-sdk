@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CopyReservationType } from './CopyReservationType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request for copying a reservation's information as a template for a new reservation.
  * @export
@@ -26,16 +26,16 @@ export interface CopyReservation {
     criteria?: CopyReservationType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CopyReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CopyReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CopyReservation interface.

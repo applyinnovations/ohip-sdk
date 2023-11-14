@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HurdleRatesType } from './HurdleRatesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HurdleRateType } from './HurdleRateType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Hurdle rates.
  * @export
@@ -25,11 +25,11 @@ export interface HurdleRates {
      */
     hasMore?: boolean;
     /**
-     *
-     * @type {HurdleRatesType}
+     * Details for hurdle rate.
+     * @type {Array<HurdleRateType>}
      * @memberof HurdleRates
      */
-    hurdleRates?: HurdleRatesType;
+    hurdleRates?: Array<HurdleRateType>;
     /**
      * Indicates maximum number of records a Web Service should return.
      * @type {number}
@@ -38,10 +38,10 @@ export interface HurdleRates {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HurdleRates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -61,11 +61,11 @@ export interface HurdleRates {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HurdleRates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HurdleRates interface.

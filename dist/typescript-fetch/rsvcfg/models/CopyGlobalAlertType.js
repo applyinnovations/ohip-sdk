@@ -15,8 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyGlobalAlertTypeToJSON = exports.CopyGlobalAlertTypeFromJSONTyped = exports.CopyGlobalAlertTypeFromJSON = exports.instanceOfCopyGlobalAlertType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CopyGlobalAlertType interface.
  */
@@ -34,8 +33,8 @@ function CopyGlobalAlertTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'resvAlertIds': !(0, runtime_1.exists)(json, 'resvAlertIds') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['resvAlertIds']),
-        'targetHotelCodes': !(0, runtime_1.exists)(json, 'targetHotelCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['targetHotelCodes']),
+        'resvAlertIds': !(0, runtime_1.exists)(json, 'resvAlertIds') ? undefined : (json['resvAlertIds'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'targetHotelCodes': !(0, runtime_1.exists)(json, 'targetHotelCodes') ? undefined : json['targetHotelCodes'],
     };
 }
 exports.CopyGlobalAlertTypeFromJSONTyped = CopyGlobalAlertTypeFromJSONTyped;
@@ -47,8 +46,8 @@ function CopyGlobalAlertTypeToJSON(value) {
         return null;
     }
     return {
-        'resvAlertIds': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.resvAlertIds),
-        'targetHotelCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.targetHotelCodes),
+        'resvAlertIds': value.resvAlertIds === undefined ? undefined : (value.resvAlertIds.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'targetHotelCodes': value.targetHotelCodes,
     };
 }
 exports.CopyGlobalAlertTypeToJSON = CopyGlobalAlertTypeToJSON;

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TravelAgentTypesType } from './TravelAgentTypesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TravelAgentTypeType } from './TravelAgentTypeType';
 import {
-    TravelAgentTypesTypeFromJSON,
-    TravelAgentTypesTypeFromJSONTyped,
-    TravelAgentTypesTypeToJSON,
-} from './TravelAgentTypesType';
-import type { WarningsType } from './WarningsType';
+    TravelAgentTypeTypeFromJSON,
+    TravelAgentTypeTypeFromJSONTyped,
+    TravelAgentTypeTypeToJSON,
+} from './TravelAgentTypeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Travel Agent Types.
@@ -40,22 +40,22 @@ import {
 export interface TravelAgentTypesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TravelAgentTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TravelAgentTypesType}
+     * List of Travel Agent Types.
+     * @type {Array<TravelAgentTypeType>}
      * @memberof TravelAgentTypesDetails
      */
-    travelAgentTypes?: TravelAgentTypesType;
+    travelAgentTypes?: Array<TravelAgentTypeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TravelAgentTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TravelAgentTypesDetailsFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'travelAgentTypes': !exists(json, 'travelAgentTypes') ? undefined : TravelAgentTypesTypeFromJSON(json['travelAgentTypes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'travelAgentTypes': !exists(json, 'travelAgentTypes') ? undefined : ((json['travelAgentTypes'] as Array<any>).map(TravelAgentTypeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TravelAgentTypesDetailsToJSON(value?: TravelAgentTypesDetails | 
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'travelAgentTypes': TravelAgentTypesTypeToJSON(value.travelAgentTypes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'travelAgentTypes': value.travelAgentTypes === undefined ? undefined : ((value.travelAgentTypes as Array<any>).map(TravelAgentTypeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

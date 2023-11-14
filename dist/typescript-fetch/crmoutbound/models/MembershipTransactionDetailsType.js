@@ -15,11 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipTransactionDetailsTypeToJSON = exports.MembershipTransactionDetailsTypeFromJSONTyped = exports.MembershipTransactionDetailsTypeFromJSON = exports.instanceOfMembershipTransactionDetailsType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const MembershipAwardPointsType_1 = require("./MembershipAwardPointsType");
 const MembershipTransactionId_1 = require("./MembershipTransactionId");
 const MembershipTransactionTierPointsType_1 = require("./MembershipTransactionTierPointsType");
-const ReservationIdList_1 = require("./ReservationIdList");
 const TimeSpanType_1 = require("./TimeSpanType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -43,11 +41,11 @@ function MembershipTransactionDetailsTypeFromJSONTyped(json, ignoreDiscriminator
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'transactionType': !(0, runtime_1.exists)(json, 'transactionType') ? undefined : json['transactionType'],
         'transactionDate': !(0, runtime_1.exists)(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'currency': !(0, runtime_1.exists)(json, 'currency') ? undefined : json['currency'],
         'stayTimeSpan': !(0, runtime_1.exists)(json, 'stayTimeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['stayTimeSpan']),
         'ratePromotion': !(0, runtime_1.exists)(json, 'ratePromotion') ? undefined : json['ratePromotion'],
-        'profilePromotions': !(0, runtime_1.exists)(json, 'profilePromotions') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['profilePromotions']),
+        'profilePromotions': !(0, runtime_1.exists)(json, 'profilePromotions') ? undefined : json['profilePromotions'],
         'pointsCreditDate': !(0, runtime_1.exists)(json, 'pointsCreditDate') ? undefined : (new Date(json['pointsCreditDate'])),
         'averageRateAmount': !(0, runtime_1.exists)(json, 'averageRateAmount') ? undefined : json['averageRateAmount'],
         'adjustment': !(0, runtime_1.exists)(json, 'adjustment') ? undefined : json['adjustment'],
@@ -80,11 +78,11 @@ function MembershipTransactionDetailsTypeToJSON(value) {
         'hotelId': value.hotelId,
         'transactionType': value.transactionType,
         'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0, 10)),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'currency': value.currency,
         'stayTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.stayTimeSpan),
         'ratePromotion': value.ratePromotion,
-        'profilePromotions': (0, CodeListType_1.CodeListTypeToJSON)(value.profilePromotions),
+        'profilePromotions': value.profilePromotions,
         'pointsCreditDate': value.pointsCreditDate === undefined ? undefined : (value.pointsCreditDate.toISOString().substring(0, 10)),
         'averageRateAmount': value.averageRateAmount,
         'adjustment': value.adjustment,

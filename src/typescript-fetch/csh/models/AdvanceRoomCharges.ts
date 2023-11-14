@@ -19,18 +19,18 @@ import {
     AdvanceRoomChargesCriteriaTypeFromJSONTyped,
     AdvanceRoomChargesCriteriaTypeToJSON,
 } from './AdvanceRoomChargesCriteriaType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to post the Room Charges for a reservation in advance. This request posts the Room Charges for a reservation for tonight or for many nights starting from the last posted night. This can also be used to verify if the reservation has already been charged for the full stay. Setting the Verify flag will return details regarding the last Room Charge posted date and if there are any available dates for which the room charges can be posted in advance. Room Charges cannot be posted for dates prior to the business date of the resort. To make the actual posting, the verification flag should be false.
@@ -46,16 +46,16 @@ export interface AdvanceRoomCharges {
     criteria?: AdvanceRoomChargesCriteriaType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AdvanceRoomCharges
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AdvanceRoomCharges
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -78,8 +78,8 @@ export function AdvanceRoomChargesFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : AdvanceRoomChargesCriteriaTypeFromJSON(json['criteria']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -93,8 +93,8 @@ export function AdvanceRoomChargesToJSON(value?: AdvanceRoomCharges | null): any
     return {
         
         'criteria': AdvanceRoomChargesCriteriaTypeToJSON(value.criteria),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

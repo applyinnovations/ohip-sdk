@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RelationshipProfileTypeToJSON = exports.RelationshipProfileTypeFromJSONTyped = exports.RelationshipProfileTypeFromJSON = exports.instanceOfRelationshipProfileType = void 0;
 const runtime_1 = require("../runtime");
 const ProfileTypeType_1 = require("./ProfileTypeType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the RelationshipProfileType interface.
  */
@@ -34,7 +34,7 @@ function RelationshipProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'profileType': !(0, runtime_1.exists)(json, 'profileType') ? undefined : (0, ProfileTypeType_1.ProfileTypeTypeFromJSON)(json['profileType']),
     };
 }
@@ -47,7 +47,7 @@ function RelationshipProfileTypeToJSON(value) {
         return null;
     }
     return {
-        'profileIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'profileType': (0, ProfileTypeType_1.ProfileTypeTypeToJSON)(value.profileType),
     };
 }

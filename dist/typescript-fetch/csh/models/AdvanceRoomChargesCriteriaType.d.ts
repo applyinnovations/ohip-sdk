@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CashieringEventType } from './CashieringEventType';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Type to set the criteria for generation of advance folios. This will post the room and tax transactions for the nights requested.
  * @export
@@ -48,11 +48,11 @@ export interface AdvanceRoomChargesCriteriaType {
      */
     postForEntireStay?: boolean;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof AdvanceRoomChargesCriteriaType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * Flag to indicate if only a verification is required. This checks if advance bills have been generated for this reservation and returns the last date in the response. Setting this flag to true, will return the information for the below elements in the response: AvailablePostingDates, GeneratedForEntireStay, LastRoomAndTaxPostedDate and the Reservation Information. No posting will be done. In order for the actual posting to occur this flag should be false.
      * @type {boolean}

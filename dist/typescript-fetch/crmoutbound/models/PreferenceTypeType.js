@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PreferenceTypeTypeToJSON = exports.PreferenceTypeTypeFromJSONTyped = exports.PreferenceTypeTypeFromJSON = exports.instanceOfPreferenceTypeType = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const PreferenceType_1 = require("./PreferenceType");
 /**
  * Check if a given object implements the PreferenceTypeType interface.
@@ -46,7 +46,7 @@ function PreferenceTypeTypeFromJSONTyped(json, ignoreDiscriminator) {
         'creatorId': !(0, runtime_1.exists)(json, 'creatorId') ? undefined : json['creatorId'],
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'lastModifierId': !(0, runtime_1.exists)(json, 'lastModifierId') ? undefined : json['lastModifierId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.PreferenceTypeTypeFromJSONTyped = PreferenceTypeTypeFromJSONTyped;
@@ -70,7 +70,7 @@ function PreferenceTypeTypeToJSON(value) {
         'creatorId': value.creatorId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'lastModifierId': value.lastModifierId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.PreferenceTypeTypeToJSON = PreferenceTypeTypeToJSON;

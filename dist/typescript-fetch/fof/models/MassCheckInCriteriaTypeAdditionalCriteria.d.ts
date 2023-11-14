@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RoomStatusListType } from './RoomStatusListType';
+import type { HousekeepingRoomStatusType } from './HousekeepingRoomStatusType';
 /**
  * Additional RoomStatus Criteria for Mass Checkin
  * @export
@@ -17,11 +17,11 @@ import type { RoomStatusListType } from './RoomStatusListType';
  */
 export interface MassCheckInCriteriaTypeAdditionalCriteria {
     /**
-     *
-     * @type {RoomStatusListType}
+     * Room Status Type.
+     * @type {Array<HousekeepingRoomStatusType>}
      * @memberof MassCheckInCriteriaTypeAdditionalCriteria
      */
-    roomStatuses?: RoomStatusListType;
+    roomStatuses?: Array<HousekeepingRoomStatusType>;
 }
 /**
  * Check if a given object implements the MassCheckInCriteriaTypeAdditionalCriteria interface.

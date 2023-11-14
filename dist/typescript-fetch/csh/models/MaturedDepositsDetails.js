@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MaturedDepositsDetailsToJSON = exports.MaturedDepositsDetailsFromJSONTyped = exports.MaturedDepositsDetailsFromJSON = exports.instanceOfMaturedDepositsDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const MaturedDepositsType_1 = require("./MaturedDepositsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const MaturedDepositType_1 = require("./MaturedDepositType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MaturedDepositsDetails interface.
  */
@@ -35,9 +35,9 @@ function MaturedDepositsDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'maturedDeposits': !(0, runtime_1.exists)(json, 'maturedDeposits') ? undefined : (0, MaturedDepositsType_1.MaturedDepositsTypeFromJSON)(json['maturedDeposits']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'maturedDeposits': !(0, runtime_1.exists)(json, 'maturedDeposits') ? undefined : (json['maturedDeposits'].map(MaturedDepositType_1.MaturedDepositTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MaturedDepositsDetailsFromJSONTyped = MaturedDepositsDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function MaturedDepositsDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'maturedDeposits': (0, MaturedDepositsType_1.MaturedDepositsTypeToJSON)(value.maturedDeposits),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'maturedDeposits': value.maturedDeposits === undefined ? undefined : (value.maturedDeposits.map(MaturedDepositType_1.MaturedDepositTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MaturedDepositsDetailsToJSON = MaturedDepositsDetailsToJSON;

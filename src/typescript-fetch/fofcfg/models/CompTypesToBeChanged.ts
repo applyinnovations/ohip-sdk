@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CompTypesType } from './CompTypesType';
+import type { CompTypeType } from './CompTypeType';
 import {
-    CompTypesTypeFromJSON,
-    CompTypesTypeFromJSONTyped,
-    CompTypesTypeToJSON,
-} from './CompTypesType';
-import type { Links } from './Links';
+    CompTypeTypeFromJSON,
+    CompTypeTypeFromJSONTyped,
+    CompTypeTypeToJSON,
+} from './CompTypeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Comp Types.
@@ -39,23 +39,23 @@ import {
  */
 export interface CompTypesToBeChanged {
     /**
-     * 
-     * @type {CompTypesType}
+     * List of Comp Types.
+     * @type {Array<CompTypeType>}
      * @memberof CompTypesToBeChanged
      */
-    compTypes?: CompTypesType;
+    compTypes?: Array<CompTypeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CompTypesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CompTypesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CompTypesToBeChangedFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'compTypes': !exists(json, 'compTypes') ? undefined : CompTypesTypeFromJSON(json['compTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'compTypes': !exists(json, 'compTypes') ? undefined : ((json['compTypes'] as Array<any>).map(CompTypeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CompTypesToBeChangedToJSON(value?: CompTypesToBeChanged | null):
     }
     return {
         
-        'compTypes': CompTypesTypeToJSON(value.compTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'compTypes': value.compTypes === undefined ? undefined : ((value.compTypes as Array<any>).map(CompTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

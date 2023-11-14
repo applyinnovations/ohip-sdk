@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BreakShareValidationsDetailsToJSON = exports.BreakShareValidationsDetailsFromJSONTyped = exports.BreakShareValidationsDetailsFromJSON = exports.instanceOfBreakShareValidationsDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const ValidationsReturnType_1 = require("./ValidationsReturnType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const ValidationReturnType_1 = require("./ValidationReturnType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BreakShareValidationsDetails interface.
  */
@@ -35,9 +35,9 @@ function BreakShareValidationsDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'returnedValidations': !(0, runtime_1.exists)(json, 'returnedValidations') ? undefined : (0, ValidationsReturnType_1.ValidationsReturnTypeFromJSON)(json['returnedValidations']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'returnedValidations': !(0, runtime_1.exists)(json, 'returnedValidations') ? undefined : (json['returnedValidations'].map(ValidationReturnType_1.ValidationReturnTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BreakShareValidationsDetailsFromJSONTyped = BreakShareValidationsDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function BreakShareValidationsDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'returnedValidations': (0, ValidationsReturnType_1.ValidationsReturnTypeToJSON)(value.returnedValidations),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'returnedValidations': value.returnedValidations === undefined ? undefined : (value.returnedValidations.map(ValidationReturnType_1.ValidationReturnTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BreakShareValidationsDetailsToJSON = BreakShareValidationsDetailsToJSON;

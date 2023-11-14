@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AwardUpgradeDetailsType } from './AwardUpgradeDetailsType';
+import type { AwardUpgradeDetailType } from './AwardUpgradeDetailType';
 import {
-    AwardUpgradeDetailsTypeFromJSON,
-    AwardUpgradeDetailsTypeFromJSONTyped,
-    AwardUpgradeDetailsTypeToJSON,
-} from './AwardUpgradeDetailsType';
+    AwardUpgradeDetailTypeFromJSON,
+    AwardUpgradeDetailTypeFromJSONTyped,
+    AwardUpgradeDetailTypeToJSON,
+} from './AwardUpgradeDetailType';
 
 /**
  * 
@@ -33,11 +33,11 @@ export interface AwardUpgradeSummaryType {
      */
     awardCode?: string;
     /**
-     * 
-     * @type {AwardUpgradeDetailsType}
+     * Daily Details related to award upgrade.
+     * @type {Array<AwardUpgradeDetailType>}
      * @memberof AwardUpgradeSummaryType
      */
-    awardUpgradeDetails?: AwardUpgradeDetailsType;
+    awardUpgradeDetails?: Array<AwardUpgradeDetailType>;
     /**
      * From Room type associated with the award.
      * @type {string}
@@ -102,7 +102,7 @@ export function AwardUpgradeSummaryTypeFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'awardCode': !exists(json, 'awardCode') ? undefined : json['awardCode'],
-        'awardUpgradeDetails': !exists(json, 'awardUpgradeDetails') ? undefined : AwardUpgradeDetailsTypeFromJSON(json['awardUpgradeDetails']),
+        'awardUpgradeDetails': !exists(json, 'awardUpgradeDetails') ? undefined : ((json['awardUpgradeDetails'] as Array<any>).map(AwardUpgradeDetailTypeFromJSON)),
         'fromRoomType': !exists(json, 'fromRoomType') ? undefined : json['fromRoomType'],
         'penaltyCharge': !exists(json, 'penaltyCharge') ? undefined : json['penaltyCharge'],
         'penaltyDays': !exists(json, 'penaltyDays') ? undefined : json['penaltyDays'],
@@ -123,7 +123,7 @@ export function AwardUpgradeSummaryTypeToJSON(value?: AwardUpgradeSummaryType | 
     return {
         
         'awardCode': value.awardCode,
-        'awardUpgradeDetails': AwardUpgradeDetailsTypeToJSON(value.awardUpgradeDetails),
+        'awardUpgradeDetails': value.awardUpgradeDetails === undefined ? undefined : ((value.awardUpgradeDetails as Array<any>).map(AwardUpgradeDetailTypeToJSON)),
         'fromRoomType': value.fromRoomType,
         'penaltyCharge': value.penaltyCharge,
         'penaltyDays': value.penaltyDays,

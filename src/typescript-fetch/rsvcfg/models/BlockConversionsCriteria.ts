@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockConversionsType } from './BlockConversionsType';
+import type { BlockConversionType } from './BlockConversionType';
 import {
-    BlockConversionsTypeFromJSON,
-    BlockConversionsTypeFromJSONTyped,
-    BlockConversionsTypeToJSON,
-} from './BlockConversionsType';
-import type { Links } from './Links';
+    BlockConversionTypeFromJSON,
+    BlockConversionTypeFromJSONTyped,
+    BlockConversionTypeToJSON,
+} from './BlockConversionType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Block Conversions.
@@ -39,23 +39,23 @@ import {
  */
 export interface BlockConversionsCriteria {
     /**
-     * 
-     * @type {BlockConversionsType}
+     * List of Block Conversions.
+     * @type {Array<BlockConversionType>}
      * @memberof BlockConversionsCriteria
      */
-    blockConversions?: BlockConversionsType;
+    blockConversions?: Array<BlockConversionType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockConversionsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockConversionsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function BlockConversionsCriteriaFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'blockConversions': !exists(json, 'blockConversions') ? undefined : BlockConversionsTypeFromJSON(json['blockConversions']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'blockConversions': !exists(json, 'blockConversions') ? undefined : ((json['blockConversions'] as Array<any>).map(BlockConversionTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function BlockConversionsCriteriaToJSON(value?: BlockConversionsCriteria 
     }
     return {
         
-        'blockConversions': BlockConversionsTypeToJSON(value.blockConversions),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'blockConversions': value.blockConversions === undefined ? undefined : ((value.blockConversions as Array<any>).map(BlockConversionTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

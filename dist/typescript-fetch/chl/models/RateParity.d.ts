@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RateParityType } from './RateParityType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object to fetch Rate Parity.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface RateParity {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RateParity
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {RateParityType}
@@ -31,11 +31,11 @@ export interface RateParity {
      */
     rateParity?: RateParityType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RateParity
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RateParity interface.

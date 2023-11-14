@@ -17,7 +17,6 @@ exports.CopyCateringPkgTypeToJSON = exports.CopyCateringPkgTypeFromJSONTyped = e
 const runtime_1 = require("../runtime");
 const CateringPackageCopyInstructionType_1 = require("./CateringPackageCopyInstructionType");
 const CopyStatusModeType_1 = require("./CopyStatusModeType");
-const DatesType_1 = require("./DatesType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CopyCateringPkgType interface.
@@ -40,7 +39,7 @@ function CopyCateringPkgTypeFromJSONTyped(json, ignoreDiscriminator) {
         'copyAsSnapshot': !(0, runtime_1.exists)(json, 'copyAsSnapshot') ? undefined : json['copyAsSnapshot'],
         'copyInstructions': !(0, runtime_1.exists)(json, 'copyInstructions') ? undefined : (json['copyInstructions'].map(CateringPackageCopyInstructionType_1.CateringPackageCopyInstructionTypeFromJSON)),
         'copyStatusMode': !(0, runtime_1.exists)(json, 'copyStatusMode') ? undefined : (0, CopyStatusModeType_1.CopyStatusModeTypeFromJSON)(json['copyStatusMode']),
-        'copyToDates': !(0, runtime_1.exists)(json, 'copyToDates') ? undefined : (0, DatesType_1.DatesTypeFromJSON)(json['copyToDates']),
+        'copyToDates': !(0, runtime_1.exists)(json, 'copyToDates') ? undefined : json['copyToDates'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'packageId': !(0, runtime_1.exists)(json, 'packageId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['packageId']),
         'sourceBlockId': !(0, runtime_1.exists)(json, 'sourceBlockId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['sourceBlockId']),
@@ -60,7 +59,7 @@ function CopyCateringPkgTypeToJSON(value) {
         'copyAsSnapshot': value.copyAsSnapshot,
         'copyInstructions': value.copyInstructions === undefined ? undefined : (value.copyInstructions.map(CateringPackageCopyInstructionType_1.CateringPackageCopyInstructionTypeToJSON)),
         'copyStatusMode': (0, CopyStatusModeType_1.CopyStatusModeTypeToJSON)(value.copyStatusMode),
-        'copyToDates': (0, DatesType_1.DatesTypeToJSON)(value.copyToDates),
+        'copyToDates': value.copyToDates,
         'hotelId': value.hotelId,
         'packageId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.packageId),
         'sourceBlockId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.sourceBlockId),

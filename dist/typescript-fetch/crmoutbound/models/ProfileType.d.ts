@@ -12,7 +12,7 @@
 import type { CompanyType } from './CompanyType';
 import type { CustomerType } from './CustomerType';
 import type { ImageSetType } from './ImageSetType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import type { LastStayInfoType } from './LastStayInfoType';
 import type { MailingActionsType } from './MailingActionsType';
 import type { PrivacyInfoType } from './PrivacyInfoType';
@@ -107,11 +107,11 @@ export interface ProfileType {
      */
     keywords?: ProfileTypeKeywords;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof ProfileType
      */
-    profileIndicators?: IndicatorsType;
+    profileIndicators?: Array<IndicatorType>;
     /**
      *
      * @type {LastStayInfoType}

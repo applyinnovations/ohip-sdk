@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ActivityList } from './ActivityList';
+import type { ActivityListInner } from './ActivityListInner';
 import {
-    ActivityListFromJSON,
-    ActivityListFromJSONTyped,
-    ActivityListToJSON,
-} from './ActivityList';
+    ActivityListInnerFromJSON,
+    ActivityListInnerFromJSONTyped,
+    ActivityListInnerToJSON,
+} from './ActivityListInner';
 
 /**
  * Generic self-contained response object that is used when inserting/ updating/ canceling activities.
@@ -27,11 +27,11 @@ import {
  */
 export interface ActivityBookingRSType {
     /**
-     * 
-     * @type {ActivityList}
+     * A collection of Activity objects.
+     * @type {Array<ActivityListInner>}
      * @memberof ActivityBookingRSType
      */
-    activities?: ActivityList;
+    activities?: Array<ActivityListInner>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function ActivityBookingRSTypeFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'activities': !exists(json, 'activities') ? undefined : ActivityListFromJSON(json['activities']),
+        'activities': !exists(json, 'activities') ? undefined : ((json['activities'] as Array<any>).map(ActivityListInnerFromJSON)),
     };
 }
 
@@ -66,7 +66,7 @@ export function ActivityBookingRSTypeToJSON(value?: ActivityBookingRSType | null
     }
     return {
         
-        'activities': ActivityListToJSON(value.activities),
+        'activities': value.activities === undefined ? undefined : ((value.activities as Array<any>).map(ActivityListInnerToJSON)),
     };
 }
 

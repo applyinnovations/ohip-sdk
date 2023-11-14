@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ResAccompanyGuestInfoTypeToJSON = exports.ResAccompanyGuestInfoTypeFromJSONTyped = exports.ResAccompanyGuestInfoTypeFromJSON = exports.instanceOfResAccompanyGuestInfoType = void 0;
 const runtime_1 = require("../runtime");
-const ProfileIdList_1 = require("./ProfileIdList");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ResAccompanyGuestInfoType interface.
  */
@@ -37,7 +37,7 @@ function ResAccompanyGuestInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'lastName': !(0, runtime_1.exists)(json, 'lastName') ? undefined : json['lastName'],
         'fullName': !(0, runtime_1.exists)(json, 'fullName') ? undefined : json['fullName'],
         'registrationCardNo': !(0, runtime_1.exists)(json, 'registrationCardNo') ? undefined : json['registrationCardNo'],
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.ResAccompanyGuestInfoTypeFromJSONTyped = ResAccompanyGuestInfoTypeFromJSONTyped;
@@ -53,7 +53,7 @@ function ResAccompanyGuestInfoTypeToJSON(value) {
         'lastName': value.lastName,
         'fullName': value.fullName,
         'registrationCardNo': value.registrationCardNo,
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.ResAccompanyGuestInfoTypeToJSON = ResAccompanyGuestInfoTypeToJSON;

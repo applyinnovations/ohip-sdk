@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CalculatedPointsType } from './CalculatedPointsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching membership transaction points information.
  * @export
@@ -26,16 +26,16 @@ export interface CalculatedPoints {
     calculatedPoint?: CalculatedPointsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CalculatedPoints
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CalculatedPoints
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CalculatedPoints interface.

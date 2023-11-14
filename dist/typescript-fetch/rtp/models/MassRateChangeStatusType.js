@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MassRateChangeStatusTypeToJSON = exports.MassRateChangeStatusTypeFromJSONTyped = exports.MassRateChangeStatusTypeFromJSON = exports.instanceOfMassRateChangeStatusType = void 0;
 const runtime_1 = require("../runtime");
-const MassRateChangeDetailLogListType_1 = require("./MassRateChangeDetailLogListType");
+const MassRateChangeDetailLogType_1 = require("./MassRateChangeDetailLogType");
 const MassRateChangeProcessStatusType_1 = require("./MassRateChangeProcessStatusType");
 /**
  * Check if a given object implements the MassRateChangeStatusType interface.
@@ -35,7 +35,7 @@ function MassRateChangeStatusTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'completedRatePlans': !(0, runtime_1.exists)(json, 'completedRatePlans') ? undefined : json['completedRatePlans'],
-        'details': !(0, runtime_1.exists)(json, 'details') ? undefined : (0, MassRateChangeDetailLogListType_1.MassRateChangeDetailLogListTypeFromJSON)(json['details']),
+        'details': !(0, runtime_1.exists)(json, 'details') ? undefined : (json['details'].map(MassRateChangeDetailLogType_1.MassRateChangeDetailLogTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'status': !(0, runtime_1.exists)(json, 'status') ? undefined : (0, MassRateChangeProcessStatusType_1.MassRateChangeProcessStatusTypeFromJSON)(json['status']),
         'totalRatePlans': !(0, runtime_1.exists)(json, 'totalRatePlans') ? undefined : json['totalRatePlans'],
@@ -51,7 +51,7 @@ function MassRateChangeStatusTypeToJSON(value) {
     }
     return {
         'completedRatePlans': value.completedRatePlans,
-        'details': (0, MassRateChangeDetailLogListType_1.MassRateChangeDetailLogListTypeToJSON)(value.details),
+        'details': value.details === undefined ? undefined : (value.details.map(MassRateChangeDetailLogType_1.MassRateChangeDetailLogTypeToJSON)),
         'hotelId': value.hotelId,
         'status': (0, MassRateChangeProcessStatusType_1.MassRateChangeProcessStatusTypeToJSON)(value.status),
         'totalRatePlans': value.totalRatePlans,

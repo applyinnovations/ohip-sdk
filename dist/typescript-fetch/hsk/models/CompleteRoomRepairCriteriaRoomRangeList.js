@@ -17,7 +17,6 @@ exports.CompleteRoomRepairCriteriaRoomRangeListToJSON = exports.CompleteRoomRepa
 const runtime_1 = require("../runtime");
 const CompleteRoomRepairCriteriaRoomRangeListRange_1 = require("./CompleteRoomRepairCriteriaRoomRangeListRange");
 const CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrder_1 = require("./CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrder");
-const RoomIds_1 = require("./RoomIds");
 /**
  * Check if a given object implements the CompleteRoomRepairCriteriaRoomRangeList interface.
  */
@@ -36,7 +35,7 @@ function CompleteRoomRepairCriteriaRoomRangeListFromJSONTyped(json, ignoreDiscri
     }
     return {
         'range': !(0, runtime_1.exists)(json, 'range') ? undefined : (0, CompleteRoomRepairCriteriaRoomRangeListRange_1.CompleteRoomRepairCriteriaRoomRangeListRangeFromJSON)(json['range']),
-        'roomIds': !(0, runtime_1.exists)(json, 'roomIds') ? undefined : (0, RoomIds_1.RoomIdsFromJSON)(json['roomIds']),
+        'roomIds': !(0, runtime_1.exists)(json, 'roomIds') ? undefined : json['roomIds'],
         'roomOutOfOrder': !(0, runtime_1.exists)(json, 'roomOutOfOrder') ? undefined : (0, CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrder_1.CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrderFromJSON)(json['roomOutOfOrder']),
     };
 }
@@ -50,7 +49,7 @@ function CompleteRoomRepairCriteriaRoomRangeListToJSON(value) {
     }
     return {
         'range': (0, CompleteRoomRepairCriteriaRoomRangeListRange_1.CompleteRoomRepairCriteriaRoomRangeListRangeToJSON)(value.range),
-        'roomIds': (0, RoomIds_1.RoomIdsToJSON)(value.roomIds),
+        'roomIds': value.roomIds,
         'roomOutOfOrder': (0, CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrder_1.CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrderToJSON)(value.roomOutOfOrder),
     };
 }

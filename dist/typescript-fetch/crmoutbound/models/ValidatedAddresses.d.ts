@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AddressValidationsType } from './AddressValidationsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AddressValidationInfoType } from './AddressValidationInfoType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Addresses from external system.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ValidatedAddresses {
     /**
-     *
-     * @type {AddressValidationsType}
+     * A collection of validated Addresses.
+     * @type {Array<AddressValidationInfoType>}
      * @memberof ValidatedAddresses
      */
-    addressValidationsInfo?: AddressValidationsType;
+    addressValidationsInfo?: Array<AddressValidationInfoType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ValidatedAddresses
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ValidatedAddresses
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ValidatedAddresses interface.

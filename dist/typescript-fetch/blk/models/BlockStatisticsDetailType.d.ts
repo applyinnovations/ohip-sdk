@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockStatisticsDatesType } from './BlockStatisticsDatesType';
+import type { BlockStatisticsDateType } from './BlockStatisticsDateType';
 import type { StatisticsType } from './StatisticsType';
 /**
  * Statistics Detail for a statistic type.
@@ -25,10 +25,10 @@ export interface BlockStatisticsDetailType {
     statisticType?: StatisticsType;
     /**
      *
-     * @type {Array<BlockStatisticsDatesType>}
+     * @type {Array<Array<BlockStatisticsDateType>>}
      * @memberof BlockStatisticsDetailType
      */
-    statisticsDates?: Array<BlockStatisticsDatesType>;
+    statisticsDates?: Array<Array<BlockStatisticsDateType>>;
 }
 /**
  * Check if a given object implements the BlockStatisticsDetailType interface.

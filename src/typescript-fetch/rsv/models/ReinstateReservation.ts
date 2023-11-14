@@ -13,42 +13,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { EffectiveRatesType } from './EffectiveRatesType';
+import type { EffectiveRateType } from './EffectiveRateType';
 import {
-    EffectiveRatesTypeFromJSON,
-    EffectiveRatesTypeFromJSONTyped,
-    EffectiveRatesTypeToJSON,
-} from './EffectiveRatesType';
+    EffectiveRateTypeFromJSON,
+    EffectiveRateTypeFromJSONTyped,
+    EffectiveRateTypeToJSON,
+} from './EffectiveRateType';
 import type { HotelReservationType } from './HotelReservationType';
 import {
     HotelReservationTypeFromJSON,
     HotelReservationTypeFromJSONTyped,
     HotelReservationTypeToJSON,
 } from './HotelReservationType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ReservationIdList } from './ReservationIdList';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
-import type { UniqueIDListType } from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
+import type { WarningType } from './WarningType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
-import type { WarningsType } from './WarningsType';
-import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Overriding the validation check will log the supposed errors in the warnings log if they would fail.
@@ -57,17 +51,17 @@ import {
  */
 export interface ReinstateReservation {
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ReinstateReservation
      */
-    additionalReservationIdList?: UniqueIDListType;
+    additionalReservationIdList?: Array<UniqueIDType>;
     /**
-     * 
-     * @type {EffectiveRatesType}
+     * Collection of effective rate amount per guest on specific dates.
+     * @type {Array<EffectiveRateType>}
      * @memberof ReinstateReservation
      */
-    effectiveRates?: EffectiveRatesType;
+    effectiveRates?: Array<EffectiveRateType>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -76,10 +70,10 @@ export interface ReinstateReservation {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReinstateReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Flag that indicates if room inventory check should be skipped when the reservation is being reinstated.
      * @type {boolean}
@@ -111,11 +105,11 @@ export interface ReinstateReservation {
      */
     reservation?: HotelReservationType;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ReinstateReservation
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {number}
@@ -123,11 +117,11 @@ export interface ReinstateReservation {
      */
     reservationLockHandle?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReinstateReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -149,18 +143,18 @@ export function ReinstateReservationFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'additionalReservationIdList': !exists(json, 'additionalReservationIdList') ? undefined : UniqueIDListTypeFromJSON(json['additionalReservationIdList']),
-        'effectiveRates': !exists(json, 'effectiveRates') ? undefined : EffectiveRatesTypeFromJSON(json['effectiveRates']),
+        'additionalReservationIdList': !exists(json, 'additionalReservationIdList') ? undefined : ((json['additionalReservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'effectiveRates': !exists(json, 'effectiveRates') ? undefined : ((json['effectiveRates'] as Array<any>).map(EffectiveRateTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'overrideInventory': !exists(json, 'overrideInventory') ? undefined : json['overrideInventory'],
         'overrideRates': !exists(json, 'overrideRates') ? undefined : json['overrideRates'],
         'overrideRoomAllocation': !exists(json, 'overrideRoomAllocation') ? undefined : json['overrideRoomAllocation'],
         'overrideRoomOutOfService': !exists(json, 'overrideRoomOutOfService') ? undefined : json['overrideRoomOutOfService'],
         'reservation': !exists(json, 'reservation') ? undefined : HotelReservationTypeFromJSON(json['reservation']),
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'reservationLockHandle': !exists(json, 'reservationLockHandle') ? undefined : json['reservationLockHandle'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -173,18 +167,18 @@ export function ReinstateReservationToJSON(value?: ReinstateReservation | null):
     }
     return {
         
-        'additionalReservationIdList': UniqueIDListTypeToJSON(value.additionalReservationIdList),
-        'effectiveRates': EffectiveRatesTypeToJSON(value.effectiveRates),
+        'additionalReservationIdList': value.additionalReservationIdList === undefined ? undefined : ((value.additionalReservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
+        'effectiveRates': value.effectiveRates === undefined ? undefined : ((value.effectiveRates as Array<any>).map(EffectiveRateTypeToJSON)),
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'overrideInventory': value.overrideInventory,
         'overrideRates': value.overrideRates,
         'overrideRoomAllocation': value.overrideRoomAllocation,
         'overrideRoomOutOfService': value.overrideRoomOutOfService,
         'reservation': HotelReservationTypeToJSON(value.reservation),
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'reservationLockHandle': value.reservationLockHandle,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -31,12 +31,12 @@ import {
     StagedProfileAddressTypeFromJSONTyped,
     StagedProfileAddressTypeToJSON,
 } from './StagedProfileAddressType';
-import type { StagedProfileCommentInfosType } from './StagedProfileCommentInfosType';
+import type { StagedProfileCommentInfoType } from './StagedProfileCommentInfoType';
 import {
-    StagedProfileCommentInfosTypeFromJSON,
-    StagedProfileCommentInfosTypeFromJSONTyped,
-    StagedProfileCommentInfosTypeToJSON,
-} from './StagedProfileCommentInfosType';
+    StagedProfileCommentInfoTypeFromJSON,
+    StagedProfileCommentInfoTypeFromJSONTyped,
+    StagedProfileCommentInfoTypeToJSON,
+} from './StagedProfileCommentInfoType';
 import type { StagedProfileCompanyType } from './StagedProfileCompanyType';
 import {
     StagedProfileCompanyTypeFromJSON,
@@ -109,12 +109,12 @@ import {
     StagedProfileUserDefinedFieldsTypeFromJSONTyped,
     StagedProfileUserDefinedFieldsTypeToJSON,
 } from './StagedProfileUserDefinedFieldsType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Detailed information about the staged profile.
@@ -123,11 +123,11 @@ import {
  */
 export interface StagedProfileType {
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof StagedProfileType
      */
-    profileIdList?: UniqueIDListType;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {StagedProfileCustomerType}
@@ -219,11 +219,11 @@ export interface StagedProfileType {
      */
     privacyInfo?: PrivacyInfoType;
     /**
-     * 
-     * @type {StagedProfileCommentInfosType}
+     * List of Notes for the customer.
+     * @type {Array<StagedProfileCommentInfoType>}
      * @memberof StagedProfileType
      */
-    comments?: StagedProfileCommentInfosType;
+    comments?: Array<StagedProfileCommentInfoType>;
     /**
      * Hotel code that the staged profile belongs to.
      * @type {string}
@@ -269,7 +269,7 @@ export function StagedProfileTypeFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : UniqueIDListTypeFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'customer': !exists(json, 'customer') ? undefined : StagedProfileCustomerTypeFromJSON(json['customer']),
         'company': !exists(json, 'company') ? undefined : StagedProfileCompanyTypeFromJSON(json['company']),
         'addresses': !exists(json, 'addresses') ? undefined : ((json['addresses'] as Array<any>).map(StagedProfileAddressTypeFromJSON)),
@@ -285,7 +285,7 @@ export function StagedProfileTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'userDefinedFields': !exists(json, 'userDefinedFields') ? undefined : StagedProfileUserDefinedFieldsTypeFromJSON(json['userDefinedFields']),
         'mailingActions': !exists(json, 'mailingActions') ? undefined : MailingActionsTypeFromJSON(json['mailingActions']),
         'privacyInfo': !exists(json, 'privacyInfo') ? undefined : PrivacyInfoTypeFromJSON(json['privacyInfo']),
-        'comments': !exists(json, 'comments') ? undefined : StagedProfileCommentInfosTypeFromJSON(json['comments']),
+        'comments': !exists(json, 'comments') ? undefined : ((json['comments'] as Array<any>).map(StagedProfileCommentInfoTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'importDate': !exists(json, 'importDate') ? undefined : (new Date(json['importDate'])),
         'profileType': !exists(json, 'profileType') ? undefined : json['profileType'],
@@ -302,7 +302,7 @@ export function StagedProfileTypeToJSON(value?: StagedProfileType | null): any {
     }
     return {
         
-        'profileIdList': UniqueIDListTypeToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'customer': StagedProfileCustomerTypeToJSON(value.customer),
         'company': StagedProfileCompanyTypeToJSON(value.company),
         'addresses': value.addresses === undefined ? undefined : ((value.addresses as Array<any>).map(StagedProfileAddressTypeToJSON)),
@@ -318,7 +318,7 @@ export function StagedProfileTypeToJSON(value?: StagedProfileType | null): any {
         'userDefinedFields': StagedProfileUserDefinedFieldsTypeToJSON(value.userDefinedFields),
         'mailingActions': MailingActionsTypeToJSON(value.mailingActions),
         'privacyInfo': PrivacyInfoTypeToJSON(value.privacyInfo),
-        'comments': StagedProfileCommentInfosTypeToJSON(value.comments),
+        'comments': value.comments === undefined ? undefined : ((value.comments as Array<any>).map(StagedProfileCommentInfoTypeToJSON)),
         'hotelId': value.hotelId,
         'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substring(0,10)),
         'profileType': value.profileType,

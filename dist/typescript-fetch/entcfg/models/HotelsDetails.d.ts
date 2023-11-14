@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelsSummaryType } from './HotelsSummaryType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelSummaryType } from './HotelSummaryType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching lists of Property summary information.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface HotelsDetails {
     /**
-     *
-     * @type {HotelsSummaryType}
+     * Lists of Hotel summary information.
+     * @type {Array<HotelSummaryType>}
      * @memberof HotelsDetails
      */
-    hotelSummaryInfoList?: HotelsSummaryType;
+    hotelSummaryInfoList?: Array<HotelSummaryType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HotelsDetails interface.

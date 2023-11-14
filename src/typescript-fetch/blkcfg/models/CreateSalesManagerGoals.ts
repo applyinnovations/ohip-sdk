@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { SalesManagerGoalsType } from './SalesManagerGoalsType';
+import type { SalesManagerGoalType } from './SalesManagerGoalType';
 import {
-    SalesManagerGoalsTypeFromJSON,
-    SalesManagerGoalsTypeFromJSONTyped,
-    SalesManagerGoalsTypeToJSON,
-} from './SalesManagerGoalsType';
-import type { WarningsType } from './WarningsType';
+    SalesManagerGoalTypeFromJSON,
+    SalesManagerGoalTypeFromJSONTyped,
+    SalesManagerGoalTypeToJSON,
+} from './SalesManagerGoalType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for Creating Sales Manager Goal(s).
@@ -33,17 +33,17 @@ import {
  */
 export interface CreateSalesManagerGoals {
     /**
-     * 
-     * @type {SalesManagerGoalsType}
+     * Detail Information about Sales Manager's goal.
+     * @type {Array<SalesManagerGoalType>}
      * @memberof CreateSalesManagerGoals
      */
-    salesManagerGoals?: SalesManagerGoalsType;
+    salesManagerGoals?: Array<SalesManagerGoalType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateSalesManagerGoals
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function CreateSalesManagerGoalsFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'salesManagerGoals': !exists(json, 'salesManagerGoals') ? undefined : SalesManagerGoalsTypeFromJSON(json['salesManagerGoals']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'salesManagerGoals': !exists(json, 'salesManagerGoals') ? undefined : ((json['salesManagerGoals'] as Array<any>).map(SalesManagerGoalTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function CreateSalesManagerGoalsToJSON(value?: CreateSalesManagerGoals | 
     }
     return {
         
-        'salesManagerGoals': SalesManagerGoalsTypeToJSON(value.salesManagerGoals),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'salesManagerGoals': value.salesManagerGoals === undefined ? undefined : ((value.salesManagerGoals as Array<any>).map(SalesManagerGoalTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

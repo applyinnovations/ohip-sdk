@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { RotationRulesResultType } from './RotationRulesResultType';
 import {
     RotationRulesResultTypeFromJSON,
     RotationRulesResultTypeFromJSONTyped,
     RotationRulesResultTypeToJSON,
 } from './RotationRulesResultType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for retrieving rotation setup rules for a given property
@@ -40,10 +40,10 @@ import {
 export interface FetchRotationRules {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchRotationRules
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {RotationRulesResultType}
@@ -51,11 +51,11 @@ export interface FetchRotationRules {
      */
     rotationRulesResult?: RotationRulesResultType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchRotationRules
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FetchRotationRulesFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'rotationRulesResult': !exists(json, 'rotationRulesResult') ? undefined : RotationRulesResultTypeFromJSON(json['rotationRulesResult']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FetchRotationRulesToJSON(value?: FetchRotationRules | null): any
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'rotationRulesResult': RotationRulesResultTypeToJSON(value.rotationRulesResult),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

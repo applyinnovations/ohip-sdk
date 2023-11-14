@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 import type { CompanyProfileType } from './CompanyProfileType';
-import type { ExternalReferencesType } from './ExternalReferencesType';
-import type { Links } from './Links';
-import type { ProfileIdList } from './ProfileIdList';
-import type { WarningsType } from './WarningsType';
+import type { ExternalReferenceType } from './ExternalReferenceType';
+import type { InstanceLink } from './InstanceLink';
+import type { UniqueIDType } from './UniqueIDType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creation of company/agent/group/source profile. This object contains profile details with unique identifiers of a profile. The standard optional Opera Context element is also included.
  * @export
@@ -27,29 +27,29 @@ export interface Company {
      */
     companyDetails?: CompanyProfileType;
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof Company
      */
-    companyIdList?: ProfileIdList;
+    companyIdList?: Array<UniqueIDType>;
+    /**
+     * This type contains unique information of external reference.
+     * @type {Array<ExternalReferenceType>}
+     * @memberof Company
+     */
+    externalReferences?: Array<ExternalReferenceType>;
     /**
      *
-     * @type {ExternalReferencesType}
+     * @type {Array<InstanceLink>}
      * @memberof Company
      */
-    externalReferences?: ExternalReferencesType;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {Links}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Company
      */
-    links?: Links;
-    /**
-     *
-     * @type {WarningsType}
-     * @memberof Company
-     */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Company interface.

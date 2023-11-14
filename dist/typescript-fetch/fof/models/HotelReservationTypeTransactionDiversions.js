@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelReservationTypeTransactionDiversionsToJSON = exports.HotelReservationTypeTransactionDiversionsFromJSONTyped = exports.HotelReservationTypeTransactionDiversionsFromJSON = exports.instanceOfHotelReservationTypeTransactionDiversions = void 0;
 const runtime_1 = require("../runtime");
-const ReservationTransactionDiversionsType_1 = require("./ReservationTransactionDiversionsType");
 /**
  * Check if a given object implements the HotelReservationTypeTransactionDiversions interface.
  */
@@ -34,7 +33,7 @@ function HotelReservationTypeTransactionDiversionsFromJSONTyped(json, ignoreDisc
     }
     return {
         'actionType': !(0, runtime_1.exists)(json, 'actionType') ? undefined : json['actionType'],
-        'transactionDiversions': !(0, runtime_1.exists)(json, 'transactionDiversions') ? undefined : (json['transactionDiversions'].map(ReservationTransactionDiversionsType_1.ReservationTransactionDiversionsTypeFromJSON)),
+        'transactionDiversions': !(0, runtime_1.exists)(json, 'transactionDiversions') ? undefined : json['transactionDiversions'],
     };
 }
 exports.HotelReservationTypeTransactionDiversionsFromJSONTyped = HotelReservationTypeTransactionDiversionsFromJSONTyped;
@@ -47,7 +46,7 @@ function HotelReservationTypeTransactionDiversionsToJSON(value) {
     }
     return {
         'actionType': value.actionType,
-        'transactionDiversions': value.transactionDiversions === undefined ? undefined : (value.transactionDiversions.map(ReservationTransactionDiversionsType_1.ReservationTransactionDiversionsTypeToJSON)),
+        'transactionDiversions': value.transactionDiversions,
     };
 }
 exports.HotelReservationTypeTransactionDiversionsToJSON = HotelReservationTypeTransactionDiversionsToJSON;

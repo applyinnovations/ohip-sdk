@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FiscalRegionsType } from './FiscalRegionsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { FiscalRegionType } from './FiscalRegionType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Fiscal Regions.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FiscalRegionsDetails {
     /**
-     *
-     * @type {FiscalRegionsType}
+     * List of Fiscal Regions.
+     * @type {Array<FiscalRegionType>}
      * @memberof FiscalRegionsDetails
      */
-    fiscalRegions?: FiscalRegionsType;
+    fiscalRegions?: Array<FiscalRegionType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FiscalRegionsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FiscalRegionsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FiscalRegionsDetails interface.

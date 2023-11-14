@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { KeyTrackType } from './KeyTrackType';
 import type { ReservationId } from './ReservationId';
 import type { RoomKeyGuest } from './RoomKeyGuest';
@@ -21,10 +20,10 @@ import type { RoomKeyGuest } from './RoomKeyGuest';
 export interface RoomKeyInfoType {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof RoomKeyInfoType
      */
-    additionalRooms?: CodeListType;
+    additionalRooms?: Array<string>;
     /**
      *
      * @type {RoomKeyGuest}
@@ -51,10 +50,10 @@ export interface RoomKeyInfoType {
     keyExpiryDate?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof RoomKeyInfoType
      */
-    keyOptions?: CodeListType;
+    keyOptions?: Array<string>;
     /**
      * Start date and time of the key.
      * @type {string}

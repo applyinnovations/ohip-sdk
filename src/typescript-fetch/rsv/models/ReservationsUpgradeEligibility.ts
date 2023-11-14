@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { UpgradeEligibilityListType } from './UpgradeEligibilityListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { UpgradeEligibilityType } from './UpgradeEligibilityType';
 import {
-    UpgradeEligibilityListTypeFromJSON,
-    UpgradeEligibilityListTypeFromJSONTyped,
-    UpgradeEligibilityListTypeToJSON,
-} from './UpgradeEligibilityListType';
-import type { WarningsType } from './WarningsType';
+    UpgradeEligibilityTypeFromJSON,
+    UpgradeEligibilityTypeFromJSONTyped,
+    UpgradeEligibilityTypeToJSON,
+} from './UpgradeEligibilityType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object containing a list of reservation name ids, hotel code and eligibility flag.
@@ -40,22 +40,22 @@ import {
 export interface ReservationsUpgradeEligibility {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationsUpgradeEligibility
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {UpgradeEligibilityListType}
+     * List of upgrade Eligibility Types.
+     * @type {Array<UpgradeEligibilityType>}
      * @memberof ReservationsUpgradeEligibility
      */
-    upgradeEligibilityListType?: UpgradeEligibilityListType;
+    upgradeEligibilityListType?: Array<UpgradeEligibilityType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationsUpgradeEligibility
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ReservationsUpgradeEligibilityFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'upgradeEligibilityListType': !exists(json, 'upgradeEligibilityListType') ? undefined : UpgradeEligibilityListTypeFromJSON(json['upgradeEligibilityListType']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'upgradeEligibilityListType': !exists(json, 'upgradeEligibilityListType') ? undefined : ((json['upgradeEligibilityListType'] as Array<any>).map(UpgradeEligibilityTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ReservationsUpgradeEligibilityToJSON(value?: ReservationsUpgrade
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'upgradeEligibilityListType': UpgradeEligibilityListTypeToJSON(value.upgradeEligibilityListType),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'upgradeEligibilityListType': value.upgradeEligibilityListType === undefined ? undefined : ((value.upgradeEligibilityListType as Array<any>).map(UpgradeEligibilityTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

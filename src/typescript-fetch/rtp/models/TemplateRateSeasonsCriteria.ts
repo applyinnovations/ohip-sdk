@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateRateSeasonsType } from './TemplateRateSeasonsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TemplateRateSeasonType } from './TemplateRateSeasonType';
 import {
-    TemplateRateSeasonsTypeFromJSON,
-    TemplateRateSeasonsTypeFromJSONTyped,
-    TemplateRateSeasonsTypeToJSON,
-} from './TemplateRateSeasonsType';
-import type { WarningsType } from './WarningsType';
+    TemplateRateSeasonTypeFromJSON,
+    TemplateRateSeasonTypeFromJSONTyped,
+    TemplateRateSeasonTypeToJSON,
+} from './TemplateRateSeasonType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating new template rate seasons.
@@ -40,22 +40,22 @@ import {
 export interface TemplateRateSeasonsCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateRateSeasonsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TemplateRateSeasonsType}
+     * Hotel rate season details.
+     * @type {Array<TemplateRateSeasonType>}
      * @memberof TemplateRateSeasonsCriteria
      */
-    templateRateSeasons?: TemplateRateSeasonsType;
+    templateRateSeasons?: Array<TemplateRateSeasonType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateRateSeasonsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateRateSeasonsCriteriaFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'templateRateSeasons': !exists(json, 'templateRateSeasons') ? undefined : TemplateRateSeasonsTypeFromJSON(json['templateRateSeasons']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'templateRateSeasons': !exists(json, 'templateRateSeasons') ? undefined : ((json['templateRateSeasons'] as Array<any>).map(TemplateRateSeasonTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateRateSeasonsCriteriaToJSON(value?: TemplateRateSeasonsCri
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'templateRateSeasons': TemplateRateSeasonsTypeToJSON(value.templateRateSeasons),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'templateRateSeasons': value.templateRateSeasons === undefined ? undefined : ((value.templateRateSeasons as Array<any>).map(TemplateRateSeasonTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

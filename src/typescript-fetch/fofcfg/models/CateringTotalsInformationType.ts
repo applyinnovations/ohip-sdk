@@ -19,12 +19,12 @@ import {
     CateringInfoTypeFromJSONTyped,
     CateringInfoTypeToJSON,
 } from './CateringInfoType';
-import type { CateringVarianceInfoType } from './CateringVarianceInfoType';
+import type { MonthlyCateringVarianceInfoType } from './MonthlyCateringVarianceInfoType';
 import {
-    CateringVarianceInfoTypeFromJSON,
-    CateringVarianceInfoTypeFromJSONTyped,
-    CateringVarianceInfoTypeToJSON,
-} from './CateringVarianceInfoType';
+    MonthlyCateringVarianceInfoTypeFromJSON,
+    MonthlyCateringVarianceInfoTypeFromJSONTyped,
+    MonthlyCateringVarianceInfoTypeToJSON,
+} from './MonthlyCateringVarianceInfoType';
 
 /**
  * Budget Forecast totals information for Catering segment.
@@ -33,17 +33,17 @@ import {
  */
 export interface CateringTotalsInformationType {
     /**
-     * 
-     * @type {CateringVarianceInfoType}
+     * Monthly Variance information.
+     * @type {Array<MonthlyCateringVarianceInfoType>}
      * @memberof CateringTotalsInformationType
      */
-    aBVarianceTotalInfo?: CateringVarianceInfoType;
+    aBVarianceTotalInfo?: Array<MonthlyCateringVarianceInfoType>;
     /**
-     * 
-     * @type {CateringVarianceInfoType}
+     * Monthly Variance information.
+     * @type {Array<MonthlyCateringVarianceInfoType>}
      * @memberof CateringTotalsInformationType
      */
-    aFVarianceTotalInfo?: CateringVarianceInfoType;
+    aFVarianceTotalInfo?: Array<MonthlyCateringVarianceInfoType>;
     /**
      * 
      * @type {CateringInfoType}
@@ -57,11 +57,11 @@ export interface CateringTotalsInformationType {
      */
     budgetTotalInfo?: CateringInfoType;
     /**
-     * 
-     * @type {CateringVarianceInfoType}
+     * Monthly Variance information.
+     * @type {Array<MonthlyCateringVarianceInfoType>}
      * @memberof CateringTotalsInformationType
      */
-    fBVarianceTotalInfo?: CateringVarianceInfoType;
+    fBVarianceTotalInfo?: Array<MonthlyCateringVarianceInfoType>;
     /**
      * 
      * @type {CateringInfoType}
@@ -89,11 +89,11 @@ export function CateringTotalsInformationTypeFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'aBVarianceTotalInfo': !exists(json, 'aBVarianceTotalInfo') ? undefined : CateringVarianceInfoTypeFromJSON(json['aBVarianceTotalInfo']),
-        'aFVarianceTotalInfo': !exists(json, 'aFVarianceTotalInfo') ? undefined : CateringVarianceInfoTypeFromJSON(json['aFVarianceTotalInfo']),
+        'aBVarianceTotalInfo': !exists(json, 'aBVarianceTotalInfo') ? undefined : ((json['aBVarianceTotalInfo'] as Array<any>).map(MonthlyCateringVarianceInfoTypeFromJSON)),
+        'aFVarianceTotalInfo': !exists(json, 'aFVarianceTotalInfo') ? undefined : ((json['aFVarianceTotalInfo'] as Array<any>).map(MonthlyCateringVarianceInfoTypeFromJSON)),
         'actualTotalInfo': !exists(json, 'actualTotalInfo') ? undefined : CateringInfoTypeFromJSON(json['actualTotalInfo']),
         'budgetTotalInfo': !exists(json, 'budgetTotalInfo') ? undefined : CateringInfoTypeFromJSON(json['budgetTotalInfo']),
-        'fBVarianceTotalInfo': !exists(json, 'fBVarianceTotalInfo') ? undefined : CateringVarianceInfoTypeFromJSON(json['fBVarianceTotalInfo']),
+        'fBVarianceTotalInfo': !exists(json, 'fBVarianceTotalInfo') ? undefined : ((json['fBVarianceTotalInfo'] as Array<any>).map(MonthlyCateringVarianceInfoTypeFromJSON)),
         'forecastTotalInfo': !exists(json, 'forecastTotalInfo') ? undefined : CateringInfoTypeFromJSON(json['forecastTotalInfo']),
     };
 }
@@ -107,11 +107,11 @@ export function CateringTotalsInformationTypeToJSON(value?: CateringTotalsInform
     }
     return {
         
-        'aBVarianceTotalInfo': CateringVarianceInfoTypeToJSON(value.aBVarianceTotalInfo),
-        'aFVarianceTotalInfo': CateringVarianceInfoTypeToJSON(value.aFVarianceTotalInfo),
+        'aBVarianceTotalInfo': value.aBVarianceTotalInfo === undefined ? undefined : ((value.aBVarianceTotalInfo as Array<any>).map(MonthlyCateringVarianceInfoTypeToJSON)),
+        'aFVarianceTotalInfo': value.aFVarianceTotalInfo === undefined ? undefined : ((value.aFVarianceTotalInfo as Array<any>).map(MonthlyCateringVarianceInfoTypeToJSON)),
         'actualTotalInfo': CateringInfoTypeToJSON(value.actualTotalInfo),
         'budgetTotalInfo': CateringInfoTypeToJSON(value.budgetTotalInfo),
-        'fBVarianceTotalInfo': CateringVarianceInfoTypeToJSON(value.fBVarianceTotalInfo),
+        'fBVarianceTotalInfo': value.fBVarianceTotalInfo === undefined ? undefined : ((value.fBVarianceTotalInfo as Array<any>).map(MonthlyCateringVarianceInfoTypeToJSON)),
         'forecastTotalInfo': CateringInfoTypeToJSON(value.forecastTotalInfo),
     };
 }

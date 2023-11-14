@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChargesCriteriaType } from './ChargesCriteriaType';
+import type { ChargeCriteriaType } from './ChargeCriteriaType';
 import {
-    ChargesCriteriaTypeFromJSON,
-    ChargesCriteriaTypeFromJSONTyped,
-    ChargesCriteriaTypeToJSON,
-} from './ChargesCriteriaType';
+    ChargeCriteriaTypeFromJSON,
+    ChargeCriteriaTypeFromJSONTyped,
+    ChargeCriteriaTypeToJSON,
+} from './ChargeCriteriaType';
 import type { FiscalServiceType } from './FiscalServiceType';
 import {
     FiscalServiceTypeFromJSON,
@@ -75,11 +75,11 @@ export interface DepositFolioCriteriaType {
      */
     cashierId?: number;
     /**
-     * 
-     * @type {ChargesCriteriaType}
+     * Collection of Charges to be posted.
+     * @type {Array<ChargeCriteriaType>}
      * @memberof DepositFolioCriteriaType
      */
-    charges?: ChargesCriteriaType;
+    charges?: Array<ChargeCriteriaType>;
     /**
      * 
      * @type {UniqueIDType}
@@ -192,7 +192,7 @@ export function DepositFolioCriteriaTypeFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
-        'charges': !exists(json, 'charges') ? undefined : ChargesCriteriaTypeFromJSON(json['charges']),
+        'charges': !exists(json, 'charges') ? undefined : ((json['charges'] as Array<any>).map(ChargeCriteriaTypeFromJSON)),
         'depositPolicyId': !exists(json, 'depositPolicyId') ? undefined : UniqueIDTypeFromJSON(json['depositPolicyId']),
         'fiscalFolioInfo': !exists(json, 'fiscalFolioInfo') ? undefined : FiscalServiceTypeFromJSON(json['fiscalFolioInfo']),
         'fiscalTerminalId': !exists(json, 'fiscalTerminalId') ? undefined : json['fiscalTerminalId'],
@@ -221,7 +221,7 @@ export function DepositFolioCriteriaTypeToJSON(value?: DepositFolioCriteriaType 
     return {
         
         'cashierId': value.cashierId,
-        'charges': ChargesCriteriaTypeToJSON(value.charges),
+        'charges': value.charges === undefined ? undefined : ((value.charges as Array<any>).map(ChargeCriteriaTypeToJSON)),
         'depositPolicyId': UniqueIDTypeToJSON(value.depositPolicyId),
         'fiscalFolioInfo': FiscalServiceTypeToJSON(value.fiscalFolioInfo),
         'fiscalTerminalId': value.fiscalTerminalId,

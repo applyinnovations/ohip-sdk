@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CancelPrepaidCardTransactionCriteria } from './CancelPrepaidCardTransactionCriteria';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request type for cancel prepaid card transaction.
  * @export
@@ -24,11 +24,11 @@ export interface CancelPrepaidCardTransaction {
      */
     criteria?: CancelPrepaidCardTransactionCriteria;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CancelPrepaidCardTransaction
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CancelPrepaidCardTransaction interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EventTypesType } from './EventTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { EventTypeConfigType } from './EventTypeConfigType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object to create new Function Space Event Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FunctionSpaceEventTypesCriteria {
     /**
-     *
-     * @type {EventTypesType}
+     * Collection of Event Type
+     * @type {Array<EventTypeConfigType>}
      * @memberof FunctionSpaceEventTypesCriteria
      */
-    eventTypes?: EventTypesType;
+    eventTypes?: Array<EventTypeConfigType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FunctionSpaceEventTypesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FunctionSpaceEventTypesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FunctionSpaceEventTypesCriteria interface.

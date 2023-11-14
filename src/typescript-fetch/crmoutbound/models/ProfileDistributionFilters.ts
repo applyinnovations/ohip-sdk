@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ProfileDistributionFiltersType } from './ProfileDistributionFiltersType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ProfileDistributionFilterType } from './ProfileDistributionFilterType';
 import {
-    ProfileDistributionFiltersTypeFromJSON,
-    ProfileDistributionFiltersTypeFromJSONTyped,
-    ProfileDistributionFiltersTypeToJSON,
-} from './ProfileDistributionFiltersType';
+    ProfileDistributionFilterTypeFromJSON,
+    ProfileDistributionFilterTypeFromJSONTyped,
+    ProfileDistributionFilterTypeToJSON,
+} from './ProfileDistributionFilterType';
 
 /**
  * Response object for fetching Profile Distribution Filters.
@@ -33,17 +33,17 @@ import {
  */
 export interface ProfileDistributionFilters {
     /**
-     * 
-     * @type {ProfileDistributionFiltersType}
+     * Profile Distribution Filter details.
+     * @type {Array<ProfileDistributionFilterType>}
      * @memberof ProfileDistributionFilters
      */
-    profileDistributionFiltersDetail?: ProfileDistributionFiltersType;
+    profileDistributionFiltersDetail?: Array<ProfileDistributionFilterType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileDistributionFilters
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function ProfileDistributionFiltersFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'profileDistributionFiltersDetail': !exists(json, 'profileDistributionFiltersDetail') ? undefined : ProfileDistributionFiltersTypeFromJSON(json['profileDistributionFiltersDetail']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'profileDistributionFiltersDetail': !exists(json, 'profileDistributionFiltersDetail') ? undefined : ((json['profileDistributionFiltersDetail'] as Array<any>).map(ProfileDistributionFilterTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function ProfileDistributionFiltersToJSON(value?: ProfileDistributionFilt
     }
     return {
         
-        'profileDistributionFiltersDetail': ProfileDistributionFiltersTypeToJSON(value.profileDistributionFiltersDetail),
-        'links': LinksToJSON(value.links),
+        'profileDistributionFiltersDetail': value.profileDistributionFiltersDetail === undefined ? undefined : ((value.profileDistributionFiltersDetail as Array<any>).map(ProfileDistributionFilterTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

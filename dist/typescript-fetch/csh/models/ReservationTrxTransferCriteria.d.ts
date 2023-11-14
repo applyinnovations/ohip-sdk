@@ -9,8 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ReservationIdList } from './ReservationIdList';
-import type { UniqueIDListType } from './UniqueIDListType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Criteria for transaction transfer. The choice element should have the target Reservation Id.
@@ -43,11 +41,11 @@ export interface ReservationTrxTransferCriteria {
      */
     membershipIdNo?: number;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ReservationTrxTransferCriteria
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * Folio Window Number to where transactions will be transfered.
      * @type {number}
@@ -55,11 +53,11 @@ export interface ReservationTrxTransferCriteria {
      */
     targetFolioWindowNo?: number;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ReservationTrxTransferCriteria
      */
-    targetReservationIdList?: UniqueIDListType;
+    targetReservationIdList?: Array<UniqueIDType>;
     /**
      * List of transactions to be transfered.
      * @type {Array<number>}

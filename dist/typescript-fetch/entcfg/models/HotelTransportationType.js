@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelTransportationTypeToJSON = exports.HotelTransportationTypeFromJSONTyped = exports.HotelTransportationTypeFromJSON = exports.instanceOfHotelTransportationType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const RelativePositionType_1 = require("./RelativePositionType");
 const TelephoneType_1 = require("./TelephoneType");
 const URLType_1 = require("./URLType");
@@ -38,7 +37,7 @@ function HotelTransportationTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'comments': !(0, runtime_1.exists)(json, 'comments') ? undefined : json['comments'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
-        'keyOptions': !(0, runtime_1.exists)(json, 'keyOptions') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['keyOptions']),
+        'keyOptions': !(0, runtime_1.exists)(json, 'keyOptions') ? undefined : json['keyOptions'],
         'label': !(0, runtime_1.exists)(json, 'label') ? undefined : json['label'],
         'orderBy': !(0, runtime_1.exists)(json, 'orderBy') ? undefined : json['orderBy'],
         'phoneNumber': !(0, runtime_1.exists)(json, 'phoneNumber') ? undefined : (0, TelephoneType_1.TelephoneTypeFromJSON)(json['phoneNumber']),
@@ -59,7 +58,7 @@ function HotelTransportationTypeToJSON(value) {
     return {
         'comments': value.comments,
         'description': value.description,
-        'keyOptions': (0, CodeListType_1.CodeListTypeToJSON)(value.keyOptions),
+        'keyOptions': value.keyOptions,
         'label': value.label,
         'orderBy': value.orderBy,
         'phoneNumber': (0, TelephoneType_1.TelephoneTypeToJSON)(value.phoneNumber),

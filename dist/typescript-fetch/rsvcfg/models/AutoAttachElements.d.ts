@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AutoAttachElementsConfigType } from './AutoAttachElementsConfigType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AutoAttachRuleType } from './AutoAttachRuleType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Add configuration rule(s) that specify the elements to be automatically attached to the reservation.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AutoAttachElements {
     /**
-     *
-     * @type {AutoAttachElementsConfigType}
+     * Auto attachment rule details.
+     * @type {Array<AutoAttachRuleType>}
      * @memberof AutoAttachElements
      */
-    autoAttachRules?: AutoAttachElementsConfigType;
+    autoAttachRules?: Array<AutoAttachRuleType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AutoAttachElements
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoAttachElements
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AutoAttachElements interface.

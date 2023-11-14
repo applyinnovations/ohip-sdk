@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RevenueTypeMappingListToJSON = exports.RevenueTypeMappingListFromJSONTyped = exports.RevenueTypeMappingListFromJSON = exports.instanceOfRevenueTypeMappingList = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RevenueTypeMappingListType_1 = require("./RevenueTypeMappingListType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RevenueTypeMappingType_1 = require("./RevenueTypeMappingType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RevenueTypeMappingList interface.
  */
@@ -35,9 +35,9 @@ function RevenueTypeMappingListFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'revenueTypeMappingList': !(0, runtime_1.exists)(json, 'revenueTypeMappingList') ? undefined : (0, RevenueTypeMappingListType_1.RevenueTypeMappingListTypeFromJSON)(json['revenueTypeMappingList']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'revenueTypeMappingList': !(0, runtime_1.exists)(json, 'revenueTypeMappingList') ? undefined : (json['revenueTypeMappingList'].map(RevenueTypeMappingType_1.RevenueTypeMappingTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RevenueTypeMappingListFromJSONTyped = RevenueTypeMappingListFromJSONTyped;
@@ -49,9 +49,9 @@ function RevenueTypeMappingListToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'revenueTypeMappingList': (0, RevenueTypeMappingListType_1.RevenueTypeMappingListTypeToJSON)(value.revenueTypeMappingList),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'revenueTypeMappingList': value.revenueTypeMappingList === undefined ? undefined : (value.revenueTypeMappingList.map(RevenueTypeMappingType_1.RevenueTypeMappingTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RevenueTypeMappingListToJSON = RevenueTypeMappingListToJSON;

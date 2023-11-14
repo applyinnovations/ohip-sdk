@@ -15,12 +15,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EventItemTypeToJSON = exports.EventItemTypeFromJSONTyped = exports.EventItemTypeFromJSON = exports.instanceOfEventItemType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const EventItemTypeSellInfo_1 = require("./EventItemTypeSellInfo");
-const EventResourceNotesType_1 = require("./EventResourceNotesType");
-const ItemAttributesType_1 = require("./ItemAttributesType");
-const ItemRatesType_1 = require("./ItemRatesType");
-const ItemVendorsType_1 = require("./ItemVendorsType");
+const EventResourceNoteType_1 = require("./EventResourceNoteType");
+const ItemAttributeType_1 = require("./ItemAttributeType");
+const ItemRateType_1 = require("./ItemRateType");
+const ItemVendorType_1 = require("./ItemVendorType");
 const TranslationTextType200_1 = require("./TranslationTextType200");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -46,13 +45,13 @@ function EventItemTypeFromJSONTyped(json, ignoreDiscriminator) {
         'actualInternalQuantity': !(0, runtime_1.exists)(json, 'actualInternalQuantity') ? undefined : json['actualInternalQuantity'],
         'actualQuantity': !(0, runtime_1.exists)(json, 'actualQuantity') ? undefined : json['actualQuantity'],
         'attributeId': !(0, runtime_1.exists)(json, 'attributeId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['attributeId']),
-        'attributes': !(0, runtime_1.exists)(json, 'attributes') ? undefined : (0, ItemAttributesType_1.ItemAttributesTypeFromJSON)(json['attributes']),
-        'departments': !(0, runtime_1.exists)(json, 'departments') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['departments']),
+        'attributes': !(0, runtime_1.exists)(json, 'attributes') ? undefined : (json['attributes'].map(ItemAttributeType_1.ItemAttributeTypeFromJSON)),
+        'departments': !(0, runtime_1.exists)(json, 'departments') ? undefined : json['departments'],
         'discount': !(0, runtime_1.exists)(json, 'discount') ? undefined : json['discount'],
         'displaySequence': !(0, runtime_1.exists)(json, 'displaySequence') ? undefined : json['displaySequence'],
         'eventEndDate': !(0, runtime_1.exists)(json, 'eventEndDate') ? undefined : json['eventEndDate'],
         'eventStartDate': !(0, runtime_1.exists)(json, 'eventStartDate') ? undefined : json['eventStartDate'],
-        'eventTypes': !(0, runtime_1.exists)(json, 'eventTypes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['eventTypes']),
+        'eventTypes': !(0, runtime_1.exists)(json, 'eventTypes') ? undefined : json['eventTypes'],
         'externalCostPerUnit': !(0, runtime_1.exists)(json, 'externalCostPerUnit') ? undefined : json['externalCostPerUnit'],
         'externalOrder': !(0, runtime_1.exists)(json, 'externalOrder') ? undefined : json['externalOrder'],
         'externalQuantity': !(0, runtime_1.exists)(json, 'externalQuantity') ? undefined : json['externalQuantity'],
@@ -78,8 +77,8 @@ function EventItemTypeFromJSONTyped(json, ignoreDiscriminator) {
         'priceCode': !(0, runtime_1.exists)(json, 'priceCode') ? undefined : json['priceCode'],
         'print': !(0, runtime_1.exists)(json, 'print') ? undefined : json['print'],
         'quantity': !(0, runtime_1.exists)(json, 'quantity') ? undefined : json['quantity'],
-        'rates': !(0, runtime_1.exists)(json, 'rates') ? undefined : (0, ItemRatesType_1.ItemRatesTypeFromJSON)(json['rates']),
-        'resourceNotes': !(0, runtime_1.exists)(json, 'resourceNotes') ? undefined : (0, EventResourceNotesType_1.EventResourceNotesTypeFromJSON)(json['resourceNotes']),
+        'rates': !(0, runtime_1.exists)(json, 'rates') ? undefined : (json['rates'].map(ItemRateType_1.ItemRateTypeFromJSON)),
+        'resourceNotes': !(0, runtime_1.exists)(json, 'resourceNotes') ? undefined : (json['resourceNotes'].map(EventResourceNoteType_1.EventResourceNoteTypeFromJSON)),
         'revenueType': !(0, runtime_1.exists)(json, 'revenueType') ? undefined : json['revenueType'],
         'revenueTypeEditable': !(0, runtime_1.exists)(json, 'revenueTypeEditable') ? undefined : json['revenueTypeEditable'],
         'sellInfo': !(0, runtime_1.exists)(json, 'sellInfo') ? undefined : (0, EventItemTypeSellInfo_1.EventItemTypeSellInfoFromJSON)(json['sellInfo']),
@@ -89,7 +88,7 @@ function EventItemTypeFromJSONTyped(json, ignoreDiscriminator) {
         'usedForEvents': !(0, runtime_1.exists)(json, 'usedForEvents') ? undefined : json['usedForEvents'],
         'usedForReservation': !(0, runtime_1.exists)(json, 'usedForReservation') ? undefined : json['usedForReservation'],
         'vendorPrice': !(0, runtime_1.exists)(json, 'vendorPrice') ? undefined : json['vendorPrice'],
-        'vendors': !(0, runtime_1.exists)(json, 'vendors') ? undefined : (0, ItemVendorsType_1.ItemVendorsTypeFromJSON)(json['vendors']),
+        'vendors': !(0, runtime_1.exists)(json, 'vendors') ? undefined : (json['vendors'].map(ItemVendorType_1.ItemVendorTypeFromJSON)),
     };
 }
 exports.EventItemTypeFromJSONTyped = EventItemTypeFromJSONTyped;
@@ -107,13 +106,13 @@ function EventItemTypeToJSON(value) {
         'actualInternalQuantity': value.actualInternalQuantity,
         'actualQuantity': value.actualQuantity,
         'attributeId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.attributeId),
-        'attributes': (0, ItemAttributesType_1.ItemAttributesTypeToJSON)(value.attributes),
-        'departments': (0, CodeListType_1.CodeListTypeToJSON)(value.departments),
+        'attributes': value.attributes === undefined ? undefined : (value.attributes.map(ItemAttributeType_1.ItemAttributeTypeToJSON)),
+        'departments': value.departments,
         'discount': value.discount,
         'displaySequence': value.displaySequence,
         'eventEndDate': value.eventEndDate,
         'eventStartDate': value.eventStartDate,
-        'eventTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.eventTypes),
+        'eventTypes': value.eventTypes,
         'externalCostPerUnit': value.externalCostPerUnit,
         'externalOrder': value.externalOrder,
         'externalQuantity': value.externalQuantity,
@@ -139,8 +138,8 @@ function EventItemTypeToJSON(value) {
         'priceCode': value.priceCode,
         'print': value.print,
         'quantity': value.quantity,
-        'rates': (0, ItemRatesType_1.ItemRatesTypeToJSON)(value.rates),
-        'resourceNotes': (0, EventResourceNotesType_1.EventResourceNotesTypeToJSON)(value.resourceNotes),
+        'rates': value.rates === undefined ? undefined : (value.rates.map(ItemRateType_1.ItemRateTypeToJSON)),
+        'resourceNotes': value.resourceNotes === undefined ? undefined : (value.resourceNotes.map(EventResourceNoteType_1.EventResourceNoteTypeToJSON)),
         'revenueType': value.revenueType,
         'revenueTypeEditable': value.revenueTypeEditable,
         'sellInfo': (0, EventItemTypeSellInfo_1.EventItemTypeSellInfoToJSON)(value.sellInfo),
@@ -150,7 +149,7 @@ function EventItemTypeToJSON(value) {
         'usedForEvents': value.usedForEvents,
         'usedForReservation': value.usedForReservation,
         'vendorPrice': value.vendorPrice,
-        'vendors': (0, ItemVendorsType_1.ItemVendorsTypeToJSON)(value.vendors),
+        'vendors': value.vendors === undefined ? undefined : (value.vendors.map(ItemVendorType_1.ItemVendorTypeToJSON)),
     };
 }
 exports.EventItemTypeToJSON = EventItemTypeToJSON;

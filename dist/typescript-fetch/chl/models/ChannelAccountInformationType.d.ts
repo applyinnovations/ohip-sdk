@@ -11,11 +11,11 @@
  */
 import type { ChannelAccountCommunicationType } from './ChannelAccountCommunicationType';
 import type { ChannelAccountContactType } from './ChannelAccountContactType';
-import type { ChannelAccountContractsInformationType } from './ChannelAccountContractsInformationType';
+import type { ChannelAccountContractInformationType } from './ChannelAccountContractInformationType';
 import type { ChannelAccountDetailsType } from './ChannelAccountDetailsType';
 import type { ChannelAccountNotesType } from './ChannelAccountNotesType';
 import type { ChannelAccountSetupDetailsType } from './ChannelAccountSetupDetailsType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 /**
  * To hold channel account detailed information.
  * @export
@@ -35,11 +35,11 @@ export interface ChannelAccountInformationType {
      */
     accountSetupDetails?: ChannelAccountSetupDetailsType;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof ChannelAccountInformationType
      */
-    channelAccountIndicators?: IndicatorsType;
+    channelAccountIndicators?: Array<IndicatorType>;
     /**
      *
      * @type {ChannelAccountNotesType}
@@ -59,11 +59,11 @@ export interface ChannelAccountInformationType {
      */
     contactInformation?: ChannelAccountContactType;
     /**
-     *
-     * @type {ChannelAccountContractsInformationType}
+     * Channel account contract information object to hold details of channel account contract.
+     * @type {Array<ChannelAccountContractInformationType>}
      * @memberof ChannelAccountInformationType
      */
-    contractInformation?: ChannelAccountContractsInformationType;
+    contractInformation?: Array<ChannelAccountContractInformationType>;
 }
 /**
  * Check if a given object implements the ChannelAccountInformationType interface.

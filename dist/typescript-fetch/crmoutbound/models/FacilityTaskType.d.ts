@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FacilityCodesType } from './FacilityCodesType';
+import type { FacilityCodeType } from './FacilityCodeType';
 import type { HousekeepingTaskCodeType } from './HousekeepingTaskCodeType';
 /**
  * Information regarding facility task on a reservation.
@@ -24,11 +24,11 @@ export interface FacilityTaskType {
      */
     task?: HousekeepingTaskCodeType;
     /**
-     *
-     * @type {FacilityCodesType}
+     * List of the facility codes.
+     * @type {Array<FacilityCodeType>}
      * @memberof FacilityTaskType
      */
-    supplies?: FacilityCodesType;
+    supplies?: Array<FacilityCodeType>;
     /**
      * The Date on which the task is applicable.
      * @type {Date}

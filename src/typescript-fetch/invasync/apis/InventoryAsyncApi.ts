@@ -19,7 +19,7 @@ import type {
   RevenueInventoryStatisticsDetails,
   RevenueInventoryStatisticsSearchType,
   SellLimitByDateStatus,
-  SellLimitsByDate,
+  SellLimitByDateType,
 } from '../models/index';
 import {
     ExceptionDetailTypeFromJSON,
@@ -30,8 +30,8 @@ import {
     RevenueInventoryStatisticsSearchTypeToJSON,
     SellLimitByDateStatusFromJSON,
     SellLimitByDateStatusToJSON,
-    SellLimitsByDateFromJSON,
-    SellLimitsByDateToJSON,
+    SellLimitByDateTypeFromJSON,
+    SellLimitByDateTypeToJSON,
 } from '../models/index';
 
 export interface GetRevenueInventoryStatisticsRequest {
@@ -80,7 +80,7 @@ export interface PostSellLimitsProcessRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    sellLimitsByDate: SellLimitsByDate;
+    sellLimitsByDate: Array<SellLimitByDateType>;
     acceptLanguage?: string;
 }
 
@@ -365,7 +365,7 @@ export class InventoryAsyncApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: SellLimitsByDateToJSON(requestParameters.sellLimitsByDate),
+            body: requestParameters.sellLimitsByDate.map(SellLimitByDateTypeToJSON),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ErrorInstance } from './ErrorInstance';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 /**
  * Complex type that contains error details for a REST call.
  * @export
@@ -67,10 +67,10 @@ export interface ExceptionDetailType {
     oerrorDetails?: Array<ErrorInstance>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExceptionDetailType
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the ExceptionDetailType interface.

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { KeyCardType } from './KeyCardType';
 import {
     KeyCardTypeFromJSON,
@@ -31,12 +31,6 @@ import {
     KeyTrackTypeFromJSONTyped,
     KeyTrackTypeToJSON,
 } from './KeyTrackType';
-import type { Links } from './Links';
-import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
 import type { RoomKeyGuest } from './RoomKeyGuest';
 import {
     RoomKeyGuestFromJSON,
@@ -49,24 +43,18 @@ import {
     RoomKeyTypeFromJSONTyped,
     RoomKeyTypeToJSON,
 } from './RoomKeyType';
-import type { UniqueIDListType } from './UniqueIDListType';
-import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
     UniqueIDTypeFromJSONTyped,
     UniqueIDTypeToJSON,
 } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request for generation of room key.
@@ -76,10 +64,10 @@ import {
 export interface RoomKey {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof RoomKey
      */
-    additionalRooms?: CodeListType;
+    additionalRooms?: Array<string>;
     /**
      * 
      * @type {UniqueIDType}
@@ -136,10 +124,10 @@ export interface RoomKey {
     keyValidityStart?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomKey
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {number}
@@ -147,11 +135,11 @@ export interface RoomKey {
      */
     noOfKeys?: number;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RoomKey
      */
-    reservationIdList?: UniqueIDListType;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {string}
@@ -171,11 +159,11 @@ export interface RoomKey {
      */
     roomNumber?: string;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomKey
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -197,7 +185,7 @@ export function RoomKeyFromJSONTyped(json: any, ignoreDiscriminator: boolean): R
     }
     return {
         
-        'additionalRooms': !exists(json, 'additionalRooms') ? undefined : CodeListTypeFromJSON(json['additionalRooms']),
+        'additionalRooms': !exists(json, 'additionalRooms') ? undefined : json['additionalRooms'],
         'encoderId': !exists(json, 'encoderId') ? undefined : UniqueIDTypeFromJSON(json['encoderId']),
         'encoderTerminal': !exists(json, 'encoderTerminal') ? undefined : json['encoderTerminal'],
         'keyCardType': !exists(json, 'keyCardType') ? undefined : KeyCardTypeFromJSON(json['keyCardType']),
@@ -207,13 +195,13 @@ export function RoomKeyFromJSONTyped(json: any, ignoreDiscriminator: boolean): R
         'keyType': !exists(json, 'keyType') ? undefined : RoomKeyTypeFromJSON(json['keyType']),
         'keyValidityEnd': !exists(json, 'keyValidityEnd') ? undefined : json['keyValidityEnd'],
         'keyValidityStart': !exists(json, 'keyValidityStart') ? undefined : json['keyValidityStart'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'noOfKeys': !exists(json, 'noOfKeys') ? undefined : json['noOfKeys'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : UniqueIDListTypeFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'resort': !exists(json, 'resort') ? undefined : json['resort'],
         'roomKeyGuests': !exists(json, 'roomKeyGuests') ? undefined : ((json['roomKeyGuests'] as Array<any>).map(RoomKeyGuestFromJSON)),
         'roomNumber': !exists(json, 'roomNumber') ? undefined : json['roomNumber'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -226,7 +214,7 @@ export function RoomKeyToJSON(value?: RoomKey | null): any {
     }
     return {
         
-        'additionalRooms': CodeListTypeToJSON(value.additionalRooms),
+        'additionalRooms': value.additionalRooms,
         'encoderId': UniqueIDTypeToJSON(value.encoderId),
         'encoderTerminal': value.encoderTerminal,
         'keyCardType': KeyCardTypeToJSON(value.keyCardType),
@@ -236,13 +224,13 @@ export function RoomKeyToJSON(value?: RoomKey | null): any {
         'keyType': RoomKeyTypeToJSON(value.keyType),
         'keyValidityEnd': value.keyValidityEnd,
         'keyValidityStart': value.keyValidityStart,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'noOfKeys': value.noOfKeys,
-        'reservationIdList': UniqueIDListTypeToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'resort': value.resort,
         'roomKeyGuests': value.roomKeyGuests === undefined ? undefined : ((value.roomKeyGuests as Array<any>).map(RoomKeyGuestToJSON)),
         'roomNumber': value.roomNumber,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

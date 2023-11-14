@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CommissionBaseDetailType } from './CommissionBaseDetailType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request type for update of commission detail.
  * @export
@@ -26,16 +26,16 @@ export interface CommissionToBeChanged {
     commissionDetail?: CommissionBaseDetailType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CommissionToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CommissionToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CommissionToBeChanged interface.

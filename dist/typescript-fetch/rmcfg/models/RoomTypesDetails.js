@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomTypesDetailsToJSON = exports.RoomTypesDetailsFromJSONTyped = exports.RoomTypesDetailsFromJSON = exports.instanceOfRoomTypesDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const RoomTypesSummaryType_1 = require("./RoomTypesSummaryType");
 const RoomTypesType_1 = require("./RoomTypesType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomTypesDetails interface.
  */
@@ -39,13 +39,13 @@ function RoomTypesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         'count': !(0, runtime_1.exists)(json, 'count') ? undefined : json['count'],
         'hasMore': !(0, runtime_1.exists)(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'offset': !(0, runtime_1.exists)(json, 'offset') ? undefined : json['offset'],
         'roomTypes': !(0, runtime_1.exists)(json, 'roomTypes') ? undefined : (json['roomTypes'].map(RoomTypesType_1.RoomTypesTypeFromJSON)),
         'roomTypesSummary': !(0, runtime_1.exists)(json, 'roomTypesSummary') ? undefined : (json['roomTypesSummary'].map(RoomTypesSummaryType_1.RoomTypesSummaryTypeFromJSON)),
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !(0, runtime_1.exists)(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomTypesDetailsFromJSONTyped = RoomTypesDetailsFromJSONTyped;
@@ -60,13 +60,13 @@ function RoomTypesDetailsToJSON(value) {
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'offset': value.offset,
         'roomTypes': value.roomTypes === undefined ? undefined : (value.roomTypes.map(RoomTypesType_1.RoomTypesTypeToJSON)),
         'roomTypesSummary': value.roomTypesSummary === undefined ? undefined : (value.roomTypesSummary.map(RoomTypesSummaryType_1.RoomTypesSummaryTypeToJSON)),
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomTypesDetailsToJSON = RoomTypesDetailsToJSON;

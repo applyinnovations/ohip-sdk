@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CCBatchSettlementsType } from './CCBatchSettlementsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CCBatchSettlementType } from './CCBatchSettlementType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for credit card settlements.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CcBatchSettlements {
     /**
-     *
-     * @type {CCBatchSettlementsType}
+     * List of Settlement transaction details for credit card transaction.
+     * @type {Array<CCBatchSettlementType>}
      * @memberof CcBatchSettlements
      */
-    batchSettlements?: CCBatchSettlementsType;
+    batchSettlements?: Array<CCBatchSettlementType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CcBatchSettlements
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CcBatchSettlements
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CcBatchSettlements interface.

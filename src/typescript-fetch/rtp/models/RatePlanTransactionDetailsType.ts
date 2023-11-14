@@ -19,24 +19,24 @@ import {
     ExchangePostingTypeFromJSONTyped,
     ExchangePostingTypeToJSON,
 } from './ExchangePostingType';
-import type { RatePlanAdvancedPostingRhythmsType } from './RatePlanAdvancedPostingRhythmsType';
+import type { RatePlanAdvancedPostingRhythmType } from './RatePlanAdvancedPostingRhythmType';
 import {
-    RatePlanAdvancedPostingRhythmsTypeFromJSON,
-    RatePlanAdvancedPostingRhythmsTypeFromJSONTyped,
-    RatePlanAdvancedPostingRhythmsTypeToJSON,
-} from './RatePlanAdvancedPostingRhythmsType';
+    RatePlanAdvancedPostingRhythmTypeFromJSON,
+    RatePlanAdvancedPostingRhythmTypeFromJSONTyped,
+    RatePlanAdvancedPostingRhythmTypeToJSON,
+} from './RatePlanAdvancedPostingRhythmType';
 import type { RatePlanPostingRhythmType } from './RatePlanPostingRhythmType';
 import {
     RatePlanPostingRhythmTypeFromJSON,
     RatePlanPostingRhythmTypeFromJSONTyped,
     RatePlanPostingRhythmTypeToJSON,
 } from './RatePlanPostingRhythmType';
-import type { RatePlanRoomTransactionCodesType } from './RatePlanRoomTransactionCodesType';
+import type { RatePlanRoomTransactionCodeType } from './RatePlanRoomTransactionCodeType';
 import {
-    RatePlanRoomTransactionCodesTypeFromJSON,
-    RatePlanRoomTransactionCodesTypeFromJSONTyped,
-    RatePlanRoomTransactionCodesTypeToJSON,
-} from './RatePlanRoomTransactionCodesType';
+    RatePlanRoomTransactionCodeTypeFromJSON,
+    RatePlanRoomTransactionCodeTypeFromJSONTyped,
+    RatePlanRoomTransactionCodeTypeToJSON,
+} from './RatePlanRoomTransactionCodeType';
 import type { TranslationTextType2000 } from './TranslationTextType2000';
 import {
     TranslationTextType2000FromJSON,
@@ -51,11 +51,11 @@ import {
  */
 export interface RatePlanTransactionDetailsType {
     /**
-     * 
-     * @type {RatePlanAdvancedPostingRhythmsType}
+     * Posting rhythm details for a rate plan containing Buy x Get y functionality.
+     * @type {Array<RatePlanAdvancedPostingRhythmType>}
      * @memberof RatePlanTransactionDetailsType
      */
-    advancedPostingRhythms?: RatePlanAdvancedPostingRhythmsType;
+    advancedPostingRhythms?: Array<RatePlanAdvancedPostingRhythmType>;
     /**
      * Currency code used by the rate plan.
      * @type {string}
@@ -93,11 +93,11 @@ export interface RatePlanTransactionDetailsType {
      */
     rateIncludesTax?: boolean;
     /**
-     * 
-     * @type {RatePlanRoomTransactionCodesType}
+     * Single transaction code and room type/class association.
+     * @type {Array<RatePlanRoomTransactionCodeType>}
      * @memberof RatePlanTransactionDetailsType
      */
-    roomTransactionCodes?: RatePlanRoomTransactionCodesType;
+    roomTransactionCodes?: Array<RatePlanRoomTransactionCodeType>;
     /**
      * Transaction code used by the rate plan.
      * @type {string}
@@ -125,14 +125,14 @@ export function RatePlanTransactionDetailsTypeFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'advancedPostingRhythms': !exists(json, 'advancedPostingRhythms') ? undefined : RatePlanAdvancedPostingRhythmsTypeFromJSON(json['advancedPostingRhythms']),
+        'advancedPostingRhythms': !exists(json, 'advancedPostingRhythms') ? undefined : ((json['advancedPostingRhythms'] as Array<any>).map(RatePlanAdvancedPostingRhythmTypeFromJSON)),
         'currencyCode': !exists(json, 'currencyCode') ? undefined : json['currencyCode'],
         'exchangePosting': !exists(json, 'exchangePosting') ? undefined : ExchangePostingTypeFromJSON(json['exchangePosting']),
         'folioText': !exists(json, 'folioText') ? undefined : TranslationTextType2000FromJSON(json['folioText']),
         'packageTransactionCode': !exists(json, 'packageTransactionCode') ? undefined : json['packageTransactionCode'],
         'postingRhythm': !exists(json, 'postingRhythm') ? undefined : RatePlanPostingRhythmTypeFromJSON(json['postingRhythm']),
         'rateIncludesTax': !exists(json, 'rateIncludesTax') ? undefined : json['rateIncludesTax'],
-        'roomTransactionCodes': !exists(json, 'roomTransactionCodes') ? undefined : RatePlanRoomTransactionCodesTypeFromJSON(json['roomTransactionCodes']),
+        'roomTransactionCodes': !exists(json, 'roomTransactionCodes') ? undefined : ((json['roomTransactionCodes'] as Array<any>).map(RatePlanRoomTransactionCodeTypeFromJSON)),
         'transactionCode': !exists(json, 'transactionCode') ? undefined : json['transactionCode'],
     };
 }
@@ -146,14 +146,14 @@ export function RatePlanTransactionDetailsTypeToJSON(value?: RatePlanTransaction
     }
     return {
         
-        'advancedPostingRhythms': RatePlanAdvancedPostingRhythmsTypeToJSON(value.advancedPostingRhythms),
+        'advancedPostingRhythms': value.advancedPostingRhythms === undefined ? undefined : ((value.advancedPostingRhythms as Array<any>).map(RatePlanAdvancedPostingRhythmTypeToJSON)),
         'currencyCode': value.currencyCode,
         'exchangePosting': ExchangePostingTypeToJSON(value.exchangePosting),
         'folioText': TranslationTextType2000ToJSON(value.folioText),
         'packageTransactionCode': value.packageTransactionCode,
         'postingRhythm': RatePlanPostingRhythmTypeToJSON(value.postingRhythm),
         'rateIncludesTax': value.rateIncludesTax,
-        'roomTransactionCodes': RatePlanRoomTransactionCodesTypeToJSON(value.roomTransactionCodes),
+        'roomTransactionCodes': value.roomTransactionCodes === undefined ? undefined : ((value.roomTransactionCodes as Array<any>).map(RatePlanRoomTransactionCodeTypeToJSON)),
         'transactionCode': value.transactionCode,
     };
 }

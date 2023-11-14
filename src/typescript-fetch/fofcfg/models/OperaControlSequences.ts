@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ControlSequencesType } from './ControlSequencesType';
+import type { ControlSequenceType } from './ControlSequenceType';
 import {
-    ControlSequencesTypeFromJSON,
-    ControlSequencesTypeFromJSONTyped,
-    ControlSequencesTypeToJSON,
-} from './ControlSequencesType';
-import type { Links } from './Links';
+    ControlSequenceTypeFromJSON,
+    ControlSequenceTypeFromJSONTyped,
+    ControlSequenceTypeToJSON,
+} from './ControlSequenceType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface OperaControlSequences {
     /**
-     * 
-     * @type {ControlSequencesType}
+     * List of Control Sequence details
+     * @type {Array<ControlSequenceType>}
      * @memberof OperaControlSequences
      */
-    controlSequences?: ControlSequencesType;
+    controlSequences?: Array<ControlSequenceType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof OperaControlSequences
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OperaControlSequences
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function OperaControlSequencesFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'controlSequences': !exists(json, 'controlSequences') ? undefined : ControlSequencesTypeFromJSON(json['controlSequences']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'controlSequences': !exists(json, 'controlSequences') ? undefined : ((json['controlSequences'] as Array<any>).map(ControlSequenceTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function OperaControlSequencesToJSON(value?: OperaControlSequences | null
     }
     return {
         
-        'controlSequences': ControlSequencesTypeToJSON(value.controlSequences),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'controlSequences': value.controlSequences === undefined ? undefined : ((value.controlSequences as Array<any>).map(ControlSequenceTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

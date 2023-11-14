@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationExcludedPreferencesToJSON = exports.ReservationExcludedPreferencesFromJSONTyped = exports.ReservationExcludedPreferencesFromJSON = exports.instanceOfReservationExcludedPreferences = void 0;
 const runtime_1 = require("../runtime");
-const ExcludedPreferencesType_1 = require("./ExcludedPreferencesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ExcludedPreferenceType_1 = require("./ExcludedPreferenceType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ReservationExcludedPreferences interface.
  */
@@ -35,9 +35,9 @@ function ReservationExcludedPreferencesFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'reservationExcludedPreferences': !(0, runtime_1.exists)(json, 'reservationExcludedPreferences') ? undefined : (0, ExcludedPreferencesType_1.ExcludedPreferencesTypeFromJSON)(json['reservationExcludedPreferences']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'reservationExcludedPreferences': !(0, runtime_1.exists)(json, 'reservationExcludedPreferences') ? undefined : (json['reservationExcludedPreferences'].map(ExcludedPreferenceType_1.ExcludedPreferenceTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ReservationExcludedPreferencesFromJSONTyped = ReservationExcludedPreferencesFromJSONTyped;
@@ -49,9 +49,9 @@ function ReservationExcludedPreferencesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'reservationExcludedPreferences': (0, ExcludedPreferencesType_1.ExcludedPreferencesTypeToJSON)(value.reservationExcludedPreferences),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'reservationExcludedPreferences': value.reservationExcludedPreferences === undefined ? undefined : (value.reservationExcludedPreferences.map(ExcludedPreferenceType_1.ExcludedPreferenceTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ReservationExcludedPreferencesToJSON = ReservationExcludedPreferencesToJSON;

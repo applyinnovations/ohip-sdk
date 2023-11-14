@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { CreateRestrictionType } from './CreateRestrictionType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RestrictionsType } from './RestrictionsType';
+    CreateRestrictionTypeFromJSON,
+    CreateRestrictionTypeFromJSONTyped,
+    CreateRestrictionTypeToJSON,
+} from './CreateRestrictionType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    RestrictionsTypeFromJSON,
-    RestrictionsTypeFromJSONTyped,
-    RestrictionsTypeToJSON,
-} from './RestrictionsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 
 /**
  * Request for configuring restrictions.
@@ -34,16 +34,16 @@ import {
 export interface Restrictions {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Restrictions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RestrictionsType}
+     * Collection of restrictions to be configured.
+     * @type {Array<CreateRestrictionType>}
      * @memberof Restrictions
      */
-    restrictions?: RestrictionsType;
+    restrictions?: Array<CreateRestrictionType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function RestrictionsFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'restrictions': !exists(json, 'restrictions') ? undefined : RestrictionsTypeFromJSON(json['restrictions']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'restrictions': !exists(json, 'restrictions') ? undefined : ((json['restrictions'] as Array<any>).map(CreateRestrictionTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function RestrictionsToJSON(value?: Restrictions | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'restrictions': RestrictionsTypeToJSON(value.restrictions),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'restrictions': value.restrictions === undefined ? undefined : ((value.restrictions as Array<any>).map(CreateRestrictionTypeToJSON)),
     };
 }
 

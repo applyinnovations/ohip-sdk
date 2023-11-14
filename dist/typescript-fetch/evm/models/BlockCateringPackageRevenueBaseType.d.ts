@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { BlockCateringPackageRevenueType } from './BlockCateringPackageRevenueType';
 import type { BlockType } from './BlockType';
 import type { CateringPackageInfoType } from './CateringPackageInfoType';
-import type { RevenueListType } from './RevenueListType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Pricing detail of associated catering package.
@@ -56,11 +56,11 @@ export interface BlockCateringPackageRevenueBaseType {
      */
     priceDescription?: string;
     /**
-     *
-     * @type {RevenueListType}
+     * Collection of revenues associated with packaged event.
+     * @type {Array<BlockCateringPackageRevenueType>}
      * @memberof BlockCateringPackageRevenueBaseType
      */
-    revenues?: RevenueListType;
+    revenues?: Array<BlockCateringPackageRevenueType>;
 }
 /**
  * Check if a given object implements the BlockCateringPackageRevenueBaseType interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GuestMessageTemplatesType } from './GuestMessageTemplatesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { GuestMessageTemplateType } from './GuestMessageTemplateType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for information regarding guest message templates.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface GuestMessageTemplates {
     /**
-     *
-     * @type {GuestMessageTemplatesType}
+     * Collection of guest messages templates.
+     * @type {Array<GuestMessageTemplateType>}
      * @memberof GuestMessageTemplates
      */
-    guestMessageTemplates?: GuestMessageTemplatesType;
+    guestMessageTemplates?: Array<GuestMessageTemplateType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuestMessageTemplates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuestMessageTemplates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GuestMessageTemplates interface.

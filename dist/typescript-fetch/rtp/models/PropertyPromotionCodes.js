@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PropertyPromotionCodesToJSON = exports.PropertyPromotionCodesFromJSONTyped = exports.PropertyPromotionCodesFromJSON = exports.instanceOfPropertyPromotionCodes = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const PropertyPromotionCodesPropertyPromotionCodes_1 = require("./PropertyPromotionCodesPropertyPromotionCodes");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PropertyPromotionCodes interface.
  */
@@ -35,9 +35,9 @@ function PropertyPromotionCodesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'propertyPromotionCodes': !(0, runtime_1.exists)(json, 'propertyPromotionCodes') ? undefined : (0, PropertyPromotionCodesPropertyPromotionCodes_1.PropertyPromotionCodesPropertyPromotionCodesFromJSON)(json['propertyPromotionCodes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PropertyPromotionCodesFromJSONTyped = PropertyPromotionCodesFromJSONTyped;
@@ -49,9 +49,9 @@ function PropertyPromotionCodesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'propertyPromotionCodes': (0, PropertyPromotionCodesPropertyPromotionCodes_1.PropertyPromotionCodesPropertyPromotionCodesToJSON)(value.propertyPromotionCodes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PropertyPromotionCodesToJSON = PropertyPromotionCodesToJSON;

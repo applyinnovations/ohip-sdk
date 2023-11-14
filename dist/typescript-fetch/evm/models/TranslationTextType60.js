@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TranslationTextType60ToJSON = exports.TranslationTextType60FromJSONTyped = exports.TranslationTextType60FromJSON = exports.instanceOfTranslationTextType60 = void 0;
 const runtime_1 = require("../runtime");
-const TranslationsTextType_1 = require("./TranslationsTextType");
+const TranslationsTextTypeInner_1 = require("./TranslationsTextTypeInner");
 /**
  * Check if a given object implements the TranslationTextType60 interface.
  */
@@ -34,7 +34,7 @@ function TranslationTextType60FromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'defaultText': !(0, runtime_1.exists)(json, 'defaultText') ? undefined : json['defaultText'],
-        'translations': !(0, runtime_1.exists)(json, 'translations') ? undefined : (0, TranslationsTextType_1.TranslationsTextTypeFromJSON)(json['translations']),
+        'translations': !(0, runtime_1.exists)(json, 'translations') ? undefined : (json['translations'].map(TranslationsTextTypeInner_1.TranslationsTextTypeInnerFromJSON)),
     };
 }
 exports.TranslationTextType60FromJSONTyped = TranslationTextType60FromJSONTyped;
@@ -47,7 +47,7 @@ function TranslationTextType60ToJSON(value) {
     }
     return {
         'defaultText': value.defaultText,
-        'translations': (0, TranslationsTextType_1.TranslationsTextTypeToJSON)(value.translations),
+        'translations': value.translations === undefined ? undefined : (value.translations.map(TranslationsTextTypeInner_1.TranslationsTextTypeInnerToJSON)),
     };
 }
 exports.TranslationTextType60ToJSON = TranslationTextType60ToJSON;

@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationInfoType } from './ReservationInfoType';
 import type { ReservationsSummaryType } from './ReservationsSummaryType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface ShortReservation {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ShortReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Short reservation information response.
      * @type {Array<ReservationInfoType>}
@@ -38,11 +38,11 @@ export interface ShortReservation {
      */
     reservationsSummary?: ReservationsSummaryType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ShortReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ShortReservation interface.

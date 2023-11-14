@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ConfigTemplateExclusivePreferencesType } from './ConfigTemplateExclusivePreferencesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ConfigExclusivePreferenceBaseType } from './ConfigExclusivePreferenceBaseType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching exclusive preferences at the template level.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateExclusivePreferences {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateExclusivePreferences
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ConfigTemplateExclusivePreferencesType}
+     * Base details common between both template and property level exclusive preferences.
+     * @type {Array<ConfigExclusivePreferenceBaseType>}
      * @memberof TemplateExclusivePreferences
      */
-    templateExclusivePreferences?: ConfigTemplateExclusivePreferencesType;
+    templateExclusivePreferences?: Array<ConfigExclusivePreferenceBaseType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateExclusivePreferences
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateExclusivePreferences interface.

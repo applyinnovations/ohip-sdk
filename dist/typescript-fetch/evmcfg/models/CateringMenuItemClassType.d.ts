@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CateringMenuItemClassInfoType } from './CateringMenuItemClassInfoType';
-import type { CateringMenuItemListType } from './CateringMenuItemListType';
+import type { CateringMenuItemType } from './CateringMenuItemType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Menu Item Class Values.
@@ -31,11 +31,11 @@ export interface CateringMenuItemClassType {
      */
     itemClassInfo?: CateringMenuItemClassInfoType;
     /**
-     *
-     * @type {CateringMenuItemListType}
+     * List of Values of Menu Item.
+     * @type {Array<CateringMenuItemType>}
      * @memberof CateringMenuItemClassType
      */
-    itemList?: CateringMenuItemListType;
+    itemList?: Array<CateringMenuItemType>;
 }
 /**
  * Check if a given object implements the CateringMenuItemClassType interface.

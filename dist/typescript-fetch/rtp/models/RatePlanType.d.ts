@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import type { RateAccessExclusionType } from './RateAccessExclusionType';
 import type { RatePackagesType } from './RatePackagesType';
-import type { RatePlanBasedOnRatesType } from './RatePlanBasedOnRatesType';
+import type { RatePlanBasedOnRateType } from './RatePlanBasedOnRateType';
 import type { RatePlanClassificationsType } from './RatePlanClassificationsType';
 import type { RatePlanCommissionType } from './RatePlanCommissionType';
 import type { RatePlanControlsType } from './RatePlanControlsType';
@@ -20,13 +20,13 @@ import type { RatePlanDepositType } from './RatePlanDepositType';
 import type { RatePlanDescriptionsType } from './RatePlanDescriptionsType';
 import type { RatePlanDistributionType } from './RatePlanDistributionType';
 import type { RatePlanExternalAttributesType } from './RatePlanExternalAttributesType';
-import type { RatePlanNotesType } from './RatePlanNotesType';
+import type { RatePlanNoteType } from './RatePlanNoteType';
 import type { RatePlanPrimaryDetailsType } from './RatePlanPrimaryDetailsType';
 import type { RatePlanRoutingInstructionsType } from './RatePlanRoutingInstructionsType';
 import type { RatePlanScheduleInfoType } from './RatePlanScheduleInfoType';
 import type { RatePlanTransactionDetailsType } from './RatePlanTransactionDetailsType';
 import type { RatePlanTypeNegotiatedRates } from './RatePlanTypeNegotiatedRates';
-import type { RateRoomTypeListType } from './RateRoomTypeListType';
+import type { RateRoomTypeDetailType } from './RateRoomTypeDetailType';
 /**
  * The Rate plan code Details.
  * @export
@@ -53,10 +53,10 @@ export interface RatePlanType {
     advancedDailyRate?: boolean;
     /**
      *
-     * @type {RatePlanNotesType}
+     * @type {Array<RatePlanNoteType>}
      * @memberof RatePlanType
      */
-    approvalNotes?: RatePlanNotesType;
+    approvalNotes?: Array<RatePlanNoteType>;
     /**
      * Is rate plan code of BAR Rate type?
      * @type {boolean}
@@ -244,11 +244,11 @@ export interface RatePlanType {
      */
     ratePackages?: RatePackagesType;
     /**
-     *
-     * @type {RatePlanBasedOnRatesType}
+     * Rate plan type based on rates.
+     * @type {Array<RatePlanBasedOnRateType>}
      * @memberof RatePlanType
      */
-    ratePlanBasedOnRates?: RatePlanBasedOnRatesType;
+    ratePlanBasedOnRates?: Array<RatePlanBasedOnRateType>;
     /**
      * Rate plan Code
      * @type {string}
@@ -256,11 +256,11 @@ export interface RatePlanType {
      */
     ratePlanCode?: string;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof RatePlanType
      */
-    ratePlanCodeIndicators?: IndicatorsType;
+    ratePlanCodeIndicators?: Array<IndicatorType>;
     /**
      *
      * @type {RatePlanScheduleInfoType}
@@ -274,11 +274,11 @@ export interface RatePlanType {
      */
     redemption?: boolean;
     /**
-     *
-     * @type {RateRoomTypeListType}
+     * Details of each room type
+     * @type {Array<RateRoomTypeDetailType>}
      * @memberof RatePlanType
      */
-    roomTypeList?: RateRoomTypeListType;
+    roomTypeList?: Array<RateRoomTypeDetailType>;
     /**
      *
      * @type {RatePlanRoutingInstructionsType}

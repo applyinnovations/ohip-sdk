@@ -13,36 +13,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ExternalReferencesType } from './ExternalReferencesType';
+import type { ExternalReferenceType } from './ExternalReferenceType';
 import {
-    ExternalReferencesTypeFromJSON,
-    ExternalReferencesTypeFromJSONTyped,
-    ExternalReferencesTypeToJSON,
-} from './ExternalReferencesType';
+    ExternalReferenceTypeFromJSON,
+    ExternalReferenceTypeFromJSONTyped,
+    ExternalReferenceTypeToJSON,
+} from './ExternalReferenceType';
 import type { GuestProfileType } from './GuestProfileType';
 import {
     GuestProfileTypeFromJSON,
     GuestProfileTypeFromJSONTyped,
     GuestProfileTypeToJSON,
 } from './GuestProfileType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ProfileIdList } from './ProfileIdList';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
-import type { WarningsType } from './WarningsType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creation of guest/contact/employee profile. This object contains profile details with unique identifiers of a profile. The standard optional Opera Context element is also included.
@@ -51,11 +51,11 @@ import {
  */
 export interface Guest {
     /**
-     * 
-     * @type {ExternalReferencesType}
+     * This type contains unique information of external reference.
+     * @type {Array<ExternalReferenceType>}
      * @memberof Guest
      */
-    externalReferences?: ExternalReferencesType;
+    externalReferences?: Array<ExternalReferenceType>;
     /**
      * 
      * @type {GuestProfileType}
@@ -63,23 +63,23 @@ export interface Guest {
      */
     guestDetails?: GuestProfileType;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof Guest
      */
-    guestIdList?: ProfileIdList;
+    guestIdList?: Array<UniqueIDType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Guest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Guest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -101,11 +101,11 @@ export function GuestFromJSONTyped(json: any, ignoreDiscriminator: boolean): Gue
     }
     return {
         
-        'externalReferences': !exists(json, 'externalReferences') ? undefined : ExternalReferencesTypeFromJSON(json['externalReferences']),
+        'externalReferences': !exists(json, 'externalReferences') ? undefined : ((json['externalReferences'] as Array<any>).map(ExternalReferenceTypeFromJSON)),
         'guestDetails': !exists(json, 'guestDetails') ? undefined : GuestProfileTypeFromJSON(json['guestDetails']),
-        'guestIdList': !exists(json, 'guestIdList') ? undefined : ProfileIdListFromJSON(json['guestIdList']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'guestIdList': !exists(json, 'guestIdList') ? undefined : ((json['guestIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -118,11 +118,11 @@ export function GuestToJSON(value?: Guest | null): any {
     }
     return {
         
-        'externalReferences': ExternalReferencesTypeToJSON(value.externalReferences),
+        'externalReferences': value.externalReferences === undefined ? undefined : ((value.externalReferences as Array<any>).map(ExternalReferenceTypeToJSON)),
         'guestDetails': GuestProfileTypeToJSON(value.guestDetails),
-        'guestIdList': ProfileIdListToJSON(value.guestIdList),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'guestIdList': value.guestIdList === undefined ? undefined : ((value.guestIdList as Array<any>).map(UniqueIDTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

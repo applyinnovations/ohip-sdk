@@ -25,18 +25,18 @@ import {
     ARApplyTypeFromJSONTyped,
     ARApplyTypeToJSON,
 } from './ARApplyType';
-import type { ARPaymentInvoicesType } from './ARPaymentInvoicesType';
+import type { ARPaymentInvoicesTypeInner } from './ARPaymentInvoicesTypeInner';
 import {
-    ARPaymentInvoicesTypeFromJSON,
-    ARPaymentInvoicesTypeFromJSONTyped,
-    ARPaymentInvoicesTypeToJSON,
-} from './ARPaymentInvoicesType';
-import type { ARPaymentsType } from './ARPaymentsType';
+    ARPaymentInvoicesTypeInnerFromJSON,
+    ARPaymentInvoicesTypeInnerFromJSONTyped,
+    ARPaymentInvoicesTypeInnerToJSON,
+} from './ARPaymentInvoicesTypeInner';
+import type { ARPaymentType } from './ARPaymentType';
 import {
-    ARPaymentsTypeFromJSON,
-    ARPaymentsTypeFromJSONTyped,
-    ARPaymentsTypeToJSON,
-} from './ARPaymentsType';
+    ARPaymentTypeFromJSON,
+    ARPaymentTypeFromJSONTyped,
+    ARPaymentTypeToJSON,
+} from './ARPaymentType';
 
 /**
  * Criteria type for apply credits to Invoices. Requires a list of invoices to apply the credit.
@@ -63,17 +63,17 @@ export interface ARApplyPaymentCriteriaType {
      */
     cashierId?: number;
     /**
-     * 
-     * @type {ARPaymentInvoicesType}
+     * AR Invoice to which the payment will be applied.
+     * @type {Array<ARPaymentInvoicesTypeInner>}
      * @memberof ARApplyPaymentCriteriaType
      */
-    invoices?: ARPaymentInvoicesType;
+    invoices?: Array<ARPaymentInvoicesTypeInner>;
     /**
-     * 
-     * @type {ARPaymentsType}
+     * A collection of AR Payments.
+     * @type {Array<ARPaymentType>}
      * @memberof ARApplyPaymentCriteriaType
      */
-    payments?: ARPaymentsType;
+    payments?: Array<ARPaymentType>;
 }
 
 /**
@@ -98,8 +98,8 @@ export function ARApplyPaymentCriteriaTypeFromJSONTyped(json: any, ignoreDiscrim
         'account': !exists(json, 'account') ? undefined : ARAccountCriteriaTypeFromJSON(json['account']),
         'applyType': !exists(json, 'applyType') ? undefined : ARApplyTypeFromJSON(json['applyType']),
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
-        'invoices': !exists(json, 'invoices') ? undefined : ARPaymentInvoicesTypeFromJSON(json['invoices']),
-        'payments': !exists(json, 'payments') ? undefined : ARPaymentsTypeFromJSON(json['payments']),
+        'invoices': !exists(json, 'invoices') ? undefined : ((json['invoices'] as Array<any>).map(ARPaymentInvoicesTypeInnerFromJSON)),
+        'payments': !exists(json, 'payments') ? undefined : ((json['payments'] as Array<any>).map(ARPaymentTypeFromJSON)),
     };
 }
 
@@ -115,8 +115,8 @@ export function ARApplyPaymentCriteriaTypeToJSON(value?: ARApplyPaymentCriteriaT
         'account': ARAccountCriteriaTypeToJSON(value.account),
         'applyType': ARApplyTypeToJSON(value.applyType),
         'cashierId': value.cashierId,
-        'invoices': ARPaymentInvoicesTypeToJSON(value.invoices),
-        'payments': ARPaymentsTypeToJSON(value.payments),
+        'invoices': value.invoices === undefined ? undefined : ((value.invoices as Array<any>).map(ARPaymentInvoicesTypeInnerToJSON)),
+        'payments': value.payments === undefined ? undefined : ((value.payments as Array<any>).map(ARPaymentTypeToJSON)),
     };
 }
 

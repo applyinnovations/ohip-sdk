@@ -16,10 +16,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PutValidateReservationChangesRequestToJSON = exports.PutValidateReservationChangesRequestFromJSONTyped = exports.PutValidateReservationChangesRequestFromJSON = exports.instanceOfPutValidateReservationChangesRequest = void 0;
 const runtime_1 = require("../runtime");
 const HotelReservationType_1 = require("./HotelReservationType");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const TimeSpanType_1 = require("./TimeSpanType");
 const ValidateReservationChangesInstructions_1 = require("./ValidateReservationChangesInstructions");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PutValidateReservationChangesRequest interface.
  */
@@ -38,10 +38,10 @@ function PutValidateReservationChangesRequestFromJSONTyped(json, ignoreDiscrimin
     }
     return {
         'instructions': !(0, runtime_1.exists)(json, 'instructions') ? undefined : (0, ValidateReservationChangesInstructions_1.ValidateReservationChangesInstructionsFromJSON)(json['instructions']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'reservation': !(0, runtime_1.exists)(json, 'reservation') ? undefined : (0, HotelReservationType_1.HotelReservationTypeFromJSON)(json['reservation']),
         'timeSpan': !(0, runtime_1.exists)(json, 'timeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['timeSpan']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PutValidateReservationChangesRequestFromJSONTyped = PutValidateReservationChangesRequestFromJSONTyped;
@@ -54,10 +54,10 @@ function PutValidateReservationChangesRequestToJSON(value) {
     }
     return {
         'instructions': (0, ValidateReservationChangesInstructions_1.ValidateReservationChangesInstructionsToJSON)(value.instructions),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'reservation': (0, HotelReservationType_1.HotelReservationTypeToJSON)(value.reservation),
         'timeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.timeSpan),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PutValidateReservationChangesRequestToJSON = PutValidateReservationChangesRequestToJSON;

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateJobTitlesType } from './TemplateJobTitlesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TemplateJobTitleType } from './TemplateJobTitleType';
 import {
-    TemplateJobTitlesTypeFromJSON,
-    TemplateJobTitlesTypeFromJSONTyped,
-    TemplateJobTitlesTypeToJSON,
-} from './TemplateJobTitlesType';
-import type { WarningsType } from './WarningsType';
+    TemplateJobTitleTypeFromJSON,
+    TemplateJobTitleTypeFromJSONTyped,
+    TemplateJobTitleTypeToJSON,
+} from './TemplateJobTitleType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating new template job titles.
@@ -40,22 +40,22 @@ import {
 export interface TemplateJobTitlesCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateJobTitlesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TemplateJobTitlesType}
+     * Template job title details.
+     * @type {Array<TemplateJobTitleType>}
      * @memberof TemplateJobTitlesCriteria
      */
-    templateJobTitles?: TemplateJobTitlesType;
+    templateJobTitles?: Array<TemplateJobTitleType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateJobTitlesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateJobTitlesCriteriaFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'templateJobTitles': !exists(json, 'templateJobTitles') ? undefined : TemplateJobTitlesTypeFromJSON(json['templateJobTitles']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'templateJobTitles': !exists(json, 'templateJobTitles') ? undefined : ((json['templateJobTitles'] as Array<any>).map(TemplateJobTitleTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateJobTitlesCriteriaToJSON(value?: TemplateJobTitlesCriteri
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'templateJobTitles': TemplateJobTitlesTypeToJSON(value.templateJobTitles),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'templateJobTitles': value.templateJobTitles === undefined ? undefined : ((value.templateJobTitles as Array<any>).map(TemplateJobTitleTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

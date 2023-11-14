@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DiscountReasonsCriteriaToJSON = exports.DiscountReasonsCriteriaFromJSONTyped = exports.DiscountReasonsCriteriaFromJSON = exports.instanceOfDiscountReasonsCriteria = void 0;
 const runtime_1 = require("../runtime");
-const DiscountReasonsType_1 = require("./DiscountReasonsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const DiscountReasonType_1 = require("./DiscountReasonType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the DiscountReasonsCriteria interface.
  */
@@ -35,9 +35,9 @@ function DiscountReasonsCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'discountReasons': !(0, runtime_1.exists)(json, 'discountReasons') ? undefined : (0, DiscountReasonsType_1.DiscountReasonsTypeFromJSON)(json['discountReasons']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'discountReasons': !(0, runtime_1.exists)(json, 'discountReasons') ? undefined : (json['discountReasons'].map(DiscountReasonType_1.DiscountReasonTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.DiscountReasonsCriteriaFromJSONTyped = DiscountReasonsCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function DiscountReasonsCriteriaToJSON(value) {
         return null;
     }
     return {
-        'discountReasons': (0, DiscountReasonsType_1.DiscountReasonsTypeToJSON)(value.discountReasons),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'discountReasons': value.discountReasons === undefined ? undefined : (value.discountReasons.map(DiscountReasonType_1.DiscountReasonTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.DiscountReasonsCriteriaToJSON = DiscountReasonsCriteriaToJSON;

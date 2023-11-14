@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AirportsType } from './AirportsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AirportType } from './AirportType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching airports configured for hotels.
  * @export
@@ -19,11 +19,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AirportsDetails {
     /**
-     *
-     * @type {AirportsType}
+     * Airport details for a hotel.
+     * @type {Array<AirportType>}
      * @memberof AirportsDetails
      */
-    airports?: AirportsType;
+    airports?: Array<AirportType>;
     /**
      * Total number of rows returned
      * @type {number}
@@ -44,10 +44,10 @@ export interface AirportsDetails {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AirportsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface AirportsDetails {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AirportsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AirportsDetails interface.

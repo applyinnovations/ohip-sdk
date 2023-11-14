@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelPackageForecastGroupsType } from './HotelPackageForecastGroupsType';
+import type { HotelPackageForecastGroupType } from './HotelPackageForecastGroupType';
 import {
-    HotelPackageForecastGroupsTypeFromJSON,
-    HotelPackageForecastGroupsTypeFromJSONTyped,
-    HotelPackageForecastGroupsTypeToJSON,
-} from './HotelPackageForecastGroupsType';
-import type { Links } from './Links';
+    HotelPackageForecastGroupTypeFromJSON,
+    HotelPackageForecastGroupTypeFromJSONTyped,
+    HotelPackageForecastGroupTypeToJSON,
+} from './HotelPackageForecastGroupType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching package forecast groups for a hotel.
@@ -45,11 +45,11 @@ export interface HotelPackageForecastGroups {
      */
     hasMore?: boolean;
     /**
-     * 
-     * @type {HotelPackageForecastGroupsType}
+     * Hotel package forecast group details.
+     * @type {Array<HotelPackageForecastGroupType>}
      * @memberof HotelPackageForecastGroups
      */
-    hotelPackageForecastGroups?: HotelPackageForecastGroupsType;
+    hotelPackageForecastGroups?: Array<HotelPackageForecastGroupType>;
     /**
      * Indicates maximum number of records a Web Service should return.
      * @type {number}
@@ -58,10 +58,10 @@ export interface HotelPackageForecastGroups {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelPackageForecastGroups
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -81,11 +81,11 @@ export interface HotelPackageForecastGroups {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelPackageForecastGroups
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -108,13 +108,13 @@ export function HotelPackageForecastGroupsFromJSONTyped(json: any, ignoreDiscrim
     return {
         
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
-        'hotelPackageForecastGroups': !exists(json, 'hotelPackageForecastGroups') ? undefined : HotelPackageForecastGroupsTypeFromJSON(json['hotelPackageForecastGroups']),
+        'hotelPackageForecastGroups': !exists(json, 'hotelPackageForecastGroups') ? undefined : ((json['hotelPackageForecastGroups'] as Array<any>).map(HotelPackageForecastGroupTypeFromJSON)),
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -128,13 +128,13 @@ export function HotelPackageForecastGroupsToJSON(value?: HotelPackageForecastGro
     return {
         
         'hasMore': value.hasMore,
-        'hotelPackageForecastGroups': HotelPackageForecastGroupsTypeToJSON(value.hotelPackageForecastGroups),
+        'hotelPackageForecastGroups': value.hotelPackageForecastGroups === undefined ? undefined : ((value.hotelPackageForecastGroups as Array<any>).map(HotelPackageForecastGroupTypeToJSON)),
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

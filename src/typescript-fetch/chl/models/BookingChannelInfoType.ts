@@ -19,12 +19,12 @@ import {
     HotelMappingTypeFromJSONTyped,
     HotelMappingTypeToJSON,
 } from './HotelMappingType';
-import type { ParametersType } from './ParametersType';
+import type { ParameterType } from './ParameterType';
 import {
-    ParametersTypeFromJSON,
-    ParametersTypeFromJSONTyped,
-    ParametersTypeToJSON,
-} from './ParametersType';
+    ParameterTypeFromJSON,
+    ParameterTypeFromJSONTyped,
+    ParameterTypeToJSON,
+} from './ParameterType';
 
 /**
  * 
@@ -45,11 +45,11 @@ export interface BookingChannelInfoType {
      */
     bookingChannelType?: string;
     /**
-     * 
-     * @type {ParametersType}
+     * Collection of generic Name-Value-Pair parameters.
+     * @type {Array<ParameterType>}
      * @memberof BookingChannelInfoType
      */
-    configurationParameters?: ParametersType;
+    configurationParameters?: Array<ParameterType>;
     /**
      * Hotel Code mapping for the Booking Channel.
      * @type {Array<HotelMappingType>}
@@ -85,7 +85,7 @@ export function BookingChannelInfoTypeFromJSONTyped(json: any, ignoreDiscriminat
         
         'bookingChannelCode': !exists(json, 'bookingChannelCode') ? undefined : json['bookingChannelCode'],
         'bookingChannelType': !exists(json, 'bookingChannelType') ? undefined : json['bookingChannelType'],
-        'configurationParameters': !exists(json, 'configurationParameters') ? undefined : ParametersTypeFromJSON(json['configurationParameters']),
+        'configurationParameters': !exists(json, 'configurationParameters') ? undefined : ((json['configurationParameters'] as Array<any>).map(ParameterTypeFromJSON)),
         'hotelMappings': !exists(json, 'hotelMappings') ? undefined : ((json['hotelMappings'] as Array<any>).map(HotelMappingTypeFromJSON)),
         'name': !exists(json, 'name') ? undefined : json['name'],
     };
@@ -102,7 +102,7 @@ export function BookingChannelInfoTypeToJSON(value?: BookingChannelInfoType | nu
         
         'bookingChannelCode': value.bookingChannelCode,
         'bookingChannelType': value.bookingChannelType,
-        'configurationParameters': ParametersTypeToJSON(value.configurationParameters),
+        'configurationParameters': value.configurationParameters === undefined ? undefined : ((value.configurationParameters as Array<any>).map(ParameterTypeToJSON)),
         'hotelMappings': value.hotelMappings === undefined ? undefined : ((value.hotelMappings as Array<any>).map(HotelMappingTypeToJSON)),
         'name': value.name,
     };

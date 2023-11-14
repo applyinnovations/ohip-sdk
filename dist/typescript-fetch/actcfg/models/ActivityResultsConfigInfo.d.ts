@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ActivityResultsConfigListType } from './ActivityResultsConfigListType';
-import type { WarningsType } from './WarningsType';
+import type { ActivityResultsConfigDetailType } from './ActivityResultsConfigDetailType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating/changing Activity Results Configuration.
  * @export
@@ -18,17 +18,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ActivityResultsConfigInfo {
     /**
-     *
-     * @type {ActivityResultsConfigListType}
+     * List of configured Activity Results.
+     * @type {Array<ActivityResultsConfigDetailType>}
      * @memberof ActivityResultsConfigInfo
      */
-    activityResultsConfiguration?: ActivityResultsConfigListType;
+    activityResultsConfiguration?: Array<ActivityResultsConfigDetailType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ActivityResultsConfigInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ActivityResultsConfigInfo interface.

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RatePackageCodeListType } from './RatePackageCodeListType';
+import type { RatePackageCodeType } from './RatePackageCodeType';
 /**
  * Information about a package group common to all usages.
  * @export
@@ -29,11 +29,11 @@ export interface RatePackageGroupType {
      */
     description?: string;
     /**
-     *
-     * @type {RatePackageCodeListType}
+     * Rate Package Full Information
+     * @type {Array<RatePackageCodeType>}
      * @memberof RatePackageGroupType
      */
-    packages?: RatePackageCodeListType;
+    packages?: Array<RatePackageCodeType>;
     /**
      * Can Package group be sold separately?
      * @type {boolean}

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelContactRolesType } from './HotelContactRolesType';
+import type { HotelContactRoleType } from './HotelContactRoleType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Contact identification details.
@@ -60,11 +60,11 @@ export interface HotelContactType {
      */
     primary?: boolean;
     /**
-     *
-     * @type {HotelContactRolesType}
+     * Lists of HotelContactRoles of the hotel.
+     * @type {Array<HotelContactRoleType>}
      * @memberof HotelContactType
      */
-    roles?: HotelContactRolesType;
+    roles?: Array<HotelContactRoleType>;
 }
 /**
  * Check if a given object implements the HotelContactType interface.

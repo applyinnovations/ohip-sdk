@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { StatisticUnitsType } from './StatisticUnitsType';
+import type { StatisticUnitType } from './StatisticUnitType';
 import {
-    StatisticUnitsTypeFromJSON,
-    StatisticUnitsTypeFromJSONTyped,
-    StatisticUnitsTypeToJSON,
-} from './StatisticUnitsType';
-import type { StatusSummaryStatisticType } from './StatusSummaryStatisticType';
+    StatisticUnitTypeFromJSON,
+    StatisticUnitTypeFromJSONTyped,
+    StatisticUnitTypeToJSON,
+} from './StatisticUnitType';
+import type { StatusStatisticType } from './StatusStatisticType';
 import {
-    StatusSummaryStatisticTypeFromJSON,
-    StatusSummaryStatisticTypeFromJSONTyped,
-    StatusSummaryStatisticTypeToJSON,
-} from './StatusSummaryStatisticType';
+    StatusStatisticTypeFromJSON,
+    StatusStatisticTypeFromJSONTyped,
+    StatusStatisticTypeToJSON,
+} from './StatusStatisticType';
 
 /**
  * Statistic units group by status, booking and daily targets.
@@ -33,17 +33,17 @@ import {
  */
 export interface BlockSummaryStatisticType {
     /**
-     * 
-     * @type {StatisticUnitsType}
+     * Unit type to hold statistic code and value pair.
+     * @type {Array<StatisticUnitType>}
      * @memberof BlockSummaryStatisticType
      */
-    bookingSummaryStatistic?: StatisticUnitsType;
+    bookingSummaryStatistic?: Array<StatisticUnitType>;
     /**
-     * 
-     * @type {StatisticUnitsType}
+     * Unit type to hold statistic code and value pair.
+     * @type {Array<StatisticUnitType>}
      * @memberof BlockSummaryStatisticType
      */
-    dailyTargetsSummaryStatistic?: StatisticUnitsType;
+    dailyTargetsSummaryStatistic?: Array<StatisticUnitType>;
     /**
      * Date of the block inventory statistic.
      * @type {Date}
@@ -51,11 +51,11 @@ export interface BlockSummaryStatisticType {
      */
     statisticDate?: Date;
     /**
-     * 
-     * @type {StatusSummaryStatisticType}
+     * Statistic summary for a particular status.
+     * @type {Array<StatusStatisticType>}
      * @memberof BlockSummaryStatisticType
      */
-    statusSummaryStatistic?: StatusSummaryStatisticType;
+    statusSummaryStatistic?: Array<StatusStatisticType>;
 }
 
 /**
@@ -77,10 +77,10 @@ export function BlockSummaryStatisticTypeFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'bookingSummaryStatistic': !exists(json, 'bookingSummaryStatistic') ? undefined : StatisticUnitsTypeFromJSON(json['bookingSummaryStatistic']),
-        'dailyTargetsSummaryStatistic': !exists(json, 'dailyTargetsSummaryStatistic') ? undefined : StatisticUnitsTypeFromJSON(json['dailyTargetsSummaryStatistic']),
+        'bookingSummaryStatistic': !exists(json, 'bookingSummaryStatistic') ? undefined : ((json['bookingSummaryStatistic'] as Array<any>).map(StatisticUnitTypeFromJSON)),
+        'dailyTargetsSummaryStatistic': !exists(json, 'dailyTargetsSummaryStatistic') ? undefined : ((json['dailyTargetsSummaryStatistic'] as Array<any>).map(StatisticUnitTypeFromJSON)),
         'statisticDate': !exists(json, 'statisticDate') ? undefined : (new Date(json['statisticDate'])),
-        'statusSummaryStatistic': !exists(json, 'statusSummaryStatistic') ? undefined : StatusSummaryStatisticTypeFromJSON(json['statusSummaryStatistic']),
+        'statusSummaryStatistic': !exists(json, 'statusSummaryStatistic') ? undefined : ((json['statusSummaryStatistic'] as Array<any>).map(StatusStatisticTypeFromJSON)),
     };
 }
 
@@ -93,10 +93,10 @@ export function BlockSummaryStatisticTypeToJSON(value?: BlockSummaryStatisticTyp
     }
     return {
         
-        'bookingSummaryStatistic': StatisticUnitsTypeToJSON(value.bookingSummaryStatistic),
-        'dailyTargetsSummaryStatistic': StatisticUnitsTypeToJSON(value.dailyTargetsSummaryStatistic),
+        'bookingSummaryStatistic': value.bookingSummaryStatistic === undefined ? undefined : ((value.bookingSummaryStatistic as Array<any>).map(StatisticUnitTypeToJSON)),
+        'dailyTargetsSummaryStatistic': value.dailyTargetsSummaryStatistic === undefined ? undefined : ((value.dailyTargetsSummaryStatistic as Array<any>).map(StatisticUnitTypeToJSON)),
         'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0,10)),
-        'statusSummaryStatistic': StatusSummaryStatisticTypeToJSON(value.statusSummaryStatistic),
+        'statusSummaryStatistic': value.statusSummaryStatistic === undefined ? undefined : ((value.statusSummaryStatistic as Array<any>).map(StatusStatisticTypeToJSON)),
     };
 }
 

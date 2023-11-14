@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RoomFeaturesType } from './RoomFeaturesType';
+import type { RoomFeatureType } from './RoomFeatureType';
 import {
-    RoomFeaturesTypeFromJSON,
-    RoomFeaturesTypeFromJSONTyped,
-    RoomFeaturesTypeToJSON,
-} from './RoomFeaturesType';
-import type { RoomTypeComponentsType } from './RoomTypeComponentsType';
+    RoomFeatureTypeFromJSON,
+    RoomFeatureTypeFromJSONTyped,
+    RoomFeatureTypeToJSON,
+} from './RoomFeatureType';
+import type { RoomTypeComponentType } from './RoomTypeComponentType';
 import {
-    RoomTypeComponentsTypeFromJSON,
-    RoomTypeComponentsTypeFromJSONTyped,
-    RoomTypeComponentsTypeToJSON,
-} from './RoomTypeComponentsType';
+    RoomTypeComponentTypeFromJSON,
+    RoomTypeComponentTypeFromJSONTyped,
+    RoomTypeComponentTypeToJSON,
+} from './RoomTypeComponentType';
 import type { RoomTypeTypeSuite } from './RoomTypeTypeSuite';
 import {
     RoomTypeTypeSuiteFromJSON,
@@ -87,11 +87,11 @@ export interface RoomTypeType {
      */
     bedType?: string;
     /**
-     * 
-     * @type {RoomTypeComponentsType}
+     * Contains room components of a component room type.
+     * @type {Array<RoomTypeComponentType>}
      * @memberof RoomTypeType
      */
-    components?: RoomTypeComponentsType;
+    components?: Array<RoomTypeComponentType>;
     /**
      * Default occupancy for the room type.
      * @type {number}
@@ -105,11 +105,11 @@ export interface RoomTypeType {
      */
     description?: TranslationTextType2000;
     /**
-     * 
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof RoomTypeType
      */
-    features?: RoomFeaturesType;
+    features?: Array<RoomFeatureType>;
     /**
      * Indicates room type is generic.
      * @type {boolean}
@@ -275,10 +275,10 @@ export function RoomTypeTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'autoPopulate': !exists(json, 'autoPopulate') ? undefined : json['autoPopulate'],
         'autoRoomAssign': !exists(json, 'autoRoomAssign') ? undefined : json['autoRoomAssign'],
         'bedType': !exists(json, 'bedType') ? undefined : json['bedType'],
-        'components': !exists(json, 'components') ? undefined : RoomTypeComponentsTypeFromJSON(json['components']),
+        'components': !exists(json, 'components') ? undefined : ((json['components'] as Array<any>).map(RoomTypeComponentTypeFromJSON)),
         'defaultOccupancy': !exists(json, 'defaultOccupancy') ? undefined : json['defaultOccupancy'],
         'description': !exists(json, 'description') ? undefined : TranslationTextType2000FromJSON(json['description']),
-        'features': !exists(json, 'features') ? undefined : RoomFeaturesTypeFromJSON(json['features']),
+        'features': !exists(json, 'features') ? undefined : ((json['features'] as Array<any>).map(RoomFeatureTypeFromJSON)),
         'generic': !exists(json, 'generic') ? undefined : json['generic'],
         'houseKeeping': !exists(json, 'houseKeeping') ? undefined : json['houseKeeping'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
@@ -320,10 +320,10 @@ export function RoomTypeTypeToJSON(value?: RoomTypeType | null): any {
         'autoPopulate': value.autoPopulate,
         'autoRoomAssign': value.autoRoomAssign,
         'bedType': value.bedType,
-        'components': RoomTypeComponentsTypeToJSON(value.components),
+        'components': value.components === undefined ? undefined : ((value.components as Array<any>).map(RoomTypeComponentTypeToJSON)),
         'defaultOccupancy': value.defaultOccupancy,
         'description': TranslationTextType2000ToJSON(value.description),
-        'features': RoomFeaturesTypeToJSON(value.features),
+        'features': value.features === undefined ? undefined : ((value.features as Array<any>).map(RoomFeatureTypeToJSON)),
         'generic': value.generic,
         'houseKeeping': value.houseKeeping,
         'inactive': value.inactive,

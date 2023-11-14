@@ -28,9 +28,9 @@ const CompanyProfileTypeTelephones_1 = require("./CompanyProfileTypeTelephones")
 const CompanyProfileTypeType_1 = require("./CompanyProfileTypeType");
 const CompanyProfileTypeURLs_1 = require("./CompanyProfileTypeURLs");
 const CompanyType_1 = require("./CompanyType");
-const ECertificatesType_1 = require("./ECertificatesType");
+const ECertificateType_1 = require("./ECertificateType");
 const ImageSetType_1 = require("./ImageSetType");
-const IndicatorsType_1 = require("./IndicatorsType");
+const IndicatorType_1 = require("./IndicatorType");
 const LastStayInfoType_1 = require("./LastStayInfoType");
 const MailingActionsType_1 = require("./MailingActionsType");
 const PrivacyInfoType_1 = require("./PrivacyInfoType");
@@ -39,11 +39,11 @@ const ProfileCashieringType_1 = require("./ProfileCashieringType");
 const ProfileCommissionType_1 = require("./ProfileCommissionType");
 const ProfileRestrictions_1 = require("./ProfileRestrictions");
 const ProfileStatusType_1 = require("./ProfileStatusType");
-const ProfileSubscriptionListType_1 = require("./ProfileSubscriptionListType");
+const ProfileSubscriptionType_1 = require("./ProfileSubscriptionType");
 const ProfileTaxInfoType_1 = require("./ProfileTaxInfoType");
 const SalesInfoType_1 = require("./SalesInfoType");
 const UserDefinedFieldsType_1 = require("./UserDefinedFieldsType");
-const WebUserAccountsType_1 = require("./WebUserAccountsType");
+const WebUserAccountType_1 = require("./WebUserAccountType");
 /**
  * Check if a given object implements the CompanyProfileType interface.
  */
@@ -69,7 +69,7 @@ function CompanyProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
         'company': !(0, runtime_1.exists)(json, 'company') ? undefined : (0, CompanyType_1.CompanyTypeFromJSON)(json['company']),
         'createDateTime': !(0, runtime_1.exists)(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !(0, runtime_1.exists)(json, 'creatorId') ? undefined : json['creatorId'],
-        'eCertificates': !(0, runtime_1.exists)(json, 'eCertificates') ? undefined : (0, ECertificatesType_1.ECertificatesTypeFromJSON)(json['eCertificates']),
+        'eCertificates': !(0, runtime_1.exists)(json, 'eCertificates') ? undefined : (json['eCertificates'].map(ECertificateType_1.ECertificateTypeFromJSON)),
         'eligibleForFiscalFolio': !(0, runtime_1.exists)(json, 'eligibleForFiscalFolio') ? undefined : json['eligibleForFiscalFolio'],
         'emails': !(0, runtime_1.exists)(json, 'emails') ? undefined : (0, CompanyProfileTypeEmails_1.CompanyProfileTypeEmailsFromJSON)(json['emails']),
         'gdsNegotiatedRates': !(0, runtime_1.exists)(json, 'gdsNegotiatedRates') ? undefined : (0, CompanyProfileTypeGdsNegotiatedRates_1.CompanyProfileTypeGdsNegotiatedRatesFromJSON)(json['gdsNegotiatedRates']),
@@ -90,7 +90,7 @@ function CompanyProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
         'privacyInfo': !(0, runtime_1.exists)(json, 'privacyInfo') ? undefined : (0, PrivacyInfoType_1.PrivacyInfoTypeFromJSON)(json['privacyInfo']),
         'profileAccessType': !(0, runtime_1.exists)(json, 'profileAccessType') ? undefined : (0, ProfileAccessType_1.ProfileAccessTypeFromJSON)(json['profileAccessType']),
         'profileImage': !(0, runtime_1.exists)(json, 'profileImage') ? undefined : (0, ImageSetType_1.ImageSetTypeFromJSON)(json['profileImage']),
-        'profileIndicators': !(0, runtime_1.exists)(json, 'profileIndicators') ? undefined : (0, IndicatorsType_1.IndicatorsTypeFromJSON)(json['profileIndicators']),
+        'profileIndicators': !(0, runtime_1.exists)(json, 'profileIndicators') ? undefined : (json['profileIndicators'].map(IndicatorType_1.IndicatorTypeFromJSON)),
         'profileMemberships': !(0, runtime_1.exists)(json, 'profileMemberships') ? undefined : (0, CompanyProfileTypeProfileMemberships_1.CompanyProfileTypeProfileMembershipsFromJSON)(json['profileMemberships']),
         'profileRestrictions': !(0, runtime_1.exists)(json, 'profileRestrictions') ? undefined : (0, ProfileRestrictions_1.ProfileRestrictionsFromJSON)(json['profileRestrictions']),
         'profileType': !(0, runtime_1.exists)(json, 'profileType') ? undefined : (0, CompanyProfileTypeType_1.CompanyProfileTypeTypeFromJSON)(json['profileType']),
@@ -100,14 +100,14 @@ function CompanyProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
         'requestForHotel': !(0, runtime_1.exists)(json, 'requestForHotel') ? undefined : json['requestForHotel'],
         'salesInfo': !(0, runtime_1.exists)(json, 'salesInfo') ? undefined : (0, SalesInfoType_1.SalesInfoTypeFromJSON)(json['salesInfo']),
         'statusCode': !(0, runtime_1.exists)(json, 'statusCode') ? undefined : (0, ProfileStatusType_1.ProfileStatusTypeFromJSON)(json['statusCode']),
-        'subscriptions': !(0, runtime_1.exists)(json, 'subscriptions') ? undefined : (0, ProfileSubscriptionListType_1.ProfileSubscriptionListTypeFromJSON)(json['subscriptions']),
+        'subscriptions': !(0, runtime_1.exists)(json, 'subscriptions') ? undefined : (json['subscriptions'].map(ProfileSubscriptionType_1.ProfileSubscriptionTypeFromJSON)),
         'taxInfo': !(0, runtime_1.exists)(json, 'taxInfo') ? undefined : (0, ProfileTaxInfoType_1.ProfileTaxInfoTypeFromJSON)(json['taxInfo']),
         'telephones': !(0, runtime_1.exists)(json, 'telephones') ? undefined : (0, CompanyProfileTypeTelephones_1.CompanyProfileTypeTelephonesFromJSON)(json['telephones']),
         'territory': !(0, runtime_1.exists)(json, 'territory') ? undefined : json['territory'],
         'traceCode': !(0, runtime_1.exists)(json, 'traceCode') ? undefined : json['traceCode'],
         'uRLs': !(0, runtime_1.exists)(json, 'uRLs') ? undefined : (0, CompanyProfileTypeURLs_1.CompanyProfileTypeURLsFromJSON)(json['uRLs']),
         'userDefinedFields': !(0, runtime_1.exists)(json, 'userDefinedFields') ? undefined : (0, UserDefinedFieldsType_1.UserDefinedFieldsTypeFromJSON)(json['userDefinedFields']),
-        'webUserAccounts': !(0, runtime_1.exists)(json, 'webUserAccounts') ? undefined : (0, WebUserAccountsType_1.WebUserAccountsTypeFromJSON)(json['webUserAccounts']),
+        'webUserAccounts': !(0, runtime_1.exists)(json, 'webUserAccounts') ? undefined : (json['webUserAccounts'].map(WebUserAccountType_1.WebUserAccountTypeFromJSON)),
     };
 }
 exports.CompanyProfileTypeFromJSONTyped = CompanyProfileTypeFromJSONTyped;
@@ -127,7 +127,7 @@ function CompanyProfileTypeToJSON(value) {
         'company': (0, CompanyType_1.CompanyTypeToJSON)(value.company),
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
-        'eCertificates': (0, ECertificatesType_1.ECertificatesTypeToJSON)(value.eCertificates),
+        'eCertificates': value.eCertificates === undefined ? undefined : (value.eCertificates.map(ECertificateType_1.ECertificateTypeToJSON)),
         'eligibleForFiscalFolio': value.eligibleForFiscalFolio,
         'emails': (0, CompanyProfileTypeEmails_1.CompanyProfileTypeEmailsToJSON)(value.emails),
         'gdsNegotiatedRates': (0, CompanyProfileTypeGdsNegotiatedRates_1.CompanyProfileTypeGdsNegotiatedRatesToJSON)(value.gdsNegotiatedRates),
@@ -148,7 +148,7 @@ function CompanyProfileTypeToJSON(value) {
         'privacyInfo': (0, PrivacyInfoType_1.PrivacyInfoTypeToJSON)(value.privacyInfo),
         'profileAccessType': (0, ProfileAccessType_1.ProfileAccessTypeToJSON)(value.profileAccessType),
         'profileImage': (0, ImageSetType_1.ImageSetTypeToJSON)(value.profileImage),
-        'profileIndicators': (0, IndicatorsType_1.IndicatorsTypeToJSON)(value.profileIndicators),
+        'profileIndicators': value.profileIndicators === undefined ? undefined : (value.profileIndicators.map(IndicatorType_1.IndicatorTypeToJSON)),
         'profileMemberships': (0, CompanyProfileTypeProfileMemberships_1.CompanyProfileTypeProfileMembershipsToJSON)(value.profileMemberships),
         'profileRestrictions': (0, ProfileRestrictions_1.ProfileRestrictionsToJSON)(value.profileRestrictions),
         'profileType': (0, CompanyProfileTypeType_1.CompanyProfileTypeTypeToJSON)(value.profileType),
@@ -158,14 +158,14 @@ function CompanyProfileTypeToJSON(value) {
         'requestForHotel': value.requestForHotel,
         'salesInfo': (0, SalesInfoType_1.SalesInfoTypeToJSON)(value.salesInfo),
         'statusCode': (0, ProfileStatusType_1.ProfileStatusTypeToJSON)(value.statusCode),
-        'subscriptions': (0, ProfileSubscriptionListType_1.ProfileSubscriptionListTypeToJSON)(value.subscriptions),
+        'subscriptions': value.subscriptions === undefined ? undefined : (value.subscriptions.map(ProfileSubscriptionType_1.ProfileSubscriptionTypeToJSON)),
         'taxInfo': (0, ProfileTaxInfoType_1.ProfileTaxInfoTypeToJSON)(value.taxInfo),
         'telephones': (0, CompanyProfileTypeTelephones_1.CompanyProfileTypeTelephonesToJSON)(value.telephones),
         'territory': value.territory,
         'traceCode': value.traceCode,
         'uRLs': (0, CompanyProfileTypeURLs_1.CompanyProfileTypeURLsToJSON)(value.uRLs),
         'userDefinedFields': (0, UserDefinedFieldsType_1.UserDefinedFieldsTypeToJSON)(value.userDefinedFields),
-        'webUserAccounts': (0, WebUserAccountsType_1.WebUserAccountsTypeToJSON)(value.webUserAccounts),
+        'webUserAccounts': value.webUserAccounts === undefined ? undefined : (value.webUserAccounts.map(WebUserAccountType_1.WebUserAccountTypeToJSON)),
     };
 }
 exports.CompanyProfileTypeToJSON = CompanyProfileTypeToJSON;

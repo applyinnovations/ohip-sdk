@@ -25,12 +25,12 @@ import {
     ReservationIdFromJSONTyped,
     ReservationIdToJSON,
 } from './ReservationId';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -52,10 +52,10 @@ export interface MoveReservationHotelCriteriaType {
     destinationHotelCode?: string;
     /**
      * Valid share reservation identifier. This ID will be verified against the SourceHotel.
-     * @type {Array<ReservationIdList>}
+     * @type {Array<Array<UniqueIDType>>}
      * @memberof MoveReservationHotelCriteriaType
      */
-    includedSharers?: Array<ReservationIdList>;
+    includedSharers?: Array<Array<UniqueIDType>>;
     /**
      * 
      * @type {string}
@@ -97,7 +97,7 @@ export function MoveReservationHotelCriteriaTypeFromJSONTyped(json: any, ignoreD
         
         'configuredReservation': !exists(json, 'configuredReservation') ? undefined : HotelReservationInstructionTypeFromJSON(json['configuredReservation']),
         'destinationHotelCode': !exists(json, 'destinationHotelCode') ? undefined : json['destinationHotelCode'],
-        'includedSharers': !exists(json, 'includedSharers') ? undefined : ((json['includedSharers'] as Array<any>).map(ReservationIdListFromJSON)),
+        'includedSharers': !exists(json, 'includedSharers') ? undefined : json['includedSharers'],
         'moveReasonCode': !exists(json, 'moveReasonCode') ? undefined : json['moveReasonCode'],
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
         'sourceHotelCode': !exists(json, 'sourceHotelCode') ? undefined : json['sourceHotelCode'],
@@ -115,7 +115,7 @@ export function MoveReservationHotelCriteriaTypeToJSON(value?: MoveReservationHo
         
         'configuredReservation': HotelReservationInstructionTypeToJSON(value.configuredReservation),
         'destinationHotelCode': value.destinationHotelCode,
-        'includedSharers': value.includedSharers === undefined ? undefined : ((value.includedSharers as Array<any>).map(ReservationIdListToJSON)),
+        'includedSharers': value.includedSharers,
         'moveReasonCode': value.moveReasonCode,
         'reservationId': ReservationIdToJSON(value.reservationId),
         'sourceHotelCode': value.sourceHotelCode,

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ARAccountsType } from './ARAccountsType';
+import type { ARAccountType } from './ARAccountType';
 import {
-    ARAccountsTypeFromJSON,
-    ARAccountsTypeFromJSONTyped,
-    ARAccountsTypeToJSON,
-} from './ARAccountsType';
-import type { Links } from './Links';
+    ARAccountTypeFromJSON,
+    ARAccountTypeFromJSONTyped,
+    ARAccountTypeToJSON,
+} from './ARAccountType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response of profile accounts.
@@ -39,23 +39,23 @@ import {
  */
 export interface ProfileAccounts {
     /**
-     * 
-     * @type {ARAccountsType}
+     * Information regarding the AR Account.
+     * @type {Array<ARAccountType>}
      * @memberof ProfileAccounts
      */
-    accounts?: ARAccountsType;
+    accounts?: Array<ARAccountType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileAccounts
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileAccounts
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ProfileAccountsFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'accounts': !exists(json, 'accounts') ? undefined : ARAccountsTypeFromJSON(json['accounts']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'accounts': !exists(json, 'accounts') ? undefined : ((json['accounts'] as Array<any>).map(ARAccountTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ProfileAccountsToJSON(value?: ProfileAccounts | null): any {
     }
     return {
         
-        'accounts': ARAccountsTypeToJSON(value.accounts),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'accounts': value.accounts === undefined ? undefined : ((value.accounts as Array<any>).map(ARAccountTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

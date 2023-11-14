@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DistanceTypesType } from './DistanceTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { DistanceTypeType } from './DistanceTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Distance Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface DistanceTypesCriteria {
     /**
-     *
-     * @type {DistanceTypesType}
+     * List of Distance Types.
+     * @type {Array<DistanceTypeType>}
      * @memberof DistanceTypesCriteria
      */
-    distanceTypes?: DistanceTypesType;
+    distanceTypes?: Array<DistanceTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DistanceTypesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DistanceTypesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DistanceTypesCriteria interface.

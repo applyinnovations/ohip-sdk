@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { HotelCalendarDayTypeType } from './HotelCalendarDayTypeType';
-import type { HotelCalendarEventsType } from './HotelCalendarEventsType';
+import type { HotelCalendarEventType } from './HotelCalendarEventType';
 /**
  * Details of calendar entries for a specific day for a specific hotel.
  * @export
@@ -30,11 +30,11 @@ export interface HotelCalendarDayType {
      */
     dayType?: HotelCalendarDayTypeType;
     /**
-     *
-     * @type {HotelCalendarEventsType}
+     * Details of hotel events
+     * @type {Array<HotelCalendarEventType>}
      * @memberof HotelCalendarDayType
      */
-    events?: HotelCalendarEventsType;
+    events?: Array<HotelCalendarEventType>;
 }
 /**
  * Check if a given object implements the HotelCalendarDayType interface.

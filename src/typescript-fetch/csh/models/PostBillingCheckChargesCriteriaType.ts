@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostBillingCheckChargesItemsCriteriaType } from './PostBillingCheckChargesItemsCriteriaType';
+import type { PostBillingCheckChargesItemCriteriaType } from './PostBillingCheckChargesItemCriteriaType';
 import {
-    PostBillingCheckChargesItemsCriteriaTypeFromJSON,
-    PostBillingCheckChargesItemsCriteriaTypeFromJSONTyped,
-    PostBillingCheckChargesItemsCriteriaTypeToJSON,
-} from './PostBillingCheckChargesItemsCriteriaType';
+    PostBillingCheckChargesItemCriteriaTypeFromJSON,
+    PostBillingCheckChargesItemCriteriaTypeFromJSONTyped,
+    PostBillingCheckChargesItemCriteriaTypeToJSON,
+} from './PostBillingCheckChargesItemCriteriaType';
 import type { ReservationId } from './ReservationId';
 import {
     ReservationIdFromJSON,
@@ -63,11 +63,11 @@ export interface PostBillingCheckChargesCriteriaType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {PostBillingCheckChargesItemsCriteriaType}
+     * Line items of the check.
+     * @type {Array<PostBillingCheckChargesItemCriteriaType>}
      * @memberof PostBillingCheckChargesCriteriaType
      */
-    items?: PostBillingCheckChargesItemsCriteriaType;
+    items?: Array<PostBillingCheckChargesItemCriteriaType>;
     /**
      * 
      * @type {ReservationId}
@@ -105,7 +105,7 @@ export function PostBillingCheckChargesCriteriaTypeFromJSONTyped(json: any, igno
         'checkId': !exists(json, 'checkId') ? undefined : UniqueIDTypeFromJSON(json['checkId']),
         'checkNumber': !exists(json, 'checkNumber') ? undefined : json['checkNumber'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'items': !exists(json, 'items') ? undefined : PostBillingCheckChargesItemsCriteriaTypeFromJSON(json['items']),
+        'items': !exists(json, 'items') ? undefined : ((json['items'] as Array<any>).map(PostBillingCheckChargesItemCriteriaTypeFromJSON)),
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
         'revenueDate': !exists(json, 'revenueDate') ? undefined : (new Date(json['revenueDate'])),
     };
@@ -124,7 +124,7 @@ export function PostBillingCheckChargesCriteriaTypeToJSON(value?: PostBillingChe
         'checkId': UniqueIDTypeToJSON(value.checkId),
         'checkNumber': value.checkNumber,
         'hotelId': value.hotelId,
-        'items': PostBillingCheckChargesItemsCriteriaTypeToJSON(value.items),
+        'items': value.items === undefined ? undefined : ((value.items as Array<any>).map(PostBillingCheckChargesItemCriteriaTypeToJSON)),
         'reservationId': ReservationIdToJSON(value.reservationId),
         'revenueDate': value.revenueDate === undefined ? undefined : (value.revenueDate.toISOString().substring(0,10)),
     };

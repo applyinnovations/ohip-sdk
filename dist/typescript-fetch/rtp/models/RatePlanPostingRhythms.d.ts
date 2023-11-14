@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { GenericHotelCodeCodeType } from './GenericHotelCodeCodeType';
-import type { Links } from './Links';
-import type { RatePlanAdvancedPostingRhythmsType } from './RatePlanAdvancedPostingRhythmsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RatePlanAdvancedPostingRhythmType } from './RatePlanAdvancedPostingRhythmType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new rate plan advanced posting rhythms.
  * @export
@@ -21,16 +21,16 @@ import type { WarningsType } from './WarningsType';
 export interface RatePlanPostingRhythms {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RatePlanPostingRhythms
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RatePlanAdvancedPostingRhythmsType}
+     * Posting rhythm details for a rate plan containing Buy x Get y functionality.
+     * @type {Array<RatePlanAdvancedPostingRhythmType>}
      * @memberof RatePlanPostingRhythms
      */
-    postingRhythms?: RatePlanAdvancedPostingRhythmsType;
+    postingRhythms?: Array<RatePlanAdvancedPostingRhythmType>;
     /**
      *
      * @type {GenericHotelCodeCodeType}
@@ -38,11 +38,11 @@ export interface RatePlanPostingRhythms {
      */
     ratePlan?: GenericHotelCodeCodeType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RatePlanPostingRhythms
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RatePlanPostingRhythms interface.

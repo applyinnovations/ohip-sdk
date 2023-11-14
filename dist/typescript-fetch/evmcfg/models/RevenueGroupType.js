@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RevenueGroupTypeToJSON = exports.RevenueGroupTypeFromJSONTyped = exports.RevenueGroupTypeFromJSON = exports.instanceOfRevenueGroupType = void 0;
 const runtime_1 = require("../runtime");
-const RevenueTypesType_1 = require("./RevenueTypesType");
+const RevenueTypeType_1 = require("./RevenueTypeType");
 const TranslationTextType200_1 = require("./TranslationTextType200");
 /**
  * Check if a given object implements the RevenueGroupType interface.
@@ -37,7 +37,7 @@ function RevenueGroupTypeFromJSONTyped(json, ignoreDiscriminator) {
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
         'displaySequence': !(0, runtime_1.exists)(json, 'displaySequence') ? undefined : json['displaySequence'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
-        'revenueTypes': !(0, runtime_1.exists)(json, 'revenueTypes') ? undefined : (0, RevenueTypesType_1.RevenueTypesTypeFromJSON)(json['revenueTypes']),
+        'revenueTypes': !(0, runtime_1.exists)(json, 'revenueTypes') ? undefined : (json['revenueTypes'].map(RevenueTypeType_1.RevenueTypeTypeFromJSON)),
         'translatableDescription': !(0, runtime_1.exists)(json, 'translatableDescription') ? undefined : (0, TranslationTextType200_1.TranslationTextType200FromJSON)(json['translatableDescription']),
     };
 }
@@ -53,7 +53,7 @@ function RevenueGroupTypeToJSON(value) {
         'code': value.code,
         'displaySequence': value.displaySequence,
         'inactive': value.inactive,
-        'revenueTypes': (0, RevenueTypesType_1.RevenueTypesTypeToJSON)(value.revenueTypes),
+        'revenueTypes': value.revenueTypes === undefined ? undefined : (value.revenueTypes.map(RevenueTypeType_1.RevenueTypeTypeToJSON)),
         'translatableDescription': (0, TranslationTextType200_1.TranslationTextType200ToJSON)(value.translatableDescription),
     };
 }

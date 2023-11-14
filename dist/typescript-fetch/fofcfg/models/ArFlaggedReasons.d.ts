@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ARFlaggedReasonsType } from './ARFlaggedReasonsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ARFlaggedReasonType } from './ARFlaggedReasonType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for fetching Flagged Reasons.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ArFlaggedReasons {
     /**
-     *
-     * @type {ARFlaggedReasonsType}
+     * List of the Flagged Reason to be configured or fetched
+     * @type {Array<ARFlaggedReasonType>}
      * @memberof ArFlaggedReasons
      */
-    aRFlaggedReasons?: ARFlaggedReasonsType;
+    aRFlaggedReasons?: Array<ARFlaggedReasonType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ArFlaggedReasons
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ArFlaggedReasons
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ArFlaggedReasons interface.

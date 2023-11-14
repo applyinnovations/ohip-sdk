@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GenderTypesCriteriaToJSON = exports.GenderTypesCriteriaFromJSONTyped = exports.GenderTypesCriteriaFromJSON = exports.instanceOfGenderTypesCriteria = void 0;
 const runtime_1 = require("../runtime");
-const GenderTypesType_1 = require("./GenderTypesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const GenderType_1 = require("./GenderType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the GenderTypesCriteria interface.
  */
@@ -35,9 +35,9 @@ function GenderTypesCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'genderTypes': !(0, runtime_1.exists)(json, 'genderTypes') ? undefined : (0, GenderTypesType_1.GenderTypesTypeFromJSON)(json['genderTypes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'genderTypes': !(0, runtime_1.exists)(json, 'genderTypes') ? undefined : (json['genderTypes'].map(GenderType_1.GenderTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.GenderTypesCriteriaFromJSONTyped = GenderTypesCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function GenderTypesCriteriaToJSON(value) {
         return null;
     }
     return {
-        'genderTypes': (0, GenderTypesType_1.GenderTypesTypeToJSON)(value.genderTypes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'genderTypes': value.genderTypes === undefined ? undefined : (value.genderTypes.map(GenderType_1.GenderTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.GenderTypesCriteriaToJSON = GenderTypesCriteriaToJSON;

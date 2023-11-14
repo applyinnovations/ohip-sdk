@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
-import type { YieldMarketTypesType } from './YieldMarketTypesType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
+import type { YieldMarketTypeType } from './YieldMarketTypeType';
 import {
-    YieldMarketTypesTypeFromJSON,
-    YieldMarketTypesTypeFromJSONTyped,
-    YieldMarketTypesTypeToJSON,
-} from './YieldMarketTypesType';
+    YieldMarketTypeTypeFromJSON,
+    YieldMarketTypeTypeFromJSONTyped,
+    YieldMarketTypeTypeToJSON,
+} from './YieldMarketTypeType';
 
 /**
  * Response object for fetching Yield Market Types.
@@ -40,22 +40,22 @@ import {
 export interface YieldMarketTypesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof YieldMarketTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof YieldMarketTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
     /**
-     * 
-     * @type {YieldMarketTypesType}
+     * List of Yield Market Type to be configured or fetched
+     * @type {Array<YieldMarketTypeType>}
      * @memberof YieldMarketTypesDetails
      */
-    yieldMarketTypes?: YieldMarketTypesType;
+    yieldMarketTypes?: Array<YieldMarketTypeType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function YieldMarketTypesDetailsFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
-        'yieldMarketTypes': !exists(json, 'yieldMarketTypes') ? undefined : YieldMarketTypesTypeFromJSON(json['yieldMarketTypes']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
+        'yieldMarketTypes': !exists(json, 'yieldMarketTypes') ? undefined : ((json['yieldMarketTypes'] as Array<any>).map(YieldMarketTypeTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function YieldMarketTypesDetailsToJSON(value?: YieldMarketTypesDetails | 
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
-        'yieldMarketTypes': YieldMarketTypesTypeToJSON(value.yieldMarketTypes),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
+        'yieldMarketTypes': value.yieldMarketTypes === undefined ? undefined : ((value.yieldMarketTypes as Array<any>).map(YieldMarketTypeTypeToJSON)),
     };
 }
 

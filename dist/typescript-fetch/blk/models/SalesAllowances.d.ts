@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { SalesAllowancesType } from './SalesAllowancesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { SalesAllowanceType } from './SalesAllowanceType';
+import type { WarningType } from './WarningType';
 /**
  * Response returned by fetch corrected sales allowances.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface SalesAllowances {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SalesAllowances
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {SalesAllowancesType}
+     * Collection of Sales Allowances.
+     * @type {Array<SalesAllowanceType>}
      * @memberof SalesAllowances
      */
-    salesAllowances?: SalesAllowancesType;
+    salesAllowances?: Array<SalesAllowanceType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SalesAllowances
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SalesAllowances interface.

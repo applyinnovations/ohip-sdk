@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Profiles } from './Profiles';
+import type { ProfileId } from './ProfileId';
 /**
  * Criteria to identify the profiles to be forgotten.
  * @export
@@ -17,11 +17,11 @@ import type { Profiles } from './Profiles';
  */
 export interface ForgetProfilesCriteriaType {
     /**
-     *
-     * @type {Profiles}
+     * Unique identifier for a profile.
+     * @type {Array<ProfileId>}
      * @memberof ForgetProfilesCriteriaType
      */
-    profiles?: Profiles;
+    profiles?: Array<ProfileId>;
 }
 /**
  * Check if a given object implements the ForgetProfilesCriteriaType interface.

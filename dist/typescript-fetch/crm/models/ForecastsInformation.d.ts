@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AccountForecastsType } from './AccountForecastsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AccountForecastType } from './AccountForecastType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ForecastsInformation {
     /**
-     *
-     * @type {AccountForecastsType}
+     * Detail Information about Account Forecast.
+     * @type {Array<AccountForecastType>}
      * @memberof ForecastsInformation
      */
-    forecastsInformation?: AccountForecastsType;
+    forecastsInformation?: Array<AccountForecastType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ForecastsInformation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ForecastsInformation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ForecastsInformation interface.

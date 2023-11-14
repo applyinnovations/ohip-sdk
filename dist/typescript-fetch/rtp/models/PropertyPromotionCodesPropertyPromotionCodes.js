@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PropertyPromotionCodesPropertyPromotionCodesToJSON = exports.PropertyPromotionCodesPropertyPromotionCodesFromJSONTyped = exports.PropertyPromotionCodesPropertyPromotionCodesFromJSON = exports.instanceOfPropertyPromotionCodesPropertyPromotionCodes = void 0;
 const runtime_1 = require("../runtime");
-const PropertyPromotionCodesType_1 = require("./PropertyPromotionCodesType");
+const PropertyPromotionCodeType_1 = require("./PropertyPromotionCodeType");
 /**
  * Check if a given object implements the PropertyPromotionCodesPropertyPromotionCodes interface.
  */
@@ -37,7 +37,7 @@ function PropertyPromotionCodesPropertyPromotionCodesFromJSONTyped(json, ignoreD
         'hasMore': !(0, runtime_1.exists)(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
         'offset': !(0, runtime_1.exists)(json, 'offset') ? undefined : json['offset'],
-        'propertyPromotionCodes': !(0, runtime_1.exists)(json, 'propertyPromotionCodes') ? undefined : (0, PropertyPromotionCodesType_1.PropertyPromotionCodesTypeFromJSON)(json['propertyPromotionCodes']),
+        'propertyPromotionCodes': !(0, runtime_1.exists)(json, 'propertyPromotionCodes') ? undefined : (json['propertyPromotionCodes'].map(PropertyPromotionCodeType_1.PropertyPromotionCodeTypeFromJSON)),
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !(0, runtime_1.exists)(json, 'totalResults') ? undefined : json['totalResults'],
     };
@@ -55,7 +55,7 @@ function PropertyPromotionCodesPropertyPromotionCodesToJSON(value) {
         'hasMore': value.hasMore,
         'limit': value.limit,
         'offset': value.offset,
-        'propertyPromotionCodes': (0, PropertyPromotionCodesType_1.PropertyPromotionCodesTypeToJSON)(value.propertyPromotionCodes),
+        'propertyPromotionCodes': value.propertyPromotionCodes === undefined ? undefined : (value.propertyPromotionCodes.map(PropertyPromotionCodeType_1.PropertyPromotionCodeTypeToJSON)),
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
     };

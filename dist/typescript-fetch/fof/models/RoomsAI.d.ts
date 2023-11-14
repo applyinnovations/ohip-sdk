@@ -9,8 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to run AI Room Assignment and allocate rooms to incoming reservations.
  * @export
@@ -19,16 +18,16 @@ import type { WarningsType } from './WarningsType';
 export interface RoomsAI {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof RoomsAI
      */
-    hotelCodes?: CodeListType;
+    hotelCodes?: Array<string>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomsAI
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomsAI interface.

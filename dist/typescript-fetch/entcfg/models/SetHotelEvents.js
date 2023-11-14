@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SetHotelEventsToJSON = exports.SetHotelEventsFromJSONTyped = exports.SetHotelEventsFromJSON = exports.instanceOfSetHotelEvents = void 0;
 const runtime_1 = require("../runtime");
-const HotelEventCodesType_1 = require("./HotelEventCodesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HotelEventCodeType_1 = require("./HotelEventCodeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the SetHotelEvents interface.
  */
@@ -35,9 +35,9 @@ function SetHotelEventsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'hotelEvents': !(0, runtime_1.exists)(json, 'hotelEvents') ? undefined : (0, HotelEventCodesType_1.HotelEventCodesTypeFromJSON)(json['hotelEvents']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'hotelEvents': !(0, runtime_1.exists)(json, 'hotelEvents') ? undefined : (json['hotelEvents'].map(HotelEventCodeType_1.HotelEventCodeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.SetHotelEventsFromJSONTyped = SetHotelEventsFromJSONTyped;
@@ -49,9 +49,9 @@ function SetHotelEventsToJSON(value) {
         return null;
     }
     return {
-        'hotelEvents': (0, HotelEventCodesType_1.HotelEventCodesTypeToJSON)(value.hotelEvents),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'hotelEvents': value.hotelEvents === undefined ? undefined : (value.hotelEvents.map(HotelEventCodeType_1.HotelEventCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.SetHotelEventsToJSON = SetHotelEventsToJSON;

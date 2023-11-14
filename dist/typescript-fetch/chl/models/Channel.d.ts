@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ChannelType } from './ChannelType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching details of channel.
  * @export
@@ -26,16 +26,16 @@ export interface Channel {
     channel?: ChannelType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Channel
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Channel
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Channel interface.

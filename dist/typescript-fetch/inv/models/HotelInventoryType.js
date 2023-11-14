@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelInventoryTypeToJSON = exports.HotelInventoryTypeFromJSONTyped = exports.HotelInventoryTypeFromJSON = exports.instanceOfHotelInventoryType = void 0;
 const runtime_1 = require("../runtime");
-const InventoryCountsListType_1 = require("./InventoryCountsListType");
+const InventoryCountsType_1 = require("./InventoryCountsType");
 const InventoryLevelCountsListType_1 = require("./InventoryLevelCountsListType");
 /**
  * Check if a given object implements the HotelInventoryType interface.
@@ -34,7 +34,7 @@ function HotelInventoryTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'houseInventory': !(0, runtime_1.exists)(json, 'houseInventory') ? undefined : (0, InventoryCountsListType_1.InventoryCountsListTypeFromJSON)(json['houseInventory']),
+        'houseInventory': !(0, runtime_1.exists)(json, 'houseInventory') ? undefined : (json['houseInventory'].map(InventoryCountsType_1.InventoryCountsTypeFromJSON)),
         'roomClassInventories': !(0, runtime_1.exists)(json, 'roomClassInventories') ? undefined : (json['roomClassInventories'].map(InventoryLevelCountsListType_1.InventoryLevelCountsListTypeFromJSON)),
         'roomTypeInventories': !(0, runtime_1.exists)(json, 'roomTypeInventories') ? undefined : (json['roomTypeInventories'].map(InventoryLevelCountsListType_1.InventoryLevelCountsListTypeFromJSON)),
     };
@@ -48,7 +48,7 @@ function HotelInventoryTypeToJSON(value) {
         return null;
     }
     return {
-        'houseInventory': (0, InventoryCountsListType_1.InventoryCountsListTypeToJSON)(value.houseInventory),
+        'houseInventory': value.houseInventory === undefined ? undefined : (value.houseInventory.map(InventoryCountsType_1.InventoryCountsTypeToJSON)),
         'roomClassInventories': value.roomClassInventories === undefined ? undefined : (value.roomClassInventories.map(InventoryLevelCountsListType_1.InventoryLevelCountsListTypeToJSON)),
         'roomTypeInventories': value.roomTypeInventories === undefined ? undefined : (value.roomTypeInventories.map(InventoryLevelCountsListType_1.InventoryLevelCountsListTypeToJSON)),
     };

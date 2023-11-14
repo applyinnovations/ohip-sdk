@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelInterfaceControllerRegsType } from './HotelInterfaceControllerRegsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelInterfaceControllerRegType } from './HotelInterfaceControllerRegType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for retrieving Hotel Interface Controller Registry.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface FetchedHotelInterfaceControllerRegistry {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchedHotelInterfaceControllerRegistry
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {HotelInterfaceControllerRegsType}
+     * Collection of Hotel Interface Controller Registry.
+     * @type {Array<HotelInterfaceControllerRegType>}
      * @memberof FetchedHotelInterfaceControllerRegistry
      */
-    reg?: HotelInterfaceControllerRegsType;
+    reg?: Array<HotelInterfaceControllerRegType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchedHotelInterfaceControllerRegistry
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FetchedHotelInterfaceControllerRegistry interface.

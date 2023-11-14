@@ -19,12 +19,12 @@ import {
     HotelReservationsTypeFromJSONTyped,
     HotelReservationsTypeToJSON,
 } from './HotelReservationsType';
-import type { RoomingListSharesType } from './RoomingListSharesType';
+import type { RoomingListShareType } from './RoomingListShareType';
 import {
-    RoomingListSharesTypeFromJSON,
-    RoomingListSharesTypeFromJSONTyped,
-    RoomingListSharesTypeToJSON,
-} from './RoomingListSharesType';
+    RoomingListShareTypeFromJSON,
+    RoomingListShareTypeFromJSONTyped,
+    RoomingListShareTypeToJSON,
+} from './RoomingListShareType';
 
 /**
  * Collection of block reservations.
@@ -39,11 +39,11 @@ export interface BlockReservationsType {
      */
     reservations?: HotelReservationsType;
     /**
-     * 
-     * @type {RoomingListSharesType}
+     * Contains a set of rooming list reservations that need to be shared.
+     * @type {Array<RoomingListShareType>}
      * @memberof BlockReservationsType
      */
-    shares?: RoomingListSharesType;
+    shares?: Array<RoomingListShareType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function BlockReservationsTypeFromJSONTyped(json: any, ignoreDiscriminato
     return {
         
         'reservations': !exists(json, 'reservations') ? undefined : HotelReservationsTypeFromJSON(json['reservations']),
-        'shares': !exists(json, 'shares') ? undefined : RoomingListSharesTypeFromJSON(json['shares']),
+        'shares': !exists(json, 'shares') ? undefined : ((json['shares'] as Array<any>).map(RoomingListShareTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function BlockReservationsTypeToJSON(value?: BlockReservationsType | null
     return {
         
         'reservations': HotelReservationsTypeToJSON(value.reservations),
-        'shares': RoomingListSharesTypeToJSON(value.shares),
+        'shares': value.shares === undefined ? undefined : ((value.shares as Array<any>).map(RoomingListShareTypeToJSON)),
     };
 }
 

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { EventNotesType } from './EventNotesType';
+import type { EventNoteType } from './EventNoteType';
 import {
-    EventNotesTypeFromJSON,
-    EventNotesTypeFromJSONTyped,
-    EventNotesTypeToJSON,
-} from './EventNotesType';
+    EventNoteTypeFromJSON,
+    EventNoteTypeFromJSONTyped,
+    EventNoteTypeToJSON,
+} from './EventNoteType';
 import type { OpportunityEventDetailType } from './OpportunityEventDetailType';
 import {
     OpportunityEventDetailTypeFromJSON,
@@ -33,11 +33,11 @@ import {
  */
 export interface OpportunityEventInfoType {
     /**
-     * 
-     * @type {EventNotesType}
+     * Pertain event information.
+     * @type {Array<EventNoteType>}
      * @memberof OpportunityEventInfoType
      */
-    eventNotes?: EventNotesType;
+    eventNotes?: Array<EventNoteType>;
     /**
      * 
      * @type {OpportunityEventDetailType}
@@ -65,7 +65,7 @@ export function OpportunityEventInfoTypeFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'eventNotes': !exists(json, 'eventNotes') ? undefined : EventNotesTypeFromJSON(json['eventNotes']),
+        'eventNotes': !exists(json, 'eventNotes') ? undefined : ((json['eventNotes'] as Array<any>).map(EventNoteTypeFromJSON)),
         'opportunityEventDetail': !exists(json, 'opportunityEventDetail') ? undefined : OpportunityEventDetailTypeFromJSON(json['opportunityEventDetail']),
     };
 }
@@ -79,7 +79,7 @@ export function OpportunityEventInfoTypeToJSON(value?: OpportunityEventInfoType 
     }
     return {
         
-        'eventNotes': EventNotesTypeToJSON(value.eventNotes),
+        'eventNotes': value.eventNotes === undefined ? undefined : ((value.eventNotes as Array<any>).map(EventNoteTypeToJSON)),
         'opportunityEventDetail': OpportunityEventDetailTypeToJSON(value.opportunityEventDetail),
     };
 }

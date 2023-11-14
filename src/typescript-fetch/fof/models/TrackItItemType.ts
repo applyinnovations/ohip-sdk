@@ -43,12 +43,12 @@ import {
     TrackItIdFromJSONTyped,
     TrackItIdToJSON,
 } from './TrackItId';
-import type { TrackItLogListType } from './TrackItLogListType';
+import type { TrackItLogType } from './TrackItLogType';
 import {
-    TrackItLogListTypeFromJSON,
-    TrackItLogListTypeFromJSONTyped,
-    TrackItLogListTypeToJSON,
-} from './TrackItLogListType';
+    TrackItLogTypeFromJSON,
+    TrackItLogTypeFromJSONTyped,
+    TrackItLogTypeToJSON,
+} from './TrackItLogType';
 import type { TrackItReservationInfoType } from './TrackItReservationInfoType';
 import {
     TrackItReservationInfoTypeFromJSON,
@@ -142,10 +142,10 @@ export interface TrackItItemType {
     trackItId?: TrackItId;
     /**
      * 
-     * @type {TrackItLogListType}
+     * @type {Array<TrackItLogType>}
      * @memberof TrackItItemType
      */
-    trackItLogList?: TrackItLogListType;
+    trackItLogList?: Array<TrackItLogType>;
     /**
      * 
      * @type {TrackItType}
@@ -185,7 +185,7 @@ export function TrackItItemTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'reservationInfo': !exists(json, 'reservationInfo') ? undefined : TrackItReservationInfoTypeFromJSON(json['reservationInfo']),
         'ticketNumber': !exists(json, 'ticketNumber') ? undefined : json['ticketNumber'],
         'trackItId': !exists(json, 'trackItId') ? undefined : TrackItIdFromJSON(json['trackItId']),
-        'trackItLogList': !exists(json, 'trackItLogList') ? undefined : TrackItLogListTypeFromJSON(json['trackItLogList']),
+        'trackItLogList': !exists(json, 'trackItLogList') ? undefined : ((json['trackItLogList'] as Array<any>).map(TrackItLogTypeFromJSON)),
         'type': !exists(json, 'type') ? undefined : TrackItTypeFromJSON(json['type']),
     };
 }
@@ -211,7 +211,7 @@ export function TrackItItemTypeToJSON(value?: TrackItItemType | null): any {
         'reservationInfo': TrackItReservationInfoTypeToJSON(value.reservationInfo),
         'ticketNumber': value.ticketNumber,
         'trackItId': TrackItIdToJSON(value.trackItId),
-        'trackItLogList': TrackItLogListTypeToJSON(value.trackItLogList),
+        'trackItLogList': value.trackItLogList === undefined ? undefined : ((value.trackItLogList as Array<any>).map(TrackItLogTypeToJSON)),
         'type': TrackItTypeToJSON(value.type),
     };
 }

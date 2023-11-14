@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { SalesManagersType } from './SalesManagersType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * You can use this API to retrieve multiple Sales Managers, you can narrow the results using different search criteria
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface SalesManagersInfo {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SalesManagersInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {SalesManagersType}
@@ -31,11 +31,11 @@ export interface SalesManagersInfo {
      */
     salesManagers?: SalesManagersType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SalesManagersInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SalesManagersInfo interface.

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipAwardsListType } from './MembershipAwardsListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipAwardListType } from './MembershipAwardListType';
 import {
-    MembershipAwardsListTypeFromJSON,
-    MembershipAwardsListTypeFromJSONTyped,
-    MembershipAwardsListTypeToJSON,
-} from './MembershipAwardsListType';
-import type { WarningsType } from './WarningsType';
+    MembershipAwardListTypeFromJSON,
+    MembershipAwardListTypeFromJSONTyped,
+    MembershipAwardListTypeToJSON,
+} from './MembershipAwardListType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching member issued award list.
@@ -58,16 +58,16 @@ export interface MembershipIssueAwards {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipIssueAwards
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MembershipAwardsListType}
+     * List of Member Awards information.
+     * @type {Array<MembershipAwardListType>}
      * @memberof MembershipIssueAwards
      */
-    membershipAwardsList?: MembershipAwardsListType;
+    membershipAwardsList?: Array<MembershipAwardListType>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -87,11 +87,11 @@ export interface MembershipIssueAwards {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipIssueAwards
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -116,12 +116,12 @@ export function MembershipIssueAwardsFromJSONTyped(json: any, ignoreDiscriminato
         'count': !exists(json, 'count') ? undefined : json['count'],
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'membershipAwardsList': !exists(json, 'membershipAwardsList') ? undefined : MembershipAwardsListTypeFromJSON(json['membershipAwardsList']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'membershipAwardsList': !exists(json, 'membershipAwardsList') ? undefined : ((json['membershipAwardsList'] as Array<any>).map(MembershipAwardListTypeFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -137,12 +137,12 @@ export function MembershipIssueAwardsToJSON(value?: MembershipIssueAwards | null
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
-        'membershipAwardsList': MembershipAwardsListTypeToJSON(value.membershipAwardsList),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'membershipAwardsList': value.membershipAwardsList === undefined ? undefined : ((value.membershipAwardsList as Array<any>).map(MembershipAwardListTypeToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

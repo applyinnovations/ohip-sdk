@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ProfileAllowedActionsType } from './ProfileAllowedActionsType';
-import type { ProfileIdList } from './ProfileIdList';
+import type { ProfileAllowedActionType } from './ProfileAllowedActionType';
 import type { ProfileType } from './ProfileType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -19,11 +19,11 @@ import type { ProfileType } from './ProfileType';
  */
 export interface ProfilesTypeProfileInfoInner {
     /**
-     *
-     * @type {ProfileAllowedActionsType}
+     * Allowed actions for profile operations.
+     * @type {Array<ProfileAllowedActionType>}
      * @memberof ProfilesTypeProfileInfoInner
      */
-    allowedActions?: ProfileAllowedActionsType;
+    allowedActions?: Array<ProfileAllowedActionType>;
     /**
      * Chain code associated with the profile.
      * @type {string}
@@ -37,11 +37,11 @@ export interface ProfilesTypeProfileInfoInner {
      */
     profile?: ProfileType;
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ProfilesTypeProfileInfoInner
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the ProfilesTypeProfileInfoInner interface.

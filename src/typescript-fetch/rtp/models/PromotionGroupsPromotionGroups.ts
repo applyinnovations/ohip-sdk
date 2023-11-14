@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PromotionGroupsType } from './PromotionGroupsType';
+import type { PromotionGroupType } from './PromotionGroupType';
 import {
-    PromotionGroupsTypeFromJSON,
-    PromotionGroupsTypeFromJSONTyped,
-    PromotionGroupsTypeToJSON,
-} from './PromotionGroupsType';
+    PromotionGroupTypeFromJSON,
+    PromotionGroupTypeFromJSONTyped,
+    PromotionGroupTypeToJSON,
+} from './PromotionGroupType';
 
 /**
  * Collection of promotion groups
@@ -45,11 +45,11 @@ export interface PromotionGroupsPromotionGroups {
      */
     offset?: number;
     /**
-     * 
-     * @type {PromotionGroupsType}
+     * A promotion group.
+     * @type {Array<PromotionGroupType>}
      * @memberof PromotionGroupsPromotionGroups
      */
-    promotionGroups?: PromotionGroupsType;
+    promotionGroups?: Array<PromotionGroupType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -86,7 +86,7 @@ export function PromotionGroupsPromotionGroupsFromJSONTyped(json: any, ignoreDis
         'allRowsFetched': !exists(json, 'allRowsFetched') ? undefined : json['allRowsFetched'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
-        'promotionGroups': !exists(json, 'promotionGroups') ? undefined : PromotionGroupsTypeFromJSON(json['promotionGroups']),
+        'promotionGroups': !exists(json, 'promotionGroups') ? undefined : ((json['promotionGroups'] as Array<any>).map(PromotionGroupTypeFromJSON)),
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalRows': !exists(json, 'totalRows') ? undefined : json['totalRows'],
     };
@@ -104,7 +104,7 @@ export function PromotionGroupsPromotionGroupsToJSON(value?: PromotionGroupsProm
         'allRowsFetched': value.allRowsFetched,
         'limit': value.limit,
         'offset': value.offset,
-        'promotionGroups': PromotionGroupsTypeToJSON(value.promotionGroups),
+        'promotionGroups': value.promotionGroups === undefined ? undefined : ((value.promotionGroups as Array<any>).map(PromotionGroupTypeToJSON)),
         'totalPages': value.totalPages,
         'totalRows': value.totalRows,
     };

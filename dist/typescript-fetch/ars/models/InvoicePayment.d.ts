@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ARAccountsInvoicesPaymentsType } from './ARAccountsInvoicesPaymentsType';
-import type { Links } from './Links';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+import type { ARAccountInvoicesPaymentsType } from './ARAccountInvoicesPaymentsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TrxInfoType } from './TrxInfoType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,29 +20,29 @@ import type { WarningsType } from './WarningsType';
  */
 export interface InvoicePayment {
     /**
-     *
-     * @type {ARAccountsInvoicesPaymentsType}
+     * Account Invoice information.
+     * @type {Array<ARAccountInvoicesPaymentsType>}
      * @memberof InvoicePayment
      */
-    details?: ARAccountsInvoicesPaymentsType;
+    details?: Array<ARAccountInvoicesPaymentsType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof InvoicePayment
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof InvoicePayment
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof InvoicePayment
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the InvoicePayment interface.

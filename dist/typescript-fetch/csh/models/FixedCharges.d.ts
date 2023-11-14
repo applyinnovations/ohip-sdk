@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FixedChargesType } from './FixedChargesType';
-import type { Links } from './Links';
+import type { FixedChargeType } from './FixedChargeType';
+import type { InstanceLink } from './InstanceLink';
 import type { UniqueIDType } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Method to update fixed charges of a reservation.
  * @export
@@ -20,11 +20,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FixedCharges {
     /**
-     *
-     * @type {FixedChargesType}
+     * Holds fixed charge detail.
+     * @type {Array<FixedChargeType>}
      * @memberof FixedCharges
      */
-    fixedCharges?: FixedChargesType;
+    fixedCharges?: Array<FixedChargeType>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -33,10 +33,10 @@ export interface FixedCharges {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FixedCharges
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {UniqueIDType}
@@ -44,11 +44,11 @@ export interface FixedCharges {
      */
     reservationId?: UniqueIDType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FixedCharges
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FixedCharges interface.

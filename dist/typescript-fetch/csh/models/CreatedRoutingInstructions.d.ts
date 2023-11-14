@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { PostingsInfoType } from './PostingsInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response when creating a routing instruction. It may optionally return a list of postings which are eligible for transfer as per the new routing instruction in case of room routing instruction.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface CreatedRoutingInstructions {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreatedRoutingInstructions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {PostingsInfoType}
@@ -31,11 +31,11 @@ export interface CreatedRoutingInstructions {
      */
     postingsForRoomRouting?: PostingsInfoType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreatedRoutingInstructions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreatedRoutingInstructions interface.

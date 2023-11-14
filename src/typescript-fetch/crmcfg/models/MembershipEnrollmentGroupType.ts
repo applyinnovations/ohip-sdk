@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { MembershipEnrollmentCodesInfoType } from './MembershipEnrollmentCodesInfoType';
+import type { CodeDescriptionType } from './CodeDescriptionType';
 import {
-    MembershipEnrollmentCodesInfoTypeFromJSON,
-    MembershipEnrollmentCodesInfoTypeFromJSONTyped,
-    MembershipEnrollmentCodesInfoTypeToJSON,
-} from './MembershipEnrollmentCodesInfoType';
+    CodeDescriptionTypeFromJSON,
+    CodeDescriptionTypeFromJSONTyped,
+    CodeDescriptionTypeToJSON,
+} from './CodeDescriptionType';
 
 /**
  * Base type provides information about Membership Market/Property Groups Configuration.
@@ -45,11 +45,11 @@ export interface MembershipEnrollmentGroupType {
      */
     displaySequence?: number;
     /**
-     * 
-     * @type {MembershipEnrollmentCodesInfoType}
+     * Membership enrollment code code and description.
+     * @type {Array<CodeDescriptionType>}
      * @memberof MembershipEnrollmentGroupType
      */
-    enrollmentCodes?: MembershipEnrollmentCodesInfoType;
+    enrollmentCodes?: Array<CodeDescriptionType>;
 }
 
 /**
@@ -74,7 +74,7 @@ export function MembershipEnrollmentGroupTypeFromJSONTyped(json: any, ignoreDisc
         'code': !exists(json, 'code') ? undefined : json['code'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'displaySequence': !exists(json, 'displaySequence') ? undefined : json['displaySequence'],
-        'enrollmentCodes': !exists(json, 'enrollmentCodes') ? undefined : MembershipEnrollmentCodesInfoTypeFromJSON(json['enrollmentCodes']),
+        'enrollmentCodes': !exists(json, 'enrollmentCodes') ? undefined : ((json['enrollmentCodes'] as Array<any>).map(CodeDescriptionTypeFromJSON)),
     };
 }
 
@@ -90,7 +90,7 @@ export function MembershipEnrollmentGroupTypeToJSON(value?: MembershipEnrollment
         'code': value.code,
         'description': value.description,
         'displaySequence': value.displaySequence,
-        'enrollmentCodes': MembershipEnrollmentCodesInfoTypeToJSON(value.enrollmentCodes),
+        'enrollmentCodes': value.enrollmentCodes === undefined ? undefined : ((value.enrollmentCodes as Array<any>).map(CodeDescriptionTypeToJSON)),
     };
 }
 

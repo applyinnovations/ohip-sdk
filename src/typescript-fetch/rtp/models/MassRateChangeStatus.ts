@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MassRateChangeStatusListType } from './MassRateChangeStatusListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MassRateChangeStatusType } from './MassRateChangeStatusType';
 import {
-    MassRateChangeStatusListTypeFromJSON,
-    MassRateChangeStatusListTypeFromJSONTyped,
-    MassRateChangeStatusListTypeToJSON,
-} from './MassRateChangeStatusListType';
-import type { WarningsType } from './WarningsType';
+    MassRateChangeStatusTypeFromJSON,
+    MassRateChangeStatusTypeFromJSONTyped,
+    MassRateChangeStatusTypeToJSON,
+} from './MassRateChangeStatusType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * A response message to fetch the status of mass rate update operation.
@@ -40,22 +40,22 @@ import {
 export interface MassRateChangeStatus {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MassRateChangeStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MassRateChangeStatusListType}
+     * Mass rate update details.
+     * @type {Array<MassRateChangeStatusType>}
      * @memberof MassRateChangeStatus
      */
-    statusList?: MassRateChangeStatusListType;
+    statusList?: Array<MassRateChangeStatusType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MassRateChangeStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MassRateChangeStatusFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'statusList': !exists(json, 'statusList') ? undefined : MassRateChangeStatusListTypeFromJSON(json['statusList']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'statusList': !exists(json, 'statusList') ? undefined : ((json['statusList'] as Array<any>).map(MassRateChangeStatusTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MassRateChangeStatusToJSON(value?: MassRateChangeStatus | null):
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'statusList': MassRateChangeStatusListTypeToJSON(value.statusList),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'statusList': value.statusList === undefined ? undefined : ((value.statusList as Array<any>).map(MassRateChangeStatusTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -19,18 +19,18 @@ import {
     ResGuestTypeFromJSONTyped,
     ResGuestTypeToJSON,
 } from './ResGuestType';
-import type { ReservationIdList } from './ReservationIdList';
-import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
 import type { TimeSpanType } from './TimeSpanType';
 import {
     TimeSpanTypeFromJSON,
     TimeSpanTypeFromJSONTyped,
     TimeSpanTypeToJSON,
 } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Reservation information related to the trace.
@@ -51,11 +51,11 @@ export interface TraceResvInfoType {
      */
     reservationGuests?: Array<ResGuestType>;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof TraceResvInfoType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * Current Reservation Status.
      * @type {string}
@@ -103,7 +103,7 @@ export function TraceResvInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'reservationGuests': !exists(json, 'reservationGuests') ? undefined : ((json['reservationGuests'] as Array<any>).map(ResGuestTypeFromJSON)),
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'reservationStatus': !exists(json, 'reservationStatus') ? undefined : json['reservationStatus'],
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'roomStatus': !exists(json, 'roomStatus') ? undefined : json['roomStatus'],
@@ -122,7 +122,7 @@ export function TraceResvInfoTypeToJSON(value?: TraceResvInfoType | null): any {
         
         'hotelId': value.hotelId,
         'reservationGuests': value.reservationGuests === undefined ? undefined : ((value.reservationGuests as Array<any>).map(ResGuestTypeToJSON)),
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'reservationStatus': value.reservationStatus,
         'roomId': value.roomId,
         'roomStatus': value.roomStatus,

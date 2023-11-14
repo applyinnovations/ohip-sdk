@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationId } from './ReservationId';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Operation for requesting a lock on a reservation.
  * @export
@@ -26,10 +26,10 @@ export interface ReservationLock {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationLock
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * An identifier representing the record lock for the reservation under process.When passed,then it will verify that if the lock is still valid and return same lock handle.Else it will create new lock.
      * @type {number}
@@ -49,11 +49,11 @@ export interface ReservationLock {
      */
     reservationId?: ReservationId;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationLock
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationLock interface.

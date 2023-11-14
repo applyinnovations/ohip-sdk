@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ErrorsType } from './ErrorsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ErrorType } from './ErrorType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Existing Operations Responses will eventually be modified to be extended from this type.
  * @export
@@ -37,17 +37,17 @@ export interface CopyActivityTypesRS {
      */
     enforceAllowed?: boolean;
     /**
-     *
-     * @type {ErrorsType}
+     * An error that occurred during the processing of a message.
+     * @type {Array<ErrorType>}
      * @memberof CopyActivityTypesRS
      */
-    errors?: ErrorsType;
+    errors?: Array<ErrorType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CopyActivityTypesRS
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Indicates if the operation supports the ability to retry the request.
      * @type {boolean}
@@ -79,11 +79,11 @@ export interface CopyActivityTypesRS {
      */
     version?: string;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CopyActivityTypesRS
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CopyActivityTypesRS interface.

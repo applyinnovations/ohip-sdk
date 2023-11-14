@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CompanyProfileType } from './CompanyProfileType';
-import type { Links } from './Links';
-import type { ProfileIdList } from './ProfileIdList';
+import type { InstanceLink } from './InstanceLink';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Request object for creation of company/agent/group/source profile. This object contains profile details with unique identifiers of a profile. The standard optional Opera Context element is also included.
  * @export
@@ -19,11 +19,11 @@ import type { ProfileIdList } from './ProfileIdList';
  */
 export interface Company {
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof Company
      */
-    companyIdList?: ProfileIdList;
+    companyIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {CompanyProfileType}
@@ -32,10 +32,10 @@ export interface Company {
     companyDetails?: CompanyProfileType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Company
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the Company interface.

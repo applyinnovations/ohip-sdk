@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ConfigTemplateAmenitiesType } from './ConfigTemplateAmenitiesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ConfigTemplateAmenityType } from './ConfigTemplateAmenityType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching amenities at the template level.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateAmenitiesDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateAmenitiesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ConfigTemplateAmenitiesType}
+     * This type holds a collection of amenities at the template level.
+     * @type {Array<ConfigTemplateAmenityType>}
      * @memberof TemplateAmenitiesDetails
      */
-    templateAmenities?: ConfigTemplateAmenitiesType;
+    templateAmenities?: Array<ConfigTemplateAmenityType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateAmenitiesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateAmenitiesDetails interface.

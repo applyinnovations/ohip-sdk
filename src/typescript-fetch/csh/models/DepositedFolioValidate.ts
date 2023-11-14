@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ResDepositPolicyType } from './ResDepositPolicyType';
 import {
     ResDepositPolicyTypeFromJSON,
     ResDepositPolicyTypeFromJSONTyped,
     ResDepositPolicyTypeToJSON,
 } from './ResDepositPolicyType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Information regarding the Deposit Policy if a Deposit Folio is going to be created for this policy.
@@ -40,10 +40,10 @@ import {
 export interface DepositedFolioValidate {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DepositedFolioValidate
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {Array<ResDepositPolicyType>}
@@ -51,11 +51,11 @@ export interface DepositedFolioValidate {
      */
     policyInfoList?: Array<ResDepositPolicyType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DepositedFolioValidate
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function DepositedFolioValidateFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'policyInfoList': !exists(json, 'policyInfoList') ? undefined : ((json['policyInfoList'] as Array<any>).map(ResDepositPolicyTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function DepositedFolioValidateToJSON(value?: DepositedFolioValidate | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'policyInfoList': value.policyInfoList === undefined ? undefined : ((value.policyInfoList as Array<any>).map(ResDepositPolicyTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { ConversionHotelInfoType } from './ConversionHotelInfoType';
-import type { ConvertedValuesType } from './ConvertedValuesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ConvertedValueType } from './ConvertedValueType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,11 +20,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ConvertedValues {
     /**
-     *
-     * @type {ConvertedValuesType}
+     * A collection of converted values.
+     * @type {Array<ConvertedValueType>}
      * @memberof ConvertedValues
      */
-    convertedValues?: ConvertedValuesType;
+    convertedValues?: Array<ConvertedValueType>;
     /**
      * ExternalSystem for which the conversion is needed.
      * @type {string}
@@ -39,16 +39,16 @@ export interface ConvertedValues {
     hotelInfo?: ConversionHotelInfoType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ConvertedValues
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ConvertedValues
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ConvertedValues interface.

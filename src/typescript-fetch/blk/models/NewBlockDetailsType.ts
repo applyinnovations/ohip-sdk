@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { DateRangeType } from './DateRangeType';
 import {
     DateRangeTypeFromJSON,
@@ -70,10 +64,10 @@ export interface NewBlockDetailsType {
     cateringStatus?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof NewBlockDetailsType
      */
-    gridCategory?: CodeListType;
+    gridCategory?: Array<string>;
     /**
      * This is the source grid type, like Original, Current, Pickup, which will be copied to the target Business Block.
      * @type {string}
@@ -143,7 +137,7 @@ export function NewBlockDetailsTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'blockOrigin': !exists(json, 'blockOrigin') ? undefined : json['blockOrigin'],
         'blockStatus': !exists(json, 'blockStatus') ? undefined : json['blockStatus'],
         'cateringStatus': !exists(json, 'cateringStatus') ? undefined : json['cateringStatus'],
-        'gridCategory': !exists(json, 'gridCategory') ? undefined : CodeListTypeFromJSON(json['gridCategory']),
+        'gridCategory': !exists(json, 'gridCategory') ? undefined : json['gridCategory'],
         'gridType': !exists(json, 'gridType') ? undefined : json['gridType'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'marketCode': !exists(json, 'marketCode') ? undefined : json['marketCode'],
@@ -169,7 +163,7 @@ export function NewBlockDetailsTypeToJSON(value?: NewBlockDetailsType | null): a
         'blockOrigin': value.blockOrigin,
         'blockStatus': value.blockStatus,
         'cateringStatus': value.cateringStatus,
-        'gridCategory': CodeListTypeToJSON(value.gridCategory),
+        'gridCategory': value.gridCategory,
         'gridType': value.gridType,
         'hotelId': value.hotelId,
         'marketCode': value.marketCode,

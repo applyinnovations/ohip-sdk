@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PropertyTypesToBeChangedToJSON = exports.PropertyTypesToBeChangedFromJSONTyped = exports.PropertyTypesToBeChangedFromJSON = exports.instanceOfPropertyTypesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const PropertyTypesType_1 = require("./PropertyTypesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const PropertyTypeType_1 = require("./PropertyTypeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PropertyTypesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function PropertyTypesToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'propertyTypes': !(0, runtime_1.exists)(json, 'propertyTypes') ? undefined : (0, PropertyTypesType_1.PropertyTypesTypeFromJSON)(json['propertyTypes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'propertyTypes': !(0, runtime_1.exists)(json, 'propertyTypes') ? undefined : (json['propertyTypes'].map(PropertyTypeType_1.PropertyTypeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PropertyTypesToBeChangedFromJSONTyped = PropertyTypesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function PropertyTypesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'propertyTypes': (0, PropertyTypesType_1.PropertyTypesTypeToJSON)(value.propertyTypes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'propertyTypes': value.propertyTypes === undefined ? undefined : (value.propertyTypes.map(PropertyTypeType_1.PropertyTypeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PropertyTypesToBeChangedToJSON = PropertyTypesToBeChangedToJSON;

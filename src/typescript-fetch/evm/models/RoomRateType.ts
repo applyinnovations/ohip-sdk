@@ -25,12 +25,12 @@ import {
     GuestCountsTypeFromJSONTyped,
     GuestCountsTypeToJSON,
 } from './GuestCountsType';
-import type { MealPlansType } from './MealPlansType';
+import type { MealPlanCodeType } from './MealPlanCodeType';
 import {
-    MealPlansTypeFromJSON,
-    MealPlansTypeFromJSONTyped,
-    MealPlansTypeToJSON,
-} from './MealPlansType';
+    MealPlanCodeTypeFromJSON,
+    MealPlanCodeTypeFromJSONTyped,
+    MealPlanCodeTypeToJSON,
+} from './MealPlanCodeType';
 import type { PackageElementType } from './PackageElementType';
 import {
     PackageElementTypeFromJSON,
@@ -207,11 +207,11 @@ export interface RoomRateType {
      */
     marketCodeDescription?: string;
     /**
-     * 
-     * @type {MealPlansType}
+     * Meal plan codes associated with the rate codes.
+     * @type {Array<MealPlanCodeType>}
      * @memberof RoomRateType
      */
-    mealPlans?: MealPlansType;
+    mealPlans?: Array<MealPlanCodeType>;
     /**
      * The number of rooms.
      * @type {number}
@@ -385,7 +385,7 @@ export function RoomRateTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'inventoryLender': !exists(json, 'inventoryLender') ? undefined : json['inventoryLender'],
         'marketCode': !exists(json, 'marketCode') ? undefined : json['marketCode'],
         'marketCodeDescription': !exists(json, 'marketCodeDescription') ? undefined : json['marketCodeDescription'],
-        'mealPlans': !exists(json, 'mealPlans') ? undefined : MealPlansTypeFromJSON(json['mealPlans']),
+        'mealPlans': !exists(json, 'mealPlans') ? undefined : ((json['mealPlans'] as Array<any>).map(MealPlanCodeTypeFromJSON)),
         'numberOfUnits': !exists(json, 'numberOfUnits') ? undefined : json['numberOfUnits'],
         'packages': !exists(json, 'packages') ? undefined : ((json['packages'] as Array<any>).map(PackageElementTypeFromJSON)),
         'promotionCode': !exists(json, 'promotionCode') ? undefined : json['promotionCode'],
@@ -440,7 +440,7 @@ export function RoomRateTypeToJSON(value?: RoomRateType | null): any {
         'inventoryLender': value.inventoryLender,
         'marketCode': value.marketCode,
         'marketCodeDescription': value.marketCodeDescription,
-        'mealPlans': MealPlansTypeToJSON(value.mealPlans),
+        'mealPlans': value.mealPlans === undefined ? undefined : ((value.mealPlans as Array<any>).map(MealPlanCodeTypeToJSON)),
         'numberOfUnits': value.numberOfUnits,
         'packages': value.packages === undefined ? undefined : ((value.packages as Array<any>).map(PackageElementTypeToJSON)),
         'promotionCode': value.promotionCode,

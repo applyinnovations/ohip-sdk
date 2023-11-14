@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CompetitionCodesType } from './CompetitionCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CompetitionCodeType } from './CompetitionCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Competition Codes.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CompetitionCodesDetails {
     /**
-     *
-     * @type {CompetitionCodesType}
+     * List of Competition Codes.
+     * @type {Array<CompetitionCodeType>}
      * @memberof CompetitionCodesDetails
      */
-    competitionCodes?: CompetitionCodesType;
+    competitionCodes?: Array<CompetitionCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CompetitionCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CompetitionCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CompetitionCodesDetails interface.

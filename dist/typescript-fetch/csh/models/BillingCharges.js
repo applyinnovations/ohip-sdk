@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BillingChargesToJSON = exports.BillingChargesFromJSONTyped = exports.BillingChargesFromJSON = exports.instanceOfBillingCharges = void 0;
 const runtime_1 = require("../runtime");
 const BillingChargesCriteriaType_1 = require("./BillingChargesCriteriaType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BillingCharges interface.
  */
@@ -36,8 +36,8 @@ function BillingChargesFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'criteria': !(0, runtime_1.exists)(json, 'criteria') ? undefined : (0, BillingChargesCriteriaType_1.BillingChargesCriteriaTypeFromJSON)(json['criteria']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BillingChargesFromJSONTyped = BillingChargesFromJSONTyped;
@@ -50,8 +50,8 @@ function BillingChargesToJSON(value) {
     }
     return {
         'criteria': (0, BillingChargesCriteriaType_1.BillingChargesCriteriaTypeToJSON)(value.criteria),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BillingChargesToJSON = BillingChargesToJSON;

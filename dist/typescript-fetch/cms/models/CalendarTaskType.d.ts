@@ -14,7 +14,7 @@ import type { CalendarTaskPriorityType } from './CalendarTaskPriorityType';
 import type { CalendarTaskTypeStatus } from './CalendarTaskTypeStatus';
 import type { CodeDescriptionType } from './CodeDescriptionType';
 import type { TimeSpanType } from './TimeSpanType';
-import type { UniqueNameIDListType } from './UniqueNameIDListType';
+import type { UniqueNameIDType } from './UniqueNameIDType';
 /**
  * Detailed information regarding calendar task.
  * @export
@@ -22,11 +22,11 @@ import type { UniqueNameIDListType } from './UniqueNameIDListType';
  */
 export interface CalendarTaskType {
     /**
-     *
-     * @type {UniqueNameIDListType}
+     * Defines descriptive name and unique identification combination.
+     * @type {Array<UniqueNameIDType>}
      * @memberof CalendarTaskType
      */
-    accountIdList?: UniqueNameIDListType;
+    accountIdList?: Array<UniqueNameIDType>;
     /**
      * Count of the attachments that are attached to the task.
      * @type {number}
@@ -40,11 +40,11 @@ export interface CalendarTaskType {
      */
     author?: string;
     /**
-     *
-     * @type {UniqueNameIDListType}
+     * Defines descriptive name and unique identification combination.
+     * @type {Array<UniqueNameIDType>}
      * @memberof CalendarTaskType
      */
-    blockIdList?: UniqueNameIDListType;
+    blockIdList?: Array<UniqueNameIDType>;
     /**
      *
      * @type {CalendarTaskClassType}
@@ -52,11 +52,11 @@ export interface CalendarTaskType {
      */
     classCode?: CalendarTaskClassType;
     /**
-     *
-     * @type {UniqueNameIDListType}
+     * Defines descriptive name and unique identification combination.
+     * @type {Array<UniqueNameIDType>}
      * @memberof CalendarTaskType
      */
-    contactIdList?: UniqueNameIDListType;
+    contactIdList?: Array<UniqueNameIDType>;
     /**
      * Hotel code of calendar task.
      * @type {string}

@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { EventsInfoType } from './EventsInfoType';
+import type { EventInfoType } from './EventInfoType';
 import {
-    EventsInfoTypeFromJSON,
-    EventsInfoTypeFromJSONTyped,
-    EventsInfoTypeToJSON,
-} from './EventsInfoType';
-import type { Links } from './Links';
+    EventInfoTypeFromJSON,
+    EventInfoTypeFromJSONTyped,
+    EventInfoTypeToJSON,
+} from './EventInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ManageAlternateEventsInstructionType } from './ManageAlternateEventsInstructionType';
 import {
     ManageAlternateEventsInstructionTypeFromJSON,
     ManageAlternateEventsInstructionTypeFromJSONTyped,
     ManageAlternateEventsInstructionTypeToJSON,
 } from './ManageAlternateEventsInstructionType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for managing catering events those are alternate to other catering events.
@@ -45,17 +45,17 @@ import {
  */
 export interface ManageAlternateEvents {
     /**
-     * 
-     * @type {EventsInfoType}
+     * Pertain event information.
+     * @type {Array<EventInfoType>}
      * @memberof ManageAlternateEvents
      */
-    alternateEvents?: EventsInfoType;
+    alternateEvents?: Array<EventInfoType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ManageAlternateEvents
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ManageAlternateEventsInstructionType}
@@ -63,11 +63,11 @@ export interface ManageAlternateEvents {
      */
     manageAlternateEventsInstruction?: ManageAlternateEventsInstructionType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ManageAlternateEvents
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function ManageAlternateEventsFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'alternateEvents': !exists(json, 'alternateEvents') ? undefined : EventsInfoTypeFromJSON(json['alternateEvents']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'alternateEvents': !exists(json, 'alternateEvents') ? undefined : ((json['alternateEvents'] as Array<any>).map(EventInfoTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'manageAlternateEventsInstruction': !exists(json, 'manageAlternateEventsInstruction') ? undefined : ManageAlternateEventsInstructionTypeFromJSON(json['manageAlternateEventsInstruction']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function ManageAlternateEventsToJSON(value?: ManageAlternateEvents | null
     }
     return {
         
-        'alternateEvents': EventsInfoTypeToJSON(value.alternateEvents),
-        'links': LinksToJSON(value.links),
+        'alternateEvents': value.alternateEvents === undefined ? undefined : ((value.alternateEvents as Array<any>).map(EventInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'manageAlternateEventsInstruction': ManageAlternateEventsInstructionTypeToJSON(value.manageAlternateEventsInstruction),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

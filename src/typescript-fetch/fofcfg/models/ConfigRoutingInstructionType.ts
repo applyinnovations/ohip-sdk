@@ -19,12 +19,12 @@ import {
     TimeSpanDaysOfWeekTypeFromJSONTyped,
     TimeSpanDaysOfWeekTypeToJSON,
 } from './TimeSpanDaysOfWeekType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
 
 /**
  * Routing limit can be one of the three: Covers, Limit, Percent. It is not mandatory to set value of either. This field is available when the Cashiering>Routing Limits application function is set to Y.
@@ -93,11 +93,11 @@ export interface ConfigRoutingInstructionType {
      */
     percent?: number;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof ConfigRoutingInstructionType
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
 }
 
 /**
@@ -129,7 +129,7 @@ export function ConfigRoutingInstructionTypeFromJSONTyped(json: any, ignoreDiscr
         'inheritAuthRateCode': !exists(json, 'inheritAuthRateCode') ? undefined : json['inheritAuthRateCode'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
         'percent': !exists(json, 'percent') ? undefined : json['percent'],
-        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : TrxCodesInfoTypeFromJSON(json['transactionCodes']),
+        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : ((json['transactionCodes'] as Array<any>).map(TrxInfoTypeFromJSON)),
     };
 }
 
@@ -152,7 +152,7 @@ export function ConfigRoutingInstructionTypeToJSON(value?: ConfigRoutingInstruct
         'inheritAuthRateCode': value.inheritAuthRateCode,
         'limit': value.limit,
         'percent': value.percent,
-        'transactionCodes': TrxCodesInfoTypeToJSON(value.transactionCodes),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : ((value.transactionCodes as Array<any>).map(TrxInfoTypeToJSON)),
     };
 }
 

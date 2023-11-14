@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PostCompRedemptionsRSToJSON = exports.PostCompRedemptionsRSFromJSONTyped = exports.PostCompRedemptionsRSFromJSON = exports.instanceOfPostCompRedemptionsRS = void 0;
 const runtime_1 = require("../runtime");
-const PostCompRedemptionsRSCompRedemptionsType_1 = require("./PostCompRedemptionsRSCompRedemptionsType");
-const WarningsType_1 = require("./WarningsType");
+const PostCompRedemptionsRSCompRedemptionType_1 = require("./PostCompRedemptionsRSCompRedemptionType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PostCompRedemptionsRS interface.
  */
@@ -34,8 +34,8 @@ function PostCompRedemptionsRSFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'compRedemptions': !(0, runtime_1.exists)(json, 'compRedemptions') ? undefined : (0, PostCompRedemptionsRSCompRedemptionsType_1.PostCompRedemptionsRSCompRedemptionsTypeFromJSON)(json['compRedemptions']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'compRedemptions': !(0, runtime_1.exists)(json, 'compRedemptions') ? undefined : (json['compRedemptions'].map(PostCompRedemptionsRSCompRedemptionType_1.PostCompRedemptionsRSCompRedemptionTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PostCompRedemptionsRSFromJSONTyped = PostCompRedemptionsRSFromJSONTyped;
@@ -47,8 +47,8 @@ function PostCompRedemptionsRSToJSON(value) {
         return null;
     }
     return {
-        'compRedemptions': (0, PostCompRedemptionsRSCompRedemptionsType_1.PostCompRedemptionsRSCompRedemptionsTypeToJSON)(value.compRedemptions),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : (value.compRedemptions.map(PostCompRedemptionsRSCompRedemptionType_1.PostCompRedemptionsRSCompRedemptionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PostCompRedemptionsRSToJSON = PostCompRedemptionsRSToJSON;

@@ -17,7 +17,7 @@ exports.CancelReservationsTypeToJSON = exports.CancelReservationsTypeFromJSONTyp
 const runtime_1 = require("../runtime");
 const CancelReservationsInstructionsType_1 = require("./CancelReservationsInstructionsType");
 const CancellationReasonType_1 = require("./CancellationReasonType");
-const Reservations_1 = require("./Reservations");
+const ReservationId_1 = require("./ReservationId");
 /**
  * Check if a given object implements the CancelReservationsType interface.
  */
@@ -38,7 +38,7 @@ function CancelReservationsTypeFromJSONTyped(json, ignoreDiscriminator) {
         'cancelInstructions': !(0, runtime_1.exists)(json, 'cancelInstructions') ? undefined : (0, CancelReservationsInstructionsType_1.CancelReservationsInstructionsTypeFromJSON)(json['cancelInstructions']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'reason': !(0, runtime_1.exists)(json, 'reason') ? undefined : (0, CancellationReasonType_1.CancellationReasonTypeFromJSON)(json['reason']),
-        'reservations': !(0, runtime_1.exists)(json, 'reservations') ? undefined : (0, Reservations_1.ReservationsFromJSON)(json['reservations']),
+        'reservations': !(0, runtime_1.exists)(json, 'reservations') ? undefined : (json['reservations'].map(ReservationId_1.ReservationIdFromJSON)),
     };
 }
 exports.CancelReservationsTypeFromJSONTyped = CancelReservationsTypeFromJSONTyped;
@@ -53,7 +53,7 @@ function CancelReservationsTypeToJSON(value) {
         'cancelInstructions': (0, CancelReservationsInstructionsType_1.CancelReservationsInstructionsTypeToJSON)(value.cancelInstructions),
         'hotelId': value.hotelId,
         'reason': (0, CancellationReasonType_1.CancellationReasonTypeToJSON)(value.reason),
-        'reservations': (0, Reservations_1.ReservationsToJSON)(value.reservations),
+        'reservations': value.reservations === undefined ? undefined : (value.reservations.map(ReservationId_1.ReservationIdToJSON)),
     };
 }
 exports.CancelReservationsTypeToJSON = CancelReservationsTypeToJSON;

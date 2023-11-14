@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MatchProfileTypeToJSON = exports.MatchProfileTypeFromJSONTyped = exports.MatchProfileTypeFromJSON = exports.instanceOfMatchProfileType = void 0;
 const runtime_1 = require("../runtime");
 const MatchStatusType_1 = require("./MatchStatusType");
-const ProfileIdList_1 = require("./ProfileIdList");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the MatchProfileType interface.
  */
@@ -35,7 +35,7 @@ function MatchProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'statusCode': !(0, runtime_1.exists)(json, 'statusCode') ? undefined : (0, MatchStatusType_1.MatchStatusTypeFromJSON)(json['statusCode']),
     };
 }
@@ -49,7 +49,7 @@ function MatchProfileTypeToJSON(value) {
     }
     return {
         'hotelId': value.hotelId,
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'statusCode': (0, MatchStatusType_1.MatchStatusTypeToJSON)(value.statusCode),
     };
 }

@@ -19,24 +19,24 @@ import {
     PMSResStatusTypeFromJSONTyped,
     PMSResStatusTypeToJSON,
 } from './PMSResStatusType';
-import type { ResAttachedProfileListType } from './ResAttachedProfileListType';
+import type { ResAttachedProfileType } from './ResAttachedProfileType';
 import {
-    ResAttachedProfileListTypeFromJSON,
-    ResAttachedProfileListTypeFromJSONTyped,
-    ResAttachedProfileListTypeToJSON,
-} from './ResAttachedProfileListType';
-import type { ReservationIdList } from './ReservationIdList';
-import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
+    ResAttachedProfileTypeFromJSON,
+    ResAttachedProfileTypeFromJSONTyped,
+    ResAttachedProfileTypeToJSON,
+} from './ResAttachedProfileType';
 import type { StayInfoType } from './StayInfoType';
 import {
     StayInfoTypeFromJSON,
     StayInfoTypeFromJSONTyped,
     StayInfoTypeToJSON,
 } from './StayInfoType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * The Reservation class contains the current reservation being created or altered.
@@ -46,10 +46,10 @@ import {
 export interface StayReservationInfoType {
     /**
      * 
-     * @type {ResAttachedProfileListType}
+     * @type {Array<ResAttachedProfileType>}
      * @memberof StayReservationInfoType
      */
-    attachedProfiles?: ResAttachedProfileListType;
+    attachedProfiles?: Array<ResAttachedProfileType>;
     /**
      * 
      * @type {PMSResStatusType}
@@ -63,11 +63,11 @@ export interface StayReservationInfoType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof StayReservationInfoType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {PMSResStatusType}
@@ -101,10 +101,10 @@ export function StayReservationInfoTypeFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'attachedProfiles': !exists(json, 'attachedProfiles') ? undefined : ResAttachedProfileListTypeFromJSON(json['attachedProfiles']),
+        'attachedProfiles': !exists(json, 'attachedProfiles') ? undefined : ((json['attachedProfiles'] as Array<any>).map(ResAttachedProfileTypeFromJSON)),
         'computedReservationStatus': !exists(json, 'computedReservationStatus') ? undefined : PMSResStatusTypeFromJSON(json['computedReservationStatus']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'reservationStatus': !exists(json, 'reservationStatus') ? undefined : PMSResStatusTypeFromJSON(json['reservationStatus']),
         'roomStay': !exists(json, 'roomStay') ? undefined : StayInfoTypeFromJSON(json['roomStay']),
     };
@@ -119,10 +119,10 @@ export function StayReservationInfoTypeToJSON(value?: StayReservationInfoType | 
     }
     return {
         
-        'attachedProfiles': ResAttachedProfileListTypeToJSON(value.attachedProfiles),
+        'attachedProfiles': value.attachedProfiles === undefined ? undefined : ((value.attachedProfiles as Array<any>).map(ResAttachedProfileTypeToJSON)),
         'computedReservationStatus': PMSResStatusTypeToJSON(value.computedReservationStatus),
         'hotelId': value.hotelId,
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'reservationStatus': PMSResStatusTypeToJSON(value.reservationStatus),
         'roomStay': StayInfoTypeToJSON(value.roomStay),
     };

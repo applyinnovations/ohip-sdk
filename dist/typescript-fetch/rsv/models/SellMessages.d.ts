@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { SellMessagesType } from './SellMessagesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * This is the Response Message Type to the request for retrieving Sell Messages.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface SellMessages {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SellMessages
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {SellMessagesType}
@@ -31,11 +31,11 @@ export interface SellMessages {
      */
     sellMessages?: SellMessagesType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SellMessages
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SellMessages interface.

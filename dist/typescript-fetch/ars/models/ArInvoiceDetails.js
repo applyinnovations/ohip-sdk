@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ArInvoiceDetailsToJSON = exports.ArInvoiceDetailsFromJSONTyped = exports.ArInvoiceDetailsFromJSON = exports.instanceOfArInvoiceDetails = void 0;
 const runtime_1 = require("../runtime");
-const ARInvoicesType_1 = require("./ARInvoicesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ARInvoiceType_1 = require("./ARInvoiceType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ArInvoiceDetails interface.
  */
@@ -35,9 +35,9 @@ function ArInvoiceDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'invoice': !(0, runtime_1.exists)(json, 'invoice') ? undefined : (0, ARInvoicesType_1.ARInvoicesTypeFromJSON)(json['invoice']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'invoice': !(0, runtime_1.exists)(json, 'invoice') ? undefined : (json['invoice'].map(ARInvoiceType_1.ARInvoiceTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ArInvoiceDetailsFromJSONTyped = ArInvoiceDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function ArInvoiceDetailsToJSON(value) {
         return null;
     }
     return {
-        'invoice': (0, ARInvoicesType_1.ARInvoicesTypeToJSON)(value.invoice),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'invoice': value.invoice === undefined ? undefined : (value.invoice.map(ARInvoiceType_1.ARInvoiceTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ArInvoiceDetailsToJSON = ArInvoiceDetailsToJSON;

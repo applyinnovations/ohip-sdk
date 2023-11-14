@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GlobalAlertsType } from './GlobalAlertsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { GlobalAlertType } from './GlobalAlertType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Global Alerts.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface GlobalAlertsInfo {
     /**
-     *
-     * @type {GlobalAlertsType}
+     * Collection of property level global alert details with attached global alert types.
+     * @type {Array<GlobalAlertType>}
      * @memberof GlobalAlertsInfo
      */
-    globalAlerts?: GlobalAlertsType;
+    globalAlerts?: Array<GlobalAlertType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GlobalAlertsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GlobalAlertsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GlobalAlertsInfo interface.

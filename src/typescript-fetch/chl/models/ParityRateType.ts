@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AdditionalAmountListType } from './AdditionalAmountListType';
+import type { AdditionalAmountType } from './AdditionalAmountType';
 import {
-    AdditionalAmountListTypeFromJSON,
-    AdditionalAmountListTypeFromJSONTyped,
-    AdditionalAmountListTypeToJSON,
-} from './AdditionalAmountListType';
-import type { AdditionalDetailListType } from './AdditionalDetailListType';
+    AdditionalAmountTypeFromJSON,
+    AdditionalAmountTypeFromJSONTyped,
+    AdditionalAmountTypeToJSON,
+} from './AdditionalAmountType';
+import type { AdditionalDetailType } from './AdditionalDetailType';
 import {
-    AdditionalDetailListTypeFromJSON,
-    AdditionalDetailListTypeFromJSONTyped,
-    AdditionalDetailListTypeToJSON,
-} from './AdditionalDetailListType';
+    AdditionalDetailTypeFromJSON,
+    AdditionalDetailTypeFromJSONTyped,
+    AdditionalDetailTypeToJSON,
+} from './AdditionalDetailType';
 import type { EnhancedDescriptionType } from './EnhancedDescriptionType';
 import {
     EnhancedDescriptionTypeFromJSON,
@@ -52,16 +52,16 @@ import {
 export interface ParityRateType {
     /**
      * 
-     * @type {AdditionalAmountListType}
+     * @type {Array<AdditionalAmountType>}
      * @memberof ParityRateType
      */
-    additionalAmounts?: AdditionalAmountListType;
+    additionalAmounts?: Array<AdditionalAmountType>;
     /**
      * 
-     * @type {AdditionalDetailListType}
+     * @type {Array<AdditionalDetailType>}
      * @memberof ParityRateType
      */
-    additionalDetailList?: AdditionalDetailListType;
+    additionalDetailList?: Array<AdditionalDetailType>;
     /**
      * A monetary amount.
      * @type {number}
@@ -179,8 +179,8 @@ export function ParityRateTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'additionalAmounts': !exists(json, 'additionalAmounts') ? undefined : AdditionalAmountListTypeFromJSON(json['additionalAmounts']),
-        'additionalDetailList': !exists(json, 'additionalDetailList') ? undefined : AdditionalDetailListTypeFromJSON(json['additionalDetailList']),
+        'additionalAmounts': !exists(json, 'additionalAmounts') ? undefined : ((json['additionalAmounts'] as Array<any>).map(AdditionalAmountTypeFromJSON)),
+        'additionalDetailList': !exists(json, 'additionalDetailList') ? undefined : ((json['additionalDetailList'] as Array<any>).map(AdditionalDetailTypeFromJSON)),
         'amount': !exists(json, 'amount') ? undefined : json['amount'],
         'arrivalDate': !exists(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
         'availableRooms': !exists(json, 'availableRooms') ? undefined : json['availableRooms'],
@@ -209,8 +209,8 @@ export function ParityRateTypeToJSON(value?: ParityRateType | null): any {
     }
     return {
         
-        'additionalAmounts': AdditionalAmountListTypeToJSON(value.additionalAmounts),
-        'additionalDetailList': AdditionalDetailListTypeToJSON(value.additionalDetailList),
+        'additionalAmounts': value.additionalAmounts === undefined ? undefined : ((value.additionalAmounts as Array<any>).map(AdditionalAmountTypeToJSON)),
+        'additionalDetailList': value.additionalDetailList === undefined ? undefined : ((value.additionalDetailList as Array<any>).map(AdditionalDetailTypeToJSON)),
         'amount': value.amount,
         'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
         'availableRooms': value.availableRooms,

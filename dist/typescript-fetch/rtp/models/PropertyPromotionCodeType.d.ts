@@ -11,7 +11,7 @@
  */
 import type { PromoCodeRoutingInstructionType } from './PromoCodeRoutingInstructionType';
 import type { PromotionCodeDetailsType } from './PromotionCodeDetailsType';
-import type { PropertyPromotionRateCodesType } from './PropertyPromotionRateCodesType';
+import type { PropertyPromotionRateCodeType } from './PropertyPromotionRateCodeType';
 /**
  * A template promotion.
  * @export
@@ -43,11 +43,11 @@ export interface PropertyPromotionCodeType {
      */
     promotionCodeDetails?: PromotionCodeDetailsType;
     /**
-     *
-     * @type {PropertyPromotionRateCodesType}
+     * List of Promotion Rate Code
+     * @type {Array<PropertyPromotionRateCodeType>}
      * @memberof PropertyPromotionCodeType
      */
-    propertyPromotionRateCodes?: PropertyPromotionRateCodesType;
+    propertyPromotionRateCodes?: Array<PropertyPromotionRateCodeType>;
 }
 /**
  * Check if a given object implements the PropertyPromotionCodeType interface.

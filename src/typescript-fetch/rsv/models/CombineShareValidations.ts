@@ -19,24 +19,24 @@ import {
     CombineShareFromProfileTypeFromJSONTyped,
     CombineShareFromProfileTypeToJSON,
 } from './CombineShareFromProfileType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
     UniqueIDTypeFromJSONTyped,
     UniqueIDTypeToJSON,
 } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to validate a combine share operation. This would be done prior to the actual Combine Share operation. Based on the validations returned from this request, the appropriate values can be returned to the Combine Share operation request.
@@ -58,10 +58,10 @@ export interface CombineShareValidations {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CombineShareValidations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {CombineShareFromProfileType}
@@ -75,11 +75,11 @@ export interface CombineShareValidations {
      */
     shareToReservationId?: UniqueIDType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CombineShareValidations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -103,10 +103,10 @@ export function CombineShareValidationsFromJSONTyped(json: any, ignoreDiscrimina
         
         'existingReservationId': !exists(json, 'existingReservationId') ? undefined : UniqueIDTypeFromJSON(json['existingReservationId']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'newReservation': !exists(json, 'newReservation') ? undefined : CombineShareFromProfileTypeFromJSON(json['newReservation']),
         'shareToReservationId': !exists(json, 'shareToReservationId') ? undefined : UniqueIDTypeFromJSON(json['shareToReservationId']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -121,10 +121,10 @@ export function CombineShareValidationsToJSON(value?: CombineShareValidations | 
         
         'existingReservationId': UniqueIDTypeToJSON(value.existingReservationId),
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'newReservation': CombineShareFromProfileTypeToJSON(value.newReservation),
         'shareToReservationId': UniqueIDTypeToJSON(value.shareToReservationId),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

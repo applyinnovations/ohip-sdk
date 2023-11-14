@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { AuthorizationHistoryType } from './AuthorizationHistoryType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * The result element containing a history list of credit card authorizations for a particular reservation, filtered by the requested criteria.
  * @export
@@ -26,16 +26,16 @@ export interface AuthorizationHistory {
     folioHistory?: Array<AuthorizationHistoryType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AuthorizationHistory
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AuthorizationHistory
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AuthorizationHistory interface.

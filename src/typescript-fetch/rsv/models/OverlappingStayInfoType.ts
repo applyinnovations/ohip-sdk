@@ -25,12 +25,12 @@ import {
     ReservationIdFromJSONTyped,
     ReservationIdToJSON,
 } from './ReservationId';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Possible overlapping stay information of a reservation.
@@ -45,11 +45,11 @@ export interface OverlappingStayInfoType {
      */
     end?: Date;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof OverlappingStayInfoType
      */
-    excludedReservations?: UniqueIDListType;
+    excludedReservations?: Array<UniqueIDType>;
     /**
      * Hotel Code of the reservation.
      * @type {string}
@@ -96,7 +96,7 @@ export function OverlappingStayInfoTypeFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
-        'excludedReservations': !exists(json, 'excludedReservations') ? undefined : UniqueIDListTypeFromJSON(json['excludedReservations']),
+        'excludedReservations': !exists(json, 'excludedReservations') ? undefined : ((json['excludedReservations'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
@@ -114,7 +114,7 @@ export function OverlappingStayInfoTypeToJSON(value?: OverlappingStayInfoType | 
     return {
         
         'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
-        'excludedReservations': UniqueIDListTypeToJSON(value.excludedReservations),
+        'excludedReservations': value.excludedReservations === undefined ? undefined : ((value.excludedReservations as Array<any>).map(UniqueIDTypeToJSON)),
         'hotelId': value.hotelId,
         'profileId': ProfileIdToJSON(value.profileId),
         'reservationId': ReservationIdToJSON(value.reservationId),

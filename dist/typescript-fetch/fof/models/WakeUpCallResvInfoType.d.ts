@@ -13,7 +13,7 @@ import type { BlockId } from './BlockId';
 import type { CodeDescriptionType } from './CodeDescriptionType';
 import type { PMSResStatusType } from './PMSResStatusType';
 import type { ProfileId } from './ProfileId';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Criteria to search and retrieve wake up calls.
  * @export
@@ -81,11 +81,11 @@ export interface WakeUpCallResvInfoType {
      */
     profileId?: ProfileId;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof WakeUpCallResvInfoType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {PMSResStatusType}

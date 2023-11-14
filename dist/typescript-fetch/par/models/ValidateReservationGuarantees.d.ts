@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ResGuaranteeSearchType } from './ResGuaranteeSearchType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to fetch reservation guarantees.
  * @export
@@ -24,11 +24,11 @@ export interface ValidateReservationGuarantees {
      */
     criteria?: ResGuaranteeSearchType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ValidateReservationGuarantees
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ValidateReservationGuarantees interface.

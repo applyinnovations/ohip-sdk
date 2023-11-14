@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CopyCateringEventResourcesProcessedInfoList } from './CopyCateringEventResourcesProcessedInfoList';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for copying/moving event resources.
  * @export
@@ -26,16 +26,16 @@ export interface EventResourcesResponse {
     eventResourcesProcessedInfoList?: CopyCateringEventResourcesProcessedInfoList;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EventResourcesResponse
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EventResourcesResponse
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the EventResourcesResponse interface.

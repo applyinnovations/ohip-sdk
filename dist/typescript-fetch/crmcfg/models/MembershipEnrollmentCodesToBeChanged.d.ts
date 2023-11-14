@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MembershipEnrollmentCodesType } from './MembershipEnrollmentCodesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MembershipEnrollmentCodeType } from './MembershipEnrollmentCodeType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Membership Enrollment Codes.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MembershipEnrollmentCodesToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipEnrollmentCodesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MembershipEnrollmentCodesType}
+     * List of Membership Enrollment Codes.
+     * @type {Array<MembershipEnrollmentCodeType>}
      * @memberof MembershipEnrollmentCodesToBeChanged
      */
-    membershipEnrollmentCodes?: MembershipEnrollmentCodesType;
+    membershipEnrollmentCodes?: Array<MembershipEnrollmentCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipEnrollmentCodesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipEnrollmentCodesToBeChanged interface.

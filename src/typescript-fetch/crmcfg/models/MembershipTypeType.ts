@@ -61,12 +61,12 @@ import {
     MembershipHandlingTypeFromJSONTyped,
     MembershipHandlingTypeToJSON,
 } from './MembershipHandlingType';
-import type { MembershipLevelsType } from './MembershipLevelsType';
+import type { MembershipLevelType } from './MembershipLevelType';
 import {
-    MembershipLevelsTypeFromJSON,
-    MembershipLevelsTypeFromJSONTyped,
-    MembershipLevelsTypeToJSON,
-} from './MembershipLevelsType';
+    MembershipLevelTypeFromJSON,
+    MembershipLevelTypeFromJSONTyped,
+    MembershipLevelTypeToJSON,
+} from './MembershipLevelType';
 import type { MembershipTypeAdditionalInfoType } from './MembershipTypeAdditionalInfoType';
 import {
     MembershipTypeAdditionalInfoTypeFromJSON,
@@ -285,11 +285,11 @@ export interface MembershipTypeType {
      */
     membershipClass?: string;
     /**
-     * 
-     * @type {MembershipLevelsType}
+     * Collection of membership levels
+     * @type {Array<MembershipLevelType>}
      * @memberof MembershipTypeType
      */
-    membershipLevels?: MembershipLevelsType;
+    membershipLevels?: Array<MembershipLevelType>;
     /**
      * Membership Type code.
      * @type {string}
@@ -427,7 +427,7 @@ export function MembershipTypeTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'memberFolioMessage': !exists(json, 'memberFolioMessage') ? undefined : TranslationTextType2000FromJSON(json['memberFolioMessage']),
         'membershipAction': !exists(json, 'membershipAction') ? undefined : MembershipActionTypeFromJSON(json['membershipAction']),
         'membershipClass': !exists(json, 'membershipClass') ? undefined : json['membershipClass'],
-        'membershipLevels': !exists(json, 'membershipLevels') ? undefined : MembershipLevelsTypeFromJSON(json['membershipLevels']),
+        'membershipLevels': !exists(json, 'membershipLevels') ? undefined : ((json['membershipLevels'] as Array<any>).map(MembershipLevelTypeFromJSON)),
         'membershipType': !exists(json, 'membershipType') ? undefined : json['membershipType'],
         'multiplier': !exists(json, 'multiplier') ? undefined : json['multiplier'],
         'nonMemberFolioMessage': !exists(json, 'nonMemberFolioMessage') ? undefined : TranslationTextType2000FromJSON(json['nonMemberFolioMessage']),
@@ -486,7 +486,7 @@ export function MembershipTypeTypeToJSON(value?: MembershipTypeType | null): any
         'memberFolioMessage': TranslationTextType2000ToJSON(value.memberFolioMessage),
         'membershipAction': MembershipActionTypeToJSON(value.membershipAction),
         'membershipClass': value.membershipClass,
-        'membershipLevels': MembershipLevelsTypeToJSON(value.membershipLevels),
+        'membershipLevels': value.membershipLevels === undefined ? undefined : ((value.membershipLevels as Array<any>).map(MembershipLevelTypeToJSON)),
         'membershipType': value.membershipType,
         'multiplier': value.multiplier,
         'nonMemberFolioMessage': TranslationTextType2000ToJSON(value.nonMemberFolioMessage),

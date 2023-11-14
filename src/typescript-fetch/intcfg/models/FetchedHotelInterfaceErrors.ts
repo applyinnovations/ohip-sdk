@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelInterfaceErrorsType } from './HotelInterfaceErrorsType';
+import type { HotelInterfaceErrorType } from './HotelInterfaceErrorType';
 import {
-    HotelInterfaceErrorsTypeFromJSON,
-    HotelInterfaceErrorsTypeFromJSONTyped,
-    HotelInterfaceErrorsTypeToJSON,
-} from './HotelInterfaceErrorsType';
-import type { Links } from './Links';
+    HotelInterfaceErrorTypeFromJSON,
+    HotelInterfaceErrorTypeFromJSONTyped,
+    HotelInterfaceErrorTypeToJSON,
+} from './HotelInterfaceErrorType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for retrieving Hotel Interface Errors.
@@ -45,11 +45,11 @@ export interface FetchedHotelInterfaceErrors {
      */
     hasMore?: boolean;
     /**
-     * 
-     * @type {HotelInterfaceErrorsType}
+     * Collection of Hotel Interface Errors.
+     * @type {Array<HotelInterfaceErrorType>}
      * @memberof FetchedHotelInterfaceErrors
      */
-    hotelInterfaceErrors?: HotelInterfaceErrorsType;
+    hotelInterfaceErrors?: Array<HotelInterfaceErrorType>;
     /**
      * Indicates maximum number of records a Web Service should return.
      * @type {number}
@@ -58,10 +58,10 @@ export interface FetchedHotelInterfaceErrors {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchedHotelInterfaceErrors
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -81,11 +81,11 @@ export interface FetchedHotelInterfaceErrors {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchedHotelInterfaceErrors
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -108,13 +108,13 @@ export function FetchedHotelInterfaceErrorsFromJSONTyped(json: any, ignoreDiscri
     return {
         
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
-        'hotelInterfaceErrors': !exists(json, 'hotelInterfaceErrors') ? undefined : HotelInterfaceErrorsTypeFromJSON(json['hotelInterfaceErrors']),
+        'hotelInterfaceErrors': !exists(json, 'hotelInterfaceErrors') ? undefined : ((json['hotelInterfaceErrors'] as Array<any>).map(HotelInterfaceErrorTypeFromJSON)),
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -128,13 +128,13 @@ export function FetchedHotelInterfaceErrorsToJSON(value?: FetchedHotelInterfaceE
     return {
         
         'hasMore': value.hasMore,
-        'hotelInterfaceErrors': HotelInterfaceErrorsTypeToJSON(value.hotelInterfaceErrors),
+        'hotelInterfaceErrors': value.hotelInterfaceErrors === undefined ? undefined : ((value.hotelInterfaceErrors as Array<any>).map(HotelInterfaceErrorTypeToJSON)),
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

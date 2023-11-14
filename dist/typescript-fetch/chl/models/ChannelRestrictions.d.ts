@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { PublishRatePlanType } from './PublishRatePlanType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for publishing rate restrictions to channels.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ChannelRestrictions {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelRestrictions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {PublishRatePlanType}
@@ -31,11 +31,11 @@ export interface ChannelRestrictions {
      */
     publishRestriction?: PublishRatePlanType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelRestrictions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelRestrictions interface.

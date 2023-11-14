@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreditCardTypeValidationStatusToJSON = exports.CreditCardTypeValidationStatusFromJSONTyped = exports.CreditCardTypeValidationStatusFromJSON = exports.instanceOfCreditCardTypeValidationStatus = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const ReservationPaymentMethodType_1 = require("./ReservationPaymentMethodType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CreditCardTypeValidationStatus interface.
  */
@@ -35,10 +35,10 @@ function CreditCardTypeValidationStatusFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'valid': !(0, runtime_1.exists)(json, 'valid') ? undefined : json['valid'],
         'validatedPaymentMethod': !(0, runtime_1.exists)(json, 'validatedPaymentMethod') ? undefined : (0, ReservationPaymentMethodType_1.ReservationPaymentMethodTypeFromJSON)(json['validatedPaymentMethod']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CreditCardTypeValidationStatusFromJSONTyped = CreditCardTypeValidationStatusFromJSONTyped;
@@ -50,10 +50,10 @@ function CreditCardTypeValidationStatusToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'valid': value.valid,
         'validatedPaymentMethod': (0, ReservationPaymentMethodType_1.ReservationPaymentMethodTypeToJSON)(value.validatedPaymentMethod),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CreditCardTypeValidationStatusToJSON = CreditCardTypeValidationStatusToJSON;

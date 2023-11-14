@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockStatsType } from './BlockStatsType';
+import type { BlockStatType } from './BlockStatType';
 import {
-    BlockStatsTypeFromJSON,
-    BlockStatsTypeFromJSONTyped,
-    BlockStatsTypeToJSON,
-} from './BlockStatsType';
+    BlockStatTypeFromJSON,
+    BlockStatTypeFromJSONTyped,
+    BlockStatTypeToJSON,
+} from './BlockStatType';
 
 /**
  * Statistics of one day.
@@ -27,11 +27,11 @@ import {
  */
 export interface DailyStatType {
     /**
-     * 
-     * @type {BlockStatsType}
+     * Statistics of one block.
+     * @type {Array<BlockStatType>}
      * @memberof DailyStatType
      */
-    blockStats?: BlockStatsType;
+    blockStats?: Array<BlockStatType>;
     /**
      * Date of statistics.
      * @type {Date}
@@ -59,7 +59,7 @@ export function DailyStatTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'blockStats': !exists(json, 'blockStats') ? undefined : BlockStatsTypeFromJSON(json['blockStats']),
+        'blockStats': !exists(json, 'blockStats') ? undefined : ((json['blockStats'] as Array<any>).map(BlockStatTypeFromJSON)),
         'statisticDate': !exists(json, 'statisticDate') ? undefined : (new Date(json['statisticDate'])),
     };
 }
@@ -73,7 +73,7 @@ export function DailyStatTypeToJSON(value?: DailyStatType | null): any {
     }
     return {
         
-        'blockStats': BlockStatsTypeToJSON(value.blockStats),
+        'blockStats': value.blockStats === undefined ? undefined : ((value.blockStats as Array<any>).map(BlockStatTypeToJSON)),
         'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0,10)),
     };
 }

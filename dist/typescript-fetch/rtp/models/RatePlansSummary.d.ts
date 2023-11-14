@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MasterInfoType } from './MasterInfoType';
 import type { RatePlansSummaryRatePlanShortInfoList } from './RatePlansSummaryRatePlanShortInfoList';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object to fetch rate plans summary information.
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface RatePlansSummary {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RatePlansSummary
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Refer to Generic common types document.
      * @type {Array<MasterInfoType>}
@@ -38,11 +38,11 @@ export interface RatePlansSummary {
      */
     ratePlanShortInfoList?: RatePlansSummaryRatePlanShortInfoList;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RatePlansSummary
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RatePlansSummary interface.

@@ -13,18 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
+import type { WarningType } from './WarningType';
 import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-import type { WarningsType } from './WarningsType';
-import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to run AI Room Assignment and allocate rooms to incoming reservations.
@@ -34,16 +28,16 @@ import {
 export interface RoomsAI {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof RoomsAI
      */
-    hotelCodes?: CodeListType;
+    hotelCodes?: Array<string>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomsAI
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -65,8 +59,8 @@ export function RoomsAIFromJSONTyped(json: any, ignoreDiscriminator: boolean): R
     }
     return {
         
-        'hotelCodes': !exists(json, 'hotelCodes') ? undefined : CodeListTypeFromJSON(json['hotelCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'hotelCodes': !exists(json, 'hotelCodes') ? undefined : json['hotelCodes'],
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -79,8 +73,8 @@ export function RoomsAIToJSON(value?: RoomsAI | null): any {
     }
     return {
         
-        'hotelCodes': CodeListTypeToJSON(value.hotelCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'hotelCodes': value.hotelCodes,
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

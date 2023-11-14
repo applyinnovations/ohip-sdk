@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PrepaidCardsInfoType } from './PrepaidCardsInfoType';
+import type { PrepaidCardInfoType } from './PrepaidCardInfoType';
 import {
-    PrepaidCardsInfoTypeFromJSON,
-    PrepaidCardsInfoTypeFromJSONTyped,
-    PrepaidCardsInfoTypeToJSON,
-} from './PrepaidCardsInfoType';
-import type { WarningsType } from './WarningsType';
+    PrepaidCardInfoTypeFromJSON,
+    PrepaidCardInfoTypeFromJSONTyped,
+    PrepaidCardInfoTypeToJSON,
+} from './PrepaidCardInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for redeem Prepaid cards request.
@@ -33,17 +33,17 @@ import {
  */
 export interface RedeemPrepaidCardsStatus {
     /**
-     * 
-     * @type {PrepaidCardsInfoType}
+     * Prepaid card info object.
+     * @type {Array<PrepaidCardInfoType>}
      * @memberof RedeemPrepaidCardsStatus
      */
-    prepaidCards?: PrepaidCardsInfoType;
+    prepaidCards?: Array<PrepaidCardInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RedeemPrepaidCardsStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function RedeemPrepaidCardsStatusFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'prepaidCards': !exists(json, 'prepaidCards') ? undefined : PrepaidCardsInfoTypeFromJSON(json['prepaidCards']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'prepaidCards': !exists(json, 'prepaidCards') ? undefined : ((json['prepaidCards'] as Array<any>).map(PrepaidCardInfoTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function RedeemPrepaidCardsStatusToJSON(value?: RedeemPrepaidCardsStatus 
     }
     return {
         
-        'prepaidCards': PrepaidCardsInfoTypeToJSON(value.prepaidCards),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'prepaidCards': value.prepaidCards === undefined ? undefined : ((value.prepaidCards as Array<any>).map(PrepaidCardInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

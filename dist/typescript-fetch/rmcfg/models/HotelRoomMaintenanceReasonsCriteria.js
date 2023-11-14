@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelRoomMaintenanceReasonsCriteriaToJSON = exports.HotelRoomMaintenanceReasonsCriteriaFromJSONTyped = exports.HotelRoomMaintenanceReasonsCriteriaFromJSON = exports.instanceOfHotelRoomMaintenanceReasonsCriteria = void 0;
 const runtime_1 = require("../runtime");
-const HotelRoomMaintenanceReasonsType_1 = require("./HotelRoomMaintenanceReasonsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HotelRoomMaintenanceReasonType_1 = require("./HotelRoomMaintenanceReasonType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the HotelRoomMaintenanceReasonsCriteria interface.
  */
@@ -35,9 +35,9 @@ function HotelRoomMaintenanceReasonsCriteriaFromJSONTyped(json, ignoreDiscrimina
         return json;
     }
     return {
-        'hotelRoomMaintenanceReasons': !(0, runtime_1.exists)(json, 'hotelRoomMaintenanceReasons') ? undefined : (0, HotelRoomMaintenanceReasonsType_1.HotelRoomMaintenanceReasonsTypeFromJSON)(json['hotelRoomMaintenanceReasons']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'hotelRoomMaintenanceReasons': !(0, runtime_1.exists)(json, 'hotelRoomMaintenanceReasons') ? undefined : (json['hotelRoomMaintenanceReasons'].map(HotelRoomMaintenanceReasonType_1.HotelRoomMaintenanceReasonTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.HotelRoomMaintenanceReasonsCriteriaFromJSONTyped = HotelRoomMaintenanceReasonsCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function HotelRoomMaintenanceReasonsCriteriaToJSON(value) {
         return null;
     }
     return {
-        'hotelRoomMaintenanceReasons': (0, HotelRoomMaintenanceReasonsType_1.HotelRoomMaintenanceReasonsTypeToJSON)(value.hotelRoomMaintenanceReasons),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'hotelRoomMaintenanceReasons': value.hotelRoomMaintenanceReasons === undefined ? undefined : (value.hotelRoomMaintenanceReasons.map(HotelRoomMaintenanceReasonType_1.HotelRoomMaintenanceReasonTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.HotelRoomMaintenanceReasonsCriteriaToJSON = HotelRoomMaintenanceReasonsCriteriaToJSON;

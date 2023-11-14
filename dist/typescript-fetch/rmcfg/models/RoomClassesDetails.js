@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomClassesDetailsToJSON = exports.RoomClassesDetailsFromJSONTyped = exports.RoomClassesDetailsFromJSON = exports.instanceOfRoomClassesDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RoomClassesType_1 = require("./RoomClassesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RoomClassType_1 = require("./RoomClassType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomClassesDetails interface.
  */
@@ -35,9 +35,9 @@ function RoomClassesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'roomClasses': !(0, runtime_1.exists)(json, 'roomClasses') ? undefined : (0, RoomClassesType_1.RoomClassesTypeFromJSON)(json['roomClasses']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'roomClasses': !(0, runtime_1.exists)(json, 'roomClasses') ? undefined : (json['roomClasses'].map(RoomClassType_1.RoomClassTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomClassesDetailsFromJSONTyped = RoomClassesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function RoomClassesDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'roomClasses': (0, RoomClassesType_1.RoomClassesTypeToJSON)(value.roomClasses),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'roomClasses': value.roomClasses === undefined ? undefined : (value.roomClasses.map(RoomClassType_1.RoomClassTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomClassesDetailsToJSON = RoomClassesDetailsToJSON;

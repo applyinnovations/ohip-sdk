@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChainConfigInfoType } from './ChainConfigInfoType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ChainDetailInfoType } from './ChainDetailInfoType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Chain.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ChainDetails {
     /**
      *
-     * @type {ChainConfigInfoType}
+     * @type {Array<ChainDetailInfoType>}
      * @memberof ChainDetails
      */
-    chains?: ChainConfigInfoType;
+    chains?: Array<ChainDetailInfoType>;
     /**
      * Indicates whether all the records are included in the response or not. Absence of the attribute values should be consider as all rows fetched in the response.
      * @type {boolean}
@@ -32,10 +32,10 @@ export interface ChainDetails {
     hasMore?: boolean;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChainDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Total number of rows queried
      * @type {number}
@@ -43,11 +43,11 @@ export interface ChainDetails {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChainDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChainDetails interface.

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ErrorsType } from './ErrorsType';
+import type { ErrorType } from './ErrorType';
 import {
-    ErrorsTypeFromJSON,
-    ErrorsTypeFromJSONTyped,
-    ErrorsTypeToJSON,
-} from './ErrorsType';
+    ErrorTypeFromJSON,
+    ErrorTypeFromJSONTyped,
+    ErrorTypeToJSON,
+} from './ErrorType';
 import type { HotelReservationType } from './HotelReservationType';
 import {
     HotelReservationTypeFromJSON,
     HotelReservationTypeFromJSONTyped,
     HotelReservationTypeToJSON,
 } from './HotelReservationType';
-import type { RoutingInfoListType } from './RoutingInfoListType';
+import type { RoutingInfoType } from './RoutingInfoType';
 import {
-    RoutingInfoListTypeFromJSON,
-    RoutingInfoListTypeFromJSONTyped,
-    RoutingInfoListTypeToJSON,
-} from './RoutingInfoListType';
+    RoutingInfoTypeFromJSON,
+    RoutingInfoTypeFromJSONTyped,
+    RoutingInfoTypeToJSON,
+} from './RoutingInfoType';
 
 /**
  * This is used when changing block reservations in bulk.
@@ -39,11 +39,11 @@ import {
  */
 export interface RoomingListReservationType {
     /**
-     * 
-     * @type {ErrorsType}
+     * An error that occurred during the processing of a message.
+     * @type {Array<ErrorType>}
      * @memberof RoomingListReservationType
      */
-    errors?: ErrorsType;
+    errors?: Array<ErrorType>;
     /**
      * 
      * @type {HotelReservationType}
@@ -57,11 +57,11 @@ export interface RoomingListReservationType {
      */
     roomingListSequence?: number;
     /**
-     * 
-     * @type {RoutingInfoListType}
+     * A routing info object can either be of type Folio OR of type Room with its corresponding instructions.
+     * @type {Array<RoutingInfoType>}
      * @memberof RoomingListReservationType
      */
-    routingInstructions?: RoutingInfoListType;
+    routingInstructions?: Array<RoutingInfoType>;
     /**
      * Returning an empty element of this type indicates the successful processing of an message. This is used in conjunction with the Warning Type to report any warnings or business errors.
      * @type {object}
@@ -89,10 +89,10 @@ export function RoomingListReservationTypeFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'errors': !exists(json, 'errors') ? undefined : ErrorsTypeFromJSON(json['errors']),
+        'errors': !exists(json, 'errors') ? undefined : ((json['errors'] as Array<any>).map(ErrorTypeFromJSON)),
         'hotelReservation': !exists(json, 'hotelReservation') ? undefined : HotelReservationTypeFromJSON(json['hotelReservation']),
         'roomingListSequence': !exists(json, 'roomingListSequence') ? undefined : json['roomingListSequence'],
-        'routingInstructions': !exists(json, 'routingInstructions') ? undefined : RoutingInfoListTypeFromJSON(json['routingInstructions']),
+        'routingInstructions': !exists(json, 'routingInstructions') ? undefined : ((json['routingInstructions'] as Array<any>).map(RoutingInfoTypeFromJSON)),
         'success': !exists(json, 'success') ? undefined : json['success'],
     };
 }
@@ -106,10 +106,10 @@ export function RoomingListReservationTypeToJSON(value?: RoomingListReservationT
     }
     return {
         
-        'errors': ErrorsTypeToJSON(value.errors),
+        'errors': value.errors === undefined ? undefined : ((value.errors as Array<any>).map(ErrorTypeToJSON)),
         'hotelReservation': HotelReservationTypeToJSON(value.hotelReservation),
         'roomingListSequence': value.roomingListSequence,
-        'routingInstructions': RoutingInfoListTypeToJSON(value.routingInstructions),
+        'routingInstructions': value.routingInstructions === undefined ? undefined : ((value.routingInstructions as Array<any>).map(RoutingInfoTypeToJSON)),
         'success': value.success,
     };
 }

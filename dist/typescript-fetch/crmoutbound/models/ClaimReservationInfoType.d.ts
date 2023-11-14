@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Summary of claim activity log information.
  * @export
@@ -23,11 +23,11 @@ export interface ClaimReservationInfoType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ClaimReservationInfoType
      */
-    confirmationNo?: UniqueIDListType;
+    confirmationNo?: Array<UniqueIDType>;
     /**
      * Arrival date for the stay associated with this claim.
      * @type {Date}

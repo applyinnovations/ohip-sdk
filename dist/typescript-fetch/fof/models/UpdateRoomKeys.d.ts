@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ErrorsType } from './ErrorsType';
-import type { WarningsType } from './WarningsType';
+import type { ErrorType } from './ErrorType';
+import type { WarningType } from './WarningType';
 /**
  * Collection of error and warning if any.
  * @export
@@ -18,17 +18,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface UpdateRoomKeys {
     /**
-     *
-     * @type {ErrorsType}
+     * An error that occurred during the processing of a message.
+     * @type {Array<ErrorType>}
      * @memberof UpdateRoomKeys
      */
-    errors?: ErrorsType;
+    errors?: Array<ErrorType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof UpdateRoomKeys
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the UpdateRoomKeys interface.

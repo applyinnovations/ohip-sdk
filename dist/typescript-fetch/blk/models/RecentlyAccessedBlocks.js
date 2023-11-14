@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RecentlyAccessedBlocksToJSON = exports.RecentlyAccessedBlocksFromJSONTyped = exports.RecentlyAccessedBlocksFromJSON = exports.instanceOfRecentlyAccessedBlocks = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RecentlyAccessedBlocksType_1 = require("./RecentlyAccessedBlocksType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RecentlyAccessedBlockType_1 = require("./RecentlyAccessedBlockType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RecentlyAccessedBlocks interface.
  */
@@ -35,9 +35,9 @@ function RecentlyAccessedBlocksFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blocks': !(0, runtime_1.exists)(json, 'blocks') ? undefined : (0, RecentlyAccessedBlocksType_1.RecentlyAccessedBlocksTypeFromJSON)(json['blocks']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'blocks': !(0, runtime_1.exists)(json, 'blocks') ? undefined : (json['blocks'].map(RecentlyAccessedBlockType_1.RecentlyAccessedBlockTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RecentlyAccessedBlocksFromJSONTyped = RecentlyAccessedBlocksFromJSONTyped;
@@ -49,9 +49,9 @@ function RecentlyAccessedBlocksToJSON(value) {
         return null;
     }
     return {
-        'blocks': (0, RecentlyAccessedBlocksType_1.RecentlyAccessedBlocksTypeToJSON)(value.blocks),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'blocks': value.blocks === undefined ? undefined : (value.blocks.map(RecentlyAccessedBlockType_1.RecentlyAccessedBlockTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RecentlyAccessedBlocksToJSON = RecentlyAccessedBlocksToJSON;

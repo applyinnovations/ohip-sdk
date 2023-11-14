@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CityPostalCodesDetailsToJSON = exports.CityPostalCodesDetailsFromJSONTyped = exports.CityPostalCodesDetailsFromJSON = exports.instanceOfCityPostalCodesDetails = void 0;
 const runtime_1 = require("../runtime");
-const CityPostalCodesType_1 = require("./CityPostalCodesType");
-const Links_1 = require("./Links");
+const CityPostalCodeType_1 = require("./CityPostalCodeType");
+const InstanceLink_1 = require("./InstanceLink");
 const MasterInfoType_1 = require("./MasterInfoType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CityPostalCodesDetails interface.
  */
@@ -36,16 +36,16 @@ function CityPostalCodesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'cityPostalCodes': !(0, runtime_1.exists)(json, 'cityPostalCodes') ? undefined : (0, CityPostalCodesType_1.CityPostalCodesTypeFromJSON)(json['cityPostalCodes']),
+        'cityPostalCodes': !(0, runtime_1.exists)(json, 'cityPostalCodes') ? undefined : (json['cityPostalCodes'].map(CityPostalCodeType_1.CityPostalCodeTypeFromJSON)),
         'count': !(0, runtime_1.exists)(json, 'count') ? undefined : json['count'],
         'hasMore': !(0, runtime_1.exists)(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'masterInfoList': !(0, runtime_1.exists)(json, 'masterInfoList') ? undefined : (json['masterInfoList'].map(MasterInfoType_1.MasterInfoTypeFromJSON)),
         'offset': !(0, runtime_1.exists)(json, 'offset') ? undefined : json['offset'],
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !(0, runtime_1.exists)(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CityPostalCodesDetailsFromJSONTyped = CityPostalCodesDetailsFromJSONTyped;
@@ -57,16 +57,16 @@ function CityPostalCodesDetailsToJSON(value) {
         return null;
     }
     return {
-        'cityPostalCodes': (0, CityPostalCodesType_1.CityPostalCodesTypeToJSON)(value.cityPostalCodes),
+        'cityPostalCodes': value.cityPostalCodes === undefined ? undefined : (value.cityPostalCodes.map(CityPostalCodeType_1.CityPostalCodeTypeToJSON)),
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'masterInfoList': value.masterInfoList === undefined ? undefined : (value.masterInfoList.map(MasterInfoType_1.MasterInfoTypeToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CityPostalCodesDetailsToJSON = CityPostalCodesDetailsToJSON;

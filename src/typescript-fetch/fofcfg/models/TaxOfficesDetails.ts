@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TaxOfficesType } from './TaxOfficesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TaxOfficeType } from './TaxOfficeType';
 import {
-    TaxOfficesTypeFromJSON,
-    TaxOfficesTypeFromJSONTyped,
-    TaxOfficesTypeToJSON,
-} from './TaxOfficesType';
-import type { WarningsType } from './WarningsType';
+    TaxOfficeTypeFromJSON,
+    TaxOfficeTypeFromJSONTyped,
+    TaxOfficeTypeToJSON,
+} from './TaxOfficeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Tax Offices.
@@ -40,22 +40,22 @@ import {
 export interface TaxOfficesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TaxOfficesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TaxOfficesType}
+     * List of Tax Offices.
+     * @type {Array<TaxOfficeType>}
      * @memberof TaxOfficesDetails
      */
-    taxOffices?: TaxOfficesType;
+    taxOffices?: Array<TaxOfficeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TaxOfficesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TaxOfficesDetailsFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'taxOffices': !exists(json, 'taxOffices') ? undefined : TaxOfficesTypeFromJSON(json['taxOffices']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'taxOffices': !exists(json, 'taxOffices') ? undefined : ((json['taxOffices'] as Array<any>).map(TaxOfficeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TaxOfficesDetailsToJSON(value?: TaxOfficesDetails | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'taxOffices': TaxOfficesTypeToJSON(value.taxOffices),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'taxOffices': value.taxOffices === undefined ? undefined : ((value.taxOffices as Array<any>).map(TaxOfficeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

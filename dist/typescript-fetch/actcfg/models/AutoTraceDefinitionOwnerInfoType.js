@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AutoTraceDefinitionOwnerInfoTypeToJSON = exports.AutoTraceDefinitionOwnerInfoTypeFromJSONTyped = exports.AutoTraceDefinitionOwnerInfoTypeFromJSON = exports.instanceOfAutoTraceDefinitionOwnerInfoType = void 0;
 const runtime_1 = require("../runtime");
 const ActivityOwnerType_1 = require("./ActivityOwnerType");
-const AutoTraceOwnerAssignmentListType_1 = require("./AutoTraceOwnerAssignmentListType");
+const AutoTraceOwnerAssignmentType_1 = require("./AutoTraceOwnerAssignmentType");
 /**
  * Check if a given object implements the AutoTraceDefinitionOwnerInfoType interface.
  */
@@ -35,7 +35,7 @@ function AutoTraceDefinitionOwnerInfoTypeFromJSONTyped(json, ignoreDiscriminator
     }
     return {
         'customOwnerCode': !(0, runtime_1.exists)(json, 'customOwnerCode') ? undefined : json['customOwnerCode'],
-        'ownerAssignment': !(0, runtime_1.exists)(json, 'ownerAssignment') ? undefined : (0, AutoTraceOwnerAssignmentListType_1.AutoTraceOwnerAssignmentListTypeFromJSON)(json['ownerAssignment']),
+        'ownerAssignment': !(0, runtime_1.exists)(json, 'ownerAssignment') ? undefined : (json['ownerAssignment'].map(AutoTraceOwnerAssignmentType_1.AutoTraceOwnerAssignmentTypeFromJSON)),
         'ownerAssignmentExist': !(0, runtime_1.exists)(json, 'ownerAssignmentExist') ? undefined : json['ownerAssignmentExist'],
         'ownerofActivity': !(0, runtime_1.exists)(json, 'ownerofActivity') ? undefined : (0, ActivityOwnerType_1.ActivityOwnerTypeFromJSON)(json['ownerofActivity']),
     };
@@ -50,7 +50,7 @@ function AutoTraceDefinitionOwnerInfoTypeToJSON(value) {
     }
     return {
         'customOwnerCode': value.customOwnerCode,
-        'ownerAssignment': (0, AutoTraceOwnerAssignmentListType_1.AutoTraceOwnerAssignmentListTypeToJSON)(value.ownerAssignment),
+        'ownerAssignment': value.ownerAssignment === undefined ? undefined : (value.ownerAssignment.map(AutoTraceOwnerAssignmentType_1.AutoTraceOwnerAssignmentTypeToJSON)),
         'ownerAssignmentExist': value.ownerAssignmentExist,
         'ownerofActivity': (0, ActivityOwnerType_1.ActivityOwnerTypeToJSON)(value.ownerofActivity),
     };

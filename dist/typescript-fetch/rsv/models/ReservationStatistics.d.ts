@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { StatisticType } from './StatisticType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * FetchReservationStatistics response
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ReservationStatistics {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationStatistics
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Collection of statistic data of a reservation.
      * @type {Array<StatisticType>}
@@ -31,11 +31,11 @@ export interface ReservationStatistics {
      */
     statisticsType?: Array<StatisticType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationStatistics
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationStatistics interface.

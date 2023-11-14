@@ -9,10 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelCodeListType } from './HotelCodeListType';
-import type { Links } from './Links';
-import type { NegotiatedRatesType } from './NegotiatedRatesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { NegotiatedRateType } from './NegotiatedRateType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for distribute negotiated rates. This object contains a list of negotiated rates that are to be distributed and a list of properties to which to distribute to.
  * @export
@@ -20,29 +19,29 @@ import type { WarningsType } from './WarningsType';
  */
 export interface DistributedNegotiatedRates {
     /**
-     *
-     * @type {HotelCodeListType}
+     * Hotel code.
+     * @type {Array<string>}
      * @memberof DistributedNegotiatedRates
      */
-    hotelCodeList?: HotelCodeListType;
+    hotelCodeList?: Array<string>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DistributedNegotiatedRates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {NegotiatedRatesType}
+     * List of Negotiated rates to be maintained.
+     * @type {Array<NegotiatedRateType>}
      * @memberof DistributedNegotiatedRates
      */
-    negotiatedRateList?: NegotiatedRatesType;
+    negotiatedRateList?: Array<NegotiatedRateType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DistributedNegotiatedRates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DistributedNegotiatedRates interface.

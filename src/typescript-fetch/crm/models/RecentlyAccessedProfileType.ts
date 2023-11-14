@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ProfileIdList } from './ProfileIdList';
-import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
 import type { ProfileTypeType } from './ProfileTypeType';
 import {
     ProfileTypeTypeFromJSON,
     ProfileTypeTypeFromJSONTyped,
     ProfileTypeTypeToJSON,
 } from './ProfileTypeType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * A recently used profile details.
@@ -51,11 +51,11 @@ export interface RecentlyAccessedProfileType {
      */
     guestLastName?: string;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RecentlyAccessedProfileType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {ProfileTypeType}
@@ -86,7 +86,7 @@ export function RecentlyAccessedProfileTypeFromJSONTyped(json: any, ignoreDiscri
         'accessDate': !exists(json, 'accessDate') ? undefined : (new Date(json['accessDate'])),
         'guestFirstName': !exists(json, 'guestFirstName') ? undefined : json['guestFirstName'],
         'guestLastName': !exists(json, 'guestLastName') ? undefined : json['guestLastName'],
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'profileType': !exists(json, 'profileType') ? undefined : ProfileTypeTypeFromJSON(json['profileType']),
     };
 }
@@ -103,7 +103,7 @@ export function RecentlyAccessedProfileTypeToJSON(value?: RecentlyAccessedProfil
         'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0,10)),
         'guestFirstName': value.guestFirstName,
         'guestLastName': value.guestLastName,
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'profileType': ProfileTypeTypeToJSON(value.profileType),
     };
 }

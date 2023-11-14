@@ -13,18 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
+import type { ParameterType } from './ParameterType';
 import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-import type { ParametersType } from './ParametersType';
-import {
-    ParametersTypeFromJSON,
-    ParametersTypeFromJSONTyped,
-    ParametersTypeToJSON,
-} from './ParametersType';
+    ParameterTypeFromJSON,
+    ParameterTypeFromJSONTyped,
+    ParameterTypeToJSON,
+} from './ParameterType';
 
 /**
  * 
@@ -34,10 +28,10 @@ import {
 export interface ListOfValuesCriteriaType {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ListOfValuesCriteriaType
      */
-    excludeCodeList?: CodeListType;
+    excludeCodeList?: Array<string>;
     /**
      * Only useful for LOVs that support toggle of inactive records inclusion. When set to true, inactive records will be included.
      * @type {boolean}
@@ -57,11 +51,11 @@ export interface ListOfValuesCriteriaType {
      */
     lovName?: string;
     /**
-     * 
-     * @type {ParametersType}
+     * Collection of generic Name-Value-Pair parameters.
+     * @type {Array<ParameterType>}
      * @memberof ListOfValuesCriteriaType
      */
-    parameters?: ParametersType;
+    parameters?: Array<ParameterType>;
 }
 
 /**
@@ -83,11 +77,11 @@ export function ListOfValuesCriteriaTypeFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'excludeCodeList': !exists(json, 'excludeCodeList') ? undefined : CodeListTypeFromJSON(json['excludeCodeList']),
+        'excludeCodeList': !exists(json, 'excludeCodeList') ? undefined : json['excludeCodeList'],
         'includeInactive': !exists(json, 'includeInactive') ? undefined : json['includeInactive'],
         'itemCodes': !exists(json, 'itemCodes') ? undefined : json['itemCodes'],
         'lovName': !exists(json, 'lovName') ? undefined : json['lovName'],
-        'parameters': !exists(json, 'parameters') ? undefined : ParametersTypeFromJSON(json['parameters']),
+        'parameters': !exists(json, 'parameters') ? undefined : ((json['parameters'] as Array<any>).map(ParameterTypeFromJSON)),
     };
 }
 
@@ -100,11 +94,11 @@ export function ListOfValuesCriteriaTypeToJSON(value?: ListOfValuesCriteriaType 
     }
     return {
         
-        'excludeCodeList': CodeListTypeToJSON(value.excludeCodeList),
+        'excludeCodeList': value.excludeCodeList,
         'includeInactive': value.includeInactive,
         'itemCodes': value.itemCodes,
         'lovName': value.lovName,
-        'parameters': ParametersTypeToJSON(value.parameters),
+        'parameters': value.parameters === undefined ? undefined : ((value.parameters as Array<any>).map(ParameterTypeToJSON)),
     };
 }
 

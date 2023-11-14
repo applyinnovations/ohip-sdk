@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelAccountsSummaryType } from './ChannelAccountsSummaryType';
+import type { ChannelAccountSummaryType } from './ChannelAccountSummaryType';
 import {
-    ChannelAccountsSummaryTypeFromJSON,
-    ChannelAccountsSummaryTypeFromJSONTyped,
-    ChannelAccountsSummaryTypeToJSON,
-} from './ChannelAccountsSummaryType';
-import type { Links } from './Links';
+    ChannelAccountSummaryTypeFromJSON,
+    ChannelAccountSummaryTypeFromJSONTyped,
+    ChannelAccountSummaryTypeToJSON,
+} from './ChannelAccountSummaryType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object of the Channel accounts fetch request.
@@ -39,11 +39,11 @@ import {
  */
 export interface ChannelAccountsSummary {
     /**
-     * 
-     * @type {ChannelAccountsSummaryType}
+     * This type holds collection of channel accounts summary information.
+     * @type {Array<ChannelAccountSummaryType>}
      * @memberof ChannelAccountsSummary
      */
-    channelAccounts?: ChannelAccountsSummaryType;
+    channelAccounts?: Array<ChannelAccountSummaryType>;
     /**
      * Total number of rows returned
      * @type {number}
@@ -64,10 +64,10 @@ export interface ChannelAccountsSummary {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelAccountsSummary
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -87,11 +87,11 @@ export interface ChannelAccountsSummary {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelAccountsSummary
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -113,15 +113,15 @@ export function ChannelAccountsSummaryFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'channelAccounts': !exists(json, 'channelAccounts') ? undefined : ChannelAccountsSummaryTypeFromJSON(json['channelAccounts']),
+        'channelAccounts': !exists(json, 'channelAccounts') ? undefined : ((json['channelAccounts'] as Array<any>).map(ChannelAccountSummaryTypeFromJSON)),
         'count': !exists(json, 'count') ? undefined : json['count'],
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -134,15 +134,15 @@ export function ChannelAccountsSummaryToJSON(value?: ChannelAccountsSummary | nu
     }
     return {
         
-        'channelAccounts': ChannelAccountsSummaryTypeToJSON(value.channelAccounts),
+        'channelAccounts': value.channelAccounts === undefined ? undefined : ((value.channelAccounts as Array<any>).map(ChannelAccountSummaryTypeToJSON)),
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

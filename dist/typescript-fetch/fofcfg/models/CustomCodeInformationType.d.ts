@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CustomValueInfoType } from './CustomValueInfoType';
-import type { CustomVarianceInfoType } from './CustomVarianceInfoType';
+import type { MonthlyCustomVarianceInfoType } from './MonthlyCustomVarianceInfoType';
 /**
  * Budget Forecast information for Custom segment code.
  * @export
@@ -18,17 +18,17 @@ import type { CustomVarianceInfoType } from './CustomVarianceInfoType';
  */
 export interface CustomCodeInformationType {
     /**
-     *
-     * @type {CustomVarianceInfoType}
+     * Monthly Value Variance information.
+     * @type {Array<MonthlyCustomVarianceInfoType>}
      * @memberof CustomCodeInformationType
      */
-    aBVarianceInfo?: CustomVarianceInfoType;
+    aBVarianceInfo?: Array<MonthlyCustomVarianceInfoType>;
     /**
-     *
-     * @type {CustomVarianceInfoType}
+     * Monthly Value Variance information.
+     * @type {Array<MonthlyCustomVarianceInfoType>}
      * @memberof CustomCodeInformationType
      */
-    aFVarianceInfo?: CustomVarianceInfoType;
+    aFVarianceInfo?: Array<MonthlyCustomVarianceInfoType>;
     /**
      *
      * @type {CustomValueInfoType}
@@ -54,11 +54,11 @@ export interface CustomCodeInformationType {
      */
     customCodeDescription?: string;
     /**
-     *
-     * @type {CustomVarianceInfoType}
+     * Monthly Value Variance information.
+     * @type {Array<MonthlyCustomVarianceInfoType>}
      * @memberof CustomCodeInformationType
      */
-    fBVarianceInfo?: CustomVarianceInfoType;
+    fBVarianceInfo?: Array<MonthlyCustomVarianceInfoType>;
     /**
      *
      * @type {CustomValueInfoType}

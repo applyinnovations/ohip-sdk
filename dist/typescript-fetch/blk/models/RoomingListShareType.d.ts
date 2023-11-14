@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EffectiveRatesType } from './EffectiveRatesType';
+import type { EffectiveRateType } from './EffectiveRateType';
 import type { RoomingListShareReservationType } from './RoomingListShareReservationType';
 import type { TimeSpanType } from './TimeSpanType';
 /**
@@ -19,11 +19,11 @@ import type { TimeSpanType } from './TimeSpanType';
  */
 export interface RoomingListShareType {
     /**
-     *
-     * @type {EffectiveRatesType}
+     * Collection of effective rate amount per guest on specific dates.
+     * @type {Array<EffectiveRateType>}
      * @memberof RoomingListShareType
      */
-    effectiveRates?: EffectiveRatesType;
+    effectiveRates?: Array<EffectiveRateType>;
     /**
      * Contains information about the rooming list reservation that is to be shared and specifies the type of share that is to be created.
      * @type {Array<RoomingListShareReservationType>}

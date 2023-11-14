@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExchangeRateCalculationTaxTypeToJSON = exports.ExchangeRateCalculationTaxTypeFromJSONTyped = exports.ExchangeRateCalculationTaxTypeFromJSON = exports.instanceOfExchangeRateCalculationTaxType = void 0;
 const runtime_1 = require("../runtime");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
-const ExchangeRateTransactionGenerateTaxesType_1 = require("./ExchangeRateTransactionGenerateTaxesType");
+const ExchangeRateTransactionGenerateTaxType_1 = require("./ExchangeRateTransactionGenerateTaxType");
 /**
  * Check if a given object implements the ExchangeRateCalculationTaxType interface.
  */
@@ -35,7 +35,7 @@ function ExchangeRateCalculationTaxTypeFromJSONTyped(json, ignoreDiscriminator) 
     }
     return {
         'baseAmount': !(0, runtime_1.exists)(json, 'baseAmount') ? undefined : json['baseAmount'],
-        'exchangeRateTransactionGenerateTaxes': !(0, runtime_1.exists)(json, 'exchangeRateTransactionGenerateTaxes') ? undefined : (0, ExchangeRateTransactionGenerateTaxesType_1.ExchangeRateTransactionGenerateTaxesTypeFromJSON)(json['exchangeRateTransactionGenerateTaxes']),
+        'exchangeRateTransactionGenerateTaxes': !(0, runtime_1.exists)(json, 'exchangeRateTransactionGenerateTaxes') ? undefined : (json['exchangeRateTransactionGenerateTaxes'].map(ExchangeRateTransactionGenerateTaxType_1.ExchangeRateTransactionGenerateTaxTypeFromJSON)),
         'maxServiceTax': !(0, runtime_1.exists)(json, 'maxServiceTax') ? undefined : json['maxServiceTax'],
         'minServiceTax': !(0, runtime_1.exists)(json, 'minServiceTax') ? undefined : json['minServiceTax'],
         'percentage': !(0, runtime_1.exists)(json, 'percentage') ? undefined : json['percentage'],
@@ -52,7 +52,7 @@ function ExchangeRateCalculationTaxTypeToJSON(value) {
     }
     return {
         'baseAmount': value.baseAmount,
-        'exchangeRateTransactionGenerateTaxes': (0, ExchangeRateTransactionGenerateTaxesType_1.ExchangeRateTransactionGenerateTaxesTypeToJSON)(value.exchangeRateTransactionGenerateTaxes),
+        'exchangeRateTransactionGenerateTaxes': value.exchangeRateTransactionGenerateTaxes === undefined ? undefined : (value.exchangeRateTransactionGenerateTaxes.map(ExchangeRateTransactionGenerateTaxType_1.ExchangeRateTransactionGenerateTaxTypeToJSON)),
         'maxServiceTax': value.maxServiceTax,
         'minServiceTax': value.minServiceTax,
         'percentage': value.percentage,

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BenefitsType } from './BenefitsType';
+import type { BenefitType } from './BenefitType';
 import {
-    BenefitsTypeFromJSON,
-    BenefitsTypeFromJSONTyped,
-    BenefitsTypeToJSON,
-} from './BenefitsType';
+    BenefitTypeFromJSON,
+    BenefitTypeFromJSONTyped,
+    BenefitTypeToJSON,
+} from './BenefitType';
 import type { CardReIssueType } from './CardReIssueType';
 import {
     CardReIssueTypeFromJSON,
@@ -111,11 +111,11 @@ export interface StagedProfileMembershipType {
      */
     inactive?: boolean;
     /**
-     * 
-     * @type {BenefitsType}
+     * Basic information about membership benefit.
+     * @type {Array<BenefitType>}
      * @memberof StagedProfileMembershipType
      */
-    benefits?: BenefitsType;
+    benefits?: Array<BenefitType>;
     /**
      * 
      * @type {TierAdministrationType}
@@ -380,7 +380,7 @@ export function StagedProfileMembershipTypeFromJSONTyped(json: any, ignoreDiscri
         'membershipClass': !exists(json, 'membershipClass') ? undefined : json['membershipClass'],
         'earningPreference': !exists(json, 'earningPreference') ? undefined : MembershipEarningPreferenceTypeFromJSON(json['earningPreference']),
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
-        'benefits': !exists(json, 'benefits') ? undefined : BenefitsTypeFromJSON(json['benefits']),
+        'benefits': !exists(json, 'benefits') ? undefined : ((json['benefits'] as Array<any>).map(BenefitTypeFromJSON)),
         'tierAdministration': !exists(json, 'tierAdministration') ? undefined : TierAdministrationTypeFromJSON(json['tierAdministration']),
         'downgrade': !exists(json, 'downgrade') ? undefined : DowngradeTypeFromJSON(json['downgrade']),
         'reIssueNewCard': !exists(json, 'reIssueNewCard') ? undefined : CardReIssueTypeFromJSON(json['reIssueNewCard']),
@@ -441,7 +441,7 @@ export function StagedProfileMembershipTypeToJSON(value?: StagedProfileMembershi
         'membershipClass': value.membershipClass,
         'earningPreference': MembershipEarningPreferenceTypeToJSON(value.earningPreference),
         'inactive': value.inactive,
-        'benefits': BenefitsTypeToJSON(value.benefits),
+        'benefits': value.benefits === undefined ? undefined : ((value.benefits as Array<any>).map(BenefitTypeToJSON)),
         'tierAdministration': TierAdministrationTypeToJSON(value.tierAdministration),
         'downgrade': DowngradeTypeToJSON(value.downgrade),
         'reIssueNewCard': CardReIssueTypeToJSON(value.reIssueNewCard),

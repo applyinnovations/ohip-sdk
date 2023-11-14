@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RoomsHoldsType } from './RoomsHoldsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RoomsHoldType } from './RoomsHoldType';
+import type { WarningType } from './WarningType';
 /**
  * Request to place rooms on hold.
  * @export
@@ -19,17 +19,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface HoldRooms {
     /**
-     *
-     * @type {RoomsHoldsType}
+     * List of rooms, reason, and comments.
+     * @type {Array<RoomsHoldType>}
      * @memberof HoldRooms
      */
-    holdRoomsDetails?: RoomsHoldsType;
+    holdRoomsDetails?: Array<RoomsHoldType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HoldRooms
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * If trying to hold a room, which is held by a different user, then this flag will allow the current request to override that hold.
      * @type {boolean}
@@ -37,11 +37,11 @@ export interface HoldRooms {
      */
     overrideRoomHold?: boolean;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HoldRooms
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HoldRooms interface.

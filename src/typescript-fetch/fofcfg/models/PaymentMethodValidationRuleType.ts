@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CardRangesType } from './CardRangesType';
+import type { CardRangeType } from './CardRangeType';
 import {
-    CardRangesTypeFromJSON,
-    CardRangesTypeFromJSONTyped,
-    CardRangesTypeToJSON,
-} from './CardRangesType';
+    CardRangeTypeFromJSON,
+    CardRangeTypeFromJSONTyped,
+    CardRangeTypeToJSON,
+} from './CardRangeType';
 import type { CardValidationRuleTypeType } from './CardValidationRuleTypeType';
 import {
     CardValidationRuleTypeTypeFromJSON,
@@ -51,11 +51,11 @@ export interface PaymentMethodValidationRuleType {
      */
     prefix?: string;
     /**
-     * 
-     * @type {CardRangesType}
+     * Card number start and end range.
+     * @type {Array<CardRangeType>}
      * @memberof PaymentMethodValidationRuleType
      */
-    ranges?: CardRangesType;
+    ranges?: Array<CardRangeType>;
     /**
      * 
      * @type {CardValidationRuleTypeType}
@@ -86,7 +86,7 @@ export function PaymentMethodValidationRuleTypeFromJSONTyped(json: any, ignoreDi
         'formula': !exists(json, 'formula') ? undefined : json['formula'],
         'length': !exists(json, 'length') ? undefined : json['length'],
         'prefix': !exists(json, 'prefix') ? undefined : json['prefix'],
-        'ranges': !exists(json, 'ranges') ? undefined : CardRangesTypeFromJSON(json['ranges']),
+        'ranges': !exists(json, 'ranges') ? undefined : ((json['ranges'] as Array<any>).map(CardRangeTypeFromJSON)),
         'rule': !exists(json, 'rule') ? undefined : CardValidationRuleTypeTypeFromJSON(json['rule']),
     };
 }
@@ -103,7 +103,7 @@ export function PaymentMethodValidationRuleTypeToJSON(value?: PaymentMethodValid
         'formula': value.formula,
         'length': value.length,
         'prefix': value.prefix,
-        'ranges': CardRangesTypeToJSON(value.ranges),
+        'ranges': value.ranges === undefined ? undefined : ((value.ranges as Array<any>).map(CardRangeTypeToJSON)),
         'rule': CardValidationRuleTypeTypeToJSON(value.rule),
     };
 }

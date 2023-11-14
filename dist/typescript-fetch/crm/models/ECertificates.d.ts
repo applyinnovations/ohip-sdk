@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ECertificatesType } from './ECertificatesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ECertificateType } from './ECertificateType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetch ECertificates. This object contains collection of ECertificates,Success,Warnings and Errors related to this operation.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ECertificates {
     /**
-     *
-     * @type {ECertificatesType}
+     * List of e-certificates for the profile.
+     * @type {Array<ECertificateType>}
      * @memberof ECertificates
      */
-    eCertificatesDetail?: ECertificatesType;
+    eCertificatesDetail?: Array<ECertificateType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ECertificates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ECertificates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ECertificates interface.

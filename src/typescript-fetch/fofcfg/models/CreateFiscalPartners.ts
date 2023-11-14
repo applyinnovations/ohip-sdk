@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FiscalPartnersType } from './FiscalPartnersType';
+import type { FiscalPartnerType } from './FiscalPartnerType';
 import {
-    FiscalPartnersTypeFromJSON,
-    FiscalPartnersTypeFromJSONTyped,
-    FiscalPartnersTypeToJSON,
-} from './FiscalPartnersType';
-import type { WarningsType } from './WarningsType';
+    FiscalPartnerTypeFromJSON,
+    FiscalPartnerTypeFromJSONTyped,
+    FiscalPartnerTypeToJSON,
+} from './FiscalPartnerType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to create Fiscal Partners
@@ -33,17 +33,17 @@ import {
  */
 export interface CreateFiscalPartners {
     /**
-     * 
-     * @type {FiscalPartnersType}
+     * Details of Fiscal Partners.
+     * @type {Array<FiscalPartnerType>}
      * @memberof CreateFiscalPartners
      */
-    fiscalPeriods?: FiscalPartnersType;
+    fiscalPeriods?: Array<FiscalPartnerType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateFiscalPartners
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function CreateFiscalPartnersFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'fiscalPeriods': !exists(json, 'fiscalPeriods') ? undefined : FiscalPartnersTypeFromJSON(json['fiscalPeriods']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'fiscalPeriods': !exists(json, 'fiscalPeriods') ? undefined : ((json['fiscalPeriods'] as Array<any>).map(FiscalPartnerTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function CreateFiscalPartnersToJSON(value?: CreateFiscalPartners | null):
     }
     return {
         
-        'fiscalPeriods': FiscalPartnersTypeToJSON(value.fiscalPeriods),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'fiscalPeriods': value.fiscalPeriods === undefined ? undefined : ((value.fiscalPeriods as Array<any>).map(FiscalPartnerTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomClassTemplatesType } from './RoomClassTemplatesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomClassTemplateType } from './RoomClassTemplateType';
 import {
-    RoomClassTemplatesTypeFromJSON,
-    RoomClassTemplatesTypeFromJSONTyped,
-    RoomClassTemplatesTypeToJSON,
-} from './RoomClassTemplatesType';
-import type { WarningsType } from './WarningsType';
+    RoomClassTemplateTypeFromJSON,
+    RoomClassTemplateTypeFromJSONTyped,
+    RoomClassTemplateTypeToJSON,
+} from './RoomClassTemplateType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for information regarding template room classes.
@@ -40,22 +40,22 @@ import {
 export interface RoomClassTemplatesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomClassTemplatesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RoomClassTemplatesType}
+     * Collection of template room classes.
+     * @type {Array<RoomClassTemplateType>}
      * @memberof RoomClassTemplatesDetails
      */
-    roomClassTemplates?: RoomClassTemplatesType;
+    roomClassTemplates?: Array<RoomClassTemplateType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomClassTemplatesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RoomClassTemplatesDetailsFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'roomClassTemplates': !exists(json, 'roomClassTemplates') ? undefined : RoomClassTemplatesTypeFromJSON(json['roomClassTemplates']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'roomClassTemplates': !exists(json, 'roomClassTemplates') ? undefined : ((json['roomClassTemplates'] as Array<any>).map(RoomClassTemplateTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RoomClassTemplatesDetailsToJSON(value?: RoomClassTemplatesDetail
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'roomClassTemplates': RoomClassTemplatesTypeToJSON(value.roomClassTemplates),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'roomClassTemplates': value.roomClassTemplates === undefined ? undefined : ((value.roomClassTemplates as Array<any>).map(RoomClassTemplateTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

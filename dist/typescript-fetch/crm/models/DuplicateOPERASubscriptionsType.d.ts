@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ProfileSubscriptionListType } from './ProfileSubscriptionListType';
+import type { ProfileSubscriptionType } from './ProfileSubscriptionType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Contains subscription details about an external profile within a particular external system that is linked to multiple OPERA profiles.
@@ -24,11 +24,11 @@ export interface DuplicateOPERASubscriptionsType {
      */
     externalProfileId?: UniqueIDType;
     /**
-     *
-     * @type {ProfileSubscriptionListType}
+     * Details of the OPERA Profile subscription to external system
+     * @type {Array<ProfileSubscriptionType>}
      * @memberof DuplicateOPERASubscriptionsType
      */
-    profileSubscriptions?: ProfileSubscriptionListType;
+    profileSubscriptions?: Array<ProfileSubscriptionType>;
 }
 /**
  * Check if a given object implements the DuplicateOPERASubscriptionsType interface.

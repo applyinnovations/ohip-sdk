@@ -9,8 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Copy Global Alerts criteria from one property to another property
  * @export
@@ -18,17 +17,17 @@ import type { UniqueIDListType } from './UniqueIDListType';
  */
 export interface CopyGlobalAlertType {
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CopyGlobalAlertType
      */
-    resvAlertIds?: UniqueIDListType;
+    resvAlertIds?: Array<UniqueIDType>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyGlobalAlertType
      */
-    targetHotelCodes?: CodeListType;
+    targetHotelCodes?: Array<string>;
 }
 /**
  * Check if a given object implements the CopyGlobalAlertType interface.

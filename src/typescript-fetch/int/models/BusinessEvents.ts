@@ -25,12 +25,12 @@ import {
     InstanceLinkFromJSONTyped,
     InstanceLinkToJSON,
 } from './InstanceLink';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Provides business event message dequeued from BE queue as response
@@ -51,11 +51,11 @@ export interface BusinessEvents {
      */
     links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BusinessEvents
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -79,7 +79,7 @@ export function BusinessEventsFromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'businessEventData': !exists(json, 'businessEventData') ? undefined : ((json['businessEventData'] as Array<any>).map(BusinessEventDataTypeFromJSON)),
         'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -94,7 +94,7 @@ export function BusinessEventsToJSON(value?: BusinessEvents | null): any {
         
         'businessEventData': value.businessEventData === undefined ? undefined : ((value.businessEventData as Array<any>).map(BusinessEventDataTypeToJSON)),
         'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

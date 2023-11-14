@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PayDaysCriteriaToJSON = exports.PayDaysCriteriaFromJSONTyped = exports.PayDaysCriteriaFromJSON = exports.instanceOfPayDaysCriteria = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const PayDaysType_1 = require("./PayDaysType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const PayDayType_1 = require("./PayDayType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PayDaysCriteria interface.
  */
@@ -35,9 +35,9 @@ function PayDaysCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'payDays': !(0, runtime_1.exists)(json, 'payDays') ? undefined : (0, PayDaysType_1.PayDaysTypeFromJSON)(json['payDays']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'payDays': !(0, runtime_1.exists)(json, 'payDays') ? undefined : (json['payDays'].map(PayDayType_1.PayDayTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PayDaysCriteriaFromJSONTyped = PayDaysCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function PayDaysCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'payDays': (0, PayDaysType_1.PayDaysTypeToJSON)(value.payDays),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'payDays': value.payDays === undefined ? undefined : (value.payDays.map(PayDayType_1.PayDayTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PayDaysCriteriaToJSON = PayDaysCriteriaToJSON;

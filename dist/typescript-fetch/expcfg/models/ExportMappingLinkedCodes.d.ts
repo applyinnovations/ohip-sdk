@@ -11,8 +11,8 @@
  */
 import type { ExportMappingLinkedCodeType } from './ExportMappingLinkedCodeType';
 import type { ExportMappingMasterInfoType } from './ExportMappingMasterInfoType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response to fetch codes linked to export mapping codes.
  * @export
@@ -27,10 +27,10 @@ export interface ExportMappingLinkedCodes {
     linkedCodes?: Array<ExportMappingLinkedCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExportMappingLinkedCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ExportMappingMasterInfoType}
@@ -38,11 +38,11 @@ export interface ExportMappingLinkedCodes {
      */
     masterInfo?: ExportMappingMasterInfoType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ExportMappingLinkedCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ExportMappingLinkedCodes interface.

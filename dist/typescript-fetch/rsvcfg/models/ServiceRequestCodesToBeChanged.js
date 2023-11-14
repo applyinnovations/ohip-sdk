@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ServiceRequestCodesToBeChangedToJSON = exports.ServiceRequestCodesToBeChangedFromJSONTyped = exports.ServiceRequestCodesToBeChangedFromJSON = exports.instanceOfServiceRequestCodesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const ServiceRequestCodesType_1 = require("./ServiceRequestCodesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const ServiceRequestCodeType_1 = require("./ServiceRequestCodeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ServiceRequestCodesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function ServiceRequestCodesToBeChangedFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'serviceRequestCodes': !(0, runtime_1.exists)(json, 'serviceRequestCodes') ? undefined : (0, ServiceRequestCodesType_1.ServiceRequestCodesTypeFromJSON)(json['serviceRequestCodes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'serviceRequestCodes': !(0, runtime_1.exists)(json, 'serviceRequestCodes') ? undefined : (json['serviceRequestCodes'].map(ServiceRequestCodeType_1.ServiceRequestCodeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ServiceRequestCodesToBeChangedFromJSONTyped = ServiceRequestCodesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function ServiceRequestCodesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'serviceRequestCodes': (0, ServiceRequestCodesType_1.ServiceRequestCodesTypeToJSON)(value.serviceRequestCodes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'serviceRequestCodes': value.serviceRequestCodes === undefined ? undefined : (value.serviceRequestCodes.map(ServiceRequestCodeType_1.ServiceRequestCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ServiceRequestCodesToBeChangedToJSON = ServiceRequestCodesToBeChangedToJSON;

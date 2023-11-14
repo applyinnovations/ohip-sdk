@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RateStrategiesToSetRateStrategies } from './RateStrategiesToSetRateStrategies';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for setting rate strategies. This operation will change details of rate strategy if rate strategy with the given Hotel Code, Restriction Dates, Rate Code, Rate Category, Room Type, Condition Type and Restriction Type already exists. Otherwise, it will create new rate strategy.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface RateStrategiesToSet {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RateStrategiesToSet
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {RateStrategiesToSetRateStrategies}
@@ -31,11 +31,11 @@ export interface RateStrategiesToSet {
      */
     rateStrategies?: RateStrategiesToSetRateStrategies;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RateStrategiesToSet
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RateStrategiesToSet interface.

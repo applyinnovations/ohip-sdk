@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { GuaranteesMappingType } from './GuaranteesMappingType';
+import type { GuaranteeMappingType } from './GuaranteeMappingType';
 import {
-    GuaranteesMappingTypeFromJSON,
-    GuaranteesMappingTypeFromJSONTyped,
-    GuaranteesMappingTypeToJSON,
-} from './GuaranteesMappingType';
-import type { Links } from './Links';
+    GuaranteeMappingTypeFromJSON,
+    GuaranteeMappingTypeFromJSONTyped,
+    GuaranteeMappingTypeToJSON,
+} from './GuaranteeMappingType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing external system guarantees.
@@ -39,23 +39,23 @@ import {
  */
 export interface Guarantees {
     /**
-     * 
-     * @type {GuaranteesMappingType}
+     * Information about an external system guarantee mapping.
+     * @type {Array<GuaranteeMappingType>}
      * @memberof Guarantees
      */
-    guarantees?: GuaranteesMappingType;
+    guarantees?: Array<GuaranteeMappingType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Guarantees
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Guarantees
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function GuaranteesFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'guarantees': !exists(json, 'guarantees') ? undefined : GuaranteesMappingTypeFromJSON(json['guarantees']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'guarantees': !exists(json, 'guarantees') ? undefined : ((json['guarantees'] as Array<any>).map(GuaranteeMappingTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function GuaranteesToJSON(value?: Guarantees | null): any {
     }
     return {
         
-        'guarantees': GuaranteesMappingTypeToJSON(value.guarantees),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'guarantees': value.guarantees === undefined ? undefined : ((value.guarantees as Array<any>).map(GuaranteeMappingTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

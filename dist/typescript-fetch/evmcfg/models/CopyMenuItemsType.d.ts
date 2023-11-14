@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CateringMenuItemClassListType } from './CateringMenuItemClassListType';
-import type { CateringMenuItemListType } from './CateringMenuItemListType';
+import type { CateringMenuItemClassType } from './CateringMenuItemClassType';
+import type { CateringMenuItemType } from './CateringMenuItemType';
 /**
  *
  * @export
@@ -24,17 +24,17 @@ export interface CopyMenuItemsType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {CateringMenuItemClassListType}
+     * List of Values of Menu Item Class.
+     * @type {Array<CateringMenuItemClassType>}
      * @memberof CopyMenuItemsType
      */
-    menuItemClassList?: CateringMenuItemClassListType;
+    menuItemClassList?: Array<CateringMenuItemClassType>;
     /**
-     *
-     * @type {CateringMenuItemListType}
+     * List of Values of Menu Item.
+     * @type {Array<CateringMenuItemType>}
      * @memberof CopyMenuItemsType
      */
-    menuItemList?: CateringMenuItemListType;
+    menuItemList?: Array<CateringMenuItemType>;
 }
 /**
  * Check if a given object implements the CopyMenuItemsType interface.

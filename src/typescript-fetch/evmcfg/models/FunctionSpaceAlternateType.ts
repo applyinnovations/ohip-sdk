@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-
 /**
  * Details for alternate function spaces.
  * @export
@@ -28,10 +21,10 @@ import {
 export interface FunctionSpaceAlternateType {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof FunctionSpaceAlternateType
      */
-    excludedCateringEventTypes?: CodeListType;
+    excludedCateringEventTypes?: Array<string>;
     /**
      * Flag to indicate if the function space must have an alternate space when used.
      * @type {boolean}
@@ -59,7 +52,7 @@ export function FunctionSpaceAlternateTypeFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'excludedCateringEventTypes': !exists(json, 'excludedCateringEventTypes') ? undefined : CodeListTypeFromJSON(json['excludedCateringEventTypes']),
+        'excludedCateringEventTypes': !exists(json, 'excludedCateringEventTypes') ? undefined : json['excludedCateringEventTypes'],
         'forceAlternate': !exists(json, 'forceAlternate') ? undefined : json['forceAlternate'],
     };
 }
@@ -73,7 +66,7 @@ export function FunctionSpaceAlternateTypeToJSON(value?: FunctionSpaceAlternateT
     }
     return {
         
-        'excludedCateringEventTypes': CodeListTypeToJSON(value.excludedCateringEventTypes),
+        'excludedCateringEventTypes': value.excludedCateringEventTypes,
         'forceAlternate': value.forceAlternate,
     };
 }

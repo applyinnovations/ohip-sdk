@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 /**
  * Room information of the reservation for the current day.
  * @export
@@ -48,10 +47,10 @@ export interface CurrentRoomInfoType {
     roomViewCode?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CurrentRoomInfoType
      */
-    suggestedRoomNumbers?: CodeListType;
+    suggestedRoomNumbers?: Array<string>;
     /**
      * Represents the room was upgraded by AI Room Assignment.
      * @type {boolean}

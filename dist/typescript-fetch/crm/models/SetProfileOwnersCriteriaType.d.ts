@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { OwnersType } from './OwnersType';
-import type { ProfileIdList } from './ProfileIdList';
+import type { OwnerType } from './OwnerType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Criteria to update the profile owners.
  * @export
@@ -18,17 +18,17 @@ import type { ProfileIdList } from './ProfileIdList';
  */
 export interface SetProfileOwnersCriteriaType {
     /**
-     *
-     * @type {OwnersType}
+     * Generic type for a list of owners.
+     * @type {Array<OwnerType>}
      * @memberof SetProfileOwnersCriteriaType
      */
-    owners?: OwnersType;
+    owners?: Array<OwnerType>;
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof SetProfileOwnersCriteriaType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the SetProfileOwnersCriteriaType interface.

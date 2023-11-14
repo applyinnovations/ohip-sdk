@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CompAuthorizersType } from './CompAuthorizersType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CompAuthorizerType } from './CompAuthorizerType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CompAuthorizers {
     /**
-     *
-     * @type {CompAuthorizersType}
+     * Information associated for an authorizer.
+     * @type {Array<CompAuthorizerType>}
      * @memberof CompAuthorizers
      */
-    compAuthorizerInfo?: CompAuthorizersType;
+    compAuthorizerInfo?: Array<CompAuthorizerType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CompAuthorizers
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CompAuthorizers
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CompAuthorizers interface.

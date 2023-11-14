@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { PreferenceTypeType } from './PreferenceTypeType';
-import type { ProfileIdList } from './ProfileIdList';
-import type { WarningsType } from './WarningsType';
+import type { UniqueIDType } from './UniqueIDType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetch preference. This object contains collection of preferences,Success,Warnings and Errors related to this operation.
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface Preference {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Preference
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Detailed information of preferences related to the profile
      * @type {Array<PreferenceTypeType>}
@@ -32,17 +32,17 @@ export interface Preference {
      */
     preferenceCollections?: Array<PreferenceTypeType>;
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof Preference
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Preference
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Preference interface.

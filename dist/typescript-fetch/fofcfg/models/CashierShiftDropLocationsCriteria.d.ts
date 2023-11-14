@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CashierShiftDropLocationsType } from './CashierShiftDropLocationsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CashierShiftDropLocationType } from './CashierShiftDropLocationType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Cashier Shift Drop Locations.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CashierShiftDropLocationsCriteria {
     /**
-     *
-     * @type {CashierShiftDropLocationsType}
+     * List of Cashier Shift Drop Locations.
+     * @type {Array<CashierShiftDropLocationType>}
      * @memberof CashierShiftDropLocationsCriteria
      */
-    cashierShiftDropLocations?: CashierShiftDropLocationsType;
+    cashierShiftDropLocations?: Array<CashierShiftDropLocationType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CashierShiftDropLocationsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CashierShiftDropLocationsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CashierShiftDropLocationsCriteria interface.

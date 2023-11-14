@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DetailPostingsType } from './DetailPostingsType';
-import type { Links } from './Links';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+import type { DetailPostingType } from './DetailPostingType';
+import type { InstanceLink } from './InstanceLink';
+import type { TrxInfoType } from './TrxInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response for fetching the Cashier report transactions.
  * @export
@@ -21,28 +21,28 @@ import type { WarningsType } from './WarningsType';
 export interface CashierReportPostingsInfo {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CashierReportPostingsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {DetailPostingsType}
+     * Details of the transaction(Posting).
+     * @type {Array<DetailPostingType>}
      * @memberof CashierReportPostingsInfo
      */
-    postings?: DetailPostingsType;
+    postings?: Array<DetailPostingType>;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof CashierReportPostingsInfo
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CashierReportPostingsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CashierReportPostingsInfo interface.

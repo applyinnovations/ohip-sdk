@@ -25,18 +25,18 @@ import {
     GenericHotelCodeCodeTypeFromJSONTyped,
     GenericHotelCodeCodeTypeToJSON,
 } from './GenericHotelCodeCodeType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for copying Fiscal Folio Parameters to other hotel code(s).
@@ -58,16 +58,16 @@ export interface FiscalFolioParametersCopy {
     fiscalFolioParameters?: Array<CopyFiscalFolioParametersType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FiscalFolioParametersCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FiscalFolioParametersCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -91,8 +91,8 @@ export function FiscalFolioParametersCopyFromJSONTyped(json: any, ignoreDiscrimi
         
         'fiscalFolioParameter': !exists(json, 'fiscalFolioParameter') ? undefined : ((json['fiscalFolioParameter'] as Array<any>).map(GenericHotelCodeCodeTypeFromJSON)),
         'fiscalFolioParameters': !exists(json, 'fiscalFolioParameters') ? undefined : ((json['fiscalFolioParameters'] as Array<any>).map(CopyFiscalFolioParametersTypeFromJSON)),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -107,8 +107,8 @@ export function FiscalFolioParametersCopyToJSON(value?: FiscalFolioParametersCop
         
         'fiscalFolioParameter': value.fiscalFolioParameter === undefined ? undefined : ((value.fiscalFolioParameter as Array<any>).map(GenericHotelCodeCodeTypeToJSON)),
         'fiscalFolioParameters': value.fiscalFolioParameters === undefined ? undefined : ((value.fiscalFolioParameters as Array<any>).map(CopyFiscalFolioParametersTypeToJSON)),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

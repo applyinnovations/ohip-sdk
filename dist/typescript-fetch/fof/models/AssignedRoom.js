@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AssignedRoomToJSON = exports.AssignedRoomFromJSONTyped = exports.AssignedRoomFromJSON = exports.instanceOfAssignedRoom = void 0;
 const runtime_1 = require("../runtime");
-const DailyRatesType_1 = require("./DailyRatesType");
-const EffectiveRatesType_1 = require("./EffectiveRatesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const DailyRateType_1 = require("./DailyRateType");
+const EffectiveRateType_1 = require("./EffectiveRateType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AssignedRoom interface.
  */
@@ -36,11 +36,11 @@ function AssignedRoomFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'effectiveRates': !(0, runtime_1.exists)(json, 'effectiveRates') ? undefined : (0, EffectiveRatesType_1.EffectiveRatesTypeFromJSON)(json['effectiveRates']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'newRates': !(0, runtime_1.exists)(json, 'newRates') ? undefined : (0, DailyRatesType_1.DailyRatesTypeFromJSON)(json['newRates']),
-        'oldRates': !(0, runtime_1.exists)(json, 'oldRates') ? undefined : (0, DailyRatesType_1.DailyRatesTypeFromJSON)(json['oldRates']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'effectiveRates': !(0, runtime_1.exists)(json, 'effectiveRates') ? undefined : (json['effectiveRates'].map(EffectiveRateType_1.EffectiveRateTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'newRates': !(0, runtime_1.exists)(json, 'newRates') ? undefined : (json['newRates'].map(DailyRateType_1.DailyRateTypeFromJSON)),
+        'oldRates': !(0, runtime_1.exists)(json, 'oldRates') ? undefined : (json['oldRates'].map(DailyRateType_1.DailyRateTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AssignedRoomFromJSONTyped = AssignedRoomFromJSONTyped;
@@ -52,11 +52,11 @@ function AssignedRoomToJSON(value) {
         return null;
     }
     return {
-        'effectiveRates': (0, EffectiveRatesType_1.EffectiveRatesTypeToJSON)(value.effectiveRates),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'newRates': (0, DailyRatesType_1.DailyRatesTypeToJSON)(value.newRates),
-        'oldRates': (0, DailyRatesType_1.DailyRatesTypeToJSON)(value.oldRates),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'effectiveRates': value.effectiveRates === undefined ? undefined : (value.effectiveRates.map(EffectiveRateType_1.EffectiveRateTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'newRates': value.newRates === undefined ? undefined : (value.newRates.map(DailyRateType_1.DailyRateTypeToJSON)),
+        'oldRates': value.oldRates === undefined ? undefined : (value.oldRates.map(DailyRateType_1.DailyRateTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AssignedRoomToJSON = AssignedRoomToJSON;

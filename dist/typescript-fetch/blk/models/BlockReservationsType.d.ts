@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { HotelReservationsType } from './HotelReservationsType';
-import type { RoomingListSharesType } from './RoomingListSharesType';
+import type { RoomingListShareType } from './RoomingListShareType';
 /**
  * Collection of block reservations.
  * @export
@@ -24,11 +24,11 @@ export interface BlockReservationsType {
      */
     reservations?: HotelReservationsType;
     /**
-     *
-     * @type {RoomingListSharesType}
+     * Contains a set of rooming list reservations that need to be shared.
+     * @type {Array<RoomingListShareType>}
      * @memberof BlockReservationsType
      */
-    shares?: RoomingListSharesType;
+    shares?: Array<RoomingListShareType>;
 }
 /**
  * Check if a given object implements the BlockReservationsType interface.

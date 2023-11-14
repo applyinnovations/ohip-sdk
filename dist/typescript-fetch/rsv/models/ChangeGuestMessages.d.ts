@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GuestMessagesType } from './GuestMessagesType';
-import type { Links } from './Links';
+import type { GuestMessageType } from './GuestMessageType';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationId } from './ReservationId';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for updating the Guest Messages for a Reservation.
  * @export
@@ -20,11 +20,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ChangeGuestMessages {
     /**
-     *
-     * @type {GuestMessagesType}
+     * Holds the Message Information
+     * @type {Array<GuestMessageType>}
      * @memberof ChangeGuestMessages
      */
-    guestMessages?: GuestMessagesType;
+    guestMessages?: Array<GuestMessageType>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -33,10 +33,10 @@ export interface ChangeGuestMessages {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangeGuestMessages
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationId}
@@ -44,11 +44,11 @@ export interface ChangeGuestMessages {
      */
     reservationId?: ReservationId;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeGuestMessages
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChangeGuestMessages interface.

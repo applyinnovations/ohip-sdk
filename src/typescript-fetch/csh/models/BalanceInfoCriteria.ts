@@ -19,30 +19,30 @@ import {
     CurrencyAmountTypeFromJSONTyped,
     CurrencyAmountTypeToJSON,
 } from './CurrencyAmountType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { SummaryPostingsType } from './SummaryPostingsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { SummaryPostingType } from './SummaryPostingType';
 import {
-    SummaryPostingsTypeFromJSON,
-    SummaryPostingsTypeFromJSONTyped,
-    SummaryPostingsTypeToJSON,
-} from './SummaryPostingsType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+    SummaryPostingTypeFromJSON,
+    SummaryPostingTypeFromJSONTyped,
+    SummaryPostingTypeToJSON,
+} from './SummaryPostingType';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for the fetch balance request. This will contain the current balance for the criteria requested.
@@ -58,28 +58,28 @@ export interface BalanceInfoCriteria {
     balance?: CurrencyAmountType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BalanceInfoCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {SummaryPostingsType}
+     * List of postings.
+     * @type {Array<SummaryPostingType>}
      * @memberof BalanceInfoCriteria
      */
-    postings?: SummaryPostingsType;
+    postings?: Array<SummaryPostingType>;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof BalanceInfoCriteria
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BalanceInfoCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -102,10 +102,10 @@ export function BalanceInfoCriteriaFromJSONTyped(json: any, ignoreDiscriminator:
     return {
         
         'balance': !exists(json, 'balance') ? undefined : CurrencyAmountTypeFromJSON(json['balance']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'postings': !exists(json, 'postings') ? undefined : SummaryPostingsTypeFromJSON(json['postings']),
-        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : TrxCodesInfoTypeFromJSON(json['trxCodesInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'postings': !exists(json, 'postings') ? undefined : ((json['postings'] as Array<any>).map(SummaryPostingTypeFromJSON)),
+        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : ((json['trxCodesInfo'] as Array<any>).map(TrxInfoTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -119,10 +119,10 @@ export function BalanceInfoCriteriaToJSON(value?: BalanceInfoCriteria | null): a
     return {
         
         'balance': CurrencyAmountTypeToJSON(value.balance),
-        'links': LinksToJSON(value.links),
-        'postings': SummaryPostingsTypeToJSON(value.postings),
-        'trxCodesInfo': TrxCodesInfoTypeToJSON(value.trxCodesInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'postings': value.postings === undefined ? undefined : ((value.postings as Array<any>).map(SummaryPostingTypeToJSON)),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : ((value.trxCodesInfo as Array<any>).map(TrxInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

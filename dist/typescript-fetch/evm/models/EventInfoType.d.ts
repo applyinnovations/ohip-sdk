@@ -10,17 +10,16 @@
  * Do not edit the class manually.
  */
 import type { BlockType } from './BlockType';
+import type { CateringEventResourceType } from './CateringEventResourceType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { EventDetailType } from './EventDetailType';
 import type { EventFunctionSpaceType } from './EventFunctionSpaceType';
-import type { EventNotesType } from './EventNotesType';
+import type { EventNoteType } from './EventNoteType';
 import type { EventPrimaryInfoType } from './EventPrimaryInfoType';
 import type { EventProcessInstructionsType } from './EventProcessInstructionsType';
-import type { EventResourcesListType } from './EventResourcesListType';
 import type { EventRevenuesInformationType } from './EventRevenuesInformationType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import type { LightEventDetailType } from './LightEventDetailType';
-import type { LightEventsDetailType } from './LightEventsDetailType';
 /**
  * Catering Event information.
  * @export
@@ -28,11 +27,11 @@ import type { LightEventsDetailType } from './LightEventsDetailType';
  */
 export interface EventInfoType {
     /**
-     *
-     * @type {LightEventsDetailType}
+     * Pertain event few information about events.
+     * @type {Array<LightEventDetailType>}
      * @memberof EventInfoType
      */
-    altEventsDetail?: LightEventsDetailType;
+    altEventsDetail?: Array<LightEventDetailType>;
     /**
      *
      * @type {BlockType}
@@ -46,17 +45,17 @@ export interface EventInfoType {
      */
     eventDetail?: EventDetailType;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof EventInfoType
      */
-    eventIndicators?: IndicatorsType;
+    eventIndicators?: Array<IndicatorType>;
     /**
-     *
-     * @type {EventNotesType}
+     * Pertain event information.
+     * @type {Array<EventNoteType>}
      * @memberof EventInfoType
      */
-    eventNotes?: EventNotesType;
+    eventNotes?: Array<EventNoteType>;
     /**
      *
      * @type {EventPrimaryInfoType}
@@ -64,11 +63,11 @@ export interface EventInfoType {
      */
     eventPrimaryInfo?: EventPrimaryInfoType;
     /**
-     *
-     * @type {EventResourcesListType}
+     * Event resources information.
+     * @type {Array<CateringEventResourceType>}
      * @memberof EventInfoType
      */
-    eventResources?: EventResourcesListType;
+    eventResources?: Array<CateringEventResourceType>;
     /**
      *
      * @type {EventRevenuesInformationType}
@@ -100,11 +99,11 @@ export interface EventInfoType {
      */
     processInstructions?: EventProcessInstructionsType;
     /**
-     *
-     * @type {LightEventsDetailType}
+     * Pertain event few information about events.
+     * @type {Array<LightEventDetailType>}
      * @memberof EventInfoType
      */
-    subEventsDetail?: LightEventsDetailType;
+    subEventsDetail?: Array<LightEventDetailType>;
 }
 /**
  * Check if a given object implements the EventInfoType interface.

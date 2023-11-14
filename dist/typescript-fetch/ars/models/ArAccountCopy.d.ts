@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CopyARAccountCriteriaType } from './CopyARAccountCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to copy AR Account
  * @export
@@ -26,16 +26,16 @@ export interface ArAccountCopy {
     criteria?: CopyARAccountCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ArAccountCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ArAccountCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ArAccountCopy interface.

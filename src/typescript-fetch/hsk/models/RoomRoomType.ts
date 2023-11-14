@@ -25,12 +25,12 @@ import {
     RatePlanRatingTypeFromJSONTyped,
     RatePlanRatingTypeToJSON,
 } from './RatePlanRatingType';
-import type { RoomFeaturesType } from './RoomFeaturesType';
+import type { RoomFeatureType } from './RoomFeatureType';
 import {
-    RoomFeaturesTypeFromJSON,
-    RoomFeaturesTypeFromJSONTyped,
-    RoomFeaturesTypeToJSON,
-} from './RoomFeaturesType';
+    RoomFeatureTypeFromJSON,
+    RoomFeatureTypeFromJSONTyped,
+    RoomFeatureTypeToJSON,
+} from './RoomFeatureType';
 import type { RoomTypeShortInfoType } from './RoomTypeShortInfoType';
 import {
     RoomTypeShortInfoTypeFromJSON,
@@ -105,11 +105,11 @@ export interface RoomRoomType {
      */
     roomDescription?: string;
     /**
-     * 
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof RoomRoomType
      */
-    roomFeatures?: RoomFeaturesType;
+    roomFeatures?: Array<RoomFeatureType>;
     /**
      * Code of the room.
      * @type {string}
@@ -164,7 +164,7 @@ export function RoomRoomTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'roomAssignmentRating': !exists(json, 'roomAssignmentRating') ? undefined : RatePlanRatingTypeFromJSON(json['roomAssignmentRating']),
         'roomCondition': !exists(json, 'roomCondition') ? undefined : CodeDescriptionTypeFromJSON(json['roomCondition']),
         'roomDescription': !exists(json, 'roomDescription') ? undefined : json['roomDescription'],
-        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : RoomFeaturesTypeFromJSON(json['roomFeatures']),
+        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : ((json['roomFeatures'] as Array<any>).map(RoomFeatureTypeFromJSON)),
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'roomType': !exists(json, 'roomType') ? undefined : RoomTypeShortInfoTypeFromJSON(json['roomType']),
         'smokingPreference': !exists(json, 'smokingPreference') ? undefined : json['smokingPreference'],
@@ -190,7 +190,7 @@ export function RoomRoomTypeToJSON(value?: RoomRoomType | null): any {
         'roomAssignmentRating': RatePlanRatingTypeToJSON(value.roomAssignmentRating),
         'roomCondition': CodeDescriptionTypeToJSON(value.roomCondition),
         'roomDescription': value.roomDescription,
-        'roomFeatures': RoomFeaturesTypeToJSON(value.roomFeatures),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : ((value.roomFeatures as Array<any>).map(RoomFeatureTypeToJSON)),
         'roomId': value.roomId,
         'roomType': RoomTypeShortInfoTypeToJSON(value.roomType),
         'smokingPreference': value.smokingPreference,

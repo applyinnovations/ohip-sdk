@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { BlockId } from './BlockId';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object to transition the block status to Open for Pickup. This object contains unique identifier ( Block unique id ) to identify the block to be transitioned and the standard optional Opera Context element.
  * @export
@@ -32,16 +32,16 @@ export interface BlockStatus {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockStatus interface.

@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RevenueTypeTypeToJSON = exports.RevenueTypeTypeFromJSONTyped = exports.RevenueTypeTypeFromJSON = exports.instanceOfRevenueTypeType = void 0;
 const runtime_1 = require("../runtime");
-const RevenueTypeDetailsType_1 = require("./RevenueTypeDetailsType");
+const RevenueTypeDetailType_1 = require("./RevenueTypeDetailType");
 const TranslationTextType200_1 = require("./TranslationTextType200");
 /**
  * Check if a given object implements the RevenueTypeType interface.
@@ -38,7 +38,7 @@ function RevenueTypeTypeFromJSONTyped(json, ignoreDiscriminator) {
         'displaySequence': !(0, runtime_1.exists)(json, 'displaySequence') ? undefined : json['displaySequence'],
         'foodAndBeverage': !(0, runtime_1.exists)(json, 'foodAndBeverage') ? undefined : json['foodAndBeverage'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
-        'revenueDetails': !(0, runtime_1.exists)(json, 'revenueDetails') ? undefined : (0, RevenueTypeDetailsType_1.RevenueTypeDetailsTypeFromJSON)(json['revenueDetails']),
+        'revenueDetails': !(0, runtime_1.exists)(json, 'revenueDetails') ? undefined : (json['revenueDetails'].map(RevenueTypeDetailType_1.RevenueTypeDetailTypeFromJSON)),
         'revenueGroup': !(0, runtime_1.exists)(json, 'revenueGroup') ? undefined : json['revenueGroup'],
         'translatableDescription': !(0, runtime_1.exists)(json, 'translatableDescription') ? undefined : (0, TranslationTextType200_1.TranslationTextType200FromJSON)(json['translatableDescription']),
     };
@@ -56,7 +56,7 @@ function RevenueTypeTypeToJSON(value) {
         'displaySequence': value.displaySequence,
         'foodAndBeverage': value.foodAndBeverage,
         'inactive': value.inactive,
-        'revenueDetails': (0, RevenueTypeDetailsType_1.RevenueTypeDetailsTypeToJSON)(value.revenueDetails),
+        'revenueDetails': value.revenueDetails === undefined ? undefined : (value.revenueDetails.map(RevenueTypeDetailType_1.RevenueTypeDetailTypeToJSON)),
         'revenueGroup': value.revenueGroup,
         'translatableDescription': (0, TranslationTextType200_1.TranslationTextType200ToJSON)(value.translatableDescription),
     };

@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WashCodeTypeToJSON = exports.WashCodeTypeFromJSONTyped = exports.WashCodeTypeFromJSON = exports.instanceOfWashCodeType = void 0;
 const runtime_1 = require("../runtime");
-const WashCodeDetailsType_1 = require("./WashCodeDetailsType");
+const WashCodeDetailType_1 = require("./WashCodeDetailType");
 /**
  * Check if a given object implements the WashCodeType interface.
  */
@@ -36,7 +36,7 @@ function WashCodeTypeFromJSONTyped(json, ignoreDiscriminator) {
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'washCodeDetails': !(0, runtime_1.exists)(json, 'washCodeDetails') ? undefined : (0, WashCodeDetailsType_1.WashCodeDetailsTypeFromJSON)(json['washCodeDetails']),
+        'washCodeDetails': !(0, runtime_1.exists)(json, 'washCodeDetails') ? undefined : (json['washCodeDetails'].map(WashCodeDetailType_1.WashCodeDetailTypeFromJSON)),
     };
 }
 exports.WashCodeTypeFromJSONTyped = WashCodeTypeFromJSONTyped;
@@ -51,7 +51,7 @@ function WashCodeTypeToJSON(value) {
         'code': value.code,
         'description': value.description,
         'hotelId': value.hotelId,
-        'washCodeDetails': (0, WashCodeDetailsType_1.WashCodeDetailsTypeToJSON)(value.washCodeDetails),
+        'washCodeDetails': value.washCodeDetails === undefined ? undefined : (value.washCodeDetails.map(WashCodeDetailType_1.WashCodeDetailTypeToJSON)),
     };
 }
 exports.WashCodeTypeToJSON = WashCodeTypeToJSON;

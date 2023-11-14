@@ -11,7 +11,7 @@
  */
 import type { CateringEventBulkUpdateDetailType } from './CateringEventBulkUpdateDetailType';
 import type { CateringEventBulkUpdateFunctionSpaceType } from './CateringEventBulkUpdateFunctionSpaceType';
-import type { EventIdList } from './EventIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Collection of Event/Function Space Details and their Event IDs to be updated.
  * @export
@@ -19,11 +19,11 @@ import type { EventIdList } from './EventIdList';
  */
 export interface CateringEventsBulkUpdateType {
     /**
-     *
-     * @type {EventIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CateringEventsBulkUpdateType
      */
-    eventIdList?: EventIdList;
+    eventIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {CateringEventBulkUpdateDetailType}

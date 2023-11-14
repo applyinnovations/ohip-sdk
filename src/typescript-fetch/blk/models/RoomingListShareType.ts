@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { EffectiveRatesType } from './EffectiveRatesType';
+import type { EffectiveRateType } from './EffectiveRateType';
 import {
-    EffectiveRatesTypeFromJSON,
-    EffectiveRatesTypeFromJSONTyped,
-    EffectiveRatesTypeToJSON,
-} from './EffectiveRatesType';
+    EffectiveRateTypeFromJSON,
+    EffectiveRateTypeFromJSONTyped,
+    EffectiveRateTypeToJSON,
+} from './EffectiveRateType';
 import type { RoomingListShareReservationType } from './RoomingListShareReservationType';
 import {
     RoomingListShareReservationTypeFromJSON,
@@ -39,11 +39,11 @@ import {
  */
 export interface RoomingListShareType {
     /**
-     * 
-     * @type {EffectiveRatesType}
+     * Collection of effective rate amount per guest on specific dates.
+     * @type {Array<EffectiveRateType>}
      * @memberof RoomingListShareType
      */
-    effectiveRates?: EffectiveRatesType;
+    effectiveRates?: Array<EffectiveRateType>;
     /**
      * Contains information about the rooming list reservation that is to be shared and specifies the type of share that is to be created.
      * @type {Array<RoomingListShareReservationType>}
@@ -77,7 +77,7 @@ export function RoomingListShareTypeFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'effectiveRates': !exists(json, 'effectiveRates') ? undefined : EffectiveRatesTypeFromJSON(json['effectiveRates']),
+        'effectiveRates': !exists(json, 'effectiveRates') ? undefined : ((json['effectiveRates'] as Array<any>).map(EffectiveRateTypeFromJSON)),
         'reservation': !exists(json, 'reservation') ? undefined : ((json['reservation'] as Array<any>).map(RoomingListShareReservationTypeFromJSON)),
         'timeSpan': !exists(json, 'timeSpan') ? undefined : TimeSpanTypeFromJSON(json['timeSpan']),
     };
@@ -92,7 +92,7 @@ export function RoomingListShareTypeToJSON(value?: RoomingListShareType | null):
     }
     return {
         
-        'effectiveRates': EffectiveRatesTypeToJSON(value.effectiveRates),
+        'effectiveRates': value.effectiveRates === undefined ? undefined : ((value.effectiveRates as Array<any>).map(EffectiveRateTypeToJSON)),
         'reservation': value.reservation === undefined ? undefined : ((value.reservation as Array<any>).map(RoomingListShareReservationTypeToJSON)),
         'timeSpan': TimeSpanTypeToJSON(value.timeSpan),
     };

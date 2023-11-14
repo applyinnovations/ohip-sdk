@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DuplicateOPERASubscriptionsListType } from './DuplicateOPERASubscriptionsListType';
+import type { DuplicateOPERASubscriptionsType } from './DuplicateOPERASubscriptionsType';
 import {
-    DuplicateOPERASubscriptionsListTypeFromJSON,
-    DuplicateOPERASubscriptionsListTypeFromJSONTyped,
-    DuplicateOPERASubscriptionsListTypeToJSON,
-} from './DuplicateOPERASubscriptionsListType';
-import type { Links } from './Links';
+    DuplicateOPERASubscriptionsTypeFromJSON,
+    DuplicateOPERASubscriptionsTypeFromJSONTyped,
+    DuplicateOPERASubscriptionsTypeToJSON,
+} from './DuplicateOPERASubscriptionsType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching subscriptions where an external profile within a particular external system is linked to multiple OPERA profiles.
@@ -45,11 +45,11 @@ export interface DuplicateOPERASubscriptions {
      */
     count?: number;
     /**
-     * 
-     * @type {DuplicateOPERASubscriptionsListType}
+     * Details of the OPERA Profile subscription to external system
+     * @type {Array<DuplicateOPERASubscriptionsType>}
      * @memberof DuplicateOPERASubscriptions
      */
-    duplicateOPERASubscriptionsList?: DuplicateOPERASubscriptionsListType;
+    duplicateOPERASubscriptionsList?: Array<DuplicateOPERASubscriptionsType>;
     /**
      * Indicates whether all the records are included in the response or not. Absence of the attribute values should be consider as all rows fetched in the response.
      * @type {boolean}
@@ -64,10 +64,10 @@ export interface DuplicateOPERASubscriptions {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DuplicateOPERASubscriptions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -87,11 +87,11 @@ export interface DuplicateOPERASubscriptions {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DuplicateOPERASubscriptions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -114,14 +114,14 @@ export function DuplicateOPERASubscriptionsFromJSONTyped(json: any, ignoreDiscri
     return {
         
         'count': !exists(json, 'count') ? undefined : json['count'],
-        'duplicateOPERASubscriptionsList': !exists(json, 'duplicateOPERASubscriptionsList') ? undefined : DuplicateOPERASubscriptionsListTypeFromJSON(json['duplicateOPERASubscriptionsList']),
+        'duplicateOPERASubscriptionsList': !exists(json, 'duplicateOPERASubscriptionsList') ? undefined : ((json['duplicateOPERASubscriptionsList'] as Array<any>).map(DuplicateOPERASubscriptionsTypeFromJSON)),
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -135,14 +135,14 @@ export function DuplicateOPERASubscriptionsToJSON(value?: DuplicateOPERASubscrip
     return {
         
         'count': value.count,
-        'duplicateOPERASubscriptionsList': DuplicateOPERASubscriptionsListTypeToJSON(value.duplicateOPERASubscriptionsList),
+        'duplicateOPERASubscriptionsList': value.duplicateOPERASubscriptionsList === undefined ? undefined : ((value.duplicateOPERASubscriptionsList as Array<any>).map(DuplicateOPERASubscriptionsTypeToJSON)),
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

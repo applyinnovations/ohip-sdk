@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { FrontOfficeRoomStatusType } from './FrontOfficeRoomStatusType';
 import type { HousekeepingRoomStatusType } from './HousekeepingRoomStatusType';
 /**
@@ -68,10 +67,10 @@ export interface ServiceTaskRoomType {
     sheetNumber?: number;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ServiceTaskRoomType
      */
-    taskCodes?: CodeListType;
+    taskCodes?: Array<string>;
     /**
      * Date for which the task sheet was created. By default this would be the current business date.
      * @type {Date}

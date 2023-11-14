@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelPackageForecastGroupsType } from './HotelPackageForecastGroupsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelPackageForecastGroupType } from './HotelPackageForecastGroupType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching package forecast groups for a hotel.
  * @export
@@ -25,11 +25,11 @@ export interface HotelPackageForecastGroups {
      */
     hasMore?: boolean;
     /**
-     *
-     * @type {HotelPackageForecastGroupsType}
+     * Hotel package forecast group details.
+     * @type {Array<HotelPackageForecastGroupType>}
      * @memberof HotelPackageForecastGroups
      */
-    hotelPackageForecastGroups?: HotelPackageForecastGroupsType;
+    hotelPackageForecastGroups?: Array<HotelPackageForecastGroupType>;
     /**
      * Indicates maximum number of records a Web Service should return.
      * @type {number}
@@ -38,10 +38,10 @@ export interface HotelPackageForecastGroups {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelPackageForecastGroups
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -61,11 +61,11 @@ export interface HotelPackageForecastGroups {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelPackageForecastGroups
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HotelPackageForecastGroups interface.

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { InventoryItemTemplatesType } from './InventoryItemTemplatesType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    InventoryItemTemplatesTypeFromJSON,
-    InventoryItemTemplatesTypeFromJSONTyped,
-    InventoryItemTemplatesTypeToJSON,
-} from './InventoryItemTemplatesType';
-import type { Links } from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { InventoryItemTemplateType } from './InventoryItemTemplateType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InventoryItemTemplateTypeFromJSON,
+    InventoryItemTemplateTypeFromJSONTyped,
+    InventoryItemTemplateTypeToJSON,
+} from './InventoryItemTemplateType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching inventory item templates.
@@ -39,23 +39,23 @@ import {
  */
 export interface InventoryItemTemplates {
     /**
-     * 
-     * @type {InventoryItemTemplatesType}
+     * This type holds a collection of inventory item templates.
+     * @type {Array<InventoryItemTemplateType>}
      * @memberof InventoryItemTemplates
      */
-    inventoryItemTemplates?: InventoryItemTemplatesType;
+    inventoryItemTemplates?: Array<InventoryItemTemplateType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof InventoryItemTemplates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof InventoryItemTemplates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function InventoryItemTemplatesFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'inventoryItemTemplates': !exists(json, 'inventoryItemTemplates') ? undefined : InventoryItemTemplatesTypeFromJSON(json['inventoryItemTemplates']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'inventoryItemTemplates': !exists(json, 'inventoryItemTemplates') ? undefined : ((json['inventoryItemTemplates'] as Array<any>).map(InventoryItemTemplateTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function InventoryItemTemplatesToJSON(value?: InventoryItemTemplates | nu
     }
     return {
         
-        'inventoryItemTemplates': InventoryItemTemplatesTypeToJSON(value.inventoryItemTemplates),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'inventoryItemTemplates': value.inventoryItemTemplates === undefined ? undefined : ((value.inventoryItemTemplates as Array<any>).map(InventoryItemTemplateTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

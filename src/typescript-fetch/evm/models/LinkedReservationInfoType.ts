@@ -37,30 +37,30 @@ import {
     ResGuaranteeTypeFromJSONTyped,
     ResGuaranteeTypeToJSON,
 } from './ResGuaranteeType';
-import type { ReservationAllowedActionsType } from './ReservationAllowedActionsType';
+import type { ReservationAllowedActionType } from './ReservationAllowedActionType';
 import {
-    ReservationAllowedActionsTypeFromJSON,
-    ReservationAllowedActionsTypeFromJSONTyped,
-    ReservationAllowedActionsTypeToJSON,
-} from './ReservationAllowedActionsType';
+    ReservationAllowedActionTypeFromJSON,
+    ReservationAllowedActionTypeFromJSONTyped,
+    ReservationAllowedActionTypeToJSON,
+} from './ReservationAllowedActionType';
 import type { ReservationBlockType } from './ReservationBlockType';
 import {
     ReservationBlockTypeFromJSON,
     ReservationBlockTypeFromJSONTyped,
     ReservationBlockTypeToJSON,
 } from './ReservationBlockType';
-import type { ReservationIdList } from './ReservationIdList';
-import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
 import type { TimeSpanType } from './TimeSpanType';
 import {
     TimeSpanTypeFromJSON,
     TimeSpanTypeFromJSONTyped,
     TimeSpanTypeToJSON,
 } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -69,11 +69,11 @@ import {
  */
 export interface LinkedReservationInfoType {
     /**
-     * 
-     * @type {ReservationAllowedActionsType}
+     * Allowed action.
+     * @type {Array<ReservationAllowedActionType>}
      * @memberof LinkedReservationInfoType
      */
-    allowedActions?: ReservationAllowedActionsType;
+    allowedActions?: Array<ReservationAllowedActionType>;
     /**
      * 
      * @type {CurrencyAmountType}
@@ -141,11 +141,11 @@ export interface LinkedReservationInfoType {
      */
     reservationBlock?: ReservationBlockType;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof LinkedReservationInfoType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {PMSResStatusType}
@@ -209,7 +209,7 @@ export function LinkedReservationInfoTypeFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'allowedActions': !exists(json, 'allowedActions') ? undefined : ReservationAllowedActionsTypeFromJSON(json['allowedActions']),
+        'allowedActions': !exists(json, 'allowedActions') ? undefined : ((json['allowedActions'] as Array<any>).map(ReservationAllowedActionTypeFromJSON)),
         'balance': !exists(json, 'balance') ? undefined : CurrencyAmountTypeFromJSON(json['balance']),
         'blockDates': !exists(json, 'blockDates') ? undefined : TimeSpanTypeFromJSON(json['blockDates']),
         'displayColor': !exists(json, 'displayColor') ? undefined : json['displayColor'],
@@ -221,7 +221,7 @@ export function LinkedReservationInfoTypeFromJSONTyped(json: any, ignoreDiscrimi
         'rate': !exists(json, 'rate') ? undefined : CurrencyAmountTypeFromJSON(json['rate']),
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'reservationBlock': !exists(json, 'reservationBlock') ? undefined : ReservationBlockTypeFromJSON(json['reservationBlock']),
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'reservationStatus': !exists(json, 'reservationStatus') ? undefined : PMSResStatusTypeFromJSON(json['reservationStatus']),
         'reverseCheckInAllowed': !exists(json, 'reverseCheckInAllowed') ? undefined : json['reverseCheckInAllowed'],
         'roomNumberLocked': !exists(json, 'roomNumberLocked') ? undefined : json['roomNumberLocked'],
@@ -241,7 +241,7 @@ export function LinkedReservationInfoTypeToJSON(value?: LinkedReservationInfoTyp
     }
     return {
         
-        'allowedActions': ReservationAllowedActionsTypeToJSON(value.allowedActions),
+        'allowedActions': value.allowedActions === undefined ? undefined : ((value.allowedActions as Array<any>).map(ReservationAllowedActionTypeToJSON)),
         'balance': CurrencyAmountTypeToJSON(value.balance),
         'blockDates': TimeSpanTypeToJSON(value.blockDates),
         'displayColor': value.displayColor,
@@ -253,7 +253,7 @@ export function LinkedReservationInfoTypeToJSON(value?: LinkedReservationInfoTyp
         'rate': CurrencyAmountTypeToJSON(value.rate),
         'ratePlanCode': value.ratePlanCode,
         'reservationBlock': ReservationBlockTypeToJSON(value.reservationBlock),
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'reservationStatus': PMSResStatusTypeToJSON(value.reservationStatus),
         'reverseCheckInAllowed': value.reverseCheckInAllowed,
         'roomNumberLocked': value.roomNumberLocked,

@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FetchPlayerStatisticsRSToJSON = exports.FetchPlayerStatisticsRSFromJSONTyped = exports.FetchPlayerStatisticsRSFromJSON = exports.instanceOfFetchPlayerStatisticsRS = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const PlayerStatisticsType_1 = require("./PlayerStatisticsType");
 /**
  * Check if a given object implements the FetchPlayerStatisticsRS interface.
@@ -35,7 +35,7 @@ function FetchPlayerStatisticsRSFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'playerStatistics': !(0, runtime_1.exists)(json, 'playerStatistics') ? undefined : (0, PlayerStatisticsType_1.PlayerStatisticsTypeFromJSON)(json['playerStatistics']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.FetchPlayerStatisticsRSFromJSONTyped = FetchPlayerStatisticsRSFromJSONTyped;
@@ -48,7 +48,7 @@ function FetchPlayerStatisticsRSToJSON(value) {
     }
     return {
         'playerStatistics': (0, PlayerStatisticsType_1.PlayerStatisticsTypeToJSON)(value.playerStatistics),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.FetchPlayerStatisticsRSToJSON = FetchPlayerStatisticsRSToJSON;

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AuthorizerGroupsType } from './AuthorizerGroupsType';
+import type { AuthorizerGroupType } from './AuthorizerGroupType';
 import {
-    AuthorizerGroupsTypeFromJSON,
-    AuthorizerGroupsTypeFromJSONTyped,
-    AuthorizerGroupsTypeToJSON,
-} from './AuthorizerGroupsType';
-import type { Links } from './Links';
+    AuthorizerGroupTypeFromJSON,
+    AuthorizerGroupTypeFromJSONTyped,
+    AuthorizerGroupTypeToJSON,
+} from './AuthorizerGroupType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface AuthorizerGroups {
     /**
-     * 
-     * @type {AuthorizerGroupsType}
+     * Authorizer Group
+     * @type {Array<AuthorizerGroupType>}
      * @memberof AuthorizerGroups
      */
-    authorizerGroups?: AuthorizerGroupsType;
+    authorizerGroups?: Array<AuthorizerGroupType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AuthorizerGroups
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AuthorizerGroups
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function AuthorizerGroupsFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'authorizerGroups': !exists(json, 'authorizerGroups') ? undefined : AuthorizerGroupsTypeFromJSON(json['authorizerGroups']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'authorizerGroups': !exists(json, 'authorizerGroups') ? undefined : ((json['authorizerGroups'] as Array<any>).map(AuthorizerGroupTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function AuthorizerGroupsToJSON(value?: AuthorizerGroups | null): any {
     }
     return {
         
-        'authorizerGroups': AuthorizerGroupsTypeToJSON(value.authorizerGroups),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'authorizerGroups': value.authorizerGroups === undefined ? undefined : ((value.authorizerGroups as Array<any>).map(AuthorizerGroupTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

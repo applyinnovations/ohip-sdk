@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { PreferenceTypeType } from './PreferenceTypeType';
-import type { ProfileIdList } from './ProfileIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Response object for fetch preference. This object contains collection of preferences,Success,Warnings and Errors related to this operation.
  * @export
@@ -25,17 +25,17 @@ export interface Preference {
      */
     preferenceCollections?: Array<PreferenceTypeType>;
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof Preference
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Preference
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the Preference interface.

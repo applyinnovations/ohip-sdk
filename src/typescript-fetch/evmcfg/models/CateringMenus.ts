@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CateringMenuListType } from './CateringMenuListType';
+import type { CateringMenuType } from './CateringMenuType';
 import {
-    CateringMenuListTypeFromJSON,
-    CateringMenuListTypeFromJSONTyped,
-    CateringMenuListTypeToJSON,
-} from './CateringMenuListType';
-import type { Links } from './Links';
+    CateringMenuTypeFromJSON,
+    CateringMenuTypeFromJSONTyped,
+    CateringMenuTypeToJSON,
+} from './CateringMenuType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Menu .
@@ -40,22 +40,22 @@ import {
 export interface CateringMenus {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringMenus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {CateringMenuListType}
+     * List of Values of Menu.
+     * @type {Array<CateringMenuType>}
      * @memberof CateringMenus
      */
-    menuList?: CateringMenuListType;
+    menuList?: Array<CateringMenuType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringMenus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CateringMenusFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'menuList': !exists(json, 'menuList') ? undefined : CateringMenuListTypeFromJSON(json['menuList']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'menuList': !exists(json, 'menuList') ? undefined : ((json['menuList'] as Array<any>).map(CateringMenuTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CateringMenusToJSON(value?: CateringMenus | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'menuList': CateringMenuListTypeToJSON(value.menuList),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'menuList': value.menuList === undefined ? undefined : ((value.menuList as Array<any>).map(CateringMenuTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CheckProfilesType } from './CheckProfilesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CheckProfileType } from './CheckProfileType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for checking allowed actions, existence of attached records, or indicators of a profile.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CheckedProfiles {
     /**
-     *
-     * @type {CheckProfilesType}
+     * Collection of profiles and the status of its allowed actions, attached records, and indicators.
+     * @type {Array<CheckProfileType>}
      * @memberof CheckedProfiles
      */
-    checkProfilesDetail?: CheckProfilesType;
+    checkProfilesDetail?: Array<CheckProfileType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CheckedProfiles
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CheckedProfiles
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CheckedProfiles interface.

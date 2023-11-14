@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NameValueTypeToJSON = exports.NameValueTypeFromJSONTyped = exports.NameValueTypeFromJSON = exports.instanceOfNameValueType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const NameValueDataTypeType_1 = require("./NameValueDataTypeType");
 const NameValueOriginType_1 = require("./NameValueOriginType");
 /**
@@ -39,7 +38,7 @@ function NameValueTypeFromJSONTyped(json, ignoreDiscriminator) {
         'formatString': !(0, runtime_1.exists)(json, 'formatString') ? undefined : json['formatString'],
         'name': !(0, runtime_1.exists)(json, 'name') ? undefined : json['name'],
         'origin': !(0, runtime_1.exists)(json, 'origin') ? undefined : (0, NameValueOriginType_1.NameValueOriginTypeFromJSON)(json['origin']),
-        'usageInstruction': !(0, runtime_1.exists)(json, 'usageInstruction') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['usageInstruction']),
+        'usageInstruction': !(0, runtime_1.exists)(json, 'usageInstruction') ? undefined : json['usageInstruction'],
         'value': !(0, runtime_1.exists)(json, 'value') ? undefined : json['value'],
     };
 }
@@ -56,7 +55,7 @@ function NameValueTypeToJSON(value) {
         'formatString': value.formatString,
         'name': value.name,
         'origin': (0, NameValueOriginType_1.NameValueOriginTypeToJSON)(value.origin),
-        'usageInstruction': (0, CodeListType_1.CodeListTypeToJSON)(value.usageInstruction),
+        'usageInstruction': value.usageInstruction,
         'value': value.value,
     };
 }

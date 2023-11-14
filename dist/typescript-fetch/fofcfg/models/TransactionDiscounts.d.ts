@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { HotelTransactionDiscountType } from './HotelTransactionDiscountType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface TransactionDiscounts {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransactionDiscounts
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Collection of Transaction Discount Configurations.
      * @type {Array<HotelTransactionDiscountType>}
@@ -31,11 +31,11 @@ export interface TransactionDiscounts {
      */
     transactionDiscounts?: Array<HotelTransactionDiscountType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransactionDiscounts
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TransactionDiscounts interface.

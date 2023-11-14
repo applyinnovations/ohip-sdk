@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TelephoneBookEntriesType } from './TelephoneBookEntriesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TelephoneBookEntryType } from './TelephoneBookEntryType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetch Telephone Book Entries.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TelephoneBookEntriesDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TelephoneBookEntriesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TelephoneBookEntriesType}
+     * This type holds collection of Telephone Book Entries with complete information.
+     * @type {Array<TelephoneBookEntryType>}
      * @memberof TelephoneBookEntriesDetails
      */
-    telephoneBookEntries?: TelephoneBookEntriesType;
+    telephoneBookEntries?: Array<TelephoneBookEntryType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TelephoneBookEntriesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TelephoneBookEntriesDetails interface.

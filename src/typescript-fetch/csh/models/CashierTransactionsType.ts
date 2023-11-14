@@ -31,12 +31,12 @@ import {
     HotelCashierTransactionTypeFromJSONTyped,
     HotelCashierTransactionTypeToJSON,
 } from './HotelCashierTransactionType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
 
 /**
  * Cashier Shift Totals and Per Hotel transactions group by transaction code
@@ -63,11 +63,11 @@ export interface CashierTransactionsType {
      */
     summaryTransactionList?: Array<CashierTransactionType>;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof CashierTransactionsType
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
 }
 
 /**
@@ -92,7 +92,7 @@ export function CashierTransactionsTypeFromJSONTyped(json: any, ignoreDiscrimina
         'cashierInfo': !exists(json, 'cashierInfo') ? undefined : CashierClosureNoTypeFromJSON(json['cashierInfo']),
         'hotelTransactionList': !exists(json, 'hotelTransactionList') ? undefined : ((json['hotelTransactionList'] as Array<any>).map(HotelCashierTransactionTypeFromJSON)),
         'summaryTransactionList': !exists(json, 'summaryTransactionList') ? undefined : ((json['summaryTransactionList'] as Array<any>).map(CashierTransactionTypeFromJSON)),
-        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : TrxCodesInfoTypeFromJSON(json['trxCodesInfo']),
+        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : ((json['trxCodesInfo'] as Array<any>).map(TrxInfoTypeFromJSON)),
     };
 }
 
@@ -108,7 +108,7 @@ export function CashierTransactionsTypeToJSON(value?: CashierTransactionsType | 
         'cashierInfo': CashierClosureNoTypeToJSON(value.cashierInfo),
         'hotelTransactionList': value.hotelTransactionList === undefined ? undefined : ((value.hotelTransactionList as Array<any>).map(HotelCashierTransactionTypeToJSON)),
         'summaryTransactionList': value.summaryTransactionList === undefined ? undefined : ((value.summaryTransactionList as Array<any>).map(CashierTransactionTypeToJSON)),
-        'trxCodesInfo': TrxCodesInfoTypeToJSON(value.trxCodesInfo),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : ((value.trxCodesInfo as Array<any>).map(TrxInfoTypeToJSON)),
     };
 }
 

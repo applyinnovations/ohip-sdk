@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ARRemindersType } from './ARRemindersType';
+import type { ARReminderType } from './ARReminderType';
 import {
-    ARRemindersTypeFromJSON,
-    ARRemindersTypeFromJSONTyped,
-    ARRemindersTypeToJSON,
-} from './ARRemindersType';
-import type { Links } from './Links';
+    ARReminderTypeFromJSON,
+    ARReminderTypeFromJSONTyped,
+    ARReminderTypeToJSON,
+} from './ARReminderType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response to the request to fetch pending Reminders for Accounts.
@@ -40,22 +40,22 @@ import {
 export interface Reminders {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Reminders
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ARRemindersType}
+     * Information about a Reminder.
+     * @type {Array<ARReminderType>}
      * @memberof Reminders
      */
-    remindersDetails?: ARRemindersType;
+    remindersDetails?: Array<ARReminderType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Reminders
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RemindersFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'remindersDetails': !exists(json, 'remindersDetails') ? undefined : ARRemindersTypeFromJSON(json['remindersDetails']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'remindersDetails': !exists(json, 'remindersDetails') ? undefined : ((json['remindersDetails'] as Array<any>).map(ARReminderTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RemindersToJSON(value?: Reminders | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'remindersDetails': ARRemindersTypeToJSON(value.remindersDetails),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'remindersDetails': value.remindersDetails === undefined ? undefined : ((value.remindersDetails as Array<any>).map(ARReminderTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,10 +13,8 @@ import type { AmountOrOffsetType } from './AmountOrOffsetType';
 import type { BaseType } from './BaseType';
 import type { PercentageOrFlatType } from './PercentageOrFlatType';
 import type { RateAmountsType } from './RateAmountsType';
-import type { RateCodesListType } from './RateCodesListType';
 import type { RatePlanRoundingType } from './RatePlanRoundingType';
 import type { RatePlanScheduleType } from './RatePlanScheduleType';
-import type { RoomTypeListType } from './RoomTypeListType';
 import type { TimeSpanDaysOfWeekType } from './TimeSpanDaysOfWeekType';
 /**
  * Container for mass rate update operation.
@@ -61,17 +59,17 @@ export interface MassRateChangeCriteriaType {
      */
     rateAmounts?: RateAmountsType;
     /**
-     *
-     * @type {RateCodesListType}
+     * Rate Codes.
+     * @type {Array<string>}
      * @memberof MassRateChangeCriteriaType
      */
-    rateCodes?: RateCodesListType;
+    rateCodes?: Array<string>;
     /**
-     *
-     * @type {RoomTypeListType}
+     * Room Type.
+     * @type {Array<string>}
      * @memberof MassRateChangeCriteriaType
      */
-    roomTypes?: RoomTypeListType;
+    roomTypes?: Array<string>;
     /**
      *
      * @type {RatePlanRoundingType}

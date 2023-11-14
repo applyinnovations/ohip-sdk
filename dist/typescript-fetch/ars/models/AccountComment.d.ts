@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ARAccountCommentCriteriaType } from './ARAccountCommentCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to create a Comment for an Account.
  * @export
@@ -26,16 +26,16 @@ export interface AccountComment {
     commentInfo?: ARAccountCommentCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AccountComment
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AccountComment
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AccountComment interface.

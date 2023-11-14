@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EmailRecipientsType } from './EmailRecipientsType';
+import type { EmailRecipientType } from './EmailRecipientType';
 import type { FolioReportCriteriaType } from './FolioReportCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to generate and email a folio report.
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface FolioReportToEmail {
     /**
      *
-     * @type {EmailRecipientsType}
+     * @type {Array<EmailRecipientType>}
      * @memberof FolioReportToEmail
      */
-    emailRecipients?: EmailRecipientsType;
+    emailRecipients?: Array<EmailRecipientType>;
     /**
      *
      * @type {FolioReportCriteriaType}
@@ -33,16 +33,16 @@ export interface FolioReportToEmail {
     folioInfo?: FolioReportCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FolioReportToEmail
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FolioReportToEmail
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FolioReportToEmail interface.

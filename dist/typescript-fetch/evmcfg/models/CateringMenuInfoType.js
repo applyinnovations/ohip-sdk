@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringMenuInfoTypeToJSON = exports.CateringMenuInfoTypeFromJSONTyped = exports.CateringMenuInfoTypeFromJSON = exports.instanceOfCateringMenuInfoType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const DateRangeType_1 = require("./DateRangeType");
 const MenuTypeType_1 = require("./MenuTypeType");
@@ -42,9 +41,9 @@ function CateringMenuInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'consumptionBased': !(0, runtime_1.exists)(json, 'consumptionBased') ? undefined : json['consumptionBased'],
         'courseCount': !(0, runtime_1.exists)(json, 'courseCount') ? undefined : json['courseCount'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : (0, TranslationTextType2000_1.TranslationTextType2000FromJSON)(json['description']),
-        'dietaryList': !(0, runtime_1.exists)(json, 'dietaryList') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['dietaryList']),
+        'dietaryList': !(0, runtime_1.exists)(json, 'dietaryList') ? undefined : json['dietaryList'],
         'eventDateRange': !(0, runtime_1.exists)(json, 'eventDateRange') ? undefined : (0, DateRangeType_1.DateRangeTypeFromJSON)(json['eventDateRange']),
-        'eventTypes': !(0, runtime_1.exists)(json, 'eventTypes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['eventTypes']),
+        'eventTypes': !(0, runtime_1.exists)(json, 'eventTypes') ? undefined : json['eventTypes'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
         'includedInMenu': !(0, runtime_1.exists)(json, 'includedInMenu') ? undefined : json['includedInMenu'],
         'includedInPrice': !(0, runtime_1.exists)(json, 'includedInPrice') ? undefined : json['includedInPrice'],
@@ -74,9 +73,9 @@ function CateringMenuInfoTypeToJSON(value) {
         'consumptionBased': value.consumptionBased,
         'courseCount': value.courseCount,
         'description': (0, TranslationTextType2000_1.TranslationTextType2000ToJSON)(value.description),
-        'dietaryList': (0, CodeListType_1.CodeListTypeToJSON)(value.dietaryList),
+        'dietaryList': value.dietaryList,
         'eventDateRange': (0, DateRangeType_1.DateRangeTypeToJSON)(value.eventDateRange),
-        'eventTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.eventTypes),
+        'eventTypes': value.eventTypes,
         'inactive': value.inactive,
         'includedInMenu': value.includedInMenu,
         'includedInPrice': value.includedInPrice,

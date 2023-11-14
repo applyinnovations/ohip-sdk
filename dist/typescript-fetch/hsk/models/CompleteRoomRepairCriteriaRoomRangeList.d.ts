@@ -11,7 +11,6 @@
  */
 import type { CompleteRoomRepairCriteriaRoomRangeListRange } from './CompleteRoomRepairCriteriaRoomRangeListRange';
 import type { CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrder } from './CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrder';
-import type { RoomIds } from './RoomIds';
 /**
  *
  * @export
@@ -25,11 +24,11 @@ export interface CompleteRoomRepairCriteriaRoomRangeList {
      */
     range?: CompleteRoomRepairCriteriaRoomRangeListRange;
     /**
-     *
-     * @type {RoomIds}
+     * Collection of room numbers to be process.
+     * @type {Array<string>}
      * @memberof CompleteRoomRepairCriteriaRoomRangeList
      */
-    roomIds?: RoomIds;
+    roomIds?: Array<string>;
     /**
      *
      * @type {CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrder}

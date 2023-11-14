@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { PrepaidCardsInfoType } from './PrepaidCardsInfoType';
-import type { WarningsType } from './WarningsType';
+import type { PrepaidCardInfoType } from './PrepaidCardInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response for redeem Prepaid cards request.
  * @export
@@ -18,17 +18,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface RedeemPrepaidCardsStatus {
     /**
-     *
-     * @type {PrepaidCardsInfoType}
+     * Prepaid card info object.
+     * @type {Array<PrepaidCardInfoType>}
      * @memberof RedeemPrepaidCardsStatus
      */
-    prepaidCards?: PrepaidCardsInfoType;
+    prepaidCards?: Array<PrepaidCardInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RedeemPrepaidCardsStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RedeemPrepaidCardsStatus interface.

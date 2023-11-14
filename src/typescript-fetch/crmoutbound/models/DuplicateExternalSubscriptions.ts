@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DuplicateExternalSubscriptionsListType } from './DuplicateExternalSubscriptionsListType';
+import type { DuplicateExternalSubscriptionsType } from './DuplicateExternalSubscriptionsType';
 import {
-    DuplicateExternalSubscriptionsListTypeFromJSON,
-    DuplicateExternalSubscriptionsListTypeFromJSONTyped,
-    DuplicateExternalSubscriptionsListTypeToJSON,
-} from './DuplicateExternalSubscriptionsListType';
-import type { Links } from './Links';
+    DuplicateExternalSubscriptionsTypeFromJSON,
+    DuplicateExternalSubscriptionsTypeFromJSONTyped,
+    DuplicateExternalSubscriptionsTypeToJSON,
+} from './DuplicateExternalSubscriptionsType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 
 /**
  * Response object for fetching subscriptions where the same OPERA profile is linked to multiple external profiles within the same external system.
@@ -33,11 +33,11 @@ import {
  */
 export interface DuplicateExternalSubscriptions {
     /**
-     * 
-     * @type {DuplicateExternalSubscriptionsListType}
+     * Details of the OPERA Profile subscription to external system
+     * @type {Array<DuplicateExternalSubscriptionsType>}
      * @memberof DuplicateExternalSubscriptions
      */
-    duplicateExternalSubscriptionsList?: DuplicateExternalSubscriptionsListType;
+    duplicateExternalSubscriptionsList?: Array<DuplicateExternalSubscriptionsType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -70,10 +70,10 @@ export interface DuplicateExternalSubscriptions {
     totalRows?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DuplicateExternalSubscriptions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -95,13 +95,13 @@ export function DuplicateExternalSubscriptionsFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'duplicateExternalSubscriptionsList': !exists(json, 'duplicateExternalSubscriptionsList') ? undefined : DuplicateExternalSubscriptionsListTypeFromJSON(json['duplicateExternalSubscriptionsList']),
+        'duplicateExternalSubscriptionsList': !exists(json, 'duplicateExternalSubscriptionsList') ? undefined : ((json['duplicateExternalSubscriptionsList'] as Array<any>).map(DuplicateExternalSubscriptionsTypeFromJSON)),
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'pageNumber': !exists(json, 'pageNumber') ? undefined : json['pageNumber'],
         'maxFetchCount': !exists(json, 'maxFetchCount') ? undefined : json['maxFetchCount'],
         'allRowsFetched': !exists(json, 'allRowsFetched') ? undefined : json['allRowsFetched'],
         'totalRows': !exists(json, 'totalRows') ? undefined : json['totalRows'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -114,13 +114,13 @@ export function DuplicateExternalSubscriptionsToJSON(value?: DuplicateExternalSu
     }
     return {
         
-        'duplicateExternalSubscriptionsList': DuplicateExternalSubscriptionsListTypeToJSON(value.duplicateExternalSubscriptionsList),
+        'duplicateExternalSubscriptionsList': value.duplicateExternalSubscriptionsList === undefined ? undefined : ((value.duplicateExternalSubscriptionsList as Array<any>).map(DuplicateExternalSubscriptionsTypeToJSON)),
         'totalPages': value.totalPages,
         'pageNumber': value.pageNumber,
         'maxFetchCount': value.maxFetchCount,
         'allRowsFetched': value.allRowsFetched,
         'totalRows': value.totalRows,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

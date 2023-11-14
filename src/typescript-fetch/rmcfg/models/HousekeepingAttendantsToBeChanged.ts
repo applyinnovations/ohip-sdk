@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HousekeepingAttendantsConfigType } from './HousekeepingAttendantsConfigType';
+import type { HousekeepingAttendantType } from './HousekeepingAttendantType';
 import {
-    HousekeepingAttendantsConfigTypeFromJSON,
-    HousekeepingAttendantsConfigTypeFromJSONTyped,
-    HousekeepingAttendantsConfigTypeToJSON,
-} from './HousekeepingAttendantsConfigType';
-import type { Links } from './Links';
+    HousekeepingAttendantTypeFromJSON,
+    HousekeepingAttendantTypeFromJSONTyped,
+    HousekeepingAttendantTypeToJSON,
+} from './HousekeepingAttendantType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Modify housekeeping attendants
@@ -39,23 +39,23 @@ import {
  */
 export interface HousekeepingAttendantsToBeChanged {
     /**
-     * 
-     * @type {HousekeepingAttendantsConfigType}
+     * Housekeeping Attendant Information.
+     * @type {Array<HousekeepingAttendantType>}
      * @memberof HousekeepingAttendantsToBeChanged
      */
-    attendants?: HousekeepingAttendantsConfigType;
+    attendants?: Array<HousekeepingAttendantType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HousekeepingAttendantsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HousekeepingAttendantsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function HousekeepingAttendantsToBeChangedFromJSONTyped(json: any, ignore
     }
     return {
         
-        'attendants': !exists(json, 'attendants') ? undefined : HousekeepingAttendantsConfigTypeFromJSON(json['attendants']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'attendants': !exists(json, 'attendants') ? undefined : ((json['attendants'] as Array<any>).map(HousekeepingAttendantTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function HousekeepingAttendantsToBeChangedToJSON(value?: HousekeepingAtte
     }
     return {
         
-        'attendants': HousekeepingAttendantsConfigTypeToJSON(value.attendants),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'attendants': value.attendants === undefined ? undefined : ((value.attendants as Array<any>).map(HousekeepingAttendantTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

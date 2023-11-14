@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ErrorsType } from './ErrorsType';
+import type { ErrorType } from './ErrorType';
 import type { ReservationId } from './ReservationId';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Result of charges in batch for each reservation.
  * @export
@@ -31,11 +31,11 @@ export interface ReservationChargesInBatchInfoType {
      */
     departureDate?: string;
     /**
-     *
-     * @type {ErrorsType}
+     * An error that occurred during the processing of a message.
+     * @type {Array<ErrorType>}
      * @memberof ReservationChargesInBatchInfoType
      */
-    errors?: ErrorsType;
+    errors?: Array<ErrorType>;
     /**
      * Guest name associated to the reservation.
      * @type {string}
@@ -67,11 +67,11 @@ export interface ReservationChargesInBatchInfoType {
      */
     success?: object;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationChargesInBatchInfoType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationChargesInBatchInfoType interface.

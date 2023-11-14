@@ -19,12 +19,12 @@ import {
     CopyCateringEventsTypeFromJSONTyped,
     CopyCateringEventsTypeToJSON,
 } from './CopyCateringEventsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for copying events.
@@ -39,11 +39,11 @@ export interface CopyCateringEvents {
      */
     criteria?: CopyCateringEventsType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CopyCateringEvents
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function CopyCateringEventsFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : CopyCateringEventsTypeFromJSON(json['criteria']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function CopyCateringEventsToJSON(value?: CopyCateringEvents | null): any
     return {
         
         'criteria': CopyCateringEventsTypeToJSON(value.criteria),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

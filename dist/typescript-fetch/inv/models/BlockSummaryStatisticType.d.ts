@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { StatisticUnitsType } from './StatisticUnitsType';
-import type { StatusSummaryStatisticType } from './StatusSummaryStatisticType';
+import type { StatisticUnitType } from './StatisticUnitType';
+import type { StatusStatisticType } from './StatusStatisticType';
 /**
  * Statistic units group by status, booking and daily targets.
  * @export
@@ -18,17 +18,17 @@ import type { StatusSummaryStatisticType } from './StatusSummaryStatisticType';
  */
 export interface BlockSummaryStatisticType {
     /**
-     *
-     * @type {StatisticUnitsType}
+     * Unit type to hold statistic code and value pair.
+     * @type {Array<StatisticUnitType>}
      * @memberof BlockSummaryStatisticType
      */
-    bookingSummaryStatistic?: StatisticUnitsType;
+    bookingSummaryStatistic?: Array<StatisticUnitType>;
     /**
-     *
-     * @type {StatisticUnitsType}
+     * Unit type to hold statistic code and value pair.
+     * @type {Array<StatisticUnitType>}
      * @memberof BlockSummaryStatisticType
      */
-    dailyTargetsSummaryStatistic?: StatisticUnitsType;
+    dailyTargetsSummaryStatistic?: Array<StatisticUnitType>;
     /**
      * Date of the block inventory statistic.
      * @type {Date}
@@ -36,11 +36,11 @@ export interface BlockSummaryStatisticType {
      */
     statisticDate?: Date;
     /**
-     *
-     * @type {StatusSummaryStatisticType}
+     * Statistic summary for a particular status.
+     * @type {Array<StatusStatisticType>}
      * @memberof BlockSummaryStatisticType
      */
-    statusSummaryStatistic?: StatusSummaryStatisticType;
+    statusSummaryStatistic?: Array<StatusStatisticType>;
 }
 /**
  * Check if a given object implements the BlockSummaryStatisticType interface.

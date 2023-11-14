@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { EarlyDepartureInfoType } from './EarlyDepartureInfoType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for Early departure verification. Contains information regarding early departure penalty amount if applicable and any errors or warnings as to why the early departure cannot be done. Possible error codes are: FOF00152: An early departure could result in a change to the room rate, due to the reduced length of stay. FOF00153: Exchange Rates not setup for {currency code} . FOF00155: The partially consumed package(s) will be charged to the guest account. FOF00156: There is a Rate Code Restriction for {restriction information}. FOF00157: The reservation status is not valid for an early departure. FOF00158: Early Departure is not required as the reservation is already in Due Out status.
  * @export
@@ -26,16 +26,16 @@ export interface EarlyDepartureInfo {
     earlyDepartureDetails?: EarlyDepartureInfoType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EarlyDepartureInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EarlyDepartureInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the EarlyDepartureInfo interface.

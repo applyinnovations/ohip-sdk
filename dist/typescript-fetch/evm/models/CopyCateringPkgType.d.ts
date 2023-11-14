@@ -11,7 +11,6 @@
  */
 import type { CateringPackageCopyInstructionType } from './CateringPackageCopyInstructionType';
 import type { CopyStatusModeType } from './CopyStatusModeType';
-import type { DatesType } from './DatesType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Criteria to copy catering packages
@@ -44,11 +43,11 @@ export interface CopyCateringPkgType {
      */
     copyStatusMode?: CopyStatusModeType;
     /**
-     *
-     * @type {DatesType}
+     * Specifies a single date.
+     * @type {Array<Date>}
      * @memberof CopyCateringPkgType
      */
-    copyToDates?: DatesType;
+    copyToDates?: Array<Date>;
     /**
      * Hotel code where the package will be copied.
      * @type {string}

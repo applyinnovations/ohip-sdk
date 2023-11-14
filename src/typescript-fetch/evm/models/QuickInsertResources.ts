@@ -19,12 +19,12 @@ import {
     QuickInsertResourceListTypeFromJSONTyped,
     QuickInsertResourceListTypeToJSON,
 } from './QuickInsertResourceListType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to add resource on an event in a hotel.
@@ -39,11 +39,11 @@ export interface QuickInsertResources {
      */
     quickInsertResourceListInfo?: Array<QuickInsertResourceListType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof QuickInsertResources
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function QuickInsertResourcesFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'quickInsertResourceListInfo': !exists(json, 'quickInsertResourceListInfo') ? undefined : ((json['quickInsertResourceListInfo'] as Array<any>).map(QuickInsertResourceListTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function QuickInsertResourcesToJSON(value?: QuickInsertResources | null):
     return {
         
         'quickInsertResourceListInfo': value.quickInsertResourceListInfo === undefined ? undefined : ((value.quickInsertResourceListInfo as Array<any>).map(QuickInsertResourceListTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

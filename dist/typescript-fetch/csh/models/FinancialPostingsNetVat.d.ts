@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { FinancialPostingsNetVatType } from './FinancialPostingsNetVatType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for fetching the Posting Journal with Net and Vat breakdown.
  * @export
@@ -44,10 +44,10 @@ export interface FinancialPostingsNetVat {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FinancialPostingsNetVat
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface FinancialPostingsNetVat {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FinancialPostingsNetVat
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FinancialPostingsNetVat interface.

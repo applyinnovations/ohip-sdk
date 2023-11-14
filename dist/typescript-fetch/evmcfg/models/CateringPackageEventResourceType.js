@@ -15,8 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringPackageEventResourceTypeToJSON = exports.CateringPackageEventResourceTypeFromJSONTyped = exports.CateringPackageEventResourceTypeFromJSON = exports.instanceOfCateringPackageEventResourceType = void 0;
 const runtime_1 = require("../runtime");
-const CateringPackageResourceNoteListType_1 = require("./CateringPackageResourceNoteListType");
-const CodeListType_1 = require("./CodeListType");
+const CateringPackageResourceNoteType_1 = require("./CateringPackageResourceNoteType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const EventResourceType_1 = require("./EventResourceType");
 const UniqueIDType_1 = require("./UniqueIDType");
@@ -45,8 +44,8 @@ function CateringPackageEventResourceTypeFromJSONTyped(json, ignoreDiscriminator
         'price': !(0, runtime_1.exists)(json, 'price') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['price']),
         'quantity': !(0, runtime_1.exists)(json, 'quantity') ? undefined : json['quantity'],
         'resourceId': !(0, runtime_1.exists)(json, 'resourceId') ? undefined : json['resourceId'],
-        'resourceNotes': !(0, runtime_1.exists)(json, 'resourceNotes') ? undefined : (0, CateringPackageResourceNoteListType_1.CateringPackageResourceNoteListTypeFromJSON)(json['resourceNotes']),
-        'revenueTypes': !(0, runtime_1.exists)(json, 'revenueTypes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['revenueTypes']),
+        'resourceNotes': !(0, runtime_1.exists)(json, 'resourceNotes') ? undefined : (json['resourceNotes'].map(CateringPackageResourceNoteType_1.CateringPackageResourceNoteTypeFromJSON)),
+        'revenueTypes': !(0, runtime_1.exists)(json, 'revenueTypes') ? undefined : json['revenueTypes'],
         'roomRate': !(0, runtime_1.exists)(json, 'roomRate') ? undefined : json['roomRate'],
         'roomSetup': !(0, runtime_1.exists)(json, 'roomSetup') ? undefined : json['roomSetup'],
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : (0, EventResourceType_1.EventResourceTypeFromJSON)(json['type']),
@@ -69,8 +68,8 @@ function CateringPackageEventResourceTypeToJSON(value) {
         'price': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.price),
         'quantity': value.quantity,
         'resourceId': value.resourceId,
-        'resourceNotes': (0, CateringPackageResourceNoteListType_1.CateringPackageResourceNoteListTypeToJSON)(value.resourceNotes),
-        'revenueTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.revenueTypes),
+        'resourceNotes': value.resourceNotes === undefined ? undefined : (value.resourceNotes.map(CateringPackageResourceNoteType_1.CateringPackageResourceNoteTypeToJSON)),
+        'revenueTypes': value.revenueTypes,
         'roomRate': value.roomRate,
         'roomSetup': value.roomSetup,
         'type': (0, EventResourceType_1.EventResourceTypeToJSON)(value.type),

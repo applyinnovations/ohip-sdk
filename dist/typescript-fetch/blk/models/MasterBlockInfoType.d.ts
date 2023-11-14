@@ -10,11 +10,10 @@
  * Do not edit the class manually.
  */
 import type { BlockClassificationType } from './BlockClassificationType';
-import type { BlockIdList } from './BlockIdList';
 import type { BookingStatusType } from './BookingStatusType';
-import type { HotelCodeListType } from './HotelCodeListType';
 import type { MasterSubBlockBaseInfoType } from './MasterSubBlockBaseInfoType';
 import type { TimeSpanType } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Basic information pertaining to the master block.
  * @export
@@ -22,11 +21,11 @@ import type { TimeSpanType } from './TimeSpanType';
  */
 export interface MasterBlockInfoType {
     /**
-     *
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MasterBlockInfoType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * Block description.
      * @type {string}
@@ -59,10 +58,10 @@ export interface MasterBlockInfoType {
     hotelId?: string;
     /**
      * Pertains valid hotel code list for logged in user against Master/Sub header record.
-     * @type {Array<HotelCodeListType>}
+     * @type {Array<Array<string>>}
      * @memberof MasterBlockInfoType
      */
-    masterSubHotels?: Array<HotelCodeListType>;
+    masterSubHotels?: Array<Array<string>>;
     /**
      * Pertain value for blocked rooms for a block.
      * @type {number}

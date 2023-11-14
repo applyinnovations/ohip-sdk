@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DuplicateExternalSubscriptionsListType } from './DuplicateExternalSubscriptionsListType';
-import type { Links } from './Links';
+import type { DuplicateExternalSubscriptionsType } from './DuplicateExternalSubscriptionsType';
+import type { InstanceLink } from './InstanceLink';
 /**
  * Response object for fetching subscriptions where the same OPERA profile is linked to multiple external profiles within the same external system.
  * @export
@@ -18,11 +18,11 @@ import type { Links } from './Links';
  */
 export interface DuplicateExternalSubscriptions {
     /**
-     *
-     * @type {DuplicateExternalSubscriptionsListType}
+     * Details of the OPERA Profile subscription to external system
+     * @type {Array<DuplicateExternalSubscriptionsType>}
      * @memberof DuplicateExternalSubscriptions
      */
-    duplicateExternalSubscriptionsList?: DuplicateExternalSubscriptionsListType;
+    duplicateExternalSubscriptionsList?: Array<DuplicateExternalSubscriptionsType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -55,10 +55,10 @@ export interface DuplicateExternalSubscriptions {
     totalRows?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DuplicateExternalSubscriptions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the DuplicateExternalSubscriptions interface.

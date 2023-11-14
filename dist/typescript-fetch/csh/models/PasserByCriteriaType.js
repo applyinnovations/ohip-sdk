@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PasserByCriteriaTypeToJSON = exports.PasserByCriteriaTypeFromJSONTyped = exports.PasserByCriteriaTypeFromJSON = exports.instanceOfPasserByCriteriaType = void 0;
 const runtime_1 = require("../runtime");
-const ChargesCriteriaType_1 = require("./ChargesCriteriaType");
+const ChargeCriteriaType_1 = require("./ChargeCriteriaType");
 const FiscalServiceType_1 = require("./FiscalServiceType");
 const FolioReasonType_1 = require("./FolioReasonType");
 const NameValueHeaderDetailType_1 = require("./NameValueHeaderDetailType");
@@ -39,7 +39,7 @@ function PasserByCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
-        'charges': !(0, runtime_1.exists)(json, 'charges') ? undefined : (0, ChargesCriteriaType_1.ChargesCriteriaTypeFromJSON)(json['charges']),
+        'charges': !(0, runtime_1.exists)(json, 'charges') ? undefined : (json['charges'].map(ChargeCriteriaType_1.ChargeCriteriaTypeFromJSON)),
         'fiscalFolioInfo': !(0, runtime_1.exists)(json, 'fiscalFolioInfo') ? undefined : (0, FiscalServiceType_1.FiscalServiceTypeFromJSON)(json['fiscalFolioInfo']),
         'fiscalTerminalId': !(0, runtime_1.exists)(json, 'fiscalTerminalId') ? undefined : json['fiscalTerminalId'],
         'folioNameValue': !(0, runtime_1.exists)(json, 'folioNameValue') ? undefined : (json['folioNameValue'].map(NameValueHeaderDetailType_1.NameValueHeaderDetailTypeFromJSON)),
@@ -61,7 +61,7 @@ function PasserByCriteriaTypeToJSON(value) {
     }
     return {
         'cashierId': value.cashierId,
-        'charges': (0, ChargesCriteriaType_1.ChargesCriteriaTypeToJSON)(value.charges),
+        'charges': value.charges === undefined ? undefined : (value.charges.map(ChargeCriteriaType_1.ChargeCriteriaTypeToJSON)),
         'fiscalFolioInfo': (0, FiscalServiceType_1.FiscalServiceTypeToJSON)(value.fiscalFolioInfo),
         'fiscalTerminalId': value.fiscalTerminalId,
         'folioNameValue': value.folioNameValue === undefined ? undefined : (value.folioNameValue.map(NameValueHeaderDetailType_1.NameValueHeaderDetailTypeToJSON)),

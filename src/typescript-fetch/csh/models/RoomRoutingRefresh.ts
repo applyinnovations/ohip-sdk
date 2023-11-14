@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { RoomRoutingRefreshCriteriaType } from './RoomRoutingRefreshCriteriaType';
 import {
     RoomRoutingRefreshCriteriaTypeFromJSON,
     RoomRoutingRefreshCriteriaTypeFromJSONTyped,
     RoomRoutingRefreshCriteriaTypeToJSON,
 } from './RoomRoutingRefreshCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * The request object for processing refreshing of a routing instruction set. This operation transfers the postings to the respective reservation as per the routing instruction set which is created, edited, deleted or refreshed.
@@ -40,10 +40,10 @@ import {
 export interface RoomRoutingRefresh {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomRoutingRefresh
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {RoomRoutingRefreshCriteriaType}
@@ -51,11 +51,11 @@ export interface RoomRoutingRefresh {
      */
     roomRoutingRefreshCriteria?: RoomRoutingRefreshCriteriaType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomRoutingRefresh
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RoomRoutingRefreshFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'roomRoutingRefreshCriteria': !exists(json, 'roomRoutingRefreshCriteria') ? undefined : RoomRoutingRefreshCriteriaTypeFromJSON(json['roomRoutingRefreshCriteria']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RoomRoutingRefreshToJSON(value?: RoomRoutingRefresh | null): any
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'roomRoutingRefreshCriteria': RoomRoutingRefreshCriteriaTypeToJSON(value.roomRoutingRefreshCriteria),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -19,12 +19,6 @@ import {
     AssignedUserTypeFromJSONTyped,
     AssignedUserTypeToJSON,
 } from './AssignedUserType';
-import type { RoomIds } from './RoomIds';
-import {
-    RoomIdsFromJSON,
-    RoomIdsFromJSONTyped,
-    RoomIdsToJSON,
-} from './RoomIds';
 
 /**
  * Base maintenance type
@@ -57,11 +51,11 @@ export interface RoomMaintenanceRequestType {
      */
     remarks?: string;
     /**
-     * 
-     * @type {RoomIds}
+     * Collection of room numbers to be process.
+     * @type {Array<string>}
      * @memberof RoomMaintenanceRequestType
      */
-    roomIds?: RoomIds;
+    roomIds?: Array<string>;
 }
 
 /**
@@ -87,7 +81,7 @@ export function RoomMaintenanceRequestTypeFromJSONTyped(json: any, ignoreDiscrim
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'maintenanceCode': !exists(json, 'maintenanceCode') ? undefined : json['maintenanceCode'],
         'remarks': !exists(json, 'remarks') ? undefined : json['remarks'],
-        'roomIds': !exists(json, 'roomIds') ? undefined : RoomIdsFromJSON(json['roomIds']),
+        'roomIds': !exists(json, 'roomIds') ? undefined : json['roomIds'],
     };
 }
 
@@ -104,7 +98,7 @@ export function RoomMaintenanceRequestTypeToJSON(value?: RoomMaintenanceRequestT
         'hotelId': value.hotelId,
         'maintenanceCode': value.maintenanceCode,
         'remarks': value.remarks,
-        'roomIds': RoomIdsToJSON(value.roomIds),
+        'roomIds': value.roomIds,
     };
 }
 

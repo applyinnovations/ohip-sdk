@@ -13,7 +13,9 @@ exports.OhipCredentialsProvider = void 0;
 const oauth_1 = require("./oauth");
 const MAX_MS = 10 * 1000;
 const MAX_RETRIES = 7;
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const delay = (ms) => new Promise((resolve) => {
+    setTimeout(resolve, ms);
+});
 class OhipCredentialsProvider {
     constructor({ appKey, credentials, access_token, expiry, host, }) {
         this.authenticating = false;
@@ -72,9 +74,6 @@ class OhipCredentialsProvider {
                         throw Error(`OHIP_AUTH_ERR: maximum retry attempts exceeded`);
                 }
             }
-            catch (e) {
-                throw e;
-            }
             finally {
                 this.authenticating = false;
             }
@@ -94,10 +93,7 @@ class OhipCredentialsProvider {
                 this.expiry - Date.now() < 30 * 1000) {
                 yield this.renewCredentials({ retryCount: 0, start });
             }
-            // apply token
-            const headers = new Headers(context.init.headers);
-            headers.set(`Authorization`, `Bearer ${this.access_token}`);
-            context.init.headers = headers;
+            return Object.assign(Object.assign({}, context), { init: Object.assign(Object.assign({}, context.init), { headers: Object.assign(Object.assign({}, context.init.headers), { Authorization: `Bearer ${this.access_token}` }) }) });
         });
     }
 }

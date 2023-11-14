@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { DailyRateDetailType } from './DailyRateDetailType';
-import type { Links } from './Links';
-import type { ReservationIdList } from './ReservationIdList';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { UniqueIDType } from './UniqueIDType';
+import type { WarningType } from './WarningType';
 /**
  * Request for validating Daily Rate Details modifications.
  * @export
@@ -27,10 +27,10 @@ export interface ReservationDailyRateDetail {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationDailyRateDetail
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {DailyRateDetailType}
@@ -38,17 +38,17 @@ export interface ReservationDailyRateDetail {
      */
     newDetail?: DailyRateDetailType;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ReservationDailyRateDetail
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationDailyRateDetail
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationDailyRateDetail interface.

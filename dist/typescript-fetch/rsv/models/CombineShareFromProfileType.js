@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CombineShareFromProfileTypeToJSON = exports.CombineShareFromProfileTypeFromJSONTyped = exports.CombineShareFromProfileTypeFromJSON = exports.instanceOfCombineShareFromProfileType = void 0;
 const runtime_1 = require("../runtime");
 const CopyReservationPaymentMethodsType_1 = require("./CopyReservationPaymentMethodsType");
-const DailyRatesType_1 = require("./DailyRatesType");
+const DailyRateType_1 = require("./DailyRateType");
 const GuestCountsType_1 = require("./GuestCountsType");
 const ResGuaranteeType_1 = require("./ResGuaranteeType");
 const ReservationPaymentMethodType_1 = require("./ReservationPaymentMethodType");
@@ -39,7 +39,7 @@ function CombineShareFromProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'dailyRates': !(0, runtime_1.exists)(json, 'dailyRates') ? undefined : (0, DailyRatesType_1.DailyRatesTypeFromJSON)(json['dailyRates']),
+        'dailyRates': !(0, runtime_1.exists)(json, 'dailyRates') ? undefined : (json['dailyRates'].map(DailyRateType_1.DailyRateTypeFromJSON)),
         'guarantee': !(0, runtime_1.exists)(json, 'guarantee') ? undefined : (0, ResGuaranteeType_1.ResGuaranteeTypeFromJSON)(json['guarantee']),
         'guestCounts': !(0, runtime_1.exists)(json, 'guestCounts') ? undefined : (0, GuestCountsType_1.GuestCountsTypeFromJSON)(json['guestCounts']),
         'newSharerId': !(0, runtime_1.exists)(json, 'newSharerId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['newSharerId']),
@@ -57,7 +57,7 @@ function CombineShareFromProfileTypeToJSON(value) {
         return null;
     }
     return {
-        'dailyRates': (0, DailyRatesType_1.DailyRatesTypeToJSON)(value.dailyRates),
+        'dailyRates': value.dailyRates === undefined ? undefined : (value.dailyRates.map(DailyRateType_1.DailyRateTypeToJSON)),
         'guarantee': (0, ResGuaranteeType_1.ResGuaranteeTypeToJSON)(value.guarantee),
         'guestCounts': (0, GuestCountsType_1.GuestCountsTypeToJSON)(value.guestCounts),
         'newSharerId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.newSharerId),

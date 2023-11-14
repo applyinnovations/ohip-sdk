@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { SuggestedRoomType } from './SuggestedRoomType';
 import {
     SuggestedRoomTypeFromJSON,
     SuggestedRoomTypeFromJSONTyped,
     SuggestedRoomTypeToJSON,
 } from './SuggestedRoomType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response of fetch suggested rooms operation.
@@ -40,10 +40,10 @@ import {
 export interface SuggestedRooms {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SuggestedRooms
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * List of suggested rooms for room assignment.
      * @type {Array<SuggestedRoomType>}
@@ -51,11 +51,11 @@ export interface SuggestedRooms {
      */
     suggestedRoomsType?: Array<SuggestedRoomType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SuggestedRooms
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function SuggestedRoomsFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'suggestedRoomsType': !exists(json, 'suggestedRoomsType') ? undefined : ((json['suggestedRoomsType'] as Array<any>).map(SuggestedRoomTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function SuggestedRoomsToJSON(value?: SuggestedRooms | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'suggestedRoomsType': value.suggestedRoomsType === undefined ? undefined : ((value.suggestedRoomsType as Array<any>).map(SuggestedRoomTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

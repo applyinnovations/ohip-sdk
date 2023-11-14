@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReservationDetailsType } from './ReservationDetailsType';
 import {
     ReservationDetailsTypeFromJSON,
@@ -37,12 +37,12 @@ import {
     ReservationRotationPointsDetailsListTypeFromJSONTyped,
     ReservationRotationPointsDetailsListTypeToJSON,
 } from './ReservationRotationPointsDetailsListType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for Reservation Rotation Points Details.
@@ -58,10 +58,10 @@ export interface GetReservationRotationPointsDetails {
     adjustmentLogList?: ReservationRotationPointsAdjustmentLogListType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GetReservationRotationPointsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ReservationDetailsType}
@@ -75,11 +75,11 @@ export interface GetReservationRotationPointsDetails {
      */
     reservationRotationPointsDetailsList?: ReservationRotationPointsDetailsListType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GetReservationRotationPointsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -102,10 +102,10 @@ export function GetReservationRotationPointsDetailsFromJSONTyped(json: any, igno
     return {
         
         'adjustmentLogList': !exists(json, 'adjustmentLogList') ? undefined : ReservationRotationPointsAdjustmentLogListTypeFromJSON(json['adjustmentLogList']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservationDetails': !exists(json, 'reservationDetails') ? undefined : ReservationDetailsTypeFromJSON(json['reservationDetails']),
         'reservationRotationPointsDetailsList': !exists(json, 'reservationRotationPointsDetailsList') ? undefined : ReservationRotationPointsDetailsListTypeFromJSON(json['reservationRotationPointsDetailsList']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -119,10 +119,10 @@ export function GetReservationRotationPointsDetailsToJSON(value?: GetReservation
     return {
         
         'adjustmentLogList': ReservationRotationPointsAdjustmentLogListTypeToJSON(value.adjustmentLogList),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservationDetails': ReservationDetailsTypeToJSON(value.reservationDetails),
         'reservationRotationPointsDetailsList': ReservationRotationPointsDetailsListTypeToJSON(value.reservationRotationPointsDetailsList),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CateringPackageEventNoteListType } from './CateringPackageEventNoteListType';
+import type { CateringPackageEventNoteType } from './CateringPackageEventNoteType';
 import {
-    CateringPackageEventNoteListTypeFromJSON,
-    CateringPackageEventNoteListTypeFromJSONTyped,
-    CateringPackageEventNoteListTypeToJSON,
-} from './CateringPackageEventNoteListType';
-import type { CateringPackageResourceListType } from './CateringPackageResourceListType';
+    CateringPackageEventNoteTypeFromJSON,
+    CateringPackageEventNoteTypeFromJSONTyped,
+    CateringPackageEventNoteTypeToJSON,
+} from './CateringPackageEventNoteType';
+import type { CateringPackageEventResourceType } from './CateringPackageEventResourceType';
 import {
-    CateringPackageResourceListTypeFromJSON,
-    CateringPackageResourceListTypeFromJSONTyped,
-    CateringPackageResourceListTypeToJSON,
-} from './CateringPackageResourceListType';
+    CateringPackageEventResourceTypeFromJSON,
+    CateringPackageEventResourceTypeFromJSONTyped,
+    CateringPackageEventResourceTypeToJSON,
+} from './CateringPackageEventResourceType';
 import type { DateTimeSpanType } from './DateTimeSpanType';
 import {
     DateTimeSpanTypeFromJSON,
@@ -99,17 +99,17 @@ export interface CateringPackageEventType {
      */
     masterEventId?: UniqueIDType;
     /**
-     * 
-     * @type {CateringPackageEventNoteListType}
+     * Collection of multiple Event Notes associated with a particular Catering Package Event.
+     * @type {Array<CateringPackageEventNoteType>}
      * @memberof CateringPackageEventType
      */
-    notes?: CateringPackageEventNoteListType;
+    notes?: Array<CateringPackageEventNoteType>;
     /**
-     * 
-     * @type {CateringPackageResourceListType}
+     * Collection of multiple Resources associated with a particular Catering Package Event.
+     * @type {Array<CateringPackageEventResourceType>}
      * @memberof CateringPackageEventType
      */
-    resources?: CateringPackageResourceListType;
+    resources?: Array<CateringPackageEventResourceType>;
     /**
      * Room details for the Catering Package Event.
      * @type {string}
@@ -164,8 +164,8 @@ export function CateringPackageEventTypeFromJSONTyped(json: any, ignoreDiscrimin
         'isMaster': !exists(json, 'isMaster') ? undefined : json['isMaster'],
         'isShareable': !exists(json, 'isShareable') ? undefined : json['isShareable'],
         'masterEventId': !exists(json, 'masterEventId') ? undefined : UniqueIDTypeFromJSON(json['masterEventId']),
-        'notes': !exists(json, 'notes') ? undefined : CateringPackageEventNoteListTypeFromJSON(json['notes']),
-        'resources': !exists(json, 'resources') ? undefined : CateringPackageResourceListTypeFromJSON(json['resources']),
+        'notes': !exists(json, 'notes') ? undefined : ((json['notes'] as Array<any>).map(CateringPackageEventNoteTypeFromJSON)),
+        'resources': !exists(json, 'resources') ? undefined : ((json['resources'] as Array<any>).map(CateringPackageEventResourceTypeFromJSON)),
         'room': !exists(json, 'room') ? undefined : json['room'],
         'roomRateCode': !exists(json, 'roomRateCode') ? undefined : json['roomRateCode'],
         'roomSetup': !exists(json, 'roomSetup') ? undefined : json['roomSetup'],
@@ -191,8 +191,8 @@ export function CateringPackageEventTypeToJSON(value?: CateringPackageEventType 
         'isMaster': value.isMaster,
         'isShareable': value.isShareable,
         'masterEventId': UniqueIDTypeToJSON(value.masterEventId),
-        'notes': CateringPackageEventNoteListTypeToJSON(value.notes),
-        'resources': CateringPackageResourceListTypeToJSON(value.resources),
+        'notes': value.notes === undefined ? undefined : ((value.notes as Array<any>).map(CateringPackageEventNoteTypeToJSON)),
+        'resources': value.resources === undefined ? undefined : ((value.resources as Array<any>).map(CateringPackageEventResourceTypeToJSON)),
         'room': value.room,
         'roomRateCode': value.roomRateCode,
         'roomSetup': value.roomSetup,

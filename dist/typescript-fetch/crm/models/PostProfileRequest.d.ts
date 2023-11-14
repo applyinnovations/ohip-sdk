@@ -9,12 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ExternalReferencesType } from './ExternalReferencesType';
-import type { Links } from './Links';
-import type { ProfileAllowedActionsType } from './ProfileAllowedActionsType';
-import type { ProfileIdList } from './ProfileIdList';
+import type { ExternalReferenceType } from './ExternalReferenceType';
+import type { InstanceLink } from './InstanceLink';
+import type { ProfileAllowedActionType } from './ProfileAllowedActionType';
 import type { ProfileType } from './ProfileType';
-import type { WarningsType } from './WarningsType';
+import type { UniqueIDType } from './UniqueIDType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -22,23 +22,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface PostProfileRequest {
     /**
-     *
-     * @type {ExternalReferencesType}
+     * This type contains unique information of external reference.
+     * @type {Array<ExternalReferenceType>}
      * @memberof PostProfileRequest
      */
-    externalReferences?: ExternalReferencesType;
+    externalReferences?: Array<ExternalReferenceType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostProfileRequest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ProfileAllowedActionsType}
+     * Allowed actions for profile operations.
+     * @type {Array<ProfileAllowedActionType>}
      * @memberof PostProfileRequest
      */
-    profileAllowedActions?: ProfileAllowedActionsType;
+    profileAllowedActions?: Array<ProfileAllowedActionType>;
     /**
      *
      * @type {ProfileType}
@@ -46,17 +46,17 @@ export interface PostProfileRequest {
      */
     profileDetails?: ProfileType;
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof PostProfileRequest
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostProfileRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PostProfileRequest interface.

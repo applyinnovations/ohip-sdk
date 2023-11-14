@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationAutoRoomAssignRequestType } from './ReservationAutoRoomAssignRequestType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request for auto assignment of rooms to reservations.
  * @export
@@ -26,16 +26,16 @@ export interface AutoAssignRoom {
     criteria?: ReservationAutoRoomAssignRequestType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AutoAssignRoom
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoAssignRoom
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AutoAssignRoom interface.

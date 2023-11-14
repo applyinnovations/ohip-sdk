@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelEventCodesType } from './HotelEventCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelEventCodeType } from './HotelEventCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for setting hotel events for specified date range.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface SetHotelEvents {
     /**
-     *
-     * @type {HotelEventCodesType}
+     * Collection of hotel events.
+     * @type {Array<HotelEventCodeType>}
      * @memberof SetHotelEvents
      */
-    hotelEvents?: HotelEventCodesType;
+    hotelEvents?: Array<HotelEventCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SetHotelEvents
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SetHotelEvents
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SetHotelEvents interface.

@@ -11,7 +11,7 @@
  */
 import type { EmailDeliveryConfigurationType } from './EmailDeliveryConfigurationType';
 import type { FaxDeliveryConfigurationType } from './FaxDeliveryConfigurationType';
-import type { SftpConfigurationsListType } from './SftpConfigurationsListType';
+import type { SftpConfigurationType } from './SftpConfigurationType';
 /**
  * General delivery method SFTPConfigurationType configuration, settings for Email and Fax Delivery of General Letters
  * @export
@@ -31,11 +31,11 @@ export interface GeneralDeliveryMethodType {
      */
     fax?: FaxDeliveryConfigurationType;
     /**
-     *
-     * @type {SftpConfigurationsListType}
+     * Type that holds sftp configurations
+     * @type {Array<SftpConfigurationType>}
      * @memberof GeneralDeliveryMethodType
      */
-    sftpConfigurations?: SftpConfigurationsListType;
+    sftpConfigurations?: Array<SftpConfigurationType>;
 }
 /**
  * Check if a given object implements the GeneralDeliveryMethodType interface.

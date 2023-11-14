@@ -84,7 +84,7 @@ class RatePlanApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, index_1.PackagesCopyToJSON)(requestParameters.packagesCopy),
+                body: requestParameters.packagesCopy.map(index_1.CopyPackageCodesTypeToJSON),
             }, initOverrides);
             return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });

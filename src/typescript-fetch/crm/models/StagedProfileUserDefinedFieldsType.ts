@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { StagedProfileCharacterUDFsType } from './StagedProfileCharacterUDFsType';
+import type { StagedProfileCharacterUDFType } from './StagedProfileCharacterUDFType';
 import {
-    StagedProfileCharacterUDFsTypeFromJSON,
-    StagedProfileCharacterUDFsTypeFromJSONTyped,
-    StagedProfileCharacterUDFsTypeToJSON,
-} from './StagedProfileCharacterUDFsType';
-import type { StagedProfileDateUDFsType } from './StagedProfileDateUDFsType';
+    StagedProfileCharacterUDFTypeFromJSON,
+    StagedProfileCharacterUDFTypeFromJSONTyped,
+    StagedProfileCharacterUDFTypeToJSON,
+} from './StagedProfileCharacterUDFType';
+import type { StagedProfileDateUDFType } from './StagedProfileDateUDFType';
 import {
-    StagedProfileDateUDFsTypeFromJSON,
-    StagedProfileDateUDFsTypeFromJSONTyped,
-    StagedProfileDateUDFsTypeToJSON,
-} from './StagedProfileDateUDFsType';
-import type { StagedProfileNumericUDFsType } from './StagedProfileNumericUDFsType';
+    StagedProfileDateUDFTypeFromJSON,
+    StagedProfileDateUDFTypeFromJSONTyped,
+    StagedProfileDateUDFTypeToJSON,
+} from './StagedProfileDateUDFType';
+import type { StagedProfileNumericUDFType } from './StagedProfileNumericUDFType';
 import {
-    StagedProfileNumericUDFsTypeFromJSON,
-    StagedProfileNumericUDFsTypeFromJSONTyped,
-    StagedProfileNumericUDFsTypeToJSON,
-} from './StagedProfileNumericUDFsType';
+    StagedProfileNumericUDFTypeFromJSON,
+    StagedProfileNumericUDFTypeFromJSONTyped,
+    StagedProfileNumericUDFTypeToJSON,
+} from './StagedProfileNumericUDFType';
 
 /**
  * Used to hold user defined fields(UDFs) for staged profile.
@@ -39,23 +39,23 @@ import {
  */
 export interface StagedProfileUserDefinedFieldsType {
     /**
-     * 
-     * @type {StagedProfileCharacterUDFsType}
+     * Used to hold collection of user defined fields of Character/String Type.
+     * @type {Array<StagedProfileCharacterUDFType>}
      * @memberof StagedProfileUserDefinedFieldsType
      */
-    characterUDFs?: StagedProfileCharacterUDFsType;
+    characterUDFs?: Array<StagedProfileCharacterUDFType>;
     /**
-     * 
-     * @type {StagedProfileDateUDFsType}
+     * Used to hold collection of user defined fields of Date Type.
+     * @type {Array<StagedProfileDateUDFType>}
      * @memberof StagedProfileUserDefinedFieldsType
      */
-    dateUDFs?: StagedProfileDateUDFsType;
+    dateUDFs?: Array<StagedProfileDateUDFType>;
     /**
-     * 
-     * @type {StagedProfileNumericUDFsType}
+     * Used to hold collection of user defined fields of Numeric Type.
+     * @type {Array<StagedProfileNumericUDFType>}
      * @memberof StagedProfileUserDefinedFieldsType
      */
-    numericUDFs?: StagedProfileNumericUDFsType;
+    numericUDFs?: Array<StagedProfileNumericUDFType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function StagedProfileUserDefinedFieldsTypeFromJSONTyped(json: any, ignor
     }
     return {
         
-        'characterUDFs': !exists(json, 'characterUDFs') ? undefined : StagedProfileCharacterUDFsTypeFromJSON(json['characterUDFs']),
-        'dateUDFs': !exists(json, 'dateUDFs') ? undefined : StagedProfileDateUDFsTypeFromJSON(json['dateUDFs']),
-        'numericUDFs': !exists(json, 'numericUDFs') ? undefined : StagedProfileNumericUDFsTypeFromJSON(json['numericUDFs']),
+        'characterUDFs': !exists(json, 'characterUDFs') ? undefined : ((json['characterUDFs'] as Array<any>).map(StagedProfileCharacterUDFTypeFromJSON)),
+        'dateUDFs': !exists(json, 'dateUDFs') ? undefined : ((json['dateUDFs'] as Array<any>).map(StagedProfileDateUDFTypeFromJSON)),
+        'numericUDFs': !exists(json, 'numericUDFs') ? undefined : ((json['numericUDFs'] as Array<any>).map(StagedProfileNumericUDFTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function StagedProfileUserDefinedFieldsTypeToJSON(value?: StagedProfileUs
     }
     return {
         
-        'characterUDFs': StagedProfileCharacterUDFsTypeToJSON(value.characterUDFs),
-        'dateUDFs': StagedProfileDateUDFsTypeToJSON(value.dateUDFs),
-        'numericUDFs': StagedProfileNumericUDFsTypeToJSON(value.numericUDFs),
+        'characterUDFs': value.characterUDFs === undefined ? undefined : ((value.characterUDFs as Array<any>).map(StagedProfileCharacterUDFTypeToJSON)),
+        'dateUDFs': value.dateUDFs === undefined ? undefined : ((value.dateUDFs as Array<any>).map(StagedProfileDateUDFTypeToJSON)),
+        'numericUDFs': value.numericUDFs === undefined ? undefined : ((value.numericUDFs as Array<any>).map(StagedProfileNumericUDFTypeToJSON)),
     };
 }
 

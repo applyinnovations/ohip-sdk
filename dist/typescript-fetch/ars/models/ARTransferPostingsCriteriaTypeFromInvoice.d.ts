@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ARInvoiceCriteriaType } from './ARInvoiceCriteriaType';
-import type { ARInvoicePostingsType } from './ARInvoicePostingsType';
+import type { ARInvoicePostingType } from './ARInvoicePostingType';
 /**
  * From Invoice and Invoice posting detail.
  * @export
@@ -24,11 +24,11 @@ export interface ARTransferPostingsCriteriaTypeFromInvoice {
      */
     invoice?: ARInvoiceCriteriaType;
     /**
-     *
-     * @type {ARInvoicePostingsType}
+     * Invoice posting detail.
+     * @type {Array<ARInvoicePostingType>}
      * @memberof ARTransferPostingsCriteriaTypeFromInvoice
      */
-    invoicePostings?: ARInvoicePostingsType;
+    invoicePostings?: Array<ARInvoicePostingType>;
 }
 /**
  * Check if a given object implements the ARTransferPostingsCriteriaTypeFromInvoice interface.

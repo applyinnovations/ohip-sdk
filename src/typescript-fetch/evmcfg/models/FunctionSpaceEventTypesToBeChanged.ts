@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { EventTypesType } from './EventTypesType';
+import type { EventTypeConfigType } from './EventTypeConfigType';
 import {
-    EventTypesTypeFromJSON,
-    EventTypesTypeFromJSONTyped,
-    EventTypesTypeToJSON,
-} from './EventTypesType';
-import type { Links } from './Links';
+    EventTypeConfigTypeFromJSON,
+    EventTypeConfigTypeFromJSONTyped,
+    EventTypeConfigTypeToJSON,
+} from './EventTypeConfigType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to update the existing Function Space Event Types.
@@ -39,23 +39,23 @@ import {
  */
 export interface FunctionSpaceEventTypesToBeChanged {
     /**
-     * 
-     * @type {EventTypesType}
+     * Collection of Event Type
+     * @type {Array<EventTypeConfigType>}
      * @memberof FunctionSpaceEventTypesToBeChanged
      */
-    eventTypes?: EventTypesType;
+    eventTypes?: Array<EventTypeConfigType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FunctionSpaceEventTypesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FunctionSpaceEventTypesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FunctionSpaceEventTypesToBeChangedFromJSONTyped(json: any, ignor
     }
     return {
         
-        'eventTypes': !exists(json, 'eventTypes') ? undefined : EventTypesTypeFromJSON(json['eventTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'eventTypes': !exists(json, 'eventTypes') ? undefined : ((json['eventTypes'] as Array<any>).map(EventTypeConfigTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FunctionSpaceEventTypesToBeChangedToJSON(value?: FunctionSpaceEv
     }
     return {
         
-        'eventTypes': EventTypesTypeToJSON(value.eventTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'eventTypes': value.eventTypes === undefined ? undefined : ((value.eventTypes as Array<any>).map(EventTypeConfigTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

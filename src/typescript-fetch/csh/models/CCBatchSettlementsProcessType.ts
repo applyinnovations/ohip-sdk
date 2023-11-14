@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Type for starting settlements job process.
@@ -39,11 +39,11 @@ export interface CCBatchSettlementsProcessType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CCBatchSettlementsProcessType
      */
-    settlementIdList?: UniqueIDListType;
+    settlementIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -67,7 +67,7 @@ export function CCBatchSettlementsProcessTypeFromJSONTyped(json: any, ignoreDisc
         
         'batchId': !exists(json, 'batchId') ? undefined : json['batchId'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'settlementIdList': !exists(json, 'settlementIdList') ? undefined : UniqueIDListTypeFromJSON(json['settlementIdList']),
+        'settlementIdList': !exists(json, 'settlementIdList') ? undefined : ((json['settlementIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -82,7 +82,7 @@ export function CCBatchSettlementsProcessTypeToJSON(value?: CCBatchSettlementsPr
         
         'batchId': value.batchId,
         'hotelId': value.hotelId,
-        'settlementIdList': UniqueIDListTypeToJSON(value.settlementIdList),
+        'settlementIdList': value.settlementIdList === undefined ? undefined : ((value.settlementIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

@@ -16,8 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FunctionSpaceConfigTypeToJSON = exports.FunctionSpaceConfigTypeFromJSONTyped = exports.FunctionSpaceConfigTypeFromJSON = exports.instanceOfFunctionSpaceConfigType = void 0;
 const runtime_1 = require("../runtime");
 const BaseFunctionSpaceRateType_1 = require("./BaseFunctionSpaceRateType");
-const CodeListType_1 = require("./CodeListType");
-const ComboRoomsType_1 = require("./ComboRoomsType");
+const ComboElementRoomType_1 = require("./ComboElementRoomType");
 const FunctionSpaceAlternateType_1 = require("./FunctionSpaceAlternateType");
 const FunctionSpaceConfigTypeSetupStylesInner_1 = require("./FunctionSpaceConfigTypeSetupStylesInner");
 const FunctionSpaceDimensionType_1 = require("./FunctionSpaceDimensionType");
@@ -43,8 +42,8 @@ function FunctionSpaceConfigTypeFromJSONTyped(json, ignoreDiscriminator) {
         'alternate': !(0, runtime_1.exists)(json, 'alternate') ? undefined : (0, FunctionSpaceAlternateType_1.FunctionSpaceAlternateTypeFromJSON)(json['alternate']),
         'capacity': !(0, runtime_1.exists)(json, 'capacity') ? undefined : (0, RoomCapacityType_1.RoomCapacityTypeFromJSON)(json['capacity']),
         'combo': !(0, runtime_1.exists)(json, 'combo') ? undefined : json['combo'],
-        'comboElements': !(0, runtime_1.exists)(json, 'comboElements') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['comboElements']),
-        'comboRooms': !(0, runtime_1.exists)(json, 'comboRooms') ? undefined : (0, ComboRoomsType_1.ComboRoomsTypeFromJSON)(json['comboRooms']),
+        'comboElements': !(0, runtime_1.exists)(json, 'comboElements') ? undefined : json['comboElements'],
+        'comboRooms': !(0, runtime_1.exists)(json, 'comboRooms') ? undefined : (json['comboRooms'].map(ComboElementRoomType_1.ComboElementRoomTypeFromJSON)),
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : (0, TranslationTextType2000_1.TranslationTextType2000FromJSON)(json['description']),
         'dimension': !(0, runtime_1.exists)(json, 'dimension') ? undefined : (0, FunctionSpaceDimensionType_1.FunctionSpaceDimensionTypeFromJSON)(json['dimension']),
         'displayInDiary': !(0, runtime_1.exists)(json, 'displayInDiary') ? undefined : json['displayInDiary'],
@@ -85,8 +84,8 @@ function FunctionSpaceConfigTypeToJSON(value) {
         'alternate': (0, FunctionSpaceAlternateType_1.FunctionSpaceAlternateTypeToJSON)(value.alternate),
         'capacity': (0, RoomCapacityType_1.RoomCapacityTypeToJSON)(value.capacity),
         'combo': value.combo,
-        'comboElements': (0, CodeListType_1.CodeListTypeToJSON)(value.comboElements),
-        'comboRooms': (0, ComboRoomsType_1.ComboRoomsTypeToJSON)(value.comboRooms),
+        'comboElements': value.comboElements,
+        'comboRooms': value.comboRooms === undefined ? undefined : (value.comboRooms.map(ComboElementRoomType_1.ComboElementRoomTypeToJSON)),
         'description': (0, TranslationTextType2000_1.TranslationTextType2000ToJSON)(value.description),
         'dimension': (0, FunctionSpaceDimensionType_1.FunctionSpaceDimensionTypeToJSON)(value.dimension),
         'displayInDiary': value.displayInDiary,

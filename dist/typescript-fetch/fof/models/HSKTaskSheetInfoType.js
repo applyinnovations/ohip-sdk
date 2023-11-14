@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HSKTaskSheetInfoTypeToJSON = exports.HSKTaskSheetInfoTypeFromJSONTyped = exports.HSKTaskSheetInfoTypeFromJSON = exports.instanceOfHSKTaskSheetInfoType = void 0;
 const runtime_1 = require("../runtime");
-const AssignedTasksType_1 = require("./AssignedTasksType");
+const AssignedTaskType_1 = require("./AssignedTaskType");
 const HSKTaskSheetDetailsInfoType_1 = require("./HSKTaskSheetDetailsInfoType");
 const HSKTaskSheetInfoTypeRoomSummaryInner_1 = require("./HSKTaskSheetInfoTypeRoomSummaryInner");
 const TaskSheetType_1 = require("./TaskSheetType");
@@ -36,7 +36,7 @@ function HSKTaskSheetInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'assignedTasks': !(0, runtime_1.exists)(json, 'assignedTasks') ? undefined : (0, AssignedTasksType_1.AssignedTasksTypeFromJSON)(json['assignedTasks']),
+        'assignedTasks': !(0, runtime_1.exists)(json, 'assignedTasks') ? undefined : (json['assignedTasks'].map(AssignedTaskType_1.AssignedTaskTypeFromJSON)),
         'attendant': !(0, runtime_1.exists)(json, 'attendant') ? undefined : json['attendant'],
         'averageActualTimeInSecs': !(0, runtime_1.exists)(json, 'averageActualTimeInSecs') ? undefined : json['averageActualTimeInSecs'],
         'roomSummary': !(0, runtime_1.exists)(json, 'roomSummary') ? undefined : (json['roomSummary'].map(HSKTaskSheetInfoTypeRoomSummaryInner_1.HSKTaskSheetInfoTypeRoomSummaryInnerFromJSON)),
@@ -58,7 +58,7 @@ function HSKTaskSheetInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'assignedTasks': (0, AssignedTasksType_1.AssignedTasksTypeToJSON)(value.assignedTasks),
+        'assignedTasks': value.assignedTasks === undefined ? undefined : (value.assignedTasks.map(AssignedTaskType_1.AssignedTaskTypeToJSON)),
         'attendant': value.attendant,
         'averageActualTimeInSecs': value.averageActualTimeInSecs,
         'roomSummary': value.roomSummary === undefined ? undefined : (value.roomSummary.map(HSKTaskSheetInfoTypeRoomSummaryInner_1.HSKTaskSheetInfoTypeRoomSummaryInnerToJSON)),

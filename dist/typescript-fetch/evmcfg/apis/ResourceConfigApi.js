@@ -379,7 +379,7 @@ class ResourceConfigApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, index_1.ItemClassesCopyToJSON)(requestParameters.itemClassesCopy),
+                body: requestParameters.itemClassesCopy.map(index_1.CopyConfigurationCodeTypeToJSON),
             }, initOverrides);
             return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { SellLimitByDateRangeType } from './SellLimitByDateRangeType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * A Request message that sets sell limit for collection of date ranges for either of the levels House, room type or room class. You can specify the days of the week, number type group and the date range as part of the request.
  * @export
@@ -24,11 +24,11 @@ export interface SellLimitByRange {
      */
     sellLimitsByDateRange?: Array<SellLimitByDateRangeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SellLimitByRange
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SellLimitByRange interface.

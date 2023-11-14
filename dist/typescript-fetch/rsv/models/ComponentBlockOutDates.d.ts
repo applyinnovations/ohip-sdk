@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { DateTimeSpanType } from './DateTimeSpanType';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -24,11 +24,11 @@ export interface ComponentBlockOutDates {
      */
     dateTimeSpan?: DateTimeSpanType;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ComponentBlockOutDates
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the ComponentBlockOutDates interface.

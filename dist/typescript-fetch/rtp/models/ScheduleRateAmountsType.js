@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ScheduleRateAmountsTypeToJSON = exports.ScheduleRateAmountsTypeFromJSONTyped = exports.ScheduleRateAmountsTypeFromJSON = exports.instanceOfScheduleRateAmountsType = void 0;
 const runtime_1 = require("../runtime");
-const RateByAgeBucketsType_1 = require("./RateByAgeBucketsType");
+const RateByAgeBucketType_1 = require("./RateByAgeBucketType");
 /**
  * Check if a given object implements the ScheduleRateAmountsType interface.
  */
@@ -43,7 +43,7 @@ function ScheduleRateAmountsTypeFromJSONTyped(json, ignoreDiscriminator) {
         'onePersonRate': !(0, runtime_1.exists)(json, 'onePersonRate') ? undefined : json['onePersonRate'],
         'overrideFloorAmount': !(0, runtime_1.exists)(json, 'overrideFloorAmount') ? undefined : json['overrideFloorAmount'],
         'pointsRequired': !(0, runtime_1.exists)(json, 'pointsRequired') ? undefined : json['pointsRequired'],
-        'rateByAgeBuckets': !(0, runtime_1.exists)(json, 'rateByAgeBuckets') ? undefined : (0, RateByAgeBucketsType_1.RateByAgeBucketsTypeFromJSON)(json['rateByAgeBuckets']),
+        'rateByAgeBuckets': !(0, runtime_1.exists)(json, 'rateByAgeBuckets') ? undefined : (json['rateByAgeBuckets'].map(RateByAgeBucketType_1.RateByAgeBucketTypeFromJSON)),
         'threeChildrenRate': !(0, runtime_1.exists)(json, 'threeChildrenRate') ? undefined : json['threeChildrenRate'],
         'threePersonRate': !(0, runtime_1.exists)(json, 'threePersonRate') ? undefined : json['threePersonRate'],
         'twoChildrenRate': !(0, runtime_1.exists)(json, 'twoChildrenRate') ? undefined : json['twoChildrenRate'],
@@ -69,7 +69,7 @@ function ScheduleRateAmountsTypeToJSON(value) {
         'onePersonRate': value.onePersonRate,
         'overrideFloorAmount': value.overrideFloorAmount,
         'pointsRequired': value.pointsRequired,
-        'rateByAgeBuckets': (0, RateByAgeBucketsType_1.RateByAgeBucketsTypeToJSON)(value.rateByAgeBuckets),
+        'rateByAgeBuckets': value.rateByAgeBuckets === undefined ? undefined : (value.rateByAgeBuckets.map(RateByAgeBucketType_1.RateByAgeBucketTypeToJSON)),
         'threeChildrenRate': value.threeChildrenRate,
         'threePersonRate': value.threePersonRate,
         'twoChildrenRate': value.twoChildrenRate,

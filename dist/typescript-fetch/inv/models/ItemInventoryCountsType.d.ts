@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DailyItemInventoryCountsListType } from './DailyItemInventoryCountsListType';
+import type { DailyItemInventoryCountsType } from './DailyItemInventoryCountsType';
 import type { TimeSpanType } from './TimeSpanType';
 import type { TimeWindowType } from './TimeWindowType';
 /**
@@ -49,11 +49,11 @@ export interface ItemInventoryCountsType {
      */
     fixedCharge?: boolean;
     /**
-     *
-     * @type {DailyItemInventoryCountsListType}
+     * Inventory counts for the given date.
+     * @type {Array<DailyItemInventoryCountsType>}
      * @memberof ItemInventoryCountsType
      */
-    inventories?: DailyItemInventoryCountsListType;
+    inventories?: Array<DailyItemInventoryCountsType>;
     /**
      * ID reference for the hold Item
      * @type {number}

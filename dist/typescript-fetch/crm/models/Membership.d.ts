@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ProfileIdList } from './ProfileIdList';
+import type { InstanceLink } from './InstanceLink';
 import type { ProfileMembershipType } from './ProfileMembershipType';
-import type { WarningsType } from './WarningsType';
+import type { UniqueIDType } from './UniqueIDType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for create membership. This object contains unique identifiers for each profile and list of membership details to be created. The standard optional Opera Context element is also included.
  * @export
@@ -21,16 +21,16 @@ import type { WarningsType } from './WarningsType';
 export interface Membership {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Membership
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof Membership
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * Detailed information of membership related to the profile
      * @type {Array<ProfileMembershipType>}
@@ -38,11 +38,11 @@ export interface Membership {
      */
     profileMemberships?: Array<ProfileMembershipType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Membership
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Membership interface.

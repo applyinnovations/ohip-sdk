@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TaxBracketTypeToJSON = exports.TaxBracketTypeFromJSONTyped = exports.TaxBracketTypeFromJSON = exports.instanceOfTaxBracketType = void 0;
 const runtime_1 = require("../runtime");
-const TaxBracketAmountsType_1 = require("./TaxBracketAmountsType");
+const TaxBracketAmountType_1 = require("./TaxBracketAmountType");
 const TranslationTextType2000_1 = require("./TranslationTextType2000");
 /**
  * Check if a given object implements the TaxBracketType interface.
@@ -36,7 +36,7 @@ function TaxBracketTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : (0, TranslationTextType2000_1.TranslationTextType2000FromJSON)(json['description']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'taxBracketAmounts': !(0, runtime_1.exists)(json, 'taxBracketAmounts') ? undefined : (0, TaxBracketAmountsType_1.TaxBracketAmountsTypeFromJSON)(json['taxBracketAmounts']),
+        'taxBracketAmounts': !(0, runtime_1.exists)(json, 'taxBracketAmounts') ? undefined : (json['taxBracketAmounts'].map(TaxBracketAmountType_1.TaxBracketAmountTypeFromJSON)),
         'taxPercentage': !(0, runtime_1.exists)(json, 'taxPercentage') ? undefined : json['taxPercentage'],
         'threshold': !(0, runtime_1.exists)(json, 'threshold') ? undefined : json['threshold'],
     };
@@ -52,7 +52,7 @@ function TaxBracketTypeToJSON(value) {
     return {
         'description': (0, TranslationTextType2000_1.TranslationTextType2000ToJSON)(value.description),
         'hotelId': value.hotelId,
-        'taxBracketAmounts': (0, TaxBracketAmountsType_1.TaxBracketAmountsTypeToJSON)(value.taxBracketAmounts),
+        'taxBracketAmounts': value.taxBracketAmounts === undefined ? undefined : (value.taxBracketAmounts.map(TaxBracketAmountType_1.TaxBracketAmountTypeToJSON)),
         'taxPercentage': value.taxPercentage,
         'threshold': value.threshold,
     };

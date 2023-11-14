@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CountryMainGroupsType } from './CountryMainGroupsType';
+import type { CountryMainGroupType } from './CountryMainGroupType';
 import {
-    CountryMainGroupsTypeFromJSON,
-    CountryMainGroupsTypeFromJSONTyped,
-    CountryMainGroupsTypeToJSON,
-} from './CountryMainGroupsType';
-import type { Links } from './Links';
+    CountryMainGroupTypeFromJSON,
+    CountryMainGroupTypeFromJSONTyped,
+    CountryMainGroupTypeToJSON,
+} from './CountryMainGroupType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Country Main Groups.
@@ -39,23 +39,23 @@ import {
  */
 export interface CountryMainGroupsCriteria {
     /**
-     * 
-     * @type {CountryMainGroupsType}
+     * List of Country Main Groups.
+     * @type {Array<CountryMainGroupType>}
      * @memberof CountryMainGroupsCriteria
      */
-    countryMainGroups?: CountryMainGroupsType;
+    countryMainGroups?: Array<CountryMainGroupType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CountryMainGroupsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CountryMainGroupsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CountryMainGroupsCriteriaFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'countryMainGroups': !exists(json, 'countryMainGroups') ? undefined : CountryMainGroupsTypeFromJSON(json['countryMainGroups']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'countryMainGroups': !exists(json, 'countryMainGroups') ? undefined : ((json['countryMainGroups'] as Array<any>).map(CountryMainGroupTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CountryMainGroupsCriteriaToJSON(value?: CountryMainGroupsCriteri
     }
     return {
         
-        'countryMainGroups': CountryMainGroupsTypeToJSON(value.countryMainGroups),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'countryMainGroups': value.countryMainGroups === undefined ? undefined : ((value.countryMainGroups as Array<any>).map(CountryMainGroupTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

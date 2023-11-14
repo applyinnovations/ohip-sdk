@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AirlineTransactionsStatusToJSON = exports.AirlineTransactionsStatusFromJSONTyped = exports.AirlineTransactionsStatusFromJSON = exports.instanceOfAirlineTransactionsStatus = void 0;
 const runtime_1 = require("../runtime");
-const AirlineTransactionsType_1 = require("./AirlineTransactionsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const AirlineTransactionType_1 = require("./AirlineTransactionType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AirlineTransactionsStatus interface.
  */
@@ -38,12 +38,12 @@ function AirlineTransactionsStatusFromJSONTyped(json, ignoreDiscriminator) {
         'count': !(0, runtime_1.exists)(json, 'count') ? undefined : json['count'],
         'hasMore': !(0, runtime_1.exists)(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'offset': !(0, runtime_1.exists)(json, 'offset') ? undefined : json['offset'],
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !(0, runtime_1.exists)(json, 'totalResults') ? undefined : json['totalResults'],
-        'transactions': !(0, runtime_1.exists)(json, 'transactions') ? undefined : (0, AirlineTransactionsType_1.AirlineTransactionsTypeFromJSON)(json['transactions']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'transactions': !(0, runtime_1.exists)(json, 'transactions') ? undefined : (json['transactions'].map(AirlineTransactionType_1.AirlineTransactionTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AirlineTransactionsStatusFromJSONTyped = AirlineTransactionsStatusFromJSONTyped;
@@ -58,12 +58,12 @@ function AirlineTransactionsStatusToJSON(value) {
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'transactions': (0, AirlineTransactionsType_1.AirlineTransactionsTypeToJSON)(value.transactions),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'transactions': value.transactions === undefined ? undefined : (value.transactions.map(AirlineTransactionType_1.AirlineTransactionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AirlineTransactionsStatusToJSON = AirlineTransactionsStatusToJSON;

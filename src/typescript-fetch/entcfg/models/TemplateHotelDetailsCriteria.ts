@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateHotelDetailsType } from './TemplateHotelDetailsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TemplateHotelDetailType } from './TemplateHotelDetailType';
 import {
-    TemplateHotelDetailsTypeFromJSON,
-    TemplateHotelDetailsTypeFromJSONTyped,
-    TemplateHotelDetailsTypeToJSON,
-} from './TemplateHotelDetailsType';
-import type { WarningsType } from './WarningsType';
+    TemplateHotelDetailTypeFromJSON,
+    TemplateHotelDetailTypeFromJSONTyped,
+    TemplateHotelDetailTypeToJSON,
+} from './TemplateHotelDetailType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating hotel details at the template level.
@@ -40,22 +40,22 @@ import {
 export interface TemplateHotelDetailsCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateHotelDetailsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TemplateHotelDetailsType}
+     * Collection of template level hotel details.
+     * @type {Array<TemplateHotelDetailType>}
      * @memberof TemplateHotelDetailsCriteria
      */
-    templateHotelDetails?: TemplateHotelDetailsType;
+    templateHotelDetails?: Array<TemplateHotelDetailType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateHotelDetailsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateHotelDetailsCriteriaFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'templateHotelDetails': !exists(json, 'templateHotelDetails') ? undefined : TemplateHotelDetailsTypeFromJSON(json['templateHotelDetails']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'templateHotelDetails': !exists(json, 'templateHotelDetails') ? undefined : ((json['templateHotelDetails'] as Array<any>).map(TemplateHotelDetailTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateHotelDetailsCriteriaToJSON(value?: TemplateHotelDetailsC
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'templateHotelDetails': TemplateHotelDetailsTypeToJSON(value.templateHotelDetails),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'templateHotelDetails': value.templateHotelDetails === undefined ? undefined : ((value.templateHotelDetails as Array<any>).map(TemplateHotelDetailTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

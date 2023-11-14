@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ECertificatesType } from './ECertificatesType';
+import type { ECertificateType } from './ECertificateType';
 import {
-    ECertificatesTypeFromJSON,
-    ECertificatesTypeFromJSONTyped,
-    ECertificatesTypeToJSON,
-} from './ECertificatesType';
-import type { Links } from './Links';
+    ECertificateTypeFromJSON,
+    ECertificateTypeFromJSONTyped,
+    ECertificateTypeToJSON,
+} from './ECertificateType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 
 /**
  * Response object for fetch ECertificates. This object contains collection of ECertificates,Success,Warnings and Errors related to this operation.
@@ -33,17 +33,17 @@ import {
  */
 export interface ECertificates {
     /**
-     * 
-     * @type {ECertificatesType}
+     * List of e-certificates for the profile.
+     * @type {Array<ECertificateType>}
      * @memberof ECertificates
      */
-    eCertificatesDetail?: ECertificatesType;
+    eCertificatesDetail?: Array<ECertificateType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ECertificates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function ECertificatesFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'eCertificatesDetail': !exists(json, 'eCertificatesDetail') ? undefined : ECertificatesTypeFromJSON(json['eCertificatesDetail']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'eCertificatesDetail': !exists(json, 'eCertificatesDetail') ? undefined : ((json['eCertificatesDetail'] as Array<any>).map(ECertificateTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function ECertificatesToJSON(value?: ECertificates | null): any {
     }
     return {
         
-        'eCertificatesDetail': ECertificatesTypeToJSON(value.eCertificatesDetail),
-        'links': LinksToJSON(value.links),
+        'eCertificatesDetail': value.eCertificatesDetail === undefined ? undefined : ((value.eCertificatesDetail as Array<any>).map(ECertificateTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ImageCodeType } from './ImageCodeType';
-import type { ImageParametersType } from './ImageParametersType';
+import type { ImageParameterType } from './ImageParameterType';
 import type { ImageStyleType } from './ImageStyleType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -50,11 +50,11 @@ export interface ImageUploadType {
      */
     imageId?: UniqueIDType;
     /**
-     *
-     * @type {ImageParametersType}
+     * Collection of image parameters code / value pairs.
+     * @type {Array<ImageParameterType>}
      * @memberof ImageUploadType
      */
-    imageParameters?: ImageParametersType;
+    imageParameters?: Array<ImageParameterType>;
     /**
      *
      * @type {ImageStyleType}

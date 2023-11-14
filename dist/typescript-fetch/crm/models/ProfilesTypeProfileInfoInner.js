@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfilesTypeProfileInfoInnerToJSON = exports.ProfilesTypeProfileInfoInnerFromJSONTyped = exports.ProfilesTypeProfileInfoInnerFromJSON = exports.instanceOfProfilesTypeProfileInfoInner = void 0;
 const runtime_1 = require("../runtime");
-const ProfileAllowedActionsType_1 = require("./ProfileAllowedActionsType");
-const ProfileIdList_1 = require("./ProfileIdList");
+const ProfileAllowedActionType_1 = require("./ProfileAllowedActionType");
 const ProfileType_1 = require("./ProfileType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ProfilesTypeProfileInfoInner interface.
  */
@@ -35,10 +35,10 @@ function ProfilesTypeProfileInfoInnerFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'allowedActions': !(0, runtime_1.exists)(json, 'allowedActions') ? undefined : (0, ProfileAllowedActionsType_1.ProfileAllowedActionsTypeFromJSON)(json['allowedActions']),
+        'allowedActions': !(0, runtime_1.exists)(json, 'allowedActions') ? undefined : (json['allowedActions'].map(ProfileAllowedActionType_1.ProfileAllowedActionTypeFromJSON)),
         'chainCode': !(0, runtime_1.exists)(json, 'chainCode') ? undefined : json['chainCode'],
         'profile': !(0, runtime_1.exists)(json, 'profile') ? undefined : (0, ProfileType_1.ProfileTypeFromJSON)(json['profile']),
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.ProfilesTypeProfileInfoInnerFromJSONTyped = ProfilesTypeProfileInfoInnerFromJSONTyped;
@@ -50,10 +50,10 @@ function ProfilesTypeProfileInfoInnerToJSON(value) {
         return null;
     }
     return {
-        'allowedActions': (0, ProfileAllowedActionsType_1.ProfileAllowedActionsTypeToJSON)(value.allowedActions),
+        'allowedActions': value.allowedActions === undefined ? undefined : (value.allowedActions.map(ProfileAllowedActionType_1.ProfileAllowedActionTypeToJSON)),
         'chainCode': value.chainCode,
         'profile': (0, ProfileType_1.ProfileTypeToJSON)(value.profile),
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.ProfilesTypeProfileInfoInnerToJSON = ProfilesTypeProfileInfoInnerToJSON;

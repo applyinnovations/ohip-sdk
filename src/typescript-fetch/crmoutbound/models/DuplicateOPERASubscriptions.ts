@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DuplicateOPERASubscriptionsListType } from './DuplicateOPERASubscriptionsListType';
+import type { DuplicateOPERASubscriptionsType } from './DuplicateOPERASubscriptionsType';
 import {
-    DuplicateOPERASubscriptionsListTypeFromJSON,
-    DuplicateOPERASubscriptionsListTypeFromJSONTyped,
-    DuplicateOPERASubscriptionsListTypeToJSON,
-} from './DuplicateOPERASubscriptionsListType';
-import type { Links } from './Links';
+    DuplicateOPERASubscriptionsTypeFromJSON,
+    DuplicateOPERASubscriptionsTypeFromJSONTyped,
+    DuplicateOPERASubscriptionsTypeToJSON,
+} from './DuplicateOPERASubscriptionsType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 
 /**
  * Response object for fetching subscriptions where an external profile within a particular external system is linked to multiple OPERA profiles.
@@ -33,11 +33,11 @@ import {
  */
 export interface DuplicateOPERASubscriptions {
     /**
-     * 
-     * @type {DuplicateOPERASubscriptionsListType}
+     * Details of the OPERA Profile subscription to external system
+     * @type {Array<DuplicateOPERASubscriptionsType>}
      * @memberof DuplicateOPERASubscriptions
      */
-    duplicateOPERASubscriptionsList?: DuplicateOPERASubscriptionsListType;
+    duplicateOPERASubscriptionsList?: Array<DuplicateOPERASubscriptionsType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -70,10 +70,10 @@ export interface DuplicateOPERASubscriptions {
     totalRows?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DuplicateOPERASubscriptions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -95,13 +95,13 @@ export function DuplicateOPERASubscriptionsFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'duplicateOPERASubscriptionsList': !exists(json, 'duplicateOPERASubscriptionsList') ? undefined : DuplicateOPERASubscriptionsListTypeFromJSON(json['duplicateOPERASubscriptionsList']),
+        'duplicateOPERASubscriptionsList': !exists(json, 'duplicateOPERASubscriptionsList') ? undefined : ((json['duplicateOPERASubscriptionsList'] as Array<any>).map(DuplicateOPERASubscriptionsTypeFromJSON)),
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'pageNumber': !exists(json, 'pageNumber') ? undefined : json['pageNumber'],
         'maxFetchCount': !exists(json, 'maxFetchCount') ? undefined : json['maxFetchCount'],
         'allRowsFetched': !exists(json, 'allRowsFetched') ? undefined : json['allRowsFetched'],
         'totalRows': !exists(json, 'totalRows') ? undefined : json['totalRows'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -114,13 +114,13 @@ export function DuplicateOPERASubscriptionsToJSON(value?: DuplicateOPERASubscrip
     }
     return {
         
-        'duplicateOPERASubscriptionsList': DuplicateOPERASubscriptionsListTypeToJSON(value.duplicateOPERASubscriptionsList),
+        'duplicateOPERASubscriptionsList': value.duplicateOPERASubscriptionsList === undefined ? undefined : ((value.duplicateOPERASubscriptionsList as Array<any>).map(DuplicateOPERASubscriptionsTypeToJSON)),
         'totalPages': value.totalPages,
         'pageNumber': value.pageNumber,
         'maxFetchCount': value.maxFetchCount,
         'allRowsFetched': value.allRowsFetched,
         'totalRows': value.totalRows,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

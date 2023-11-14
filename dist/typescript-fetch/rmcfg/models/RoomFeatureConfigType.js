@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomFeatureConfigTypeToJSON = exports.RoomFeatureConfigTypeFromJSONTyped = exports.RoomFeatureConfigTypeFromJSON = exports.instanceOfRoomFeatureConfigType = void 0;
 const runtime_1 = require("../runtime");
-const ConfigHotelPreferencesType_1 = require("./ConfigHotelPreferencesType");
+const ConfigHotelPreferenceType_1 = require("./ConfigHotelPreferenceType");
 const TranslationTextType50_1 = require("./TranslationTextType50");
 /**
  * Check if a given object implements the RoomFeatureConfigType interface.
@@ -39,7 +39,7 @@ function RoomFeatureConfigTypeFromJSONTyped(json, ignoreDiscriminator) {
         'groupCode': !(0, runtime_1.exists)(json, 'groupCode') ? undefined : json['groupCode'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
-        'mappedPreferenceCodes': !(0, runtime_1.exists)(json, 'mappedPreferenceCodes') ? undefined : (0, ConfigHotelPreferencesType_1.ConfigHotelPreferencesTypeFromJSON)(json['mappedPreferenceCodes']),
+        'mappedPreferenceCodes': !(0, runtime_1.exists)(json, 'mappedPreferenceCodes') ? undefined : (json['mappedPreferenceCodes'].map(ConfigHotelPreferenceType_1.ConfigHotelPreferenceTypeFromJSON)),
         'sequence': !(0, runtime_1.exists)(json, 'sequence') ? undefined : json['sequence'],
     };
 }
@@ -57,7 +57,7 @@ function RoomFeatureConfigTypeToJSON(value) {
         'groupCode': value.groupCode,
         'hotelId': value.hotelId,
         'inactive': value.inactive,
-        'mappedPreferenceCodes': (0, ConfigHotelPreferencesType_1.ConfigHotelPreferencesTypeToJSON)(value.mappedPreferenceCodes),
+        'mappedPreferenceCodes': value.mappedPreferenceCodes === undefined ? undefined : (value.mappedPreferenceCodes.map(ConfigHotelPreferenceType_1.ConfigHotelPreferenceTypeToJSON)),
         'sequence': value.sequence,
     };
 }

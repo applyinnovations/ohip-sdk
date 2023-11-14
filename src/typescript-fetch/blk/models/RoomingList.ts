@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { RoomingListBlockInfoType } from './RoomingListBlockInfoType';
 import {
     RoomingListBlockInfoTypeFromJSON,
@@ -31,18 +31,18 @@ import {
     RoomingListReservationsTypeFromJSONTyped,
     RoomingListReservationsTypeToJSON,
 } from './RoomingListReservationsType';
-import type { RoomingListSharesType } from './RoomingListSharesType';
+import type { RoomingListShareType } from './RoomingListShareType';
 import {
-    RoomingListSharesTypeFromJSON,
-    RoomingListSharesTypeFromJSONTyped,
-    RoomingListSharesTypeToJSON,
-} from './RoomingListSharesType';
-import type { WarningsType } from './WarningsType';
+    RoomingListShareTypeFromJSON,
+    RoomingListShareTypeFromJSONTyped,
+    RoomingListShareTypeToJSON,
+} from './RoomingListShareType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating rooming list reservations. The standard optional Opera Context element is also included.
@@ -58,10 +58,10 @@ export interface RoomingList {
     blockInfo?: RoomingListBlockInfoType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomingList
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {RoomingListReservationsType}
@@ -69,17 +69,17 @@ export interface RoomingList {
      */
     reservations?: RoomingListReservationsType;
     /**
-     * 
-     * @type {RoomingListSharesType}
+     * Contains a set of rooming list reservations that need to be shared.
+     * @type {Array<RoomingListShareType>}
      * @memberof RoomingList
      */
-    shares?: RoomingListSharesType;
+    shares?: Array<RoomingListShareType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomingList
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -102,10 +102,10 @@ export function RoomingListFromJSONTyped(json: any, ignoreDiscriminator: boolean
     return {
         
         'blockInfo': !exists(json, 'blockInfo') ? undefined : RoomingListBlockInfoTypeFromJSON(json['blockInfo']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservations': !exists(json, 'reservations') ? undefined : RoomingListReservationsTypeFromJSON(json['reservations']),
-        'shares': !exists(json, 'shares') ? undefined : RoomingListSharesTypeFromJSON(json['shares']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'shares': !exists(json, 'shares') ? undefined : ((json['shares'] as Array<any>).map(RoomingListShareTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -119,10 +119,10 @@ export function RoomingListToJSON(value?: RoomingList | null): any {
     return {
         
         'blockInfo': RoomingListBlockInfoTypeToJSON(value.blockInfo),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservations': RoomingListReservationsTypeToJSON(value.reservations),
-        'shares': RoomingListSharesTypeToJSON(value.shares),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'shares': value.shares === undefined ? undefined : ((value.shares as Array<any>).map(RoomingListShareTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

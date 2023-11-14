@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ConfigUpsellRulesType } from './ConfigUpsellRulesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ConfigUpsellRuleType } from './ConfigUpsellRuleType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching upsell rules.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface UpsellRules {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof UpsellRules
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ConfigUpsellRulesType}
+     * This type holds a collection of upsell rules.
+     * @type {Array<ConfigUpsellRuleType>}
      * @memberof UpsellRules
      */
-    upsellRules?: ConfigUpsellRulesType;
+    upsellRules?: Array<ConfigUpsellRuleType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof UpsellRules
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the UpsellRules interface.

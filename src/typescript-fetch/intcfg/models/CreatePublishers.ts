@@ -19,24 +19,18 @@ import {
     ExternalSystemTypeFromJSONTyped,
     ExternalSystemTypeToJSON,
 } from './ExternalSystemType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { PublishersType } from './PublishersType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    PublishersTypeFromJSON,
-    PublishersTypeFromJSONTyped,
-    PublishersTypeToJSON,
-} from './PublishersType';
-import type { WarningsType } from './WarningsType';
-import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to create publishers.
@@ -46,16 +40,16 @@ import {
 export interface CreatePublishers {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreatePublishers
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {PublishersType}
+     * Information of all the publishers for a given subscriber.
+     * @type {Array<ExternalSystemType>}
      * @memberof CreatePublishers
      */
-    publishers?: PublishersType;
+    publishers?: Array<ExternalSystemType>;
     /**
      * 
      * @type {ExternalSystemType}
@@ -63,11 +57,11 @@ export interface CreatePublishers {
      */
     subscriber?: ExternalSystemType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreatePublishers
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +83,10 @@ export function CreatePublishersFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'publishers': !exists(json, 'publishers') ? undefined : PublishersTypeFromJSON(json['publishers']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'publishers': !exists(json, 'publishers') ? undefined : ((json['publishers'] as Array<any>).map(ExternalSystemTypeFromJSON)),
         'subscriber': !exists(json, 'subscriber') ? undefined : ExternalSystemTypeFromJSON(json['subscriber']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +99,10 @@ export function CreatePublishersToJSON(value?: CreatePublishers | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'publishers': PublishersTypeToJSON(value.publishers),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'publishers': value.publishers === undefined ? undefined : ((value.publishers as Array<any>).map(ExternalSystemTypeToJSON)),
         'subscriber': ExternalSystemTypeToJSON(value.subscriber),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

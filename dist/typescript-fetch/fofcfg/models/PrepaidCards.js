@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PrepaidCardsToJSON = exports.PrepaidCardsFromJSONTyped = exports.PrepaidCardsFromJSON = exports.instanceOfPrepaidCards = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const PrepaidCardsType_1 = require("./PrepaidCardsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const PrepaidCardType_1 = require("./PrepaidCardType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PrepaidCards interface.
  */
@@ -35,9 +35,9 @@ function PrepaidCardsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'prepaidCards': !(0, runtime_1.exists)(json, 'prepaidCards') ? undefined : (0, PrepaidCardsType_1.PrepaidCardsTypeFromJSON)(json['prepaidCards']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'prepaidCards': !(0, runtime_1.exists)(json, 'prepaidCards') ? undefined : (json['prepaidCards'].map(PrepaidCardType_1.PrepaidCardTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PrepaidCardsFromJSONTyped = PrepaidCardsFromJSONTyped;
@@ -49,9 +49,9 @@ function PrepaidCardsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'prepaidCards': (0, PrepaidCardsType_1.PrepaidCardsTypeToJSON)(value.prepaidCards),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'prepaidCards': value.prepaidCards === undefined ? undefined : (value.prepaidCards.map(PrepaidCardType_1.PrepaidCardTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PrepaidCardsToJSON = PrepaidCardsToJSON;

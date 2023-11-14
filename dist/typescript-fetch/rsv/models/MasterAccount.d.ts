@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MasterAccountType } from './MasterAccountType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request for CreateMasterAccount operation.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface MasterAccount {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MasterAccount
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {MasterAccountType}
@@ -31,11 +31,11 @@ export interface MasterAccount {
      */
     masterAccount?: MasterAccountType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MasterAccount
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MasterAccount interface.

@@ -16,7 +16,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomMaintenanceRequestTypeToJSON = exports.RoomMaintenanceRequestTypeFromJSONTyped = exports.RoomMaintenanceRequestTypeFromJSON = exports.instanceOfRoomMaintenanceRequestType = void 0;
 const runtime_1 = require("../runtime");
 const AssignedUserType_1 = require("./AssignedUserType");
-const RoomIds_1 = require("./RoomIds");
 /**
  * Check if a given object implements the RoomMaintenanceRequestType interface.
  */
@@ -38,7 +37,7 @@ function RoomMaintenanceRequestTypeFromJSONTyped(json, ignoreDiscriminator) {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'maintenanceCode': !(0, runtime_1.exists)(json, 'maintenanceCode') ? undefined : json['maintenanceCode'],
         'remarks': !(0, runtime_1.exists)(json, 'remarks') ? undefined : json['remarks'],
-        'roomIds': !(0, runtime_1.exists)(json, 'roomIds') ? undefined : (0, RoomIds_1.RoomIdsFromJSON)(json['roomIds']),
+        'roomIds': !(0, runtime_1.exists)(json, 'roomIds') ? undefined : json['roomIds'],
     };
 }
 exports.RoomMaintenanceRequestTypeFromJSONTyped = RoomMaintenanceRequestTypeFromJSONTyped;
@@ -54,7 +53,7 @@ function RoomMaintenanceRequestTypeToJSON(value) {
         'hotelId': value.hotelId,
         'maintenanceCode': value.maintenanceCode,
         'remarks': value.remarks,
-        'roomIds': (0, RoomIds_1.RoomIdsToJSON)(value.roomIds),
+        'roomIds': value.roomIds,
     };
 }
 exports.RoomMaintenanceRequestTypeToJSON = RoomMaintenanceRequestTypeToJSON;

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RecentlyAccessedBlocksType } from './RecentlyAccessedBlocksType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RecentlyAccessedBlockType } from './RecentlyAccessedBlockType';
 import {
-    RecentlyAccessedBlocksTypeFromJSON,
-    RecentlyAccessedBlocksTypeFromJSONTyped,
-    RecentlyAccessedBlocksTypeToJSON,
-} from './RecentlyAccessedBlocksType';
-import type { WarningsType } from './WarningsType';
+    RecentlyAccessedBlockTypeFromJSON,
+    RecentlyAccessedBlockTypeFromJSONTyped,
+    RecentlyAccessedBlockTypeToJSON,
+} from './RecentlyAccessedBlockType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface RecentlyAccessedBlocks {
     /**
-     * 
-     * @type {RecentlyAccessedBlocksType}
+     * A single recently accessed block.
+     * @type {Array<RecentlyAccessedBlockType>}
      * @memberof RecentlyAccessedBlocks
      */
-    blocks?: RecentlyAccessedBlocksType;
+    blocks?: Array<RecentlyAccessedBlockType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RecentlyAccessedBlocks
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RecentlyAccessedBlocks
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RecentlyAccessedBlocksFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'blocks': !exists(json, 'blocks') ? undefined : RecentlyAccessedBlocksTypeFromJSON(json['blocks']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'blocks': !exists(json, 'blocks') ? undefined : ((json['blocks'] as Array<any>).map(RecentlyAccessedBlockTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RecentlyAccessedBlocksToJSON(value?: RecentlyAccessedBlocks | nu
     }
     return {
         
-        'blocks': RecentlyAccessedBlocksTypeToJSON(value.blocks),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'blocks': value.blocks === undefined ? undefined : ((value.blocks as Array<any>).map(RecentlyAccessedBlockTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CurrencyAmountType } from './CurrencyAmountType';
-import type { PrepaidCardTransactionsType } from './PrepaidCardTransactionsType';
+import type { PrepaidCardTransactionInfoType } from './PrepaidCardTransactionInfoType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Detailed information about the prepaid card.
@@ -85,11 +85,11 @@ export interface PrepaidCardInfoType {
      */
     operaTransactionsActive?: boolean;
     /**
-     *
-     * @type {PrepaidCardTransactionsType}
+     * Prepaid card transaction details.
+     * @type {Array<PrepaidCardTransactionInfoType>}
      * @memberof PrepaidCardInfoType
      */
-    prepaidCardTransactions?: PrepaidCardTransactionsType;
+    prepaidCardTransactions?: Array<PrepaidCardTransactionInfoType>;
     /**
      *
      * @type {UniqueIDType}

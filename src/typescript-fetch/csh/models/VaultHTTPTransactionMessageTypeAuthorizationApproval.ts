@@ -31,18 +31,18 @@ import {
     ProfileIdFromJSONTyped,
     ProfileIdToJSON,
 } from './ProfileId';
-import type { ReservationIdList } from './ReservationIdList';
-import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
 import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
 import {
     ReservationPaymentMethodTypeFromJSON,
     ReservationPaymentMethodTypeFromJSONTyped,
     ReservationPaymentMethodTypeToJSON,
 } from './ReservationPaymentMethodType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Authorization approval record.
@@ -87,11 +87,11 @@ export interface VaultHTTPTransactionMessageTypeAuthorizationApproval {
      */
     profileId?: ProfileId;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof VaultHTTPTransactionMessageTypeAuthorizationApproval
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {CardAuthorizationTransactionType}
@@ -125,7 +125,7 @@ export function VaultHTTPTransactionMessageTypeAuthorizationApprovalFromJSONType
         'cardSwiped': !exists(json, 'cardSwiped') ? undefined : json['cardSwiped'],
         'originalAuthSequence': !exists(json, 'originalAuthSequence') ? undefined : json['originalAuthSequence'],
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'sourceOfAuthorization': !exists(json, 'sourceOfAuthorization') ? undefined : CardAuthorizationTransactionTypeFromJSON(json['sourceOfAuthorization']),
     };
 }
@@ -145,7 +145,7 @@ export function VaultHTTPTransactionMessageTypeAuthorizationApprovalToJSON(value
         'cardSwiped': value.cardSwiped,
         'originalAuthSequence': value.originalAuthSequence,
         'profileId': ProfileIdToJSON(value.profileId),
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'sourceOfAuthorization': CardAuthorizationTransactionTypeToJSON(value.sourceOfAuthorization),
     };
 }

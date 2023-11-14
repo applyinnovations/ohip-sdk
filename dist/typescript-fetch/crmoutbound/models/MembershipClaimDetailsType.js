@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipClaimDetailsTypeToJSON = exports.MembershipClaimDetailsTypeFromJSONTyped = exports.MembershipClaimDetailsTypeFromJSON = exports.instanceOfMembershipClaimDetailsType = void 0;
 const runtime_1 = require("../runtime");
-const ClaimActivityLogListType_1 = require("./ClaimActivityLogListType");
+const ClaimActivityLogType_1 = require("./ClaimActivityLogType");
 const ClaimAdjustmentPointsType_1 = require("./ClaimAdjustmentPointsType");
 const ClaimApprovalStatusType_1 = require("./ClaimApprovalStatusType");
 const ClaimMembershipType_1 = require("./ClaimMembershipType");
@@ -59,7 +59,7 @@ function MembershipClaimDetailsTypeFromJSONTyped(json, ignoreDiscriminator) {
         'membership': !(0, runtime_1.exists)(json, 'membership') ? undefined : (0, ClaimMembershipType_1.ClaimMembershipTypeFromJSON)(json['membership']),
         'reservation': !(0, runtime_1.exists)(json, 'reservation') ? undefined : (0, ClaimReservationInfoType_1.ClaimReservationInfoTypeFromJSON)(json['reservation']),
         'claimPoints': !(0, runtime_1.exists)(json, 'claimPoints') ? undefined : (0, ClaimAdjustmentPointsType_1.ClaimAdjustmentPointsTypeFromJSON)(json['claimPoints']),
-        'activityLog': !(0, runtime_1.exists)(json, 'activityLog') ? undefined : (0, ClaimActivityLogListType_1.ClaimActivityLogListTypeFromJSON)(json['activityLog']),
+        'activityLog': !(0, runtime_1.exists)(json, 'activityLog') ? undefined : (json['activityLog'].map(ClaimActivityLogType_1.ClaimActivityLogTypeFromJSON)),
         'submitter': !(0, runtime_1.exists)(json, 'submitter') ? undefined : json['submitter'],
     };
 }
@@ -90,7 +90,7 @@ function MembershipClaimDetailsTypeToJSON(value) {
         'membership': (0, ClaimMembershipType_1.ClaimMembershipTypeToJSON)(value.membership),
         'reservation': (0, ClaimReservationInfoType_1.ClaimReservationInfoTypeToJSON)(value.reservation),
         'claimPoints': (0, ClaimAdjustmentPointsType_1.ClaimAdjustmentPointsTypeToJSON)(value.claimPoints),
-        'activityLog': (0, ClaimActivityLogListType_1.ClaimActivityLogListTypeToJSON)(value.activityLog),
+        'activityLog': value.activityLog === undefined ? undefined : (value.activityLog.map(ClaimActivityLogType_1.ClaimActivityLogTypeToJSON)),
         'submitter': value.submitter,
     };
 }

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyHousekeepingSectionGroupsToJSON = exports.CopyHousekeepingSectionGroupsFromJSONTyped = exports.CopyHousekeepingSectionGroupsFromJSON = exports.instanceOfCopyHousekeepingSectionGroups = void 0;
 const runtime_1 = require("../runtime");
-const HousekeepingSectionGroupsCopyType_1 = require("./HousekeepingSectionGroupsCopyType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HousekeepingSectionGroupCopyType_1 = require("./HousekeepingSectionGroupCopyType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CopyHousekeepingSectionGroups interface.
  */
@@ -35,9 +35,9 @@ function CopyHousekeepingSectionGroupsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'housekeepingSectionGroups': !(0, runtime_1.exists)(json, 'housekeepingSectionGroups') ? undefined : (0, HousekeepingSectionGroupsCopyType_1.HousekeepingSectionGroupsCopyTypeFromJSON)(json['housekeepingSectionGroups']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'housekeepingSectionGroups': !(0, runtime_1.exists)(json, 'housekeepingSectionGroups') ? undefined : (json['housekeepingSectionGroups'].map(HousekeepingSectionGroupCopyType_1.HousekeepingSectionGroupCopyTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CopyHousekeepingSectionGroupsFromJSONTyped = CopyHousekeepingSectionGroupsFromJSONTyped;
@@ -49,9 +49,9 @@ function CopyHousekeepingSectionGroupsToJSON(value) {
         return null;
     }
     return {
-        'housekeepingSectionGroups': (0, HousekeepingSectionGroupsCopyType_1.HousekeepingSectionGroupsCopyTypeToJSON)(value.housekeepingSectionGroups),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'housekeepingSectionGroups': value.housekeepingSectionGroups === undefined ? undefined : (value.housekeepingSectionGroups.map(HousekeepingSectionGroupCopyType_1.HousekeepingSectionGroupCopyTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CopyHousekeepingSectionGroupsToJSON = CopyHousekeepingSectionGroupsToJSON;

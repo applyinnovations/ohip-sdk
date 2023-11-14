@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringPackagesToJSON = exports.CateringPackagesFromJSONTyped = exports.CateringPackagesFromJSON = exports.instanceOfCateringPackages = void 0;
 const runtime_1 = require("../runtime");
-const CateringPackageListType_1 = require("./CateringPackageListType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CateringPackageType_1 = require("./CateringPackageType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CateringPackages interface.
  */
@@ -35,9 +35,9 @@ function CateringPackagesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'cateringPackageList': !(0, runtime_1.exists)(json, 'cateringPackageList') ? undefined : (0, CateringPackageListType_1.CateringPackageListTypeFromJSON)(json['cateringPackageList']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'cateringPackageList': !(0, runtime_1.exists)(json, 'cateringPackageList') ? undefined : (json['cateringPackageList'].map(CateringPackageType_1.CateringPackageTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CateringPackagesFromJSONTyped = CateringPackagesFromJSONTyped;
@@ -49,9 +49,9 @@ function CateringPackagesToJSON(value) {
         return null;
     }
     return {
-        'cateringPackageList': (0, CateringPackageListType_1.CateringPackageListTypeToJSON)(value.cateringPackageList),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'cateringPackageList': value.cateringPackageList === undefined ? undefined : (value.cateringPackageList.map(CateringPackageType_1.CateringPackageTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CateringPackagesToJSON = CateringPackagesToJSON;

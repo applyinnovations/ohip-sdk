@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RevenueStatisticsDetailListType } from './RevenueStatisticsDetailListType';
+import type { RevenueStatisticsDetailType } from './RevenueStatisticsDetailType';
 import {
-    RevenueStatisticsDetailListTypeFromJSON,
-    RevenueStatisticsDetailListTypeFromJSONTyped,
-    RevenueStatisticsDetailListTypeToJSON,
-} from './RevenueStatisticsDetailListType';
+    RevenueStatisticsDetailTypeFromJSON,
+    RevenueStatisticsDetailTypeFromJSONTyped,
+    RevenueStatisticsDetailTypeToJSON,
+} from './RevenueStatisticsDetailType';
 
 /**
  * Summary of the revenue for a year
@@ -27,11 +27,11 @@ import {
  */
 export interface RevenueStatisticsSummaryType {
     /**
-     * 
-     * @type {RevenueStatisticsDetailListType}
+     * The collection of profile revenue statistics.
+     * @type {Array<RevenueStatisticsDetailType>}
      * @memberof RevenueStatisticsSummaryType
      */
-    revenueDetails?: RevenueStatisticsDetailListType;
+    revenueDetails?: Array<RevenueStatisticsDetailType>;
     /**
      * Year of the revenue.
      * @type {string}
@@ -59,7 +59,7 @@ export function RevenueStatisticsSummaryTypeFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'revenueDetails': !exists(json, 'revenueDetails') ? undefined : RevenueStatisticsDetailListTypeFromJSON(json['revenueDetails']),
+        'revenueDetails': !exists(json, 'revenueDetails') ? undefined : ((json['revenueDetails'] as Array<any>).map(RevenueStatisticsDetailTypeFromJSON)),
         'year': !exists(json, 'year') ? undefined : json['year'],
     };
 }
@@ -73,7 +73,7 @@ export function RevenueStatisticsSummaryTypeToJSON(value?: RevenueStatisticsSumm
     }
     return {
         
-        'revenueDetails': RevenueStatisticsDetailListTypeToJSON(value.revenueDetails),
+        'revenueDetails': value.revenueDetails === undefined ? undefined : ((value.revenueDetails as Array<any>).map(RevenueStatisticsDetailTypeToJSON)),
         'year': value.year,
     };
 }

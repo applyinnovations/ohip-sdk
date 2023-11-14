@@ -25,12 +25,12 @@ import {
     CustomerTypeFromJSONTyped,
     CustomerTypeToJSON,
 } from './CustomerType';
-import type { ECertificatesType } from './ECertificatesType';
+import type { ECertificateType } from './ECertificateType';
 import {
-    ECertificatesTypeFromJSON,
-    ECertificatesTypeFromJSONTyped,
-    ECertificatesTypeToJSON,
-} from './ECertificatesType';
+    ECertificateTypeFromJSON,
+    ECertificateTypeFromJSONTyped,
+    ECertificateTypeToJSON,
+} from './ECertificateType';
 import type { ImageSetType } from './ImageSetType';
 import {
     ImageSetTypeFromJSON,
@@ -225,11 +225,11 @@ export interface ProfileType {
      */
     customer?: CustomerType;
     /**
-     * 
-     * @type {ECertificatesType}
+     * List of e-certificates for the profile.
+     * @type {Array<ECertificateType>}
      * @memberof ProfileType
      */
-    eCertificates?: ECertificatesType;
+    eCertificates?: Array<ECertificateType>;
     /**
      * 
      * @type {ProfileTypeEmails}
@@ -421,7 +421,7 @@ export function ProfileTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !exists(json, 'creatorId') ? undefined : json['creatorId'],
         'customer': !exists(json, 'customer') ? undefined : CustomerTypeFromJSON(json['customer']),
-        'eCertificates': !exists(json, 'eCertificates') ? undefined : ECertificatesTypeFromJSON(json['eCertificates']),
+        'eCertificates': !exists(json, 'eCertificates') ? undefined : ((json['eCertificates'] as Array<any>).map(ECertificateTypeFromJSON)),
         'emails': !exists(json, 'emails') ? undefined : ProfileTypeEmailsFromJSON(json['emails']),
         'hasCommission': !exists(json, 'hasCommission') ? undefined : json['hasCommission'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
@@ -469,7 +469,7 @@ export function ProfileTypeToJSON(value?: ProfileType | null): any {
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
         'customer': CustomerTypeToJSON(value.customer),
-        'eCertificates': ECertificatesTypeToJSON(value.eCertificates),
+        'eCertificates': value.eCertificates === undefined ? undefined : ((value.eCertificates as Array<any>).map(ECertificateTypeToJSON)),
         'emails': ProfileTypeEmailsToJSON(value.emails),
         'hasCommission': value.hasCommission,
         'lastModifierId': value.lastModifierId,

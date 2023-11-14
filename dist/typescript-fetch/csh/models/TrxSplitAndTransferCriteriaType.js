@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TrxSplitAndTransferCriteriaTypeToJSON = exports.TrxSplitAndTransferCriteriaTypeFromJSONTyped = exports.TrxSplitAndTransferCriteriaTypeFromJSON = exports.instanceOfTrxSplitAndTransferCriteriaType = void 0;
 const runtime_1 = require("../runtime");
 const TrxSplitAndTransferCriteriaTypeSplitDetails_1 = require("./TrxSplitAndTransferCriteriaTypeSplitDetails");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the TrxSplitAndTransferCriteriaType interface.
  */
@@ -38,7 +38,7 @@ function TrxSplitAndTransferCriteriaTypeFromJSONTyped(json, ignoreDiscriminator)
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'splitDetails': !(0, runtime_1.exists)(json, 'splitDetails') ? undefined : (0, TrxSplitAndTransferCriteriaTypeSplitDetails_1.TrxSplitAndTransferCriteriaTypeSplitDetailsFromJSON)(json['splitDetails']),
         'targetFolioWindowNo': !(0, runtime_1.exists)(json, 'targetFolioWindowNo') ? undefined : json['targetFolioWindowNo'],
-        'targetReservationIdList': !(0, runtime_1.exists)(json, 'targetReservationIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['targetReservationIdList']),
+        'targetReservationIdList': !(0, runtime_1.exists)(json, 'targetReservationIdList') ? undefined : (json['targetReservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'transactionList': !(0, runtime_1.exists)(json, 'transactionList') ? undefined : json['transactionList'],
     };
 }
@@ -55,7 +55,7 @@ function TrxSplitAndTransferCriteriaTypeToJSON(value) {
         'hotelId': value.hotelId,
         'splitDetails': (0, TrxSplitAndTransferCriteriaTypeSplitDetails_1.TrxSplitAndTransferCriteriaTypeSplitDetailsToJSON)(value.splitDetails),
         'targetFolioWindowNo': value.targetFolioWindowNo,
-        'targetReservationIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.targetReservationIdList),
+        'targetReservationIdList': value.targetReservationIdList === undefined ? undefined : (value.targetReservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'transactionList': value.transactionList,
     };
 }

@@ -19,12 +19,12 @@ import {
     CateringEventChangeActionsFromJSONTyped,
     CateringEventChangeActionsToJSON,
 } from './CateringEventChangeActions';
-import type { CateringEventChangeDetailListType } from './CateringEventChangeDetailListType';
+import type { CateringEventChangeDetailType } from './CateringEventChangeDetailType';
 import {
-    CateringEventChangeDetailListTypeFromJSON,
-    CateringEventChangeDetailListTypeFromJSONTyped,
-    CateringEventChangeDetailListTypeToJSON,
-} from './CateringEventChangeDetailListType';
+    CateringEventChangeDetailTypeFromJSON,
+    CateringEventChangeDetailTypeFromJSONTyped,
+    CateringEventChangeDetailTypeToJSON,
+} from './CateringEventChangeDetailType';
 import type { CateringEventChangeSources } from './CateringEventChangeSources';
 import {
     CateringEventChangeSourcesFromJSON,
@@ -76,10 +76,10 @@ export interface CateringEventChangeInfoType {
     changeUserInfo?: LogUserInfoType;
     /**
      * 
-     * @type {CateringEventChangeDetailListType}
+     * @type {Array<CateringEventChangeDetailType>}
      * @memberof CateringEventChangeInfoType
      */
-    eventChangeDetailList?: CateringEventChangeDetailListType;
+    eventChangeDetailList?: Array<CateringEventChangeDetailType>;
     /**
      * 
      * @type {UniqueIDType}
@@ -129,7 +129,7 @@ export function CateringEventChangeInfoTypeFromJSONTyped(json: any, ignoreDiscri
         'changeId': !exists(json, 'changeId') ? undefined : UniqueIDTypeFromJSON(json['changeId']),
         'changeSource': !exists(json, 'changeSource') ? undefined : CateringEventChangeSourcesFromJSON(json['changeSource']),
         'changeUserInfo': !exists(json, 'changeUserInfo') ? undefined : LogUserInfoTypeFromJSON(json['changeUserInfo']),
-        'eventChangeDetailList': !exists(json, 'eventChangeDetailList') ? undefined : CateringEventChangeDetailListTypeFromJSON(json['eventChangeDetailList']),
+        'eventChangeDetailList': !exists(json, 'eventChangeDetailList') ? undefined : ((json['eventChangeDetailList'] as Array<any>).map(CateringEventChangeDetailTypeFromJSON)),
         'eventId': !exists(json, 'eventId') ? undefined : UniqueIDTypeFromJSON(json['eventId']),
         'eventName': !exists(json, 'eventName') ? undefined : json['eventName'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -150,7 +150,7 @@ export function CateringEventChangeInfoTypeToJSON(value?: CateringEventChangeInf
         'changeId': UniqueIDTypeToJSON(value.changeId),
         'changeSource': CateringEventChangeSourcesToJSON(value.changeSource),
         'changeUserInfo': LogUserInfoTypeToJSON(value.changeUserInfo),
-        'eventChangeDetailList': CateringEventChangeDetailListTypeToJSON(value.eventChangeDetailList),
+        'eventChangeDetailList': value.eventChangeDetailList === undefined ? undefined : ((value.eventChangeDetailList as Array<any>).map(CateringEventChangeDetailTypeToJSON)),
         'eventId': UniqueIDTypeToJSON(value.eventId),
         'eventName': value.eventName,
         'hotelId': value.hotelId,

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationsUpgradeEligibilityToJSON = exports.ReservationsUpgradeEligibilityFromJSONTyped = exports.ReservationsUpgradeEligibilityFromJSON = exports.instanceOfReservationsUpgradeEligibility = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const UpgradeEligibilityListType_1 = require("./UpgradeEligibilityListType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const UpgradeEligibilityType_1 = require("./UpgradeEligibilityType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ReservationsUpgradeEligibility interface.
  */
@@ -35,9 +35,9 @@ function ReservationsUpgradeEligibilityFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'upgradeEligibilityListType': !(0, runtime_1.exists)(json, 'upgradeEligibilityListType') ? undefined : (0, UpgradeEligibilityListType_1.UpgradeEligibilityListTypeFromJSON)(json['upgradeEligibilityListType']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'upgradeEligibilityListType': !(0, runtime_1.exists)(json, 'upgradeEligibilityListType') ? undefined : (json['upgradeEligibilityListType'].map(UpgradeEligibilityType_1.UpgradeEligibilityTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ReservationsUpgradeEligibilityFromJSONTyped = ReservationsUpgradeEligibilityFromJSONTyped;
@@ -49,9 +49,9 @@ function ReservationsUpgradeEligibilityToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'upgradeEligibilityListType': (0, UpgradeEligibilityListType_1.UpgradeEligibilityListTypeToJSON)(value.upgradeEligibilityListType),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'upgradeEligibilityListType': value.upgradeEligibilityListType === undefined ? undefined : (value.upgradeEligibilityListType.map(UpgradeEligibilityType_1.UpgradeEligibilityTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ReservationsUpgradeEligibilityToJSON = ReservationsUpgradeEligibilityToJSON;

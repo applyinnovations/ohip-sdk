@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { RoomOwnerReferralList } from './RoomOwnerReferralList';
 import {
     RoomOwnerReferralListFromJSON,
     RoomOwnerReferralListFromJSONTyped,
     RoomOwnerReferralListToJSON,
 } from './RoomOwnerReferralList';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object containing Room Owner Referral details.
@@ -46,10 +46,10 @@ export interface RoomOwnerReferralDetails {
     hasOwnershipRecords?: boolean;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomOwnerReferralDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {RoomOwnerReferralList}
@@ -57,11 +57,11 @@ export interface RoomOwnerReferralDetails {
      */
     roomOwnerReferrals?: RoomOwnerReferralList;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomOwnerReferralDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -84,9 +84,9 @@ export function RoomOwnerReferralDetailsFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         'hasOwnershipRecords': !exists(json, 'hasOwnershipRecords') ? undefined : json['hasOwnershipRecords'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'roomOwnerReferrals': !exists(json, 'roomOwnerReferrals') ? undefined : RoomOwnerReferralListFromJSON(json['roomOwnerReferrals']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -100,9 +100,9 @@ export function RoomOwnerReferralDetailsToJSON(value?: RoomOwnerReferralDetails 
     return {
         
         'hasOwnershipRecords': value.hasOwnershipRecords,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'roomOwnerReferrals': RoomOwnerReferralListToJSON(value.roomOwnerReferrals),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

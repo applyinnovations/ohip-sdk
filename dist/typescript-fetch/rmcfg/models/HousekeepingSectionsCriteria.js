@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HousekeepingSectionsCriteriaToJSON = exports.HousekeepingSectionsCriteriaFromJSONTyped = exports.HousekeepingSectionsCriteriaFromJSON = exports.instanceOfHousekeepingSectionsCriteria = void 0;
 const runtime_1 = require("../runtime");
-const HousekeepingSectionsType_1 = require("./HousekeepingSectionsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HousekeepingSectionType_1 = require("./HousekeepingSectionType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the HousekeepingSectionsCriteria interface.
  */
@@ -35,9 +35,9 @@ function HousekeepingSectionsCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'housekeepingSections': !(0, runtime_1.exists)(json, 'housekeepingSections') ? undefined : (0, HousekeepingSectionsType_1.HousekeepingSectionsTypeFromJSON)(json['housekeepingSections']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'housekeepingSections': !(0, runtime_1.exists)(json, 'housekeepingSections') ? undefined : (json['housekeepingSections'].map(HousekeepingSectionType_1.HousekeepingSectionTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.HousekeepingSectionsCriteriaFromJSONTyped = HousekeepingSectionsCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function HousekeepingSectionsCriteriaToJSON(value) {
         return null;
     }
     return {
-        'housekeepingSections': (0, HousekeepingSectionsType_1.HousekeepingSectionsTypeToJSON)(value.housekeepingSections),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'housekeepingSections': value.housekeepingSections === undefined ? undefined : (value.housekeepingSections.map(HousekeepingSectionType_1.HousekeepingSectionTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.HousekeepingSectionsCriteriaToJSON = HousekeepingSectionsCriteriaToJSON;

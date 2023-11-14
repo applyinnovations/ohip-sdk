@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WakeUpCallsToJSON = exports.WakeUpCallsFromJSONTyped = exports.WakeUpCallsFromJSON = exports.instanceOfWakeUpCalls = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const WakeUpCallsType_1 = require("./WakeUpCallsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WakeUpCallType_1 = require("./WakeUpCallType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the WakeUpCalls interface.
  */
@@ -35,9 +35,9 @@ function WakeUpCallsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'calls': !(0, runtime_1.exists)(json, 'calls') ? undefined : (0, WakeUpCallsType_1.WakeUpCallsTypeFromJSON)(json['calls']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'calls': !(0, runtime_1.exists)(json, 'calls') ? undefined : (json['calls'].map(WakeUpCallType_1.WakeUpCallTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.WakeUpCallsFromJSONTyped = WakeUpCallsFromJSONTyped;
@@ -49,9 +49,9 @@ function WakeUpCallsToJSON(value) {
         return null;
     }
     return {
-        'calls': (0, WakeUpCallsType_1.WakeUpCallsTypeToJSON)(value.calls),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'calls': value.calls === undefined ? undefined : (value.calls.map(WakeUpCallType_1.WakeUpCallTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.WakeUpCallsToJSON = WakeUpCallsToJSON;

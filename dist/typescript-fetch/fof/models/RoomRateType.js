@@ -17,7 +17,7 @@ exports.RoomRateTypeToJSON = exports.RoomRateTypeFromJSONTyped = exports.RoomRat
 const runtime_1 = require("../runtime");
 const ForeignExchangeType_1 = require("./ForeignExchangeType");
 const GuestCountsType_1 = require("./GuestCountsType");
-const MealPlansType_1 = require("./MealPlansType");
+const MealPlanCodeType_1 = require("./MealPlanCodeType");
 const PackageElementType_1 = require("./PackageElementType");
 const PointsType_1 = require("./PointsType");
 const RatesType_1 = require("./RatesType");
@@ -62,7 +62,7 @@ function RoomRateTypeFromJSONTyped(json, ignoreDiscriminator) {
         'inventoryLender': !(0, runtime_1.exists)(json, 'inventoryLender') ? undefined : json['inventoryLender'],
         'marketCode': !(0, runtime_1.exists)(json, 'marketCode') ? undefined : json['marketCode'],
         'marketCodeDescription': !(0, runtime_1.exists)(json, 'marketCodeDescription') ? undefined : json['marketCodeDescription'],
-        'mealPlans': !(0, runtime_1.exists)(json, 'mealPlans') ? undefined : (0, MealPlansType_1.MealPlansTypeFromJSON)(json['mealPlans']),
+        'mealPlans': !(0, runtime_1.exists)(json, 'mealPlans') ? undefined : (json['mealPlans'].map(MealPlanCodeType_1.MealPlanCodeTypeFromJSON)),
         'numberOfUnits': !(0, runtime_1.exists)(json, 'numberOfUnits') ? undefined : json['numberOfUnits'],
         'packages': !(0, runtime_1.exists)(json, 'packages') ? undefined : (json['packages'].map(PackageElementType_1.PackageElementTypeFromJSON)),
         'promotionCode': !(0, runtime_1.exists)(json, 'promotionCode') ? undefined : json['promotionCode'],
@@ -116,7 +116,7 @@ function RoomRateTypeToJSON(value) {
         'inventoryLender': value.inventoryLender,
         'marketCode': value.marketCode,
         'marketCodeDescription': value.marketCodeDescription,
-        'mealPlans': (0, MealPlansType_1.MealPlansTypeToJSON)(value.mealPlans),
+        'mealPlans': value.mealPlans === undefined ? undefined : (value.mealPlans.map(MealPlanCodeType_1.MealPlanCodeTypeToJSON)),
         'numberOfUnits': value.numberOfUnits,
         'packages': value.packages === undefined ? undefined : (value.packages.map(PackageElementType_1.PackageElementTypeToJSON)),
         'promotionCode': value.promotionCode,

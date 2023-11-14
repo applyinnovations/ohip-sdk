@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ARInvoiceType } from './ARInvoiceType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for the request to compress two or more invoices.
  * @export
@@ -26,16 +26,16 @@ export interface CompressedARInvoices {
     invoice?: ARInvoiceType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CompressedARInvoices
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CompressedARInvoices
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CompressedARInvoices interface.

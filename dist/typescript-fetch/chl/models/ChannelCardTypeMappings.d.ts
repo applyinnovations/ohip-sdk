@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ChannelCardTypeMappingType } from './ChannelCardTypeMappingType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating a new channel-hotel card type mapping.
  * @export
@@ -26,16 +26,16 @@ export interface ChannelCardTypeMappings {
     channelCardTypeMapping?: ChannelCardTypeMappingType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelCardTypeMappings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelCardTypeMappings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelCardTypeMappings interface.

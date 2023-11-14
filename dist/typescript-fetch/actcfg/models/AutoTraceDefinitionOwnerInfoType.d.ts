@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ActivityOwnerType } from './ActivityOwnerType';
-import type { AutoTraceOwnerAssignmentListType } from './AutoTraceOwnerAssignmentListType';
+import type { AutoTraceOwnerAssignmentType } from './AutoTraceOwnerAssignmentType';
 /**
  * Owner Information of Auto Trace.
  * @export
@@ -24,11 +24,11 @@ export interface AutoTraceDefinitionOwnerInfoType {
      */
     customOwnerCode?: string;
     /**
-     *
-     * @type {AutoTraceOwnerAssignmentListType}
+     * Detailed information of trace owner assignment.
+     * @type {Array<AutoTraceOwnerAssignmentType>}
      * @memberof AutoTraceDefinitionOwnerInfoType
      */
-    ownerAssignment?: AutoTraceOwnerAssignmentListType;
+    ownerAssignment?: Array<AutoTraceOwnerAssignmentType>;
     /**
      * Indicates if Owner Assignment exists
      * @type {boolean}

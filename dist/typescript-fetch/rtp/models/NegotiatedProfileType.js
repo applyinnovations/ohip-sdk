@@ -18,7 +18,7 @@ const runtime_1 = require("../runtime");
 const NegRateAccessType_1 = require("./NegRateAccessType");
 const ProfileNameType_1 = require("./ProfileNameType");
 const ProfileTypeType_1 = require("./ProfileTypeType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the NegotiatedProfileType interface.
  */
@@ -37,7 +37,7 @@ function NegotiatedProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'externalSystemCode': !(0, runtime_1.exists)(json, 'externalSystemCode') ? undefined : json['externalSystemCode'],
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'profileName': !(0, runtime_1.exists)(json, 'profileName') ? undefined : (0, ProfileNameType_1.ProfileNameTypeFromJSON)(json['profileName']),
         'profileType': !(0, runtime_1.exists)(json, 'profileType') ? undefined : (0, ProfileTypeType_1.ProfileTypeTypeFromJSON)(json['profileType']),
         'rateInfoList': !(0, runtime_1.exists)(json, 'rateInfoList') ? undefined : (json['rateInfoList'].map(NegRateAccessType_1.NegRateAccessTypeFromJSON)),
@@ -53,7 +53,7 @@ function NegotiatedProfileTypeToJSON(value) {
     }
     return {
         'externalSystemCode': value.externalSystemCode,
-        'profileIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'profileName': (0, ProfileNameType_1.ProfileNameTypeToJSON)(value.profileName),
         'profileType': (0, ProfileTypeType_1.ProfileTypeTypeToJSON)(value.profileType),
         'rateInfoList': value.rateInfoList === undefined ? undefined : (value.rateInfoList.map(NegRateAccessType_1.NegRateAccessTypeToJSON)),

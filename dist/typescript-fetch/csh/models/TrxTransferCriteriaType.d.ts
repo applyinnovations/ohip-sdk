@@ -9,8 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ReservationIdList } from './ReservationIdList';
-import type { UniqueIDListType } from './UniqueIDListType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Transactions can be transferred to either a FolioWindow Number of the same reservation or to another Inhouse Reservation.
@@ -43,11 +41,11 @@ export interface TrxTransferCriteriaType {
      */
     membershipIdNo?: number;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof TrxTransferCriteriaType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * Folio Window Number to where transactions will be transfered.
      * @type {number}
@@ -55,11 +53,11 @@ export interface TrxTransferCriteriaType {
      */
     targetFolioWindowNo?: number;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof TrxTransferCriteriaType
      */
-    targetReservationIdList?: UniqueIDListType;
+    targetReservationIdList?: Array<UniqueIDType>;
     /**
      * List of transactions to be transfered.
      * @type {Array<number>}

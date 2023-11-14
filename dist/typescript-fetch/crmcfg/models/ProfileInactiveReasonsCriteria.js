@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfileInactiveReasonsCriteriaToJSON = exports.ProfileInactiveReasonsCriteriaFromJSONTyped = exports.ProfileInactiveReasonsCriteriaFromJSON = exports.instanceOfProfileInactiveReasonsCriteria = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const ProfileInactiveReasonsType_1 = require("./ProfileInactiveReasonsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const ProfileInactiveReasonType_1 = require("./ProfileInactiveReasonType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ProfileInactiveReasonsCriteria interface.
  */
@@ -35,9 +35,9 @@ function ProfileInactiveReasonsCriteriaFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'profileInactiveReasons': !(0, runtime_1.exists)(json, 'profileInactiveReasons') ? undefined : (0, ProfileInactiveReasonsType_1.ProfileInactiveReasonsTypeFromJSON)(json['profileInactiveReasons']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'profileInactiveReasons': !(0, runtime_1.exists)(json, 'profileInactiveReasons') ? undefined : (json['profileInactiveReasons'].map(ProfileInactiveReasonType_1.ProfileInactiveReasonTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ProfileInactiveReasonsCriteriaFromJSONTyped = ProfileInactiveReasonsCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function ProfileInactiveReasonsCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'profileInactiveReasons': (0, ProfileInactiveReasonsType_1.ProfileInactiveReasonsTypeToJSON)(value.profileInactiveReasons),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'profileInactiveReasons': value.profileInactiveReasons === undefined ? undefined : (value.profileInactiveReasons.map(ProfileInactiveReasonType_1.ProfileInactiveReasonTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ProfileInactiveReasonsCriteriaToJSON = ProfileInactiveReasonsCriteriaToJSON;

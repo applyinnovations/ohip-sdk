@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { RoomRotationPointsAdjustmentInfoType } from './RoomRotationPointsAdjustmentInfoType';
 import {
     RoomRotationPointsAdjustmentInfoTypeFromJSON,
     RoomRotationPointsAdjustmentInfoTypeFromJSONTyped,
     RoomRotationPointsAdjustmentInfoTypeToJSON,
 } from './RoomRotationPointsAdjustmentInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,10 +40,10 @@ import {
 export interface RoomRotationPointsAdjustment {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomRotationPointsAdjustment
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * List of Room Rotation Points Information to update
      * @type {Array<RoomRotationPointsAdjustmentInfoType>}
@@ -51,11 +51,11 @@ export interface RoomRotationPointsAdjustment {
      */
     roomRotationPointsAdjustmentInfoTypeList?: Array<RoomRotationPointsAdjustmentInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomRotationPointsAdjustment
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RoomRotationPointsAdjustmentFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'roomRotationPointsAdjustmentInfoTypeList': !exists(json, 'roomRotationPointsAdjustmentInfoTypeList') ? undefined : ((json['roomRotationPointsAdjustmentInfoTypeList'] as Array<any>).map(RoomRotationPointsAdjustmentInfoTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RoomRotationPointsAdjustmentToJSON(value?: RoomRotationPointsAdj
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'roomRotationPointsAdjustmentInfoTypeList': value.roomRotationPointsAdjustmentInfoTypeList === undefined ? undefined : ((value.roomRotationPointsAdjustmentInfoTypeList as Array<any>).map(RoomRotationPointsAdjustmentInfoTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

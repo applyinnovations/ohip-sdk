@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WaitlistedEventsGroupsType } from './WaitlistedEventsGroupsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WaitlistedEventType } from './WaitlistedEventType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for retrieving waitlisted and current events holding the function space.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface WaitlistedEvents {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof WaitlistedEvents
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WaitlistedEventsGroupsType}
+     * Collection of events waitlisted for a function space.
+     * @type {Array<Array<WaitlistedEventType>>}
      * @memberof WaitlistedEvents
      */
-    waitlistedEventsGroups?: WaitlistedEventsGroupsType;
+    waitlistedEventsGroups?: Array<Array<WaitlistedEventType>>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof WaitlistedEvents
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the WaitlistedEvents interface.

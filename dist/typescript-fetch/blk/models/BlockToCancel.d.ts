@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CancelBlockType } from './CancelBlockType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for block cancelation. This object contains unique identifiers (Block unique id, Block Code and Block Start Date ) to identify the block to be Canceled and the standard optional Opera Context element.
  * @export
@@ -26,16 +26,16 @@ export interface BlockToCancel {
     cancelBlock?: CancelBlockType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockToCancel
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockToCancel
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockToCancel interface.

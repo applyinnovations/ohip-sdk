@@ -13,7 +13,7 @@ import type { CustomerType } from './CustomerType';
 import type { GuestProfileTypeAddresses } from './GuestProfileTypeAddresses';
 import type { GuestProfileTypeType } from './GuestProfileTypeType';
 import type { ImageSetType } from './ImageSetType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import type { LastStayInfoType } from './LastStayInfoType';
 import type { MailingActionsType } from './MailingActionsType';
 import type { PrivacyInfoType } from './PrivacyInfoType';
@@ -88,11 +88,11 @@ export interface GuestProfileType {
      */
     keywords?: ProfileTypeKeywords;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof GuestProfileType
      */
-    profileIndicators?: IndicatorsType;
+    profileIndicators?: Array<IndicatorType>;
     /**
      *
      * @type {LastStayInfoType}

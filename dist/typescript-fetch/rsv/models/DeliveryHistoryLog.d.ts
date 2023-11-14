@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { DeliveryHistoryType } from './DeliveryHistoryType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response that contains fetched reservation's delivery history.
  * @export
@@ -26,16 +26,16 @@ export interface DeliveryHistoryLog {
     deliveryHistoryLog?: Array<DeliveryHistoryType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DeliveryHistoryLog
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DeliveryHistoryLog
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DeliveryHistoryLog interface.

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { PromotionGroupsType } from './PromotionGroupsType';
+import type { PromotionGroupType } from './PromotionGroupType';
 /**
  * Collection of promotion groups
  * @export
@@ -35,11 +35,11 @@ export interface PromotionGroupsPromotionGroups {
      */
     offset?: number;
     /**
-     *
-     * @type {PromotionGroupsType}
+     * A promotion group.
+     * @type {Array<PromotionGroupType>}
      * @memberof PromotionGroupsPromotionGroups
      */
-    promotionGroups?: PromotionGroupsType;
+    promotionGroups?: Array<PromotionGroupType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}

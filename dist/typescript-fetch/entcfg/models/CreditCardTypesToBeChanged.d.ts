@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CreditCardTypesType } from './CreditCardTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CreditCardTypeType } from './CreditCardTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Credit Card Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CreditCardTypesToBeChanged {
     /**
-     *
-     * @type {CreditCardTypesType}
+     * List of Credit Card Types.
+     * @type {Array<CreditCardTypeType>}
      * @memberof CreditCardTypesToBeChanged
      */
-    creditCardTypes?: CreditCardTypesType;
+    creditCardTypes?: Array<CreditCardTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreditCardTypesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreditCardTypesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreditCardTypesToBeChanged interface.

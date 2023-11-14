@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { CodeDescriptionType } from './CodeDescriptionType';
-import type { CustomChargeExemptionDatesType } from './CustomChargeExemptionDatesType';
+import type { CustomChargeExemptionDateType } from './CustomChargeExemptionDateType';
 import type { CustomChargeQuantityType } from './CustomChargeQuantityType';
-import type { ExcludedDatesType } from './ExcludedDatesType';
+import type { ExcludedDateType } from './ExcludedDateType';
 /**
  * Contains custom charges exemption information.
  * @export
@@ -20,11 +20,11 @@ import type { ExcludedDatesType } from './ExcludedDatesType';
  */
 export interface CustomChargeExemptionType {
     /**
-     *
-     * @type {CustomChargeExemptionDatesType}
+     * Contains List of Custom Charge Exemption information for a day.
+     * @type {Array<CustomChargeExemptionDateType>}
      * @memberof CustomChargeExemptionType
      */
-    customChargeDates?: CustomChargeExemptionDatesType;
+    customChargeDates?: Array<CustomChargeExemptionDateType>;
     /**
      *
      * @type {CustomChargeQuantityType}
@@ -38,11 +38,11 @@ export interface CustomChargeExemptionType {
      */
     customChargesExemption?: CodeDescriptionType;
     /**
-     *
-     * @type {ExcludedDatesType}
+     * Contains list of dates which are valid for custom charge exemptions.
+     * @type {Array<ExcludedDateType>}
      * @memberof CustomChargeExemptionType
      */
-    excludedDates?: ExcludedDatesType;
+    excludedDates?: Array<ExcludedDateType>;
     /**
      * Exemption Percentage
      * @type {number}

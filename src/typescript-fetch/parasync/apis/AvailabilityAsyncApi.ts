@@ -16,15 +16,15 @@
 import * as runtime from '../runtime';
 import type {
   ExceptionDetailType,
-  Links,
+  InstanceLink,
   Restrictions,
   RestrictionsStatus,
 } from '../models/index';
 import {
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-    LinksFromJSON,
-    LinksToJSON,
+    InstanceLinkFromJSON,
+    InstanceLinkToJSON,
     RestrictionsFromJSON,
     RestrictionsToJSON,
     RestrictionsStatusFromJSON,
@@ -181,7 +181,7 @@ export class AvailabilityAsyncApi extends runtime.BaseAPI {
      * A user can send various restrictions to OPERA by specifying restriction details in the request. <p><strong>OperationId:</strong>postRestrictionsProcess</p>
      * Create restrictions in OPERA Cloud.
      */
-    async postRestrictionsProcessRaw(requestParameters: PostRestrictionsProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Links>> {
+    async postRestrictionsProcessRaw(requestParameters: PostRestrictionsProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<InstanceLink>>> {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRestrictionsProcess.');
         }
@@ -224,14 +224,14 @@ export class AvailabilityAsyncApi extends runtime.BaseAPI {
             body: RestrictionsToJSON(requestParameters.restrictions),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => LinksFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(InstanceLinkFromJSON));
     }
 
     /**
      * A user can send various restrictions to OPERA by specifying restriction details in the request. <p><strong>OperationId:</strong>postRestrictionsProcess</p>
      * Create restrictions in OPERA Cloud.
      */
-    async postRestrictionsProcess(requestParameters: PostRestrictionsProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Links> {
+    async postRestrictionsProcess(requestParameters: PostRestrictionsProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<InstanceLink>> {
         const response = await this.postRestrictionsProcessRaw(requestParameters, initOverrides);
         return await response.value();
     }

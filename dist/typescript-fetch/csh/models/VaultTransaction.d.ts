@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { VaultHTTPTransactionMessageType } from './VaultHTTPTransactionMessageType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to register the vault HTTP transaction.
  * @export
@@ -26,16 +26,16 @@ export interface VaultTransaction {
     httpTransactionMessage?: VaultHTTPTransactionMessageType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof VaultTransaction
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof VaultTransaction
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the VaultTransaction interface.

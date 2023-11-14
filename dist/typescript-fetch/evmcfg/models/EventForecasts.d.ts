@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EventForecastListType } from './EventForecastListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { EventForecastType } from './EventForecastType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface EventForecasts {
     /**
-     *
-     * @type {EventForecastListType}
+     * Collection of multiple Event Forecasts.
+     * @type {Array<EventForecastType>}
      * @memberof EventForecasts
      */
-    eventForecasts?: EventForecastListType;
+    eventForecasts?: Array<EventForecastType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EventForecasts
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EventForecasts
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the EventForecasts interface.

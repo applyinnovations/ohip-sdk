@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EcertificateLocationTypesDetailsToJSON = exports.EcertificateLocationTypesDetailsFromJSONTyped = exports.EcertificateLocationTypesDetailsFromJSON = exports.instanceOfEcertificateLocationTypesDetails = void 0;
 const runtime_1 = require("../runtime");
-const EcertificateLocationTypesType_1 = require("./EcertificateLocationTypesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const EcertificateLocationTypeType_1 = require("./EcertificateLocationTypeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the EcertificateLocationTypesDetails interface.
  */
@@ -35,9 +35,9 @@ function EcertificateLocationTypesDetailsFromJSONTyped(json, ignoreDiscriminator
         return json;
     }
     return {
-        'ecertificateLocationTypes': !(0, runtime_1.exists)(json, 'ecertificateLocationTypes') ? undefined : (0, EcertificateLocationTypesType_1.EcertificateLocationTypesTypeFromJSON)(json['ecertificateLocationTypes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'ecertificateLocationTypes': !(0, runtime_1.exists)(json, 'ecertificateLocationTypes') ? undefined : (json['ecertificateLocationTypes'].map(EcertificateLocationTypeType_1.EcertificateLocationTypeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.EcertificateLocationTypesDetailsFromJSONTyped = EcertificateLocationTypesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function EcertificateLocationTypesDetailsToJSON(value) {
         return null;
     }
     return {
-        'ecertificateLocationTypes': (0, EcertificateLocationTypesType_1.EcertificateLocationTypesTypeToJSON)(value.ecertificateLocationTypes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'ecertificateLocationTypes': value.ecertificateLocationTypes === undefined ? undefined : (value.ecertificateLocationTypes.map(EcertificateLocationTypeType_1.EcertificateLocationTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.EcertificateLocationTypesDetailsToJSON = EcertificateLocationTypesDetailsToJSON;

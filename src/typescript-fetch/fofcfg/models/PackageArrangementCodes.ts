@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { PackageArrangementCodesType } from './PackageArrangementCodesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { PackageArrangementCodeType } from './PackageArrangementCodeType';
 import {
-    PackageArrangementCodesTypeFromJSON,
-    PackageArrangementCodesTypeFromJSONTyped,
-    PackageArrangementCodesTypeToJSON,
-} from './PackageArrangementCodesType';
-import type { WarningsType } from './WarningsType';
+    PackageArrangementCodeTypeFromJSON,
+    PackageArrangementCodeTypeFromJSONTyped,
+    PackageArrangementCodeTypeToJSON,
+} from './PackageArrangementCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface PackageArrangementCodes {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PackageArrangementCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {PackageArrangementCodesType}
+     * Details for package arrangement codes.
+     * @type {Array<PackageArrangementCodeType>}
      * @memberof PackageArrangementCodes
      */
-    packageArrangementCodes?: PackageArrangementCodesType;
+    packageArrangementCodes?: Array<PackageArrangementCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PackageArrangementCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function PackageArrangementCodesFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'packageArrangementCodes': !exists(json, 'packageArrangementCodes') ? undefined : PackageArrangementCodesTypeFromJSON(json['packageArrangementCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'packageArrangementCodes': !exists(json, 'packageArrangementCodes') ? undefined : ((json['packageArrangementCodes'] as Array<any>).map(PackageArrangementCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function PackageArrangementCodesToJSON(value?: PackageArrangementCodes | 
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'packageArrangementCodes': PackageArrangementCodesTypeToJSON(value.packageArrangementCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'packageArrangementCodes': value.packageArrangementCodes === undefined ? undefined : ((value.packageArrangementCodes as Array<any>).map(PackageArrangementCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

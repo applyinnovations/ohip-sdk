@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipEnrollmentGroupTypeToJSON = exports.MembershipEnrollmentGroupTypeFromJSONTyped = exports.MembershipEnrollmentGroupTypeFromJSON = exports.instanceOfMembershipEnrollmentGroupType = void 0;
 const runtime_1 = require("../runtime");
-const MembershipEnrollmentCodesInfoType_1 = require("./MembershipEnrollmentCodesInfoType");
+const CodeDescriptionType_1 = require("./CodeDescriptionType");
 /**
  * Check if a given object implements the MembershipEnrollmentGroupType interface.
  */
@@ -36,7 +36,7 @@ function MembershipEnrollmentGroupTypeFromJSONTyped(json, ignoreDiscriminator) {
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'displaySequence': !(0, runtime_1.exists)(json, 'displaySequence') ? undefined : json['displaySequence'],
-        'enrollmentCodes': !(0, runtime_1.exists)(json, 'enrollmentCodes') ? undefined : (0, MembershipEnrollmentCodesInfoType_1.MembershipEnrollmentCodesInfoTypeFromJSON)(json['enrollmentCodes']),
+        'enrollmentCodes': !(0, runtime_1.exists)(json, 'enrollmentCodes') ? undefined : (json['enrollmentCodes'].map(CodeDescriptionType_1.CodeDescriptionTypeFromJSON)),
     };
 }
 exports.MembershipEnrollmentGroupTypeFromJSONTyped = MembershipEnrollmentGroupTypeFromJSONTyped;
@@ -51,7 +51,7 @@ function MembershipEnrollmentGroupTypeToJSON(value) {
         'code': value.code,
         'description': value.description,
         'displaySequence': value.displaySequence,
-        'enrollmentCodes': (0, MembershipEnrollmentCodesInfoType_1.MembershipEnrollmentCodesInfoTypeToJSON)(value.enrollmentCodes),
+        'enrollmentCodes': value.enrollmentCodes === undefined ? undefined : (value.enrollmentCodes.map(CodeDescriptionType_1.CodeDescriptionTypeToJSON)),
     };
 }
 exports.MembershipEnrollmentGroupTypeToJSON = MembershipEnrollmentGroupTypeToJSON;

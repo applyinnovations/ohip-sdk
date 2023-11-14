@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HousekeepingTaskAssignmentsType } from './HousekeepingTaskAssignmentsType';
+import type { HousekeepingTaskAssignmentType } from './HousekeepingTaskAssignmentType';
 import {
-    HousekeepingTaskAssignmentsTypeFromJSON,
-    HousekeepingTaskAssignmentsTypeFromJSONTyped,
-    HousekeepingTaskAssignmentsTypeToJSON,
-} from './HousekeepingTaskAssignmentsType';
-import type { Links } from './Links';
+    HousekeepingTaskAssignmentTypeFromJSON,
+    HousekeepingTaskAssignmentTypeFromJSONTyped,
+    HousekeepingTaskAssignmentTypeToJSON,
+} from './HousekeepingTaskAssignmentType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface TaskAssignment {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TaskAssignment
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {HousekeepingTaskAssignmentsType}
+     * Collection of Assignments
+     * @type {Array<HousekeepingTaskAssignmentType>}
      * @memberof TaskAssignment
      */
-    taskAssignmentInfo?: HousekeepingTaskAssignmentsType;
+    taskAssignmentInfo?: Array<HousekeepingTaskAssignmentType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TaskAssignment
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TaskAssignmentFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'taskAssignmentInfo': !exists(json, 'taskAssignmentInfo') ? undefined : HousekeepingTaskAssignmentsTypeFromJSON(json['taskAssignmentInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'taskAssignmentInfo': !exists(json, 'taskAssignmentInfo') ? undefined : ((json['taskAssignmentInfo'] as Array<any>).map(HousekeepingTaskAssignmentTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TaskAssignmentToJSON(value?: TaskAssignment | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'taskAssignmentInfo': HousekeepingTaskAssignmentsTypeToJSON(value.taskAssignmentInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'taskAssignmentInfo': value.taskAssignmentInfo === undefined ? undefined : ((value.taskAssignmentInfo as Array<any>).map(HousekeepingTaskAssignmentTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

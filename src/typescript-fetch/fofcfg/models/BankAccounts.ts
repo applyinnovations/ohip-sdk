@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ConfigBankAccountsType } from './ConfigBankAccountsType';
+import type { ConfigBankAccountType } from './ConfigBankAccountType';
 import {
-    ConfigBankAccountsTypeFromJSON,
-    ConfigBankAccountsTypeFromJSONTyped,
-    ConfigBankAccountsTypeToJSON,
-} from './ConfigBankAccountsType';
-import type { Links } from './Links';
+    ConfigBankAccountTypeFromJSON,
+    ConfigBankAccountTypeFromJSONTyped,
+    ConfigBankAccountTypeToJSON,
+} from './ConfigBankAccountType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to edit Bank Accounts
@@ -39,17 +39,17 @@ import {
  */
 export interface BankAccounts {
     /**
-     * 
-     * @type {ConfigBankAccountsType}
+     * List of bank accounts.
+     * @type {Array<ConfigBankAccountType>}
      * @memberof BankAccounts
      */
-    bankAccounts?: ConfigBankAccountsType;
+    bankAccounts?: Array<ConfigBankAccountType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BankAccounts
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Update default confirmation response
      * @type {boolean}
@@ -63,11 +63,11 @@ export interface BankAccounts {
      */
     updateDefaultForCurrency?: boolean;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BankAccounts
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,11 +89,11 @@ export function BankAccountsFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'bankAccounts': !exists(json, 'bankAccounts') ? undefined : ConfigBankAccountsTypeFromJSON(json['bankAccounts']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'bankAccounts': !exists(json, 'bankAccounts') ? undefined : ((json['bankAccounts'] as Array<any>).map(ConfigBankAccountTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'updateDefault': !exists(json, 'updateDefault') ? undefined : json['updateDefault'],
         'updateDefaultForCurrency': !exists(json, 'updateDefaultForCurrency') ? undefined : json['updateDefaultForCurrency'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -106,11 +106,11 @@ export function BankAccountsToJSON(value?: BankAccounts | null): any {
     }
     return {
         
-        'bankAccounts': ConfigBankAccountsTypeToJSON(value.bankAccounts),
-        'links': LinksToJSON(value.links),
+        'bankAccounts': value.bankAccounts === undefined ? undefined : ((value.bankAccounts as Array<any>).map(ConfigBankAccountTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'updateDefault': value.updateDefault,
         'updateDefaultForCurrency': value.updateDefaultForCurrency,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

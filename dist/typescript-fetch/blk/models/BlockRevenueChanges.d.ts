@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockRevenueChangesDetailsType } from './BlockRevenueChangesDetailsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BlockRevenueChangesDetailType } from './BlockRevenueChangesDetailType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response Object of details fetched of revenue log changes of selected block
  * @export
@@ -19,11 +19,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BlockRevenueChanges {
     /**
-     *
-     * @type {BlockRevenueChangesDetailsType}
+     * Block Revenue Changes Details
+     * @type {Array<BlockRevenueChangesDetailType>}
      * @memberof BlockRevenueChanges
      */
-    blockRevenueChanges?: BlockRevenueChangesDetailsType;
+    blockRevenueChanges?: Array<BlockRevenueChangesDetailType>;
     /**
      * Total number of rows returned
      * @type {number}
@@ -44,10 +44,10 @@ export interface BlockRevenueChanges {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockRevenueChanges
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface BlockRevenueChanges {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockRevenueChanges
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockRevenueChanges interface.

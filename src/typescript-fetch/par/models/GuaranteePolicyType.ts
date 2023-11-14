@@ -31,24 +31,18 @@ import {
     GuaranteeRequirementsTypeFromJSONTyped,
     GuaranteeRequirementsTypeToJSON,
 } from './GuaranteeRequirementsType';
-import type { PaymentTypesType } from './PaymentTypesType';
-import {
-    PaymentTypesTypeFromJSON,
-    PaymentTypesTypeFromJSONTyped,
-    PaymentTypesTypeToJSON,
-} from './PaymentTypesType';
 import type { TranslationTextType80 } from './TranslationTextType80';
 import {
     TranslationTextType80FromJSON,
     TranslationTextType80FromJSONTyped,
     TranslationTextType80ToJSON,
 } from './TranslationTextType80';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Specifies Guarantee Code attributes.
@@ -105,11 +99,11 @@ export interface GuaranteePolicyType {
      */
     orderSequence?: number;
     /**
-     * 
-     * @type {PaymentTypesType}
+     * Payment card code like AX,VI etc.
+     * @type {Array<string>}
      * @memberof GuaranteePolicyType
      */
-    paymentTypes?: PaymentTypesType;
+    paymentTypes?: Array<string>;
     /**
      * 
      * @type {GuaranteeRequirementsType}
@@ -129,11 +123,11 @@ export interface GuaranteePolicyType {
      */
     shortDescription?: TranslationTextType80;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuaranteePolicyType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -163,11 +157,11 @@ export function GuaranteePolicyTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'lateArrival': !exists(json, 'lateArrival') ? undefined : json['lateArrival'],
         'onHold': !exists(json, 'onHold') ? undefined : json['onHold'],
         'orderSequence': !exists(json, 'orderSequence') ? undefined : json['orderSequence'],
-        'paymentTypes': !exists(json, 'paymentTypes') ? undefined : PaymentTypesTypeFromJSON(json['paymentTypes']),
+        'paymentTypes': !exists(json, 'paymentTypes') ? undefined : json['paymentTypes'],
         'policyRequirements': !exists(json, 'policyRequirements') ? undefined : GuaranteeRequirementsTypeFromJSON(json['policyRequirements']),
         'reserveInventory': !exists(json, 'reserveInventory') ? undefined : json['reserveInventory'],
         'shortDescription': !exists(json, 'shortDescription') ? undefined : TranslationTextType80FromJSON(json['shortDescription']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -188,11 +182,11 @@ export function GuaranteePolicyTypeToJSON(value?: GuaranteePolicyType | null): a
         'lateArrival': value.lateArrival,
         'onHold': value.onHold,
         'orderSequence': value.orderSequence,
-        'paymentTypes': PaymentTypesTypeToJSON(value.paymentTypes),
+        'paymentTypes': value.paymentTypes,
         'policyRequirements': GuaranteeRequirementsTypeToJSON(value.policyRequirements),
         'reserveInventory': value.reserveInventory,
         'shortDescription': TranslationTextType80ToJSON(value.shortDescription),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

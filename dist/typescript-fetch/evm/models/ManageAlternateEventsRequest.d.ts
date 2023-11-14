@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EventsInfoType } from './EventsInfoType';
-import type { Links } from './Links';
+import type { EventInfoType } from './EventInfoType';
+import type { InstanceLink } from './InstanceLink';
 import type { ManageAlternateEventsInstructionType } from './ManageAlternateEventsInstructionType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,17 +20,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ManageAlternateEventsRequest {
     /**
-     *
-     * @type {EventsInfoType}
+     * Pertain event information.
+     * @type {Array<EventInfoType>}
      * @memberof ManageAlternateEventsRequest
      */
-    alternateEvents?: EventsInfoType;
+    alternateEvents?: Array<EventInfoType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ManageAlternateEventsRequest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ManageAlternateEventsInstructionType}
@@ -38,11 +38,11 @@ export interface ManageAlternateEventsRequest {
      */
     manageAlternateEventsInstruction?: ManageAlternateEventsInstructionType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ManageAlternateEventsRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ManageAlternateEventsRequest interface.

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HousekeepingCreditRulesToBeChangedToJSON = exports.HousekeepingCreditRulesToBeChangedFromJSONTyped = exports.HousekeepingCreditRulesToBeChangedFromJSON = exports.instanceOfHousekeepingCreditRulesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const HousekeepingCreditRulesType_1 = require("./HousekeepingCreditRulesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HousekeepingCreditRuleType_1 = require("./HousekeepingCreditRuleType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the HousekeepingCreditRulesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function HousekeepingCreditRulesToBeChangedFromJSONTyped(json, ignoreDiscriminat
         return json;
     }
     return {
-        'creditRules': !(0, runtime_1.exists)(json, 'creditRules') ? undefined : (0, HousekeepingCreditRulesType_1.HousekeepingCreditRulesTypeFromJSON)(json['creditRules']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'creditRules': !(0, runtime_1.exists)(json, 'creditRules') ? undefined : (json['creditRules'].map(HousekeepingCreditRuleType_1.HousekeepingCreditRuleTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.HousekeepingCreditRulesToBeChangedFromJSONTyped = HousekeepingCreditRulesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function HousekeepingCreditRulesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'creditRules': (0, HousekeepingCreditRulesType_1.HousekeepingCreditRulesTypeToJSON)(value.creditRules),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'creditRules': value.creditRules === undefined ? undefined : (value.creditRules.map(HousekeepingCreditRuleType_1.HousekeepingCreditRuleTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.HousekeepingCreditRulesToBeChangedToJSON = HousekeepingCreditRulesToBeChangedToJSON;

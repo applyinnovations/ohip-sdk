@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { InventoryItemTemplateItemsType } from './InventoryItemTemplateItemsType';
+import type { InventoryItemTemplateItemType } from './InventoryItemTemplateItemType';
 import {
-    InventoryItemTemplateItemsTypeFromJSON,
-    InventoryItemTemplateItemsTypeFromJSONTyped,
-    InventoryItemTemplateItemsTypeToJSON,
-} from './InventoryItemTemplateItemsType';
+    InventoryItemTemplateItemTypeFromJSON,
+    InventoryItemTemplateItemTypeFromJSONTyped,
+    InventoryItemTemplateItemTypeToJSON,
+} from './InventoryItemTemplateItemType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -45,11 +45,11 @@ export interface InventoryItemTemplateType {
      */
     inventoryItemTemplateId?: UniqueIDType;
     /**
-     * 
-     * @type {InventoryItemTemplateItemsType}
+     * This type holds a collection of inventory items which are to be grouped under a single inventory item template.
+     * @type {Array<InventoryItemTemplateItemType>}
      * @memberof InventoryItemTemplateType
      */
-    inventoryItemTemplateItems?: InventoryItemTemplateItemsType;
+    inventoryItemTemplateItems?: Array<InventoryItemTemplateItemType>;
     /**
      * Specifies the name of the inventory item template.
      * @type {string}
@@ -79,7 +79,7 @@ export function InventoryItemTemplateTypeFromJSONTyped(json: any, ignoreDiscrimi
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'inventoryItemTemplateId': !exists(json, 'inventoryItemTemplateId') ? undefined : UniqueIDTypeFromJSON(json['inventoryItemTemplateId']),
-        'inventoryItemTemplateItems': !exists(json, 'inventoryItemTemplateItems') ? undefined : InventoryItemTemplateItemsTypeFromJSON(json['inventoryItemTemplateItems']),
+        'inventoryItemTemplateItems': !exists(json, 'inventoryItemTemplateItems') ? undefined : ((json['inventoryItemTemplateItems'] as Array<any>).map(InventoryItemTemplateItemTypeFromJSON)),
         'inventoryItemTemplateName': !exists(json, 'inventoryItemTemplateName') ? undefined : json['inventoryItemTemplateName'],
     };
 }
@@ -95,7 +95,7 @@ export function InventoryItemTemplateTypeToJSON(value?: InventoryItemTemplateTyp
         
         'hotelId': value.hotelId,
         'inventoryItemTemplateId': UniqueIDTypeToJSON(value.inventoryItemTemplateId),
-        'inventoryItemTemplateItems': InventoryItemTemplateItemsTypeToJSON(value.inventoryItemTemplateItems),
+        'inventoryItemTemplateItems': value.inventoryItemTemplateItems === undefined ? undefined : ((value.inventoryItemTemplateItems as Array<any>).map(InventoryItemTemplateItemTypeToJSON)),
         'inventoryItemTemplateName': value.inventoryItemTemplateName,
     };
 }

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomGroupsType } from './RoomGroupsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomGroupType } from './RoomGroupType';
 import {
-    RoomGroupsTypeFromJSON,
-    RoomGroupsTypeFromJSONTyped,
-    RoomGroupsTypeToJSON,
-} from './RoomGroupsType';
-import type { WarningsType } from './WarningsType';
+    RoomGroupTypeFromJSON,
+    RoomGroupTypeFromJSONTyped,
+    RoomGroupTypeToJSON,
+} from './RoomGroupType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Room Groups.
@@ -40,22 +40,22 @@ import {
 export interface RoomGroupsToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomGroupsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RoomGroupsType}
+     * List of Room Pools.
+     * @type {Array<RoomGroupType>}
      * @memberof RoomGroupsToBeChanged
      */
-    roomGroups?: RoomGroupsType;
+    roomGroups?: Array<RoomGroupType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomGroupsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RoomGroupsToBeChangedFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'roomGroups': !exists(json, 'roomGroups') ? undefined : RoomGroupsTypeFromJSON(json['roomGroups']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'roomGroups': !exists(json, 'roomGroups') ? undefined : ((json['roomGroups'] as Array<any>).map(RoomGroupTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RoomGroupsToBeChangedToJSON(value?: RoomGroupsToBeChanged | null
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'roomGroups': RoomGroupsTypeToJSON(value.roomGroups),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'roomGroups': value.roomGroups === undefined ? undefined : ((value.roomGroups as Array<any>).map(RoomGroupTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

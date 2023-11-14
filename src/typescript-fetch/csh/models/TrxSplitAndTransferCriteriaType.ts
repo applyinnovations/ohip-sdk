@@ -19,12 +19,12 @@ import {
     TrxSplitAndTransferCriteriaTypeSplitDetailsFromJSONTyped,
     TrxSplitAndTransferCriteriaTypeSplitDetailsToJSON,
 } from './TrxSplitAndTransferCriteriaTypeSplitDetails';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Type to define the criteria for Splitting and Transferring the new transaction.
@@ -57,11 +57,11 @@ export interface TrxSplitAndTransferCriteriaType {
      */
     targetFolioWindowNo?: number;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof TrxSplitAndTransferCriteriaType
      */
-    targetReservationIdList?: UniqueIDListType;
+    targetReservationIdList?: Array<UniqueIDType>;
     /**
      * The unique transaction number of this transaction.
      * @type {Array<number>}
@@ -93,7 +93,7 @@ export function TrxSplitAndTransferCriteriaTypeFromJSONTyped(json: any, ignoreDi
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'splitDetails': !exists(json, 'splitDetails') ? undefined : TrxSplitAndTransferCriteriaTypeSplitDetailsFromJSON(json['splitDetails']),
         'targetFolioWindowNo': !exists(json, 'targetFolioWindowNo') ? undefined : json['targetFolioWindowNo'],
-        'targetReservationIdList': !exists(json, 'targetReservationIdList') ? undefined : UniqueIDListTypeFromJSON(json['targetReservationIdList']),
+        'targetReservationIdList': !exists(json, 'targetReservationIdList') ? undefined : ((json['targetReservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'transactionList': !exists(json, 'transactionList') ? undefined : json['transactionList'],
     };
 }
@@ -111,7 +111,7 @@ export function TrxSplitAndTransferCriteriaTypeToJSON(value?: TrxSplitAndTransfe
         'hotelId': value.hotelId,
         'splitDetails': TrxSplitAndTransferCriteriaTypeSplitDetailsToJSON(value.splitDetails),
         'targetFolioWindowNo': value.targetFolioWindowNo,
-        'targetReservationIdList': UniqueIDListTypeToJSON(value.targetReservationIdList),
+        'targetReservationIdList': value.targetReservationIdList === undefined ? undefined : ((value.targetReservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'transactionList': value.transactionList,
     };
 }

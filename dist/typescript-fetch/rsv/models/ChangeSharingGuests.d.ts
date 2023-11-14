@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { SharingGuestType } from './SharingGuestType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to change Sharing Reservations Guest Counts(adults or children) information.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ChangeSharingGuests {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangeSharingGuests
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * A collection of Sharing Reservations with the Guest Counts(adults or children) information that needs to be changed.
      * @type {Array<SharingGuestType>}
@@ -31,11 +31,11 @@ export interface ChangeSharingGuests {
      */
     reservations?: Array<SharingGuestType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeSharingGuests
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChangeSharingGuests interface.

@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomKeyInterfaceDetailTypeToJSON = exports.RoomKeyInterfaceDetailTypeFromJSONTyped = exports.RoomKeyInterfaceDetailTypeFromJSON = exports.instanceOfRoomKeyInterfaceDetailType = void 0;
 const runtime_1 = require("../runtime");
-const RoomKeyEncodersType_1 = require("./RoomKeyEncodersType");
-const RoomKeyInterfaceRightsType_1 = require("./RoomKeyInterfaceRightsType");
+const RoomKeyEncoderType_1 = require("./RoomKeyEncoderType");
+const RoomKeyInterfaceRightType_1 = require("./RoomKeyInterfaceRightType");
 /**
  * Check if a given object implements the RoomKeyInterfaceDetailType interface.
  */
@@ -35,11 +35,11 @@ function RoomKeyInterfaceDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'additionalRoomsLimit': !(0, runtime_1.exists)(json, 'additionalRoomsLimit') ? undefined : json['additionalRoomsLimit'],
-        'encoders': !(0, runtime_1.exists)(json, 'encoders') ? undefined : (0, RoomKeyEncodersType_1.RoomKeyEncodersTypeFromJSON)(json['encoders']),
+        'encoders': !(0, runtime_1.exists)(json, 'encoders') ? undefined : (json['encoders'].map(RoomKeyEncoderType_1.RoomKeyEncoderTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'interfaceDescription': !(0, runtime_1.exists)(json, 'interfaceDescription') ? undefined : json['interfaceDescription'],
         'interfaceName': !(0, runtime_1.exists)(json, 'interfaceName') ? undefined : json['interfaceName'],
-        'interfaceRights': !(0, runtime_1.exists)(json, 'interfaceRights') ? undefined : (0, RoomKeyInterfaceRightsType_1.RoomKeyInterfaceRightsTypeFromJSON)(json['interfaceRights']),
+        'interfaceRights': !(0, runtime_1.exists)(json, 'interfaceRights') ? undefined : (json['interfaceRights'].map(RoomKeyInterfaceRightType_1.RoomKeyInterfaceRightTypeFromJSON)),
         'multipleRoomKeys': !(0, runtime_1.exists)(json, 'multipleRoomKeys') ? undefined : json['multipleRoomKeys'],
         'propertyDateTime': !(0, runtime_1.exists)(json, 'propertyDateTime') ? undefined : json['propertyDateTime'],
         'sendValidStartDateTime': !(0, runtime_1.exists)(json, 'sendValidStartDateTime') ? undefined : json['sendValidStartDateTime'],
@@ -55,11 +55,11 @@ function RoomKeyInterfaceDetailTypeToJSON(value) {
     }
     return {
         'additionalRoomsLimit': value.additionalRoomsLimit,
-        'encoders': (0, RoomKeyEncodersType_1.RoomKeyEncodersTypeToJSON)(value.encoders),
+        'encoders': value.encoders === undefined ? undefined : (value.encoders.map(RoomKeyEncoderType_1.RoomKeyEncoderTypeToJSON)),
         'hotelId': value.hotelId,
         'interfaceDescription': value.interfaceDescription,
         'interfaceName': value.interfaceName,
-        'interfaceRights': (0, RoomKeyInterfaceRightsType_1.RoomKeyInterfaceRightsTypeToJSON)(value.interfaceRights),
+        'interfaceRights': value.interfaceRights === undefined ? undefined : (value.interfaceRights.map(RoomKeyInterfaceRightType_1.RoomKeyInterfaceRightTypeToJSON)),
         'multipleRoomKeys': value.multipleRoomKeys,
         'propertyDateTime': value.propertyDateTime,
         'sendValidStartDateTime': value.sendValidStartDateTime,

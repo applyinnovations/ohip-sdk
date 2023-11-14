@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AttachmentsType } from './AttachmentsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AttachmentType } from './AttachmentType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object with the details of the attachments of a profile.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ProfileAttachments {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileAttachments
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {AttachmentsType}
+     * Attachment List.
+     * @type {Array<AttachmentType>}
      * @memberof ProfileAttachments
      */
-    profileAttachments?: AttachmentsType;
+    profileAttachments?: Array<AttachmentType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileAttachments
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileAttachments interface.

@@ -12,7 +12,7 @@
 import type { HotelRoomsOrderBy } from './HotelRoomsOrderBy';
 import type { ReservationAutoRoomAssignRequestTypeRoomSelectionCriteriaRoomStatusFilter } from './ReservationAutoRoomAssignRequestTypeRoomSelectionCriteriaRoomStatusFilter';
 import type { ReservationId } from './ReservationId';
-import type { RoomFeaturesType } from './RoomFeaturesType';
+import type { RoomFeatureType } from './RoomFeatureType';
 import type { RoomRangeType } from './RoomRangeType';
 import type { TimeSpanType } from './TimeSpanType';
 /**
@@ -40,11 +40,11 @@ export interface ReservationAutoRoomAssignRequestTypeRoomSelectionCriteria {
      */
     excludeFloorPreferences?: Array<string>;
     /**
-     *
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof ReservationAutoRoomAssignRequestTypeRoomSelectionCriteria
      */
-    excludeRoomFeatures?: RoomFeaturesType;
+    excludeRoomFeatures?: Array<RoomFeatureType>;
     /**
      * The floor of room to be fetched.
      * @type {string}
@@ -148,11 +148,11 @@ export interface ReservationAutoRoomAssignRequestTypeRoomSelectionCriteria {
      */
     roomClass?: string;
     /**
-     *
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof ReservationAutoRoomAssignRequestTypeRoomSelectionCriteria
      */
-    roomFeatures?: RoomFeaturesType;
+    roomFeatures?: Array<RoomFeatureType>;
     /**
      *
      * @type {string}

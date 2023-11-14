@@ -13,30 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelCodeListType } from './HotelCodeListType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    HotelCodeListTypeFromJSON,
-    HotelCodeListTypeFromJSONTyped,
-    HotelCodeListTypeToJSON,
-} from './HotelCodeListType';
-import type { Links } from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { NegotiatedRateType } from './NegotiatedRateType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { NegotiatedRatesType } from './NegotiatedRatesType';
+    NegotiatedRateTypeFromJSON,
+    NegotiatedRateTypeFromJSONTyped,
+    NegotiatedRateTypeToJSON,
+} from './NegotiatedRateType';
+import type { WarningType } from './WarningType';
 import {
-    NegotiatedRatesTypeFromJSON,
-    NegotiatedRatesTypeFromJSONTyped,
-    NegotiatedRatesTypeToJSON,
-} from './NegotiatedRatesType';
-import type { WarningsType } from './WarningsType';
-import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for distribute negotiated rates. This object contains a list of negotiated rates that are to be distributed and a list of properties to which to distribute to.
@@ -45,29 +39,29 @@ import {
  */
 export interface DistributedNegotiatedRates {
     /**
-     * 
-     * @type {HotelCodeListType}
+     * Hotel code.
+     * @type {Array<string>}
      * @memberof DistributedNegotiatedRates
      */
-    hotelCodeList?: HotelCodeListType;
+    hotelCodeList?: Array<string>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DistributedNegotiatedRates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {NegotiatedRatesType}
+     * List of Negotiated rates to be maintained.
+     * @type {Array<NegotiatedRateType>}
      * @memberof DistributedNegotiatedRates
      */
-    negotiatedRateList?: NegotiatedRatesType;
+    negotiatedRateList?: Array<NegotiatedRateType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DistributedNegotiatedRates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +83,10 @@ export function DistributedNegotiatedRatesFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'hotelCodeList': !exists(json, 'hotelCodeList') ? undefined : HotelCodeListTypeFromJSON(json['hotelCodeList']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'negotiatedRateList': !exists(json, 'negotiatedRateList') ? undefined : NegotiatedRatesTypeFromJSON(json['negotiatedRateList']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'hotelCodeList': !exists(json, 'hotelCodeList') ? undefined : json['hotelCodeList'],
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'negotiatedRateList': !exists(json, 'negotiatedRateList') ? undefined : ((json['negotiatedRateList'] as Array<any>).map(NegotiatedRateTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +99,10 @@ export function DistributedNegotiatedRatesToJSON(value?: DistributedNegotiatedRa
     }
     return {
         
-        'hotelCodeList': HotelCodeListTypeToJSON(value.hotelCodeList),
-        'links': LinksToJSON(value.links),
-        'negotiatedRateList': NegotiatedRatesTypeToJSON(value.negotiatedRateList),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'hotelCodeList': value.hotelCodeList,
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'negotiatedRateList': value.negotiatedRateList === undefined ? undefined : ((value.negotiatedRateList as Array<any>).map(NegotiatedRateTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

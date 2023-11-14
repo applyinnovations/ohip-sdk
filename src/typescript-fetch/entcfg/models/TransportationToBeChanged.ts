@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TransportationListType } from './TransportationListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TransportationType } from './TransportationType';
 import {
-    TransportationListTypeFromJSON,
-    TransportationListTypeFromJSONTyped,
-    TransportationListTypeToJSON,
-} from './TransportationListType';
-import type { WarningsType } from './WarningsType';
+    TransportationTypeFromJSON,
+    TransportationTypeFromJSONTyped,
+    TransportationTypeToJSON,
+} from './TransportationType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for modifying transportation.
@@ -40,22 +40,22 @@ import {
 export interface TransportationToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransportationToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TransportationListType}
+     * Collection of hotel level transportation.
+     * @type {Array<TransportationType>}
      * @memberof TransportationToBeChanged
      */
-    transportationList?: TransportationListType;
+    transportationList?: Array<TransportationType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransportationToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TransportationToBeChangedFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'transportationList': !exists(json, 'transportationList') ? undefined : TransportationListTypeFromJSON(json['transportationList']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'transportationList': !exists(json, 'transportationList') ? undefined : ((json['transportationList'] as Array<any>).map(TransportationTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TransportationToBeChangedToJSON(value?: TransportationToBeChange
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'transportationList': TransportationListTypeToJSON(value.transportationList),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'transportationList': value.transportationList === undefined ? undefined : ((value.transportationList as Array<any>).map(TransportationTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

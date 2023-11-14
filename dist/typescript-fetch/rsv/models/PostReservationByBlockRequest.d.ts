@@ -11,10 +11,10 @@
  */
 import type { ChannelResvRQInfoType } from './ChannelResvRQInfoType';
 import type { HotelReservationsType } from './HotelReservationsType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationInstructionType } from './ReservationInstructionType';
 import type { ReservationsInstructionsType } from './ReservationsInstructionsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -35,10 +35,10 @@ export interface PostReservationByBlockRequest {
     fetchInstructions?: Array<ReservationInstructionType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostReservationByBlockRequest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {HotelReservationsType}
@@ -52,11 +52,11 @@ export interface PostReservationByBlockRequest {
      */
     reservationsInstructionsType?: ReservationsInstructionsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostReservationByBlockRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PostReservationByBlockRequest interface.

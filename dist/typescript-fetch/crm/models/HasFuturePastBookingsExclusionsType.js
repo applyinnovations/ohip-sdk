@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HasFuturePastBookingsExclusionsTypeToJSON = exports.HasFuturePastBookingsExclusionsTypeFromJSONTyped = exports.HasFuturePastBookingsExclusionsTypeFromJSON = exports.instanceOfHasFuturePastBookingsExclusionsType = void 0;
 const runtime_1 = require("../runtime");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the HasFuturePastBookingsExclusionsType interface.
  */
@@ -33,8 +33,8 @@ function HasFuturePastBookingsExclusionsTypeFromJSONTyped(json, ignoreDiscrimina
         return json;
     }
     return {
-        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['blockIdList']),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['reservationIdList']),
+        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.HasFuturePastBookingsExclusionsTypeFromJSONTyped = HasFuturePastBookingsExclusionsTypeFromJSONTyped;
@@ -46,8 +46,8 @@ function HasFuturePastBookingsExclusionsTypeToJSON(value) {
         return null;
     }
     return {
-        'blockIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.blockIdList),
-        'reservationIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.reservationIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.HasFuturePastBookingsExclusionsTypeToJSON = HasFuturePastBookingsExclusionsTypeToJSON;

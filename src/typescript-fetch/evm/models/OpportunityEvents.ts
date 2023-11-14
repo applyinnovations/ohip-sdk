@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { OpportunityBlockInfoType } from './OpportunityBlockInfoType';
 import {
     OpportunityBlockInfoTypeFromJSON,
@@ -31,12 +31,12 @@ import {
     OpportunityEventInfoTypeFromJSONTyped,
     OpportunityEventInfoTypeToJSON,
 } from './OpportunityEventInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Object containing details of the catering events which will be added to the Opportunity Block.
@@ -46,10 +46,10 @@ import {
 export interface OpportunityEvents {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof OpportunityEvents
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {OpportunityBlockInfoType}
@@ -63,11 +63,11 @@ export interface OpportunityEvents {
      */
     opportunityEventDetails?: Array<OpportunityEventInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OpportunityEvents
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function OpportunityEventsFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'opportunityBlockInfo': !exists(json, 'opportunityBlockInfo') ? undefined : OpportunityBlockInfoTypeFromJSON(json['opportunityBlockInfo']),
         'opportunityEventDetails': !exists(json, 'opportunityEventDetails') ? undefined : ((json['opportunityEventDetails'] as Array<any>).map(OpportunityEventInfoTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function OpportunityEventsToJSON(value?: OpportunityEvents | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'opportunityBlockInfo': OpportunityBlockInfoTypeToJSON(value.opportunityBlockInfo),
         'opportunityEventDetails': value.opportunityEventDetails === undefined ? undefined : ((value.opportunityEventDetails as Array<any>).map(OpportunityEventInfoTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

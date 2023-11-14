@@ -37,12 +37,12 @@ import {
     ThresholdDetailsTypeFromJSONTyped,
     ThresholdDetailsTypeToJSON,
 } from './ThresholdDetailsType';
-import type { TransactionDiversionDailyDetailsType } from './TransactionDiversionDailyDetailsType';
+import type { TransactionDiversionDailyDetailType } from './TransactionDiversionDailyDetailType';
 import {
-    TransactionDiversionDailyDetailsTypeFromJSON,
-    TransactionDiversionDailyDetailsTypeFromJSONTyped,
-    TransactionDiversionDailyDetailsTypeToJSON,
-} from './TransactionDiversionDailyDetailsType';
+    TransactionDiversionDailyDetailTypeFromJSON,
+    TransactionDiversionDailyDetailTypeFromJSONTyped,
+    TransactionDiversionDailyDetailTypeToJSON,
+} from './TransactionDiversionDailyDetailType';
 import type { TransactionDiversionRuleLevelType } from './TransactionDiversionRuleLevelType';
 import {
     TransactionDiversionRuleLevelTypeFromJSON,
@@ -69,11 +69,11 @@ export interface ReservationTransactionDiversionType {
      */
     code?: string;
     /**
-     * 
-     * @type {TransactionDiversionDailyDetailsType}
+     * List of daily details for Transaction Diversion rule.
+     * @type {Array<TransactionDiversionDailyDetailType>}
      * @memberof ReservationTransactionDiversionType
      */
-    dailyDetails?: TransactionDiversionDailyDetailsType;
+    dailyDetails?: Array<TransactionDiversionDailyDetailType>;
     /**
      * User defined message for the Transaction Diversion Rule.
      * @type {string}
@@ -180,7 +180,7 @@ export function ReservationTransactionDiversionTypeFromJSONTyped(json: any, igno
     return {
         
         'code': !exists(json, 'code') ? undefined : json['code'],
-        'dailyDetails': !exists(json, 'dailyDetails') ? undefined : TransactionDiversionDailyDetailsTypeFromJSON(json['dailyDetails']),
+        'dailyDetails': !exists(json, 'dailyDetails') ? undefined : ((json['dailyDetails'] as Array<any>).map(TransactionDiversionDailyDetailTypeFromJSON)),
         'description': !exists(json, 'description') ? undefined : json['description'],
         'displaySequence': !exists(json, 'displaySequence') ? undefined : json['displaySequence'],
         'diverted': !exists(json, 'diverted') ? undefined : json['diverted'],
@@ -208,7 +208,7 @@ export function ReservationTransactionDiversionTypeToJSON(value?: ReservationTra
     return {
         
         'code': value.code,
-        'dailyDetails': TransactionDiversionDailyDetailsTypeToJSON(value.dailyDetails),
+        'dailyDetails': value.dailyDetails === undefined ? undefined : ((value.dailyDetails as Array<any>).map(TransactionDiversionDailyDetailTypeToJSON)),
         'description': value.description,
         'displaySequence': value.displaySequence,
         'diverted': value.diverted,

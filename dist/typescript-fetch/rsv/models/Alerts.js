@@ -15,11 +15,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AlertsToJSON = exports.AlertsFromJSONTyped = exports.AlertsFromJSON = exports.instanceOfAlerts = void 0;
 const runtime_1 = require("../runtime");
-const AlertsType_1 = require("./AlertsType");
+const AlertType_1 = require("./AlertType");
 const CommentInfoType_1 = require("./CommentInfoType");
-const Links_1 = require("./Links");
-const ResvGuestMessagesType_1 = require("./ResvGuestMessagesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const ResvGuestMessageType_1 = require("./ResvGuestMessageType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the Alerts interface.
  */
@@ -37,11 +37,11 @@ function AlertsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'alerts': !(0, runtime_1.exists)(json, 'alerts') ? undefined : (0, AlertsType_1.AlertsTypeFromJSON)(json['alerts']),
+        'alerts': !(0, runtime_1.exists)(json, 'alerts') ? undefined : (json['alerts'].map(AlertType_1.AlertTypeFromJSON)),
         'comments': !(0, runtime_1.exists)(json, 'comments') ? undefined : (json['comments'].map(CommentInfoType_1.CommentInfoTypeFromJSON)),
-        'guestMessages': !(0, runtime_1.exists)(json, 'guestMessages') ? undefined : (0, ResvGuestMessagesType_1.ResvGuestMessagesTypeFromJSON)(json['guestMessages']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'guestMessages': !(0, runtime_1.exists)(json, 'guestMessages') ? undefined : (json['guestMessages'].map(ResvGuestMessageType_1.ResvGuestMessageTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AlertsFromJSONTyped = AlertsFromJSONTyped;
@@ -53,11 +53,11 @@ function AlertsToJSON(value) {
         return null;
     }
     return {
-        'alerts': (0, AlertsType_1.AlertsTypeToJSON)(value.alerts),
+        'alerts': value.alerts === undefined ? undefined : (value.alerts.map(AlertType_1.AlertTypeToJSON)),
         'comments': value.comments === undefined ? undefined : (value.comments.map(CommentInfoType_1.CommentInfoTypeToJSON)),
-        'guestMessages': (0, ResvGuestMessagesType_1.ResvGuestMessagesTypeToJSON)(value.guestMessages),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'guestMessages': value.guestMessages === undefined ? undefined : (value.guestMessages.map(ResvGuestMessageType_1.ResvGuestMessageTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AlertsToJSON = AlertsToJSON;

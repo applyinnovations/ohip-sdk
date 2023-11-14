@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockInventoryStatisticTypeToJSON = exports.BlockInventoryStatisticTypeFromJSONTyped = exports.BlockInventoryStatisticTypeFromJSON = exports.instanceOfBlockInventoryStatisticType = void 0;
 const runtime_1 = require("../runtime");
-const BlockDetailStatisticsType_1 = require("./BlockDetailStatisticsType");
-const BlockSummaryStatisticsType_1 = require("./BlockSummaryStatisticsType");
+const BlockDetailStatisticType_1 = require("./BlockDetailStatisticType");
+const BlockSummaryStatisticType_1 = require("./BlockSummaryStatisticType");
 const SellMessagesType_1 = require("./SellMessagesType");
 /**
  * Check if a given object implements the BlockInventoryStatisticType interface.
@@ -35,8 +35,8 @@ function BlockInventoryStatisticTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blockDetailStatistics': !(0, runtime_1.exists)(json, 'blockDetailStatistics') ? undefined : (0, BlockDetailStatisticsType_1.BlockDetailStatisticsTypeFromJSON)(json['blockDetailStatistics']),
-        'blockSummaryStatistics': !(0, runtime_1.exists)(json, 'blockSummaryStatistics') ? undefined : (0, BlockSummaryStatisticsType_1.BlockSummaryStatisticsTypeFromJSON)(json['blockSummaryStatistics']),
+        'blockDetailStatistics': !(0, runtime_1.exists)(json, 'blockDetailStatistics') ? undefined : (json['blockDetailStatistics'].map(BlockDetailStatisticType_1.BlockDetailStatisticTypeFromJSON)),
+        'blockSummaryStatistics': !(0, runtime_1.exists)(json, 'blockSummaryStatistics') ? undefined : (json['blockSummaryStatistics'].map(BlockSummaryStatisticType_1.BlockSummaryStatisticTypeFromJSON)),
         'sellMessages': !(0, runtime_1.exists)(json, 'sellMessages') ? undefined : (0, SellMessagesType_1.SellMessagesTypeFromJSON)(json['sellMessages']),
     };
 }
@@ -49,8 +49,8 @@ function BlockInventoryStatisticTypeToJSON(value) {
         return null;
     }
     return {
-        'blockDetailStatistics': (0, BlockDetailStatisticsType_1.BlockDetailStatisticsTypeToJSON)(value.blockDetailStatistics),
-        'blockSummaryStatistics': (0, BlockSummaryStatisticsType_1.BlockSummaryStatisticsTypeToJSON)(value.blockSummaryStatistics),
+        'blockDetailStatistics': value.blockDetailStatistics === undefined ? undefined : (value.blockDetailStatistics.map(BlockDetailStatisticType_1.BlockDetailStatisticTypeToJSON)),
+        'blockSummaryStatistics': value.blockSummaryStatistics === undefined ? undefined : (value.blockSummaryStatistics.map(BlockSummaryStatisticType_1.BlockSummaryStatisticTypeToJSON)),
         'sellMessages': (0, SellMessagesType_1.SellMessagesTypeToJSON)(value.sellMessages),
     };
 }

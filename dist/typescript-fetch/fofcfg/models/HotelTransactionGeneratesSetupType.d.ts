@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { GenerateCalculationBucketsType } from './GenerateCalculationBucketsType';
-import type { GeneratesType } from './GeneratesType';
+import type { GenerateType } from './GenerateType';
 /**
  * Defines the Generates Setup and its Calculation Rules.
  * @export
@@ -24,11 +24,11 @@ export interface HotelTransactionGeneratesSetupType {
      */
     addBaseAmtTo?: GenerateCalculationBucketsType;
     /**
-     *
-     * @type {GeneratesType}
+     * Defines the Generate and its Calculation Rules.
+     * @type {Array<GenerateType>}
      * @memberof HotelTransactionGeneratesSetupType
      */
-    generates?: GeneratesType;
+    generates?: Array<GenerateType>;
     /**
      * Hotel code.
      * @type {string}

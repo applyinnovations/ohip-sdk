@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ServiceRequestCodesType } from './ServiceRequestCodesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ServiceRequestCodeType } from './ServiceRequestCodeType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new service request codes.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ServiceRequestCodesCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ServiceRequestCodesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ServiceRequestCodesType}
+     * Details for service request code type.
+     * @type {Array<ServiceRequestCodeType>}
      * @memberof ServiceRequestCodesCriteria
      */
-    serviceRequestCodes?: ServiceRequestCodesType;
+    serviceRequestCodes?: Array<ServiceRequestCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ServiceRequestCodesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ServiceRequestCodesCriteria interface.

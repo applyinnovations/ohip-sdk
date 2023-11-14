@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PreferenceGroupsToJSON = exports.PreferenceGroupsFromJSONTyped = exports.PreferenceGroupsFromJSON = exports.instanceOfPreferenceGroups = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const PreferenceGroupsType_1 = require("./PreferenceGroupsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const PreferenceGroupType_1 = require("./PreferenceGroupType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PreferenceGroups interface.
  */
@@ -35,9 +35,9 @@ function PreferenceGroupsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'preferenceGroups': !(0, runtime_1.exists)(json, 'preferenceGroups') ? undefined : (0, PreferenceGroupsType_1.PreferenceGroupsTypeFromJSON)(json['preferenceGroups']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'preferenceGroups': !(0, runtime_1.exists)(json, 'preferenceGroups') ? undefined : (json['preferenceGroups'].map(PreferenceGroupType_1.PreferenceGroupTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PreferenceGroupsFromJSONTyped = PreferenceGroupsFromJSONTyped;
@@ -49,9 +49,9 @@ function PreferenceGroupsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'preferenceGroups': (0, PreferenceGroupsType_1.PreferenceGroupsTypeToJSON)(value.preferenceGroups),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'preferenceGroups': value.preferenceGroups === undefined ? undefined : (value.preferenceGroups.map(PreferenceGroupType_1.PreferenceGroupTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PreferenceGroupsToJSON = PreferenceGroupsToJSON;

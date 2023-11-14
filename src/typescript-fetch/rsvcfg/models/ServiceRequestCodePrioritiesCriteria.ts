@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ServiceRequestCodePrioritiesType } from './ServiceRequestCodePrioritiesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ServiceRequestCodePriorityType } from './ServiceRequestCodePriorityType';
 import {
-    ServiceRequestCodePrioritiesTypeFromJSON,
-    ServiceRequestCodePrioritiesTypeFromJSONTyped,
-    ServiceRequestCodePrioritiesTypeToJSON,
-} from './ServiceRequestCodePrioritiesType';
-import type { WarningsType } from './WarningsType';
+    ServiceRequestCodePriorityTypeFromJSON,
+    ServiceRequestCodePriorityTypeFromJSONTyped,
+    ServiceRequestCodePriorityTypeToJSON,
+} from './ServiceRequestCodePriorityType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Service Request Code Priorities.
@@ -40,22 +40,22 @@ import {
 export interface ServiceRequestCodePrioritiesCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ServiceRequestCodePrioritiesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ServiceRequestCodePrioritiesType}
+     * List of Service Request Code Priorities.
+     * @type {Array<ServiceRequestCodePriorityType>}
      * @memberof ServiceRequestCodePrioritiesCriteria
      */
-    serviceRequestCodePriorities?: ServiceRequestCodePrioritiesType;
+    serviceRequestCodePriorities?: Array<ServiceRequestCodePriorityType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ServiceRequestCodePrioritiesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ServiceRequestCodePrioritiesCriteriaFromJSONTyped(json: any, ign
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'serviceRequestCodePriorities': !exists(json, 'serviceRequestCodePriorities') ? undefined : ServiceRequestCodePrioritiesTypeFromJSON(json['serviceRequestCodePriorities']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'serviceRequestCodePriorities': !exists(json, 'serviceRequestCodePriorities') ? undefined : ((json['serviceRequestCodePriorities'] as Array<any>).map(ServiceRequestCodePriorityTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ServiceRequestCodePrioritiesCriteriaToJSON(value?: ServiceReques
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'serviceRequestCodePriorities': ServiceRequestCodePrioritiesTypeToJSON(value.serviceRequestCodePriorities),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'serviceRequestCodePriorities': value.serviceRequestCodePriorities === undefined ? undefined : ((value.serviceRequestCodePriorities as Array<any>).map(ServiceRequestCodePriorityTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

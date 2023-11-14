@@ -15,8 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomsAIToJSON = exports.RoomsAIFromJSONTyped = exports.RoomsAIFromJSON = exports.instanceOfRoomsAI = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomsAI interface.
  */
@@ -34,8 +33,8 @@ function RoomsAIFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'hotelCodes': !(0, runtime_1.exists)(json, 'hotelCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['hotelCodes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'hotelCodes': !(0, runtime_1.exists)(json, 'hotelCodes') ? undefined : json['hotelCodes'],
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomsAIFromJSONTyped = RoomsAIFromJSONTyped;
@@ -47,8 +46,8 @@ function RoomsAIToJSON(value) {
         return null;
     }
     return {
-        'hotelCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.hotelCodes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'hotelCodes': value.hotelCodes,
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomsAIToJSON = RoomsAIToJSON;

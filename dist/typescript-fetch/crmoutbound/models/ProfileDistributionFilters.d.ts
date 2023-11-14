@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ProfileDistributionFiltersType } from './ProfileDistributionFiltersType';
+import type { InstanceLink } from './InstanceLink';
+import type { ProfileDistributionFilterType } from './ProfileDistributionFilterType';
 /**
  * Response object for fetching Profile Distribution Filters.
  * @export
@@ -18,17 +18,17 @@ import type { ProfileDistributionFiltersType } from './ProfileDistributionFilter
  */
 export interface ProfileDistributionFilters {
     /**
-     *
-     * @type {ProfileDistributionFiltersType}
+     * Profile Distribution Filter details.
+     * @type {Array<ProfileDistributionFilterType>}
      * @memberof ProfileDistributionFilters
      */
-    profileDistributionFiltersDetail?: ProfileDistributionFiltersType;
+    profileDistributionFiltersDetail?: Array<ProfileDistributionFilterType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileDistributionFilters
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the ProfileDistributionFilters interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { NegotiatedRatesType } from './NegotiatedRatesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { NegotiatedRateType } from './NegotiatedRateType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching negotiated rates and profile discounts.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface NegotiatedRates {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof NegotiatedRates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {NegotiatedRatesType}
+     * List of Negotiated rates to be maintained.
+     * @type {Array<NegotiatedRateType>}
      * @memberof NegotiatedRates
      */
-    negotiatedRates?: NegotiatedRatesType;
+    negotiatedRates?: Array<NegotiatedRateType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof NegotiatedRates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the NegotiatedRates interface.

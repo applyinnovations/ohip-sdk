@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ReservationAlertsListType } from './ReservationAlertsListType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ReservationAlertsType } from './ReservationAlertsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to create or update multiple alerts information for multiple reservations in bulk.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ReservationAlerts {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationAlerts
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ReservationAlertsListType}
+     * Holds multiple alerts for a single reservation. Reservation will be identified by a unique identifier/ list of unique identifiers.
+     * @type {Array<ReservationAlertsType>}
      * @memberof ReservationAlerts
      */
-    reservations?: ReservationAlertsListType;
+    reservations?: Array<ReservationAlertsType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationAlerts
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationAlerts interface.

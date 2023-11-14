@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelFloorsType } from './HotelFloorsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelFloorType } from './HotelFloorType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating floors at the hotel level.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FloorsCriteria {
     /**
-     *
-     * @type {HotelFloorsType}
+     * This type holds a collection of floors at the hotel level.
+     * @type {Array<HotelFloorType>}
      * @memberof FloorsCriteria
      */
-    hotelFloors?: HotelFloorsType;
+    hotelFloors?: Array<HotelFloorType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FloorsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FloorsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FloorsCriteria interface.

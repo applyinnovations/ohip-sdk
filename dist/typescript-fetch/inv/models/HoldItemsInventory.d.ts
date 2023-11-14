@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { PoolItemInventoryCountsListType } from './PoolItemInventoryCountsListType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { PoolItemInventoryCountsType } from './PoolItemInventoryCountsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object to fetch the item hold details.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface HoldItemsInventory {
     /**
-     *
-     * @type {PoolItemInventoryCountsListType}
+     * Items/Item pool with brief information and its Inventory counts for the given dates.
+     * @type {Array<PoolItemInventoryCountsType>}
      * @memberof HoldItemsInventory
      */
-    itemsInventory?: PoolItemInventoryCountsListType;
+    itemsInventory?: Array<PoolItemInventoryCountsType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HoldItemsInventory
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HoldItemsInventory
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HoldItemsInventory interface.

@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelSnapshotTypeToJSON = exports.ChannelSnapshotTypeFromJSONTyped = exports.ChannelSnapshotTypeFromJSON = exports.instanceOfChannelSnapshotType = void 0;
 const runtime_1 = require("../runtime");
-const RestrictionsInfoType_1 = require("./RestrictionsInfoType");
+const RestrictionInfoType_1 = require("./RestrictionInfoType");
 /**
  * Check if a given object implements the ChannelSnapshotType interface.
  */
@@ -36,7 +36,7 @@ function ChannelSnapshotTypeFromJSONTyped(json, ignoreDiscriminator) {
         'availableRooms': !(0, runtime_1.exists)(json, 'availableRooms') ? undefined : json['availableRooms'],
         'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
         'inventoryRooms': !(0, runtime_1.exists)(json, 'inventoryRooms') ? undefined : json['inventoryRooms'],
-        'restrictionsInfo': !(0, runtime_1.exists)(json, 'restrictionsInfo') ? undefined : (0, RestrictionsInfoType_1.RestrictionsInfoTypeFromJSON)(json['restrictionsInfo']),
+        'restrictionsInfo': !(0, runtime_1.exists)(json, 'restrictionsInfo') ? undefined : (json['restrictionsInfo'].map(RestrictionInfoType_1.RestrictionInfoTypeFromJSON)),
         'roomsSold': !(0, runtime_1.exists)(json, 'roomsSold') ? undefined : json['roomsSold'],
         'sellLimit': !(0, runtime_1.exists)(json, 'sellLimit') ? undefined : json['sellLimit'],
         'tentativeRoomsSold': !(0, runtime_1.exists)(json, 'tentativeRoomsSold') ? undefined : json['tentativeRoomsSold'],
@@ -54,7 +54,7 @@ function ChannelSnapshotTypeToJSON(value) {
         'availableRooms': value.availableRooms,
         'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
         'inventoryRooms': value.inventoryRooms,
-        'restrictionsInfo': (0, RestrictionsInfoType_1.RestrictionsInfoTypeToJSON)(value.restrictionsInfo),
+        'restrictionsInfo': value.restrictionsInfo === undefined ? undefined : (value.restrictionsInfo.map(RestrictionInfoType_1.RestrictionInfoTypeToJSON)),
         'roomsSold': value.roomsSold,
         'sellLimit': value.sellLimit,
         'tentativeRoomsSold': value.tentativeRoomsSold,

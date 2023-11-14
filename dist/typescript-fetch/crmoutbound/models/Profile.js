@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfileToJSON = exports.ProfileFromJSONTyped = exports.ProfileFromJSON = exports.instanceOfProfile = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const ProfileIdList_1 = require("./ProfileIdList");
+const InstanceLink_1 = require("./InstanceLink");
 const ProfileType_1 = require("./ProfileType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the Profile interface.
  */
@@ -35,9 +35,9 @@ function ProfileFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'profileDetails': !(0, runtime_1.exists)(json, 'profileDetails') ? undefined : (0, ProfileType_1.ProfileTypeFromJSON)(json['profileDetails']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.ProfileFromJSONTyped = ProfileFromJSONTyped;
@@ -49,9 +49,9 @@ function ProfileToJSON(value) {
         return null;
     }
     return {
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'profileDetails': (0, ProfileType_1.ProfileTypeToJSON)(value.profileDetails),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.ProfileToJSON = ProfileToJSON;

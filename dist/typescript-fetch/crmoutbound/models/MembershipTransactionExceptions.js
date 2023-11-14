@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipTransactionExceptionsToJSON = exports.MembershipTransactionExceptionsFromJSONTyped = exports.MembershipTransactionExceptionsFromJSON = exports.instanceOfMembershipTransactionExceptions = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const MembershipTransactionExceptionsType_1 = require("./MembershipTransactionExceptionsType");
+const InstanceLink_1 = require("./InstanceLink");
+const MembershipTransactionExceptionType_1 = require("./MembershipTransactionExceptionType");
 /**
  * Check if a given object implements the MembershipTransactionExceptions interface.
  */
@@ -34,8 +34,8 @@ function MembershipTransactionExceptionsFromJSONTyped(json, ignoreDiscriminator)
         return json;
     }
     return {
-        'memberTransactionExceptions': !(0, runtime_1.exists)(json, 'memberTransactionExceptions') ? undefined : (0, MembershipTransactionExceptionsType_1.MembershipTransactionExceptionsTypeFromJSON)(json['memberTransactionExceptions']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'memberTransactionExceptions': !(0, runtime_1.exists)(json, 'memberTransactionExceptions') ? undefined : (json['memberTransactionExceptions'].map(MembershipTransactionExceptionType_1.MembershipTransactionExceptionTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.MembershipTransactionExceptionsFromJSONTyped = MembershipTransactionExceptionsFromJSONTyped;
@@ -47,8 +47,8 @@ function MembershipTransactionExceptionsToJSON(value) {
         return null;
     }
     return {
-        'memberTransactionExceptions': (0, MembershipTransactionExceptionsType_1.MembershipTransactionExceptionsTypeToJSON)(value.memberTransactionExceptions),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'memberTransactionExceptions': value.memberTransactionExceptions === undefined ? undefined : (value.memberTransactionExceptions.map(MembershipTransactionExceptionType_1.MembershipTransactionExceptionTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.MembershipTransactionExceptionsToJSON = MembershipTransactionExceptionsToJSON;

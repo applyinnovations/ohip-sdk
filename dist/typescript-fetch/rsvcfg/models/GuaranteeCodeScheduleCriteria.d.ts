@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CreateGuaranteeCodeScheduleType } from './CreateGuaranteeCodeScheduleType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Creates the Guarantee Code schedule based on the details provided by the request.
  * @export
@@ -26,16 +26,16 @@ export interface GuaranteeCodeScheduleCriteria {
     guaranteeCodeSchedule?: CreateGuaranteeCodeScheduleType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuaranteeCodeScheduleCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuaranteeCodeScheduleCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GuaranteeCodeScheduleCriteria interface.

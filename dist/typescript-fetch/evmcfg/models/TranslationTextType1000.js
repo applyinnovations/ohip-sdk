@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TranslationTextType1000ToJSON = exports.TranslationTextType1000FromJSONTyped = exports.TranslationTextType1000FromJSON = exports.instanceOfTranslationTextType1000 = void 0;
 const runtime_1 = require("../runtime");
-const TranslationsTextType_1 = require("./TranslationsTextType");
+const TranslationsTextTypeInner_1 = require("./TranslationsTextTypeInner");
 /**
  * Check if a given object implements the TranslationTextType1000 interface.
  */
@@ -34,7 +34,7 @@ function TranslationTextType1000FromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'defaultText': !(0, runtime_1.exists)(json, 'defaultText') ? undefined : json['defaultText'],
-        'translatedTexts': !(0, runtime_1.exists)(json, 'translatedTexts') ? undefined : (0, TranslationsTextType_1.TranslationsTextTypeFromJSON)(json['translatedTexts']),
+        'translatedTexts': !(0, runtime_1.exists)(json, 'translatedTexts') ? undefined : (json['translatedTexts'].map(TranslationsTextTypeInner_1.TranslationsTextTypeInnerFromJSON)),
     };
 }
 exports.TranslationTextType1000FromJSONTyped = TranslationTextType1000FromJSONTyped;
@@ -47,7 +47,7 @@ function TranslationTextType1000ToJSON(value) {
     }
     return {
         'defaultText': value.defaultText,
-        'translatedTexts': (0, TranslationsTextType_1.TranslationsTextTypeToJSON)(value.translatedTexts),
+        'translatedTexts': value.translatedTexts === undefined ? undefined : (value.translatedTexts.map(TranslationsTextTypeInner_1.TranslationsTextTypeInnerToJSON)),
     };
 }
 exports.TranslationTextType1000ToJSON = TranslationTextType1000ToJSON;

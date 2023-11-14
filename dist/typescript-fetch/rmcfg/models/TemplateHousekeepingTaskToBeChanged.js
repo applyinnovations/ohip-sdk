@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateHousekeepingTaskToBeChangedToJSON = exports.TemplateHousekeepingTaskToBeChangedFromJSONTyped = exports.TemplateHousekeepingTaskToBeChangedFromJSON = exports.instanceOfTemplateHousekeepingTaskToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const TemplateHousekeepingTaskConfigType_1 = require("./TemplateHousekeepingTaskConfigType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TemplateHousekeepingTaskToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function TemplateHousekeepingTaskToBeChangedFromJSONTyped(json, ignoreDiscrimina
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'task': !(0, runtime_1.exists)(json, 'task') ? undefined : (0, TemplateHousekeepingTaskConfigType_1.TemplateHousekeepingTaskConfigTypeFromJSON)(json['task']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TemplateHousekeepingTaskToBeChangedFromJSONTyped = TemplateHousekeepingTaskToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function TemplateHousekeepingTaskToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'task': (0, TemplateHousekeepingTaskConfigType_1.TemplateHousekeepingTaskConfigTypeToJSON)(value.task),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TemplateHousekeepingTaskToBeChangedToJSON = TemplateHousekeepingTaskToBeChangedToJSON;

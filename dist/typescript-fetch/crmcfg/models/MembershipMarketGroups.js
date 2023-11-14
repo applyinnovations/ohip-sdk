@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipMarketGroupsToJSON = exports.MembershipMarketGroupsFromJSONTyped = exports.MembershipMarketGroupsFromJSON = exports.instanceOfMembershipMarketGroups = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const MembershipMarketGroupsType_1 = require("./MembershipMarketGroupsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const MembershipMarketGroupType_1 = require("./MembershipMarketGroupType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MembershipMarketGroups interface.
  */
@@ -35,9 +35,9 @@ function MembershipMarketGroupsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'membershipMarketGroups': !(0, runtime_1.exists)(json, 'membershipMarketGroups') ? undefined : (0, MembershipMarketGroupsType_1.MembershipMarketGroupsTypeFromJSON)(json['membershipMarketGroups']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'membershipMarketGroups': !(0, runtime_1.exists)(json, 'membershipMarketGroups') ? undefined : (json['membershipMarketGroups'].map(MembershipMarketGroupType_1.MembershipMarketGroupTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MembershipMarketGroupsFromJSONTyped = MembershipMarketGroupsFromJSONTyped;
@@ -49,9 +49,9 @@ function MembershipMarketGroupsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'membershipMarketGroups': (0, MembershipMarketGroupsType_1.MembershipMarketGroupsTypeToJSON)(value.membershipMarketGroups),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'membershipMarketGroups': value.membershipMarketGroups === undefined ? undefined : (value.membershipMarketGroups.map(MembershipMarketGroupType_1.MembershipMarketGroupTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MembershipMarketGroupsToJSON = MembershipMarketGroupsToJSON;

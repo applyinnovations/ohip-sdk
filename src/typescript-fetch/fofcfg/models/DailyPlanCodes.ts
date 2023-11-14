@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DailyPlanCodesType } from './DailyPlanCodesType';
+import type { DailyPlanCodeType } from './DailyPlanCodeType';
 import {
-    DailyPlanCodesTypeFromJSON,
-    DailyPlanCodesTypeFromJSONTyped,
-    DailyPlanCodesTypeToJSON,
-} from './DailyPlanCodesType';
-import type { Links } from './Links';
+    DailyPlanCodeTypeFromJSON,
+    DailyPlanCodeTypeFromJSONTyped,
+    DailyPlanCodeTypeToJSON,
+} from './DailyPlanCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface DailyPlanCodes {
     /**
-     * 
-     * @type {DailyPlanCodesType}
+     * Details for daily plan code along with associated transaction codes.
+     * @type {Array<DailyPlanCodeType>}
      * @memberof DailyPlanCodes
      */
-    dailyPlanCodes?: DailyPlanCodesType;
+    dailyPlanCodes?: Array<DailyPlanCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DailyPlanCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DailyPlanCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function DailyPlanCodesFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'dailyPlanCodes': !exists(json, 'dailyPlanCodes') ? undefined : DailyPlanCodesTypeFromJSON(json['dailyPlanCodes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'dailyPlanCodes': !exists(json, 'dailyPlanCodes') ? undefined : ((json['dailyPlanCodes'] as Array<any>).map(DailyPlanCodeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function DailyPlanCodesToJSON(value?: DailyPlanCodes | null): any {
     }
     return {
         
-        'dailyPlanCodes': DailyPlanCodesTypeToJSON(value.dailyPlanCodes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'dailyPlanCodes': value.dailyPlanCodes === undefined ? undefined : ((value.dailyPlanCodes as Array<any>).map(DailyPlanCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

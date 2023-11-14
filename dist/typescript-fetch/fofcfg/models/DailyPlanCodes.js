@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DailyPlanCodesToJSON = exports.DailyPlanCodesFromJSONTyped = exports.DailyPlanCodesFromJSON = exports.instanceOfDailyPlanCodes = void 0;
 const runtime_1 = require("../runtime");
-const DailyPlanCodesType_1 = require("./DailyPlanCodesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const DailyPlanCodeType_1 = require("./DailyPlanCodeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the DailyPlanCodes interface.
  */
@@ -35,9 +35,9 @@ function DailyPlanCodesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'dailyPlanCodes': !(0, runtime_1.exists)(json, 'dailyPlanCodes') ? undefined : (0, DailyPlanCodesType_1.DailyPlanCodesTypeFromJSON)(json['dailyPlanCodes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'dailyPlanCodes': !(0, runtime_1.exists)(json, 'dailyPlanCodes') ? undefined : (json['dailyPlanCodes'].map(DailyPlanCodeType_1.DailyPlanCodeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.DailyPlanCodesFromJSONTyped = DailyPlanCodesFromJSONTyped;
@@ -49,9 +49,9 @@ function DailyPlanCodesToJSON(value) {
         return null;
     }
     return {
-        'dailyPlanCodes': (0, DailyPlanCodesType_1.DailyPlanCodesTypeToJSON)(value.dailyPlanCodes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'dailyPlanCodes': value.dailyPlanCodes === undefined ? undefined : (value.dailyPlanCodes.map(DailyPlanCodeType_1.DailyPlanCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.DailyPlanCodesToJSON = DailyPlanCodesToJSON;

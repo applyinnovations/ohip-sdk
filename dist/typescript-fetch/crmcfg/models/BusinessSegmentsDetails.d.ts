@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BusinessSegmentsType } from './BusinessSegmentsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BusinessSegmentType } from './BusinessSegmentType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Business Segments.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BusinessSegmentsDetails {
     /**
-     *
-     * @type {BusinessSegmentsType}
+     * List of Business Segments.
+     * @type {Array<BusinessSegmentType>}
      * @memberof BusinessSegmentsDetails
      */
-    businessSegments?: BusinessSegmentsType;
+    businessSegments?: Array<BusinessSegmentType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BusinessSegmentsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BusinessSegmentsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BusinessSegmentsDetails interface.

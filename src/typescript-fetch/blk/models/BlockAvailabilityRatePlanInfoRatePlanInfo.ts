@@ -31,12 +31,12 @@ import {
     GuaranteeTypeFromJSONTyped,
     GuaranteeTypeToJSON,
 } from './GuaranteeType';
-import type { MealPlansType } from './MealPlansType';
+import type { MealPlanCodeType } from './MealPlanCodeType';
 import {
-    MealPlansTypeFromJSON,
-    MealPlansTypeFromJSONTyped,
-    MealPlansTypeToJSON,
-} from './MealPlansType';
+    MealPlanCodeTypeFromJSON,
+    MealPlanCodeTypeFromJSONTyped,
+    MealPlanCodeTypeToJSON,
+} from './MealPlanCodeType';
 import type { ProfileTypeType } from './ProfileTypeType';
 import {
     ProfileTypeTypeFromJSON,
@@ -105,11 +105,11 @@ export interface BlockAvailabilityRatePlanInfoRatePlanInfo {
      */
     longInfo?: string;
     /**
-     * 
-     * @type {MealPlansType}
+     * Meal plan codes associated with the rate codes.
+     * @type {Array<MealPlanCodeType>}
      * @memberof BlockAvailabilityRatePlanInfoRatePlanInfo
      */
-    mealPlans?: MealPlansType;
+    mealPlans?: Array<MealPlanCodeType>;
     /**
      * 
      * @type {ProfileTypeType}
@@ -198,7 +198,7 @@ export function BlockAvailabilityRatePlanInfoRatePlanInfoFromJSONTyped(json: any
         'guarantee': !exists(json, 'guarantee') ? undefined : GuaranteeTypeFromJSON(json['guarantee']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'longInfo': !exists(json, 'longInfo') ? undefined : json['longInfo'],
-        'mealPlans': !exists(json, 'mealPlans') ? undefined : MealPlansTypeFromJSON(json['mealPlans']),
+        'mealPlans': !exists(json, 'mealPlans') ? undefined : ((json['mealPlans'] as Array<any>).map(MealPlanCodeTypeFromJSON)),
         'negotiatedBy': !exists(json, 'negotiatedBy') ? undefined : ProfileTypeTypeFromJSON(json['negotiatedBy']),
         'rateCommission': !exists(json, 'rateCommission') ? undefined : RatePlanCommissionTypeFromJSON(json['rateCommission']),
         'ratePlanCategory': !exists(json, 'ratePlanCategory') ? undefined : json['ratePlanCategory'],
@@ -228,7 +228,7 @@ export function BlockAvailabilityRatePlanInfoRatePlanInfoToJSON(value?: BlockAva
         'guarantee': GuaranteeTypeToJSON(value.guarantee),
         'hotelId': value.hotelId,
         'longInfo': value.longInfo,
-        'mealPlans': MealPlansTypeToJSON(value.mealPlans),
+        'mealPlans': value.mealPlans === undefined ? undefined : ((value.mealPlans as Array<any>).map(MealPlanCodeTypeToJSON)),
         'negotiatedBy': ProfileTypeTypeToJSON(value.negotiatedBy),
         'rateCommission': RatePlanCommissionTypeToJSON(value.rateCommission),
         'ratePlanCategory': value.ratePlanCategory,

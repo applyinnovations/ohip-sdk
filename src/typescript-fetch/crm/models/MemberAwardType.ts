@@ -13,36 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { MemberAwardDetailsType } from './MemberAwardDetailsType';
+import type { MemberAwardDetailType } from './MemberAwardDetailType';
 import {
-    MemberAwardDetailsTypeFromJSON,
-    MemberAwardDetailsTypeFromJSONTyped,
-    MemberAwardDetailsTypeToJSON,
-} from './MemberAwardDetailsType';
+    MemberAwardDetailTypeFromJSON,
+    MemberAwardDetailTypeFromJSONTyped,
+    MemberAwardDetailTypeToJSON,
+} from './MemberAwardDetailType';
 import type { MemberAwardProcessType } from './MemberAwardProcessType';
 import {
     MemberAwardProcessTypeFromJSON,
     MemberAwardProcessTypeFromJSONTyped,
     MemberAwardProcessTypeToJSON,
 } from './MemberAwardProcessType';
-import type { ProfileIdList } from './ProfileIdList';
-import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
-import type { ReservationIdList } from './ReservationIdList';
-import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
 import type { TimeSpanType } from './TimeSpanType';
 import {
     TimeSpanTypeFromJSON,
     TimeSpanTypeFromJSONTyped,
     TimeSpanTypeToJSON,
 } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -93,11 +87,11 @@ export interface MemberAwardType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {MemberAwardDetailsType}
+     * Details related to member award per stay date.
+     * @type {Array<MemberAwardDetailType>}
      * @memberof MemberAwardType
      */
-    memberAwardDetails?: MemberAwardDetailsType;
+    memberAwardDetails?: Array<MemberAwardDetailType>;
     /**
      * Member points after award transaction.
      * @type {number}
@@ -129,17 +123,17 @@ export interface MemberAwardType {
      */
     membershipType?: string;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MemberAwardType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MemberAwardType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {TimeSpanType}
@@ -180,14 +174,14 @@ export function MemberAwardTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'cancelPointsReturn': !exists(json, 'cancelPointsReturn') ? undefined : json['cancelPointsReturn'],
         'expiryPoints': !exists(json, 'expiryPoints') ? undefined : json['expiryPoints'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'memberAwardDetails': !exists(json, 'memberAwardDetails') ? undefined : MemberAwardDetailsTypeFromJSON(json['memberAwardDetails']),
+        'memberAwardDetails': !exists(json, 'memberAwardDetails') ? undefined : ((json['memberAwardDetails'] as Array<any>).map(MemberAwardDetailTypeFromJSON)),
         'memberPointsAfter': !exists(json, 'memberPointsAfter') ? undefined : json['memberPointsAfter'],
         'memberPointsBefore': !exists(json, 'memberPointsBefore') ? undefined : json['memberPointsBefore'],
         'membershipCardNo': !exists(json, 'membershipCardNo') ? undefined : json['membershipCardNo'],
         'membershipLevel': !exists(json, 'membershipLevel') ? undefined : json['membershipLevel'],
         'membershipType': !exists(json, 'membershipType') ? undefined : json['membershipType'],
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'reservationTimeSpan': !exists(json, 'reservationTimeSpan') ? undefined : TimeSpanTypeFromJSON(json['reservationTimeSpan']),
         'sourceCode': !exists(json, 'sourceCode') ? undefined : json['sourceCode'],
     };
@@ -209,14 +203,14 @@ export function MemberAwardTypeToJSON(value?: MemberAwardType | null): any {
         'cancelPointsReturn': value.cancelPointsReturn,
         'expiryPoints': value.expiryPoints,
         'hotelId': value.hotelId,
-        'memberAwardDetails': MemberAwardDetailsTypeToJSON(value.memberAwardDetails),
+        'memberAwardDetails': value.memberAwardDetails === undefined ? undefined : ((value.memberAwardDetails as Array<any>).map(MemberAwardDetailTypeToJSON)),
         'memberPointsAfter': value.memberPointsAfter,
         'memberPointsBefore': value.memberPointsBefore,
         'membershipCardNo': value.membershipCardNo,
         'membershipLevel': value.membershipLevel,
         'membershipType': value.membershipType,
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'reservationTimeSpan': TimeSpanTypeToJSON(value.reservationTimeSpan),
         'sourceCode': value.sourceCode,
     };

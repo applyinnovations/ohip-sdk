@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockNonCompeteTypeToJSON = exports.BlockNonCompeteTypeFromJSONTyped = exports.BlockNonCompeteTypeFromJSON = exports.instanceOfBlockNonCompeteType = void 0;
 const runtime_1 = require("../runtime");
-const DatesType_1 = require("./DatesType");
 const RateProtectionType_1 = require("./RateProtectionType");
 /**
  * Check if a given object implements the BlockNonCompeteType interface.
@@ -37,7 +36,7 @@ function BlockNonCompeteTypeFromJSONTyped(json, ignoreDiscriminator) {
         'criteria': !(0, runtime_1.exists)(json, 'criteria') ? undefined : (0, RateProtectionType_1.RateProtectionTypeFromJSON)(json['criteria']),
         'industry': !(0, runtime_1.exists)(json, 'industry') ? undefined : json['industry'],
         'industryDescription': !(0, runtime_1.exists)(json, 'industryDescription') ? undefined : json['industryDescription'],
-        'protectedDates': !(0, runtime_1.exists)(json, 'protectedDates') ? undefined : (0, DatesType_1.DatesTypeFromJSON)(json['protectedDates']),
+        'protectedDates': !(0, runtime_1.exists)(json, 'protectedDates') ? undefined : json['protectedDates'],
     };
 }
 exports.BlockNonCompeteTypeFromJSONTyped = BlockNonCompeteTypeFromJSONTyped;
@@ -52,7 +51,7 @@ function BlockNonCompeteTypeToJSON(value) {
         'criteria': (0, RateProtectionType_1.RateProtectionTypeToJSON)(value.criteria),
         'industry': value.industry,
         'industryDescription': value.industryDescription,
-        'protectedDates': (0, DatesType_1.DatesTypeToJSON)(value.protectedDates),
+        'protectedDates': value.protectedDates,
     };
 }
 exports.BlockNonCompeteTypeToJSON = BlockNonCompeteTypeToJSON;

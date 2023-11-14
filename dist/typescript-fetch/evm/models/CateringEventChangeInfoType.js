@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringEventChangeInfoTypeToJSON = exports.CateringEventChangeInfoTypeFromJSONTyped = exports.CateringEventChangeInfoTypeFromJSON = exports.instanceOfCateringEventChangeInfoType = void 0;
 const runtime_1 = require("../runtime");
 const CateringEventChangeActions_1 = require("./CateringEventChangeActions");
-const CateringEventChangeDetailListType_1 = require("./CateringEventChangeDetailListType");
+const CateringEventChangeDetailType_1 = require("./CateringEventChangeDetailType");
 const CateringEventChangeSources_1 = require("./CateringEventChangeSources");
 const LogUserInfoType_1 = require("./LogUserInfoType");
 const UniqueIDType_1 = require("./UniqueIDType");
@@ -41,7 +41,7 @@ function CateringEventChangeInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'changeId': !(0, runtime_1.exists)(json, 'changeId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['changeId']),
         'changeSource': !(0, runtime_1.exists)(json, 'changeSource') ? undefined : (0, CateringEventChangeSources_1.CateringEventChangeSourcesFromJSON)(json['changeSource']),
         'changeUserInfo': !(0, runtime_1.exists)(json, 'changeUserInfo') ? undefined : (0, LogUserInfoType_1.LogUserInfoTypeFromJSON)(json['changeUserInfo']),
-        'eventChangeDetailList': !(0, runtime_1.exists)(json, 'eventChangeDetailList') ? undefined : (0, CateringEventChangeDetailListType_1.CateringEventChangeDetailListTypeFromJSON)(json['eventChangeDetailList']),
+        'eventChangeDetailList': !(0, runtime_1.exists)(json, 'eventChangeDetailList') ? undefined : (json['eventChangeDetailList'].map(CateringEventChangeDetailType_1.CateringEventChangeDetailTypeFromJSON)),
         'eventId': !(0, runtime_1.exists)(json, 'eventId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['eventId']),
         'eventName': !(0, runtime_1.exists)(json, 'eventName') ? undefined : json['eventName'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
@@ -61,7 +61,7 @@ function CateringEventChangeInfoTypeToJSON(value) {
         'changeId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.changeId),
         'changeSource': (0, CateringEventChangeSources_1.CateringEventChangeSourcesToJSON)(value.changeSource),
         'changeUserInfo': (0, LogUserInfoType_1.LogUserInfoTypeToJSON)(value.changeUserInfo),
-        'eventChangeDetailList': (0, CateringEventChangeDetailListType_1.CateringEventChangeDetailListTypeToJSON)(value.eventChangeDetailList),
+        'eventChangeDetailList': value.eventChangeDetailList === undefined ? undefined : (value.eventChangeDetailList.map(CateringEventChangeDetailType_1.CateringEventChangeDetailTypeToJSON)),
         'eventId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.eventId),
         'eventName': value.eventName,
         'hotelId': value.hotelId,

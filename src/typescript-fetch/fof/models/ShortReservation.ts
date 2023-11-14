@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReservationInfoType } from './ReservationInfoType';
 import {
     ReservationInfoTypeFromJSON,
@@ -31,12 +31,12 @@ import {
     ReservationsSummaryTypeFromJSONTyped,
     ReservationsSummaryTypeToJSON,
 } from './ReservationsSummaryType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -46,10 +46,10 @@ import {
 export interface ShortReservation {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ShortReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Short reservation information response.
      * @type {Array<ReservationInfoType>}
@@ -63,11 +63,11 @@ export interface ShortReservation {
      */
     reservationsSummary?: ReservationsSummaryType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ShortReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function ShortReservationFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservationInfoList': !exists(json, 'reservationInfoList') ? undefined : ((json['reservationInfoList'] as Array<any>).map(ReservationInfoTypeFromJSON)),
         'reservationsSummary': !exists(json, 'reservationsSummary') ? undefined : ReservationsSummaryTypeFromJSON(json['reservationsSummary']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function ShortReservationToJSON(value?: ShortReservation | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservationInfoList': value.reservationInfoList === undefined ? undefined : ((value.reservationInfoList as Array<any>).map(ReservationInfoTypeToJSON)),
         'reservationsSummary': ReservationsSummaryTypeToJSON(value.reservationsSummary),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

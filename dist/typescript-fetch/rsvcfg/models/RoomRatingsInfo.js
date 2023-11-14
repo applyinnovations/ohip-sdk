@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomRatingsInfoToJSON = exports.RoomRatingsInfoFromJSONTyped = exports.RoomRatingsInfoFromJSON = exports.instanceOfRoomRatingsInfo = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RoomRatingsInfoType_1 = require("./RoomRatingsInfoType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RoomRatingInfoType_1 = require("./RoomRatingInfoType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomRatingsInfo interface.
  */
@@ -35,9 +35,9 @@ function RoomRatingsInfoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'roomRatingsInfo': !(0, runtime_1.exists)(json, 'roomRatingsInfo') ? undefined : (0, RoomRatingsInfoType_1.RoomRatingsInfoTypeFromJSON)(json['roomRatingsInfo']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'roomRatingsInfo': !(0, runtime_1.exists)(json, 'roomRatingsInfo') ? undefined : (json['roomRatingsInfo'].map(RoomRatingInfoType_1.RoomRatingInfoTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomRatingsInfoFromJSONTyped = RoomRatingsInfoFromJSONTyped;
@@ -49,9 +49,9 @@ function RoomRatingsInfoToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'roomRatingsInfo': (0, RoomRatingsInfoType_1.RoomRatingsInfoTypeToJSON)(value.roomRatingsInfo),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'roomRatingsInfo': value.roomRatingsInfo === undefined ? undefined : (value.roomRatingsInfo.map(RoomRatingInfoType_1.RoomRatingInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomRatingsInfoToJSON = RoomRatingsInfoToJSON;

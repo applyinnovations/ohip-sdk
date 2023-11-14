@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CommissionProcessingInstructionsType } from './CommissionProcessingInstructionsType';
-import type { CommissionProcessingReservationsType } from './CommissionProcessingReservationsType';
+import type { CommissionProcessingReservationType } from './CommissionProcessingReservationType';
 /**
  * An identifier used to uniquely reference an object in a system (e.g. an airline reservation reference, customer profile reference, booking confirmation number, or a reference to a previous availability quote).
  * @export
@@ -54,11 +54,11 @@ export interface CommissionProcessingAgentType {
      */
     instructions?: CommissionProcessingInstructionsType;
     /**
-     *
-     * @type {CommissionProcessingReservationsType}
+     * Commission processing instructions for a reservation.
+     * @type {Array<CommissionProcessingReservationType>}
      * @memberof CommissionProcessingAgentType
      */
-    reservations?: CommissionProcessingReservationsType;
+    reservations?: Array<CommissionProcessingReservationType>;
     /**
      * A reference to the type of object defined by the UniqueID element.
      * @type {string}

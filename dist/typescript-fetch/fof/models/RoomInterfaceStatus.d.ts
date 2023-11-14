@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationInfoType } from './ReservationInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching room interface status
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface RoomInterfaceStatus {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomInterfaceStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Collection of room, reservation and interface status information.
      * @type {Array<ReservationInfoType>}
@@ -31,11 +31,11 @@ export interface RoomInterfaceStatus {
      */
     roomInterfaceStatusList?: Array<ReservationInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomInterfaceStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomInterfaceStatus interface.

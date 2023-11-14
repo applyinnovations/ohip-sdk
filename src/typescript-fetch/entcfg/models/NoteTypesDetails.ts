@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { NoteTypesType } from './NoteTypesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { NoteTypeType } from './NoteTypeType';
 import {
-    NoteTypesTypeFromJSON,
-    NoteTypesTypeFromJSONTyped,
-    NoteTypesTypeToJSON,
-} from './NoteTypesType';
-import type { WarningsType } from './WarningsType';
+    NoteTypeTypeFromJSON,
+    NoteTypeTypeFromJSONTyped,
+    NoteTypeTypeToJSON,
+} from './NoteTypeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Note Types of specific Notes Group.
@@ -40,22 +40,22 @@ import {
 export interface NoteTypesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof NoteTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {NoteTypesType}
+     * Note Types Collection element.
+     * @type {Array<NoteTypeType>}
      * @memberof NoteTypesDetails
      */
-    noteTypes?: NoteTypesType;
+    noteTypes?: Array<NoteTypeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof NoteTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function NoteTypesDetailsFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'noteTypes': !exists(json, 'noteTypes') ? undefined : NoteTypesTypeFromJSON(json['noteTypes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'noteTypes': !exists(json, 'noteTypes') ? undefined : ((json['noteTypes'] as Array<any>).map(NoteTypeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function NoteTypesDetailsToJSON(value?: NoteTypesDetails | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'noteTypes': NoteTypesTypeToJSON(value.noteTypes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'noteTypes': value.noteTypes === undefined ? undefined : ((value.noteTypes as Array<any>).map(NoteTypeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

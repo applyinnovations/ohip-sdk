@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelCategoriesType } from './HotelCategoriesType';
+import type { HotelCategoryType } from './HotelCategoryType';
 import {
-    HotelCategoriesTypeFromJSON,
-    HotelCategoriesTypeFromJSONTyped,
-    HotelCategoriesTypeToJSON,
-} from './HotelCategoriesType';
-import type { Links } from './Links';
+    HotelCategoryTypeFromJSON,
+    HotelCategoryTypeFromJSONTyped,
+    HotelCategoryTypeToJSON,
+} from './HotelCategoryType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Hotel Categories.
@@ -39,23 +39,23 @@ import {
  */
 export interface HotelCategoriesCriteria {
     /**
-     * 
-     * @type {HotelCategoriesType}
+     * List of Hotel Categories.
+     * @type {Array<HotelCategoryType>}
      * @memberof HotelCategoriesCriteria
      */
-    hotelCategories?: HotelCategoriesType;
+    hotelCategories?: Array<HotelCategoryType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelCategoriesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelCategoriesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function HotelCategoriesCriteriaFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'hotelCategories': !exists(json, 'hotelCategories') ? undefined : HotelCategoriesTypeFromJSON(json['hotelCategories']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'hotelCategories': !exists(json, 'hotelCategories') ? undefined : ((json['hotelCategories'] as Array<any>).map(HotelCategoryTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function HotelCategoriesCriteriaToJSON(value?: HotelCategoriesCriteria | 
     }
     return {
         
-        'hotelCategories': HotelCategoriesTypeToJSON(value.hotelCategories),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'hotelCategories': value.hotelCategories === undefined ? undefined : ((value.hotelCategories as Array<any>).map(HotelCategoryTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

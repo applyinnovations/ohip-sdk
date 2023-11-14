@@ -17,7 +17,7 @@ exports.CateringEventsBulkUpdateTypeToJSON = exports.CateringEventsBulkUpdateTyp
 const runtime_1 = require("../runtime");
 const CateringEventBulkUpdateDetailType_1 = require("./CateringEventBulkUpdateDetailType");
 const CateringEventBulkUpdateFunctionSpaceType_1 = require("./CateringEventBulkUpdateFunctionSpaceType");
-const EventIdList_1 = require("./EventIdList");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CateringEventsBulkUpdateType interface.
  */
@@ -35,7 +35,7 @@ function CateringEventsBulkUpdateTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'eventIdList': !(0, runtime_1.exists)(json, 'eventIdList') ? undefined : (0, EventIdList_1.EventIdListFromJSON)(json['eventIdList']),
+        'eventIdList': !(0, runtime_1.exists)(json, 'eventIdList') ? undefined : (json['eventIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'eventRec': !(0, runtime_1.exists)(json, 'eventRec') ? undefined : (0, CateringEventBulkUpdateDetailType_1.CateringEventBulkUpdateDetailTypeFromJSON)(json['eventRec']),
         'functionSpaceRec': !(0, runtime_1.exists)(json, 'functionSpaceRec') ? undefined : (0, CateringEventBulkUpdateFunctionSpaceType_1.CateringEventBulkUpdateFunctionSpaceTypeFromJSON)(json['functionSpaceRec']),
         'overrideProcessWarnings': !(0, runtime_1.exists)(json, 'overrideProcessWarnings') ? undefined : json['overrideProcessWarnings'],
@@ -50,7 +50,7 @@ function CateringEventsBulkUpdateTypeToJSON(value) {
         return null;
     }
     return {
-        'eventIdList': (0, EventIdList_1.EventIdListToJSON)(value.eventIdList),
+        'eventIdList': value.eventIdList === undefined ? undefined : (value.eventIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'eventRec': (0, CateringEventBulkUpdateDetailType_1.CateringEventBulkUpdateDetailTypeToJSON)(value.eventRec),
         'functionSpaceRec': (0, CateringEventBulkUpdateFunctionSpaceType_1.CateringEventBulkUpdateFunctionSpaceTypeToJSON)(value.functionSpaceRec),
         'overrideProcessWarnings': value.overrideProcessWarnings,

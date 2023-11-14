@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ActivityResultsConfigListType } from './ActivityResultsConfigListType';
+import type { ActivityResultsConfigDetailType } from './ActivityResultsConfigDetailType';
 import {
-    ActivityResultsConfigListTypeFromJSON,
-    ActivityResultsConfigListTypeFromJSONTyped,
-    ActivityResultsConfigListTypeToJSON,
-} from './ActivityResultsConfigListType';
-import type { WarningsType } from './WarningsType';
+    ActivityResultsConfigDetailTypeFromJSON,
+    ActivityResultsConfigDetailTypeFromJSONTyped,
+    ActivityResultsConfigDetailTypeToJSON,
+} from './ActivityResultsConfigDetailType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating/changing Activity Results Configuration.
@@ -33,17 +33,17 @@ import {
  */
 export interface ActivityResultsConfigInfo {
     /**
-     * 
-     * @type {ActivityResultsConfigListType}
+     * List of configured Activity Results.
+     * @type {Array<ActivityResultsConfigDetailType>}
      * @memberof ActivityResultsConfigInfo
      */
-    activityResultsConfiguration?: ActivityResultsConfigListType;
+    activityResultsConfiguration?: Array<ActivityResultsConfigDetailType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ActivityResultsConfigInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function ActivityResultsConfigInfoFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'activityResultsConfiguration': !exists(json, 'activityResultsConfiguration') ? undefined : ActivityResultsConfigListTypeFromJSON(json['activityResultsConfiguration']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'activityResultsConfiguration': !exists(json, 'activityResultsConfiguration') ? undefined : ((json['activityResultsConfiguration'] as Array<any>).map(ActivityResultsConfigDetailTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function ActivityResultsConfigInfoToJSON(value?: ActivityResultsConfigInf
     }
     return {
         
-        'activityResultsConfiguration': ActivityResultsConfigListTypeToJSON(value.activityResultsConfiguration),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'activityResultsConfiguration': value.activityResultsConfiguration === undefined ? undefined : ((value.activityResultsConfiguration as Array<any>).map(ActivityResultsConfigDetailTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

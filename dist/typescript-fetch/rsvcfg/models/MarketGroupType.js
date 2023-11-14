@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MarketGroupTypeToJSON = exports.MarketGroupTypeFromJSONTyped = exports.MarketGroupTypeFromJSON = exports.instanceOfMarketGroupType = void 0;
 const runtime_1 = require("../runtime");
-const MarketCodesType_1 = require("./MarketCodesType");
+const MarketCodeType_1 = require("./MarketCodeType");
 const TranslationTextType50_1 = require("./TranslationTextType50");
 /**
  * Check if a given object implements the MarketGroupType interface.
@@ -38,7 +38,7 @@ function MarketGroupTypeFromJSONTyped(json, ignoreDiscriminator) {
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : (0, TranslationTextType50_1.TranslationTextType50FromJSON)(json['description']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
-        'marketCodes': !(0, runtime_1.exists)(json, 'marketCodes') ? undefined : (0, MarketCodesType_1.MarketCodesTypeFromJSON)(json['marketCodes']),
+        'marketCodes': !(0, runtime_1.exists)(json, 'marketCodes') ? undefined : (json['marketCodes'].map(MarketCodeType_1.MarketCodeTypeFromJSON)),
         'ranking': !(0, runtime_1.exists)(json, 'ranking') ? undefined : json['ranking'],
         'sequence': !(0, runtime_1.exists)(json, 'sequence') ? undefined : json['sequence'],
         'upgradable': !(0, runtime_1.exists)(json, 'upgradable') ? undefined : json['upgradable'],
@@ -57,7 +57,7 @@ function MarketGroupTypeToJSON(value) {
         'description': (0, TranslationTextType50_1.TranslationTextType50ToJSON)(value.description),
         'hotelId': value.hotelId,
         'inactive': value.inactive,
-        'marketCodes': (0, MarketCodesType_1.MarketCodesTypeToJSON)(value.marketCodes),
+        'marketCodes': value.marketCodes === undefined ? undefined : (value.marketCodes.map(MarketCodeType_1.MarketCodeTypeToJSON)),
         'ranking': value.ranking,
         'sequence': value.sequence,
         'upgradable': value.upgradable,

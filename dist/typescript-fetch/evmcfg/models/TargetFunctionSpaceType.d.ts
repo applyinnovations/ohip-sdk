@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 /**
  * Function Space details that may be different from the source function space. If any of Space Name, Short Name, Custom Orders and Combo Element types are not passed together with this type, it means that it is expected that these would be copied from source function space
  * @export
@@ -18,10 +17,10 @@ import type { CodeListType } from './CodeListType';
 export interface TargetFunctionSpaceType {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof TargetFunctionSpaceType
      */
-    comboElements?: CodeListType;
+    comboElements?: Array<string>;
     /**
      * The first custom order for sorting the function space display.
      * @type {number}

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { SharedFunctionSpaceEventsType } from './SharedFunctionSpaceEventsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching events shared by function space.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface FunctionSpaceEvents {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FunctionSpaceEvents
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {SharedFunctionSpaceEventsType}
@@ -31,11 +31,11 @@ export interface FunctionSpaceEvents {
      */
     sharedFunctionSpaceEvents?: SharedFunctionSpaceEventsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FunctionSpaceEvents
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FunctionSpaceEvents interface.

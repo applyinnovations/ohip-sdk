@@ -9,8 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AuthBillingInstructionsType } from './AuthBillingInstructionsType';
-import type { AuthTransactionCodesType } from './AuthTransactionCodesType';
+import type { CodeDescriptionType } from './CodeDescriptionType';
 /**
  * A representation of the information of Transaction Limit.
  * @export
@@ -18,11 +17,11 @@ import type { AuthTransactionCodesType } from './AuthTransactionCodesType';
  */
 export interface AuthorizerTrxLimitType {
     /**
-     *
-     * @type {AuthBillingInstructionsType}
+     * Set of Billing Instruction codes.
+     * @type {Array<CodeDescriptionType>}
      * @memberof AuthorizerTrxLimitType
      */
-    billingInstructions?: AuthBillingInstructionsType;
+    billingInstructions?: Array<CodeDescriptionType>;
     /**
      * Credit Limit for a transaction.
      * @type {number}
@@ -42,11 +41,11 @@ export interface AuthorizerTrxLimitType {
      */
     occurrenceLimit?: number;
     /**
-     *
-     * @type {AuthTransactionCodesType}
+     * List of Transaction codes info.
+     * @type {Array<CodeDescriptionType>}
      * @memberof AuthorizerTrxLimitType
      */
-    transactionCodes?: AuthTransactionCodesType;
+    transactionCodes?: Array<CodeDescriptionType>;
 }
 /**
  * Check if a given object implements the AuthorizerTrxLimitType interface.

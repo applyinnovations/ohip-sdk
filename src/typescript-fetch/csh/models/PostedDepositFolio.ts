@@ -13,36 +13,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DepositPostingsType } from './DepositPostingsType';
+import type { DepositPostingType } from './DepositPostingType';
 import {
-    DepositPostingsTypeFromJSON,
-    DepositPostingsTypeFromJSONTyped,
-    DepositPostingsTypeToJSON,
-} from './DepositPostingsType';
+    DepositPostingTypeFromJSON,
+    DepositPostingTypeFromJSONTyped,
+    DepositPostingTypeToJSON,
+} from './DepositPostingType';
 import type { FolioWindowType } from './FolioWindowType';
 import {
     FolioWindowTypeFromJSON,
     FolioWindowTypeFromJSONTyped,
     FolioWindowTypeToJSON,
 } from './FolioWindowType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response to the request to create a Deposit Folio for a reservation.
@@ -51,11 +51,11 @@ import {
  */
 export interface PostedDepositFolio {
     /**
-     * 
-     * @type {DepositPostingsType}
+     * A List of Deposit Payments.
+     * @type {Array<DepositPostingType>}
      * @memberof PostedDepositFolio
      */
-    deposits?: DepositPostingsType;
+    deposits?: Array<DepositPostingType>;
     /**
      * Information regarding the new Deposit Folio created.
      * @type {Array<FolioWindowType>}
@@ -64,22 +64,22 @@ export interface PostedDepositFolio {
     folioWindow?: Array<FolioWindowType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostedDepositFolio
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof PostedDepositFolio
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostedDepositFolio
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -101,11 +101,11 @@ export function PostedDepositFolioFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'deposits': !exists(json, 'deposits') ? undefined : DepositPostingsTypeFromJSON(json['deposits']),
+        'deposits': !exists(json, 'deposits') ? undefined : ((json['deposits'] as Array<any>).map(DepositPostingTypeFromJSON)),
         'folioWindow': !exists(json, 'folioWindow') ? undefined : ((json['folioWindow'] as Array<any>).map(FolioWindowTypeFromJSON)),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : TrxCodesInfoTypeFromJSON(json['trxCodesInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : ((json['trxCodesInfo'] as Array<any>).map(TrxInfoTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -118,11 +118,11 @@ export function PostedDepositFolioToJSON(value?: PostedDepositFolio | null): any
     }
     return {
         
-        'deposits': DepositPostingsTypeToJSON(value.deposits),
+        'deposits': value.deposits === undefined ? undefined : ((value.deposits as Array<any>).map(DepositPostingTypeToJSON)),
         'folioWindow': value.folioWindow === undefined ? undefined : ((value.folioWindow as Array<any>).map(FolioWindowTypeToJSON)),
-        'links': LinksToJSON(value.links),
-        'trxCodesInfo': TrxCodesInfoTypeToJSON(value.trxCodesInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : ((value.trxCodesInfo as Array<any>).map(TrxInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

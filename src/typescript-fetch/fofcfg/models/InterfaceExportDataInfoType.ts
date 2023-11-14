@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { InterfaceExportDataDetailsType } from './InterfaceExportDataDetailsType';
+import type { InterfaceExportDataDetailType } from './InterfaceExportDataDetailType';
 import {
-    InterfaceExportDataDetailsTypeFromJSON,
-    InterfaceExportDataDetailsTypeFromJSONTyped,
-    InterfaceExportDataDetailsTypeToJSON,
-} from './InterfaceExportDataDetailsType';
+    InterfaceExportDataDetailTypeFromJSON,
+    InterfaceExportDataDetailTypeFromJSONTyped,
+    InterfaceExportDataDetailTypeToJSON,
+} from './InterfaceExportDataDetailType';
 
 /**
  * This type holds the export data of a hotel interface.
@@ -27,17 +27,17 @@ import {
  */
 export interface InterfaceExportDataInfoType {
     /**
-     * 
-     * @type {InterfaceExportDataDetailsType}
+     * Collection of export data details of a hotel interface.
+     * @type {Array<InterfaceExportDataDetailType>}
      * @memberof InterfaceExportDataInfoType
      */
-    interfaceExportDataDetails?: InterfaceExportDataDetailsType;
+    interfaceExportDataDetails?: Array<InterfaceExportDataDetailType>;
     /**
-     * 
-     * @type {InterfaceExportDataDetailsType}
+     * Collection of export data details of a hotel interface.
+     * @type {Array<InterfaceExportDataDetailType>}
      * @memberof InterfaceExportDataInfoType
      */
-    interfaceExportDataMandatoryDetails?: InterfaceExportDataDetailsType;
+    interfaceExportDataMandatoryDetails?: Array<InterfaceExportDataDetailType>;
 }
 
 /**
@@ -59,8 +59,8 @@ export function InterfaceExportDataInfoTypeFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'interfaceExportDataDetails': !exists(json, 'interfaceExportDataDetails') ? undefined : InterfaceExportDataDetailsTypeFromJSON(json['interfaceExportDataDetails']),
-        'interfaceExportDataMandatoryDetails': !exists(json, 'interfaceExportDataMandatoryDetails') ? undefined : InterfaceExportDataDetailsTypeFromJSON(json['interfaceExportDataMandatoryDetails']),
+        'interfaceExportDataDetails': !exists(json, 'interfaceExportDataDetails') ? undefined : ((json['interfaceExportDataDetails'] as Array<any>).map(InterfaceExportDataDetailTypeFromJSON)),
+        'interfaceExportDataMandatoryDetails': !exists(json, 'interfaceExportDataMandatoryDetails') ? undefined : ((json['interfaceExportDataMandatoryDetails'] as Array<any>).map(InterfaceExportDataDetailTypeFromJSON)),
     };
 }
 
@@ -73,8 +73,8 @@ export function InterfaceExportDataInfoTypeToJSON(value?: InterfaceExportDataInf
     }
     return {
         
-        'interfaceExportDataDetails': InterfaceExportDataDetailsTypeToJSON(value.interfaceExportDataDetails),
-        'interfaceExportDataMandatoryDetails': InterfaceExportDataDetailsTypeToJSON(value.interfaceExportDataMandatoryDetails),
+        'interfaceExportDataDetails': value.interfaceExportDataDetails === undefined ? undefined : ((value.interfaceExportDataDetails as Array<any>).map(InterfaceExportDataDetailTypeToJSON)),
+        'interfaceExportDataMandatoryDetails': value.interfaceExportDataMandatoryDetails === undefined ? undefined : ((value.interfaceExportDataMandatoryDetails as Array<any>).map(InterfaceExportDataDetailTypeToJSON)),
     };
 }
 

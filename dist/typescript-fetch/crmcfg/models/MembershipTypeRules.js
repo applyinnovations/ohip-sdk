@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipTypeRulesToJSON = exports.MembershipTypeRulesFromJSONTyped = exports.MembershipTypeRulesFromJSON = exports.instanceOfMembershipTypeRules = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const MembershipTypeRuleDetailsType_1 = require("./MembershipTypeRuleDetailsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const MembershipTypeRuleDetailType_1 = require("./MembershipTypeRuleDetailType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MembershipTypeRules interface.
  */
@@ -35,9 +35,9 @@ function MembershipTypeRulesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'membershipTypeRules': !(0, runtime_1.exists)(json, 'membershipTypeRules') ? undefined : (0, MembershipTypeRuleDetailsType_1.MembershipTypeRuleDetailsTypeFromJSON)(json['membershipTypeRules']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'membershipTypeRules': !(0, runtime_1.exists)(json, 'membershipTypeRules') ? undefined : (json['membershipTypeRules'].map(MembershipTypeRuleDetailType_1.MembershipTypeRuleDetailTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MembershipTypeRulesFromJSONTyped = MembershipTypeRulesFromJSONTyped;
@@ -49,9 +49,9 @@ function MembershipTypeRulesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'membershipTypeRules': (0, MembershipTypeRuleDetailsType_1.MembershipTypeRuleDetailsTypeToJSON)(value.membershipTypeRules),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'membershipTypeRules': value.membershipTypeRules === undefined ? undefined : (value.membershipTypeRules.map(MembershipTypeRuleDetailType_1.MembershipTypeRuleDetailTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MembershipTypeRulesToJSON = MembershipTypeRulesToJSON;

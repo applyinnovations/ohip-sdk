@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { StayRoominfo } from './StayRoominfo';
 import {
     StayRoominfoFromJSON,
     StayRoominfoFromJSONTyped,
     StayRoominfoToJSON,
 } from './StayRoominfo';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * To quickly shift rooms for two reservations that are for the same arrival date and room type
@@ -40,10 +40,10 @@ import {
 export interface ShiftRooms {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ShiftRooms
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {StayRoominfo}
@@ -57,11 +57,11 @@ export interface ShiftRooms {
      */
     targetRoom?: StayRoominfo;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ShiftRooms
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -83,10 +83,10 @@ export function ShiftRoomsFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'sourceRoom': !exists(json, 'sourceRoom') ? undefined : StayRoominfoFromJSON(json['sourceRoom']),
         'targetRoom': !exists(json, 'targetRoom') ? undefined : StayRoominfoFromJSON(json['targetRoom']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -99,10 +99,10 @@ export function ShiftRoomsToJSON(value?: ShiftRooms | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'sourceRoom': StayRoominfoToJSON(value.sourceRoom),
         'targetRoom': StayRoominfoToJSON(value.targetRoom),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

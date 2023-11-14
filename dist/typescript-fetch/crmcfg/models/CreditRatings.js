@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreditRatingsToJSON = exports.CreditRatingsFromJSONTyped = exports.CreditRatingsFromJSON = exports.instanceOfCreditRatings = void 0;
 const runtime_1 = require("../runtime");
-const CreditRatingsType_1 = require("./CreditRatingsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CreditRatingType_1 = require("./CreditRatingType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CreditRatings interface.
  */
@@ -35,9 +35,9 @@ function CreditRatingsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'creditRatings': !(0, runtime_1.exists)(json, 'creditRatings') ? undefined : (0, CreditRatingsType_1.CreditRatingsTypeFromJSON)(json['creditRatings']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'creditRatings': !(0, runtime_1.exists)(json, 'creditRatings') ? undefined : (json['creditRatings'].map(CreditRatingType_1.CreditRatingTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CreditRatingsFromJSONTyped = CreditRatingsFromJSONTyped;
@@ -49,9 +49,9 @@ function CreditRatingsToJSON(value) {
         return null;
     }
     return {
-        'creditRatings': (0, CreditRatingsType_1.CreditRatingsTypeToJSON)(value.creditRatings),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'creditRatings': value.creditRatings === undefined ? undefined : (value.creditRatings.map(CreditRatingType_1.CreditRatingTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CreditRatingsToJSON = CreditRatingsToJSON;

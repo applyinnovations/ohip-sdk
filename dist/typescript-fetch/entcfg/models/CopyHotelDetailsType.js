@@ -15,8 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyHotelDetailsTypeToJSON = exports.CopyHotelDetailsTypeFromJSONTyped = exports.CopyHotelDetailsTypeFromJSON = exports.instanceOfCopyHotelDetailsType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
-const TemplateHotelDetailsIDType_1 = require("./TemplateHotelDetailsIDType");
+const TemplateHotelDetailIDType_1 = require("./TemplateHotelDetailIDType");
 /**
  * Check if a given object implements the CopyHotelDetailsType interface.
  */
@@ -34,8 +33,8 @@ function CopyHotelDetailsTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'hotels': !(0, runtime_1.exists)(json, 'hotels') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['hotels']),
-        'templateHotelDetails': !(0, runtime_1.exists)(json, 'templateHotelDetails') ? undefined : (0, TemplateHotelDetailsIDType_1.TemplateHotelDetailsIDTypeFromJSON)(json['templateHotelDetails']),
+        'hotels': !(0, runtime_1.exists)(json, 'hotels') ? undefined : json['hotels'],
+        'templateHotelDetails': !(0, runtime_1.exists)(json, 'templateHotelDetails') ? undefined : (json['templateHotelDetails'].map(TemplateHotelDetailIDType_1.TemplateHotelDetailIDTypeFromJSON)),
     };
 }
 exports.CopyHotelDetailsTypeFromJSONTyped = CopyHotelDetailsTypeFromJSONTyped;
@@ -47,8 +46,8 @@ function CopyHotelDetailsTypeToJSON(value) {
         return null;
     }
     return {
-        'hotels': (0, CodeListType_1.CodeListTypeToJSON)(value.hotels),
-        'templateHotelDetails': (0, TemplateHotelDetailsIDType_1.TemplateHotelDetailsIDTypeToJSON)(value.templateHotelDetails),
+        'hotels': value.hotels,
+        'templateHotelDetails': value.templateHotelDetails === undefined ? undefined : (value.templateHotelDetails.map(TemplateHotelDetailIDType_1.TemplateHotelDetailIDTypeToJSON)),
     };
 }
 exports.CopyHotelDetailsTypeToJSON = CopyHotelDetailsTypeToJSON;

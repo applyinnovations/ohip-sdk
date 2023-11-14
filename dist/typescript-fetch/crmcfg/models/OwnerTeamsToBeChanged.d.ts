@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { OwnerTeamsType } from './OwnerTeamsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { OwnerTeamType } from './OwnerTeamType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Owner Teams.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface OwnerTeamsToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof OwnerTeamsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {OwnerTeamsType}
+     * List of Owner Teams.
+     * @type {Array<OwnerTeamType>}
      * @memberof OwnerTeamsToBeChanged
      */
-    ownerTeams?: OwnerTeamsType;
+    ownerTeams?: Array<OwnerTeamType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OwnerTeamsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the OwnerTeamsToBeChanged interface.

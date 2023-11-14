@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RoomPoolRoomTypesType } from './RoomPoolRoomTypesType';
+import type { RoomPoolRoomTypeType } from './RoomPoolRoomTypeType';
 import {
-    RoomPoolRoomTypesTypeFromJSON,
-    RoomPoolRoomTypesTypeFromJSONTyped,
-    RoomPoolRoomTypesTypeToJSON,
-} from './RoomPoolRoomTypesType';
+    RoomPoolRoomTypeTypeFromJSON,
+    RoomPoolRoomTypeTypeFromJSONTyped,
+    RoomPoolRoomTypeTypeToJSON,
+} from './RoomPoolRoomTypeType';
 import type { TranslationTextType1000 } from './TranslationTextType1000';
 import {
     TranslationTextType1000FromJSON,
@@ -33,11 +33,11 @@ import {
  */
 export interface RoomTypePoolType {
     /**
-     * 
-     * @type {RoomPoolRoomTypesType}
+     * Collection of room type pool mapping type.
+     * @type {Array<RoomPoolRoomTypeType>}
      * @memberof RoomTypePoolType
      */
-    associatedRoomTypes?: RoomPoolRoomTypesType;
+    associatedRoomTypes?: Array<RoomPoolRoomTypeType>;
     /**
      * The description of room pool type.
      * @type {string}
@@ -89,7 +89,7 @@ export function RoomTypePoolTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'associatedRoomTypes': !exists(json, 'associatedRoomTypes') ? undefined : RoomPoolRoomTypesTypeFromJSON(json['associatedRoomTypes']),
+        'associatedRoomTypes': !exists(json, 'associatedRoomTypes') ? undefined : ((json['associatedRoomTypes'] as Array<any>).map(RoomPoolRoomTypeTypeFromJSON)),
         'description': !exists(json, 'description') ? undefined : json['description'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'roomTypePoolCode': !exists(json, 'roomTypePoolCode') ? undefined : json['roomTypePoolCode'],
@@ -107,7 +107,7 @@ export function RoomTypePoolTypeToJSON(value?: RoomTypePoolType | null): any {
     }
     return {
         
-        'associatedRoomTypes': RoomPoolRoomTypesTypeToJSON(value.associatedRoomTypes),
+        'associatedRoomTypes': value.associatedRoomTypes === undefined ? undefined : ((value.associatedRoomTypes as Array<any>).map(RoomPoolRoomTypeTypeToJSON)),
         'description': value.description,
         'hotelId': value.hotelId,
         'roomTypePoolCode': value.roomTypePoolCode,

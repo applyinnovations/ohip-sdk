@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CountryGuestTypesType } from './CountryGuestTypesType';
+import type { CountryGuestTypeType } from './CountryGuestTypeType';
 import {
-    CountryGuestTypesTypeFromJSON,
-    CountryGuestTypesTypeFromJSONTyped,
-    CountryGuestTypesTypeToJSON,
-} from './CountryGuestTypesType';
-import type { Links } from './Links';
+    CountryGuestTypeTypeFromJSON,
+    CountryGuestTypeTypeFromJSONTyped,
+    CountryGuestTypeTypeToJSON,
+} from './CountryGuestTypeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Philippines Country Guest Types.
@@ -39,23 +39,23 @@ import {
  */
 export interface CountryGuestTypesDetails {
     /**
-     * 
-     * @type {CountryGuestTypesType}
+     * List of Philippines Country specific Guest Types.
+     * @type {Array<CountryGuestTypeType>}
      * @memberof CountryGuestTypesDetails
      */
-    countryGuestTypes?: CountryGuestTypesType;
+    countryGuestTypes?: Array<CountryGuestTypeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CountryGuestTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CountryGuestTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CountryGuestTypesDetailsFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'countryGuestTypes': !exists(json, 'countryGuestTypes') ? undefined : CountryGuestTypesTypeFromJSON(json['countryGuestTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'countryGuestTypes': !exists(json, 'countryGuestTypes') ? undefined : ((json['countryGuestTypes'] as Array<any>).map(CountryGuestTypeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CountryGuestTypesDetailsToJSON(value?: CountryGuestTypesDetails 
     }
     return {
         
-        'countryGuestTypes': CountryGuestTypesTypeToJSON(value.countryGuestTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'countryGuestTypes': value.countryGuestTypes === undefined ? undefined : ((value.countryGuestTypes as Array<any>).map(CountryGuestTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

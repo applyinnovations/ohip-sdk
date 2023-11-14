@@ -19,12 +19,6 @@ import {
     RatePlanYieldableTypeFromJSONTyped,
     RatePlanYieldableTypeToJSON,
 } from './RatePlanYieldableType';
-import type { YieldMarketCodeListType } from './YieldMarketCodeListType';
-import {
-    YieldMarketCodeListTypeFromJSON,
-    YieldMarketCodeListTypeFromJSONTyped,
-    YieldMarketCodeListTypeToJSON,
-} from './YieldMarketCodeListType';
 
 /**
  * 
@@ -45,11 +39,11 @@ export interface RatePlanYieldControlsType {
      */
     yieldAsRatePlanCode?: string;
     /**
-     * 
-     * @type {YieldMarketCodeListType}
+     * Yield Market Code for the rate plan code.
+     * @type {Array<string>}
      * @memberof RatePlanYieldControlsType
      */
-    yieldMarketCodeList?: YieldMarketCodeListType;
+    yieldMarketCodeList?: Array<string>;
     /**
      * 
      * @type {RatePlanYieldableType}
@@ -79,7 +73,7 @@ export function RatePlanYieldControlsTypeFromJSONTyped(json: any, ignoreDiscrimi
         
         'rateBucket': !exists(json, 'rateBucket') ? undefined : json['rateBucket'],
         'yieldAsRatePlanCode': !exists(json, 'yieldAsRatePlanCode') ? undefined : json['yieldAsRatePlanCode'],
-        'yieldMarketCodeList': !exists(json, 'yieldMarketCodeList') ? undefined : YieldMarketCodeListTypeFromJSON(json['yieldMarketCodeList']),
+        'yieldMarketCodeList': !exists(json, 'yieldMarketCodeList') ? undefined : json['yieldMarketCodeList'],
         'yieldable': !exists(json, 'yieldable') ? undefined : RatePlanYieldableTypeFromJSON(json['yieldable']),
     };
 }
@@ -95,7 +89,7 @@ export function RatePlanYieldControlsTypeToJSON(value?: RatePlanYieldControlsTyp
         
         'rateBucket': value.rateBucket,
         'yieldAsRatePlanCode': value.yieldAsRatePlanCode,
-        'yieldMarketCodeList': YieldMarketCodeListTypeToJSON(value.yieldMarketCodeList),
+        'yieldMarketCodeList': value.yieldMarketCodeList,
         'yieldable': RatePlanYieldableTypeToJSON(value.yieldable),
     };
 }

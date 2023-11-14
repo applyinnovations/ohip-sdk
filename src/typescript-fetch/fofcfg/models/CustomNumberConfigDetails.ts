@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CustomNumberConfigurationListType } from './CustomNumberConfigurationListType';
+import type { CustomNumberConfigurationType } from './CustomNumberConfigurationType';
 import {
-    CustomNumberConfigurationListTypeFromJSON,
-    CustomNumberConfigurationListTypeFromJSONTyped,
-    CustomNumberConfigurationListTypeToJSON,
-} from './CustomNumberConfigurationListType';
-import type { Links } from './Links';
+    CustomNumberConfigurationTypeFromJSON,
+    CustomNumberConfigurationTypeFromJSONTyped,
+    CustomNumberConfigurationTypeToJSON,
+} from './CustomNumberConfigurationType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching custom number configurations.
@@ -39,23 +39,23 @@ import {
  */
 export interface CustomNumberConfigDetails {
     /**
-     * 
-     * @type {CustomNumberConfigurationListType}
+     * Details about custom number configuration.
+     * @type {Array<CustomNumberConfigurationType>}
      * @memberof CustomNumberConfigDetails
      */
-    customNumberConfigurationList?: CustomNumberConfigurationListType;
+    customNumberConfigurationList?: Array<CustomNumberConfigurationType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CustomNumberConfigDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CustomNumberConfigDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CustomNumberConfigDetailsFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'customNumberConfigurationList': !exists(json, 'customNumberConfigurationList') ? undefined : CustomNumberConfigurationListTypeFromJSON(json['customNumberConfigurationList']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'customNumberConfigurationList': !exists(json, 'customNumberConfigurationList') ? undefined : ((json['customNumberConfigurationList'] as Array<any>).map(CustomNumberConfigurationTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CustomNumberConfigDetailsToJSON(value?: CustomNumberConfigDetail
     }
     return {
         
-        'customNumberConfigurationList': CustomNumberConfigurationListTypeToJSON(value.customNumberConfigurationList),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'customNumberConfigurationList': value.customNumberConfigurationList === undefined ? undefined : ((value.customNumberConfigurationList as Array<any>).map(CustomNumberConfigurationTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

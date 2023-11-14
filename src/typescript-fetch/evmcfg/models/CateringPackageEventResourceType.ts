@@ -13,18 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CateringPackageResourceNoteListType } from './CateringPackageResourceNoteListType';
+import type { CateringPackageResourceNoteType } from './CateringPackageResourceNoteType';
 import {
-    CateringPackageResourceNoteListTypeFromJSON,
-    CateringPackageResourceNoteListTypeFromJSONTyped,
-    CateringPackageResourceNoteListTypeToJSON,
-} from './CateringPackageResourceNoteListType';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
+    CateringPackageResourceNoteTypeFromJSON,
+    CateringPackageResourceNoteTypeFromJSONTyped,
+    CateringPackageResourceNoteTypeToJSON,
+} from './CateringPackageResourceNoteType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import {
     CurrencyAmountTypeFromJSON,
@@ -99,17 +93,17 @@ export interface CateringPackageEventResourceType {
      */
     resourceId?: string;
     /**
-     * 
-     * @type {CateringPackageResourceNoteListType}
+     * Collection of multiple Resource Notes associated with a particular Catering Package Resource.
+     * @type {Array<CateringPackageResourceNoteType>}
      * @memberof CateringPackageEventResourceType
      */
-    resourceNotes?: CateringPackageResourceNoteListType;
+    resourceNotes?: Array<CateringPackageResourceNoteType>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CateringPackageEventResourceType
      */
-    revenueTypes?: CodeListType;
+    revenueTypes?: Array<string>;
     /**
      * RateCode associated with the Function Space.
      * @type {string}
@@ -157,8 +151,8 @@ export function CateringPackageEventResourceTypeFromJSONTyped(json: any, ignoreD
         'price': !exists(json, 'price') ? undefined : CurrencyAmountTypeFromJSON(json['price']),
         'quantity': !exists(json, 'quantity') ? undefined : json['quantity'],
         'resourceId': !exists(json, 'resourceId') ? undefined : json['resourceId'],
-        'resourceNotes': !exists(json, 'resourceNotes') ? undefined : CateringPackageResourceNoteListTypeFromJSON(json['resourceNotes']),
-        'revenueTypes': !exists(json, 'revenueTypes') ? undefined : CodeListTypeFromJSON(json['revenueTypes']),
+        'resourceNotes': !exists(json, 'resourceNotes') ? undefined : ((json['resourceNotes'] as Array<any>).map(CateringPackageResourceNoteTypeFromJSON)),
+        'revenueTypes': !exists(json, 'revenueTypes') ? undefined : json['revenueTypes'],
         'roomRate': !exists(json, 'roomRate') ? undefined : json['roomRate'],
         'roomSetup': !exists(json, 'roomSetup') ? undefined : json['roomSetup'],
         'type': !exists(json, 'type') ? undefined : EventResourceTypeFromJSON(json['type']),
@@ -182,8 +176,8 @@ export function CateringPackageEventResourceTypeToJSON(value?: CateringPackageEv
         'price': CurrencyAmountTypeToJSON(value.price),
         'quantity': value.quantity,
         'resourceId': value.resourceId,
-        'resourceNotes': CateringPackageResourceNoteListTypeToJSON(value.resourceNotes),
-        'revenueTypes': CodeListTypeToJSON(value.revenueTypes),
+        'resourceNotes': value.resourceNotes === undefined ? undefined : ((value.resourceNotes as Array<any>).map(CateringPackageResourceNoteTypeToJSON)),
+        'revenueTypes': value.revenueTypes,
         'roomRate': value.roomRate,
         'roomSetup': value.roomSetup,
         'type': EventResourceTypeToJSON(value.type),

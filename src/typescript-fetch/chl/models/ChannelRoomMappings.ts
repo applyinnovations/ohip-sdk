@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelRoomMappingsType } from './ChannelRoomMappingsType';
+import type { ChannelRoomMappingType } from './ChannelRoomMappingType';
 import {
-    ChannelRoomMappingsTypeFromJSON,
-    ChannelRoomMappingsTypeFromJSONTyped,
-    ChannelRoomMappingsTypeToJSON,
-} from './ChannelRoomMappingsType';
-import type { Links } from './Links';
+    ChannelRoomMappingTypeFromJSON,
+    ChannelRoomMappingTypeFromJSONTyped,
+    ChannelRoomMappingTypeToJSON,
+} from './ChannelRoomMappingType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for Channel Room Mapping creation.
@@ -39,23 +39,23 @@ import {
  */
 export interface ChannelRoomMappings {
     /**
-     * 
-     * @type {ChannelRoomMappingsType}
+     * Hotel-channel room type mapping information.
+     * @type {Array<ChannelRoomMappingType>}
      * @memberof ChannelRoomMappings
      */
-    channelRoomMappings?: ChannelRoomMappingsType;
+    channelRoomMappings?: Array<ChannelRoomMappingType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelRoomMappings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelRoomMappings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ChannelRoomMappingsFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'channelRoomMappings': !exists(json, 'channelRoomMappings') ? undefined : ChannelRoomMappingsTypeFromJSON(json['channelRoomMappings']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'channelRoomMappings': !exists(json, 'channelRoomMappings') ? undefined : ((json['channelRoomMappings'] as Array<any>).map(ChannelRoomMappingTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ChannelRoomMappingsToJSON(value?: ChannelRoomMappings | null): a
     }
     return {
         
-        'channelRoomMappings': ChannelRoomMappingsTypeToJSON(value.channelRoomMappings),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'channelRoomMappings': value.channelRoomMappings === undefined ? undefined : ((value.channelRoomMappings as Array<any>).map(ChannelRoomMappingTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

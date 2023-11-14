@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { TransactionCodesType } from './TransactionCodesType';
-import {
-    TransactionCodesTypeFromJSON,
-    TransactionCodesTypeFromJSONTyped,
-    TransactionCodesTypeToJSON,
-} from './TransactionCodesType';
-
 /**
  * Two collections of transaction codes for a resort. One collection lists codes to be changed to Rotation Revenue transaction codes and the other to be changed to non Rotation Revenue Transaction codes.
  * @export
@@ -33,17 +26,17 @@ export interface RotationRevenueTransactionCodesChangeType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {TransactionCodesType}
+     * Revenue transaction code.
+     * @type {Array<string>}
      * @memberof RotationRevenueTransactionCodesChangeType
      */
-    nonRotationRevenueTransactionCodes?: TransactionCodesType;
+    nonRotationRevenueTransactionCodes?: Array<string>;
     /**
-     * 
-     * @type {TransactionCodesType}
+     * Revenue transaction code.
+     * @type {Array<string>}
      * @memberof RotationRevenueTransactionCodesChangeType
      */
-    rotationRevenueTransactionCodes?: TransactionCodesType;
+    rotationRevenueTransactionCodes?: Array<string>;
 }
 
 /**
@@ -66,8 +59,8 @@ export function RotationRevenueTransactionCodesChangeTypeFromJSONTyped(json: any
     return {
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'nonRotationRevenueTransactionCodes': !exists(json, 'nonRotationRevenueTransactionCodes') ? undefined : TransactionCodesTypeFromJSON(json['nonRotationRevenueTransactionCodes']),
-        'rotationRevenueTransactionCodes': !exists(json, 'rotationRevenueTransactionCodes') ? undefined : TransactionCodesTypeFromJSON(json['rotationRevenueTransactionCodes']),
+        'nonRotationRevenueTransactionCodes': !exists(json, 'nonRotationRevenueTransactionCodes') ? undefined : json['nonRotationRevenueTransactionCodes'],
+        'rotationRevenueTransactionCodes': !exists(json, 'rotationRevenueTransactionCodes') ? undefined : json['rotationRevenueTransactionCodes'],
     };
 }
 
@@ -81,8 +74,8 @@ export function RotationRevenueTransactionCodesChangeTypeToJSON(value?: Rotation
     return {
         
         'hotelId': value.hotelId,
-        'nonRotationRevenueTransactionCodes': TransactionCodesTypeToJSON(value.nonRotationRevenueTransactionCodes),
-        'rotationRevenueTransactionCodes': TransactionCodesTypeToJSON(value.rotationRevenueTransactionCodes),
+        'nonRotationRevenueTransactionCodes': value.nonRotationRevenueTransactionCodes,
+        'rotationRevenueTransactionCodes': value.rotationRevenueTransactionCodes,
     };
 }
 

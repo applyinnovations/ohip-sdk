@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RatePlanRatingsInfoType } from './RatePlanRatingsInfoType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RatePlanRatingInfoType } from './RatePlanRatingInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for modifying rate plan codes and their rating details.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface RatePlanRatingsInfo {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RatePlanRatingsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RatePlanRatingsInfoType}
+     * Collection of rate plan Codes and their ratings.
+     * @type {Array<RatePlanRatingInfoType>}
      * @memberof RatePlanRatingsInfo
      */
-    ratePlanRatingsInfo?: RatePlanRatingsInfoType;
+    ratePlanRatingsInfo?: Array<RatePlanRatingInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RatePlanRatingsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RatePlanRatingsInfo interface.

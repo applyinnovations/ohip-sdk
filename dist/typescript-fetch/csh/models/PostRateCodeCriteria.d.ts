@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { PostRateCodeCriteriaType } from './PostRateCodeCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to check if a Rate Code can be posted to the room manually. This will check if the Rate Code is valid, if the Products(Packages) which are defined as part of the Rate Code can be posted or reversed.
  * @export
@@ -26,16 +26,16 @@ export interface PostRateCodeCriteria {
     criteria?: PostRateCodeCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostRateCodeCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostRateCodeCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PostRateCodeCriteria interface.

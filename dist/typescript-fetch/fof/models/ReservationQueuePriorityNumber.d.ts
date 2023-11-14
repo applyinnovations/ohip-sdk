@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to change the current priority of a reservation in Queue for Check-In.
  * @export
@@ -19,10 +19,10 @@ import type { WarningsType } from './WarningsType';
 export interface ReservationQueuePriorityNumber {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationQueuePriorityNumber
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Priority which should be assigned to the reservation in Queue. If null, the topmost priority(1) will be assigned. All other reservations in the queue will be adjusted accordingly.
      * @type {number}
@@ -30,11 +30,11 @@ export interface ReservationQueuePriorityNumber {
      */
     priority?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationQueuePriorityNumber
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationQueuePriorityNumber interface.

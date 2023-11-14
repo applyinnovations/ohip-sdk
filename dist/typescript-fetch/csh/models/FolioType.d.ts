@@ -12,7 +12,7 @@
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { FolioStatusType } from './FolioStatusType';
 import type { PayeeInfoType } from './PayeeInfoType';
-import type { SummaryPostingsType } from './SummaryPostingsType';
+import type { SummaryPostingType } from './SummaryPostingType';
 /**
  * Represents a single page in a reservation's ledger which will contain transactions and payee information.
  * @export
@@ -98,11 +98,11 @@ export interface FolioType {
      */
     payeeInfo?: PayeeInfoType;
     /**
-     *
-     * @type {SummaryPostingsType}
+     * List of postings.
+     * @type {Array<SummaryPostingType>}
      * @memberof FolioType
      */
-    postings?: SummaryPostingsType;
+    postings?: Array<SummaryPostingType>;
     /**
      * Folio Revison number.
      * @type {number}

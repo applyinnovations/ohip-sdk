@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ConfigTestUpsellRulesType } from './ConfigTestUpsellRulesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ConfigTestUpsellRuleType } from './ConfigTestUpsellRuleType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for testing upsell rules.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface UpsellRulesToTestDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof UpsellRulesToTestDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ConfigTestUpsellRulesType}
+     * This type holds a collection of upsell rules which are returned on testing a reservation.
+     * @type {Array<ConfigTestUpsellRuleType>}
      * @memberof UpsellRulesToTestDetails
      */
-    upsellRules?: ConfigTestUpsellRulesType;
+    upsellRules?: Array<ConfigTestUpsellRuleType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof UpsellRulesToTestDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the UpsellRulesToTestDetails interface.

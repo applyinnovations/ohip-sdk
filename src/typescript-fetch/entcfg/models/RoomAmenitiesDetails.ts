@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomAmenitiesType } from './RoomAmenitiesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomAmenityType } from './RoomAmenityType';
 import {
-    RoomAmenitiesTypeFromJSON,
-    RoomAmenitiesTypeFromJSONTyped,
-    RoomAmenitiesTypeToJSON,
-} from './RoomAmenitiesType';
-import type { WarningsType } from './WarningsType';
+    RoomAmenityTypeFromJSON,
+    RoomAmenityTypeFromJSONTyped,
+    RoomAmenityTypeToJSON,
+} from './RoomAmenityType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Room Amenities.
@@ -40,22 +40,22 @@ import {
 export interface RoomAmenitiesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomAmenitiesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RoomAmenitiesType}
+     * List of Room Amenities.
+     * @type {Array<RoomAmenityType>}
      * @memberof RoomAmenitiesDetails
      */
-    roomAmenities?: RoomAmenitiesType;
+    roomAmenities?: Array<RoomAmenityType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomAmenitiesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RoomAmenitiesDetailsFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'roomAmenities': !exists(json, 'roomAmenities') ? undefined : RoomAmenitiesTypeFromJSON(json['roomAmenities']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'roomAmenities': !exists(json, 'roomAmenities') ? undefined : ((json['roomAmenities'] as Array<any>).map(RoomAmenityTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RoomAmenitiesDetailsToJSON(value?: RoomAmenitiesDetails | null):
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'roomAmenities': RoomAmenitiesTypeToJSON(value.roomAmenities),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'roomAmenities': value.roomAmenities === undefined ? undefined : ((value.roomAmenities as Array<any>).map(RoomAmenityTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

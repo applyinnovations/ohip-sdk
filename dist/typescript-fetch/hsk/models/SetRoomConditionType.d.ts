@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { RoomConditionType } from './RoomConditionType';
 /**
  *
@@ -43,10 +42,10 @@ export interface SetRoomConditionType {
     roomCondition?: RoomConditionType;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof SetRoomConditionType
      */
-    roomNumberList?: CodeListType;
+    roomNumberList?: Array<string>;
 }
 /**
  * Check if a given object implements the SetRoomConditionType interface.

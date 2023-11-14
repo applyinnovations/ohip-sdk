@@ -9,12 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MemberPointsSummaryType } from './MemberPointsSummaryType';
 import type { MemberTransactionRecentSummaryType } from './MemberTransactionRecentSummaryType';
 import type { MemberTransactionSummaryType } from './MemberTransactionSummaryType';
 import type { MembershipDetailsType } from './MembershipDetailsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching member point totals information.
  * @export
@@ -23,10 +23,10 @@ import type { WarningsType } from './WarningsType';
 export interface MembershipTransactionsSummary {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipTransactionsSummary
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {MembershipDetailsType}
@@ -52,11 +52,11 @@ export interface MembershipTransactionsSummary {
      */
     transactionsSummary?: MemberTransactionSummaryType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipTransactionsSummary
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipTransactionsSummary interface.

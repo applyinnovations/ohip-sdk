@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { GamingRequestStatusInfoType } from './GamingRequestStatusInfoType';
+import type { GamingRequestStatusType } from './GamingRequestStatusType';
 import {
-    GamingRequestStatusInfoTypeFromJSON,
-    GamingRequestStatusInfoTypeFromJSONTyped,
-    GamingRequestStatusInfoTypeToJSON,
-} from './GamingRequestStatusInfoType';
-import type { Links } from './Links';
+    GamingRequestStatusTypeFromJSON,
+    GamingRequestStatusTypeFromJSONTyped,
+    GamingRequestStatusTypeToJSON,
+} from './GamingRequestStatusType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetch gaming info
@@ -40,22 +40,22 @@ import {
 export interface GamingRequestStatusInfo {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GamingRequestStatusInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {GamingRequestStatusInfoType}
+     * List of guest request status details.
+     * @type {Array<GamingRequestStatusType>}
      * @memberof GamingRequestStatusInfo
      */
-    statusInfo?: GamingRequestStatusInfoType;
+    statusInfo?: Array<GamingRequestStatusType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GamingRequestStatusInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function GamingRequestStatusInfoFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'statusInfo': !exists(json, 'statusInfo') ? undefined : GamingRequestStatusInfoTypeFromJSON(json['statusInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'statusInfo': !exists(json, 'statusInfo') ? undefined : ((json['statusInfo'] as Array<any>).map(GamingRequestStatusTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function GamingRequestStatusInfoToJSON(value?: GamingRequestStatusInfo | 
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'statusInfo': GamingRequestStatusInfoTypeToJSON(value.statusInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'statusInfo': value.statusInfo === undefined ? undefined : ((value.statusInfo as Array<any>).map(GamingRequestStatusTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

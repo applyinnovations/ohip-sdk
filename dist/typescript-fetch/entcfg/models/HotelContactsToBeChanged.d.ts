@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelContactsType } from './HotelContactsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelContactType } from './HotelContactType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing hotel Contacts for hotels.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface HotelContactsToBeChanged {
     /**
-     *
-     * @type {HotelContactsType}
+     * Lists of contacts of the hotel.
+     * @type {Array<HotelContactType>}
      * @memberof HotelContactsToBeChanged
      */
-    hotelContacts?: HotelContactsType;
+    hotelContacts?: Array<HotelContactType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelContactsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelContactsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HotelContactsToBeChanged interface.

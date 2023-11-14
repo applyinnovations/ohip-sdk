@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ReservationMethodsType } from './ReservationMethodsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ReservationMethodType } from './ReservationMethodType';
 import {
-    ReservationMethodsTypeFromJSON,
-    ReservationMethodsTypeFromJSONTyped,
-    ReservationMethodsTypeToJSON,
-} from './ReservationMethodsType';
-import type { WarningsType } from './WarningsType';
+    ReservationMethodTypeFromJSON,
+    ReservationMethodTypeFromJSONTyped,
+    ReservationMethodTypeToJSON,
+} from './ReservationMethodType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Reservation Methods.
@@ -40,22 +40,22 @@ import {
 export interface ReservationMethodsToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationMethodsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ReservationMethodsType}
+     * List of Reservation Methods.
+     * @type {Array<ReservationMethodType>}
      * @memberof ReservationMethodsToBeChanged
      */
-    reservationMethods?: ReservationMethodsType;
+    reservationMethods?: Array<ReservationMethodType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationMethodsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ReservationMethodsToBeChangedFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'reservationMethods': !exists(json, 'reservationMethods') ? undefined : ReservationMethodsTypeFromJSON(json['reservationMethods']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'reservationMethods': !exists(json, 'reservationMethods') ? undefined : ((json['reservationMethods'] as Array<any>).map(ReservationMethodTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ReservationMethodsToBeChangedToJSON(value?: ReservationMethodsTo
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'reservationMethods': ReservationMethodsTypeToJSON(value.reservationMethods),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'reservationMethods': value.reservationMethods === undefined ? undefined : ((value.reservationMethods as Array<any>).map(ReservationMethodTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

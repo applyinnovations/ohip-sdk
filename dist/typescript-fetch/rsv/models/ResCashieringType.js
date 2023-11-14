@@ -17,7 +17,7 @@ exports.ResCashieringTypeToJSON = exports.ResCashieringTypeFromJSONTyped = expor
 const runtime_1 = require("../runtime");
 const BedTaxReportingType_1 = require("./BedTaxReportingType");
 const BillingPrivilegesType_1 = require("./BillingPrivilegesType");
-const FolioTextsType_1 = require("./FolioTextsType");
+const FolioTextsTypeInner_1 = require("./FolioTextsTypeInner");
 const ResCompAccountingType_1 = require("./ResCompAccountingType");
 const ResPreConfiguredRoutingInstrType_1 = require("./ResPreConfiguredRoutingInstrType");
 const ResRevenueBalanceType_1 = require("./ResRevenueBalanceType");
@@ -42,7 +42,7 @@ function ResCashieringTypeFromJSONTyped(json, ignoreDiscriminator) {
         'bedTaxReporting': !(0, runtime_1.exists)(json, 'bedTaxReporting') ? undefined : (0, BedTaxReportingType_1.BedTaxReportingTypeFromJSON)(json['bedTaxReporting']),
         'billingPrivileges': !(0, runtime_1.exists)(json, 'billingPrivileges') ? undefined : (0, BillingPrivilegesType_1.BillingPrivilegesTypeFromJSON)(json['billingPrivileges']),
         'compAccounting': !(0, runtime_1.exists)(json, 'compAccounting') ? undefined : (0, ResCompAccountingType_1.ResCompAccountingTypeFromJSON)(json['compAccounting']),
-        'folioTexts': !(0, runtime_1.exists)(json, 'folioTexts') ? undefined : (0, FolioTextsType_1.FolioTextsTypeFromJSON)(json['folioTexts']),
+        'folioTexts': !(0, runtime_1.exists)(json, 'folioTexts') ? undefined : (json['folioTexts'].map(FolioTextsTypeInner_1.FolioTextsTypeInnerFromJSON)),
         'lastRoomAndTaxPostedDate': !(0, runtime_1.exists)(json, 'lastRoomAndTaxPostedDate') ? undefined : (new Date(json['lastRoomAndTaxPostedDate'])),
         'reservationPreConfiguredRoutingInstruction': !(0, runtime_1.exists)(json, 'reservationPreConfiguredRoutingInstruction') ? undefined : (0, ResPreConfiguredRoutingInstrType_1.ResPreConfiguredRoutingInstrTypeFromJSON)(json['reservationPreConfiguredRoutingInstruction']),
         'revenuesAndBalances': !(0, runtime_1.exists)(json, 'revenuesAndBalances') ? undefined : (0, ResRevenueBalanceType_1.ResRevenueBalanceTypeFromJSON)(json['revenuesAndBalances']),
@@ -64,7 +64,7 @@ function ResCashieringTypeToJSON(value) {
         'bedTaxReporting': (0, BedTaxReportingType_1.BedTaxReportingTypeToJSON)(value.bedTaxReporting),
         'billingPrivileges': (0, BillingPrivilegesType_1.BillingPrivilegesTypeToJSON)(value.billingPrivileges),
         'compAccounting': (0, ResCompAccountingType_1.ResCompAccountingTypeToJSON)(value.compAccounting),
-        'folioTexts': (0, FolioTextsType_1.FolioTextsTypeToJSON)(value.folioTexts),
+        'folioTexts': value.folioTexts === undefined ? undefined : (value.folioTexts.map(FolioTextsTypeInner_1.FolioTextsTypeInnerToJSON)),
         'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate === undefined ? undefined : (value.lastRoomAndTaxPostedDate.toISOString().substring(0, 10)),
         'reservationPreConfiguredRoutingInstruction': (0, ResPreConfiguredRoutingInstrType_1.ResPreConfiguredRoutingInstrTypeToJSON)(value.reservationPreConfiguredRoutingInstruction),
         'revenuesAndBalances': (0, ResRevenueBalanceType_1.ResRevenueBalanceTypeToJSON)(value.revenuesAndBalances),

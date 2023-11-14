@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BookingTypesType } from './BookingTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BookingTypeType } from './BookingTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Booking Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BookingTypesToBeChanged {
     /**
-     *
-     * @type {BookingTypesType}
+     * List of Booking Types.
+     * @type {Array<BookingTypeType>}
      * @memberof BookingTypesToBeChanged
      */
-    bookingTypes?: BookingTypesType;
+    bookingTypes?: Array<BookingTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BookingTypesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BookingTypesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BookingTypesToBeChanged interface.

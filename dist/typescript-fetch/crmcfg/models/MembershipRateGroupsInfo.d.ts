@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MembershipRateGroupsType } from './MembershipRateGroupsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MembershipRateGroupType } from './MembershipRateGroupType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Membership Rate Groups.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MembershipRateGroupsInfo {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipRateGroupsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MembershipRateGroupsType}
+     * Details for Membership Rate Group.
+     * @type {Array<MembershipRateGroupType>}
      * @memberof MembershipRateGroupsInfo
      */
-    membershipRateGroups?: MembershipRateGroupsType;
+    membershipRateGroups?: Array<MembershipRateGroupType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipRateGroupsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipRateGroupsInfo interface.

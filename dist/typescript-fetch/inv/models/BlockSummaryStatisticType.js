@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockSummaryStatisticTypeToJSON = exports.BlockSummaryStatisticTypeFromJSONTyped = exports.BlockSummaryStatisticTypeFromJSON = exports.instanceOfBlockSummaryStatisticType = void 0;
 const runtime_1 = require("../runtime");
-const StatisticUnitsType_1 = require("./StatisticUnitsType");
-const StatusSummaryStatisticType_1 = require("./StatusSummaryStatisticType");
+const StatisticUnitType_1 = require("./StatisticUnitType");
+const StatusStatisticType_1 = require("./StatusStatisticType");
 /**
  * Check if a given object implements the BlockSummaryStatisticType interface.
  */
@@ -34,10 +34,10 @@ function BlockSummaryStatisticTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'bookingSummaryStatistic': !(0, runtime_1.exists)(json, 'bookingSummaryStatistic') ? undefined : (0, StatisticUnitsType_1.StatisticUnitsTypeFromJSON)(json['bookingSummaryStatistic']),
-        'dailyTargetsSummaryStatistic': !(0, runtime_1.exists)(json, 'dailyTargetsSummaryStatistic') ? undefined : (0, StatisticUnitsType_1.StatisticUnitsTypeFromJSON)(json['dailyTargetsSummaryStatistic']),
+        'bookingSummaryStatistic': !(0, runtime_1.exists)(json, 'bookingSummaryStatistic') ? undefined : (json['bookingSummaryStatistic'].map(StatisticUnitType_1.StatisticUnitTypeFromJSON)),
+        'dailyTargetsSummaryStatistic': !(0, runtime_1.exists)(json, 'dailyTargetsSummaryStatistic') ? undefined : (json['dailyTargetsSummaryStatistic'].map(StatisticUnitType_1.StatisticUnitTypeFromJSON)),
         'statisticDate': !(0, runtime_1.exists)(json, 'statisticDate') ? undefined : (new Date(json['statisticDate'])),
-        'statusSummaryStatistic': !(0, runtime_1.exists)(json, 'statusSummaryStatistic') ? undefined : (0, StatusSummaryStatisticType_1.StatusSummaryStatisticTypeFromJSON)(json['statusSummaryStatistic']),
+        'statusSummaryStatistic': !(0, runtime_1.exists)(json, 'statusSummaryStatistic') ? undefined : (json['statusSummaryStatistic'].map(StatusStatisticType_1.StatusStatisticTypeFromJSON)),
     };
 }
 exports.BlockSummaryStatisticTypeFromJSONTyped = BlockSummaryStatisticTypeFromJSONTyped;
@@ -49,10 +49,10 @@ function BlockSummaryStatisticTypeToJSON(value) {
         return null;
     }
     return {
-        'bookingSummaryStatistic': (0, StatisticUnitsType_1.StatisticUnitsTypeToJSON)(value.bookingSummaryStatistic),
-        'dailyTargetsSummaryStatistic': (0, StatisticUnitsType_1.StatisticUnitsTypeToJSON)(value.dailyTargetsSummaryStatistic),
+        'bookingSummaryStatistic': value.bookingSummaryStatistic === undefined ? undefined : (value.bookingSummaryStatistic.map(StatisticUnitType_1.StatisticUnitTypeToJSON)),
+        'dailyTargetsSummaryStatistic': value.dailyTargetsSummaryStatistic === undefined ? undefined : (value.dailyTargetsSummaryStatistic.map(StatisticUnitType_1.StatisticUnitTypeToJSON)),
         'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0, 10)),
-        'statusSummaryStatistic': (0, StatusSummaryStatisticType_1.StatusSummaryStatisticTypeToJSON)(value.statusSummaryStatistic),
+        'statusSummaryStatistic': value.statusSummaryStatistic === undefined ? undefined : (value.statusSummaryStatistic.map(StatusStatisticType_1.StatusStatisticTypeToJSON)),
     };
 }
 exports.BlockSummaryStatisticTypeToJSON = BlockSummaryStatisticTypeToJSON;

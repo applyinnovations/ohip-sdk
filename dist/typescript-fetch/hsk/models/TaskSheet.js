@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TaskSheetToJSON = exports.TaskSheetFromJSONTyped = exports.TaskSheetFromJSON = exports.instanceOfTaskSheet = void 0;
 const runtime_1 = require("../runtime");
 const HousekeepingTaskType_1 = require("./HousekeepingTaskType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TaskSheet interface.
  */
@@ -35,9 +35,9 @@ function TaskSheetFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'taskSheetDetails': !(0, runtime_1.exists)(json, 'taskSheetDetails') ? undefined : (0, HousekeepingTaskType_1.HousekeepingTaskTypeFromJSON)(json['taskSheetDetails']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TaskSheetFromJSONTyped = TaskSheetFromJSONTyped;
@@ -49,9 +49,9 @@ function TaskSheetToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'taskSheetDetails': (0, HousekeepingTaskType_1.HousekeepingTaskTypeToJSON)(value.taskSheetDetails),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TaskSheetToJSON = TaskSheetToJSON;

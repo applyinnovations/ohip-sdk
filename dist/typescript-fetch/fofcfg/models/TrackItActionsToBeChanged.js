@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TrackItActionsToBeChangedToJSON = exports.TrackItActionsToBeChangedFromJSONTyped = exports.TrackItActionsToBeChangedFromJSON = exports.instanceOfTrackItActionsToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TrackItActionsConfigType_1 = require("./TrackItActionsConfigType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TrackItActionConfigType_1 = require("./TrackItActionConfigType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TrackItActionsToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function TrackItActionsToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'trackItActions': !(0, runtime_1.exists)(json, 'trackItActions') ? undefined : (0, TrackItActionsConfigType_1.TrackItActionsConfigTypeFromJSON)(json['trackItActions']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'trackItActions': !(0, runtime_1.exists)(json, 'trackItActions') ? undefined : (json['trackItActions'].map(TrackItActionConfigType_1.TrackItActionConfigTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TrackItActionsToBeChangedFromJSONTyped = TrackItActionsToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function TrackItActionsToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'trackItActions': (0, TrackItActionsConfigType_1.TrackItActionsConfigTypeToJSON)(value.trackItActions),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'trackItActions': value.trackItActions === undefined ? undefined : (value.trackItActions.map(TrackItActionConfigType_1.TrackItActionConfigTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TrackItActionsToBeChangedToJSON = TrackItActionsToBeChangedToJSON;

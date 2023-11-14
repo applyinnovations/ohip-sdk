@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MembershipTransactionRevenuesType } from './MembershipTransactionRevenuesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Membership Transaction Revenue.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface Revenues {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Revenues
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {MembershipTransactionRevenuesType}
@@ -31,11 +31,11 @@ export interface Revenues {
      */
     revenue?: MembershipTransactionRevenuesType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Revenues
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Revenues interface.

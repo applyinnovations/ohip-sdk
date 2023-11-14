@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockDailyStatisticsDateTypeToJSON = exports.BlockDailyStatisticsDateTypeFromJSONTyped = exports.BlockDailyStatisticsDateTypeFromJSON = exports.instanceOfBlockDailyStatisticsDateType = void 0;
 const runtime_1 = require("../runtime");
-const BlockDailyRoomStatisticsListType_1 = require("./BlockDailyRoomStatisticsListType");
+const BlockDailyRoomStatisticsType_1 = require("./BlockDailyRoomStatisticsType");
 /**
  * Check if a given object implements the BlockDailyStatisticsDateType interface.
  */
@@ -34,8 +34,8 @@ function BlockDailyStatisticsDateTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
-        'genericRoomTypeStatisticsList': !(0, runtime_1.exists)(json, 'genericRoomTypeStatisticsList') ? undefined : (0, BlockDailyRoomStatisticsListType_1.BlockDailyRoomStatisticsListTypeFromJSON)(json['genericRoomTypeStatisticsList']),
-        'roomTypeStatisticsList': !(0, runtime_1.exists)(json, 'roomTypeStatisticsList') ? undefined : (0, BlockDailyRoomStatisticsListType_1.BlockDailyRoomStatisticsListTypeFromJSON)(json['roomTypeStatisticsList']),
+        'genericRoomTypeStatisticsList': !(0, runtime_1.exists)(json, 'genericRoomTypeStatisticsList') ? undefined : (json['genericRoomTypeStatisticsList'].map(BlockDailyRoomStatisticsType_1.BlockDailyRoomStatisticsTypeFromJSON)),
+        'roomTypeStatisticsList': !(0, runtime_1.exists)(json, 'roomTypeStatisticsList') ? undefined : (json['roomTypeStatisticsList'].map(BlockDailyRoomStatisticsType_1.BlockDailyRoomStatisticsTypeFromJSON)),
     };
 }
 exports.BlockDailyStatisticsDateTypeFromJSONTyped = BlockDailyStatisticsDateTypeFromJSONTyped;
@@ -48,8 +48,8 @@ function BlockDailyStatisticsDateTypeToJSON(value) {
     }
     return {
         'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
-        'genericRoomTypeStatisticsList': (0, BlockDailyRoomStatisticsListType_1.BlockDailyRoomStatisticsListTypeToJSON)(value.genericRoomTypeStatisticsList),
-        'roomTypeStatisticsList': (0, BlockDailyRoomStatisticsListType_1.BlockDailyRoomStatisticsListTypeToJSON)(value.roomTypeStatisticsList),
+        'genericRoomTypeStatisticsList': value.genericRoomTypeStatisticsList === undefined ? undefined : (value.genericRoomTypeStatisticsList.map(BlockDailyRoomStatisticsType_1.BlockDailyRoomStatisticsTypeToJSON)),
+        'roomTypeStatisticsList': value.roomTypeStatisticsList === undefined ? undefined : (value.roomTypeStatisticsList.map(BlockDailyRoomStatisticsType_1.BlockDailyRoomStatisticsTypeToJSON)),
     };
 }
 exports.BlockDailyStatisticsDateTypeToJSON = BlockDailyStatisticsDateTypeToJSON;

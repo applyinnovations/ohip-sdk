@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DailyItemInventoryCountsListType } from './DailyItemInventoryCountsListType';
+import type { DailyItemInventoryCountsType } from './DailyItemInventoryCountsType';
 import {
-    DailyItemInventoryCountsListTypeFromJSON,
-    DailyItemInventoryCountsListTypeFromJSONTyped,
-    DailyItemInventoryCountsListTypeToJSON,
-} from './DailyItemInventoryCountsListType';
-import type { ItemInventoryCountsListType } from './ItemInventoryCountsListType';
+    DailyItemInventoryCountsTypeFromJSON,
+    DailyItemInventoryCountsTypeFromJSONTyped,
+    DailyItemInventoryCountsTypeToJSON,
+} from './DailyItemInventoryCountsType';
+import type { ItemInventoryCountsType } from './ItemInventoryCountsType';
 import {
-    ItemInventoryCountsListTypeFromJSON,
-    ItemInventoryCountsListTypeFromJSONTyped,
-    ItemInventoryCountsListTypeToJSON,
-} from './ItemInventoryCountsListType';
+    ItemInventoryCountsTypeFromJSON,
+    ItemInventoryCountsTypeFromJSONTyped,
+    ItemInventoryCountsTypeToJSON,
+} from './ItemInventoryCountsType';
 import type { TimeSpanType } from './TimeSpanType';
 import {
     TimeSpanTypeFromJSON,
@@ -75,11 +75,11 @@ export interface PoolItemInventoryCountsType {
      */
     fixedCharge?: boolean;
     /**
-     * 
-     * @type {DailyItemInventoryCountsListType}
+     * Inventory counts for the given date.
+     * @type {Array<DailyItemInventoryCountsType>}
      * @memberof PoolItemInventoryCountsType
      */
-    inventories?: DailyItemInventoryCountsListType;
+    inventories?: Array<DailyItemInventoryCountsType>;
     /**
      * ID reference for the hold Item
      * @type {number}
@@ -105,11 +105,11 @@ export interface PoolItemInventoryCountsType {
      */
     outsideStay?: boolean;
     /**
-     * 
-     * @type {ItemInventoryCountsListType}
+     * Provides item's brief information and a collection of Inventory counts for the given dates for the item.
+     * @type {Array<ItemInventoryCountsType>}
      * @memberof PoolItemInventoryCountsType
      */
-    poolItems?: ItemInventoryCountsListType;
+    poolItems?: Array<ItemInventoryCountsType>;
     /**
      * Quantity of hold Item
      * @type {number}
@@ -172,12 +172,12 @@ export function PoolItemInventoryCountsTypeFromJSONTyped(json: any, ignoreDiscri
         'defaultDuration': !exists(json, 'defaultDuration') ? undefined : json['defaultDuration'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'fixedCharge': !exists(json, 'fixedCharge') ? undefined : json['fixedCharge'],
-        'inventories': !exists(json, 'inventories') ? undefined : DailyItemInventoryCountsListTypeFromJSON(json['inventories']),
+        'inventories': !exists(json, 'inventories') ? undefined : ((json['inventories'] as Array<any>).map(DailyItemInventoryCountsTypeFromJSON)),
         'itemHoldId': !exists(json, 'itemHoldId') ? undefined : json['itemHoldId'],
         'itemPool': !exists(json, 'itemPool') ? undefined : json['itemPool'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'outsideStay': !exists(json, 'outsideStay') ? undefined : json['outsideStay'],
-        'poolItems': !exists(json, 'poolItems') ? undefined : ItemInventoryCountsListTypeFromJSON(json['poolItems']),
+        'poolItems': !exists(json, 'poolItems') ? undefined : ((json['poolItems'] as Array<any>).map(ItemInventoryCountsTypeFromJSON)),
         'quantity': !exists(json, 'quantity') ? undefined : json['quantity'],
         'requiredForBooking': !exists(json, 'requiredForBooking') ? undefined : json['requiredForBooking'],
         'sellInEvent': !exists(json, 'sellInEvent') ? undefined : json['sellInEvent'],
@@ -201,12 +201,12 @@ export function PoolItemInventoryCountsTypeToJSON(value?: PoolItemInventoryCount
         'defaultDuration': value.defaultDuration,
         'description': value.description,
         'fixedCharge': value.fixedCharge,
-        'inventories': DailyItemInventoryCountsListTypeToJSON(value.inventories),
+        'inventories': value.inventories === undefined ? undefined : ((value.inventories as Array<any>).map(DailyItemInventoryCountsTypeToJSON)),
         'itemHoldId': value.itemHoldId,
         'itemPool': value.itemPool,
         'name': value.name,
         'outsideStay': value.outsideStay,
-        'poolItems': ItemInventoryCountsListTypeToJSON(value.poolItems),
+        'poolItems': value.poolItems === undefined ? undefined : ((value.poolItems as Array<any>).map(ItemInventoryCountsTypeToJSON)),
         'quantity': value.quantity,
         'requiredForBooking': value.requiredForBooking,
         'sellInEvent': value.sellInEvent,

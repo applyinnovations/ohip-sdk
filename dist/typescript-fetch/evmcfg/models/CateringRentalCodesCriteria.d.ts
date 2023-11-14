@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CateringCodesType } from './CateringCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CateringCodeType } from './CateringCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object which holds new Catering Rental Code Details.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface CateringRentalCodesCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringRentalCodesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {CateringCodesType}
+     * Catering Code details.
+     * @type {Array<CateringCodeType>}
      * @memberof CateringRentalCodesCriteria
      */
-    rentalCodes?: CateringCodesType;
+    rentalCodes?: Array<CateringCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringRentalCodesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CateringRentalCodesCriteria interface.

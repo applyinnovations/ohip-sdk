@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChangeAdjustmentReasonsDetailsToJSON = exports.ChangeAdjustmentReasonsDetailsFromJSONTyped = exports.ChangeAdjustmentReasonsDetailsFromJSON = exports.instanceOfChangeAdjustmentReasonsDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RoomRotationAdjustmentReasonsType_1 = require("./RoomRotationAdjustmentReasonsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RoomRotationAdjustmentReasonType_1 = require("./RoomRotationAdjustmentReasonType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChangeAdjustmentReasonsDetails interface.
  */
@@ -35,9 +35,9 @@ function ChangeAdjustmentReasonsDetailsFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'adjustmentReasons': !(0, runtime_1.exists)(json, 'adjustmentReasons') ? undefined : (0, RoomRotationAdjustmentReasonsType_1.RoomRotationAdjustmentReasonsTypeFromJSON)(json['adjustmentReasons']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'adjustmentReasons': !(0, runtime_1.exists)(json, 'adjustmentReasons') ? undefined : (json['adjustmentReasons'].map(RoomRotationAdjustmentReasonType_1.RoomRotationAdjustmentReasonTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChangeAdjustmentReasonsDetailsFromJSONTyped = ChangeAdjustmentReasonsDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function ChangeAdjustmentReasonsDetailsToJSON(value) {
         return null;
     }
     return {
-        'adjustmentReasons': (0, RoomRotationAdjustmentReasonsType_1.RoomRotationAdjustmentReasonsTypeToJSON)(value.adjustmentReasons),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'adjustmentReasons': value.adjustmentReasons === undefined ? undefined : (value.adjustmentReasons.map(RoomRotationAdjustmentReasonType_1.RoomRotationAdjustmentReasonTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChangeAdjustmentReasonsDetailsToJSON = ChangeAdjustmentReasonsDetailsToJSON;

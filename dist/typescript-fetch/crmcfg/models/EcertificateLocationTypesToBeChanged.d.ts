@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EcertificateLocationTypesType } from './EcertificateLocationTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { EcertificateLocationTypeType } from './EcertificateLocationTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Ecertificate Location Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface EcertificateLocationTypesToBeChanged {
     /**
-     *
-     * @type {EcertificateLocationTypesType}
+     * List of Ecertificate Location Types.
+     * @type {Array<EcertificateLocationTypeType>}
      * @memberof EcertificateLocationTypesToBeChanged
      */
-    ecertificateLocationTypes?: EcertificateLocationTypesType;
+    ecertificateLocationTypes?: Array<EcertificateLocationTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EcertificateLocationTypesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EcertificateLocationTypesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the EcertificateLocationTypesToBeChanged interface.

@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelCalendarDayTypeToJSON = exports.HotelCalendarDayTypeFromJSONTyped = exports.HotelCalendarDayTypeFromJSON = exports.instanceOfHotelCalendarDayType = void 0;
 const runtime_1 = require("../runtime");
 const HotelCalendarDayTypeType_1 = require("./HotelCalendarDayTypeType");
-const HotelCalendarEventsType_1 = require("./HotelCalendarEventsType");
+const HotelCalendarEventType_1 = require("./HotelCalendarEventType");
 /**
  * Check if a given object implements the HotelCalendarDayType interface.
  */
@@ -36,7 +36,7 @@ function HotelCalendarDayTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
         'dayType': !(0, runtime_1.exists)(json, 'dayType') ? undefined : (0, HotelCalendarDayTypeType_1.HotelCalendarDayTypeTypeFromJSON)(json['dayType']),
-        'events': !(0, runtime_1.exists)(json, 'events') ? undefined : (0, HotelCalendarEventsType_1.HotelCalendarEventsTypeFromJSON)(json['events']),
+        'events': !(0, runtime_1.exists)(json, 'events') ? undefined : (json['events'].map(HotelCalendarEventType_1.HotelCalendarEventTypeFromJSON)),
     };
 }
 exports.HotelCalendarDayTypeFromJSONTyped = HotelCalendarDayTypeFromJSONTyped;
@@ -50,7 +50,7 @@ function HotelCalendarDayTypeToJSON(value) {
     return {
         'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
         'dayType': (0, HotelCalendarDayTypeType_1.HotelCalendarDayTypeTypeToJSON)(value.dayType),
-        'events': (0, HotelCalendarEventsType_1.HotelCalendarEventsTypeToJSON)(value.events),
+        'events': value.events === undefined ? undefined : (value.events.map(HotelCalendarEventType_1.HotelCalendarEventTypeToJSON)),
     };
 }
 exports.HotelCalendarDayTypeToJSON = HotelCalendarDayTypeToJSON;

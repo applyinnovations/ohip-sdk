@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CountriesType } from './CountriesType';
+import type { CountryType } from './CountryType';
 import {
-    CountriesTypeFromJSON,
-    CountriesTypeFromJSONTyped,
-    CountriesTypeToJSON,
-} from './CountriesType';
-import type { Links } from './Links';
+    CountryTypeFromJSON,
+    CountryTypeFromJSONTyped,
+    CountryTypeToJSON,
+} from './CountryType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for modifying Countries for hotels.
@@ -39,23 +39,23 @@ import {
  */
 export interface CountriesToBeChanged {
     /**
-     * 
-     * @type {CountriesType}
+     * Country details.
+     * @type {Array<CountryType>}
      * @memberof CountriesToBeChanged
      */
-    countries?: CountriesType;
+    countries?: Array<CountryType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CountriesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CountriesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CountriesToBeChangedFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'countries': !exists(json, 'countries') ? undefined : CountriesTypeFromJSON(json['countries']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'countries': !exists(json, 'countries') ? undefined : ((json['countries'] as Array<any>).map(CountryTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CountriesToBeChangedToJSON(value?: CountriesToBeChanged | null):
     }
     return {
         
-        'countries': CountriesTypeToJSON(value.countries),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'countries': value.countries === undefined ? undefined : ((value.countries as Array<any>).map(CountryTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

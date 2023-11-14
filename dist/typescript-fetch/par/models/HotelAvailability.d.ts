@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { AvailResponseSegmentType } from './AvailResponseSegmentType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object to search hotel availability based on request segment.
  * @export
@@ -26,16 +26,16 @@ export interface HotelAvailability {
     hotelAvailability?: Array<AvailResponseSegmentType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelAvailability
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelAvailability
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HotelAvailability interface.

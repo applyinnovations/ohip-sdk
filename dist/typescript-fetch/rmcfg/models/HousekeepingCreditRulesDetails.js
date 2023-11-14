@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HousekeepingCreditRulesDetailsToJSON = exports.HousekeepingCreditRulesDetailsFromJSONTyped = exports.HousekeepingCreditRulesDetailsFromJSON = exports.instanceOfHousekeepingCreditRulesDetails = void 0;
 const runtime_1 = require("../runtime");
-const HousekeepingCreditRulesType_1 = require("./HousekeepingCreditRulesType");
-const Links_1 = require("./Links");
+const HousekeepingCreditRuleType_1 = require("./HousekeepingCreditRuleType");
+const InstanceLink_1 = require("./InstanceLink");
 const MasterInfoType_1 = require("./MasterInfoType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the HousekeepingCreditRulesDetails interface.
  */
@@ -36,10 +36,10 @@ function HousekeepingCreditRulesDetailsFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'creditRules': !(0, runtime_1.exists)(json, 'creditRules') ? undefined : (0, HousekeepingCreditRulesType_1.HousekeepingCreditRulesTypeFromJSON)(json['creditRules']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'creditRules': !(0, runtime_1.exists)(json, 'creditRules') ? undefined : (json['creditRules'].map(HousekeepingCreditRuleType_1.HousekeepingCreditRuleTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'masterInfoList': !(0, runtime_1.exists)(json, 'masterInfoList') ? undefined : (json['masterInfoList'].map(MasterInfoType_1.MasterInfoTypeFromJSON)),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.HousekeepingCreditRulesDetailsFromJSONTyped = HousekeepingCreditRulesDetailsFromJSONTyped;
@@ -51,10 +51,10 @@ function HousekeepingCreditRulesDetailsToJSON(value) {
         return null;
     }
     return {
-        'creditRules': (0, HousekeepingCreditRulesType_1.HousekeepingCreditRulesTypeToJSON)(value.creditRules),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'creditRules': value.creditRules === undefined ? undefined : (value.creditRules.map(HousekeepingCreditRuleType_1.HousekeepingCreditRuleTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'masterInfoList': value.masterInfoList === undefined ? undefined : (value.masterInfoList.map(MasterInfoType_1.MasterInfoTypeToJSON)),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.HousekeepingCreditRulesDetailsToJSON = HousekeepingCreditRulesDetailsToJSON;

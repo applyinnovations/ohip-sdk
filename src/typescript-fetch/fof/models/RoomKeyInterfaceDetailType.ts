@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RoomKeyEncodersType } from './RoomKeyEncodersType';
+import type { RoomKeyEncoderType } from './RoomKeyEncoderType';
 import {
-    RoomKeyEncodersTypeFromJSON,
-    RoomKeyEncodersTypeFromJSONTyped,
-    RoomKeyEncodersTypeToJSON,
-} from './RoomKeyEncodersType';
-import type { RoomKeyInterfaceRightsType } from './RoomKeyInterfaceRightsType';
+    RoomKeyEncoderTypeFromJSON,
+    RoomKeyEncoderTypeFromJSONTyped,
+    RoomKeyEncoderTypeToJSON,
+} from './RoomKeyEncoderType';
+import type { RoomKeyInterfaceRightType } from './RoomKeyInterfaceRightType';
 import {
-    RoomKeyInterfaceRightsTypeFromJSON,
-    RoomKeyInterfaceRightsTypeFromJSONTyped,
-    RoomKeyInterfaceRightsTypeToJSON,
-} from './RoomKeyInterfaceRightsType';
+    RoomKeyInterfaceRightTypeFromJSON,
+    RoomKeyInterfaceRightTypeFromJSONTyped,
+    RoomKeyInterfaceRightTypeToJSON,
+} from './RoomKeyInterfaceRightType';
 
 /**
  * 
@@ -39,11 +39,11 @@ export interface RoomKeyInterfaceDetailType {
      */
     additionalRoomsLimit?: number;
     /**
-     * 
-     * @type {RoomKeyEncodersType}
+     * Holds the key encoder right.
+     * @type {Array<RoomKeyEncoderType>}
      * @memberof RoomKeyInterfaceDetailType
      */
-    encoders?: RoomKeyEncodersType;
+    encoders?: Array<RoomKeyEncoderType>;
     /**
      * Hotel code of the interface.
      * @type {string}
@@ -63,11 +63,11 @@ export interface RoomKeyInterfaceDetailType {
      */
     interfaceName?: string;
     /**
-     * 
-     * @type {RoomKeyInterfaceRightsType}
+     * Holds the key encoder right.
+     * @type {Array<RoomKeyInterfaceRightType>}
      * @memberof RoomKeyInterfaceDetailType
      */
-    interfaceRights?: RoomKeyInterfaceRightsType;
+    interfaceRights?: Array<RoomKeyInterfaceRightType>;
     /**
      * Indicator if additional rooms are allowed to be included in key creation.
      * @type {boolean}
@@ -108,11 +108,11 @@ export function RoomKeyInterfaceDetailTypeFromJSONTyped(json: any, ignoreDiscrim
     return {
         
         'additionalRoomsLimit': !exists(json, 'additionalRoomsLimit') ? undefined : json['additionalRoomsLimit'],
-        'encoders': !exists(json, 'encoders') ? undefined : RoomKeyEncodersTypeFromJSON(json['encoders']),
+        'encoders': !exists(json, 'encoders') ? undefined : ((json['encoders'] as Array<any>).map(RoomKeyEncoderTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'interfaceDescription': !exists(json, 'interfaceDescription') ? undefined : json['interfaceDescription'],
         'interfaceName': !exists(json, 'interfaceName') ? undefined : json['interfaceName'],
-        'interfaceRights': !exists(json, 'interfaceRights') ? undefined : RoomKeyInterfaceRightsTypeFromJSON(json['interfaceRights']),
+        'interfaceRights': !exists(json, 'interfaceRights') ? undefined : ((json['interfaceRights'] as Array<any>).map(RoomKeyInterfaceRightTypeFromJSON)),
         'multipleRoomKeys': !exists(json, 'multipleRoomKeys') ? undefined : json['multipleRoomKeys'],
         'propertyDateTime': !exists(json, 'propertyDateTime') ? undefined : json['propertyDateTime'],
         'sendValidStartDateTime': !exists(json, 'sendValidStartDateTime') ? undefined : json['sendValidStartDateTime'],
@@ -129,11 +129,11 @@ export function RoomKeyInterfaceDetailTypeToJSON(value?: RoomKeyInterfaceDetailT
     return {
         
         'additionalRoomsLimit': value.additionalRoomsLimit,
-        'encoders': RoomKeyEncodersTypeToJSON(value.encoders),
+        'encoders': value.encoders === undefined ? undefined : ((value.encoders as Array<any>).map(RoomKeyEncoderTypeToJSON)),
         'hotelId': value.hotelId,
         'interfaceDescription': value.interfaceDescription,
         'interfaceName': value.interfaceName,
-        'interfaceRights': RoomKeyInterfaceRightsTypeToJSON(value.interfaceRights),
+        'interfaceRights': value.interfaceRights === undefined ? undefined : ((value.interfaceRights as Array<any>).map(RoomKeyInterfaceRightTypeToJSON)),
         'multipleRoomKeys': value.multipleRoomKeys,
         'propertyDateTime': value.propertyDateTime,
         'sendValidStartDateTime': value.sendValidStartDateTime,

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AccountPrioritiesType } from './AccountPrioritiesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AccountPriorityType } from './AccountPriorityType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Account Priorities.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AccountPrioritiesToBeChanged {
     /**
-     *
-     * @type {AccountPrioritiesType}
+     * List of Account Priorities.
+     * @type {Array<AccountPriorityType>}
      * @memberof AccountPrioritiesToBeChanged
      */
-    accountPriorities?: AccountPrioritiesType;
+    accountPriorities?: Array<AccountPriorityType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AccountPrioritiesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AccountPrioritiesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AccountPrioritiesToBeChanged interface.

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { OwnerTeamsType } from './OwnerTeamsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { OwnerTeamType } from './OwnerTeamType';
 import {
-    OwnerTeamsTypeFromJSON,
-    OwnerTeamsTypeFromJSONTyped,
-    OwnerTeamsTypeToJSON,
-} from './OwnerTeamsType';
-import type { WarningsType } from './WarningsType';
+    OwnerTeamTypeFromJSON,
+    OwnerTeamTypeFromJSONTyped,
+    OwnerTeamTypeToJSON,
+} from './OwnerTeamType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Owner Teams.
@@ -40,22 +40,22 @@ import {
 export interface OwnerTeamsDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof OwnerTeamsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {OwnerTeamsType}
+     * List of Owner Teams.
+     * @type {Array<OwnerTeamType>}
      * @memberof OwnerTeamsDetails
      */
-    ownerTeams?: OwnerTeamsType;
+    ownerTeams?: Array<OwnerTeamType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OwnerTeamsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function OwnerTeamsDetailsFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'ownerTeams': !exists(json, 'ownerTeams') ? undefined : OwnerTeamsTypeFromJSON(json['ownerTeams']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'ownerTeams': !exists(json, 'ownerTeams') ? undefined : ((json['ownerTeams'] as Array<any>).map(OwnerTeamTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function OwnerTeamsDetailsToJSON(value?: OwnerTeamsDetails | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'ownerTeams': OwnerTeamsTypeToJSON(value.ownerTeams),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'ownerTeams': value.ownerTeams === undefined ? undefined : ((value.ownerTeams as Array<any>).map(OwnerTeamTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

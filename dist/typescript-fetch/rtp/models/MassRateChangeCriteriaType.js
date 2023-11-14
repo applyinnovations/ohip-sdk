@@ -19,10 +19,8 @@ const AmountOrOffsetType_1 = require("./AmountOrOffsetType");
 const BaseType_1 = require("./BaseType");
 const PercentageOrFlatType_1 = require("./PercentageOrFlatType");
 const RateAmountsType_1 = require("./RateAmountsType");
-const RateCodesListType_1 = require("./RateCodesListType");
 const RatePlanRoundingType_1 = require("./RatePlanRoundingType");
 const RatePlanScheduleType_1 = require("./RatePlanScheduleType");
-const RoomTypeListType_1 = require("./RoomTypeListType");
 const TimeSpanDaysOfWeekType_1 = require("./TimeSpanDaysOfWeekType");
 /**
  * Check if a given object implements the MassRateChangeCriteriaType interface.
@@ -47,8 +45,8 @@ function MassRateChangeCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         'dateRange': !(0, runtime_1.exists)(json, 'dateRange') ? undefined : (0, TimeSpanDaysOfWeekType_1.TimeSpanDaysOfWeekTypeFromJSON)(json['dateRange']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'rateAmounts': !(0, runtime_1.exists)(json, 'rateAmounts') ? undefined : (0, RateAmountsType_1.RateAmountsTypeFromJSON)(json['rateAmounts']),
-        'rateCodes': !(0, runtime_1.exists)(json, 'rateCodes') ? undefined : (0, RateCodesListType_1.RateCodesListTypeFromJSON)(json['rateCodes']),
-        'roomTypes': !(0, runtime_1.exists)(json, 'roomTypes') ? undefined : (0, RoomTypeListType_1.RoomTypeListTypeFromJSON)(json['roomTypes']),
+        'rateCodes': !(0, runtime_1.exists)(json, 'rateCodes') ? undefined : json['rateCodes'],
+        'roomTypes': !(0, runtime_1.exists)(json, 'roomTypes') ? undefined : json['roomTypes'],
         'rounding': !(0, runtime_1.exists)(json, 'rounding') ? undefined : (0, RatePlanRoundingType_1.RatePlanRoundingTypeFromJSON)(json['rounding']),
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : (0, RatePlanScheduleType_1.RatePlanScheduleTypeFromJSON)(json['type']),
     };
@@ -68,8 +66,8 @@ function MassRateChangeCriteriaTypeToJSON(value) {
         'dateRange': (0, TimeSpanDaysOfWeekType_1.TimeSpanDaysOfWeekTypeToJSON)(value.dateRange),
         'hotelId': value.hotelId,
         'rateAmounts': (0, RateAmountsType_1.RateAmountsTypeToJSON)(value.rateAmounts),
-        'rateCodes': (0, RateCodesListType_1.RateCodesListTypeToJSON)(value.rateCodes),
-        'roomTypes': (0, RoomTypeListType_1.RoomTypeListTypeToJSON)(value.roomTypes),
+        'rateCodes': value.rateCodes,
+        'roomTypes': value.roomTypes,
         'rounding': (0, RatePlanRoundingType_1.RatePlanRoundingTypeToJSON)(value.rounding),
         'type': (0, RatePlanScheduleType_1.RatePlanScheduleTypeToJSON)(value.type),
     };

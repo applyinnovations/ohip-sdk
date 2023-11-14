@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MemberPointsToExpireListType } from './MemberPointsToExpireListType';
+import type { InstanceLink } from './InstanceLink';
+import type { MemberPointToExpireType } from './MemberPointToExpireType';
 /**
  * Response object for fetching member points to expire information.
  * @export
@@ -18,17 +18,17 @@ import type { MemberPointsToExpireListType } from './MemberPointsToExpireListTyp
  */
 export interface MemberPointsToExpire {
     /**
-     *
-     * @type {MemberPointsToExpireListType}
+     * List of of member points to expire.
+     * @type {Array<MemberPointToExpireType>}
      * @memberof MemberPointsToExpire
      */
-    memberPointsToExpireList?: MemberPointsToExpireListType;
+    memberPointsToExpireList?: Array<MemberPointToExpireType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MemberPointsToExpire
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the MemberPointsToExpire interface.

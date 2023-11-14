@@ -16,14 +16,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DepositPaymentCriteriaTypeToJSON = exports.DepositPaymentCriteriaTypeFromJSONTyped = exports.DepositPaymentCriteriaTypeFromJSON = exports.instanceOfDepositPaymentCriteriaType = void 0;
 const runtime_1 = require("../runtime");
 const CashieringPaymentMethodType_1 = require("./CashieringPaymentMethodType");
-const CompRedemptionsType_1 = require("./CompRedemptionsType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const PaymentTaxType_1 = require("./PaymentTaxType");
-const PaymentTaxesType_1 = require("./PaymentTaxesType");
 const PostPaymentActionType_1 = require("./PostPaymentActionType");
-const PrepaidCardRedemptionsType_1 = require("./PrepaidCardRedemptionsType");
+const PrepaidCardRedemptionType_1 = require("./PrepaidCardRedemptionType");
 const ProfileId_1 = require("./ProfileId");
 const ReceiptType_1 = require("./ReceiptType");
+const RedemptionType_1 = require("./RedemptionType");
 const ReservationId_1 = require("./ReservationId");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -50,8 +49,8 @@ function DepositPaymentCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
         'changeDueAmount': !(0, runtime_1.exists)(json, 'changeDueAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['changeDueAmount']),
         'comments': !(0, runtime_1.exists)(json, 'comments') ? undefined : json['comments'],
-        'compRedemptions': !(0, runtime_1.exists)(json, 'compRedemptions') ? undefined : (0, CompRedemptionsType_1.CompRedemptionsTypeFromJSON)(json['compRedemptions']),
-        'creditablePaymentTaxes': !(0, runtime_1.exists)(json, 'creditablePaymentTaxes') ? undefined : (0, PaymentTaxesType_1.PaymentTaxesTypeFromJSON)(json['creditablePaymentTaxes']),
+        'compRedemptions': !(0, runtime_1.exists)(json, 'compRedemptions') ? undefined : (json['compRedemptions'].map(RedemptionType_1.RedemptionTypeFromJSON)),
+        'creditablePaymentTaxes': !(0, runtime_1.exists)(json, 'creditablePaymentTaxes') ? undefined : (json['creditablePaymentTaxes'].map(PaymentTaxType_1.PaymentTaxTypeFromJSON)),
         'depositPolicyId': !(0, runtime_1.exists)(json, 'depositPolicyId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['depositPolicyId']),
         'folioWindowNo': !(0, runtime_1.exists)(json, 'folioWindowNo') ? undefined : json['folioWindowNo'],
         'guaranteeCode': !(0, runtime_1.exists)(json, 'guaranteeCode') ? undefined : json['guaranteeCode'],
@@ -64,7 +63,7 @@ function DepositPaymentCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         'postingAmount': !(0, runtime_1.exists)(json, 'postingAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['postingAmount']),
         'postingReference': !(0, runtime_1.exists)(json, 'postingReference') ? undefined : json['postingReference'],
         'postingRemark': !(0, runtime_1.exists)(json, 'postingRemark') ? undefined : json['postingRemark'],
-        'prepaidCardRedemptions': !(0, runtime_1.exists)(json, 'prepaidCardRedemptions') ? undefined : (0, PrepaidCardRedemptionsType_1.PrepaidCardRedemptionsTypeFromJSON)(json['prepaidCardRedemptions']),
+        'prepaidCardRedemptions': !(0, runtime_1.exists)(json, 'prepaidCardRedemptions') ? undefined : (json['prepaidCardRedemptions'].map(PrepaidCardRedemptionType_1.PrepaidCardRedemptionTypeFromJSON)),
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, ProfileId_1.ProfileIdFromJSON)(json['profileId']),
         'receiptType': !(0, runtime_1.exists)(json, 'receiptType') ? undefined : (0, ReceiptType_1.ReceiptTypeFromJSON)(json['receiptType']),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
@@ -89,8 +88,8 @@ function DepositPaymentCriteriaTypeToJSON(value) {
         'cashierId': value.cashierId,
         'changeDueAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.changeDueAmount),
         'comments': value.comments,
-        'compRedemptions': (0, CompRedemptionsType_1.CompRedemptionsTypeToJSON)(value.compRedemptions),
-        'creditablePaymentTaxes': (0, PaymentTaxesType_1.PaymentTaxesTypeToJSON)(value.creditablePaymentTaxes),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : (value.compRedemptions.map(RedemptionType_1.RedemptionTypeToJSON)),
+        'creditablePaymentTaxes': value.creditablePaymentTaxes === undefined ? undefined : (value.creditablePaymentTaxes.map(PaymentTaxType_1.PaymentTaxTypeToJSON)),
         'depositPolicyId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.depositPolicyId),
         'folioWindowNo': value.folioWindowNo,
         'guaranteeCode': value.guaranteeCode,
@@ -103,7 +102,7 @@ function DepositPaymentCriteriaTypeToJSON(value) {
         'postingAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.postingAmount),
         'postingReference': value.postingReference,
         'postingRemark': value.postingRemark,
-        'prepaidCardRedemptions': (0, PrepaidCardRedemptionsType_1.PrepaidCardRedemptionsTypeToJSON)(value.prepaidCardRedemptions),
+        'prepaidCardRedemptions': value.prepaidCardRedemptions === undefined ? undefined : (value.prepaidCardRedemptions.map(PrepaidCardRedemptionType_1.PrepaidCardRedemptionTypeToJSON)),
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
         'receiptType': (0, ReceiptType_1.ReceiptTypeToJSON)(value.receiptType),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),

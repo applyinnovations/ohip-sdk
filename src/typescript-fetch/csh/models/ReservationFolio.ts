@@ -19,18 +19,18 @@ import {
     CreateProformaCriteriaTypeFromJSONTyped,
     CreateProformaCriteriaTypeToJSON,
 } from './CreateProformaCriteriaType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to create a Proforma(folio) transactions for a reservation. The request generates the internal transactions required to create a Proforma report. After this request is called , the Opera Proforma report should be called so that these transactions can be used in the report. If the report is called without this request, the report will be incorrect and will not have the complete information. If the report is not used after this request, the internal transactions will be removed either by night audit or by the next request.
@@ -46,16 +46,16 @@ export interface ReservationFolio {
     criteria?: CreateProformaCriteriaType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationFolio
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationFolio
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -78,8 +78,8 @@ export function ReservationFolioFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : CreateProformaCriteriaTypeFromJSON(json['criteria']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -93,8 +93,8 @@ export function ReservationFolioToJSON(value?: ReservationFolio | null): any {
     return {
         
         'criteria': CreateProformaCriteriaTypeToJSON(value.criteria),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

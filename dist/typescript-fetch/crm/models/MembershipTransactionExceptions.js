@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipTransactionExceptionsToJSON = exports.MembershipTransactionExceptionsFromJSONTyped = exports.MembershipTransactionExceptionsFromJSON = exports.instanceOfMembershipTransactionExceptions = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const MembershipTransactionExceptionsType_1 = require("./MembershipTransactionExceptionsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const MembershipTransactionExceptionType_1 = require("./MembershipTransactionExceptionType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MembershipTransactionExceptions interface.
  */
@@ -35,9 +35,9 @@ function MembershipTransactionExceptionsFromJSONTyped(json, ignoreDiscriminator)
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'memberTransactionExceptions': !(0, runtime_1.exists)(json, 'memberTransactionExceptions') ? undefined : (0, MembershipTransactionExceptionsType_1.MembershipTransactionExceptionsTypeFromJSON)(json['memberTransactionExceptions']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'memberTransactionExceptions': !(0, runtime_1.exists)(json, 'memberTransactionExceptions') ? undefined : (json['memberTransactionExceptions'].map(MembershipTransactionExceptionType_1.MembershipTransactionExceptionTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MembershipTransactionExceptionsFromJSONTyped = MembershipTransactionExceptionsFromJSONTyped;
@@ -49,9 +49,9 @@ function MembershipTransactionExceptionsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'memberTransactionExceptions': (0, MembershipTransactionExceptionsType_1.MembershipTransactionExceptionsTypeToJSON)(value.memberTransactionExceptions),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'memberTransactionExceptions': value.memberTransactionExceptions === undefined ? undefined : (value.memberTransactionExceptions.map(MembershipTransactionExceptionType_1.MembershipTransactionExceptionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MembershipTransactionExceptionsToJSON = MembershipTransactionExceptionsToJSON;

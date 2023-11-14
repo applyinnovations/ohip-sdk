@@ -19,7 +19,7 @@ const CustomerType_1 = require("./CustomerType");
 const GuestProfileTypeAddresses_1 = require("./GuestProfileTypeAddresses");
 const GuestProfileTypeType_1 = require("./GuestProfileTypeType");
 const ImageSetType_1 = require("./ImageSetType");
-const IndicatorsType_1 = require("./IndicatorsType");
+const IndicatorType_1 = require("./IndicatorType");
 const LastStayInfoType_1 = require("./LastStayInfoType");
 const MailingActionsType_1 = require("./MailingActionsType");
 const PrivacyInfoType_1 = require("./PrivacyInfoType");
@@ -59,7 +59,7 @@ function GuestProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
         'profileMemberships': !(0, runtime_1.exists)(json, 'profileMemberships') ? undefined : (0, ProfileTypeProfileMemberships_1.ProfileTypeProfileMembershipsFromJSON)(json['profileMemberships']),
         'preferenceCollection': !(0, runtime_1.exists)(json, 'preferenceCollection') ? undefined : (0, ProfileTypePreferenceCollection_1.ProfileTypePreferenceCollectionFromJSON)(json['preferenceCollection']),
         'keywords': !(0, runtime_1.exists)(json, 'keywords') ? undefined : (0, ProfileTypeKeywords_1.ProfileTypeKeywordsFromJSON)(json['keywords']),
-        'profileIndicators': !(0, runtime_1.exists)(json, 'profileIndicators') ? undefined : (0, IndicatorsType_1.IndicatorsTypeFromJSON)(json['profileIndicators']),
+        'profileIndicators': !(0, runtime_1.exists)(json, 'profileIndicators') ? undefined : (json['profileIndicators'].map(IndicatorType_1.IndicatorTypeFromJSON)),
         'lastStayInfo': !(0, runtime_1.exists)(json, 'lastStayInfo') ? undefined : (0, LastStayInfoType_1.LastStayInfoTypeFromJSON)(json['lastStayInfo']),
         'profileAccessType': !(0, runtime_1.exists)(json, 'profileAccessType') ? undefined : (0, ProfileAccessType_1.ProfileAccessTypeFromJSON)(json['profileAccessType']),
         'profileRestrictions': !(0, runtime_1.exists)(json, 'profileRestrictions') ? undefined : (0, ProfileRestrictions_1.ProfileRestrictionsFromJSON)(json['profileRestrictions']),
@@ -100,7 +100,7 @@ function GuestProfileTypeToJSON(value) {
         'profileMemberships': (0, ProfileTypeProfileMemberships_1.ProfileTypeProfileMembershipsToJSON)(value.profileMemberships),
         'preferenceCollection': (0, ProfileTypePreferenceCollection_1.ProfileTypePreferenceCollectionToJSON)(value.preferenceCollection),
         'keywords': (0, ProfileTypeKeywords_1.ProfileTypeKeywordsToJSON)(value.keywords),
-        'profileIndicators': (0, IndicatorsType_1.IndicatorsTypeToJSON)(value.profileIndicators),
+        'profileIndicators': value.profileIndicators === undefined ? undefined : (value.profileIndicators.map(IndicatorType_1.IndicatorTypeToJSON)),
         'lastStayInfo': (0, LastStayInfoType_1.LastStayInfoTypeToJSON)(value.lastStayInfo),
         'profileAccessType': (0, ProfileAccessType_1.ProfileAccessTypeToJSON)(value.profileAccessType),
         'profileRestrictions': (0, ProfileRestrictions_1.ProfileRestrictionsToJSON)(value.profileRestrictions),

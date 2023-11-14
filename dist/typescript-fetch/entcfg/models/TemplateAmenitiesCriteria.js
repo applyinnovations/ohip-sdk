@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateAmenitiesCriteriaToJSON = exports.TemplateAmenitiesCriteriaFromJSONTyped = exports.TemplateAmenitiesCriteriaFromJSON = exports.instanceOfTemplateAmenitiesCriteria = void 0;
 const runtime_1 = require("../runtime");
-const ConfigTemplateAmenitiesType_1 = require("./ConfigTemplateAmenitiesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ConfigTemplateAmenityType_1 = require("./ConfigTemplateAmenityType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TemplateAmenitiesCriteria interface.
  */
@@ -35,9 +35,9 @@ function TemplateAmenitiesCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'templateAmenities': !(0, runtime_1.exists)(json, 'templateAmenities') ? undefined : (0, ConfigTemplateAmenitiesType_1.ConfigTemplateAmenitiesTypeFromJSON)(json['templateAmenities']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'templateAmenities': !(0, runtime_1.exists)(json, 'templateAmenities') ? undefined : (json['templateAmenities'].map(ConfigTemplateAmenityType_1.ConfigTemplateAmenityTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TemplateAmenitiesCriteriaFromJSONTyped = TemplateAmenitiesCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function TemplateAmenitiesCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'templateAmenities': (0, ConfigTemplateAmenitiesType_1.ConfigTemplateAmenitiesTypeToJSON)(value.templateAmenities),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'templateAmenities': value.templateAmenities === undefined ? undefined : (value.templateAmenities.map(ConfigTemplateAmenityType_1.ConfigTemplateAmenityTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TemplateAmenitiesCriteriaToJSON = TemplateAmenitiesCriteriaToJSON;

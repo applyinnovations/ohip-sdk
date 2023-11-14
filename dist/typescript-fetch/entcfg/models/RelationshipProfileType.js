@@ -24,7 +24,7 @@ const ProfileStatusType_1 = require("./ProfileStatusType");
 const ProfileTypeType_1 = require("./ProfileTypeType");
 const TelephoneInfoType_1 = require("./TelephoneInfoType");
 const URLInfoType_1 = require("./URLInfoType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the RelationshipProfileType interface.
  */
@@ -43,14 +43,14 @@ function RelationshipProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'address': !(0, runtime_1.exists)(json, 'address') ? undefined : (0, AddressInfoType_1.AddressInfoTypeFromJSON)(json['address']),
-        'changeProfileIdList': !(0, runtime_1.exists)(json, 'changeProfileIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['changeProfileIdList']),
+        'changeProfileIdList': !(0, runtime_1.exists)(json, 'changeProfileIdList') ? undefined : (json['changeProfileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'company': !(0, runtime_1.exists)(json, 'company') ? undefined : (0, CompanyType_1.CompanyTypeFromJSON)(json['company']),
         'customer': !(0, runtime_1.exists)(json, 'customer') ? undefined : (0, CustomerType_1.CustomerTypeFromJSON)(json['customer']),
         'email': !(0, runtime_1.exists)(json, 'email') ? undefined : (0, EmailInfoType_1.EmailInfoTypeFromJSON)(json['email']),
         'id': !(0, runtime_1.exists)(json, 'id') ? undefined : json['id'],
         'primary': !(0, runtime_1.exists)(json, 'primary') ? undefined : json['primary'],
         'primaryOwner': !(0, runtime_1.exists)(json, 'primaryOwner') ? undefined : (0, OwnerType_1.OwnerTypeFromJSON)(json['primaryOwner']),
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'profileType': !(0, runtime_1.exists)(json, 'profileType') ? undefined : (0, ProfileTypeType_1.ProfileTypeTypeFromJSON)(json['profileType']),
         'statusCode': !(0, runtime_1.exists)(json, 'statusCode') ? undefined : (0, ProfileStatusType_1.ProfileStatusTypeFromJSON)(json['statusCode']),
         'telephone': !(0, runtime_1.exists)(json, 'telephone') ? undefined : (0, TelephoneInfoType_1.TelephoneInfoTypeFromJSON)(json['telephone']),
@@ -67,14 +67,14 @@ function RelationshipProfileTypeToJSON(value) {
     }
     return {
         'address': (0, AddressInfoType_1.AddressInfoTypeToJSON)(value.address),
-        'changeProfileIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.changeProfileIdList),
+        'changeProfileIdList': value.changeProfileIdList === undefined ? undefined : (value.changeProfileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'company': (0, CompanyType_1.CompanyTypeToJSON)(value.company),
         'customer': (0, CustomerType_1.CustomerTypeToJSON)(value.customer),
         'email': (0, EmailInfoType_1.EmailInfoTypeToJSON)(value.email),
         'id': value.id,
         'primary': value.primary,
         'primaryOwner': (0, OwnerType_1.OwnerTypeToJSON)(value.primaryOwner),
-        'profileIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'profileType': (0, ProfileTypeType_1.ProfileTypeTypeToJSON)(value.profileType),
         'statusCode': (0, ProfileStatusType_1.ProfileStatusTypeToJSON)(value.statusCode),
         'telephone': (0, TelephoneInfoType_1.TelephoneInfoTypeToJSON)(value.telephone),

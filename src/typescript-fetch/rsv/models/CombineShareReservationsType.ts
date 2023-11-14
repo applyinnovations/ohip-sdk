@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CombineShareFromProfilesType } from './CombineShareFromProfilesType';
+import type { CombineShareFromProfileType } from './CombineShareFromProfileType';
 import {
-    CombineShareFromProfilesTypeFromJSON,
-    CombineShareFromProfilesTypeFromJSONTyped,
-    CombineShareFromProfilesTypeToJSON,
-} from './CombineShareFromProfilesType';
+    CombineShareFromProfileTypeFromJSON,
+    CombineShareFromProfileTypeFromJSONTyped,
+    CombineShareFromProfileTypeToJSON,
+} from './CombineShareFromProfileType';
 import type { CombineShareInstructionType } from './CombineShareInstructionType';
 import {
     CombineShareInstructionTypeFromJSON,
@@ -75,11 +75,11 @@ export interface CombineShareReservationsType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {CombineShareFromProfilesType}
+     * Type for the profile information to create a new share reservation. This is used to create sharers from profiles.
+     * @type {Array<CombineShareFromProfileType>}
      * @memberof CombineShareReservationsType
      */
-    newReservations?: CombineShareFromProfilesType;
+    newReservations?: Array<CombineShareFromProfileType>;
     /**
      * 
      * @type {CombineShareReservationsTypeShareToReservation}
@@ -111,7 +111,7 @@ export function CombineShareReservationsTypeFromJSONTyped(json: any, ignoreDiscr
         'existingReservationId': !exists(json, 'existingReservationId') ? undefined : UniqueIDTypeFromJSON(json['existingReservationId']),
         'fetchInstructions': !exists(json, 'fetchInstructions') ? undefined : CombineShareReservationsTypeFetchInstructionsFromJSON(json['fetchInstructions']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'newReservations': !exists(json, 'newReservations') ? undefined : CombineShareFromProfilesTypeFromJSON(json['newReservations']),
+        'newReservations': !exists(json, 'newReservations') ? undefined : ((json['newReservations'] as Array<any>).map(CombineShareFromProfileTypeFromJSON)),
         'shareToReservation': !exists(json, 'shareToReservation') ? undefined : CombineShareReservationsTypeShareToReservationFromJSON(json['shareToReservation']),
     };
 }
@@ -129,7 +129,7 @@ export function CombineShareReservationsTypeToJSON(value?: CombineShareReservati
         'existingReservationId': UniqueIDTypeToJSON(value.existingReservationId),
         'fetchInstructions': CombineShareReservationsTypeFetchInstructionsToJSON(value.fetchInstructions),
         'hotelId': value.hotelId,
-        'newReservations': CombineShareFromProfilesTypeToJSON(value.newReservations),
+        'newReservations': value.newReservations === undefined ? undefined : ((value.newReservations as Array<any>).map(CombineShareFromProfileTypeToJSON)),
         'shareToReservation': CombineShareReservationsTypeShareToReservationToJSON(value.shareToReservation),
     };
 }

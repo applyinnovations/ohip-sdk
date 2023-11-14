@@ -19,42 +19,42 @@ import {
     BlockTypeFromJSONTyped,
     BlockTypeToJSON,
 } from './BlockType';
+import type { BookingStatusDetailType } from './BookingStatusDetailType';
+import {
+    BookingStatusDetailTypeFromJSON,
+    BookingStatusDetailTypeFromJSONTyped,
+    BookingStatusDetailTypeToJSON,
+} from './BookingStatusDetailType';
+import type { BookingStatusHistoryType } from './BookingStatusHistoryType';
+import {
+    BookingStatusHistoryTypeFromJSON,
+    BookingStatusHistoryTypeFromJSONTyped,
+    BookingStatusHistoryTypeToJSON,
+} from './BookingStatusHistoryType';
 import type { CancellationDetailsType } from './CancellationDetailsType';
 import {
     CancellationDetailsTypeFromJSON,
     CancellationDetailsTypeFromJSONTyped,
     CancellationDetailsTypeToJSON,
 } from './CancellationDetailsType';
-import type { CateringEventsProcessedInfoList } from './CateringEventsProcessedInfoList';
+import type { CateringEventsProcessedInfoType } from './CateringEventsProcessedInfoType';
 import {
-    CateringEventsProcessedInfoListFromJSON,
-    CateringEventsProcessedInfoListFromJSONTyped,
-    CateringEventsProcessedInfoListToJSON,
-} from './CateringEventsProcessedInfoList';
-import type { CateringNextStatusListType } from './CateringNextStatusListType';
+    CateringEventsProcessedInfoTypeFromJSON,
+    CateringEventsProcessedInfoTypeFromJSONTyped,
+    CateringEventsProcessedInfoTypeToJSON,
+} from './CateringEventsProcessedInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    CateringNextStatusListTypeFromJSON,
-    CateringNextStatusListTypeFromJSONTyped,
-    CateringNextStatusListTypeToJSON,
-} from './CateringNextStatusListType';
-import type { CateringStatusChangeHistoryType } from './CateringStatusChangeHistoryType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    CateringStatusChangeHistoryTypeFromJSON,
-    CateringStatusChangeHistoryTypeFromJSONTyped,
-    CateringStatusChangeHistoryTypeToJSON,
-} from './CateringStatusChangeHistoryType';
-import type { Links } from './Links';
-import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
-import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for the request to change catering status. Response contains information on the block whose status was successfully changed.
@@ -75,35 +75,35 @@ export interface ChangedCateringStatus {
      */
     cancellationDetails?: CancellationDetailsType;
     /**
-     * 
-     * @type {CateringEventsProcessedInfoList}
+     * Status/Info of the processed events.
+     * @type {Array<CateringEventsProcessedInfoType>}
      * @memberof ChangedCateringStatus
      */
-    cateringEventsProcessedInfo?: CateringEventsProcessedInfoList;
+    cateringEventsProcessedInfo?: Array<CateringEventsProcessedInfoType>;
+    /**
+     * Next catering status of the business block.
+     * @type {Array<BookingStatusDetailType>}
+     * @memberof ChangedCateringStatus
+     */
+    cateringNextStatusList?: Array<BookingStatusDetailType>;
+    /**
+     * Collection of catering status history.
+     * @type {Array<BookingStatusHistoryType>}
+     * @memberof ChangedCateringStatus
+     */
+    cateringStatusChangeHistory?: Array<BookingStatusHistoryType>;
     /**
      * 
-     * @type {CateringNextStatusListType}
+     * @type {Array<InstanceLink>}
      * @memberof ChangedCateringStatus
      */
-    cateringNextStatusList?: CateringNextStatusListType;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {CateringStatusChangeHistoryType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangedCateringStatus
      */
-    cateringStatusChangeHistory?: CateringStatusChangeHistoryType;
-    /**
-     * 
-     * @type {Links}
-     * @memberof ChangedCateringStatus
-     */
-    links?: Links;
-    /**
-     * 
-     * @type {WarningsType}
-     * @memberof ChangedCateringStatus
-     */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -127,11 +127,11 @@ export function ChangedCateringStatusFromJSONTyped(json: any, ignoreDiscriminato
         
         'block': !exists(json, 'block') ? undefined : BlockTypeFromJSON(json['block']),
         'cancellationDetails': !exists(json, 'cancellationDetails') ? undefined : CancellationDetailsTypeFromJSON(json['cancellationDetails']),
-        'cateringEventsProcessedInfo': !exists(json, 'cateringEventsProcessedInfo') ? undefined : CateringEventsProcessedInfoListFromJSON(json['cateringEventsProcessedInfo']),
-        'cateringNextStatusList': !exists(json, 'cateringNextStatusList') ? undefined : CateringNextStatusListTypeFromJSON(json['cateringNextStatusList']),
-        'cateringStatusChangeHistory': !exists(json, 'cateringStatusChangeHistory') ? undefined : CateringStatusChangeHistoryTypeFromJSON(json['cateringStatusChangeHistory']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'cateringEventsProcessedInfo': !exists(json, 'cateringEventsProcessedInfo') ? undefined : ((json['cateringEventsProcessedInfo'] as Array<any>).map(CateringEventsProcessedInfoTypeFromJSON)),
+        'cateringNextStatusList': !exists(json, 'cateringNextStatusList') ? undefined : ((json['cateringNextStatusList'] as Array<any>).map(BookingStatusDetailTypeFromJSON)),
+        'cateringStatusChangeHistory': !exists(json, 'cateringStatusChangeHistory') ? undefined : ((json['cateringStatusChangeHistory'] as Array<any>).map(BookingStatusHistoryTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -146,11 +146,11 @@ export function ChangedCateringStatusToJSON(value?: ChangedCateringStatus | null
         
         'block': BlockTypeToJSON(value.block),
         'cancellationDetails': CancellationDetailsTypeToJSON(value.cancellationDetails),
-        'cateringEventsProcessedInfo': CateringEventsProcessedInfoListToJSON(value.cateringEventsProcessedInfo),
-        'cateringNextStatusList': CateringNextStatusListTypeToJSON(value.cateringNextStatusList),
-        'cateringStatusChangeHistory': CateringStatusChangeHistoryTypeToJSON(value.cateringStatusChangeHistory),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'cateringEventsProcessedInfo': value.cateringEventsProcessedInfo === undefined ? undefined : ((value.cateringEventsProcessedInfo as Array<any>).map(CateringEventsProcessedInfoTypeToJSON)),
+        'cateringNextStatusList': value.cateringNextStatusList === undefined ? undefined : ((value.cateringNextStatusList as Array<any>).map(BookingStatusDetailTypeToJSON)),
+        'cateringStatusChangeHistory': value.cateringStatusChangeHistory === undefined ? undefined : ((value.cateringStatusChangeHistory as Array<any>).map(BookingStatusHistoryTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

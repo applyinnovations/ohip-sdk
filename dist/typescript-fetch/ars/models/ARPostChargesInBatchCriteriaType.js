@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ARPostChargesInBatchCriteriaTypeToJSON = exports.ARPostChargesInBatchCriteriaTypeFromJSONTyped = exports.ARPostChargesInBatchCriteriaTypeFromJSON = exports.instanceOfARPostChargesInBatchCriteriaType = void 0;
 const runtime_1 = require("../runtime");
 const ChargeCriteriaType_1 = require("./ChargeCriteriaType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ARPostChargesInBatchCriteriaType interface.
  */
@@ -34,7 +34,7 @@ function ARPostChargesInBatchCriteriaTypeFromJSONTyped(json, ignoreDiscriminator
         return json;
     }
     return {
-        'accountIdList': !(0, runtime_1.exists)(json, 'accountIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['accountIdList']),
+        'accountIdList': !(0, runtime_1.exists)(json, 'accountIdList') ? undefined : (json['accountIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
         'chargeInfo': !(0, runtime_1.exists)(json, 'chargeInfo') ? undefined : (0, ChargeCriteriaType_1.ChargeCriteriaTypeFromJSON)(json['chargeInfo']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
@@ -49,7 +49,7 @@ function ARPostChargesInBatchCriteriaTypeToJSON(value) {
         return null;
     }
     return {
-        'accountIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.accountIdList),
+        'accountIdList': value.accountIdList === undefined ? undefined : (value.accountIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'cashierId': value.cashierId,
         'chargeInfo': (0, ChargeCriteriaType_1.ChargeCriteriaTypeToJSON)(value.chargeInfo),
         'hotelId': value.hotelId,

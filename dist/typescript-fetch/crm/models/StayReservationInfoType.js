@@ -16,10 +16,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.StayReservationInfoTypeToJSON = exports.StayReservationInfoTypeFromJSONTyped = exports.StayReservationInfoTypeFromJSON = exports.instanceOfStayReservationInfoType = void 0;
 const runtime_1 = require("../runtime");
 const PMSResStatusType_1 = require("./PMSResStatusType");
-const ResAttachedProfileListType_1 = require("./ResAttachedProfileListType");
+const ResAttachedProfileType_1 = require("./ResAttachedProfileType");
 const ReservationId_1 = require("./ReservationId");
-const ReservationIdList_1 = require("./ReservationIdList");
 const StayInfoType_1 = require("./StayInfoType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the StayReservationInfoType interface.
  */
@@ -37,11 +37,11 @@ function StayReservationInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'attachedProfiles': !(0, runtime_1.exists)(json, 'attachedProfiles') ? undefined : (0, ResAttachedProfileListType_1.ResAttachedProfileListTypeFromJSON)(json['attachedProfiles']),
+        'attachedProfiles': !(0, runtime_1.exists)(json, 'attachedProfiles') ? undefined : (json['attachedProfiles'].map(ResAttachedProfileType_1.ResAttachedProfileTypeFromJSON)),
         'computedReservationStatus': !(0, runtime_1.exists)(json, 'computedReservationStatus') ? undefined : (0, PMSResStatusType_1.PMSResStatusTypeFromJSON)(json['computedReservationStatus']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'parentReservationId': !(0, runtime_1.exists)(json, 'parentReservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['parentReservationId']),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'reservationStatus': !(0, runtime_1.exists)(json, 'reservationStatus') ? undefined : (0, PMSResStatusType_1.PMSResStatusTypeFromJSON)(json['reservationStatus']),
         'roomStay': !(0, runtime_1.exists)(json, 'roomStay') ? undefined : (0, StayInfoType_1.StayInfoTypeFromJSON)(json['roomStay']),
     };
@@ -55,11 +55,11 @@ function StayReservationInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'attachedProfiles': (0, ResAttachedProfileListType_1.ResAttachedProfileListTypeToJSON)(value.attachedProfiles),
+        'attachedProfiles': value.attachedProfiles === undefined ? undefined : (value.attachedProfiles.map(ResAttachedProfileType_1.ResAttachedProfileTypeToJSON)),
         'computedReservationStatus': (0, PMSResStatusType_1.PMSResStatusTypeToJSON)(value.computedReservationStatus),
         'hotelId': value.hotelId,
         'parentReservationId': (0, ReservationId_1.ReservationIdToJSON)(value.parentReservationId),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'reservationStatus': (0, PMSResStatusType_1.PMSResStatusTypeToJSON)(value.reservationStatus),
         'roomStay': (0, StayInfoType_1.StayInfoTypeToJSON)(value.roomStay),
     };

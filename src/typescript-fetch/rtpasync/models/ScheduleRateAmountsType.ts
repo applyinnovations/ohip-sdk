@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RateByAgeBucketsType } from './RateByAgeBucketsType';
+import type { RateByAgeBucketType } from './RateByAgeBucketType';
 import {
-    RateByAgeBucketsTypeFromJSON,
-    RateByAgeBucketsTypeFromJSONTyped,
-    RateByAgeBucketsTypeToJSON,
-} from './RateByAgeBucketsType';
+    RateByAgeBucketTypeFromJSON,
+    RateByAgeBucketTypeFromJSONTyped,
+    RateByAgeBucketTypeToJSON,
+} from './RateByAgeBucketType';
 
 /**
  * 
@@ -87,11 +87,11 @@ export interface ScheduleRateAmountsType {
      */
     pointsRequired?: number;
     /**
-     * 
-     * @type {RateByAgeBucketsType}
+     * Rate amount by age bucket.
+     * @type {Array<RateByAgeBucketType>}
      * @memberof ScheduleRateAmountsType
      */
-    rateByAgeBuckets?: RateByAgeBucketsType;
+    rateByAgeBuckets?: Array<RateByAgeBucketType>;
     /**
      * Rate amount for three Children.
      * @type {number}
@@ -147,7 +147,7 @@ export function ScheduleRateAmountsTypeFromJSONTyped(json: any, ignoreDiscrimina
         'onePersonRate': !exists(json, 'onePersonRate') ? undefined : json['onePersonRate'],
         'overrideFloorAmount': !exists(json, 'overrideFloorAmount') ? undefined : json['overrideFloorAmount'],
         'pointsRequired': !exists(json, 'pointsRequired') ? undefined : json['pointsRequired'],
-        'rateByAgeBuckets': !exists(json, 'rateByAgeBuckets') ? undefined : RateByAgeBucketsTypeFromJSON(json['rateByAgeBuckets']),
+        'rateByAgeBuckets': !exists(json, 'rateByAgeBuckets') ? undefined : ((json['rateByAgeBuckets'] as Array<any>).map(RateByAgeBucketTypeFromJSON)),
         'threeChildrenRate': !exists(json, 'threeChildrenRate') ? undefined : json['threeChildrenRate'],
         'threePersonRate': !exists(json, 'threePersonRate') ? undefined : json['threePersonRate'],
         'twoChildrenRate': !exists(json, 'twoChildrenRate') ? undefined : json['twoChildrenRate'],
@@ -174,7 +174,7 @@ export function ScheduleRateAmountsTypeToJSON(value?: ScheduleRateAmountsType | 
         'onePersonRate': value.onePersonRate,
         'overrideFloorAmount': value.overrideFloorAmount,
         'pointsRequired': value.pointsRequired,
-        'rateByAgeBuckets': RateByAgeBucketsTypeToJSON(value.rateByAgeBuckets),
+        'rateByAgeBuckets': value.rateByAgeBuckets === undefined ? undefined : ((value.rateByAgeBuckets as Array<any>).map(RateByAgeBucketTypeToJSON)),
         'threeChildrenRate': value.threeChildrenRate,
         'threePersonRate': value.threePersonRate,
         'twoChildrenRate': value.twoChildrenRate,

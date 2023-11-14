@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipTransactionToJSON = exports.MembershipTransactionFromJSONTyped = exports.MembershipTransactionFromJSON = exports.instanceOfMembershipTransaction = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const MembershipTransactionType_1 = require("./MembershipTransactionType");
 /**
  * Check if a given object implements the MembershipTransaction interface.
@@ -35,7 +35,7 @@ function MembershipTransactionFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'membershipTransactionDetails': !(0, runtime_1.exists)(json, 'membershipTransactionDetails') ? undefined : (0, MembershipTransactionType_1.MembershipTransactionTypeFromJSON)(json['membershipTransactionDetails']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.MembershipTransactionFromJSONTyped = MembershipTransactionFromJSONTyped;
@@ -48,7 +48,7 @@ function MembershipTransactionToJSON(value) {
     }
     return {
         'membershipTransactionDetails': (0, MembershipTransactionType_1.MembershipTransactionTypeToJSON)(value.membershipTransactionDetails),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.MembershipTransactionToJSON = MembershipTransactionToJSON;

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TemplateRoomFeaturesConfigType } from './TemplateRoomFeaturesConfigType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TemplateRoomFeatureConfigType } from './TemplateRoomFeatureConfigType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating template room features.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateRoomFeaturesCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateRoomFeaturesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TemplateRoomFeaturesConfigType}
+     * Template room feature details.
+     * @type {Array<TemplateRoomFeatureConfigType>}
      * @memberof TemplateRoomFeaturesCriteria
      */
-    templateRoomFeatures?: TemplateRoomFeaturesConfigType;
+    templateRoomFeatures?: Array<TemplateRoomFeatureConfigType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateRoomFeaturesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateRoomFeaturesCriteria interface.

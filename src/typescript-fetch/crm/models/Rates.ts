@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { MembershipTransactionRatesType } from './MembershipTransactionRatesType';
 import {
     MembershipTransactionRatesTypeFromJSON,
     MembershipTransactionRatesTypeFromJSONTyped,
     MembershipTransactionRatesTypeToJSON,
 } from './MembershipTransactionRatesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Membership Transaction Rates information.
@@ -40,10 +40,10 @@ import {
 export interface Rates {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Rates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {MembershipTransactionRatesType}
@@ -51,11 +51,11 @@ export interface Rates {
      */
     rate?: MembershipTransactionRatesType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Rates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RatesFromJSONTyped(json: any, ignoreDiscriminator: boolean): Rat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'rate': !exists(json, 'rate') ? undefined : MembershipTransactionRatesTypeFromJSON(json['rate']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RatesToJSON(value?: Rates | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'rate': MembershipTransactionRatesTypeToJSON(value.rate),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

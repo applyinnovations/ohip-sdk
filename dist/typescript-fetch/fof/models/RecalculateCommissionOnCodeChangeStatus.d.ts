@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CommissionDetailType } from './CommissionDetailType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response type for recalculating commission amount when commission code of unpaid commission is changed
  * @export
@@ -26,16 +26,16 @@ export interface RecalculateCommissionOnCodeChangeStatus {
     commissionDetail?: CommissionDetailType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RecalculateCommissionOnCodeChangeStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RecalculateCommissionOnCodeChangeStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RecalculateCommissionOnCodeChangeStatus interface.

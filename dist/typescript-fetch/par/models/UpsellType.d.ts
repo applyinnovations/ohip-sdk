@@ -12,7 +12,7 @@
 import type { AmountPointsType } from './AmountPointsType';
 import type { RoomTypeInfoType } from './RoomTypeInfoType';
 import type { UniqueIDType } from './UniqueIDType';
-import type { UpsellDailyRatesType } from './UpsellDailyRatesType';
+import type { UpsellDailyRateType } from './UpsellDailyRateType';
 /**
  * Holds upsell information
  * @export
@@ -38,11 +38,11 @@ export interface UpsellType {
      */
     ratePlanCode?: string;
     /**
-     *
-     * @type {UpsellDailyRatesType}
+     * Reservation date and its corresponding upsell rate amount
+     * @type {Array<UpsellDailyRateType>}
      * @memberof UpsellType
      */
-    rates?: UpsellDailyRatesType;
+    rates?: Array<UpsellDailyRateType>;
     /**
      *
      * @type {RoomTypeInfoType}

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { OutOfOrderServiceReasonsType } from './OutOfOrderServiceReasonsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { OutOfOrderServiceReasonType } from './OutOfOrderServiceReasonType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for modifying out of order/service reasons for hotels.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface OutOfOrderServiceReasonsToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof OutOfOrderServiceReasonsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {OutOfOrderServiceReasonsType}
+     * out of order/service reason details.
+     * @type {Array<OutOfOrderServiceReasonType>}
      * @memberof OutOfOrderServiceReasonsToBeChanged
      */
-    outOfOrderServiceReasons?: OutOfOrderServiceReasonsType;
+    outOfOrderServiceReasons?: Array<OutOfOrderServiceReasonType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OutOfOrderServiceReasonsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the OutOfOrderServiceReasonsToBeChanged interface.

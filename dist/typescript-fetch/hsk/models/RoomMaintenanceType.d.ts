@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { AssignedUserType } from './AssignedUserType';
-import type { ImageResultsType } from './ImageResultsType';
+import type { ImageResultType } from './ImageResultType';
 import type { ResolveRoomMaintenanceType } from './ResolveRoomMaintenanceType';
 import type { RoomType } from './RoomType';
 import type { UniqueIDType } from './UniqueIDType';
@@ -39,11 +39,11 @@ export interface RoomMaintenanceType {
      */
     creatorId?: string;
     /**
-     *
-     * @type {ImageResultsType}
+     * Collection of image results.
+     * @type {Array<ImageResultType>}
      * @memberof RoomMaintenanceType
      */
-    images?: ImageResultsType;
+    images?: Array<ImageResultType>;
     /**
      * Identifies the last software system or person to modify a record.
      * @type {string}

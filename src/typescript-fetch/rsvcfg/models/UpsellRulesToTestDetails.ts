@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ConfigTestUpsellRulesType } from './ConfigTestUpsellRulesType';
+import type { ConfigTestUpsellRuleType } from './ConfigTestUpsellRuleType';
 import {
-    ConfigTestUpsellRulesTypeFromJSON,
-    ConfigTestUpsellRulesTypeFromJSONTyped,
-    ConfigTestUpsellRulesTypeToJSON,
-} from './ConfigTestUpsellRulesType';
-import type { Links } from './Links';
+    ConfigTestUpsellRuleTypeFromJSON,
+    ConfigTestUpsellRuleTypeFromJSONTyped,
+    ConfigTestUpsellRuleTypeToJSON,
+} from './ConfigTestUpsellRuleType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for testing upsell rules.
@@ -40,22 +40,22 @@ import {
 export interface UpsellRulesToTestDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof UpsellRulesToTestDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ConfigTestUpsellRulesType}
+     * This type holds a collection of upsell rules which are returned on testing a reservation.
+     * @type {Array<ConfigTestUpsellRuleType>}
      * @memberof UpsellRulesToTestDetails
      */
-    upsellRules?: ConfigTestUpsellRulesType;
+    upsellRules?: Array<ConfigTestUpsellRuleType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof UpsellRulesToTestDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function UpsellRulesToTestDetailsFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'upsellRules': !exists(json, 'upsellRules') ? undefined : ConfigTestUpsellRulesTypeFromJSON(json['upsellRules']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'upsellRules': !exists(json, 'upsellRules') ? undefined : ((json['upsellRules'] as Array<any>).map(ConfigTestUpsellRuleTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function UpsellRulesToTestDetailsToJSON(value?: UpsellRulesToTestDetails 
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'upsellRules': ConfigTestUpsellRulesTypeToJSON(value.upsellRules),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'upsellRules': value.upsellRules === undefined ? undefined : ((value.upsellRules as Array<any>).map(ConfigTestUpsellRuleTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HousekeepingCreditRulesType } from './HousekeepingCreditRulesType';
+import type { HousekeepingCreditRuleType } from './HousekeepingCreditRuleType';
 import {
-    HousekeepingCreditRulesTypeFromJSON,
-    HousekeepingCreditRulesTypeFromJSONTyped,
-    HousekeepingCreditRulesTypeToJSON,
-} from './HousekeepingCreditRulesType';
-import type { Links } from './Links';
+    HousekeepingCreditRuleTypeFromJSON,
+    HousekeepingCreditRuleTypeFromJSONTyped,
+    HousekeepingCreditRuleTypeToJSON,
+} from './HousekeepingCreditRuleType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { MasterInfoType } from './MasterInfoType';
 import {
     MasterInfoTypeFromJSON,
     MasterInfoTypeFromJSONTyped,
     MasterInfoTypeToJSON,
 } from './MasterInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching housekeeping credit rules.
@@ -45,17 +45,17 @@ import {
  */
 export interface HousekeepingCreditRulesDetails {
     /**
-     * 
-     * @type {HousekeepingCreditRulesType}
+     * The information of housekeeping credit rule for configuration.
+     * @type {Array<HousekeepingCreditRuleType>}
      * @memberof HousekeepingCreditRulesDetails
      */
-    creditRules?: HousekeepingCreditRulesType;
+    creditRules?: Array<HousekeepingCreditRuleType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HousekeepingCreditRulesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Refer to Generic common types document.
      * @type {Array<MasterInfoType>}
@@ -63,11 +63,11 @@ export interface HousekeepingCreditRulesDetails {
      */
     masterInfoList?: Array<MasterInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HousekeepingCreditRulesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function HousekeepingCreditRulesDetailsFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'creditRules': !exists(json, 'creditRules') ? undefined : HousekeepingCreditRulesTypeFromJSON(json['creditRules']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'creditRules': !exists(json, 'creditRules') ? undefined : ((json['creditRules'] as Array<any>).map(HousekeepingCreditRuleTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'masterInfoList': !exists(json, 'masterInfoList') ? undefined : ((json['masterInfoList'] as Array<any>).map(MasterInfoTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function HousekeepingCreditRulesDetailsToJSON(value?: HousekeepingCreditR
     }
     return {
         
-        'creditRules': HousekeepingCreditRulesTypeToJSON(value.creditRules),
-        'links': LinksToJSON(value.links),
+        'creditRules': value.creditRules === undefined ? undefined : ((value.creditRules as Array<any>).map(HousekeepingCreditRuleTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'masterInfoList': value.masterInfoList === undefined ? undefined : ((value.masterInfoList as Array<any>).map(MasterInfoTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

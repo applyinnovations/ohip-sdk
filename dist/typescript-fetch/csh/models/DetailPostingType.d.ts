@@ -20,11 +20,11 @@ import type { ExchangeAmounts } from './ExchangeAmounts';
 import type { PayeeInfoType } from './PayeeInfoType';
 import type { PostingGroupType } from './PostingGroupType';
 import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
-import type { SummaryPostingsType } from './SummaryPostingsType';
+import type { SummaryPostingType } from './SummaryPostingType';
 import type { TransactionARInfoType } from './TransactionARInfoType';
 import type { TransactionAdjustmentInfoType } from './TransactionAdjustmentInfoType';
 import type { TransactionCurrencyExchangeInfoType } from './TransactionCurrencyExchangeInfoType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Posting information of the transaction.
  * @export
@@ -164,11 +164,11 @@ export interface DetailPostingType {
      */
     fbaCertificate?: boolean;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof DetailPostingType
      */
-    financialTransactionIdList?: UniqueIDListType;
+    financialTransactionIdList?: Array<UniqueIDType>;
     /**
      * The Fiscal Bill number of this posting
      * @type {string}
@@ -344,11 +344,11 @@ export interface DetailPostingType {
      */
     stampDuty?: boolean;
     /**
-     *
-     * @type {SummaryPostingsType}
+     * List of postings.
+     * @type {Array<SummaryPostingType>}
      * @memberof DetailPostingType
      */
-    subPostings?: SummaryPostingsType;
+    subPostings?: Array<SummaryPostingType>;
     /**
      * Cross property posting hotel code.
      * @type {string}

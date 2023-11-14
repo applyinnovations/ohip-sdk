@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlockCateringPackage, BlockCateringPackageDetails, BlockPostingAccountReservationsInfo, CateringEventChanges, CateringEventPostings, CateringEventPostingsDetail, CateringEventsBulkUpdate, CateringEventsBulkUpdateStatus, CateringPackageRevenue, CateringPackages, ChangeCateringPackageRevenueRequest, ChangeEventResourceByMenuRequest, ChangeEventsRequest, ChangeEventsResourcesRequest, CopyCateringEvents, CopyCateringEventsResponse, CopyCateringPackage, CopyCateringPackageResponse, CopyEventResourcesRequest, Event, EventCalendar, EventResource, EventResourcesResponse, Events, EventsResources, FunctionSpaceAvailabilityDetails, FunctionSpaceEvents, ManageAlternateEventsRequest, ManageAlternateEventsStatus, ManageCateringEventPostingsRequest, ManageEventsResources, ManageWaitlistedEventsRequest, OpportunityEvents, PostEventsRequest, QuickInsertResourceStatus, QuickInsertResources, Status, WaitlistedEvents } from '../models/index';
+import type { BlockCateringPackage, BlockCateringPackageDetails, BlockPostingAccountReservationsInfo, CateringEventChanges, CateringEventPostings, CateringEventPostingsDetail, CateringEventsBulkUpdate, CateringEventsProcessedInfoType, CateringPackageRevenue, CateringPackages, ChangeCateringPackageRevenueRequest, ChangeEventResourceByMenuRequest, ChangeEventsRequest, ChangeEventsResourcesRequest, CopyCateringEvents, CopyCateringEventsResponse, CopyCateringPackage, CopyCateringPackageResponse, CopyEventResourcesRequest, Event, EventCalendar, EventResource, EventResourcesResponse, Events, EventsResources, FunctionSpaceAvailabilityDetails, FunctionSpaceEvents, ManageAlternateEventsRequest, ManageAlternateEventsStatus, ManageCateringEventPostingsRequest, ManageEventsResources, ManageWaitlistedEventsRequest, OpportunityEvents, PostEventsRequest, QuickInsertResourceStatus, QuickInsertResources, Status, WaitlistedEvents } from '../models/index';
 export interface CateringEventsBulkUpdateRequest {
     authorization?: string;
     xAppKey?: string;
@@ -553,12 +553,12 @@ export declare class EventManagementApi extends runtime.BaseAPI {
      * You can use this API to update one/more catering events for the same block <p><strong>OperationId:</strong>cateringEventsBulkUpdate</p>
      * Update multiple catering events
      */
-    cateringEventsBulkUpdateRaw(requestParameters: CateringEventsBulkUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CateringEventsBulkUpdateStatus>>;
+    cateringEventsBulkUpdateRaw(requestParameters: CateringEventsBulkUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CateringEventsProcessedInfoType>>>;
     /**
      * You can use this API to update one/more catering events for the same block <p><strong>OperationId:</strong>cateringEventsBulkUpdate</p>
      * Update multiple catering events
      */
-    cateringEventsBulkUpdate(requestParameters: CateringEventsBulkUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CateringEventsBulkUpdateStatus>;
+    cateringEventsBulkUpdate(requestParameters: CateringEventsBulkUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CateringEventsProcessedInfoType>>;
     /**
      * Update the catering package revenue on a block. <p><strong>OperationId:</strong>changeCateringPackageRevenue</p>
      * Update Catering package revenue

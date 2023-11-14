@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CopyRevenueTypeMappingCriteriaType } from './CopyRevenueTypeMappingCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CopyRevenueTypeMappingListType } from './CopyRevenueTypeMappingListType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for Copying Revenue Type Mapping.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface RevenueTypeMappingCopy {
     /**
-     *
-     * @type {CopyRevenueTypeMappingCriteriaType}
+     * Provides Revenue Type Mapping details that needs to be copied.
+     * @type {Array<CopyRevenueTypeMappingListType>}
      * @memberof RevenueTypeMappingCopy
      */
-    criteria?: CopyRevenueTypeMappingCriteriaType;
+    criteria?: Array<CopyRevenueTypeMappingListType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RevenueTypeMappingCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RevenueTypeMappingCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RevenueTypeMappingCopy interface.

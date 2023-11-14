@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { BlockOwnersType } from './BlockOwnersType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object that returns all sales manager owners associated with a business block.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface BlockOwners {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockOwners
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {BlockOwnersType}
@@ -31,11 +31,11 @@ export interface BlockOwners {
      */
     owners?: BlockOwnersType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockOwners
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockOwners interface.

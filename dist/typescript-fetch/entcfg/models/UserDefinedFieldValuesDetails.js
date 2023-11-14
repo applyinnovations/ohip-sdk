@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserDefinedFieldValuesDetailsToJSON = exports.UserDefinedFieldValuesDetailsFromJSONTyped = exports.UserDefinedFieldValuesDetailsFromJSON = exports.instanceOfUserDefinedFieldValuesDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const UserDefinedFieldValuesType_1 = require("./UserDefinedFieldValuesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const UserDefinedFieldValueType_1 = require("./UserDefinedFieldValueType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the UserDefinedFieldValuesDetails interface.
  */
@@ -35,9 +35,9 @@ function UserDefinedFieldValuesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'userDefinedFieldValues': !(0, runtime_1.exists)(json, 'userDefinedFieldValues') ? undefined : (0, UserDefinedFieldValuesType_1.UserDefinedFieldValuesTypeFromJSON)(json['userDefinedFieldValues']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'userDefinedFieldValues': !(0, runtime_1.exists)(json, 'userDefinedFieldValues') ? undefined : (json['userDefinedFieldValues'].map(UserDefinedFieldValueType_1.UserDefinedFieldValueTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.UserDefinedFieldValuesDetailsFromJSONTyped = UserDefinedFieldValuesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function UserDefinedFieldValuesDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'userDefinedFieldValues': (0, UserDefinedFieldValuesType_1.UserDefinedFieldValuesTypeToJSON)(value.userDefinedFieldValues),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'userDefinedFieldValues': value.userDefinedFieldValues === undefined ? undefined : (value.userDefinedFieldValues.map(UserDefinedFieldValueType_1.UserDefinedFieldValueTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.UserDefinedFieldValuesDetailsToJSON = UserDefinedFieldValuesDetailsToJSON;

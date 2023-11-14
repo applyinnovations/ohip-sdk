@@ -19,12 +19,12 @@ import {
     ForgetProfilesCriteriaTypeFromJSONTyped,
     ForgetProfilesCriteriaTypeToJSON,
 } from './ForgetProfilesCriteriaType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 
 /**
  * Operation to validate profiles for forgetting.
@@ -40,10 +40,10 @@ export interface ForgetProfilesCriteria {
     validateForgetProfilesCriteria?: ForgetProfilesCriteriaType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ForgetProfilesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function ForgetProfilesCriteriaFromJSONTyped(json: any, ignoreDiscriminat
     return {
         
         'validateForgetProfilesCriteria': !exists(json, 'validateForgetProfilesCriteria') ? undefined : ForgetProfilesCriteriaTypeFromJSON(json['validateForgetProfilesCriteria']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function ForgetProfilesCriteriaToJSON(value?: ForgetProfilesCriteria | nu
     return {
         
         'validateForgetProfilesCriteria': ForgetProfilesCriteriaTypeToJSON(value.validateForgetProfilesCriteria),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ItemClassesType } from './ItemClassesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ItemClassType } from './ItemClassType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for modifying item class.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ItemClasses {
     /**
-     *
-     * @type {ItemClassesType}
+     * Holds Item Class details.
+     * @type {Array<ItemClassType>}
      * @memberof ItemClasses
      */
-    itemClasses?: ItemClassesType;
+    itemClasses?: Array<ItemClassType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ItemClasses
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ItemClasses
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ItemClasses interface.

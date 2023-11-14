@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TransportationTemplatesType } from './TransportationTemplatesType';
-import type { WarningsType } from './WarningsType';
+import type { HotelTransportationType } from './HotelTransportationType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching transportation templates.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TransportationTemplatesDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransportationTemplatesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TransportationTemplatesType}
+     * Collection of transportation templates.
+     * @type {Array<HotelTransportationType>}
      * @memberof TransportationTemplatesDetails
      */
-    transportationTemplates?: TransportationTemplatesType;
+    transportationTemplates?: Array<HotelTransportationType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransportationTemplatesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TransportationTemplatesDetails interface.

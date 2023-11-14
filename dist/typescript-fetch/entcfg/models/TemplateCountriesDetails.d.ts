@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TemplateCountriesType } from './TemplateCountriesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TemplateCountryType } from './TemplateCountryType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching template Countries.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateCountriesDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateCountriesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TemplateCountriesType}
+     * Template of country details.
+     * @type {Array<TemplateCountryType>}
      * @memberof TemplateCountriesDetails
      */
-    templateCountries?: TemplateCountriesType;
+    templateCountries?: Array<TemplateCountryType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateCountriesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateCountriesDetails interface.

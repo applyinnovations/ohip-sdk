@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { GuestHousekeepingServiceRequestType } from './GuestHousekeepingServiceRequestType';
 import type { RoomCleaningPriorityType } from './RoomCleaningPriorityType';
 import type { RoomConditionType } from './RoomConditionType';
@@ -29,10 +28,10 @@ export interface HousekeepingType {
     cleaningPriority?: RoomCleaningPriorityType;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof HousekeepingType
      */
-    facilityTaskCode?: CodeListType;
+    facilityTaskCode?: Array<string>;
     /**
      *
      * @type {GuestHousekeepingServiceRequestType}

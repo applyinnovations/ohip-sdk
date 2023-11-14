@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChangeFiscalPartnersToJSON = exports.ChangeFiscalPartnersFromJSONTyped = exports.ChangeFiscalPartnersFromJSON = exports.instanceOfChangeFiscalPartners = void 0;
 const runtime_1 = require("../runtime");
-const FiscalPartnersType_1 = require("./FiscalPartnersType");
-const WarningsType_1 = require("./WarningsType");
+const FiscalPartnerType_1 = require("./FiscalPartnerType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChangeFiscalPartners interface.
  */
@@ -34,8 +34,8 @@ function ChangeFiscalPartnersFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'fiscalPartners': !(0, runtime_1.exists)(json, 'fiscalPartners') ? undefined : (0, FiscalPartnersType_1.FiscalPartnersTypeFromJSON)(json['fiscalPartners']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'fiscalPartners': !(0, runtime_1.exists)(json, 'fiscalPartners') ? undefined : (json['fiscalPartners'].map(FiscalPartnerType_1.FiscalPartnerTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChangeFiscalPartnersFromJSONTyped = ChangeFiscalPartnersFromJSONTyped;
@@ -47,8 +47,8 @@ function ChangeFiscalPartnersToJSON(value) {
         return null;
     }
     return {
-        'fiscalPartners': (0, FiscalPartnersType_1.FiscalPartnersTypeToJSON)(value.fiscalPartners),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'fiscalPartners': value.fiscalPartners === undefined ? undefined : (value.fiscalPartners.map(FiscalPartnerType_1.FiscalPartnerTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChangeFiscalPartnersToJSON = ChangeFiscalPartnersToJSON;

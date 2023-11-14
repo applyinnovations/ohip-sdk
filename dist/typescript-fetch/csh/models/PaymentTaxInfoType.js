@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PaymentTaxInfoTypeToJSON = exports.PaymentTaxInfoTypeFromJSONTyped = exports.PaymentTaxInfoTypeFromJSON = exports.instanceOfPaymentTaxInfoType = void 0;
 const runtime_1 = require("../runtime");
-const PaymentTaxesType_1 = require("./PaymentTaxesType");
+const PaymentTaxType_1 = require("./PaymentTaxType");
 const ReservationId_1 = require("./ReservationId");
 /**
  * Check if a given object implements the PaymentTaxInfoType interface.
@@ -36,7 +36,7 @@ function PaymentTaxInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
-        'taxes': !(0, runtime_1.exists)(json, 'taxes') ? undefined : (0, PaymentTaxesType_1.PaymentTaxesTypeFromJSON)(json['taxes']),
+        'taxes': !(0, runtime_1.exists)(json, 'taxes') ? undefined : (json['taxes'].map(PaymentTaxType_1.PaymentTaxTypeFromJSON)),
     };
 }
 exports.PaymentTaxInfoTypeFromJSONTyped = PaymentTaxInfoTypeFromJSONTyped;
@@ -50,7 +50,7 @@ function PaymentTaxInfoTypeToJSON(value) {
     return {
         'hotelId': value.hotelId,
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
-        'taxes': (0, PaymentTaxesType_1.PaymentTaxesTypeToJSON)(value.taxes),
+        'taxes': value.taxes === undefined ? undefined : (value.taxes.map(PaymentTaxType_1.PaymentTaxTypeToJSON)),
     };
 }
 exports.PaymentTaxInfoTypeToJSON = PaymentTaxInfoTypeToJSON;

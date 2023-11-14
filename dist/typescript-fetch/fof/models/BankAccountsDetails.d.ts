@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BankAccountsType } from './BankAccountsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BankAccountType } from './BankAccountType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Returns bank accounts that match the request criteria.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BankAccountsDetails {
     /**
-     *
-     * @type {BankAccountsType}
+     * List of bank accounts.
+     * @type {Array<BankAccountType>}
      * @memberof BankAccountsDetails
      */
-    bankAccounts?: BankAccountsType;
+    bankAccounts?: Array<BankAccountType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BankAccountsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BankAccountsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BankAccountsDetails interface.

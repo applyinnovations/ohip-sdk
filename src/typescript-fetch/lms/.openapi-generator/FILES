@@ -7,15 +7,11 @@ models/ActivityBookingModified.ts
 models/ActivityBookingRQType.ts
 models/ActivityBookingRSType.ts
 models/ActivityBookingsDetails.ts
-models/ActivityList.ts
 models/ActivityListInner.ts
 models/ActivityListInnerDeposit.ts
 models/ActivityLocationType.ts
-models/ActivityLocationsType.ts
 models/ActivityStatusCodeType.ts
-models/ActivityStatusCodesType.ts
 models/ActivityTypeDetailType.ts
-models/ActivityTypesType.ts
 models/AddressType.ts
 models/ChangeActivityBooking.ts
 models/ChangeActivityLocations.ts
@@ -29,7 +25,6 @@ models/CopyActivityLocationsRS.ts
 models/CopyActivityTypes.ts
 models/CopyActivityTypesRS.ts
 models/CopyConfigurationCodeType.ts
-models/CopyConfigurationCodesType.ts
 models/CountryNameType.ts
 models/CreateActivityBooking.ts
 models/CreateActivityLocations.ts
@@ -39,7 +34,6 @@ models/CurrencyAmountType.ts
 models/DateTimeSpanType.ts
 models/ErrorInstance.ts
 models/ErrorType.ts
-models/ErrorsType.ts
 models/ExceptionDetailType.ts
 models/FetchActivityBookingsType.ts
 models/FetchActivityLocations.ts
@@ -47,15 +41,12 @@ models/FetchActivityStatusCodes.ts
 models/FetchActivityTypes.ts
 models/FormattedTextTextType.ts
 models/InstanceLink.ts
-models/Links.ts
 models/LocationNotificationStatus.ts
 models/LocationNotificationToBeCreated.ts
 models/PersonNameType.ts
 models/PersonNameTypeType.ts
 models/Status.ts
-models/UniqueIDListType.ts
 models/UniqueIDType.ts
 models/WarningType.ts
-models/WarningsType.ts
 models/index.ts
 runtime.ts

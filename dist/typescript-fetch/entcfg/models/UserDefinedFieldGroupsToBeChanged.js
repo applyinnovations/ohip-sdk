@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserDefinedFieldGroupsToBeChangedToJSON = exports.UserDefinedFieldGroupsToBeChangedFromJSONTyped = exports.UserDefinedFieldGroupsToBeChangedFromJSON = exports.instanceOfUserDefinedFieldGroupsToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const UserDefinedFieldGroupsType_1 = require("./UserDefinedFieldGroupsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const UserDefinedFieldGroupType_1 = require("./UserDefinedFieldGroupType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the UserDefinedFieldGroupsToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function UserDefinedFieldGroupsToBeChangedFromJSONTyped(json, ignoreDiscriminato
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'userDefinedFieldGroups': !(0, runtime_1.exists)(json, 'userDefinedFieldGroups') ? undefined : (0, UserDefinedFieldGroupsType_1.UserDefinedFieldGroupsTypeFromJSON)(json['userDefinedFieldGroups']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'userDefinedFieldGroups': !(0, runtime_1.exists)(json, 'userDefinedFieldGroups') ? undefined : (json['userDefinedFieldGroups'].map(UserDefinedFieldGroupType_1.UserDefinedFieldGroupTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.UserDefinedFieldGroupsToBeChangedFromJSONTyped = UserDefinedFieldGroupsToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function UserDefinedFieldGroupsToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'userDefinedFieldGroups': (0, UserDefinedFieldGroupsType_1.UserDefinedFieldGroupsTypeToJSON)(value.userDefinedFieldGroups),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'userDefinedFieldGroups': value.userDefinedFieldGroups === undefined ? undefined : (value.userDefinedFieldGroups.map(UserDefinedFieldGroupType_1.UserDefinedFieldGroupTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.UserDefinedFieldGroupsToBeChangedToJSON = UserDefinedFieldGroupsToBeChangedToJSON;

@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateRoomOwnerDetailsToJSON = exports.CreateRoomOwnerDetailsFromJSONTyped = exports.CreateRoomOwnerDetailsFromJSON = exports.instanceOfCreateRoomOwnerDetails = void 0;
 const runtime_1 = require("../runtime");
 const RoomOwnershipType_1 = require("./RoomOwnershipType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CreateRoomOwnerDetails interface.
  */
@@ -36,7 +36,7 @@ function CreateRoomOwnerDetailsFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'overrideOwnerExclusive': !(0, runtime_1.exists)(json, 'overrideOwnerExclusive') ? undefined : json['overrideOwnerExclusive'],
         'roomOwner': !(0, runtime_1.exists)(json, 'roomOwner') ? undefined : (0, RoomOwnershipType_1.RoomOwnershipTypeFromJSON)(json['roomOwner']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CreateRoomOwnerDetailsFromJSONTyped = CreateRoomOwnerDetailsFromJSONTyped;
@@ -50,7 +50,7 @@ function CreateRoomOwnerDetailsToJSON(value) {
     return {
         'overrideOwnerExclusive': value.overrideOwnerExclusive,
         'roomOwner': (0, RoomOwnershipType_1.RoomOwnershipTypeToJSON)(value.roomOwner),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CreateRoomOwnerDetailsToJSON = CreateRoomOwnerDetailsToJSON;

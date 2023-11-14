@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Script for a Reservation based on its StayDetails as well as itinerary.
  * @export
@@ -19,10 +19,10 @@ import type { WarningsType } from './WarningsType';
 export interface Script {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Script
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * The script for the reservation, which was requested.
      * @type {string}
@@ -30,11 +30,11 @@ export interface Script {
      */
     script?: string;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Script
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Script interface.

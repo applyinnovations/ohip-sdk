@@ -19,12 +19,12 @@ import {
     ActivityOwnerTypeFromJSONTyped,
     ActivityOwnerTypeToJSON,
 } from './ActivityOwnerType';
-import type { AutoTraceOwnerAssignmentListType } from './AutoTraceOwnerAssignmentListType';
+import type { AutoTraceOwnerAssignmentType } from './AutoTraceOwnerAssignmentType';
 import {
-    AutoTraceOwnerAssignmentListTypeFromJSON,
-    AutoTraceOwnerAssignmentListTypeFromJSONTyped,
-    AutoTraceOwnerAssignmentListTypeToJSON,
-} from './AutoTraceOwnerAssignmentListType';
+    AutoTraceOwnerAssignmentTypeFromJSON,
+    AutoTraceOwnerAssignmentTypeFromJSONTyped,
+    AutoTraceOwnerAssignmentTypeToJSON,
+} from './AutoTraceOwnerAssignmentType';
 
 /**
  * Owner Information of Auto Trace.
@@ -39,11 +39,11 @@ export interface AutoTraceDefinitionOwnerInfoType {
      */
     customOwnerCode?: string;
     /**
-     * 
-     * @type {AutoTraceOwnerAssignmentListType}
+     * Detailed information of trace owner assignment.
+     * @type {Array<AutoTraceOwnerAssignmentType>}
      * @memberof AutoTraceDefinitionOwnerInfoType
      */
-    ownerAssignment?: AutoTraceOwnerAssignmentListType;
+    ownerAssignment?: Array<AutoTraceOwnerAssignmentType>;
     /**
      * Indicates if Owner Assignment exists
      * @type {boolean}
@@ -78,7 +78,7 @@ export function AutoTraceDefinitionOwnerInfoTypeFromJSONTyped(json: any, ignoreD
     return {
         
         'customOwnerCode': !exists(json, 'customOwnerCode') ? undefined : json['customOwnerCode'],
-        'ownerAssignment': !exists(json, 'ownerAssignment') ? undefined : AutoTraceOwnerAssignmentListTypeFromJSON(json['ownerAssignment']),
+        'ownerAssignment': !exists(json, 'ownerAssignment') ? undefined : ((json['ownerAssignment'] as Array<any>).map(AutoTraceOwnerAssignmentTypeFromJSON)),
         'ownerAssignmentExist': !exists(json, 'ownerAssignmentExist') ? undefined : json['ownerAssignmentExist'],
         'ownerofActivity': !exists(json, 'ownerofActivity') ? undefined : ActivityOwnerTypeFromJSON(json['ownerofActivity']),
     };
@@ -94,7 +94,7 @@ export function AutoTraceDefinitionOwnerInfoTypeToJSON(value?: AutoTraceDefiniti
     return {
         
         'customOwnerCode': value.customOwnerCode,
-        'ownerAssignment': AutoTraceOwnerAssignmentListTypeToJSON(value.ownerAssignment),
+        'ownerAssignment': value.ownerAssignment === undefined ? undefined : ((value.ownerAssignment as Array<any>).map(AutoTraceOwnerAssignmentTypeToJSON)),
         'ownerAssignmentExist': value.ownerAssignmentExist,
         'ownerofActivity': ActivityOwnerTypeToJSON(value.ownerofActivity),
     };

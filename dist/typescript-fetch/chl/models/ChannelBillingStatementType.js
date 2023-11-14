@@ -15,8 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelBillingStatementTypeToJSON = exports.ChannelBillingStatementTypeFromJSONTyped = exports.ChannelBillingStatementTypeFromJSON = exports.instanceOfChannelBillingStatementType = void 0;
 const runtime_1 = require("../runtime");
-const ChannelStatementAccountsType_1 = require("./ChannelStatementAccountsType");
-const CodeListType_1 = require("./CodeListType");
+const ChannelStatementAccountType_1 = require("./ChannelStatementAccountType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -36,9 +35,9 @@ function ChannelBillingStatementTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'accountCodeList': !(0, runtime_1.exists)(json, 'accountCodeList') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['accountCodeList']),
+        'accountCodeList': !(0, runtime_1.exists)(json, 'accountCodeList') ? undefined : json['accountCodeList'],
         'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
-        'channelAccountStatements': !(0, runtime_1.exists)(json, 'channelAccountStatements') ? undefined : (0, ChannelStatementAccountsType_1.ChannelStatementAccountsTypeFromJSON)(json['channelAccountStatements']),
+        'channelAccountStatements': !(0, runtime_1.exists)(json, 'channelAccountStatements') ? undefined : (json['channelAccountStatements'].map(ChannelStatementAccountType_1.ChannelStatementAccountTypeFromJSON)),
         'dirty': !(0, runtime_1.exists)(json, 'dirty') ? undefined : json['dirty'],
         'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
         'generated': !(0, runtime_1.exists)(json, 'generated') ? undefined : json['generated'],
@@ -58,9 +57,9 @@ function ChannelBillingStatementTypeToJSON(value) {
         return null;
     }
     return {
-        'accountCodeList': (0, CodeListType_1.CodeListTypeToJSON)(value.accountCodeList),
+        'accountCodeList': value.accountCodeList,
         'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
-        'channelAccountStatements': (0, ChannelStatementAccountsType_1.ChannelStatementAccountsTypeToJSON)(value.channelAccountStatements),
+        'channelAccountStatements': value.channelAccountStatements === undefined ? undefined : (value.channelAccountStatements.map(ChannelStatementAccountType_1.ChannelStatementAccountTypeToJSON)),
         'dirty': value.dirty,
         'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
         'generated': value.generated,

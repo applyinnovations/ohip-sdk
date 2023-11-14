@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AutoSettleCompFoliosType } from './AutoSettleCompFoliosType';
-import type { WarningsType } from './WarningsType';
+import type { AutoSettleCompFolioType } from './AutoSettleCompFolioType';
+import type { WarningType } from './WarningType';
 /**
  * Response for auto settle comp folios. This includes collection of auto settled comp folios.
  * @export
@@ -18,17 +18,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AutoSettleCompFoliosStatus {
     /**
-     *
-     * @type {AutoSettleCompFoliosType}
+     * Information about comp folio that was auto settled.
+     * @type {Array<AutoSettleCompFolioType>}
      * @memberof AutoSettleCompFoliosStatus
      */
-    folios?: AutoSettleCompFoliosType;
+    folios?: Array<AutoSettleCompFolioType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoSettleCompFoliosStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AutoSettleCompFoliosStatus interface.

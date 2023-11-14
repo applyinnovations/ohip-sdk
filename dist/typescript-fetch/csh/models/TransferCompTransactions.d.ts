@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { TransferCompTransactionsCriteria } from './TransferCompTransactionsCriteria';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request type for comp transactions transfer.
  * @export
@@ -24,11 +24,11 @@ export interface TransferCompTransactions {
      */
     criteria?: TransferCompTransactionsCriteria;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransferCompTransactions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TransferCompTransactions interface.

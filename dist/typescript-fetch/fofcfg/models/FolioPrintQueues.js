@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FolioPrintQueuesToJSON = exports.FolioPrintQueuesFromJSONTyped = exports.FolioPrintQueuesFromJSON = exports.instanceOfFolioPrintQueues = void 0;
 const runtime_1 = require("../runtime");
-const FolioPrintQueuesType_1 = require("./FolioPrintQueuesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const FolioPrintQueueType_1 = require("./FolioPrintQueueType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FolioPrintQueues interface.
  */
@@ -35,9 +35,9 @@ function FolioPrintQueuesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'folioPrintQueues': !(0, runtime_1.exists)(json, 'folioPrintQueues') ? undefined : (0, FolioPrintQueuesType_1.FolioPrintQueuesTypeFromJSON)(json['folioPrintQueues']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'folioPrintQueues': !(0, runtime_1.exists)(json, 'folioPrintQueues') ? undefined : (json['folioPrintQueues'].map(FolioPrintQueueType_1.FolioPrintQueueTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FolioPrintQueuesFromJSONTyped = FolioPrintQueuesFromJSONTyped;
@@ -49,9 +49,9 @@ function FolioPrintQueuesToJSON(value) {
         return null;
     }
     return {
-        'folioPrintQueues': (0, FolioPrintQueuesType_1.FolioPrintQueuesTypeToJSON)(value.folioPrintQueues),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'folioPrintQueues': value.folioPrintQueues === undefined ? undefined : (value.folioPrintQueues.map(FolioPrintQueueType_1.FolioPrintQueueTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FolioPrintQueuesToJSON = FolioPrintQueuesToJSON;

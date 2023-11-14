@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HurdleRatesType } from './HurdleRatesType';
+import type { HurdleRateType } from './HurdleRateType';
 import {
-    HurdleRatesTypeFromJSON,
-    HurdleRatesTypeFromJSONTyped,
-    HurdleRatesTypeToJSON,
-} from './HurdleRatesType';
-import type { Links } from './Links';
+    HurdleRateTypeFromJSON,
+    HurdleRateTypeFromJSONTyped,
+    HurdleRateTypeToJSON,
+} from './HurdleRateType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Hurdle rates.
@@ -45,11 +45,11 @@ export interface HurdleRates {
      */
     hasMore?: boolean;
     /**
-     * 
-     * @type {HurdleRatesType}
+     * Details for hurdle rate.
+     * @type {Array<HurdleRateType>}
      * @memberof HurdleRates
      */
-    hurdleRates?: HurdleRatesType;
+    hurdleRates?: Array<HurdleRateType>;
     /**
      * Indicates maximum number of records a Web Service should return.
      * @type {number}
@@ -58,10 +58,10 @@ export interface HurdleRates {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HurdleRates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -81,11 +81,11 @@ export interface HurdleRates {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HurdleRates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -108,13 +108,13 @@ export function HurdleRatesFromJSONTyped(json: any, ignoreDiscriminator: boolean
     return {
         
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
-        'hurdleRates': !exists(json, 'hurdleRates') ? undefined : HurdleRatesTypeFromJSON(json['hurdleRates']),
+        'hurdleRates': !exists(json, 'hurdleRates') ? undefined : ((json['hurdleRates'] as Array<any>).map(HurdleRateTypeFromJSON)),
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -128,13 +128,13 @@ export function HurdleRatesToJSON(value?: HurdleRates | null): any {
     return {
         
         'hasMore': value.hasMore,
-        'hurdleRates': HurdleRatesTypeToJSON(value.hurdleRates),
+        'hurdleRates': value.hurdleRates === undefined ? undefined : ((value.hurdleRates as Array<any>).map(HurdleRateTypeToJSON)),
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

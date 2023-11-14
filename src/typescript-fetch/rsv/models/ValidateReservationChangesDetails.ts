@@ -25,24 +25,24 @@ import {
     HotelReservationTypeFromJSONTyped,
     HotelReservationTypeToJSON,
 } from './HotelReservationType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ValidationsReturnType } from './ValidationsReturnType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ValidationReturnType } from './ValidationReturnType';
 import {
-    ValidationsReturnTypeFromJSON,
-    ValidationsReturnTypeFromJSONTyped,
-    ValidationsReturnTypeToJSON,
-} from './ValidationsReturnType';
-import type { WarningsType } from './WarningsType';
+    ValidationReturnTypeFromJSON,
+    ValidationReturnTypeFromJSONTyped,
+    ValidationReturnTypeToJSON,
+} from './ValidationReturnType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for validating reservation changes.
@@ -52,10 +52,10 @@ import {
 export interface ValidateReservationChangesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ValidateReservationChangesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {HotelReservationType}
@@ -70,16 +70,16 @@ export interface ValidateReservationChangesDetails {
     reservationGuarantee?: GuaranteePolicyType;
     /**
      * 
-     * @type {ValidationsReturnType}
+     * @type {Array<ValidationReturnType>}
      * @memberof ValidateReservationChangesDetails
      */
-    validationMessages?: ValidationsReturnType;
+    validationMessages?: Array<ValidationReturnType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ValidateReservationChangesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -101,11 +101,11 @@ export function ValidateReservationChangesDetailsFromJSONTyped(json: any, ignore
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservation': !exists(json, 'reservation') ? undefined : HotelReservationTypeFromJSON(json['reservation']),
         'reservationGuarantee': !exists(json, 'reservationGuarantee') ? undefined : GuaranteePolicyTypeFromJSON(json['reservationGuarantee']),
-        'validationMessages': !exists(json, 'validationMessages') ? undefined : ValidationsReturnTypeFromJSON(json['validationMessages']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'validationMessages': !exists(json, 'validationMessages') ? undefined : ((json['validationMessages'] as Array<any>).map(ValidationReturnTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -118,11 +118,11 @@ export function ValidateReservationChangesDetailsToJSON(value?: ValidateReservat
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservation': HotelReservationTypeToJSON(value.reservation),
         'reservationGuarantee': GuaranteePolicyTypeToJSON(value.reservationGuarantee),
-        'validationMessages': ValidationsReturnTypeToJSON(value.validationMessages),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'validationMessages': value.validationMessages === undefined ? undefined : ((value.validationMessages as Array<any>).map(ValidationReturnTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

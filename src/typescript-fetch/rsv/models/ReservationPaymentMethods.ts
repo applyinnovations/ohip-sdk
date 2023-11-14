@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReservationId } from './ReservationId';
 import {
     ReservationIdFromJSON,
     ReservationIdFromJSONTyped,
     ReservationIdToJSON,
 } from './ReservationId';
-import type { ReservationPaymentMethodsType } from './ReservationPaymentMethodsType';
+import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
 import {
-    ReservationPaymentMethodsTypeFromJSON,
-    ReservationPaymentMethodsTypeFromJSONTyped,
-    ReservationPaymentMethodsTypeToJSON,
-} from './ReservationPaymentMethodsType';
-import type { WarningsType } from './WarningsType';
+    ReservationPaymentMethodTypeFromJSON,
+    ReservationPaymentMethodTypeFromJSONTyped,
+    ReservationPaymentMethodTypeToJSON,
+} from './ReservationPaymentMethodType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Method to create a reservation's payment methods.
@@ -52,10 +52,10 @@ export interface ReservationPaymentMethods {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationPaymentMethods
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ReservationId}
@@ -63,17 +63,17 @@ export interface ReservationPaymentMethods {
      */
     reservationId?: ReservationId;
     /**
-     * 
-     * @type {ReservationPaymentMethodsType}
+     * Defines reservation payment methods.
+     * @type {Array<ReservationPaymentMethodType>}
      * @memberof ReservationPaymentMethods
      */
-    reservationPaymentMethods?: ReservationPaymentMethodsType;
+    reservationPaymentMethods?: Array<ReservationPaymentMethodType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationPaymentMethods
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -96,10 +96,10 @@ export function ReservationPaymentMethodsFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
-        'reservationPaymentMethods': !exists(json, 'reservationPaymentMethods') ? undefined : ReservationPaymentMethodsTypeFromJSON(json['reservationPaymentMethods']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'reservationPaymentMethods': !exists(json, 'reservationPaymentMethods') ? undefined : ((json['reservationPaymentMethods'] as Array<any>).map(ReservationPaymentMethodTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -113,10 +113,10 @@ export function ReservationPaymentMethodsToJSON(value?: ReservationPaymentMethod
     return {
         
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservationId': ReservationIdToJSON(value.reservationId),
-        'reservationPaymentMethods': ReservationPaymentMethodsTypeToJSON(value.reservationPaymentMethods),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'reservationPaymentMethods': value.reservationPaymentMethods === undefined ? undefined : ((value.reservationPaymentMethods as Array<any>).map(ReservationPaymentMethodTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

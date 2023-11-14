@@ -43,12 +43,12 @@ import {
     FolioStatusTypeFromJSONTyped,
     FolioStatusTypeToJSON,
 } from './FolioStatusType';
-import type { FolioTextsType } from './FolioTextsType';
+import type { FolioTextsTypeInner } from './FolioTextsTypeInner';
 import {
-    FolioTextsTypeFromJSON,
-    FolioTextsTypeFromJSONTyped,
-    FolioTextsTypeToJSON,
-} from './FolioTextsType';
+    FolioTextsTypeInnerFromJSON,
+    FolioTextsTypeInnerFromJSONTyped,
+    FolioTextsTypeInnerToJSON,
+} from './FolioTextsTypeInner';
 import type { MarketCodeInfoType } from './MarketCodeInfoType';
 import {
     MarketCodeInfoTypeFromJSON,
@@ -219,11 +219,11 @@ export interface ARInvoiceType {
      */
     folioStatus?: FolioStatusType;
     /**
-     * 
-     * @type {FolioTextsType}
+     * This stores the description for the type of tax calculation especially with tax exemption, etc.
+     * @type {Array<FolioTextsTypeInner>}
      * @memberof ARInvoiceType
      */
-    folioTexts?: FolioTextsType;
+    folioTexts?: Array<FolioTextsTypeInner>;
     /**
      * The name of the Folio Type used for the Folio Number sequence.
      * @type {string}
@@ -473,7 +473,7 @@ export function ARInvoiceTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
         'folioNo': !exists(json, 'folioNo') ? undefined : json['folioNo'],
         'folioNoWithPrefix': !exists(json, 'folioNoWithPrefix') ? undefined : json['folioNoWithPrefix'],
         'folioStatus': !exists(json, 'folioStatus') ? undefined : FolioStatusTypeFromJSON(json['folioStatus']),
-        'folioTexts': !exists(json, 'folioTexts') ? undefined : FolioTextsTypeFromJSON(json['folioTexts']),
+        'folioTexts': !exists(json, 'folioTexts') ? undefined : ((json['folioTexts'] as Array<any>).map(FolioTextsTypeInnerFromJSON)),
         'folioTypeName': !exists(json, 'folioTypeName') ? undefined : json['folioTypeName'],
         'guestName': !exists(json, 'guestName') ? undefined : json['guestName'],
         'guestProfileId': !exists(json, 'guestProfileId') ? undefined : UniqueIDTypeFromJSON(json['guestProfileId']),
@@ -539,7 +539,7 @@ export function ARInvoiceTypeToJSON(value?: ARInvoiceType | null): any {
         'folioNo': value.folioNo,
         'folioNoWithPrefix': value.folioNoWithPrefix,
         'folioStatus': FolioStatusTypeToJSON(value.folioStatus),
-        'folioTexts': FolioTextsTypeToJSON(value.folioTexts),
+        'folioTexts': value.folioTexts === undefined ? undefined : ((value.folioTexts as Array<any>).map(FolioTextsTypeInnerToJSON)),
         'folioTypeName': value.folioTypeName,
         'guestName': value.guestName,
         'guestProfileId': UniqueIDTypeToJSON(value.guestProfileId),

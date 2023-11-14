@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TemplateDayTypeCodesType } from './TemplateDayTypeCodesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TemplateDayTypeCodeType } from './TemplateDayTypeCodeType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new template day type codes.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateDayTypeCodesCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateDayTypeCodesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TemplateDayTypeCodesType}
+     * Details for day type code at template level.
+     * @type {Array<TemplateDayTypeCodeType>}
      * @memberof TemplateDayTypeCodesCriteria
      */
-    templateDayTypeCodes?: TemplateDayTypeCodesType;
+    templateDayTypeCodes?: Array<TemplateDayTypeCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateDayTypeCodesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateDayTypeCodesCriteria interface.

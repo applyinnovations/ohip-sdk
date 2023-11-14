@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EventCodesCriteriaToJSON = exports.EventCodesCriteriaFromJSONTyped = exports.EventCodesCriteriaFromJSON = exports.instanceOfEventCodesCriteria = void 0;
 const runtime_1 = require("../runtime");
-const EventCodesType_1 = require("./EventCodesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const EventCodeType_1 = require("./EventCodeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the EventCodesCriteria interface.
  */
@@ -35,9 +35,9 @@ function EventCodesCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'eventCodes': !(0, runtime_1.exists)(json, 'eventCodes') ? undefined : (0, EventCodesType_1.EventCodesTypeFromJSON)(json['eventCodes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'eventCodes': !(0, runtime_1.exists)(json, 'eventCodes') ? undefined : (json['eventCodes'].map(EventCodeType_1.EventCodeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.EventCodesCriteriaFromJSONTyped = EventCodesCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function EventCodesCriteriaToJSON(value) {
         return null;
     }
     return {
-        'eventCodes': (0, EventCodesType_1.EventCodesTypeToJSON)(value.eventCodes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'eventCodes': value.eventCodes === undefined ? undefined : (value.eventCodes.map(EventCodeType_1.EventCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.EventCodesCriteriaToJSON = EventCodesCriteriaToJSON;

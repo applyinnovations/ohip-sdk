@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelErrorsToJSON = exports.ChannelErrorsFromJSONTyped = exports.ChannelErrorsFromJSON = exports.instanceOfChannelErrors = void 0;
 const runtime_1 = require("../runtime");
 const ChannelErrorsErrors_1 = require("./ChannelErrorsErrors");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChannelErrors interface.
  */
@@ -35,7 +35,7 @@ function ChannelErrorsFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'errors': !(0, runtime_1.exists)(json, 'errors') ? undefined : (0, ChannelErrorsErrors_1.ChannelErrorsErrorsFromJSON)(json['errors']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChannelErrorsFromJSONTyped = ChannelErrorsFromJSONTyped;
@@ -48,7 +48,7 @@ function ChannelErrorsToJSON(value) {
     }
     return {
         'errors': (0, ChannelErrorsErrors_1.ChannelErrorsErrorsToJSON)(value.errors),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChannelErrorsToJSON = ChannelErrorsToJSON;

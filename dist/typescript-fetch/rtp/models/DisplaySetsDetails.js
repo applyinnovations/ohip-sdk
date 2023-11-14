@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DisplaySetsDetailsToJSON = exports.DisplaySetsDetailsFromJSONTyped = exports.DisplaySetsDetailsFromJSON = exports.instanceOfDisplaySetsDetails = void 0;
 const runtime_1 = require("../runtime");
-const DisplaySetsType_1 = require("./DisplaySetsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const DisplaySetType_1 = require("./DisplaySetType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the DisplaySetsDetails interface.
  */
@@ -35,9 +35,9 @@ function DisplaySetsDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'displaySets': !(0, runtime_1.exists)(json, 'displaySets') ? undefined : (0, DisplaySetsType_1.DisplaySetsTypeFromJSON)(json['displaySets']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'displaySets': !(0, runtime_1.exists)(json, 'displaySets') ? undefined : (json['displaySets'].map(DisplaySetType_1.DisplaySetTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.DisplaySetsDetailsFromJSONTyped = DisplaySetsDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function DisplaySetsDetailsToJSON(value) {
         return null;
     }
     return {
-        'displaySets': (0, DisplaySetsType_1.DisplaySetsTypeToJSON)(value.displaySets),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'displaySets': value.displaySets === undefined ? undefined : (value.displaySets.map(DisplaySetType_1.DisplaySetTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.DisplaySetsDetailsToJSON = DisplaySetsDetailsToJSON;

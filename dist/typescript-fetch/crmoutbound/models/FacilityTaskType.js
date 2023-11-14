@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FacilityTaskTypeToJSON = exports.FacilityTaskTypeFromJSONTyped = exports.FacilityTaskTypeFromJSON = exports.instanceOfFacilityTaskType = void 0;
 const runtime_1 = require("../runtime");
-const FacilityCodesType_1 = require("./FacilityCodesType");
+const FacilityCodeType_1 = require("./FacilityCodeType");
 const HousekeepingTaskCodeType_1 = require("./HousekeepingTaskCodeType");
 /**
  * Check if a given object implements the FacilityTaskType interface.
@@ -35,7 +35,7 @@ function FacilityTaskTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'task': !(0, runtime_1.exists)(json, 'task') ? undefined : (0, HousekeepingTaskCodeType_1.HousekeepingTaskCodeTypeFromJSON)(json['task']),
-        'supplies': !(0, runtime_1.exists)(json, 'supplies') ? undefined : (0, FacilityCodesType_1.FacilityCodesTypeFromJSON)(json['supplies']),
+        'supplies': !(0, runtime_1.exists)(json, 'supplies') ? undefined : (json['supplies'].map(FacilityCodeType_1.FacilityCodeTypeFromJSON)),
         'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
     };
 }
@@ -49,7 +49,7 @@ function FacilityTaskTypeToJSON(value) {
     }
     return {
         'task': (0, HousekeepingTaskCodeType_1.HousekeepingTaskCodeTypeToJSON)(value.task),
-        'supplies': (0, FacilityCodesType_1.FacilityCodesTypeToJSON)(value.supplies),
+        'supplies': value.supplies === undefined ? undefined : (value.supplies.map(FacilityCodeType_1.FacilityCodeTypeToJSON)),
         'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
     };
 }

@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RevenueStatisticsSummaryTypeToJSON = exports.RevenueStatisticsSummaryTypeFromJSONTyped = exports.RevenueStatisticsSummaryTypeFromJSON = exports.instanceOfRevenueStatisticsSummaryType = void 0;
 const runtime_1 = require("../runtime");
 const RevenueBucketListType_1 = require("./RevenueBucketListType");
-const RevenueStatisticsDetailListType_1 = require("./RevenueStatisticsDetailListType");
+const RevenueStatisticsDetailType_1 = require("./RevenueStatisticsDetailType");
 /**
  * Check if a given object implements the RevenueStatisticsSummaryType interface.
  */
@@ -35,7 +35,7 @@ function RevenueStatisticsSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'revenueBucketsSummary': !(0, runtime_1.exists)(json, 'revenueBucketsSummary') ? undefined : (0, RevenueBucketListType_1.RevenueBucketListTypeFromJSON)(json['revenueBucketsSummary']),
-        'revenueDetails': !(0, runtime_1.exists)(json, 'revenueDetails') ? undefined : (0, RevenueStatisticsDetailListType_1.RevenueStatisticsDetailListTypeFromJSON)(json['revenueDetails']),
+        'revenueDetails': !(0, runtime_1.exists)(json, 'revenueDetails') ? undefined : (json['revenueDetails'].map(RevenueStatisticsDetailType_1.RevenueStatisticsDetailTypeFromJSON)),
         'year': !(0, runtime_1.exists)(json, 'year') ? undefined : json['year'],
     };
 }
@@ -49,7 +49,7 @@ function RevenueStatisticsSummaryTypeToJSON(value) {
     }
     return {
         'revenueBucketsSummary': (0, RevenueBucketListType_1.RevenueBucketListTypeToJSON)(value.revenueBucketsSummary),
-        'revenueDetails': (0, RevenueStatisticsDetailListType_1.RevenueStatisticsDetailListTypeToJSON)(value.revenueDetails),
+        'revenueDetails': value.revenueDetails === undefined ? undefined : (value.revenueDetails.map(RevenueStatisticsDetailType_1.RevenueStatisticsDetailTypeToJSON)),
         'year': value.year,
     };
 }

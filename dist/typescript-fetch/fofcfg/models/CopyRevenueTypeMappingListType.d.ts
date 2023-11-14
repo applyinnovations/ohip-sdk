@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 import type { CateringOnlyType } from './CateringOnlyType';
-import type { CodeListType } from './CodeListType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Type used for Revenue Type mapping.
@@ -26,10 +25,10 @@ export interface CopyRevenueTypeMappingListType {
     cateringOnly?: CateringOnlyType;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyRevenueTypeMappingListType
      */
-    eventList?: CodeListType;
+    eventList?: Array<string>;
     /**
      * Provides information about the Event Type.
      * @type {string}
@@ -98,10 +97,10 @@ export interface CopyRevenueTypeMappingListType {
     space?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyRevenueTypeMappingListType
      */
-    spaceList?: CodeListType;
+    spaceList?: Array<string>;
     /**
      * Transaction code for the Revenue Type.
      * @type {string}

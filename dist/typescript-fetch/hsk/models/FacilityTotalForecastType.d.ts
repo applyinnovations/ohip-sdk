@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FacilityCodesForecastType } from './FacilityCodesForecastType';
-import type { ForecastTotalsQuantitiesType } from './ForecastTotalsQuantitiesType';
+import type { FacilityCodeForecastType } from './FacilityCodeForecastType';
+import type { ForecastTotalsQuantityType } from './ForecastTotalsQuantityType';
 /**
  * The Total of the forecasts.
  * @export
@@ -18,17 +18,17 @@ import type { ForecastTotalsQuantitiesType } from './ForecastTotalsQuantitiesTyp
  */
 export interface FacilityTotalForecastType {
     /**
-     *
-     * @type {FacilityCodesForecastType}
+     * Collection of facility codes with their forecasts.
+     * @type {Array<FacilityCodeForecastType>}
      * @memberof FacilityTotalForecastType
      */
-    totalFacilityCodes?: FacilityCodesForecastType;
+    totalFacilityCodes?: Array<FacilityCodeForecastType>;
     /**
-     *
-     * @type {ForecastTotalsQuantitiesType}
+     * Collection of dates and their total quantities.
+     * @type {Array<ForecastTotalsQuantityType>}
      * @memberof FacilityTotalForecastType
      */
-    totals?: ForecastTotalsQuantitiesType;
+    totals?: Array<ForecastTotalsQuantityType>;
 }
 /**
  * Check if a given object implements the FacilityTotalForecastType interface.

@@ -25,24 +25,18 @@ import {
     CodeDescriptionTypeFromJSONTyped,
     CodeDescriptionTypeToJSON,
 } from './CodeDescriptionType';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import {
     CurrencyAmountTypeFromJSON,
     CurrencyAmountTypeFromJSONTyped,
     CurrencyAmountTypeToJSON,
 } from './CurrencyAmountType';
-import type { DietaryPrefListType } from './DietaryPrefListType';
+import type { DietaryPrefType } from './DietaryPrefType';
 import {
-    DietaryPrefListTypeFromJSON,
-    DietaryPrefListTypeFromJSONTyped,
-    DietaryPrefListTypeToJSON,
-} from './DietaryPrefListType';
+    DietaryPrefTypeFromJSON,
+    DietaryPrefTypeFromJSONTyped,
+    DietaryPrefTypeToJSON,
+} from './DietaryPrefType';
 import type { MenuTypeType } from './MenuTypeType';
 import {
     MenuTypeTypeFromJSON,
@@ -124,10 +118,10 @@ export interface EventMenuItemType {
     description?: TranslationTextType2000;
     /**
      * 
-     * @type {DietaryPrefListType}
+     * @type {Array<DietaryPrefType>}
      * @memberof EventMenuItemType
      */
-    dietaryPreferenceList?: DietaryPrefListType;
+    dietaryPreferenceList?: Array<DietaryPrefType>;
     /**
      * Discount Percentage applied to Rent Amount.
      * @type {number}
@@ -148,10 +142,10 @@ export interface EventMenuItemType {
     eventMenuDetailID?: UniqueIDType;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof EventMenuItemType
      */
-    eventTypes?: CodeListType;
+    eventTypes?: Array<string>;
     /**
      * The Hotel code which the menu item class belongs to
      * @type {string}
@@ -244,10 +238,10 @@ export interface EventMenuItemType {
     quickInsertCode?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof EventMenuItemType
      */
-    responsibleDepartments?: CodeListType;
+    responsibleDepartments?: Array<string>;
     /**
      * Any particular restriction description in 100 charactera
      * @type {string}
@@ -314,11 +308,11 @@ export function EventMenuItemTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'custom': !exists(json, 'custom') ? undefined : json['custom'],
         'demandFactor': !exists(json, 'demandFactor') ? undefined : json['demandFactor'],
         'description': !exists(json, 'description') ? undefined : TranslationTextType2000FromJSON(json['description']),
-        'dietaryPreferenceList': !exists(json, 'dietaryPreferenceList') ? undefined : DietaryPrefListTypeFromJSON(json['dietaryPreferenceList']),
+        'dietaryPreferenceList': !exists(json, 'dietaryPreferenceList') ? undefined : ((json['dietaryPreferenceList'] as Array<any>).map(DietaryPrefTypeFromJSON)),
         'discountPercentage': !exists(json, 'discountPercentage') ? undefined : json['discountPercentage'],
         'displayOrder': !exists(json, 'displayOrder') ? undefined : json['displayOrder'],
         'eventMenuDetailID': !exists(json, 'eventMenuDetailID') ? undefined : UniqueIDTypeFromJSON(json['eventMenuDetailID']),
-        'eventTypes': !exists(json, 'eventTypes') ? undefined : CodeListTypeFromJSON(json['eventTypes']),
+        'eventTypes': !exists(json, 'eventTypes') ? undefined : json['eventTypes'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'id': !exists(json, 'id') ? undefined : UniqueIDTypeFromJSON(json['id']),
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
@@ -334,7 +328,7 @@ export function EventMenuItemTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'portion': !exists(json, 'portion') ? undefined : TranslationTextType2000FromJSON(json['portion']),
         'print': !exists(json, 'print') ? undefined : json['print'],
         'quickInsertCode': !exists(json, 'quickInsertCode') ? undefined : json['quickInsertCode'],
-        'responsibleDepartments': !exists(json, 'responsibleDepartments') ? undefined : CodeListTypeFromJSON(json['responsibleDepartments']),
+        'responsibleDepartments': !exists(json, 'responsibleDepartments') ? undefined : json['responsibleDepartments'],
         'restriction': !exists(json, 'restriction') ? undefined : json['restriction'],
         'revenueType': !exists(json, 'revenueType') ? undefined : json['revenueType'],
         'salesPrice': !exists(json, 'salesPrice') ? undefined : CurrencyAmountTypeFromJSON(json['salesPrice']),
@@ -362,11 +356,11 @@ export function EventMenuItemTypeToJSON(value?: EventMenuItemType | null): any {
         'custom': value.custom,
         'demandFactor': value.demandFactor,
         'description': TranslationTextType2000ToJSON(value.description),
-        'dietaryPreferenceList': DietaryPrefListTypeToJSON(value.dietaryPreferenceList),
+        'dietaryPreferenceList': value.dietaryPreferenceList === undefined ? undefined : ((value.dietaryPreferenceList as Array<any>).map(DietaryPrefTypeToJSON)),
         'discountPercentage': value.discountPercentage,
         'displayOrder': value.displayOrder,
         'eventMenuDetailID': UniqueIDTypeToJSON(value.eventMenuDetailID),
-        'eventTypes': CodeListTypeToJSON(value.eventTypes),
+        'eventTypes': value.eventTypes,
         'hotelId': value.hotelId,
         'id': UniqueIDTypeToJSON(value.id),
         'inactive': value.inactive,
@@ -382,7 +376,7 @@ export function EventMenuItemTypeToJSON(value?: EventMenuItemType | null): any {
         'portion': TranslationTextType2000ToJSON(value.portion),
         'print': value.print,
         'quickInsertCode': value.quickInsertCode,
-        'responsibleDepartments': CodeListTypeToJSON(value.responsibleDepartments),
+        'responsibleDepartments': value.responsibleDepartments,
         'restriction': value.restriction,
         'revenueType': value.revenueType,
         'salesPrice': CurrencyAmountTypeToJSON(value.salesPrice),

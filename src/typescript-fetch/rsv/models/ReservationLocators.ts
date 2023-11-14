@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ReservationLocatorsType } from './ReservationLocatorsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ReservationLocatorType } from './ReservationLocatorType';
 import {
-    ReservationLocatorsTypeFromJSON,
-    ReservationLocatorsTypeFromJSONTyped,
-    ReservationLocatorsTypeToJSON,
-} from './ReservationLocatorsType';
-import type { WarningsType } from './WarningsType';
+    ReservationLocatorTypeFromJSON,
+    ReservationLocatorTypeFromJSONTyped,
+    ReservationLocatorTypeToJSON,
+} from './ReservationLocatorType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object response to retrieve Guest Messages for a Reservation.
@@ -40,22 +40,22 @@ import {
 export interface ReservationLocators {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationLocators
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ReservationLocatorsType}
+     * Holds the Locator Information.
+     * @type {Array<ReservationLocatorType>}
      * @memberof ReservationLocators
      */
-    reservationLocators?: ReservationLocatorsType;
+    reservationLocators?: Array<ReservationLocatorType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationLocators
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ReservationLocatorsFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'reservationLocators': !exists(json, 'reservationLocators') ? undefined : ReservationLocatorsTypeFromJSON(json['reservationLocators']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'reservationLocators': !exists(json, 'reservationLocators') ? undefined : ((json['reservationLocators'] as Array<any>).map(ReservationLocatorTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ReservationLocatorsToJSON(value?: ReservationLocators | null): a
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'reservationLocators': ReservationLocatorsTypeToJSON(value.reservationLocators),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'reservationLocators': value.reservationLocators === undefined ? undefined : ((value.reservationLocators as Array<any>).map(ReservationLocatorTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

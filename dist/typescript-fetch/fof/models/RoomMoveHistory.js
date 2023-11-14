@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomMoveHistoryToJSON = exports.RoomMoveHistoryFromJSONTyped = exports.RoomMoveHistoryFromJSON = exports.instanceOfRoomMoveHistory = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RoomMoveDetailsType_1 = require("./RoomMoveDetailsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RoomMoveDetailType_1 = require("./RoomMoveDetailType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomMoveHistory interface.
  */
@@ -35,9 +35,9 @@ function RoomMoveHistoryFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'roomMoveHistoryDetails': !(0, runtime_1.exists)(json, 'roomMoveHistoryDetails') ? undefined : (0, RoomMoveDetailsType_1.RoomMoveDetailsTypeFromJSON)(json['roomMoveHistoryDetails']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'roomMoveHistoryDetails': !(0, runtime_1.exists)(json, 'roomMoveHistoryDetails') ? undefined : (json['roomMoveHistoryDetails'].map(RoomMoveDetailType_1.RoomMoveDetailTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomMoveHistoryFromJSONTyped = RoomMoveHistoryFromJSONTyped;
@@ -49,9 +49,9 @@ function RoomMoveHistoryToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'roomMoveHistoryDetails': (0, RoomMoveDetailsType_1.RoomMoveDetailsTypeToJSON)(value.roomMoveHistoryDetails),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'roomMoveHistoryDetails': value.roomMoveHistoryDetails === undefined ? undefined : (value.roomMoveHistoryDetails.map(RoomMoveDetailType_1.RoomMoveDetailTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomMoveHistoryToJSON = RoomMoveHistoryToJSON;

@@ -19,12 +19,12 @@ import {
     CancellationReasonTypeFromJSONTyped,
     CancellationReasonTypeToJSON,
 } from './CancellationReasonType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -33,11 +33,11 @@ import {
  */
 export interface CancellationActivityType {
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CancellationActivityType
      */
-    cancellationIdList?: UniqueIDListType;
+    cancellationIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {Date}
@@ -83,7 +83,7 @@ export function CancellationActivityTypeFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'cancellationIdList': !exists(json, 'cancellationIdList') ? undefined : UniqueIDListTypeFromJSON(json['cancellationIdList']),
+        'cancellationIdList': !exists(json, 'cancellationIdList') ? undefined : ((json['cancellationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'cxlDate': !exists(json, 'cxlDate') ? undefined : (new Date(json['cxlDate'])),
         'reason': !exists(json, 'reason') ? undefined : CancellationReasonTypeFromJSON(json['reason']),
         'userId': !exists(json, 'userId') ? undefined : json['userId'],
@@ -100,7 +100,7 @@ export function CancellationActivityTypeToJSON(value?: CancellationActivityType 
     }
     return {
         
-        'cancellationIdList': UniqueIDListTypeToJSON(value.cancellationIdList),
+        'cancellationIdList': value.cancellationIdList === undefined ? undefined : ((value.cancellationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'cxlDate': value.cxlDate === undefined ? undefined : (value.cxlDate.toISOString().substring(0,10)),
         'reason': CancellationReasonTypeToJSON(value.reason),
         'userId': value.userId,

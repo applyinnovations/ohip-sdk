@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ConfigHotelPreferencesType } from './ConfigHotelPreferencesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ConfigHotelPreferenceType } from './ConfigHotelPreferenceType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching preferences at the property level.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface HotelPreferences {
     /**
-     *
-     * @type {ConfigHotelPreferencesType}
+     * This type holds a collection of preferences at the property level.
+     * @type {Array<ConfigHotelPreferenceType>}
      * @memberof HotelPreferences
      */
-    hotelPreferences?: ConfigHotelPreferencesType;
+    hotelPreferences?: Array<ConfigHotelPreferenceType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelPreferences
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelPreferences
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HotelPreferences interface.

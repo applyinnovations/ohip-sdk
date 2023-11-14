@@ -16,12 +16,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChangedCateringStatusToJSON = exports.ChangedCateringStatusFromJSONTyped = exports.ChangedCateringStatusFromJSON = exports.instanceOfChangedCateringStatus = void 0;
 const runtime_1 = require("../runtime");
 const BlockType_1 = require("./BlockType");
+const BookingStatusDetailType_1 = require("./BookingStatusDetailType");
+const BookingStatusHistoryType_1 = require("./BookingStatusHistoryType");
 const CancellationDetailsType_1 = require("./CancellationDetailsType");
-const CateringEventsProcessedInfoList_1 = require("./CateringEventsProcessedInfoList");
-const CateringNextStatusListType_1 = require("./CateringNextStatusListType");
-const CateringStatusChangeHistoryType_1 = require("./CateringStatusChangeHistoryType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CateringEventsProcessedInfoType_1 = require("./CateringEventsProcessedInfoType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChangedCateringStatus interface.
  */
@@ -41,11 +41,11 @@ function ChangedCateringStatusFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'block': !(0, runtime_1.exists)(json, 'block') ? undefined : (0, BlockType_1.BlockTypeFromJSON)(json['block']),
         'cancellationDetails': !(0, runtime_1.exists)(json, 'cancellationDetails') ? undefined : (0, CancellationDetailsType_1.CancellationDetailsTypeFromJSON)(json['cancellationDetails']),
-        'cateringEventsProcessedInfo': !(0, runtime_1.exists)(json, 'cateringEventsProcessedInfo') ? undefined : (0, CateringEventsProcessedInfoList_1.CateringEventsProcessedInfoListFromJSON)(json['cateringEventsProcessedInfo']),
-        'cateringNextStatusList': !(0, runtime_1.exists)(json, 'cateringNextStatusList') ? undefined : (0, CateringNextStatusListType_1.CateringNextStatusListTypeFromJSON)(json['cateringNextStatusList']),
-        'cateringStatusChangeHistory': !(0, runtime_1.exists)(json, 'cateringStatusChangeHistory') ? undefined : (0, CateringStatusChangeHistoryType_1.CateringStatusChangeHistoryTypeFromJSON)(json['cateringStatusChangeHistory']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'cateringEventsProcessedInfo': !(0, runtime_1.exists)(json, 'cateringEventsProcessedInfo') ? undefined : (json['cateringEventsProcessedInfo'].map(CateringEventsProcessedInfoType_1.CateringEventsProcessedInfoTypeFromJSON)),
+        'cateringNextStatusList': !(0, runtime_1.exists)(json, 'cateringNextStatusList') ? undefined : (json['cateringNextStatusList'].map(BookingStatusDetailType_1.BookingStatusDetailTypeFromJSON)),
+        'cateringStatusChangeHistory': !(0, runtime_1.exists)(json, 'cateringStatusChangeHistory') ? undefined : (json['cateringStatusChangeHistory'].map(BookingStatusHistoryType_1.BookingStatusHistoryTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChangedCateringStatusFromJSONTyped = ChangedCateringStatusFromJSONTyped;
@@ -59,11 +59,11 @@ function ChangedCateringStatusToJSON(value) {
     return {
         'block': (0, BlockType_1.BlockTypeToJSON)(value.block),
         'cancellationDetails': (0, CancellationDetailsType_1.CancellationDetailsTypeToJSON)(value.cancellationDetails),
-        'cateringEventsProcessedInfo': (0, CateringEventsProcessedInfoList_1.CateringEventsProcessedInfoListToJSON)(value.cateringEventsProcessedInfo),
-        'cateringNextStatusList': (0, CateringNextStatusListType_1.CateringNextStatusListTypeToJSON)(value.cateringNextStatusList),
-        'cateringStatusChangeHistory': (0, CateringStatusChangeHistoryType_1.CateringStatusChangeHistoryTypeToJSON)(value.cateringStatusChangeHistory),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'cateringEventsProcessedInfo': value.cateringEventsProcessedInfo === undefined ? undefined : (value.cateringEventsProcessedInfo.map(CateringEventsProcessedInfoType_1.CateringEventsProcessedInfoTypeToJSON)),
+        'cateringNextStatusList': value.cateringNextStatusList === undefined ? undefined : (value.cateringNextStatusList.map(BookingStatusDetailType_1.BookingStatusDetailTypeToJSON)),
+        'cateringStatusChangeHistory': value.cateringStatusChangeHistory === undefined ? undefined : (value.cateringStatusChangeHistory.map(BookingStatusHistoryType_1.BookingStatusHistoryTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChangedCateringStatusToJSON = ChangedCateringStatusToJSON;

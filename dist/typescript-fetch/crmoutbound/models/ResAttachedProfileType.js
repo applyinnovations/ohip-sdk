@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ResAttachedProfileTypeToJSON = exports.ResAttachedProfileTypeFromJSONTyped = exports.ResAttachedProfileTypeFromJSON = exports.instanceOfResAttachedProfileType = void 0;
 const runtime_1 = require("../runtime");
-const ProfileIdList_1 = require("./ProfileIdList");
 const ResProfileTypeType_1 = require("./ResProfileTypeType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ResAttachedProfileType interface.
  */
@@ -35,7 +35,7 @@ function ResAttachedProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'name': !(0, runtime_1.exists)(json, 'name') ? undefined : json['name'],
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'resProfileType': !(0, runtime_1.exists)(json, 'resProfileType') ? undefined : (0, ResProfileTypeType_1.ResProfileTypeTypeFromJSON)(json['resProfileType']),
     };
 }
@@ -49,7 +49,7 @@ function ResAttachedProfileTypeToJSON(value) {
     }
     return {
         'name': value.name,
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'resProfileType': (0, ResProfileTypeType_1.ResProfileTypeTypeToJSON)(value.resProfileType),
     };
 }

@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WaitlistedEventsSearchTypeToJSON = exports.WaitlistedEventsSearchTypeFromJSONTyped = exports.WaitlistedEventsSearchTypeFromJSON = exports.instanceOfWaitlistedEventsSearchType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const DateTimeSpanType_1 = require("./DateTimeSpanType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -38,7 +37,7 @@ function WaitlistedEventsSearchTypeFromJSONTyped(json, ignoreDiscriminator) {
         'accountName': !(0, runtime_1.exists)(json, 'accountName') ? undefined : json['accountName'],
         'blockId': !(0, runtime_1.exists)(json, 'blockId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['blockId']),
         'blockName': !(0, runtime_1.exists)(json, 'blockName') ? undefined : json['blockName'],
-        'functionSpaceCode': !(0, runtime_1.exists)(json, 'functionSpaceCode') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['functionSpaceCode']),
+        'functionSpaceCode': !(0, runtime_1.exists)(json, 'functionSpaceCode') ? undefined : json['functionSpaceCode'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'waitlistedTimeSpan': !(0, runtime_1.exists)(json, 'waitlistedTimeSpan') ? undefined : (0, DateTimeSpanType_1.DateTimeSpanTypeFromJSON)(json['waitlistedTimeSpan']),
     };
@@ -55,7 +54,7 @@ function WaitlistedEventsSearchTypeToJSON(value) {
         'accountName': value.accountName,
         'blockId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.blockId),
         'blockName': value.blockName,
-        'functionSpaceCode': (0, CodeListType_1.CodeListTypeToJSON)(value.functionSpaceCode),
+        'functionSpaceCode': value.functionSpaceCode,
         'hotelId': value.hotelId,
         'waitlistedTimeSpan': (0, DateTimeSpanType_1.DateTimeSpanTypeToJSON)(value.waitlistedTimeSpan),
     };

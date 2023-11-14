@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.HoldItemInventoryTypeToJSON = exports.HoldItemInventoryTypeFromJSONTyped = exports.HoldItemInventoryTypeFromJSON = exports.instanceOfHoldItemInventoryType = void 0;
 const runtime_1 = require("../runtime");
 const HeldByType_1 = require("./HeldByType");
-const HoldItemInfoListType_1 = require("./HoldItemInfoListType");
+const HoldItemInfoType_1 = require("./HoldItemInfoType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the HoldItemInventoryType interface.
@@ -37,7 +37,7 @@ function HoldItemInventoryTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'heldBy': !(0, runtime_1.exists)(json, 'heldBy') ? undefined : (0, HeldByType_1.HeldByTypeFromJSON)(json['heldBy']),
         'heldById': !(0, runtime_1.exists)(json, 'heldById') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['heldById']),
-        'holdItemInfoList': !(0, runtime_1.exists)(json, 'holdItemInfoList') ? undefined : (0, HoldItemInfoListType_1.HoldItemInfoListTypeFromJSON)(json['holdItemInfoList']),
+        'holdItemInfoList': !(0, runtime_1.exists)(json, 'holdItemInfoList') ? undefined : (json['holdItemInfoList'].map(HoldItemInfoType_1.HoldItemInfoTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'itemHoldId': !(0, runtime_1.exists)(json, 'itemHoldId') ? undefined : json['itemHoldId'],
         'overrideInventory': !(0, runtime_1.exists)(json, 'overrideInventory') ? undefined : json['overrideInventory'],
@@ -54,7 +54,7 @@ function HoldItemInventoryTypeToJSON(value) {
     return {
         'heldBy': (0, HeldByType_1.HeldByTypeToJSON)(value.heldBy),
         'heldById': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.heldById),
-        'holdItemInfoList': (0, HoldItemInfoListType_1.HoldItemInfoListTypeToJSON)(value.holdItemInfoList),
+        'holdItemInfoList': value.holdItemInfoList === undefined ? undefined : (value.holdItemInfoList.map(HoldItemInfoType_1.HoldItemInfoTypeToJSON)),
         'hotelId': value.hotelId,
         'itemHoldId': value.itemHoldId,
         'overrideInventory': value.overrideInventory,

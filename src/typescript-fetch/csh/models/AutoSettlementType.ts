@@ -25,18 +25,18 @@ import {
     CashieringEventTypeFromJSONTyped,
     CashieringEventTypeToJSON,
 } from './CashieringEventType';
-import type { PaymentMethodsSearchType } from './PaymentMethodsSearchType';
+import type { PaymentMethodSearchType } from './PaymentMethodSearchType';
 import {
-    PaymentMethodsSearchTypeFromJSON,
-    PaymentMethodsSearchTypeFromJSONTyped,
-    PaymentMethodsSearchTypeToJSON,
-} from './PaymentMethodsSearchType';
-import type { UniqueIDListType } from './UniqueIDListType';
+    PaymentMethodSearchTypeFromJSON,
+    PaymentMethodSearchTypeFromJSONTyped,
+    PaymentMethodSearchTypeToJSON,
+} from './PaymentMethodSearchType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -87,11 +87,11 @@ export interface AutoSettlementType {
      */
     minimumWindowBalance?: number;
     /**
-     * 
-     * @type {PaymentMethodsSearchType}
+     * Defines the payment method to search reservations.
+     * @type {Array<PaymentMethodSearchType>}
      * @memberof AutoSettlementType
      */
-    paymentMethods?: PaymentMethodsSearchType;
+    paymentMethods?: Array<PaymentMethodSearchType>;
     /**
      * 
      * @type {AutoFolioSettlementCriteriaType}
@@ -99,11 +99,11 @@ export interface AutoSettlementType {
      */
     reservationCriteria?: AutoFolioSettlementCriteriaType;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof AutoSettlementType
      */
-    reservationIdList?: UniqueIDListType;
+    reservationIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -132,9 +132,9 @@ export function AutoSettlementTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'includeCreditCardBalance': !exists(json, 'includeCreditCardBalance') ? undefined : json['includeCreditCardBalance'],
         'minimumWindowBalance': !exists(json, 'minimumWindowBalance') ? undefined : json['minimumWindowBalance'],
-        'paymentMethods': !exists(json, 'paymentMethods') ? undefined : PaymentMethodsSearchTypeFromJSON(json['paymentMethods']),
+        'paymentMethods': !exists(json, 'paymentMethods') ? undefined : ((json['paymentMethods'] as Array<any>).map(PaymentMethodSearchTypeFromJSON)),
         'reservationCriteria': !exists(json, 'reservationCriteria') ? undefined : AutoFolioSettlementCriteriaTypeFromJSON(json['reservationCriteria']),
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : UniqueIDListTypeFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -154,9 +154,9 @@ export function AutoSettlementTypeToJSON(value?: AutoSettlementType | null): any
         'hotelId': value.hotelId,
         'includeCreditCardBalance': value.includeCreditCardBalance,
         'minimumWindowBalance': value.minimumWindowBalance,
-        'paymentMethods': PaymentMethodsSearchTypeToJSON(value.paymentMethods),
+        'paymentMethods': value.paymentMethods === undefined ? undefined : ((value.paymentMethods as Array<any>).map(PaymentMethodSearchTypeToJSON)),
         'reservationCriteria': AutoFolioSettlementCriteriaTypeToJSON(value.reservationCriteria),
-        'reservationIdList': UniqueIDListTypeToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

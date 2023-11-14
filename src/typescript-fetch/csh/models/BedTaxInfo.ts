@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BedTaxInfoTypes } from './BedTaxInfoTypes';
+import type { BedTaxInfoType } from './BedTaxInfoType';
 import {
-    BedTaxInfoTypesFromJSON,
-    BedTaxInfoTypesFromJSONTyped,
-    BedTaxInfoTypesToJSON,
-} from './BedTaxInfoTypes';
-import type { Links } from './Links';
+    BedTaxInfoTypeFromJSON,
+    BedTaxInfoTypeFromJSONTyped,
+    BedTaxInfoTypeToJSON,
+} from './BedTaxInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for bed transaction info
@@ -39,23 +39,23 @@ import {
  */
 export interface BedTaxInfo {
     /**
-     * 
-     * @type {BedTaxInfoTypes}
+     * List of Bed Tax info.
+     * @type {Array<BedTaxInfoType>}
      * @memberof BedTaxInfo
      */
-    bedTaxInfoTypes?: BedTaxInfoTypes;
+    bedTaxInfoTypes?: Array<BedTaxInfoType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BedTaxInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BedTaxInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function BedTaxInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'bedTaxInfoTypes': !exists(json, 'bedTaxInfoTypes') ? undefined : BedTaxInfoTypesFromJSON(json['bedTaxInfoTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'bedTaxInfoTypes': !exists(json, 'bedTaxInfoTypes') ? undefined : ((json['bedTaxInfoTypes'] as Array<any>).map(BedTaxInfoTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function BedTaxInfoToJSON(value?: BedTaxInfo | null): any {
     }
     return {
         
-        'bedTaxInfoTypes': BedTaxInfoTypesToJSON(value.bedTaxInfoTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'bedTaxInfoTypes': value.bedTaxInfoTypes === undefined ? undefined : ((value.bedTaxInfoTypes as Array<any>).map(BedTaxInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { ConfigExclusivePrefCodeAndGroupType } from './ConfigExclusivePrefCodeAndGroupType';
 import {
     ConfigExclusivePrefCodeAndGroupTypeFromJSON,
@@ -34,10 +28,10 @@ import {
 export interface ConfigCopyExclusivePreferencesType {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigCopyExclusivePreferencesType
      */
-    hotelCodes?: CodeListType;
+    hotelCodes?: Array<string>;
     /**
      * Template Exclusive preference to be copied to the hotel(s).
      * @type {Array<ConfigExclusivePrefCodeAndGroupType>}
@@ -65,7 +59,7 @@ export function ConfigCopyExclusivePreferencesTypeFromJSONTyped(json: any, ignor
     }
     return {
         
-        'hotelCodes': !exists(json, 'hotelCodes') ? undefined : CodeListTypeFromJSON(json['hotelCodes']),
+        'hotelCodes': !exists(json, 'hotelCodes') ? undefined : json['hotelCodes'],
         'templateExclusivePreference': !exists(json, 'templateExclusivePreference') ? undefined : ((json['templateExclusivePreference'] as Array<any>).map(ConfigExclusivePrefCodeAndGroupTypeFromJSON)),
     };
 }
@@ -79,7 +73,7 @@ export function ConfigCopyExclusivePreferencesTypeToJSON(value?: ConfigCopyExclu
     }
     return {
         
-        'hotelCodes': CodeListTypeToJSON(value.hotelCodes),
+        'hotelCodes': value.hotelCodes,
         'templateExclusivePreference': value.templateExclusivePreference === undefined ? undefined : ((value.templateExclusivePreference as Array<any>).map(ConfigExclusivePrefCodeAndGroupTypeToJSON)),
     };
 }

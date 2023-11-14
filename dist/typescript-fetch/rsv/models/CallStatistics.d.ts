@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CallStatisticsListType } from './CallStatisticsListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CallStatisticsType } from './CallStatisticsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object to the request to retrieve Call Statistics.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CallStatistics {
     /**
-     *
-     * @type {CallStatisticsListType}
+     * Holds Call Statistics Information.
+     * @type {Array<CallStatisticsType>}
      * @memberof CallStatistics
      */
-    callStatisticsList?: CallStatisticsListType;
+    callStatisticsList?: Array<CallStatisticsType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CallStatistics
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CallStatistics
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CallStatistics interface.

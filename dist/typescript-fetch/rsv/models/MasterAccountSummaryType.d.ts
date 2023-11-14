@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Minimal information of the posting master reservation that can be used to identify the reservation uniquely.
  * @export
@@ -53,11 +53,11 @@ export interface MasterAccountSummaryType {
      */
     purgeDate?: Date;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MasterAccountSummaryType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the MasterAccountSummaryType interface.

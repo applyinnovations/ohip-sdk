@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CombineShareReservationsTypeShareToReservationToJSON = exports.CombineShareReservationsTypeShareToReservationFromJSONTyped = exports.CombineShareReservationsTypeShareToReservationFromJSON = exports.instanceOfCombineShareReservationsTypeShareToReservation = void 0;
 const runtime_1 = require("../runtime");
-const DailyRatesType_1 = require("./DailyRatesType");
-const ReservationIdList_1 = require("./ReservationIdList");
+const DailyRateType_1 = require("./DailyRateType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CombineShareReservationsTypeShareToReservation interface.
  */
@@ -34,8 +34,8 @@ function CombineShareReservationsTypeShareToReservationFromJSONTyped(json, ignor
         return json;
     }
     return {
-        'dailyRates': !(0, runtime_1.exists)(json, 'dailyRates') ? undefined : (0, DailyRatesType_1.DailyRatesTypeFromJSON)(json['dailyRates']),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'dailyRates': !(0, runtime_1.exists)(json, 'dailyRates') ? undefined : (json['dailyRates'].map(DailyRateType_1.DailyRateTypeFromJSON)),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.CombineShareReservationsTypeShareToReservationFromJSONTyped = CombineShareReservationsTypeShareToReservationFromJSONTyped;
@@ -47,8 +47,8 @@ function CombineShareReservationsTypeShareToReservationToJSON(value) {
         return null;
     }
     return {
-        'dailyRates': (0, DailyRatesType_1.DailyRatesTypeToJSON)(value.dailyRates),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'dailyRates': value.dailyRates === undefined ? undefined : (value.dailyRates.map(DailyRateType_1.DailyRateTypeToJSON)),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.CombineShareReservationsTypeShareToReservationToJSON = CombineShareReservationsTypeShareToReservationToJSON;

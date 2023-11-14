@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FiscalYearsToJSON = exports.FiscalYearsFromJSONTyped = exports.FiscalYearsFromJSON = exports.instanceOfFiscalYears = void 0;
 const runtime_1 = require("../runtime");
-const FiscalYearsType_1 = require("./FiscalYearsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const FiscalYearType_1 = require("./FiscalYearType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FiscalYears interface.
  */
@@ -35,9 +35,9 @@ function FiscalYearsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'fiscalYears': !(0, runtime_1.exists)(json, 'fiscalYears') ? undefined : (0, FiscalYearsType_1.FiscalYearsTypeFromJSON)(json['fiscalYears']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'fiscalYears': !(0, runtime_1.exists)(json, 'fiscalYears') ? undefined : (json['fiscalYears'].map(FiscalYearType_1.FiscalYearTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FiscalYearsFromJSONTyped = FiscalYearsFromJSONTyped;
@@ -49,9 +49,9 @@ function FiscalYearsToJSON(value) {
         return null;
     }
     return {
-        'fiscalYears': (0, FiscalYearsType_1.FiscalYearsTypeToJSON)(value.fiscalYears),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'fiscalYears': value.fiscalYears === undefined ? undefined : (value.fiscalYears.map(FiscalYearType_1.FiscalYearTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FiscalYearsToJSON = FiscalYearsToJSON;

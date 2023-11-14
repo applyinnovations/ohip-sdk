@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationId } from './ReservationId';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to reinstate checkout reservation in order to post additional transactions, etc.
  * @export
@@ -32,10 +32,10 @@ export interface ReinstateCheckedOutReservation {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReinstateCheckedOutReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Indicates whether interfaces should be notified.
      * @type {boolean}
@@ -55,11 +55,11 @@ export interface ReinstateCheckedOutReservation {
      */
     reservationId?: ReservationId;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReinstateCheckedOutReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReinstateCheckedOutReservation interface.

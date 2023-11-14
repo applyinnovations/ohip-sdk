@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockPostingAccountReservationsType } from './BlockPostingAccountReservationsType';
+import type { BlockPostingReservationsType } from './BlockPostingReservationsType';
 import type { CateringEventPostingsType } from './CateringEventPostingsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Object for retrieving catering events postings.
  * @export
@@ -27,22 +27,22 @@ export interface CateringEventPostingsDetail {
     cateringEventPostings?: CateringEventPostingsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringEventPostingsDetail
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {BlockPostingAccountReservationsType}
+     * Fetch block's posting account reservations information.
+     * @type {Array<BlockPostingReservationsType>}
      * @memberof CateringEventPostingsDetail
      */
-    postingMasterReservations?: BlockPostingAccountReservationsType;
+    postingMasterReservations?: Array<BlockPostingReservationsType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringEventPostingsDetail
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CateringEventPostingsDetail interface.

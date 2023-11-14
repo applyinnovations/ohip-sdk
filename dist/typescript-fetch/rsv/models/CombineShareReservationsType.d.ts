@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CombineShareFromProfilesType } from './CombineShareFromProfilesType';
+import type { CombineShareFromProfileType } from './CombineShareFromProfileType';
 import type { CombineShareInstructionType } from './CombineShareInstructionType';
 import type { CombineShareReservationsTypeFetchInstructions } from './CombineShareReservationsTypeFetchInstructions';
 import type { CombineShareReservationsTypeShareToReservation } from './CombineShareReservationsTypeShareToReservation';
@@ -45,11 +45,11 @@ export interface CombineShareReservationsType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {CombineShareFromProfilesType}
+     * Type for the profile information to create a new share reservation. This is used to create sharers from profiles.
+     * @type {Array<CombineShareFromProfileType>}
      * @memberof CombineShareReservationsType
      */
-    newReservations?: CombineShareFromProfilesType;
+    newReservations?: Array<CombineShareFromProfileType>;
     /**
      *
      * @type {CombineShareReservationsTypeShareToReservation}

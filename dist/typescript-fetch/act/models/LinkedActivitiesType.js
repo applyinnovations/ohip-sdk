@@ -16,7 +16,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.LinkedActivitiesTypeToJSON = exports.LinkedActivitiesTypeFromJSONTyped = exports.LinkedActivitiesTypeFromJSON = exports.instanceOfLinkedActivitiesType = void 0;
 const runtime_1 = require("../runtime");
 const ActivityId_1 = require("./ActivityId");
-const CodeListType_1 = require("./CodeListType");
 /**
  * Check if a given object implements the LinkedActivitiesType interface.
  */
@@ -36,7 +35,7 @@ function LinkedActivitiesTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'activityId': !(0, runtime_1.exists)(json, 'activityId') ? undefined : (0, ActivityId_1.ActivityIdFromJSON)(json['activityId']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'ownerCodeList': !(0, runtime_1.exists)(json, 'ownerCodeList') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['ownerCodeList']),
+        'ownerCodeList': !(0, runtime_1.exists)(json, 'ownerCodeList') ? undefined : json['ownerCodeList'],
     };
 }
 exports.LinkedActivitiesTypeFromJSONTyped = LinkedActivitiesTypeFromJSONTyped;
@@ -50,7 +49,7 @@ function LinkedActivitiesTypeToJSON(value) {
     return {
         'activityId': (0, ActivityId_1.ActivityIdToJSON)(value.activityId),
         'hotelId': value.hotelId,
-        'ownerCodeList': (0, CodeListType_1.CodeListTypeToJSON)(value.ownerCodeList),
+        'ownerCodeList': value.ownerCodeList,
     };
 }
 exports.LinkedActivitiesTypeToJSON = LinkedActivitiesTypeToJSON;

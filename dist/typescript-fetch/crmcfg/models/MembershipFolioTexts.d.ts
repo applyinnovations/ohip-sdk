@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MembershipFolioTextsType } from './MembershipFolioTextsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Collection of FolioTexts to be inserted at MembershipLevel.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface MembershipFolioTexts {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipFolioTexts
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {Array<MembershipFolioTextsType>}
@@ -31,11 +31,11 @@ export interface MembershipFolioTexts {
      */
     membershipFolioTexts?: Array<MembershipFolioTextsType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipFolioTexts
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipFolioTexts interface.

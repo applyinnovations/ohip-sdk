@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BuildingsType } from './BuildingsType';
+import type { BuildingType } from './BuildingType';
 import {
-    BuildingsTypeFromJSON,
-    BuildingsTypeFromJSONTyped,
-    BuildingsTypeToJSON,
-} from './BuildingsType';
-import type { Links } from './Links';
+    BuildingTypeFromJSON,
+    BuildingTypeFromJSONTyped,
+    BuildingTypeToJSON,
+} from './BuildingType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object after fetching Building details of the Hotel.
@@ -39,23 +39,23 @@ import {
  */
 export interface BuildingsDetails {
     /**
-     * 
-     * @type {BuildingsType}
+     * Collection of Building details associated with Hotel.
+     * @type {Array<BuildingType>}
      * @memberof BuildingsDetails
      */
-    buildings?: BuildingsType;
+    buildings?: Array<BuildingType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BuildingsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BuildingsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function BuildingsDetailsFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'buildings': !exists(json, 'buildings') ? undefined : BuildingsTypeFromJSON(json['buildings']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'buildings': !exists(json, 'buildings') ? undefined : ((json['buildings'] as Array<any>).map(BuildingTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function BuildingsDetailsToJSON(value?: BuildingsDetails | null): any {
     }
     return {
         
-        'buildings': BuildingsTypeToJSON(value.buildings),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'buildings': value.buildings === undefined ? undefined : ((value.buildings as Array<any>).map(BuildingTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

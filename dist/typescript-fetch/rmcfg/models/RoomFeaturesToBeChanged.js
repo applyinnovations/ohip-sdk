@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomFeaturesToBeChangedToJSON = exports.RoomFeaturesToBeChangedFromJSONTyped = exports.RoomFeaturesToBeChangedFromJSON = exports.instanceOfRoomFeaturesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RoomFeaturesConfigType_1 = require("./RoomFeaturesConfigType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RoomFeatureConfigType_1 = require("./RoomFeatureConfigType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomFeaturesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function RoomFeaturesToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'roomFeatures': !(0, runtime_1.exists)(json, 'roomFeatures') ? undefined : (0, RoomFeaturesConfigType_1.RoomFeaturesConfigTypeFromJSON)(json['roomFeatures']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'roomFeatures': !(0, runtime_1.exists)(json, 'roomFeatures') ? undefined : (json['roomFeatures'].map(RoomFeatureConfigType_1.RoomFeatureConfigTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomFeaturesToBeChangedFromJSONTyped = RoomFeaturesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function RoomFeaturesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'roomFeatures': (0, RoomFeaturesConfigType_1.RoomFeaturesConfigTypeToJSON)(value.roomFeatures),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : (value.roomFeatures.map(RoomFeatureConfigType_1.RoomFeatureConfigTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomFeaturesToBeChangedToJSON = RoomFeaturesToBeChangedToJSON;

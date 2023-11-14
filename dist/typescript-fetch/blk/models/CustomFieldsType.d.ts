@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CustomCharUDFsType } from './CustomCharUDFsType';
-import type { CustomDateUDFsType } from './CustomDateUDFsType';
-import type { CustomNumericUDFsType } from './CustomNumericUDFsType';
+import type { CharacterUDFType } from './CharacterUDFType';
+import type { DateUDFType } from './DateUDFType';
+import type { NumericUDFType } from './NumericUDFType';
 /**
  * A common type used to hold custom user defined fields(UDFs). This type should be used to handle custom UDFs on RReservation, Profiles, tc.
  * @export
@@ -19,23 +19,23 @@ import type { CustomNumericUDFsType } from './CustomNumericUDFsType';
  */
 export interface CustomFieldsType {
     /**
-     *
-     * @type {CustomCharUDFsType}
+     * Used to hold collection of custom user defined fields of Character/String Type.
+     * @type {Array<CharacterUDFType>}
      * @memberof CustomFieldsType
      */
-    customCharUDFs?: CustomCharUDFsType;
+    customCharUDFs?: Array<CharacterUDFType>;
     /**
-     *
-     * @type {CustomDateUDFsType}
+     * Used to hold collection of custom user defined fields of Date Type.
+     * @type {Array<DateUDFType>}
      * @memberof CustomFieldsType
      */
-    customDateUDFs?: CustomDateUDFsType;
+    customDateUDFs?: Array<DateUDFType>;
     /**
-     *
-     * @type {CustomNumericUDFsType}
+     * Used to hold collection of custom user defined fields of Numeric Type.
+     * @type {Array<NumericUDFType>}
      * @memberof CustomFieldsType
      */
-    customNumericUDFs?: CustomNumericUDFsType;
+    customNumericUDFs?: Array<NumericUDFType>;
 }
 /**
  * Check if a given object implements the CustomFieldsType interface.

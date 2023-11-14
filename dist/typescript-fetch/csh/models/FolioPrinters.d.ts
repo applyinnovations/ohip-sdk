@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { FolioPrintersType } from './FolioPrintersType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response to the request to fetch the Folio Printers applicable for a Folio, based on the
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface FolioPrinters {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FolioPrinters
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {FolioPrintersType}
@@ -31,11 +31,11 @@ export interface FolioPrinters {
      */
     printers?: FolioPrintersType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FolioPrinters
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FolioPrinters interface.

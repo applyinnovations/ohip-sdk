@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CalendarTaskCountListType } from './CalendarTaskCountListType';
-import type { CalendarTaskListType } from './CalendarTaskListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CalendarTaskCountType } from './CalendarTaskCountType';
+import type { CalendarTaskType } from './CalendarTaskType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for fetching calendar tasks.
  * @export
@@ -20,29 +20,29 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CalendarTasks {
     /**
-     *
-     * @type {CalendarTaskCountListType}
+     * Defines summary count of calendar tasks that belongs to specific classification.
+     * @type {Array<CalendarTaskCountType>}
      * @memberof CalendarTasks
      */
-    countSummary?: CalendarTaskCountListType;
+    countSummary?: Array<CalendarTaskCountType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CalendarTasks
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {CalendarTaskListType}
+     * Detailed information regarding calendar task.
+     * @type {Array<CalendarTaskType>}
      * @memberof CalendarTasks
      */
-    taskSummary?: CalendarTaskListType;
+    taskSummary?: Array<CalendarTaskType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CalendarTasks
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CalendarTasks interface.

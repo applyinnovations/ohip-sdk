@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RestrictionsInfoType } from './RestrictionsInfoType';
+import type { RestrictionInfoType } from './RestrictionInfoType';
 /**
  * Inventory statistic and restriction information for a given date.
  * @export
@@ -35,11 +35,11 @@ export interface ChannelSnapshotType {
      */
     inventoryRooms?: number;
     /**
-     *
-     * @type {RestrictionsInfoType}
+     * Provides the basic Restriction type details, specifically used in snapshot operations for efficiency.
+     * @type {Array<RestrictionInfoType>}
      * @memberof ChannelSnapshotType
      */
-    restrictionsInfo?: RestrictionsInfoType;
+    restrictionsInfo?: Array<RestrictionInfoType>;
     /**
      * Number of rooms sold.
      * @type {number}

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { InstanceLink } from './InstanceLink';
+import {
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { LinkedReservationsInfoType } from './LinkedReservationsInfoType';
 import {
     LinkedReservationsInfoTypeFromJSON,
     LinkedReservationsInfoTypeFromJSONTyped,
     LinkedReservationsInfoTypeToJSON,
 } from './LinkedReservationsInfoType';
-import type { Links } from './Links';
+import type { WarningType } from './WarningType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
-import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -46,16 +46,16 @@ export interface LinkedReservations {
     linkedReservationList?: LinkedReservationsInfoType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof LinkedReservations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof LinkedReservations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -78,8 +78,8 @@ export function LinkedReservationsFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'linkedReservationList': !exists(json, 'linkedReservationList') ? undefined : LinkedReservationsInfoTypeFromJSON(json['linkedReservationList']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -93,8 +93,8 @@ export function LinkedReservationsToJSON(value?: LinkedReservations | null): any
     return {
         
         'linkedReservationList': LinkedReservationsInfoTypeToJSON(value.linkedReservationList),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

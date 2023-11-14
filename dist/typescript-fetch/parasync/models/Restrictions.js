@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RestrictionsToJSON = exports.RestrictionsFromJSONTyped = exports.RestrictionsFromJSON = exports.instanceOfRestrictions = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RestrictionsType_1 = require("./RestrictionsType");
+const CreateRestrictionType_1 = require("./CreateRestrictionType");
+const InstanceLink_1 = require("./InstanceLink");
 /**
  * Check if a given object implements the Restrictions interface.
  */
@@ -34,8 +34,8 @@ function RestrictionsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'restrictions': !(0, runtime_1.exists)(json, 'restrictions') ? undefined : (0, RestrictionsType_1.RestrictionsTypeFromJSON)(json['restrictions']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'restrictions': !(0, runtime_1.exists)(json, 'restrictions') ? undefined : (json['restrictions'].map(CreateRestrictionType_1.CreateRestrictionTypeFromJSON)),
     };
 }
 exports.RestrictionsFromJSONTyped = RestrictionsFromJSONTyped;
@@ -47,8 +47,8 @@ function RestrictionsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'restrictions': (0, RestrictionsType_1.RestrictionsTypeToJSON)(value.restrictions),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'restrictions': value.restrictions === undefined ? undefined : (value.restrictions.map(CreateRestrictionType_1.CreateRestrictionTypeToJSON)),
     };
 }
 exports.RestrictionsToJSON = RestrictionsToJSON;

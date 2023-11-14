@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response of last execution status for AI Room Assignment
@@ -46,10 +46,10 @@ export interface AiraLastRunStatusInfo {
     insertDate?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AiraLastRunStatusInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Date time of updated status of an executions
      * @type {string}
@@ -57,11 +57,11 @@ export interface AiraLastRunStatusInfo {
      */
     updateDate?: string;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AiraLastRunStatusInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -85,9 +85,9 @@ export function AiraLastRunStatusInfoFromJSONTyped(json: any, ignoreDiscriminato
         
         'actionValue': !exists(json, 'actionValue') ? undefined : json['actionValue'],
         'insertDate': !exists(json, 'insertDate') ? undefined : json['insertDate'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'updateDate': !exists(json, 'updateDate') ? undefined : json['updateDate'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -102,9 +102,9 @@ export function AiraLastRunStatusInfoToJSON(value?: AiraLastRunStatusInfo | null
         
         'actionValue': value.actionValue,
         'insertDate': value.insertDate,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'updateDate': value.updateDate,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

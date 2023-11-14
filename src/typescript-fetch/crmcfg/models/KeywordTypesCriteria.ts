@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { KeywordTypesType } from './KeywordTypesType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    KeywordTypesTypeFromJSON,
-    KeywordTypesTypeFromJSONTyped,
-    KeywordTypesTypeToJSON,
-} from './KeywordTypesType';
-import type { Links } from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { KeywordTypeType } from './KeywordTypeType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    KeywordTypeTypeFromJSON,
+    KeywordTypeTypeFromJSONTyped,
+    KeywordTypeTypeToJSON,
+} from './KeywordTypeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Keyword Types.
@@ -39,23 +39,23 @@ import {
  */
 export interface KeywordTypesCriteria {
     /**
-     * 
-     * @type {KeywordTypesType}
+     * List of Keyword Types.
+     * @type {Array<KeywordTypeType>}
      * @memberof KeywordTypesCriteria
      */
-    keywordTypes?: KeywordTypesType;
+    keywordTypes?: Array<KeywordTypeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof KeywordTypesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof KeywordTypesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function KeywordTypesCriteriaFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'keywordTypes': !exists(json, 'keywordTypes') ? undefined : KeywordTypesTypeFromJSON(json['keywordTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'keywordTypes': !exists(json, 'keywordTypes') ? undefined : ((json['keywordTypes'] as Array<any>).map(KeywordTypeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function KeywordTypesCriteriaToJSON(value?: KeywordTypesCriteria | null):
     }
     return {
         
-        'keywordTypes': KeywordTypesTypeToJSON(value.keywordTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'keywordTypes': value.keywordTypes === undefined ? undefined : ((value.keywordTypes as Array<any>).map(KeywordTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

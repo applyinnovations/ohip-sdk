@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ExportMappingLinkedCodeType } from './ExportMappingLinkedCodeType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to fetch codes linked to export mapping codes.
  * @export
@@ -32,16 +32,16 @@ export interface ExportMappingLinkedTypes {
     linkedCodes?: Array<ExportMappingLinkedCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExportMappingLinkedTypes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ExportMappingLinkedTypes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ExportMappingLinkedTypes interface.

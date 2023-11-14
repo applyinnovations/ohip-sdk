@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CorporateBusinessUnitsType } from './CorporateBusinessUnitsType';
+import type { CorporateBusinessUnitType } from './CorporateBusinessUnitType';
 import {
-    CorporateBusinessUnitsTypeFromJSON,
-    CorporateBusinessUnitsTypeFromJSONTyped,
-    CorporateBusinessUnitsTypeToJSON,
-} from './CorporateBusinessUnitsType';
-import type { Links } from './Links';
+    CorporateBusinessUnitTypeFromJSON,
+    CorporateBusinessUnitTypeFromJSONTyped,
+    CorporateBusinessUnitTypeToJSON,
+} from './CorporateBusinessUnitType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Corporate Business Units.
@@ -39,23 +39,23 @@ import {
  */
 export interface CorporateBusinessUnitsDetails {
     /**
-     * 
-     * @type {CorporateBusinessUnitsType}
+     * List of Corporate Business Units.
+     * @type {Array<CorporateBusinessUnitType>}
      * @memberof CorporateBusinessUnitsDetails
      */
-    corporateBusinessUnits?: CorporateBusinessUnitsType;
+    corporateBusinessUnits?: Array<CorporateBusinessUnitType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CorporateBusinessUnitsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CorporateBusinessUnitsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CorporateBusinessUnitsDetailsFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'corporateBusinessUnits': !exists(json, 'corporateBusinessUnits') ? undefined : CorporateBusinessUnitsTypeFromJSON(json['corporateBusinessUnits']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'corporateBusinessUnits': !exists(json, 'corporateBusinessUnits') ? undefined : ((json['corporateBusinessUnits'] as Array<any>).map(CorporateBusinessUnitTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CorporateBusinessUnitsDetailsToJSON(value?: CorporateBusinessUni
     }
     return {
         
-        'corporateBusinessUnits': CorporateBusinessUnitsTypeToJSON(value.corporateBusinessUnits),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'corporateBusinessUnits': value.corporateBusinessUnits === undefined ? undefined : ((value.corporateBusinessUnits as Array<any>).map(CorporateBusinessUnitTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

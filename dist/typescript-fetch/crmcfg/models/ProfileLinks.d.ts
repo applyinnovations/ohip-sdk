@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ProfileLinksType } from './ProfileLinksType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ProfileLinkType } from './ProfileLinkType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetch profile links
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ProfileLinks {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileLinks
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ProfileLinksType}
+     * Holds the collection of profile link objects
+     * @type {Array<ProfileLinkType>}
      * @memberof ProfileLinks
      */
-    profileLinks?: ProfileLinksType;
+    profileLinks?: Array<ProfileLinkType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileLinks
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileLinks interface.

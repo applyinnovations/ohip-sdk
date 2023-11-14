@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FiscalCommandTypeToJSON = exports.FiscalCommandTypeFromJSONTyped = exports.FiscalCommandTypeFromJSON = exports.instanceOfFiscalCommandType = void 0;
 const runtime_1 = require("../runtime");
-const FiscalPartnerCodeListType_1 = require("./FiscalPartnerCodeListType");
 /**
  * Check if a given object implements the FiscalCommandType interface.
  */
@@ -35,7 +34,7 @@ function FiscalCommandTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'fiscalCommandCode': !(0, runtime_1.exists)(json, 'fiscalCommandCode') ? undefined : json['fiscalCommandCode'],
-        'fiscalPartnerCodes': !(0, runtime_1.exists)(json, 'fiscalPartnerCodes') ? undefined : (0, FiscalPartnerCodeListType_1.FiscalPartnerCodeListTypeFromJSON)(json['fiscalPartnerCodes']),
+        'fiscalPartnerCodes': !(0, runtime_1.exists)(json, 'fiscalPartnerCodes') ? undefined : json['fiscalPartnerCodes'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
     };
@@ -51,7 +50,7 @@ function FiscalCommandTypeToJSON(value) {
     return {
         'description': value.description,
         'fiscalCommandCode': value.fiscalCommandCode,
-        'fiscalPartnerCodes': (0, FiscalPartnerCodeListType_1.FiscalPartnerCodeListTypeToJSON)(value.fiscalPartnerCodes),
+        'fiscalPartnerCodes': value.fiscalPartnerCodes,
         'hotelId': value.hotelId,
         'inactive': value.inactive,
     };

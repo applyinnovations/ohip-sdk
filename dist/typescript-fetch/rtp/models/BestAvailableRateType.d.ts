@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 /**
  * The list of best availabe rates for rates code(s).
  * @export
@@ -30,10 +29,10 @@ export interface BestAvailableRateType {
     lengthOfStay?: number;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof BestAvailableRateType
      */
-    rateCode?: CodeListType;
+    rateCode?: Array<string>;
 }
 /**
  * Check if a given object implements the BestAvailableRateType interface.

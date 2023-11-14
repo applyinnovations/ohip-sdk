@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AttachmentsType } from './AttachmentsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AttachmentType } from './AttachmentType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Return object to the request for information regarding reservation attachments.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ReservationAttachments {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationAttachments
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {AttachmentsType}
+     * Attachment List.
+     * @type {Array<AttachmentType>}
      * @memberof ReservationAttachments
      */
-    reservationAttachments?: AttachmentsType;
+    reservationAttachments?: Array<AttachmentType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationAttachments
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationAttachments interface.

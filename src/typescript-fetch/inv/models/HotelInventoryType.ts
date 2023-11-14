@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { InventoryCountsListType } from './InventoryCountsListType';
+import type { InventoryCountsType } from './InventoryCountsType';
 import {
-    InventoryCountsListTypeFromJSON,
-    InventoryCountsListTypeFromJSONTyped,
-    InventoryCountsListTypeToJSON,
-} from './InventoryCountsListType';
+    InventoryCountsTypeFromJSON,
+    InventoryCountsTypeFromJSONTyped,
+    InventoryCountsTypeToJSON,
+} from './InventoryCountsType';
 import type { InventoryLevelCountsListType } from './InventoryLevelCountsListType';
 import {
     InventoryLevelCountsListTypeFromJSON,
@@ -33,11 +33,11 @@ import {
  */
 export interface HotelInventoryType {
     /**
-     * 
-     * @type {InventoryCountsListType}
+     * Collection of Inventory counts for the date ranges.
+     * @type {Array<InventoryCountsType>}
      * @memberof HotelInventoryType
      */
-    houseInventory?: InventoryCountsListType;
+    houseInventory?: Array<InventoryCountsType>;
     /**
      * Collection of Room Class level Inventory counts for the date ranges.
      * @type {Array<InventoryLevelCountsListType>}
@@ -71,7 +71,7 @@ export function HotelInventoryTypeFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'houseInventory': !exists(json, 'houseInventory') ? undefined : InventoryCountsListTypeFromJSON(json['houseInventory']),
+        'houseInventory': !exists(json, 'houseInventory') ? undefined : ((json['houseInventory'] as Array<any>).map(InventoryCountsTypeFromJSON)),
         'roomClassInventories': !exists(json, 'roomClassInventories') ? undefined : ((json['roomClassInventories'] as Array<any>).map(InventoryLevelCountsListTypeFromJSON)),
         'roomTypeInventories': !exists(json, 'roomTypeInventories') ? undefined : ((json['roomTypeInventories'] as Array<any>).map(InventoryLevelCountsListTypeFromJSON)),
     };
@@ -86,7 +86,7 @@ export function HotelInventoryTypeToJSON(value?: HotelInventoryType | null): any
     }
     return {
         
-        'houseInventory': InventoryCountsListTypeToJSON(value.houseInventory),
+        'houseInventory': value.houseInventory === undefined ? undefined : ((value.houseInventory as Array<any>).map(InventoryCountsTypeToJSON)),
         'roomClassInventories': value.roomClassInventories === undefined ? undefined : ((value.roomClassInventories as Array<any>).map(InventoryLevelCountsListTypeToJSON)),
         'roomTypeInventories': value.roomTypeInventories === undefined ? undefined : ((value.roomTypeInventories as Array<any>).map(InventoryLevelCountsListTypeToJSON)),
     };

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DailyPaceStatsType } from './DailyPaceStatsType';
+import type { DailyPaceStatType } from './DailyPaceStatType';
 /**
  * Contains reservation pace report data.
  * @export
@@ -23,11 +23,11 @@ export interface ReservationPaceRSType {
      */
     businessDate?: Date;
     /**
-     *
-     * @type {DailyPaceStatsType}
+     * a collection of reservation pace statistics.
+     * @type {Array<DailyPaceStatType>}
      * @memberof ReservationPaceRSType
      */
-    dailyPaceStats?: DailyPaceStatsType;
+    dailyPaceStats?: Array<DailyPaceStatType>;
     /**
      *
      * @type {string}

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GuestTitlesType } from './GuestTitlesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { GuestTitleType } from './GuestTitleType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Guest Titles.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface GuestTitlesCriteria {
     /**
-     *
-     * @type {GuestTitlesType}
+     * List of Guest Titles.
+     * @type {Array<GuestTitleType>}
      * @memberof GuestTitlesCriteria
      */
-    guestTitles?: GuestTitlesType;
+    guestTitles?: Array<GuestTitleType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuestTitlesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuestTitlesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GuestTitlesCriteria interface.

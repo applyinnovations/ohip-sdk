@@ -25,12 +25,12 @@ import {
     PromotionCodeDetailsTypeFromJSONTyped,
     PromotionCodeDetailsTypeToJSON,
 } from './PromotionCodeDetailsType';
-import type { PropertyPromotionRateCodesType } from './PropertyPromotionRateCodesType';
+import type { PropertyPromotionRateCodeType } from './PropertyPromotionRateCodeType';
 import {
-    PropertyPromotionRateCodesTypeFromJSON,
-    PropertyPromotionRateCodesTypeFromJSONTyped,
-    PropertyPromotionRateCodesTypeToJSON,
-} from './PropertyPromotionRateCodesType';
+    PropertyPromotionRateCodeTypeFromJSON,
+    PropertyPromotionRateCodeTypeFromJSONTyped,
+    PropertyPromotionRateCodeTypeToJSON,
+} from './PropertyPromotionRateCodeType';
 
 /**
  * A template promotion.
@@ -63,11 +63,11 @@ export interface PropertyPromotionCodeType {
      */
     promotionCodeDetails?: PromotionCodeDetailsType;
     /**
-     * 
-     * @type {PropertyPromotionRateCodesType}
+     * List of Promotion Rate Code
+     * @type {Array<PropertyPromotionRateCodeType>}
      * @memberof PropertyPromotionCodeType
      */
-    propertyPromotionRateCodes?: PropertyPromotionRateCodesType;
+    propertyPromotionRateCodes?: Array<PropertyPromotionRateCodeType>;
 }
 
 /**
@@ -93,7 +93,7 @@ export function PropertyPromotionCodeTypeFromJSONTyped(json: any, ignoreDiscrimi
         'promoCodeRoutingInstruction': !exists(json, 'promoCodeRoutingInstruction') ? undefined : PromoCodeRoutingInstructionTypeFromJSON(json['promoCodeRoutingInstruction']),
         'promotionCode': !exists(json, 'promotionCode') ? undefined : json['promotionCode'],
         'promotionCodeDetails': !exists(json, 'promotionCodeDetails') ? undefined : PromotionCodeDetailsTypeFromJSON(json['promotionCodeDetails']),
-        'propertyPromotionRateCodes': !exists(json, 'propertyPromotionRateCodes') ? undefined : PropertyPromotionRateCodesTypeFromJSON(json['propertyPromotionRateCodes']),
+        'propertyPromotionRateCodes': !exists(json, 'propertyPromotionRateCodes') ? undefined : ((json['propertyPromotionRateCodes'] as Array<any>).map(PropertyPromotionRateCodeTypeFromJSON)),
     };
 }
 
@@ -110,7 +110,7 @@ export function PropertyPromotionCodeTypeToJSON(value?: PropertyPromotionCodeTyp
         'promoCodeRoutingInstruction': PromoCodeRoutingInstructionTypeToJSON(value.promoCodeRoutingInstruction),
         'promotionCode': value.promotionCode,
         'promotionCodeDetails': PromotionCodeDetailsTypeToJSON(value.promotionCodeDetails),
-        'propertyPromotionRateCodes': PropertyPromotionRateCodesTypeToJSON(value.propertyPromotionRateCodes),
+        'propertyPromotionRateCodes': value.propertyPromotionRateCodes === undefined ? undefined : ((value.propertyPromotionRateCodes as Array<any>).map(PropertyPromotionRateCodeTypeToJSON)),
     };
 }
 

@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BestAvailableRateCodesType } from './BestAvailableRateCodesType';
-import {
-    BestAvailableRateCodesTypeFromJSON,
-    BestAvailableRateCodesTypeFromJSONTyped,
-    BestAvailableRateCodesTypeToJSON,
-} from './BestAvailableRateCodesType';
-
 /**
  * Defines best available rate plans.
  * @export
@@ -81,11 +74,11 @@ export interface BestAvailableRatePlanType {
      */
     rateDate?: Date;
     /**
-     * 
-     * @type {BestAvailableRateCodesType}
+     * Collection of best available rate codes.
+     * @type {Array<string>}
      * @memberof BestAvailableRatePlanType
      */
-    ratePlanCodes?: BestAvailableRateCodesType;
+    ratePlanCodes?: Array<string>;
 }
 
 /**
@@ -116,7 +109,7 @@ export function BestAvailableRatePlanTypeFromJSONTyped(json: any, ignoreDiscrimi
         'los7': !exists(json, 'los7') ? undefined : json['los7'],
         'los8': !exists(json, 'los8') ? undefined : json['los8'],
         'rateDate': !exists(json, 'rateDate') ? undefined : (new Date(json['rateDate'])),
-        'ratePlanCodes': !exists(json, 'ratePlanCodes') ? undefined : BestAvailableRateCodesTypeFromJSON(json['ratePlanCodes']),
+        'ratePlanCodes': !exists(json, 'ratePlanCodes') ? undefined : json['ratePlanCodes'],
     };
 }
 
@@ -138,7 +131,7 @@ export function BestAvailableRatePlanTypeToJSON(value?: BestAvailableRatePlanTyp
         'los7': value.los7,
         'los8': value.los8,
         'rateDate': value.rateDate === undefined ? undefined : (value.rateDate.toISOString().substring(0,10)),
-        'ratePlanCodes': BestAvailableRateCodesTypeToJSON(value.ratePlanCodes),
+        'ratePlanCodes': value.ratePlanCodes,
     };
 }
 

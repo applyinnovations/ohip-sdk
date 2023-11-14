@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { SimpleRateCategoriesType } from './SimpleRateCategoriesType';
+import type { CodeDescriptionType } from './CodeDescriptionType';
 import {
-    SimpleRateCategoriesTypeFromJSON,
-    SimpleRateCategoriesTypeFromJSONTyped,
-    SimpleRateCategoriesTypeToJSON,
-} from './SimpleRateCategoriesType';
+    CodeDescriptionTypeFromJSON,
+    CodeDescriptionTypeFromJSONTyped,
+    CodeDescriptionTypeToJSON,
+} from './CodeDescriptionType';
 import type { TimeSpanType } from './TimeSpanType';
 import {
     TimeSpanTypeFromJSON,
@@ -45,11 +45,11 @@ export interface RateClassType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {SimpleRateCategoriesType}
+     * List of Rate Categories with description.
+     * @type {Array<CodeDescriptionType>}
      * @memberof RateClassType
      */
-    rateCategories?: SimpleRateCategoriesType;
+    rateCategories?: Array<CodeDescriptionType>;
     /**
      * Code that uniquely identifies the rate class.
      * @type {string}
@@ -91,7 +91,7 @@ export function RateClassTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
         
         'description': !exists(json, 'description') ? undefined : json['description'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'rateCategories': !exists(json, 'rateCategories') ? undefined : SimpleRateCategoriesTypeFromJSON(json['rateCategories']),
+        'rateCategories': !exists(json, 'rateCategories') ? undefined : ((json['rateCategories'] as Array<any>).map(CodeDescriptionTypeFromJSON)),
         'rateClass': !exists(json, 'rateClass') ? undefined : json['rateClass'],
         'sequence': !exists(json, 'sequence') ? undefined : json['sequence'],
         'timeSpan': !exists(json, 'timeSpan') ? undefined : TimeSpanTypeFromJSON(json['timeSpan']),
@@ -109,7 +109,7 @@ export function RateClassTypeToJSON(value?: RateClassType | null): any {
         
         'description': value.description,
         'hotelId': value.hotelId,
-        'rateCategories': SimpleRateCategoriesTypeToJSON(value.rateCategories),
+        'rateCategories': value.rateCategories === undefined ? undefined : ((value.rateCategories as Array<any>).map(CodeDescriptionTypeToJSON)),
         'rateClass': value.rateClass,
         'sequence': value.sequence,
         'timeSpan': TimeSpanTypeToJSON(value.timeSpan),

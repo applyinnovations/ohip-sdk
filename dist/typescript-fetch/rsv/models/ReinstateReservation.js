@@ -15,12 +15,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReinstateReservationToJSON = exports.ReinstateReservationFromJSONTyped = exports.ReinstateReservationFromJSON = exports.instanceOfReinstateReservation = void 0;
 const runtime_1 = require("../runtime");
-const EffectiveRatesType_1 = require("./EffectiveRatesType");
+const EffectiveRateType_1 = require("./EffectiveRateType");
 const HotelReservationType_1 = require("./HotelReservationType");
-const Links_1 = require("./Links");
-const ReservationIdList_1 = require("./ReservationIdList");
-const UniqueIDListType_1 = require("./UniqueIDListType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const UniqueIDType_1 = require("./UniqueIDType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ReinstateReservation interface.
  */
@@ -38,18 +37,18 @@ function ReinstateReservationFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'additionalReservationIdList': !(0, runtime_1.exists)(json, 'additionalReservationIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['additionalReservationIdList']),
-        'effectiveRates': !(0, runtime_1.exists)(json, 'effectiveRates') ? undefined : (0, EffectiveRatesType_1.EffectiveRatesTypeFromJSON)(json['effectiveRates']),
+        'additionalReservationIdList': !(0, runtime_1.exists)(json, 'additionalReservationIdList') ? undefined : (json['additionalReservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'effectiveRates': !(0, runtime_1.exists)(json, 'effectiveRates') ? undefined : (json['effectiveRates'].map(EffectiveRateType_1.EffectiveRateTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'overrideInventory': !(0, runtime_1.exists)(json, 'overrideInventory') ? undefined : json['overrideInventory'],
         'overrideRates': !(0, runtime_1.exists)(json, 'overrideRates') ? undefined : json['overrideRates'],
         'overrideRoomAllocation': !(0, runtime_1.exists)(json, 'overrideRoomAllocation') ? undefined : json['overrideRoomAllocation'],
         'overrideRoomOutOfService': !(0, runtime_1.exists)(json, 'overrideRoomOutOfService') ? undefined : json['overrideRoomOutOfService'],
         'reservation': !(0, runtime_1.exists)(json, 'reservation') ? undefined : (0, HotelReservationType_1.HotelReservationTypeFromJSON)(json['reservation']),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'reservationLockHandle': !(0, runtime_1.exists)(json, 'reservationLockHandle') ? undefined : json['reservationLockHandle'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ReinstateReservationFromJSONTyped = ReinstateReservationFromJSONTyped;
@@ -61,18 +60,18 @@ function ReinstateReservationToJSON(value) {
         return null;
     }
     return {
-        'additionalReservationIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.additionalReservationIdList),
-        'effectiveRates': (0, EffectiveRatesType_1.EffectiveRatesTypeToJSON)(value.effectiveRates),
+        'additionalReservationIdList': value.additionalReservationIdList === undefined ? undefined : (value.additionalReservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'effectiveRates': value.effectiveRates === undefined ? undefined : (value.effectiveRates.map(EffectiveRateType_1.EffectiveRateTypeToJSON)),
         'hotelId': value.hotelId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'overrideInventory': value.overrideInventory,
         'overrideRates': value.overrideRates,
         'overrideRoomAllocation': value.overrideRoomAllocation,
         'overrideRoomOutOfService': value.overrideRoomOutOfService,
         'reservation': (0, HotelReservationType_1.HotelReservationTypeToJSON)(value.reservation),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'reservationLockHandle': value.reservationLockHandle,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ReinstateReservationToJSON = ReinstateReservationToJSON;

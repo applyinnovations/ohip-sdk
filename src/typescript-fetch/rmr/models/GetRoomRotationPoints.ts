@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { RoomRotationPointsInfoType } from './RoomRotationPointsInfoType';
 import {
     RoomRotationPointsInfoTypeFromJSON,
     RoomRotationPointsInfoTypeFromJSONTyped,
     RoomRotationPointsInfoTypeToJSON,
 } from './RoomRotationPointsInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -76,10 +76,10 @@ export interface GetRoomRotationPoints {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GetRoomRotationPoints
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Indicates the index of the next applicable set(page).
      * @type {number}
@@ -111,11 +111,11 @@ export interface GetRoomRotationPoints {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GetRoomRotationPoints
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -143,13 +143,13 @@ export function GetRoomRotationPointsFromJSONTyped(json: any, ignoreDiscriminato
         'endRoomRotationPeriodDate': !exists(json, 'endRoomRotationPeriodDate') ? undefined : (new Date(json['endRoomRotationPeriodDate'])),
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'outOfOrderServiceActive': !exists(json, 'outOfOrderServiceActive') ? undefined : json['outOfOrderServiceActive'],
         'roomRotationPointsInfoList': !exists(json, 'roomRotationPointsInfoList') ? undefined : ((json['roomRotationPointsInfoList'] as Array<any>).map(RoomRotationPointsInfoTypeFromJSON)),
         'startRoomRotationPeriodDate': !exists(json, 'startRoomRotationPeriodDate') ? undefined : (new Date(json['startRoomRotationPeriodDate'])),
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -168,13 +168,13 @@ export function GetRoomRotationPointsToJSON(value?: GetRoomRotationPoints | null
         'endRoomRotationPeriodDate': value.endRoomRotationPeriodDate === undefined ? undefined : (value.endRoomRotationPeriodDate.toISOString().substring(0,10)),
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
         'outOfOrderServiceActive': value.outOfOrderServiceActive,
         'roomRotationPointsInfoList': value.roomRotationPointsInfoList === undefined ? undefined : ((value.roomRotationPointsInfoList as Array<any>).map(RoomRotationPointsInfoTypeToJSON)),
         'startRoomRotationPeriodDate': value.startRoomRotationPeriodDate === undefined ? undefined : (value.startRoomRotationPeriodDate.toISOString().substring(0,10)),
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

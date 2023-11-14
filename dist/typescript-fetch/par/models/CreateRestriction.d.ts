@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CreateRestrictionType } from './CreateRestrictionType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating a new restriction.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface CreateRestriction {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreateRestriction
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {CreateRestrictionType}
@@ -31,11 +31,11 @@ export interface CreateRestriction {
      */
     restriction?: CreateRestrictionType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateRestriction
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreateRestriction interface.

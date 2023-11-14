@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SetRoomConditionTypeToJSON = exports.SetRoomConditionTypeFromJSONTyped = exports.SetRoomConditionTypeFromJSON = exports.instanceOfSetRoomConditionType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const RoomConditionType_1 = require("./RoomConditionType");
 /**
  * Check if a given object implements the SetRoomConditionType interface.
@@ -38,7 +37,7 @@ function SetRoomConditionTypeFromJSONTyped(json, ignoreDiscriminator) {
         'includeOccupiedRooms': !(0, runtime_1.exists)(json, 'includeOccupiedRooms') ? undefined : json['includeOccupiedRooms'],
         'overrideHoldRooms': !(0, runtime_1.exists)(json, 'overrideHoldRooms') ? undefined : json['overrideHoldRooms'],
         'roomCondition': !(0, runtime_1.exists)(json, 'roomCondition') ? undefined : (0, RoomConditionType_1.RoomConditionTypeFromJSON)(json['roomCondition']),
-        'roomNumberList': !(0, runtime_1.exists)(json, 'roomNumberList') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['roomNumberList']),
+        'roomNumberList': !(0, runtime_1.exists)(json, 'roomNumberList') ? undefined : json['roomNumberList'],
     };
 }
 exports.SetRoomConditionTypeFromJSONTyped = SetRoomConditionTypeFromJSONTyped;
@@ -54,7 +53,7 @@ function SetRoomConditionTypeToJSON(value) {
         'includeOccupiedRooms': value.includeOccupiedRooms,
         'overrideHoldRooms': value.overrideHoldRooms,
         'roomCondition': (0, RoomConditionType_1.RoomConditionTypeToJSON)(value.roomCondition),
-        'roomNumberList': (0, CodeListType_1.CodeListTypeToJSON)(value.roomNumberList),
+        'roomNumberList': value.roomNumberList,
     };
 }
 exports.SetRoomConditionTypeToJSON = SetRoomConditionTypeToJSON;

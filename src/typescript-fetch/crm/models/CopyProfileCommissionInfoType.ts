@@ -19,12 +19,6 @@ import {
     CodeDescriptionTypeFromJSONTyped,
     CodeDescriptionTypeToJSON,
 } from './CodeDescriptionType';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { ProfileId } from './ProfileId';
 import {
     ProfileIdFromJSON,
@@ -70,10 +64,10 @@ export interface CopyProfileCommissionInfoType {
     profileId?: ProfileId;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyProfileCommissionInfoType
      */
-    targetHotelCodes?: CodeListType;
+    targetHotelCodes?: Array<string>;
     /**
      * Used in CRUD operations. When set to true, proceed validating pending commissions
      * @type {boolean}
@@ -105,7 +99,7 @@ export function CopyProfileCommissionInfoTypeFromJSONTyped(json: any, ignoreDisc
         'commissionCode': !exists(json, 'commissionCode') ? undefined : CodeDescriptionTypeFromJSON(json['commissionCode']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
-        'targetHotelCodes': !exists(json, 'targetHotelCodes') ? undefined : CodeListTypeFromJSON(json['targetHotelCodes']),
+        'targetHotelCodes': !exists(json, 'targetHotelCodes') ? undefined : json['targetHotelCodes'],
         'validatePending': !exists(json, 'validatePending') ? undefined : json['validatePending'],
     };
 }
@@ -123,7 +117,7 @@ export function CopyProfileCommissionInfoTypeToJSON(value?: CopyProfileCommissio
         'commissionCode': CodeDescriptionTypeToJSON(value.commissionCode),
         'hotelId': value.hotelId,
         'profileId': ProfileIdToJSON(value.profileId),
-        'targetHotelCodes': CodeListTypeToJSON(value.targetHotelCodes),
+        'targetHotelCodes': value.targetHotelCodes,
         'validatePending': value.validatePending,
     };
 }

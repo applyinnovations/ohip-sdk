@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { MonthlyRevenueNightsVarianceInfoType } from './MonthlyRevenueNightsVarianceInfoType';
+import {
+    MonthlyRevenueNightsVarianceInfoTypeFromJSON,
+    MonthlyRevenueNightsVarianceInfoTypeFromJSONTyped,
+    MonthlyRevenueNightsVarianceInfoTypeToJSON,
+} from './MonthlyRevenueNightsVarianceInfoType';
 import type { RevenueNightsInfoType } from './RevenueNightsInfoType';
 import {
     RevenueNightsInfoTypeFromJSON,
     RevenueNightsInfoTypeFromJSONTyped,
     RevenueNightsInfoTypeToJSON,
 } from './RevenueNightsInfoType';
-import type { RevenueNightsVarianceInfoType } from './RevenueNightsVarianceInfoType';
-import {
-    RevenueNightsVarianceInfoTypeFromJSON,
-    RevenueNightsVarianceInfoTypeFromJSONTyped,
-    RevenueNightsVarianceInfoTypeToJSON,
-} from './RevenueNightsVarianceInfoType';
 
 /**
  * Budget Forecast information for budget segment code.
@@ -33,17 +33,17 @@ import {
  */
 export interface MarketCodeInformationType {
     /**
-     * 
-     * @type {RevenueNightsVarianceInfoType}
+     * Monthly Revenue Variance information.
+     * @type {Array<MonthlyRevenueNightsVarianceInfoType>}
      * @memberof MarketCodeInformationType
      */
-    aBVarianceInfo?: RevenueNightsVarianceInfoType;
+    aBVarianceInfo?: Array<MonthlyRevenueNightsVarianceInfoType>;
     /**
-     * 
-     * @type {RevenueNightsVarianceInfoType}
+     * Monthly Revenue Variance information.
+     * @type {Array<MonthlyRevenueNightsVarianceInfoType>}
      * @memberof MarketCodeInformationType
      */
-    aFVarianceInfo?: RevenueNightsVarianceInfoType;
+    aFVarianceInfo?: Array<MonthlyRevenueNightsVarianceInfoType>;
     /**
      * 
      * @type {RevenueNightsInfoType}
@@ -57,11 +57,11 @@ export interface MarketCodeInformationType {
      */
     budgetRevenueInfo?: RevenueNightsInfoType;
     /**
-     * 
-     * @type {RevenueNightsVarianceInfoType}
+     * Monthly Revenue Variance information.
+     * @type {Array<MonthlyRevenueNightsVarianceInfoType>}
      * @memberof MarketCodeInformationType
      */
-    fBVarianceInfo?: RevenueNightsVarianceInfoType;
+    fBVarianceInfo?: Array<MonthlyRevenueNightsVarianceInfoType>;
     /**
      * 
      * @type {RevenueNightsInfoType}
@@ -101,11 +101,11 @@ export function MarketCodeInformationTypeFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'aBVarianceInfo': !exists(json, 'aBVarianceInfo') ? undefined : RevenueNightsVarianceInfoTypeFromJSON(json['aBVarianceInfo']),
-        'aFVarianceInfo': !exists(json, 'aFVarianceInfo') ? undefined : RevenueNightsVarianceInfoTypeFromJSON(json['aFVarianceInfo']),
+        'aBVarianceInfo': !exists(json, 'aBVarianceInfo') ? undefined : ((json['aBVarianceInfo'] as Array<any>).map(MonthlyRevenueNightsVarianceInfoTypeFromJSON)),
+        'aFVarianceInfo': !exists(json, 'aFVarianceInfo') ? undefined : ((json['aFVarianceInfo'] as Array<any>).map(MonthlyRevenueNightsVarianceInfoTypeFromJSON)),
         'actualRevenueInfo': !exists(json, 'actualRevenueInfo') ? undefined : RevenueNightsInfoTypeFromJSON(json['actualRevenueInfo']),
         'budgetRevenueInfo': !exists(json, 'budgetRevenueInfo') ? undefined : RevenueNightsInfoTypeFromJSON(json['budgetRevenueInfo']),
-        'fBVarianceInfo': !exists(json, 'fBVarianceInfo') ? undefined : RevenueNightsVarianceInfoTypeFromJSON(json['fBVarianceInfo']),
+        'fBVarianceInfo': !exists(json, 'fBVarianceInfo') ? undefined : ((json['fBVarianceInfo'] as Array<any>).map(MonthlyRevenueNightsVarianceInfoTypeFromJSON)),
         'forecastRevenueInfo': !exists(json, 'forecastRevenueInfo') ? undefined : RevenueNightsInfoTypeFromJSON(json['forecastRevenueInfo']),
         'marketCode': !exists(json, 'marketCode') ? undefined : json['marketCode'],
         'marketCodeDescription': !exists(json, 'marketCodeDescription') ? undefined : json['marketCodeDescription'],
@@ -121,11 +121,11 @@ export function MarketCodeInformationTypeToJSON(value?: MarketCodeInformationTyp
     }
     return {
         
-        'aBVarianceInfo': RevenueNightsVarianceInfoTypeToJSON(value.aBVarianceInfo),
-        'aFVarianceInfo': RevenueNightsVarianceInfoTypeToJSON(value.aFVarianceInfo),
+        'aBVarianceInfo': value.aBVarianceInfo === undefined ? undefined : ((value.aBVarianceInfo as Array<any>).map(MonthlyRevenueNightsVarianceInfoTypeToJSON)),
+        'aFVarianceInfo': value.aFVarianceInfo === undefined ? undefined : ((value.aFVarianceInfo as Array<any>).map(MonthlyRevenueNightsVarianceInfoTypeToJSON)),
         'actualRevenueInfo': RevenueNightsInfoTypeToJSON(value.actualRevenueInfo),
         'budgetRevenueInfo': RevenueNightsInfoTypeToJSON(value.budgetRevenueInfo),
-        'fBVarianceInfo': RevenueNightsVarianceInfoTypeToJSON(value.fBVarianceInfo),
+        'fBVarianceInfo': value.fBVarianceInfo === undefined ? undefined : ((value.fBVarianceInfo as Array<any>).map(MonthlyRevenueNightsVarianceInfoTypeToJSON)),
         'forecastRevenueInfo': RevenueNightsInfoTypeToJSON(value.forecastRevenueInfo),
         'marketCode': value.marketCode,
         'marketCodeDescription': value.marketCodeDescription,

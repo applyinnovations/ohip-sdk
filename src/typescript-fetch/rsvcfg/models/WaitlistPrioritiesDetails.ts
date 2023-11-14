@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WaitlistPrioritiesType } from './WaitlistPrioritiesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WaitlistPriorityType } from './WaitlistPriorityType';
 import {
-    WaitlistPrioritiesTypeFromJSON,
-    WaitlistPrioritiesTypeFromJSONTyped,
-    WaitlistPrioritiesTypeToJSON,
-} from './WaitlistPrioritiesType';
-import type { WarningsType } from './WarningsType';
+    WaitlistPriorityTypeFromJSON,
+    WaitlistPriorityTypeFromJSONTyped,
+    WaitlistPriorityTypeToJSON,
+} from './WaitlistPriorityType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Waitlist Priorities.
@@ -40,22 +40,22 @@ import {
 export interface WaitlistPrioritiesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof WaitlistPrioritiesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WaitlistPrioritiesType}
+     * List of Waitlist Priorities.
+     * @type {Array<WaitlistPriorityType>}
      * @memberof WaitlistPrioritiesDetails
      */
-    waitlistPriorities?: WaitlistPrioritiesType;
+    waitlistPriorities?: Array<WaitlistPriorityType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof WaitlistPrioritiesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function WaitlistPrioritiesDetailsFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'waitlistPriorities': !exists(json, 'waitlistPriorities') ? undefined : WaitlistPrioritiesTypeFromJSON(json['waitlistPriorities']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'waitlistPriorities': !exists(json, 'waitlistPriorities') ? undefined : ((json['waitlistPriorities'] as Array<any>).map(WaitlistPriorityTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function WaitlistPrioritiesDetailsToJSON(value?: WaitlistPrioritiesDetail
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'waitlistPriorities': WaitlistPrioritiesTypeToJSON(value.waitlistPriorities),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'waitlistPriorities': value.waitlistPriorities === undefined ? undefined : ((value.waitlistPriorities as Array<any>).map(WaitlistPriorityTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

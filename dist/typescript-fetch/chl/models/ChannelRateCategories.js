@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelRateCategoriesToJSON = exports.ChannelRateCategoriesFromJSONTyped = exports.ChannelRateCategoriesFromJSON = exports.instanceOfChannelRateCategories = void 0;
 const runtime_1 = require("../runtime");
 const ChannelRateCategoriesRateCategories_1 = require("./ChannelRateCategoriesRateCategories");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChannelRateCategories interface.
  */
@@ -35,9 +35,9 @@ function ChannelRateCategoriesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'rateCategories': !(0, runtime_1.exists)(json, 'rateCategories') ? undefined : (0, ChannelRateCategoriesRateCategories_1.ChannelRateCategoriesRateCategoriesFromJSON)(json['rateCategories']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChannelRateCategoriesFromJSONTyped = ChannelRateCategoriesFromJSONTyped;
@@ -49,9 +49,9 @@ function ChannelRateCategoriesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'rateCategories': (0, ChannelRateCategoriesRateCategories_1.ChannelRateCategoriesRateCategoriesToJSON)(value.rateCategories),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChannelRateCategoriesToJSON = ChannelRateCategoriesToJSON;

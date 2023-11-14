@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { SourceCodesType } from './SourceCodesType';
+import type { SourceCodeType } from './SourceCodeType';
 import type { TranslationTextType50 } from './TranslationTextType50';
 /**
  * Common code type for code, description, seq and inactive
@@ -48,11 +48,11 @@ export interface SourceGroupType {
      */
     sequence?: number;
     /**
-     *
-     * @type {SourceCodesType}
+     * Collection of Source Codes.
+     * @type {Array<SourceCodeType>}
      * @memberof SourceGroupType
      */
-    sourceCodes?: SourceCodesType;
+    sourceCodes?: Array<SourceCodeType>;
 }
 /**
  * Check if a given object implements the SourceGroupType interface.

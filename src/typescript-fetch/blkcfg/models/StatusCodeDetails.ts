@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockStatusCodeListType } from './BlockStatusCodeListType';
+import type { BlockStatusCodeType } from './BlockStatusCodeType';
 import {
-    BlockStatusCodeListTypeFromJSON,
-    BlockStatusCodeListTypeFromJSONTyped,
-    BlockStatusCodeListTypeToJSON,
-} from './BlockStatusCodeListType';
-import type { Links } from './Links';
+    BlockStatusCodeTypeFromJSON,
+    BlockStatusCodeTypeFromJSONTyped,
+    BlockStatusCodeTypeToJSON,
+} from './BlockStatusCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching block status codes.
@@ -39,23 +39,23 @@ import {
  */
 export interface StatusCodeDetails {
     /**
-     * 
-     * @type {BlockStatusCodeListType}
+     * Block status code information.
+     * @type {Array<BlockStatusCodeType>}
      * @memberof StatusCodeDetails
      */
-    blockStatusCodes?: BlockStatusCodeListType;
+    blockStatusCodes?: Array<BlockStatusCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof StatusCodeDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof StatusCodeDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function StatusCodeDetailsFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'blockStatusCodes': !exists(json, 'blockStatusCodes') ? undefined : BlockStatusCodeListTypeFromJSON(json['blockStatusCodes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'blockStatusCodes': !exists(json, 'blockStatusCodes') ? undefined : ((json['blockStatusCodes'] as Array<any>).map(BlockStatusCodeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function StatusCodeDetailsToJSON(value?: StatusCodeDetails | null): any {
     }
     return {
         
-        'blockStatusCodes': BlockStatusCodeListTypeToJSON(value.blockStatusCodes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'blockStatusCodes': value.blockStatusCodes === undefined ? undefined : ((value.blockStatusCodes as Array<any>).map(BlockStatusCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -20,10 +19,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface ChannelBillingStatementSummaryType {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ChannelBillingStatementSummaryType
      */
-    accountCodeList?: CodeListType;
+    accountCodeList?: Array<string>;
     /**
      * Holds begin date of the statement.
      * @type {Date}

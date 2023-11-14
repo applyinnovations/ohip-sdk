@@ -19,12 +19,6 @@ import {
     BlockClassificationTypeFromJSONTyped,
     BlockClassificationTypeToJSON,
 } from './BlockClassificationType';
-import type { BlockIdList } from './BlockIdList';
-import {
-    BlockIdListFromJSON,
-    BlockIdListFromJSONTyped,
-    BlockIdListToJSON,
-} from './BlockIdList';
 import type { BookingStatusType } from './BookingStatusType';
 import {
     BookingStatusTypeFromJSON,
@@ -37,6 +31,12 @@ import {
     TimeSpanTypeFromJSONTyped,
     TimeSpanTypeToJSON,
 } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -45,11 +45,11 @@ import {
  */
 export interface LeadInfoType {
     /**
-     * 
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof LeadInfoType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * Lead description.
      * @type {string}
@@ -119,7 +119,7 @@ export function LeadInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : BlockIdListFromJSON(json['blockIdList']),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'blockName': !exists(json, 'blockName') ? undefined : json['blockName'],
         'blockStatus': !exists(json, 'blockStatus') ? undefined : BookingStatusTypeFromJSON(json['blockStatus']),
         'blockType': !exists(json, 'blockType') ? undefined : BlockClassificationTypeFromJSON(json['blockType']),
@@ -140,7 +140,7 @@ export function LeadInfoTypeToJSON(value?: LeadInfoType | null): any {
     }
     return {
         
-        'blockIdList': BlockIdListToJSON(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'blockName': value.blockName,
         'blockStatus': BookingStatusTypeToJSON(value.blockStatus),
         'blockType': BlockClassificationTypeToJSON(value.blockType),

@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReverseCompRedemptionsCriteriaToJSON = exports.ReverseCompRedemptionsCriteriaFromJSONTyped = exports.ReverseCompRedemptionsCriteriaFromJSON = exports.instanceOfReverseCompRedemptionsCriteria = void 0;
 const runtime_1 = require("../runtime");
-const CompRedemptionsType_1 = require("./CompRedemptionsType");
+const RedemptionType_1 = require("./RedemptionType");
 /**
  * Check if a given object implements the ReverseCompRedemptionsCriteria interface.
  */
@@ -34,7 +34,7 @@ function ReverseCompRedemptionsCriteriaFromJSONTyped(json, ignoreDiscriminator) 
     }
     return {
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
-        'compRedemptions': !(0, runtime_1.exists)(json, 'compRedemptions') ? undefined : (0, CompRedemptionsType_1.CompRedemptionsTypeFromJSON)(json['compRedemptions']),
+        'compRedemptions': !(0, runtime_1.exists)(json, 'compRedemptions') ? undefined : (json['compRedemptions'].map(RedemptionType_1.RedemptionTypeFromJSON)),
         'folioView': !(0, runtime_1.exists)(json, 'folioView') ? undefined : json['folioView'],
         'membershipId': !(0, runtime_1.exists)(json, 'membershipId') ? undefined : json['membershipId'],
     };
@@ -49,7 +49,7 @@ function ReverseCompRedemptionsCriteriaToJSON(value) {
     }
     return {
         'cashierId': value.cashierId,
-        'compRedemptions': (0, CompRedemptionsType_1.CompRedemptionsTypeToJSON)(value.compRedemptions),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : (value.compRedemptions.map(RedemptionType_1.RedemptionTypeToJSON)),
         'folioView': value.folioView,
         'membershipId': value.membershipId,
     };

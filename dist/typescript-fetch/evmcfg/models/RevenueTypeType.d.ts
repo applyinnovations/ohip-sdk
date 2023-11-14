@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RevenueTypeDetailsType } from './RevenueTypeDetailsType';
+import type { RevenueTypeDetailType } from './RevenueTypeDetailType';
 import type { TranslationTextType200 } from './TranslationTextType200';
 /**
  * Base type provides information about Catering Revenue Types Configuration.
@@ -42,11 +42,11 @@ export interface RevenueTypeType {
      */
     inactive?: boolean;
     /**
-     *
-     * @type {RevenueTypeDetailsType}
+     * List of Revenue details assoicated to a Revenue Type (Additional Details)
+     * @type {Array<RevenueTypeDetailType>}
      * @memberof RevenueTypeType
      */
-    revenueDetails?: RevenueTypeDetailsType;
+    revenueDetails?: Array<RevenueTypeDetailType>;
     /**
      * Revenue Group
      * @type {string}

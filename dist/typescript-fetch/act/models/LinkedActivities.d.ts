@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { InstanceLink } from './InstanceLink';
 import type { LinkedActivitiesType } from './LinkedActivitiesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -26,16 +26,16 @@ export interface LinkedActivities {
     linkedActivityDetails?: LinkedActivitiesType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof LinkedActivities
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof LinkedActivities
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the LinkedActivities interface.

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { PaymentMethodsType } from './PaymentMethodsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { PaymentMethodType } from './PaymentMethodType';
 import {
-    PaymentMethodsTypeFromJSON,
-    PaymentMethodsTypeFromJSONTyped,
-    PaymentMethodsTypeToJSON,
-} from './PaymentMethodsType';
-import type { WarningsType } from './WarningsType';
+    PaymentMethodTypeFromJSON,
+    PaymentMethodTypeFromJSONTyped,
+    PaymentMethodTypeToJSON,
+} from './PaymentMethodType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface PaymentMethods {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PaymentMethods
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {PaymentMethodsType}
+     * Holds the various types of payment methods.
+     * @type {Array<PaymentMethodType>}
      * @memberof PaymentMethods
      */
-    paymentMethods?: PaymentMethodsType;
+    paymentMethods?: Array<PaymentMethodType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PaymentMethods
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function PaymentMethodsFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'paymentMethods': !exists(json, 'paymentMethods') ? undefined : PaymentMethodsTypeFromJSON(json['paymentMethods']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'paymentMethods': !exists(json, 'paymentMethods') ? undefined : ((json['paymentMethods'] as Array<any>).map(PaymentMethodTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function PaymentMethodsToJSON(value?: PaymentMethods | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'paymentMethods': PaymentMethodsTypeToJSON(value.paymentMethods),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'paymentMethods': value.paymentMethods === undefined ? undefined : ((value.paymentMethods as Array<any>).map(PaymentMethodTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

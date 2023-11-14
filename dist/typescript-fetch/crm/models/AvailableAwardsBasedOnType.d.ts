@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MembershipAwardsAvailabilityType } from './MembershipAwardsAvailabilityType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MembershipAwardAvailabilityType } from './MembershipAwardAvailabilityType';
+import type { WarningType } from './WarningType';
 /**
  * Response object to fetch member available awards based on the type being passed.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface AvailableAwardsBasedOnType {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AvailableAwardsBasedOnType
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MembershipAwardsAvailabilityType}
+     * List of available awards information.
+     * @type {Array<MembershipAwardAvailabilityType>}
      * @memberof AvailableAwardsBasedOnType
      */
-    membershipAvailableAwards?: MembershipAwardsAvailabilityType;
+    membershipAvailableAwards?: Array<MembershipAwardAvailabilityType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AvailableAwardsBasedOnType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AvailableAwardsBasedOnType interface.

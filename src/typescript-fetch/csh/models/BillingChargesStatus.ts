@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CheckPostBillingChargesOptionsType } from './CheckPostBillingChargesOptionsType';
+import type { CheckPostBillingChargesOptionsTypeInner } from './CheckPostBillingChargesOptionsTypeInner';
 import {
-    CheckPostBillingChargesOptionsTypeFromJSON,
-    CheckPostBillingChargesOptionsTypeFromJSONTyped,
-    CheckPostBillingChargesOptionsTypeToJSON,
-} from './CheckPostBillingChargesOptionsType';
-import type { Links } from './Links';
+    CheckPostBillingChargesOptionsTypeInnerFromJSON,
+    CheckPostBillingChargesOptionsTypeInnerFromJSONTyped,
+    CheckPostBillingChargesOptionsTypeInnerToJSON,
+} from './CheckPostBillingChargesOptionsTypeInner';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response when checking or inquiring the available options for a set of billing charges.
@@ -40,22 +40,22 @@ import {
 export interface BillingChargesStatus {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BillingChargesStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {CheckPostBillingChargesOptionsType}
+     * TAvailable options for this consumable
+     * @type {Array<CheckPostBillingChargesOptionsTypeInner>}
      * @memberof BillingChargesStatus
      */
-    options?: CheckPostBillingChargesOptionsType;
+    options?: Array<CheckPostBillingChargesOptionsTypeInner>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BillingChargesStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function BillingChargesStatusFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'options': !exists(json, 'options') ? undefined : CheckPostBillingChargesOptionsTypeFromJSON(json['options']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'options': !exists(json, 'options') ? undefined : ((json['options'] as Array<any>).map(CheckPostBillingChargesOptionsTypeInnerFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function BillingChargesStatusToJSON(value?: BillingChargesStatus | null):
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'options': CheckPostBillingChargesOptionsTypeToJSON(value.options),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'options': value.options === undefined ? undefined : ((value.options as Array<any>).map(CheckPostBillingChargesOptionsTypeInnerToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

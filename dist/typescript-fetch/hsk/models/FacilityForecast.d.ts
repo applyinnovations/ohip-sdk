@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { FacilityForecastFacilityForecastDetails } from './FacilityForecastFacilityForecastDetails';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response element for the fetched facility forecast.
  * @export
@@ -26,16 +26,16 @@ export interface FacilityForecast {
     facilityForecastDetails?: FacilityForecastFacilityForecastDetails;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FacilityForecast
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FacilityForecast
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FacilityForecast interface.

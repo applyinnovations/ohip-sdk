@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { AdvanceRoomChargesCriteriaType } from './AdvanceRoomChargesCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to post the Room Charges for a reservation in advance. This request posts the Room Charges for a reservation for tonight or for many nights starting from the last posted night. This can also be used to verify if the reservation has already been charged for the full stay. Setting the Verify flag will return details regarding the last Room Charge posted date and if there are any available dates for which the room charges can be posted in advance. Room Charges cannot be posted for dates prior to the business date of the resort. To make the actual posting, the verification flag should be false.
  * @export
@@ -26,16 +26,16 @@ export interface AdvanceRoomCharges {
     criteria?: AdvanceRoomChargesCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AdvanceRoomCharges
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AdvanceRoomCharges
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AdvanceRoomCharges interface.

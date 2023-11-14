@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FacilityHousekeepingTasksType } from './FacilityHousekeepingTasksType';
+import type { FacilityHousekeepingTaskType } from './FacilityHousekeepingTaskType';
 import {
-    FacilityHousekeepingTasksTypeFromJSON,
-    FacilityHousekeepingTasksTypeFromJSONTyped,
-    FacilityHousekeepingTasksTypeToJSON,
-} from './FacilityHousekeepingTasksType';
+    FacilityHousekeepingTaskTypeFromJSON,
+    FacilityHousekeepingTaskTypeFromJSONTyped,
+    FacilityHousekeepingTaskTypeToJSON,
+} from './FacilityHousekeepingTaskType';
 
 /**
  * Criteria type for fetching reservation housekeeping schedule.
@@ -45,11 +45,11 @@ export interface ReservationHousekeepingScheduleType {
      */
     end?: Date;
     /**
-     * 
-     * @type {FacilityHousekeepingTasksType}
+     * List of the facility tasks.
+     * @type {Array<FacilityHousekeepingTaskType>}
      * @memberof ReservationHousekeepingScheduleType
      */
-    facilityHousekeepingTasks?: FacilityHousekeepingTasksType;
+    facilityHousekeepingTasks?: Array<FacilityHousekeepingTaskType>;
     /**
      * Date at which facility tasks started being retrieved.
      * @type {Date}
@@ -80,7 +80,7 @@ export function ReservationHousekeepingScheduleTypeFromJSONTyped(json: any, igno
         'customized': !exists(json, 'customized') ? undefined : json['customized'],
         'cycleStartDay': !exists(json, 'cycleStartDay') ? undefined : json['cycleStartDay'],
         'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
-        'facilityHousekeepingTasks': !exists(json, 'facilityHousekeepingTasks') ? undefined : FacilityHousekeepingTasksTypeFromJSON(json['facilityHousekeepingTasks']),
+        'facilityHousekeepingTasks': !exists(json, 'facilityHousekeepingTasks') ? undefined : ((json['facilityHousekeepingTasks'] as Array<any>).map(FacilityHousekeepingTaskTypeFromJSON)),
         'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
     };
 }
@@ -97,7 +97,7 @@ export function ReservationHousekeepingScheduleTypeToJSON(value?: ReservationHou
         'customized': value.customized,
         'cycleStartDay': value.cycleStartDay,
         'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
-        'facilityHousekeepingTasks': FacilityHousekeepingTasksTypeToJSON(value.facilityHousekeepingTasks),
+        'facilityHousekeepingTasks': value.facilityHousekeepingTasks === undefined ? undefined : ((value.facilityHousekeepingTasks as Array<any>).map(FacilityHousekeepingTaskTypeToJSON)),
         'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
     };
 }

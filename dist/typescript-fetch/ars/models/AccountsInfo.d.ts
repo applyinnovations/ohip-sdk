@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ARAccountsType } from './ARAccountsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ARAccountType } from './ARAccountType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for the request to search for AR Accounts. Based on the criteria, the response can contain a list of AR Accounts and their AR information.
  * @export
@@ -19,11 +19,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AccountsInfo {
     /**
-     *
-     * @type {ARAccountsType}
+     * Information regarding the AR Account.
+     * @type {Array<ARAccountType>}
      * @memberof AccountsInfo
      */
-    accountsDetails?: ARAccountsType;
+    accountsDetails?: Array<ARAccountType>;
     /**
      * Total number of rows returned
      * @type {number}
@@ -44,10 +44,10 @@ export interface AccountsInfo {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AccountsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface AccountsInfo {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AccountsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AccountsInfo interface.

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { IdentificationType } from './IdentificationType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Information on the identification of the customer.
  * @export
@@ -42,11 +42,11 @@ export interface IdentificationInfoType {
      */
     type?: string;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof IdentificationInfoType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the IdentificationInfoType interface.

@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CopyMenuItemClassesType } from './CopyMenuItemClassesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for Copying Menu Item Classes.
  * @export
@@ -26,16 +26,16 @@ export interface CateringMenuItemClassesCopy {
     copyMenuItemClasses?: CopyMenuItemClassesType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringMenuItemClassesCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringMenuItemClassesCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CateringMenuItemClassesCopy interface.

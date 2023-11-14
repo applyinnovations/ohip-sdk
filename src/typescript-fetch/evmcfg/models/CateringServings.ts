@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CateringCodesType } from './CateringCodesType';
+import type { CateringCodeType } from './CateringCodeType';
 import {
-    CateringCodesTypeFromJSON,
-    CateringCodesTypeFromJSONTyped,
-    CateringCodesTypeToJSON,
-} from './CateringCodesType';
-import type { Links } from './Links';
+    CateringCodeTypeFromJSON,
+    CateringCodeTypeFromJSONTyped,
+    CateringCodeTypeToJSON,
+} from './CateringCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object which holds modified Catering Code's Serving.
@@ -40,22 +40,22 @@ import {
 export interface CateringServings {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringServings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {CateringCodesType}
+     * Catering Code details.
+     * @type {Array<CateringCodeType>}
      * @memberof CateringServings
      */
-    servings?: CateringCodesType;
+    servings?: Array<CateringCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringServings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CateringServingsFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'servings': !exists(json, 'servings') ? undefined : CateringCodesTypeFromJSON(json['servings']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'servings': !exists(json, 'servings') ? undefined : ((json['servings'] as Array<any>).map(CateringCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CateringServingsToJSON(value?: CateringServings | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'servings': CateringCodesTypeToJSON(value.servings),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'servings': value.servings === undefined ? undefined : ((value.servings as Array<any>).map(CateringCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AttractionCodesType } from './AttractionCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AttractionCodeType } from './AttractionCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for information regarding attraction.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AttractionsDetails {
     /**
-     *
-     * @type {AttractionCodesType}
+     * Collection of hotel level alert codes with attached alert types.
+     * @type {Array<AttractionCodeType>}
      * @memberof AttractionsDetails
      */
-    attractions?: AttractionCodesType;
+    attractions?: Array<AttractionCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AttractionsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AttractionsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AttractionsDetails interface.

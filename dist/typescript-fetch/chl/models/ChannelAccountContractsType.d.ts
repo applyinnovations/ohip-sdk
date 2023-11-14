@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChannelAccountContractsInformationType } from './ChannelAccountContractsInformationType';
+import type { ChannelAccountContractInformationType } from './ChannelAccountContractInformationType';
 import type { ProfileId } from './ProfileId';
 /**
  * Channel account contracts type to hold account and contract details.
@@ -30,11 +30,11 @@ export interface ChannelAccountContractsType {
      */
     accountName?: string;
     /**
-     *
-     * @type {ChannelAccountContractsInformationType}
+     * Channel account contract information object to hold details of channel account contract.
+     * @type {Array<ChannelAccountContractInformationType>}
      * @memberof ChannelAccountContractsType
      */
-    channelAccountContractsInformation?: ChannelAccountContractsInformationType;
+    channelAccountContractsInformation?: Array<ChannelAccountContractInformationType>;
     /**
      *
      * @type {ProfileId}

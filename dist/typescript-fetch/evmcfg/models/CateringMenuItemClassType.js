@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringMenuItemClassTypeToJSON = exports.CateringMenuItemClassTypeFromJSONTyped = exports.CateringMenuItemClassTypeFromJSON = exports.instanceOfCateringMenuItemClassType = void 0;
 const runtime_1 = require("../runtime");
 const CateringMenuItemClassInfoType_1 = require("./CateringMenuItemClassInfoType");
-const CateringMenuItemListType_1 = require("./CateringMenuItemListType");
+const CateringMenuItemType_1 = require("./CateringMenuItemType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CateringMenuItemClassType interface.
@@ -37,7 +37,7 @@ function CateringMenuItemClassTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'id': !(0, runtime_1.exists)(json, 'id') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['id']),
         'itemClassInfo': !(0, runtime_1.exists)(json, 'itemClassInfo') ? undefined : (0, CateringMenuItemClassInfoType_1.CateringMenuItemClassInfoTypeFromJSON)(json['itemClassInfo']),
-        'itemList': !(0, runtime_1.exists)(json, 'itemList') ? undefined : (0, CateringMenuItemListType_1.CateringMenuItemListTypeFromJSON)(json['itemList']),
+        'itemList': !(0, runtime_1.exists)(json, 'itemList') ? undefined : (json['itemList'].map(CateringMenuItemType_1.CateringMenuItemTypeFromJSON)),
     };
 }
 exports.CateringMenuItemClassTypeFromJSONTyped = CateringMenuItemClassTypeFromJSONTyped;
@@ -51,7 +51,7 @@ function CateringMenuItemClassTypeToJSON(value) {
     return {
         'id': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.id),
         'itemClassInfo': (0, CateringMenuItemClassInfoType_1.CateringMenuItemClassInfoTypeToJSON)(value.itemClassInfo),
-        'itemList': (0, CateringMenuItemListType_1.CateringMenuItemListTypeToJSON)(value.itemList),
+        'itemList': value.itemList === undefined ? undefined : (value.itemList.map(CateringMenuItemType_1.CateringMenuItemTypeToJSON)),
     };
 }
 exports.CateringMenuItemClassTypeToJSON = CateringMenuItemClassTypeToJSON;

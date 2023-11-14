@@ -25,24 +25,18 @@ import {
     ARApplyTypeFromJSONTyped,
     ARApplyTypeToJSON,
 } from './ARApplyType';
-import type { ARPaymentInvoicesType } from './ARPaymentInvoicesType';
+import type { ARPaymentInvoicesTypeInner } from './ARPaymentInvoicesTypeInner';
 import {
-    ARPaymentInvoicesTypeFromJSON,
-    ARPaymentInvoicesTypeFromJSONTyped,
-    ARPaymentInvoicesTypeToJSON,
-} from './ARPaymentInvoicesType';
+    ARPaymentInvoicesTypeInnerFromJSON,
+    ARPaymentInvoicesTypeInnerFromJSONTyped,
+    ARPaymentInvoicesTypeInnerToJSON,
+} from './ARPaymentInvoicesTypeInner';
 import type { CashieringPaymentMethodType } from './CashieringPaymentMethodType';
 import {
     CashieringPaymentMethodTypeFromJSON,
     CashieringPaymentMethodTypeFromJSONTyped,
     CashieringPaymentMethodTypeToJSON,
 } from './CashieringPaymentMethodType';
-import type { CompRedemptionsType } from './CompRedemptionsType';
-import {
-    CompRedemptionsTypeFromJSON,
-    CompRedemptionsTypeFromJSONTyped,
-    CompRedemptionsTypeToJSON,
-} from './CompRedemptionsType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import {
     CurrencyAmountTypeFromJSON,
@@ -55,24 +49,24 @@ import {
     PaymentTaxTypeFromJSONTyped,
     PaymentTaxTypeToJSON,
 } from './PaymentTaxType';
-import type { PaymentTaxesType } from './PaymentTaxesType';
-import {
-    PaymentTaxesTypeFromJSON,
-    PaymentTaxesTypeFromJSONTyped,
-    PaymentTaxesTypeToJSON,
-} from './PaymentTaxesType';
 import type { PostPaymentActionType } from './PostPaymentActionType';
 import {
     PostPaymentActionTypeFromJSON,
     PostPaymentActionTypeFromJSONTyped,
     PostPaymentActionTypeToJSON,
 } from './PostPaymentActionType';
-import type { PrepaidCardRedemptionsType } from './PrepaidCardRedemptionsType';
+import type { PrepaidCardRedemptionType } from './PrepaidCardRedemptionType';
 import {
-    PrepaidCardRedemptionsTypeFromJSON,
-    PrepaidCardRedemptionsTypeFromJSONTyped,
-    PrepaidCardRedemptionsTypeToJSON,
-} from './PrepaidCardRedemptionsType';
+    PrepaidCardRedemptionTypeFromJSON,
+    PrepaidCardRedemptionTypeFromJSONTyped,
+    PrepaidCardRedemptionTypeToJSON,
+} from './PrepaidCardRedemptionType';
+import type { RedemptionType } from './RedemptionType';
+import {
+    RedemptionTypeFromJSON,
+    RedemptionTypeFromJSONTyped,
+    RedemptionTypeToJSON,
+} from './RedemptionType';
 
 /**
  * Criteria for applying payments to invoices or posting an unallocated payment to an AR Account.
@@ -129,17 +123,17 @@ export interface ARPaymentCriteria {
      */
     comments?: string;
     /**
-     * 
-     * @type {CompRedemptionsType}
+     * Information regarding Complimentary Bucket Redemption object.
+     * @type {Array<RedemptionType>}
      * @memberof ARPaymentCriteria
      */
-    compRedemptions?: CompRedemptionsType;
+    compRedemptions?: Array<RedemptionType>;
     /**
-     * 
-     * @type {PaymentTaxesType}
+     * Payment Tax record.
+     * @type {Array<PaymentTaxType>}
      * @memberof ARPaymentCriteria
      */
-    creditablePaymentTaxes?: PaymentTaxesType;
+    creditablePaymentTaxes?: Array<PaymentTaxType>;
     /**
      * 
      * @type {number}
@@ -153,11 +147,11 @@ export interface ARPaymentCriteria {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {ARPaymentInvoicesType}
+     * AR Invoice to which the payment will be applied.
+     * @type {Array<ARPaymentInvoicesTypeInner>}
      * @memberof ARPaymentCriteria
      */
-    invoices?: ARPaymentInvoicesType;
+    invoices?: Array<ARPaymentInvoicesTypeInner>;
     /**
      * 
      * @type {PaymentTaxType}
@@ -201,11 +195,11 @@ export interface ARPaymentCriteria {
      */
     postingRemark?: string;
     /**
-     * 
-     * @type {PrepaidCardRedemptionsType}
+     * A prepaid redemption info object to be used for posting a payment.
+     * @type {Array<PrepaidCardRedemptionType>}
      * @memberof ARPaymentCriteria
      */
-    prepaidCardRedemptions?: PrepaidCardRedemptionsType;
+    prepaidCardRedemptions?: Array<PrepaidCardRedemptionType>;
     /**
      * Sequence of the payment in a batch request.
      * @type {number}
@@ -253,11 +247,11 @@ export function ARPaymentCriteriaFromJSONTyped(json: any, ignoreDiscriminator: b
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
         'changeDueAmount': !exists(json, 'changeDueAmount') ? undefined : CurrencyAmountTypeFromJSON(json['changeDueAmount']),
         'comments': !exists(json, 'comments') ? undefined : json['comments'],
-        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : CompRedemptionsTypeFromJSON(json['compRedemptions']),
-        'creditablePaymentTaxes': !exists(json, 'creditablePaymentTaxes') ? undefined : PaymentTaxesTypeFromJSON(json['creditablePaymentTaxes']),
+        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : ((json['compRedemptions'] as Array<any>).map(RedemptionTypeFromJSON)),
+        'creditablePaymentTaxes': !exists(json, 'creditablePaymentTaxes') ? undefined : ((json['creditablePaymentTaxes'] as Array<any>).map(PaymentTaxTypeFromJSON)),
         'folioWindowNo': !exists(json, 'folioWindowNo') ? undefined : json['folioWindowNo'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'invoices': !exists(json, 'invoices') ? undefined : ARPaymentInvoicesTypeFromJSON(json['invoices']),
+        'invoices': !exists(json, 'invoices') ? undefined : ((json['invoices'] as Array<any>).map(ARPaymentInvoicesTypeInnerFromJSON)),
         'manualPaymentTaxInfo': !exists(json, 'manualPaymentTaxInfo') ? undefined : PaymentTaxTypeFromJSON(json['manualPaymentTaxInfo']),
         'overrideARCreditLimit': !exists(json, 'overrideARCreditLimit') ? undefined : json['overrideARCreditLimit'],
         'overrideInsufficientCC': !exists(json, 'overrideInsufficientCC') ? undefined : json['overrideInsufficientCC'],
@@ -265,7 +259,7 @@ export function ARPaymentCriteriaFromJSONTyped(json: any, ignoreDiscriminator: b
         'postingAmount': !exists(json, 'postingAmount') ? undefined : CurrencyAmountTypeFromJSON(json['postingAmount']),
         'postingReference': !exists(json, 'postingReference') ? undefined : json['postingReference'],
         'postingRemark': !exists(json, 'postingRemark') ? undefined : json['postingRemark'],
-        'prepaidCardRedemptions': !exists(json, 'prepaidCardRedemptions') ? undefined : PrepaidCardRedemptionsTypeFromJSON(json['prepaidCardRedemptions']),
+        'prepaidCardRedemptions': !exists(json, 'prepaidCardRedemptions') ? undefined : ((json['prepaidCardRedemptions'] as Array<any>).map(PrepaidCardRedemptionTypeFromJSON)),
         'sequenceNo': !exists(json, 'sequenceNo') ? undefined : json['sequenceNo'],
         'terminalId': !exists(json, 'terminalId') ? undefined : json['terminalId'],
         'vATOffset': !exists(json, 'vATOffset') ? undefined : json['vATOffset'],
@@ -289,11 +283,11 @@ export function ARPaymentCriteriaToJSON(value?: ARPaymentCriteria | null): any {
         'cashierId': value.cashierId,
         'changeDueAmount': CurrencyAmountTypeToJSON(value.changeDueAmount),
         'comments': value.comments,
-        'compRedemptions': CompRedemptionsTypeToJSON(value.compRedemptions),
-        'creditablePaymentTaxes': PaymentTaxesTypeToJSON(value.creditablePaymentTaxes),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : ((value.compRedemptions as Array<any>).map(RedemptionTypeToJSON)),
+        'creditablePaymentTaxes': value.creditablePaymentTaxes === undefined ? undefined : ((value.creditablePaymentTaxes as Array<any>).map(PaymentTaxTypeToJSON)),
         'folioWindowNo': value.folioWindowNo,
         'hotelId': value.hotelId,
-        'invoices': ARPaymentInvoicesTypeToJSON(value.invoices),
+        'invoices': value.invoices === undefined ? undefined : ((value.invoices as Array<any>).map(ARPaymentInvoicesTypeInnerToJSON)),
         'manualPaymentTaxInfo': PaymentTaxTypeToJSON(value.manualPaymentTaxInfo),
         'overrideARCreditLimit': value.overrideARCreditLimit,
         'overrideInsufficientCC': value.overrideInsufficientCC,
@@ -301,7 +295,7 @@ export function ARPaymentCriteriaToJSON(value?: ARPaymentCriteria | null): any {
         'postingAmount': CurrencyAmountTypeToJSON(value.postingAmount),
         'postingReference': value.postingReference,
         'postingRemark': value.postingRemark,
-        'prepaidCardRedemptions': PrepaidCardRedemptionsTypeToJSON(value.prepaidCardRedemptions),
+        'prepaidCardRedemptions': value.prepaidCardRedemptions === undefined ? undefined : ((value.prepaidCardRedemptions as Array<any>).map(PrepaidCardRedemptionTypeToJSON)),
         'sequenceNo': value.sequenceNo,
         'terminalId': value.terminalId,
         'vATOffset': value.vATOffset,

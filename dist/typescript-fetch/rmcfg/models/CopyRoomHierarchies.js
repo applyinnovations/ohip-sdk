@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyRoomHierarchiesToJSON = exports.CopyRoomHierarchiesFromJSONTyped = exports.CopyRoomHierarchiesFromJSON = exports.instanceOfCopyRoomHierarchies = void 0;
 const runtime_1 = require("../runtime");
 const CopyRoomHierarchiesCopyRoomHierarchies_1 = require("./CopyRoomHierarchiesCopyRoomHierarchies");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CopyRoomHierarchies interface.
  */
@@ -36,8 +36,8 @@ function CopyRoomHierarchiesFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'copyRoomHierarchies': !(0, runtime_1.exists)(json, 'copyRoomHierarchies') ? undefined : (0, CopyRoomHierarchiesCopyRoomHierarchies_1.CopyRoomHierarchiesCopyRoomHierarchiesFromJSON)(json['copyRoomHierarchies']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CopyRoomHierarchiesFromJSONTyped = CopyRoomHierarchiesFromJSONTyped;
@@ -50,8 +50,8 @@ function CopyRoomHierarchiesToJSON(value) {
     }
     return {
         'copyRoomHierarchies': (0, CopyRoomHierarchiesCopyRoomHierarchies_1.CopyRoomHierarchiesCopyRoomHierarchiesToJSON)(value.copyRoomHierarchies),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CopyRoomHierarchiesToJSON = CopyRoomHierarchiesToJSON;

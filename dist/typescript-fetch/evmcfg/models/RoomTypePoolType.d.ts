@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RoomPoolRoomTypesType } from './RoomPoolRoomTypesType';
+import type { RoomPoolRoomTypeType } from './RoomPoolRoomTypeType';
 import type { TranslationTextType1000 } from './TranslationTextType1000';
 /**
  * This type represents complete information of room type pool and Associated Room Type(s).
@@ -18,11 +18,11 @@ import type { TranslationTextType1000 } from './TranslationTextType1000';
  */
 export interface RoomTypePoolType {
     /**
-     *
-     * @type {RoomPoolRoomTypesType}
+     * Collection of room type pool mapping type.
+     * @type {Array<RoomPoolRoomTypeType>}
      * @memberof RoomTypePoolType
      */
-    associatedRoomTypes?: RoomPoolRoomTypesType;
+    associatedRoomTypes?: Array<RoomPoolRoomTypeType>;
     /**
      * The description of room pool type.
      * @type {string}

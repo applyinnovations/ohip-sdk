@@ -19,12 +19,12 @@ import {
     HasFuturePastBookingsExclusionsTypeFromJSONTyped,
     HasFuturePastBookingsExclusionsTypeToJSON,
 } from './HasFuturePastBookingsExclusionsType';
-import type { ProfileIdList } from './ProfileIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Search type for verifying whether there are future and/or past business blocks and/or reservations exist for a Profile.
@@ -39,11 +39,11 @@ export interface HasFuturePastBookingsSearchType {
      */
     exclusions?: HasFuturePastBookingsExclusionsType;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof HasFuturePastBookingsSearchType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * Unique identifier of the rate code of business block or reservation.
      * @type {string}
@@ -104,7 +104,7 @@ export function HasFuturePastBookingsSearchTypeFromJSONTyped(json: any, ignoreDi
     return {
         
         'exclusions': !exists(json, 'exclusions') ? undefined : HasFuturePastBookingsExclusionsTypeFromJSON(json['exclusions']),
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'rateCode': !exists(json, 'rateCode') ? undefined : json['rateCode'],
         'searchFor': !exists(json, 'searchFor') ? undefined : json['searchFor'],
         'searchIn': !exists(json, 'searchIn') ? undefined : json['searchIn'],
@@ -121,7 +121,7 @@ export function HasFuturePastBookingsSearchTypeToJSON(value?: HasFuturePastBooki
     return {
         
         'exclusions': HasFuturePastBookingsExclusionsTypeToJSON(value.exclusions),
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'rateCode': value.rateCode,
         'searchFor': value.searchFor,
         'searchIn': value.searchIn,

@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 import type { YieldMarketInfoType } from './YieldMarketInfoType';
 /**
  * Response object Of Yield Market Type LookUp.
@@ -20,16 +20,16 @@ import type { YieldMarketInfoType } from './YieldMarketInfoType';
 export interface YieldMarketTypeDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof YieldMarketTypeDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof YieldMarketTypeDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
     /**
      *
      * @type {YieldMarketInfoType}

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { SuspendedProfileErrorsSummaryType } from './SuspendedProfileErrorsSummaryType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { SuspendedProfileErrorSummaryType } from './SuspendedProfileErrorSummaryType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetch suspended profile Errors summary. This object contains collection of profile erros and count of how many profiles encountered this error.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface SuspendedProfileErrorSummaryInfo {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SuspendedProfileErrorSummaryInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {SuspendedProfileErrorsSummaryType}
+     * Collection of profile error summary.
+     * @type {Array<SuspendedProfileErrorSummaryType>}
      * @memberof SuspendedProfileErrorSummaryInfo
      */
-    suspendedProfileErrorSummary?: SuspendedProfileErrorsSummaryType;
+    suspendedProfileErrorSummary?: Array<SuspendedProfileErrorSummaryType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SuspendedProfileErrorSummaryInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SuspendedProfileErrorSummaryInfo interface.

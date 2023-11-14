@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockPostingAccountReservationsType } from './BlockPostingAccountReservationsType';
+import type { BlockPostingReservationsType } from './BlockPostingReservationsType';
 import {
-    BlockPostingAccountReservationsTypeFromJSON,
-    BlockPostingAccountReservationsTypeFromJSONTyped,
-    BlockPostingAccountReservationsTypeToJSON,
-} from './BlockPostingAccountReservationsType';
+    BlockPostingReservationsTypeFromJSON,
+    BlockPostingReservationsTypeFromJSONTyped,
+    BlockPostingReservationsTypeToJSON,
+} from './BlockPostingReservationsType';
 import type { CateringEventPostingsType } from './CateringEventPostingsType';
 import {
     CateringEventPostingsTypeFromJSON,
     CateringEventPostingsTypeFromJSONTyped,
     CateringEventPostingsTypeToJSON,
 } from './CateringEventPostingsType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Object for retrieving catering events postings.
@@ -52,22 +52,22 @@ export interface CateringEventPostingsDetail {
     cateringEventPostings?: CateringEventPostingsType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringEventPostingsDetail
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {BlockPostingAccountReservationsType}
+     * Fetch block's posting account reservations information.
+     * @type {Array<BlockPostingReservationsType>}
      * @memberof CateringEventPostingsDetail
      */
-    postingMasterReservations?: BlockPostingAccountReservationsType;
+    postingMasterReservations?: Array<BlockPostingReservationsType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringEventPostingsDetail
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -90,9 +90,9 @@ export function CateringEventPostingsDetailFromJSONTyped(json: any, ignoreDiscri
     return {
         
         'cateringEventPostings': !exists(json, 'cateringEventPostings') ? undefined : CateringEventPostingsTypeFromJSON(json['cateringEventPostings']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'postingMasterReservations': !exists(json, 'postingMasterReservations') ? undefined : BlockPostingAccountReservationsTypeFromJSON(json['postingMasterReservations']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'postingMasterReservations': !exists(json, 'postingMasterReservations') ? undefined : ((json['postingMasterReservations'] as Array<any>).map(BlockPostingReservationsTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -106,9 +106,9 @@ export function CateringEventPostingsDetailToJSON(value?: CateringEventPostingsD
     return {
         
         'cateringEventPostings': CateringEventPostingsTypeToJSON(value.cateringEventPostings),
-        'links': LinksToJSON(value.links),
-        'postingMasterReservations': BlockPostingAccountReservationsTypeToJSON(value.postingMasterReservations),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'postingMasterReservations': value.postingMasterReservations === undefined ? undefined : ((value.postingMasterReservations as Array<any>).map(BlockPostingReservationsTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

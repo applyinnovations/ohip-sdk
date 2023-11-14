@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RoomPotentialsType } from './RoomPotentialsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RoomPotentialType } from './RoomPotentialType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Room Potentials.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface RoomPotentialsToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomPotentialsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RoomPotentialsType}
+     * List of Room Potentials.
+     * @type {Array<RoomPotentialType>}
      * @memberof RoomPotentialsToBeChanged
      */
-    roomPotentials?: RoomPotentialsType;
+    roomPotentials?: Array<RoomPotentialType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomPotentialsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomPotentialsToBeChanged interface.

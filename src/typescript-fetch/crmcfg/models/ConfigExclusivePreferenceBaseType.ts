@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PreferenceCodesType } from './PreferenceCodesType';
+import type { CodeDescriptionType } from './CodeDescriptionType';
 import {
-    PreferenceCodesTypeFromJSON,
-    PreferenceCodesTypeFromJSONTyped,
-    PreferenceCodesTypeToJSON,
-} from './PreferenceCodesType';
+    CodeDescriptionTypeFromJSON,
+    CodeDescriptionTypeFromJSONTyped,
+    CodeDescriptionTypeToJSON,
+} from './CodeDescriptionType';
 
 /**
  * Base details common between both template and property level Exclusive preference ids.
@@ -39,11 +39,11 @@ export interface ConfigExclusivePreferenceBaseType {
      */
     orderSequence?: number;
     /**
-     * 
-     * @type {PreferenceCodesType}
+     * Specifies the preference code and its description mapped to the exclusive preference.
+     * @type {Array<CodeDescriptionType>}
      * @memberof ConfigExclusivePreferenceBaseType
      */
-    preferenceCodes?: PreferenceCodesType;
+    preferenceCodes?: Array<CodeDescriptionType>;
     /**
      * Specifies the preference group the Exclusive preference belongs to.
      * @type {string}
@@ -73,7 +73,7 @@ export function ConfigExclusivePreferenceBaseTypeFromJSONTyped(json: any, ignore
         
         'code': !exists(json, 'code') ? undefined : json['code'],
         'orderSequence': !exists(json, 'orderSequence') ? undefined : json['orderSequence'],
-        'preferenceCodes': !exists(json, 'preferenceCodes') ? undefined : PreferenceCodesTypeFromJSON(json['preferenceCodes']),
+        'preferenceCodes': !exists(json, 'preferenceCodes') ? undefined : ((json['preferenceCodes'] as Array<any>).map(CodeDescriptionTypeFromJSON)),
         'preferenceGroup': !exists(json, 'preferenceGroup') ? undefined : json['preferenceGroup'],
     };
 }
@@ -89,7 +89,7 @@ export function ConfigExclusivePreferenceBaseTypeToJSON(value?: ConfigExclusiveP
         
         'code': value.code,
         'orderSequence': value.orderSequence,
-        'preferenceCodes': PreferenceCodesTypeToJSON(value.preferenceCodes),
+        'preferenceCodes': value.preferenceCodes === undefined ? undefined : ((value.preferenceCodes as Array<any>).map(CodeDescriptionTypeToJSON)),
         'preferenceGroup': value.preferenceGroup,
     };
 }

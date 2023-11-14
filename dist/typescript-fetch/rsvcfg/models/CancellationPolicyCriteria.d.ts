@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { HotelConfigCancelPenaltiesType } from './HotelConfigCancelPenaltiesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object that holds the details of Cancellation Policy to be created.
  * @export
@@ -26,16 +26,16 @@ export interface CancellationPolicyCriteria {
     cancelPenalty?: HotelConfigCancelPenaltiesType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CancellationPolicyCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CancellationPolicyCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CancellationPolicyCriteria interface.

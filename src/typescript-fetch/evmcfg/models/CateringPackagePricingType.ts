@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CateringPackageRevenueListType } from './CateringPackageRevenueListType';
+import type { CateringPackageRevenueType } from './CateringPackageRevenueType';
 import {
-    CateringPackageRevenueListTypeFromJSON,
-    CateringPackageRevenueListTypeFromJSONTyped,
-    CateringPackageRevenueListTypeToJSON,
-} from './CateringPackageRevenueListType';
+    CateringPackageRevenueTypeFromJSON,
+    CateringPackageRevenueTypeFromJSONTyped,
+    CateringPackageRevenueTypeToJSON,
+} from './CateringPackageRevenueType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import {
     CurrencyAmountTypeFromJSON,
@@ -99,11 +99,11 @@ export interface CateringPackagePricingType {
      */
     priceCode?: string;
     /**
-     * 
-     * @type {CateringPackageRevenueListType}
+     * Collection of multiple Revenue Details associated with a particular Catering Package Price Code.
+     * @type {Array<CateringPackageRevenueType>}
      * @memberof CateringPackagePricingType
      */
-    revenueDetails?: CateringPackageRevenueListType;
+    revenueDetails?: Array<CateringPackageRevenueType>;
     /**
      * 
      * @type {DateTimeSpanType}
@@ -152,7 +152,7 @@ export function CateringPackagePricingTypeFromJSONTyped(json: any, ignoreDiscrim
         'maxAttendees': !exists(json, 'maxAttendees') ? undefined : json['maxAttendees'],
         'minAttendees': !exists(json, 'minAttendees') ? undefined : json['minAttendees'],
         'priceCode': !exists(json, 'priceCode') ? undefined : json['priceCode'],
-        'revenueDetails': !exists(json, 'revenueDetails') ? undefined : CateringPackageRevenueListTypeFromJSON(json['revenueDetails']),
+        'revenueDetails': !exists(json, 'revenueDetails') ? undefined : ((json['revenueDetails'] as Array<any>).map(CateringPackageRevenueTypeFromJSON)),
         'sellDate': !exists(json, 'sellDate') ? undefined : DateTimeSpanTypeFromJSON(json['sellDate']),
         'totalPrice': !exists(json, 'totalPrice') ? undefined : CurrencyAmountTypeFromJSON(json['totalPrice']),
         'webBookable': !exists(json, 'webBookable') ? undefined : json['webBookable'],
@@ -177,7 +177,7 @@ export function CateringPackagePricingTypeToJSON(value?: CateringPackagePricingT
         'maxAttendees': value.maxAttendees,
         'minAttendees': value.minAttendees,
         'priceCode': value.priceCode,
-        'revenueDetails': CateringPackageRevenueListTypeToJSON(value.revenueDetails),
+        'revenueDetails': value.revenueDetails === undefined ? undefined : ((value.revenueDetails as Array<any>).map(CateringPackageRevenueTypeToJSON)),
         'sellDate': DateTimeSpanTypeToJSON(value.sellDate),
         'totalPrice': CurrencyAmountTypeToJSON(value.totalPrice),
         'webBookable': value.webBookable,

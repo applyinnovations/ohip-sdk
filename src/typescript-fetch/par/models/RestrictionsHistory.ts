@@ -19,18 +19,18 @@ import {
     FetchRestrictionsHistoryRSTypeFromJSONTyped,
     FetchRestrictionsHistoryRSTypeToJSON,
 } from './FetchRestrictionsHistoryRSType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for searching restrictions history.
@@ -40,10 +40,10 @@ import {
 export interface RestrictionsHistory {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RestrictionsHistory
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {FetchRestrictionsHistoryRSType}
@@ -51,11 +51,11 @@ export interface RestrictionsHistory {
      */
     restrictionsHistory?: FetchRestrictionsHistoryRSType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RestrictionsHistory
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RestrictionsHistoryFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'restrictionsHistory': !exists(json, 'restrictionsHistory') ? undefined : FetchRestrictionsHistoryRSTypeFromJSON(json['restrictionsHistory']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RestrictionsHistoryToJSON(value?: RestrictionsHistory | null): a
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'restrictionsHistory': FetchRestrictionsHistoryRSTypeToJSON(value.restrictionsHistory),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

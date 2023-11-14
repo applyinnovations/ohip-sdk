@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockStatusCodeListType } from './BlockStatusCodeListType';
+import type { BlockStatusCodeType } from './BlockStatusCodeType';
 import {
-    BlockStatusCodeListTypeFromJSON,
-    BlockStatusCodeListTypeFromJSONTyped,
-    BlockStatusCodeListTypeToJSON,
-} from './BlockStatusCodeListType';
-import type { Links } from './Links';
+    BlockStatusCodeTypeFromJSON,
+    BlockStatusCodeTypeFromJSONTyped,
+    BlockStatusCodeTypeToJSON,
+} from './BlockStatusCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { NextBlockStatusCodeListType } from './NextBlockStatusCodeListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { NextBlockStatusCodeType } from './NextBlockStatusCodeType';
 import {
-    NextBlockStatusCodeListTypeFromJSON,
-    NextBlockStatusCodeListTypeFromJSONTyped,
-    NextBlockStatusCodeListTypeToJSON,
-} from './NextBlockStatusCodeListType';
-import type { WarningsType } from './WarningsType';
+    NextBlockStatusCodeTypeFromJSON,
+    NextBlockStatusCodeTypeFromJSONTyped,
+    NextBlockStatusCodeTypeToJSON,
+} from './NextBlockStatusCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching next block status codes.
@@ -45,29 +45,29 @@ import {
  */
 export interface NextBlockStatusCodeDetails {
     /**
-     * 
-     * @type {BlockStatusCodeListType}
+     * Block status code information.
+     * @type {Array<BlockStatusCodeType>}
      * @memberof NextBlockStatusCodeDetails
      */
-    blockStatusCodeMasterList?: BlockStatusCodeListType;
+    blockStatusCodeMasterList?: Array<BlockStatusCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof NextBlockStatusCodeDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {NextBlockStatusCodeListType}
+     * Block status code with its next configured and/or available status codes.
+     * @type {Array<NextBlockStatusCodeType>}
      * @memberof NextBlockStatusCodeDetails
      */
-    nextBlockStatusCodeList?: NextBlockStatusCodeListType;
+    nextBlockStatusCodeList?: Array<NextBlockStatusCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof NextBlockStatusCodeDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function NextBlockStatusCodeDetailsFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'blockStatusCodeMasterList': !exists(json, 'blockStatusCodeMasterList') ? undefined : BlockStatusCodeListTypeFromJSON(json['blockStatusCodeMasterList']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'nextBlockStatusCodeList': !exists(json, 'nextBlockStatusCodeList') ? undefined : NextBlockStatusCodeListTypeFromJSON(json['nextBlockStatusCodeList']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'blockStatusCodeMasterList': !exists(json, 'blockStatusCodeMasterList') ? undefined : ((json['blockStatusCodeMasterList'] as Array<any>).map(BlockStatusCodeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'nextBlockStatusCodeList': !exists(json, 'nextBlockStatusCodeList') ? undefined : ((json['nextBlockStatusCodeList'] as Array<any>).map(NextBlockStatusCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function NextBlockStatusCodeDetailsToJSON(value?: NextBlockStatusCodeDeta
     }
     return {
         
-        'blockStatusCodeMasterList': BlockStatusCodeListTypeToJSON(value.blockStatusCodeMasterList),
-        'links': LinksToJSON(value.links),
-        'nextBlockStatusCodeList': NextBlockStatusCodeListTypeToJSON(value.nextBlockStatusCodeList),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'blockStatusCodeMasterList': value.blockStatusCodeMasterList === undefined ? undefined : ((value.blockStatusCodeMasterList as Array<any>).map(BlockStatusCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'nextBlockStatusCodeList': value.nextBlockStatusCodeList === undefined ? undefined : ((value.nextBlockStatusCodeList as Array<any>).map(NextBlockStatusCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

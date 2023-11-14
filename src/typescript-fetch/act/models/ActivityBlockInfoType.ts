@@ -19,12 +19,12 @@ import {
     TimeSpanTypeFromJSONTyped,
     TimeSpanTypeToJSON,
 } from './TimeSpanType';
-import type { UniqueNameIDListType } from './UniqueNameIDListType';
+import type { UniqueNameIDType } from './UniqueNameIDType';
 import {
-    UniqueNameIDListTypeFromJSON,
-    UniqueNameIDListTypeFromJSONTyped,
-    UniqueNameIDListTypeToJSON,
-} from './UniqueNameIDListType';
+    UniqueNameIDTypeFromJSON,
+    UniqueNameIDTypeFromJSONTyped,
+    UniqueNameIDTypeToJSON,
+} from './UniqueNameIDType';
 
 /**
  * 
@@ -39,11 +39,11 @@ export interface ActivityBlockInfoType {
      */
     blockCode?: string;
     /**
-     * 
-     * @type {UniqueNameIDListType}
+     * Defines descriptive name and unique identification combination.
+     * @type {Array<UniqueNameIDType>}
      * @memberof ActivityBlockInfoType
      */
-    blockIdList?: UniqueNameIDListType;
+    blockIdList?: Array<UniqueNameIDType>;
     /**
      * Name of the block.
      * @type {string}
@@ -84,7 +84,7 @@ export function ActivityBlockInfoTypeFromJSONTyped(json: any, ignoreDiscriminato
     return {
         
         'blockCode': !exists(json, 'blockCode') ? undefined : json['blockCode'],
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : UniqueNameIDListTypeFromJSON(json['blockIdList']),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueNameIDTypeFromJSON)),
         'blockName': !exists(json, 'blockName') ? undefined : json['blockName'],
         'primary': !exists(json, 'primary') ? undefined : json['primary'],
         'timeSpan': !exists(json, 'timeSpan') ? undefined : TimeSpanTypeFromJSON(json['timeSpan']),
@@ -101,7 +101,7 @@ export function ActivityBlockInfoTypeToJSON(value?: ActivityBlockInfoType | null
     return {
         
         'blockCode': value.blockCode,
-        'blockIdList': UniqueNameIDListTypeToJSON(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueNameIDTypeToJSON)),
         'blockName': value.blockName,
         'primary': value.primary,
         'timeSpan': TimeSpanTypeToJSON(value.timeSpan),

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ParametersType } from './ParametersType';
+import type { ParameterType } from './ParameterType';
 import {
-    ParametersTypeFromJSON,
-    ParametersTypeFromJSONTyped,
-    ParametersTypeToJSON,
-} from './ParametersType';
+    ParameterTypeFromJSON,
+    ParameterTypeFromJSONTyped,
+    ParameterTypeToJSON,
+} from './ParameterType';
 
 /**
  * 
@@ -45,11 +45,11 @@ export interface ItemType {
      */
     description?: string;
     /**
-     * 
-     * @type {ParametersType}
+     * Collection of generic Name-Value-Pair parameters.
+     * @type {Array<ParameterType>}
      * @memberof ItemType
      */
-    flexfields?: ParametersType;
+    flexfields?: Array<ParameterType>;
     /**
      * 
      * @type {string}
@@ -86,7 +86,7 @@ export function ItemTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'active': !exists(json, 'active') ? undefined : json['active'],
         'code': !exists(json, 'code') ? undefined : json['code'],
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'flexfields': !exists(json, 'flexfields') ? undefined : ParametersTypeFromJSON(json['flexfields']),
+        'flexfields': !exists(json, 'flexfields') ? undefined : ((json['flexfields'] as Array<any>).map(ParameterTypeFromJSON)),
         'name': !exists(json, 'name') ? undefined : json['name'],
         'shortDescription': !exists(json, 'shortDescription') ? undefined : json['shortDescription'],
     };
@@ -104,7 +104,7 @@ export function ItemTypeToJSON(value?: ItemType | null): any {
         'active': value.active,
         'code': value.code,
         'description': value.description,
-        'flexfields': ParametersTypeToJSON(value.flexfields),
+        'flexfields': value.flexfields === undefined ? undefined : ((value.flexfields as Array<any>).map(ParameterTypeToJSON)),
         'name': value.name,
         'shortDescription': value.shortDescription,
     };

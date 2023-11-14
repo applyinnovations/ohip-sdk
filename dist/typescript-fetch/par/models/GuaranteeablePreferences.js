@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GuaranteeablePreferencesToJSON = exports.GuaranteeablePreferencesFromJSONTyped = exports.GuaranteeablePreferencesFromJSON = exports.instanceOfGuaranteeablePreferences = void 0;
 const runtime_1 = require("../runtime");
-const AvailablePreferencesType_1 = require("./AvailablePreferencesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RequestedAvailablePreferenceType_1 = require("./RequestedAvailablePreferenceType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the GuaranteeablePreferences interface.
  */
@@ -35,9 +35,9 @@ function GuaranteeablePreferencesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'availablePreferences': !(0, runtime_1.exists)(json, 'availablePreferences') ? undefined : (0, AvailablePreferencesType_1.AvailablePreferencesTypeFromJSON)(json['availablePreferences']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'availablePreferences': !(0, runtime_1.exists)(json, 'availablePreferences') ? undefined : (json['availablePreferences'].map(RequestedAvailablePreferenceType_1.RequestedAvailablePreferenceTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.GuaranteeablePreferencesFromJSONTyped = GuaranteeablePreferencesFromJSONTyped;
@@ -49,9 +49,9 @@ function GuaranteeablePreferencesToJSON(value) {
         return null;
     }
     return {
-        'availablePreferences': (0, AvailablePreferencesType_1.AvailablePreferencesTypeToJSON)(value.availablePreferences),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'availablePreferences': value.availablePreferences === undefined ? undefined : (value.availablePreferences.map(RequestedAvailablePreferenceType_1.RequestedAvailablePreferenceTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.GuaranteeablePreferencesToJSON = GuaranteeablePreferencesToJSON;

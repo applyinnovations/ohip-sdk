@@ -13,42 +13,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
+import type { EventResourceNoteType } from './EventResourceNoteType';
 import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-import type { EventResourceNotesType } from './EventResourceNotesType';
-import {
-    EventResourceNotesTypeFromJSON,
-    EventResourceNotesTypeFromJSONTyped,
-    EventResourceNotesTypeToJSON,
-} from './EventResourceNotesType';
+    EventResourceNoteTypeFromJSON,
+    EventResourceNoteTypeFromJSONTyped,
+    EventResourceNoteTypeToJSON,
+} from './EventResourceNoteType';
 import type { InventoryItemTypeSellInfo } from './InventoryItemTypeSellInfo';
 import {
     InventoryItemTypeSellInfoFromJSON,
     InventoryItemTypeSellInfoFromJSONTyped,
     InventoryItemTypeSellInfoToJSON,
 } from './InventoryItemTypeSellInfo';
-import type { ItemAttributesType } from './ItemAttributesType';
+import type { ItemAttributeType } from './ItemAttributeType';
 import {
-    ItemAttributesTypeFromJSON,
-    ItemAttributesTypeFromJSONTyped,
-    ItemAttributesTypeToJSON,
-} from './ItemAttributesType';
-import type { ItemRatesType } from './ItemRatesType';
+    ItemAttributeTypeFromJSON,
+    ItemAttributeTypeFromJSONTyped,
+    ItemAttributeTypeToJSON,
+} from './ItemAttributeType';
+import type { ItemRateType } from './ItemRateType';
 import {
-    ItemRatesTypeFromJSON,
-    ItemRatesTypeFromJSONTyped,
-    ItemRatesTypeToJSON,
-} from './ItemRatesType';
-import type { ItemVendorsType } from './ItemVendorsType';
+    ItemRateTypeFromJSON,
+    ItemRateTypeFromJSONTyped,
+    ItemRateTypeToJSON,
+} from './ItemRateType';
+import type { ItemVendorType } from './ItemVendorType';
 import {
-    ItemVendorsTypeFromJSON,
-    ItemVendorsTypeFromJSONTyped,
-    ItemVendorsTypeToJSON,
-} from './ItemVendorsType';
+    ItemVendorTypeFromJSON,
+    ItemVendorTypeFromJSONTyped,
+    ItemVendorTypeToJSON,
+} from './ItemVendorType';
 import type { TranslationTextType200 } from './TranslationTextType200';
 import {
     TranslationTextType200FromJSON,
@@ -69,17 +63,17 @@ import {
  */
 export interface InventoryItemType {
     /**
-     * 
-     * @type {ItemAttributesType}
+     * List of Item Attributes.
+     * @type {Array<ItemAttributeType>}
      * @memberof InventoryItemType
      */
-    attributes?: ItemAttributesType;
+    attributes?: Array<ItemAttributeType>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof InventoryItemType
      */
-    departments?: CodeListType;
+    departments?: Array<string>;
     /**
      * The display sequence of the Item.
      * @type {number}
@@ -88,10 +82,10 @@ export interface InventoryItemType {
     displaySequence?: number;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof InventoryItemType
      */
-    eventTypes?: CodeListType;
+    eventTypes?: Array<string>;
     /**
      * Flag to define if the inventory item can be ordered externally when the item is marked as critical.
      * @type {boolean}
@@ -171,17 +165,17 @@ export interface InventoryItemType {
      */
     print?: boolean;
     /**
-     * 
-     * @type {ItemRatesType}
+     * List of Item Rates.
+     * @type {Array<ItemRateType>}
      * @memberof InventoryItemType
      */
-    rates?: ItemRatesType;
+    rates?: Array<ItemRateType>;
     /**
-     * 
-     * @type {EventResourceNotesType}
+     * Contains event resource note information.
+     * @type {Array<EventResourceNoteType>}
      * @memberof InventoryItemType
      */
-    resourceNotes?: EventResourceNotesType;
+    resourceNotes?: Array<EventResourceNoteType>;
     /**
      * The Revenue Type of the Item.
      * @type {string}
@@ -231,11 +225,11 @@ export interface InventoryItemType {
      */
     usedForReservation?: boolean;
     /**
-     * 
-     * @type {ItemVendorsType}
+     * List of Item Vendors.
+     * @type {Array<ItemVendorType>}
      * @memberof InventoryItemType
      */
-    vendors?: ItemVendorsType;
+    vendors?: Array<ItemVendorType>;
 }
 
 /**
@@ -257,10 +251,10 @@ export function InventoryItemTypeFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'attributes': !exists(json, 'attributes') ? undefined : ItemAttributesTypeFromJSON(json['attributes']),
-        'departments': !exists(json, 'departments') ? undefined : CodeListTypeFromJSON(json['departments']),
+        'attributes': !exists(json, 'attributes') ? undefined : ((json['attributes'] as Array<any>).map(ItemAttributeTypeFromJSON)),
+        'departments': !exists(json, 'departments') ? undefined : json['departments'],
         'displaySequence': !exists(json, 'displaySequence') ? undefined : json['displaySequence'],
-        'eventTypes': !exists(json, 'eventTypes') ? undefined : CodeListTypeFromJSON(json['eventTypes']),
+        'eventTypes': !exists(json, 'eventTypes') ? undefined : json['eventTypes'],
         'externalOrder': !exists(json, 'externalOrder') ? undefined : json['externalOrder'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'itemClassCode': !exists(json, 'itemClassCode') ? undefined : json['itemClassCode'],
@@ -274,8 +268,8 @@ export function InventoryItemTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'itemName': !exists(json, 'itemName') ? undefined : TranslationTextType200FromJSON(json['itemName']),
         'itemPool': !exists(json, 'itemPool') ? undefined : json['itemPool'],
         'print': !exists(json, 'print') ? undefined : json['print'],
-        'rates': !exists(json, 'rates') ? undefined : ItemRatesTypeFromJSON(json['rates']),
-        'resourceNotes': !exists(json, 'resourceNotes') ? undefined : EventResourceNotesTypeFromJSON(json['resourceNotes']),
+        'rates': !exists(json, 'rates') ? undefined : ((json['rates'] as Array<any>).map(ItemRateTypeFromJSON)),
+        'resourceNotes': !exists(json, 'resourceNotes') ? undefined : ((json['resourceNotes'] as Array<any>).map(EventResourceNoteTypeFromJSON)),
         'revenueType': !exists(json, 'revenueType') ? undefined : json['revenueType'],
         'revenueTypeEditable': !exists(json, 'revenueTypeEditable') ? undefined : json['revenueTypeEditable'],
         'sellInfo': !exists(json, 'sellInfo') ? undefined : InventoryItemTypeSellInfoFromJSON(json['sellInfo']),
@@ -284,7 +278,7 @@ export function InventoryItemTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'traceText': !exists(json, 'traceText') ? undefined : json['traceText'],
         'usedForEvents': !exists(json, 'usedForEvents') ? undefined : json['usedForEvents'],
         'usedForReservation': !exists(json, 'usedForReservation') ? undefined : json['usedForReservation'],
-        'vendors': !exists(json, 'vendors') ? undefined : ItemVendorsTypeFromJSON(json['vendors']),
+        'vendors': !exists(json, 'vendors') ? undefined : ((json['vendors'] as Array<any>).map(ItemVendorTypeFromJSON)),
     };
 }
 
@@ -297,10 +291,10 @@ export function InventoryItemTypeToJSON(value?: InventoryItemType | null): any {
     }
     return {
         
-        'attributes': ItemAttributesTypeToJSON(value.attributes),
-        'departments': CodeListTypeToJSON(value.departments),
+        'attributes': value.attributes === undefined ? undefined : ((value.attributes as Array<any>).map(ItemAttributeTypeToJSON)),
+        'departments': value.departments,
         'displaySequence': value.displaySequence,
-        'eventTypes': CodeListTypeToJSON(value.eventTypes),
+        'eventTypes': value.eventTypes,
         'externalOrder': value.externalOrder,
         'hotelId': value.hotelId,
         'itemClassCode': value.itemClassCode,
@@ -314,8 +308,8 @@ export function InventoryItemTypeToJSON(value?: InventoryItemType | null): any {
         'itemName': TranslationTextType200ToJSON(value.itemName),
         'itemPool': value.itemPool,
         'print': value.print,
-        'rates': ItemRatesTypeToJSON(value.rates),
-        'resourceNotes': EventResourceNotesTypeToJSON(value.resourceNotes),
+        'rates': value.rates === undefined ? undefined : ((value.rates as Array<any>).map(ItemRateTypeToJSON)),
+        'resourceNotes': value.resourceNotes === undefined ? undefined : ((value.resourceNotes as Array<any>).map(EventResourceNoteTypeToJSON)),
         'revenueType': value.revenueType,
         'revenueTypeEditable': value.revenueTypeEditable,
         'sellInfo': InventoryItemTypeSellInfoToJSON(value.sellInfo),
@@ -324,7 +318,7 @@ export function InventoryItemTypeToJSON(value?: InventoryItemType | null): any {
         'traceText': value.traceText,
         'usedForEvents': value.usedForEvents,
         'usedForReservation': value.usedForReservation,
-        'vendors': ItemVendorsTypeToJSON(value.vendors),
+        'vendors': value.vendors === undefined ? undefined : ((value.vendors as Array<any>).map(ItemVendorTypeToJSON)),
     };
 }
 

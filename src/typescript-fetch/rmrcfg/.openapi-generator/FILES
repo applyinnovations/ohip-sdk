@@ -12,7 +12,6 @@ models/ChangeRoomOwnerReferralDetails.ts
 models/ChangeRotationPeriodDetails.ts
 models/ChangeUnitGradesDetails.ts
 models/CodeInfoType.ts
-models/CodeListType.ts
 models/CountryNameType.ts
 models/CreateAdjustmentReasonsDetails.ts
 models/CreateRoomOwnerDetails.ts
@@ -21,7 +20,6 @@ models/CreateUnitGradesDetails.ts
 models/DaysOfWeekAttrType.ts
 models/ErrorInstance.ts
 models/ErrorType.ts
-models/ErrorsType.ts
 models/ExceptionDetailType.ts
 models/FetchAdjustmentReasonsDetails.ts
 models/FetchRevenueTransactionCodesDetails.ts
@@ -29,7 +27,6 @@ models/FetchRotationPeriod.ts
 models/FetchRotationRules.ts
 models/FetchUnitGradesDetails.ts
 models/InstanceLink.ts
-models/Links.ts
 models/MasterInfoType.ts
 models/MasterType.ts
 models/OverrideReasonsCriteria.ts
@@ -45,18 +42,14 @@ models/RoomOwnershipDetails.ts
 models/RoomOwnershipType.ts
 models/RoomOwnershipsList.ts
 models/RoomRotationAdjustmentReasonType.ts
-models/RoomRotationAdjustmentReasonsType.ts
 models/RoomRotationOverrideReasonType.ts
-models/RoomRotationOverrideReasonsType.ts
 models/RoomRotationRules.ts
 models/RoomRotationUnitGradeType.ts
-models/RoomRotationUnitGradesType.ts
 models/RotationPeriod.ts
 models/RotationPeriodFrequencyType.ts
 models/RotationPeriodType.ts
 models/RotationRevenueTransactionCodeType.ts
 models/RotationRevenueTransactionCodesChangeType.ts
-models/RotationRevenueTransactionCodesType.ts
 models/RotationRuleCalculationRuleType.ts
 models/RotationRuleSetupType.ts
 models/RotationRuleStatusType.ts
@@ -65,13 +58,10 @@ models/RotationRules.ts
 models/RotationRulesResultType.ts
 models/RotationRulesType.ts
 models/Status.ts
-models/TransactionCodesType.ts
 models/TranslationTextType2000.ts
-models/TranslationsTextType.ts
 models/TranslationsTextTypeInner.ts
 models/UniqueIDType.ts
 models/UnitGradesDetailsUpdated.ts
 models/WarningType.ts
-models/WarningsType.ts
 models/index.ts
 runtime.ts

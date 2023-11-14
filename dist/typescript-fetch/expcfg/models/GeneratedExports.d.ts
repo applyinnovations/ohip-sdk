@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { GeneratedExportListType } from './GeneratedExportListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object including a list of generated exports.
  * @export
@@ -26,16 +26,16 @@ export interface GeneratedExports {
     generatedExports?: GeneratedExportListType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GeneratedExports
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GeneratedExports
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GeneratedExports interface.

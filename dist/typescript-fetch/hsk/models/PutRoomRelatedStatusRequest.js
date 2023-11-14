@@ -17,10 +17,10 @@ exports.PutRoomRelatedStatusRequestToJSON = exports.PutRoomRelatedStatusRequestF
 const runtime_1 = require("../runtime");
 const FrontOfficeRoomStatusType_1 = require("./FrontOfficeRoomStatusType");
 const HousekeepingRoomStatusType_1 = require("./HousekeepingRoomStatusType");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const RoomInformationType_1 = require("./RoomInformationType");
 const TurndownStatusType_1 = require("./TurndownStatusType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PutRoomRelatedStatusRequest interface.
  */
@@ -40,10 +40,10 @@ function PutRoomRelatedStatusRequestFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'housekeepingRoomStatus': !(0, runtime_1.exists)(json, 'housekeepingRoomStatus') ? undefined : (0, HousekeepingRoomStatusType_1.HousekeepingRoomStatusTypeFromJSON)(json['housekeepingRoomStatus']),
         'housekeepingStatus': !(0, runtime_1.exists)(json, 'housekeepingStatus') ? undefined : (0, FrontOfficeRoomStatusType_1.FrontOfficeRoomStatusTypeFromJSON)(json['housekeepingStatus']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'roomList': !(0, runtime_1.exists)(json, 'roomList') ? undefined : (json['roomList'].map(RoomInformationType_1.RoomInformationTypeFromJSON)),
         'turndownStatus': !(0, runtime_1.exists)(json, 'turndownStatus') ? undefined : (0, TurndownStatusType_1.TurndownStatusTypeFromJSON)(json['turndownStatus']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PutRoomRelatedStatusRequestFromJSONTyped = PutRoomRelatedStatusRequestFromJSONTyped;
@@ -57,10 +57,10 @@ function PutRoomRelatedStatusRequestToJSON(value) {
     return {
         'housekeepingRoomStatus': (0, HousekeepingRoomStatusType_1.HousekeepingRoomStatusTypeToJSON)(value.housekeepingRoomStatus),
         'housekeepingStatus': (0, FrontOfficeRoomStatusType_1.FrontOfficeRoomStatusTypeToJSON)(value.housekeepingStatus),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'roomList': value.roomList === undefined ? undefined : (value.roomList.map(RoomInformationType_1.RoomInformationTypeToJSON)),
         'turndownStatus': (0, TurndownStatusType_1.TurndownStatusTypeToJSON)(value.turndownStatus),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PutRoomRelatedStatusRequestToJSON = PutRoomRelatedStatusRequestToJSON;

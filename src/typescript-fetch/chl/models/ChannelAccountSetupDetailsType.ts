@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-
 /**
  * To hold channel account detailed setup information.
  * @export
@@ -46,10 +39,10 @@ export interface ChannelAccountSetupDetailsType {
     currencyCode?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ChannelAccountSetupDetailsType
      */
-    hotelCodes?: CodeListType;
+    hotelCodes?: Array<string>;
     /**
      * The date that account was marked as inactive.
      * @type {Date}
@@ -58,10 +51,10 @@ export interface ChannelAccountSetupDetailsType {
     inactiveDate?: Date;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ChannelAccountSetupDetailsType
      */
-    instances?: CodeListType;
+    instances?: Array<string>;
     /**
      * The rebate date for the account.
      * @type {Date}
@@ -98,9 +91,9 @@ export function ChannelAccountSetupDetailsTypeFromJSONTyped(json: any, ignoreDis
         'chainCode': !exists(json, 'chainCode') ? undefined : json['chainCode'],
         'contractEndsOn': !exists(json, 'contractEndsOn') ? undefined : (new Date(json['contractEndsOn'])),
         'currencyCode': !exists(json, 'currencyCode') ? undefined : json['currencyCode'],
-        'hotelCodes': !exists(json, 'hotelCodes') ? undefined : CodeListTypeFromJSON(json['hotelCodes']),
+        'hotelCodes': !exists(json, 'hotelCodes') ? undefined : json['hotelCodes'],
         'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
-        'instances': !exists(json, 'instances') ? undefined : CodeListTypeFromJSON(json['instances']),
+        'instances': !exists(json, 'instances') ? undefined : json['instances'],
         'rebateDate': !exists(json, 'rebateDate') ? undefined : (new Date(json['rebateDate'])),
         'registeredHotel': !exists(json, 'registeredHotel') ? undefined : json['registeredHotel'],
     };
@@ -118,9 +111,9 @@ export function ChannelAccountSetupDetailsTypeToJSON(value?: ChannelAccountSetup
         'chainCode': value.chainCode,
         'contractEndsOn': value.contractEndsOn === undefined ? undefined : (value.contractEndsOn.toISOString().substring(0,10)),
         'currencyCode': value.currencyCode,
-        'hotelCodes': CodeListTypeToJSON(value.hotelCodes),
+        'hotelCodes': value.hotelCodes,
         'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
-        'instances': CodeListTypeToJSON(value.instances),
+        'instances': value.instances,
         'rebateDate': value.rebateDate === undefined ? undefined : (value.rebateDate.toISOString().substring(0,10)),
         'registeredHotel': value.registeredHotel,
     };

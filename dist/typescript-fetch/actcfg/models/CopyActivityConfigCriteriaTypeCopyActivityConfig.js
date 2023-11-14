@@ -15,8 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyActivityConfigCriteriaTypeCopyActivityConfigToJSON = exports.CopyActivityConfigCriteriaTypeCopyActivityConfigFromJSONTyped = exports.CopyActivityConfigCriteriaTypeCopyActivityConfigFromJSON = exports.instanceOfCopyActivityConfigCriteriaTypeCopyActivityConfig = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
-const CodeListType10_1 = require("./CodeListType10");
 /**
  * Check if a given object implements the CopyActivityConfigCriteriaTypeCopyActivityConfig interface.
  */
@@ -34,9 +32,9 @@ function CopyActivityConfigCriteriaTypeCopyActivityConfigFromJSONTyped(json, ign
         return json;
     }
     return {
-        'activityCodeList': !(0, runtime_1.exists)(json, 'activityCodeList') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['activityCodeList']),
+        'activityCodeList': !(0, runtime_1.exists)(json, 'activityCodeList') ? undefined : json['activityCodeList'],
         'sourceHotelCode': !(0, runtime_1.exists)(json, 'sourceHotelCode') ? undefined : json['sourceHotelCode'],
-        'targetHotelCode': !(0, runtime_1.exists)(json, 'targetHotelCode') ? undefined : (0, CodeListType10_1.CodeListType10FromJSON)(json['targetHotelCode']),
+        'targetHotelCode': !(0, runtime_1.exists)(json, 'targetHotelCode') ? undefined : json['targetHotelCode'],
     };
 }
 exports.CopyActivityConfigCriteriaTypeCopyActivityConfigFromJSONTyped = CopyActivityConfigCriteriaTypeCopyActivityConfigFromJSONTyped;
@@ -48,9 +46,9 @@ function CopyActivityConfigCriteriaTypeCopyActivityConfigToJSON(value) {
         return null;
     }
     return {
-        'activityCodeList': (0, CodeListType_1.CodeListTypeToJSON)(value.activityCodeList),
+        'activityCodeList': value.activityCodeList,
         'sourceHotelCode': value.sourceHotelCode,
-        'targetHotelCode': (0, CodeListType10_1.CodeListType10ToJSON)(value.targetHotelCode),
+        'targetHotelCode': value.targetHotelCode,
     };
 }
 exports.CopyActivityConfigCriteriaTypeCopyActivityConfigToJSON = CopyActivityConfigCriteriaTypeCopyActivityConfigToJSON;

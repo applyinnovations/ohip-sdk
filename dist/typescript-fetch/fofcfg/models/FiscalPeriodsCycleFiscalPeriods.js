@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FiscalPeriodsCycleFiscalPeriodsToJSON = exports.FiscalPeriodsCycleFiscalPeriodsFromJSONTyped = exports.FiscalPeriodsCycleFiscalPeriodsFromJSON = exports.instanceOfFiscalPeriodsCycleFiscalPeriods = void 0;
 const runtime_1 = require("../runtime");
-const CycleFiscalPeriodsType_1 = require("./CycleFiscalPeriodsType");
+const CycleFiscalPeriodType_1 = require("./CycleFiscalPeriodType");
 /**
  * Check if a given object implements the FiscalPeriodsCycleFiscalPeriods interface.
  */
@@ -33,7 +33,7 @@ function FiscalPeriodsCycleFiscalPeriodsFromJSONTyped(json, ignoreDiscriminator)
         return json;
     }
     return {
-        'cycleFiscalPeriods': !(0, runtime_1.exists)(json, 'cycleFiscalPeriods') ? undefined : (0, CycleFiscalPeriodsType_1.CycleFiscalPeriodsTypeFromJSON)(json['cycleFiscalPeriods']),
+        'cycleFiscalPeriods': !(0, runtime_1.exists)(json, 'cycleFiscalPeriods') ? undefined : (json['cycleFiscalPeriods'].map(CycleFiscalPeriodType_1.CycleFiscalPeriodTypeFromJSON)),
         'forceDelete': !(0, runtime_1.exists)(json, 'forceDelete') ? undefined : json['forceDelete'],
     };
 }
@@ -46,7 +46,7 @@ function FiscalPeriodsCycleFiscalPeriodsToJSON(value) {
         return null;
     }
     return {
-        'cycleFiscalPeriods': (0, CycleFiscalPeriodsType_1.CycleFiscalPeriodsTypeToJSON)(value.cycleFiscalPeriods),
+        'cycleFiscalPeriods': value.cycleFiscalPeriods === undefined ? undefined : (value.cycleFiscalPeriods.map(CycleFiscalPeriodType_1.CycleFiscalPeriodTypeToJSON)),
         'forceDelete': value.forceDelete,
     };
 }

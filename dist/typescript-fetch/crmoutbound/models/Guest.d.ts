@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { GuestProfileType } from './GuestProfileType';
-import type { Links } from './Links';
-import type { ProfileIdList } from './ProfileIdList';
+import type { InstanceLink } from './InstanceLink';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Request object for creation of guest/contact/employee profile. This object contains profile details with unique identifiers of a profile. The standard optional Opera Context element is also included.
  * @export
@@ -19,11 +19,11 @@ import type { ProfileIdList } from './ProfileIdList';
  */
 export interface Guest {
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof Guest
      */
-    guestIdList?: ProfileIdList;
+    guestIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {GuestProfileType}
@@ -32,10 +32,10 @@ export interface Guest {
     guestDetails?: GuestProfileType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Guest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the Guest interface.

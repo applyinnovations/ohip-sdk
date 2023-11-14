@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChannelMarketingInfoType } from './ChannelMarketingInfoType';
+import type { ChannelMarketingInfoTypeInner } from './ChannelMarketingInfoTypeInner';
 import type { ChannelSummaryInfoType } from './ChannelSummaryInfoType';
 /**
  * Channel specific information to be returned in availability response.
@@ -18,11 +18,11 @@ import type { ChannelSummaryInfoType } from './ChannelSummaryInfoType';
  */
 export interface ChannelAvailRSInfoType {
     /**
-     *
-     * @type {ChannelMarketingInfoType}
+     * Marketing Text like cancel policy, deposit policy etc.
+     * @type {Array<ChannelMarketingInfoTypeInner>}
      * @memberof ChannelAvailRSInfoType
      */
-    channelMarketingInfo?: ChannelMarketingInfoType;
+    channelMarketingInfo?: Array<ChannelMarketingInfoTypeInner>;
     /**
      *
      * @type {ChannelSummaryInfoType}

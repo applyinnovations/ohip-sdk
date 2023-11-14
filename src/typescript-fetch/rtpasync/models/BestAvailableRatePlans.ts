@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BestAvailableRatePlansType } from './BestAvailableRatePlansType';
+import type { BestAvailableRatePlanType } from './BestAvailableRatePlanType';
 import {
-    BestAvailableRatePlansTypeFromJSON,
-    BestAvailableRatePlansTypeFromJSONTyped,
-    BestAvailableRatePlansTypeToJSON,
-} from './BestAvailableRatePlansType';
+    BestAvailableRatePlanTypeFromJSON,
+    BestAvailableRatePlanTypeFromJSONTyped,
+    BestAvailableRatePlanTypeToJSON,
+} from './BestAvailableRatePlanType';
 
 /**
  * Request for configuring best available rate plans.
@@ -27,11 +27,11 @@ import {
  */
 export interface BestAvailableRatePlans {
     /**
-     * 
-     * @type {BestAvailableRatePlansType}
+     * Collection of best available rate plans.
+     * @type {Array<BestAvailableRatePlanType>}
      * @memberof BestAvailableRatePlans
      */
-    bestAvailableRatePlans?: BestAvailableRatePlansType;
+    bestAvailableRatePlans?: Array<BestAvailableRatePlanType>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function BestAvailableRatePlansFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'bestAvailableRatePlans': !exists(json, 'bestAvailableRatePlans') ? undefined : BestAvailableRatePlansTypeFromJSON(json['bestAvailableRatePlans']),
+        'bestAvailableRatePlans': !exists(json, 'bestAvailableRatePlans') ? undefined : ((json['bestAvailableRatePlans'] as Array<any>).map(BestAvailableRatePlanTypeFromJSON)),
     };
 }
 
@@ -66,7 +66,7 @@ export function BestAvailableRatePlansToJSON(value?: BestAvailableRatePlans | nu
     }
     return {
         
-        'bestAvailableRatePlans': BestAvailableRatePlansTypeToJSON(value.bestAvailableRatePlans),
+        'bestAvailableRatePlans': value.bestAvailableRatePlans === undefined ? undefined : ((value.bestAvailableRatePlans as Array<any>).map(BestAvailableRatePlanTypeToJSON)),
     };
 }
 

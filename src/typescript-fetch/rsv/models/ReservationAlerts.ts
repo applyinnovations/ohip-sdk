@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ReservationAlertsListType } from './ReservationAlertsListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ReservationAlertsType } from './ReservationAlertsType';
 import {
-    ReservationAlertsListTypeFromJSON,
-    ReservationAlertsListTypeFromJSONTyped,
-    ReservationAlertsListTypeToJSON,
-} from './ReservationAlertsListType';
-import type { WarningsType } from './WarningsType';
+    ReservationAlertsTypeFromJSON,
+    ReservationAlertsTypeFromJSONTyped,
+    ReservationAlertsTypeToJSON,
+} from './ReservationAlertsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to create or update multiple alerts information for multiple reservations in bulk.
@@ -40,22 +40,22 @@ import {
 export interface ReservationAlerts {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationAlerts
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ReservationAlertsListType}
+     * Holds multiple alerts for a single reservation. Reservation will be identified by a unique identifier/ list of unique identifiers.
+     * @type {Array<ReservationAlertsType>}
      * @memberof ReservationAlerts
      */
-    reservations?: ReservationAlertsListType;
+    reservations?: Array<ReservationAlertsType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationAlerts
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ReservationAlertsFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'reservations': !exists(json, 'reservations') ? undefined : ReservationAlertsListTypeFromJSON(json['reservations']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'reservations': !exists(json, 'reservations') ? undefined : ((json['reservations'] as Array<any>).map(ReservationAlertsTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ReservationAlertsToJSON(value?: ReservationAlerts | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'reservations': ReservationAlertsListTypeToJSON(value.reservations),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'reservations': value.reservations === undefined ? undefined : ((value.reservations as Array<any>).map(ReservationAlertsTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

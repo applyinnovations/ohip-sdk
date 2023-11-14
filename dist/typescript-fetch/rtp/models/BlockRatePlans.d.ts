@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { BlockRatePlansType } from './BlockRatePlansType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object to fetch rate plans summary information for blocks.
  * @export
@@ -26,16 +26,16 @@ export interface BlockRatePlans {
     blockRatePlans?: BlockRatePlansType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockRatePlans
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockRatePlans
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockRatePlans interface.

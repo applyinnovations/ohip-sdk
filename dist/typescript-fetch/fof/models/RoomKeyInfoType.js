@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomKeyInfoTypeToJSON = exports.RoomKeyInfoTypeFromJSONTyped = exports.RoomKeyInfoTypeFromJSON = exports.instanceOfRoomKeyInfoType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const KeyTrackType_1 = require("./KeyTrackType");
 const ReservationId_1 = require("./ReservationId");
 const RoomKeyGuest_1 = require("./RoomKeyGuest");
@@ -36,12 +35,12 @@ function RoomKeyInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'additionalRooms': !(0, runtime_1.exists)(json, 'additionalRooms') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['additionalRooms']),
+        'additionalRooms': !(0, runtime_1.exists)(json, 'additionalRooms') ? undefined : json['additionalRooms'],
         'guestInfo': !(0, runtime_1.exists)(json, 'guestInfo') ? undefined : (0, RoomKeyGuest_1.RoomKeyGuestFromJSON)(json['guestInfo']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'keyCount': !(0, runtime_1.exists)(json, 'keyCount') ? undefined : json['keyCount'],
         'keyExpiryDate': !(0, runtime_1.exists)(json, 'keyExpiryDate') ? undefined : json['keyExpiryDate'],
-        'keyOptions': !(0, runtime_1.exists)(json, 'keyOptions') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['keyOptions']),
+        'keyOptions': !(0, runtime_1.exists)(json, 'keyOptions') ? undefined : json['keyOptions'],
         'keyStartDate': !(0, runtime_1.exists)(json, 'keyStartDate') ? undefined : json['keyStartDate'],
         'keyTrack': !(0, runtime_1.exists)(json, 'keyTrack') ? undefined : (0, KeyTrackType_1.KeyTrackTypeFromJSON)(json['keyTrack']),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
@@ -57,12 +56,12 @@ function RoomKeyInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'additionalRooms': (0, CodeListType_1.CodeListTypeToJSON)(value.additionalRooms),
+        'additionalRooms': value.additionalRooms,
         'guestInfo': (0, RoomKeyGuest_1.RoomKeyGuestToJSON)(value.guestInfo),
         'hotelId': value.hotelId,
         'keyCount': value.keyCount,
         'keyExpiryDate': value.keyExpiryDate,
-        'keyOptions': (0, CodeListType_1.CodeListTypeToJSON)(value.keyOptions),
+        'keyOptions': value.keyOptions,
         'keyStartDate': value.keyStartDate,
         'keyTrack': (0, KeyTrackType_1.KeyTrackTypeToJSON)(value.keyTrack),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),

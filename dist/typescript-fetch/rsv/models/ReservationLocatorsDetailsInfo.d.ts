@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ReservationIdList } from './ReservationIdList';
-import type { ReservationLocatorsType } from './ReservationLocatorsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ReservationLocatorType } from './ReservationLocatorType';
+import type { UniqueIDType } from './UniqueIDType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new Notes for the hotels
  * @export
@@ -27,28 +27,28 @@ export interface ReservationLocatorsDetailsInfo {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationLocatorsDetailsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ReservationLocatorsDetailsInfo
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
-     *
-     * @type {ReservationLocatorsType}
+     * Holds the Locator Information.
+     * @type {Array<ReservationLocatorType>}
      * @memberof ReservationLocatorsDetailsInfo
      */
-    reservationLocators?: ReservationLocatorsType;
+    reservationLocators?: Array<ReservationLocatorType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationLocatorsDetailsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationLocatorsDetailsInfo interface.

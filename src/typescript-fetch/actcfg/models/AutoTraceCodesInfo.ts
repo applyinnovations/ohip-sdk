@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AutoTraceCodesListType } from './AutoTraceCodesListType';
+import type { AutoTraceCodeDetailType } from './AutoTraceCodeDetailType';
 import {
-    AutoTraceCodesListTypeFromJSON,
-    AutoTraceCodesListTypeFromJSONTyped,
-    AutoTraceCodesListTypeToJSON,
-} from './AutoTraceCodesListType';
-import type { WarningsType } from './WarningsType';
+    AutoTraceCodeDetailTypeFromJSON,
+    AutoTraceCodeDetailTypeFromJSONTyped,
+    AutoTraceCodeDetailTypeToJSON,
+} from './AutoTraceCodeDetailType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating/changing Auto Trace Codes.
@@ -33,17 +33,17 @@ import {
  */
 export interface AutoTraceCodesInfo {
     /**
-     * 
-     * @type {AutoTraceCodesListType}
+     * Detailed information of configured Auto Trace Codes.
+     * @type {Array<AutoTraceCodeDetailType>}
      * @memberof AutoTraceCodesInfo
      */
-    autoTraceCodesConfig?: AutoTraceCodesListType;
+    autoTraceCodesConfig?: Array<AutoTraceCodeDetailType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoTraceCodesInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function AutoTraceCodesInfoFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'autoTraceCodesConfig': !exists(json, 'autoTraceCodesConfig') ? undefined : AutoTraceCodesListTypeFromJSON(json['autoTraceCodesConfig']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'autoTraceCodesConfig': !exists(json, 'autoTraceCodesConfig') ? undefined : ((json['autoTraceCodesConfig'] as Array<any>).map(AutoTraceCodeDetailTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function AutoTraceCodesInfoToJSON(value?: AutoTraceCodesInfo | null): any
     }
     return {
         
-        'autoTraceCodesConfig': AutoTraceCodesListTypeToJSON(value.autoTraceCodesConfig),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'autoTraceCodesConfig': value.autoTraceCodesConfig === undefined ? undefined : ((value.autoTraceCodesConfig as Array<any>).map(AutoTraceCodeDetailTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

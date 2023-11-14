@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CodeDescriptionType } from './CodeDescriptionType';
-import type { FacilityCodesForecastType } from './FacilityCodesForecastType';
-import type { ForecastQuantitiesType } from './ForecastQuantitiesType';
+import type { FacilityCodeForecastType } from './FacilityCodeForecastType';
+import type { ForecastQuantityType } from './ForecastQuantityType';
 /**
  * A facility task and its forecast.
  * @export
@@ -19,11 +19,11 @@ import type { ForecastQuantitiesType } from './ForecastQuantitiesType';
  */
 export interface FacilityTaskForecastType {
     /**
-     *
-     * @type {FacilityCodesForecastType}
+     * Collection of facility codes with their forecasts.
+     * @type {Array<FacilityCodeForecastType>}
      * @memberof FacilityTaskForecastType
      */
-    facilityCodes?: FacilityCodesForecastType;
+    facilityCodes?: Array<FacilityCodeForecastType>;
     /**
      *
      * @type {CodeDescriptionType}
@@ -31,11 +31,11 @@ export interface FacilityTaskForecastType {
      */
     task?: CodeDescriptionType;
     /**
-     *
-     * @type {ForecastQuantitiesType}
+     * Collection of dates and their quantities.
+     * @type {Array<ForecastQuantityType>}
      * @memberof FacilityTaskForecastType
      */
-    taskForecast?: ForecastQuantitiesType;
+    taskForecast?: Array<ForecastQuantityType>;
 }
 /**
  * Check if a given object implements the FacilityTaskForecastType interface.

@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MemberPointsToExpireToJSON = exports.MemberPointsToExpireFromJSONTyped = exports.MemberPointsToExpireFromJSON = exports.instanceOfMemberPointsToExpire = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const MemberPointsToExpireListType_1 = require("./MemberPointsToExpireListType");
+const InstanceLink_1 = require("./InstanceLink");
+const MemberPointToExpireType_1 = require("./MemberPointToExpireType");
 /**
  * Check if a given object implements the MemberPointsToExpire interface.
  */
@@ -34,8 +34,8 @@ function MemberPointsToExpireFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'memberPointsToExpireList': !(0, runtime_1.exists)(json, 'memberPointsToExpireList') ? undefined : (0, MemberPointsToExpireListType_1.MemberPointsToExpireListTypeFromJSON)(json['memberPointsToExpireList']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'memberPointsToExpireList': !(0, runtime_1.exists)(json, 'memberPointsToExpireList') ? undefined : (json['memberPointsToExpireList'].map(MemberPointToExpireType_1.MemberPointToExpireTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.MemberPointsToExpireFromJSONTyped = MemberPointsToExpireFromJSONTyped;
@@ -47,8 +47,8 @@ function MemberPointsToExpireToJSON(value) {
         return null;
     }
     return {
-        'memberPointsToExpireList': (0, MemberPointsToExpireListType_1.MemberPointsToExpireListTypeToJSON)(value.memberPointsToExpireList),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'memberPointsToExpireList': value.memberPointsToExpireList === undefined ? undefined : (value.memberPointsToExpireList.map(MemberPointToExpireType_1.MemberPointToExpireTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.MemberPointsToExpireToJSON = MemberPointsToExpireToJSON;

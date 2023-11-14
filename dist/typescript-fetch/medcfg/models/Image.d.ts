@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ImageResultsType } from './ImageResultsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ImageResultType } from './ImageResultType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response to fetch image(s)
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface Image {
     /**
-     *
-     * @type {ImageResultsType}
+     * Collection of image results.
+     * @type {Array<ImageResultType>}
      * @memberof Image
      */
-    images?: ImageResultsType;
+    images?: Array<ImageResultType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Image
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Image
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Image interface.

@@ -17,15 +17,15 @@ import * as runtime from '../runtime';
 import type {
   BlockInventoryStatistic,
   ExceptionDetailType,
-  InventoryStatistics,
+  StatisticType,
 } from '../models/index';
 import {
     BlockInventoryStatisticFromJSON,
     BlockInventoryStatisticToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-    InventoryStatisticsFromJSON,
-    InventoryStatisticsToJSON,
+    StatisticTypeFromJSON,
+    StatisticTypeToJSON,
 } from '../models/index';
 
 export interface GetBlockInventoryStatisticsRequest {
@@ -397,7 +397,7 @@ export class INVStatsApi extends runtime.BaseAPI {
      * Use this API to retrieve the inventory data for a specified hotel. Narrow down your results using the query parameters such as a date range, room type, room class, and/or tentative inventory included. Maximum days limit with a single request is 30 days.<p><strong>OperationId:</strong>getInventoryStatistics</p>
      * Get hotel inventory
      */
-    async getInventoryStatisticsRaw(requestParameters: GetInventoryStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InventoryStatistics>> {
+    async getInventoryStatisticsRaw(requestParameters: GetInventoryStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<StatisticType>>> {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInventoryStatistics.');
         }
@@ -465,14 +465,14 @@ export class INVStatsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => InventoryStatisticsFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(StatisticTypeFromJSON));
     }
 
     /**
      * Use this API to retrieve the inventory data for a specified hotel. Narrow down your results using the query parameters such as a date range, room type, room class, and/or tentative inventory included. Maximum days limit with a single request is 30 days.<p><strong>OperationId:</strong>getInventoryStatistics</p>
      * Get hotel inventory
      */
-    async getInventoryStatistics(requestParameters: GetInventoryStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InventoryStatistics> {
+    async getInventoryStatistics(requestParameters: GetInventoryStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<StatisticType>> {
         const response = await this.getInventoryStatisticsRaw(requestParameters, initOverrides);
         return await response.value();
     }

@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PostBillingCheckChargesCriteriaTypeToJSON = exports.PostBillingCheckChargesCriteriaTypeFromJSONTyped = exports.PostBillingCheckChargesCriteriaTypeFromJSON = exports.instanceOfPostBillingCheckChargesCriteriaType = void 0;
 const runtime_1 = require("../runtime");
-const PostBillingCheckChargesItemsCriteriaType_1 = require("./PostBillingCheckChargesItemsCriteriaType");
+const PostBillingCheckChargesItemCriteriaType_1 = require("./PostBillingCheckChargesItemCriteriaType");
 const ReservationId_1 = require("./ReservationId");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -39,7 +39,7 @@ function PostBillingCheckChargesCriteriaTypeFromJSONTyped(json, ignoreDiscrimina
         'checkId': !(0, runtime_1.exists)(json, 'checkId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['checkId']),
         'checkNumber': !(0, runtime_1.exists)(json, 'checkNumber') ? undefined : json['checkNumber'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'items': !(0, runtime_1.exists)(json, 'items') ? undefined : (0, PostBillingCheckChargesItemsCriteriaType_1.PostBillingCheckChargesItemsCriteriaTypeFromJSON)(json['items']),
+        'items': !(0, runtime_1.exists)(json, 'items') ? undefined : (json['items'].map(PostBillingCheckChargesItemCriteriaType_1.PostBillingCheckChargesItemCriteriaTypeFromJSON)),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
         'revenueDate': !(0, runtime_1.exists)(json, 'revenueDate') ? undefined : (new Date(json['revenueDate'])),
     };
@@ -57,7 +57,7 @@ function PostBillingCheckChargesCriteriaTypeToJSON(value) {
         'checkId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.checkId),
         'checkNumber': value.checkNumber,
         'hotelId': value.hotelId,
-        'items': (0, PostBillingCheckChargesItemsCriteriaType_1.PostBillingCheckChargesItemsCriteriaTypeToJSON)(value.items),
+        'items': value.items === undefined ? undefined : (value.items.map(PostBillingCheckChargesItemCriteriaType_1.PostBillingCheckChargesItemCriteriaTypeToJSON)),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
         'revenueDate': value.revenueDate === undefined ? undefined : (value.revenueDate.toISOString().substring(0, 10)),
     };

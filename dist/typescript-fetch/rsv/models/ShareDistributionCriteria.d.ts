@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ShareDistributionInstructionType } from './ShareDistributionInstructionType';
-import type { ShareReservationsType } from './ShareReservationsType';
+import type { ShareReservationType } from './ShareReservationType';
 /**
  * Extended Reservation object to hold additional instructions along with the reservation. This should be used for updates on the reservation.
  * @export
@@ -25,10 +25,10 @@ export interface ShareDistributionCriteria {
     distributionType?: ShareDistributionInstructionType;
     /**
      *
-     * @type {ShareReservationsType}
+     * @type {Array<ShareReservationType>}
      * @memberof ShareDistributionCriteria
      */
-    shareReservations?: ShareReservationsType;
+    shareReservations?: Array<ShareReservationType>;
 }
 /**
  * Check if a given object implements the ShareDistributionCriteria interface.

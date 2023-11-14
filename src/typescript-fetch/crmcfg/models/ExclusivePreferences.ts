@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ConfigHotelExclusivePreferencesType } from './ConfigHotelExclusivePreferencesType';
+import type { ConfigHotelExclusivePreferenceType } from './ConfigHotelExclusivePreferenceType';
 import {
-    ConfigHotelExclusivePreferencesTypeFromJSON,
-    ConfigHotelExclusivePreferencesTypeFromJSONTyped,
-    ConfigHotelExclusivePreferencesTypeToJSON,
-} from './ConfigHotelExclusivePreferencesType';
-import type { Links } from './Links';
+    ConfigHotelExclusivePreferenceTypeFromJSON,
+    ConfigHotelExclusivePreferenceTypeFromJSONTyped,
+    ConfigHotelExclusivePreferenceTypeToJSON,
+} from './ConfigHotelExclusivePreferenceType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Exclusive preferences at the property level.
@@ -39,23 +39,23 @@ import {
  */
 export interface ExclusivePreferences {
     /**
-     * 
-     * @type {ConfigHotelExclusivePreferencesType}
+     * This gives detailed information about a Exclusive preference at the property level.
+     * @type {Array<ConfigHotelExclusivePreferenceType>}
      * @memberof ExclusivePreferences
      */
-    hotelExclusivePreferences?: ConfigHotelExclusivePreferencesType;
+    hotelExclusivePreferences?: Array<ConfigHotelExclusivePreferenceType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExclusivePreferences
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ExclusivePreferences
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ExclusivePreferencesFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'hotelExclusivePreferences': !exists(json, 'hotelExclusivePreferences') ? undefined : ConfigHotelExclusivePreferencesTypeFromJSON(json['hotelExclusivePreferences']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'hotelExclusivePreferences': !exists(json, 'hotelExclusivePreferences') ? undefined : ((json['hotelExclusivePreferences'] as Array<any>).map(ConfigHotelExclusivePreferenceTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ExclusivePreferencesToJSON(value?: ExclusivePreferences | null):
     }
     return {
         
-        'hotelExclusivePreferences': ConfigHotelExclusivePreferencesTypeToJSON(value.hotelExclusivePreferences),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'hotelExclusivePreferences': value.hotelExclusivePreferences === undefined ? undefined : ((value.hotelExclusivePreferences as Array<any>).map(ConfigHotelExclusivePreferenceTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

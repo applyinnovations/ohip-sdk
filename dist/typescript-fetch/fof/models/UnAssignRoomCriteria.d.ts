@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to the remove a room(unassign) from a reserved reservation.
  * @export
@@ -19,10 +19,10 @@ import type { WarningsType } from './WarningsType';
 export interface UnAssignRoomCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof UnAssignRoomCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Criteria for removing the room from a reservation.
      * @type {boolean}
@@ -36,11 +36,11 @@ export interface UnAssignRoomCriteria {
      */
     overrideRoomOwnership?: boolean;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof UnAssignRoomCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the UnAssignRoomCriteria interface.

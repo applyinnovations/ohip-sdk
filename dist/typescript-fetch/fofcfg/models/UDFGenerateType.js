@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UDFGenerateTypeToJSON = exports.UDFGenerateTypeFromJSONTyped = exports.UDFGenerateTypeFromJSON = exports.instanceOfUDFGenerateType = void 0;
 const runtime_1 = require("../runtime");
-const FunctionArgumentsType_1 = require("./FunctionArgumentsType");
+const FunctionArgumentType_1 = require("./FunctionArgumentType");
 /**
  * Check if a given object implements the UDFGenerateType interface.
  */
@@ -34,7 +34,7 @@ function UDFGenerateTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'uDF': !(0, runtime_1.exists)(json, 'uDF') ? undefined : json['uDF'],
-        'uDFFunctionArguments': !(0, runtime_1.exists)(json, 'uDFFunctionArguments') ? undefined : (0, FunctionArgumentsType_1.FunctionArgumentsTypeFromJSON)(json['uDFFunctionArguments']),
+        'uDFFunctionArguments': !(0, runtime_1.exists)(json, 'uDFFunctionArguments') ? undefined : (json['uDFFunctionArguments'].map(FunctionArgumentType_1.FunctionArgumentTypeFromJSON)),
         'uDFFunctionName': !(0, runtime_1.exists)(json, 'uDFFunctionName') ? undefined : json['uDFFunctionName'],
     };
 }
@@ -48,7 +48,7 @@ function UDFGenerateTypeToJSON(value) {
     }
     return {
         'uDF': value.uDF,
-        'uDFFunctionArguments': (0, FunctionArgumentsType_1.FunctionArgumentsTypeToJSON)(value.uDFFunctionArguments),
+        'uDFFunctionArguments': value.uDFFunctionArguments === undefined ? undefined : (value.uDFFunctionArguments.map(FunctionArgumentType_1.FunctionArgumentTypeToJSON)),
         'uDFFunctionName': value.uDFFunctionName,
     };
 }

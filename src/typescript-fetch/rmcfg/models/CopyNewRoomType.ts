@@ -13,24 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { HousekeepingCreditsType } from './HousekeepingCreditsType';
 import {
     HousekeepingCreditsTypeFromJSON,
     HousekeepingCreditsTypeFromJSONTyped,
     HousekeepingCreditsTypeToJSON,
 } from './HousekeepingCreditsType';
-import type { RoomFeaturesType } from './RoomFeaturesType';
+import type { RoomFeatureType } from './RoomFeatureType';
 import {
-    RoomFeaturesTypeFromJSON,
-    RoomFeaturesTypeFromJSONTyped,
-    RoomFeaturesTypeToJSON,
-} from './RoomFeaturesType';
+    RoomFeatureTypeFromJSON,
+    RoomFeatureTypeFromJSONTyped,
+    RoomFeatureTypeToJSON,
+} from './RoomFeatureType';
 import type { RoomSectionType } from './RoomSectionType';
 import {
     RoomSectionTypeFromJSON,
@@ -46,10 +40,10 @@ import {
 export interface CopyNewRoomType {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyNewRoomType
      */
-    floors?: CodeListType;
+    floors?: Array<string>;
     /**
      * Housekeeping credits of the room. This may include stayover, departure, pickup and turndown credits.
      * @type {Array<HousekeepingCreditsType>}
@@ -57,11 +51,11 @@ export interface CopyNewRoomType {
      */
     housekeepingCredits?: Array<HousekeepingCreditsType>;
     /**
-     * 
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof CopyNewRoomType
      */
-    roomFeatures?: RoomFeaturesType;
+    roomFeatures?: Array<RoomFeatureType>;
     /**
      * Room number of the new room to be created.
      * @type {string}
@@ -95,9 +89,9 @@ export function CopyNewRoomTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'floors': !exists(json, 'floors') ? undefined : CodeListTypeFromJSON(json['floors']),
+        'floors': !exists(json, 'floors') ? undefined : json['floors'],
         'housekeepingCredits': !exists(json, 'housekeepingCredits') ? undefined : ((json['housekeepingCredits'] as Array<any>).map(HousekeepingCreditsTypeFromJSON)),
-        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : RoomFeaturesTypeFromJSON(json['roomFeatures']),
+        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : ((json['roomFeatures'] as Array<any>).map(RoomFeatureTypeFromJSON)),
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'roomSection': !exists(json, 'roomSection') ? undefined : RoomSectionTypeFromJSON(json['roomSection']),
     };
@@ -112,9 +106,9 @@ export function CopyNewRoomTypeToJSON(value?: CopyNewRoomType | null): any {
     }
     return {
         
-        'floors': CodeListTypeToJSON(value.floors),
+        'floors': value.floors,
         'housekeepingCredits': value.housekeepingCredits === undefined ? undefined : ((value.housekeepingCredits as Array<any>).map(HousekeepingCreditsTypeToJSON)),
-        'roomFeatures': RoomFeaturesTypeToJSON(value.roomFeatures),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : ((value.roomFeatures as Array<any>).map(RoomFeatureTypeToJSON)),
         'roomId': value.roomId,
         'roomSection': RoomSectionTypeToJSON(value.roomSection),
     };

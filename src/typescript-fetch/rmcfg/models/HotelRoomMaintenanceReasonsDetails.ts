@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelRoomMaintenanceReasonsType } from './HotelRoomMaintenanceReasonsType';
+import type { HotelRoomMaintenanceReasonType } from './HotelRoomMaintenanceReasonType';
 import {
-    HotelRoomMaintenanceReasonsTypeFromJSON,
-    HotelRoomMaintenanceReasonsTypeFromJSONTyped,
-    HotelRoomMaintenanceReasonsTypeToJSON,
-} from './HotelRoomMaintenanceReasonsType';
-import type { Links } from './Links';
+    HotelRoomMaintenanceReasonTypeFromJSON,
+    HotelRoomMaintenanceReasonTypeFromJSONTyped,
+    HotelRoomMaintenanceReasonTypeToJSON,
+} from './HotelRoomMaintenanceReasonType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching room maintenance reasons for a hotel.
@@ -51,11 +51,11 @@ export interface HotelRoomMaintenanceReasonsDetails {
      */
     hasMore?: boolean;
     /**
-     * 
-     * @type {HotelRoomMaintenanceReasonsType}
+     * Details for room maintenance reason at hotel level.
+     * @type {Array<HotelRoomMaintenanceReasonType>}
      * @memberof HotelRoomMaintenanceReasonsDetails
      */
-    hotelRoomMaintenanceReasons?: HotelRoomMaintenanceReasonsType;
+    hotelRoomMaintenanceReasons?: Array<HotelRoomMaintenanceReasonType>;
     /**
      * Indicates maximum number of records a Web Service should return.
      * @type {number}
@@ -64,10 +64,10 @@ export interface HotelRoomMaintenanceReasonsDetails {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelRoomMaintenanceReasonsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -87,11 +87,11 @@ export interface HotelRoomMaintenanceReasonsDetails {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelRoomMaintenanceReasonsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -115,13 +115,13 @@ export function HotelRoomMaintenanceReasonsDetailsFromJSONTyped(json: any, ignor
         
         'count': !exists(json, 'count') ? undefined : json['count'],
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
-        'hotelRoomMaintenanceReasons': !exists(json, 'hotelRoomMaintenanceReasons') ? undefined : HotelRoomMaintenanceReasonsTypeFromJSON(json['hotelRoomMaintenanceReasons']),
+        'hotelRoomMaintenanceReasons': !exists(json, 'hotelRoomMaintenanceReasons') ? undefined : ((json['hotelRoomMaintenanceReasons'] as Array<any>).map(HotelRoomMaintenanceReasonTypeFromJSON)),
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -136,13 +136,13 @@ export function HotelRoomMaintenanceReasonsDetailsToJSON(value?: HotelRoomMainte
         
         'count': value.count,
         'hasMore': value.hasMore,
-        'hotelRoomMaintenanceReasons': HotelRoomMaintenanceReasonsTypeToJSON(value.hotelRoomMaintenanceReasons),
+        'hotelRoomMaintenanceReasons': value.hotelRoomMaintenanceReasons === undefined ? undefined : ((value.hotelRoomMaintenanceReasons as Array<any>).map(HotelRoomMaintenanceReasonTypeToJSON)),
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

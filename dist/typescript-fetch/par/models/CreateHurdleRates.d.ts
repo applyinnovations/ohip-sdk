@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HurdleRatesType } from './HurdleRatesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HurdleRateType } from './HurdleRateType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new Hurdle Rates.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CreateHurdleRates {
     /**
-     *
-     * @type {HurdleRatesType}
+     * Details for hurdle rate.
+     * @type {Array<HurdleRateType>}
      * @memberof CreateHurdleRates
      */
-    hurdleRates?: HurdleRatesType;
+    hurdleRates?: Array<HurdleRateType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreateHurdleRates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateHurdleRates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreateHurdleRates interface.

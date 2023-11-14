@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ConfigHotelPreferencesType } from './ConfigHotelPreferencesType';
+import type { ConfigHotelPreferenceType } from './ConfigHotelPreferenceType';
 import {
-    ConfigHotelPreferencesTypeFromJSON,
-    ConfigHotelPreferencesTypeFromJSONTyped,
-    ConfigHotelPreferencesTypeToJSON,
-} from './ConfigHotelPreferencesType';
-import type { Links } from './Links';
+    ConfigHotelPreferenceTypeFromJSON,
+    ConfigHotelPreferenceTypeFromJSONTyped,
+    ConfigHotelPreferenceTypeToJSON,
+} from './ConfigHotelPreferenceType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching preferences at the property level.
@@ -39,23 +39,23 @@ import {
  */
 export interface HotelPreferences {
     /**
-     * 
-     * @type {ConfigHotelPreferencesType}
+     * This type holds a collection of preferences at the property level.
+     * @type {Array<ConfigHotelPreferenceType>}
      * @memberof HotelPreferences
      */
-    hotelPreferences?: ConfigHotelPreferencesType;
+    hotelPreferences?: Array<ConfigHotelPreferenceType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelPreferences
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelPreferences
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function HotelPreferencesFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'hotelPreferences': !exists(json, 'hotelPreferences') ? undefined : ConfigHotelPreferencesTypeFromJSON(json['hotelPreferences']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'hotelPreferences': !exists(json, 'hotelPreferences') ? undefined : ((json['hotelPreferences'] as Array<any>).map(ConfigHotelPreferenceTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function HotelPreferencesToJSON(value?: HotelPreferences | null): any {
     }
     return {
         
-        'hotelPreferences': ConfigHotelPreferencesTypeToJSON(value.hotelPreferences),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'hotelPreferences': value.hotelPreferences === undefined ? undefined : ((value.hotelPreferences as Array<any>).map(ConfigHotelPreferenceTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

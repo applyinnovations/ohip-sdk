@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ActivityList } from './ActivityList';
+import type { ActivityListInner } from './ActivityListInner';
 /**
  * Generic self-contained response object that is used when inserting/ updating/ canceling activities.
  * @export
@@ -17,11 +17,11 @@ import type { ActivityList } from './ActivityList';
  */
 export interface ActivityBookingRSType {
     /**
-     *
-     * @type {ActivityList}
+     * A collection of Activity objects.
+     * @type {Array<ActivityListInner>}
      * @memberof ActivityBookingRSType
      */
-    activities?: ActivityList;
+    activities?: Array<ActivityListInner>;
 }
 /**
  * Check if a given object implements the ActivityBookingRSType interface.

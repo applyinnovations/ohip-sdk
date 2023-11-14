@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MailingActionCodesType } from './MailingActionCodesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MailingActionCodeType } from './MailingActionCodeType';
 import {
-    MailingActionCodesTypeFromJSON,
-    MailingActionCodesTypeFromJSONTyped,
-    MailingActionCodesTypeToJSON,
-} from './MailingActionCodesType';
-import type { WarningsType } from './WarningsType';
+    MailingActionCodeTypeFromJSON,
+    MailingActionCodeTypeFromJSONTyped,
+    MailingActionCodeTypeToJSON,
+} from './MailingActionCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Mailing Action Codes.
@@ -40,22 +40,22 @@ import {
 export interface MailingActionCodesCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MailingActionCodesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MailingActionCodesType}
+     * List of Mailing Action Codes.
+     * @type {Array<MailingActionCodeType>}
      * @memberof MailingActionCodesCriteria
      */
-    mailingActionCodes?: MailingActionCodesType;
+    mailingActionCodes?: Array<MailingActionCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MailingActionCodesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MailingActionCodesCriteriaFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'mailingActionCodes': !exists(json, 'mailingActionCodes') ? undefined : MailingActionCodesTypeFromJSON(json['mailingActionCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'mailingActionCodes': !exists(json, 'mailingActionCodes') ? undefined : ((json['mailingActionCodes'] as Array<any>).map(MailingActionCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MailingActionCodesCriteriaToJSON(value?: MailingActionCodesCrite
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'mailingActionCodes': MailingActionCodesTypeToJSON(value.mailingActionCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'mailingActionCodes': value.mailingActionCodes === undefined ? undefined : ((value.mailingActionCodes as Array<any>).map(MailingActionCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

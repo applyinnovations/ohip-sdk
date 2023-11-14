@@ -17,7 +17,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* tslint:disable */
 /* eslint-disable */
 __exportStar(require("./BlockActualRevenueType"), exports);
-__exportStar(require("./BlockAllocationSummary"), exports);
 __exportStar(require("./BlockAllocationSummaryType"), exports);
 __exportStar(require("./BlockGridInvType"), exports);
 __exportStar(require("./BlockGridRatesType"), exports);
@@ -26,6 +25,5 @@ __exportStar(require("./Criteria"), exports);
 __exportStar(require("./ErrorInstance"), exports);
 __exportStar(require("./ExceptionDetailType"), exports);
 __exportStar(require("./InstanceLink"), exports);
-__exportStar(require("./Links"), exports);
 __exportStar(require("./RoomAllocationDateType"), exports);
 __exportStar(require("./RoomAllocationDetailsType"), exports);

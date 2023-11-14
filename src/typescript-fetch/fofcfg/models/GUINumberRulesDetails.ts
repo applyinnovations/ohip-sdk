@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { GUINumberRules } from './GUINumberRules';
+import type { GUINumberRule } from './GUINumberRule';
 import {
-    GUINumberRulesFromJSON,
-    GUINumberRulesFromJSONTyped,
-    GUINumberRulesToJSON,
-} from './GUINumberRules';
-import type { Links } from './Links';
+    GUINumberRuleFromJSON,
+    GUINumberRuleFromJSONTyped,
+    GUINumberRuleToJSON,
+} from './GUINumberRule';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface GUINumberRulesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GUINumberRulesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {GUINumberRules}
+     * List of GUI number rules
+     * @type {Array<GUINumberRule>}
      * @memberof GUINumberRulesDetails
      */
-    rules?: GUINumberRules;
+    rules?: Array<GUINumberRule>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GUINumberRulesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function GUINumberRulesDetailsFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'rules': !exists(json, 'rules') ? undefined : GUINumberRulesFromJSON(json['rules']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'rules': !exists(json, 'rules') ? undefined : ((json['rules'] as Array<any>).map(GUINumberRuleFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function GUINumberRulesDetailsToJSON(value?: GUINumberRulesDetails | null
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'rules': GUINumberRulesToJSON(value.rules),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'rules': value.rules === undefined ? undefined : ((value.rules as Array<any>).map(GUINumberRuleToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

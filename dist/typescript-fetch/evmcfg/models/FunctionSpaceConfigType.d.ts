@@ -10,8 +10,7 @@
  * Do not edit the class manually.
  */
 import type { BaseFunctionSpaceRateType } from './BaseFunctionSpaceRateType';
-import type { CodeListType } from './CodeListType';
-import type { ComboRoomsType } from './ComboRoomsType';
+import type { ComboElementRoomType } from './ComboElementRoomType';
 import type { FunctionSpaceAlternateType } from './FunctionSpaceAlternateType';
 import type { FunctionSpaceConfigTypeSetupStylesInner } from './FunctionSpaceConfigTypeSetupStylesInner';
 import type { FunctionSpaceDimensionType } from './FunctionSpaceDimensionType';
@@ -43,16 +42,16 @@ export interface FunctionSpaceConfigType {
     combo?: boolean;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof FunctionSpaceConfigType
      */
-    comboElements?: CodeListType;
+    comboElements?: Array<string>;
     /**
-     *
-     * @type {ComboRoomsType}
+     * This type holds a collection of combo elements for a function space.
+     * @type {Array<ComboElementRoomType>}
      * @memberof FunctionSpaceConfigType
      */
-    comboRooms?: ComboRoomsType;
+    comboRooms?: Array<ComboElementRoomType>;
     /**
      *
      * @type {TranslationTextType2000}

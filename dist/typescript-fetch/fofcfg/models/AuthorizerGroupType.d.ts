@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AuthorizerTrxLimitsType } from './AuthorizerTrxLimitsType';
+import type { AuthorizerTrxLimitType } from './AuthorizerTrxLimitType';
 /**
  * A representation of the information contained by a Authorizer Group.
  * @export
@@ -41,11 +41,11 @@ export interface AuthorizerGroupType {
      */
     rateCode?: string;
     /**
-     *
-     * @type {AuthorizerTrxLimitsType}
+     * Set of Transaction Limit configured for the Authorizer Group.
+     * @type {Array<AuthorizerTrxLimitType>}
      * @memberof AuthorizerGroupType
      */
-    transactionLimits?: AuthorizerTrxLimitsType;
+    transactionLimits?: Array<AuthorizerTrxLimitType>;
 }
 /**
  * Check if a given object implements the AuthorizerGroupType interface.

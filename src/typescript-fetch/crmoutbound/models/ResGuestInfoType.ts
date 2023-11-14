@@ -49,12 +49,12 @@ import {
     NameTypeTypeFromJSONTyped,
     NameTypeTypeToJSON,
 } from './NameTypeType';
-import type { ResAccompanyGuestListType } from './ResAccompanyGuestListType';
+import type { ResAccompanyGuestInfoType } from './ResAccompanyGuestInfoType';
 import {
-    ResAccompanyGuestListTypeFromJSON,
-    ResAccompanyGuestListTypeFromJSONTyped,
-    ResAccompanyGuestListTypeToJSON,
-} from './ResAccompanyGuestListType';
+    ResAccompanyGuestInfoTypeFromJSON,
+    ResAccompanyGuestInfoTypeFromJSONTyped,
+    ResAccompanyGuestInfoTypeToJSON,
+} from './ResAccompanyGuestInfoType';
 import type { ResGuestExternalInfoType } from './ResGuestExternalInfoType';
 import {
     ResGuestExternalInfoTypeFromJSON,
@@ -195,11 +195,11 @@ export interface ResGuestInfoType {
      */
     anonymization?: AnonymizationType;
     /**
-     * 
-     * @type {ResAccompanyGuestListType}
+     * Collection of accompany guests
+     * @type {Array<ResAccompanyGuestInfoType>}
      * @memberof ResGuestInfoType
      */
-    accompanyGuests?: ResAccompanyGuestListType;
+    accompanyGuests?: Array<ResAccompanyGuestInfoType>;
     /**
      * 
      * @type {ResGuestExternalInfoType}
@@ -295,7 +295,7 @@ export function ResGuestInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'vip': !exists(json, 'vip') ? undefined : VIPTypeFromJSON(json['vip']),
         'address': !exists(json, 'address') ? undefined : AddressSearchTypeFromJSON(json['address']),
         'anonymization': !exists(json, 'anonymization') ? undefined : AnonymizationTypeFromJSON(json['anonymization']),
-        'accompanyGuests': !exists(json, 'accompanyGuests') ? undefined : ResAccompanyGuestListTypeFromJSON(json['accompanyGuests']),
+        'accompanyGuests': !exists(json, 'accompanyGuests') ? undefined : ((json['accompanyGuests'] as Array<any>).map(ResAccompanyGuestInfoTypeFromJSON)),
         'externalInfo': !exists(json, 'externalInfo') ? undefined : ResGuestExternalInfoTypeFromJSON(json['externalInfo']),
         'guestLastStayInfo': !exists(json, 'guestLastStayInfo') ? undefined : GuestLastStayInfoTypeFromJSON(json['guestLastStayInfo']),
         'guestRestrictedCode': !exists(json, 'guestRestrictedCode') ? undefined : json['guestRestrictedCode'],
@@ -337,7 +337,7 @@ export function ResGuestInfoTypeToJSON(value?: ResGuestInfoType | null): any {
         'vip': VIPTypeToJSON(value.vip),
         'address': AddressSearchTypeToJSON(value.address),
         'anonymization': AnonymizationTypeToJSON(value.anonymization),
-        'accompanyGuests': ResAccompanyGuestListTypeToJSON(value.accompanyGuests),
+        'accompanyGuests': value.accompanyGuests === undefined ? undefined : ((value.accompanyGuests as Array<any>).map(ResAccompanyGuestInfoTypeToJSON)),
         'externalInfo': ResGuestExternalInfoTypeToJSON(value.externalInfo),
         'guestLastStayInfo': GuestLastStayInfoTypeToJSON(value.guestLastStayInfo),
         'guestRestrictedCode': value.guestRestrictedCode,

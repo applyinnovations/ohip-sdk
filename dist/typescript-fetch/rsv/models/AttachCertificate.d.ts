@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AwardsType } from './AwardsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AwardType } from './AwardType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to attach certificate to the Reservation.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AttachCertificate {
     /**
-     *
-     * @type {AwardsType}
+     * List of awards.
+     * @type {Array<AwardType>}
      * @memberof AttachCertificate
      */
-    awards?: AwardsType;
+    awards?: Array<AwardType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AttachCertificate
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AttachCertificate
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AttachCertificate interface.

@@ -16,8 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConfigHousekeepingRoomScheduleTypeToJSON = exports.ConfigHousekeepingRoomScheduleTypeFromJSONTyped = exports.ConfigHousekeepingRoomScheduleTypeFromJSON = exports.instanceOfConfigHousekeepingRoomScheduleType = void 0;
 const runtime_1 = require("../runtime");
 const CodeDescriptionType_1 = require("./CodeDescriptionType");
-const CodeListType_1 = require("./CodeListType");
-const ConfigHousekeepingRoomScheduleTaskSuppliesType_1 = require("./ConfigHousekeepingRoomScheduleTaskSuppliesType");
+const ConfigHousekeepingRoomScheduleTaskSupplyType_1 = require("./ConfigHousekeepingRoomScheduleTaskSupplyType");
 const FrequencyTypeType_1 = require("./FrequencyTypeType");
 const TimeSpanDaysOfWeekType_1 = require("./TimeSpanDaysOfWeekType");
 /**
@@ -48,15 +47,15 @@ function ConfigHousekeepingRoomScheduleTypeFromJSONTyped(json, ignoreDiscriminat
         'frequencyDays': !(0, runtime_1.exists)(json, 'frequencyDays') ? undefined : json['frequencyDays'],
         'guestRequested': !(0, runtime_1.exists)(json, 'guestRequested') ? undefined : json['guestRequested'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'marketCodes': !(0, runtime_1.exists)(json, 'marketCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['marketCodes']),
+        'marketCodes': !(0, runtime_1.exists)(json, 'marketCodes') ? undefined : json['marketCodes'],
         'moveup': !(0, runtime_1.exists)(json, 'moveup') ? undefined : json['moveup'],
         'priority': !(0, runtime_1.exists)(json, 'priority') ? undefined : json['priority'],
-        'rateCodes': !(0, runtime_1.exists)(json, 'rateCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['rateCodes']),
+        'rateCodes': !(0, runtime_1.exists)(json, 'rateCodes') ? undefined : json['rateCodes'],
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['roomType']),
         'sequence': !(0, runtime_1.exists)(json, 'sequence') ? undefined : json['sequence'],
-        'specialRequests': !(0, runtime_1.exists)(json, 'specialRequests') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['specialRequests']),
-        'taskSupplies': !(0, runtime_1.exists)(json, 'taskSupplies') ? undefined : (0, ConfigHousekeepingRoomScheduleTaskSuppliesType_1.ConfigHousekeepingRoomScheduleTaskSuppliesTypeFromJSON)(json['taskSupplies']),
-        'vIPStatuses': !(0, runtime_1.exists)(json, 'vIPStatuses') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['vIPStatuses']),
+        'specialRequests': !(0, runtime_1.exists)(json, 'specialRequests') ? undefined : json['specialRequests'],
+        'taskSupplies': !(0, runtime_1.exists)(json, 'taskSupplies') ? undefined : (json['taskSupplies'].map(ConfigHousekeepingRoomScheduleTaskSupplyType_1.ConfigHousekeepingRoomScheduleTaskSupplyTypeFromJSON)),
+        'vIPStatuses': !(0, runtime_1.exists)(json, 'vIPStatuses') ? undefined : json['vIPStatuses'],
     };
 }
 exports.ConfigHousekeepingRoomScheduleTypeFromJSONTyped = ConfigHousekeepingRoomScheduleTypeFromJSONTyped;
@@ -79,15 +78,15 @@ function ConfigHousekeepingRoomScheduleTypeToJSON(value) {
         'frequencyDays': value.frequencyDays,
         'guestRequested': value.guestRequested,
         'hotelId': value.hotelId,
-        'marketCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.marketCodes),
+        'marketCodes': value.marketCodes,
         'moveup': value.moveup,
         'priority': value.priority,
-        'rateCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.rateCodes),
+        'rateCodes': value.rateCodes,
         'roomType': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.roomType),
         'sequence': value.sequence,
-        'specialRequests': (0, CodeListType_1.CodeListTypeToJSON)(value.specialRequests),
-        'taskSupplies': (0, ConfigHousekeepingRoomScheduleTaskSuppliesType_1.ConfigHousekeepingRoomScheduleTaskSuppliesTypeToJSON)(value.taskSupplies),
-        'vIPStatuses': (0, CodeListType_1.CodeListTypeToJSON)(value.vIPStatuses),
+        'specialRequests': value.specialRequests,
+        'taskSupplies': value.taskSupplies === undefined ? undefined : (value.taskSupplies.map(ConfigHousekeepingRoomScheduleTaskSupplyType_1.ConfigHousekeepingRoomScheduleTaskSupplyTypeToJSON)),
+        'vIPStatuses': value.vIPStatuses,
     };
 }
 exports.ConfigHousekeepingRoomScheduleTypeToJSON = ConfigHousekeepingRoomScheduleTypeToJSON;

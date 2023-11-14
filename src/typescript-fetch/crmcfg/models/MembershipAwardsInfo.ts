@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipAwardsType } from './MembershipAwardsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipAwardType } from './MembershipAwardType';
 import {
-    MembershipAwardsTypeFromJSON,
-    MembershipAwardsTypeFromJSONTyped,
-    MembershipAwardsTypeToJSON,
-} from './MembershipAwardsType';
-import type { WarningsType } from './WarningsType';
+    MembershipAwardTypeFromJSON,
+    MembershipAwardTypeFromJSONTyped,
+    MembershipAwardTypeToJSON,
+} from './MembershipAwardType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response to fetch Membership Awards.
@@ -40,22 +40,22 @@ import {
 export interface MembershipAwardsInfo {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipAwardsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MembershipAwardsType}
+     * Membership Award details.
+     * @type {Array<MembershipAwardType>}
      * @memberof MembershipAwardsInfo
      */
-    membershipAwards?: MembershipAwardsType;
+    membershipAwards?: Array<MembershipAwardType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipAwardsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MembershipAwardsInfoFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'membershipAwards': !exists(json, 'membershipAwards') ? undefined : MembershipAwardsTypeFromJSON(json['membershipAwards']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'membershipAwards': !exists(json, 'membershipAwards') ? undefined : ((json['membershipAwards'] as Array<any>).map(MembershipAwardTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MembershipAwardsInfoToJSON(value?: MembershipAwardsInfo | null):
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'membershipAwards': MembershipAwardsTypeToJSON(value.membershipAwards),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'membershipAwards': value.membershipAwards === undefined ? undefined : ((value.membershipAwards as Array<any>).map(MembershipAwardTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

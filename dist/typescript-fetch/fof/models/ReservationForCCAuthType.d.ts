@@ -11,7 +11,7 @@
  */
 import type { HousekeepingRoomReservationStatusType } from './HousekeepingRoomReservationStatusType';
 import type { ReservationId } from './ReservationId';
-import type { ReservationPaymentMethodsType } from './ReservationPaymentMethodsType';
+import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
 import type { StayDateInfoType } from './StayDateInfoType';
 import type { UniqueIDType } from './UniqueIDType';
 import type { VIPStatusType } from './VIPStatusType';
@@ -34,11 +34,11 @@ export interface ReservationForCCAuthType {
      */
     guestName?: string;
     /**
-     *
-     * @type {ReservationPaymentMethodsType}
+     * Defines reservation payment methods.
+     * @type {Array<ReservationPaymentMethodType>}
      * @memberof ReservationForCCAuthType
      */
-    paymentMethods?: ReservationPaymentMethodsType;
+    paymentMethods?: Array<ReservationPaymentMethodType>;
     /**
      *
      * @type {UniqueIDType}

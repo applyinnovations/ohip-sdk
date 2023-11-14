@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { KeyTrackType } from './KeyTrackType';
 import {
     KeyTrackTypeFromJSON,
@@ -46,10 +40,10 @@ import {
 export interface RoomKeyInfoType {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof RoomKeyInfoType
      */
-    additionalRooms?: CodeListType;
+    additionalRooms?: Array<string>;
     /**
      * 
      * @type {RoomKeyGuest}
@@ -76,10 +70,10 @@ export interface RoomKeyInfoType {
     keyExpiryDate?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof RoomKeyInfoType
      */
-    keyOptions?: CodeListType;
+    keyOptions?: Array<string>;
     /**
      * Start date and time of the key.
      * @type {string}
@@ -125,12 +119,12 @@ export function RoomKeyInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'additionalRooms': !exists(json, 'additionalRooms') ? undefined : CodeListTypeFromJSON(json['additionalRooms']),
+        'additionalRooms': !exists(json, 'additionalRooms') ? undefined : json['additionalRooms'],
         'guestInfo': !exists(json, 'guestInfo') ? undefined : RoomKeyGuestFromJSON(json['guestInfo']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'keyCount': !exists(json, 'keyCount') ? undefined : json['keyCount'],
         'keyExpiryDate': !exists(json, 'keyExpiryDate') ? undefined : json['keyExpiryDate'],
-        'keyOptions': !exists(json, 'keyOptions') ? undefined : CodeListTypeFromJSON(json['keyOptions']),
+        'keyOptions': !exists(json, 'keyOptions') ? undefined : json['keyOptions'],
         'keyStartDate': !exists(json, 'keyStartDate') ? undefined : json['keyStartDate'],
         'keyTrack': !exists(json, 'keyTrack') ? undefined : KeyTrackTypeFromJSON(json['keyTrack']),
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
@@ -147,12 +141,12 @@ export function RoomKeyInfoTypeToJSON(value?: RoomKeyInfoType | null): any {
     }
     return {
         
-        'additionalRooms': CodeListTypeToJSON(value.additionalRooms),
+        'additionalRooms': value.additionalRooms,
         'guestInfo': RoomKeyGuestToJSON(value.guestInfo),
         'hotelId': value.hotelId,
         'keyCount': value.keyCount,
         'keyExpiryDate': value.keyExpiryDate,
-        'keyOptions': CodeListTypeToJSON(value.keyOptions),
+        'keyOptions': value.keyOptions,
         'keyStartDate': value.keyStartDate,
         'keyTrack': KeyTrackTypeToJSON(value.keyTrack),
         'reservationId': ReservationIdToJSON(value.reservationId),

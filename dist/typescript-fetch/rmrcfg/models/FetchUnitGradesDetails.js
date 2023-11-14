@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FetchUnitGradesDetailsToJSON = exports.FetchUnitGradesDetailsFromJSONTyped = exports.FetchUnitGradesDetailsFromJSON = exports.instanceOfFetchUnitGradesDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RoomRotationUnitGradesType_1 = require("./RoomRotationUnitGradesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RoomRotationUnitGradeType_1 = require("./RoomRotationUnitGradeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FetchUnitGradesDetails interface.
  */
@@ -35,9 +35,9 @@ function FetchUnitGradesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'unitGrades': !(0, runtime_1.exists)(json, 'unitGrades') ? undefined : (0, RoomRotationUnitGradesType_1.RoomRotationUnitGradesTypeFromJSON)(json['unitGrades']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'unitGrades': !(0, runtime_1.exists)(json, 'unitGrades') ? undefined : (json['unitGrades'].map(RoomRotationUnitGradeType_1.RoomRotationUnitGradeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FetchUnitGradesDetailsFromJSONTyped = FetchUnitGradesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function FetchUnitGradesDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'unitGrades': (0, RoomRotationUnitGradesType_1.RoomRotationUnitGradesTypeToJSON)(value.unitGrades),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'unitGrades': value.unitGrades === undefined ? undefined : (value.unitGrades.map(RoomRotationUnitGradeType_1.RoomRotationUnitGradeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FetchUnitGradesDetailsToJSON = FetchUnitGradesDetailsToJSON;

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TransportationTemplatesDetailsToJSON = exports.TransportationTemplatesDetailsFromJSONTyped = exports.TransportationTemplatesDetailsFromJSON = exports.instanceOfTransportationTemplatesDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TransportationTemplatesType_1 = require("./TransportationTemplatesType");
-const WarningsType_1 = require("./WarningsType");
+const HotelTransportationType_1 = require("./HotelTransportationType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TransportationTemplatesDetails interface.
  */
@@ -35,9 +35,9 @@ function TransportationTemplatesDetailsFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'transportationTemplates': !(0, runtime_1.exists)(json, 'transportationTemplates') ? undefined : (0, TransportationTemplatesType_1.TransportationTemplatesTypeFromJSON)(json['transportationTemplates']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'transportationTemplates': !(0, runtime_1.exists)(json, 'transportationTemplates') ? undefined : (json['transportationTemplates'].map(HotelTransportationType_1.HotelTransportationTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TransportationTemplatesDetailsFromJSONTyped = TransportationTemplatesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function TransportationTemplatesDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'transportationTemplates': (0, TransportationTemplatesType_1.TransportationTemplatesTypeToJSON)(value.transportationTemplates),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'transportationTemplates': value.transportationTemplates === undefined ? undefined : (value.transportationTemplates.map(HotelTransportationType_1.HotelTransportationTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TransportationTemplatesDetailsToJSON = TransportationTemplatesDetailsToJSON;

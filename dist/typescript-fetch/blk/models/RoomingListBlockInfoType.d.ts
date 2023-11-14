@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockIdList } from './BlockIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Block Information for create rooming list operation.
  * @export
@@ -17,11 +17,11 @@ import type { BlockIdList } from './BlockIdList';
  */
 export interface RoomingListBlockInfoType {
     /**
-     *
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RoomingListBlockInfoType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * Hotel code for the block
      * @type {string}

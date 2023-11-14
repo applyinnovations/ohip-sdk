@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StagedProfilesToJSON = exports.StagedProfilesFromJSONTyped = exports.StagedProfilesFromJSON = exports.instanceOfStagedProfiles = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const StagedProfileSummariesType_1 = require("./StagedProfileSummariesType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the StagedProfiles interface.
  */
@@ -35,9 +35,9 @@ function StagedProfilesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'stagedProfiles': !(0, runtime_1.exists)(json, 'stagedProfiles') ? undefined : (0, StagedProfileSummariesType_1.StagedProfileSummariesTypeFromJSON)(json['stagedProfiles']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.StagedProfilesFromJSONTyped = StagedProfilesFromJSONTyped;
@@ -49,9 +49,9 @@ function StagedProfilesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'stagedProfiles': (0, StagedProfileSummariesType_1.StagedProfileSummariesTypeToJSON)(value.stagedProfiles),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.StagedProfilesToJSON = StagedProfilesToJSON;

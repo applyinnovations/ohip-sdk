@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CommunicationTypesType } from './CommunicationTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CommunicationTypeType } from './CommunicationTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Communication Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CommunicationTypesDetails {
     /**
-     *
-     * @type {CommunicationTypesType}
+     * Communication Type details.
+     * @type {Array<CommunicationTypeType>}
      * @memberof CommunicationTypesDetails
      */
-    communicationTypes?: CommunicationTypesType;
+    communicationTypes?: Array<CommunicationTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CommunicationTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CommunicationTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CommunicationTypesDetails interface.

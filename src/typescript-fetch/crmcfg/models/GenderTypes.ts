@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { GenderTypesType } from './GenderTypesType';
+import type { GenderType } from './GenderType';
 import {
-    GenderTypesTypeFromJSON,
-    GenderTypesTypeFromJSONTyped,
-    GenderTypesTypeToJSON,
-} from './GenderTypesType';
-import type { Links } from './Links';
+    GenderTypeFromJSON,
+    GenderTypeFromJSONTyped,
+    GenderTypeToJSON,
+} from './GenderType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Gender Types.
@@ -39,23 +39,23 @@ import {
  */
 export interface GenderTypes {
     /**
-     * 
-     * @type {GenderTypesType}
+     * List of Gender Type.
+     * @type {Array<GenderType>}
      * @memberof GenderTypes
      */
-    genderTypes?: GenderTypesType;
+    genderTypes?: Array<GenderType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GenderTypes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GenderTypes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function GenderTypesFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'genderTypes': !exists(json, 'genderTypes') ? undefined : GenderTypesTypeFromJSON(json['genderTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'genderTypes': !exists(json, 'genderTypes') ? undefined : ((json['genderTypes'] as Array<any>).map(GenderTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function GenderTypesToJSON(value?: GenderTypes | null): any {
     }
     return {
         
-        'genderTypes': GenderTypesTypeToJSON(value.genderTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'genderTypes': value.genderTypes === undefined ? undefined : ((value.genderTypes as Array<any>).map(GenderTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

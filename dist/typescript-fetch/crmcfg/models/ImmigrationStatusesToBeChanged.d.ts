@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ImmigrationStatusesType } from './ImmigrationStatusesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ImmigrationStatusType } from './ImmigrationStatusType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Immigration Statuses.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ImmigrationStatusesToBeChanged {
     /**
-     *
-     * @type {ImmigrationStatusesType}
+     * List of Immigration Statuses.
+     * @type {Array<ImmigrationStatusType>}
      * @memberof ImmigrationStatusesToBeChanged
      */
-    immigrationStatuses?: ImmigrationStatusesType;
+    immigrationStatuses?: Array<ImmigrationStatusType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ImmigrationStatusesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ImmigrationStatusesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ImmigrationStatusesToBeChanged interface.

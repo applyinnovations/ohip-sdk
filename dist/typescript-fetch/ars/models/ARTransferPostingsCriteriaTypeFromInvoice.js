@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ARTransferPostingsCriteriaTypeFromInvoiceToJSON = exports.ARTransferPostingsCriteriaTypeFromInvoiceFromJSONTyped = exports.ARTransferPostingsCriteriaTypeFromInvoiceFromJSON = exports.instanceOfARTransferPostingsCriteriaTypeFromInvoice = void 0;
 const runtime_1 = require("../runtime");
 const ARInvoiceCriteriaType_1 = require("./ARInvoiceCriteriaType");
-const ARInvoicePostingsType_1 = require("./ARInvoicePostingsType");
+const ARInvoicePostingType_1 = require("./ARInvoicePostingType");
 /**
  * Check if a given object implements the ARTransferPostingsCriteriaTypeFromInvoice interface.
  */
@@ -35,7 +35,7 @@ function ARTransferPostingsCriteriaTypeFromInvoiceFromJSONTyped(json, ignoreDisc
     }
     return {
         'invoice': !(0, runtime_1.exists)(json, 'invoice') ? undefined : (0, ARInvoiceCriteriaType_1.ARInvoiceCriteriaTypeFromJSON)(json['invoice']),
-        'invoicePostings': !(0, runtime_1.exists)(json, 'invoicePostings') ? undefined : (0, ARInvoicePostingsType_1.ARInvoicePostingsTypeFromJSON)(json['invoicePostings']),
+        'invoicePostings': !(0, runtime_1.exists)(json, 'invoicePostings') ? undefined : (json['invoicePostings'].map(ARInvoicePostingType_1.ARInvoicePostingTypeFromJSON)),
     };
 }
 exports.ARTransferPostingsCriteriaTypeFromInvoiceFromJSONTyped = ARTransferPostingsCriteriaTypeFromInvoiceFromJSONTyped;
@@ -48,7 +48,7 @@ function ARTransferPostingsCriteriaTypeFromInvoiceToJSON(value) {
     }
     return {
         'invoice': (0, ARInvoiceCriteriaType_1.ARInvoiceCriteriaTypeToJSON)(value.invoice),
-        'invoicePostings': (0, ARInvoicePostingsType_1.ARInvoicePostingsTypeToJSON)(value.invoicePostings),
+        'invoicePostings': value.invoicePostings === undefined ? undefined : (value.invoicePostings.map(ARInvoicePostingType_1.ARInvoicePostingTypeToJSON)),
     };
 }
 exports.ARTransferPostingsCriteriaTypeFromInvoiceToJSON = ARTransferPostingsCriteriaTypeFromInvoiceToJSON;

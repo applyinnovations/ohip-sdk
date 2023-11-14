@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DatabaseIDListType } from './DatabaseIDListType';
 import type { ProfileId } from './ProfileId';
 /**
  * Criteria for searching profile subscriptions.
@@ -18,11 +17,11 @@ import type { ProfileId } from './ProfileId';
  */
 export interface SynchronizeProfileSubscriptionsCriteriaType {
     /**
-     *
-     * @type {DatabaseIDListType}
+     * Code identifying the external database record which is linked to external systems.
+     * @type {Array<string>}
      * @memberof SynchronizeProfileSubscriptionsCriteriaType
      */
-    databaseIds?: DatabaseIDListType;
+    databaseIds?: Array<string>;
     /**
      *
      * @type {ProfileId}

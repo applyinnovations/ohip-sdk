@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ECertificateGenerationToJSON = exports.ECertificateGenerationFromJSONTyped = exports.ECertificateGenerationFromJSON = exports.instanceOfECertificateGeneration = void 0;
 const runtime_1 = require("../runtime");
 const ECertificateGenerationDetailsType_1 = require("./ECertificateGenerationDetailsType");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 /**
  * Check if a given object implements the ECertificateGeneration interface.
  */
@@ -35,7 +35,7 @@ function ECertificateGenerationFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'eCertificateGenerationDetails': !(0, runtime_1.exists)(json, 'eCertificateGenerationDetails') ? undefined : (0, ECertificateGenerationDetailsType_1.ECertificateGenerationDetailsTypeFromJSON)(json['eCertificateGenerationDetails']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.ECertificateGenerationFromJSONTyped = ECertificateGenerationFromJSONTyped;
@@ -48,7 +48,7 @@ function ECertificateGenerationToJSON(value) {
     }
     return {
         'eCertificateGenerationDetails': (0, ECertificateGenerationDetailsType_1.ECertificateGenerationDetailsTypeToJSON)(value.eCertificateGenerationDetails),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.ECertificateGenerationToJSON = ECertificateGenerationToJSON;

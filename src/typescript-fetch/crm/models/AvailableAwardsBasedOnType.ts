@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipAwardsAvailabilityType } from './MembershipAwardsAvailabilityType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipAwardAvailabilityType } from './MembershipAwardAvailabilityType';
 import {
-    MembershipAwardsAvailabilityTypeFromJSON,
-    MembershipAwardsAvailabilityTypeFromJSONTyped,
-    MembershipAwardsAvailabilityTypeToJSON,
-} from './MembershipAwardsAvailabilityType';
-import type { WarningsType } from './WarningsType';
+    MembershipAwardAvailabilityTypeFromJSON,
+    MembershipAwardAvailabilityTypeFromJSONTyped,
+    MembershipAwardAvailabilityTypeToJSON,
+} from './MembershipAwardAvailabilityType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object to fetch member available awards based on the type being passed.
@@ -40,22 +40,22 @@ import {
 export interface AvailableAwardsBasedOnType {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AvailableAwardsBasedOnType
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MembershipAwardsAvailabilityType}
+     * List of available awards information.
+     * @type {Array<MembershipAwardAvailabilityType>}
      * @memberof AvailableAwardsBasedOnType
      */
-    membershipAvailableAwards?: MembershipAwardsAvailabilityType;
+    membershipAvailableAwards?: Array<MembershipAwardAvailabilityType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AvailableAwardsBasedOnType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function AvailableAwardsBasedOnTypeFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'membershipAvailableAwards': !exists(json, 'membershipAvailableAwards') ? undefined : MembershipAwardsAvailabilityTypeFromJSON(json['membershipAvailableAwards']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'membershipAvailableAwards': !exists(json, 'membershipAvailableAwards') ? undefined : ((json['membershipAvailableAwards'] as Array<any>).map(MembershipAwardAvailabilityTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function AvailableAwardsBasedOnTypeToJSON(value?: AvailableAwardsBasedOnT
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'membershipAvailableAwards': MembershipAwardsAvailabilityTypeToJSON(value.membershipAvailableAwards),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'membershipAvailableAwards': value.membershipAvailableAwards === undefined ? undefined : ((value.membershipAvailableAwards as Array<any>).map(MembershipAwardAvailabilityTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

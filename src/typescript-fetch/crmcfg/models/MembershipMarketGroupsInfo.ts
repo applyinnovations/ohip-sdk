@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipMarketGroupsType } from './MembershipMarketGroupsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipMarketGroupType } from './MembershipMarketGroupType';
 import {
-    MembershipMarketGroupsTypeFromJSON,
-    MembershipMarketGroupsTypeFromJSONTyped,
-    MembershipMarketGroupsTypeToJSON,
-} from './MembershipMarketGroupsType';
-import type { WarningsType } from './WarningsType';
+    MembershipMarketGroupTypeFromJSON,
+    MembershipMarketGroupTypeFromJSONTyped,
+    MembershipMarketGroupTypeToJSON,
+} from './MembershipMarketGroupType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Membership Market Groups configurations.
@@ -40,22 +40,22 @@ import {
 export interface MembershipMarketGroupsInfo {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipMarketGroupsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MembershipMarketGroupsType}
+     * Details for Membership Market Group along with associated Market codes.
+     * @type {Array<MembershipMarketGroupType>}
      * @memberof MembershipMarketGroupsInfo
      */
-    membershipMarketGroups?: MembershipMarketGroupsType;
+    membershipMarketGroups?: Array<MembershipMarketGroupType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipMarketGroupsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MembershipMarketGroupsInfoFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'membershipMarketGroups': !exists(json, 'membershipMarketGroups') ? undefined : MembershipMarketGroupsTypeFromJSON(json['membershipMarketGroups']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'membershipMarketGroups': !exists(json, 'membershipMarketGroups') ? undefined : ((json['membershipMarketGroups'] as Array<any>).map(MembershipMarketGroupTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MembershipMarketGroupsInfoToJSON(value?: MembershipMarketGroupsI
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'membershipMarketGroups': MembershipMarketGroupsTypeToJSON(value.membershipMarketGroups),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'membershipMarketGroups': value.membershipMarketGroups === undefined ? undefined : ((value.membershipMarketGroups as Array<any>).map(MembershipMarketGroupTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

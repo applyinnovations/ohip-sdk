@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RotationRuleTypeToJSON = exports.RotationRuleTypeFromJSONTyped = exports.RotationRuleTypeFromJSON = exports.instanceOfRotationRuleType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const DaysOfWeekAttrType_1 = require("./DaysOfWeekAttrType");
 const RotationRuleCalculationRuleType_1 = require("./RotationRuleCalculationRuleType");
 const RotationRuleSetupType_1 = require("./RotationRuleSetupType");
@@ -42,10 +41,10 @@ function RotationRuleTypeFromJSONTyped(json, ignoreDiscriminator) {
         'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
         'multiplier': !(0, runtime_1.exists)(json, 'multiplier') ? undefined : json['multiplier'],
         'points': !(0, runtime_1.exists)(json, 'points') ? undefined : json['points'],
-        'rateCodes': !(0, runtime_1.exists)(json, 'rateCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['rateCodes']),
-        'reasons': !(0, runtime_1.exists)(json, 'reasons') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['reasons']),
+        'rateCodes': !(0, runtime_1.exists)(json, 'rateCodes') ? undefined : json['rateCodes'],
+        'reasons': !(0, runtime_1.exists)(json, 'reasons') ? undefined : json['reasons'],
         'referral': !(0, runtime_1.exists)(json, 'referral') ? undefined : json['referral'],
-        'roomTypes': !(0, runtime_1.exists)(json, 'roomTypes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['roomTypes']),
+        'roomTypes': !(0, runtime_1.exists)(json, 'roomTypes') ? undefined : json['roomTypes'],
         'ruleId': !(0, runtime_1.exists)(json, 'ruleId') ? undefined : json['ruleId'],
         'setupType': !(0, runtime_1.exists)(json, 'setupType') ? undefined : (0, RotationRuleSetupType_1.RotationRuleSetupTypeFromJSON)(json['setupType']),
         'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
@@ -66,10 +65,10 @@ function RotationRuleTypeToJSON(value) {
         'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
         'multiplier': value.multiplier,
         'points': value.points,
-        'rateCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.rateCodes),
-        'reasons': (0, CodeListType_1.CodeListTypeToJSON)(value.reasons),
+        'rateCodes': value.rateCodes,
+        'reasons': value.reasons,
         'referral': value.referral,
-        'roomTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.roomTypes),
+        'roomTypes': value.roomTypes,
         'ruleId': value.ruleId,
         'setupType': (0, RotationRuleSetupType_1.RotationRuleSetupTypeToJSON)(value.setupType),
         'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),

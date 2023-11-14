@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BestAvailableRatePlansToJSON = exports.BestAvailableRatePlansFromJSONTyped = exports.BestAvailableRatePlansFromJSON = exports.instanceOfBestAvailableRatePlans = void 0;
 const runtime_1 = require("../runtime");
-const BestAvailableRatePlansType_1 = require("./BestAvailableRatePlansType");
+const BestAvailableRatePlanType_1 = require("./BestAvailableRatePlanType");
 /**
  * Check if a given object implements the BestAvailableRatePlans interface.
  */
@@ -33,7 +33,7 @@ function BestAvailableRatePlansFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'bestAvailableRatePlans': !(0, runtime_1.exists)(json, 'bestAvailableRatePlans') ? undefined : (0, BestAvailableRatePlansType_1.BestAvailableRatePlansTypeFromJSON)(json['bestAvailableRatePlans']),
+        'bestAvailableRatePlans': !(0, runtime_1.exists)(json, 'bestAvailableRatePlans') ? undefined : (json['bestAvailableRatePlans'].map(BestAvailableRatePlanType_1.BestAvailableRatePlanTypeFromJSON)),
     };
 }
 exports.BestAvailableRatePlansFromJSONTyped = BestAvailableRatePlansFromJSONTyped;
@@ -45,7 +45,7 @@ function BestAvailableRatePlansToJSON(value) {
         return null;
     }
     return {
-        'bestAvailableRatePlans': (0, BestAvailableRatePlansType_1.BestAvailableRatePlansTypeToJSON)(value.bestAvailableRatePlans),
+        'bestAvailableRatePlans': value.bestAvailableRatePlans === undefined ? undefined : (value.bestAvailableRatePlans.map(BestAvailableRatePlanType_1.BestAvailableRatePlanTypeToJSON)),
     };
 }
 exports.BestAvailableRatePlansToJSON = BestAvailableRatePlansToJSON;

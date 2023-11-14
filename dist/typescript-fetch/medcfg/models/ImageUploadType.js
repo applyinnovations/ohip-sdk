@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ImageUploadTypeToJSON = exports.ImageUploadTypeFromJSONTyped = exports.ImageUploadTypeFromJSON = exports.instanceOfImageUploadType = void 0;
 const runtime_1 = require("../runtime");
 const ImageCodeType_1 = require("./ImageCodeType");
-const ImageParametersType_1 = require("./ImageParametersType");
+const ImageParameterType_1 = require("./ImageParameterType");
 const ImageStyleType_1 = require("./ImageStyleType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -41,7 +41,7 @@ function ImageUploadTypeFromJSONTyped(json, ignoreDiscriminator) {
         'image': !(0, runtime_1.exists)(json, 'image') ? undefined : json['image'],
         'imageCode': !(0, runtime_1.exists)(json, 'imageCode') ? undefined : (0, ImageCodeType_1.ImageCodeTypeFromJSON)(json['imageCode']),
         'imageId': !(0, runtime_1.exists)(json, 'imageId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['imageId']),
-        'imageParameters': !(0, runtime_1.exists)(json, 'imageParameters') ? undefined : (0, ImageParametersType_1.ImageParametersTypeFromJSON)(json['imageParameters']),
+        'imageParameters': !(0, runtime_1.exists)(json, 'imageParameters') ? undefined : (json['imageParameters'].map(ImageParameterType_1.ImageParameterTypeFromJSON)),
         'imageStyle': !(0, runtime_1.exists)(json, 'imageStyle') ? undefined : (0, ImageStyleType_1.ImageStyleTypeFromJSON)(json['imageStyle']),
         'languageCode': !(0, runtime_1.exists)(json, 'languageCode') ? undefined : json['languageCode'],
         'linkId': !(0, runtime_1.exists)(json, 'linkId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['linkId']),
@@ -61,7 +61,7 @@ function ImageUploadTypeToJSON(value) {
         'image': value.image,
         'imageCode': (0, ImageCodeType_1.ImageCodeTypeToJSON)(value.imageCode),
         'imageId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.imageId),
-        'imageParameters': (0, ImageParametersType_1.ImageParametersTypeToJSON)(value.imageParameters),
+        'imageParameters': value.imageParameters === undefined ? undefined : (value.imageParameters.map(ImageParameterType_1.ImageParameterTypeToJSON)),
         'imageStyle': (0, ImageStyleType_1.ImageStyleTypeToJSON)(value.imageStyle),
         'languageCode': value.languageCode,
         'linkId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.linkId),

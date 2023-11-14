@@ -16,7 +16,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyRevenueTypeMappingListTypeToJSON = exports.CopyRevenueTypeMappingListTypeFromJSONTyped = exports.CopyRevenueTypeMappingListTypeFromJSON = exports.instanceOfCopyRevenueTypeMappingListType = void 0;
 const runtime_1 = require("../runtime");
 const CateringOnlyType_1 = require("./CateringOnlyType");
-const CodeListType_1 = require("./CodeListType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CopyRevenueTypeMappingListType interface.
@@ -36,7 +35,7 @@ function CopyRevenueTypeMappingListTypeFromJSONTyped(json, ignoreDiscriminator) 
     }
     return {
         'cateringOnly': !(0, runtime_1.exists)(json, 'cateringOnly') ? undefined : (0, CateringOnlyType_1.CateringOnlyTypeFromJSON)(json['cateringOnly']),
-        'eventList': !(0, runtime_1.exists)(json, 'eventList') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['eventList']),
+        'eventList': !(0, runtime_1.exists)(json, 'eventList') ? undefined : json['eventList'],
         'eventType': !(0, runtime_1.exists)(json, 'eventType') ? undefined : json['eventType'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'isCateringOnly': !(0, runtime_1.exists)(json, 'isCateringOnly') ? undefined : json['isCateringOnly'],
@@ -48,7 +47,7 @@ function CopyRevenueTypeMappingListTypeFromJSONTyped(json, ignoreDiscriminator) 
         'serviceChargeCalulationMethod': !(0, runtime_1.exists)(json, 'serviceChargeCalulationMethod') ? undefined : json['serviceChargeCalulationMethod'],
         'serviceChargeTrxCode': !(0, runtime_1.exists)(json, 'serviceChargeTrxCode') ? undefined : json['serviceChargeTrxCode'],
         'space': !(0, runtime_1.exists)(json, 'space') ? undefined : json['space'],
-        'spaceList': !(0, runtime_1.exists)(json, 'spaceList') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['spaceList']),
+        'spaceList': !(0, runtime_1.exists)(json, 'spaceList') ? undefined : json['spaceList'],
         'transactionCode': !(0, runtime_1.exists)(json, 'transactionCode') ? undefined : json['transactionCode'],
     };
 }
@@ -62,7 +61,7 @@ function CopyRevenueTypeMappingListTypeToJSON(value) {
     }
     return {
         'cateringOnly': (0, CateringOnlyType_1.CateringOnlyTypeToJSON)(value.cateringOnly),
-        'eventList': (0, CodeListType_1.CodeListTypeToJSON)(value.eventList),
+        'eventList': value.eventList,
         'eventType': value.eventType,
         'hotelId': value.hotelId,
         'isCateringOnly': value.isCateringOnly,
@@ -74,7 +73,7 @@ function CopyRevenueTypeMappingListTypeToJSON(value) {
         'serviceChargeCalulationMethod': value.serviceChargeCalulationMethod,
         'serviceChargeTrxCode': value.serviceChargeTrxCode,
         'space': value.space,
-        'spaceList': (0, CodeListType_1.CodeListTypeToJSON)(value.spaceList),
+        'spaceList': value.spaceList,
         'transactionCode': value.transactionCode,
     };
 }

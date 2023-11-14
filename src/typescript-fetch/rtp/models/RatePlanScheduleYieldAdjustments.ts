@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ScheduleYieldInfoType } from './ScheduleYieldInfoType';
 import {
     ScheduleYieldInfoTypeFromJSON,
     ScheduleYieldInfoTypeFromJSONTyped,
     ScheduleYieldInfoTypeToJSON,
 } from './ScheduleYieldInfoType';
-import type { ScheduleYieldSummaryType } from './ScheduleYieldSummaryType';
+import type { WarningType } from './WarningType';
 import {
-    ScheduleYieldSummaryTypeFromJSON,
-    ScheduleYieldSummaryTypeFromJSONTyped,
-    ScheduleYieldSummaryTypeToJSON,
-} from './ScheduleYieldSummaryType';
-import type { WarningsType } from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
+import type { YieldSummaryType } from './YieldSummaryType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    YieldSummaryTypeFromJSON,
+    YieldSummaryTypeFromJSONTyped,
+    YieldSummaryTypeToJSON,
+} from './YieldSummaryType';
 
 /**
  * Response object to fetch Yield adjustments for rate plan schedule.
@@ -46,16 +46,16 @@ import {
 export interface RatePlanScheduleYieldAdjustments {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RatePlanScheduleYieldAdjustments
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RatePlanScheduleYieldAdjustments
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
     /**
      * 
      * @type {ScheduleYieldInfoType}
@@ -63,11 +63,11 @@ export interface RatePlanScheduleYieldAdjustments {
      */
     yieldInfoList?: ScheduleYieldInfoType;
     /**
-     * 
-     * @type {ScheduleYieldSummaryType}
+     * Yield summary for each adjutment type.
+     * @type {Array<YieldSummaryType>}
      * @memberof RatePlanScheduleYieldAdjustments
      */
-    yieldSummary?: ScheduleYieldSummaryType;
+    yieldSummary?: Array<YieldSummaryType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function RatePlanScheduleYieldAdjustmentsFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
         'yieldInfoList': !exists(json, 'yieldInfoList') ? undefined : ScheduleYieldInfoTypeFromJSON(json['yieldInfoList']),
-        'yieldSummary': !exists(json, 'yieldSummary') ? undefined : ScheduleYieldSummaryTypeFromJSON(json['yieldSummary']),
+        'yieldSummary': !exists(json, 'yieldSummary') ? undefined : ((json['yieldSummary'] as Array<any>).map(YieldSummaryTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function RatePlanScheduleYieldAdjustmentsToJSON(value?: RatePlanScheduleY
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
         'yieldInfoList': ScheduleYieldInfoTypeToJSON(value.yieldInfoList),
-        'yieldSummary': ScheduleYieldSummaryTypeToJSON(value.yieldSummary),
+        'yieldSummary': value.yieldSummary === undefined ? undefined : ((value.yieldSummary as Array<any>).map(YieldSummaryTypeToJSON)),
     };
 }
 

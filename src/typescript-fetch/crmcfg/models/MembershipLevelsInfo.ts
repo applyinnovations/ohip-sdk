@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipLevelsType } from './MembershipLevelsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipLevelType } from './MembershipLevelType';
 import {
-    MembershipLevelsTypeFromJSON,
-    MembershipLevelsTypeFromJSONTyped,
-    MembershipLevelsTypeToJSON,
-} from './MembershipLevelsType';
-import type { WarningsType } from './WarningsType';
+    MembershipLevelTypeFromJSON,
+    MembershipLevelTypeFromJSONTyped,
+    MembershipLevelTypeToJSON,
+} from './MembershipLevelType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching membership levels.
@@ -40,22 +40,22 @@ import {
 export interface MembershipLevelsInfo {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipLevelsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MembershipLevelsType}
+     * Collection of membership levels
+     * @type {Array<MembershipLevelType>}
      * @memberof MembershipLevelsInfo
      */
-    membershipLevels?: MembershipLevelsType;
+    membershipLevels?: Array<MembershipLevelType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipLevelsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MembershipLevelsInfoFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'membershipLevels': !exists(json, 'membershipLevels') ? undefined : MembershipLevelsTypeFromJSON(json['membershipLevels']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'membershipLevels': !exists(json, 'membershipLevels') ? undefined : ((json['membershipLevels'] as Array<any>).map(MembershipLevelTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MembershipLevelsInfoToJSON(value?: MembershipLevelsInfo | null):
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'membershipLevels': MembershipLevelsTypeToJSON(value.membershipLevels),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'membershipLevels': value.membershipLevels === undefined ? undefined : ((value.membershipLevels as Array<any>).map(MembershipLevelTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

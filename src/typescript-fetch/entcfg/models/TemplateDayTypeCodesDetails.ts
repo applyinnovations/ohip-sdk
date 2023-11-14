@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateDayTypeCodesType } from './TemplateDayTypeCodesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TemplateDayTypeCodeType } from './TemplateDayTypeCodeType';
 import {
-    TemplateDayTypeCodesTypeFromJSON,
-    TemplateDayTypeCodesTypeFromJSONTyped,
-    TemplateDayTypeCodesTypeToJSON,
-} from './TemplateDayTypeCodesType';
-import type { WarningsType } from './WarningsType';
+    TemplateDayTypeCodeTypeFromJSON,
+    TemplateDayTypeCodeTypeFromJSONTyped,
+    TemplateDayTypeCodeTypeToJSON,
+} from './TemplateDayTypeCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching template day type codes.
@@ -40,22 +40,22 @@ import {
 export interface TemplateDayTypeCodesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateDayTypeCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TemplateDayTypeCodesType}
+     * Details for day type code at template level.
+     * @type {Array<TemplateDayTypeCodeType>}
      * @memberof TemplateDayTypeCodesDetails
      */
-    templateDayTypeCodes?: TemplateDayTypeCodesType;
+    templateDayTypeCodes?: Array<TemplateDayTypeCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateDayTypeCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateDayTypeCodesDetailsFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'templateDayTypeCodes': !exists(json, 'templateDayTypeCodes') ? undefined : TemplateDayTypeCodesTypeFromJSON(json['templateDayTypeCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'templateDayTypeCodes': !exists(json, 'templateDayTypeCodes') ? undefined : ((json['templateDayTypeCodes'] as Array<any>).map(TemplateDayTypeCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateDayTypeCodesDetailsToJSON(value?: TemplateDayTypeCodesDe
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'templateDayTypeCodes': TemplateDayTypeCodesTypeToJSON(value.templateDayTypeCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'templateDayTypeCodes': value.templateDayTypeCodes === undefined ? undefined : ((value.templateDayTypeCodes as Array<any>).map(TemplateDayTypeCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

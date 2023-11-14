@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FiscalYearsType } from './FiscalYearsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { FiscalYearType } from './FiscalYearType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FiscalYears {
     /**
-     *
-     * @type {FiscalYearsType}
+     * List of Fiscal Years.
+     * @type {Array<FiscalYearType>}
      * @memberof FiscalYears
      */
-    fiscalYears?: FiscalYearsType;
+    fiscalYears?: Array<FiscalYearType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FiscalYears
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FiscalYears
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FiscalYears interface.

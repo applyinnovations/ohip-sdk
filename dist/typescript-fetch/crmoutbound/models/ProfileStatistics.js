@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfileStatisticsToJSON = exports.ProfileStatisticsFromJSONTyped = exports.ProfileStatisticsFromJSON = exports.instanceOfProfileStatistics = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const ProfileStatisticsType_1 = require("./ProfileStatisticsType");
 /**
  * Check if a given object implements the ProfileStatistics interface.
@@ -35,7 +35,7 @@ function ProfileStatisticsFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'profileStatistic': !(0, runtime_1.exists)(json, 'profileStatistic') ? undefined : (0, ProfileStatisticsType_1.ProfileStatisticsTypeFromJSON)(json['profileStatistic']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.ProfileStatisticsFromJSONTyped = ProfileStatisticsFromJSONTyped;
@@ -48,7 +48,7 @@ function ProfileStatisticsToJSON(value) {
     }
     return {
         'profileStatistic': (0, ProfileStatisticsType_1.ProfileStatisticsTypeToJSON)(value.profileStatistic),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.ProfileStatisticsToJSON = ProfileStatisticsToJSON;

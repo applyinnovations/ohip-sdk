@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AirportsToBeChangedToJSON = exports.AirportsToBeChangedFromJSONTyped = exports.AirportsToBeChangedFromJSON = exports.instanceOfAirportsToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const AirportsType_1 = require("./AirportsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const AirportType_1 = require("./AirportType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AirportsToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function AirportsToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'airports': !(0, runtime_1.exists)(json, 'airports') ? undefined : (0, AirportsType_1.AirportsTypeFromJSON)(json['airports']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'airports': !(0, runtime_1.exists)(json, 'airports') ? undefined : (json['airports'].map(AirportType_1.AirportTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AirportsToBeChangedFromJSONTyped = AirportsToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function AirportsToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'airports': (0, AirportsType_1.AirportsTypeToJSON)(value.airports),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'airports': value.airports === undefined ? undefined : (value.airports.map(AirportType_1.AirportTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AirportsToBeChangedToJSON = AirportsToBeChangedToJSON;

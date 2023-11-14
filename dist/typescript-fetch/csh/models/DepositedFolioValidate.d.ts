@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ResDepositPolicyType } from './ResDepositPolicyType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Information regarding the Deposit Policy if a Deposit Folio is going to be created for this policy.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface DepositedFolioValidate {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DepositedFolioValidate
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {Array<ResDepositPolicyType>}
@@ -31,11 +31,11 @@ export interface DepositedFolioValidate {
      */
     policyInfoList?: Array<ResDepositPolicyType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DepositedFolioValidate
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DepositedFolioValidate interface.

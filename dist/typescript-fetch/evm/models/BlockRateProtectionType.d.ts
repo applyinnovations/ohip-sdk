@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DatesType } from './DatesType';
 import type { RateProtectionType } from './RateProtectionType';
 /**
  * Block Rate Protection code information.
@@ -24,11 +23,11 @@ export interface BlockRateProtectionType {
      */
     criteria?: RateProtectionType;
     /**
-     *
-     * @type {DatesType}
+     * Specifies a single date.
+     * @type {Array<Date>}
      * @memberof BlockRateProtectionType
      */
-    protectedDates?: DatesType;
+    protectedDates?: Array<Date>;
 }
 /**
  * Check if a given object implements the BlockRateProtectionType interface.

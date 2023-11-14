@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { NameValuesType } from './NameValuesType';
+import type { NameValueType } from './NameValueType';
 /**
  * Detailed information returned during name value search.
  * @export
@@ -17,11 +17,11 @@ import type { NameValuesType } from './NameValuesType';
  */
 export interface NameValueDetailType {
     /**
-     *
-     * @type {NameValuesType}
+     * List of name value pairs.
+     * @type {Array<NameValueType>}
      * @memberof NameValueDetailType
      */
-    nameValues?: NameValuesType;
+    nameValues?: Array<NameValueType>;
 }
 /**
  * Check if a given object implements the NameValueDetailType interface.

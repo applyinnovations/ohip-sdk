@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ExportSchedulesType } from './ExportSchedulesType';
+import type { ExportScheduleType } from './ExportScheduleType';
 /**
  * Export schedules information that are required to configure schedules
  * @export
@@ -17,11 +17,11 @@ import type { ExportSchedulesType } from './ExportSchedulesType';
  */
 export interface ExportSchedulesConfigType {
     /**
-     *
-     * @type {ExportSchedulesType}
+     * Export Schedule
+     * @type {Array<ExportScheduleType>}
      * @memberof ExportSchedulesConfigType
      */
-    exportSchedules?: ExportSchedulesType;
+    exportSchedules?: Array<ExportScheduleType>;
     /**
      * Time zone hour and minute specified in the format TZH:TZM example:-05:00
      * @type {string}

@@ -25,12 +25,12 @@ import {
     ChannelAccountContactTypeFromJSONTyped,
     ChannelAccountContactTypeToJSON,
 } from './ChannelAccountContactType';
-import type { ChannelAccountContractsInformationType } from './ChannelAccountContractsInformationType';
+import type { ChannelAccountContractInformationType } from './ChannelAccountContractInformationType';
 import {
-    ChannelAccountContractsInformationTypeFromJSON,
-    ChannelAccountContractsInformationTypeFromJSONTyped,
-    ChannelAccountContractsInformationTypeToJSON,
-} from './ChannelAccountContractsInformationType';
+    ChannelAccountContractInformationTypeFromJSON,
+    ChannelAccountContractInformationTypeFromJSONTyped,
+    ChannelAccountContractInformationTypeToJSON,
+} from './ChannelAccountContractInformationType';
 import type { ChannelAccountDetailsType } from './ChannelAccountDetailsType';
 import {
     ChannelAccountDetailsTypeFromJSON,
@@ -49,12 +49,12 @@ import {
     ChannelAccountSetupDetailsTypeFromJSONTyped,
     ChannelAccountSetupDetailsTypeToJSON,
 } from './ChannelAccountSetupDetailsType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import {
-    IndicatorsTypeFromJSON,
-    IndicatorsTypeFromJSONTyped,
-    IndicatorsTypeToJSON,
-} from './IndicatorsType';
+    IndicatorTypeFromJSON,
+    IndicatorTypeFromJSONTyped,
+    IndicatorTypeToJSON,
+} from './IndicatorType';
 
 /**
  * To hold channel account detailed information.
@@ -75,11 +75,11 @@ export interface ChannelAccountInformationType {
      */
     accountSetupDetails?: ChannelAccountSetupDetailsType;
     /**
-     * 
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof ChannelAccountInformationType
      */
-    channelAccountIndicators?: IndicatorsType;
+    channelAccountIndicators?: Array<IndicatorType>;
     /**
      * 
      * @type {ChannelAccountNotesType}
@@ -99,11 +99,11 @@ export interface ChannelAccountInformationType {
      */
     contactInformation?: ChannelAccountContactType;
     /**
-     * 
-     * @type {ChannelAccountContractsInformationType}
+     * Channel account contract information object to hold details of channel account contract.
+     * @type {Array<ChannelAccountContractInformationType>}
      * @memberof ChannelAccountInformationType
      */
-    contractInformation?: ChannelAccountContractsInformationType;
+    contractInformation?: Array<ChannelAccountContractInformationType>;
 }
 
 /**
@@ -127,11 +127,11 @@ export function ChannelAccountInformationTypeFromJSONTyped(json: any, ignoreDisc
         
         'accountDetails': !exists(json, 'accountDetails') ? undefined : ChannelAccountDetailsTypeFromJSON(json['accountDetails']),
         'accountSetupDetails': !exists(json, 'accountSetupDetails') ? undefined : ChannelAccountSetupDetailsTypeFromJSON(json['accountSetupDetails']),
-        'channelAccountIndicators': !exists(json, 'channelAccountIndicators') ? undefined : IndicatorsTypeFromJSON(json['channelAccountIndicators']),
+        'channelAccountIndicators': !exists(json, 'channelAccountIndicators') ? undefined : ((json['channelAccountIndicators'] as Array<any>).map(IndicatorTypeFromJSON)),
         'channelAccountNotes': !exists(json, 'channelAccountNotes') ? undefined : ChannelAccountNotesTypeFromJSON(json['channelAccountNotes']),
         'communicationDetails': !exists(json, 'communicationDetails') ? undefined : ChannelAccountCommunicationTypeFromJSON(json['communicationDetails']),
         'contactInformation': !exists(json, 'contactInformation') ? undefined : ChannelAccountContactTypeFromJSON(json['contactInformation']),
-        'contractInformation': !exists(json, 'contractInformation') ? undefined : ChannelAccountContractsInformationTypeFromJSON(json['contractInformation']),
+        'contractInformation': !exists(json, 'contractInformation') ? undefined : ((json['contractInformation'] as Array<any>).map(ChannelAccountContractInformationTypeFromJSON)),
     };
 }
 
@@ -146,11 +146,11 @@ export function ChannelAccountInformationTypeToJSON(value?: ChannelAccountInform
         
         'accountDetails': ChannelAccountDetailsTypeToJSON(value.accountDetails),
         'accountSetupDetails': ChannelAccountSetupDetailsTypeToJSON(value.accountSetupDetails),
-        'channelAccountIndicators': IndicatorsTypeToJSON(value.channelAccountIndicators),
+        'channelAccountIndicators': value.channelAccountIndicators === undefined ? undefined : ((value.channelAccountIndicators as Array<any>).map(IndicatorTypeToJSON)),
         'channelAccountNotes': ChannelAccountNotesTypeToJSON(value.channelAccountNotes),
         'communicationDetails': ChannelAccountCommunicationTypeToJSON(value.communicationDetails),
         'contactInformation': ChannelAccountContactTypeToJSON(value.contactInformation),
-        'contractInformation': ChannelAccountContractsInformationTypeToJSON(value.contractInformation),
+        'contractInformation': value.contractInformation === undefined ? undefined : ((value.contractInformation as Array<any>).map(ChannelAccountContractInformationTypeToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AttachmentsType } from './AttachmentsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AttachmentType } from './AttachmentType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for fetching calendar task attachments.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CalendarTaskAttachments {
     /**
-     *
-     * @type {AttachmentsType}
+     * Attachment List.
+     * @type {Array<AttachmentType>}
      * @memberof CalendarTaskAttachments
      */
-    calendarTaskAttachments?: AttachmentsType;
+    calendarTaskAttachments?: Array<AttachmentType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CalendarTaskAttachments
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CalendarTaskAttachments
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CalendarTaskAttachments interface.

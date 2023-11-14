@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockReservationsTypeToJSON = exports.BlockReservationsTypeFromJSONTyped = exports.BlockReservationsTypeFromJSON = exports.instanceOfBlockReservationsType = void 0;
 const runtime_1 = require("../runtime");
 const HotelReservationsType_1 = require("./HotelReservationsType");
-const RoomingListSharesType_1 = require("./RoomingListSharesType");
+const RoomingListShareType_1 = require("./RoomingListShareType");
 /**
  * Check if a given object implements the BlockReservationsType interface.
  */
@@ -35,7 +35,7 @@ function BlockReservationsTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'reservations': !(0, runtime_1.exists)(json, 'reservations') ? undefined : (0, HotelReservationsType_1.HotelReservationsTypeFromJSON)(json['reservations']),
-        'shares': !(0, runtime_1.exists)(json, 'shares') ? undefined : (0, RoomingListSharesType_1.RoomingListSharesTypeFromJSON)(json['shares']),
+        'shares': !(0, runtime_1.exists)(json, 'shares') ? undefined : (json['shares'].map(RoomingListShareType_1.RoomingListShareTypeFromJSON)),
     };
 }
 exports.BlockReservationsTypeFromJSONTyped = BlockReservationsTypeFromJSONTyped;
@@ -48,7 +48,7 @@ function BlockReservationsTypeToJSON(value) {
     }
     return {
         'reservations': (0, HotelReservationsType_1.HotelReservationsTypeToJSON)(value.reservations),
-        'shares': (0, RoomingListSharesType_1.RoomingListSharesTypeToJSON)(value.shares),
+        'shares': value.shares === undefined ? undefined : (value.shares.map(RoomingListShareType_1.RoomingListShareTypeToJSON)),
     };
 }
 exports.BlockReservationsTypeToJSON = BlockReservationsTypeToJSON;

@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChannelSellLimitSchedulesType } from './ChannelSellLimitSchedulesType';
-import type { WarningsType } from './WarningsType';
+import type { ChannelSellLimitScheduleType } from './ChannelSellLimitScheduleType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to create or update sell limit schedules for the channel or channel room type within a date range. Existing schedules can be split as needed to account for overlapping schedules.
  * @export
@@ -24,17 +24,17 @@ export interface ChannelSellLimitsByDateRange {
      */
     adjustOverlappingSchedules?: boolean;
     /**
-     *
-     * @type {ChannelSellLimitSchedulesType}
+     * Details about a sell limit schedule for a channel or channel room type.
+     * @type {Array<ChannelSellLimitScheduleType>}
      * @memberof ChannelSellLimitsByDateRange
      */
-    sellLimits?: ChannelSellLimitSchedulesType;
+    sellLimits?: Array<ChannelSellLimitScheduleType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelSellLimitsByDateRange
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelSellLimitsByDateRange interface.

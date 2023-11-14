@@ -15,11 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyTemplateCodesToJSON = exports.CopyTemplateCodesFromJSONTyped = exports.CopyTemplateCodesFromJSON = exports.instanceOfCopyTemplateCodes = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const CopyTemplateType_1 = require("./CopyTemplateType");
-const HotelCodeListType_1 = require("./HotelCodeListType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CopyTemplateCodes interface.
  */
@@ -37,11 +35,11 @@ function CopyTemplateCodesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'codes': !(0, runtime_1.exists)(json, 'codes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['codes']),
-        'hotelCodes': !(0, runtime_1.exists)(json, 'hotelCodes') ? undefined : (0, HotelCodeListType_1.HotelCodeListTypeFromJSON)(json['hotelCodes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'codes': !(0, runtime_1.exists)(json, 'codes') ? undefined : json['codes'],
+        'hotelCodes': !(0, runtime_1.exists)(json, 'hotelCodes') ? undefined : json['hotelCodes'],
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'templateName': !(0, runtime_1.exists)(json, 'templateName') ? undefined : (0, CopyTemplateType_1.CopyTemplateTypeFromJSON)(json['templateName']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CopyTemplateCodesFromJSONTyped = CopyTemplateCodesFromJSONTyped;
@@ -53,11 +51,11 @@ function CopyTemplateCodesToJSON(value) {
         return null;
     }
     return {
-        'codes': (0, CodeListType_1.CodeListTypeToJSON)(value.codes),
-        'hotelCodes': (0, HotelCodeListType_1.HotelCodeListTypeToJSON)(value.hotelCodes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'codes': value.codes,
+        'hotelCodes': value.hotelCodes,
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'templateName': (0, CopyTemplateType_1.CopyTemplateTypeToJSON)(value.templateName),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CopyTemplateCodesToJSON = CopyTemplateCodesToJSON;

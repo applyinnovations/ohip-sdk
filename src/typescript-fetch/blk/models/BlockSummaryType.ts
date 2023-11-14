@@ -49,18 +49,18 @@ import {
     HotelUseTypeFromJSONTyped,
     HotelUseTypeToJSON,
 } from './HotelUseType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import {
-    IndicatorsTypeFromJSON,
-    IndicatorsTypeFromJSONTyped,
-    IndicatorsTypeToJSON,
-} from './IndicatorsType';
-import type { SearchMatchesType } from './SearchMatchesType';
+    IndicatorTypeFromJSON,
+    IndicatorTypeFromJSONTyped,
+    IndicatorTypeToJSON,
+} from './IndicatorType';
+import type { SearchMatchType } from './SearchMatchType';
 import {
-    SearchMatchesTypeFromJSON,
-    SearchMatchesTypeFromJSONTyped,
-    SearchMatchesTypeToJSON,
-} from './SearchMatchesType';
+    SearchMatchTypeFromJSON,
+    SearchMatchTypeFromJSONTyped,
+    SearchMatchTypeToJSON,
+} from './SearchMatchType';
 
 /**
  * 
@@ -87,11 +87,11 @@ export interface BlockSummaryType {
      */
     blockCode?: string;
     /**
-     * 
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof BlockSummaryType
      */
-    blockIndicators?: IndicatorsType;
+    blockIndicators?: Array<IndicatorType>;
     /**
      * Block name for this block.
      * @type {string}
@@ -243,11 +243,11 @@ export interface BlockSummaryType {
      */
     rooms?: number;
     /**
-     * 
-     * @type {SearchMatchesType}
+     * List of Generic Name-Value-Pair Parameters used for super search matches.
+     * @type {Array<SearchMatchType>}
      * @memberof BlockSummaryType
      */
-    searchMatches?: SearchMatchesType;
+    searchMatches?: Array<SearchMatchType>;
     /**
      * Shoulder end date for this block.
      * @type {Date}
@@ -314,7 +314,7 @@ export function BlockSummaryTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'actualRooms': !exists(json, 'actualRooms') ? undefined : json['actualRooms'],
         'blockClassification': !exists(json, 'blockClassification') ? undefined : BlockClassificationTypeFromJSON(json['blockClassification']),
         'blockCode': !exists(json, 'blockCode') ? undefined : json['blockCode'],
-        'blockIndicators': !exists(json, 'blockIndicators') ? undefined : IndicatorsTypeFromJSON(json['blockIndicators']),
+        'blockIndicators': !exists(json, 'blockIndicators') ? undefined : ((json['blockIndicators'] as Array<any>).map(IndicatorTypeFromJSON)),
         'blockName': !exists(json, 'blockName') ? undefined : json['blockName'],
         'blockStatus': !exists(json, 'blockStatus') ? undefined : BookingStatusTypeFromJSON(json['blockStatus']),
         'cateringAttendees': !exists(json, 'cateringAttendees') ? undefined : json['cateringAttendees'],
@@ -340,7 +340,7 @@ export function BlockSummaryTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'rateCode': !exists(json, 'rateCode') ? undefined : json['rateCode'],
         'reservationType': !exists(json, 'reservationType') ? undefined : json['reservationType'],
         'rooms': !exists(json, 'rooms') ? undefined : json['rooms'],
-        'searchMatches': !exists(json, 'searchMatches') ? undefined : SearchMatchesTypeFromJSON(json['searchMatches']),
+        'searchMatches': !exists(json, 'searchMatches') ? undefined : ((json['searchMatches'] as Array<any>).map(SearchMatchTypeFromJSON)),
         'shoulderEndDate': !exists(json, 'shoulderEndDate') ? undefined : (new Date(json['shoulderEndDate'])),
         'shoulderStartDate': !exists(json, 'shoulderStartDate') ? undefined : (new Date(json['shoulderStartDate'])),
         'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
@@ -363,7 +363,7 @@ export function BlockSummaryTypeToJSON(value?: BlockSummaryType | null): any {
         'actualRooms': value.actualRooms,
         'blockClassification': BlockClassificationTypeToJSON(value.blockClassification),
         'blockCode': value.blockCode,
-        'blockIndicators': IndicatorsTypeToJSON(value.blockIndicators),
+        'blockIndicators': value.blockIndicators === undefined ? undefined : ((value.blockIndicators as Array<any>).map(IndicatorTypeToJSON)),
         'blockName': value.blockName,
         'blockStatus': BookingStatusTypeToJSON(value.blockStatus),
         'cateringAttendees': value.cateringAttendees,
@@ -389,7 +389,7 @@ export function BlockSummaryTypeToJSON(value?: BlockSummaryType | null): any {
         'rateCode': value.rateCode,
         'reservationType': value.reservationType,
         'rooms': value.rooms,
-        'searchMatches': SearchMatchesTypeToJSON(value.searchMatches),
+        'searchMatches': value.searchMatches === undefined ? undefined : ((value.searchMatches as Array<any>).map(SearchMatchTypeToJSON)),
         'shoulderEndDate': value.shoulderEndDate === undefined ? undefined : (value.shoulderEndDate.toISOString().substring(0,10)),
         'shoulderStartDate': value.shoulderStartDate === undefined ? undefined : (value.shoulderStartDate.toISOString().substring(0,10)),
         'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),

@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ARReminderHistoryType } from './ARReminderHistoryType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Reminders History.
  * @export
@@ -26,16 +26,16 @@ export interface RemindersHistory {
     aRReminderHistory?: Array<ARReminderHistoryType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RemindersHistory
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RemindersHistory
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RemindersHistory interface.

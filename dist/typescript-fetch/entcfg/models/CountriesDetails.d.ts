@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CountriesType } from './CountriesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CountryType } from './CountryType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Countries.
  * @export
@@ -25,11 +25,11 @@ export interface CountriesDetails {
      */
     count?: number;
     /**
-     *
-     * @type {CountriesType}
+     * Country details.
+     * @type {Array<CountryType>}
      * @memberof CountriesDetails
      */
-    countries?: CountriesType;
+    countries?: Array<CountryType>;
     /**
      * Indicates whether all the records are included in the response or not. Absence of the attribute values should be consider as all rows fetched in the response.
      * @type {boolean}
@@ -44,10 +44,10 @@ export interface CountriesDetails {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CountriesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface CountriesDetails {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CountriesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CountriesDetails interface.

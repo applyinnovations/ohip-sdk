@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelOrgMappingsDetailsToJSON = exports.ChannelOrgMappingsDetailsFromJSONTyped = exports.ChannelOrgMappingsDetailsFromJSON = exports.instanceOfChannelOrgMappingsDetails = void 0;
 const runtime_1 = require("../runtime");
-const ChannelOrgMappingsType_1 = require("./ChannelOrgMappingsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ChannelOrgMappingType_1 = require("./ChannelOrgMappingType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChannelOrgMappingsDetails interface.
  */
@@ -35,9 +35,9 @@ function ChannelOrgMappingsDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'channelOrgMappingsDetails': !(0, runtime_1.exists)(json, 'channelOrgMappingsDetails') ? undefined : (0, ChannelOrgMappingsType_1.ChannelOrgMappingsTypeFromJSON)(json['channelOrgMappingsDetails']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'channelOrgMappingsDetails': !(0, runtime_1.exists)(json, 'channelOrgMappingsDetails') ? undefined : (json['channelOrgMappingsDetails'].map(ChannelOrgMappingType_1.ChannelOrgMappingTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChannelOrgMappingsDetailsFromJSONTyped = ChannelOrgMappingsDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function ChannelOrgMappingsDetailsToJSON(value) {
         return null;
     }
     return {
-        'channelOrgMappingsDetails': (0, ChannelOrgMappingsType_1.ChannelOrgMappingsTypeToJSON)(value.channelOrgMappingsDetails),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'channelOrgMappingsDetails': value.channelOrgMappingsDetails === undefined ? undefined : (value.channelOrgMappingsDetails.map(ChannelOrgMappingType_1.ChannelOrgMappingTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChannelOrgMappingsDetailsToJSON = ChannelOrgMappingsDetailsToJSON;

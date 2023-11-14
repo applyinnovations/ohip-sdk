@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DatabaseIDListType } from './DatabaseIDListType';
-import {
-    DatabaseIDListTypeFromJSON,
-    DatabaseIDListTypeFromJSONTyped,
-    DatabaseIDListTypeToJSON,
-} from './DatabaseIDListType';
 import type { ProfileId } from './ProfileId';
 import {
     ProfileIdFromJSON,
@@ -33,11 +27,11 @@ import {
  */
 export interface SynchronizeProfileSubscriptionsCriteriaType {
     /**
-     * 
-     * @type {DatabaseIDListType}
+     * Code identifying the external database record which is linked to external systems.
+     * @type {Array<string>}
      * @memberof SynchronizeProfileSubscriptionsCriteriaType
      */
-    databaseIds?: DatabaseIDListType;
+    databaseIds?: Array<string>;
     /**
      * 
      * @type {ProfileId}
@@ -65,7 +59,7 @@ export function SynchronizeProfileSubscriptionsCriteriaTypeFromJSONTyped(json: a
     }
     return {
         
-        'databaseIds': !exists(json, 'databaseIds') ? undefined : DatabaseIDListTypeFromJSON(json['databaseIds']),
+        'databaseIds': !exists(json, 'databaseIds') ? undefined : json['databaseIds'],
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
     };
 }
@@ -79,7 +73,7 @@ export function SynchronizeProfileSubscriptionsCriteriaTypeToJSON(value?: Synchr
     }
     return {
         
-        'databaseIds': DatabaseIDListTypeToJSON(value.databaseIds),
+        'databaseIds': value.databaseIds,
         'profileId': ProfileIdToJSON(value.profileId),
     };
 }

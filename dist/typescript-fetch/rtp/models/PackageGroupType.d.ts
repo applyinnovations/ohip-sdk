@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { PackageCodeListType } from './PackageCodeListType';
+import type { PackageCodeType } from './PackageCodeType';
 /**
  * Information about a package group common to all usages.
  * @export
@@ -29,11 +29,11 @@ export interface PackageGroupType {
      */
     description?: string;
     /**
-     *
-     * @type {PackageCodeListType}
+     * Package Full Information
+     * @type {Array<PackageCodeType>}
      * @memberof PackageGroupType
      */
-    membersList?: PackageCodeListType;
+    membersList?: Array<PackageCodeType>;
     /**
      * Can Package group be sold separately?
      * @type {boolean}

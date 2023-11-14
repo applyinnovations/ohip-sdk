@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ErrorsType } from './ErrorsType';
-import type { WarningsType } from './WarningsType';
+import type { ErrorType } from './ErrorType';
+import type { WarningType } from './WarningType';
 /**
  * This provides a collection of all borrowable room types by date.
  * @export
@@ -30,11 +30,11 @@ export interface BorrowableInventoryType {
      */
     availableSellLimit?: number;
     /**
-     *
-     * @type {ErrorsType}
+     * An error that occurred during the processing of a message.
+     * @type {Array<ErrorType>}
      * @memberof BorrowableInventoryType
      */
-    errors?: ErrorsType;
+    errors?: Array<ErrorType>;
     /**
      * Returning an empty element of this type indicates the this is a House type. This is used in conjunction with the Borrow operations for Blocks where rooms are to be borrowed from House.
      * @type {object}
@@ -48,11 +48,11 @@ export interface BorrowableInventoryType {
      */
     roomType?: string;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BorrowableInventoryType
      */
-    warning?: WarningsType;
+    warning?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BorrowableInventoryType interface.

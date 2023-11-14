@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FiscalPartnerCodeListType } from './FiscalPartnerCodeListType';
 /**
  * Fiscal Command details.
  * @export
@@ -30,10 +29,10 @@ export interface FiscalCommandType {
     fiscalCommandCode?: string;
     /**
      *
-     * @type {FiscalPartnerCodeListType}
+     * @type {Array<string>}
      * @memberof FiscalCommandType
      */
-    fiscalPartnerCodes?: FiscalPartnerCodeListType;
+    fiscalPartnerCodes?: Array<string>;
     /**
      * Unique code of the hotel.
      * @type {string}

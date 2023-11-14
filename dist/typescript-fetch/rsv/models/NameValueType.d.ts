@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { NameValueDataTypeType } from './NameValueDataTypeType';
 import type { NameValueOriginType } from './NameValueOriginType';
 /**
@@ -44,10 +43,10 @@ export interface NameValueType {
     origin?: NameValueOriginType;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof NameValueType
      */
-    usageInstruction?: CodeListType;
+    usageInstruction?: Array<string>;
     /**
      * Contains value for the record/column.
      * @type {string}

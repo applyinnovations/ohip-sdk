@@ -20,7 +20,7 @@ const CodeDescriptionType_1 = require("./CodeDescriptionType");
 const TrackItActionType_1 = require("./TrackItActionType");
 const TrackItGroup_1 = require("./TrackItGroup");
 const TrackItId_1 = require("./TrackItId");
-const TrackItLogListType_1 = require("./TrackItLogListType");
+const TrackItLogType_1 = require("./TrackItLogType");
 const TrackItReservationInfoType_1 = require("./TrackItReservationInfoType");
 const TrackItType_1 = require("./TrackItType");
 /**
@@ -52,7 +52,7 @@ function TrackItItemTypeFromJSONTyped(json, ignoreDiscriminator) {
         'reservationInfo': !(0, runtime_1.exists)(json, 'reservationInfo') ? undefined : (0, TrackItReservationInfoType_1.TrackItReservationInfoTypeFromJSON)(json['reservationInfo']),
         'ticketNumber': !(0, runtime_1.exists)(json, 'ticketNumber') ? undefined : json['ticketNumber'],
         'trackItId': !(0, runtime_1.exists)(json, 'trackItId') ? undefined : (0, TrackItId_1.TrackItIdFromJSON)(json['trackItId']),
-        'trackItLogList': !(0, runtime_1.exists)(json, 'trackItLogList') ? undefined : (0, TrackItLogListType_1.TrackItLogListTypeFromJSON)(json['trackItLogList']),
+        'trackItLogList': !(0, runtime_1.exists)(json, 'trackItLogList') ? undefined : (json['trackItLogList'].map(TrackItLogType_1.TrackItLogTypeFromJSON)),
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : (0, TrackItType_1.TrackItTypeFromJSON)(json['type']),
     };
 }
@@ -77,7 +77,7 @@ function TrackItItemTypeToJSON(value) {
         'reservationInfo': (0, TrackItReservationInfoType_1.TrackItReservationInfoTypeToJSON)(value.reservationInfo),
         'ticketNumber': value.ticketNumber,
         'trackItId': (0, TrackItId_1.TrackItIdToJSON)(value.trackItId),
-        'trackItLogList': (0, TrackItLogListType_1.TrackItLogListTypeToJSON)(value.trackItLogList),
+        'trackItLogList': value.trackItLogList === undefined ? undefined : (value.trackItLogList.map(TrackItLogType_1.TrackItLogTypeToJSON)),
         'type': (0, TrackItType_1.TrackItTypeToJSON)(value.type),
     };
 }

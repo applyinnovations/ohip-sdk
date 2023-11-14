@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BenefitsType } from './BenefitsType';
+import type { BenefitType } from './BenefitType';
 import type { CardReIssueType } from './CardReIssueType';
 import type { DowngradeType } from './DowngradeType';
 import type { MembershipEarningPreferenceType } from './MembershipEarningPreferenceType';
@@ -22,11 +22,11 @@ import type { TierAdministrationType } from './TierAdministrationType';
  */
 export interface ReservationMembershipType {
     /**
-     *
-     * @type {BenefitsType}
+     * Basic information about membership benefit.
+     * @type {Array<BenefitType>}
      * @memberof ReservationMembershipType
      */
-    benefits?: BenefitsType;
+    benefits?: Array<BenefitType>;
     /**
      * Indicates how the award points for this membership type will be managed.
      * @type {boolean}

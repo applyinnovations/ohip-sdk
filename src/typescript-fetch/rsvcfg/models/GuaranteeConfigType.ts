@@ -25,12 +25,6 @@ import {
     GuaranteeRequirementsTypeFromJSONTyped,
     GuaranteeRequirementsTypeToJSON,
 } from './GuaranteeRequirementsType';
-import type { PaymentTypesType } from './PaymentTypesType';
-import {
-    PaymentTypesTypeFromJSON,
-    PaymentTypesTypeFromJSONTyped,
-    PaymentTypesTypeToJSON,
-} from './PaymentTypesType';
 import type { TranslationTextType80 } from './TranslationTextType80';
 import {
     TranslationTextType80FromJSON,
@@ -87,11 +81,11 @@ export interface GuaranteeConfigType {
      */
     orderSequence?: number;
     /**
-     * 
-     * @type {PaymentTypesType}
+     * Payment card code like AX,VI etc.
+     * @type {Array<string>}
      * @memberof GuaranteeConfigType
      */
-    paymentTypes?: PaymentTypesType;
+    paymentTypes?: Array<string>;
     /**
      * 
      * @type {GuaranteeRequirementsType}
@@ -138,7 +132,7 @@ export function GuaranteeConfigTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'massCancellation': !exists(json, 'massCancellation') ? undefined : GuaranteeConfigTypeMassCancellationFromJSON(json['massCancellation']),
         'onHold': !exists(json, 'onHold') ? undefined : json['onHold'],
         'orderSequence': !exists(json, 'orderSequence') ? undefined : json['orderSequence'],
-        'paymentTypes': !exists(json, 'paymentTypes') ? undefined : PaymentTypesTypeFromJSON(json['paymentTypes']),
+        'paymentTypes': !exists(json, 'paymentTypes') ? undefined : json['paymentTypes'],
         'requirements': !exists(json, 'requirements') ? undefined : GuaranteeRequirementsTypeFromJSON(json['requirements']),
         'reserveInventory': !exists(json, 'reserveInventory') ? undefined : json['reserveInventory'],
         'shortDescription': !exists(json, 'shortDescription') ? undefined : TranslationTextType80FromJSON(json['shortDescription']),
@@ -161,7 +155,7 @@ export function GuaranteeConfigTypeToJSON(value?: GuaranteeConfigType | null): a
         'massCancellation': GuaranteeConfigTypeMassCancellationToJSON(value.massCancellation),
         'onHold': value.onHold,
         'orderSequence': value.orderSequence,
-        'paymentTypes': PaymentTypesTypeToJSON(value.paymentTypes),
+        'paymentTypes': value.paymentTypes,
         'requirements': GuaranteeRequirementsTypeToJSON(value.requirements),
         'reserveInventory': value.reserveInventory,
         'shortDescription': TranslationTextType80ToJSON(value.shortDescription),

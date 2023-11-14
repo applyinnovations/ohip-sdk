@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockRoomStatisticsListType } from './BlockRoomStatisticsListType';
+import type { BlockRoomStatisticsType } from './BlockRoomStatisticsType';
 /**
  * Holds the room type level statistics and total statistics for an allotment date.
  * @export
@@ -23,11 +23,11 @@ export interface BlockStatisticsDateType {
      */
     date?: Date;
     /**
-     *
-     * @type {BlockRoomStatisticsListType}
+     * Collection of room type level statistics.
+     * @type {Array<BlockRoomStatisticsType>}
      * @memberof BlockStatisticsDateType
      */
-    roomStatisticsList?: BlockRoomStatisticsListType;
+    roomStatisticsList?: Array<BlockRoomStatisticsType>;
     /**
      *
      * @type {number}

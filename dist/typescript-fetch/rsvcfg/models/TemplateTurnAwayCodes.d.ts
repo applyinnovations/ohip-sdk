@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TemplateTurnAwayCodesType } from './TemplateTurnAwayCodesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TemplateTurnAwayCodeType } from './TemplateTurnAwayCodeType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching template turnaway codes.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateTurnAwayCodes {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateTurnAwayCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TemplateTurnAwayCodesType}
+     * Collection of template turnaway codes
+     * @type {Array<TemplateTurnAwayCodeType>}
      * @memberof TemplateTurnAwayCodes
      */
-    turnAwayCodes?: TemplateTurnAwayCodesType;
+    turnAwayCodes?: Array<TemplateTurnAwayCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateTurnAwayCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateTurnAwayCodes interface.

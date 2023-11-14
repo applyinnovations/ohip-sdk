@@ -16,9 +16,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConvertedValuesToJSON = exports.ConvertedValuesFromJSONTyped = exports.ConvertedValuesFromJSON = exports.instanceOfConvertedValues = void 0;
 const runtime_1 = require("../runtime");
 const ConversionHotelInfoType_1 = require("./ConversionHotelInfoType");
-const ConvertedValuesType_1 = require("./ConvertedValuesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ConvertedValueType_1 = require("./ConvertedValueType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ConvertedValues interface.
  */
@@ -36,11 +36,11 @@ function ConvertedValuesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'convertedValues': !(0, runtime_1.exists)(json, 'convertedValues') ? undefined : (0, ConvertedValuesType_1.ConvertedValuesTypeFromJSON)(json['convertedValues']),
+        'convertedValues': !(0, runtime_1.exists)(json, 'convertedValues') ? undefined : (json['convertedValues'].map(ConvertedValueType_1.ConvertedValueTypeFromJSON)),
         'externalSystem': !(0, runtime_1.exists)(json, 'externalSystem') ? undefined : json['externalSystem'],
         'hotelInfo': !(0, runtime_1.exists)(json, 'hotelInfo') ? undefined : (0, ConversionHotelInfoType_1.ConversionHotelInfoTypeFromJSON)(json['hotelInfo']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ConvertedValuesFromJSONTyped = ConvertedValuesFromJSONTyped;
@@ -52,11 +52,11 @@ function ConvertedValuesToJSON(value) {
         return null;
     }
     return {
-        'convertedValues': (0, ConvertedValuesType_1.ConvertedValuesTypeToJSON)(value.convertedValues),
+        'convertedValues': value.convertedValues === undefined ? undefined : (value.convertedValues.map(ConvertedValueType_1.ConvertedValueTypeToJSON)),
         'externalSystem': value.externalSystem,
         'hotelInfo': (0, ConversionHotelInfoType_1.ConversionHotelInfoTypeToJSON)(value.hotelInfo),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ConvertedValuesToJSON = ConvertedValuesToJSON;

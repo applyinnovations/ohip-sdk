@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { NextBlockStatusCodeInfoListType } from './NextBlockStatusCodeInfoListType';
+import type { NextBlockStatusCodeInfoType } from './NextBlockStatusCodeInfoType';
 import {
-    NextBlockStatusCodeInfoListTypeFromJSON,
-    NextBlockStatusCodeInfoListTypeFromJSONTyped,
-    NextBlockStatusCodeInfoListTypeToJSON,
-} from './NextBlockStatusCodeInfoListType';
+    NextBlockStatusCodeInfoTypeFromJSON,
+    NextBlockStatusCodeInfoTypeFromJSONTyped,
+    NextBlockStatusCodeInfoTypeToJSON,
+} from './NextBlockStatusCodeInfoType';
 
 /**
  * Next block status codes information. Contains list of all configured and/or available next status codes for a particular status code.
@@ -27,17 +27,17 @@ import {
  */
 export interface NextBlockStatusCodeType {
     /**
-     * 
-     * @type {NextBlockStatusCodeInfoListType}
+     * List of all configured next status codes for the main status code.
+     * @type {Array<NextBlockStatusCodeInfoType>}
      * @memberof NextBlockStatusCodeType
      */
-    nextAvailableStatusList?: NextBlockStatusCodeInfoListType;
+    nextAvailableStatusList?: Array<NextBlockStatusCodeInfoType>;
     /**
-     * 
-     * @type {NextBlockStatusCodeInfoListType}
+     * List of all configured next status codes for the main status code.
+     * @type {Array<NextBlockStatusCodeInfoType>}
      * @memberof NextBlockStatusCodeType
      */
-    nextConfiguredStatusList?: NextBlockStatusCodeInfoListType;
+    nextConfiguredStatusList?: Array<NextBlockStatusCodeInfoType>;
     /**
      * Main block status code.
      * @type {string}
@@ -65,8 +65,8 @@ export function NextBlockStatusCodeTypeFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'nextAvailableStatusList': !exists(json, 'nextAvailableStatusList') ? undefined : NextBlockStatusCodeInfoListTypeFromJSON(json['nextAvailableStatusList']),
-        'nextConfiguredStatusList': !exists(json, 'nextConfiguredStatusList') ? undefined : NextBlockStatusCodeInfoListTypeFromJSON(json['nextConfiguredStatusList']),
+        'nextAvailableStatusList': !exists(json, 'nextAvailableStatusList') ? undefined : ((json['nextAvailableStatusList'] as Array<any>).map(NextBlockStatusCodeInfoTypeFromJSON)),
+        'nextConfiguredStatusList': !exists(json, 'nextConfiguredStatusList') ? undefined : ((json['nextConfiguredStatusList'] as Array<any>).map(NextBlockStatusCodeInfoTypeFromJSON)),
         'status': !exists(json, 'status') ? undefined : json['status'],
     };
 }
@@ -80,8 +80,8 @@ export function NextBlockStatusCodeTypeToJSON(value?: NextBlockStatusCodeType | 
     }
     return {
         
-        'nextAvailableStatusList': NextBlockStatusCodeInfoListTypeToJSON(value.nextAvailableStatusList),
-        'nextConfiguredStatusList': NextBlockStatusCodeInfoListTypeToJSON(value.nextConfiguredStatusList),
+        'nextAvailableStatusList': value.nextAvailableStatusList === undefined ? undefined : ((value.nextAvailableStatusList as Array<any>).map(NextBlockStatusCodeInfoTypeToJSON)),
+        'nextConfiguredStatusList': value.nextConfiguredStatusList === undefined ? undefined : ((value.nextConfiguredStatusList as Array<any>).map(NextBlockStatusCodeInfoTypeToJSON)),
         'status': value.status,
     };
 }

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChannelGlobalDescriptionsType } from './ChannelGlobalDescriptionsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { GenericGlobalDescriptionType } from './GenericGlobalDescriptionType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object to create new Global Descriptions of the GDS Channels
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ChannelGlobalDescriptions {
     /**
-     *
-     * @type {ChannelGlobalDescriptionsType}
+     * Collection of GDS channel Global description types
+     * @type {Array<GenericGlobalDescriptionType>}
      * @memberof ChannelGlobalDescriptions
      */
-    channelGlobalDescriptions?: ChannelGlobalDescriptionsType;
+    channelGlobalDescriptions?: Array<GenericGlobalDescriptionType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelGlobalDescriptions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelGlobalDescriptions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelGlobalDescriptions interface.

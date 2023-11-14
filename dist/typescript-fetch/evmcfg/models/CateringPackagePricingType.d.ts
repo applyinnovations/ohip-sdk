@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CateringPackageRevenueListType } from './CateringPackageRevenueListType';
+import type { CateringPackageRevenueType } from './CateringPackageRevenueType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { DateTimeSpanType } from './DateTimeSpanType';
 import type { UniqueIDType } from './UniqueIDType';
@@ -74,11 +74,11 @@ export interface CateringPackagePricingType {
      */
     priceCode?: string;
     /**
-     *
-     * @type {CateringPackageRevenueListType}
+     * Collection of multiple Revenue Details associated with a particular Catering Package Price Code.
+     * @type {Array<CateringPackageRevenueType>}
      * @memberof CateringPackagePricingType
      */
-    revenueDetails?: CateringPackageRevenueListType;
+    revenueDetails?: Array<CateringPackageRevenueType>;
     /**
      *
      * @type {DateTimeSpanType}

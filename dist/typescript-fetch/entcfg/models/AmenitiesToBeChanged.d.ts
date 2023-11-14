@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ConfigHotelAmenitiesType } from './ConfigHotelAmenitiesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ConfigHotelAmenityType } from './ConfigHotelAmenityType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing amenities at the property level.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AmenitiesToBeChanged {
     /**
-     *
-     * @type {ConfigHotelAmenitiesType}
+     * This type holds a collection of amenities at the property level.
+     * @type {Array<ConfigHotelAmenityType>}
      * @memberof AmenitiesToBeChanged
      */
-    hotelAmenities?: ConfigHotelAmenitiesType;
+    hotelAmenities?: Array<ConfigHotelAmenityType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AmenitiesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AmenitiesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AmenitiesToBeChanged interface.

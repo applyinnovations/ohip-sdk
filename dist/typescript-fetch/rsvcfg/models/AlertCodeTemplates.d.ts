@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AlertTemplatesType } from './AlertTemplatesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AlertTemplateType } from './AlertTemplateType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for information regarding alert templates.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AlertCodeTemplates {
     /**
-     *
-     * @type {AlertTemplatesType}
+     * Collection of alert code templates.
+     * @type {Array<AlertTemplateType>}
      * @memberof AlertCodeTemplates
      */
-    alertCodeTemplates?: AlertTemplatesType;
+    alertCodeTemplates?: Array<AlertTemplateType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AlertCodeTemplates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AlertCodeTemplates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AlertCodeTemplates interface.

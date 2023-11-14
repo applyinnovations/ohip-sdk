@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DailyDocketToJSON = exports.DailyDocketFromJSONTyped = exports.DailyDocketFromJSON = exports.instanceOfDailyDocket = void 0;
 const runtime_1 = require("../runtime");
-const DailyDocketType_1 = require("./DailyDocketType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const DailyDocketEntryType_1 = require("./DailyDocketEntryType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the DailyDocket interface.
  */
@@ -35,9 +35,9 @@ function DailyDocketFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'dailyDocketEntries': !(0, runtime_1.exists)(json, 'dailyDocketEntries') ? undefined : (0, DailyDocketType_1.DailyDocketTypeFromJSON)(json['dailyDocketEntries']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'dailyDocketEntries': !(0, runtime_1.exists)(json, 'dailyDocketEntries') ? undefined : (json['dailyDocketEntries'].map(DailyDocketEntryType_1.DailyDocketEntryTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.DailyDocketFromJSONTyped = DailyDocketFromJSONTyped;
@@ -49,9 +49,9 @@ function DailyDocketToJSON(value) {
         return null;
     }
     return {
-        'dailyDocketEntries': (0, DailyDocketType_1.DailyDocketTypeToJSON)(value.dailyDocketEntries),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'dailyDocketEntries': value.dailyDocketEntries === undefined ? undefined : (value.dailyDocketEntries.map(DailyDocketEntryType_1.DailyDocketEntryTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.DailyDocketToJSON = DailyDocketToJSON;

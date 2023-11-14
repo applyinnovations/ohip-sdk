@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SynchronizeProfileSubscriptionsCriteriaTypeToJSON = exports.SynchronizeProfileSubscriptionsCriteriaTypeFromJSONTyped = exports.SynchronizeProfileSubscriptionsCriteriaTypeFromJSON = exports.instanceOfSynchronizeProfileSubscriptionsCriteriaType = void 0;
 const runtime_1 = require("../runtime");
-const DatabaseIDListType_1 = require("./DatabaseIDListType");
 const ProfileId_1 = require("./ProfileId");
 /**
  * Check if a given object implements the SynchronizeProfileSubscriptionsCriteriaType interface.
@@ -34,7 +33,7 @@ function SynchronizeProfileSubscriptionsCriteriaTypeFromJSONTyped(json, ignoreDi
         return json;
     }
     return {
-        'databaseIds': !(0, runtime_1.exists)(json, 'databaseIds') ? undefined : (0, DatabaseIDListType_1.DatabaseIDListTypeFromJSON)(json['databaseIds']),
+        'databaseIds': !(0, runtime_1.exists)(json, 'databaseIds') ? undefined : json['databaseIds'],
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, ProfileId_1.ProfileIdFromJSON)(json['profileId']),
     };
 }
@@ -47,7 +46,7 @@ function SynchronizeProfileSubscriptionsCriteriaTypeToJSON(value) {
         return null;
     }
     return {
-        'databaseIds': (0, DatabaseIDListType_1.DatabaseIDListTypeToJSON)(value.databaseIds),
+        'databaseIds': value.databaseIds,
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
     };
 }

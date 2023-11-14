@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { MemberPointsSummaryType } from './MemberPointsSummaryType';
 import {
     MemberPointsSummaryTypeFromJSON,
@@ -43,12 +43,12 @@ import {
     MembershipDetailsTypeFromJSONTyped,
     MembershipDetailsTypeToJSON,
 } from './MembershipDetailsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching member point totals information.
@@ -58,10 +58,10 @@ import {
 export interface MembershipTransactionsSummary {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipTransactionsSummary
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {MembershipDetailsType}
@@ -87,11 +87,11 @@ export interface MembershipTransactionsSummary {
      */
     transactionsSummary?: MemberTransactionSummaryType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipTransactionsSummary
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -113,12 +113,12 @@ export function MembershipTransactionsSummaryFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'membershipDetails': !exists(json, 'membershipDetails') ? undefined : MembershipDetailsTypeFromJSON(json['membershipDetails']),
         'pointsSummary': !exists(json, 'pointsSummary') ? undefined : MemberPointsSummaryTypeFromJSON(json['pointsSummary']),
         'recentTransactionsSummary': !exists(json, 'recentTransactionsSummary') ? undefined : MemberTransactionRecentSummaryTypeFromJSON(json['recentTransactionsSummary']),
         'transactionsSummary': !exists(json, 'transactionsSummary') ? undefined : MemberTransactionSummaryTypeFromJSON(json['transactionsSummary']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -131,12 +131,12 @@ export function MembershipTransactionsSummaryToJSON(value?: MembershipTransactio
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'membershipDetails': MembershipDetailsTypeToJSON(value.membershipDetails),
         'pointsSummary': MemberPointsSummaryTypeToJSON(value.pointsSummary),
         'recentTransactionsSummary': MemberTransactionRecentSummaryTypeToJSON(value.recentTransactionsSummary),
         'transactionsSummary': MemberTransactionSummaryTypeToJSON(value.transactionsSummary),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

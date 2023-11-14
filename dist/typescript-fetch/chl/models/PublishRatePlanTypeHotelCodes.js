@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PublishRatePlanTypeHotelCodesToJSON = exports.PublishRatePlanTypeHotelCodesFromJSONTyped = exports.PublishRatePlanTypeHotelCodesFromJSON = exports.instanceOfPublishRatePlanTypeHotelCodes = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 /**
  * Check if a given object implements the PublishRatePlanTypeHotelCodes interface.
  */
@@ -33,8 +32,8 @@ function PublishRatePlanTypeHotelCodesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'ratePlanCodes': !(0, runtime_1.exists)(json, 'ratePlanCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['ratePlanCodes']),
-        'roomTypes': !(0, runtime_1.exists)(json, 'roomTypes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['roomTypes']),
+        'ratePlanCodes': !(0, runtime_1.exists)(json, 'ratePlanCodes') ? undefined : json['ratePlanCodes'],
+        'roomTypes': !(0, runtime_1.exists)(json, 'roomTypes') ? undefined : json['roomTypes'],
     };
 }
 exports.PublishRatePlanTypeHotelCodesFromJSONTyped = PublishRatePlanTypeHotelCodesFromJSONTyped;
@@ -46,8 +45,8 @@ function PublishRatePlanTypeHotelCodesToJSON(value) {
         return null;
     }
     return {
-        'ratePlanCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.ratePlanCodes),
-        'roomTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.roomTypes),
+        'ratePlanCodes': value.ratePlanCodes,
+        'roomTypes': value.roomTypes,
     };
 }
 exports.PublishRatePlanTypeHotelCodesToJSON = PublishRatePlanTypeHotelCodesToJSON;

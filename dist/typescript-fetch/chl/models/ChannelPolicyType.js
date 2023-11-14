@@ -16,9 +16,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelPolicyTypeToJSON = exports.ChannelPolicyTypeFromJSONTyped = exports.ChannelPolicyTypeFromJSON = exports.instanceOfChannelPolicyType = void 0;
 const runtime_1 = require("../runtime");
 const CancelPenaltyType_1 = require("./CancelPenaltyType");
-const ChannelMarketingInfoType_1 = require("./ChannelMarketingInfoType");
+const ChannelMarketingInfoTypeInner_1 = require("./ChannelMarketingInfoTypeInner");
 const DepositPolicyType_1 = require("./DepositPolicyType");
-const GuaranteesInfoType_1 = require("./GuaranteesInfoType");
+const GuaranteeType_1 = require("./GuaranteeType");
 /**
  * Check if a given object implements the ChannelPolicyType interface.
  */
@@ -37,12 +37,12 @@ function ChannelPolicyTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'cancelPenalty': !(0, runtime_1.exists)(json, 'cancelPenalty') ? undefined : (0, CancelPenaltyType_1.CancelPenaltyTypeFromJSON)(json['cancelPenalty']),
-        'channelMarketingInfo': !(0, runtime_1.exists)(json, 'channelMarketingInfo') ? undefined : (0, ChannelMarketingInfoType_1.ChannelMarketingInfoTypeFromJSON)(json['channelMarketingInfo']),
+        'channelMarketingInfo': !(0, runtime_1.exists)(json, 'channelMarketingInfo') ? undefined : (json['channelMarketingInfo'].map(ChannelMarketingInfoTypeInner_1.ChannelMarketingInfoTypeInnerFromJSON)),
         'channelRatePlanCode': !(0, runtime_1.exists)(json, 'channelRatePlanCode') ? undefined : json['channelRatePlanCode'],
         'commissionCode': !(0, runtime_1.exists)(json, 'commissionCode') ? undefined : json['commissionCode'],
         'deposit': !(0, runtime_1.exists)(json, 'deposit') ? undefined : json['deposit'],
         'depositPolicy': !(0, runtime_1.exists)(json, 'depositPolicy') ? undefined : (0, DepositPolicyType_1.DepositPolicyTypeFromJSON)(json['depositPolicy']),
-        'guarantees': !(0, runtime_1.exists)(json, 'guarantees') ? undefined : (0, GuaranteesInfoType_1.GuaranteesInfoTypeFromJSON)(json['guarantees']),
+        'guarantees': !(0, runtime_1.exists)(json, 'guarantees') ? undefined : (json['guarantees'].map(GuaranteeType_1.GuaranteeTypeFromJSON)),
         'hold': !(0, runtime_1.exists)(json, 'hold') ? undefined : json['hold'],
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
     };
@@ -57,12 +57,12 @@ function ChannelPolicyTypeToJSON(value) {
     }
     return {
         'cancelPenalty': (0, CancelPenaltyType_1.CancelPenaltyTypeToJSON)(value.cancelPenalty),
-        'channelMarketingInfo': (0, ChannelMarketingInfoType_1.ChannelMarketingInfoTypeToJSON)(value.channelMarketingInfo),
+        'channelMarketingInfo': value.channelMarketingInfo === undefined ? undefined : (value.channelMarketingInfo.map(ChannelMarketingInfoTypeInner_1.ChannelMarketingInfoTypeInnerToJSON)),
         'channelRatePlanCode': value.channelRatePlanCode,
         'commissionCode': value.commissionCode,
         'deposit': value.deposit,
         'depositPolicy': (0, DepositPolicyType_1.DepositPolicyTypeToJSON)(value.depositPolicy),
-        'guarantees': (0, GuaranteesInfoType_1.GuaranteesInfoTypeToJSON)(value.guarantees),
+        'guarantees': value.guarantees === undefined ? undefined : (value.guarantees.map(GuaranteeType_1.GuaranteeTypeToJSON)),
         'hold': value.hold,
         'ratePlanCode': value.ratePlanCode,
     };

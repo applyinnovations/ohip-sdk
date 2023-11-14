@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ForeignCurrencyExchangeTransactionType } from './ForeignCurrencyExchangeTransactionType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response of the posting foreign currency exchange transaction.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ForeignCurrencyExchangeTransaction {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ForeignCurrencyExchangeTransaction
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ForeignCurrencyExchangeTransactionType}
@@ -31,11 +31,11 @@ export interface ForeignCurrencyExchangeTransaction {
      */
     transaction?: ForeignCurrencyExchangeTransactionType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ForeignCurrencyExchangeTransaction
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ForeignCurrencyExchangeTransaction interface.

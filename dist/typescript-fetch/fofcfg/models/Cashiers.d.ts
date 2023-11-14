@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CashiersType } from './CashiersType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CashierType } from './CashierType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface Cashiers {
     /**
-     *
-     * @type {CashiersType}
+     * Details about a cashier.
+     * @type {Array<CashierType>}
      * @memberof Cashiers
      */
-    cashiers?: CashiersType;
+    cashiers?: Array<CashierType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Cashiers
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Cashiers
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Cashiers interface.

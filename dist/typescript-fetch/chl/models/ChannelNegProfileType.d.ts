@@ -11,7 +11,7 @@
  */
 import type { ChannelNegRateAccessType } from './ChannelNegRateAccessType';
 import type { PersonNameType } from './PersonNameType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * A negotiated rate type
  * @export
@@ -31,11 +31,11 @@ export interface ChannelNegProfileType {
      */
     formerName?: PersonNameType;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ChannelNegProfileType
      */
-    uniqueId?: UniqueIDListType;
+    uniqueId?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the ChannelNegProfileType interface.

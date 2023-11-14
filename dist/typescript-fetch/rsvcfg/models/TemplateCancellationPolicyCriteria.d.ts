@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ConfigCancelPenaltyType } from './ConfigCancelPenaltyType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object that holds the details of template Cancellation Policy to be created.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateCancellationPolicyCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateCancellationPolicyCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ConfigCancelPenaltyType}
@@ -31,11 +31,11 @@ export interface TemplateCancellationPolicyCriteria {
      */
     templateCancelPenalty?: ConfigCancelPenaltyType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateCancellationPolicyCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateCancellationPolicyCriteria interface.

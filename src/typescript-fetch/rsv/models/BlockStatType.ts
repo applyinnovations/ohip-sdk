@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockIdList } from './BlockIdList';
+import type { RoomPoolStatType } from './RoomPoolStatType';
 import {
-    BlockIdListFromJSON,
-    BlockIdListFromJSONTyped,
-    BlockIdListToJSON,
-} from './BlockIdList';
-import type { RoomPoolStatsType } from './RoomPoolStatsType';
+    RoomPoolStatTypeFromJSON,
+    RoomPoolStatTypeFromJSONTyped,
+    RoomPoolStatTypeToJSON,
+} from './RoomPoolStatType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    RoomPoolStatsTypeFromJSON,
-    RoomPoolStatsTypeFromJSONTyped,
-    RoomPoolStatsTypeToJSON,
-} from './RoomPoolStatsType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Statistics of one block.
@@ -33,17 +33,17 @@ import {
  */
 export interface BlockStatType {
     /**
-     * 
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof BlockStatType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
-     * 
-     * @type {RoomPoolStatsType}
+     * Statistics of one room pool.
+     * @type {Array<RoomPoolStatType>}
      * @memberof BlockStatType
      */
-    roomPoolStats?: RoomPoolStatsType;
+    roomPoolStats?: Array<RoomPoolStatType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function BlockStatTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : BlockIdListFromJSON(json['blockIdList']),
-        'roomPoolStats': !exists(json, 'roomPoolStats') ? undefined : RoomPoolStatsTypeFromJSON(json['roomPoolStats']),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'roomPoolStats': !exists(json, 'roomPoolStats') ? undefined : ((json['roomPoolStats'] as Array<any>).map(RoomPoolStatTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function BlockStatTypeToJSON(value?: BlockStatType | null): any {
     }
     return {
         
-        'blockIdList': BlockIdListToJSON(value.blockIdList),
-        'roomPoolStats': RoomPoolStatsTypeToJSON(value.roomPoolStats),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
+        'roomPoolStats': value.roomPoolStats === undefined ? undefined : ((value.roomPoolStats as Array<any>).map(RoomPoolStatTypeToJSON)),
     };
 }
 

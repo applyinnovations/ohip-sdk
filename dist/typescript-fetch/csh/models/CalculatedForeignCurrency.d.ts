@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ExchangeRateCalculationType } from './ExchangeRateCalculationType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Information regarding charges in batch result for each reservation.
  * @export
@@ -26,16 +26,16 @@ export interface CalculatedForeignCurrency {
     exchangeInfo?: Array<ExchangeRateCalculationType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CalculatedForeignCurrency
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CalculatedForeignCurrency
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CalculatedForeignCurrency interface.

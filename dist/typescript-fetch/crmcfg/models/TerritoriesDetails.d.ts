@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TerritoriesType } from './TerritoriesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TerritoryType } from './TerritoryType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Territories.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TerritoriesDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TerritoriesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TerritoriesType}
+     * List of Territories.
+     * @type {Array<TerritoryType>}
      * @memberof TerritoriesDetails
      */
-    territories?: TerritoriesType;
+    territories?: Array<TerritoryType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TerritoriesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TerritoriesDetails interface.

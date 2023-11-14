@@ -19,7 +19,7 @@ import type { PostingGroupType } from './PostingGroupType';
 import type { ReceiptSummaryType } from './ReceiptSummaryType';
 import type { ResDepositPolicyType } from './ResDepositPolicyType';
 import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Posting details.
  * @export
@@ -141,11 +141,11 @@ export interface DepositPostingType {
      */
     fbaCertificate?: boolean;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof DepositPostingType
      */
-    financialTransactionIdList?: UniqueIDListType;
+    financialTransactionIdList?: Array<UniqueIDType>;
     /**
      * The Folio number of this posting, if there was a Folio already generated.
      * @type {number}

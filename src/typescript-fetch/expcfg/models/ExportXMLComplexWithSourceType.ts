@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ExportXMLAttributesType } from './ExportXMLAttributesType';
+import type { ExportXMLAttributeType } from './ExportXMLAttributeType';
 import {
-    ExportXMLAttributesTypeFromJSON,
-    ExportXMLAttributesTypeFromJSONTyped,
-    ExportXMLAttributesTypeToJSON,
-} from './ExportXMLAttributesType';
-import type { ExportXMLElementsType } from './ExportXMLElementsType';
+    ExportXMLAttributeTypeFromJSON,
+    ExportXMLAttributeTypeFromJSONTyped,
+    ExportXMLAttributeTypeToJSON,
+} from './ExportXMLAttributeType';
+import type { ExportXMLElementType } from './ExportXMLElementType';
 import {
-    ExportXMLElementsTypeFromJSON,
-    ExportXMLElementsTypeFromJSONTyped,
-    ExportXMLElementsTypeToJSON,
-} from './ExportXMLElementsType';
+    ExportXMLElementTypeFromJSON,
+    ExportXMLElementTypeFromJSONTyped,
+    ExportXMLElementTypeToJSON,
+} from './ExportXMLElementType';
 
 /**
  * XML simple type that holds all the information related to complex element tag
@@ -33,17 +33,17 @@ import {
  */
 export interface ExportXMLComplexWithSourceType {
     /**
-     * 
-     * @type {ExportXMLAttributesType}
+     * XML attribute type that holds all the information related to attribute tag
+     * @type {Array<ExportXMLAttributeType>}
      * @memberof ExportXMLComplexWithSourceType
      */
-    attributes?: ExportXMLAttributesType;
+    attributes?: Array<ExportXMLAttributeType>;
     /**
-     * 
-     * @type {ExportXMLElementsType}
+     * XML element type that holds all the information related to element tag
+     * @type {Array<ExportXMLElementType>}
      * @memberof ExportXMLComplexWithSourceType
      */
-    elements?: ExportXMLElementsType;
+    elements?: Array<ExportXMLElementType>;
     /**
      * Filter data using this attribute
      * @type {string}
@@ -83,8 +83,8 @@ export function ExportXMLComplexWithSourceTypeFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'attributes': !exists(json, 'attributes') ? undefined : ExportXMLAttributesTypeFromJSON(json['attributes']),
-        'elements': !exists(json, 'elements') ? undefined : ExportXMLElementsTypeFromJSON(json['elements']),
+        'attributes': !exists(json, 'attributes') ? undefined : ((json['attributes'] as Array<any>).map(ExportXMLAttributeTypeFromJSON)),
+        'elements': !exists(json, 'elements') ? undefined : ((json['elements'] as Array<any>).map(ExportXMLElementTypeFromJSON)),
         'filter': !exists(json, 'filter') ? undefined : json['filter'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'source': !exists(json, 'source') ? undefined : json['source'],
@@ -100,8 +100,8 @@ export function ExportXMLComplexWithSourceTypeToJSON(value?: ExportXMLComplexWit
     }
     return {
         
-        'attributes': ExportXMLAttributesTypeToJSON(value.attributes),
-        'elements': ExportXMLElementsTypeToJSON(value.elements),
+        'attributes': value.attributes === undefined ? undefined : ((value.attributes as Array<any>).map(ExportXMLAttributeTypeToJSON)),
+        'elements': value.elements === undefined ? undefined : ((value.elements as Array<any>).map(ExportXMLElementTypeToJSON)),
         'filter': value.filter,
         'name': value.name,
         'source': value.source,

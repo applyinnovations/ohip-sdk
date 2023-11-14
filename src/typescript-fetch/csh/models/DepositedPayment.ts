@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DepositPostingsType } from './DepositPostingsType';
+import type { DepositPostingType } from './DepositPostingType';
 import {
-    DepositPostingsTypeFromJSON,
-    DepositPostingsTypeFromJSONTyped,
-    DepositPostingsTypeToJSON,
-} from './DepositPostingsType';
-import type { Links } from './Links';
+    DepositPostingTypeFromJSON,
+    DepositPostingTypeFromJSONTyped,
+    DepositPostingTypeToJSON,
+} from './DepositPostingType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for the post deposit payment request.
@@ -45,29 +45,29 @@ import {
  */
 export interface DepositedPayment {
     /**
-     * 
-     * @type {DepositPostingsType}
+     * A List of Deposit Payments.
+     * @type {Array<DepositPostingType>}
      * @memberof DepositedPayment
      */
-    deposits?: DepositPostingsType;
+    deposits?: Array<DepositPostingType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DepositedPayment
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof DepositedPayment
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DepositedPayment
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function DepositedPaymentFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'deposits': !exists(json, 'deposits') ? undefined : DepositPostingsTypeFromJSON(json['deposits']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : TrxCodesInfoTypeFromJSON(json['trxCodesInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'deposits': !exists(json, 'deposits') ? undefined : ((json['deposits'] as Array<any>).map(DepositPostingTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : ((json['trxCodesInfo'] as Array<any>).map(TrxInfoTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function DepositedPaymentToJSON(value?: DepositedPayment | null): any {
     }
     return {
         
-        'deposits': DepositPostingsTypeToJSON(value.deposits),
-        'links': LinksToJSON(value.links),
-        'trxCodesInfo': TrxCodesInfoTypeToJSON(value.trxCodesInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'deposits': value.deposits === undefined ? undefined : ((value.deposits as Array<any>).map(DepositPostingTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : ((value.trxCodesInfo as Array<any>).map(TrxInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

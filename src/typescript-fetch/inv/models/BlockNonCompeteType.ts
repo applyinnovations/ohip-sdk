@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DatesType } from './DatesType';
-import {
-    DatesTypeFromJSON,
-    DatesTypeFromJSONTyped,
-    DatesTypeToJSON,
-} from './DatesType';
 import type { RateProtectionType } from './RateProtectionType';
 import {
     RateProtectionTypeFromJSON,
@@ -51,11 +45,11 @@ export interface BlockNonCompeteType {
      */
     industryDescription?: string;
     /**
-     * 
-     * @type {DatesType}
+     * Specifies a single date.
+     * @type {Array<Date>}
      * @memberof BlockNonCompeteType
      */
-    protectedDates?: DatesType;
+    protectedDates?: Array<Date>;
 }
 
 /**
@@ -80,7 +74,7 @@ export function BlockNonCompeteTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'criteria': !exists(json, 'criteria') ? undefined : RateProtectionTypeFromJSON(json['criteria']),
         'industry': !exists(json, 'industry') ? undefined : json['industry'],
         'industryDescription': !exists(json, 'industryDescription') ? undefined : json['industryDescription'],
-        'protectedDates': !exists(json, 'protectedDates') ? undefined : DatesTypeFromJSON(json['protectedDates']),
+        'protectedDates': !exists(json, 'protectedDates') ? undefined : json['protectedDates'],
     };
 }
 
@@ -96,7 +90,7 @@ export function BlockNonCompeteTypeToJSON(value?: BlockNonCompeteType | null): a
         'criteria': RateProtectionTypeToJSON(value.criteria),
         'industry': value.industry,
         'industryDescription': value.industryDescription,
-        'protectedDates': DatesTypeToJSON(value.protectedDates),
+        'protectedDates': value.protectedDates,
     };
 }
 

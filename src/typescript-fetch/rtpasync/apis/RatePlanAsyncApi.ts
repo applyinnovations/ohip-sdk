@@ -20,7 +20,7 @@ import type {
   DailyRatePlanSchedules,
   DailyRatePlanSchedulesStatus,
   ExceptionDetailType,
-  HurdleRates,
+  HurdleRateType,
   HurdleRatesStatus,
   RatePlans,
 } from '../models/index';
@@ -35,8 +35,8 @@ import {
     DailyRatePlanSchedulesStatusToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-    HurdleRatesFromJSON,
-    HurdleRatesToJSON,
+    HurdleRateTypeFromJSON,
+    HurdleRateTypeToJSON,
     HurdleRatesStatusFromJSON,
     HurdleRatesStatusToJSON,
     RatePlansFromJSON,
@@ -129,7 +129,7 @@ export interface StartHurdleRatesProcessRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hurdleRates: HurdleRates;
+    hurdleRates: Array<HurdleRateType>;
     acceptLanguage?: string;
 }
 
@@ -656,7 +656,7 @@ export class RatePlanAsyncApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: HurdleRatesToJSON(requestParameters.hurdleRates),
+            body: requestParameters.hurdleRates.map(HurdleRateTypeToJSON),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);

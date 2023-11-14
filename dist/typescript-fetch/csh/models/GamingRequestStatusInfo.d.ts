@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GamingRequestStatusInfoType } from './GamingRequestStatusInfoType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { GamingRequestStatusType } from './GamingRequestStatusType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetch gaming info
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface GamingRequestStatusInfo {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GamingRequestStatusInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {GamingRequestStatusInfoType}
+     * List of guest request status details.
+     * @type {Array<GamingRequestStatusType>}
      * @memberof GamingRequestStatusInfo
      */
-    statusInfo?: GamingRequestStatusInfoType;
+    statusInfo?: Array<GamingRequestStatusType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GamingRequestStatusInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GamingRequestStatusInfo interface.

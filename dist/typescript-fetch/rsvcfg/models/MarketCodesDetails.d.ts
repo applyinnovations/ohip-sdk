@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MarketCodesType } from './MarketCodesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MarketCodeType } from './MarketCodeType';
+import type { WarningType } from './WarningType';
 /**
  * Response for fetch Market Codes.
  * @export
@@ -38,16 +38,16 @@ export interface MarketCodesDetails {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MarketCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MarketCodesType}
+     * Collection of Market Codes.
+     * @type {Array<MarketCodeType>}
      * @memberof MarketCodesDetails
      */
-    marketCodes?: MarketCodesType;
+    marketCodes?: Array<MarketCodeType>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface MarketCodesDetails {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MarketCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MarketCodesDetails interface.

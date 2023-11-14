@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FiscalFolioParametersType } from './FiscalFolioParametersType';
+import type { FiscalFolioParameterType } from './FiscalFolioParameterType';
 import {
-    FiscalFolioParametersTypeFromJSON,
-    FiscalFolioParametersTypeFromJSONTyped,
-    FiscalFolioParametersTypeToJSON,
-} from './FiscalFolioParametersType';
-import type { Links } from './Links';
+    FiscalFolioParameterTypeFromJSON,
+    FiscalFolioParameterTypeFromJSONTyped,
+    FiscalFolioParameterTypeToJSON,
+} from './FiscalFolioParameterType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface FiscalFolioParameters {
     /**
-     * 
-     * @type {FiscalFolioParametersType}
+     * Holds Fiscal Folio Parameter details.
+     * @type {Array<FiscalFolioParameterType>}
      * @memberof FiscalFolioParameters
      */
-    fiscalFolioParameters?: FiscalFolioParametersType;
+    fiscalFolioParameters?: Array<FiscalFolioParameterType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FiscalFolioParameters
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FiscalFolioParameters
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FiscalFolioParametersFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'fiscalFolioParameters': !exists(json, 'fiscalFolioParameters') ? undefined : FiscalFolioParametersTypeFromJSON(json['fiscalFolioParameters']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'fiscalFolioParameters': !exists(json, 'fiscalFolioParameters') ? undefined : ((json['fiscalFolioParameters'] as Array<any>).map(FiscalFolioParameterTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FiscalFolioParametersToJSON(value?: FiscalFolioParameters | null
     }
     return {
         
-        'fiscalFolioParameters': FiscalFolioParametersTypeToJSON(value.fiscalFolioParameters),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'fiscalFolioParameters': value.fiscalFolioParameters === undefined ? undefined : ((value.fiscalFolioParameters as Array<any>).map(FiscalFolioParameterTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

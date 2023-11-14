@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { OutOfOrderServiceReasonsType } from './OutOfOrderServiceReasonsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { OutOfOrderServiceReasonType } from './OutOfOrderServiceReasonType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Out of Order/Service Reason(s).
  * @export
@@ -38,10 +38,10 @@ export interface OutOfOrderServiceReasonsDetails {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof OutOfOrderServiceReasonsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -49,11 +49,11 @@ export interface OutOfOrderServiceReasonsDetails {
      */
     offset?: number;
     /**
-     *
-     * @type {OutOfOrderServiceReasonsType}
+     * out of order/service reason details.
+     * @type {Array<OutOfOrderServiceReasonType>}
      * @memberof OutOfOrderServiceReasonsDetails
      */
-    outOfOrderServiceReasons?: OutOfOrderServiceReasonsType;
+    outOfOrderServiceReasons?: Array<OutOfOrderServiceReasonType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -67,11 +67,11 @@ export interface OutOfOrderServiceReasonsDetails {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OutOfOrderServiceReasonsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the OutOfOrderServiceReasonsDetails interface.

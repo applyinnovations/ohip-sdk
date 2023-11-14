@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelStatementDetailsType } from './ChannelStatementDetailsType';
+import type { ChannelStatementDetailType } from './ChannelStatementDetailType';
 import {
-    ChannelStatementDetailsTypeFromJSON,
-    ChannelStatementDetailsTypeFromJSONTyped,
-    ChannelStatementDetailsTypeToJSON,
-} from './ChannelStatementDetailsType';
-import type { Links } from './Links';
+    ChannelStatementDetailTypeFromJSON,
+    ChannelStatementDetailTypeFromJSONTyped,
+    ChannelStatementDetailTypeToJSON,
+} from './ChannelStatementDetailType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object of the channel account statement details fetch request.
@@ -39,11 +39,11 @@ import {
  */
 export interface ChannelBillingStatementDetails {
     /**
-     * 
-     * @type {ChannelStatementDetailsType}
+     * Provides detailed information regarding Channel Account statements.
+     * @type {Array<ChannelStatementDetailType>}
      * @memberof ChannelBillingStatementDetails
      */
-    channelStatementDetails?: ChannelStatementDetailsType;
+    channelStatementDetails?: Array<ChannelStatementDetailType>;
     /**
      * Total number of rows returned
      * @type {number}
@@ -64,10 +64,10 @@ export interface ChannelBillingStatementDetails {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelBillingStatementDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -87,11 +87,11 @@ export interface ChannelBillingStatementDetails {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelBillingStatementDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -113,15 +113,15 @@ export function ChannelBillingStatementDetailsFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'channelStatementDetails': !exists(json, 'channelStatementDetails') ? undefined : ChannelStatementDetailsTypeFromJSON(json['channelStatementDetails']),
+        'channelStatementDetails': !exists(json, 'channelStatementDetails') ? undefined : ((json['channelStatementDetails'] as Array<any>).map(ChannelStatementDetailTypeFromJSON)),
         'count': !exists(json, 'count') ? undefined : json['count'],
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -134,15 +134,15 @@ export function ChannelBillingStatementDetailsToJSON(value?: ChannelBillingState
     }
     return {
         
-        'channelStatementDetails': ChannelStatementDetailsTypeToJSON(value.channelStatementDetails),
+        'channelStatementDetails': value.channelStatementDetails === undefined ? undefined : ((value.channelStatementDetails as Array<any>).map(ChannelStatementDetailTypeToJSON)),
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

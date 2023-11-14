@@ -15,11 +15,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PostedCreditBillToJSON = exports.PostedCreditBillFromJSONTyped = exports.PostedCreditBillFromJSON = exports.instanceOfPostedCreditBill = void 0;
 const runtime_1 = require("../runtime");
-const DetailPostingsType_1 = require("./DetailPostingsType");
+const DetailPostingType_1 = require("./DetailPostingType");
 const FolioWindowType_1 = require("./FolioWindowType");
-const Links_1 = require("./Links");
-const TrxCodesInfoType_1 = require("./TrxCodesInfoType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TrxInfoType_1 = require("./TrxInfoType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PostedCreditBill interface.
  */
@@ -38,10 +38,10 @@ function PostedCreditBillFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'folioWindow': !(0, runtime_1.exists)(json, 'folioWindow') ? undefined : (json['folioWindow'].map(FolioWindowType_1.FolioWindowTypeFromJSON)),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'payments': !(0, runtime_1.exists)(json, 'payments') ? undefined : (0, DetailPostingsType_1.DetailPostingsTypeFromJSON)(json['payments']),
-        'trxCodesInfo': !(0, runtime_1.exists)(json, 'trxCodesInfo') ? undefined : (0, TrxCodesInfoType_1.TrxCodesInfoTypeFromJSON)(json['trxCodesInfo']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'payments': !(0, runtime_1.exists)(json, 'payments') ? undefined : (json['payments'].map(DetailPostingType_1.DetailPostingTypeFromJSON)),
+        'trxCodesInfo': !(0, runtime_1.exists)(json, 'trxCodesInfo') ? undefined : (json['trxCodesInfo'].map(TrxInfoType_1.TrxInfoTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PostedCreditBillFromJSONTyped = PostedCreditBillFromJSONTyped;
@@ -54,10 +54,10 @@ function PostedCreditBillToJSON(value) {
     }
     return {
         'folioWindow': value.folioWindow === undefined ? undefined : (value.folioWindow.map(FolioWindowType_1.FolioWindowTypeToJSON)),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'payments': (0, DetailPostingsType_1.DetailPostingsTypeToJSON)(value.payments),
-        'trxCodesInfo': (0, TrxCodesInfoType_1.TrxCodesInfoTypeToJSON)(value.trxCodesInfo),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'payments': value.payments === undefined ? undefined : (value.payments.map(DetailPostingType_1.DetailPostingTypeToJSON)),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : (value.trxCodesInfo.map(TrxInfoType_1.TrxInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PostedCreditBillToJSON = PostedCreditBillToJSON;

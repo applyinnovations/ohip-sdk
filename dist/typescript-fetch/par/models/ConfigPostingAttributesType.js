@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConfigPostingAttributesTypeToJSON = exports.ConfigPostingAttributesTypeFromJSONTyped = exports.ConfigPostingAttributesTypeFromJSON = exports.instanceOfConfigPostingAttributesType = void 0;
 const runtime_1 = require("../runtime");
-const FunctionArgumentsType_1 = require("./FunctionArgumentsType");
+const FunctionArgumentType_1 = require("./FunctionArgumentType");
 const PackageCalculationRuleType_1 = require("./PackageCalculationRuleType");
 const PackagePostingRhythmType_1 = require("./PackagePostingRhythmType");
 const PkgInventoryItemType_1 = require("./PkgInventoryItemType");
@@ -43,7 +43,7 @@ function ConfigPostingAttributesTypeFromJSONTyped(json, ignoreDiscriminator) {
         'endTime': !(0, runtime_1.exists)(json, 'endTime') ? undefined : json['endTime'],
         'forecastNextDay': !(0, runtime_1.exists)(json, 'forecastNextDay') ? undefined : json['forecastNextDay'],
         'formula': !(0, runtime_1.exists)(json, 'formula') ? undefined : json['formula'],
-        'formulaFunctionArguments': !(0, runtime_1.exists)(json, 'formulaFunctionArguments') ? undefined : (0, FunctionArgumentsType_1.FunctionArgumentsTypeFromJSON)(json['formulaFunctionArguments']),
+        'formulaFunctionArguments': !(0, runtime_1.exists)(json, 'formulaFunctionArguments') ? undefined : (json['formulaFunctionArguments'].map(FunctionArgumentType_1.FunctionArgumentTypeFromJSON)),
         'formulaFunctionName': !(0, runtime_1.exists)(json, 'formulaFunctionName') ? undefined : json['formulaFunctionName'],
         'inventoryItems': !(0, runtime_1.exists)(json, 'inventoryItems') ? undefined : (json['inventoryItems'].map(PkgInventoryItemType_1.PkgInventoryItemTypeFromJSON)),
         'postNextDay': !(0, runtime_1.exists)(json, 'postNextDay') ? undefined : json['postNextDay'],
@@ -72,7 +72,7 @@ function ConfigPostingAttributesTypeToJSON(value) {
         'endTime': value.endTime,
         'forecastNextDay': value.forecastNextDay,
         'formula': value.formula,
-        'formulaFunctionArguments': (0, FunctionArgumentsType_1.FunctionArgumentsTypeToJSON)(value.formulaFunctionArguments),
+        'formulaFunctionArguments': value.formulaFunctionArguments === undefined ? undefined : (value.formulaFunctionArguments.map(FunctionArgumentType_1.FunctionArgumentTypeToJSON)),
         'formulaFunctionName': value.formulaFunctionName,
         'inventoryItems': value.inventoryItems === undefined ? undefined : (value.inventoryItems.map(PkgInventoryItemType_1.PkgInventoryItemTypeToJSON)),
         'postNextDay': value.postNextDay,

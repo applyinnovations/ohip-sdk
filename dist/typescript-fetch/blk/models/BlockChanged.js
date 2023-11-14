@@ -16,9 +16,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockChangedToJSON = exports.BlockChangedFromJSONTyped = exports.BlockChangedFromJSON = exports.instanceOfBlockChanged = void 0;
 const runtime_1 = require("../runtime");
 const BlocksType_1 = require("./BlocksType");
-const CateringEventsProcessedInfoList_1 = require("./CateringEventsProcessedInfoList");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CateringEventsProcessedInfoType_1 = require("./CateringEventsProcessedInfoType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BlockChanged interface.
  */
@@ -37,9 +37,9 @@ function BlockChangedFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'blocks': !(0, runtime_1.exists)(json, 'blocks') ? undefined : (0, BlocksType_1.BlocksTypeFromJSON)(json['blocks']),
-        'cateringEventsProcessedInfo': !(0, runtime_1.exists)(json, 'cateringEventsProcessedInfo') ? undefined : (0, CateringEventsProcessedInfoList_1.CateringEventsProcessedInfoListFromJSON)(json['cateringEventsProcessedInfo']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'cateringEventsProcessedInfo': !(0, runtime_1.exists)(json, 'cateringEventsProcessedInfo') ? undefined : (json['cateringEventsProcessedInfo'].map(CateringEventsProcessedInfoType_1.CateringEventsProcessedInfoTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BlockChangedFromJSONTyped = BlockChangedFromJSONTyped;
@@ -52,9 +52,9 @@ function BlockChangedToJSON(value) {
     }
     return {
         'blocks': (0, BlocksType_1.BlocksTypeToJSON)(value.blocks),
-        'cateringEventsProcessedInfo': (0, CateringEventsProcessedInfoList_1.CateringEventsProcessedInfoListToJSON)(value.cateringEventsProcessedInfo),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'cateringEventsProcessedInfo': value.cateringEventsProcessedInfo === undefined ? undefined : (value.cateringEventsProcessedInfo.map(CateringEventsProcessedInfoType_1.CateringEventsProcessedInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BlockChangedToJSON = BlockChangedToJSON;

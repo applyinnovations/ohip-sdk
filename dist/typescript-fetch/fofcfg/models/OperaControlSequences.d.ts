@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ControlSequencesType } from './ControlSequencesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ControlSequenceType } from './ControlSequenceType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface OperaControlSequences {
     /**
-     *
-     * @type {ControlSequencesType}
+     * List of Control Sequence details
+     * @type {Array<ControlSequenceType>}
      * @memberof OperaControlSequences
      */
-    controlSequences?: ControlSequencesType;
+    controlSequences?: Array<ControlSequenceType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof OperaControlSequences
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OperaControlSequences
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the OperaControlSequences interface.

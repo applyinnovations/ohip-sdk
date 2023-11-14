@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HoldRoomsToJSON = exports.HoldRoomsFromJSONTyped = exports.HoldRoomsFromJSON = exports.instanceOfHoldRooms = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RoomsHoldsType_1 = require("./RoomsHoldsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RoomsHoldType_1 = require("./RoomsHoldType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the HoldRooms interface.
  */
@@ -35,10 +35,10 @@ function HoldRoomsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'holdRoomsDetails': !(0, runtime_1.exists)(json, 'holdRoomsDetails') ? undefined : (0, RoomsHoldsType_1.RoomsHoldsTypeFromJSON)(json['holdRoomsDetails']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'holdRoomsDetails': !(0, runtime_1.exists)(json, 'holdRoomsDetails') ? undefined : (json['holdRoomsDetails'].map(RoomsHoldType_1.RoomsHoldTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'overrideRoomHold': !(0, runtime_1.exists)(json, 'overrideRoomHold') ? undefined : json['overrideRoomHold'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.HoldRoomsFromJSONTyped = HoldRoomsFromJSONTyped;
@@ -50,10 +50,10 @@ function HoldRoomsToJSON(value) {
         return null;
     }
     return {
-        'holdRoomsDetails': (0, RoomsHoldsType_1.RoomsHoldsTypeToJSON)(value.holdRoomsDetails),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'holdRoomsDetails': value.holdRoomsDetails === undefined ? undefined : (value.holdRoomsDetails.map(RoomsHoldType_1.RoomsHoldTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'overrideRoomHold': value.overrideRoomHold,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.HoldRoomsToJSON = HoldRoomsToJSON;

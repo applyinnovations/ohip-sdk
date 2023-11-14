@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { UserDefinedEnrollmentFieldsType } from './UserDefinedEnrollmentFieldsType';
+import type { UserDefinedEnrollmentFieldType } from './UserDefinedEnrollmentFieldType';
 /**
  * Represent Enrollment Match Rule and User Defined Enrollment fields/Attribute configuration for membership type.
  * @export
@@ -29,11 +29,11 @@ export interface EnrollmentMatchRuleType {
      */
     membershipEnrollmentMatchRule?: string;
     /**
-     *
-     * @type {UserDefinedEnrollmentFieldsType}
+     * Type that holds the User Defined Enrollment field/Attribute such as Communication, First Name , Last Name etc.
+     * @type {Array<UserDefinedEnrollmentFieldType>}
      * @memberof EnrollmentMatchRuleType
      */
-    userDefinedEnrollmentFields?: UserDefinedEnrollmentFieldsType;
+    userDefinedEnrollmentFields?: Array<UserDefinedEnrollmentFieldType>;
 }
 /**
  * Check if a given object implements the EnrollmentMatchRuleType interface.

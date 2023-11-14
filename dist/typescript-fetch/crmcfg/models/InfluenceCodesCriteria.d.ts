@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { InfluenceCodesType } from './InfluenceCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InfluenceCodeType } from './InfluenceCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Influence Codes.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface InfluenceCodesCriteria {
     /**
-     *
-     * @type {InfluenceCodesType}
+     * List of Influence Codes.
+     * @type {Array<InfluenceCodeType>}
      * @memberof InfluenceCodesCriteria
      */
-    influenceCodes?: InfluenceCodesType;
+    influenceCodes?: Array<InfluenceCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof InfluenceCodesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof InfluenceCodesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the InfluenceCodesCriteria interface.

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ARAccountsType } from './ARAccountsType';
+import type { ARAccountType } from './ARAccountType';
 import type { ARAgingInfoType } from './ARAgingInfoType';
 /**
  *
@@ -18,11 +18,11 @@ import type { ARAgingInfoType } from './ARAgingInfoType';
  */
 export interface ARProfileAgingInfoTypeHotelInner {
     /**
-     *
-     * @type {ARAccountsType}
+     * Information regarding the AR Account.
+     * @type {Array<ARAccountType>}
      * @memberof ARProfileAgingInfoTypeHotelInner
      */
-    accountAging?: ARAccountsType;
+    accountAging?: Array<ARAccountType>;
     /**
      * Property Code for the Aging information.
      * @type {string}

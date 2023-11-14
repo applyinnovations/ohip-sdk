@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExternalProfileTypeToJSON = exports.ExternalProfileTypeFromJSONTyped = exports.ExternalProfileTypeFromJSON = exports.instanceOfExternalProfileType = void 0;
 const runtime_1 = require("../runtime");
-const IncidentsType_1 = require("./IncidentsType");
-const ProfileIdList_1 = require("./ProfileIdList");
+const IncidentType_1 = require("./IncidentType");
 const ProfileType_1 = require("./ProfileType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ExternalProfileType interface.
  */
@@ -35,9 +35,9 @@ function ExternalProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'profile': !(0, runtime_1.exists)(json, 'profile') ? undefined : (0, ProfileType_1.ProfileTypeFromJSON)(json['profile']),
-        'incidents': !(0, runtime_1.exists)(json, 'incidents') ? undefined : (0, IncidentsType_1.IncidentsTypeFromJSON)(json['incidents']),
+        'incidents': !(0, runtime_1.exists)(json, 'incidents') ? undefined : (json['incidents'].map(IncidentType_1.IncidentTypeFromJSON)),
         'guestStatus': !(0, runtime_1.exists)(json, 'guestStatus') ? undefined : json['guestStatus'],
     };
 }
@@ -50,9 +50,9 @@ function ExternalProfileTypeToJSON(value) {
         return null;
     }
     return {
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'profile': (0, ProfileType_1.ProfileTypeToJSON)(value.profile),
-        'incidents': (0, IncidentsType_1.IncidentsTypeToJSON)(value.incidents),
+        'incidents': value.incidents === undefined ? undefined : (value.incidents.map(IncidentType_1.IncidentTypeToJSON)),
         'guestStatus': value.guestStatus,
     };
 }

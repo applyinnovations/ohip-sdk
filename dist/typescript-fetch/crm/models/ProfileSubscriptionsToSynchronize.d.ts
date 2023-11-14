@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { SynchronizeProfileSubscriptionsCriteriaType } from './SynchronizeProfileSubscriptionsCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for re-subscribing profile subscriptions.
  * @export
@@ -26,16 +26,16 @@ export interface ProfileSubscriptionsToSynchronize {
     criteria?: SynchronizeProfileSubscriptionsCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileSubscriptionsToSynchronize
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileSubscriptionsToSynchronize
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileSubscriptionsToSynchronize interface.

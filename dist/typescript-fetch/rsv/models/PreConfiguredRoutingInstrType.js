@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PreConfiguredRoutingInstrTypeToJSON = exports.PreConfiguredRoutingInstrTypeFromJSONTyped = exports.PreConfiguredRoutingInstrTypeFromJSON = exports.instanceOfPreConfiguredRoutingInstrType = void 0;
 const runtime_1 = require("../runtime");
-const BillingInstructionsType_1 = require("./BillingInstructionsType");
+const BillingInstructionType_1 = require("./BillingInstructionType");
 const PromoCodeCompRoutingType_1 = require("./PromoCodeCompRoutingType");
 const ResAttachedProfileType_1 = require("./ResAttachedProfileType");
-const TrxCodesInfoType_1 = require("./TrxCodesInfoType");
+const TrxInfoType_1 = require("./TrxInfoType");
 /**
  * Check if a given object implements the PreConfiguredRoutingInstrType interface.
  */
@@ -37,11 +37,11 @@ function PreConfiguredRoutingInstrTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'autoPopulateRouting': !(0, runtime_1.exists)(json, 'autoPopulateRouting') ? undefined : json['autoPopulateRouting'],
-        'billingInstructions': !(0, runtime_1.exists)(json, 'billingInstructions') ? undefined : (0, BillingInstructionsType_1.BillingInstructionsTypeFromJSON)(json['billingInstructions']),
+        'billingInstructions': !(0, runtime_1.exists)(json, 'billingInstructions') ? undefined : (json['billingInstructions'].map(BillingInstructionType_1.BillingInstructionTypeFromJSON)),
         'compRoutingInstructionType': !(0, runtime_1.exists)(json, 'compRoutingInstructionType') ? undefined : (0, PromoCodeCompRoutingType_1.PromoCodeCompRoutingTypeFromJSON)(json['compRoutingInstructionType']),
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'reservationProfile': !(0, runtime_1.exists)(json, 'reservationProfile') ? undefined : (0, ResAttachedProfileType_1.ResAttachedProfileTypeFromJSON)(json['reservationProfile']),
-        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (0, TrxCodesInfoType_1.TrxCodesInfoTypeFromJSON)(json['transactionCodes']),
+        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (json['transactionCodes'].map(TrxInfoType_1.TrxInfoTypeFromJSON)),
     };
 }
 exports.PreConfiguredRoutingInstrTypeFromJSONTyped = PreConfiguredRoutingInstrTypeFromJSONTyped;
@@ -54,11 +54,11 @@ function PreConfiguredRoutingInstrTypeToJSON(value) {
     }
     return {
         'autoPopulateRouting': value.autoPopulateRouting,
-        'billingInstructions': (0, BillingInstructionsType_1.BillingInstructionsTypeToJSON)(value.billingInstructions),
+        'billingInstructions': value.billingInstructions === undefined ? undefined : (value.billingInstructions.map(BillingInstructionType_1.BillingInstructionTypeToJSON)),
         'compRoutingInstructionType': (0, PromoCodeCompRoutingType_1.PromoCodeCompRoutingTypeToJSON)(value.compRoutingInstructionType),
         'ratePlanCode': value.ratePlanCode,
         'reservationProfile': (0, ResAttachedProfileType_1.ResAttachedProfileTypeToJSON)(value.reservationProfile),
-        'transactionCodes': (0, TrxCodesInfoType_1.TrxCodesInfoTypeToJSON)(value.transactionCodes),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : (value.transactionCodes.map(TrxInfoType_1.TrxInfoTypeToJSON)),
     };
 }
 exports.PreConfiguredRoutingInstrTypeToJSON = PreConfiguredRoutingInstrTypeToJSON;

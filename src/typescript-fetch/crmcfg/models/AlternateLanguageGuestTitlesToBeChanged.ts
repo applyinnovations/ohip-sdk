@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { GuestTitlesType } from './GuestTitlesType';
+import type { GuestTitleType } from './GuestTitleType';
 import {
-    GuestTitlesTypeFromJSON,
-    GuestTitlesTypeFromJSONTyped,
-    GuestTitlesTypeToJSON,
-} from './GuestTitlesType';
-import type { Links } from './Links';
+    GuestTitleTypeFromJSON,
+    GuestTitleTypeFromJSONTyped,
+    GuestTitleTypeToJSON,
+} from './GuestTitleType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Alternate Language Guest Titles.
@@ -39,23 +39,23 @@ import {
  */
 export interface AlternateLanguageGuestTitlesToBeChanged {
     /**
-     * 
-     * @type {GuestTitlesType}
+     * List of Guest Titles.
+     * @type {Array<GuestTitleType>}
      * @memberof AlternateLanguageGuestTitlesToBeChanged
      */
-    alternateLanguageGuestTitles?: GuestTitlesType;
+    alternateLanguageGuestTitles?: Array<GuestTitleType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AlternateLanguageGuestTitlesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AlternateLanguageGuestTitlesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function AlternateLanguageGuestTitlesToBeChangedFromJSONTyped(json: any, 
     }
     return {
         
-        'alternateLanguageGuestTitles': !exists(json, 'alternateLanguageGuestTitles') ? undefined : GuestTitlesTypeFromJSON(json['alternateLanguageGuestTitles']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'alternateLanguageGuestTitles': !exists(json, 'alternateLanguageGuestTitles') ? undefined : ((json['alternateLanguageGuestTitles'] as Array<any>).map(GuestTitleTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function AlternateLanguageGuestTitlesToBeChangedToJSON(value?: AlternateL
     }
     return {
         
-        'alternateLanguageGuestTitles': GuestTitlesTypeToJSON(value.alternateLanguageGuestTitles),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'alternateLanguageGuestTitles': value.alternateLanguageGuestTitles === undefined ? undefined : ((value.alternateLanguageGuestTitles as Array<any>).map(GuestTitleTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

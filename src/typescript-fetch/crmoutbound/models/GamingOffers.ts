@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { GamingOffersType } from './GamingOffersType';
+import type { CodeDescriptionType } from './CodeDescriptionType';
 import {
-    GamingOffersTypeFromJSON,
-    GamingOffersTypeFromJSONTyped,
-    GamingOffersTypeToJSON,
-} from './GamingOffersType';
-import type { Links } from './Links';
+    CodeDescriptionTypeFromJSON,
+    CodeDescriptionTypeFromJSONTyped,
+    CodeDescriptionTypeToJSON,
+} from './CodeDescriptionType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 
 /**
  * Response object for fetching offers from external system.
@@ -33,17 +33,17 @@ import {
  */
 export interface GamingOffers {
     /**
-     * 
-     * @type {GamingOffersType}
+     * Offers that are availabl to be attached
+     * @type {Array<CodeDescriptionType>}
      * @memberof GamingOffers
      */
-    gamingOffersInfo?: GamingOffersType;
+    gamingOffersInfo?: Array<CodeDescriptionType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GamingOffers
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function GamingOffersFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'gamingOffersInfo': !exists(json, 'gamingOffersInfo') ? undefined : GamingOffersTypeFromJSON(json['gamingOffersInfo']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'gamingOffersInfo': !exists(json, 'gamingOffersInfo') ? undefined : ((json['gamingOffersInfo'] as Array<any>).map(CodeDescriptionTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function GamingOffersToJSON(value?: GamingOffers | null): any {
     }
     return {
         
-        'gamingOffersInfo': GamingOffersTypeToJSON(value.gamingOffersInfo),
-        'links': LinksToJSON(value.links),
+        'gamingOffersInfo': value.gamingOffersInfo === undefined ? undefined : ((value.gamingOffersInfo as Array<any>).map(CodeDescriptionTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelHotelCodeMappingToJSON = exports.ChannelHotelCodeMappingFromJSONTyped = exports.ChannelHotelCodeMappingFromJSON = exports.instanceOfChannelHotelCodeMapping = void 0;
 const runtime_1 = require("../runtime");
 const HotelCodeMappingInfoType_1 = require("./HotelCodeMappingInfoType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChannelHotelCodeMapping interface.
  */
@@ -37,8 +37,8 @@ function ChannelHotelCodeMappingFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'channelCode': !(0, runtime_1.exists)(json, 'channelCode') ? undefined : json['channelCode'],
         'hotelInfo': !(0, runtime_1.exists)(json, 'hotelInfo') ? undefined : (0, HotelCodeMappingInfoType_1.HotelCodeMappingInfoTypeFromJSON)(json['hotelInfo']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChannelHotelCodeMappingFromJSONTyped = ChannelHotelCodeMappingFromJSONTyped;
@@ -52,8 +52,8 @@ function ChannelHotelCodeMappingToJSON(value) {
     return {
         'channelCode': value.channelCode,
         'hotelInfo': (0, HotelCodeMappingInfoType_1.HotelCodeMappingInfoTypeToJSON)(value.hotelInfo),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChannelHotelCodeMappingToJSON = ChannelHotelCodeMappingToJSON;

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomCondtionTemplatesType } from './RoomCondtionTemplatesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomCondtionTemplateType } from './RoomCondtionTemplateType';
 import {
-    RoomCondtionTemplatesTypeFromJSON,
-    RoomCondtionTemplatesTypeFromJSONTyped,
-    RoomCondtionTemplatesTypeToJSON,
-} from './RoomCondtionTemplatesType';
-import type { WarningsType } from './WarningsType';
+    RoomCondtionTemplateTypeFromJSON,
+    RoomCondtionTemplateTypeFromJSONTyped,
+    RoomCondtionTemplateTypeToJSON,
+} from './RoomCondtionTemplateType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for information regarding room condition template of a property.
@@ -40,22 +40,22 @@ import {
 export interface RoomConditionTemplatesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomConditionTemplatesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RoomCondtionTemplatesType}
+     * Collection of Room Condition Template Type
+     * @type {Array<RoomCondtionTemplateType>}
      * @memberof RoomConditionTemplatesDetails
      */
-    roomConditionTemplates?: RoomCondtionTemplatesType;
+    roomConditionTemplates?: Array<RoomCondtionTemplateType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomConditionTemplatesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RoomConditionTemplatesDetailsFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'roomConditionTemplates': !exists(json, 'roomConditionTemplates') ? undefined : RoomCondtionTemplatesTypeFromJSON(json['roomConditionTemplates']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'roomConditionTemplates': !exists(json, 'roomConditionTemplates') ? undefined : ((json['roomConditionTemplates'] as Array<any>).map(RoomCondtionTemplateTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RoomConditionTemplatesDetailsToJSON(value?: RoomConditionTemplat
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'roomConditionTemplates': RoomCondtionTemplatesTypeToJSON(value.roomConditionTemplates),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'roomConditionTemplates': value.roomConditionTemplates === undefined ? undefined : ((value.roomConditionTemplates as Array<any>).map(RoomCondtionTemplateTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

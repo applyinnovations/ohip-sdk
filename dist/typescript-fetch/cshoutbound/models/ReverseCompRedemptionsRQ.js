@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReverseCompRedemptionsRQToJSON = exports.ReverseCompRedemptionsRQFromJSONTyped = exports.ReverseCompRedemptionsRQFromJSON = exports.instanceOfReverseCompRedemptionsRQ = void 0;
 const runtime_1 = require("../runtime");
-const ReverseCompRedemptionsRQCompRedemptionsType_1 = require("./ReverseCompRedemptionsRQCompRedemptionsType");
+const ReverseCompRedemptionsRQCompRedemptionType_1 = require("./ReverseCompRedemptionsRQCompRedemptionType");
 /**
  * Check if a given object implements the ReverseCompRedemptionsRQ interface.
  */
@@ -33,7 +33,7 @@ function ReverseCompRedemptionsRQFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'compRedemptions': !(0, runtime_1.exists)(json, 'compRedemptions') ? undefined : (0, ReverseCompRedemptionsRQCompRedemptionsType_1.ReverseCompRedemptionsRQCompRedemptionsTypeFromJSON)(json['compRedemptions']),
+        'compRedemptions': !(0, runtime_1.exists)(json, 'compRedemptions') ? undefined : (json['compRedemptions'].map(ReverseCompRedemptionsRQCompRedemptionType_1.ReverseCompRedemptionsRQCompRedemptionTypeFromJSON)),
     };
 }
 exports.ReverseCompRedemptionsRQFromJSONTyped = ReverseCompRedemptionsRQFromJSONTyped;
@@ -45,7 +45,7 @@ function ReverseCompRedemptionsRQToJSON(value) {
         return null;
     }
     return {
-        'compRedemptions': (0, ReverseCompRedemptionsRQCompRedemptionsType_1.ReverseCompRedemptionsRQCompRedemptionsTypeToJSON)(value.compRedemptions),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : (value.compRedemptions.map(ReverseCompRedemptionsRQCompRedemptionType_1.ReverseCompRedemptionsRQCompRedemptionTypeToJSON)),
     };
 }
 exports.ReverseCompRedemptionsRQToJSON = ReverseCompRedemptionsRQToJSON;

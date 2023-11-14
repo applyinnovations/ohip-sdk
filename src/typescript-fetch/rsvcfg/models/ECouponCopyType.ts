@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-
 /**
  * Copy eCoupons from one Property to one or multiple properties.
  * @export
@@ -28,10 +21,10 @@ import {
 export interface ECouponCopyType {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ECouponCopyType
      */
-    eCouponCodes?: CodeListType;
+    eCouponCodes?: Array<string>;
     /**
      * Source property from which copy operation will happen.
      * @type {string}
@@ -40,10 +33,10 @@ export interface ECouponCopyType {
     hotelId?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ECouponCopyType
      */
-    targetHotelCodes?: CodeListType;
+    targetHotelCodes?: Array<string>;
 }
 
 /**
@@ -65,9 +58,9 @@ export function ECouponCopyTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'eCouponCodes': !exists(json, 'eCouponCodes') ? undefined : CodeListTypeFromJSON(json['eCouponCodes']),
+        'eCouponCodes': !exists(json, 'eCouponCodes') ? undefined : json['eCouponCodes'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'targetHotelCodes': !exists(json, 'targetHotelCodes') ? undefined : CodeListTypeFromJSON(json['targetHotelCodes']),
+        'targetHotelCodes': !exists(json, 'targetHotelCodes') ? undefined : json['targetHotelCodes'],
     };
 }
 
@@ -80,9 +73,9 @@ export function ECouponCopyTypeToJSON(value?: ECouponCopyType | null): any {
     }
     return {
         
-        'eCouponCodes': CodeListTypeToJSON(value.eCouponCodes),
+        'eCouponCodes': value.eCouponCodes,
         'hotelId': value.hotelId,
-        'targetHotelCodes': CodeListTypeToJSON(value.targetHotelCodes),
+        'targetHotelCodes': value.targetHotelCodes,
     };
 }
 

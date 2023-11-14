@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { DaysOfWeekAttrType } from './DaysOfWeekAttrType';
 import type { RotationRuleCalculationRuleType } from './RotationRuleCalculationRuleType';
 import type { RotationRuleSetupType } from './RotationRuleSetupType';
@@ -52,16 +51,16 @@ export interface RotationRuleType {
     points?: number;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof RotationRuleType
      */
-    rateCodes?: CodeListType;
+    rateCodes?: Array<string>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof RotationRuleType
      */
-    reasons?: CodeListType;
+    reasons?: Array<string>;
     /**
      * Indicates that this Rotation Setup Rule is to be used for Owner Referral Reservations.
      * @type {boolean}
@@ -70,10 +69,10 @@ export interface RotationRuleType {
     referral?: boolean;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof RotationRuleType
      */
-    roomTypes?: CodeListType;
+    roomTypes?: Array<string>;
     /**
      * Unique ID for Room Rotation Setup Rule.
      * @type {number}

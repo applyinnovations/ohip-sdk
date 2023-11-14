@@ -11,9 +11,8 @@
  */
 import type { CateringEventsAttendeesType } from './CateringEventsAttendeesType';
 import type { CodeDescriptionType } from './CodeDescriptionType';
-import type { CodeListType } from './CodeListType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
-import type { DietaryPrefListType } from './DietaryPrefListType';
+import type { DietaryPrefType } from './DietaryPrefType';
 import type { MenuTypeType } from './MenuTypeType';
 import type { TranslationTextType2000 } from './TranslationTextType2000';
 import type { UniqueIDType } from './UniqueIDType';
@@ -79,10 +78,10 @@ export interface EventMenuItemType {
     description?: TranslationTextType2000;
     /**
      *
-     * @type {DietaryPrefListType}
+     * @type {Array<DietaryPrefType>}
      * @memberof EventMenuItemType
      */
-    dietaryPreferenceList?: DietaryPrefListType;
+    dietaryPreferenceList?: Array<DietaryPrefType>;
     /**
      * Discount Percentage applied to Rent Amount.
      * @type {number}
@@ -103,10 +102,10 @@ export interface EventMenuItemType {
     eventMenuDetailID?: UniqueIDType;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof EventMenuItemType
      */
-    eventTypes?: CodeListType;
+    eventTypes?: Array<string>;
     /**
      * The Hotel code which the menu item class belongs to
      * @type {string}
@@ -199,10 +198,10 @@ export interface EventMenuItemType {
     quickInsertCode?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof EventMenuItemType
      */
-    responsibleDepartments?: CodeListType;
+    responsibleDepartments?: Array<string>;
     /**
      * Any particular restriction description in 100 charactera
      * @type {string}

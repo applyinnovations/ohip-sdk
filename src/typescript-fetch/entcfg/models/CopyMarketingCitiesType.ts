@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { TemplateMarketingCityInfoType } from './TemplateMarketingCityInfoType';
 import {
     TemplateMarketingCityInfoTypeFromJSON,
@@ -34,10 +28,10 @@ import {
 export interface CopyMarketingCitiesType {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyMarketingCitiesType
      */
-    hotelCodes?: CodeListType;
+    hotelCodes?: Array<string>;
     /**
      * Marketing city template to be copied to the hotel(s).
      * @type {Array<TemplateMarketingCityInfoType>}
@@ -65,7 +59,7 @@ export function CopyMarketingCitiesTypeFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'hotelCodes': !exists(json, 'hotelCodes') ? undefined : CodeListTypeFromJSON(json['hotelCodes']),
+        'hotelCodes': !exists(json, 'hotelCodes') ? undefined : json['hotelCodes'],
         'templateMarketingCities': !exists(json, 'templateMarketingCities') ? undefined : ((json['templateMarketingCities'] as Array<any>).map(TemplateMarketingCityInfoTypeFromJSON)),
     };
 }
@@ -79,7 +73,7 @@ export function CopyMarketingCitiesTypeToJSON(value?: CopyMarketingCitiesType | 
     }
     return {
         
-        'hotelCodes': CodeListTypeToJSON(value.hotelCodes),
+        'hotelCodes': value.hotelCodes,
         'templateMarketingCities': value.templateMarketingCities === undefined ? undefined : ((value.templateMarketingCities as Array<any>).map(TemplateMarketingCityInfoTypeToJSON)),
     };
 }

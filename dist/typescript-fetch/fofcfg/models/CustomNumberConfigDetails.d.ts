@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CustomNumberConfigurationListType } from './CustomNumberConfigurationListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CustomNumberConfigurationType } from './CustomNumberConfigurationType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching custom number configurations.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CustomNumberConfigDetails {
     /**
-     *
-     * @type {CustomNumberConfigurationListType}
+     * Details about custom number configuration.
+     * @type {Array<CustomNumberConfigurationType>}
      * @memberof CustomNumberConfigDetails
      */
-    customNumberConfigurationList?: CustomNumberConfigurationListType;
+    customNumberConfigurationList?: Array<CustomNumberConfigurationType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CustomNumberConfigDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CustomNumberConfigDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CustomNumberConfigDetails interface.

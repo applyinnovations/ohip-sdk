@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { AdvanceCheckInReservationType } from './AdvanceCheckInReservationType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object to perform Advance Check In of a Reservation.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface AdvanceCheckInReservation {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AdvanceCheckInReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {AdvanceCheckInReservationType}
@@ -31,11 +31,11 @@ export interface AdvanceCheckInReservation {
      */
     reservation?: AdvanceCheckInReservationType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AdvanceCheckInReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AdvanceCheckInReservation interface.

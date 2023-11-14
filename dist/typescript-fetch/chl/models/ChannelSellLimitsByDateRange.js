@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelSellLimitsByDateRangeToJSON = exports.ChannelSellLimitsByDateRangeFromJSONTyped = exports.ChannelSellLimitsByDateRangeFromJSON = exports.instanceOfChannelSellLimitsByDateRange = void 0;
 const runtime_1 = require("../runtime");
-const ChannelSellLimitSchedulesType_1 = require("./ChannelSellLimitSchedulesType");
-const WarningsType_1 = require("./WarningsType");
+const ChannelSellLimitScheduleType_1 = require("./ChannelSellLimitScheduleType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChannelSellLimitsByDateRange interface.
  */
@@ -35,8 +35,8 @@ function ChannelSellLimitsByDateRangeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'adjustOverlappingSchedules': !(0, runtime_1.exists)(json, 'adjustOverlappingSchedules') ? undefined : json['adjustOverlappingSchedules'],
-        'sellLimits': !(0, runtime_1.exists)(json, 'sellLimits') ? undefined : (0, ChannelSellLimitSchedulesType_1.ChannelSellLimitSchedulesTypeFromJSON)(json['sellLimits']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'sellLimits': !(0, runtime_1.exists)(json, 'sellLimits') ? undefined : (json['sellLimits'].map(ChannelSellLimitScheduleType_1.ChannelSellLimitScheduleTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChannelSellLimitsByDateRangeFromJSONTyped = ChannelSellLimitsByDateRangeFromJSONTyped;
@@ -49,8 +49,8 @@ function ChannelSellLimitsByDateRangeToJSON(value) {
     }
     return {
         'adjustOverlappingSchedules': value.adjustOverlappingSchedules,
-        'sellLimits': (0, ChannelSellLimitSchedulesType_1.ChannelSellLimitSchedulesTypeToJSON)(value.sellLimits),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'sellLimits': value.sellLimits === undefined ? undefined : (value.sellLimits.map(ChannelSellLimitScheduleType_1.ChannelSellLimitScheduleTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChannelSellLimitsByDateRangeToJSON = ChannelSellLimitsByDateRangeToJSON;

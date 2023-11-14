@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HousekeepingTaskSheetRoomsType } from './HousekeepingTaskSheetRoomsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HousekeepingTaskSheetRoomType } from './HousekeepingTaskSheetRoomType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching details about housekeeping tasksheet rooms.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface HousekeepingTaskSheetRoomsDetails {
     /**
-     *
-     * @type {HousekeepingTaskSheetRoomsType}
+     * Collection of housekeeping room details
+     * @type {Array<HousekeepingTaskSheetRoomType>}
      * @memberof HousekeepingTaskSheetRoomsDetails
      */
-    housekeepingTaskSheetRooms?: HousekeepingTaskSheetRoomsType;
+    housekeepingTaskSheetRooms?: Array<HousekeepingTaskSheetRoomType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HousekeepingTaskSheetRoomsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HousekeepingTaskSheetRoomsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HousekeepingTaskSheetRoomsDetails interface.

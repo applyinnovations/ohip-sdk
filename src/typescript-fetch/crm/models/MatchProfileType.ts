@@ -19,12 +19,12 @@ import {
     MatchStatusTypeFromJSONTyped,
     MatchStatusTypeToJSON,
 } from './MatchStatusType';
-import type { ProfileIdList } from './ProfileIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Provides information for match profile.
@@ -39,11 +39,11 @@ export interface MatchProfileType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MatchProfileType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {MatchStatusType}
@@ -72,7 +72,7 @@ export function MatchProfileTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'statusCode': !exists(json, 'statusCode') ? undefined : MatchStatusTypeFromJSON(json['statusCode']),
     };
 }
@@ -87,7 +87,7 @@ export function MatchProfileTypeToJSON(value?: MatchProfileType | null): any {
     return {
         
         'hotelId': value.hotelId,
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'statusCode': MatchStatusTypeToJSON(value.statusCode),
     };
 }

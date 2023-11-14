@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object to submit a comp transaction to gaming system
  * @export
@@ -25,10 +25,10 @@ export interface CompTransactionCriteria {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CompTransactionCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Transaction Number for which request is being submitted.
      * @type {number}
@@ -36,11 +36,11 @@ export interface CompTransactionCriteria {
      */
     trxNo?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CompTransactionCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CompTransactionCriteria interface.

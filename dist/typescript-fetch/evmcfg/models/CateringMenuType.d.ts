@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CateringMenuDetailListType } from './CateringMenuDetailListType';
+import type { CateringMenuDetailType } from './CateringMenuDetailType';
 import type { CateringMenuInfoType } from './CateringMenuInfoType';
-import type { CateringMenuRevListType } from './CateringMenuRevListType';
-import type { CateringMultiChoiceMenuListType } from './CateringMultiChoiceMenuListType';
-import type { EventResourceNotesType } from './EventResourceNotesType';
+import type { CateringMenuRevType } from './CateringMenuRevType';
+import type { CateringMultiChoiceMenuType } from './CateringMultiChoiceMenuType';
+import type { EventResourceNoteType } from './EventResourceNoteType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  *
@@ -46,29 +46,29 @@ export interface CateringMenuType {
      */
     info?: CateringMenuInfoType;
     /**
-     *
-     * @type {CateringMenuDetailListType}
+     * List of Values of Catering Menu Detail.
+     * @type {Array<CateringMenuDetailType>}
      * @memberof CateringMenuType
      */
-    menuDetailList?: CateringMenuDetailListType;
+    menuDetailList?: Array<CateringMenuDetailType>;
     /**
-     *
-     * @type {EventResourceNotesType}
+     * Contains event resource note information.
+     * @type {Array<EventResourceNoteType>}
      * @memberof CateringMenuType
      */
-    menuNoteList?: EventResourceNotesType;
+    menuNoteList?: Array<EventResourceNoteType>;
     /**
-     *
-     * @type {CateringMultiChoiceMenuListType}
+     * This type holds Multi choice Menu.
+     * @type {Array<CateringMultiChoiceMenuType>}
      * @memberof CateringMenuType
      */
-    multiChoiceList?: CateringMultiChoiceMenuListType;
+    multiChoiceList?: Array<CateringMultiChoiceMenuType>;
     /**
-     *
-     * @type {CateringMenuRevListType}
+     * This type holds revenue list.
+     * @type {Array<CateringMenuRevType>}
      * @memberof CateringMenuType
      */
-    revenueList?: CateringMenuRevListType;
+    revenueList?: Array<CateringMenuRevType>;
 }
 /**
  * Check if a given object implements the CateringMenuType interface.

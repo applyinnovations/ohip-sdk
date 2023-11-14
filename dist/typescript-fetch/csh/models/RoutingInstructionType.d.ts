@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BillingInstructionsType } from './BillingInstructionsType';
+import type { BillingInstructionType } from './BillingInstructionType';
 import type { RoutingInstructionTypeDuration } from './RoutingInstructionTypeDuration';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+import type { TrxInfoType } from './TrxInfoType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Routing limit can be one of the three: Credit Limit, Percetage Limit, Covers Limit
@@ -20,11 +20,11 @@ import type { UniqueIDType } from './UniqueIDType';
  */
 export interface RoutingInstructionType {
     /**
-     *
-     * @type {BillingInstructionsType}
+     * Set of Billing Instruction codes.
+     * @type {Array<BillingInstructionType>}
      * @memberof RoutingInstructionType
      */
-    billingInstructions?: BillingInstructionsType;
+    billingInstructions?: Array<BillingInstructionType>;
     /**
      * Number of covers for this routing instruction.
      * @type {number}
@@ -62,11 +62,11 @@ export interface RoutingInstructionType {
      */
     routingLinkId?: UniqueIDType;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof RoutingInstructionType
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
 }
 /**
  * Check if a given object implements the RoutingInstructionType interface.

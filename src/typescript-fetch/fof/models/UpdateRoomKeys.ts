@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ErrorsType } from './ErrorsType';
+import type { ErrorType } from './ErrorType';
 import {
-    ErrorsTypeFromJSON,
-    ErrorsTypeFromJSONTyped,
-    ErrorsTypeToJSON,
-} from './ErrorsType';
-import type { WarningsType } from './WarningsType';
+    ErrorTypeFromJSON,
+    ErrorTypeFromJSONTyped,
+    ErrorTypeToJSON,
+} from './ErrorType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Collection of error and warning if any.
@@ -33,17 +33,17 @@ import {
  */
 export interface UpdateRoomKeys {
     /**
-     * 
-     * @type {ErrorsType}
+     * An error that occurred during the processing of a message.
+     * @type {Array<ErrorType>}
      * @memberof UpdateRoomKeys
      */
-    errors?: ErrorsType;
+    errors?: Array<ErrorType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof UpdateRoomKeys
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function UpdateRoomKeysFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'errors': !exists(json, 'errors') ? undefined : ErrorsTypeFromJSON(json['errors']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'errors': !exists(json, 'errors') ? undefined : ((json['errors'] as Array<any>).map(ErrorTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function UpdateRoomKeysToJSON(value?: UpdateRoomKeys | null): any {
     }
     return {
         
-        'errors': ErrorsTypeToJSON(value.errors),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'errors': value.errors === undefined ? undefined : ((value.errors as Array<any>).map(ErrorTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

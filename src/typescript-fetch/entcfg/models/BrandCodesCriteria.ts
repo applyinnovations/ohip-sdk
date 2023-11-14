@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BrandCodesType } from './BrandCodesType';
+import type { BrandCodeType } from './BrandCodeType';
 import {
-    BrandCodesTypeFromJSON,
-    BrandCodesTypeFromJSONTyped,
-    BrandCodesTypeToJSON,
-} from './BrandCodesType';
-import type { Links } from './Links';
+    BrandCodeTypeFromJSON,
+    BrandCodeTypeFromJSONTyped,
+    BrandCodeTypeToJSON,
+} from './BrandCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Brand Codes.
@@ -39,23 +39,23 @@ import {
  */
 export interface BrandCodesCriteria {
     /**
-     * 
-     * @type {BrandCodesType}
+     * List of Brand Codes.
+     * @type {Array<BrandCodeType>}
      * @memberof BrandCodesCriteria
      */
-    brandCodes?: BrandCodesType;
+    brandCodes?: Array<BrandCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BrandCodesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BrandCodesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function BrandCodesCriteriaFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'brandCodes': !exists(json, 'brandCodes') ? undefined : BrandCodesTypeFromJSON(json['brandCodes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'brandCodes': !exists(json, 'brandCodes') ? undefined : ((json['brandCodes'] as Array<any>).map(BrandCodeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function BrandCodesCriteriaToJSON(value?: BrandCodesCriteria | null): any
     }
     return {
         
-        'brandCodes': BrandCodesTypeToJSON(value.brandCodes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'brandCodes': value.brandCodes === undefined ? undefined : ((value.brandCodes as Array<any>).map(BrandCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

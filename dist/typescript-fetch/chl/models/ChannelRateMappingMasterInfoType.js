@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelRateMappingMasterInfoTypeToJSON = exports.ChannelRateMappingMasterInfoTypeFromJSONTyped = exports.ChannelRateMappingMasterInfoTypeFromJSON = exports.instanceOfChannelRateMappingMasterInfoType = void 0;
 const runtime_1 = require("../runtime");
-const BookingChannelsInfoType_1 = require("./BookingChannelsInfoType");
-const ChannelRateMappingsSourceDescriptionsType_1 = require("./ChannelRateMappingsSourceDescriptionsType");
+const BookingChannelInfoType_1 = require("./BookingChannelInfoType");
+const ChannelRateMappingSourceDescriptionsType_1 = require("./ChannelRateMappingSourceDescriptionsType");
 /**
  * Check if a given object implements the ChannelRateMappingMasterInfoType interface.
  */
@@ -34,8 +34,8 @@ function ChannelRateMappingMasterInfoTypeFromJSONTyped(json, ignoreDiscriminator
         return json;
     }
     return {
-        'bookingChannelsInfo': !(0, runtime_1.exists)(json, 'bookingChannelsInfo') ? undefined : (0, BookingChannelsInfoType_1.BookingChannelsInfoTypeFromJSON)(json['bookingChannelsInfo']),
-        'sourceDescriptions': !(0, runtime_1.exists)(json, 'sourceDescriptions') ? undefined : (0, ChannelRateMappingsSourceDescriptionsType_1.ChannelRateMappingsSourceDescriptionsTypeFromJSON)(json['sourceDescriptions']),
+        'bookingChannelsInfo': !(0, runtime_1.exists)(json, 'bookingChannelsInfo') ? undefined : (json['bookingChannelsInfo'].map(BookingChannelInfoType_1.BookingChannelInfoTypeFromJSON)),
+        'sourceDescriptions': !(0, runtime_1.exists)(json, 'sourceDescriptions') ? undefined : (json['sourceDescriptions'].map(ChannelRateMappingSourceDescriptionsType_1.ChannelRateMappingSourceDescriptionsTypeFromJSON)),
     };
 }
 exports.ChannelRateMappingMasterInfoTypeFromJSONTyped = ChannelRateMappingMasterInfoTypeFromJSONTyped;
@@ -47,8 +47,8 @@ function ChannelRateMappingMasterInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'bookingChannelsInfo': (0, BookingChannelsInfoType_1.BookingChannelsInfoTypeToJSON)(value.bookingChannelsInfo),
-        'sourceDescriptions': (0, ChannelRateMappingsSourceDescriptionsType_1.ChannelRateMappingsSourceDescriptionsTypeToJSON)(value.sourceDescriptions),
+        'bookingChannelsInfo': value.bookingChannelsInfo === undefined ? undefined : (value.bookingChannelsInfo.map(BookingChannelInfoType_1.BookingChannelInfoTypeToJSON)),
+        'sourceDescriptions': value.sourceDescriptions === undefined ? undefined : (value.sourceDescriptions.map(ChannelRateMappingSourceDescriptionsType_1.ChannelRateMappingSourceDescriptionsTypeToJSON)),
     };
 }
 exports.ChannelRateMappingMasterInfoTypeToJSON = ChannelRateMappingMasterInfoTypeToJSON;

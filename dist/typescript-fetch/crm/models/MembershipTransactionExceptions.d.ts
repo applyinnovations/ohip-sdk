@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MembershipTransactionExceptionsType } from './MembershipTransactionExceptionsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MembershipTransactionExceptionType } from './MembershipTransactionExceptionType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching membership transaction exceptions.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MembershipTransactionExceptions {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipTransactionExceptions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MembershipTransactionExceptionsType}
+     * Contains Membership transaction exception information.
+     * @type {Array<MembershipTransactionExceptionType>}
      * @memberof MembershipTransactionExceptions
      */
-    memberTransactionExceptions?: MembershipTransactionExceptionsType;
+    memberTransactionExceptions?: Array<MembershipTransactionExceptionType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipTransactionExceptions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipTransactionExceptions interface.

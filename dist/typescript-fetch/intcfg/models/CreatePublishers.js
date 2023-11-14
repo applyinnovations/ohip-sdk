@@ -16,9 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreatePublishersToJSON = exports.CreatePublishersFromJSONTyped = exports.CreatePublishersFromJSON = exports.instanceOfCreatePublishers = void 0;
 const runtime_1 = require("../runtime");
 const ExternalSystemType_1 = require("./ExternalSystemType");
-const Links_1 = require("./Links");
-const PublishersType_1 = require("./PublishersType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CreatePublishers interface.
  */
@@ -36,10 +35,10 @@ function CreatePublishersFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'publishers': !(0, runtime_1.exists)(json, 'publishers') ? undefined : (0, PublishersType_1.PublishersTypeFromJSON)(json['publishers']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'publishers': !(0, runtime_1.exists)(json, 'publishers') ? undefined : (json['publishers'].map(ExternalSystemType_1.ExternalSystemTypeFromJSON)),
         'subscriber': !(0, runtime_1.exists)(json, 'subscriber') ? undefined : (0, ExternalSystemType_1.ExternalSystemTypeFromJSON)(json['subscriber']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CreatePublishersFromJSONTyped = CreatePublishersFromJSONTyped;
@@ -51,10 +50,10 @@ function CreatePublishersToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'publishers': (0, PublishersType_1.PublishersTypeToJSON)(value.publishers),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'publishers': value.publishers === undefined ? undefined : (value.publishers.map(ExternalSystemType_1.ExternalSystemTypeToJSON)),
         'subscriber': (0, ExternalSystemType_1.ExternalSystemTypeToJSON)(value.subscriber),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CreatePublishersToJSON = CreatePublishersToJSON;

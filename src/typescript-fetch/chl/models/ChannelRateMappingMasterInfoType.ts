@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BookingChannelsInfoType } from './BookingChannelsInfoType';
+import type { BookingChannelInfoType } from './BookingChannelInfoType';
 import {
-    BookingChannelsInfoTypeFromJSON,
-    BookingChannelsInfoTypeFromJSONTyped,
-    BookingChannelsInfoTypeToJSON,
-} from './BookingChannelsInfoType';
-import type { ChannelRateMappingsSourceDescriptionsType } from './ChannelRateMappingsSourceDescriptionsType';
+    BookingChannelInfoTypeFromJSON,
+    BookingChannelInfoTypeFromJSONTyped,
+    BookingChannelInfoTypeToJSON,
+} from './BookingChannelInfoType';
+import type { ChannelRateMappingSourceDescriptionsType } from './ChannelRateMappingSourceDescriptionsType';
 import {
-    ChannelRateMappingsSourceDescriptionsTypeFromJSON,
-    ChannelRateMappingsSourceDescriptionsTypeFromJSONTyped,
-    ChannelRateMappingsSourceDescriptionsTypeToJSON,
-} from './ChannelRateMappingsSourceDescriptionsType';
+    ChannelRateMappingSourceDescriptionsTypeFromJSON,
+    ChannelRateMappingSourceDescriptionsTypeFromJSONTyped,
+    ChannelRateMappingSourceDescriptionsTypeToJSON,
+} from './ChannelRateMappingSourceDescriptionsType';
 
 /**
  * Additional details about the booking channels and source descriptions for a hotel rate code referenced within the fetched results.
@@ -33,17 +33,17 @@ import {
  */
 export interface ChannelRateMappingMasterInfoType {
     /**
-     * 
-     * @type {BookingChannelsInfoType}
+     * Additional detail about booking channel.
+     * @type {Array<BookingChannelInfoType>}
      * @memberof ChannelRateMappingMasterInfoType
      */
-    bookingChannelsInfo?: BookingChannelsInfoType;
+    bookingChannelsInfo?: Array<BookingChannelInfoType>;
     /**
-     * 
-     * @type {ChannelRateMappingsSourceDescriptionsType}
+     * Source descriptions of a hotel-channel rate code mapping.
+     * @type {Array<ChannelRateMappingSourceDescriptionsType>}
      * @memberof ChannelRateMappingMasterInfoType
      */
-    sourceDescriptions?: ChannelRateMappingsSourceDescriptionsType;
+    sourceDescriptions?: Array<ChannelRateMappingSourceDescriptionsType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function ChannelRateMappingMasterInfoTypeFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'bookingChannelsInfo': !exists(json, 'bookingChannelsInfo') ? undefined : BookingChannelsInfoTypeFromJSON(json['bookingChannelsInfo']),
-        'sourceDescriptions': !exists(json, 'sourceDescriptions') ? undefined : ChannelRateMappingsSourceDescriptionsTypeFromJSON(json['sourceDescriptions']),
+        'bookingChannelsInfo': !exists(json, 'bookingChannelsInfo') ? undefined : ((json['bookingChannelsInfo'] as Array<any>).map(BookingChannelInfoTypeFromJSON)),
+        'sourceDescriptions': !exists(json, 'sourceDescriptions') ? undefined : ((json['sourceDescriptions'] as Array<any>).map(ChannelRateMappingSourceDescriptionsTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function ChannelRateMappingMasterInfoTypeToJSON(value?: ChannelRateMappin
     }
     return {
         
-        'bookingChannelsInfo': BookingChannelsInfoTypeToJSON(value.bookingChannelsInfo),
-        'sourceDescriptions': ChannelRateMappingsSourceDescriptionsTypeToJSON(value.sourceDescriptions),
+        'bookingChannelsInfo': value.bookingChannelsInfo === undefined ? undefined : ((value.bookingChannelsInfo as Array<any>).map(BookingChannelInfoTypeToJSON)),
+        'sourceDescriptions': value.sourceDescriptions === undefined ? undefined : ((value.sourceDescriptions as Array<any>).map(ChannelRateMappingSourceDescriptionsTypeToJSON)),
     };
 }
 

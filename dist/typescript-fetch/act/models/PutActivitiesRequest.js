@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PutActivitiesRequestToJSON = exports.PutActivitiesRequestFromJSONTyped = exports.PutActivitiesRequestFromJSON = exports.instanceOfPutActivitiesRequest = void 0;
 const runtime_1 = require("../runtime");
-const ActivityListType_1 = require("./ActivityListType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ActivityDetailsType_1 = require("./ActivityDetailsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PutActivitiesRequest interface.
  */
@@ -35,12 +35,12 @@ function PutActivitiesRequestFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'activitiesInformation': !(0, runtime_1.exists)(json, 'activitiesInformation') ? undefined : (0, ActivityListType_1.ActivityListTypeFromJSON)(json['activitiesInformation']),
+        'activitiesInformation': !(0, runtime_1.exists)(json, 'activitiesInformation') ? undefined : (json['activitiesInformation'].map(ActivityDetailsType_1.ActivityDetailsTypeFromJSON)),
         'activityDetailsEditFlag': !(0, runtime_1.exists)(json, 'activityDetailsEditFlag') ? undefined : json['activityDetailsEditFlag'],
         'completeMode': !(0, runtime_1.exists)(json, 'completeMode') ? undefined : json['completeMode'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'updateLinkedActivities': !(0, runtime_1.exists)(json, 'updateLinkedActivities') ? undefined : json['updateLinkedActivities'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PutActivitiesRequestFromJSONTyped = PutActivitiesRequestFromJSONTyped;
@@ -52,12 +52,12 @@ function PutActivitiesRequestToJSON(value) {
         return null;
     }
     return {
-        'activitiesInformation': (0, ActivityListType_1.ActivityListTypeToJSON)(value.activitiesInformation),
+        'activitiesInformation': value.activitiesInformation === undefined ? undefined : (value.activitiesInformation.map(ActivityDetailsType_1.ActivityDetailsTypeToJSON)),
         'activityDetailsEditFlag': value.activityDetailsEditFlag,
         'completeMode': value.completeMode,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'updateLinkedActivities': value.updateLinkedActivities,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PutActivitiesRequestToJSON = PutActivitiesRequestToJSON;

@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BillingInstructionsType } from './BillingInstructionsType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+import type { BillingInstructionType } from './BillingInstructionType';
+import type { TrxInfoType } from './TrxInfoType';
 /**
  * The type contains routing instructions for the profile.
  * @export
@@ -24,17 +24,17 @@ export interface ProfileRoutingInstructionsType {
      */
     autoPopulateRouting?: boolean;
     /**
-     *
-     * @type {BillingInstructionsType}
+     * Set of Billing Instruction codes.
+     * @type {Array<BillingInstructionType>}
      * @memberof ProfileRoutingInstructionsType
      */
-    billingInstructions?: BillingInstructionsType;
+    billingInstructions?: Array<BillingInstructionType>;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof ProfileRoutingInstructionsType
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
 }
 /**
  * Check if a given object implements the ProfileRoutingInstructionsType interface.

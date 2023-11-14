@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ECouponCopyType } from './ECouponCopyType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object to copy the existing eCoupon codes from source property to the selected target properties.
  * @export
@@ -26,16 +26,16 @@ export interface ECouponCodesCopy {
     eCouponCopy?: ECouponCopyType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ECouponCodesCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ECouponCodesCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ECouponCodesCopy interface.

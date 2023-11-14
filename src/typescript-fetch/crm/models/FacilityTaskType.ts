@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FacilityCodesType } from './FacilityCodesType';
+import type { FacilityCodeType } from './FacilityCodeType';
 import {
-    FacilityCodesTypeFromJSON,
-    FacilityCodesTypeFromJSONTyped,
-    FacilityCodesTypeToJSON,
-} from './FacilityCodesType';
+    FacilityCodeTypeFromJSON,
+    FacilityCodeTypeFromJSONTyped,
+    FacilityCodeTypeToJSON,
+} from './FacilityCodeType';
 import type { HousekeepingTaskCodeType } from './HousekeepingTaskCodeType';
 import {
     HousekeepingTaskCodeTypeFromJSON,
@@ -39,11 +39,11 @@ export interface FacilityTaskType {
      */
     date?: Date;
     /**
-     * 
-     * @type {FacilityCodesType}
+     * List of the facility codes.
+     * @type {Array<FacilityCodeType>}
      * @memberof FacilityTaskType
      */
-    supplies?: FacilityCodesType;
+    supplies?: Array<FacilityCodeType>;
     /**
      * 
      * @type {HousekeepingTaskCodeType}
@@ -72,7 +72,7 @@ export function FacilityTaskTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
-        'supplies': !exists(json, 'supplies') ? undefined : FacilityCodesTypeFromJSON(json['supplies']),
+        'supplies': !exists(json, 'supplies') ? undefined : ((json['supplies'] as Array<any>).map(FacilityCodeTypeFromJSON)),
         'task': !exists(json, 'task') ? undefined : HousekeepingTaskCodeTypeFromJSON(json['task']),
     };
 }
@@ -87,7 +87,7 @@ export function FacilityTaskTypeToJSON(value?: FacilityTaskType | null): any {
     return {
         
         'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
-        'supplies': FacilityCodesTypeToJSON(value.supplies),
+        'supplies': value.supplies === undefined ? undefined : ((value.supplies as Array<any>).map(FacilityCodeTypeToJSON)),
         'task': HousekeepingTaskCodeTypeToJSON(value.task),
     };
 }

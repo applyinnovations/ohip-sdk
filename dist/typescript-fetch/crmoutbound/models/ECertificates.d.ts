@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ECertificatesType } from './ECertificatesType';
-import type { Links } from './Links';
+import type { ECertificateType } from './ECertificateType';
+import type { InstanceLink } from './InstanceLink';
 /**
  * Response object for fetch ECertificates. This object contains collection of ECertificates,Success,Warnings and Errors related to this operation.
  * @export
@@ -18,17 +18,17 @@ import type { Links } from './Links';
  */
 export interface ECertificates {
     /**
-     *
-     * @type {ECertificatesType}
+     * List of e-certificates for the profile.
+     * @type {Array<ECertificateType>}
      * @memberof ECertificates
      */
-    eCertificatesDetail?: ECertificatesType;
+    eCertificatesDetail?: Array<ECertificateType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ECertificates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the ECertificates interface.

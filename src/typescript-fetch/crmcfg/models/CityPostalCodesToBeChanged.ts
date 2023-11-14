@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CityPostalCodesType } from './CityPostalCodesType';
+import type { CityPostalCodeType } from './CityPostalCodeType';
 import {
-    CityPostalCodesTypeFromJSON,
-    CityPostalCodesTypeFromJSONTyped,
-    CityPostalCodesTypeToJSON,
-} from './CityPostalCodesType';
-import type { Links } from './Links';
+    CityPostalCodeTypeFromJSON,
+    CityPostalCodeTypeFromJSONTyped,
+    CityPostalCodeTypeToJSON,
+} from './CityPostalCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for updating city and postal codes.
@@ -39,23 +39,23 @@ import {
  */
 export interface CityPostalCodesToBeChanged {
     /**
-     * 
-     * @type {CityPostalCodesType}
+     * Lists of City and Postal Codes.
+     * @type {Array<CityPostalCodeType>}
      * @memberof CityPostalCodesToBeChanged
      */
-    cityPostalCodes?: CityPostalCodesType;
+    cityPostalCodes?: Array<CityPostalCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CityPostalCodesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CityPostalCodesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CityPostalCodesToBeChangedFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'cityPostalCodes': !exists(json, 'cityPostalCodes') ? undefined : CityPostalCodesTypeFromJSON(json['cityPostalCodes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'cityPostalCodes': !exists(json, 'cityPostalCodes') ? undefined : ((json['cityPostalCodes'] as Array<any>).map(CityPostalCodeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CityPostalCodesToBeChangedToJSON(value?: CityPostalCodesToBeChan
     }
     return {
         
-        'cityPostalCodes': CityPostalCodesTypeToJSON(value.cityPostalCodes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'cityPostalCodes': value.cityPostalCodes === undefined ? undefined : ((value.cityPostalCodes as Array<any>).map(CityPostalCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

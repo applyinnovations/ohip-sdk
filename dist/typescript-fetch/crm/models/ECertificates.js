@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ECertificatesToJSON = exports.ECertificatesFromJSONTyped = exports.ECertificatesFromJSON = exports.instanceOfECertificates = void 0;
 const runtime_1 = require("../runtime");
-const ECertificatesType_1 = require("./ECertificatesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ECertificateType_1 = require("./ECertificateType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ECertificates interface.
  */
@@ -35,9 +35,9 @@ function ECertificatesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'eCertificatesDetail': !(0, runtime_1.exists)(json, 'eCertificatesDetail') ? undefined : (0, ECertificatesType_1.ECertificatesTypeFromJSON)(json['eCertificatesDetail']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'eCertificatesDetail': !(0, runtime_1.exists)(json, 'eCertificatesDetail') ? undefined : (json['eCertificatesDetail'].map(ECertificateType_1.ECertificateTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ECertificatesFromJSONTyped = ECertificatesFromJSONTyped;
@@ -49,9 +49,9 @@ function ECertificatesToJSON(value) {
         return null;
     }
     return {
-        'eCertificatesDetail': (0, ECertificatesType_1.ECertificatesTypeToJSON)(value.eCertificatesDetail),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'eCertificatesDetail': value.eCertificatesDetail === undefined ? undefined : (value.eCertificatesDetail.map(ECertificateType_1.ECertificateTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ECertificatesToJSON = ECertificatesToJSON;

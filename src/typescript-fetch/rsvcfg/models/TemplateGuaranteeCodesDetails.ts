@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { GuaranteeConfigType } from './GuaranteeConfigType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateGuaranteeCodesType } from './TemplateGuaranteeCodesType';
+    GuaranteeConfigTypeFromJSON,
+    GuaranteeConfigTypeFromJSONTyped,
+    GuaranteeConfigTypeToJSON,
+} from './GuaranteeConfigType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    TemplateGuaranteeCodesTypeFromJSON,
-    TemplateGuaranteeCodesTypeFromJSONTyped,
-    TemplateGuaranteeCodesTypeToJSON,
-} from './TemplateGuaranteeCodesType';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for fetch template Guarantee Codes.
@@ -45,11 +45,11 @@ export interface TemplateGuaranteeCodesDetails {
      */
     count?: number;
     /**
-     * 
-     * @type {TemplateGuaranteeCodesType}
+     * Guarantee Code details.
+     * @type {Array<GuaranteeConfigType>}
      * @memberof TemplateGuaranteeCodesDetails
      */
-    guaranteeCodes?: TemplateGuaranteeCodesType;
+    guaranteeCodes?: Array<GuaranteeConfigType>;
     /**
      * Indicates whether all the records are included in the response or not. Absence of the attribute values should be consider as all rows fetched in the response.
      * @type {boolean}
@@ -64,10 +64,10 @@ export interface TemplateGuaranteeCodesDetails {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateGuaranteeCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -87,11 +87,11 @@ export interface TemplateGuaranteeCodesDetails {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateGuaranteeCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -114,14 +114,14 @@ export function TemplateGuaranteeCodesDetailsFromJSONTyped(json: any, ignoreDisc
     return {
         
         'count': !exists(json, 'count') ? undefined : json['count'],
-        'guaranteeCodes': !exists(json, 'guaranteeCodes') ? undefined : TemplateGuaranteeCodesTypeFromJSON(json['guaranteeCodes']),
+        'guaranteeCodes': !exists(json, 'guaranteeCodes') ? undefined : ((json['guaranteeCodes'] as Array<any>).map(GuaranteeConfigTypeFromJSON)),
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -135,14 +135,14 @@ export function TemplateGuaranteeCodesDetailsToJSON(value?: TemplateGuaranteeCod
     return {
         
         'count': value.count,
-        'guaranteeCodes': TemplateGuaranteeCodesTypeToJSON(value.guaranteeCodes),
+        'guaranteeCodes': value.guaranteeCodes === undefined ? undefined : ((value.guaranteeCodes as Array<any>).map(GuaranteeConfigTypeToJSON)),
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ArticlesType } from './ArticlesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ArticleInfoType } from './ArticleInfoType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ArticlesInfo {
     /**
-     *
-     * @type {ArticlesType}
+     * Holds collection of articles.
+     * @type {Array<ArticleInfoType>}
      * @memberof ArticlesInfo
      */
-    articles?: ArticlesType;
+    articles?: Array<ArticleInfoType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ArticlesInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ArticlesInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ArticlesInfo interface.

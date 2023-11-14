@@ -17,7 +17,7 @@ import type { EnrollmentMatchRuleType } from './EnrollmentMatchRuleType';
 import type { MembershipActionType } from './MembershipActionType';
 import type { MembershipAwardGenerationMethodType } from './MembershipAwardGenerationMethodType';
 import type { MembershipHandlingType } from './MembershipHandlingType';
-import type { MembershipLevelsType } from './MembershipLevelsType';
+import type { MembershipLevelType } from './MembershipLevelType';
 import type { MembershipTypeAdditionalInfoType } from './MembershipTypeAdditionalInfoType';
 import type { TierPointsType } from './TierPointsType';
 import type { TranslationTextType2000 } from './TranslationTextType2000';
@@ -220,11 +220,11 @@ export interface MembershipTypeType {
      */
     membershipClass?: string;
     /**
-     *
-     * @type {MembershipLevelsType}
+     * Collection of membership levels
+     * @type {Array<MembershipLevelType>}
      * @memberof MembershipTypeType
      */
-    membershipLevels?: MembershipLevelsType;
+    membershipLevels?: Array<MembershipLevelType>;
     /**
      * Membership Type code.
      * @type {string}

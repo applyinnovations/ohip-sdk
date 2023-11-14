@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MembershipPointsCalculationType } from './MembershipPointsCalculationType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to run membership points calculation job.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface MembershipPointsToCalculate {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipPointsToCalculate
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {MembershipPointsCalculationType}
@@ -31,11 +31,11 @@ export interface MembershipPointsToCalculate {
      */
     membershipPointsCalculation?: MembershipPointsCalculationType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipPointsToCalculate
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipPointsToCalculate interface.

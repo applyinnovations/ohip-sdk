@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ProfileIdList } from './ProfileIdList';
-import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
 import type { ProfileType } from './ProfileType';
 import {
     ProfileTypeFromJSON,
     ProfileTypeFromJSONTyped,
     ProfileTypeToJSON,
 } from './ProfileType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Provides information for merged profile.
@@ -39,11 +39,11 @@ export interface MergedProfileType {
      */
     profile?: ProfileType;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MergedProfileType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function MergedProfileTypeFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'profile': !exists(json, 'profile') ? undefined : ProfileTypeFromJSON(json['profile']),
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function MergedProfileTypeToJSON(value?: MergedProfileType | null): any {
     return {
         
         'profile': ProfileTypeToJSON(value.profile),
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

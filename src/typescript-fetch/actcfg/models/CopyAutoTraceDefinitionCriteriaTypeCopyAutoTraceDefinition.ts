@@ -13,24 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionCopyInstructions } from './CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionCopyInstructions';
 import {
     CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionCopyInstructionsFromJSON,
     CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionCopyInstructionsFromJSONTyped,
     CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionCopyInstructionsToJSON,
 } from './CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionCopyInstructions';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * The hotel code where the trace definition was created.
@@ -52,16 +46,16 @@ export interface CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinition {
     sourceHotelCode?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinition
      */
-    targetHotelCode?: CodeListType;
+    targetHotelCode?: Array<string>;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinition
      */
-    traceDefinitionCodeList?: UniqueIDListType;
+    traceDefinitionCodeList?: Array<UniqueIDType>;
 }
 
 /**
@@ -85,8 +79,8 @@ export function CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionFromJS
         
         'copyInstructions': !exists(json, 'copyInstructions') ? undefined : CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionCopyInstructionsFromJSON(json['copyInstructions']),
         'sourceHotelCode': !exists(json, 'sourceHotelCode') ? undefined : json['sourceHotelCode'],
-        'targetHotelCode': !exists(json, 'targetHotelCode') ? undefined : CodeListTypeFromJSON(json['targetHotelCode']),
-        'traceDefinitionCodeList': !exists(json, 'traceDefinitionCodeList') ? undefined : UniqueIDListTypeFromJSON(json['traceDefinitionCodeList']),
+        'targetHotelCode': !exists(json, 'targetHotelCode') ? undefined : json['targetHotelCode'],
+        'traceDefinitionCodeList': !exists(json, 'traceDefinitionCodeList') ? undefined : ((json['traceDefinitionCodeList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -101,8 +95,8 @@ export function CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionToJSON
         
         'copyInstructions': CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionCopyInstructionsToJSON(value.copyInstructions),
         'sourceHotelCode': value.sourceHotelCode,
-        'targetHotelCode': CodeListTypeToJSON(value.targetHotelCode),
-        'traceDefinitionCodeList': UniqueIDListTypeToJSON(value.traceDefinitionCodeList),
+        'targetHotelCode': value.targetHotelCode,
+        'traceDefinitionCodeList': value.traceDefinitionCodeList === undefined ? undefined : ((value.traceDefinitionCodeList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

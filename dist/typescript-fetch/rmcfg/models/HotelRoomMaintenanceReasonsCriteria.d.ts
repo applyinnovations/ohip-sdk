@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelRoomMaintenanceReasonsType } from './HotelRoomMaintenanceReasonsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelRoomMaintenanceReasonType } from './HotelRoomMaintenanceReasonType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new room maintenance reasons for a hotel.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface HotelRoomMaintenanceReasonsCriteria {
     /**
-     *
-     * @type {HotelRoomMaintenanceReasonsType}
+     * Details for room maintenance reason at hotel level.
+     * @type {Array<HotelRoomMaintenanceReasonType>}
      * @memberof HotelRoomMaintenanceReasonsCriteria
      */
-    hotelRoomMaintenanceReasons?: HotelRoomMaintenanceReasonsType;
+    hotelRoomMaintenanceReasons?: Array<HotelRoomMaintenanceReasonType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelRoomMaintenanceReasonsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelRoomMaintenanceReasonsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HotelRoomMaintenanceReasonsCriteria interface.

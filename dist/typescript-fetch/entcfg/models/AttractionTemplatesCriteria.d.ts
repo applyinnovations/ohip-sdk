@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AttractionTemplatesType } from './AttractionTemplatesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AttractionTemplateType } from './AttractionTemplateType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating a new attraction code template.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AttractionTemplatesCriteria {
     /**
-     *
-     * @type {AttractionTemplatesType}
+     * Collection of attraction templates.
+     * @type {Array<AttractionTemplateType>}
      * @memberof AttractionTemplatesCriteria
      */
-    attractionTemplates?: AttractionTemplatesType;
+    attractionTemplates?: Array<AttractionTemplateType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AttractionTemplatesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AttractionTemplatesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AttractionTemplatesCriteria interface.

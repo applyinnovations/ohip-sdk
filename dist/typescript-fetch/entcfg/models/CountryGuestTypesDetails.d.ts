@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CountryGuestTypesType } from './CountryGuestTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CountryGuestTypeType } from './CountryGuestTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Philippines Country Guest Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CountryGuestTypesDetails {
     /**
-     *
-     * @type {CountryGuestTypesType}
+     * List of Philippines Country specific Guest Types.
+     * @type {Array<CountryGuestTypeType>}
      * @memberof CountryGuestTypesDetails
      */
-    countryGuestTypes?: CountryGuestTypesType;
+    countryGuestTypes?: Array<CountryGuestTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CountryGuestTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CountryGuestTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CountryGuestTypesDetails interface.

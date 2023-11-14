@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TrxCodesPostingInfoType } from './TrxCodesPostingInfoType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TrxPostingInfoType } from './TrxPostingInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response that contains either the Transaction Code list if fetch was successful or error(s) if not.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TransactionCodes {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransactionCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TrxCodesPostingInfoType}
+     * List of TransactionCodes
+     * @type {Array<TrxPostingInfoType>}
      * @memberof TransactionCodes
      */
-    trxCodes?: TrxCodesPostingInfoType;
+    trxCodes?: Array<TrxPostingInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransactionCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TransactionCodes interface.

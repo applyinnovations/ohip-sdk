@@ -19,12 +19,12 @@ import {
     HeldByTypeFromJSONTyped,
     HeldByTypeToJSON,
 } from './HeldByType';
-import type { HoldItemInfoListType } from './HoldItemInfoListType';
+import type { HoldItemInfoType } from './HoldItemInfoType';
 import {
-    HoldItemInfoListTypeFromJSON,
-    HoldItemInfoListTypeFromJSONTyped,
-    HoldItemInfoListTypeToJSON,
-} from './HoldItemInfoListType';
+    HoldItemInfoTypeFromJSON,
+    HoldItemInfoTypeFromJSONTyped,
+    HoldItemInfoTypeToJSON,
+} from './HoldItemInfoType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -51,11 +51,11 @@ export interface HoldItemInventoryType {
      */
     heldById?: UniqueIDType;
     /**
-     * 
-     * @type {HoldItemInfoListType}
+     * Info of an item inventory that is requested for Hold.
+     * @type {Array<HoldItemInfoType>}
      * @memberof HoldItemInventoryType
      */
-    holdItemInfoList?: HoldItemInfoListType;
+    holdItemInfoList?: Array<HoldItemInfoType>;
     /**
      * Hotel Code whose Item Inventory is being requested.
      * @type {string}
@@ -97,7 +97,7 @@ export function HoldItemInventoryTypeFromJSONTyped(json: any, ignoreDiscriminato
         
         'heldBy': !exists(json, 'heldBy') ? undefined : HeldByTypeFromJSON(json['heldBy']),
         'heldById': !exists(json, 'heldById') ? undefined : UniqueIDTypeFromJSON(json['heldById']),
-        'holdItemInfoList': !exists(json, 'holdItemInfoList') ? undefined : HoldItemInfoListTypeFromJSON(json['holdItemInfoList']),
+        'holdItemInfoList': !exists(json, 'holdItemInfoList') ? undefined : ((json['holdItemInfoList'] as Array<any>).map(HoldItemInfoTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'itemHoldId': !exists(json, 'itemHoldId') ? undefined : json['itemHoldId'],
         'overrideInventory': !exists(json, 'overrideInventory') ? undefined : json['overrideInventory'],
@@ -115,7 +115,7 @@ export function HoldItemInventoryTypeToJSON(value?: HoldItemInventoryType | null
         
         'heldBy': HeldByTypeToJSON(value.heldBy),
         'heldById': UniqueIDTypeToJSON(value.heldById),
-        'holdItemInfoList': HoldItemInfoListTypeToJSON(value.holdItemInfoList),
+        'holdItemInfoList': value.holdItemInfoList === undefined ? undefined : ((value.holdItemInfoList as Array<any>).map(HoldItemInfoTypeToJSON)),
         'hotelId': value.hotelId,
         'itemHoldId': value.itemHoldId,
         'overrideInventory': value.overrideInventory,

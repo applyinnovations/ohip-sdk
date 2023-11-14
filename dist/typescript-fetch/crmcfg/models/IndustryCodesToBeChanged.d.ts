@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { IndustryCodesType } from './IndustryCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { IndustryCodeType } from './IndustryCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Industry Codes.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface IndustryCodesToBeChanged {
     /**
-     *
-     * @type {IndustryCodesType}
+     * List of Industry Codes.
+     * @type {Array<IndustryCodeType>}
      * @memberof IndustryCodesToBeChanged
      */
-    industryCodes?: IndustryCodesType;
+    industryCodes?: Array<IndustryCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof IndustryCodesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof IndustryCodesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the IndustryCodesToBeChanged interface.

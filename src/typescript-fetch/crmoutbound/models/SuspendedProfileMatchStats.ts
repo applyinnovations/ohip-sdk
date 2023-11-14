@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { SuspendedProfileMatchStatsType } from './SuspendedProfileMatchStatsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { SuspendedProfileMatchStatType } from './SuspendedProfileMatchStatType';
 import {
-    SuspendedProfileMatchStatsTypeFromJSON,
-    SuspendedProfileMatchStatsTypeFromJSONTyped,
-    SuspendedProfileMatchStatsTypeToJSON,
-} from './SuspendedProfileMatchStatsType';
+    SuspendedProfileMatchStatTypeFromJSON,
+    SuspendedProfileMatchStatTypeFromJSONTyped,
+    SuspendedProfileMatchStatTypeToJSON,
+} from './SuspendedProfileMatchStatType';
 
 /**
  * Response object for fetch suspended profile match statistics. This object contains collection of MatchCriteria,Threshold points,profile type.
@@ -33,17 +33,17 @@ import {
  */
 export interface SuspendedProfileMatchStats {
     /**
-     * 
-     * @type {SuspendedProfileMatchStatsType}
+     * Collection of suspended profile match statistics.
+     * @type {Array<SuspendedProfileMatchStatType>}
      * @memberof SuspendedProfileMatchStats
      */
-    suspendedProfileMatchStat?: SuspendedProfileMatchStatsType;
+    suspendedProfileMatchStat?: Array<SuspendedProfileMatchStatType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SuspendedProfileMatchStats
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function SuspendedProfileMatchStatsFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'suspendedProfileMatchStat': !exists(json, 'suspendedProfileMatchStat') ? undefined : SuspendedProfileMatchStatsTypeFromJSON(json['suspendedProfileMatchStat']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'suspendedProfileMatchStat': !exists(json, 'suspendedProfileMatchStat') ? undefined : ((json['suspendedProfileMatchStat'] as Array<any>).map(SuspendedProfileMatchStatTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function SuspendedProfileMatchStatsToJSON(value?: SuspendedProfileMatchSt
     }
     return {
         
-        'suspendedProfileMatchStat': SuspendedProfileMatchStatsTypeToJSON(value.suspendedProfileMatchStat),
-        'links': LinksToJSON(value.links),
+        'suspendedProfileMatchStat': value.suspendedProfileMatchStat === undefined ? undefined : ((value.suspendedProfileMatchStat as Array<any>).map(SuspendedProfileMatchStatTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

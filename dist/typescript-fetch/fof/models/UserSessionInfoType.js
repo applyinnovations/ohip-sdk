@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserSessionInfoTypeToJSON = exports.UserSessionInfoTypeFromJSONTyped = exports.UserSessionInfoTypeFromJSON = exports.instanceOfUserSessionInfoType = void 0;
 const runtime_1 = require("../runtime");
 const CodeDescriptionType_1 = require("./CodeDescriptionType");
-const ParametersType_1 = require("./ParametersType");
+const ParameterType_1 = require("./ParameterType");
 const UserSessionDefaultsType_1 = require("./UserSessionDefaultsType");
 /**
  * Check if a given object implements the UserSessionInfoType interface.
@@ -40,7 +40,7 @@ function UserSessionInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'chain': !(0, runtime_1.exists)(json, 'chain') ? undefined : json['chain'],
         'cro': !(0, runtime_1.exists)(json, 'cro') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['cro']),
         'hotel': !(0, runtime_1.exists)(json, 'hotel') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['hotel']),
-        'parameters': !(0, runtime_1.exists)(json, 'parameters') ? undefined : (0, ParametersType_1.ParametersTypeFromJSON)(json['parameters']),
+        'parameters': !(0, runtime_1.exists)(json, 'parameters') ? undefined : (json['parameters'].map(ParameterType_1.ParameterTypeFromJSON)),
         'runningApp': !(0, runtime_1.exists)(json, 'runningApp') ? undefined : json['runningApp'],
         'sessionDefaults': !(0, runtime_1.exists)(json, 'sessionDefaults') ? undefined : (0, UserSessionDefaultsType_1.UserSessionDefaultsTypeFromJSON)(json['sessionDefaults']),
         'shareProfiles': !(0, runtime_1.exists)(json, 'shareProfiles') ? undefined : json['shareProfiles'],
@@ -62,7 +62,7 @@ function UserSessionInfoTypeToJSON(value) {
         'chain': value.chain,
         'cro': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.cro),
         'hotel': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.hotel),
-        'parameters': (0, ParametersType_1.ParametersTypeToJSON)(value.parameters),
+        'parameters': value.parameters === undefined ? undefined : (value.parameters.map(ParameterType_1.ParameterTypeToJSON)),
         'runningApp': value.runningApp,
         'sessionDefaults': (0, UserSessionDefaultsType_1.UserSessionDefaultsTypeToJSON)(value.sessionDefaults),
         'shareProfiles': value.shareProfiles,

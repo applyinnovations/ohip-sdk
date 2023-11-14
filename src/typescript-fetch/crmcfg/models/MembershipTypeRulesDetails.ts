@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipTypeRulesIDType } from './MembershipTypeRulesIDType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipTypeRuleIDType } from './MembershipTypeRuleIDType';
 import {
-    MembershipTypeRulesIDTypeFromJSON,
-    MembershipTypeRulesIDTypeFromJSONTyped,
-    MembershipTypeRulesIDTypeToJSON,
-} from './MembershipTypeRulesIDType';
-import type { WarningsType } from './WarningsType';
+    MembershipTypeRuleIDTypeFromJSON,
+    MembershipTypeRuleIDTypeFromJSONTyped,
+    MembershipTypeRuleIDTypeToJSON,
+} from './MembershipTypeRuleIDType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for creating membership type rules.
@@ -40,22 +40,22 @@ import {
 export interface MembershipTypeRulesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipTypeRulesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MembershipTypeRulesIDType}
+     * List of membership type rule ID's.
+     * @type {Array<MembershipTypeRuleIDType>}
      * @memberof MembershipTypeRulesDetails
      */
-    membershipTypeRules?: MembershipTypeRulesIDType;
+    membershipTypeRules?: Array<MembershipTypeRuleIDType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipTypeRulesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MembershipTypeRulesDetailsFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'membershipTypeRules': !exists(json, 'membershipTypeRules') ? undefined : MembershipTypeRulesIDTypeFromJSON(json['membershipTypeRules']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'membershipTypeRules': !exists(json, 'membershipTypeRules') ? undefined : ((json['membershipTypeRules'] as Array<any>).map(MembershipTypeRuleIDTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MembershipTypeRulesDetailsToJSON(value?: MembershipTypeRulesDeta
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'membershipTypeRules': MembershipTypeRulesIDTypeToJSON(value.membershipTypeRules),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'membershipTypeRules': value.membershipTypeRules === undefined ? undefined : ((value.membershipTypeRules as Array<any>).map(MembershipTypeRuleIDTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

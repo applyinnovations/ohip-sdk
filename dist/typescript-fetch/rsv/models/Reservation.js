@@ -16,10 +16,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationToJSON = exports.ReservationFromJSONTyped = exports.ReservationFromJSON = exports.instanceOfReservation = void 0;
 const runtime_1 = require("../runtime");
 const HotelReservationsType_1 = require("./HotelReservationsType");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const MasterInfoType_1 = require("./MasterInfoType");
 const ReservationChannelInfoType_1 = require("./ReservationChannelInfoType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the Reservation interface.
  */
@@ -38,10 +38,10 @@ function ReservationFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'channelInfo': !(0, runtime_1.exists)(json, 'channelInfo') ? undefined : (0, ReservationChannelInfoType_1.ReservationChannelInfoTypeFromJSON)(json['channelInfo']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'masterInfoList': !(0, runtime_1.exists)(json, 'masterInfoList') ? undefined : (json['masterInfoList'].map(MasterInfoType_1.MasterInfoTypeFromJSON)),
         'reservations': !(0, runtime_1.exists)(json, 'reservations') ? undefined : (0, HotelReservationsType_1.HotelReservationsTypeFromJSON)(json['reservations']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ReservationFromJSONTyped = ReservationFromJSONTyped;
@@ -54,10 +54,10 @@ function ReservationToJSON(value) {
     }
     return {
         'channelInfo': (0, ReservationChannelInfoType_1.ReservationChannelInfoTypeToJSON)(value.channelInfo),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'masterInfoList': value.masterInfoList === undefined ? undefined : (value.masterInfoList.map(MasterInfoType_1.MasterInfoTypeToJSON)),
         'reservations': (0, HotelReservationsType_1.HotelReservationsTypeToJSON)(value.reservations),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ReservationToJSON = ReservationToJSON;

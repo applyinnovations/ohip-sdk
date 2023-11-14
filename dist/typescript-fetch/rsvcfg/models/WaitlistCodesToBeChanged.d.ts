@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WaitlistCodesType } from './WaitlistCodesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WaitlistCodeType } from './WaitlistCodeType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Waitlist Codes.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface WaitlistCodesToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof WaitlistCodesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WaitlistCodesType}
+     * List of Waitlist Codes.
+     * @type {Array<WaitlistCodeType>}
      * @memberof WaitlistCodesToBeChanged
      */
-    waitlistCodes?: WaitlistCodesType;
+    waitlistCodes?: Array<WaitlistCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof WaitlistCodesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the WaitlistCodesToBeChanged interface.

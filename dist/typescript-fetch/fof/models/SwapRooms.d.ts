@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { StayRoominfo } from './StayRoominfo';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * To quickly swap or shift rooms for two reservations that are for the same arrival date and room type
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface SwapRooms {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SwapRooms
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {StayRoominfo}
@@ -37,11 +37,11 @@ export interface SwapRooms {
      */
     targetRoom?: StayRoominfo;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SwapRooms
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SwapRooms interface.

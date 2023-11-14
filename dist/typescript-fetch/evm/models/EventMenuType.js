@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.EventMenuTypeToJSON = exports.EventMenuTypeFromJSONTyped = exports.EventMenuTypeFromJSON = exports.instanceOfEventMenuType = void 0;
 const runtime_1 = require("../runtime");
 const EventMenuBasicInfoType_1 = require("./EventMenuBasicInfoType");
-const EventMenuItemsType_1 = require("./EventMenuItemsType");
-const EventMenuRevenuesType_1 = require("./EventMenuRevenuesType");
+const EventMenuItemType_1 = require("./EventMenuItemType");
+const EventMenuRevenueType_1 = require("./EventMenuRevenueType");
 /**
  * Check if a given object implements the EventMenuType interface.
  */
@@ -37,8 +37,8 @@ function EventMenuTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'basicInfo': !(0, runtime_1.exists)(json, 'basicInfo') ? undefined : (0, EventMenuBasicInfoType_1.EventMenuBasicInfoTypeFromJSON)(json['basicInfo']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'menuItems': !(0, runtime_1.exists)(json, 'menuItems') ? undefined : (0, EventMenuItemsType_1.EventMenuItemsTypeFromJSON)(json['menuItems']),
-        'revenues': !(0, runtime_1.exists)(json, 'revenues') ? undefined : (0, EventMenuRevenuesType_1.EventMenuRevenuesTypeFromJSON)(json['revenues']),
+        'menuItems': !(0, runtime_1.exists)(json, 'menuItems') ? undefined : (json['menuItems'].map(EventMenuItemType_1.EventMenuItemTypeFromJSON)),
+        'revenues': !(0, runtime_1.exists)(json, 'revenues') ? undefined : (json['revenues'].map(EventMenuRevenueType_1.EventMenuRevenueTypeFromJSON)),
     };
 }
 exports.EventMenuTypeFromJSONTyped = EventMenuTypeFromJSONTyped;
@@ -52,8 +52,8 @@ function EventMenuTypeToJSON(value) {
     return {
         'basicInfo': (0, EventMenuBasicInfoType_1.EventMenuBasicInfoTypeToJSON)(value.basicInfo),
         'hotelId': value.hotelId,
-        'menuItems': (0, EventMenuItemsType_1.EventMenuItemsTypeToJSON)(value.menuItems),
-        'revenues': (0, EventMenuRevenuesType_1.EventMenuRevenuesTypeToJSON)(value.revenues),
+        'menuItems': value.menuItems === undefined ? undefined : (value.menuItems.map(EventMenuItemType_1.EventMenuItemTypeToJSON)),
+        'revenues': value.revenues === undefined ? undefined : (value.revenues.map(EventMenuRevenueType_1.EventMenuRevenueTypeToJSON)),
     };
 }
 exports.EventMenuTypeToJSON = EventMenuTypeToJSON;

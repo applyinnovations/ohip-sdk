@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelParametersSimpleType } from './ChannelParametersSimpleType';
+import type { ChannelParameterSimpleType } from './ChannelParameterSimpleType';
 import {
-    ChannelParametersSimpleTypeFromJSON,
-    ChannelParametersSimpleTypeFromJSONTyped,
-    ChannelParametersSimpleTypeToJSON,
-} from './ChannelParametersSimpleType';
+    ChannelParameterSimpleTypeFromJSON,
+    ChannelParameterSimpleTypeFromJSONTyped,
+    ChannelParameterSimpleTypeToJSON,
+} from './ChannelParameterSimpleType';
 
 /**
  * 
@@ -27,11 +27,11 @@ import {
  */
 export interface ChangeChannelParametersType {
     /**
-     * 
-     * @type {ChannelParametersSimpleType}
+     * Collection of channel parameters simple information.
+     * @type {Array<ChannelParameterSimpleType>}
      * @memberof ChangeChannelParametersType
      */
-    channelParameters?: ChannelParametersSimpleType;
+    channelParameters?: Array<ChannelParameterSimpleType>;
     /**
      * External system code.
      * @type {string}
@@ -59,7 +59,7 @@ export function ChangeChannelParametersTypeFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'channelParameters': !exists(json, 'channelParameters') ? undefined : ChannelParametersSimpleTypeFromJSON(json['channelParameters']),
+        'channelParameters': !exists(json, 'channelParameters') ? undefined : ((json['channelParameters'] as Array<any>).map(ChannelParameterSimpleTypeFromJSON)),
         'systemCode': !exists(json, 'systemCode') ? undefined : json['systemCode'],
     };
 }
@@ -73,7 +73,7 @@ export function ChangeChannelParametersTypeToJSON(value?: ChangeChannelParameter
     }
     return {
         
-        'channelParameters': ChannelParametersSimpleTypeToJSON(value.channelParameters),
+        'channelParameters': value.channelParameters === undefined ? undefined : ((value.channelParameters as Array<any>).map(ChannelParameterSimpleTypeToJSON)),
         'systemCode': value.systemCode,
     };
 }

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelAccountsInformationType } from './ChannelAccountsInformationType';
+import type { ChannelAccountInformationType } from './ChannelAccountInformationType';
 import {
-    ChannelAccountsInformationTypeFromJSON,
-    ChannelAccountsInformationTypeFromJSONTyped,
-    ChannelAccountsInformationTypeToJSON,
-} from './ChannelAccountsInformationType';
-import type { Links } from './Links';
+    ChannelAccountInformationTypeFromJSON,
+    ChannelAccountInformationTypeFromJSONTyped,
+    ChannelAccountInformationTypeToJSON,
+} from './ChannelAccountInformationType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to create the channel accounts.
@@ -39,23 +39,23 @@ import {
  */
 export interface ChannelAccounts {
     /**
-     * 
-     * @type {ChannelAccountsInformationType}
+     * Channel account information object to hold details of channel account.
+     * @type {Array<ChannelAccountInformationType>}
      * @memberof ChannelAccounts
      */
-    channelAccounts?: ChannelAccountsInformationType;
+    channelAccounts?: Array<ChannelAccountInformationType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelAccounts
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelAccounts
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ChannelAccountsFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'channelAccounts': !exists(json, 'channelAccounts') ? undefined : ChannelAccountsInformationTypeFromJSON(json['channelAccounts']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'channelAccounts': !exists(json, 'channelAccounts') ? undefined : ((json['channelAccounts'] as Array<any>).map(ChannelAccountInformationTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ChannelAccountsToJSON(value?: ChannelAccounts | null): any {
     }
     return {
         
-        'channelAccounts': ChannelAccountsInformationTypeToJSON(value.channelAccounts),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'channelAccounts': value.channelAccounts === undefined ? undefined : ((value.channelAccounts as Array<any>).map(ChannelAccountInformationTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BillingInstructionsType } from './BillingInstructionsType';
+import type { BillingInstructionType } from './BillingInstructionType';
 import {
-    BillingInstructionsTypeFromJSON,
-    BillingInstructionsTypeFromJSONTyped,
-    BillingInstructionsTypeToJSON,
-} from './BillingInstructionsType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+    BillingInstructionTypeFromJSON,
+    BillingInstructionTypeFromJSONTyped,
+    BillingInstructionTypeToJSON,
+} from './BillingInstructionType';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
 
 /**
  * The type contains routing instructions for the profile.
@@ -39,17 +39,17 @@ export interface ProfileRoutingInstructionsType {
      */
     autoPopulateRouting?: boolean;
     /**
-     * 
-     * @type {BillingInstructionsType}
+     * Set of Billing Instruction codes.
+     * @type {Array<BillingInstructionType>}
      * @memberof ProfileRoutingInstructionsType
      */
-    billingInstructions?: BillingInstructionsType;
+    billingInstructions?: Array<BillingInstructionType>;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof ProfileRoutingInstructionsType
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
 }
 
 /**
@@ -72,8 +72,8 @@ export function ProfileRoutingInstructionsTypeFromJSONTyped(json: any, ignoreDis
     return {
         
         'autoPopulateRouting': !exists(json, 'autoPopulateRouting') ? undefined : json['autoPopulateRouting'],
-        'billingInstructions': !exists(json, 'billingInstructions') ? undefined : BillingInstructionsTypeFromJSON(json['billingInstructions']),
-        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : TrxCodesInfoTypeFromJSON(json['transactionCodes']),
+        'billingInstructions': !exists(json, 'billingInstructions') ? undefined : ((json['billingInstructions'] as Array<any>).map(BillingInstructionTypeFromJSON)),
+        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : ((json['transactionCodes'] as Array<any>).map(TrxInfoTypeFromJSON)),
     };
 }
 
@@ -87,8 +87,8 @@ export function ProfileRoutingInstructionsTypeToJSON(value?: ProfileRoutingInstr
     return {
         
         'autoPopulateRouting': value.autoPopulateRouting,
-        'billingInstructions': BillingInstructionsTypeToJSON(value.billingInstructions),
-        'transactionCodes': TrxCodesInfoTypeToJSON(value.transactionCodes),
+        'billingInstructions': value.billingInstructions === undefined ? undefined : ((value.billingInstructions as Array<any>).map(BillingInstructionTypeToJSON)),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : ((value.transactionCodes as Array<any>).map(TrxInfoTypeToJSON)),
     };
 }
 

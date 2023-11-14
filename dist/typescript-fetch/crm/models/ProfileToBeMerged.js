@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfileToBeMergedToJSON = exports.ProfileToBeMergedFromJSONTyped = exports.ProfileToBeMergedFromJSON = exports.instanceOfProfileToBeMerged = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const ProfileType_1 = require("./ProfileType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
-const WarningsType_1 = require("./WarningsType");
+const UniqueIDType_1 = require("./UniqueIDType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ProfileToBeMerged interface.
  */
@@ -36,10 +36,10 @@ function ProfileToBeMergedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'profileDetails': !(0, runtime_1.exists)(json, 'profileDetails') ? undefined : (0, ProfileType_1.ProfileTypeFromJSON)(json['profileDetails']),
-        'victimProfileId': !(0, runtime_1.exists)(json, 'victimProfileId') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['victimProfileId']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'victimProfileId': !(0, runtime_1.exists)(json, 'victimProfileId') ? undefined : (json['victimProfileId'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ProfileToBeMergedFromJSONTyped = ProfileToBeMergedFromJSONTyped;
@@ -51,10 +51,10 @@ function ProfileToBeMergedToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'profileDetails': (0, ProfileType_1.ProfileTypeToJSON)(value.profileDetails),
-        'victimProfileId': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.victimProfileId),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'victimProfileId': value.victimProfileId === undefined ? undefined : (value.victimProfileId.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ProfileToBeMergedToJSON = ProfileToBeMergedToJSON;

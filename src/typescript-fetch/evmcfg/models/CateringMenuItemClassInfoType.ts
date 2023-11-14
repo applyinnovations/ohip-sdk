@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { MenuTypeType } from './MenuTypeType';
 import {
     MenuTypeTypeFromJSON,
@@ -40,10 +34,10 @@ export interface CateringMenuItemClassInfoType {
     className?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CateringMenuItemClassInfoType
      */
-    eventTypeList?: CodeListType;
+    eventTypeList?: Array<string>;
     /**
      * The Hotel code which the menu item class belongs to
      * @type {string}
@@ -64,10 +58,10 @@ export interface CateringMenuItemClassInfoType {
     menuType?: MenuTypeType;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CateringMenuItemClassInfoType
      */
-    responsibleDepartmentList?: CodeListType;
+    responsibleDepartmentList?: Array<string>;
     /**
      * Sequence of the Menu Class
      * @type {number}
@@ -102,11 +96,11 @@ export function CateringMenuItemClassInfoTypeFromJSONTyped(json: any, ignoreDisc
     return {
         
         'className': !exists(json, 'className') ? undefined : json['className'],
-        'eventTypeList': !exists(json, 'eventTypeList') ? undefined : CodeListTypeFromJSON(json['eventTypeList']),
+        'eventTypeList': !exists(json, 'eventTypeList') ? undefined : json['eventTypeList'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'iconName': !exists(json, 'iconName') ? undefined : json['iconName'],
         'menuType': !exists(json, 'menuType') ? undefined : MenuTypeTypeFromJSON(json['menuType']),
-        'responsibleDepartmentList': !exists(json, 'responsibleDepartmentList') ? undefined : CodeListTypeFromJSON(json['responsibleDepartmentList']),
+        'responsibleDepartmentList': !exists(json, 'responsibleDepartmentList') ? undefined : json['responsibleDepartmentList'],
         'sequence': !exists(json, 'sequence') ? undefined : json['sequence'],
         'webBookable': !exists(json, 'webBookable') ? undefined : json['webBookable'],
     };
@@ -122,11 +116,11 @@ export function CateringMenuItemClassInfoTypeToJSON(value?: CateringMenuItemClas
     return {
         
         'className': value.className,
-        'eventTypeList': CodeListTypeToJSON(value.eventTypeList),
+        'eventTypeList': value.eventTypeList,
         'hotelId': value.hotelId,
         'iconName': value.iconName,
         'menuType': MenuTypeTypeToJSON(value.menuType),
-        'responsibleDepartmentList': CodeListTypeToJSON(value.responsibleDepartmentList),
+        'responsibleDepartmentList': value.responsibleDepartmentList,
         'sequence': value.sequence,
         'webBookable': value.webBookable,
     };

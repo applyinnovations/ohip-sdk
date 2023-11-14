@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BedTypeRequestsType } from './BedTypeRequestsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BedTypeRequestType } from './BedTypeRequestType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Bed Type Requests.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BedTypeRequestsDetails {
     /**
-     *
-     * @type {BedTypeRequestsType}
+     * List of Bed Type Requests.
+     * @type {Array<BedTypeRequestType>}
      * @memberof BedTypeRequestsDetails
      */
-    bedTypeRequests?: BedTypeRequestsType;
+    bedTypeRequests?: Array<BedTypeRequestType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BedTypeRequestsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BedTypeRequestsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BedTypeRequestsDetails interface.

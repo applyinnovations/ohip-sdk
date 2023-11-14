@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { PreCheckInRulesType } from './PreCheckInRulesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { PreCheckInRuleType } from './PreCheckInRuleType';
 import {
-    PreCheckInRulesTypeFromJSON,
-    PreCheckInRulesTypeFromJSONTyped,
-    PreCheckInRulesTypeToJSON,
-} from './PreCheckInRulesType';
-import type { WarningsType } from './WarningsType';
+    PreCheckInRuleTypeFromJSON,
+    PreCheckInRuleTypeFromJSONTyped,
+    PreCheckInRuleTypeToJSON,
+} from './PreCheckInRuleType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for modifying an existing Pre Check-In Rule
@@ -40,22 +40,22 @@ import {
 export interface PreCheckInRulesToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PreCheckInRulesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {PreCheckInRulesType}
+     * Collection of Pre Check-In Rules List
+     * @type {Array<PreCheckInRuleType>}
      * @memberof PreCheckInRulesToBeChanged
      */
-    preCheckInRules?: PreCheckInRulesType;
+    preCheckInRules?: Array<PreCheckInRuleType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PreCheckInRulesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function PreCheckInRulesToBeChangedFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'preCheckInRules': !exists(json, 'preCheckInRules') ? undefined : PreCheckInRulesTypeFromJSON(json['preCheckInRules']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'preCheckInRules': !exists(json, 'preCheckInRules') ? undefined : ((json['preCheckInRules'] as Array<any>).map(PreCheckInRuleTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function PreCheckInRulesToBeChangedToJSON(value?: PreCheckInRulesToBeChan
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'preCheckInRules': PreCheckInRulesTypeToJSON(value.preCheckInRules),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'preCheckInRules': value.preCheckInRules === undefined ? undefined : ((value.preCheckInRules as Array<any>).map(PreCheckInRuleTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

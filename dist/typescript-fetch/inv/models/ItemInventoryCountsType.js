@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ItemInventoryCountsTypeToJSON = exports.ItemInventoryCountsTypeFromJSONTyped = exports.ItemInventoryCountsTypeFromJSON = exports.instanceOfItemInventoryCountsType = void 0;
 const runtime_1 = require("../runtime");
-const DailyItemInventoryCountsListType_1 = require("./DailyItemInventoryCountsListType");
+const DailyItemInventoryCountsType_1 = require("./DailyItemInventoryCountsType");
 const TimeSpanType_1 = require("./TimeSpanType");
 const TimeWindowType_1 = require("./TimeWindowType");
 /**
@@ -40,7 +40,7 @@ function ItemInventoryCountsTypeFromJSONTyped(json, ignoreDiscriminator) {
         'defaultDuration': !(0, runtime_1.exists)(json, 'defaultDuration') ? undefined : json['defaultDuration'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'fixedCharge': !(0, runtime_1.exists)(json, 'fixedCharge') ? undefined : json['fixedCharge'],
-        'inventories': !(0, runtime_1.exists)(json, 'inventories') ? undefined : (0, DailyItemInventoryCountsListType_1.DailyItemInventoryCountsListTypeFromJSON)(json['inventories']),
+        'inventories': !(0, runtime_1.exists)(json, 'inventories') ? undefined : (json['inventories'].map(DailyItemInventoryCountsType_1.DailyItemInventoryCountsTypeFromJSON)),
         'itemHoldId': !(0, runtime_1.exists)(json, 'itemHoldId') ? undefined : json['itemHoldId'],
         'itemPool': !(0, runtime_1.exists)(json, 'itemPool') ? undefined : json['itemPool'],
         'name': !(0, runtime_1.exists)(json, 'name') ? undefined : json['name'],
@@ -67,7 +67,7 @@ function ItemInventoryCountsTypeToJSON(value) {
         'defaultDuration': value.defaultDuration,
         'description': value.description,
         'fixedCharge': value.fixedCharge,
-        'inventories': (0, DailyItemInventoryCountsListType_1.DailyItemInventoryCountsListTypeToJSON)(value.inventories),
+        'inventories': value.inventories === undefined ? undefined : (value.inventories.map(DailyItemInventoryCountsType_1.DailyItemInventoryCountsTypeToJSON)),
         'itemHoldId': value.itemHoldId,
         'itemPool': value.itemPool,
         'name': value.name,

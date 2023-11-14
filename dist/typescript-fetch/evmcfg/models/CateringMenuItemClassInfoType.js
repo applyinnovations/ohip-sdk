@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringMenuItemClassInfoTypeToJSON = exports.CateringMenuItemClassInfoTypeFromJSONTyped = exports.CateringMenuItemClassInfoTypeFromJSON = exports.instanceOfCateringMenuItemClassInfoType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const MenuTypeType_1 = require("./MenuTypeType");
 /**
  * Check if a given object implements the CateringMenuItemClassInfoType interface.
@@ -35,11 +34,11 @@ function CateringMenuItemClassInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'className': !(0, runtime_1.exists)(json, 'className') ? undefined : json['className'],
-        'eventTypeList': !(0, runtime_1.exists)(json, 'eventTypeList') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['eventTypeList']),
+        'eventTypeList': !(0, runtime_1.exists)(json, 'eventTypeList') ? undefined : json['eventTypeList'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'iconName': !(0, runtime_1.exists)(json, 'iconName') ? undefined : json['iconName'],
         'menuType': !(0, runtime_1.exists)(json, 'menuType') ? undefined : (0, MenuTypeType_1.MenuTypeTypeFromJSON)(json['menuType']),
-        'responsibleDepartmentList': !(0, runtime_1.exists)(json, 'responsibleDepartmentList') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['responsibleDepartmentList']),
+        'responsibleDepartmentList': !(0, runtime_1.exists)(json, 'responsibleDepartmentList') ? undefined : json['responsibleDepartmentList'],
         'sequence': !(0, runtime_1.exists)(json, 'sequence') ? undefined : json['sequence'],
         'webBookable': !(0, runtime_1.exists)(json, 'webBookable') ? undefined : json['webBookable'],
     };
@@ -54,11 +53,11 @@ function CateringMenuItemClassInfoTypeToJSON(value) {
     }
     return {
         'className': value.className,
-        'eventTypeList': (0, CodeListType_1.CodeListTypeToJSON)(value.eventTypeList),
+        'eventTypeList': value.eventTypeList,
         'hotelId': value.hotelId,
         'iconName': value.iconName,
         'menuType': (0, MenuTypeType_1.MenuTypeTypeToJSON)(value.menuType),
-        'responsibleDepartmentList': (0, CodeListType_1.CodeListTypeToJSON)(value.responsibleDepartmentList),
+        'responsibleDepartmentList': value.responsibleDepartmentList,
         'sequence': value.sequence,
         'webBookable': value.webBookable,
     };

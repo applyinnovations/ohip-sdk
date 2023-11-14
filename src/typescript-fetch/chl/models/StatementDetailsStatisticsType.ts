@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { StatisticDetailsType } from './StatisticDetailsType';
+import type { StatementDetailsStatisticType } from './StatementDetailsStatisticType';
 import {
-    StatisticDetailsTypeFromJSON,
-    StatisticDetailsTypeFromJSONTyped,
-    StatisticDetailsTypeToJSON,
-} from './StatisticDetailsType';
+    StatementDetailsStatisticTypeFromJSON,
+    StatementDetailsStatisticTypeFromJSONTyped,
+    StatementDetailsStatisticTypeToJSON,
+} from './StatementDetailsStatisticType';
 
 /**
  * Channel statement details statistics .
@@ -27,29 +27,29 @@ import {
  */
 export interface StatementDetailsStatisticsType {
     /**
-     * 
-     * @type {StatisticDetailsType}
+     * Holds the statistic details for the statement details.
+     * @type {Array<StatementDetailsStatisticType>}
      * @memberof StatementDetailsStatisticsType
      */
-    detailsByChannel?: StatisticDetailsType;
+    detailsByChannel?: Array<StatementDetailsStatisticType>;
     /**
-     * 
-     * @type {StatisticDetailsType}
+     * Holds the statistic details for the statement details.
+     * @type {Array<StatementDetailsStatisticType>}
      * @memberof StatementDetailsStatisticsType
      */
-    detailsByChannelType?: StatisticDetailsType;
+    detailsByChannelType?: Array<StatementDetailsStatisticType>;
     /**
-     * 
-     * @type {StatisticDetailsType}
+     * Holds the statistic details for the statement details.
+     * @type {Array<StatementDetailsStatisticType>}
      * @memberof StatementDetailsStatisticsType
      */
-    detailsByFeeType?: StatisticDetailsType;
+    detailsByFeeType?: Array<StatementDetailsStatisticType>;
     /**
-     * 
-     * @type {StatisticDetailsType}
+     * Holds the statistic details for the statement details.
+     * @type {Array<StatementDetailsStatisticType>}
      * @memberof StatementDetailsStatisticsType
      */
-    detailsByResort?: StatisticDetailsType;
+    detailsByResort?: Array<StatementDetailsStatisticType>;
 }
 
 /**
@@ -71,10 +71,10 @@ export function StatementDetailsStatisticsTypeFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'detailsByChannel': !exists(json, 'detailsByChannel') ? undefined : StatisticDetailsTypeFromJSON(json['detailsByChannel']),
-        'detailsByChannelType': !exists(json, 'detailsByChannelType') ? undefined : StatisticDetailsTypeFromJSON(json['detailsByChannelType']),
-        'detailsByFeeType': !exists(json, 'detailsByFeeType') ? undefined : StatisticDetailsTypeFromJSON(json['detailsByFeeType']),
-        'detailsByResort': !exists(json, 'detailsByResort') ? undefined : StatisticDetailsTypeFromJSON(json['detailsByResort']),
+        'detailsByChannel': !exists(json, 'detailsByChannel') ? undefined : ((json['detailsByChannel'] as Array<any>).map(StatementDetailsStatisticTypeFromJSON)),
+        'detailsByChannelType': !exists(json, 'detailsByChannelType') ? undefined : ((json['detailsByChannelType'] as Array<any>).map(StatementDetailsStatisticTypeFromJSON)),
+        'detailsByFeeType': !exists(json, 'detailsByFeeType') ? undefined : ((json['detailsByFeeType'] as Array<any>).map(StatementDetailsStatisticTypeFromJSON)),
+        'detailsByResort': !exists(json, 'detailsByResort') ? undefined : ((json['detailsByResort'] as Array<any>).map(StatementDetailsStatisticTypeFromJSON)),
     };
 }
 
@@ -87,10 +87,10 @@ export function StatementDetailsStatisticsTypeToJSON(value?: StatementDetailsSta
     }
     return {
         
-        'detailsByChannel': StatisticDetailsTypeToJSON(value.detailsByChannel),
-        'detailsByChannelType': StatisticDetailsTypeToJSON(value.detailsByChannelType),
-        'detailsByFeeType': StatisticDetailsTypeToJSON(value.detailsByFeeType),
-        'detailsByResort': StatisticDetailsTypeToJSON(value.detailsByResort),
+        'detailsByChannel': value.detailsByChannel === undefined ? undefined : ((value.detailsByChannel as Array<any>).map(StatementDetailsStatisticTypeToJSON)),
+        'detailsByChannelType': value.detailsByChannelType === undefined ? undefined : ((value.detailsByChannelType as Array<any>).map(StatementDetailsStatisticTypeToJSON)),
+        'detailsByFeeType': value.detailsByFeeType === undefined ? undefined : ((value.detailsByFeeType as Array<any>).map(StatementDetailsStatisticTypeToJSON)),
+        'detailsByResort': value.detailsByResort === undefined ? undefined : ((value.detailsByResort as Array<any>).map(StatementDetailsStatisticTypeToJSON)),
     };
 }
 

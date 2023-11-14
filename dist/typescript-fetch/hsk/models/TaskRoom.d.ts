@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ServiceTaskRoomType } from './ServiceTaskRoomType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to start servicing a task room. When the attendant starts working on a room this request can be called to set the times and the status to WORKING for the room.
  * @export
@@ -26,16 +26,16 @@ export interface TaskRoom {
     criteria?: ServiceTaskRoomType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TaskRoom
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TaskRoom
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TaskRoom interface.

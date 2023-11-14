@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ARInvoicesCriteriaType } from './ARInvoicesCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ARInvoiceCriteriaType } from './ARInvoiceCriteriaType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to close invoice(s)
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface Invoices {
     /**
-     *
-     * @type {ARInvoicesCriteriaType}
+     * Criteria for searching Invoices.
+     * @type {Array<ARInvoiceCriteriaType>}
      * @memberof Invoices
      */
-    invoices?: ARInvoicesCriteriaType;
+    invoices?: Array<ARInvoiceCriteriaType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Invoices
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Invoices
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Invoices interface.

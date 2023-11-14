@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ValidationReturnTypeToJSON = exports.ValidationReturnTypeFromJSONTyped = exports.ValidationReturnTypeFromJSON = exports.instanceOfValidationReturnType = void 0;
 const runtime_1 = require("../runtime");
-const ReservationSummaryListType_1 = require("./ReservationSummaryListType");
+const ReservationSummaryType_1 = require("./ReservationSummaryType");
 const ValidationActionType_1 = require("./ValidationActionType");
 /**
  * Check if a given object implements the ValidationReturnType interface.
@@ -34,7 +34,7 @@ function ValidationReturnTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'invalidReservations': !(0, runtime_1.exists)(json, 'invalidReservations') ? undefined : (0, ReservationSummaryListType_1.ReservationSummaryListTypeFromJSON)(json['invalidReservations']),
+        'invalidReservations': !(0, runtime_1.exists)(json, 'invalidReservations') ? undefined : (json['invalidReservations'].map(ReservationSummaryType_1.ReservationSummaryTypeFromJSON)),
         'validationAction': !(0, runtime_1.exists)(json, 'validationAction') ? undefined : (0, ValidationActionType_1.ValidationActionTypeFromJSON)(json['validationAction']),
         'validationCode': !(0, runtime_1.exists)(json, 'validationCode') ? undefined : json['validationCode'],
         'validationMessage': !(0, runtime_1.exists)(json, 'validationMessage') ? undefined : json['validationMessage'],
@@ -50,7 +50,7 @@ function ValidationReturnTypeToJSON(value) {
         return null;
     }
     return {
-        'invalidReservations': (0, ReservationSummaryListType_1.ReservationSummaryListTypeToJSON)(value.invalidReservations),
+        'invalidReservations': value.invalidReservations === undefined ? undefined : (value.invalidReservations.map(ReservationSummaryType_1.ReservationSummaryTypeToJSON)),
         'validationAction': (0, ValidationActionType_1.ValidationActionTypeToJSON)(value.validationAction),
         'validationCode': value.validationCode,
         'validationMessage': value.validationMessage,

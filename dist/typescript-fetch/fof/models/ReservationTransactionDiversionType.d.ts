@@ -13,7 +13,7 @@ import type { CodeDescriptionType } from './CodeDescriptionType';
 import type { CommentInfoType } from './CommentInfoType';
 import type { MembershipTypeLevelType } from './MembershipTypeLevelType';
 import type { ThresholdDetailsType } from './ThresholdDetailsType';
-import type { TransactionDiversionDailyDetailsType } from './TransactionDiversionDailyDetailsType';
+import type { TransactionDiversionDailyDetailType } from './TransactionDiversionDailyDetailType';
 import type { TransactionDiversionRuleLevelType } from './TransactionDiversionRuleLevelType';
 import type { TransactionDiversionRuleTypeType } from './TransactionDiversionRuleTypeType';
 /**
@@ -29,11 +29,11 @@ export interface ReservationTransactionDiversionType {
      */
     code?: string;
     /**
-     *
-     * @type {TransactionDiversionDailyDetailsType}
+     * List of daily details for Transaction Diversion rule.
+     * @type {Array<TransactionDiversionDailyDetailType>}
      * @memberof ReservationTransactionDiversionType
      */
-    dailyDetails?: TransactionDiversionDailyDetailsType;
+    dailyDetails?: Array<TransactionDiversionDailyDetailType>;
     /**
      * User defined message for the Transaction Diversion Rule.
      * @type {string}

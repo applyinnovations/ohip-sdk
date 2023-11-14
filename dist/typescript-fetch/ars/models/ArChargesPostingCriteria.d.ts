@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ARChargesPostingCriteriaType } from './ARChargesPostingCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to post charges to an existing invoice, when the functionality is available. If the invoice should not be modified or if the folio should not be modified,based on other functionalities, then the charges cannot be posted to the invoice.
  * @export
@@ -26,16 +26,16 @@ export interface ArChargesPostingCriteria {
     criteria?: ARChargesPostingCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ArChargesPostingCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ArChargesPostingCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ArChargesPostingCriteria interface.

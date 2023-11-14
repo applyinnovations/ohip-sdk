@@ -31,12 +31,12 @@ import {
     ProfileTypeTypeFromJSONTyped,
     ProfileTypeTypeToJSON,
 } from './ProfileTypeType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Profile details
@@ -51,11 +51,11 @@ export interface NegotiatedProfileType {
      */
     externalSystemCode?: string;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof NegotiatedProfileType
      */
-    profileIdList?: UniqueIDListType;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {ProfileNameType}
@@ -96,7 +96,7 @@ export function NegotiatedProfileTypeFromJSONTyped(json: any, ignoreDiscriminato
     return {
         
         'externalSystemCode': !exists(json, 'externalSystemCode') ? undefined : json['externalSystemCode'],
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : UniqueIDListTypeFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'profileName': !exists(json, 'profileName') ? undefined : ProfileNameTypeFromJSON(json['profileName']),
         'profileType': !exists(json, 'profileType') ? undefined : ProfileTypeTypeFromJSON(json['profileType']),
         'rateInfoList': !exists(json, 'rateInfoList') ? undefined : ((json['rateInfoList'] as Array<any>).map(NegRateAccessTypeFromJSON)),
@@ -113,7 +113,7 @@ export function NegotiatedProfileTypeToJSON(value?: NegotiatedProfileType | null
     return {
         
         'externalSystemCode': value.externalSystemCode,
-        'profileIdList': UniqueIDListTypeToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'profileName': ProfileNameTypeToJSON(value.profileName),
         'profileType': ProfileTypeTypeToJSON(value.profileType),
         'rateInfoList': value.rateInfoList === undefined ? undefined : ((value.rateInfoList as Array<any>).map(NegRateAccessTypeToJSON)),

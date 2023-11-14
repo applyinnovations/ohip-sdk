@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DailyPaceStatsType } from './DailyPaceStatsType';
+import type { DailyPaceStatType } from './DailyPaceStatType';
 import {
-    DailyPaceStatsTypeFromJSON,
-    DailyPaceStatsTypeFromJSONTyped,
-    DailyPaceStatsTypeToJSON,
-} from './DailyPaceStatsType';
+    DailyPaceStatTypeFromJSON,
+    DailyPaceStatTypeFromJSONTyped,
+    DailyPaceStatTypeToJSON,
+} from './DailyPaceStatType';
 
 /**
  * Contains reservation pace report data.
@@ -33,11 +33,11 @@ export interface ReservationPaceRSType {
      */
     businessDate?: Date;
     /**
-     * 
-     * @type {DailyPaceStatsType}
+     * a collection of reservation pace statistics.
+     * @type {Array<DailyPaceStatType>}
      * @memberof ReservationPaceRSType
      */
-    dailyPaceStats?: DailyPaceStatsType;
+    dailyPaceStats?: Array<DailyPaceStatType>;
     /**
      * 
      * @type {string}
@@ -66,7 +66,7 @@ export function ReservationPaceRSTypeFromJSONTyped(json: any, ignoreDiscriminato
     return {
         
         'businessDate': !exists(json, 'businessDate') ? undefined : (new Date(json['businessDate'])),
-        'dailyPaceStats': !exists(json, 'dailyPaceStats') ? undefined : DailyPaceStatsTypeFromJSON(json['dailyPaceStats']),
+        'dailyPaceStats': !exists(json, 'dailyPaceStats') ? undefined : ((json['dailyPaceStats'] as Array<any>).map(DailyPaceStatTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
     };
 }
@@ -81,7 +81,7 @@ export function ReservationPaceRSTypeToJSON(value?: ReservationPaceRSType | null
     return {
         
         'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0,10)),
-        'dailyPaceStats': DailyPaceStatsTypeToJSON(value.dailyPaceStats),
+        'dailyPaceStats': value.dailyPaceStats === undefined ? undefined : ((value.dailyPaceStats as Array<any>).map(DailyPaceStatTypeToJSON)),
         'hotelId': value.hotelId,
     };
 }

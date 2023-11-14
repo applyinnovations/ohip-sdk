@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 import type { AssignedUserType } from './AssignedUserType';
-import type { RoomIds } from './RoomIds';
 /**
  * Base maintenance type
  * @export
@@ -42,11 +41,11 @@ export interface RoomMaintenanceRequestType {
      */
     remarks?: string;
     /**
-     *
-     * @type {RoomIds}
+     * Collection of room numbers to be process.
+     * @type {Array<string>}
      * @memberof RoomMaintenanceRequestType
      */
-    roomIds?: RoomIds;
+    roomIds?: Array<string>;
 }
 /**
  * Check if a given object implements the RoomMaintenanceRequestType interface.

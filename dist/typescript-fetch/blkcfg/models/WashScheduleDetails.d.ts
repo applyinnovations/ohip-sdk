@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
-import type { WashCodesType } from './WashCodesType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
+import type { WashCodeType } from './WashCodeType';
 /**
  * Response object for FetchWashSchedule operation which will contain all the information of 'WashCodes' like Days prior to arrival, Occupancy detail, Sell limit and Wash by percent value if exists.
  * @export
@@ -20,22 +20,22 @@ import type { WashCodesType } from './WashCodesType';
 export interface WashScheduleDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof WashScheduleDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof WashScheduleDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
     /**
-     *
-     * @type {WashCodesType}
+     * Wash Code, which will allow the user to define standard schedules that can be attached to blocks prior to the block's cutoff date to automate this process.
+     * @type {Array<WashCodeType>}
      * @memberof WashScheduleDetails
      */
-    washCodes?: WashCodesType;
+    washCodes?: Array<WashCodeType>;
 }
 /**
  * Check if a given object implements the WashScheduleDetails interface.

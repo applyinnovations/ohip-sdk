@@ -25,24 +25,24 @@ import {
     CancelPenaltyTypeFromJSONTyped,
     CancelPenaltyTypeToJSON,
 } from './CancelPenaltyType';
-import type { GuaranteePoliciesType } from './GuaranteePoliciesType';
+import type { GuaranteePolicyType } from './GuaranteePolicyType';
 import {
-    GuaranteePoliciesTypeFromJSON,
-    GuaranteePoliciesTypeFromJSONTyped,
-    GuaranteePoliciesTypeToJSON,
-} from './GuaranteePoliciesType';
+    GuaranteePolicyTypeFromJSON,
+    GuaranteePolicyTypeFromJSONTyped,
+    GuaranteePolicyTypeToJSON,
+} from './GuaranteePolicyType';
 import type { GuaranteeType } from './GuaranteeType';
 import {
     GuaranteeTypeFromJSON,
     GuaranteeTypeFromJSONTyped,
     GuaranteeTypeToJSON,
 } from './GuaranteeType';
-import type { MealPlansType } from './MealPlansType';
+import type { MealPlanCodeType } from './MealPlanCodeType';
 import {
-    MealPlansTypeFromJSON,
-    MealPlansTypeFromJSONTyped,
-    MealPlansTypeToJSON,
-} from './MealPlansType';
+    MealPlanCodeTypeFromJSON,
+    MealPlanCodeTypeFromJSONTyped,
+    MealPlanCodeTypeToJSON,
+} from './MealPlanCodeType';
 import type { ProfileTypeType } from './ProfileTypeType';
 import {
     ProfileTypeTypeFromJSON,
@@ -135,11 +135,11 @@ export interface AvailRatePlanInfoTypeRatePlanInner {
      */
     marketCode?: string;
     /**
-     * 
-     * @type {MealPlansType}
+     * Meal plan codes associated with the rate codes.
+     * @type {Array<MealPlanCodeType>}
      * @memberof AvailRatePlanInfoTypeRatePlanInner
      */
-    mealPlans?: MealPlansType;
+    mealPlans?: Array<MealPlanCodeType>;
     /**
      * 
      * @type {ProfileTypeType}
@@ -177,11 +177,11 @@ export interface AvailRatePlanInfoTypeRatePlanInner {
      */
     ratePlanLevel?: string;
     /**
-     * 
-     * @type {GuaranteePoliciesType}
+     * Guarantee Code information with cancellation penalty and deposit policy information.
+     * @type {Array<GuaranteePolicyType>}
      * @memberof AvailRatePlanInfoTypeRatePlanInner
      */
-    resGuarantees?: GuaranteePoliciesType;
+    resGuarantees?: Array<GuaranteePolicyType>;
     /**
      * Indicates if service fee is included in the rate code amount.
      * @type {boolean}
@@ -244,14 +244,14 @@ export function AvailRatePlanInfoTypeRatePlanInnerFromJSONTyped(json: any, ignor
         'hotelUseOnly': !exists(json, 'hotelUseOnly') ? undefined : json['hotelUseOnly'],
         'longInfo': !exists(json, 'longInfo') ? undefined : json['longInfo'],
         'marketCode': !exists(json, 'marketCode') ? undefined : json['marketCode'],
-        'mealPlans': !exists(json, 'mealPlans') ? undefined : MealPlansTypeFromJSON(json['mealPlans']),
+        'mealPlans': !exists(json, 'mealPlans') ? undefined : ((json['mealPlans'] as Array<any>).map(MealPlanCodeTypeFromJSON)),
         'negotiatedBy': !exists(json, 'negotiatedBy') ? undefined : ProfileTypeTypeFromJSON(json['negotiatedBy']),
         'rateCommission': !exists(json, 'rateCommission') ? undefined : RatePlanCommissionTypeFromJSON(json['rateCommission']),
         'ratePlanCategory': !exists(json, 'ratePlanCategory') ? undefined : json['ratePlanCategory'],
         'ratePlanChannelInfo': !exists(json, 'ratePlanChannelInfo') ? undefined : RatePlanChannelInfoTypeFromJSON(json['ratePlanChannelInfo']),
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'ratePlanLevel': !exists(json, 'ratePlanLevel') ? undefined : json['ratePlanLevel'],
-        'resGuarantees': !exists(json, 'resGuarantees') ? undefined : GuaranteePoliciesTypeFromJSON(json['resGuarantees']),
+        'resGuarantees': !exists(json, 'resGuarantees') ? undefined : ((json['resGuarantees'] as Array<any>).map(GuaranteePolicyTypeFromJSON)),
         'serviceFeeInclusive': !exists(json, 'serviceFeeInclusive') ? undefined : json['serviceFeeInclusive'],
         'shortInfo': !exists(json, 'shortInfo') ? undefined : json['shortInfo'],
         'sourceCode': !exists(json, 'sourceCode') ? undefined : json['sourceCode'],
@@ -280,14 +280,14 @@ export function AvailRatePlanInfoTypeRatePlanInnerToJSON(value?: AvailRatePlanIn
         'hotelUseOnly': value.hotelUseOnly,
         'longInfo': value.longInfo,
         'marketCode': value.marketCode,
-        'mealPlans': MealPlansTypeToJSON(value.mealPlans),
+        'mealPlans': value.mealPlans === undefined ? undefined : ((value.mealPlans as Array<any>).map(MealPlanCodeTypeToJSON)),
         'negotiatedBy': ProfileTypeTypeToJSON(value.negotiatedBy),
         'rateCommission': RatePlanCommissionTypeToJSON(value.rateCommission),
         'ratePlanCategory': value.ratePlanCategory,
         'ratePlanChannelInfo': RatePlanChannelInfoTypeToJSON(value.ratePlanChannelInfo),
         'ratePlanCode': value.ratePlanCode,
         'ratePlanLevel': value.ratePlanLevel,
-        'resGuarantees': GuaranteePoliciesTypeToJSON(value.resGuarantees),
+        'resGuarantees': value.resGuarantees === undefined ? undefined : ((value.resGuarantees as Array<any>).map(GuaranteePolicyTypeToJSON)),
         'serviceFeeInclusive': value.serviceFeeInclusive,
         'shortInfo': value.shortInfo,
         'sourceCode': value.sourceCode,

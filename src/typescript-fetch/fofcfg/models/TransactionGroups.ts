@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelTransactionGroupsType } from './HotelTransactionGroupsType';
+import type { HotelTransactionGroupType } from './HotelTransactionGroupType';
 import {
-    HotelTransactionGroupsTypeFromJSON,
-    HotelTransactionGroupsTypeFromJSONTyped,
-    HotelTransactionGroupsTypeToJSON,
-} from './HotelTransactionGroupsType';
-import type { Links } from './Links';
+    HotelTransactionGroupTypeFromJSON,
+    HotelTransactionGroupTypeFromJSONTyped,
+    HotelTransactionGroupTypeToJSON,
+} from './HotelTransactionGroupType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface TransactionGroups {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransactionGroups
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {HotelTransactionGroupsType}
+     * Hotel's Transaction Group configuration.
+     * @type {Array<HotelTransactionGroupType>}
      * @memberof TransactionGroups
      */
-    transactionGroups?: HotelTransactionGroupsType;
+    transactionGroups?: Array<HotelTransactionGroupType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransactionGroups
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TransactionGroupsFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'transactionGroups': !exists(json, 'transactionGroups') ? undefined : HotelTransactionGroupsTypeFromJSON(json['transactionGroups']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'transactionGroups': !exists(json, 'transactionGroups') ? undefined : ((json['transactionGroups'] as Array<any>).map(HotelTransactionGroupTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TransactionGroupsToJSON(value?: TransactionGroups | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'transactionGroups': HotelTransactionGroupsTypeToJSON(value.transactionGroups),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'transactionGroups': value.transactionGroups === undefined ? undefined : ((value.transactionGroups as Array<any>).map(HotelTransactionGroupTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

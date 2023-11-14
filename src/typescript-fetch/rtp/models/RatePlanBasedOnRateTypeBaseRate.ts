@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RatePlanCodeListType } from './RatePlanCodeListType';
-import {
-    RatePlanCodeListTypeFromJSON,
-    RatePlanCodeListTypeFromJSONTyped,
-    RatePlanCodeListTypeToJSON,
-} from './RatePlanCodeListType';
-
 /**
  * Base Rate type
  * @export
@@ -39,11 +32,11 @@ export interface RatePlanBasedOnRateTypeBaseRate {
      */
     basedOnRatePlan?: string;
     /**
-     * 
-     * @type {RatePlanCodeListType}
+     * Rate Plan code.
+     * @type {Array<string>}
      * @memberof RatePlanBasedOnRateTypeBaseRate
      */
-    dependentRatePlans?: RatePlanCodeListType;
+    dependentRatePlans?: Array<string>;
     /**
      * Flat or Percentage (FLT/PCT) indicator.
      * @type {string}
@@ -79,7 +72,7 @@ export function RatePlanBasedOnRateTypeBaseRateFromJSONTyped(json: any, ignoreDi
         
         'baseAmount': !exists(json, 'baseAmount') ? undefined : json['baseAmount'],
         'basedOnRatePlan': !exists(json, 'basedOnRatePlan') ? undefined : json['basedOnRatePlan'],
-        'dependentRatePlans': !exists(json, 'dependentRatePlans') ? undefined : RatePlanCodeListTypeFromJSON(json['dependentRatePlans']),
+        'dependentRatePlans': !exists(json, 'dependentRatePlans') ? undefined : json['dependentRatePlans'],
         'flatOrPercentage': !exists(json, 'flatOrPercentage') ? undefined : json['flatOrPercentage'],
         'rounding': !exists(json, 'rounding') ? undefined : json['rounding'],
     };
@@ -96,7 +89,7 @@ export function RatePlanBasedOnRateTypeBaseRateToJSON(value?: RatePlanBasedOnRat
         
         'baseAmount': value.baseAmount,
         'basedOnRatePlan': value.basedOnRatePlan,
-        'dependentRatePlans': RatePlanCodeListTypeToJSON(value.dependentRatePlans),
+        'dependentRatePlans': value.dependentRatePlans,
         'flatOrPercentage': value.flatOrPercentage,
         'rounding': value.rounding,
     };

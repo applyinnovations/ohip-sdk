@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateOutOfOrderServiceReasonsType } from './TemplateOutOfOrderServiceReasonsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TemplateOutOfOrderServiceReasonType } from './TemplateOutOfOrderServiceReasonType';
 import {
-    TemplateOutOfOrderServiceReasonsTypeFromJSON,
-    TemplateOutOfOrderServiceReasonsTypeFromJSONTyped,
-    TemplateOutOfOrderServiceReasonsTypeToJSON,
-} from './TemplateOutOfOrderServiceReasonsType';
-import type { WarningsType } from './WarningsType';
+    TemplateOutOfOrderServiceReasonTypeFromJSON,
+    TemplateOutOfOrderServiceReasonTypeFromJSONTyped,
+    TemplateOutOfOrderServiceReasonTypeToJSON,
+} from './TemplateOutOfOrderServiceReasonType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching template Out of order/service reason(s).
@@ -40,22 +40,22 @@ import {
 export interface TemplateOutOfOrderServiceReasonsDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateOutOfOrderServiceReasonsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TemplateOutOfOrderServiceReasonsType}
+     * Template of out of order/service reason details.
+     * @type {Array<TemplateOutOfOrderServiceReasonType>}
      * @memberof TemplateOutOfOrderServiceReasonsDetails
      */
-    outOfOrderServiceReasons?: TemplateOutOfOrderServiceReasonsType;
+    outOfOrderServiceReasons?: Array<TemplateOutOfOrderServiceReasonType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateOutOfOrderServiceReasonsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateOutOfOrderServiceReasonsDetailsFromJSONTyped(json: any, 
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'outOfOrderServiceReasons': !exists(json, 'outOfOrderServiceReasons') ? undefined : TemplateOutOfOrderServiceReasonsTypeFromJSON(json['outOfOrderServiceReasons']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'outOfOrderServiceReasons': !exists(json, 'outOfOrderServiceReasons') ? undefined : ((json['outOfOrderServiceReasons'] as Array<any>).map(TemplateOutOfOrderServiceReasonTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateOutOfOrderServiceReasonsDetailsToJSON(value?: TemplateOu
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'outOfOrderServiceReasons': TemplateOutOfOrderServiceReasonsTypeToJSON(value.outOfOrderServiceReasons),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'outOfOrderServiceReasons': value.outOfOrderServiceReasons === undefined ? undefined : ((value.outOfOrderServiceReasons as Array<any>).map(TemplateOutOfOrderServiceReasonTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

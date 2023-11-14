@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { TimeSpanType } from './TimeSpanType';
-import type { UniqueNameIDListType } from './UniqueNameIDListType';
+import type { UniqueNameIDType } from './UniqueNameIDType';
 /**
  *
  * @export
@@ -24,11 +24,11 @@ export interface ActivityBlockInfoType {
      */
     blockCode?: string;
     /**
-     *
-     * @type {UniqueNameIDListType}
+     * Defines descriptive name and unique identification combination.
+     * @type {Array<UniqueNameIDType>}
      * @memberof ActivityBlockInfoType
      */
-    blockIdList?: UniqueNameIDListType;
+    blockIdList?: Array<UniqueNameIDType>;
     /**
      * Name of the block.
      * @type {string}

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { OriginCodesType } from './OriginCodesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { OriginCodeType } from './OriginCodeType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Origin Codes.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface OriginCodesToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof OriginCodesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {OriginCodesType}
+     * List of Origin Codes.
+     * @type {Array<OriginCodeType>}
      * @memberof OriginCodesToBeChanged
      */
-    originCodes?: OriginCodesType;
+    originCodes?: Array<OriginCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OriginCodesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the OriginCodesToBeChanged interface.

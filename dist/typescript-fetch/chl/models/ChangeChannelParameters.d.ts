@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ChangeChannelParametersType } from './ChangeChannelParametersType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for modifying channel parameter(s).
  * @export
@@ -26,16 +26,16 @@ export interface ChangeChannelParameters {
     criteria?: ChangeChannelParametersType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangeChannelParameters
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeChannelParameters
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChangeChannelParameters interface.

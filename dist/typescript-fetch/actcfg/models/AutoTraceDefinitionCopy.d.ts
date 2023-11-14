@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CopyAutoTraceDefinitionCriteriaType } from './CopyAutoTraceDefinitionCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for copying trace definition.
  * @export
@@ -24,11 +24,11 @@ export interface AutoTraceDefinitionCopy {
      */
     criteria?: CopyAutoTraceDefinitionCriteriaType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoTraceDefinitionCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AutoTraceDefinitionCopy interface.

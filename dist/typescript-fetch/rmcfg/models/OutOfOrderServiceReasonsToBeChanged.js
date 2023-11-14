@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OutOfOrderServiceReasonsToBeChangedToJSON = exports.OutOfOrderServiceReasonsToBeChangedFromJSONTyped = exports.OutOfOrderServiceReasonsToBeChangedFromJSON = exports.instanceOfOutOfOrderServiceReasonsToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const OutOfOrderServiceReasonsType_1 = require("./OutOfOrderServiceReasonsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const OutOfOrderServiceReasonType_1 = require("./OutOfOrderServiceReasonType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the OutOfOrderServiceReasonsToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function OutOfOrderServiceReasonsToBeChangedFromJSONTyped(json, ignoreDiscrimina
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'outOfOrderServiceReasons': !(0, runtime_1.exists)(json, 'outOfOrderServiceReasons') ? undefined : (0, OutOfOrderServiceReasonsType_1.OutOfOrderServiceReasonsTypeFromJSON)(json['outOfOrderServiceReasons']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'outOfOrderServiceReasons': !(0, runtime_1.exists)(json, 'outOfOrderServiceReasons') ? undefined : (json['outOfOrderServiceReasons'].map(OutOfOrderServiceReasonType_1.OutOfOrderServiceReasonTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.OutOfOrderServiceReasonsToBeChangedFromJSONTyped = OutOfOrderServiceReasonsToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function OutOfOrderServiceReasonsToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'outOfOrderServiceReasons': (0, OutOfOrderServiceReasonsType_1.OutOfOrderServiceReasonsTypeToJSON)(value.outOfOrderServiceReasons),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'outOfOrderServiceReasons': value.outOfOrderServiceReasons === undefined ? undefined : (value.outOfOrderServiceReasons.map(OutOfOrderServiceReasonType_1.OutOfOrderServiceReasonTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.OutOfOrderServiceReasonsToBeChangedToJSON = OutOfOrderServiceReasonsToBeChangedToJSON;

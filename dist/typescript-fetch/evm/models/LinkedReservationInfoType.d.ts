@@ -13,10 +13,10 @@ import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { LinkedReservationType } from './LinkedReservationType';
 import type { PMSResStatusType } from './PMSResStatusType';
 import type { ResGuaranteeType } from './ResGuaranteeType';
-import type { ReservationAllowedActionsType } from './ReservationAllowedActionsType';
+import type { ReservationAllowedActionType } from './ReservationAllowedActionType';
 import type { ReservationBlockType } from './ReservationBlockType';
-import type { ReservationIdList } from './ReservationIdList';
 import type { TimeSpanType } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -24,11 +24,11 @@ import type { TimeSpanType } from './TimeSpanType';
  */
 export interface LinkedReservationInfoType {
     /**
-     *
-     * @type {ReservationAllowedActionsType}
+     * Allowed action.
+     * @type {Array<ReservationAllowedActionType>}
      * @memberof LinkedReservationInfoType
      */
-    allowedActions?: ReservationAllowedActionsType;
+    allowedActions?: Array<ReservationAllowedActionType>;
     /**
      *
      * @type {CurrencyAmountType}
@@ -96,11 +96,11 @@ export interface LinkedReservationInfoType {
      */
     reservationBlock?: ReservationBlockType;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof LinkedReservationInfoType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {PMSResStatusType}

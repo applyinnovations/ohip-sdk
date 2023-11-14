@@ -14,7 +14,6 @@ import type { CommissionCodeType } from './CommissionCodeType';
 import type { CommissionStatusType } from './CommissionStatusType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { ResGuestInfoType } from './ResGuestInfoType';
-import type { ReservationIdList } from './ReservationIdList';
 import type { TimeSpanType } from './TimeSpanType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -150,11 +149,11 @@ export interface CommissionDetailType {
      */
     remarks?: string;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CommissionDetailType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * Reservation status.
      * @type {string}

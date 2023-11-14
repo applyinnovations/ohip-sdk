@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ChannelRateLevelsRateLevels } from './ChannelRateLevelsRateLevels';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating channel rate levels.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ChannelRateLevels {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelRateLevels
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ChannelRateLevelsRateLevels}
@@ -31,11 +31,11 @@ export interface ChannelRateLevels {
      */
     rateLevels?: ChannelRateLevelsRateLevels;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelRateLevels
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelRateLevels interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TemplateHotelDetailsType } from './TemplateHotelDetailsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TemplateHotelDetailType } from './TemplateHotelDetailType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching hotel details at the template level.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateHotelDetailsDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateHotelDetailsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TemplateHotelDetailsType}
+     * Collection of template level hotel details.
+     * @type {Array<TemplateHotelDetailType>}
      * @memberof TemplateHotelDetailsDetails
      */
-    templateHotelDetails?: TemplateHotelDetailsType;
+    templateHotelDetails?: Array<TemplateHotelDetailType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateHotelDetailsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateHotelDetailsDetails interface.

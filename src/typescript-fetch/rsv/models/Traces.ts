@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelReservationTracesType } from './HotelReservationTracesType';
+import type { HotelReservationTraceType } from './HotelReservationTraceType';
 import {
-    HotelReservationTracesTypeFromJSON,
-    HotelReservationTracesTypeFromJSONTyped,
-    HotelReservationTracesTypeToJSON,
-} from './HotelReservationTracesType';
-import type { Links } from './Links';
+    HotelReservationTraceTypeFromJSON,
+    HotelReservationTraceTypeFromJSONTyped,
+    HotelReservationTraceTypeToJSON,
+} from './HotelReservationTraceType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Return object to the request for information regarding traces.
@@ -40,22 +40,22 @@ import {
 export interface Traces {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Traces
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {HotelReservationTracesType}
+     * List of Reservation Traces.
+     * @type {Array<HotelReservationTraceType>}
      * @memberof Traces
      */
-    traces?: HotelReservationTracesType;
+    traces?: Array<HotelReservationTraceType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Traces
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TracesFromJSONTyped(json: any, ignoreDiscriminator: boolean): Tr
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'traces': !exists(json, 'traces') ? undefined : HotelReservationTracesTypeFromJSON(json['traces']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'traces': !exists(json, 'traces') ? undefined : ((json['traces'] as Array<any>).map(HotelReservationTraceTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TracesToJSON(value?: Traces | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'traces': HotelReservationTracesTypeToJSON(value.traces),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'traces': value.traces === undefined ? undefined : ((value.traces as Array<any>).map(HotelReservationTraceTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

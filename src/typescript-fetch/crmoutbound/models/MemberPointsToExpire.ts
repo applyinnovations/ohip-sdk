@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MemberPointsToExpireListType } from './MemberPointsToExpireListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MemberPointToExpireType } from './MemberPointToExpireType';
 import {
-    MemberPointsToExpireListTypeFromJSON,
-    MemberPointsToExpireListTypeFromJSONTyped,
-    MemberPointsToExpireListTypeToJSON,
-} from './MemberPointsToExpireListType';
+    MemberPointToExpireTypeFromJSON,
+    MemberPointToExpireTypeFromJSONTyped,
+    MemberPointToExpireTypeToJSON,
+} from './MemberPointToExpireType';
 
 /**
  * Response object for fetching member points to expire information.
@@ -33,17 +33,17 @@ import {
  */
 export interface MemberPointsToExpire {
     /**
-     * 
-     * @type {MemberPointsToExpireListType}
+     * List of of member points to expire.
+     * @type {Array<MemberPointToExpireType>}
      * @memberof MemberPointsToExpire
      */
-    memberPointsToExpireList?: MemberPointsToExpireListType;
+    memberPointsToExpireList?: Array<MemberPointToExpireType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MemberPointsToExpire
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function MemberPointsToExpireFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'memberPointsToExpireList': !exists(json, 'memberPointsToExpireList') ? undefined : MemberPointsToExpireListTypeFromJSON(json['memberPointsToExpireList']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'memberPointsToExpireList': !exists(json, 'memberPointsToExpireList') ? undefined : ((json['memberPointsToExpireList'] as Array<any>).map(MemberPointToExpireTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function MemberPointsToExpireToJSON(value?: MemberPointsToExpire | null):
     }
     return {
         
-        'memberPointsToExpireList': MemberPointsToExpireListTypeToJSON(value.memberPointsToExpireList),
-        'links': LinksToJSON(value.links),
+        'memberPointsToExpireList': value.memberPointsToExpireList === undefined ? undefined : ((value.memberPointsToExpireList as Array<any>).map(MemberPointToExpireTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

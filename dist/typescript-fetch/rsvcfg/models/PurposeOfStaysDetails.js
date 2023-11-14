@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PurposeOfStaysDetailsToJSON = exports.PurposeOfStaysDetailsFromJSONTyped = exports.PurposeOfStaysDetailsFromJSON = exports.instanceOfPurposeOfStaysDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const PurposeOfStaysType_1 = require("./PurposeOfStaysType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const PurposeOfStayType_1 = require("./PurposeOfStayType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PurposeOfStaysDetails interface.
  */
@@ -35,9 +35,9 @@ function PurposeOfStaysDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'purposeOfStays': !(0, runtime_1.exists)(json, 'purposeOfStays') ? undefined : (0, PurposeOfStaysType_1.PurposeOfStaysTypeFromJSON)(json['purposeOfStays']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'purposeOfStays': !(0, runtime_1.exists)(json, 'purposeOfStays') ? undefined : (json['purposeOfStays'].map(PurposeOfStayType_1.PurposeOfStayTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PurposeOfStaysDetailsFromJSONTyped = PurposeOfStaysDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function PurposeOfStaysDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'purposeOfStays': (0, PurposeOfStaysType_1.PurposeOfStaysTypeToJSON)(value.purposeOfStays),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'purposeOfStays': value.purposeOfStays === undefined ? undefined : (value.purposeOfStays.map(PurposeOfStayType_1.PurposeOfStayTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PurposeOfStaysDetailsToJSON = PurposeOfStaysDetailsToJSON;

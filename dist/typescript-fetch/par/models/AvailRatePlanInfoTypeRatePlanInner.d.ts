@@ -11,9 +11,9 @@
  */
 import type { BookingChannelMappingType } from './BookingChannelMappingType';
 import type { CancelPenaltyType } from './CancelPenaltyType';
-import type { GuaranteePoliciesType } from './GuaranteePoliciesType';
+import type { GuaranteePolicyType } from './GuaranteePolicyType';
 import type { GuaranteeType } from './GuaranteeType';
-import type { MealPlansType } from './MealPlansType';
+import type { MealPlanCodeType } from './MealPlanCodeType';
 import type { ProfileTypeType } from './ProfileTypeType';
 import type { RatePlanChannelInfoType } from './RatePlanChannelInfoType';
 import type { RatePlanCommissionType } from './RatePlanCommissionType';
@@ -90,11 +90,11 @@ export interface AvailRatePlanInfoTypeRatePlanInner {
      */
     marketCode?: string;
     /**
-     *
-     * @type {MealPlansType}
+     * Meal plan codes associated with the rate codes.
+     * @type {Array<MealPlanCodeType>}
      * @memberof AvailRatePlanInfoTypeRatePlanInner
      */
-    mealPlans?: MealPlansType;
+    mealPlans?: Array<MealPlanCodeType>;
     /**
      *
      * @type {ProfileTypeType}
@@ -132,11 +132,11 @@ export interface AvailRatePlanInfoTypeRatePlanInner {
      */
     ratePlanLevel?: string;
     /**
-     *
-     * @type {GuaranteePoliciesType}
+     * Guarantee Code information with cancellation penalty and deposit policy information.
+     * @type {Array<GuaranteePolicyType>}
      * @memberof AvailRatePlanInfoTypeRatePlanInner
      */
-    resGuarantees?: GuaranteePoliciesType;
+    resGuarantees?: Array<GuaranteePolicyType>;
     /**
      * Indicates if service fee is included in the rate code amount.
      * @type {boolean}

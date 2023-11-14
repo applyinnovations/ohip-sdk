@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChangeBlockReservationTypeToJSON = exports.ChangeBlockReservationTypeFromJSONTyped = exports.ChangeBlockReservationTypeFromJSON = exports.instanceOfChangeBlockReservationType = void 0;
 const runtime_1 = require("../runtime");
-const ErrorsType_1 = require("./ErrorsType");
+const ErrorType_1 = require("./ErrorType");
 const ReservationInfoType_1 = require("./ReservationInfoType");
 /**
  * Check if a given object implements the ChangeBlockReservationType interface.
@@ -34,7 +34,7 @@ function ChangeBlockReservationTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'errors': !(0, runtime_1.exists)(json, 'errors') ? undefined : (0, ErrorsType_1.ErrorsTypeFromJSON)(json['errors']),
+        'errors': !(0, runtime_1.exists)(json, 'errors') ? undefined : (json['errors'].map(ErrorType_1.ErrorTypeFromJSON)),
         'reservationInfo': !(0, runtime_1.exists)(json, 'reservationInfo') ? undefined : (0, ReservationInfoType_1.ReservationInfoTypeFromJSON)(json['reservationInfo']),
         'success': !(0, runtime_1.exists)(json, 'success') ? undefined : json['success'],
     };
@@ -48,7 +48,7 @@ function ChangeBlockReservationTypeToJSON(value) {
         return null;
     }
     return {
-        'errors': (0, ErrorsType_1.ErrorsTypeToJSON)(value.errors),
+        'errors': value.errors === undefined ? undefined : (value.errors.map(ErrorType_1.ErrorTypeToJSON)),
         'reservationInfo': (0, ReservationInfoType_1.ReservationInfoTypeToJSON)(value.reservationInfo),
         'success': value.success,
     };

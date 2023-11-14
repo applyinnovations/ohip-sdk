@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { OriginCodesType } from './OriginCodesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { OriginCodeType } from './OriginCodeType';
 import {
-    OriginCodesTypeFromJSON,
-    OriginCodesTypeFromJSONTyped,
-    OriginCodesTypeToJSON,
-} from './OriginCodesType';
-import type { WarningsType } from './WarningsType';
+    OriginCodeTypeFromJSON,
+    OriginCodeTypeFromJSONTyped,
+    OriginCodeTypeToJSON,
+} from './OriginCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Origin Codes.
@@ -40,22 +40,22 @@ import {
 export interface OriginCodesToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof OriginCodesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {OriginCodesType}
+     * List of Origin Codes.
+     * @type {Array<OriginCodeType>}
      * @memberof OriginCodesToBeChanged
      */
-    originCodes?: OriginCodesType;
+    originCodes?: Array<OriginCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OriginCodesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function OriginCodesToBeChangedFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'originCodes': !exists(json, 'originCodes') ? undefined : OriginCodesTypeFromJSON(json['originCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'originCodes': !exists(json, 'originCodes') ? undefined : ((json['originCodes'] as Array<any>).map(OriginCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function OriginCodesToBeChangedToJSON(value?: OriginCodesToBeChanged | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'originCodes': OriginCodesTypeToJSON(value.originCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'originCodes': value.originCodes === undefined ? undefined : ((value.originCodes as Array<any>).map(OriginCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

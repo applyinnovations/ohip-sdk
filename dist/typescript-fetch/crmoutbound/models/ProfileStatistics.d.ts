@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ProfileStatisticsType } from './ProfileStatisticsType';
 /**
  * Response object for fetching profile stay/reservation/revenue statistics. This object contains collection of summary or detail,Success,Warnings and Errors related to this operation.
@@ -25,10 +25,10 @@ export interface ProfileStatistics {
     profileStatistic?: ProfileStatisticsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileStatistics
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the ProfileStatistics interface.

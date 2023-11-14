@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Existing Operations Responses will eventually be modified to be extended from this type.
  * @export
@@ -19,10 +19,10 @@ import type { WarningsType } from './WarningsType';
 export interface TransferTransactionToWindow {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransferTransactionToWindow
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Generated transaction number on destination window.
      * @type {Array<number>}
@@ -30,11 +30,11 @@ export interface TransferTransactionToWindow {
      */
     transactions?: Array<number>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransferTransactionToWindow
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TransferTransactionToWindow interface.

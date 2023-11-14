@@ -11,7 +11,7 @@
  */
 import type { CashieringEventType } from './CashieringEventType';
 import type { CheckoutInstructionsType } from './CheckoutInstructionsType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -67,11 +67,11 @@ export interface CheckoutReservationType {
      */
     mobileCheckoutFolioEmail?: string;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CheckoutReservationType
      */
-    reservationIdList?: UniqueIDListType;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * Indicates Stop Checkout reservation Global Alert flag.
      * @type {boolean}

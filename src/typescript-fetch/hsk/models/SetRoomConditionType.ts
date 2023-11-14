@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { RoomConditionType } from './RoomConditionType';
 import {
     RoomConditionTypeFromJSON,
@@ -58,10 +52,10 @@ export interface SetRoomConditionType {
     roomCondition?: RoomConditionType;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof SetRoomConditionType
      */
-    roomNumberList?: CodeListType;
+    roomNumberList?: Array<string>;
 }
 
 /**
@@ -87,7 +81,7 @@ export function SetRoomConditionTypeFromJSONTyped(json: any, ignoreDiscriminator
         'includeOccupiedRooms': !exists(json, 'includeOccupiedRooms') ? undefined : json['includeOccupiedRooms'],
         'overrideHoldRooms': !exists(json, 'overrideHoldRooms') ? undefined : json['overrideHoldRooms'],
         'roomCondition': !exists(json, 'roomCondition') ? undefined : RoomConditionTypeFromJSON(json['roomCondition']),
-        'roomNumberList': !exists(json, 'roomNumberList') ? undefined : CodeListTypeFromJSON(json['roomNumberList']),
+        'roomNumberList': !exists(json, 'roomNumberList') ? undefined : json['roomNumberList'],
     };
 }
 
@@ -104,7 +98,7 @@ export function SetRoomConditionTypeToJSON(value?: SetRoomConditionType | null):
         'includeOccupiedRooms': value.includeOccupiedRooms,
         'overrideHoldRooms': value.overrideHoldRooms,
         'roomCondition': RoomConditionTypeToJSON(value.roomCondition),
-        'roomNumberList': CodeListTypeToJSON(value.roomNumberList),
+        'roomNumberList': value.roomNumberList,
     };
 }
 

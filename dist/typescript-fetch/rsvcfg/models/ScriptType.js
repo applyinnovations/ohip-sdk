@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ScriptTypeToJSON = exports.ScriptTypeFromJSONTyped = exports.ScriptTypeFromJSON = exports.instanceOfScriptType = void 0;
 const runtime_1 = require("../runtime");
-const MergeCodesType_1 = require("./MergeCodesType");
+const MergeCodeType_1 = require("./MergeCodeType");
 const ScriptLocationsType_1 = require("./ScriptLocationsType");
 const ScriptTypeType_1 = require("./ScriptTypeType");
 const UniqueIDType_1 = require("./UniqueIDType");
@@ -39,7 +39,7 @@ function ScriptTypeFromJSONTyped(json, ignoreDiscriminator) {
         'language': !(0, runtime_1.exists)(json, 'language') ? undefined : json['language'],
         'locations': !(0, runtime_1.exists)(json, 'locations') ? undefined : (0, ScriptLocationsType_1.ScriptLocationsTypeFromJSON)(json['locations']),
         'membershipType': !(0, runtime_1.exists)(json, 'membershipType') ? undefined : json['membershipType'],
-        'mergeCodes': !(0, runtime_1.exists)(json, 'mergeCodes') ? undefined : (0, MergeCodesType_1.MergeCodesTypeFromJSON)(json['mergeCodes']),
+        'mergeCodes': !(0, runtime_1.exists)(json, 'mergeCodes') ? undefined : (json['mergeCodes'].map(MergeCodeType_1.MergeCodeTypeFromJSON)),
         'script': !(0, runtime_1.exists)(json, 'script') ? undefined : json['script'],
         'scriptId': !(0, runtime_1.exists)(json, 'scriptId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['scriptId']),
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : (0, ScriptTypeType_1.ScriptTypeTypeFromJSON)(json['type']),
@@ -57,7 +57,7 @@ function ScriptTypeToJSON(value) {
         'language': value.language,
         'locations': (0, ScriptLocationsType_1.ScriptLocationsTypeToJSON)(value.locations),
         'membershipType': value.membershipType,
-        'mergeCodes': (0, MergeCodesType_1.MergeCodesTypeToJSON)(value.mergeCodes),
+        'mergeCodes': value.mergeCodes === undefined ? undefined : (value.mergeCodes.map(MergeCodeType_1.MergeCodeTypeToJSON)),
         'script': value.script,
         'scriptId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.scriptId),
         'type': (0, ScriptTypeType_1.ScriptTypeTypeToJSON)(value.type),

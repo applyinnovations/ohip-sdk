@@ -31,12 +31,6 @@ import {
     GuaranteeRequirementsTypeFromJSONTyped,
     GuaranteeRequirementsTypeToJSON,
 } from './GuaranteeRequirementsType';
-import type { PaymentTypesType } from './PaymentTypesType';
-import {
-    PaymentTypesTypeFromJSON,
-    PaymentTypesTypeFromJSONTyped,
-    PaymentTypesTypeToJSON,
-} from './PaymentTypesType';
 import type { TranslationTextType80 } from './TranslationTextType80';
 import {
     TranslationTextType80FromJSON,
@@ -99,11 +93,11 @@ export interface GuaranteePolicyType {
      */
     orderSequence?: number;
     /**
-     * 
-     * @type {PaymentTypesType}
+     * Payment card code like AX,VI etc.
+     * @type {Array<string>}
      * @memberof GuaranteePolicyType
      */
-    paymentTypes?: PaymentTypesType;
+    paymentTypes?: Array<string>;
     /**
      * 
      * @type {GuaranteeRequirementsType}
@@ -151,7 +145,7 @@ export function GuaranteePolicyTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'lateArrival': !exists(json, 'lateArrival') ? undefined : json['lateArrival'],
         'onHold': !exists(json, 'onHold') ? undefined : json['onHold'],
         'orderSequence': !exists(json, 'orderSequence') ? undefined : json['orderSequence'],
-        'paymentTypes': !exists(json, 'paymentTypes') ? undefined : PaymentTypesTypeFromJSON(json['paymentTypes']),
+        'paymentTypes': !exists(json, 'paymentTypes') ? undefined : json['paymentTypes'],
         'requirements': !exists(json, 'requirements') ? undefined : GuaranteeRequirementsTypeFromJSON(json['requirements']),
         'reserveInventory': !exists(json, 'reserveInventory') ? undefined : json['reserveInventory'],
         'shortDescription': !exists(json, 'shortDescription') ? undefined : TranslationTextType80FromJSON(json['shortDescription']),
@@ -175,7 +169,7 @@ export function GuaranteePolicyTypeToJSON(value?: GuaranteePolicyType | null): a
         'lateArrival': value.lateArrival,
         'onHold': value.onHold,
         'orderSequence': value.orderSequence,
-        'paymentTypes': PaymentTypesTypeToJSON(value.paymentTypes),
+        'paymentTypes': value.paymentTypes,
         'requirements': GuaranteeRequirementsTypeToJSON(value.requirements),
         'reserveInventory': value.reserveInventory,
         'shortDescription': TranslationTextType80ToJSON(value.shortDescription),

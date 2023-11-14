@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { MasterInfoType } from './MasterInfoType';
 import {
     MasterInfoTypeFromJSON,
     MasterInfoTypeFromJSONTyped,
     MasterInfoTypeToJSON,
 } from './MasterInfoType';
-import type { MembershipTypesType } from './MembershipTypesType';
+import type { MembershipTypeType } from './MembershipTypeType';
 import {
-    MembershipTypesTypeFromJSON,
-    MembershipTypesTypeFromJSONTyped,
-    MembershipTypesTypeToJSON,
-} from './MembershipTypesType';
-import type { WarningsType } from './WarningsType';
+    MembershipTypeTypeFromJSON,
+    MembershipTypeTypeFromJSONTyped,
+    MembershipTypeTypeToJSON,
+} from './MembershipTypeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Membership Type.
@@ -46,10 +46,10 @@ import {
 export interface MembershipTypesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Refer to Generic common types document.
      * @type {Array<MasterInfoType>}
@@ -57,17 +57,17 @@ export interface MembershipTypesDetails {
      */
     masterInfoList?: Array<MasterInfoType>;
     /**
-     * 
-     * @type {MembershipTypesType}
+     * Membership Type
+     * @type {Array<MembershipTypeType>}
      * @memberof MembershipTypesDetails
      */
-    membershipTypes?: MembershipTypesType;
+    membershipTypes?: Array<MembershipTypeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function MembershipTypesDetailsFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'masterInfoList': !exists(json, 'masterInfoList') ? undefined : ((json['masterInfoList'] as Array<any>).map(MasterInfoTypeFromJSON)),
-        'membershipTypes': !exists(json, 'membershipTypes') ? undefined : MembershipTypesTypeFromJSON(json['membershipTypes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'membershipTypes': !exists(json, 'membershipTypes') ? undefined : ((json['membershipTypes'] as Array<any>).map(MembershipTypeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function MembershipTypesDetailsToJSON(value?: MembershipTypesDetails | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'masterInfoList': value.masterInfoList === undefined ? undefined : ((value.masterInfoList as Array<any>).map(MasterInfoTypeToJSON)),
-        'membershipTypes': MembershipTypesTypeToJSON(value.membershipTypes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'membershipTypes': value.membershipTypes === undefined ? undefined : ((value.membershipTypes as Array<any>).map(MembershipTypeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

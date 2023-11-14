@@ -19,12 +19,6 @@ import {
     ActivityIdFromJSONTyped,
     ActivityIdToJSON,
 } from './ActivityId';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 
 /**
  * Provides the data to create linked activities to an activity .
@@ -46,10 +40,10 @@ export interface LinkedActivitiesType {
     hotelId?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof LinkedActivitiesType
      */
-    ownerCodeList?: CodeListType;
+    ownerCodeList?: Array<string>;
 }
 
 /**
@@ -73,7 +67,7 @@ export function LinkedActivitiesTypeFromJSONTyped(json: any, ignoreDiscriminator
         
         'activityId': !exists(json, 'activityId') ? undefined : ActivityIdFromJSON(json['activityId']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'ownerCodeList': !exists(json, 'ownerCodeList') ? undefined : CodeListTypeFromJSON(json['ownerCodeList']),
+        'ownerCodeList': !exists(json, 'ownerCodeList') ? undefined : json['ownerCodeList'],
     };
 }
 
@@ -88,7 +82,7 @@ export function LinkedActivitiesTypeToJSON(value?: LinkedActivitiesType | null):
         
         'activityId': ActivityIdToJSON(value.activityId),
         'hotelId': value.hotelId,
-        'ownerCodeList': CodeListTypeToJSON(value.ownerCodeList),
+        'ownerCodeList': value.ownerCodeList,
     };
 }
 

@@ -19,18 +19,18 @@ import {
     ChangeCateringStatusTypeFromJSONTyped,
     ChangeCateringStatusTypeToJSON,
 } from './ChangeCateringStatusType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing the catering status of the business block.
@@ -46,10 +46,10 @@ export interface CateringStatusToChange {
     changeCateringStatus?: ChangeCateringStatusType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringStatusToChange
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Indicator if the request is a verification on whether the catering status can be changed.
      * @type {boolean}
@@ -57,11 +57,11 @@ export interface CateringStatusToChange {
      */
     verificationOnly?: boolean;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringStatusToChange
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -84,9 +84,9 @@ export function CateringStatusToChangeFromJSONTyped(json: any, ignoreDiscriminat
     return {
         
         'changeCateringStatus': !exists(json, 'changeCateringStatus') ? undefined : ChangeCateringStatusTypeFromJSON(json['changeCateringStatus']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'verificationOnly': !exists(json, 'verificationOnly') ? undefined : json['verificationOnly'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -100,9 +100,9 @@ export function CateringStatusToChangeToJSON(value?: CateringStatusToChange | nu
     return {
         
         'changeCateringStatus': ChangeCateringStatusTypeToJSON(value.changeCateringStatus),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'verificationOnly': value.verificationOnly,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

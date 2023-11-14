@@ -19,12 +19,12 @@ import {
     CodeDescriptionTypeFromJSONTyped,
     CodeDescriptionTypeToJSON,
 } from './CodeDescriptionType';
-import type { ForecastQuantitiesType } from './ForecastQuantitiesType';
+import type { ForecastQuantityType } from './ForecastQuantityType';
 import {
-    ForecastQuantitiesTypeFromJSON,
-    ForecastQuantitiesTypeFromJSONTyped,
-    ForecastQuantitiesTypeToJSON,
-} from './ForecastQuantitiesType';
+    ForecastQuantityTypeFromJSON,
+    ForecastQuantityTypeFromJSONTyped,
+    ForecastQuantityTypeToJSON,
+} from './ForecastQuantityType';
 
 /**
  * A facility code and its forecast.
@@ -39,11 +39,11 @@ export interface FacilityCodeForecastType {
      */
     code?: CodeDescriptionType;
     /**
-     * 
-     * @type {ForecastQuantitiesType}
+     * Collection of dates and their quantities.
+     * @type {Array<ForecastQuantityType>}
      * @memberof FacilityCodeForecastType
      */
-    forecast?: ForecastQuantitiesType;
+    forecast?: Array<ForecastQuantityType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function FacilityCodeForecastTypeFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         'code': !exists(json, 'code') ? undefined : CodeDescriptionTypeFromJSON(json['code']),
-        'forecast': !exists(json, 'forecast') ? undefined : ForecastQuantitiesTypeFromJSON(json['forecast']),
+        'forecast': !exists(json, 'forecast') ? undefined : ((json['forecast'] as Array<any>).map(ForecastQuantityTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function FacilityCodeForecastTypeToJSON(value?: FacilityCodeForecastType 
     return {
         
         'code': CodeDescriptionTypeToJSON(value.code),
-        'forecast': ForecastQuantitiesTypeToJSON(value.forecast),
+        'forecast': value.forecast === undefined ? undefined : ((value.forecast as Array<any>).map(ForecastQuantityTypeToJSON)),
     };
 }
 

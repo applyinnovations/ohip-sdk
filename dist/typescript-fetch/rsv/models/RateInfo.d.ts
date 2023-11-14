@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RateInfoDetail } from './RateInfoDetail';
 import type { ReservationRateSummaryType } from './ReservationRateSummaryType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response will either be Summary or Detail type, but not both. See the request for the summary attribute flag.
  * @export
@@ -27,10 +27,10 @@ export interface RateInfo {
     detail?: RateInfoDetail;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RateInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationRateSummaryType}
@@ -38,11 +38,11 @@ export interface RateInfo {
      */
     summary?: ReservationRateSummaryType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RateInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RateInfo interface.

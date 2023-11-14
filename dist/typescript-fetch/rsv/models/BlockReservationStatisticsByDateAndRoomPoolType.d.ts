@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DailyStatsType } from './DailyStatsType';
+import type { DailyStatType } from './DailyStatType';
 /**
  * Statistics of block reservations summarized by date and room pools.
  * @export
@@ -17,11 +17,11 @@ import type { DailyStatsType } from './DailyStatsType';
  */
 export interface BlockReservationStatisticsByDateAndRoomPoolType {
     /**
-     *
-     * @type {DailyStatsType}
+     * Statistics of one day.
+     * @type {Array<DailyStatType>}
      * @memberof BlockReservationStatisticsByDateAndRoomPoolType
      */
-    dailyStats?: DailyStatsType;
+    dailyStats?: Array<DailyStatType>;
 }
 /**
  * Check if a given object implements the BlockReservationStatisticsByDateAndRoomPoolType interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FloorTypesType } from './FloorTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { FloorTypeType } from './FloorTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Floor Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FloorTypesToBeChanged {
     /**
-     *
-     * @type {FloorTypesType}
+     * List of Floor Types.
+     * @type {Array<FloorTypeType>}
      * @memberof FloorTypesToBeChanged
      */
-    floorTypes?: FloorTypesType;
+    floorTypes?: Array<FloorTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FloorTypesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FloorTypesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FloorTypesToBeChanged interface.

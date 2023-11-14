@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelStatementDetailsType } from './ChannelStatementDetailsType';
+import type { ChannelStatementDetailType } from './ChannelStatementDetailType';
 import {
-    ChannelStatementDetailsTypeFromJSON,
-    ChannelStatementDetailsTypeFromJSONTyped,
-    ChannelStatementDetailsTypeToJSON,
-} from './ChannelStatementDetailsType';
+    ChannelStatementDetailTypeFromJSON,
+    ChannelStatementDetailTypeFromJSONTyped,
+    ChannelStatementDetailTypeToJSON,
+} from './ChannelStatementDetailType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import {
     CurrencyAmountTypeFromJSON,
@@ -51,11 +51,11 @@ export interface ChannelStatementAccountType {
      */
     beginDate?: Date;
     /**
-     * 
-     * @type {ChannelStatementDetailsType}
+     * Provides detailed information regarding Channel Account statements.
+     * @type {Array<ChannelStatementDetailType>}
      * @memberof ChannelStatementAccountType
      */
-    channelAccountStatementDetails?: ChannelStatementDetailsType;
+    channelAccountStatementDetails?: Array<ChannelStatementDetailType>;
     /**
      * 
      * @type {UniqueIDType}
@@ -109,7 +109,7 @@ export function ChannelStatementAccountTypeFromJSONTyped(json: any, ignoreDiscri
         
         'accountCode': !exists(json, 'accountCode') ? undefined : json['accountCode'],
         'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
-        'channelAccountStatementDetails': !exists(json, 'channelAccountStatementDetails') ? undefined : ChannelStatementDetailsTypeFromJSON(json['channelAccountStatementDetails']),
+        'channelAccountStatementDetails': !exists(json, 'channelAccountStatementDetails') ? undefined : ((json['channelAccountStatementDetails'] as Array<any>).map(ChannelStatementDetailTypeFromJSON)),
         'contractId': !exists(json, 'contractId') ? undefined : UniqueIDTypeFromJSON(json['contractId']),
         'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
         'note': !exists(json, 'note') ? undefined : json['note'],
@@ -129,7 +129,7 @@ export function ChannelStatementAccountTypeToJSON(value?: ChannelStatementAccoun
         
         'accountCode': value.accountCode,
         'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
-        'channelAccountStatementDetails': ChannelStatementDetailsTypeToJSON(value.channelAccountStatementDetails),
+        'channelAccountStatementDetails': value.channelAccountStatementDetails === undefined ? undefined : ((value.channelAccountStatementDetails as Array<any>).map(ChannelStatementDetailTypeToJSON)),
         'contractId': UniqueIDTypeToJSON(value.contractId),
         'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
         'note': value.note,

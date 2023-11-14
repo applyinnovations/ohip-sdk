@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EventCodesType } from './EventCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { EventCodeType } from './EventCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for modifying Event Codes for a hotel.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface EventCodesToBeChanged {
     /**
-     *
-     * @type {EventCodesType}
+     * Details for Event Code at hotel level.
+     * @type {Array<EventCodeType>}
      * @memberof EventCodesToBeChanged
      */
-    eventCodes?: EventCodesType;
+    eventCodes?: Array<EventCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EventCodesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EventCodesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the EventCodesToBeChanged interface.

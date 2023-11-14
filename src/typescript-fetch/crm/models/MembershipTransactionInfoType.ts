@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ReservationIdList } from './ReservationIdList';
-import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
 import type { TimeSpanType } from './TimeSpanType';
 import {
     TimeSpanTypeFromJSON,
     TimeSpanTypeFromJSONTyped,
     TimeSpanTypeToJSON,
 } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Specific details regarding the transaction.
@@ -51,11 +51,11 @@ export interface MembershipTransactionInfoType {
      */
     nights?: number;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MembershipTransactionInfoType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * Total stay.
      * @type {number}
@@ -104,7 +104,7 @@ export function MembershipTransactionInfoTypeFromJSONTyped(json: any, ignoreDisc
         'currencyCode': !exists(json, 'currencyCode') ? undefined : json['currencyCode'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'nights': !exists(json, 'nights') ? undefined : json['nights'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'stay': !exists(json, 'stay') ? undefined : json['stay'],
         'stayTimeSpan': !exists(json, 'stayTimeSpan') ? undefined : TimeSpanTypeFromJSON(json['stayTimeSpan']),
         'transactionDate': !exists(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
@@ -124,7 +124,7 @@ export function MembershipTransactionInfoTypeToJSON(value?: MembershipTransactio
         'currencyCode': value.currencyCode,
         'hotelId': value.hotelId,
         'nights': value.nights,
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'stay': value.stay,
         'stayTimeSpan': TimeSpanTypeToJSON(value.stayTimeSpan),
         'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),

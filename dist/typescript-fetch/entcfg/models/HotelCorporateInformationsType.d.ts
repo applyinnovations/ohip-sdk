@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { PrimaryCodesType } from './PrimaryCodesType';
+import type { PrimaryCodeType } from './PrimaryCodeType';
 /**
  * Corporate information details of the property
  * @export
@@ -23,23 +23,23 @@ export interface HotelCorporateInformationsType {
      */
     brandCode?: string;
     /**
-     *
-     * @type {PrimaryCodesType}
+     * List of codes with primary flag
+     * @type {Array<PrimaryCodeType>}
      * @memberof HotelCorporateInformationsType
      */
-    businessUnit?: PrimaryCodesType;
+    businessUnit?: Array<PrimaryCodeType>;
     /**
-     *
-     * @type {PrimaryCodesType}
+     * List of codes with primary flag
+     * @type {Array<PrimaryCodeType>}
      * @memberof HotelCorporateInformationsType
      */
-    departmentCode?: PrimaryCodesType;
+    departmentCode?: Array<PrimaryCodeType>;
     /**
-     *
-     * @type {PrimaryCodesType}
+     * List of codes with primary flag
+     * @type {Array<PrimaryCodeType>}
      * @memberof HotelCorporateInformationsType
      */
-    division?: PrimaryCodesType;
+    division?: Array<PrimaryCodeType>;
     /**
      *
      * @type {string}
@@ -47,11 +47,11 @@ export interface HotelCorporateInformationsType {
      */
     hotelCategory?: string;
     /**
-     *
-     * @type {PrimaryCodesType}
+     * List of codes with primary flag
+     * @type {Array<PrimaryCodeType>}
      * @memberof HotelCorporateInformationsType
      */
-    opertingUnit?: PrimaryCodesType;
+    opertingUnit?: Array<PrimaryCodeType>;
 }
 /**
  * Check if a given object implements the HotelCorporateInformationsType interface.

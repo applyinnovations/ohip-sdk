@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BookingTypesType } from './BookingTypesType';
+import type { BookingTypeType } from './BookingTypeType';
 import {
-    BookingTypesTypeFromJSON,
-    BookingTypesTypeFromJSONTyped,
-    BookingTypesTypeToJSON,
-} from './BookingTypesType';
-import type { Links } from './Links';
+    BookingTypeTypeFromJSON,
+    BookingTypeTypeFromJSONTyped,
+    BookingTypeTypeToJSON,
+} from './BookingTypeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Booking Types.
@@ -39,23 +39,23 @@ import {
  */
 export interface BookingTypesToBeChanged {
     /**
-     * 
-     * @type {BookingTypesType}
+     * List of Booking Types.
+     * @type {Array<BookingTypeType>}
      * @memberof BookingTypesToBeChanged
      */
-    bookingTypes?: BookingTypesType;
+    bookingTypes?: Array<BookingTypeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BookingTypesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BookingTypesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function BookingTypesToBeChangedFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'bookingTypes': !exists(json, 'bookingTypes') ? undefined : BookingTypesTypeFromJSON(json['bookingTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'bookingTypes': !exists(json, 'bookingTypes') ? undefined : ((json['bookingTypes'] as Array<any>).map(BookingTypeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function BookingTypesToBeChangedToJSON(value?: BookingTypesToBeChanged | 
     }
     return {
         
-        'bookingTypes': BookingTypesTypeToJSON(value.bookingTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'bookingTypes': value.bookingTypes === undefined ? undefined : ((value.bookingTypes as Array<any>).map(BookingTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

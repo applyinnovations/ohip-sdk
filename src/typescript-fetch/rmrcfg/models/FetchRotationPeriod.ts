@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { RotationPeriodFrequencyType } from './RotationPeriodFrequencyType';
 import {
     RotationPeriodFrequencyTypeFromJSON,
     RotationPeriodFrequencyTypeFromJSONTyped,
     RotationPeriodFrequencyTypeToJSON,
 } from './RotationPeriodFrequencyType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response Object for Fetch Rotation Period
@@ -52,10 +52,10 @@ export interface FetchRotationPeriod {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchRotationPeriod
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {RotationPeriodFrequencyType}
@@ -69,11 +69,11 @@ export interface FetchRotationPeriod {
      */
     startDate?: Date;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchRotationPeriod
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -97,10 +97,10 @@ export function FetchRotationPeriodFromJSONTyped(json: any, ignoreDiscriminator:
         
         'currentPeriodStartDate': !exists(json, 'currentPeriodStartDate') ? undefined : (new Date(json['currentPeriodStartDate'])),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'periodFrequency': !exists(json, 'periodFrequency') ? undefined : RotationPeriodFrequencyTypeFromJSON(json['periodFrequency']),
         'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -115,10 +115,10 @@ export function FetchRotationPeriodToJSON(value?: FetchRotationPeriod | null): a
         
         'currentPeriodStartDate': value.currentPeriodStartDate === undefined ? undefined : (value.currentPeriodStartDate.toISOString().substring(0,10)),
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'periodFrequency': RotationPeriodFrequencyTypeToJSON(value.periodFrequency),
         'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

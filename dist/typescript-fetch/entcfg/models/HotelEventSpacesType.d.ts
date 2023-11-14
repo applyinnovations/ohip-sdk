@@ -9,9 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelEventSpaceDetailsType } from './HotelEventSpaceDetailsType';
-import type { HotelEventSpaceSummariesType } from './HotelEventSpaceSummariesType';
-import type { HotelSetupStylesType } from './HotelSetupStylesType';
+import type { HotelEventSpaceDetailType } from './HotelEventSpaceDetailType';
+import type { HotelEventSpaceSummaryType } from './HotelEventSpaceSummaryType';
 /**
  * The Detail and Summary info of event space about the hotel
  * @export
@@ -19,23 +18,23 @@ import type { HotelSetupStylesType } from './HotelSetupStylesType';
  */
 export interface HotelEventSpacesType {
     /**
-     *
-     * @type {HotelEventSpaceDetailsType}
+     * List of detail info of hotel event space
+     * @type {Array<HotelEventSpaceDetailType>}
      * @memberof HotelEventSpacesType
      */
-    eventSpaceDetails?: HotelEventSpaceDetailsType;
+    eventSpaceDetails?: Array<HotelEventSpaceDetailType>;
     /**
-     *
-     * @type {HotelEventSpaceSummariesType}
+     * List of summary info of hotel event space
+     * @type {Array<HotelEventSpaceSummaryType>}
      * @memberof HotelEventSpacesType
      */
-    eventSpaceSummaries?: HotelEventSpaceSummariesType;
+    eventSpaceSummaries?: Array<HotelEventSpaceSummaryType>;
     /**
-     *
-     * @type {HotelSetupStylesType}
+     * List of event space setup style codes.
+     * @type {Array<string>}
      * @memberof HotelEventSpacesType
      */
-    setupStyles?: HotelSetupStylesType;
+    setupStyles?: Array<string>;
 }
 /**
  * Check if a given object implements the HotelEventSpacesType interface.

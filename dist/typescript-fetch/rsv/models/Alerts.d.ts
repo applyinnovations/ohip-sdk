@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AlertsType } from './AlertsType';
+import type { AlertType } from './AlertType';
 import type { CommentInfoType } from './CommentInfoType';
-import type { Links } from './Links';
-import type { ResvGuestMessagesType } from './ResvGuestMessagesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ResvGuestMessageType } from './ResvGuestMessageType';
+import type { WarningType } from './WarningType';
 /**
  * Response with the fetched alerts, includes global alerts, notes and undelivered guest messages.
  * @export
@@ -21,11 +21,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface Alerts {
     /**
-     *
-     * @type {AlertsType}
+     * List of alerts.
+     * @type {Array<AlertType>}
      * @memberof Alerts
      */
-    alerts?: AlertsType;
+    alerts?: Array<AlertType>;
     /**
      * List of Notes for the Guest related to the reservation.
      * @type {Array<CommentInfoType>}
@@ -33,23 +33,23 @@ export interface Alerts {
      */
     comments?: Array<CommentInfoType>;
     /**
-     *
-     * @type {ResvGuestMessagesType}
+     * Holds the Message Information
+     * @type {Array<ResvGuestMessageType>}
      * @memberof Alerts
      */
-    guestMessages?: ResvGuestMessagesType;
+    guestMessages?: Array<ResvGuestMessageType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Alerts
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Alerts
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Alerts interface.

@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RateAmountsTypeToJSON = exports.RateAmountsTypeFromJSONTyped = exports.RateAmountsTypeFromJSON = exports.instanceOfRateAmountsType = void 0;
 const runtime_1 = require("../runtime");
-const RateByAgeBucketsType_1 = require("./RateByAgeBucketsType");
+const RateByAgeBucketType_1 = require("./RateByAgeBucketType");
 /**
  * Check if a given object implements the RateAmountsType interface.
  */
@@ -41,7 +41,7 @@ function RateAmountsTypeFromJSONTyped(json, ignoreDiscriminator) {
         'fourPersonsRate': !(0, runtime_1.exists)(json, 'fourPersonsRate') ? undefined : json['fourPersonsRate'],
         'oneChildRate': !(0, runtime_1.exists)(json, 'oneChildRate') ? undefined : json['oneChildRate'],
         'onePersonRate': !(0, runtime_1.exists)(json, 'onePersonRate') ? undefined : json['onePersonRate'],
-        'rateByAgeBuckets': !(0, runtime_1.exists)(json, 'rateByAgeBuckets') ? undefined : (0, RateByAgeBucketsType_1.RateByAgeBucketsTypeFromJSON)(json['rateByAgeBuckets']),
+        'rateByAgeBuckets': !(0, runtime_1.exists)(json, 'rateByAgeBuckets') ? undefined : (json['rateByAgeBuckets'].map(RateByAgeBucketType_1.RateByAgeBucketTypeFromJSON)),
         'threeChildrenRate': !(0, runtime_1.exists)(json, 'threeChildrenRate') ? undefined : json['threeChildrenRate'],
         'threePersonsRate': !(0, runtime_1.exists)(json, 'threePersonsRate') ? undefined : json['threePersonsRate'],
         'twoChildrenRate': !(0, runtime_1.exists)(json, 'twoChildrenRate') ? undefined : json['twoChildrenRate'],
@@ -65,7 +65,7 @@ function RateAmountsTypeToJSON(value) {
         'fourPersonsRate': value.fourPersonsRate,
         'oneChildRate': value.oneChildRate,
         'onePersonRate': value.onePersonRate,
-        'rateByAgeBuckets': (0, RateByAgeBucketsType_1.RateByAgeBucketsTypeToJSON)(value.rateByAgeBuckets),
+        'rateByAgeBuckets': value.rateByAgeBuckets === undefined ? undefined : (value.rateByAgeBuckets.map(RateByAgeBucketType_1.RateByAgeBucketTypeToJSON)),
         'threeChildrenRate': value.threeChildrenRate,
         'threePersonsRate': value.threePersonsRate,
         'twoChildrenRate': value.twoChildrenRate,

@@ -10,9 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CodeDescriptionType } from './CodeDescriptionType';
-import type { CodeListType } from './CodeListType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
-import type { DietaryPrefListType } from './DietaryPrefListType';
+import type { DietaryPrefType } from './DietaryPrefType';
 import type { MenuTypeType } from './MenuTypeType';
 import type { TranslationTextType2000 } from './TranslationTextType2000';
 import type { UniqueIDType } from './UniqueIDType';
@@ -66,10 +65,10 @@ export interface CateringMenuDetailType {
     description?: TranslationTextType2000;
     /**
      *
-     * @type {DietaryPrefListType}
+     * @type {Array<DietaryPrefType>}
      * @memberof CateringMenuDetailType
      */
-    dietaryPreferenceList?: DietaryPrefListType;
+    dietaryPreferenceList?: Array<DietaryPrefType>;
     /**
      * Defines the Display Order of the menu item class, to which the menu item is attached
      * @type {number}
@@ -78,10 +77,10 @@ export interface CateringMenuDetailType {
     displayOrder?: number;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CateringMenuDetailType
      */
-    eventTypes?: CodeListType;
+    eventTypes?: Array<string>;
     /**
      * The Hotel code which the menu item class belongs to
      * @type {string}
@@ -192,10 +191,10 @@ export interface CateringMenuDetailType {
     quickInsertCode?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CateringMenuDetailType
      */
-    responsibleDepartments?: CodeListType;
+    responsibleDepartments?: Array<string>;
     /**
      * Any particular restriction description in 100 charactera
      * @type {string}

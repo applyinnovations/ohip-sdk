@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ResCancellationPoliciesType } from './ResCancellationPoliciesType';
-import type { ResDepositPoliciesType } from './ResDepositPoliciesType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { ResCancellationPolicyType } from './ResCancellationPolicyType';
+import type { ResDepositPolicyType } from './ResDepositPolicyType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * A collection of reservation deposit and cancellation policies.
  * @export
@@ -19,17 +19,17 @@ import type { UniqueIDListType } from './UniqueIDListType';
  */
 export interface ReservationPolicySummaryType {
     /**
-     *
-     * @type {ResCancellationPoliciesType}
+     * A list of reservation cancellation policies.
+     * @type {Array<ResCancellationPolicyType>}
      * @memberof ReservationPolicySummaryType
      */
-    cancellationPolicies?: ResCancellationPoliciesType;
+    cancellationPolicies?: Array<ResCancellationPolicyType>;
     /**
-     *
-     * @type {ResDepositPoliciesType}
+     * A list of deposit policies attached with the reservation.
+     * @type {Array<ResDepositPolicyType>}
      * @memberof ReservationPolicySummaryType
      */
-    depositPolicies?: ResDepositPoliciesType;
+    depositPolicies?: Array<ResDepositPolicyType>;
     /**
      * Name identifier for the reservation.
      * @type {string}
@@ -37,11 +37,11 @@ export interface ReservationPolicySummaryType {
      */
     name?: string;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ReservationPolicySummaryType
      */
-    reservationIdList?: UniqueIDListType;
+    reservationIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the ReservationPolicySummaryType interface.

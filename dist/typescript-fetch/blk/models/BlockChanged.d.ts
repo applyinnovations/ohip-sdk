@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { BlocksType } from './BlocksType';
-import type { CateringEventsProcessedInfoList } from './CateringEventsProcessedInfoList';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CateringEventsProcessedInfoType } from './CateringEventsProcessedInfoType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for change/modification of block details. This object contains the block details with unique identifiers for each block. Also Success,Warnings and Errors related to this operation.
  * @export
@@ -26,23 +26,23 @@ export interface BlockChanged {
      */
     blocks?: BlocksType;
     /**
-     *
-     * @type {CateringEventsProcessedInfoList}
+     * Status/Info of the processed events.
+     * @type {Array<CateringEventsProcessedInfoType>}
      * @memberof BlockChanged
      */
-    cateringEventsProcessedInfo?: CateringEventsProcessedInfoList;
+    cateringEventsProcessedInfo?: Array<CateringEventsProcessedInfoType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockChanged interface.

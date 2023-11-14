@@ -11,7 +11,6 @@
  */
 import type { CodeDescriptionType } from './CodeDescriptionType';
 import type { ProfileId } from './ProfileId';
-import type { ReservationIdList } from './ReservationIdList';
 import type { ServiceRequestStatusType } from './ServiceRequestStatusType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -117,11 +116,11 @@ export interface ServiceRequest {
      */
     profileId?: ProfileId;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ServiceRequest
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {UniqueIDType}

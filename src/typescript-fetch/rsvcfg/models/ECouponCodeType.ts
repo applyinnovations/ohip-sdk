@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-
 /**
  * eCoupon code detailed information.
  * @export
@@ -70,10 +63,10 @@ export interface ECouponCodeType {
     postingRoom?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ECouponCodeType
      */
-    ratePlans?: CodeListType;
+    ratePlans?: Array<string>;
     /**
      * Determines whether the eCoupon Code is eligible for Welcome Offer or not.
      * @type {boolean}
@@ -108,7 +101,7 @@ export function ECouponCodeTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'hotel': !exists(json, 'hotel') ? undefined : json['hotel'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
         'postingRoom': !exists(json, 'postingRoom') ? undefined : json['postingRoom'],
-        'ratePlans': !exists(json, 'ratePlans') ? undefined : CodeListTypeFromJSON(json['ratePlans']),
+        'ratePlans': !exists(json, 'ratePlans') ? undefined : json['ratePlans'],
         'welcomeOffer': !exists(json, 'welcomeOffer') ? undefined : json['welcomeOffer'],
     };
 }
@@ -129,7 +122,7 @@ export function ECouponCodeTypeToJSON(value?: ECouponCodeType | null): any {
         'hotel': value.hotel,
         'inactive': value.inactive,
         'postingRoom': value.postingRoom,
-        'ratePlans': CodeListTypeToJSON(value.ratePlans),
+        'ratePlans': value.ratePlans,
         'welcomeOffer': value.welcomeOffer,
     };
 }

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { TemplateMarketGroupType } from './TemplateMarketGroupType';
 import {
     TemplateMarketGroupTypeFromJSON,
     TemplateMarketGroupTypeFromJSONTyped,
     TemplateMarketGroupTypeToJSON,
 } from './TemplateMarketGroupType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object that holds the details of template Market Group to be changed.
@@ -40,10 +40,10 @@ import {
 export interface TemplateMarketGroupToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateMarketGroupToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {TemplateMarketGroupType}
@@ -51,11 +51,11 @@ export interface TemplateMarketGroupToBeChanged {
      */
     templateMarketGroup?: TemplateMarketGroupType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateMarketGroupToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateMarketGroupToBeChangedFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'templateMarketGroup': !exists(json, 'templateMarketGroup') ? undefined : TemplateMarketGroupTypeFromJSON(json['templateMarketGroup']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateMarketGroupToBeChangedToJSON(value?: TemplateMarketGroup
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'templateMarketGroup': TemplateMarketGroupTypeToJSON(value.templateMarketGroup),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

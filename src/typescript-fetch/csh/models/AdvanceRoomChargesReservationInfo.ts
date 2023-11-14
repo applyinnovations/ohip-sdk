@@ -19,18 +19,18 @@ import {
     AdvanceRoomChargesInfoTypeFromJSONTyped,
     AdvanceRoomChargesInfoTypeToJSON,
 } from './AdvanceRoomChargesInfoType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for the generate advance folio request. Post Advance Room Charges Request can return the below error codes : FOF00065 - Reservation ID or Resort was not supplied. FOF00147 - Reservation is currently not In-House. FOF00148 - Date range requested is not valid. FOF00149 - Advance Room Charges Posting was not completed successfully as there was an Error during posting. FOF00150 - Room Charges have already been posted for the requested dates. FOF00151 - Advance Room Charges could not be completed {the error message if any}.
@@ -40,10 +40,10 @@ import {
 export interface AdvanceRoomChargesReservationInfo {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AdvanceRoomChargesReservationInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {AdvanceRoomChargesInfoType}
@@ -51,11 +51,11 @@ export interface AdvanceRoomChargesReservationInfo {
      */
     reservationInfo?: AdvanceRoomChargesInfoType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AdvanceRoomChargesReservationInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function AdvanceRoomChargesReservationInfoFromJSONTyped(json: any, ignore
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservationInfo': !exists(json, 'reservationInfo') ? undefined : AdvanceRoomChargesInfoTypeFromJSON(json['reservationInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function AdvanceRoomChargesReservationInfoToJSON(value?: AdvanceRoomCharg
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservationInfo': AdvanceRoomChargesInfoTypeToJSON(value.reservationInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

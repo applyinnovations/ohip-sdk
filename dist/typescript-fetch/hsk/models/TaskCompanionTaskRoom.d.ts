@@ -11,7 +11,7 @@
  */
 import type { AppUserOnBreakType } from './AppUserOnBreakType';
 import type { DepartureTaskInfoType } from './DepartureTaskInfoType';
-import type { FacilityCodesType } from './FacilityCodesType';
+import type { FacilityCodeType } from './FacilityCodeType';
 import type { HousekeepingCreditsType } from './HousekeepingCreditsType';
 import type { HousekeepingTaskCodeType } from './HousekeepingTaskCodeType';
 import type { HousekeepingTaskTypeAttendant } from './HousekeepingTaskTypeAttendant';
@@ -170,11 +170,11 @@ export interface TaskCompanionTaskRoom {
      */
     taskSheetCompleted?: boolean;
     /**
-     *
-     * @type {FacilityCodesType}
+     * List of the facility codes.
+     * @type {Array<FacilityCodeType>}
      * @memberof TaskCompanionTaskRoom
      */
-    totalSupplies?: FacilityCodesType;
+    totalSupplies?: Array<FacilityCodeType>;
 }
 /**
  * Check if a given object implements the TaskCompanionTaskRoom interface.

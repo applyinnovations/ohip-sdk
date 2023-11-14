@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TourSeriesTypeToJSON = exports.TourSeriesTypeFromJSONTyped = exports.TourSeriesTypeFromJSON = exports.instanceOfTourSeriesType = void 0;
 const runtime_1 = require("../runtime");
-const TourSeriesBlocksType_1 = require("./TourSeriesBlocksType");
+const TourSeriesBlockType_1 = require("./TourSeriesBlockType");
 const TourSeriesTypeTourInstructions_1 = require("./TourSeriesTypeTourInstructions");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -39,7 +39,7 @@ function TourSeriesTypeFromJSONTyped(json, ignoreDiscriminator) {
         'tourBlockId': !(0, runtime_1.exists)(json, 'tourBlockId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['tourBlockId']),
         'tourCode': !(0, runtime_1.exists)(json, 'tourCode') ? undefined : json['tourCode'],
         'tourInstructions': !(0, runtime_1.exists)(json, 'tourInstructions') ? undefined : (0, TourSeriesTypeTourInstructions_1.TourSeriesTypeTourInstructionsFromJSON)(json['tourInstructions']),
-        'tourSeriesBlocks': !(0, runtime_1.exists)(json, 'tourSeriesBlocks') ? undefined : (0, TourSeriesBlocksType_1.TourSeriesBlocksTypeFromJSON)(json['tourSeriesBlocks']),
+        'tourSeriesBlocks': !(0, runtime_1.exists)(json, 'tourSeriesBlocks') ? undefined : (json['tourSeriesBlocks'].map(TourSeriesBlockType_1.TourSeriesBlockTypeFromJSON)),
     };
 }
 exports.TourSeriesTypeFromJSONTyped = TourSeriesTypeFromJSONTyped;
@@ -55,7 +55,7 @@ function TourSeriesTypeToJSON(value) {
         'tourBlockId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.tourBlockId),
         'tourCode': value.tourCode,
         'tourInstructions': (0, TourSeriesTypeTourInstructions_1.TourSeriesTypeTourInstructionsToJSON)(value.tourInstructions),
-        'tourSeriesBlocks': (0, TourSeriesBlocksType_1.TourSeriesBlocksTypeToJSON)(value.tourSeriesBlocks),
+        'tourSeriesBlocks': value.tourSeriesBlocks === undefined ? undefined : (value.tourSeriesBlocks.map(TourSeriesBlockType_1.TourSeriesBlockTypeToJSON)),
     };
 }
 exports.TourSeriesTypeToJSON = TourSeriesTypeToJSON;

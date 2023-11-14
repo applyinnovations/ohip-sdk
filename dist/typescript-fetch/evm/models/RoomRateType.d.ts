@@ -11,7 +11,7 @@
  */
 import type { ForeignExchangeType } from './ForeignExchangeType';
 import type { GuestCountsType } from './GuestCountsType';
-import type { MealPlansType } from './MealPlansType';
+import type { MealPlanCodeType } from './MealPlanCodeType';
 import type { PackageElementType } from './PackageElementType';
 import type { PointsType } from './PointsType';
 import type { RatesType } from './RatesType';
@@ -147,11 +147,11 @@ export interface RoomRateType {
      */
     marketCodeDescription?: string;
     /**
-     *
-     * @type {MealPlansType}
+     * Meal plan codes associated with the rate codes.
+     * @type {Array<MealPlanCodeType>}
      * @memberof RoomRateType
      */
-    mealPlans?: MealPlansType;
+    mealPlans?: Array<MealPlanCodeType>;
     /**
      * The number of rooms.
      * @type {number}

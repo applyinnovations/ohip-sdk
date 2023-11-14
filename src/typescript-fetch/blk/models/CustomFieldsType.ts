@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CustomCharUDFsType } from './CustomCharUDFsType';
+import type { CharacterUDFType } from './CharacterUDFType';
 import {
-    CustomCharUDFsTypeFromJSON,
-    CustomCharUDFsTypeFromJSONTyped,
-    CustomCharUDFsTypeToJSON,
-} from './CustomCharUDFsType';
-import type { CustomDateUDFsType } from './CustomDateUDFsType';
+    CharacterUDFTypeFromJSON,
+    CharacterUDFTypeFromJSONTyped,
+    CharacterUDFTypeToJSON,
+} from './CharacterUDFType';
+import type { DateUDFType } from './DateUDFType';
 import {
-    CustomDateUDFsTypeFromJSON,
-    CustomDateUDFsTypeFromJSONTyped,
-    CustomDateUDFsTypeToJSON,
-} from './CustomDateUDFsType';
-import type { CustomNumericUDFsType } from './CustomNumericUDFsType';
+    DateUDFTypeFromJSON,
+    DateUDFTypeFromJSONTyped,
+    DateUDFTypeToJSON,
+} from './DateUDFType';
+import type { NumericUDFType } from './NumericUDFType';
 import {
-    CustomNumericUDFsTypeFromJSON,
-    CustomNumericUDFsTypeFromJSONTyped,
-    CustomNumericUDFsTypeToJSON,
-} from './CustomNumericUDFsType';
+    NumericUDFTypeFromJSON,
+    NumericUDFTypeFromJSONTyped,
+    NumericUDFTypeToJSON,
+} from './NumericUDFType';
 
 /**
  * A common type used to hold custom user defined fields(UDFs). This type should be used to handle custom UDFs on RReservation, Profiles, tc.
@@ -39,23 +39,23 @@ import {
  */
 export interface CustomFieldsType {
     /**
-     * 
-     * @type {CustomCharUDFsType}
+     * Used to hold collection of custom user defined fields of Character/String Type.
+     * @type {Array<CharacterUDFType>}
      * @memberof CustomFieldsType
      */
-    customCharUDFs?: CustomCharUDFsType;
+    customCharUDFs?: Array<CharacterUDFType>;
     /**
-     * 
-     * @type {CustomDateUDFsType}
+     * Used to hold collection of custom user defined fields of Date Type.
+     * @type {Array<DateUDFType>}
      * @memberof CustomFieldsType
      */
-    customDateUDFs?: CustomDateUDFsType;
+    customDateUDFs?: Array<DateUDFType>;
     /**
-     * 
-     * @type {CustomNumericUDFsType}
+     * Used to hold collection of custom user defined fields of Numeric Type.
+     * @type {Array<NumericUDFType>}
      * @memberof CustomFieldsType
      */
-    customNumericUDFs?: CustomNumericUDFsType;
+    customNumericUDFs?: Array<NumericUDFType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CustomFieldsTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'customCharUDFs': !exists(json, 'customCharUDFs') ? undefined : CustomCharUDFsTypeFromJSON(json['customCharUDFs']),
-        'customDateUDFs': !exists(json, 'customDateUDFs') ? undefined : CustomDateUDFsTypeFromJSON(json['customDateUDFs']),
-        'customNumericUDFs': !exists(json, 'customNumericUDFs') ? undefined : CustomNumericUDFsTypeFromJSON(json['customNumericUDFs']),
+        'customCharUDFs': !exists(json, 'customCharUDFs') ? undefined : ((json['customCharUDFs'] as Array<any>).map(CharacterUDFTypeFromJSON)),
+        'customDateUDFs': !exists(json, 'customDateUDFs') ? undefined : ((json['customDateUDFs'] as Array<any>).map(DateUDFTypeFromJSON)),
+        'customNumericUDFs': !exists(json, 'customNumericUDFs') ? undefined : ((json['customNumericUDFs'] as Array<any>).map(NumericUDFTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CustomFieldsTypeToJSON(value?: CustomFieldsType | null): any {
     }
     return {
         
-        'customCharUDFs': CustomCharUDFsTypeToJSON(value.customCharUDFs),
-        'customDateUDFs': CustomDateUDFsTypeToJSON(value.customDateUDFs),
-        'customNumericUDFs': CustomNumericUDFsTypeToJSON(value.customNumericUDFs),
+        'customCharUDFs': value.customCharUDFs === undefined ? undefined : ((value.customCharUDFs as Array<any>).map(CharacterUDFTypeToJSON)),
+        'customDateUDFs': value.customDateUDFs === undefined ? undefined : ((value.customDateUDFs as Array<any>).map(DateUDFTypeToJSON)),
+        'customNumericUDFs': value.customNumericUDFs === undefined ? undefined : ((value.customNumericUDFs as Array<any>).map(NumericUDFTypeToJSON)),
     };
 }
 

@@ -18,7 +18,7 @@ const runtime_1 = require("../runtime");
 const MailingActionsType_1 = require("./MailingActionsType");
 const PrivacyInfoType_1 = require("./PrivacyInfoType");
 const StagedProfileAddressType_1 = require("./StagedProfileAddressType");
-const StagedProfileCommentInfosType_1 = require("./StagedProfileCommentInfosType");
+const StagedProfileCommentInfoType_1 = require("./StagedProfileCommentInfoType");
 const StagedProfileCompanyType_1 = require("./StagedProfileCompanyType");
 const StagedProfileCustomerType_1 = require("./StagedProfileCustomerType");
 const StagedProfileEmailType_1 = require("./StagedProfileEmailType");
@@ -31,7 +31,7 @@ const StagedProfilePreferenceType_1 = require("./StagedProfilePreferenceType");
 const StagedProfileRoutingInstructionType_1 = require("./StagedProfileRoutingInstructionType");
 const StagedProfileURLType_1 = require("./StagedProfileURLType");
 const StagedProfileUserDefinedFieldsType_1 = require("./StagedProfileUserDefinedFieldsType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the StagedProfileType interface.
  */
@@ -49,7 +49,7 @@ function StagedProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'customer': !(0, runtime_1.exists)(json, 'customer') ? undefined : (0, StagedProfileCustomerType_1.StagedProfileCustomerTypeFromJSON)(json['customer']),
         'company': !(0, runtime_1.exists)(json, 'company') ? undefined : (0, StagedProfileCompanyType_1.StagedProfileCompanyTypeFromJSON)(json['company']),
         'addresses': !(0, runtime_1.exists)(json, 'addresses') ? undefined : (json['addresses'].map(StagedProfileAddressType_1.StagedProfileAddressTypeFromJSON)),
@@ -65,7 +65,7 @@ function StagedProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
         'userDefinedFields': !(0, runtime_1.exists)(json, 'userDefinedFields') ? undefined : (0, StagedProfileUserDefinedFieldsType_1.StagedProfileUserDefinedFieldsTypeFromJSON)(json['userDefinedFields']),
         'mailingActions': !(0, runtime_1.exists)(json, 'mailingActions') ? undefined : (0, MailingActionsType_1.MailingActionsTypeFromJSON)(json['mailingActions']),
         'privacyInfo': !(0, runtime_1.exists)(json, 'privacyInfo') ? undefined : (0, PrivacyInfoType_1.PrivacyInfoTypeFromJSON)(json['privacyInfo']),
-        'comments': !(0, runtime_1.exists)(json, 'comments') ? undefined : (0, StagedProfileCommentInfosType_1.StagedProfileCommentInfosTypeFromJSON)(json['comments']),
+        'comments': !(0, runtime_1.exists)(json, 'comments') ? undefined : (json['comments'].map(StagedProfileCommentInfoType_1.StagedProfileCommentInfoTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'importDate': !(0, runtime_1.exists)(json, 'importDate') ? undefined : (new Date(json['importDate'])),
         'profileType': !(0, runtime_1.exists)(json, 'profileType') ? undefined : json['profileType'],
@@ -81,7 +81,7 @@ function StagedProfileTypeToJSON(value) {
         return null;
     }
     return {
-        'profileIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'customer': (0, StagedProfileCustomerType_1.StagedProfileCustomerTypeToJSON)(value.customer),
         'company': (0, StagedProfileCompanyType_1.StagedProfileCompanyTypeToJSON)(value.company),
         'addresses': value.addresses === undefined ? undefined : (value.addresses.map(StagedProfileAddressType_1.StagedProfileAddressTypeToJSON)),
@@ -97,7 +97,7 @@ function StagedProfileTypeToJSON(value) {
         'userDefinedFields': (0, StagedProfileUserDefinedFieldsType_1.StagedProfileUserDefinedFieldsTypeToJSON)(value.userDefinedFields),
         'mailingActions': (0, MailingActionsType_1.MailingActionsTypeToJSON)(value.mailingActions),
         'privacyInfo': (0, PrivacyInfoType_1.PrivacyInfoTypeToJSON)(value.privacyInfo),
-        'comments': (0, StagedProfileCommentInfosType_1.StagedProfileCommentInfosTypeToJSON)(value.comments),
+        'comments': value.comments === undefined ? undefined : (value.comments.map(StagedProfileCommentInfoType_1.StagedProfileCommentInfoTypeToJSON)),
         'hotelId': value.hotelId,
         'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substring(0, 10)),
         'profileType': value.profileType,

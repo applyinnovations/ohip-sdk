@@ -49,12 +49,12 @@ import {
     NameTypeTypeFromJSONTyped,
     NameTypeTypeToJSON,
 } from './NameTypeType';
-import type { ResAccompanyGuestListType } from './ResAccompanyGuestListType';
+import type { ResAccompanyGuestInfoType } from './ResAccompanyGuestInfoType';
 import {
-    ResAccompanyGuestListTypeFromJSON,
-    ResAccompanyGuestListTypeFromJSONTyped,
-    ResAccompanyGuestListTypeToJSON,
-} from './ResAccompanyGuestListType';
+    ResAccompanyGuestInfoTypeFromJSON,
+    ResAccompanyGuestInfoTypeFromJSONTyped,
+    ResAccompanyGuestInfoTypeToJSON,
+} from './ResAccompanyGuestInfoType';
 import type { VIPType } from './VIPType';
 import {
     VIPTypeFromJSON,
@@ -69,11 +69,11 @@ import {
  */
 export interface ResGuestInfoType {
     /**
-     * 
-     * @type {ResAccompanyGuestListType}
+     * Collection of accompany guests
+     * @type {Array<ResAccompanyGuestInfoType>}
      * @memberof ResGuestInfoType
      */
-    accompanyGuests?: ResAccompanyGuestListType;
+    accompanyGuests?: Array<ResAccompanyGuestInfoType>;
     /**
      * 
      * @type {AddressSearchType}
@@ -245,7 +245,7 @@ export function ResGuestInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'accompanyGuests': !exists(json, 'accompanyGuests') ? undefined : ResAccompanyGuestListTypeFromJSON(json['accompanyGuests']),
+        'accompanyGuests': !exists(json, 'accompanyGuests') ? undefined : ((json['accompanyGuests'] as Array<any>).map(ResAccompanyGuestInfoTypeFromJSON)),
         'address': !exists(json, 'address') ? undefined : AddressSearchTypeFromJSON(json['address']),
         'alternateGivenName': !exists(json, 'alternateGivenName') ? undefined : json['alternateGivenName'],
         'alternateSurname': !exists(json, 'alternateSurname') ? undefined : json['alternateSurname'],
@@ -283,7 +283,7 @@ export function ResGuestInfoTypeToJSON(value?: ResGuestInfoType | null): any {
     }
     return {
         
-        'accompanyGuests': ResAccompanyGuestListTypeToJSON(value.accompanyGuests),
+        'accompanyGuests': value.accompanyGuests === undefined ? undefined : ((value.accompanyGuests as Array<any>).map(ResAccompanyGuestInfoTypeToJSON)),
         'address': AddressSearchTypeToJSON(value.address),
         'alternateGivenName': value.alternateGivenName,
         'alternateSurname': value.alternateSurname,

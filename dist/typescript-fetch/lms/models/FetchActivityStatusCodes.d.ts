@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ActivityStatusCodesType } from './ActivityStatusCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ActivityStatusCodeType } from './ActivityStatusCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object after fetching the Activity Status Codes.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FetchActivityStatusCodes {
     /**
-     *
-     * @type {ActivityStatusCodesType}
+     * Activity Status Codes object.
+     * @type {Array<ActivityStatusCodeType>}
      * @memberof FetchActivityStatusCodes
      */
-    activityStatusCodes?: ActivityStatusCodesType;
+    activityStatusCodes?: Array<ActivityStatusCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchActivityStatusCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchActivityStatusCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FetchActivityStatusCodes interface.

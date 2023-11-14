@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ARAccountsType } from './ARAccountsType';
+import type { ARAccountType } from './ARAccountType';
 import {
-    ARAccountsTypeFromJSON,
-    ARAccountsTypeFromJSONTyped,
-    ARAccountsTypeToJSON,
-} from './ARAccountsType';
+    ARAccountTypeFromJSON,
+    ARAccountTypeFromJSONTyped,
+    ARAccountTypeToJSON,
+} from './ARAccountType';
 import type { ARYearViewInfoType } from './ARYearViewInfoType';
 import {
     ARYearViewInfoTypeFromJSON,
@@ -33,11 +33,11 @@ import {
  */
 export interface ARProfileYearViewInfoTypeHotelInner {
     /**
-     * 
-     * @type {ARAccountsType}
+     * Information regarding the AR Account.
+     * @type {Array<ARAccountType>}
      * @memberof ARProfileYearViewInfoTypeHotelInner
      */
-    account?: ARAccountsType;
+    account?: Array<ARAccountType>;
     /**
      * Property Code for the Year Veiw information.
      * @type {string}
@@ -71,7 +71,7 @@ export function ARProfileYearViewInfoTypeHotelInnerFromJSONTyped(json: any, igno
     }
     return {
         
-        'account': !exists(json, 'account') ? undefined : ARAccountsTypeFromJSON(json['account']),
+        'account': !exists(json, 'account') ? undefined : ((json['account'] as Array<any>).map(ARAccountTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'totalHotelYearView': !exists(json, 'totalHotelYearView') ? undefined : ARYearViewInfoTypeFromJSON(json['totalHotelYearView']),
     };
@@ -86,7 +86,7 @@ export function ARProfileYearViewInfoTypeHotelInnerToJSON(value?: ARProfileYearV
     }
     return {
         
-        'account': ARAccountsTypeToJSON(value.account),
+        'account': value.account === undefined ? undefined : ((value.account as Array<any>).map(ARAccountTypeToJSON)),
         'hotelId': value.hotelId,
         'totalHotelYearView': ARYearViewInfoTypeToJSON(value.totalHotelYearView),
     };

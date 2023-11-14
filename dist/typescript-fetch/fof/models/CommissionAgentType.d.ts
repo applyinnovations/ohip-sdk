@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { AgentInfoType } from './AgentInfoType';
-import type { CommissionDetailsType } from './CommissionDetailsType';
+import type { CommissionDetailType } from './CommissionDetailType';
 /**
  * Agent or source information along with their commission details.
  * @export
@@ -24,11 +24,11 @@ export interface CommissionAgentType {
      */
     agentInfo?: AgentInfoType;
     /**
-     *
-     * @type {CommissionDetailsType}
+     * Commission details related to the stays for which the agent or source is eligible to receive commissions.
+     * @type {Array<CommissionDetailType>}
      * @memberof CommissionAgentType
      */
-    commissionDetails?: CommissionDetailsType;
+    commissionDetails?: Array<CommissionDetailType>;
 }
 /**
  * Check if a given object implements the CommissionAgentType interface.

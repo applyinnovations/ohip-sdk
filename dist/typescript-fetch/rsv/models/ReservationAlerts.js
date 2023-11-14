@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationAlertsToJSON = exports.ReservationAlertsFromJSONTyped = exports.ReservationAlertsFromJSON = exports.instanceOfReservationAlerts = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const ReservationAlertsListType_1 = require("./ReservationAlertsListType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const ReservationAlertsType_1 = require("./ReservationAlertsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ReservationAlerts interface.
  */
@@ -35,9 +35,9 @@ function ReservationAlertsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'reservations': !(0, runtime_1.exists)(json, 'reservations') ? undefined : (0, ReservationAlertsListType_1.ReservationAlertsListTypeFromJSON)(json['reservations']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'reservations': !(0, runtime_1.exists)(json, 'reservations') ? undefined : (json['reservations'].map(ReservationAlertsType_1.ReservationAlertsTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ReservationAlertsFromJSONTyped = ReservationAlertsFromJSONTyped;
@@ -49,9 +49,9 @@ function ReservationAlertsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'reservations': (0, ReservationAlertsListType_1.ReservationAlertsListTypeToJSON)(value.reservations),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'reservations': value.reservations === undefined ? undefined : (value.reservations.map(ReservationAlertsType_1.ReservationAlertsTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ReservationAlertsToJSON = ReservationAlertsToJSON;

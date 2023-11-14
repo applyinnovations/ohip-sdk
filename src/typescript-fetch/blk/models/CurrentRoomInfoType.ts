@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-
 /**
  * Room information of the reservation for the current day.
  * @export
@@ -58,10 +51,10 @@ export interface CurrentRoomInfoType {
     roomViewCode?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CurrentRoomInfoType
      */
-    suggestedRoomNumbers?: CodeListType;
+    suggestedRoomNumbers?: Array<string>;
     /**
      * Represents the room was upgraded by AI Room Assignment.
      * @type {boolean}
@@ -94,7 +87,7 @@ export function CurrentRoomInfoTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
         'roomViewCode': !exists(json, 'roomViewCode') ? undefined : json['roomViewCode'],
-        'suggestedRoomNumbers': !exists(json, 'suggestedRoomNumbers') ? undefined : CodeListTypeFromJSON(json['suggestedRoomNumbers']),
+        'suggestedRoomNumbers': !exists(json, 'suggestedRoomNumbers') ? undefined : json['suggestedRoomNumbers'],
         'upgradedByAI': !exists(json, 'upgradedByAI') ? undefined : json['upgradedByAI'],
     };
 }
@@ -113,7 +106,7 @@ export function CurrentRoomInfoTypeToJSON(value?: CurrentRoomInfoType | null): a
         'roomId': value.roomId,
         'roomType': value.roomType,
         'roomViewCode': value.roomViewCode,
-        'suggestedRoomNumbers': CodeListTypeToJSON(value.suggestedRoomNumbers),
+        'suggestedRoomNumbers': value.suggestedRoomNumbers,
         'upgradedByAI': value.upgradedByAI,
     };
 }

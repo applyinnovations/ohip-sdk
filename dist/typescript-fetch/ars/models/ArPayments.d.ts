@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ARPaymentsType } from './ARPaymentsType';
-import type { Links } from './Links';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+import type { ARPaymentType } from './ARPaymentType';
+import type { InstanceLink } from './InstanceLink';
+import type { TrxInfoType } from './TrxInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response notifying if the posting of a payment to an AR Account.
  * @export
@@ -21,28 +21,28 @@ import type { WarningsType } from './WarningsType';
 export interface ArPayments {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ArPayments
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ARPaymentsType}
+     * A collection of AR Payments.
+     * @type {Array<ARPaymentType>}
      * @memberof ArPayments
      */
-    payments?: ARPaymentsType;
+    payments?: Array<ARPaymentType>;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof ArPayments
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ArPayments
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ArPayments interface.

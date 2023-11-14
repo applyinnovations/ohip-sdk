@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DepositPostingsType } from './DepositPostingsType';
+import type { DepositPostingType } from './DepositPostingType';
 import type { FolioWindowType } from './FolioWindowType';
-import type { Links } from './Links';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TrxInfoType } from './TrxInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response to the request to create a Deposit Folio for a reservation.
  * @export
@@ -21,11 +21,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface PostedDepositFolio {
     /**
-     *
-     * @type {DepositPostingsType}
+     * A List of Deposit Payments.
+     * @type {Array<DepositPostingType>}
      * @memberof PostedDepositFolio
      */
-    deposits?: DepositPostingsType;
+    deposits?: Array<DepositPostingType>;
     /**
      * Information regarding the new Deposit Folio created.
      * @type {Array<FolioWindowType>}
@@ -34,22 +34,22 @@ export interface PostedDepositFolio {
     folioWindow?: Array<FolioWindowType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostedDepositFolio
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof PostedDepositFolio
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostedDepositFolio
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PostedDepositFolio interface.

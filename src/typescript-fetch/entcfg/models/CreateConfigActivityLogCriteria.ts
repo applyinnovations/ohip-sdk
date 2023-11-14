@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ConfigActivitiesType } from './ConfigActivitiesType';
+import type { ConfigActivityType } from './ConfigActivityType';
 import {
-    ConfigActivitiesTypeFromJSON,
-    ConfigActivitiesTypeFromJSONTyped,
-    ConfigActivitiesTypeToJSON,
-} from './ConfigActivitiesType';
-import type { WarningsType } from './WarningsType';
+    ConfigActivityTypeFromJSON,
+    ConfigActivityTypeFromJSONTyped,
+    ConfigActivityTypeToJSON,
+} from './ConfigActivityType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Config Activity Logs.
@@ -33,17 +33,17 @@ import {
  */
 export interface CreateConfigActivityLogCriteria {
     /**
-     * 
-     * @type {ConfigActivitiesType}
+     * Changes log record to import/Export/Delete customization operations.
+     * @type {Array<ConfigActivityType>}
      * @memberof CreateConfigActivityLogCriteria
      */
-    configActivities?: ConfigActivitiesType;
+    configActivities?: Array<ConfigActivityType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateConfigActivityLogCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function CreateConfigActivityLogCriteriaFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'configActivities': !exists(json, 'configActivities') ? undefined : ConfigActivitiesTypeFromJSON(json['configActivities']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'configActivities': !exists(json, 'configActivities') ? undefined : ((json['configActivities'] as Array<any>).map(ConfigActivityTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function CreateConfigActivityLogCriteriaToJSON(value?: CreateConfigActivi
     }
     return {
         
-        'configActivities': ConfigActivitiesTypeToJSON(value.configActivities),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'configActivities': value.configActivities === undefined ? undefined : ((value.configActivities as Array<any>).map(ConfigActivityTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

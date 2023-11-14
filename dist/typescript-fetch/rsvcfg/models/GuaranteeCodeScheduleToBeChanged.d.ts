@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { GuaranteeCodeScheduleType } from './GuaranteeCodeScheduleType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Changes the Guarantee Code schedule based on the details provided by the request.
  * @export
@@ -26,16 +26,16 @@ export interface GuaranteeCodeScheduleToBeChanged {
     guaranteeCodeSchedule?: GuaranteeCodeScheduleType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuaranteeCodeScheduleToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuaranteeCodeScheduleToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GuaranteeCodeScheduleToBeChanged interface.

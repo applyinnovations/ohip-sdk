@@ -19,12 +19,12 @@ import {
     HotelBanquetSpaceTypeFromJSONTyped,
     HotelBanquetSpaceTypeToJSON,
 } from './HotelBanquetSpaceType';
-import type { HotelConferenceRoomsType } from './HotelConferenceRoomsType';
+import type { HotelConferenceRoomType } from './HotelConferenceRoomType';
 import {
-    HotelConferenceRoomsTypeFromJSON,
-    HotelConferenceRoomsTypeFromJSONTyped,
-    HotelConferenceRoomsTypeToJSON,
-} from './HotelConferenceRoomsType';
+    HotelConferenceRoomTypeFromJSON,
+    HotelConferenceRoomTypeFromJSONTyped,
+    HotelConferenceRoomTypeToJSON,
+} from './HotelConferenceRoomType';
 
 /**
  * 
@@ -40,10 +40,10 @@ export interface HotelConferenceFacilitiesType {
     hotelBanquetSpace?: HotelBanquetSpaceType;
     /**
      * 
-     * @type {HotelConferenceRoomsType}
+     * @type {Array<HotelConferenceRoomType>}
      * @memberof HotelConferenceFacilitiesType
      */
-    hotelConferenceRooms?: HotelConferenceRoomsType;
+    hotelConferenceRooms?: Array<HotelConferenceRoomType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function HotelConferenceFacilitiesTypeFromJSONTyped(json: any, ignoreDisc
     return {
         
         'hotelBanquetSpace': !exists(json, 'hotelBanquetSpace') ? undefined : HotelBanquetSpaceTypeFromJSON(json['hotelBanquetSpace']),
-        'hotelConferenceRooms': !exists(json, 'hotelConferenceRooms') ? undefined : HotelConferenceRoomsTypeFromJSON(json['hotelConferenceRooms']),
+        'hotelConferenceRooms': !exists(json, 'hotelConferenceRooms') ? undefined : ((json['hotelConferenceRooms'] as Array<any>).map(HotelConferenceRoomTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function HotelConferenceFacilitiesTypeToJSON(value?: HotelConferenceFacil
     return {
         
         'hotelBanquetSpace': HotelBanquetSpaceTypeToJSON(value.hotelBanquetSpace),
-        'hotelConferenceRooms': HotelConferenceRoomsTypeToJSON(value.hotelConferenceRooms),
+        'hotelConferenceRooms': value.hotelConferenceRooms === undefined ? undefined : ((value.hotelConferenceRooms as Array<any>).map(HotelConferenceRoomTypeToJSON)),
     };
 }
 

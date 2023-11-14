@@ -11,9 +11,9 @@
  */
 import type { BlocksType } from './BlocksType';
 import type { EventSummariesInfoType } from './EventSummariesInfoType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MasterInfoType } from './MasterInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching events.
  * @export
@@ -34,10 +34,10 @@ export interface Events {
     eventSummaries?: EventSummariesInfoType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Events
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Refer to Generic common types document
      * @type {Array<MasterInfoType>}
@@ -45,11 +45,11 @@ export interface Events {
      */
     masterInfoList?: Array<MasterInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Events
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Events interface.

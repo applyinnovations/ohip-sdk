@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FacilityCodesType } from './FacilityCodesType';
+import type { FacilityCodeType } from './FacilityCodeType';
 import {
-    FacilityCodesTypeFromJSON,
-    FacilityCodesTypeFromJSONTyped,
-    FacilityCodesTypeToJSON,
-} from './FacilityCodesType';
+    FacilityCodeTypeFromJSON,
+    FacilityCodeTypeFromJSONTyped,
+    FacilityCodeTypeToJSON,
+} from './FacilityCodeType';
 import type { FacilityTaskBaseType } from './FacilityTaskBaseType';
 import {
     FacilityTaskBaseTypeFromJSON,
@@ -45,11 +45,11 @@ export interface FacilityHousekeepingTaskType {
      */
     cycleStartDay?: number;
     /**
-     * 
-     * @type {FacilityCodesType}
+     * List of the facility codes.
+     * @type {Array<FacilityCodeType>}
      * @memberof FacilityHousekeepingTaskType
      */
-    facilityCodes?: FacilityCodesType;
+    facilityCodes?: Array<FacilityCodeType>;
     /**
      * 
      * @type {FacilityTaskBaseType}
@@ -120,7 +120,7 @@ export function FacilityHousekeepingTaskTypeFromJSONTyped(json: any, ignoreDiscr
     return {
         
         'cycleStartDay': !exists(json, 'cycleStartDay') ? undefined : json['cycleStartDay'],
-        'facilityCodes': !exists(json, 'facilityCodes') ? undefined : FacilityCodesTypeFromJSON(json['facilityCodes']),
+        'facilityCodes': !exists(json, 'facilityCodes') ? undefined : ((json['facilityCodes'] as Array<any>).map(FacilityCodeTypeFromJSON)),
         'facilityTask': !exists(json, 'facilityTask') ? undefined : FacilityTaskBaseTypeFromJSON(json['facilityTask']),
         'frequency': !exists(json, 'frequency') ? undefined : json['frequency'],
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
@@ -142,7 +142,7 @@ export function FacilityHousekeepingTaskTypeToJSON(value?: FacilityHousekeepingT
     return {
         
         'cycleStartDay': value.cycleStartDay,
-        'facilityCodes': FacilityCodesTypeToJSON(value.facilityCodes),
+        'facilityCodes': value.facilityCodes === undefined ? undefined : ((value.facilityCodes as Array<any>).map(FacilityCodeTypeToJSON)),
         'facilityTask': FacilityTaskBaseTypeToJSON(value.facilityTask),
         'frequency': value.frequency,
         'roomId': value.roomId,

@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TransactionCodeInformationTypeToJSON = exports.TransactionCodeInformationTypeFromJSONTyped = exports.TransactionCodeInformationTypeFromJSON = exports.instanceOfTransactionCodeInformationType = void 0;
 const runtime_1 = require("../runtime");
+const MonthlyTransactionVarianceInfoType_1 = require("./MonthlyTransactionVarianceInfoType");
 const TransactionInfoType_1 = require("./TransactionInfoType");
-const TransactionVarianceInfoType_1 = require("./TransactionVarianceInfoType");
 /**
  * Check if a given object implements the TransactionCodeInformationType interface.
  */
@@ -34,11 +34,11 @@ function TransactionCodeInformationTypeFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'aBVarianceInfo': !(0, runtime_1.exists)(json, 'aBVarianceInfo') ? undefined : (0, TransactionVarianceInfoType_1.TransactionVarianceInfoTypeFromJSON)(json['aBVarianceInfo']),
-        'aFVarianceInfo': !(0, runtime_1.exists)(json, 'aFVarianceInfo') ? undefined : (0, TransactionVarianceInfoType_1.TransactionVarianceInfoTypeFromJSON)(json['aFVarianceInfo']),
+        'aBVarianceInfo': !(0, runtime_1.exists)(json, 'aBVarianceInfo') ? undefined : (json['aBVarianceInfo'].map(MonthlyTransactionVarianceInfoType_1.MonthlyTransactionVarianceInfoTypeFromJSON)),
+        'aFVarianceInfo': !(0, runtime_1.exists)(json, 'aFVarianceInfo') ? undefined : (json['aFVarianceInfo'].map(MonthlyTransactionVarianceInfoType_1.MonthlyTransactionVarianceInfoTypeFromJSON)),
         'actualInfo': !(0, runtime_1.exists)(json, 'actualInfo') ? undefined : (0, TransactionInfoType_1.TransactionInfoTypeFromJSON)(json['actualInfo']),
         'budgetInfo': !(0, runtime_1.exists)(json, 'budgetInfo') ? undefined : (0, TransactionInfoType_1.TransactionInfoTypeFromJSON)(json['budgetInfo']),
-        'fBVarianceInfo': !(0, runtime_1.exists)(json, 'fBVarianceInfo') ? undefined : (0, TransactionVarianceInfoType_1.TransactionVarianceInfoTypeFromJSON)(json['fBVarianceInfo']),
+        'fBVarianceInfo': !(0, runtime_1.exists)(json, 'fBVarianceInfo') ? undefined : (json['fBVarianceInfo'].map(MonthlyTransactionVarianceInfoType_1.MonthlyTransactionVarianceInfoTypeFromJSON)),
         'forecastInfo': !(0, runtime_1.exists)(json, 'forecastInfo') ? undefined : (0, TransactionInfoType_1.TransactionInfoTypeFromJSON)(json['forecastInfo']),
         'transactionCode': !(0, runtime_1.exists)(json, 'transactionCode') ? undefined : json['transactionCode'],
         'transactionCodeDescription': !(0, runtime_1.exists)(json, 'transactionCodeDescription') ? undefined : json['transactionCodeDescription'],
@@ -54,11 +54,11 @@ function TransactionCodeInformationTypeToJSON(value) {
         return null;
     }
     return {
-        'aBVarianceInfo': (0, TransactionVarianceInfoType_1.TransactionVarianceInfoTypeToJSON)(value.aBVarianceInfo),
-        'aFVarianceInfo': (0, TransactionVarianceInfoType_1.TransactionVarianceInfoTypeToJSON)(value.aFVarianceInfo),
+        'aBVarianceInfo': value.aBVarianceInfo === undefined ? undefined : (value.aBVarianceInfo.map(MonthlyTransactionVarianceInfoType_1.MonthlyTransactionVarianceInfoTypeToJSON)),
+        'aFVarianceInfo': value.aFVarianceInfo === undefined ? undefined : (value.aFVarianceInfo.map(MonthlyTransactionVarianceInfoType_1.MonthlyTransactionVarianceInfoTypeToJSON)),
         'actualInfo': (0, TransactionInfoType_1.TransactionInfoTypeToJSON)(value.actualInfo),
         'budgetInfo': (0, TransactionInfoType_1.TransactionInfoTypeToJSON)(value.budgetInfo),
-        'fBVarianceInfo': (0, TransactionVarianceInfoType_1.TransactionVarianceInfoTypeToJSON)(value.fBVarianceInfo),
+        'fBVarianceInfo': value.fBVarianceInfo === undefined ? undefined : (value.fBVarianceInfo.map(MonthlyTransactionVarianceInfoType_1.MonthlyTransactionVarianceInfoTypeToJSON)),
         'forecastInfo': (0, TransactionInfoType_1.TransactionInfoTypeToJSON)(value.forecastInfo),
         'transactionCode': value.transactionCode,
         'transactionCodeDescription': value.transactionCodeDescription,

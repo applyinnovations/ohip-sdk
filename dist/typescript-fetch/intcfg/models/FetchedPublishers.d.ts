@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { PublishersType } from './PublishersType';
-import type { WarningsType } from './WarningsType';
+import type { ExternalSystemType } from './ExternalSystemType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response to request to fetch the external systems
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface FetchedPublishers {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchedPublishers
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {PublishersType}
+     * Information of all the publishers for a given subscriber.
+     * @type {Array<ExternalSystemType>}
      * @memberof FetchedPublishers
      */
-    publishers?: PublishersType;
+    publishers?: Array<ExternalSystemType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchedPublishers
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FetchedPublishers interface.

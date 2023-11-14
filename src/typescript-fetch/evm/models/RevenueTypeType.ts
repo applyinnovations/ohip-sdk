@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RevenueTypeDetailsType } from './RevenueTypeDetailsType';
+import type { RevenueTypeDetailType } from './RevenueTypeDetailType';
 import {
-    RevenueTypeDetailsTypeFromJSON,
-    RevenueTypeDetailsTypeFromJSONTyped,
-    RevenueTypeDetailsTypeToJSON,
-} from './RevenueTypeDetailsType';
+    RevenueTypeDetailTypeFromJSON,
+    RevenueTypeDetailTypeFromJSONTyped,
+    RevenueTypeDetailTypeToJSON,
+} from './RevenueTypeDetailType';
 import type { TranslationTextType200 } from './TranslationTextType200';
 import {
     TranslationTextType200FromJSON,
@@ -57,11 +57,11 @@ export interface RevenueTypeType {
      */
     inactive?: boolean;
     /**
-     * 
-     * @type {RevenueTypeDetailsType}
+     * List of Revenue details assoicated to a Revenue Type (Additional Details)
+     * @type {Array<RevenueTypeDetailType>}
      * @memberof RevenueTypeType
      */
-    revenueDetails?: RevenueTypeDetailsType;
+    revenueDetails?: Array<RevenueTypeDetailType>;
     /**
      * Revenue Group
      * @type {string}
@@ -99,7 +99,7 @@ export function RevenueTypeTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'displaySequence': !exists(json, 'displaySequence') ? undefined : json['displaySequence'],
         'foodAndBeverage': !exists(json, 'foodAndBeverage') ? undefined : json['foodAndBeverage'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
-        'revenueDetails': !exists(json, 'revenueDetails') ? undefined : RevenueTypeDetailsTypeFromJSON(json['revenueDetails']),
+        'revenueDetails': !exists(json, 'revenueDetails') ? undefined : ((json['revenueDetails'] as Array<any>).map(RevenueTypeDetailTypeFromJSON)),
         'revenueGroup': !exists(json, 'revenueGroup') ? undefined : json['revenueGroup'],
         'translatableDescription': !exists(json, 'translatableDescription') ? undefined : TranslationTextType200FromJSON(json['translatableDescription']),
     };
@@ -118,7 +118,7 @@ export function RevenueTypeTypeToJSON(value?: RevenueTypeType | null): any {
         'displaySequence': value.displaySequence,
         'foodAndBeverage': value.foodAndBeverage,
         'inactive': value.inactive,
-        'revenueDetails': RevenueTypeDetailsTypeToJSON(value.revenueDetails),
+        'revenueDetails': value.revenueDetails === undefined ? undefined : ((value.revenueDetails as Array<any>).map(RevenueTypeDetailTypeToJSON)),
         'revenueGroup': value.revenueGroup,
         'translatableDescription': TranslationTextType200ToJSON(value.translatableDescription),
     };

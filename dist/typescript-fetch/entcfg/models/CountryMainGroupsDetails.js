@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CountryMainGroupsDetailsToJSON = exports.CountryMainGroupsDetailsFromJSONTyped = exports.CountryMainGroupsDetailsFromJSON = exports.instanceOfCountryMainGroupsDetails = void 0;
 const runtime_1 = require("../runtime");
-const CountryMainGroupsType_1 = require("./CountryMainGroupsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CountryMainGroupType_1 = require("./CountryMainGroupType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CountryMainGroupsDetails interface.
  */
@@ -35,9 +35,9 @@ function CountryMainGroupsDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'countryMainGroups': !(0, runtime_1.exists)(json, 'countryMainGroups') ? undefined : (0, CountryMainGroupsType_1.CountryMainGroupsTypeFromJSON)(json['countryMainGroups']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'countryMainGroups': !(0, runtime_1.exists)(json, 'countryMainGroups') ? undefined : (json['countryMainGroups'].map(CountryMainGroupType_1.CountryMainGroupTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CountryMainGroupsDetailsFromJSONTyped = CountryMainGroupsDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function CountryMainGroupsDetailsToJSON(value) {
         return null;
     }
     return {
-        'countryMainGroups': (0, CountryMainGroupsType_1.CountryMainGroupsTypeToJSON)(value.countryMainGroups),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'countryMainGroups': value.countryMainGroups === undefined ? undefined : (value.countryMainGroups.map(CountryMainGroupType_1.CountryMainGroupTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CountryMainGroupsDetailsToJSON = CountryMainGroupsDetailsToJSON;

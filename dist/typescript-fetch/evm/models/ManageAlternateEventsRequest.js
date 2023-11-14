@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ManageAlternateEventsRequestToJSON = exports.ManageAlternateEventsRequestFromJSONTyped = exports.ManageAlternateEventsRequestFromJSON = exports.instanceOfManageAlternateEventsRequest = void 0;
 const runtime_1 = require("../runtime");
-const EventsInfoType_1 = require("./EventsInfoType");
-const Links_1 = require("./Links");
+const EventInfoType_1 = require("./EventInfoType");
+const InstanceLink_1 = require("./InstanceLink");
 const ManageAlternateEventsInstructionType_1 = require("./ManageAlternateEventsInstructionType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ManageAlternateEventsRequest interface.
  */
@@ -36,10 +36,10 @@ function ManageAlternateEventsRequestFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'alternateEvents': !(0, runtime_1.exists)(json, 'alternateEvents') ? undefined : (0, EventsInfoType_1.EventsInfoTypeFromJSON)(json['alternateEvents']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'alternateEvents': !(0, runtime_1.exists)(json, 'alternateEvents') ? undefined : (json['alternateEvents'].map(EventInfoType_1.EventInfoTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'manageAlternateEventsInstruction': !(0, runtime_1.exists)(json, 'manageAlternateEventsInstruction') ? undefined : (0, ManageAlternateEventsInstructionType_1.ManageAlternateEventsInstructionTypeFromJSON)(json['manageAlternateEventsInstruction']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ManageAlternateEventsRequestFromJSONTyped = ManageAlternateEventsRequestFromJSONTyped;
@@ -51,10 +51,10 @@ function ManageAlternateEventsRequestToJSON(value) {
         return null;
     }
     return {
-        'alternateEvents': (0, EventsInfoType_1.EventsInfoTypeToJSON)(value.alternateEvents),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'alternateEvents': value.alternateEvents === undefined ? undefined : (value.alternateEvents.map(EventInfoType_1.EventInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'manageAlternateEventsInstruction': (0, ManageAlternateEventsInstructionType_1.ManageAlternateEventsInstructionTypeToJSON)(value.manageAlternateEventsInstruction),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ManageAlternateEventsRequestToJSON = ManageAlternateEventsRequestToJSON;

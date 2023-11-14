@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ProfileCommissionAccountInfoListType } from './ProfileCommissionAccountInfoListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ProfileCommissionAccountInfoType } from './ProfileCommissionAccountInfoType';
 import {
-    ProfileCommissionAccountInfoListTypeFromJSON,
-    ProfileCommissionAccountInfoListTypeFromJSONTyped,
-    ProfileCommissionAccountInfoListTypeToJSON,
-} from './ProfileCommissionAccountInfoListType';
-import type { WarningsType } from './WarningsType';
+    ProfileCommissionAccountInfoTypeFromJSON,
+    ProfileCommissionAccountInfoTypeFromJSONTyped,
+    ProfileCommissionAccountInfoTypeToJSON,
+} from './ProfileCommissionAccountInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching profile commission detail.
@@ -40,22 +40,22 @@ import {
 export interface ProfileCommissionAccountInfo {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileCommissionAccountInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ProfileCommissionAccountInfoListType}
+     * Profile commission info which contains bank account and commission code details.
+     * @type {Array<ProfileCommissionAccountInfoType>}
      * @memberof ProfileCommissionAccountInfo
      */
-    profileCommissionAccountInfoList?: ProfileCommissionAccountInfoListType;
+    profileCommissionAccountInfoList?: Array<ProfileCommissionAccountInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileCommissionAccountInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ProfileCommissionAccountInfoFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'profileCommissionAccountInfoList': !exists(json, 'profileCommissionAccountInfoList') ? undefined : ProfileCommissionAccountInfoListTypeFromJSON(json['profileCommissionAccountInfoList']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'profileCommissionAccountInfoList': !exists(json, 'profileCommissionAccountInfoList') ? undefined : ((json['profileCommissionAccountInfoList'] as Array<any>).map(ProfileCommissionAccountInfoTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ProfileCommissionAccountInfoToJSON(value?: ProfileCommissionAcco
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'profileCommissionAccountInfoList': ProfileCommissionAccountInfoListTypeToJSON(value.profileCommissionAccountInfoList),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'profileCommissionAccountInfoList': value.profileCommissionAccountInfoList === undefined ? undefined : ((value.profileCommissionAccountInfoList as Array<any>).map(ProfileCommissionAccountInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

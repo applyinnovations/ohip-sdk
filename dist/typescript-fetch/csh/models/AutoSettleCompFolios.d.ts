@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { AutoSettleCompFoliosCriteriaType } from './AutoSettleCompFoliosCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to auto settle comp folios. OPERA will reference the 'Default Comp Payment Method' setting to settle the folio if no authorizer AR account is associated with the folio.
  * @export
@@ -24,11 +24,11 @@ export interface AutoSettleCompFolios {
      */
     criteria?: AutoSettleCompFoliosCriteriaType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoSettleCompFolios
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AutoSettleCompFolios interface.

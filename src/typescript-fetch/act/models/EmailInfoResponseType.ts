@@ -25,12 +25,6 @@ import {
     BlockIdFromJSONTyped,
     BlockIdToJSON,
 } from './BlockId';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { ContactId } from './ContactId';
 import {
     ContactIdFromJSON,
@@ -106,10 +100,10 @@ export interface EmailInfoResponseType {
     hasEmailAttachments?: boolean;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof EmailInfoResponseType
      */
-    hotelCodes?: CodeListType;
+    hotelCodes?: Array<string>;
     /**
      * Email address of the Sender.
      * @type {string}
@@ -158,7 +152,7 @@ export function EmailInfoResponseTypeFromJSONTyped(json: any, ignoreDiscriminato
         'emailRecipients': !exists(json, 'emailRecipients') ? undefined : json['emailRecipients'],
         'emailSubject': !exists(json, 'emailSubject') ? undefined : json['emailSubject'],
         'hasEmailAttachments': !exists(json, 'hasEmailAttachments') ? undefined : json['hasEmailAttachments'],
-        'hotelCodes': !exists(json, 'hotelCodes') ? undefined : CodeListTypeFromJSON(json['hotelCodes']),
+        'hotelCodes': !exists(json, 'hotelCodes') ? undefined : json['hotelCodes'],
         'senderEmailAddress': !exists(json, 'senderEmailAddress') ? undefined : json['senderEmailAddress'],
         'senderFirstName': !exists(json, 'senderFirstName') ? undefined : json['senderFirstName'],
         'senderLastName': !exists(json, 'senderLastName') ? undefined : json['senderLastName'],
@@ -183,7 +177,7 @@ export function EmailInfoResponseTypeToJSON(value?: EmailInfoResponseType | null
         'emailRecipients': value.emailRecipients,
         'emailSubject': value.emailSubject,
         'hasEmailAttachments': value.hasEmailAttachments,
-        'hotelCodes': CodeListTypeToJSON(value.hotelCodes),
+        'hotelCodes': value.hotelCodes,
         'senderEmailAddress': value.senderEmailAddress,
         'senderFirstName': value.senderFirstName,
         'senderLastName': value.senderLastName,

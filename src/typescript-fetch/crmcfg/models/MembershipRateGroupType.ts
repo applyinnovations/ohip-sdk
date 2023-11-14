@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { MembershipRateCodesType } from './MembershipRateCodesType';
+import type { CodeDescriptionType } from './CodeDescriptionType';
 import {
-    MembershipRateCodesTypeFromJSON,
-    MembershipRateCodesTypeFromJSONTyped,
-    MembershipRateCodesTypeToJSON,
-} from './MembershipRateCodesType';
+    CodeDescriptionTypeFromJSON,
+    CodeDescriptionTypeFromJSONTyped,
+    CodeDescriptionTypeToJSON,
+} from './CodeDescriptionType';
 
 /**
  * Base type provides information about Membership Market/Property Groups Configuration.
@@ -45,11 +45,11 @@ export interface MembershipRateGroupType {
      */
     displaySequence?: number;
     /**
-     * 
-     * @type {MembershipRateCodesType}
+     * Membership Rates code and Description.
+     * @type {Array<CodeDescriptionType>}
      * @memberof MembershipRateGroupType
      */
-    rateCodes?: MembershipRateCodesType;
+    rateCodes?: Array<CodeDescriptionType>;
 }
 
 /**
@@ -74,7 +74,7 @@ export function MembershipRateGroupTypeFromJSONTyped(json: any, ignoreDiscrimina
         'code': !exists(json, 'code') ? undefined : json['code'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'displaySequence': !exists(json, 'displaySequence') ? undefined : json['displaySequence'],
-        'rateCodes': !exists(json, 'rateCodes') ? undefined : MembershipRateCodesTypeFromJSON(json['rateCodes']),
+        'rateCodes': !exists(json, 'rateCodes') ? undefined : ((json['rateCodes'] as Array<any>).map(CodeDescriptionTypeFromJSON)),
     };
 }
 
@@ -90,7 +90,7 @@ export function MembershipRateGroupTypeToJSON(value?: MembershipRateGroupType | 
         'code': value.code,
         'description': value.description,
         'displaySequence': value.displaySequence,
-        'rateCodes': MembershipRateCodesTypeToJSON(value.rateCodes),
+        'rateCodes': value.rateCodes === undefined ? undefined : ((value.rateCodes as Array<any>).map(CodeDescriptionTypeToJSON)),
     };
 }
 

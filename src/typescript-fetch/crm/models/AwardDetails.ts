@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AwardsType } from './AwardsType';
+import type { AwardType } from './AwardType';
 import {
-    AwardsTypeFromJSON,
-    AwardsTypeFromJSONTyped,
-    AwardsTypeToJSON,
-} from './AwardsType';
-import type { Links } from './Links';
+    AwardTypeFromJSON,
+    AwardTypeFromJSONTyped,
+    AwardTypeToJSON,
+} from './AwardType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response of fetch awards request.
@@ -40,22 +40,22 @@ import {
 export interface AwardDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AwardDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {AwardsType}
+     * List of awards.
+     * @type {Array<AwardType>}
      * @memberof AwardDetails
      */
-    profileAwards?: AwardsType;
+    profileAwards?: Array<AwardType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AwardDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function AwardDetailsFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'profileAwards': !exists(json, 'profileAwards') ? undefined : AwardsTypeFromJSON(json['profileAwards']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'profileAwards': !exists(json, 'profileAwards') ? undefined : ((json['profileAwards'] as Array<any>).map(AwardTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function AwardDetailsToJSON(value?: AwardDetails | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'profileAwards': AwardsTypeToJSON(value.profileAwards),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'profileAwards': value.profileAwards === undefined ? undefined : ((value.profileAwards as Array<any>).map(AwardTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

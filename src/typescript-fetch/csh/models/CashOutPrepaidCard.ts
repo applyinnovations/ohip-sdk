@@ -19,12 +19,12 @@ import {
     ActivatePrepaidCardCriteriaFromJSONTyped,
     ActivatePrepaidCardCriteriaToJSON,
 } from './ActivatePrepaidCardCriteria';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request type for cashout prepaid card.
@@ -39,11 +39,11 @@ export interface CashOutPrepaidCard {
      */
     criteria?: ActivatePrepaidCardCriteria;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CashOutPrepaidCard
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function CashOutPrepaidCardFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : ActivatePrepaidCardCriteriaFromJSON(json['criteria']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function CashOutPrepaidCardToJSON(value?: CashOutPrepaidCard | null): any
     return {
         
         'criteria': ActivatePrepaidCardCriteriaToJSON(value.criteria),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

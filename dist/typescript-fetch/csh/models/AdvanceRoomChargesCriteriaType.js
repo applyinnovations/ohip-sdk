@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AdvanceRoomChargesCriteriaTypeToJSON = exports.AdvanceRoomChargesCriteriaTypeFromJSONTyped = exports.AdvanceRoomChargesCriteriaTypeFromJSON = exports.instanceOfAdvanceRoomChargesCriteriaType = void 0;
 const runtime_1 = require("../runtime");
 const CashieringEventType_1 = require("./CashieringEventType");
-const ReservationIdList_1 = require("./ReservationIdList");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the AdvanceRoomChargesCriteriaType interface.
  */
@@ -39,7 +39,7 @@ function AdvanceRoomChargesCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) 
         'eventType': !(0, runtime_1.exists)(json, 'eventType') ? undefined : (0, CashieringEventType_1.CashieringEventTypeFromJSON)(json['eventType']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'postForEntireStay': !(0, runtime_1.exists)(json, 'postForEntireStay') ? undefined : json['postForEntireStay'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'verifyOnly': !(0, runtime_1.exists)(json, 'verifyOnly') ? undefined : json['verifyOnly'],
     };
 }
@@ -57,7 +57,7 @@ function AdvanceRoomChargesCriteriaTypeToJSON(value) {
         'eventType': (0, CashieringEventType_1.CashieringEventTypeToJSON)(value.eventType),
         'hotelId': value.hotelId,
         'postForEntireStay': value.postForEntireStay,
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'verifyOnly': value.verifyOnly,
     };
 }

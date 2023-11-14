@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChannelHotelLettersType } from './ChannelHotelLettersType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ChannelHotelLetterType } from './ChannelHotelLetterType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object after fetch Hotel Letters associated with the Booking Channels
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FetchedChannelHotelLetters {
     /**
-     *
-     * @type {ChannelHotelLettersType}
+     * Collection of Hotel Letters Type
+     * @type {Array<ChannelHotelLetterType>}
      * @memberof FetchedChannelHotelLetters
      */
-    channelHotelLetters?: ChannelHotelLettersType;
+    channelHotelLetters?: Array<ChannelHotelLetterType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchedChannelHotelLetters
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchedChannelHotelLetters
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FetchedChannelHotelLetters interface.

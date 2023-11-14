@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Criteria type for verifying or changing an Early Departure reservation.
@@ -63,11 +63,11 @@ export interface EarlyDepartureCriteriaType {
      */
     postEarlyDeparturePenalty?: boolean;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof EarlyDepartureCriteriaType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -95,7 +95,7 @@ export function EarlyDepartureCriteriaTypeFromJSONTyped(json: any, ignoreDiscrim
         'ignoreRateRestriction': !exists(json, 'ignoreRateRestriction') ? undefined : json['ignoreRateRestriction'],
         'postConsumedAllowanceToGuest': !exists(json, 'postConsumedAllowanceToGuest') ? undefined : json['postConsumedAllowanceToGuest'],
         'postEarlyDeparturePenalty': !exists(json, 'postEarlyDeparturePenalty') ? undefined : json['postEarlyDeparturePenalty'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -114,7 +114,7 @@ export function EarlyDepartureCriteriaTypeToJSON(value?: EarlyDepartureCriteriaT
         'ignoreRateRestriction': value.ignoreRateRestriction,
         'postConsumedAllowanceToGuest': value.postConsumedAllowanceToGuest,
         'postEarlyDeparturePenalty': value.postEarlyDeparturePenalty,
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

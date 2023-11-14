@@ -67,12 +67,12 @@ import {
     URLInfoTypeFromJSONTyped,
     URLInfoTypeToJSON,
 } from './URLInfoType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -87,11 +87,11 @@ export interface RelationshipProfileType {
      */
     address?: AddressInfoType;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RelationshipProfileType
      */
-    changeProfileIdList?: UniqueIDListType;
+    changeProfileIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {CompanyType}
@@ -129,11 +129,11 @@ export interface RelationshipProfileType {
      */
     primaryOwner?: OwnerType;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RelationshipProfileType
      */
-    profileIdList?: UniqueIDListType;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {ProfileTypeType}
@@ -180,14 +180,14 @@ export function RelationshipProfileTypeFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'address': !exists(json, 'address') ? undefined : AddressInfoTypeFromJSON(json['address']),
-        'changeProfileIdList': !exists(json, 'changeProfileIdList') ? undefined : UniqueIDListTypeFromJSON(json['changeProfileIdList']),
+        'changeProfileIdList': !exists(json, 'changeProfileIdList') ? undefined : ((json['changeProfileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'company': !exists(json, 'company') ? undefined : CompanyTypeFromJSON(json['company']),
         'customer': !exists(json, 'customer') ? undefined : CustomerTypeFromJSON(json['customer']),
         'email': !exists(json, 'email') ? undefined : EmailInfoTypeFromJSON(json['email']),
         'id': !exists(json, 'id') ? undefined : json['id'],
         'primary': !exists(json, 'primary') ? undefined : json['primary'],
         'primaryOwner': !exists(json, 'primaryOwner') ? undefined : OwnerTypeFromJSON(json['primaryOwner']),
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : UniqueIDListTypeFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'profileType': !exists(json, 'profileType') ? undefined : ProfileTypeTypeFromJSON(json['profileType']),
         'statusCode': !exists(json, 'statusCode') ? undefined : ProfileStatusTypeFromJSON(json['statusCode']),
         'telephone': !exists(json, 'telephone') ? undefined : TelephoneInfoTypeFromJSON(json['telephone']),
@@ -205,14 +205,14 @@ export function RelationshipProfileTypeToJSON(value?: RelationshipProfileType | 
     return {
         
         'address': AddressInfoTypeToJSON(value.address),
-        'changeProfileIdList': UniqueIDListTypeToJSON(value.changeProfileIdList),
+        'changeProfileIdList': value.changeProfileIdList === undefined ? undefined : ((value.changeProfileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'company': CompanyTypeToJSON(value.company),
         'customer': CustomerTypeToJSON(value.customer),
         'email': EmailInfoTypeToJSON(value.email),
         'id': value.id,
         'primary': value.primary,
         'primaryOwner': OwnerTypeToJSON(value.primaryOwner),
-        'profileIdList': UniqueIDListTypeToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'profileType': ProfileTypeTypeToJSON(value.profileType),
         'statusCode': ProfileStatusTypeToJSON(value.statusCode),
         'telephone': TelephoneInfoTypeToJSON(value.telephone),

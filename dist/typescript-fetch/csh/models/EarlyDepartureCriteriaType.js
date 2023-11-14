@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EarlyDepartureCriteriaTypeToJSON = exports.EarlyDepartureCriteriaTypeFromJSONTyped = exports.EarlyDepartureCriteriaTypeFromJSON = exports.instanceOfEarlyDepartureCriteriaType = void 0;
 const runtime_1 = require("../runtime");
-const ReservationIdList_1 = require("./ReservationIdList");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the EarlyDepartureCriteriaType interface.
  */
@@ -39,7 +39,7 @@ function EarlyDepartureCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         'ignoreRateRestriction': !(0, runtime_1.exists)(json, 'ignoreRateRestriction') ? undefined : json['ignoreRateRestriction'],
         'postConsumedAllowanceToGuest': !(0, runtime_1.exists)(json, 'postConsumedAllowanceToGuest') ? undefined : json['postConsumedAllowanceToGuest'],
         'postEarlyDeparturePenalty': !(0, runtime_1.exists)(json, 'postEarlyDeparturePenalty') ? undefined : json['postEarlyDeparturePenalty'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.EarlyDepartureCriteriaTypeFromJSONTyped = EarlyDepartureCriteriaTypeFromJSONTyped;
@@ -57,7 +57,7 @@ function EarlyDepartureCriteriaTypeToJSON(value) {
         'ignoreRateRestriction': value.ignoreRateRestriction,
         'postConsumedAllowanceToGuest': value.postConsumedAllowanceToGuest,
         'postEarlyDeparturePenalty': value.postEarlyDeparturePenalty,
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.EarlyDepartureCriteriaTypeToJSON = EarlyDepartureCriteriaTypeToJSON;

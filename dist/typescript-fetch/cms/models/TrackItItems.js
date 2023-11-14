@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TrackItItemsToJSON = exports.TrackItItemsFromJSONTyped = exports.TrackItItemsFromJSON = exports.instanceOfTrackItItems = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TrackItItemsType_1 = require("./TrackItItemsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TrackItItemType_1 = require("./TrackItItemType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TrackItItems interface.
  */
@@ -36,9 +36,9 @@ function TrackItItemsFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'trackItItemsInfo': !(0, runtime_1.exists)(json, 'trackItItemsInfo') ? undefined : (0, TrackItItemsType_1.TrackItItemsTypeFromJSON)(json['trackItItemsInfo']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'trackItItemsInfo': !(0, runtime_1.exists)(json, 'trackItItemsInfo') ? undefined : (json['trackItItemsInfo'].map(TrackItItemType_1.TrackItItemTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TrackItItemsFromJSONTyped = TrackItItemsFromJSONTyped;
@@ -51,9 +51,9 @@ function TrackItItemsToJSON(value) {
     }
     return {
         'hotelId': value.hotelId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'trackItItemsInfo': (0, TrackItItemsType_1.TrackItItemsTypeToJSON)(value.trackItItemsInfo),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'trackItItemsInfo': value.trackItItemsInfo === undefined ? undefined : (value.trackItItemsInfo.map(TrackItItemType_1.TrackItItemTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TrackItItemsToJSON = TrackItItemsToJSON;

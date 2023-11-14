@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AutoSettleCompFoliosStatusToJSON = exports.AutoSettleCompFoliosStatusFromJSONTyped = exports.AutoSettleCompFoliosStatusFromJSON = exports.instanceOfAutoSettleCompFoliosStatus = void 0;
 const runtime_1 = require("../runtime");
-const AutoSettleCompFoliosType_1 = require("./AutoSettleCompFoliosType");
-const WarningsType_1 = require("./WarningsType");
+const AutoSettleCompFolioType_1 = require("./AutoSettleCompFolioType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AutoSettleCompFoliosStatus interface.
  */
@@ -34,8 +34,8 @@ function AutoSettleCompFoliosStatusFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'folios': !(0, runtime_1.exists)(json, 'folios') ? undefined : (0, AutoSettleCompFoliosType_1.AutoSettleCompFoliosTypeFromJSON)(json['folios']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'folios': !(0, runtime_1.exists)(json, 'folios') ? undefined : (json['folios'].map(AutoSettleCompFolioType_1.AutoSettleCompFolioTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AutoSettleCompFoliosStatusFromJSONTyped = AutoSettleCompFoliosStatusFromJSONTyped;
@@ -47,8 +47,8 @@ function AutoSettleCompFoliosStatusToJSON(value) {
         return null;
     }
     return {
-        'folios': (0, AutoSettleCompFoliosType_1.AutoSettleCompFoliosTypeToJSON)(value.folios),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'folios': value.folios === undefined ? undefined : (value.folios.map(AutoSettleCompFolioType_1.AutoSettleCompFolioTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AutoSettleCompFoliosStatusToJSON = AutoSettleCompFoliosStatusToJSON;

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomRatingsToJSON = exports.RoomRatingsFromJSONTyped = exports.RoomRatingsFromJSON = exports.instanceOfRoomRatings = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RoomRatingsInfoType_1 = require("./RoomRatingsInfoType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RoomRatingInfoType_1 = require("./RoomRatingInfoType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomRatings interface.
  */
@@ -37,12 +37,12 @@ function RoomRatingsFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'hasMore': !(0, runtime_1.exists)(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'offset': !(0, runtime_1.exists)(json, 'offset') ? undefined : json['offset'],
-        'roomRatingsInfo': !(0, runtime_1.exists)(json, 'roomRatingsInfo') ? undefined : (0, RoomRatingsInfoType_1.RoomRatingsInfoTypeFromJSON)(json['roomRatingsInfo']),
+        'roomRatingsInfo': !(0, runtime_1.exists)(json, 'roomRatingsInfo') ? undefined : (json['roomRatingsInfo'].map(RoomRatingInfoType_1.RoomRatingInfoTypeFromJSON)),
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !(0, runtime_1.exists)(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomRatingsFromJSONTyped = RoomRatingsFromJSONTyped;
@@ -56,12 +56,12 @@ function RoomRatingsToJSON(value) {
     return {
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'offset': value.offset,
-        'roomRatingsInfo': (0, RoomRatingsInfoType_1.RoomRatingsInfoTypeToJSON)(value.roomRatingsInfo),
+        'roomRatingsInfo': value.roomRatingsInfo === undefined ? undefined : (value.roomRatingsInfo.map(RoomRatingInfoType_1.RoomRatingInfoTypeToJSON)),
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomRatingsToJSON = RoomRatingsToJSON;

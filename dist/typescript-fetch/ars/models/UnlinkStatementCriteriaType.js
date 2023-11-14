@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UnlinkStatementCriteriaTypeToJSON = exports.UnlinkStatementCriteriaTypeFromJSONTyped = exports.UnlinkStatementCriteriaTypeFromJSON = exports.instanceOfUnlinkStatementCriteriaType = void 0;
 const runtime_1 = require("../runtime");
-const InvoiceTrxNoList_1 = require("./InvoiceTrxNoList");
 /**
  * Check if a given object implements the UnlinkStatementCriteriaType interface.
  */
@@ -35,7 +34,7 @@ function UnlinkStatementCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'invoiceTrxNoList': !(0, runtime_1.exists)(json, 'invoiceTrxNoList') ? undefined : (0, InvoiceTrxNoList_1.InvoiceTrxNoListFromJSON)(json['invoiceTrxNoList']),
+        'invoiceTrxNoList': !(0, runtime_1.exists)(json, 'invoiceTrxNoList') ? undefined : json['invoiceTrxNoList'],
     };
 }
 exports.UnlinkStatementCriteriaTypeFromJSONTyped = UnlinkStatementCriteriaTypeFromJSONTyped;
@@ -49,7 +48,7 @@ function UnlinkStatementCriteriaTypeToJSON(value) {
     return {
         'cashierId': value.cashierId,
         'hotelId': value.hotelId,
-        'invoiceTrxNoList': (0, InvoiceTrxNoList_1.InvoiceTrxNoListToJSON)(value.invoiceTrxNoList),
+        'invoiceTrxNoList': value.invoiceTrxNoList,
     };
 }
 exports.UnlinkStatementCriteriaTypeToJSON = UnlinkStatementCriteriaTypeToJSON;

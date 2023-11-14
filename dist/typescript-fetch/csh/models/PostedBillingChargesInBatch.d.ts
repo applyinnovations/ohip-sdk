@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationChargesInBatchInfoType } from './ReservationChargesInBatchInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Operation response to post billing charge with list of reservations.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface PostedBillingChargesInBatch {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostedBillingChargesInBatch
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Information regarding charges in batch result for each reservation.
      * @type {Array<ReservationChargesInBatchInfoType>}
@@ -31,11 +31,11 @@ export interface PostedBillingChargesInBatch {
      */
     reservationBatchChargeInfoList?: Array<ReservationChargesInBatchInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostedBillingChargesInBatch
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PostedBillingChargesInBatch interface.

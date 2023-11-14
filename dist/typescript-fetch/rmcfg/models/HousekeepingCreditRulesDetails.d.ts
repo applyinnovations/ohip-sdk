@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HousekeepingCreditRulesType } from './HousekeepingCreditRulesType';
-import type { Links } from './Links';
+import type { HousekeepingCreditRuleType } from './HousekeepingCreditRuleType';
+import type { InstanceLink } from './InstanceLink';
 import type { MasterInfoType } from './MasterInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching housekeeping credit rules.
  * @export
@@ -20,17 +20,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface HousekeepingCreditRulesDetails {
     /**
-     *
-     * @type {HousekeepingCreditRulesType}
+     * The information of housekeeping credit rule for configuration.
+     * @type {Array<HousekeepingCreditRuleType>}
      * @memberof HousekeepingCreditRulesDetails
      */
-    creditRules?: HousekeepingCreditRulesType;
+    creditRules?: Array<HousekeepingCreditRuleType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HousekeepingCreditRulesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Refer to Generic common types document.
      * @type {Array<MasterInfoType>}
@@ -38,11 +38,11 @@ export interface HousekeepingCreditRulesDetails {
      */
     masterInfoList?: Array<MasterInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HousekeepingCreditRulesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HousekeepingCreditRulesDetails interface.

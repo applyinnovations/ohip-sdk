@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockAliasesType } from './BlockAliasesType';
-import {
-    BlockAliasesTypeFromJSON,
-    BlockAliasesTypeFromJSONTyped,
-    BlockAliasesTypeToJSON,
-} from './BlockAliasesType';
 import type { BlockClassificationType } from './BlockClassificationType';
 import {
     BlockClassificationTypeFromJSON,
@@ -49,12 +43,6 @@ import {
     BlockDetailsTypeShoulderRatePlanCodeFromJSONTyped,
     BlockDetailsTypeShoulderRatePlanCodeToJSON,
 } from './BlockDetailsTypeShoulderRatePlanCode';
-import type { BlockNextStatusListType } from './BlockNextStatusListType';
-import {
-    BlockNextStatusListTypeFromJSON,
-    BlockNextStatusListTypeFromJSONTyped,
-    BlockNextStatusListTypeToJSON,
-} from './BlockNextStatusListType';
 import type { BlockNonCompeteType } from './BlockNonCompeteType';
 import {
     BlockNonCompeteTypeFromJSON,
@@ -73,18 +61,18 @@ import {
     BlockSourceOfSaleTypeFromJSONTyped,
     BlockSourceOfSaleTypeToJSON,
 } from './BlockSourceOfSaleType';
-import type { BlockStatusChangeHistoryType } from './BlockStatusChangeHistoryType';
-import {
-    BlockStatusChangeHistoryTypeFromJSON,
-    BlockStatusChangeHistoryTypeFromJSONTyped,
-    BlockStatusChangeHistoryTypeToJSON,
-} from './BlockStatusChangeHistoryType';
 import type { BookingStatusDetailType } from './BookingStatusDetailType';
 import {
     BookingStatusDetailTypeFromJSON,
     BookingStatusDetailTypeFromJSONTyped,
     BookingStatusDetailTypeToJSON,
 } from './BookingStatusDetailType';
+import type { BookingStatusHistoryType } from './BookingStatusHistoryType';
+import {
+    BookingStatusHistoryTypeFromJSON,
+    BookingStatusHistoryTypeFromJSONTyped,
+    BookingStatusHistoryTypeToJSON,
+} from './BookingStatusHistoryType';
 import type { CancellationDetailsType } from './CancellationDetailsType';
 import {
     CancellationDetailsTypeFromJSON,
@@ -115,18 +103,18 @@ import {
     ReservationTypeInfoTypeFromJSONTyped,
     ReservationTypeInfoTypeToJSON,
 } from './ReservationTypeInfoType';
-import type { SubBlockIdList } from './SubBlockIdList';
-import {
-    SubBlockIdListFromJSON,
-    SubBlockIdListFromJSONTyped,
-    SubBlockIdListToJSON,
-} from './SubBlockIdList';
 import type { TimeSpanType } from './TimeSpanType';
 import {
     TimeSpanTypeFromJSON,
     TimeSpanTypeFromJSONTyped,
     TimeSpanTypeToJSON,
 } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Information about the Block Details
@@ -147,11 +135,11 @@ export interface BlockDetailsType {
      */
     autoloadContractGrid?: boolean;
     /**
-     * 
-     * @type {BlockAliasesType}
+     * List of Block Aliases.
+     * @type {Array<string>}
      * @memberof BlockDetailsType
      */
-    blockAliases?: BlockAliasesType;
+    blockAliases?: Array<string>;
     /**
      * 
      * @type {BlockClassificationType}
@@ -171,11 +159,11 @@ export interface BlockDetailsType {
      */
     blockName?: string;
     /**
-     * 
-     * @type {BlockNextStatusListType}
+     * Next booking status of the business block.
+     * @type {Array<BookingStatusDetailType>}
      * @memberof BlockDetailsType
      */
-    blockNextStatusList?: BlockNextStatusListType;
+    blockNextStatusList?: Array<BookingStatusDetailType>;
     /**
      * Origin information of the block PMS/ORS/SC/SFA
      * @type {string}
@@ -189,11 +177,11 @@ export interface BlockDetailsType {
      */
     blockStatus?: BookingStatusDetailType;
     /**
-     * 
-     * @type {BlockStatusChangeHistoryType}
+     * Collection of block status history.
+     * @type {Array<BookingStatusHistoryType>}
      * @memberof BlockDetailsType
      */
-    blockStatusChangeHistory?: BlockStatusChangeHistoryType;
+    blockStatusChangeHistory?: Array<BookingStatusHistoryType>;
     /**
      * Internal type of the block.
      * @type {string}
@@ -393,11 +381,11 @@ export interface BlockDetailsType {
      */
     status?: string;
     /**
-     * 
-     * @type {SubBlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof BlockDetailsType
      */
-    subBlockIdList?: SubBlockIdList;
+    subBlockIdList?: Array<UniqueIDType>;
     /**
      * Indicate if Master/Sub Blocks are Synchronized.
      * @type {boolean}
@@ -451,14 +439,14 @@ export function BlockDetailsTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'allowRateOverride': !exists(json, 'allowRateOverride') ? undefined : json['allowRateOverride'],
         'autoloadContractGrid': !exists(json, 'autoloadContractGrid') ? undefined : json['autoloadContractGrid'],
-        'blockAliases': !exists(json, 'blockAliases') ? undefined : BlockAliasesTypeFromJSON(json['blockAliases']),
+        'blockAliases': !exists(json, 'blockAliases') ? undefined : json['blockAliases'],
         'blockClassification': !exists(json, 'blockClassification') ? undefined : BlockClassificationTypeFromJSON(json['blockClassification']),
         'blockCode': !exists(json, 'blockCode') ? undefined : json['blockCode'],
         'blockName': !exists(json, 'blockName') ? undefined : json['blockName'],
-        'blockNextStatusList': !exists(json, 'blockNextStatusList') ? undefined : BlockNextStatusListTypeFromJSON(json['blockNextStatusList']),
+        'blockNextStatusList': !exists(json, 'blockNextStatusList') ? undefined : ((json['blockNextStatusList'] as Array<any>).map(BookingStatusDetailTypeFromJSON)),
         'blockOrigin': !exists(json, 'blockOrigin') ? undefined : json['blockOrigin'],
         'blockStatus': !exists(json, 'blockStatus') ? undefined : BookingStatusDetailTypeFromJSON(json['blockStatus']),
-        'blockStatusChangeHistory': !exists(json, 'blockStatusChangeHistory') ? undefined : BlockStatusChangeHistoryTypeFromJSON(json['blockStatusChangeHistory']),
+        'blockStatusChangeHistory': !exists(json, 'blockStatusChangeHistory') ? undefined : ((json['blockStatusChangeHistory'] as Array<any>).map(BookingStatusHistoryTypeFromJSON)),
         'blockType': !exists(json, 'blockType') ? undefined : json['blockType'],
         'bookingType': !exists(json, 'bookingType') ? undefined : CodeDescriptionTypeFromJSON(json['bookingType']),
         'businessDateArrivalsExist': !exists(json, 'businessDateArrivalsExist') ? undefined : json['businessDateArrivalsExist'],
@@ -492,7 +480,7 @@ export function BlockDetailsTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'shoulderRatePlanCode': !exists(json, 'shoulderRatePlanCode') ? undefined : BlockDetailsTypeShoulderRatePlanCodeFromJSON(json['shoulderRatePlanCode']),
         'sourceOfSale': !exists(json, 'sourceOfSale') ? undefined : BlockSourceOfSaleTypeFromJSON(json['sourceOfSale']),
         'status': !exists(json, 'status') ? undefined : json['status'],
-        'subBlockIdList': !exists(json, 'subBlockIdList') ? undefined : SubBlockIdListFromJSON(json['subBlockIdList']),
+        'subBlockIdList': !exists(json, 'subBlockIdList') ? undefined : ((json['subBlockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         '_synchronized': !exists(json, 'synchronized') ? undefined : json['synchronized'],
         'taxType': !exists(json, 'taxType') ? undefined : json['taxType'],
         'timeSpan': !exists(json, 'timeSpan') ? undefined : TimeSpanTypeFromJSON(json['timeSpan']),
@@ -512,14 +500,14 @@ export function BlockDetailsTypeToJSON(value?: BlockDetailsType | null): any {
         
         'allowRateOverride': value.allowRateOverride,
         'autoloadContractGrid': value.autoloadContractGrid,
-        'blockAliases': BlockAliasesTypeToJSON(value.blockAliases),
+        'blockAliases': value.blockAliases,
         'blockClassification': BlockClassificationTypeToJSON(value.blockClassification),
         'blockCode': value.blockCode,
         'blockName': value.blockName,
-        'blockNextStatusList': BlockNextStatusListTypeToJSON(value.blockNextStatusList),
+        'blockNextStatusList': value.blockNextStatusList === undefined ? undefined : ((value.blockNextStatusList as Array<any>).map(BookingStatusDetailTypeToJSON)),
         'blockOrigin': value.blockOrigin,
         'blockStatus': BookingStatusDetailTypeToJSON(value.blockStatus),
-        'blockStatusChangeHistory': BlockStatusChangeHistoryTypeToJSON(value.blockStatusChangeHistory),
+        'blockStatusChangeHistory': value.blockStatusChangeHistory === undefined ? undefined : ((value.blockStatusChangeHistory as Array<any>).map(BookingStatusHistoryTypeToJSON)),
         'blockType': value.blockType,
         'bookingType': CodeDescriptionTypeToJSON(value.bookingType),
         'businessDateArrivalsExist': value.businessDateArrivalsExist,
@@ -553,7 +541,7 @@ export function BlockDetailsTypeToJSON(value?: BlockDetailsType | null): any {
         'shoulderRatePlanCode': BlockDetailsTypeShoulderRatePlanCodeToJSON(value.shoulderRatePlanCode),
         'sourceOfSale': BlockSourceOfSaleTypeToJSON(value.sourceOfSale),
         'status': value.status,
-        'subBlockIdList': SubBlockIdListToJSON(value.subBlockIdList),
+        'subBlockIdList': value.subBlockIdList === undefined ? undefined : ((value.subBlockIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'synchronized': value._synchronized,
         'taxType': value.taxType,
         'timeSpan': TimeSpanTypeToJSON(value.timeSpan),

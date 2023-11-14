@@ -9,12 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { EventItemTypeSellInfo } from './EventItemTypeSellInfo';
-import type { EventResourceNotesType } from './EventResourceNotesType';
-import type { ItemAttributesType } from './ItemAttributesType';
-import type { ItemRatesType } from './ItemRatesType';
-import type { ItemVendorsType } from './ItemVendorsType';
+import type { EventResourceNoteType } from './EventResourceNoteType';
+import type { ItemAttributeType } from './ItemAttributeType';
+import type { ItemRateType } from './ItemRateType';
+import type { ItemVendorType } from './ItemVendorType';
 import type { TranslationTextType200 } from './TranslationTextType200';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -60,17 +59,17 @@ export interface EventItemType {
      */
     attributeId?: UniqueIDType;
     /**
-     *
-     * @type {ItemAttributesType}
+     * List of Item Attributes.
+     * @type {Array<ItemAttributeType>}
      * @memberof EventItemType
      */
-    attributes?: ItemAttributesType;
+    attributes?: Array<ItemAttributeType>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof EventItemType
      */
-    departments?: CodeListType;
+    departments?: Array<string>;
     /**
      * Discount to be applied to the price.
      * @type {number}
@@ -97,10 +96,10 @@ export interface EventItemType {
     eventStartDate?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof EventItemType
      */
-    eventTypes?: CodeListType;
+    eventTypes?: Array<string>;
     /**
      * Shows the price the external source charges for the item
      * @type {number}
@@ -252,17 +251,17 @@ export interface EventItemType {
      */
     quantity?: number;
     /**
-     *
-     * @type {ItemRatesType}
+     * List of Item Rates.
+     * @type {Array<ItemRateType>}
      * @memberof EventItemType
      */
-    rates?: ItemRatesType;
+    rates?: Array<ItemRateType>;
     /**
-     *
-     * @type {EventResourceNotesType}
+     * Contains event resource comment information.
+     * @type {Array<EventResourceNoteType>}
      * @memberof EventItemType
      */
-    resourceNotes?: EventResourceNotesType;
+    resourceNotes?: Array<EventResourceNoteType>;
     /**
      * The Revenue Type of the Item.
      * @type {string}
@@ -318,11 +317,11 @@ export interface EventItemType {
      */
     vendorPrice?: number;
     /**
-     *
-     * @type {ItemVendorsType}
+     * List of Item Vendors.
+     * @type {Array<ItemVendorType>}
      * @memberof EventItemType
      */
-    vendors?: ItemVendorsType;
+    vendors?: Array<ItemVendorType>;
 }
 /**
  * Check if a given object implements the EventItemType interface.

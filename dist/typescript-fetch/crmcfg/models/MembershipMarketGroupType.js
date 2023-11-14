@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipMarketGroupTypeToJSON = exports.MembershipMarketGroupTypeFromJSONTyped = exports.MembershipMarketGroupTypeFromJSON = exports.instanceOfMembershipMarketGroupType = void 0;
 const runtime_1 = require("../runtime");
-const MembershipMarketCodesType_1 = require("./MembershipMarketCodesType");
+const CodeDescriptionType_1 = require("./CodeDescriptionType");
 /**
  * Check if a given object implements the MembershipMarketGroupType interface.
  */
@@ -36,7 +36,7 @@ function MembershipMarketGroupTypeFromJSONTyped(json, ignoreDiscriminator) {
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'displaySequence': !(0, runtime_1.exists)(json, 'displaySequence') ? undefined : json['displaySequence'],
-        'marketCodes': !(0, runtime_1.exists)(json, 'marketCodes') ? undefined : (0, MembershipMarketCodesType_1.MembershipMarketCodesTypeFromJSON)(json['marketCodes']),
+        'marketCodes': !(0, runtime_1.exists)(json, 'marketCodes') ? undefined : (json['marketCodes'].map(CodeDescriptionType_1.CodeDescriptionTypeFromJSON)),
     };
 }
 exports.MembershipMarketGroupTypeFromJSONTyped = MembershipMarketGroupTypeFromJSONTyped;
@@ -51,7 +51,7 @@ function MembershipMarketGroupTypeToJSON(value) {
         'code': value.code,
         'description': value.description,
         'displaySequence': value.displaySequence,
-        'marketCodes': (0, MembershipMarketCodesType_1.MembershipMarketCodesTypeToJSON)(value.marketCodes),
+        'marketCodes': value.marketCodes === undefined ? undefined : (value.marketCodes.map(CodeDescriptionType_1.CodeDescriptionTypeToJSON)),
     };
 }
 exports.MembershipMarketGroupTypeToJSON = MembershipMarketGroupTypeToJSON;

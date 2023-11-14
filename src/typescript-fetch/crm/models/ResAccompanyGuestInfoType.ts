@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ProfileIdList } from './ProfileIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -45,11 +45,11 @@ export interface ResAccompanyGuestInfoType {
      */
     lastName?: string;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ResAccompanyGuestInfoType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * Unique identifier of the police registration card number.
      * @type {string}
@@ -80,7 +80,7 @@ export function ResAccompanyGuestInfoTypeFromJSONTyped(json: any, ignoreDiscrimi
         'firstName': !exists(json, 'firstName') ? undefined : json['firstName'],
         'fullName': !exists(json, 'fullName') ? undefined : json['fullName'],
         'lastName': !exists(json, 'lastName') ? undefined : json['lastName'],
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'registrationCardNo': !exists(json, 'registrationCardNo') ? undefined : json['registrationCardNo'],
     };
 }
@@ -97,7 +97,7 @@ export function ResAccompanyGuestInfoTypeToJSON(value?: ResAccompanyGuestInfoTyp
         'firstName': value.firstName,
         'fullName': value.fullName,
         'lastName': value.lastName,
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'registrationCardNo': value.registrationCardNo,
     };
 }

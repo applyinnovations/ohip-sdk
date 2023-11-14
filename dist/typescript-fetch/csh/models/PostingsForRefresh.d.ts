@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { PostingsInfoType } from './PostingsInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object that lists the transactions that can be refreshed when a routing instruction set is refreshed.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface PostingsForRefresh {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostingsForRefresh
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {PostingsInfoType}
@@ -31,11 +31,11 @@ export interface PostingsForRefresh {
      */
     postingsForRoomRouting?: PostingsInfoType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostingsForRefresh
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PostingsForRefresh interface.

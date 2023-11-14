@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { MembershipClaimDetailsType } from './MembershipClaimDetailsType';
 import {
     MembershipClaimDetailsTypeFromJSON,
@@ -40,10 +40,10 @@ export interface MembershipClaim {
     membershipClaimDetails?: MembershipClaimDetailsType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipClaim
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function MembershipClaimFromJSONTyped(json: any, ignoreDiscriminator: boo
     return {
         
         'membershipClaimDetails': !exists(json, 'membershipClaimDetails') ? undefined : MembershipClaimDetailsTypeFromJSON(json['membershipClaimDetails']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function MembershipClaimToJSON(value?: MembershipClaim | null): any {
     return {
         
         'membershipClaimDetails': MembershipClaimDetailsTypeToJSON(value.membershipClaimDetails),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

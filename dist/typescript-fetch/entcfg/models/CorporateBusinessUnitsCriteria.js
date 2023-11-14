@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CorporateBusinessUnitsCriteriaToJSON = exports.CorporateBusinessUnitsCriteriaFromJSONTyped = exports.CorporateBusinessUnitsCriteriaFromJSON = exports.instanceOfCorporateBusinessUnitsCriteria = void 0;
 const runtime_1 = require("../runtime");
-const CorporateBusinessUnitsType_1 = require("./CorporateBusinessUnitsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CorporateBusinessUnitType_1 = require("./CorporateBusinessUnitType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CorporateBusinessUnitsCriteria interface.
  */
@@ -35,9 +35,9 @@ function CorporateBusinessUnitsCriteriaFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'corporateBusinessUnits': !(0, runtime_1.exists)(json, 'corporateBusinessUnits') ? undefined : (0, CorporateBusinessUnitsType_1.CorporateBusinessUnitsTypeFromJSON)(json['corporateBusinessUnits']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'corporateBusinessUnits': !(0, runtime_1.exists)(json, 'corporateBusinessUnits') ? undefined : (json['corporateBusinessUnits'].map(CorporateBusinessUnitType_1.CorporateBusinessUnitTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CorporateBusinessUnitsCriteriaFromJSONTyped = CorporateBusinessUnitsCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function CorporateBusinessUnitsCriteriaToJSON(value) {
         return null;
     }
     return {
-        'corporateBusinessUnits': (0, CorporateBusinessUnitsType_1.CorporateBusinessUnitsTypeToJSON)(value.corporateBusinessUnits),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'corporateBusinessUnits': value.corporateBusinessUnits === undefined ? undefined : (value.corporateBusinessUnits.map(CorporateBusinessUnitType_1.CorporateBusinessUnitTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CorporateBusinessUnitsCriteriaToJSON = CorporateBusinessUnitsCriteriaToJSON;

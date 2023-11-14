@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BillingInstructionsType } from './BillingInstructionsType';
+import type { BillingInstructionType } from './BillingInstructionType';
 import {
-    BillingInstructionsTypeFromJSON,
-    BillingInstructionsTypeFromJSONTyped,
-    BillingInstructionsTypeToJSON,
-} from './BillingInstructionsType';
+    BillingInstructionTypeFromJSON,
+    BillingInstructionTypeFromJSONTyped,
+    BillingInstructionTypeToJSON,
+} from './BillingInstructionType';
 import type { RoutingInstructionTypeDuration } from './RoutingInstructionTypeDuration';
 import {
     RoutingInstructionTypeDurationFromJSON,
     RoutingInstructionTypeDurationFromJSONTyped,
     RoutingInstructionTypeDurationToJSON,
 } from './RoutingInstructionTypeDuration';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -45,11 +45,11 @@ import {
  */
 export interface RoutingInstructionType {
     /**
-     * 
-     * @type {BillingInstructionsType}
+     * Set of Billing Instruction codes.
+     * @type {Array<BillingInstructionType>}
      * @memberof RoutingInstructionType
      */
-    billingInstructions?: BillingInstructionsType;
+    billingInstructions?: Array<BillingInstructionType>;
     /**
      * Number of covers for this routing instruction.
      * @type {number}
@@ -87,11 +87,11 @@ export interface RoutingInstructionType {
      */
     routingLinkId?: UniqueIDType;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof RoutingInstructionType
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
 }
 
 /**
@@ -113,14 +113,14 @@ export function RoutingInstructionTypeFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'billingInstructions': !exists(json, 'billingInstructions') ? undefined : BillingInstructionsTypeFromJSON(json['billingInstructions']),
+        'billingInstructions': !exists(json, 'billingInstructions') ? undefined : ((json['billingInstructions'] as Array<any>).map(BillingInstructionTypeFromJSON)),
         'covers': !exists(json, 'covers') ? undefined : json['covers'],
         'creditLimit': !exists(json, 'creditLimit') ? undefined : json['creditLimit'],
         'duration': !exists(json, 'duration') ? undefined : RoutingInstructionTypeDurationFromJSON(json['duration']),
         'limitUsed': !exists(json, 'limitUsed') ? undefined : json['limitUsed'],
         'percentageLimit': !exists(json, 'percentageLimit') ? undefined : json['percentageLimit'],
         'routingLinkId': !exists(json, 'routingLinkId') ? undefined : UniqueIDTypeFromJSON(json['routingLinkId']),
-        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : TrxCodesInfoTypeFromJSON(json['transactionCodes']),
+        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : ((json['transactionCodes'] as Array<any>).map(TrxInfoTypeFromJSON)),
     };
 }
 
@@ -133,14 +133,14 @@ export function RoutingInstructionTypeToJSON(value?: RoutingInstructionType | nu
     }
     return {
         
-        'billingInstructions': BillingInstructionsTypeToJSON(value.billingInstructions),
+        'billingInstructions': value.billingInstructions === undefined ? undefined : ((value.billingInstructions as Array<any>).map(BillingInstructionTypeToJSON)),
         'covers': value.covers,
         'creditLimit': value.creditLimit,
         'duration': RoutingInstructionTypeDurationToJSON(value.duration),
         'limitUsed': value.limitUsed,
         'percentageLimit': value.percentageLimit,
         'routingLinkId': UniqueIDTypeToJSON(value.routingLinkId),
-        'transactionCodes': TrxCodesInfoTypeToJSON(value.transactionCodes),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : ((value.transactionCodes as Array<any>).map(TrxInfoTypeToJSON)),
     };
 }
 

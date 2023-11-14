@@ -19,18 +19,18 @@ import {
     ChannelNegotiatedRateDetailsChannelNegRatesFromJSONTyped,
     ChannelNegotiatedRateDetailsChannelNegRatesToJSON,
 } from './ChannelNegotiatedRateDetailsChannelNegRates';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Negotiated channel rates.
@@ -46,16 +46,16 @@ export interface ChannelNegotiatedRateDetails {
     channelNegRates?: ChannelNegotiatedRateDetailsChannelNegRates;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelNegotiatedRateDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelNegotiatedRateDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -78,8 +78,8 @@ export function ChannelNegotiatedRateDetailsFromJSONTyped(json: any, ignoreDiscr
     return {
         
         'channelNegRates': !exists(json, 'channelNegRates') ? undefined : ChannelNegotiatedRateDetailsChannelNegRatesFromJSON(json['channelNegRates']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -93,8 +93,8 @@ export function ChannelNegotiatedRateDetailsToJSON(value?: ChannelNegotiatedRate
     return {
         
         'channelNegRates': ChannelNegotiatedRateDetailsChannelNegRatesToJSON(value.channelNegRates),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

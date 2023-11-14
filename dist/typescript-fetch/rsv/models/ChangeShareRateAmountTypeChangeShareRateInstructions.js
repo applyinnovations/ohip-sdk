@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChangeShareRateAmountTypeChangeShareRateInstructionsToJSON = exports.ChangeShareRateAmountTypeChangeShareRateInstructionsFromJSONTyped = exports.ChangeShareRateAmountTypeChangeShareRateInstructionsFromJSON = exports.instanceOfChangeShareRateAmountTypeChangeShareRateInstructions = void 0;
 const runtime_1 = require("../runtime");
-const EffectiveRatesType_1 = require("./EffectiveRatesType");
+const EffectiveRateType_1 = require("./EffectiveRateType");
 /**
  * Check if a given object implements the ChangeShareRateAmountTypeChangeShareRateInstructions interface.
  */
@@ -33,7 +33,7 @@ function ChangeShareRateAmountTypeChangeShareRateInstructionsFromJSONTyped(json,
         return json;
     }
     return {
-        'effectiveRates': !(0, runtime_1.exists)(json, 'effectiveRates') ? undefined : (0, EffectiveRatesType_1.EffectiveRatesTypeFromJSON)(json['effectiveRates']),
+        'effectiveRates': !(0, runtime_1.exists)(json, 'effectiveRates') ? undefined : (json['effectiveRates'].map(EffectiveRateType_1.EffectiveRateTypeFromJSON)),
         'returnShareReservations': !(0, runtime_1.exists)(json, 'returnShareReservations') ? undefined : json['returnShareReservations'],
     };
 }
@@ -46,7 +46,7 @@ function ChangeShareRateAmountTypeChangeShareRateInstructionsToJSON(value) {
         return null;
     }
     return {
-        'effectiveRates': (0, EffectiveRatesType_1.EffectiveRatesTypeToJSON)(value.effectiveRates),
+        'effectiveRates': value.effectiveRates === undefined ? undefined : (value.effectiveRates.map(EffectiveRateType_1.EffectiveRateTypeToJSON)),
         'returnShareReservations': value.returnShareReservations,
     };
 }

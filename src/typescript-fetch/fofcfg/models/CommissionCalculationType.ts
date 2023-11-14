@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { CommissionCodeTransactionType } from './CommissionCodeTransactionType';
+import {
+    CommissionCodeTransactionTypeFromJSON,
+    CommissionCodeTransactionTypeFromJSONTyped,
+    CommissionCodeTransactionTypeToJSON,
+} from './CommissionCodeTransactionType';
 import type { ReservationBasedCommissionType } from './ReservationBasedCommissionType';
 import {
     ReservationBasedCommissionTypeFromJSON,
     ReservationBasedCommissionTypeFromJSONTyped,
     ReservationBasedCommissionTypeToJSON,
 } from './ReservationBasedCommissionType';
-import type { RevenueBasedCommissionType } from './RevenueBasedCommissionType';
-import {
-    RevenueBasedCommissionTypeFromJSON,
-    RevenueBasedCommissionTypeFromJSONTyped,
-    RevenueBasedCommissionTypeToJSON,
-} from './RevenueBasedCommissionType';
 
 /**
  * Commission calculation type based on details.
@@ -39,11 +39,11 @@ export interface CommissionCalculationType {
      */
     reservationBasedCommission?: ReservationBasedCommissionType;
     /**
-     * 
-     * @type {RevenueBasedCommissionType}
+     * Revenue based commission details.
+     * @type {Array<CommissionCodeTransactionType>}
      * @memberof CommissionCalculationType
      */
-    revenueBasedCommission?: RevenueBasedCommissionType;
+    revenueBasedCommission?: Array<CommissionCodeTransactionType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function CommissionCalculationTypeFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'reservationBasedCommission': !exists(json, 'reservationBasedCommission') ? undefined : ReservationBasedCommissionTypeFromJSON(json['reservationBasedCommission']),
-        'revenueBasedCommission': !exists(json, 'revenueBasedCommission') ? undefined : RevenueBasedCommissionTypeFromJSON(json['revenueBasedCommission']),
+        'revenueBasedCommission': !exists(json, 'revenueBasedCommission') ? undefined : ((json['revenueBasedCommission'] as Array<any>).map(CommissionCodeTransactionTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function CommissionCalculationTypeToJSON(value?: CommissionCalculationTyp
     return {
         
         'reservationBasedCommission': ReservationBasedCommissionTypeToJSON(value.reservationBasedCommission),
-        'revenueBasedCommission': RevenueBasedCommissionTypeToJSON(value.revenueBasedCommission),
+        'revenueBasedCommission': value.revenueBasedCommission === undefined ? undefined : ((value.revenueBasedCommission as Array<any>).map(CommissionCodeTransactionTypeToJSON)),
     };
 }
 

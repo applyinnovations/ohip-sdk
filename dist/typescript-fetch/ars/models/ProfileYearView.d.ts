@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ARProfileYearViewInfoType } from './ARProfileYearViewInfoType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response to the request to fetch the total Year View information for a Profile.
  * @export
@@ -26,16 +26,16 @@ export interface ProfileYearView {
     aRProfileYearView?: ARProfileYearViewInfoType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileYearView
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileYearView
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileYearView interface.

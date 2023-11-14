@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TelephoneCategoriesType } from './TelephoneCategoriesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TelephoneCategoryType } from './TelephoneCategoryType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for Telephone Book Category.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TelephoneBookCategoriesCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TelephoneBookCategoriesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TelephoneCategoriesType}
+     * This type holds collection of Telephone Categories with complete information.
+     * @type {Array<TelephoneCategoryType>}
      * @memberof TelephoneBookCategoriesCriteria
      */
-    telephoneCategories?: TelephoneCategoriesType;
+    telephoneCategories?: Array<TelephoneCategoryType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TelephoneBookCategoriesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TelephoneBookCategoriesCriteria interface.

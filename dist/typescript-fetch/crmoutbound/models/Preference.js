@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PreferenceToJSON = exports.PreferenceFromJSONTyped = exports.PreferenceFromJSON = exports.instanceOfPreference = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const PreferenceTypeType_1 = require("./PreferenceTypeType");
-const ProfileIdList_1 = require("./ProfileIdList");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the Preference interface.
  */
@@ -36,8 +36,8 @@ function PreferenceFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'preferenceCollections': !(0, runtime_1.exists)(json, 'preferenceCollections') ? undefined : (json['preferenceCollections'].map(PreferenceTypeType_1.PreferenceTypeTypeFromJSON)),
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.PreferenceFromJSONTyped = PreferenceFromJSONTyped;
@@ -50,8 +50,8 @@ function PreferenceToJSON(value) {
     }
     return {
         'preferenceCollections': value.preferenceCollections === undefined ? undefined : (value.preferenceCollections.map(PreferenceTypeType_1.PreferenceTypeTypeToJSON)),
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.PreferenceToJSON = PreferenceToJSON;

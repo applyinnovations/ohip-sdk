@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ExportColumnsType } from './ExportColumnsType';
-import type { ExportComponentsType } from './ExportComponentsType';
+import type { ExportColumnDetailType } from './ExportColumnDetailType';
+import type { ExportComponentType } from './ExportComponentType';
 import type { ExportDataSetupType } from './ExportDataSetupType';
 import type { ExportDestinationType } from './ExportDestinationType';
 import type { ExportGenerateConfigurationType } from './ExportGenerateConfigurationType';
@@ -23,17 +23,17 @@ import type { ExportXMLColumnsType } from './ExportXMLColumnsType';
  */
 export interface ExportConfigurationType {
     /**
-     *
-     * @type {ExportColumnsType}
+     * A collection of export columns.
+     * @type {Array<ExportColumnDetailType>}
      * @memberof ExportConfigurationType
      */
-    columns?: ExportColumnsType;
+    columns?: Array<ExportColumnDetailType>;
     /**
-     *
-     * @type {ExportComponentsType}
+     * A collection of export components.
+     * @type {Array<ExportComponentType>}
      * @memberof ExportConfigurationType
      */
-    components?: ExportComponentsType;
+    components?: Array<ExportComponentType>;
     /**
      *
      * @type {ExportDataSetupType}

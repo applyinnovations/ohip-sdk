@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreditCardUniqueIdRQToJSON = exports.CreditCardUniqueIdRQFromJSONTyped = exports.CreditCardUniqueIdRQFromJSON = exports.instanceOfCreditCardUniqueIdRQ = void 0;
 const runtime_1 = require("../runtime");
 const CreditCardUniqueIdType_1 = require("./CreditCardUniqueIdType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CreditCardUniqueIdRQ interface.
  */
@@ -35,7 +35,7 @@ function CreditCardUniqueIdRQFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'creditCardUniqueId': !(0, runtime_1.exists)(json, 'creditCardUniqueId') ? undefined : (0, CreditCardUniqueIdType_1.CreditCardUniqueIdTypeFromJSON)(json['creditCardUniqueId']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CreditCardUniqueIdRQFromJSONTyped = CreditCardUniqueIdRQFromJSONTyped;
@@ -48,7 +48,7 @@ function CreditCardUniqueIdRQToJSON(value) {
     }
     return {
         'creditCardUniqueId': (0, CreditCardUniqueIdType_1.CreditCardUniqueIdTypeToJSON)(value.creditCardUniqueId),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CreditCardUniqueIdRQToJSON = CreditCardUniqueIdRQToJSON;

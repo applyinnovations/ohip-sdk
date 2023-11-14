@@ -19,24 +19,24 @@ import {
     CateringEventPostingsTypeFromJSONTyped,
     CateringEventPostingsTypeToJSON,
 } from './CateringEventPostingsType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReservationSnapshotsType } from './ReservationSnapshotsType';
 import {
     ReservationSnapshotsTypeFromJSON,
     ReservationSnapshotsTypeFromJSONTyped,
     ReservationSnapshotsTypeToJSON,
 } from './ReservationSnapshotsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Object for retrieving catering events postings.
@@ -52,10 +52,10 @@ export interface CateringEventPostings {
     cateringEventPostings?: CateringEventPostingsType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringEventPostings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ReservationSnapshotsType}
@@ -63,11 +63,11 @@ export interface CateringEventPostings {
      */
     postingMasterReservations?: ReservationSnapshotsType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringEventPostings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -90,9 +90,9 @@ export function CateringEventPostingsFromJSONTyped(json: any, ignoreDiscriminato
     return {
         
         'cateringEventPostings': !exists(json, 'cateringEventPostings') ? undefined : CateringEventPostingsTypeFromJSON(json['cateringEventPostings']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'postingMasterReservations': !exists(json, 'postingMasterReservations') ? undefined : ReservationSnapshotsTypeFromJSON(json['postingMasterReservations']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -106,9 +106,9 @@ export function CateringEventPostingsToJSON(value?: CateringEventPostings | null
     return {
         
         'cateringEventPostings': CateringEventPostingsTypeToJSON(value.cateringEventPostings),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'postingMasterReservations': ReservationSnapshotsTypeToJSON(value.postingMasterReservations),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

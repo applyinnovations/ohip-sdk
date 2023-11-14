@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PrimaryCodesType } from './PrimaryCodesType';
+import type { PrimaryCodeType } from './PrimaryCodeType';
 import {
-    PrimaryCodesTypeFromJSON,
-    PrimaryCodesTypeFromJSONTyped,
-    PrimaryCodesTypeToJSON,
-} from './PrimaryCodesType';
+    PrimaryCodeTypeFromJSON,
+    PrimaryCodeTypeFromJSONTyped,
+    PrimaryCodeTypeToJSON,
+} from './PrimaryCodeType';
 
 /**
  * Corporate information details of the property
@@ -33,23 +33,23 @@ export interface HotelCorporateInformationsType {
      */
     brandCode?: string;
     /**
-     * 
-     * @type {PrimaryCodesType}
+     * List of codes with primary flag
+     * @type {Array<PrimaryCodeType>}
      * @memberof HotelCorporateInformationsType
      */
-    businessUnit?: PrimaryCodesType;
+    businessUnit?: Array<PrimaryCodeType>;
     /**
-     * 
-     * @type {PrimaryCodesType}
+     * List of codes with primary flag
+     * @type {Array<PrimaryCodeType>}
      * @memberof HotelCorporateInformationsType
      */
-    departmentCode?: PrimaryCodesType;
+    departmentCode?: Array<PrimaryCodeType>;
     /**
-     * 
-     * @type {PrimaryCodesType}
+     * List of codes with primary flag
+     * @type {Array<PrimaryCodeType>}
      * @memberof HotelCorporateInformationsType
      */
-    division?: PrimaryCodesType;
+    division?: Array<PrimaryCodeType>;
     /**
      * 
      * @type {string}
@@ -57,11 +57,11 @@ export interface HotelCorporateInformationsType {
      */
     hotelCategory?: string;
     /**
-     * 
-     * @type {PrimaryCodesType}
+     * List of codes with primary flag
+     * @type {Array<PrimaryCodeType>}
      * @memberof HotelCorporateInformationsType
      */
-    opertingUnit?: PrimaryCodesType;
+    opertingUnit?: Array<PrimaryCodeType>;
 }
 
 /**
@@ -84,11 +84,11 @@ export function HotelCorporateInformationsTypeFromJSONTyped(json: any, ignoreDis
     return {
         
         'brandCode': !exists(json, 'brandCode') ? undefined : json['brandCode'],
-        'businessUnit': !exists(json, 'businessUnit') ? undefined : PrimaryCodesTypeFromJSON(json['businessUnit']),
-        'departmentCode': !exists(json, 'departmentCode') ? undefined : PrimaryCodesTypeFromJSON(json['departmentCode']),
-        'division': !exists(json, 'division') ? undefined : PrimaryCodesTypeFromJSON(json['division']),
+        'businessUnit': !exists(json, 'businessUnit') ? undefined : ((json['businessUnit'] as Array<any>).map(PrimaryCodeTypeFromJSON)),
+        'departmentCode': !exists(json, 'departmentCode') ? undefined : ((json['departmentCode'] as Array<any>).map(PrimaryCodeTypeFromJSON)),
+        'division': !exists(json, 'division') ? undefined : ((json['division'] as Array<any>).map(PrimaryCodeTypeFromJSON)),
         'hotelCategory': !exists(json, 'hotelCategory') ? undefined : json['hotelCategory'],
-        'opertingUnit': !exists(json, 'opertingUnit') ? undefined : PrimaryCodesTypeFromJSON(json['opertingUnit']),
+        'opertingUnit': !exists(json, 'opertingUnit') ? undefined : ((json['opertingUnit'] as Array<any>).map(PrimaryCodeTypeFromJSON)),
     };
 }
 
@@ -102,11 +102,11 @@ export function HotelCorporateInformationsTypeToJSON(value?: HotelCorporateInfor
     return {
         
         'brandCode': value.brandCode,
-        'businessUnit': PrimaryCodesTypeToJSON(value.businessUnit),
-        'departmentCode': PrimaryCodesTypeToJSON(value.departmentCode),
-        'division': PrimaryCodesTypeToJSON(value.division),
+        'businessUnit': value.businessUnit === undefined ? undefined : ((value.businessUnit as Array<any>).map(PrimaryCodeTypeToJSON)),
+        'departmentCode': value.departmentCode === undefined ? undefined : ((value.departmentCode as Array<any>).map(PrimaryCodeTypeToJSON)),
+        'division': value.division === undefined ? undefined : ((value.division as Array<any>).map(PrimaryCodeTypeToJSON)),
         'hotelCategory': value.hotelCategory,
-        'opertingUnit': PrimaryCodesTypeToJSON(value.opertingUnit),
+        'opertingUnit': value.opertingUnit === undefined ? undefined : ((value.opertingUnit as Array<any>).map(PrimaryCodeTypeToJSON)),
     };
 }
 

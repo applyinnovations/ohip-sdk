@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { NationalitiesType } from './NationalitiesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { NationalityType } from './NationalityType';
 import {
-    NationalitiesTypeFromJSON,
-    NationalitiesTypeFromJSONTyped,
-    NationalitiesTypeToJSON,
-} from './NationalitiesType';
-import type { WarningsType } from './WarningsType';
+    NationalityTypeFromJSON,
+    NationalityTypeFromJSONTyped,
+    NationalityTypeToJSON,
+} from './NationalityType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Nationalities.
@@ -40,22 +40,22 @@ import {
 export interface NationalitiesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof NationalitiesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {NationalitiesType}
+     * List of Nationalities.
+     * @type {Array<NationalityType>}
      * @memberof NationalitiesDetails
      */
-    nationalities?: NationalitiesType;
+    nationalities?: Array<NationalityType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof NationalitiesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function NationalitiesDetailsFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'nationalities': !exists(json, 'nationalities') ? undefined : NationalitiesTypeFromJSON(json['nationalities']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'nationalities': !exists(json, 'nationalities') ? undefined : ((json['nationalities'] as Array<any>).map(NationalityTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function NationalitiesDetailsToJSON(value?: NationalitiesDetails | null):
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'nationalities': NationalitiesTypeToJSON(value.nationalities),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'nationalities': value.nationalities === undefined ? undefined : ((value.nationalities as Array<any>).map(NationalityTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

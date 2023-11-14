@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockWashSchedulesType } from './BlockWashSchedulesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BlockWashScheduleType } from './BlockWashScheduleType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object to fetch all the Block Wash Schedules. Each Block Wash Schedule will contain all the information like Wash Date, Room Type, Occupancy detail, Sell limit and Wash by percent value if exists.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BlockWashSchedules {
     /**
-     *
-     * @type {BlockWashSchedulesType}
+     * Wash Schedule attached to the block, which allows to release inventory based on selected wash schedule type.
+     * @type {Array<BlockWashScheduleType>}
      * @memberof BlockWashSchedules
      */
-    blockWashSchedules?: BlockWashSchedulesType;
+    blockWashSchedules?: Array<BlockWashScheduleType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockWashSchedules
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockWashSchedules
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockWashSchedules interface.

@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { MonthlyTransactionVarianceInfoType } from './MonthlyTransactionVarianceInfoType';
+import {
+    MonthlyTransactionVarianceInfoTypeFromJSON,
+    MonthlyTransactionVarianceInfoTypeFromJSONTyped,
+    MonthlyTransactionVarianceInfoTypeToJSON,
+} from './MonthlyTransactionVarianceInfoType';
 import type { TransactionInfoType } from './TransactionInfoType';
 import {
     TransactionInfoTypeFromJSON,
     TransactionInfoTypeFromJSONTyped,
     TransactionInfoTypeToJSON,
 } from './TransactionInfoType';
-import type { TransactionVarianceInfoType } from './TransactionVarianceInfoType';
-import {
-    TransactionVarianceInfoTypeFromJSON,
-    TransactionVarianceInfoTypeFromJSONTyped,
-    TransactionVarianceInfoTypeToJSON,
-} from './TransactionVarianceInfoType';
 
 /**
  * Budget Forecast information for Transaction segment code.
@@ -33,17 +33,17 @@ import {
  */
 export interface TransactionCodeInformationType {
     /**
-     * 
-     * @type {TransactionVarianceInfoType}
+     * Monthly Revenue Variance information.
+     * @type {Array<MonthlyTransactionVarianceInfoType>}
      * @memberof TransactionCodeInformationType
      */
-    aBVarianceInfo?: TransactionVarianceInfoType;
+    aBVarianceInfo?: Array<MonthlyTransactionVarianceInfoType>;
     /**
-     * 
-     * @type {TransactionVarianceInfoType}
+     * Monthly Revenue Variance information.
+     * @type {Array<MonthlyTransactionVarianceInfoType>}
      * @memberof TransactionCodeInformationType
      */
-    aFVarianceInfo?: TransactionVarianceInfoType;
+    aFVarianceInfo?: Array<MonthlyTransactionVarianceInfoType>;
     /**
      * 
      * @type {TransactionInfoType}
@@ -57,11 +57,11 @@ export interface TransactionCodeInformationType {
      */
     budgetInfo?: TransactionInfoType;
     /**
-     * 
-     * @type {TransactionVarianceInfoType}
+     * Monthly Revenue Variance information.
+     * @type {Array<MonthlyTransactionVarianceInfoType>}
      * @memberof TransactionCodeInformationType
      */
-    fBVarianceInfo?: TransactionVarianceInfoType;
+    fBVarianceInfo?: Array<MonthlyTransactionVarianceInfoType>;
     /**
      * 
      * @type {TransactionInfoType}
@@ -107,11 +107,11 @@ export function TransactionCodeInformationTypeFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'aBVarianceInfo': !exists(json, 'aBVarianceInfo') ? undefined : TransactionVarianceInfoTypeFromJSON(json['aBVarianceInfo']),
-        'aFVarianceInfo': !exists(json, 'aFVarianceInfo') ? undefined : TransactionVarianceInfoTypeFromJSON(json['aFVarianceInfo']),
+        'aBVarianceInfo': !exists(json, 'aBVarianceInfo') ? undefined : ((json['aBVarianceInfo'] as Array<any>).map(MonthlyTransactionVarianceInfoTypeFromJSON)),
+        'aFVarianceInfo': !exists(json, 'aFVarianceInfo') ? undefined : ((json['aFVarianceInfo'] as Array<any>).map(MonthlyTransactionVarianceInfoTypeFromJSON)),
         'actualInfo': !exists(json, 'actualInfo') ? undefined : TransactionInfoTypeFromJSON(json['actualInfo']),
         'budgetInfo': !exists(json, 'budgetInfo') ? undefined : TransactionInfoTypeFromJSON(json['budgetInfo']),
-        'fBVarianceInfo': !exists(json, 'fBVarianceInfo') ? undefined : TransactionVarianceInfoTypeFromJSON(json['fBVarianceInfo']),
+        'fBVarianceInfo': !exists(json, 'fBVarianceInfo') ? undefined : ((json['fBVarianceInfo'] as Array<any>).map(MonthlyTransactionVarianceInfoTypeFromJSON)),
         'forecastInfo': !exists(json, 'forecastInfo') ? undefined : TransactionInfoTypeFromJSON(json['forecastInfo']),
         'transactionCode': !exists(json, 'transactionCode') ? undefined : json['transactionCode'],
         'transactionCodeDescription': !exists(json, 'transactionCodeDescription') ? undefined : json['transactionCodeDescription'],
@@ -128,11 +128,11 @@ export function TransactionCodeInformationTypeToJSON(value?: TransactionCodeInfo
     }
     return {
         
-        'aBVarianceInfo': TransactionVarianceInfoTypeToJSON(value.aBVarianceInfo),
-        'aFVarianceInfo': TransactionVarianceInfoTypeToJSON(value.aFVarianceInfo),
+        'aBVarianceInfo': value.aBVarianceInfo === undefined ? undefined : ((value.aBVarianceInfo as Array<any>).map(MonthlyTransactionVarianceInfoTypeToJSON)),
+        'aFVarianceInfo': value.aFVarianceInfo === undefined ? undefined : ((value.aFVarianceInfo as Array<any>).map(MonthlyTransactionVarianceInfoTypeToJSON)),
         'actualInfo': TransactionInfoTypeToJSON(value.actualInfo),
         'budgetInfo': TransactionInfoTypeToJSON(value.budgetInfo),
-        'fBVarianceInfo': TransactionVarianceInfoTypeToJSON(value.fBVarianceInfo),
+        'fBVarianceInfo': value.fBVarianceInfo === undefined ? undefined : ((value.fBVarianceInfo as Array<any>).map(MonthlyTransactionVarianceInfoTypeToJSON)),
         'forecastInfo': TransactionInfoTypeToJSON(value.forecastInfo),
         'transactionCode': value.transactionCode,
         'transactionCodeDescription': value.transactionCodeDescription,

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { MergeCodesType } from './MergeCodesType';
+import type { MergeCodeType } from './MergeCodeType';
 import {
-    MergeCodesTypeFromJSON,
-    MergeCodesTypeFromJSONTyped,
-    MergeCodesTypeToJSON,
-} from './MergeCodesType';
+    MergeCodeTypeFromJSON,
+    MergeCodeTypeFromJSONTyped,
+    MergeCodeTypeToJSON,
+} from './MergeCodeType';
 import type { ScriptLocationsType } from './ScriptLocationsType';
 import {
     ScriptLocationsTypeFromJSON,
@@ -63,11 +63,11 @@ export interface ScriptType {
      */
     membershipType?: string;
     /**
-     * 
-     * @type {MergeCodesType}
+     * A Merge Code.
+     * @type {Array<MergeCodeType>}
      * @memberof ScriptType
      */
-    mergeCodes?: MergeCodesType;
+    mergeCodes?: Array<MergeCodeType>;
     /**
      * Script.
      * @type {string}
@@ -110,7 +110,7 @@ export function ScriptTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'language': !exists(json, 'language') ? undefined : json['language'],
         'locations': !exists(json, 'locations') ? undefined : ScriptLocationsTypeFromJSON(json['locations']),
         'membershipType': !exists(json, 'membershipType') ? undefined : json['membershipType'],
-        'mergeCodes': !exists(json, 'mergeCodes') ? undefined : MergeCodesTypeFromJSON(json['mergeCodes']),
+        'mergeCodes': !exists(json, 'mergeCodes') ? undefined : ((json['mergeCodes'] as Array<any>).map(MergeCodeTypeFromJSON)),
         'script': !exists(json, 'script') ? undefined : json['script'],
         'scriptId': !exists(json, 'scriptId') ? undefined : UniqueIDTypeFromJSON(json['scriptId']),
         'type': !exists(json, 'type') ? undefined : ScriptTypeTypeFromJSON(json['type']),
@@ -129,7 +129,7 @@ export function ScriptTypeToJSON(value?: ScriptType | null): any {
         'language': value.language,
         'locations': ScriptLocationsTypeToJSON(value.locations),
         'membershipType': value.membershipType,
-        'mergeCodes': MergeCodesTypeToJSON(value.mergeCodes),
+        'mergeCodes': value.mergeCodes === undefined ? undefined : ((value.mergeCodes as Array<any>).map(MergeCodeTypeToJSON)),
         'script': value.script,
         'scriptId': UniqueIDTypeToJSON(value.scriptId),
         'type': ScriptTypeTypeToJSON(value.type),

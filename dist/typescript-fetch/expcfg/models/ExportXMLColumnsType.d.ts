@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ExportXMLAttributesType } from './ExportXMLAttributesType';
-import type { ExportXMLElementsType } from './ExportXMLElementsType';
+import type { ExportXMLAttributeType } from './ExportXMLAttributeType';
+import type { ExportXMLElementType } from './ExportXMLElementType';
 /**
  * XML Columns type that hold information to all the element and attribute configuations
  * @export
@@ -18,17 +18,17 @@ import type { ExportXMLElementsType } from './ExportXMLElementsType';
  */
 export interface ExportXMLColumnsType {
     /**
-     *
-     * @type {ExportXMLAttributesType}
+     * XML attribute type that holds all the information related to attribute tag
+     * @type {Array<ExportXMLAttributeType>}
      * @memberof ExportXMLColumnsType
      */
-    attributes?: ExportXMLAttributesType;
+    attributes?: Array<ExportXMLAttributeType>;
     /**
-     *
-     * @type {ExportXMLElementsType}
+     * XML element type that holds all the information related to element tag
+     * @type {Array<ExportXMLElementType>}
      * @memberof ExportXMLColumnsType
      */
-    elements?: ExportXMLElementsType;
+    elements?: Array<ExportXMLElementType>;
 }
 /**
  * Check if a given object implements the ExportXMLColumnsType interface.

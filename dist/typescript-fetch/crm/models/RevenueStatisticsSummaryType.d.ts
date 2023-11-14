@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { RevenueBucketListType } from './RevenueBucketListType';
-import type { RevenueStatisticsDetailListType } from './RevenueStatisticsDetailListType';
+import type { RevenueStatisticsDetailType } from './RevenueStatisticsDetailType';
 /**
  * Summary of the revenue for a year
  * @export
@@ -24,11 +24,11 @@ export interface RevenueStatisticsSummaryType {
      */
     revenueBucketsSummary?: RevenueBucketListType;
     /**
-     *
-     * @type {RevenueStatisticsDetailListType}
+     * The collection of profile revenue statistics.
+     * @type {Array<RevenueStatisticsDetailType>}
      * @memberof RevenueStatisticsSummaryType
      */
-    revenueDetails?: RevenueStatisticsDetailListType;
+    revenueDetails?: Array<RevenueStatisticsDetailType>;
     /**
      * Year of the revenue.
      * @type {string}

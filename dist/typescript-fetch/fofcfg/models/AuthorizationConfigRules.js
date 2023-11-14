@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthorizationConfigRulesToJSON = exports.AuthorizationConfigRulesFromJSONTyped = exports.AuthorizationConfigRulesFromJSON = exports.instanceOfAuthorizationConfigRules = void 0;
 const runtime_1 = require("../runtime");
-const AuthorizationConfigRulesType_1 = require("./AuthorizationConfigRulesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const AuthorizationConfigRuleType_1 = require("./AuthorizationConfigRuleType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AuthorizationConfigRules interface.
  */
@@ -35,9 +35,9 @@ function AuthorizationConfigRulesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'authorizationConfigRulesType': !(0, runtime_1.exists)(json, 'authorizationConfigRulesType') ? undefined : (0, AuthorizationConfigRulesType_1.AuthorizationConfigRulesTypeFromJSON)(json['authorizationConfigRulesType']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'authorizationConfigRulesType': !(0, runtime_1.exists)(json, 'authorizationConfigRulesType') ? undefined : (json['authorizationConfigRulesType'].map(AuthorizationConfigRuleType_1.AuthorizationConfigRuleTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AuthorizationConfigRulesFromJSONTyped = AuthorizationConfigRulesFromJSONTyped;
@@ -49,9 +49,9 @@ function AuthorizationConfigRulesToJSON(value) {
         return null;
     }
     return {
-        'authorizationConfigRulesType': (0, AuthorizationConfigRulesType_1.AuthorizationConfigRulesTypeToJSON)(value.authorizationConfigRulesType),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'authorizationConfigRulesType': value.authorizationConfigRulesType === undefined ? undefined : (value.authorizationConfigRulesType.map(AuthorizationConfigRuleType_1.AuthorizationConfigRuleTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AuthorizationConfigRulesToJSON = AuthorizationConfigRulesToJSON;

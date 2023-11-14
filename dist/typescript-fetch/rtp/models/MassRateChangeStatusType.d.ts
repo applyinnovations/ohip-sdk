@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { MassRateChangeDetailLogListType } from './MassRateChangeDetailLogListType';
+import type { MassRateChangeDetailLogType } from './MassRateChangeDetailLogType';
 import type { MassRateChangeProcessStatusType } from './MassRateChangeProcessStatusType';
 /**
  * Mass Rate Update Status details.
@@ -24,11 +24,11 @@ export interface MassRateChangeStatusType {
      */
     completedRatePlans?: number;
     /**
-     *
-     * @type {MassRateChangeDetailLogListType}
+     * Mass rate update details.
+     * @type {Array<MassRateChangeDetailLogType>}
      * @memberof MassRateChangeStatusType
      */
-    details?: MassRateChangeDetailLogListType;
+    details?: Array<MassRateChangeDetailLogType>;
     /**
      * Property code.
      * @type {string}

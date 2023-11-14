@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ConfigActivitiesType } from './ConfigActivitiesType';
-import type { WarningsType } from './WarningsType';
+import type { ConfigActivityType } from './ConfigActivityType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Config Activity Logs.
  * @export
@@ -18,17 +18,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CreateConfigActivityLogCriteria {
     /**
-     *
-     * @type {ConfigActivitiesType}
+     * Changes log record to import/Export/Delete customization operations.
+     * @type {Array<ConfigActivityType>}
      * @memberof CreateConfigActivityLogCriteria
      */
-    configActivities?: ConfigActivitiesType;
+    configActivities?: Array<ConfigActivityType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateConfigActivityLogCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreateConfigActivityLogCriteria interface.

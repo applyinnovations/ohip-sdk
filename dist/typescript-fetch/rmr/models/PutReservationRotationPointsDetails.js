@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PutReservationRotationPointsDetailsToJSON = exports.PutReservationRotationPointsDetailsFromJSONTyped = exports.PutReservationRotationPointsDetailsFromJSON = exports.instanceOfPutReservationRotationPointsDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const ReservationRotationPointsDetailsListType_1 = require("./ReservationRotationPointsDetailsListType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PutReservationRotationPointsDetails interface.
  */
@@ -35,9 +35,9 @@ function PutReservationRotationPointsDetailsFromJSONTyped(json, ignoreDiscrimina
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'reservationRotationPointsDetailsList': !(0, runtime_1.exists)(json, 'reservationRotationPointsDetailsList') ? undefined : (0, ReservationRotationPointsDetailsListType_1.ReservationRotationPointsDetailsListTypeFromJSON)(json['reservationRotationPointsDetailsList']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PutReservationRotationPointsDetailsFromJSONTyped = PutReservationRotationPointsDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function PutReservationRotationPointsDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'reservationRotationPointsDetailsList': (0, ReservationRotationPointsDetailsListType_1.ReservationRotationPointsDetailsListTypeToJSON)(value.reservationRotationPointsDetailsList),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PutReservationRotationPointsDetailsToJSON = PutReservationRotationPointsDetailsToJSON;

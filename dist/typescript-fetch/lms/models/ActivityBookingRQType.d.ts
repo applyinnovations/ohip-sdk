@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ActivityList } from './ActivityList';
+import type { ActivityListInner } from './ActivityListInner';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * The choice between a reservation header or a profile ID. One or the other is required.
@@ -18,11 +18,11 @@ import type { UniqueIDType } from './UniqueIDType';
  */
 export interface ActivityBookingRQType {
     /**
-     *
-     * @type {ActivityList}
+     * A collection of Activity objects.
+     * @type {Array<ActivityListInner>}
      * @memberof ActivityBookingRQType
      */
-    activities?: ActivityList;
+    activities?: Array<ActivityListInner>;
     /**
      * This is not required if a Reservation Id is provided
      * @type {string}

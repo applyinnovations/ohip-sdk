@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ClaimActivityLogListType } from './ClaimActivityLogListType';
+import type { ClaimActivityLogType } from './ClaimActivityLogType';
 import type { ClaimAdjustmentPointsType } from './ClaimAdjustmentPointsType';
 import type { ClaimApprovalStatusType } from './ClaimApprovalStatusType';
 import type { ClaimMembershipType } from './ClaimMembershipType';
@@ -133,11 +133,11 @@ export interface MembershipClaimDetailsType {
      */
     claimPoints?: ClaimAdjustmentPointsType;
     /**
-     *
-     * @type {ClaimActivityLogListType}
+     * Summary of claim activity log information.
+     * @type {Array<ClaimActivityLogType>}
      * @memberof MembershipClaimDetailsType
      */
-    activityLog?: ClaimActivityLogListType;
+    activityLog?: Array<ClaimActivityLogType>;
     /**
      * User who entered this claim.
      * @type {string}

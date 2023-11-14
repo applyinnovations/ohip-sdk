@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomTypeTypeToJSON = exports.RoomTypeTypeFromJSONTyped = exports.RoomTypeTypeFromJSON = exports.instanceOfRoomTypeType = void 0;
 const runtime_1 = require("../runtime");
-const RoomFeaturesType_1 = require("./RoomFeaturesType");
-const RoomTypeComponentsType_1 = require("./RoomTypeComponentsType");
+const RoomFeatureType_1 = require("./RoomFeatureType");
+const RoomTypeComponentType_1 = require("./RoomTypeComponentType");
 const RoomTypeTypeSuite_1 = require("./RoomTypeTypeSuite");
 const RoomTypeYieldableType_1 = require("./RoomTypeYieldableType");
 const TranslationTextType2000_1 = require("./TranslationTextType2000");
@@ -43,10 +43,10 @@ function RoomTypeTypeFromJSONTyped(json, ignoreDiscriminator) {
         'autoPopulate': !(0, runtime_1.exists)(json, 'autoPopulate') ? undefined : json['autoPopulate'],
         'autoRoomAssign': !(0, runtime_1.exists)(json, 'autoRoomAssign') ? undefined : json['autoRoomAssign'],
         'bedType': !(0, runtime_1.exists)(json, 'bedType') ? undefined : json['bedType'],
-        'components': !(0, runtime_1.exists)(json, 'components') ? undefined : (0, RoomTypeComponentsType_1.RoomTypeComponentsTypeFromJSON)(json['components']),
+        'components': !(0, runtime_1.exists)(json, 'components') ? undefined : (json['components'].map(RoomTypeComponentType_1.RoomTypeComponentTypeFromJSON)),
         'defaultOccupancy': !(0, runtime_1.exists)(json, 'defaultOccupancy') ? undefined : json['defaultOccupancy'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : (0, TranslationTextType2000_1.TranslationTextType2000FromJSON)(json['description']),
-        'features': !(0, runtime_1.exists)(json, 'features') ? undefined : (0, RoomFeaturesType_1.RoomFeaturesTypeFromJSON)(json['features']),
+        'features': !(0, runtime_1.exists)(json, 'features') ? undefined : (json['features'].map(RoomFeatureType_1.RoomFeatureTypeFromJSON)),
         'generic': !(0, runtime_1.exists)(json, 'generic') ? undefined : json['generic'],
         'houseKeeping': !(0, runtime_1.exists)(json, 'houseKeeping') ? undefined : json['houseKeeping'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
@@ -87,10 +87,10 @@ function RoomTypeTypeToJSON(value) {
         'autoPopulate': value.autoPopulate,
         'autoRoomAssign': value.autoRoomAssign,
         'bedType': value.bedType,
-        'components': (0, RoomTypeComponentsType_1.RoomTypeComponentsTypeToJSON)(value.components),
+        'components': value.components === undefined ? undefined : (value.components.map(RoomTypeComponentType_1.RoomTypeComponentTypeToJSON)),
         'defaultOccupancy': value.defaultOccupancy,
         'description': (0, TranslationTextType2000_1.TranslationTextType2000ToJSON)(value.description),
-        'features': (0, RoomFeaturesType_1.RoomFeaturesTypeToJSON)(value.features),
+        'features': value.features === undefined ? undefined : (value.features.map(RoomFeatureType_1.RoomFeatureTypeToJSON)),
         'generic': value.generic,
         'houseKeeping': value.houseKeeping,
         'inactive': value.inactive,

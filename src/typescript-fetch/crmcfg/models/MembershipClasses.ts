@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipClassesType } from './MembershipClassesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipClassType } from './MembershipClassType';
 import {
-    MembershipClassesTypeFromJSON,
-    MembershipClassesTypeFromJSONTyped,
-    MembershipClassesTypeToJSON,
-} from './MembershipClassesType';
-import type { WarningsType } from './WarningsType';
+    MembershipClassTypeFromJSON,
+    MembershipClassTypeFromJSONTyped,
+    MembershipClassTypeToJSON,
+} from './MembershipClassType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Membership Class.
@@ -40,22 +40,22 @@ import {
 export interface MembershipClasses {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipClasses
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MembershipClassesType}
+     * List of the Membership Class to be configured or fetched
+     * @type {Array<MembershipClassType>}
      * @memberof MembershipClasses
      */
-    membershipClasses?: MembershipClassesType;
+    membershipClasses?: Array<MembershipClassType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipClasses
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MembershipClassesFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'membershipClasses': !exists(json, 'membershipClasses') ? undefined : MembershipClassesTypeFromJSON(json['membershipClasses']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'membershipClasses': !exists(json, 'membershipClasses') ? undefined : ((json['membershipClasses'] as Array<any>).map(MembershipClassTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MembershipClassesToJSON(value?: MembershipClasses | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'membershipClasses': MembershipClassesTypeToJSON(value.membershipClasses),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'membershipClasses': value.membershipClasses === undefined ? undefined : ((value.membershipClasses as Array<any>).map(MembershipClassTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

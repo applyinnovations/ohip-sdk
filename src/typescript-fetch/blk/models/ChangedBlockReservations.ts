@@ -19,18 +19,18 @@ import {
     ChangeBlockReservationTypeFromJSONTyped,
     ChangeBlockReservationTypeToJSON,
 } from './ChangeBlockReservationType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * The response object that contains the reservations that were changed for a block along with the status of each change.
@@ -40,10 +40,10 @@ import {
 export interface ChangedBlockReservations {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangedBlockReservations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Contains details of the changed reservation along with a success or error message.
      * @type {Array<ChangeBlockReservationType>}
@@ -51,11 +51,11 @@ export interface ChangedBlockReservations {
      */
     reservations?: Array<ChangeBlockReservationType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangedBlockReservations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ChangedBlockReservationsFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservations': !exists(json, 'reservations') ? undefined : ((json['reservations'] as Array<any>).map(ChangeBlockReservationTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ChangedBlockReservationsToJSON(value?: ChangedBlockReservations 
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservations': value.reservations === undefined ? undefined : ((value.reservations as Array<any>).map(ChangeBlockReservationTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

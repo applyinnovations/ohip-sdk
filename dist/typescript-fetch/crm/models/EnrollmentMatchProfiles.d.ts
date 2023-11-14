@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EnrollmentMatchProfilesType } from './EnrollmentMatchProfilesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ProfileEnrollmentType } from './ProfileEnrollmentType';
+import type { WarningType } from './WarningType';
 /**
  * Response object to fetch match profiles for enrollment.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface EnrollmentMatchProfiles {
     /**
-     *
-     * @type {EnrollmentMatchProfilesType}
+     * Provide match profile details for enrollment.
+     * @type {Array<ProfileEnrollmentType>}
      * @memberof EnrollmentMatchProfiles
      */
-    enrollmentMatchProfilesDetail?: EnrollmentMatchProfilesType;
+    enrollmentMatchProfilesDetail?: Array<ProfileEnrollmentType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EnrollmentMatchProfiles
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EnrollmentMatchProfiles
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the EnrollmentMatchProfiles interface.

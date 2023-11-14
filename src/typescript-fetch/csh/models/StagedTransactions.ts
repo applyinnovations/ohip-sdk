@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { StagedCompTransactionsInfoType } from './StagedCompTransactionsInfoType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    StagedCompTransactionsInfoTypeFromJSON,
-    StagedCompTransactionsInfoTypeFromJSONTyped,
-    StagedCompTransactionsInfoTypeToJSON,
-} from './StagedCompTransactionsInfoType';
-import type { WarningsType } from './WarningsType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response to the request to get staged transaction information for a Reservation
@@ -40,22 +40,22 @@ import {
 export interface StagedTransactions {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof StagedTransactions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {StagedCompTransactionsInfoType}
+     * Transaction ID List of staged comp transactions for the reservation.
+     * @type {Array<Array<UniqueIDType>>}
      * @memberof StagedTransactions
      */
-    stagedCompTransactionsInfo?: StagedCompTransactionsInfoType;
+    stagedCompTransactionsInfo?: Array<Array<UniqueIDType>>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof StagedTransactions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function StagedTransactionsFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'stagedCompTransactionsInfo': !exists(json, 'stagedCompTransactionsInfo') ? undefined : StagedCompTransactionsInfoTypeFromJSON(json['stagedCompTransactionsInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'stagedCompTransactionsInfo': !exists(json, 'stagedCompTransactionsInfo') ? undefined : json['stagedCompTransactionsInfo'],
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function StagedTransactionsToJSON(value?: StagedTransactions | null): any
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'stagedCompTransactionsInfo': StagedCompTransactionsInfoTypeToJSON(value.stagedCompTransactionsInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'stagedCompTransactionsInfo': value.stagedCompTransactionsInfo,
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

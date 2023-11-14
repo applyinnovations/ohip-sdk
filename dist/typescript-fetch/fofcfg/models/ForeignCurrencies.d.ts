@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ForeignCurrenciesType } from './ForeignCurrenciesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ForeignCurrencyType } from './ForeignCurrencyType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ForeignCurrencies {
     /**
-     *
-     * @type {ForeignCurrenciesType}
+     * List of the Foreign Currencies to be configured or fetched
+     * @type {Array<ForeignCurrencyType>}
      * @memberof ForeignCurrencies
      */
-    foreignCurrencies?: ForeignCurrenciesType;
+    foreignCurrencies?: Array<ForeignCurrencyType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ForeignCurrencies
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ForeignCurrencies
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ForeignCurrencies interface.

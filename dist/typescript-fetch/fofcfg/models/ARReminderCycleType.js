@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ARReminderCycleTypeToJSON = exports.ARReminderCycleTypeFromJSONTyped = exports.ARReminderCycleTypeFromJSON = exports.instanceOfARReminderCycleType = void 0;
 const runtime_1 = require("../runtime");
-const ARDaysCycleType_1 = require("./ARDaysCycleType");
+const ARDaysReminderCycleType_1 = require("./ARDaysReminderCycleType");
 const AREndOfMonthCycleType_1 = require("./AREndOfMonthCycleType");
 /**
  * Check if a given object implements the ARReminderCycleType interface.
@@ -34,7 +34,7 @@ function ARReminderCycleTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'daysCycle': !(0, runtime_1.exists)(json, 'daysCycle') ? undefined : (0, ARDaysCycleType_1.ARDaysCycleTypeFromJSON)(json['daysCycle']),
+        'daysCycle': !(0, runtime_1.exists)(json, 'daysCycle') ? undefined : (json['daysCycle'].map(ARDaysReminderCycleType_1.ARDaysReminderCycleTypeFromJSON)),
         'endOfMonthCycle': !(0, runtime_1.exists)(json, 'endOfMonthCycle') ? undefined : (0, AREndOfMonthCycleType_1.AREndOfMonthCycleTypeFromJSON)(json['endOfMonthCycle']),
     };
 }
@@ -47,7 +47,7 @@ function ARReminderCycleTypeToJSON(value) {
         return null;
     }
     return {
-        'daysCycle': (0, ARDaysCycleType_1.ARDaysCycleTypeToJSON)(value.daysCycle),
+        'daysCycle': value.daysCycle === undefined ? undefined : (value.daysCycle.map(ARDaysReminderCycleType_1.ARDaysReminderCycleTypeToJSON)),
         'endOfMonthCycle': (0, AREndOfMonthCycleType_1.AREndOfMonthCycleTypeToJSON)(value.endOfMonthCycle),
     };
 }

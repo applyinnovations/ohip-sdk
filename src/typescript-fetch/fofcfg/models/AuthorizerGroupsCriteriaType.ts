@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AuthorizerGroupsType } from './AuthorizerGroupsType';
+import type { AuthorizerGroupType } from './AuthorizerGroupType';
 import {
-    AuthorizerGroupsTypeFromJSON,
-    AuthorizerGroupsTypeFromJSONTyped,
-    AuthorizerGroupsTypeToJSON,
-} from './AuthorizerGroupsType';
+    AuthorizerGroupTypeFromJSON,
+    AuthorizerGroupTypeFromJSONTyped,
+    AuthorizerGroupTypeToJSON,
+} from './AuthorizerGroupType';
 
 /**
  * Criteria to change authorizer group.
@@ -27,11 +27,11 @@ import {
  */
 export interface AuthorizerGroupsCriteriaType {
     /**
-     * 
-     * @type {AuthorizerGroupsType}
+     * Authorizer Group
+     * @type {Array<AuthorizerGroupType>}
      * @memberof AuthorizerGroupsCriteriaType
      */
-    authorizerGroups?: AuthorizerGroupsType;
+    authorizerGroups?: Array<AuthorizerGroupType>;
     /**
      * If true, updates all authorizers in the group.
      * @type {boolean}
@@ -59,7 +59,7 @@ export function AuthorizerGroupsCriteriaTypeFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'authorizerGroups': !exists(json, 'authorizerGroups') ? undefined : AuthorizerGroupsTypeFromJSON(json['authorizerGroups']),
+        'authorizerGroups': !exists(json, 'authorizerGroups') ? undefined : ((json['authorizerGroups'] as Array<any>).map(AuthorizerGroupTypeFromJSON)),
         'updateAuthorizers': !exists(json, 'updateAuthorizers') ? undefined : json['updateAuthorizers'],
     };
 }
@@ -73,7 +73,7 @@ export function AuthorizerGroupsCriteriaTypeToJSON(value?: AuthorizerGroupsCrite
     }
     return {
         
-        'authorizerGroups': AuthorizerGroupsTypeToJSON(value.authorizerGroups),
+        'authorizerGroups': value.authorizerGroups === undefined ? undefined : ((value.authorizerGroups as Array<any>).map(AuthorizerGroupTypeToJSON)),
         'updateAuthorizers': value.updateAuthorizers,
     };
 }

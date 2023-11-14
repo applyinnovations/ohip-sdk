@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { OwnersType } from './OwnersType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { OwnerType } from './OwnerType';
 import {
-    OwnersTypeFromJSON,
-    OwnersTypeFromJSONTyped,
-    OwnersTypeToJSON,
-} from './OwnersType';
-import type { WarningsType } from './WarningsType';
+    OwnerTypeFromJSON,
+    OwnerTypeFromJSONTyped,
+    OwnerTypeToJSON,
+} from './OwnerType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object to fetch the owners of a profile.
@@ -40,22 +40,22 @@ import {
 export interface ProfileOwnersDetail {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileOwnersDetail
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {OwnersType}
+     * Generic type for a list of owners.
+     * @type {Array<OwnerType>}
      * @memberof ProfileOwnersDetail
      */
-    profileOwnersList?: OwnersType;
+    profileOwnersList?: Array<OwnerType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileOwnersDetail
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ProfileOwnersDetailFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'profileOwnersList': !exists(json, 'profileOwnersList') ? undefined : OwnersTypeFromJSON(json['profileOwnersList']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'profileOwnersList': !exists(json, 'profileOwnersList') ? undefined : ((json['profileOwnersList'] as Array<any>).map(OwnerTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ProfileOwnersDetailToJSON(value?: ProfileOwnersDetail | null): a
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'profileOwnersList': OwnersTypeToJSON(value.profileOwnersList),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'profileOwnersList': value.profileOwnersList === undefined ? undefined : ((value.profileOwnersList as Array<any>).map(OwnerTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

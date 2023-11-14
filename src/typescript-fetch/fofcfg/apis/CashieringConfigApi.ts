@@ -54,6 +54,7 @@ import type {
   DailyPlanCodes,
   DefaultPaymentMethodRule,
   ExceptionDetailType,
+  ExchangeRateType,
   ExchangeRates,
   ExchangeRatesDetails,
   ExpenseArrangementCodes,
@@ -77,7 +78,6 @@ import type {
   FolioTypeLegendMappingsConfigDetails,
   FolioTypesConfig,
   ForeignCurrencies,
-  FuturePastExchangeRates,
   GUINumberRulesDetails,
   GroupArrangementCodes,
   GroupArrangementCodesCopy,
@@ -207,6 +207,8 @@ import {
     DefaultPaymentMethodRuleToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
+    ExchangeRateTypeFromJSON,
+    ExchangeRateTypeToJSON,
     ExchangeRatesFromJSON,
     ExchangeRatesToJSON,
     ExchangeRatesDetailsFromJSON,
@@ -253,8 +255,6 @@ import {
     FolioTypesConfigToJSON,
     ForeignCurrenciesFromJSON,
     ForeignCurrenciesToJSON,
-    FuturePastExchangeRatesFromJSON,
-    FuturePastExchangeRatesToJSON,
     GUINumberRulesDetailsFromJSON,
     GUINumberRulesDetailsToJSON,
     GroupArrangementCodesFromJSON,
@@ -8810,7 +8810,7 @@ export class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to Fetch Future Past Exchange Rates. <p><strong>OperationId:</strong>getFuturePastExchangeRates</p>
      * Operation to fetch FuturePastExchangeRates.
      */
-    async getFuturePastExchangeRatesRaw(requestParameters: GetFuturePastExchangeRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FuturePastExchangeRates>> {
+    async getFuturePastExchangeRatesRaw(requestParameters: GetFuturePastExchangeRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ExchangeRateType>>> {
         if (requestParameters.currencyCode === null || requestParameters.currencyCode === undefined) {
             throw new runtime.RequiredError('currencyCode','Required parameter requestParameters.currencyCode was null or undefined when calling getFuturePastExchangeRates.');
         }
@@ -8866,14 +8866,14 @@ export class CashieringConfigApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => FuturePastExchangeRatesFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ExchangeRateTypeFromJSON));
     }
 
     /**
      * Operation to Fetch Future Past Exchange Rates. <p><strong>OperationId:</strong>getFuturePastExchangeRates</p>
      * Operation to fetch FuturePastExchangeRates.
      */
-    async getFuturePastExchangeRates(requestParameters: GetFuturePastExchangeRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FuturePastExchangeRates> {
+    async getFuturePastExchangeRates(requestParameters: GetFuturePastExchangeRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ExchangeRateType>> {
         const response = await this.getFuturePastExchangeRatesRaw(requestParameters, initOverrides);
         return await response.value();
     }

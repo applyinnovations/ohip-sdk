@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { HotelRoomMaintenanceType } from './HotelRoomMaintenanceType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for the Fetch Room Maintenance request.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface RoomMaintenanceDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomMaintenanceDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {HotelRoomMaintenanceType}
@@ -31,11 +31,11 @@ export interface RoomMaintenanceDetails {
      */
     roomMaintenance?: HotelRoomMaintenanceType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomMaintenanceDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomMaintenanceDetails interface.

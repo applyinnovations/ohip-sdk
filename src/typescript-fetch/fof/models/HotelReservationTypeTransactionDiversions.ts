@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ReservationTransactionDiversionsType } from './ReservationTransactionDiversionsType';
+import type { ReservationTransactionDiversionType } from './ReservationTransactionDiversionType';
 import {
-    ReservationTransactionDiversionsTypeFromJSON,
-    ReservationTransactionDiversionsTypeFromJSONTyped,
-    ReservationTransactionDiversionsTypeToJSON,
-} from './ReservationTransactionDiversionsType';
+    ReservationTransactionDiversionTypeFromJSON,
+    ReservationTransactionDiversionTypeFromJSONTyped,
+    ReservationTransactionDiversionTypeToJSON,
+} from './ReservationTransactionDiversionType';
 
 /**
  * List of transaction diversions attached to the reservation.
@@ -34,10 +34,10 @@ export interface HotelReservationTypeTransactionDiversions {
     actionType?: string;
     /**
      * 
-     * @type {Array<ReservationTransactionDiversionsType>}
+     * @type {Array<Array<ReservationTransactionDiversionType>>}
      * @memberof HotelReservationTypeTransactionDiversions
      */
-    transactionDiversions?: Array<ReservationTransactionDiversionsType>;
+    transactionDiversions?: Array<Array<ReservationTransactionDiversionType>>;
 }
 
 /**
@@ -60,7 +60,7 @@ export function HotelReservationTypeTransactionDiversionsFromJSONTyped(json: any
     return {
         
         'actionType': !exists(json, 'actionType') ? undefined : json['actionType'],
-        'transactionDiversions': !exists(json, 'transactionDiversions') ? undefined : ((json['transactionDiversions'] as Array<any>).map(ReservationTransactionDiversionsTypeFromJSON)),
+        'transactionDiversions': !exists(json, 'transactionDiversions') ? undefined : json['transactionDiversions'],
     };
 }
 
@@ -74,7 +74,7 @@ export function HotelReservationTypeTransactionDiversionsToJSON(value?: HotelRes
     return {
         
         'actionType': value.actionType,
-        'transactionDiversions': value.transactionDiversions === undefined ? undefined : ((value.transactionDiversions as Array<any>).map(ReservationTransactionDiversionsTypeToJSON)),
+        'transactionDiversions': value.transactionDiversions,
     };
 }
 

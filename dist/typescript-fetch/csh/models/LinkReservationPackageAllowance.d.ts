@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { UniqueIDType } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Method to create package allowance link from a source reservation to the target reservation.
  * @export
@@ -44,16 +44,16 @@ export interface LinkReservationPackageAllowance {
     linkToReservationId?: UniqueIDType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof LinkReservationPackageAllowance
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof LinkReservationPackageAllowance
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the LinkReservationPackageAllowance interface.

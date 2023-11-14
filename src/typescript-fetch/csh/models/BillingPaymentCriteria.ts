@@ -31,12 +31,6 @@ import {
     PaymentTaxTypeFromJSONTyped,
     PaymentTaxTypeToJSON,
 } from './PaymentTaxType';
-import type { PaymentTaxesType } from './PaymentTaxesType';
-import {
-    PaymentTaxesTypeFromJSON,
-    PaymentTaxesTypeFromJSONTyped,
-    PaymentTaxesTypeToJSON,
-} from './PaymentTaxesType';
 import type { PostPaymentActionType } from './PostPaymentActionType';
 import {
     PostPaymentActionTypeFromJSON,
@@ -93,11 +87,11 @@ export interface BillingPaymentCriteria {
      */
     comments?: string;
     /**
-     * 
-     * @type {PaymentTaxesType}
+     * Payment Tax record.
+     * @type {Array<PaymentTaxType>}
      * @memberof BillingPaymentCriteria
      */
-    creditablePaymentTaxes?: PaymentTaxesType;
+    creditablePaymentTaxes?: Array<PaymentTaxType>;
     /**
      * 
      * @type {number}
@@ -197,7 +191,7 @@ export function BillingPaymentCriteriaFromJSONTyped(json: any, ignoreDiscriminat
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
         'changeDueAmount': !exists(json, 'changeDueAmount') ? undefined : CurrencyAmountTypeFromJSON(json['changeDueAmount']),
         'comments': !exists(json, 'comments') ? undefined : json['comments'],
-        'creditablePaymentTaxes': !exists(json, 'creditablePaymentTaxes') ? undefined : PaymentTaxesTypeFromJSON(json['creditablePaymentTaxes']),
+        'creditablePaymentTaxes': !exists(json, 'creditablePaymentTaxes') ? undefined : ((json['creditablePaymentTaxes'] as Array<any>).map(PaymentTaxTypeFromJSON)),
         'folioWindowNo': !exists(json, 'folioWindowNo') ? undefined : json['folioWindowNo'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'manualPaymentTaxInfo': !exists(json, 'manualPaymentTaxInfo') ? undefined : PaymentTaxTypeFromJSON(json['manualPaymentTaxInfo']),
@@ -228,7 +222,7 @@ export function BillingPaymentCriteriaToJSON(value?: BillingPaymentCriteria | nu
         'cashierId': value.cashierId,
         'changeDueAmount': CurrencyAmountTypeToJSON(value.changeDueAmount),
         'comments': value.comments,
-        'creditablePaymentTaxes': PaymentTaxesTypeToJSON(value.creditablePaymentTaxes),
+        'creditablePaymentTaxes': value.creditablePaymentTaxes === undefined ? undefined : ((value.creditablePaymentTaxes as Array<any>).map(PaymentTaxTypeToJSON)),
         'folioWindowNo': value.folioWindowNo,
         'hotelId': value.hotelId,
         'manualPaymentTaxInfo': PaymentTaxTypeToJSON(value.manualPaymentTaxInfo),

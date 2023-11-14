@@ -19,18 +19,18 @@ import {
     EventMenuBasicInfoTypeFromJSONTyped,
     EventMenuBasicInfoTypeToJSON,
 } from './EventMenuBasicInfoType';
-import type { EventMenuItemsType } from './EventMenuItemsType';
+import type { EventMenuItemType } from './EventMenuItemType';
 import {
-    EventMenuItemsTypeFromJSON,
-    EventMenuItemsTypeFromJSONTyped,
-    EventMenuItemsTypeToJSON,
-} from './EventMenuItemsType';
-import type { EventMenuRevenuesType } from './EventMenuRevenuesType';
+    EventMenuItemTypeFromJSON,
+    EventMenuItemTypeFromJSONTyped,
+    EventMenuItemTypeToJSON,
+} from './EventMenuItemType';
+import type { EventMenuRevenueType } from './EventMenuRevenueType';
 import {
-    EventMenuRevenuesTypeFromJSON,
-    EventMenuRevenuesTypeFromJSONTyped,
-    EventMenuRevenuesTypeToJSON,
-} from './EventMenuRevenuesType';
+    EventMenuRevenueTypeFromJSON,
+    EventMenuRevenueTypeFromJSONTyped,
+    EventMenuRevenueTypeToJSON,
+} from './EventMenuRevenueType';
 
 /**
  * Information about event menu.
@@ -52,16 +52,16 @@ export interface EventMenuType {
     hotelId?: string;
     /**
      * 
-     * @type {EventMenuItemsType}
+     * @type {Array<EventMenuItemType>}
      * @memberof EventMenuType
      */
-    menuItems?: EventMenuItemsType;
+    menuItems?: Array<EventMenuItemType>;
     /**
      * 
-     * @type {EventMenuRevenuesType}
+     * @type {Array<EventMenuRevenueType>}
      * @memberof EventMenuType
      */
-    revenues?: EventMenuRevenuesType;
+    revenues?: Array<EventMenuRevenueType>;
 }
 
 /**
@@ -85,8 +85,8 @@ export function EventMenuTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
         
         'basicInfo': !exists(json, 'basicInfo') ? undefined : EventMenuBasicInfoTypeFromJSON(json['basicInfo']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'menuItems': !exists(json, 'menuItems') ? undefined : EventMenuItemsTypeFromJSON(json['menuItems']),
-        'revenues': !exists(json, 'revenues') ? undefined : EventMenuRevenuesTypeFromJSON(json['revenues']),
+        'menuItems': !exists(json, 'menuItems') ? undefined : ((json['menuItems'] as Array<any>).map(EventMenuItemTypeFromJSON)),
+        'revenues': !exists(json, 'revenues') ? undefined : ((json['revenues'] as Array<any>).map(EventMenuRevenueTypeFromJSON)),
     };
 }
 
@@ -101,8 +101,8 @@ export function EventMenuTypeToJSON(value?: EventMenuType | null): any {
         
         'basicInfo': EventMenuBasicInfoTypeToJSON(value.basicInfo),
         'hotelId': value.hotelId,
-        'menuItems': EventMenuItemsTypeToJSON(value.menuItems),
-        'revenues': EventMenuRevenuesTypeToJSON(value.revenues),
+        'menuItems': value.menuItems === undefined ? undefined : ((value.menuItems as Array<any>).map(EventMenuItemTypeToJSON)),
+        'revenues': value.revenues === undefined ? undefined : ((value.revenues as Array<any>).map(EventMenuRevenueTypeToJSON)),
     };
 }
 

@@ -25,24 +25,24 @@ import {
     EventSummariesInfoTypeFromJSONTyped,
     EventSummariesInfoTypeToJSON,
 } from './EventSummariesInfoType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { MasterInfoType } from './MasterInfoType';
 import {
     MasterInfoTypeFromJSON,
     MasterInfoTypeFromJSONTyped,
     MasterInfoTypeToJSON,
 } from './MasterInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching events.
@@ -64,10 +64,10 @@ export interface Events {
     eventSummaries?: EventSummariesInfoType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Events
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Refer to Generic common types document
      * @type {Array<MasterInfoType>}
@@ -75,11 +75,11 @@ export interface Events {
      */
     masterInfoList?: Array<MasterInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Events
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -103,9 +103,9 @@ export function EventsFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ev
         
         'blockInfo': !exists(json, 'blockInfo') ? undefined : BlocksTypeFromJSON(json['blockInfo']),
         'eventSummaries': !exists(json, 'eventSummaries') ? undefined : EventSummariesInfoTypeFromJSON(json['eventSummaries']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'masterInfoList': !exists(json, 'masterInfoList') ? undefined : ((json['masterInfoList'] as Array<any>).map(MasterInfoTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -120,9 +120,9 @@ export function EventsToJSON(value?: Events | null): any {
         
         'blockInfo': BlocksTypeToJSON(value.blockInfo),
         'eventSummaries': EventSummariesInfoTypeToJSON(value.eventSummaries),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'masterInfoList': value.masterInfoList === undefined ? undefined : ((value.masterInfoList as Array<any>).map(MasterInfoTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

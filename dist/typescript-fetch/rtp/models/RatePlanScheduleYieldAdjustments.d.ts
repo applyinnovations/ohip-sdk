@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ScheduleYieldInfoType } from './ScheduleYieldInfoType';
-import type { ScheduleYieldSummaryType } from './ScheduleYieldSummaryType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
+import type { YieldSummaryType } from './YieldSummaryType';
 /**
  * Response object to fetch Yield adjustments for rate plan schedule.
  * @export
@@ -21,16 +21,16 @@ import type { WarningsType } from './WarningsType';
 export interface RatePlanScheduleYieldAdjustments {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RatePlanScheduleYieldAdjustments
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RatePlanScheduleYieldAdjustments
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
     /**
      *
      * @type {ScheduleYieldInfoType}
@@ -38,11 +38,11 @@ export interface RatePlanScheduleYieldAdjustments {
      */
     yieldInfoList?: ScheduleYieldInfoType;
     /**
-     *
-     * @type {ScheduleYieldSummaryType}
+     * Yield summary for each adjutment type.
+     * @type {Array<YieldSummaryType>}
      * @memberof RatePlanScheduleYieldAdjustments
      */
-    yieldSummary?: ScheduleYieldSummaryType;
+    yieldSummary?: Array<YieldSummaryType>;
 }
 /**
  * Check if a given object implements the RatePlanScheduleYieldAdjustments interface.

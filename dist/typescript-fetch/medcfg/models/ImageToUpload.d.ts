@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ImageUploadInfoType } from './ImageUploadInfoType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ImageUploadType } from './ImageUploadType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to upload an image.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ImageToUpload {
     /**
-     *
-     * @type {ImageUploadInfoType}
+     * List of Image details to upload including image to upload.
+     * @type {Array<ImageUploadType>}
      * @memberof ImageToUpload
      */
-    images?: ImageUploadInfoType;
+    images?: Array<ImageUploadType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ImageToUpload
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ImageToUpload
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ImageToUpload interface.

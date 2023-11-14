@@ -13,24 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
+import type { DefaultNoteTextDetailType } from './DefaultNoteTextDetailType';
 import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-import type { DefaultNoteTextsDetailType } from './DefaultNoteTextsDetailType';
+    DefaultNoteTextDetailTypeFromJSON,
+    DefaultNoteTextDetailTypeFromJSONTyped,
+    DefaultNoteTextDetailTypeToJSON,
+} from './DefaultNoteTextDetailType';
+import type { GenericHotelCodeCodeType } from './GenericHotelCodeCodeType';
 import {
-    DefaultNoteTextsDetailTypeFromJSON,
-    DefaultNoteTextsDetailTypeFromJSONTyped,
-    DefaultNoteTextsDetailTypeToJSON,
-} from './DefaultNoteTextsDetailType';
-import type { GenericHotelCodeCodeListType } from './GenericHotelCodeCodeListType';
-import {
-    GenericHotelCodeCodeListTypeFromJSON,
-    GenericHotelCodeCodeListTypeFromJSONTyped,
-    GenericHotelCodeCodeListTypeToJSON,
-} from './GenericHotelCodeCodeListType';
+    GenericHotelCodeCodeTypeFromJSON,
+    GenericHotelCodeCodeTypeFromJSONTyped,
+    GenericHotelCodeCodeTypeToJSON,
+} from './GenericHotelCodeCodeType';
 
 /**
  * Note Types Information Type.
@@ -69,11 +63,11 @@ export interface NoteTypeType {
      */
     departmentNotes?: boolean;
     /**
-     * 
-     * @type {GenericHotelCodeCodeListType}
+     * List of HotelCode and Code combinations.
+     * @type {Array<GenericHotelCodeCodeType>}
      * @memberof NoteTypeType
      */
-    departments?: GenericHotelCodeCodeListType;
+    departments?: Array<GenericHotelCodeCodeType>;
     /**
      * Description of the Note Types Code.
      * @type {string}
@@ -112,10 +106,10 @@ export interface NoteTypeType {
     noteGroup?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof NoteTypeType
      */
-    notificationAreas?: CodeListType;
+    notificationAreas?: Array<string>;
     /**
      * Indicates if the Note Types Code is override internal.
      * @type {boolean}
@@ -123,11 +117,11 @@ export interface NoteTypeType {
      */
     overrideInternal?: boolean;
     /**
-     * 
-     * @type {DefaultNoteTextsDetailType}
+     * Collection of individual Default Note Text details.
+     * @type {Array<DefaultNoteTextDetailType>}
      * @memberof NoteTypeType
      */
-    propertyDefaultNoteTexts?: DefaultNoteTextsDetailType;
+    propertyDefaultNoteTexts?: Array<DefaultNoteTextDetailType>;
 }
 
 /**
@@ -154,16 +148,16 @@ export function NoteTypeTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'defaultNoteType': !exists(json, 'defaultNoteType') ? undefined : json['defaultNoteType'],
         'defaultText': !exists(json, 'defaultText') ? undefined : json['defaultText'],
         'departmentNotes': !exists(json, 'departmentNotes') ? undefined : json['departmentNotes'],
-        'departments': !exists(json, 'departments') ? undefined : GenericHotelCodeCodeListTypeFromJSON(json['departments']),
+        'departments': !exists(json, 'departments') ? undefined : ((json['departments'] as Array<any>).map(GenericHotelCodeCodeTypeFromJSON)),
         'description': !exists(json, 'description') ? undefined : json['description'],
         'displaySequence': !exists(json, 'displaySequence') ? undefined : json['displaySequence'],
         'globalAllowed': !exists(json, 'globalAllowed') ? undefined : json['globalAllowed'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
         'internal': !exists(json, 'internal') ? undefined : json['internal'],
         'noteGroup': !exists(json, 'noteGroup') ? undefined : json['noteGroup'],
-        'notificationAreas': !exists(json, 'notificationAreas') ? undefined : CodeListTypeFromJSON(json['notificationAreas']),
+        'notificationAreas': !exists(json, 'notificationAreas') ? undefined : json['notificationAreas'],
         'overrideInternal': !exists(json, 'overrideInternal') ? undefined : json['overrideInternal'],
-        'propertyDefaultNoteTexts': !exists(json, 'propertyDefaultNoteTexts') ? undefined : DefaultNoteTextsDetailTypeFromJSON(json['propertyDefaultNoteTexts']),
+        'propertyDefaultNoteTexts': !exists(json, 'propertyDefaultNoteTexts') ? undefined : ((json['propertyDefaultNoteTexts'] as Array<any>).map(DefaultNoteTextDetailTypeFromJSON)),
     };
 }
 
@@ -181,16 +175,16 @@ export function NoteTypeTypeToJSON(value?: NoteTypeType | null): any {
         'defaultNoteType': value.defaultNoteType,
         'defaultText': value.defaultText,
         'departmentNotes': value.departmentNotes,
-        'departments': GenericHotelCodeCodeListTypeToJSON(value.departments),
+        'departments': value.departments === undefined ? undefined : ((value.departments as Array<any>).map(GenericHotelCodeCodeTypeToJSON)),
         'description': value.description,
         'displaySequence': value.displaySequence,
         'globalAllowed': value.globalAllowed,
         'inactive': value.inactive,
         'internal': value.internal,
         'noteGroup': value.noteGroup,
-        'notificationAreas': CodeListTypeToJSON(value.notificationAreas),
+        'notificationAreas': value.notificationAreas,
         'overrideInternal': value.overrideInternal,
-        'propertyDefaultNoteTexts': DefaultNoteTextsDetailTypeToJSON(value.propertyDefaultNoteTexts),
+        'propertyDefaultNoteTexts': value.propertyDefaultNoteTexts === undefined ? undefined : ((value.propertyDefaultNoteTexts as Array<any>).map(DefaultNoteTextDetailTypeToJSON)),
     };
 }
 

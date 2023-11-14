@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CheckoutReservationType } from './CheckoutReservationType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request type for batch auto checkout.
  * @export
@@ -26,16 +26,16 @@ export interface BatchAutoCheckoutReservation {
     criteria?: CheckoutReservationType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BatchAutoCheckoutReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BatchAutoCheckoutReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BatchAutoCheckoutReservation interface.

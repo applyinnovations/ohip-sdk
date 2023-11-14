@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { AdjustmentDetailsType } from './AdjustmentDetailsType';
-import type { CustomChargeExemptionsType } from './CustomChargeExemptionsType';
+import type { CustomChargeExemptionType } from './CustomChargeExemptionType';
 import type { ReservationId } from './ReservationId';
 /**
  *
@@ -37,11 +37,11 @@ export interface TrxAdjustCriteriaType {
      */
     cashierId?: number;
     /**
-     *
-     * @type {CustomChargeExemptionsType}
+     * List of Custom Charge Exemptions.
+     * @type {Array<CustomChargeExemptionType>}
      * @memberof TrxAdjustCriteriaType
      */
-    customChargeExemptionDetails?: CustomChargeExemptionsType;
+    customChargeExemptionDetails?: Array<CustomChargeExemptionType>;
     /**
      *
      * @type {AdjustmentDetailsType}

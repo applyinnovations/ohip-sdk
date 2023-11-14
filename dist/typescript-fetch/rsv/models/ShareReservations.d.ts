@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { HotelReservationsType } from './HotelReservationsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for the fetch share reservation request. This returns all sharer reservations including the request reservation.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ShareReservations {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ShareReservations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {HotelReservationsType}
@@ -31,11 +31,11 @@ export interface ShareReservations {
      */
     shareReservations?: HotelReservationsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ShareReservations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ShareReservations interface.

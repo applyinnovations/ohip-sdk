@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ProfileRestrictionReasonsType } from './ProfileRestrictionReasonsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ProfileRestrictionReasonType } from './ProfileRestrictionReasonType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Profile Restriction Reasons.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ProfileRestrictionReasonsDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileRestrictionReasonsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ProfileRestrictionReasonsType}
+     * List of Profile Restriction Reasons.
+     * @type {Array<ProfileRestrictionReasonType>}
      * @memberof ProfileRestrictionReasonsDetails
      */
-    profileRestrictionReasons?: ProfileRestrictionReasonsType;
+    profileRestrictionReasons?: Array<ProfileRestrictionReasonType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileRestrictionReasonsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileRestrictionReasonsDetails interface.

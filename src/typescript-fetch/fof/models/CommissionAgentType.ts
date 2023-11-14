@@ -19,12 +19,12 @@ import {
     AgentInfoTypeFromJSONTyped,
     AgentInfoTypeToJSON,
 } from './AgentInfoType';
-import type { CommissionDetailsType } from './CommissionDetailsType';
+import type { CommissionDetailType } from './CommissionDetailType';
 import {
-    CommissionDetailsTypeFromJSON,
-    CommissionDetailsTypeFromJSONTyped,
-    CommissionDetailsTypeToJSON,
-} from './CommissionDetailsType';
+    CommissionDetailTypeFromJSON,
+    CommissionDetailTypeFromJSONTyped,
+    CommissionDetailTypeToJSON,
+} from './CommissionDetailType';
 
 /**
  * Agent or source information along with their commission details.
@@ -39,11 +39,11 @@ export interface CommissionAgentType {
      */
     agentInfo?: AgentInfoType;
     /**
-     * 
-     * @type {CommissionDetailsType}
+     * Commission details related to the stays for which the agent or source is eligible to receive commissions.
+     * @type {Array<CommissionDetailType>}
      * @memberof CommissionAgentType
      */
-    commissionDetails?: CommissionDetailsType;
+    commissionDetails?: Array<CommissionDetailType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function CommissionAgentTypeFromJSONTyped(json: any, ignoreDiscriminator:
     return {
         
         'agentInfo': !exists(json, 'agentInfo') ? undefined : AgentInfoTypeFromJSON(json['agentInfo']),
-        'commissionDetails': !exists(json, 'commissionDetails') ? undefined : CommissionDetailsTypeFromJSON(json['commissionDetails']),
+        'commissionDetails': !exists(json, 'commissionDetails') ? undefined : ((json['commissionDetails'] as Array<any>).map(CommissionDetailTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function CommissionAgentTypeToJSON(value?: CommissionAgentType | null): a
     return {
         
         'agentInfo': AgentInfoTypeToJSON(value.agentInfo),
-        'commissionDetails': CommissionDetailsTypeToJSON(value.commissionDetails),
+        'commissionDetails': value.commissionDetails === undefined ? undefined : ((value.commissionDetails as Array<any>).map(CommissionDetailTypeToJSON)),
     };
 }
 

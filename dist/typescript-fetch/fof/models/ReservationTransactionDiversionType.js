@@ -19,7 +19,7 @@ const CodeDescriptionType_1 = require("./CodeDescriptionType");
 const CommentInfoType_1 = require("./CommentInfoType");
 const MembershipTypeLevelType_1 = require("./MembershipTypeLevelType");
 const ThresholdDetailsType_1 = require("./ThresholdDetailsType");
-const TransactionDiversionDailyDetailsType_1 = require("./TransactionDiversionDailyDetailsType");
+const TransactionDiversionDailyDetailType_1 = require("./TransactionDiversionDailyDetailType");
 const TransactionDiversionRuleLevelType_1 = require("./TransactionDiversionRuleLevelType");
 const TransactionDiversionRuleTypeType_1 = require("./TransactionDiversionRuleTypeType");
 /**
@@ -40,7 +40,7 @@ function ReservationTransactionDiversionTypeFromJSONTyped(json, ignoreDiscrimina
     }
     return {
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
-        'dailyDetails': !(0, runtime_1.exists)(json, 'dailyDetails') ? undefined : (0, TransactionDiversionDailyDetailsType_1.TransactionDiversionDailyDetailsTypeFromJSON)(json['dailyDetails']),
+        'dailyDetails': !(0, runtime_1.exists)(json, 'dailyDetails') ? undefined : (json['dailyDetails'].map(TransactionDiversionDailyDetailType_1.TransactionDiversionDailyDetailTypeFromJSON)),
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'displaySequence': !(0, runtime_1.exists)(json, 'displaySequence') ? undefined : json['displaySequence'],
         'diverted': !(0, runtime_1.exists)(json, 'diverted') ? undefined : json['diverted'],
@@ -67,7 +67,7 @@ function ReservationTransactionDiversionTypeToJSON(value) {
     }
     return {
         'code': value.code,
-        'dailyDetails': (0, TransactionDiversionDailyDetailsType_1.TransactionDiversionDailyDetailsTypeToJSON)(value.dailyDetails),
+        'dailyDetails': value.dailyDetails === undefined ? undefined : (value.dailyDetails.map(TransactionDiversionDailyDetailType_1.TransactionDiversionDailyDetailTypeToJSON)),
         'description': value.description,
         'displaySequence': value.displaySequence,
         'diverted': value.diverted,

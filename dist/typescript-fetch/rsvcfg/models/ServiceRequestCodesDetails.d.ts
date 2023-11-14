@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ServiceRequestCodesType } from './ServiceRequestCodesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ServiceRequestCodeType } from './ServiceRequestCodeType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching the service request codes for given search criteria hotel, code, active/inactive.
  * @export
@@ -38,10 +38,10 @@ export interface ServiceRequestCodesDetails {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ServiceRequestCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -49,11 +49,11 @@ export interface ServiceRequestCodesDetails {
      */
     offset?: number;
     /**
-     *
-     * @type {ServiceRequestCodesType}
+     * Details for service request code type.
+     * @type {Array<ServiceRequestCodeType>}
      * @memberof ServiceRequestCodesDetails
      */
-    serviceRequestCodes?: ServiceRequestCodesType;
+    serviceRequestCodes?: Array<ServiceRequestCodeType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -67,11 +67,11 @@ export interface ServiceRequestCodesDetails {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ServiceRequestCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ServiceRequestCodesDetails interface.

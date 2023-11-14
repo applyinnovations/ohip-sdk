@@ -16,9 +16,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ArTransactionsToJSON = exports.ArTransactionsFromJSONTyped = exports.ArTransactionsFromJSON = exports.instanceOfArTransactions = void 0;
 const runtime_1 = require("../runtime");
 const ARTransactionType_1 = require("./ARTransactionType");
-const Links_1 = require("./Links");
-const TrxCodesInfoType_1 = require("./TrxCodesInfoType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TrxInfoType_1 = require("./TrxInfoType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ArTransactions interface.
  */
@@ -36,10 +36,10 @@ function ArTransactionsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'transactions': !(0, runtime_1.exists)(json, 'transactions') ? undefined : (0, ARTransactionType_1.ARTransactionTypeFromJSON)(json['transactions']),
-        'trxCodesInfo': !(0, runtime_1.exists)(json, 'trxCodesInfo') ? undefined : (0, TrxCodesInfoType_1.TrxCodesInfoTypeFromJSON)(json['trxCodesInfo']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'trxCodesInfo': !(0, runtime_1.exists)(json, 'trxCodesInfo') ? undefined : (json['trxCodesInfo'].map(TrxInfoType_1.TrxInfoTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ArTransactionsFromJSONTyped = ArTransactionsFromJSONTyped;
@@ -51,10 +51,10 @@ function ArTransactionsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'transactions': (0, ARTransactionType_1.ARTransactionTypeToJSON)(value.transactions),
-        'trxCodesInfo': (0, TrxCodesInfoType_1.TrxCodesInfoTypeToJSON)(value.trxCodesInfo),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : (value.trxCodesInfo.map(TrxInfoType_1.TrxInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ArTransactionsToJSON = ArTransactionsToJSON;

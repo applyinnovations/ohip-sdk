@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CommissionProcessingAgentsType } from './CommissionProcessingAgentsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CommissionProcessingAgentType } from './CommissionProcessingAgentType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request Type for setting instructions for commission processing on Agent or Reservation level.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface SetProcessingInstructions {
     /**
-     *
-     * @type {CommissionProcessingAgentsType}
+     * Commission processing instructions for an Agent.
+     * @type {Array<CommissionProcessingAgentType>}
      * @memberof SetProcessingInstructions
      */
-    agents?: CommissionProcessingAgentsType;
+    agents?: Array<CommissionProcessingAgentType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SetProcessingInstructions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SetProcessingInstructions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SetProcessingInstructions interface.

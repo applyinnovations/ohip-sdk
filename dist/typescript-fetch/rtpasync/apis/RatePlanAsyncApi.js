@@ -467,7 +467,7 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, index_1.HurdleRatesToJSON)(requestParameters.hurdleRates),
+                body: requestParameters.hurdleRates.map(index_1.HurdleRateTypeToJSON),
             }, initOverrides);
             return new runtime.VoidApiResponse(response);
         });

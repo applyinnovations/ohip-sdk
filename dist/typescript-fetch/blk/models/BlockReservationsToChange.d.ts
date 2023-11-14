@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ChangeBlockReservationsType } from './ChangeBlockReservationsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * The request object to implement batch changes to block reservations based upon changes made to a reference reservation.
  * @export
@@ -26,16 +26,16 @@ export interface BlockReservationsToChange {
     criteria?: ChangeBlockReservationsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockReservationsToChange
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockReservationsToChange
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockReservationsToChange interface.

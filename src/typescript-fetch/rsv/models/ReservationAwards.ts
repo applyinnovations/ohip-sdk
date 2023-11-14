@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AwardsType } from './AwardsType';
+import type { AwardType } from './AwardType';
 import {
-    AwardsTypeFromJSON,
-    AwardsTypeFromJSONTyped,
-    AwardsTypeToJSON,
-} from './AwardsType';
-import type { Links } from './Links';
+    AwardTypeFromJSON,
+    AwardTypeFromJSONTyped,
+    AwardTypeToJSON,
+} from './AwardType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response of fetch awards for a reservation.
@@ -40,22 +40,22 @@ import {
 export interface ReservationAwards {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationAwards
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {AwardsType}
+     * List of awards.
+     * @type {Array<AwardType>}
      * @memberof ReservationAwards
      */
-    reservationAwards?: AwardsType;
+    reservationAwards?: Array<AwardType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationAwards
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ReservationAwardsFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'reservationAwards': !exists(json, 'reservationAwards') ? undefined : AwardsTypeFromJSON(json['reservationAwards']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'reservationAwards': !exists(json, 'reservationAwards') ? undefined : ((json['reservationAwards'] as Array<any>).map(AwardTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ReservationAwardsToJSON(value?: ReservationAwards | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'reservationAwards': AwardsTypeToJSON(value.reservationAwards),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'reservationAwards': value.reservationAwards === undefined ? undefined : ((value.reservationAwards as Array<any>).map(AwardTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

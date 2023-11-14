@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CustomChargesType } from './CustomChargesType';
+import type { CustomChargeType } from './CustomChargeType';
 import {
-    CustomChargesTypeFromJSON,
-    CustomChargesTypeFromJSONTyped,
-    CustomChargesTypeToJSON,
-} from './CustomChargesType';
-import type { Links } from './Links';
+    CustomChargeTypeFromJSON,
+    CustomChargeTypeFromJSONTyped,
+    CustomChargeTypeToJSON,
+} from './CustomChargeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating new Custom Charges.
@@ -39,23 +39,23 @@ import {
  */
 export interface CustomChargesConfig {
     /**
-     * 
-     * @type {CustomChargesType}
+     * Details for Custom Charges Codes.
+     * @type {Array<CustomChargeType>}
      * @memberof CustomChargesConfig
      */
-    customCharges?: CustomChargesType;
+    customCharges?: Array<CustomChargeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CustomChargesConfig
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CustomChargesConfig
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CustomChargesConfigFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'customCharges': !exists(json, 'customCharges') ? undefined : CustomChargesTypeFromJSON(json['customCharges']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'customCharges': !exists(json, 'customCharges') ? undefined : ((json['customCharges'] as Array<any>).map(CustomChargeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CustomChargesConfigToJSON(value?: CustomChargesConfig | null): a
     }
     return {
         
-        'customCharges': CustomChargesTypeToJSON(value.customCharges),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'customCharges': value.customCharges === undefined ? undefined : ((value.customCharges as Array<any>).map(CustomChargeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,42 +13,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ActivityLookUpList } from './ActivityLookUpList';
-import {
-    ActivityLookUpListFromJSON,
-    ActivityLookUpListFromJSONTyped,
-    ActivityLookUpListToJSON,
-} from './ActivityLookUpList';
 import type { AdvanceCheckInType } from './AdvanceCheckInType';
 import {
     AdvanceCheckInTypeFromJSON,
     AdvanceCheckInTypeFromJSONTyped,
     AdvanceCheckInTypeToJSON,
 } from './AdvanceCheckInType';
-import type { AlertsType } from './AlertsType';
+import type { AlertType } from './AlertType';
 import {
-    AlertsTypeFromJSON,
-    AlertsTypeFromJSONTyped,
-    AlertsTypeToJSON,
-} from './AlertsType';
-import type { AttachmentsType } from './AttachmentsType';
+    AlertTypeFromJSON,
+    AlertTypeFromJSONTyped,
+    AlertTypeToJSON,
+} from './AlertType';
+import type { AttachmentType } from './AttachmentType';
 import {
-    AttachmentsTypeFromJSON,
-    AttachmentsTypeFromJSONTyped,
-    AttachmentsTypeToJSON,
-} from './AttachmentsType';
-import type { AwardsType } from './AwardsType';
+    AttachmentTypeFromJSON,
+    AttachmentTypeFromJSONTyped,
+    AttachmentTypeToJSON,
+} from './AttachmentType';
+import type { AwardType } from './AwardType';
 import {
-    AwardsTypeFromJSON,
-    AwardsTypeFromJSONTyped,
-    AwardsTypeToJSON,
-} from './AwardsType';
-import type { CallHistoryType } from './CallHistoryType';
+    AwardTypeFromJSON,
+    AwardTypeFromJSONTyped,
+    AwardTypeToJSON,
+} from './AwardType';
+import type { CallType } from './CallType';
 import {
-    CallHistoryTypeFromJSON,
-    CallHistoryTypeFromJSONTyped,
-    CallHistoryTypeToJSON,
-} from './CallHistoryType';
+    CallTypeFromJSON,
+    CallTypeFromJSONTyped,
+    CallTypeToJSON,
+} from './CallType';
 import type { CateringResInfoType } from './CateringResInfoType';
 import {
     CateringResInfoTypeFromJSON,
@@ -73,48 +67,54 @@ import {
     CompAuthorizerInfoTypeFromJSONTyped,
     CompAuthorizerInfoTypeToJSON,
 } from './CompAuthorizerInfoType';
-import type { ConfirmationsType } from './ConfirmationsType';
+import type { ConfirmationType } from './ConfirmationType';
 import {
-    ConfirmationsTypeFromJSON,
-    ConfirmationsTypeFromJSONTyped,
-    ConfirmationsTypeToJSON,
-} from './ConfirmationsType';
-import type { CustomChargeExemptionsType } from './CustomChargeExemptionsType';
+    ConfirmationTypeFromJSON,
+    ConfirmationTypeFromJSONTyped,
+    ConfirmationTypeToJSON,
+} from './ConfirmationType';
+import type { CustomChargeExemptionType } from './CustomChargeExemptionType';
 import {
-    CustomChargeExemptionsTypeFromJSON,
-    CustomChargeExemptionsTypeFromJSONTyped,
-    CustomChargeExemptionsTypeToJSON,
-} from './CustomChargeExemptionsType';
-import type { ECouponsType } from './ECouponsType';
+    CustomChargeExemptionTypeFromJSON,
+    CustomChargeExemptionTypeFromJSONTyped,
+    CustomChargeExemptionTypeToJSON,
+} from './CustomChargeExemptionType';
+import type { ECouponType } from './ECouponType';
 import {
-    ECouponsTypeFromJSON,
-    ECouponsTypeFromJSONTyped,
-    ECouponsTypeToJSON,
-} from './ECouponsType';
-import type { ExternalReferencesType } from './ExternalReferencesType';
+    ECouponTypeFromJSON,
+    ECouponTypeFromJSONTyped,
+    ECouponTypeToJSON,
+} from './ECouponType';
+import type { ExternalReferenceType } from './ExternalReferenceType';
 import {
-    ExternalReferencesTypeFromJSON,
-    ExternalReferencesTypeFromJSONTyped,
-    ExternalReferencesTypeToJSON,
-} from './ExternalReferencesType';
-import type { FixedChargesType } from './FixedChargesType';
+    ExternalReferenceTypeFromJSON,
+    ExternalReferenceTypeFromJSONTyped,
+    ExternalReferenceTypeToJSON,
+} from './ExternalReferenceType';
+import type { FetchActivityBookingsType } from './FetchActivityBookingsType';
 import {
-    FixedChargesTypeFromJSON,
-    FixedChargesTypeFromJSONTyped,
-    FixedChargesTypeToJSON,
-} from './FixedChargesType';
-import type { FoliosShortInfoType } from './FoliosShortInfoType';
+    FetchActivityBookingsTypeFromJSON,
+    FetchActivityBookingsTypeFromJSONTyped,
+    FetchActivityBookingsTypeToJSON,
+} from './FetchActivityBookingsType';
+import type { FixedChargeType } from './FixedChargeType';
 import {
-    FoliosShortInfoTypeFromJSON,
-    FoliosShortInfoTypeFromJSONTyped,
-    FoliosShortInfoTypeToJSON,
-} from './FoliosShortInfoType';
-import type { GuestMessagesType } from './GuestMessagesType';
+    FixedChargeTypeFromJSON,
+    FixedChargeTypeFromJSONTyped,
+    FixedChargeTypeToJSON,
+} from './FixedChargeType';
+import type { FolioShortInfoType } from './FolioShortInfoType';
 import {
-    GuestMessagesTypeFromJSON,
-    GuestMessagesTypeFromJSONTyped,
-    GuestMessagesTypeToJSON,
-} from './GuestMessagesType';
+    FolioShortInfoTypeFromJSON,
+    FolioShortInfoTypeFromJSONTyped,
+    FolioShortInfoTypeToJSON,
+} from './FolioShortInfoType';
+import type { GuestMessageType } from './GuestMessageType';
+import {
+    GuestMessageTypeFromJSON,
+    GuestMessageTypeFromJSONTyped,
+    GuestMessageTypeToJSON,
+} from './GuestMessageType';
 import type { HotelReservationInstructionTypeCancellation } from './HotelReservationInstructionTypeCancellation';
 import {
     HotelReservationInstructionTypeCancellationFromJSON,
@@ -139,24 +139,24 @@ import {
     HotelReservationInstructionTypeTransactionDiversionsFromJSONTyped,
     HotelReservationInstructionTypeTransactionDiversionsToJSON,
 } from './HotelReservationInstructionTypeTransactionDiversions';
-import type { HotelReservationTracesType } from './HotelReservationTracesType';
+import type { HotelReservationTraceType } from './HotelReservationTraceType';
 import {
-    HotelReservationTracesTypeFromJSON,
-    HotelReservationTracesTypeFromJSONTyped,
-    HotelReservationTracesTypeToJSON,
-} from './HotelReservationTracesType';
+    HotelReservationTraceTypeFromJSON,
+    HotelReservationTraceTypeFromJSONTyped,
+    HotelReservationTraceTypeToJSON,
+} from './HotelReservationTraceType';
 import type { HotelReservationsType } from './HotelReservationsType';
 import {
     HotelReservationsTypeFromJSON,
     HotelReservationsTypeFromJSONTyped,
     HotelReservationsTypeToJSON,
 } from './HotelReservationsType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import {
-    IndicatorsTypeFromJSON,
-    IndicatorsTypeFromJSONTyped,
-    IndicatorsTypeToJSON,
-} from './IndicatorsType';
+    IndicatorTypeFromJSON,
+    IndicatorTypeFromJSONTyped,
+    IndicatorTypeToJSON,
+} from './IndicatorType';
 import type { LinkedReservationsInfoType } from './LinkedReservationsInfoType';
 import {
     LinkedReservationsInfoTypeFromJSON,
@@ -175,12 +175,12 @@ import {
     NameValueDetailTypeFromJSONTyped,
     NameValueDetailTypeToJSON,
 } from './NameValueDetailType';
-import type { OverrideInstructionsType } from './OverrideInstructionsType';
+import type { OverrideInstructionType } from './OverrideInstructionType';
 import {
-    OverrideInstructionsTypeFromJSON,
-    OverrideInstructionsTypeFromJSONTyped,
-    OverrideInstructionsTypeToJSON,
-} from './OverrideInstructionsType';
+    OverrideInstructionTypeFromJSON,
+    OverrideInstructionTypeFromJSONTyped,
+    OverrideInstructionTypeToJSON,
+} from './OverrideInstructionType';
 import type { PMSResStatusType } from './PMSResStatusType';
 import {
     PMSResStatusTypeFromJSON,
@@ -193,12 +193,12 @@ import {
     PreferenceTypeTypeFromJSONTyped,
     PreferenceTypeTypeToJSON,
 } from './PreferenceTypeType';
-import type { PrepaidCardsType } from './PrepaidCardsType';
+import type { PrepaidCardType } from './PrepaidCardType';
 import {
-    PrepaidCardsTypeFromJSON,
-    PrepaidCardsTypeFromJSONTyped,
-    PrepaidCardsTypeToJSON,
-} from './PrepaidCardsType';
+    PrepaidCardTypeFromJSON,
+    PrepaidCardTypeFromJSONTyped,
+    PrepaidCardTypeToJSON,
+} from './PrepaidCardType';
 import type { ResAccessRestrictionType } from './ResAccessRestrictionType';
 import {
     ResAccessRestrictionTypeFromJSON,
@@ -241,42 +241,36 @@ import {
     ResInventoryItemsTypeFromJSONTyped,
     ResInventoryItemsTypeToJSON,
 } from './ResInventoryItemsType';
-import type { ResSharedGuestListType } from './ResSharedGuestListType';
+import type { ResSharedGuestInfoType } from './ResSharedGuestInfoType';
 import {
-    ResSharedGuestListTypeFromJSON,
-    ResSharedGuestListTypeFromJSONTyped,
-    ResSharedGuestListTypeToJSON,
-} from './ResSharedGuestListType';
+    ResSharedGuestInfoTypeFromJSON,
+    ResSharedGuestInfoTypeFromJSONTyped,
+    ResSharedGuestInfoTypeToJSON,
+} from './ResSharedGuestInfoType';
 import type { ResStatClassificationType } from './ResStatClassificationType';
 import {
     ResStatClassificationTypeFromJSON,
     ResStatClassificationTypeFromJSONTyped,
     ResStatClassificationTypeToJSON,
 } from './ResStatClassificationType';
-import type { ReservationAllowedActionsType } from './ReservationAllowedActionsType';
+import type { ReservationAllowedActionType } from './ReservationAllowedActionType';
 import {
-    ReservationAllowedActionsTypeFromJSON,
-    ReservationAllowedActionsTypeFromJSONTyped,
-    ReservationAllowedActionsTypeToJSON,
-} from './ReservationAllowedActionsType';
-import type { ReservationECertificatesType } from './ReservationECertificatesType';
+    ReservationAllowedActionTypeFromJSON,
+    ReservationAllowedActionTypeFromJSONTyped,
+    ReservationAllowedActionTypeToJSON,
+} from './ReservationAllowedActionType';
+import type { ReservationECertificateType } from './ReservationECertificateType';
 import {
-    ReservationECertificatesTypeFromJSON,
-    ReservationECertificatesTypeFromJSONTyped,
-    ReservationECertificatesTypeToJSON,
-} from './ReservationECertificatesType';
-import type { ReservationIdList } from './ReservationIdList';
+    ReservationECertificateTypeFromJSON,
+    ReservationECertificateTypeFromJSONTyped,
+    ReservationECertificateTypeToJSON,
+} from './ReservationECertificateType';
+import type { ReservationLocatorType } from './ReservationLocatorType';
 import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
-import type { ReservationLocatorsType } from './ReservationLocatorsType';
-import {
-    ReservationLocatorsTypeFromJSON,
-    ReservationLocatorsTypeFromJSONTyped,
-    ReservationLocatorsTypeToJSON,
-} from './ReservationLocatorsType';
+    ReservationLocatorTypeFromJSON,
+    ReservationLocatorTypeFromJSONTyped,
+    ReservationLocatorTypeToJSON,
+} from './ReservationLocatorType';
 import type { ReservationMembershipType } from './ReservationMembershipType';
 import {
     ReservationMembershipTypeFromJSON,
@@ -289,12 +283,12 @@ import {
     ReservationPackageTypeFromJSONTyped,
     ReservationPackageTypeToJSON,
 } from './ReservationPackageType';
-import type { ReservationPaymentMethodsType } from './ReservationPaymentMethodsType';
+import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
 import {
-    ReservationPaymentMethodsTypeFromJSON,
-    ReservationPaymentMethodsTypeFromJSONTyped,
-    ReservationPaymentMethodsTypeToJSON,
-} from './ReservationPaymentMethodsType';
+    ReservationPaymentMethodTypeFromJSON,
+    ReservationPaymentMethodTypeFromJSONTyped,
+    ReservationPaymentMethodTypeToJSON,
+} from './ReservationPaymentMethodType';
 import type { ReservationPoliciesType } from './ReservationPoliciesType';
 import {
     ReservationPoliciesTypeFromJSON,
@@ -313,36 +307,42 @@ import {
     RoomStayTypeFromJSONTyped,
     RoomStayTypeToJSON,
 } from './RoomStayType';
-import type { RoutingInfoListType } from './RoutingInfoListType';
+import type { RoutingInfoType } from './RoutingInfoType';
 import {
-    RoutingInfoListTypeFromJSON,
-    RoutingInfoListTypeFromJSONTyped,
-    RoutingInfoListTypeToJSON,
-} from './RoutingInfoListType';
-import type { ServiceRequests } from './ServiceRequests';
+    RoutingInfoTypeFromJSON,
+    RoutingInfoTypeFromJSONTyped,
+    RoutingInfoTypeToJSON,
+} from './RoutingInfoType';
+import type { ServiceRequest } from './ServiceRequest';
 import {
-    ServiceRequestsFromJSON,
-    ServiceRequestsFromJSONTyped,
-    ServiceRequestsToJSON,
-} from './ServiceRequests';
+    ServiceRequestFromJSON,
+    ServiceRequestFromJSONTyped,
+    ServiceRequestToJSON,
+} from './ServiceRequest';
 import type { SourceOfSaleType } from './SourceOfSaleType';
 import {
     SourceOfSaleTypeFromJSON,
     SourceOfSaleTypeFromJSONTyped,
     SourceOfSaleTypeToJSON,
 } from './SourceOfSaleType';
-import type { TicketsType } from './TicketsType';
+import type { TicketType } from './TicketType';
 import {
-    TicketsTypeFromJSON,
-    TicketsTypeFromJSONTyped,
-    TicketsTypeToJSON,
-} from './TicketsType';
-import type { TrackItItemsType } from './TrackItItemsType';
+    TicketTypeFromJSON,
+    TicketTypeFromJSONTyped,
+    TicketTypeToJSON,
+} from './TicketType';
+import type { TrackItItemType } from './TrackItItemType';
 import {
-    TrackItItemsTypeFromJSON,
-    TrackItItemsTypeFromJSONTyped,
-    TrackItItemsTypeToJSON,
-} from './TrackItItemsType';
+    TrackItItemTypeFromJSON,
+    TrackItItemTypeFromJSONTyped,
+    TrackItItemTypeToJSON,
+} from './TrackItItemType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 import type { UserDefinedFieldsType } from './UserDefinedFieldsType';
 import {
     UserDefinedFieldsTypeFromJSON,
@@ -387,11 +387,11 @@ export interface HotelReservationInstructionType {
      */
     advanceCheckIn?: AdvanceCheckInType;
     /**
-     * 
-     * @type {AlertsType}
+     * List of alerts.
+     * @type {Array<AlertType>}
      * @memberof HotelReservationInstructionType
      */
-    alerts?: AlertsType;
+    alerts?: Array<AlertType>;
     /**
      * Flag to allow auto checkin
      * @type {boolean}
@@ -417,11 +417,11 @@ export interface HotelReservationInstructionType {
      */
     allowPreRegistration?: boolean;
     /**
-     * 
-     * @type {ReservationAllowedActionsType}
+     * Allowed action.
+     * @type {Array<ReservationAllowedActionType>}
      * @memberof HotelReservationInstructionType
      */
-    allowedActions?: ReservationAllowedActionsType;
+    allowedActions?: Array<ReservationAllowedActionType>;
     /**
      * Information regarding associated reservations to the reservation.
      * @type {object}
@@ -429,11 +429,11 @@ export interface HotelReservationInstructionType {
      */
     associatedReservations?: object;
     /**
-     * 
-     * @type {AttachmentsType}
+     * Attachment List.
+     * @type {Array<AttachmentType>}
      * @memberof HotelReservationInstructionType
      */
-    attachments?: AttachmentsType;
+    attachments?: Array<AttachmentType>;
     /**
      * This flag will force to borrow from house if borrow required for number of rooms requested, this will only applicable when reservation is attached to a Block.
      * @type {boolean}
@@ -441,11 +441,11 @@ export interface HotelReservationInstructionType {
      */
     autoBorrowFromHouse?: boolean;
     /**
-     * 
-     * @type {CallHistoryType}
+     * Holds call information.
+     * @type {Array<CallType>}
      * @memberof HotelReservationInstructionType
      */
-    callHistory?: CallHistoryType;
+    callHistory?: Array<CallType>;
     /**
      * 
      * @type {HotelReservationInstructionTypeCancellation}
@@ -495,11 +495,11 @@ export interface HotelReservationInstructionType {
      */
     computedReservationStatus?: PMSResStatusType;
     /**
-     * 
-     * @type {ConfirmationsType}
+     * List of confirmation letters.
+     * @type {Array<ConfirmationType>}
      * @memberof HotelReservationInstructionType
      */
-    confirmationLetters?: ConfirmationsType;
+    confirmationLetters?: Array<ConfirmationType>;
     /**
      * Business Date when the reservation was created.
      * @type {Date}
@@ -519,11 +519,11 @@ export interface HotelReservationInstructionType {
      */
     creatorId?: string;
     /**
-     * 
-     * @type {CustomChargeExemptionsType}
+     * List of Custom Charge Exemptions.
+     * @type {Array<CustomChargeExemptionType>}
      * @memberof HotelReservationInstructionType
      */
-    customChargeExemptionDetails?: CustomChargeExemptionsType;
+    customChargeExemptionDetails?: Array<CustomChargeExemptionType>;
     /**
      * 
      * @type {NameValueDetailType}
@@ -543,17 +543,17 @@ export interface HotelReservationInstructionType {
      */
     displayColor?: string;
     /**
-     * 
-     * @type {ReservationECertificatesType}
+     * Collection of ECertificateType object.
+     * @type {Array<ReservationECertificateType>}
      * @memberof HotelReservationInstructionType
      */
-    eCertificates?: ReservationECertificatesType;
+    eCertificates?: Array<ReservationECertificateType>;
     /**
-     * 
-     * @type {ECouponsType}
+     * Collection of ECouponType object.
+     * @type {Array<ECouponType>}
      * @memberof HotelReservationInstructionType
      */
-    eCoupons?: ECouponsType;
+    eCoupons?: Array<ECouponType>;
     /**
      * 
      * @type {boolean}
@@ -561,23 +561,23 @@ export interface HotelReservationInstructionType {
      */
     extSystemSync?: boolean;
     /**
-     * 
-     * @type {ExternalReferencesType}
+     * This type contains unique information of external reference.
+     * @type {Array<ExternalReferenceType>}
      * @memberof HotelReservationInstructionType
      */
-    externalReferences?: ExternalReferencesType;
+    externalReferences?: Array<ExternalReferenceType>;
     /**
-     * 
-     * @type {FixedChargesType}
+     * Holds fixed charge detail.
+     * @type {Array<FixedChargeType>}
      * @memberof HotelReservationInstructionType
      */
-    fixedCharges?: FixedChargesType;
+    fixedCharges?: Array<FixedChargeType>;
     /**
-     * 
-     * @type {FoliosShortInfoType}
+     * This type contains a list of generated bills for a reservation.
+     * @type {Array<FolioShortInfoType>}
      * @memberof HotelReservationInstructionType
      */
-    folios?: FoliosShortInfoType;
+    folios?: Array<FolioShortInfoType>;
     /**
      * List of Notes for the Guest related to the profile.
      * @type {Array<CommentInfoType>}
@@ -591,11 +591,11 @@ export interface HotelReservationInstructionType {
      */
     guestMemberships?: Array<MembershipType>;
     /**
-     * 
-     * @type {GuestMessagesType}
+     * Holds the Message Information
+     * @type {Array<GuestMessageType>}
      * @memberof HotelReservationInstructionType
      */
-    guestMessages?: GuestMessagesType;
+    guestMessages?: Array<GuestMessageType>;
     /**
      * 
      * @type {boolean}
@@ -639,11 +639,11 @@ export interface HotelReservationInstructionType {
      */
     linkedReservation?: LinkedReservationsInfoType;
     /**
-     * 
-     * @type {ReservationLocatorsType}
+     * Holds the Locator Information.
+     * @type {Array<ReservationLocatorType>}
      * @memberof HotelReservationInstructionType
      */
-    locators?: ReservationLocatorsType;
+    locators?: Array<ReservationLocatorType>;
     /**
      * An id representing the record lock for this reservation. When passed, update operation will verify that this lock is still valid.
      * @type {number}
@@ -675,11 +675,11 @@ export interface HotelReservationInstructionType {
      */
     overrideExternalChecks?: boolean;
     /**
-     * 
-     * @type {OverrideInstructionsType}
+     * List of override actions done.
+     * @type {Array<OverrideInstructionType>}
      * @memberof HotelReservationInstructionType
      */
-    overrideInstructions?: OverrideInstructionsType;
+    overrideInstructions?: Array<OverrideInstructionType>;
     /**
      * Indicates to Override the Room Inventory Check if applicable.
      * @type {boolean}
@@ -723,11 +723,11 @@ export interface HotelReservationInstructionType {
      */
     preferenceCollection?: Array<PreferenceTypeType>;
     /**
-     * 
-     * @type {PrepaidCardsType}
+     * Holds fixed charge detail.
+     * @type {Array<PrepaidCardType>}
      * @memberof HotelReservationInstructionType
      */
-    prepaidCards?: PrepaidCardsType;
+    prepaidCards?: Array<PrepaidCardType>;
     /**
      * Name of the Chain for the primary enrollment
      * @type {string}
@@ -747,11 +747,11 @@ export interface HotelReservationInstructionType {
      */
     printRate?: boolean;
     /**
-     * 
-     * @type {AwardsType}
+     * List of awards.
+     * @type {Array<AwardType>}
      * @memberof HotelReservationInstructionType
      */
-    profileAwards?: AwardsType;
+    profileAwards?: Array<AwardType>;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
      * @type {Date}
@@ -771,17 +771,17 @@ export interface HotelReservationInstructionType {
      */
     reinstateDate?: Date;
     /**
-     * 
-     * @type {ActivityLookUpList}
+     * Criteria for fetching Activity Bookings.
+     * @type {Array<FetchActivityBookingsType>}
      * @memberof HotelReservationInstructionType
      */
-    reservationActivities?: ActivityLookUpList;
+    reservationActivities?: Array<FetchActivityBookingsType>;
     /**
-     * 
-     * @type {AwardsType}
+     * List of awards.
+     * @type {Array<AwardType>}
      * @memberof HotelReservationInstructionType
      */
-    reservationAwards?: AwardsType;
+    reservationAwards?: Array<AwardType>;
     /**
      * 
      * @type {ResCommunicationType}
@@ -795,17 +795,17 @@ export interface HotelReservationInstructionType {
      */
     reservationGuests?: Array<ResGuestType>;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof HotelReservationInstructionType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
-     * 
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof HotelReservationInstructionType
      */
-    reservationIndicators?: IndicatorsType;
+    reservationIndicators?: Array<IndicatorType>;
     /**
      * List of reservation memberships.
      * @type {Array<ReservationMembershipType>}
@@ -819,11 +819,11 @@ export interface HotelReservationInstructionType {
      */
     reservationPackages?: Array<ReservationPackageType>;
     /**
-     * 
-     * @type {ReservationPaymentMethodsType}
+     * Defines reservation payment methods.
+     * @type {Array<ReservationPaymentMethodType>}
      * @memberof HotelReservationInstructionType
      */
-    reservationPaymentMethods?: ReservationPaymentMethodsType;
+    reservationPaymentMethods?: Array<ReservationPaymentMethodType>;
     /**
      * 
      * @type {ReservationPoliciesType}
@@ -861,29 +861,29 @@ export interface HotelReservationInstructionType {
      */
     roomStayReservation?: boolean;
     /**
-     * 
-     * @type {RoutingInfoListType}
+     * A routing info object can either be of type Folio OR of type Room with its corresponding instructions.
+     * @type {Array<RoutingInfoType>}
      * @memberof HotelReservationInstructionType
      */
-    routingInstructions?: RoutingInfoListType;
+    routingInstructions?: Array<RoutingInfoType>;
     /**
-     * 
-     * @type {ActivityLookUpList}
+     * Criteria for fetching Activity Bookings.
+     * @type {Array<FetchActivityBookingsType>}
      * @memberof HotelReservationInstructionType
      */
-    scheduledActivities?: ActivityLookUpList;
+    scheduledActivities?: Array<FetchActivityBookingsType>;
     /**
-     * 
-     * @type {ServiceRequests}
+     * Service request.
+     * @type {Array<ServiceRequest>}
      * @memberof HotelReservationInstructionType
      */
-    serviceRequests?: ServiceRequests;
+    serviceRequests?: Array<ServiceRequest>;
     /**
-     * 
-     * @type {ResSharedGuestListType}
+     * Collection of shared guest reservations.
+     * @type {Array<ResSharedGuestInfoType>}
      * @memberof HotelReservationInstructionType
      */
-    sharedGuests?: ResSharedGuestListType;
+    sharedGuests?: Array<ResSharedGuestInfoType>;
     /**
      * 
      * @type {HotelReservationsType}
@@ -903,23 +903,23 @@ export interface HotelReservationInstructionType {
      */
     statisticalClassification?: ResStatClassificationType;
     /**
-     * 
-     * @type {TicketsType}
+     * Collection of TicketType objects.
+     * @type {Array<TicketType>}
      * @memberof HotelReservationInstructionType
      */
-    tickets?: TicketsType;
+    tickets?: Array<TicketType>;
+    /**
+     * List of Reservation Traces.
+     * @type {Array<HotelReservationTraceType>}
+     * @memberof HotelReservationInstructionType
+     */
+    traces?: Array<HotelReservationTraceType>;
     /**
      * 
-     * @type {HotelReservationTracesType}
+     * @type {Array<TrackItItemType>}
      * @memberof HotelReservationInstructionType
      */
-    traces?: HotelReservationTracesType;
-    /**
-     * 
-     * @type {TrackItItemsType}
-     * @memberof HotelReservationInstructionType
-     */
-    trackItItems?: TrackItItemsType;
+    trackItItems?: Array<TrackItItemType>;
     /**
      * 
      * @type {HotelReservationInstructionTypeTransactionDiversions}
@@ -951,11 +951,11 @@ export interface HotelReservationInstructionType {
      */
     walkIn?: boolean;
     /**
-     * 
-     * @type {AttachmentsType}
+     * Attachment List.
+     * @type {Array<AttachmentType>}
      * @memberof HotelReservationInstructionType
      */
-    webRegistrationCards?: AttachmentsType;
+    webRegistrationCards?: Array<AttachmentType>;
 }
 
 /**
@@ -981,16 +981,16 @@ export function HotelReservationInstructionTypeFromJSONTyped(json: any, ignoreDi
         'accessRestrictionMessage': !exists(json, 'accessRestrictionMessage') ? undefined : json['accessRestrictionMessage'],
         'additionalGuestInfo': !exists(json, 'additionalGuestInfo') ? undefined : ResGuestAdditionalInfoTypeFromJSON(json['additionalGuestInfo']),
         'advanceCheckIn': !exists(json, 'advanceCheckIn') ? undefined : AdvanceCheckInTypeFromJSON(json['advanceCheckIn']),
-        'alerts': !exists(json, 'alerts') ? undefined : AlertsTypeFromJSON(json['alerts']),
+        'alerts': !exists(json, 'alerts') ? undefined : ((json['alerts'] as Array<any>).map(AlertTypeFromJSON)),
         'allowAutoCheckin': !exists(json, 'allowAutoCheckin') ? undefined : json['allowAutoCheckin'],
         'allowMobileCheckout': !exists(json, 'allowMobileCheckout') ? undefined : json['allowMobileCheckout'],
         'allowMobileViewFolio': !exists(json, 'allowMobileViewFolio') ? undefined : json['allowMobileViewFolio'],
         'allowPreRegistration': !exists(json, 'allowPreRegistration') ? undefined : json['allowPreRegistration'],
-        'allowedActions': !exists(json, 'allowedActions') ? undefined : ReservationAllowedActionsTypeFromJSON(json['allowedActions']),
+        'allowedActions': !exists(json, 'allowedActions') ? undefined : ((json['allowedActions'] as Array<any>).map(ReservationAllowedActionTypeFromJSON)),
         'associatedReservations': !exists(json, 'associatedReservations') ? undefined : json['associatedReservations'],
-        'attachments': !exists(json, 'attachments') ? undefined : AttachmentsTypeFromJSON(json['attachments']),
+        'attachments': !exists(json, 'attachments') ? undefined : ((json['attachments'] as Array<any>).map(AttachmentTypeFromJSON)),
         'autoBorrowFromHouse': !exists(json, 'autoBorrowFromHouse') ? undefined : json['autoBorrowFromHouse'],
-        'callHistory': !exists(json, 'callHistory') ? undefined : CallHistoryTypeFromJSON(json['callHistory']),
+        'callHistory': !exists(json, 'callHistory') ? undefined : ((json['callHistory'] as Array<any>).map(CallTypeFromJSON)),
         'cancellation': !exists(json, 'cancellation') ? undefined : HotelReservationInstructionTypeCancellationFromJSON(json['cancellation']),
         'cashiering': !exists(json, 'cashiering') ? undefined : ResCashieringTypeFromJSON(json['cashiering']),
         'catering': !exists(json, 'catering') ? undefined : CateringResInfoTypeFromJSON(json['catering']),
@@ -999,23 +999,23 @@ export function HotelReservationInstructionTypeFromJSONTyped(json: any, ignoreDi
         'comments': !exists(json, 'comments') ? undefined : ((json['comments'] as Array<any>).map(CommentInfoTypeFromJSON)),
         'compAuthorizer': !exists(json, 'compAuthorizer') ? undefined : CompAuthorizerInfoTypeFromJSON(json['compAuthorizer']),
         'computedReservationStatus': !exists(json, 'computedReservationStatus') ? undefined : PMSResStatusTypeFromJSON(json['computedReservationStatus']),
-        'confirmationLetters': !exists(json, 'confirmationLetters') ? undefined : ConfirmationsTypeFromJSON(json['confirmationLetters']),
+        'confirmationLetters': !exists(json, 'confirmationLetters') ? undefined : ((json['confirmationLetters'] as Array<any>).map(ConfirmationTypeFromJSON)),
         'createBusinessDate': !exists(json, 'createBusinessDate') ? undefined : (new Date(json['createBusinessDate'])),
         'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !exists(json, 'creatorId') ? undefined : json['creatorId'],
-        'customChargeExemptionDetails': !exists(json, 'customChargeExemptionDetails') ? undefined : CustomChargeExemptionsTypeFromJSON(json['customChargeExemptionDetails']),
+        'customChargeExemptionDetails': !exists(json, 'customChargeExemptionDetails') ? undefined : ((json['customChargeExemptionDetails'] as Array<any>).map(CustomChargeExemptionTypeFromJSON)),
         'customNameValueDetail': !exists(json, 'customNameValueDetail') ? undefined : NameValueDetailTypeFromJSON(json['customNameValueDetail']),
         'customReference': !exists(json, 'customReference') ? undefined : json['customReference'],
         'displayColor': !exists(json, 'displayColor') ? undefined : json['displayColor'],
-        'eCertificates': !exists(json, 'eCertificates') ? undefined : ReservationECertificatesTypeFromJSON(json['eCertificates']),
-        'eCoupons': !exists(json, 'eCoupons') ? undefined : ECouponsTypeFromJSON(json['eCoupons']),
+        'eCertificates': !exists(json, 'eCertificates') ? undefined : ((json['eCertificates'] as Array<any>).map(ReservationECertificateTypeFromJSON)),
+        'eCoupons': !exists(json, 'eCoupons') ? undefined : ((json['eCoupons'] as Array<any>).map(ECouponTypeFromJSON)),
         'extSystemSync': !exists(json, 'extSystemSync') ? undefined : json['extSystemSync'],
-        'externalReferences': !exists(json, 'externalReferences') ? undefined : ExternalReferencesTypeFromJSON(json['externalReferences']),
-        'fixedCharges': !exists(json, 'fixedCharges') ? undefined : FixedChargesTypeFromJSON(json['fixedCharges']),
-        'folios': !exists(json, 'folios') ? undefined : FoliosShortInfoTypeFromJSON(json['folios']),
+        'externalReferences': !exists(json, 'externalReferences') ? undefined : ((json['externalReferences'] as Array<any>).map(ExternalReferenceTypeFromJSON)),
+        'fixedCharges': !exists(json, 'fixedCharges') ? undefined : ((json['fixedCharges'] as Array<any>).map(FixedChargeTypeFromJSON)),
+        'folios': !exists(json, 'folios') ? undefined : ((json['folios'] as Array<any>).map(FolioShortInfoTypeFromJSON)),
         'guestComments': !exists(json, 'guestComments') ? undefined : ((json['guestComments'] as Array<any>).map(CommentInfoTypeFromJSON)),
         'guestMemberships': !exists(json, 'guestMemberships') ? undefined : ((json['guestMemberships'] as Array<any>).map(MembershipTypeFromJSON)),
-        'guestMessages': !exists(json, 'guestMessages') ? undefined : GuestMessagesTypeFromJSON(json['guestMessages']),
+        'guestMessages': !exists(json, 'guestMessages') ? undefined : ((json['guestMessages'] as Array<any>).map(GuestMessageTypeFromJSON)),
         'hasOpenFolio': !exists(json, 'hasOpenFolio') ? undefined : json['hasOpenFolio'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'housekeeping': !exists(json, 'housekeeping') ? undefined : ResHousekeepingTypeFromJSON(json['housekeeping']),
@@ -1023,13 +1023,13 @@ export function HotelReservationInstructionTypeFromJSONTyped(json: any, ignoreDi
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'linkedReservation': !exists(json, 'linkedReservation') ? undefined : LinkedReservationsInfoTypeFromJSON(json['linkedReservation']),
-        'locators': !exists(json, 'locators') ? undefined : ReservationLocatorsTypeFromJSON(json['locators']),
+        'locators': !exists(json, 'locators') ? undefined : ((json['locators'] as Array<any>).map(ReservationLocatorTypeFromJSON)),
         'lockHandle': !exists(json, 'lockHandle') ? undefined : json['lockHandle'],
         'markAsRecentlyAccessed': !exists(json, 'markAsRecentlyAccessed') ? undefined : json['markAsRecentlyAccessed'],
         'optedForCommunication': !exists(json, 'optedForCommunication') ? undefined : json['optedForCommunication'],
         'overrideBlockRestriction': !exists(json, 'overrideBlockRestriction') ? undefined : json['overrideBlockRestriction'],
         'overrideExternalChecks': !exists(json, 'overrideExternalChecks') ? undefined : json['overrideExternalChecks'],
-        'overrideInstructions': !exists(json, 'overrideInstructions') ? undefined : OverrideInstructionsTypeFromJSON(json['overrideInstructions']),
+        'overrideInstructions': !exists(json, 'overrideInstructions') ? undefined : ((json['overrideInstructions'] as Array<any>).map(OverrideInstructionTypeFromJSON)),
         'overrideInventoryCheck': !exists(json, 'overrideInventoryCheck') ? undefined : json['overrideInventoryCheck'],
         'overrideOutOfServiceCheck': !exists(json, 'overrideOutOfServiceCheck') ? undefined : json['overrideOutOfServiceCheck'],
         'overrideRoomOwnership': !exists(json, 'overrideRoomOwnership') ? undefined : json['overrideRoomOwnership'],
@@ -1037,45 +1037,45 @@ export function HotelReservationInstructionTypeFromJSONTyped(json: any, ignoreDi
         'party': !exists(json, 'party') ? undefined : json['party'],
         'preRegistered': !exists(json, 'preRegistered') ? undefined : json['preRegistered'],
         'preferenceCollection': !exists(json, 'preferenceCollection') ? undefined : ((json['preferenceCollection'] as Array<any>).map(PreferenceTypeTypeFromJSON)),
-        'prepaidCards': !exists(json, 'prepaidCards') ? undefined : PrepaidCardsTypeFromJSON(json['prepaidCards']),
+        'prepaidCards': !exists(json, 'prepaidCards') ? undefined : ((json['prepaidCards'] as Array<any>).map(PrepaidCardTypeFromJSON)),
         'primaryEnrollmentChain': !exists(json, 'primaryEnrollmentChain') ? undefined : json['primaryEnrollmentChain'],
         'primaryEnrollmentResort': !exists(json, 'primaryEnrollmentResort') ? undefined : json['primaryEnrollmentResort'],
         'printRate': !exists(json, 'printRate') ? undefined : json['printRate'],
-        'profileAwards': !exists(json, 'profileAwards') ? undefined : AwardsTypeFromJSON(json['profileAwards']),
+        'profileAwards': !exists(json, 'profileAwards') ? undefined : ((json['profileAwards'] as Array<any>).map(AwardTypeFromJSON)),
         'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
         'queue': !exists(json, 'queue') ? undefined : ReservationQueueInformationTypeFromJSON(json['queue']),
         'reinstateDate': !exists(json, 'reinstateDate') ? undefined : (new Date(json['reinstateDate'])),
-        'reservationActivities': !exists(json, 'reservationActivities') ? undefined : ActivityLookUpListFromJSON(json['reservationActivities']),
-        'reservationAwards': !exists(json, 'reservationAwards') ? undefined : AwardsTypeFromJSON(json['reservationAwards']),
+        'reservationActivities': !exists(json, 'reservationActivities') ? undefined : ((json['reservationActivities'] as Array<any>).map(FetchActivityBookingsTypeFromJSON)),
+        'reservationAwards': !exists(json, 'reservationAwards') ? undefined : ((json['reservationAwards'] as Array<any>).map(AwardTypeFromJSON)),
         'reservationCommunication': !exists(json, 'reservationCommunication') ? undefined : ResCommunicationTypeFromJSON(json['reservationCommunication']),
         'reservationGuests': !exists(json, 'reservationGuests') ? undefined : ((json['reservationGuests'] as Array<any>).map(ResGuestTypeFromJSON)),
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
-        'reservationIndicators': !exists(json, 'reservationIndicators') ? undefined : IndicatorsTypeFromJSON(json['reservationIndicators']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'reservationIndicators': !exists(json, 'reservationIndicators') ? undefined : ((json['reservationIndicators'] as Array<any>).map(IndicatorTypeFromJSON)),
         'reservationMemberships': !exists(json, 'reservationMemberships') ? undefined : ((json['reservationMemberships'] as Array<any>).map(ReservationMembershipTypeFromJSON)),
         'reservationPackages': !exists(json, 'reservationPackages') ? undefined : ((json['reservationPackages'] as Array<any>).map(ReservationPackageTypeFromJSON)),
-        'reservationPaymentMethods': !exists(json, 'reservationPaymentMethods') ? undefined : ReservationPaymentMethodsTypeFromJSON(json['reservationPaymentMethods']),
+        'reservationPaymentMethods': !exists(json, 'reservationPaymentMethods') ? undefined : ((json['reservationPaymentMethods'] as Array<any>).map(ReservationPaymentMethodTypeFromJSON)),
         'reservationPolicies': !exists(json, 'reservationPolicies') ? undefined : ReservationPoliciesTypeFromJSON(json['reservationPolicies']),
         'reservationProfiles': !exists(json, 'reservationProfiles') ? undefined : HotelReservationInstructionTypeReservationProfilesFromJSON(json['reservationProfiles']),
         'reservationStatus': !exists(json, 'reservationStatus') ? undefined : PMSResStatusTypeFromJSON(json['reservationStatus']),
         'responseInstructions': !exists(json, 'responseInstructions') ? undefined : HotelReservationInstructionTypeResponseInstructionsFromJSON(json['responseInstructions']),
         'roomStay': !exists(json, 'roomStay') ? undefined : RoomStayTypeFromJSON(json['roomStay']),
         'roomStayReservation': !exists(json, 'roomStayReservation') ? undefined : json['roomStayReservation'],
-        'routingInstructions': !exists(json, 'routingInstructions') ? undefined : RoutingInfoListTypeFromJSON(json['routingInstructions']),
-        'scheduledActivities': !exists(json, 'scheduledActivities') ? undefined : ActivityLookUpListFromJSON(json['scheduledActivities']),
-        'serviceRequests': !exists(json, 'serviceRequests') ? undefined : ServiceRequestsFromJSON(json['serviceRequests']),
-        'sharedGuests': !exists(json, 'sharedGuests') ? undefined : ResSharedGuestListTypeFromJSON(json['sharedGuests']),
+        'routingInstructions': !exists(json, 'routingInstructions') ? undefined : ((json['routingInstructions'] as Array<any>).map(RoutingInfoTypeFromJSON)),
+        'scheduledActivities': !exists(json, 'scheduledActivities') ? undefined : ((json['scheduledActivities'] as Array<any>).map(FetchActivityBookingsTypeFromJSON)),
+        'serviceRequests': !exists(json, 'serviceRequests') ? undefined : ((json['serviceRequests'] as Array<any>).map(ServiceRequestFromJSON)),
+        'sharedGuests': !exists(json, 'sharedGuests') ? undefined : ((json['sharedGuests'] as Array<any>).map(ResSharedGuestInfoTypeFromJSON)),
         'shares': !exists(json, 'shares') ? undefined : HotelReservationsTypeFromJSON(json['shares']),
         'sourceOfSale': !exists(json, 'sourceOfSale') ? undefined : SourceOfSaleTypeFromJSON(json['sourceOfSale']),
         'statisticalClassification': !exists(json, 'statisticalClassification') ? undefined : ResStatClassificationTypeFromJSON(json['statisticalClassification']),
-        'tickets': !exists(json, 'tickets') ? undefined : TicketsTypeFromJSON(json['tickets']),
-        'traces': !exists(json, 'traces') ? undefined : HotelReservationTracesTypeFromJSON(json['traces']),
-        'trackItItems': !exists(json, 'trackItItems') ? undefined : TrackItItemsTypeFromJSON(json['trackItItems']),
+        'tickets': !exists(json, 'tickets') ? undefined : ((json['tickets'] as Array<any>).map(TicketTypeFromJSON)),
+        'traces': !exists(json, 'traces') ? undefined : ((json['traces'] as Array<any>).map(HotelReservationTraceTypeFromJSON)),
+        'trackItItems': !exists(json, 'trackItItems') ? undefined : ((json['trackItItems'] as Array<any>).map(TrackItItemTypeFromJSON)),
         'transactionDiversions': !exists(json, 'transactionDiversions') ? undefined : HotelReservationInstructionTypeTransactionDiversionsFromJSON(json['transactionDiversions']),
         'upgradeEligible': !exists(json, 'upgradeEligible') ? undefined : json['upgradeEligible'],
         'userDefinedFields': !exists(json, 'userDefinedFields') ? undefined : UserDefinedFieldsTypeFromJSON(json['userDefinedFields']),
         'waitlist': !exists(json, 'waitlist') ? undefined : WaitlistResTypeFromJSON(json['waitlist']),
         'walkIn': !exists(json, 'walkIn') ? undefined : json['walkIn'],
-        'webRegistrationCards': !exists(json, 'webRegistrationCards') ? undefined : AttachmentsTypeFromJSON(json['webRegistrationCards']),
+        'webRegistrationCards': !exists(json, 'webRegistrationCards') ? undefined : ((json['webRegistrationCards'] as Array<any>).map(AttachmentTypeFromJSON)),
     };
 }
 
@@ -1092,16 +1092,16 @@ export function HotelReservationInstructionTypeToJSON(value?: HotelReservationIn
         'accessRestrictionMessage': value.accessRestrictionMessage,
         'additionalGuestInfo': ResGuestAdditionalInfoTypeToJSON(value.additionalGuestInfo),
         'advanceCheckIn': AdvanceCheckInTypeToJSON(value.advanceCheckIn),
-        'alerts': AlertsTypeToJSON(value.alerts),
+        'alerts': value.alerts === undefined ? undefined : ((value.alerts as Array<any>).map(AlertTypeToJSON)),
         'allowAutoCheckin': value.allowAutoCheckin,
         'allowMobileCheckout': value.allowMobileCheckout,
         'allowMobileViewFolio': value.allowMobileViewFolio,
         'allowPreRegistration': value.allowPreRegistration,
-        'allowedActions': ReservationAllowedActionsTypeToJSON(value.allowedActions),
+        'allowedActions': value.allowedActions === undefined ? undefined : ((value.allowedActions as Array<any>).map(ReservationAllowedActionTypeToJSON)),
         'associatedReservations': value.associatedReservations,
-        'attachments': AttachmentsTypeToJSON(value.attachments),
+        'attachments': value.attachments === undefined ? undefined : ((value.attachments as Array<any>).map(AttachmentTypeToJSON)),
         'autoBorrowFromHouse': value.autoBorrowFromHouse,
-        'callHistory': CallHistoryTypeToJSON(value.callHistory),
+        'callHistory': value.callHistory === undefined ? undefined : ((value.callHistory as Array<any>).map(CallTypeToJSON)),
         'cancellation': HotelReservationInstructionTypeCancellationToJSON(value.cancellation),
         'cashiering': ResCashieringTypeToJSON(value.cashiering),
         'catering': CateringResInfoTypeToJSON(value.catering),
@@ -1110,23 +1110,23 @@ export function HotelReservationInstructionTypeToJSON(value?: HotelReservationIn
         'comments': value.comments === undefined ? undefined : ((value.comments as Array<any>).map(CommentInfoTypeToJSON)),
         'compAuthorizer': CompAuthorizerInfoTypeToJSON(value.compAuthorizer),
         'computedReservationStatus': PMSResStatusTypeToJSON(value.computedReservationStatus),
-        'confirmationLetters': ConfirmationsTypeToJSON(value.confirmationLetters),
+        'confirmationLetters': value.confirmationLetters === undefined ? undefined : ((value.confirmationLetters as Array<any>).map(ConfirmationTypeToJSON)),
         'createBusinessDate': value.createBusinessDate === undefined ? undefined : (value.createBusinessDate.toISOString().substring(0,10)),
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
-        'customChargeExemptionDetails': CustomChargeExemptionsTypeToJSON(value.customChargeExemptionDetails),
+        'customChargeExemptionDetails': value.customChargeExemptionDetails === undefined ? undefined : ((value.customChargeExemptionDetails as Array<any>).map(CustomChargeExemptionTypeToJSON)),
         'customNameValueDetail': NameValueDetailTypeToJSON(value.customNameValueDetail),
         'customReference': value.customReference,
         'displayColor': value.displayColor,
-        'eCertificates': ReservationECertificatesTypeToJSON(value.eCertificates),
-        'eCoupons': ECouponsTypeToJSON(value.eCoupons),
+        'eCertificates': value.eCertificates === undefined ? undefined : ((value.eCertificates as Array<any>).map(ReservationECertificateTypeToJSON)),
+        'eCoupons': value.eCoupons === undefined ? undefined : ((value.eCoupons as Array<any>).map(ECouponTypeToJSON)),
         'extSystemSync': value.extSystemSync,
-        'externalReferences': ExternalReferencesTypeToJSON(value.externalReferences),
-        'fixedCharges': FixedChargesTypeToJSON(value.fixedCharges),
-        'folios': FoliosShortInfoTypeToJSON(value.folios),
+        'externalReferences': value.externalReferences === undefined ? undefined : ((value.externalReferences as Array<any>).map(ExternalReferenceTypeToJSON)),
+        'fixedCharges': value.fixedCharges === undefined ? undefined : ((value.fixedCharges as Array<any>).map(FixedChargeTypeToJSON)),
+        'folios': value.folios === undefined ? undefined : ((value.folios as Array<any>).map(FolioShortInfoTypeToJSON)),
         'guestComments': value.guestComments === undefined ? undefined : ((value.guestComments as Array<any>).map(CommentInfoTypeToJSON)),
         'guestMemberships': value.guestMemberships === undefined ? undefined : ((value.guestMemberships as Array<any>).map(MembershipTypeToJSON)),
-        'guestMessages': GuestMessagesTypeToJSON(value.guestMessages),
+        'guestMessages': value.guestMessages === undefined ? undefined : ((value.guestMessages as Array<any>).map(GuestMessageTypeToJSON)),
         'hasOpenFolio': value.hasOpenFolio,
         'hotelId': value.hotelId,
         'housekeeping': ResHousekeepingTypeToJSON(value.housekeeping),
@@ -1134,13 +1134,13 @@ export function HotelReservationInstructionTypeToJSON(value?: HotelReservationIn
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'linkedReservation': LinkedReservationsInfoTypeToJSON(value.linkedReservation),
-        'locators': ReservationLocatorsTypeToJSON(value.locators),
+        'locators': value.locators === undefined ? undefined : ((value.locators as Array<any>).map(ReservationLocatorTypeToJSON)),
         'lockHandle': value.lockHandle,
         'markAsRecentlyAccessed': value.markAsRecentlyAccessed,
         'optedForCommunication': value.optedForCommunication,
         'overrideBlockRestriction': value.overrideBlockRestriction,
         'overrideExternalChecks': value.overrideExternalChecks,
-        'overrideInstructions': OverrideInstructionsTypeToJSON(value.overrideInstructions),
+        'overrideInstructions': value.overrideInstructions === undefined ? undefined : ((value.overrideInstructions as Array<any>).map(OverrideInstructionTypeToJSON)),
         'overrideInventoryCheck': value.overrideInventoryCheck,
         'overrideOutOfServiceCheck': value.overrideOutOfServiceCheck,
         'overrideRoomOwnership': value.overrideRoomOwnership,
@@ -1148,45 +1148,45 @@ export function HotelReservationInstructionTypeToJSON(value?: HotelReservationIn
         'party': value.party,
         'preRegistered': value.preRegistered,
         'preferenceCollection': value.preferenceCollection === undefined ? undefined : ((value.preferenceCollection as Array<any>).map(PreferenceTypeTypeToJSON)),
-        'prepaidCards': PrepaidCardsTypeToJSON(value.prepaidCards),
+        'prepaidCards': value.prepaidCards === undefined ? undefined : ((value.prepaidCards as Array<any>).map(PrepaidCardTypeToJSON)),
         'primaryEnrollmentChain': value.primaryEnrollmentChain,
         'primaryEnrollmentResort': value.primaryEnrollmentResort,
         'printRate': value.printRate,
-        'profileAwards': AwardsTypeToJSON(value.profileAwards),
+        'profileAwards': value.profileAwards === undefined ? undefined : ((value.profileAwards as Array<any>).map(AwardTypeToJSON)),
         'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
         'queue': ReservationQueueInformationTypeToJSON(value.queue),
         'reinstateDate': value.reinstateDate === undefined ? undefined : (value.reinstateDate.toISOString().substring(0,10)),
-        'reservationActivities': ActivityLookUpListToJSON(value.reservationActivities),
-        'reservationAwards': AwardsTypeToJSON(value.reservationAwards),
+        'reservationActivities': value.reservationActivities === undefined ? undefined : ((value.reservationActivities as Array<any>).map(FetchActivityBookingsTypeToJSON)),
+        'reservationAwards': value.reservationAwards === undefined ? undefined : ((value.reservationAwards as Array<any>).map(AwardTypeToJSON)),
         'reservationCommunication': ResCommunicationTypeToJSON(value.reservationCommunication),
         'reservationGuests': value.reservationGuests === undefined ? undefined : ((value.reservationGuests as Array<any>).map(ResGuestTypeToJSON)),
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
-        'reservationIndicators': IndicatorsTypeToJSON(value.reservationIndicators),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
+        'reservationIndicators': value.reservationIndicators === undefined ? undefined : ((value.reservationIndicators as Array<any>).map(IndicatorTypeToJSON)),
         'reservationMemberships': value.reservationMemberships === undefined ? undefined : ((value.reservationMemberships as Array<any>).map(ReservationMembershipTypeToJSON)),
         'reservationPackages': value.reservationPackages === undefined ? undefined : ((value.reservationPackages as Array<any>).map(ReservationPackageTypeToJSON)),
-        'reservationPaymentMethods': ReservationPaymentMethodsTypeToJSON(value.reservationPaymentMethods),
+        'reservationPaymentMethods': value.reservationPaymentMethods === undefined ? undefined : ((value.reservationPaymentMethods as Array<any>).map(ReservationPaymentMethodTypeToJSON)),
         'reservationPolicies': ReservationPoliciesTypeToJSON(value.reservationPolicies),
         'reservationProfiles': HotelReservationInstructionTypeReservationProfilesToJSON(value.reservationProfiles),
         'reservationStatus': PMSResStatusTypeToJSON(value.reservationStatus),
         'responseInstructions': HotelReservationInstructionTypeResponseInstructionsToJSON(value.responseInstructions),
         'roomStay': RoomStayTypeToJSON(value.roomStay),
         'roomStayReservation': value.roomStayReservation,
-        'routingInstructions': RoutingInfoListTypeToJSON(value.routingInstructions),
-        'scheduledActivities': ActivityLookUpListToJSON(value.scheduledActivities),
-        'serviceRequests': ServiceRequestsToJSON(value.serviceRequests),
-        'sharedGuests': ResSharedGuestListTypeToJSON(value.sharedGuests),
+        'routingInstructions': value.routingInstructions === undefined ? undefined : ((value.routingInstructions as Array<any>).map(RoutingInfoTypeToJSON)),
+        'scheduledActivities': value.scheduledActivities === undefined ? undefined : ((value.scheduledActivities as Array<any>).map(FetchActivityBookingsTypeToJSON)),
+        'serviceRequests': value.serviceRequests === undefined ? undefined : ((value.serviceRequests as Array<any>).map(ServiceRequestToJSON)),
+        'sharedGuests': value.sharedGuests === undefined ? undefined : ((value.sharedGuests as Array<any>).map(ResSharedGuestInfoTypeToJSON)),
         'shares': HotelReservationsTypeToJSON(value.shares),
         'sourceOfSale': SourceOfSaleTypeToJSON(value.sourceOfSale),
         'statisticalClassification': ResStatClassificationTypeToJSON(value.statisticalClassification),
-        'tickets': TicketsTypeToJSON(value.tickets),
-        'traces': HotelReservationTracesTypeToJSON(value.traces),
-        'trackItItems': TrackItItemsTypeToJSON(value.trackItItems),
+        'tickets': value.tickets === undefined ? undefined : ((value.tickets as Array<any>).map(TicketTypeToJSON)),
+        'traces': value.traces === undefined ? undefined : ((value.traces as Array<any>).map(HotelReservationTraceTypeToJSON)),
+        'trackItItems': value.trackItItems === undefined ? undefined : ((value.trackItItems as Array<any>).map(TrackItItemTypeToJSON)),
         'transactionDiversions': HotelReservationInstructionTypeTransactionDiversionsToJSON(value.transactionDiversions),
         'upgradeEligible': value.upgradeEligible,
         'userDefinedFields': UserDefinedFieldsTypeToJSON(value.userDefinedFields),
         'waitlist': WaitlistResTypeToJSON(value.waitlist),
         'walkIn': value.walkIn,
-        'webRegistrationCards': AttachmentsTypeToJSON(value.webRegistrationCards),
+        'webRegistrationCards': value.webRegistrationCards === undefined ? undefined : ((value.webRegistrationCards as Array<any>).map(AttachmentTypeToJSON)),
     };
 }
 

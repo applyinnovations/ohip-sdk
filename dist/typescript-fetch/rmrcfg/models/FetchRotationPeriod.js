@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FetchRotationPeriodToJSON = exports.FetchRotationPeriodFromJSONTyped = exports.FetchRotationPeriodFromJSON = exports.instanceOfFetchRotationPeriod = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const RotationPeriodFrequencyType_1 = require("./RotationPeriodFrequencyType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FetchRotationPeriod interface.
  */
@@ -37,10 +37,10 @@ function FetchRotationPeriodFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'currentPeriodStartDate': !(0, runtime_1.exists)(json, 'currentPeriodStartDate') ? undefined : (new Date(json['currentPeriodStartDate'])),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'periodFrequency': !(0, runtime_1.exists)(json, 'periodFrequency') ? undefined : (0, RotationPeriodFrequencyType_1.RotationPeriodFrequencyTypeFromJSON)(json['periodFrequency']),
         'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FetchRotationPeriodFromJSONTyped = FetchRotationPeriodFromJSONTyped;
@@ -54,10 +54,10 @@ function FetchRotationPeriodToJSON(value) {
     return {
         'currentPeriodStartDate': value.currentPeriodStartDate === undefined ? undefined : (value.currentPeriodStartDate.toISOString().substring(0, 10)),
         'hotelId': value.hotelId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'periodFrequency': (0, RotationPeriodFrequencyType_1.RotationPeriodFrequencyTypeToJSON)(value.periodFrequency),
         'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FetchRotationPeriodToJSON = FetchRotationPeriodToJSON;

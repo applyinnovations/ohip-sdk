@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { MembershipPropertyCodesType } from './MembershipPropertyCodesType';
+import type { CodeDescriptionType } from './CodeDescriptionType';
 /**
  * Base type provides information about Membership Market/Property Groups Configuration.
  * @export
@@ -35,11 +35,11 @@ export interface MembershipPropertyGroupType {
      */
     displaySequence?: number;
     /**
-     *
-     * @type {MembershipPropertyCodesType}
+     * Membership Property code and Description.
+     * @type {Array<CodeDescriptionType>}
      * @memberof MembershipPropertyGroupType
      */
-    hotels?: MembershipPropertyCodesType;
+    hotels?: Array<CodeDescriptionType>;
 }
 /**
  * Check if a given object implements the MembershipPropertyGroupType interface.

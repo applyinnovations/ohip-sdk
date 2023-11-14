@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { SimpleRateCategoriesType } from './SimpleRateCategoriesType';
+import type { CodeDescriptionType } from './CodeDescriptionType';
 import type { TimeSpanType } from './TimeSpanType';
 /**
  * A hotel rate class.
@@ -30,11 +30,11 @@ export interface RateClassType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {SimpleRateCategoriesType}
+     * List of Rate Categories with description.
+     * @type {Array<CodeDescriptionType>}
      * @memberof RateClassType
      */
-    rateCategories?: SimpleRateCategoriesType;
+    rateCategories?: Array<CodeDescriptionType>;
     /**
      * Code that uniquely identifies the rate class.
      * @type {string}

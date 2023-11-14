@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PostCompRedemptionsToJSON = exports.PostCompRedemptionsFromJSONTyped = exports.PostCompRedemptionsFromJSON = exports.instanceOfPostCompRedemptions = void 0;
 const runtime_1 = require("../runtime");
 const PostCompRedemptionsCriteria_1 = require("./PostCompRedemptionsCriteria");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PostCompRedemptions interface.
  */
@@ -35,7 +35,7 @@ function PostCompRedemptionsFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'criteria': !(0, runtime_1.exists)(json, 'criteria') ? undefined : (0, PostCompRedemptionsCriteria_1.PostCompRedemptionsCriteriaFromJSON)(json['criteria']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PostCompRedemptionsFromJSONTyped = PostCompRedemptionsFromJSONTyped;
@@ -48,7 +48,7 @@ function PostCompRedemptionsToJSON(value) {
     }
     return {
         'criteria': (0, PostCompRedemptionsCriteria_1.PostCompRedemptionsCriteriaToJSON)(value.criteria),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PostCompRedemptionsToJSON = PostCompRedemptionsToJSON;

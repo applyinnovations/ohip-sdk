@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AwardPaymentDetailsToJSON = exports.AwardPaymentDetailsFromJSONTyped = exports.AwardPaymentDetailsFromJSON = exports.instanceOfAwardPaymentDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AwardPaymentDetails interface.
  */
@@ -37,11 +37,11 @@ function AwardPaymentDetailsFromJSONTyped(json, ignoreDiscriminator) {
         'awardType': !(0, runtime_1.exists)(json, 'awardType') ? undefined : json['awardType'],
         'billAmount': !(0, runtime_1.exists)(json, 'billAmount') ? undefined : json['billAmount'],
         'folioView': !(0, runtime_1.exists)(json, 'folioView') ? undefined : json['folioView'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'pointsRequired': !(0, runtime_1.exists)(json, 'pointsRequired') ? undefined : json['pointsRequired'],
         'redeemAmount': !(0, runtime_1.exists)(json, 'redeemAmount') ? undefined : json['redeemAmount'],
         'voucherNo': !(0, runtime_1.exists)(json, 'voucherNo') ? undefined : json['voucherNo'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AwardPaymentDetailsFromJSONTyped = AwardPaymentDetailsFromJSONTyped;
@@ -56,11 +56,11 @@ function AwardPaymentDetailsToJSON(value) {
         'awardType': value.awardType,
         'billAmount': value.billAmount,
         'folioView': value.folioView,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'pointsRequired': value.pointsRequired,
         'redeemAmount': value.redeemAmount,
         'voucherNo': value.voucherNo,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AwardPaymentDetailsToJSON = AwardPaymentDetailsToJSON;

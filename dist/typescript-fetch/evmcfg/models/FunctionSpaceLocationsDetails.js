@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FunctionSpaceLocationsDetailsToJSON = exports.FunctionSpaceLocationsDetailsFromJSONTyped = exports.FunctionSpaceLocationsDetailsFromJSON = exports.instanceOfFunctionSpaceLocationsDetails = void 0;
 const runtime_1 = require("../runtime");
-const FunctionSpaceLocationsType_1 = require("./FunctionSpaceLocationsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const FunctionSpaceLocationType_1 = require("./FunctionSpaceLocationType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FunctionSpaceLocationsDetails interface.
  */
@@ -35,9 +35,9 @@ function FunctionSpaceLocationsDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'locations': !(0, runtime_1.exists)(json, 'locations') ? undefined : (0, FunctionSpaceLocationsType_1.FunctionSpaceLocationsTypeFromJSON)(json['locations']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'locations': !(0, runtime_1.exists)(json, 'locations') ? undefined : (json['locations'].map(FunctionSpaceLocationType_1.FunctionSpaceLocationTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FunctionSpaceLocationsDetailsFromJSONTyped = FunctionSpaceLocationsDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function FunctionSpaceLocationsDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'locations': (0, FunctionSpaceLocationsType_1.FunctionSpaceLocationsTypeToJSON)(value.locations),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'locations': value.locations === undefined ? undefined : (value.locations.map(FunctionSpaceLocationType_1.FunctionSpaceLocationTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FunctionSpaceLocationsDetailsToJSON = FunctionSpaceLocationsDetailsToJSON;

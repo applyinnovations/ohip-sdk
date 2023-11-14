@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { HousekeepingTaskType } from './HousekeepingTaskType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request of Changing a Task Sheet. The task instructions, total credits, attendant information and room information can be changed on a task sheet. Task Instructions , Total Credits and Attendants will be replaced with what is sent in this request. Example: If the task instructions is null in the request, the task instructions on the task sheet will be updated to null. If rooms are sent as part of this request, this will replace the existing rooms on the task sheet. If rooms are not sent, then the original rooms will remain. The task date, hotel code, task sheet number and task code is required to search for the task sheet which has to be changed
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface TaskSheet {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TaskSheet
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {HousekeepingTaskType}
@@ -31,11 +31,11 @@ export interface TaskSheet {
      */
     taskSheetDetails?: HousekeepingTaskType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TaskSheet
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TaskSheet interface.

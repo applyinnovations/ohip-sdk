@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MembershipMarketGroupsType } from './MembershipMarketGroupsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MembershipMarketGroupType } from './MembershipMarketGroupType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Membership Market Groups configurations.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MembershipMarketGroupsInfo {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipMarketGroupsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MembershipMarketGroupsType}
+     * Details for Membership Market Group along with associated Market codes.
+     * @type {Array<MembershipMarketGroupType>}
      * @memberof MembershipMarketGroupsInfo
      */
-    membershipMarketGroups?: MembershipMarketGroupsType;
+    membershipMarketGroups?: Array<MembershipMarketGroupType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipMarketGroupsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipMarketGroupsInfo interface.

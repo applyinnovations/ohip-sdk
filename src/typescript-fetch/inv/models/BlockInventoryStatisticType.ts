@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockDetailStatisticsType } from './BlockDetailStatisticsType';
+import type { BlockDetailStatisticType } from './BlockDetailStatisticType';
 import {
-    BlockDetailStatisticsTypeFromJSON,
-    BlockDetailStatisticsTypeFromJSONTyped,
-    BlockDetailStatisticsTypeToJSON,
-} from './BlockDetailStatisticsType';
-import type { BlockSummaryStatisticsType } from './BlockSummaryStatisticsType';
+    BlockDetailStatisticTypeFromJSON,
+    BlockDetailStatisticTypeFromJSONTyped,
+    BlockDetailStatisticTypeToJSON,
+} from './BlockDetailStatisticType';
+import type { BlockSummaryStatisticType } from './BlockSummaryStatisticType';
 import {
-    BlockSummaryStatisticsTypeFromJSON,
-    BlockSummaryStatisticsTypeFromJSONTyped,
-    BlockSummaryStatisticsTypeToJSON,
-} from './BlockSummaryStatisticsType';
+    BlockSummaryStatisticTypeFromJSON,
+    BlockSummaryStatisticTypeFromJSONTyped,
+    BlockSummaryStatisticTypeToJSON,
+} from './BlockSummaryStatisticType';
 import type { SellMessagesType } from './SellMessagesType';
 import {
     SellMessagesTypeFromJSON,
@@ -39,17 +39,17 @@ import {
  */
 export interface BlockInventoryStatisticType {
     /**
-     * 
-     * @type {BlockDetailStatisticsType}
+     * Compose of block information and statistic summary for a particular block.
+     * @type {Array<BlockDetailStatisticType>}
      * @memberof BlockInventoryStatisticType
      */
-    blockDetailStatistics?: BlockDetailStatisticsType;
+    blockDetailStatistics?: Array<BlockDetailStatisticType>;
     /**
-     * 
-     * @type {BlockSummaryStatisticsType}
+     * Statistic units group by status, booking and daily targets.
+     * @type {Array<BlockSummaryStatisticType>}
      * @memberof BlockInventoryStatisticType
      */
-    blockSummaryStatistics?: BlockSummaryStatisticsType;
+    blockSummaryStatistics?: Array<BlockSummaryStatisticType>;
     /**
      * 
      * @type {SellMessagesType}
@@ -77,8 +77,8 @@ export function BlockInventoryStatisticTypeFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'blockDetailStatistics': !exists(json, 'blockDetailStatistics') ? undefined : BlockDetailStatisticsTypeFromJSON(json['blockDetailStatistics']),
-        'blockSummaryStatistics': !exists(json, 'blockSummaryStatistics') ? undefined : BlockSummaryStatisticsTypeFromJSON(json['blockSummaryStatistics']),
+        'blockDetailStatistics': !exists(json, 'blockDetailStatistics') ? undefined : ((json['blockDetailStatistics'] as Array<any>).map(BlockDetailStatisticTypeFromJSON)),
+        'blockSummaryStatistics': !exists(json, 'blockSummaryStatistics') ? undefined : ((json['blockSummaryStatistics'] as Array<any>).map(BlockSummaryStatisticTypeFromJSON)),
         'sellMessages': !exists(json, 'sellMessages') ? undefined : SellMessagesTypeFromJSON(json['sellMessages']),
     };
 }
@@ -92,8 +92,8 @@ export function BlockInventoryStatisticTypeToJSON(value?: BlockInventoryStatisti
     }
     return {
         
-        'blockDetailStatistics': BlockDetailStatisticsTypeToJSON(value.blockDetailStatistics),
-        'blockSummaryStatistics': BlockSummaryStatisticsTypeToJSON(value.blockSummaryStatistics),
+        'blockDetailStatistics': value.blockDetailStatistics === undefined ? undefined : ((value.blockDetailStatistics as Array<any>).map(BlockDetailStatisticTypeToJSON)),
+        'blockSummaryStatistics': value.blockSummaryStatistics === undefined ? undefined : ((value.blockSummaryStatistics as Array<any>).map(BlockSummaryStatisticTypeToJSON)),
         'sellMessages': SellMessagesTypeToJSON(value.sellMessages),
     };
 }

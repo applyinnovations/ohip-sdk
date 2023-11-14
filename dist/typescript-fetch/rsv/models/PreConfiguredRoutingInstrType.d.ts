@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BillingInstructionsType } from './BillingInstructionsType';
+import type { BillingInstructionType } from './BillingInstructionType';
 import type { PromoCodeCompRoutingType } from './PromoCodeCompRoutingType';
 import type { ResAttachedProfileType } from './ResAttachedProfileType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+import type { TrxInfoType } from './TrxInfoType';
 /**
  * Routing can be promotion code complimentary routing or profile routing.
  * @export
@@ -26,11 +26,11 @@ export interface PreConfiguredRoutingInstrType {
      */
     autoPopulateRouting?: string;
     /**
-     *
-     * @type {BillingInstructionsType}
+     * Set of Billing Instruction codes.
+     * @type {Array<BillingInstructionType>}
      * @memberof PreConfiguredRoutingInstrType
      */
-    billingInstructions?: BillingInstructionsType;
+    billingInstructions?: Array<BillingInstructionType>;
     /**
      *
      * @type {PromoCodeCompRoutingType}
@@ -50,11 +50,11 @@ export interface PreConfiguredRoutingInstrType {
      */
     reservationProfile?: ResAttachedProfileType;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof PreConfiguredRoutingInstrType
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
 }
 /**
  * Check if a given object implements the PreConfiguredRoutingInstrType interface.

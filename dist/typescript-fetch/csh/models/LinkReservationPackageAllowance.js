@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LinkReservationPackageAllowanceToJSON = exports.LinkReservationPackageAllowanceFromJSONTyped = exports.LinkReservationPackageAllowanceFromJSON = exports.instanceOfLinkReservationPackageAllowance = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const UniqueIDType_1 = require("./UniqueIDType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the LinkReservationPackageAllowance interface.
  */
@@ -39,8 +39,8 @@ function LinkReservationPackageAllowanceFromJSONTyped(json, ignoreDiscriminator)
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'linkFromReservationId': !(0, runtime_1.exists)(json, 'linkFromReservationId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['linkFromReservationId']),
         'linkToReservationId': !(0, runtime_1.exists)(json, 'linkToReservationId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['linkToReservationId']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.LinkReservationPackageAllowanceFromJSONTyped = LinkReservationPackageAllowanceFromJSONTyped;
@@ -56,8 +56,8 @@ function LinkReservationPackageAllowanceToJSON(value) {
         'hotelId': value.hotelId,
         'linkFromReservationId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.linkFromReservationId),
         'linkToReservationId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.linkToReservationId),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.LinkReservationPackageAllowanceToJSON = LinkReservationPackageAllowanceToJSON;

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TelephoneBookEntriesType } from './TelephoneBookEntriesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TelephoneBookEntryType } from './TelephoneBookEntryType';
 import {
-    TelephoneBookEntriesTypeFromJSON,
-    TelephoneBookEntriesTypeFromJSONTyped,
-    TelephoneBookEntriesTypeToJSON,
-} from './TelephoneBookEntriesType';
-import type { WarningsType } from './WarningsType';
+    TelephoneBookEntryTypeFromJSON,
+    TelephoneBookEntryTypeFromJSONTyped,
+    TelephoneBookEntryTypeToJSON,
+} from './TelephoneBookEntryType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetch Telephone Book Entries.
@@ -40,22 +40,22 @@ import {
 export interface TelephoneBookEntriesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TelephoneBookEntriesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TelephoneBookEntriesType}
+     * This type holds collection of Telephone Book Entries with complete information.
+     * @type {Array<TelephoneBookEntryType>}
      * @memberof TelephoneBookEntriesDetails
      */
-    telephoneBookEntries?: TelephoneBookEntriesType;
+    telephoneBookEntries?: Array<TelephoneBookEntryType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TelephoneBookEntriesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TelephoneBookEntriesDetailsFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'telephoneBookEntries': !exists(json, 'telephoneBookEntries') ? undefined : TelephoneBookEntriesTypeFromJSON(json['telephoneBookEntries']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'telephoneBookEntries': !exists(json, 'telephoneBookEntries') ? undefined : ((json['telephoneBookEntries'] as Array<any>).map(TelephoneBookEntryTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TelephoneBookEntriesDetailsToJSON(value?: TelephoneBookEntriesDe
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'telephoneBookEntries': TelephoneBookEntriesTypeToJSON(value.telephoneBookEntries),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'telephoneBookEntries': value.telephoneBookEntries === undefined ? undefined : ((value.telephoneBookEntries as Array<any>).map(TelephoneBookEntryTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

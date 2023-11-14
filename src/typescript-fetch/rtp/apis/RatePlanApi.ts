@@ -16,6 +16,7 @@
 import * as runtime from '../runtime';
 import type {
   BlockRatePlans,
+  CopyPackageCodesType,
   CreateBestAvailableRates,
   DailyRatePlanScheduleRange,
   DistributedNegotiatedRates,
@@ -34,7 +35,6 @@ import type {
   PackageGroupsInfo,
   PackageInfo,
   PackageRates,
-  PackagesCopy,
   PackagesInfo,
   PromotionGroup,
   PromotionGroups,
@@ -71,6 +71,8 @@ import type {
 import {
     BlockRatePlansFromJSON,
     BlockRatePlansToJSON,
+    CopyPackageCodesTypeFromJSON,
+    CopyPackageCodesTypeToJSON,
     CreateBestAvailableRatesFromJSON,
     CreateBestAvailableRatesToJSON,
     DailyRatePlanScheduleRangeFromJSON,
@@ -107,8 +109,6 @@ import {
     PackageInfoToJSON,
     PackageRatesFromJSON,
     PackageRatesToJSON,
-    PackagesCopyFromJSON,
-    PackagesCopyToJSON,
     PackagesInfoFromJSON,
     PackagesInfoToJSON,
     PromotionGroupFromJSON,
@@ -179,7 +179,7 @@ export interface CopyPackagesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    packagesCopy: PackagesCopy;
+    packagesCopy: Array<CopyPackageCodesType>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1287,7 +1287,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PackagesCopyToJSON(requestParameters.packagesCopy),
+            body: requestParameters.packagesCopy.map(CopyPackageCodesTypeToJSON),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));

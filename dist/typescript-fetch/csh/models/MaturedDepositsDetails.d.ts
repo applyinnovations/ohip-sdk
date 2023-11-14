@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MaturedDepositsType } from './MaturedDepositsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MaturedDepositType } from './MaturedDepositType';
+import type { WarningType } from './WarningType';
 /**
  * Response of matured deposits.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MaturedDepositsDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MaturedDepositsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MaturedDepositsType}
+     * Detailed information of matured deposits.
+     * @type {Array<MaturedDepositType>}
      * @memberof MaturedDepositsDetails
      */
-    maturedDeposits?: MaturedDepositsType;
+    maturedDeposits?: Array<MaturedDepositType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MaturedDepositsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MaturedDepositsDetails interface.

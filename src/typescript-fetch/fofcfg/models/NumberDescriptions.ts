@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { NumberDescriptionsType } from './NumberDescriptionsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { NumberDescriptionType } from './NumberDescriptionType';
 import {
-    NumberDescriptionsTypeFromJSON,
-    NumberDescriptionsTypeFromJSONTyped,
-    NumberDescriptionsTypeToJSON,
-} from './NumberDescriptionsType';
-import type { WarningsType } from './WarningsType';
+    NumberDescriptionTypeFromJSON,
+    NumberDescriptionTypeFromJSONTyped,
+    NumberDescriptionTypeToJSON,
+} from './NumberDescriptionType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface NumberDescriptions {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof NumberDescriptions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {NumberDescriptionsType}
+     * Individual number and description.
+     * @type {Array<NumberDescriptionType>}
      * @memberof NumberDescriptions
      */
-    numberDescriptions?: NumberDescriptionsType;
+    numberDescriptions?: Array<NumberDescriptionType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof NumberDescriptions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function NumberDescriptionsFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'numberDescriptions': !exists(json, 'numberDescriptions') ? undefined : NumberDescriptionsTypeFromJSON(json['numberDescriptions']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'numberDescriptions': !exists(json, 'numberDescriptions') ? undefined : ((json['numberDescriptions'] as Array<any>).map(NumberDescriptionTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function NumberDescriptionsToJSON(value?: NumberDescriptions | null): any
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'numberDescriptions': NumberDescriptionsTypeToJSON(value.numberDescriptions),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'numberDescriptions': value.numberDescriptions === undefined ? undefined : ((value.numberDescriptions as Array<any>).map(NumberDescriptionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TemplateDeviceLocationsType } from './TemplateDeviceLocationsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TemplateDeviceLocationType } from './TemplateDeviceLocationType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing template Device locations.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateDeviceLocationsToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateDeviceLocationsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TemplateDeviceLocationsType}
+     * List of Device locations at template level.
+     * @type {Array<TemplateDeviceLocationType>}
      * @memberof TemplateDeviceLocationsToBeChanged
      */
-    templateDeviceLocations?: TemplateDeviceLocationsType;
+    templateDeviceLocations?: Array<TemplateDeviceLocationType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateDeviceLocationsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateDeviceLocationsToBeChanged interface.

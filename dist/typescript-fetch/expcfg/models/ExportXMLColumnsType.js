@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExportXMLColumnsTypeToJSON = exports.ExportXMLColumnsTypeFromJSONTyped = exports.ExportXMLColumnsTypeFromJSON = exports.instanceOfExportXMLColumnsType = void 0;
 const runtime_1 = require("../runtime");
-const ExportXMLAttributesType_1 = require("./ExportXMLAttributesType");
-const ExportXMLElementsType_1 = require("./ExportXMLElementsType");
+const ExportXMLAttributeType_1 = require("./ExportXMLAttributeType");
+const ExportXMLElementType_1 = require("./ExportXMLElementType");
 /**
  * Check if a given object implements the ExportXMLColumnsType interface.
  */
@@ -34,8 +34,8 @@ function ExportXMLColumnsTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'attributes': !(0, runtime_1.exists)(json, 'attributes') ? undefined : (0, ExportXMLAttributesType_1.ExportXMLAttributesTypeFromJSON)(json['attributes']),
-        'elements': !(0, runtime_1.exists)(json, 'elements') ? undefined : (0, ExportXMLElementsType_1.ExportXMLElementsTypeFromJSON)(json['elements']),
+        'attributes': !(0, runtime_1.exists)(json, 'attributes') ? undefined : (json['attributes'].map(ExportXMLAttributeType_1.ExportXMLAttributeTypeFromJSON)),
+        'elements': !(0, runtime_1.exists)(json, 'elements') ? undefined : (json['elements'].map(ExportXMLElementType_1.ExportXMLElementTypeFromJSON)),
     };
 }
 exports.ExportXMLColumnsTypeFromJSONTyped = ExportXMLColumnsTypeFromJSONTyped;
@@ -47,8 +47,8 @@ function ExportXMLColumnsTypeToJSON(value) {
         return null;
     }
     return {
-        'attributes': (0, ExportXMLAttributesType_1.ExportXMLAttributesTypeToJSON)(value.attributes),
-        'elements': (0, ExportXMLElementsType_1.ExportXMLElementsTypeToJSON)(value.elements),
+        'attributes': value.attributes === undefined ? undefined : (value.attributes.map(ExportXMLAttributeType_1.ExportXMLAttributeTypeToJSON)),
+        'elements': value.elements === undefined ? undefined : (value.elements.map(ExportXMLElementType_1.ExportXMLElementTypeToJSON)),
     };
 }
 exports.ExportXMLColumnsTypeToJSON = ExportXMLColumnsTypeToJSON;

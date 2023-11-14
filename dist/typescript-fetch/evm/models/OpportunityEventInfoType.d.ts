@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EventNotesType } from './EventNotesType';
+import type { EventNoteType } from './EventNoteType';
 import type { OpportunityEventDetailType } from './OpportunityEventDetailType';
 /**
  * Catering Event information.
@@ -18,11 +18,11 @@ import type { OpportunityEventDetailType } from './OpportunityEventDetailType';
  */
 export interface OpportunityEventInfoType {
     /**
-     *
-     * @type {EventNotesType}
+     * Pertain event information.
+     * @type {Array<EventNoteType>}
      * @memberof OpportunityEventInfoType
      */
-    eventNotes?: EventNotesType;
+    eventNotes?: Array<EventNoteType>;
     /**
      *
      * @type {OpportunityEventDetailType}

@@ -19,12 +19,12 @@ import {
     ValidateRateInfoCriteriaFromJSONTyped,
     ValidateRateInfoCriteriaToJSON,
 } from './ValidateRateInfoCriteria';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Retrieve either the reservation's rate information or make a quotation for a rate information. SummaryInfo attribute specifies if the item being requested is of detail or summary type.
@@ -39,11 +39,11 @@ export interface ValidateRateInfo {
      */
     criteria?: ValidateRateInfoCriteria;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ValidateRateInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function ValidateRateInfoFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : ValidateRateInfoCriteriaFromJSON(json['criteria']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function ValidateRateInfoToJSON(value?: ValidateRateInfo | null): any {
     return {
         
         'criteria': ValidateRateInfoCriteriaToJSON(value.criteria),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { BucketTypeType } from './BucketTypeType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+import type { TrxInfoType } from './TrxInfoType';
 /**
  * This gives detailed information about a trx code arrangement.
  * @export
@@ -60,11 +60,11 @@ export interface RevenueBucketCodeType {
      */
     revenueBucketType?: string;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof RevenueBucketCodeType
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
 }
 /**
  * Check if a given object implements the RevenueBucketCodeType interface.

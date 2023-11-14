@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 /**
  * Details for alternate function spaces.
  * @export
@@ -18,10 +17,10 @@ import type { CodeListType } from './CodeListType';
 export interface FunctionSpaceAlternateType {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof FunctionSpaceAlternateType
      */
-    excludedCateringEventTypes?: CodeListType;
+    excludedCateringEventTypes?: Array<string>;
     /**
      * Flag to indicate if the function space must have an alternate space when used.
      * @type {boolean}

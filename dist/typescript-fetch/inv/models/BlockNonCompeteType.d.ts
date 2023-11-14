@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DatesType } from './DatesType';
 import type { RateProtectionType } from './RateProtectionType';
 /**
  * Block Non Compete code information.
@@ -36,11 +35,11 @@ export interface BlockNonCompeteType {
      */
     industryDescription?: string;
     /**
-     *
-     * @type {DatesType}
+     * Specifies a single date.
+     * @type {Array<Date>}
      * @memberof BlockNonCompeteType
      */
-    protectedDates?: DatesType;
+    protectedDates?: Array<Date>;
 }
 /**
  * Check if a given object implements the BlockNonCompeteType interface.

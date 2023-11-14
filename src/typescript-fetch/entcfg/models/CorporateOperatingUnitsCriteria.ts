@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CorporateOperatingUnitsType } from './CorporateOperatingUnitsType';
+import type { CorporateOperatingUnitType } from './CorporateOperatingUnitType';
 import {
-    CorporateOperatingUnitsTypeFromJSON,
-    CorporateOperatingUnitsTypeFromJSONTyped,
-    CorporateOperatingUnitsTypeToJSON,
-} from './CorporateOperatingUnitsType';
-import type { Links } from './Links';
+    CorporateOperatingUnitTypeFromJSON,
+    CorporateOperatingUnitTypeFromJSONTyped,
+    CorporateOperatingUnitTypeToJSON,
+} from './CorporateOperatingUnitType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Corporate Operating Units.
@@ -39,23 +39,23 @@ import {
  */
 export interface CorporateOperatingUnitsCriteria {
     /**
-     * 
-     * @type {CorporateOperatingUnitsType}
+     * List of Corporate Operating Units.
+     * @type {Array<CorporateOperatingUnitType>}
      * @memberof CorporateOperatingUnitsCriteria
      */
-    corporateOperatingUnits?: CorporateOperatingUnitsType;
+    corporateOperatingUnits?: Array<CorporateOperatingUnitType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CorporateOperatingUnitsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CorporateOperatingUnitsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CorporateOperatingUnitsCriteriaFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'corporateOperatingUnits': !exists(json, 'corporateOperatingUnits') ? undefined : CorporateOperatingUnitsTypeFromJSON(json['corporateOperatingUnits']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'corporateOperatingUnits': !exists(json, 'corporateOperatingUnits') ? undefined : ((json['corporateOperatingUnits'] as Array<any>).map(CorporateOperatingUnitTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CorporateOperatingUnitsCriteriaToJSON(value?: CorporateOperating
     }
     return {
         
-        'corporateOperatingUnits': CorporateOperatingUnitsTypeToJSON(value.corporateOperatingUnits),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'corporateOperatingUnits': value.corporateOperatingUnits === undefined ? undefined : ((value.corporateOperatingUnits as Array<any>).map(CorporateOperatingUnitTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

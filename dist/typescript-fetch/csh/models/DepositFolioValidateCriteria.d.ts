@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { DepositFolioValidateCriteriaType } from './DepositFolioValidateCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to validate a Deposit Folio for a reservation.
  * @export
@@ -26,16 +26,16 @@ export interface DepositFolioValidateCriteria {
     criteria?: DepositFolioValidateCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DepositFolioValidateCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DepositFolioValidateCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DepositFolioValidateCriteria interface.

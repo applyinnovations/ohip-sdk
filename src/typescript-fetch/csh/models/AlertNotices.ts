@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AlertsType } from './AlertsType';
+import type { AlertType } from './AlertType';
 import {
-    AlertsTypeFromJSON,
-    AlertsTypeFromJSONTyped,
-    AlertsTypeToJSON,
-} from './AlertsType';
+    AlertTypeFromJSON,
+    AlertTypeFromJSONTyped,
+    AlertTypeToJSON,
+} from './AlertType';
 import type { CommentInfoType } from './CommentInfoType';
 import {
     CommentInfoTypeFromJSON,
     CommentInfoTypeFromJSONTyped,
     CommentInfoTypeToJSON,
 } from './CommentInfoType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response with the fetched alerts, includes global alerts.
@@ -45,11 +45,11 @@ import {
  */
 export interface AlertNotices {
     /**
-     * 
-     * @type {AlertsType}
+     * List of alerts.
+     * @type {Array<AlertType>}
      * @memberof AlertNotices
      */
-    alerts?: AlertsType;
+    alerts?: Array<AlertType>;
     /**
      * List of Notes for the Guest related to the reservation.
      * @type {Array<CommentInfoType>}
@@ -58,16 +58,16 @@ export interface AlertNotices {
     comments?: Array<CommentInfoType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AlertNotices
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AlertNotices
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function AlertNoticesFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'alerts': !exists(json, 'alerts') ? undefined : AlertsTypeFromJSON(json['alerts']),
+        'alerts': !exists(json, 'alerts') ? undefined : ((json['alerts'] as Array<any>).map(AlertTypeFromJSON)),
         'comments': !exists(json, 'comments') ? undefined : ((json['comments'] as Array<any>).map(CommentInfoTypeFromJSON)),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function AlertNoticesToJSON(value?: AlertNotices | null): any {
     }
     return {
         
-        'alerts': AlertsTypeToJSON(value.alerts),
+        'alerts': value.alerts === undefined ? undefined : ((value.alerts as Array<any>).map(AlertTypeToJSON)),
         'comments': value.comments === undefined ? undefined : ((value.comments as Array<any>).map(CommentInfoTypeToJSON)),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

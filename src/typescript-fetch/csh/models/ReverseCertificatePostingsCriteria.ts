@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReverseCertificatePostingsCriteriaType } from './ReverseCertificatePostingsCriteriaType';
 import {
     ReverseCertificatePostingsCriteriaTypeFromJSON,
     ReverseCertificatePostingsCriteriaTypeFromJSONTyped,
     ReverseCertificatePostingsCriteriaTypeToJSON,
 } from './ReverseCertificatePostingsCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to reverse the certificate postings of transactions.
@@ -40,10 +40,10 @@ import {
 export interface ReverseCertificatePostingsCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReverseCertificatePostingsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ReverseCertificatePostingsCriteriaType}
@@ -51,11 +51,11 @@ export interface ReverseCertificatePostingsCriteria {
      */
     reverseCriteria?: ReverseCertificatePostingsCriteriaType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReverseCertificatePostingsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ReverseCertificatePostingsCriteriaFromJSONTyped(json: any, ignor
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reverseCriteria': !exists(json, 'reverseCriteria') ? undefined : ReverseCertificatePostingsCriteriaTypeFromJSON(json['reverseCriteria']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ReverseCertificatePostingsCriteriaToJSON(value?: ReverseCertific
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reverseCriteria': ReverseCertificatePostingsCriteriaTypeToJSON(value.reverseCriteria),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { InterfaceCustomDataDetailsType } from './InterfaceCustomDataDetailsType';
+import type { InterfaceCustomDataDetailType } from './InterfaceCustomDataDetailType';
 import {
-    InterfaceCustomDataDetailsTypeFromJSON,
-    InterfaceCustomDataDetailsTypeFromJSONTyped,
-    InterfaceCustomDataDetailsTypeToJSON,
-} from './InterfaceCustomDataDetailsType';
+    InterfaceCustomDataDetailTypeFromJSON,
+    InterfaceCustomDataDetailTypeFromJSONTyped,
+    InterfaceCustomDataDetailTypeToJSON,
+} from './InterfaceCustomDataDetailType';
 
 /**
  * This type holds the custom data of a hotel interface.
@@ -39,11 +39,11 @@ export interface InterfaceCustomDataInfoType {
      */
     includeDoorcardField?: boolean;
     /**
-     * 
-     * @type {InterfaceCustomDataDetailsType}
+     * Collection of custom data details of a hotel interface.
+     * @type {Array<InterfaceCustomDataDetailType>}
      * @memberof InterfaceCustomDataInfoType
      */
-    interfaceCustomDataDetails?: InterfaceCustomDataDetailsType;
+    interfaceCustomDataDetails?: Array<InterfaceCustomDataDetailType>;
 }
 
 /**
@@ -67,7 +67,7 @@ export function InterfaceCustomDataInfoTypeFromJSONTyped(json: any, ignoreDiscri
         
         'exportAsXml': !exists(json, 'exportAsXml') ? undefined : json['exportAsXml'],
         'includeDoorcardField': !exists(json, 'includeDoorcardField') ? undefined : json['includeDoorcardField'],
-        'interfaceCustomDataDetails': !exists(json, 'interfaceCustomDataDetails') ? undefined : InterfaceCustomDataDetailsTypeFromJSON(json['interfaceCustomDataDetails']),
+        'interfaceCustomDataDetails': !exists(json, 'interfaceCustomDataDetails') ? undefined : ((json['interfaceCustomDataDetails'] as Array<any>).map(InterfaceCustomDataDetailTypeFromJSON)),
     };
 }
 
@@ -82,7 +82,7 @@ export function InterfaceCustomDataInfoTypeToJSON(value?: InterfaceCustomDataInf
         
         'exportAsXml': value.exportAsXml,
         'includeDoorcardField': value.includeDoorcardField,
-        'interfaceCustomDataDetails': InterfaceCustomDataDetailsTypeToJSON(value.interfaceCustomDataDetails),
+        'interfaceCustomDataDetails': value.interfaceCustomDataDetails === undefined ? undefined : ((value.interfaceCustomDataDetails as Array<any>).map(InterfaceCustomDataDetailTypeToJSON)),
     };
 }
 

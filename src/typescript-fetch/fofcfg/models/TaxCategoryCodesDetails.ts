@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TaxCategoryCodesType } from './TaxCategoryCodesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TaxCategoryCodeType } from './TaxCategoryCodeType';
 import {
-    TaxCategoryCodesTypeFromJSON,
-    TaxCategoryCodesTypeFromJSONTyped,
-    TaxCategoryCodesTypeToJSON,
-} from './TaxCategoryCodesType';
-import type { WarningsType } from './WarningsType';
+    TaxCategoryCodeTypeFromJSON,
+    TaxCategoryCodeTypeFromJSONTyped,
+    TaxCategoryCodeTypeToJSON,
+} from './TaxCategoryCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Tax Category Codes.
@@ -40,22 +40,22 @@ import {
 export interface TaxCategoryCodesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TaxCategoryCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TaxCategoryCodesType}
+     * List of Tax Category Codes.
+     * @type {Array<TaxCategoryCodeType>}
      * @memberof TaxCategoryCodesDetails
      */
-    taxCategoryCodes?: TaxCategoryCodesType;
+    taxCategoryCodes?: Array<TaxCategoryCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TaxCategoryCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TaxCategoryCodesDetailsFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'taxCategoryCodes': !exists(json, 'taxCategoryCodes') ? undefined : TaxCategoryCodesTypeFromJSON(json['taxCategoryCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'taxCategoryCodes': !exists(json, 'taxCategoryCodes') ? undefined : ((json['taxCategoryCodes'] as Array<any>).map(TaxCategoryCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TaxCategoryCodesDetailsToJSON(value?: TaxCategoryCodesDetails | 
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'taxCategoryCodes': TaxCategoryCodesTypeToJSON(value.taxCategoryCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'taxCategoryCodes': value.taxCategoryCodes === undefined ? undefined : ((value.taxCategoryCodes as Array<any>).map(TaxCategoryCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

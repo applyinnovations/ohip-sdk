@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomKeyInterfaceDetailsType } from './RoomKeyInterfaceDetailsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomKeyInterfaceDetailType } from './RoomKeyInterfaceDetailType';
 import {
-    RoomKeyInterfaceDetailsTypeFromJSON,
-    RoomKeyInterfaceDetailsTypeFromJSONTyped,
-    RoomKeyInterfaceDetailsTypeToJSON,
-} from './RoomKeyInterfaceDetailsType';
-import type { WarningsType } from './WarningsType';
+    RoomKeyInterfaceDetailTypeFromJSON,
+    RoomKeyInterfaceDetailTypeFromJSONTyped,
+    RoomKeyInterfaceDetailTypeToJSON,
+} from './RoomKeyInterfaceDetailType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response with the configuration details of active room key interfaces including the available key encoders.
@@ -39,23 +39,23 @@ import {
  */
 export interface RoomKeyInterfaceDetails {
     /**
-     * 
-     * @type {RoomKeyInterfaceDetailsType}
+     * Configuration details of room key interface.
+     * @type {Array<RoomKeyInterfaceDetailType>}
      * @memberof RoomKeyInterfaceDetails
      */
-    keyInterfaceDetails?: RoomKeyInterfaceDetailsType;
+    keyInterfaceDetails?: Array<RoomKeyInterfaceDetailType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomKeyInterfaceDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomKeyInterfaceDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RoomKeyInterfaceDetailsFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'keyInterfaceDetails': !exists(json, 'keyInterfaceDetails') ? undefined : RoomKeyInterfaceDetailsTypeFromJSON(json['keyInterfaceDetails']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'keyInterfaceDetails': !exists(json, 'keyInterfaceDetails') ? undefined : ((json['keyInterfaceDetails'] as Array<any>).map(RoomKeyInterfaceDetailTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RoomKeyInterfaceDetailsToJSON(value?: RoomKeyInterfaceDetails | 
     }
     return {
         
-        'keyInterfaceDetails': RoomKeyInterfaceDetailsTypeToJSON(value.keyInterfaceDetails),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'keyInterfaceDetails': value.keyInterfaceDetails === undefined ? undefined : ((value.keyInterfaceDetails as Array<any>).map(RoomKeyInterfaceDetailTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -18,7 +18,7 @@ const runtime_1 = require("../runtime");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const FolioStatusType_1 = require("./FolioStatusType");
 const PayeeInfoType_1 = require("./PayeeInfoType");
-const SummaryPostingsType_1 = require("./SummaryPostingsType");
+const SummaryPostingType_1 = require("./SummaryPostingType");
 /**
  * Check if a given object implements the FolioType interface.
  */
@@ -49,7 +49,7 @@ function FolioTypeFromJSONTyped(json, ignoreDiscriminator) {
         'internalFolioWindowID': !(0, runtime_1.exists)(json, 'internalFolioWindowID') ? undefined : json['internalFolioWindowID'],
         'invoiceNo': !(0, runtime_1.exists)(json, 'invoiceNo') ? undefined : json['invoiceNo'],
         'payeeInfo': !(0, runtime_1.exists)(json, 'payeeInfo') ? undefined : (0, PayeeInfoType_1.PayeeInfoTypeFromJSON)(json['payeeInfo']),
-        'postings': !(0, runtime_1.exists)(json, 'postings') ? undefined : (0, SummaryPostingsType_1.SummaryPostingsTypeFromJSON)(json['postings']),
+        'postings': !(0, runtime_1.exists)(json, 'postings') ? undefined : (json['postings'].map(SummaryPostingType_1.SummaryPostingTypeFromJSON)),
         'revisionNo': !(0, runtime_1.exists)(json, 'revisionNo') ? undefined : json['revisionNo'],
         'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
     };
@@ -76,7 +76,7 @@ function FolioTypeToJSON(value) {
         'internalFolioWindowID': value.internalFolioWindowID,
         'invoiceNo': value.invoiceNo,
         'payeeInfo': (0, PayeeInfoType_1.PayeeInfoTypeToJSON)(value.payeeInfo),
-        'postings': (0, SummaryPostingsType_1.SummaryPostingsTypeToJSON)(value.postings),
+        'postings': value.postings === undefined ? undefined : (value.postings.map(SummaryPostingType_1.SummaryPostingTypeToJSON)),
         'revisionNo': value.revisionNo,
         'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
     };

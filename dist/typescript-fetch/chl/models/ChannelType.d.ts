@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ParametersType } from './ParametersType';
+import type { ParameterType } from './ParameterType';
 import type { SystemCarrierType } from './SystemCarrierType';
 import type { SystemErrorType } from './SystemErrorType';
 import type { SystemInfoType } from './SystemInfoType';
@@ -41,11 +41,11 @@ export interface ChannelType {
      */
     errorCodes?: Array<SystemErrorType>;
     /**
-     *
-     * @type {ParametersType}
+     * Collection of generic Name-Value-Pair parameters.
+     * @type {Array<ParameterType>}
      * @memberof ChannelType
      */
-    parameters?: ParametersType;
+    parameters?: Array<ParameterType>;
     /**
      * External system rate categories details.
      * @type {Array<SystemRateCategoryType>}

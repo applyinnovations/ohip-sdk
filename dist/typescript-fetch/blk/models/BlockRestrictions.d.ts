@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { BlockRestrictionsType } from './BlockRestrictionsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for FetchBlockRestrictions operation.
  * @export
@@ -26,16 +26,16 @@ export interface BlockRestrictions {
     blockRestrictions?: BlockRestrictionsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockRestrictions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockRestrictions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockRestrictions interface.

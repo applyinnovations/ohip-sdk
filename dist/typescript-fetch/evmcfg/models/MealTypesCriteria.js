@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MealTypesCriteriaToJSON = exports.MealTypesCriteriaFromJSONTyped = exports.MealTypesCriteriaFromJSON = exports.instanceOfMealTypesCriteria = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const MealTypesType_1 = require("./MealTypesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const MealTypeType_1 = require("./MealTypeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MealTypesCriteria interface.
  */
@@ -35,9 +35,9 @@ function MealTypesCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'mealTypes': !(0, runtime_1.exists)(json, 'mealTypes') ? undefined : (0, MealTypesType_1.MealTypesTypeFromJSON)(json['mealTypes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'mealTypes': !(0, runtime_1.exists)(json, 'mealTypes') ? undefined : (json['mealTypes'].map(MealTypeType_1.MealTypeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MealTypesCriteriaFromJSONTyped = MealTypesCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function MealTypesCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'mealTypes': (0, MealTypesType_1.MealTypesTypeToJSON)(value.mealTypes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'mealTypes': value.mealTypes === undefined ? undefined : (value.mealTypes.map(MealTypeType_1.MealTypeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MealTypesCriteriaToJSON = MealTypesCriteriaToJSON;

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ActivityIdListType } from './ActivityIdListType';
+import type { ActivityId } from './ActivityId';
 import {
-    ActivityIdListTypeFromJSON,
-    ActivityIdListTypeFromJSONTyped,
-    ActivityIdListTypeToJSON,
-} from './ActivityIdListType';
+    ActivityIdFromJSON,
+    ActivityIdFromJSONTyped,
+    ActivityIdToJSON,
+} from './ActivityId';
 import type { TimeSpanType } from './TimeSpanType';
 import {
     TimeSpanTypeFromJSON,
@@ -39,11 +39,11 @@ export interface RecentlyAccessedActivityType {
      */
     accessDate?: Date;
     /**
-     * 
-     * @type {ActivityIdListType}
+     * Unique identifier for the Activity.
+     * @type {Array<ActivityId>}
      * @memberof RecentlyAccessedActivityType
      */
-    activityIdList?: ActivityIdListType;
+    activityIdList?: Array<ActivityId>;
     /**
      * Owner Code of the Activity.
      * @type {string}
@@ -90,7 +90,7 @@ export function RecentlyAccessedActivityTypeFromJSONTyped(json: any, ignoreDiscr
     return {
         
         'accessDate': !exists(json, 'accessDate') ? undefined : (new Date(json['accessDate'])),
-        'activityIdList': !exists(json, 'activityIdList') ? undefined : ActivityIdListTypeFromJSON(json['activityIdList']),
+        'activityIdList': !exists(json, 'activityIdList') ? undefined : ((json['activityIdList'] as Array<any>).map(ActivityIdFromJSON)),
         'activityOwnerCode': !exists(json, 'activityOwnerCode') ? undefined : json['activityOwnerCode'],
         'activityTypeDescription': !exists(json, 'activityTypeDescription') ? undefined : json['activityTypeDescription'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -108,7 +108,7 @@ export function RecentlyAccessedActivityTypeToJSON(value?: RecentlyAccessedActiv
     return {
         
         'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0,10)),
-        'activityIdList': ActivityIdListTypeToJSON(value.activityIdList),
+        'activityIdList': value.activityIdList === undefined ? undefined : ((value.activityIdList as Array<any>).map(ActivityIdToJSON)),
         'activityOwnerCode': value.activityOwnerCode,
         'activityTypeDescription': value.activityTypeDescription,
         'hotelId': value.hotelId,

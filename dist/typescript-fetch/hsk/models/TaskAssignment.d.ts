@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HousekeepingTaskAssignmentsType } from './HousekeepingTaskAssignmentsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HousekeepingTaskAssignmentType } from './HousekeepingTaskAssignmentType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TaskAssignment {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TaskAssignment
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {HousekeepingTaskAssignmentsType}
+     * Collection of Assignments
+     * @type {Array<HousekeepingTaskAssignmentType>}
      * @memberof TaskAssignment
      */
-    taskAssignmentInfo?: HousekeepingTaskAssignmentsType;
+    taskAssignmentInfo?: Array<HousekeepingTaskAssignmentType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TaskAssignment
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TaskAssignment interface.

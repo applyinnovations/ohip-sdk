@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ActivityLogListType } from './ActivityLogListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for the request for the export user activity log.
  * @export
@@ -26,16 +26,16 @@ export interface ExportActivityLog {
     activityLog?: ActivityLogListType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExportActivityLog
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ExportActivityLog
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ExportActivityLog interface.

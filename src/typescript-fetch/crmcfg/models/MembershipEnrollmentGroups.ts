@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipEnrollmentGroupsType } from './MembershipEnrollmentGroupsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipEnrollmentGroupType } from './MembershipEnrollmentGroupType';
 import {
-    MembershipEnrollmentGroupsTypeFromJSON,
-    MembershipEnrollmentGroupsTypeFromJSONTyped,
-    MembershipEnrollmentGroupsTypeToJSON,
-} from './MembershipEnrollmentGroupsType';
-import type { WarningsType } from './WarningsType';
+    MembershipEnrollmentGroupTypeFromJSON,
+    MembershipEnrollmentGroupTypeFromJSONTyped,
+    MembershipEnrollmentGroupTypeToJSON,
+} from './MembershipEnrollmentGroupType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing new membership enrollment groups.
@@ -40,22 +40,22 @@ import {
 export interface MembershipEnrollmentGroups {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipEnrollmentGroups
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MembershipEnrollmentGroupsType}
+     * Details of membership enrollment group type.
+     * @type {Array<MembershipEnrollmentGroupType>}
      * @memberof MembershipEnrollmentGroups
      */
-    membershipEnrollmentGroups?: MembershipEnrollmentGroupsType;
+    membershipEnrollmentGroups?: Array<MembershipEnrollmentGroupType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipEnrollmentGroups
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MembershipEnrollmentGroupsFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'membershipEnrollmentGroups': !exists(json, 'membershipEnrollmentGroups') ? undefined : MembershipEnrollmentGroupsTypeFromJSON(json['membershipEnrollmentGroups']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'membershipEnrollmentGroups': !exists(json, 'membershipEnrollmentGroups') ? undefined : ((json['membershipEnrollmentGroups'] as Array<any>).map(MembershipEnrollmentGroupTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MembershipEnrollmentGroupsToJSON(value?: MembershipEnrollmentGro
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'membershipEnrollmentGroups': MembershipEnrollmentGroupsTypeToJSON(value.membershipEnrollmentGroups),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'membershipEnrollmentGroups': value.membershipEnrollmentGroups === undefined ? undefined : ((value.membershipEnrollmentGroups as Array<any>).map(MembershipEnrollmentGroupTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

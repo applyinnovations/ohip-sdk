@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { PrepaidCardsType } from './PrepaidCardsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { PrepaidCardType } from './PrepaidCardType';
 import {
-    PrepaidCardsTypeFromJSON,
-    PrepaidCardsTypeFromJSONTyped,
-    PrepaidCardsTypeToJSON,
-} from './PrepaidCardsType';
-import type { WarningsType } from './WarningsType';
+    PrepaidCardTypeFromJSON,
+    PrepaidCardTypeFromJSONTyped,
+    PrepaidCardTypeToJSON,
+} from './PrepaidCardType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface PrepaidCards {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PrepaidCards
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {PrepaidCardsType}
+     * Holds fixed charge detail.
+     * @type {Array<PrepaidCardType>}
      * @memberof PrepaidCards
      */
-    prepaidCards?: PrepaidCardsType;
+    prepaidCards?: Array<PrepaidCardType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PrepaidCards
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function PrepaidCardsFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'prepaidCards': !exists(json, 'prepaidCards') ? undefined : PrepaidCardsTypeFromJSON(json['prepaidCards']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'prepaidCards': !exists(json, 'prepaidCards') ? undefined : ((json['prepaidCards'] as Array<any>).map(PrepaidCardTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function PrepaidCardsToJSON(value?: PrepaidCards | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'prepaidCards': PrepaidCardsTypeToJSON(value.prepaidCards),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'prepaidCards': value.prepaidCards === undefined ? undefined : ((value.prepaidCards as Array<any>).map(PrepaidCardTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

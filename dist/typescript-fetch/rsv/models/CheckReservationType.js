@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CheckReservationTypeToJSON = exports.CheckReservationTypeFromJSONTyped = exports.CheckReservationTypeFromJSON = exports.instanceOfCheckReservationType = void 0;
 const runtime_1 = require("../runtime");
-const CheckResultsType_1 = require("./CheckResultsType");
+const CheckResultType_1 = require("./CheckResultType");
 const ReservationId_1 = require("./ReservationId");
 /**
  * Check if a given object implements the CheckReservationType interface.
@@ -36,7 +36,7 @@ function CheckReservationTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
-        'results': !(0, runtime_1.exists)(json, 'results') ? undefined : (0, CheckResultsType_1.CheckResultsTypeFromJSON)(json['results']),
+        'results': !(0, runtime_1.exists)(json, 'results') ? undefined : (json['results'].map(CheckResultType_1.CheckResultTypeFromJSON)),
     };
 }
 exports.CheckReservationTypeFromJSONTyped = CheckReservationTypeFromJSONTyped;
@@ -50,7 +50,7 @@ function CheckReservationTypeToJSON(value) {
     return {
         'hotelId': value.hotelId,
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
-        'results': (0, CheckResultsType_1.CheckResultsTypeToJSON)(value.results),
+        'results': value.results === undefined ? undefined : (value.results.map(CheckResultType_1.CheckResultTypeToJSON)),
     };
 }
 exports.CheckReservationTypeToJSON = CheckReservationTypeToJSON;

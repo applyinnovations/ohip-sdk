@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ArticlesType } from './ArticlesType';
+import type { ArticleInfoType } from './ArticleInfoType';
 import {
-    ArticlesTypeFromJSON,
-    ArticlesTypeFromJSONTyped,
-    ArticlesTypeToJSON,
-} from './ArticlesType';
-import type { Links } from './Links';
+    ArticleInfoTypeFromJSON,
+    ArticleInfoTypeFromJSONTyped,
+    ArticleInfoTypeToJSON,
+} from './ArticleInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface ArticlesInfo {
     /**
-     * 
-     * @type {ArticlesType}
+     * Holds collection of articles.
+     * @type {Array<ArticleInfoType>}
      * @memberof ArticlesInfo
      */
-    articles?: ArticlesType;
+    articles?: Array<ArticleInfoType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ArticlesInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ArticlesInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ArticlesInfoFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'articles': !exists(json, 'articles') ? undefined : ArticlesTypeFromJSON(json['articles']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'articles': !exists(json, 'articles') ? undefined : ((json['articles'] as Array<any>).map(ArticleInfoTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ArticlesInfoToJSON(value?: ArticlesInfo | null): any {
     }
     return {
         
-        'articles': ArticlesTypeToJSON(value.articles),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'articles': value.articles === undefined ? undefined : ((value.articles as Array<any>).map(ArticleInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

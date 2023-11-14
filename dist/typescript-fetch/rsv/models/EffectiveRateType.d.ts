@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RateByAgeBucketsType } from './RateByAgeBucketsType';
+import type { RateByAgeBucketType } from './RateByAgeBucketType';
 /**
  * Effective rate amount per guest on specific dates.
  * @export
@@ -101,11 +101,11 @@ export interface EffectiveRateType {
      */
     pointsRequired?: number;
     /**
-     *
-     * @type {RateByAgeBucketsType}
+     * Rate amount by age bucket.
+     * @type {Array<RateByAgeBucketType>}
      * @memberof EffectiveRateType
      */
-    rateByAgeBuckets?: RateByAgeBucketsType;
+    rateByAgeBuckets?: Array<RateByAgeBucketType>;
     /**
      *
      * @type {string}

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomFeaturesConfigType } from './RoomFeaturesConfigType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomFeatureConfigType } from './RoomFeatureConfigType';
 import {
-    RoomFeaturesConfigTypeFromJSON,
-    RoomFeaturesConfigTypeFromJSONTyped,
-    RoomFeaturesConfigTypeToJSON,
-} from './RoomFeaturesConfigType';
-import type { WarningsType } from './WarningsType';
+    RoomFeatureConfigTypeFromJSON,
+    RoomFeatureConfigTypeFromJSONTyped,
+    RoomFeatureConfigTypeToJSON,
+} from './RoomFeatureConfigType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object to fetch room features of hotel.
@@ -40,22 +40,22 @@ import {
 export interface RoomFeaturesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomFeaturesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RoomFeaturesConfigType}
+     * Room feature details.
+     * @type {Array<RoomFeatureConfigType>}
      * @memberof RoomFeaturesDetails
      */
-    roomFeatures?: RoomFeaturesConfigType;
+    roomFeatures?: Array<RoomFeatureConfigType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomFeaturesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RoomFeaturesDetailsFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : RoomFeaturesConfigTypeFromJSON(json['roomFeatures']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : ((json['roomFeatures'] as Array<any>).map(RoomFeatureConfigTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RoomFeaturesDetailsToJSON(value?: RoomFeaturesDetails | null): a
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'roomFeatures': RoomFeaturesConfigTypeToJSON(value.roomFeatures),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : ((value.roomFeatures as Array<any>).map(RoomFeatureConfigTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

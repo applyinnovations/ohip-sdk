@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CommissionReservationFailuresType } from './CommissionReservationFailuresType';
+import type { CommissionReservationFailureType } from './CommissionReservationFailureType';
 import {
-    CommissionReservationFailuresTypeFromJSON,
-    CommissionReservationFailuresTypeFromJSONTyped,
-    CommissionReservationFailuresTypeToJSON,
-} from './CommissionReservationFailuresType';
-import type { Links } from './Links';
+    CommissionReservationFailureTypeFromJSON,
+    CommissionReservationFailureTypeFromJSONTyped,
+    CommissionReservationFailureTypeToJSON,
+} from './CommissionReservationFailureType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response type for associating reservations to Travel Agent or Source Profile.
@@ -39,23 +39,23 @@ import {
  */
 export interface AssociateCommissionAgentToReservationsStatus {
     /**
-     * 
-     * @type {CommissionReservationFailuresType}
+     * Reservation that wasn't successfully associated with the agent.
+     * @type {Array<CommissionReservationFailureType>}
      * @memberof AssociateCommissionAgentToReservationsStatus
      */
-    commissionReservationFailures?: CommissionReservationFailuresType;
+    commissionReservationFailures?: Array<CommissionReservationFailureType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AssociateCommissionAgentToReservationsStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AssociateCommissionAgentToReservationsStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function AssociateCommissionAgentToReservationsStatusFromJSONTyped(json: 
     }
     return {
         
-        'commissionReservationFailures': !exists(json, 'commissionReservationFailures') ? undefined : CommissionReservationFailuresTypeFromJSON(json['commissionReservationFailures']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'commissionReservationFailures': !exists(json, 'commissionReservationFailures') ? undefined : ((json['commissionReservationFailures'] as Array<any>).map(CommissionReservationFailureTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function AssociateCommissionAgentToReservationsStatusToJSON(value?: Assoc
     }
     return {
         
-        'commissionReservationFailures': CommissionReservationFailuresTypeToJSON(value.commissionReservationFailures),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'commissionReservationFailures': value.commissionReservationFailures === undefined ? undefined : ((value.commissionReservationFailures as Array<any>).map(CommissionReservationFailureTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

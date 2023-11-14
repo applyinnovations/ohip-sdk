@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ARReminderTypeToJSON = exports.ARReminderTypeFromJSONTyped = exports.ARReminderTypeFromJSON = exports.instanceOfARReminderType = void 0;
 const runtime_1 = require("../runtime");
-const ARInvoicesType_1 = require("./ARInvoicesType");
+const ARInvoiceType_1 = require("./ARInvoiceType");
 const ReminderCycleType_1 = require("./ReminderCycleType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -41,7 +41,7 @@ function ARReminderTypeFromJSONTyped(json, ignoreDiscriminator) {
         'cycle': !(0, runtime_1.exists)(json, 'cycle') ? undefined : json['cycle'],
         'cycleUsed': !(0, runtime_1.exists)(json, 'cycleUsed') ? undefined : (0, ReminderCycleType_1.ReminderCycleTypeFromJSON)(json['cycleUsed']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'invoices': !(0, runtime_1.exists)(json, 'invoices') ? undefined : (0, ARInvoicesType_1.ARInvoicesTypeFromJSON)(json['invoices']),
+        'invoices': !(0, runtime_1.exists)(json, 'invoices') ? undefined : (json['invoices'].map(ARInvoiceType_1.ARInvoiceTypeFromJSON)),
         'isHistoryExists': !(0, runtime_1.exists)(json, 'isHistoryExists') ? undefined : json['isHistoryExists'],
         'lastCycle': !(0, runtime_1.exists)(json, 'lastCycle') ? undefined : json['lastCycle'],
         'lastReminderSent': !(0, runtime_1.exists)(json, 'lastReminderSent') ? undefined : (new Date(json['lastReminderSent'])),
@@ -65,7 +65,7 @@ function ARReminderTypeToJSON(value) {
         'cycle': value.cycle,
         'cycleUsed': (0, ReminderCycleType_1.ReminderCycleTypeToJSON)(value.cycleUsed),
         'hotelId': value.hotelId,
-        'invoices': (0, ARInvoicesType_1.ARInvoicesTypeToJSON)(value.invoices),
+        'invoices': value.invoices === undefined ? undefined : (value.invoices.map(ARInvoiceType_1.ARInvoiceTypeToJSON)),
         'isHistoryExists': value.isHistoryExists,
         'lastCycle': value.lastCycle,
         'lastReminderSent': value.lastReminderSent === undefined ? undefined : (value.lastReminderSent.toISOString().substring(0, 10)),

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { TrxSplitCriteriaType } from './TrxSplitCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to split a transaction on a reservation. Splitting of transactions requires a list of transactions and a valid amount or a percentage by which the amount can be split. Based on parameters, certain transactions cannot be split. Transaction which are included in an invoice cannot be split Transactions where the generates resides elsewhere(reservation or window) cannot be split. Automatically generated transactions such as taxes, cannot be split by itself. Deposits which were part of a deposit folio cannot be split. After the split is done the transaction resides on the same folio window as the original transaction.
  * @export
@@ -26,16 +26,16 @@ export interface TransactionToSplit {
     criteria?: TrxSplitCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransactionToSplit
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransactionToSplit
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TransactionToSplit interface.

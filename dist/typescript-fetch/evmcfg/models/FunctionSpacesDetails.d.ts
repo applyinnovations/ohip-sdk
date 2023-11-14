@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FunctionSpacesSummaryType } from './FunctionSpacesSummaryType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { FunctionSpaceSummaryType } from './FunctionSpaceSummaryType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching function spaces summary info at the property level.
  * @export
@@ -25,11 +25,11 @@ export interface FunctionSpacesDetails {
      */
     count?: number;
     /**
-     *
-     * @type {FunctionSpacesSummaryType}
+     * The summary information for a function space.
+     * @type {Array<FunctionSpaceSummaryType>}
      * @memberof FunctionSpacesDetails
      */
-    functionSpaces?: FunctionSpacesSummaryType;
+    functionSpaces?: Array<FunctionSpaceSummaryType>;
     /**
      * Indicates whether all the records are included in the response or not. Absence of the attribute values should be consider as all rows fetched in the response.
      * @type {boolean}
@@ -44,10 +44,10 @@ export interface FunctionSpacesDetails {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FunctionSpacesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface FunctionSpacesDetails {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FunctionSpacesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FunctionSpacesDetails interface.

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChainConfigInfoType } from './ChainConfigInfoType';
+import type { ChainDetailInfoType } from './ChainDetailInfoType';
 import {
-    ChainConfigInfoTypeFromJSON,
-    ChainConfigInfoTypeFromJSONTyped,
-    ChainConfigInfoTypeToJSON,
-} from './ChainConfigInfoType';
-import type { Links } from './Links';
+    ChainDetailInfoTypeFromJSON,
+    ChainDetailInfoTypeFromJSONTyped,
+    ChainDetailInfoTypeToJSON,
+} from './ChainDetailInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Chain.
@@ -40,10 +40,10 @@ import {
 export interface ChainDetails {
     /**
      * 
-     * @type {ChainConfigInfoType}
+     * @type {Array<ChainDetailInfoType>}
      * @memberof ChainDetails
      */
-    chains?: ChainConfigInfoType;
+    chains?: Array<ChainDetailInfoType>;
     /**
      * Indicates whether all the records are included in the response or not. Absence of the attribute values should be consider as all rows fetched in the response.
      * @type {boolean}
@@ -52,10 +52,10 @@ export interface ChainDetails {
     hasMore?: boolean;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChainDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Total number of rows queried
      * @type {number}
@@ -63,11 +63,11 @@ export interface ChainDetails {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChainDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,11 +89,11 @@ export function ChainDetailsFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'chains': !exists(json, 'chains') ? undefined : ChainConfigInfoTypeFromJSON(json['chains']),
+        'chains': !exists(json, 'chains') ? undefined : ((json['chains'] as Array<any>).map(ChainDetailInfoTypeFromJSON)),
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -106,11 +106,11 @@ export function ChainDetailsToJSON(value?: ChainDetails | null): any {
     }
     return {
         
-        'chains': ChainConfigInfoTypeToJSON(value.chains),
+        'chains': value.chains === undefined ? undefined : ((value.chains as Array<any>).map(ChainDetailInfoTypeToJSON)),
         'hasMore': value.hasMore,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

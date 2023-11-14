@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomRotationAdjustmentReasonsType } from './RoomRotationAdjustmentReasonsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomRotationAdjustmentReasonType } from './RoomRotationAdjustmentReasonType';
 import {
-    RoomRotationAdjustmentReasonsTypeFromJSON,
-    RoomRotationAdjustmentReasonsTypeFromJSONTyped,
-    RoomRotationAdjustmentReasonsTypeToJSON,
-} from './RoomRotationAdjustmentReasonsType';
-import type { WarningsType } from './WarningsType';
+    RoomRotationAdjustmentReasonTypeFromJSON,
+    RoomRotationAdjustmentReasonTypeFromJSONTyped,
+    RoomRotationAdjustmentReasonTypeToJSON,
+} from './RoomRotationAdjustmentReasonType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Room Rotation Adjustment Reasons.
@@ -39,23 +39,23 @@ import {
  */
 export interface ChangeAdjustmentReasonsDetails {
     /**
-     * 
-     * @type {RoomRotationAdjustmentReasonsType}
+     * Room Rotation Adjustment Reason Enumeration element.
+     * @type {Array<RoomRotationAdjustmentReasonType>}
      * @memberof ChangeAdjustmentReasonsDetails
      */
-    adjustmentReasons?: RoomRotationAdjustmentReasonsType;
+    adjustmentReasons?: Array<RoomRotationAdjustmentReasonType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangeAdjustmentReasonsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeAdjustmentReasonsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ChangeAdjustmentReasonsDetailsFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'adjustmentReasons': !exists(json, 'adjustmentReasons') ? undefined : RoomRotationAdjustmentReasonsTypeFromJSON(json['adjustmentReasons']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'adjustmentReasons': !exists(json, 'adjustmentReasons') ? undefined : ((json['adjustmentReasons'] as Array<any>).map(RoomRotationAdjustmentReasonTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ChangeAdjustmentReasonsDetailsToJSON(value?: ChangeAdjustmentRea
     }
     return {
         
-        'adjustmentReasons': RoomRotationAdjustmentReasonsTypeToJSON(value.adjustmentReasons),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'adjustmentReasons': value.adjustmentReasons === undefined ? undefined : ((value.adjustmentReasons as Array<any>).map(RoomRotationAdjustmentReasonTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

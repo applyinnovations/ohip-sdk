@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommissionCodesToJSON = exports.CommissionCodesFromJSONTyped = exports.CommissionCodesFromJSON = exports.instanceOfCommissionCodes = void 0;
 const runtime_1 = require("../runtime");
-const CommissionCodesType_1 = require("./CommissionCodesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CommissionCodeInfoType_1 = require("./CommissionCodeInfoType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CommissionCodes interface.
  */
@@ -35,9 +35,9 @@ function CommissionCodesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'commissionCodes': !(0, runtime_1.exists)(json, 'commissionCodes') ? undefined : (0, CommissionCodesType_1.CommissionCodesTypeFromJSON)(json['commissionCodes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'commissionCodes': !(0, runtime_1.exists)(json, 'commissionCodes') ? undefined : (json['commissionCodes'].map(CommissionCodeInfoType_1.CommissionCodeInfoTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CommissionCodesFromJSONTyped = CommissionCodesFromJSONTyped;
@@ -49,9 +49,9 @@ function CommissionCodesToJSON(value) {
         return null;
     }
     return {
-        'commissionCodes': (0, CommissionCodesType_1.CommissionCodesTypeToJSON)(value.commissionCodes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'commissionCodes': value.commissionCodes === undefined ? undefined : (value.commissionCodes.map(CommissionCodeInfoType_1.CommissionCodeInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CommissionCodesToJSON = CommissionCodesToJSON;

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TransactionsType } from './TransactionsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TransactionType } from './TransactionType';
+import type { WarningType } from './WarningType';
 /**
  * Response after spliting deposit transaction.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface SplitDepositTransactionStatus {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SplitDepositTransactionStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TransactionsType}
+     * List of transaction information.
+     * @type {Array<TransactionType>}
      * @memberof SplitDepositTransactionStatus
      */
-    transactions?: TransactionsType;
+    transactions?: Array<TransactionType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SplitDepositTransactionStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SplitDepositTransactionStatus interface.

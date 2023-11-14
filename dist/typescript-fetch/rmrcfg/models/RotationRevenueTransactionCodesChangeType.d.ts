@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { TransactionCodesType } from './TransactionCodesType';
 /**
  * Two collections of transaction codes for a resort. One collection lists codes to be changed to Rotation Revenue transaction codes and the other to be changed to non Rotation Revenue Transaction codes.
  * @export
@@ -23,17 +22,17 @@ export interface RotationRevenueTransactionCodesChangeType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {TransactionCodesType}
+     * Revenue transaction code.
+     * @type {Array<string>}
      * @memberof RotationRevenueTransactionCodesChangeType
      */
-    nonRotationRevenueTransactionCodes?: TransactionCodesType;
+    nonRotationRevenueTransactionCodes?: Array<string>;
     /**
-     *
-     * @type {TransactionCodesType}
+     * Revenue transaction code.
+     * @type {Array<string>}
      * @memberof RotationRevenueTransactionCodesChangeType
      */
-    rotationRevenueTransactionCodes?: TransactionCodesType;
+    rotationRevenueTransactionCodes?: Array<string>;
 }
 /**
  * Check if a given object implements the RotationRevenueTransactionCodesChangeType interface.

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ARAgingCyclesType } from './ARAgingCyclesType';
+import type { ARAgingType } from './ARAgingType';
 import {
-    ARAgingCyclesTypeFromJSON,
-    ARAgingCyclesTypeFromJSONTyped,
-    ARAgingCyclesTypeToJSON,
-} from './ARAgingCyclesType';
-import type { Links } from './Links';
+    ARAgingTypeFromJSON,
+    ARAgingTypeFromJSONTyped,
+    ARAgingTypeToJSON,
+} from './ARAgingType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for Fetch AR Aging Cycles.
@@ -39,23 +39,23 @@ import {
  */
 export interface ArAgingCycles {
     /**
-     * 
-     * @type {ARAgingCyclesType}
+     * Collections of AR Aging Cycles.
+     * @type {Array<ARAgingType>}
      * @memberof ArAgingCycles
      */
-    agingCycles?: ARAgingCyclesType;
+    agingCycles?: Array<ARAgingType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ArAgingCycles
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ArAgingCycles
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ArAgingCyclesFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'agingCycles': !exists(json, 'agingCycles') ? undefined : ARAgingCyclesTypeFromJSON(json['agingCycles']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'agingCycles': !exists(json, 'agingCycles') ? undefined : ((json['agingCycles'] as Array<any>).map(ARAgingTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ArAgingCyclesToJSON(value?: ArAgingCycles | null): any {
     }
     return {
         
-        'agingCycles': ARAgingCyclesTypeToJSON(value.agingCycles),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'agingCycles': value.agingCycles === undefined ? undefined : ((value.agingCycles as Array<any>).map(ARAgingTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

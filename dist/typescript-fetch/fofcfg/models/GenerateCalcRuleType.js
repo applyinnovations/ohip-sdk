@@ -16,11 +16,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GenerateCalcRuleTypeToJSON = exports.GenerateCalcRuleTypeFromJSONTyped = exports.GenerateCalcRuleTypeFromJSON = exports.instanceOfGenerateCalcRuleType = void 0;
 const runtime_1 = require("../runtime");
 const FlatAmtGenerateType_1 = require("./FlatAmtGenerateType");
-const FunctionArgumentsType_1 = require("./FunctionArgumentsType");
+const FunctionArgumentType_1 = require("./FunctionArgumentType");
 const GeneratePostingRuleType_1 = require("./GeneratePostingRuleType");
 const GenerateRoundingMethodType_1 = require("./GenerateRoundingMethodType");
 const PercentageGenerateType_1 = require("./PercentageGenerateType");
-const TaxTypesGenerateType_1 = require("./TaxTypesGenerateType");
+const TaxTypeGenerateType_1 = require("./TaxTypeGenerateType");
 /**
  * Check if a given object implements the GenerateCalcRuleType interface.
  */
@@ -42,9 +42,9 @@ function GenerateCalcRuleTypeFromJSONTyped(json, ignoreDiscriminator) {
         'percentage': !(0, runtime_1.exists)(json, 'percentage') ? undefined : (0, PercentageGenerateType_1.PercentageGenerateTypeFromJSON)(json['percentage']),
         'posting': !(0, runtime_1.exists)(json, 'posting') ? undefined : (0, GeneratePostingRuleType_1.GeneratePostingRuleTypeFromJSON)(json['posting']),
         'roundingMethod': !(0, runtime_1.exists)(json, 'roundingMethod') ? undefined : (0, GenerateRoundingMethodType_1.GenerateRoundingMethodTypeFromJSON)(json['roundingMethod']),
-        'taxTypeBased': !(0, runtime_1.exists)(json, 'taxTypeBased') ? undefined : (0, TaxTypesGenerateType_1.TaxTypesGenerateTypeFromJSON)(json['taxTypeBased']),
+        'taxTypeBased': !(0, runtime_1.exists)(json, 'taxTypeBased') ? undefined : (json['taxTypeBased'].map(TaxTypeGenerateType_1.TaxTypeGenerateTypeFromJSON)),
         'uDF': !(0, runtime_1.exists)(json, 'uDF') ? undefined : json['uDF'],
-        'uDFFunctionArguments': !(0, runtime_1.exists)(json, 'uDFFunctionArguments') ? undefined : (0, FunctionArgumentsType_1.FunctionArgumentsTypeFromJSON)(json['uDFFunctionArguments']),
+        'uDFFunctionArguments': !(0, runtime_1.exists)(json, 'uDFFunctionArguments') ? undefined : (json['uDFFunctionArguments'].map(FunctionArgumentType_1.FunctionArgumentTypeFromJSON)),
         'uDFFunctionName': !(0, runtime_1.exists)(json, 'uDFFunctionName') ? undefined : json['uDFFunctionName'],
     };
 }
@@ -61,9 +61,9 @@ function GenerateCalcRuleTypeToJSON(value) {
         'percentage': (0, PercentageGenerateType_1.PercentageGenerateTypeToJSON)(value.percentage),
         'posting': (0, GeneratePostingRuleType_1.GeneratePostingRuleTypeToJSON)(value.posting),
         'roundingMethod': (0, GenerateRoundingMethodType_1.GenerateRoundingMethodTypeToJSON)(value.roundingMethod),
-        'taxTypeBased': (0, TaxTypesGenerateType_1.TaxTypesGenerateTypeToJSON)(value.taxTypeBased),
+        'taxTypeBased': value.taxTypeBased === undefined ? undefined : (value.taxTypeBased.map(TaxTypeGenerateType_1.TaxTypeGenerateTypeToJSON)),
         'uDF': value.uDF,
-        'uDFFunctionArguments': (0, FunctionArgumentsType_1.FunctionArgumentsTypeToJSON)(value.uDFFunctionArguments),
+        'uDFFunctionArguments': value.uDFFunctionArguments === undefined ? undefined : (value.uDFFunctionArguments.map(FunctionArgumentType_1.FunctionArgumentTypeToJSON)),
         'uDFFunctionName': value.uDFFunctionName,
     };
 }

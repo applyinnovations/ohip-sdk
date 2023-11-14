@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { SuspendedProfileErrorsSummaryType } from './SuspendedProfileErrorsSummaryType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { SuspendedProfileErrorSummaryType } from './SuspendedProfileErrorSummaryType';
 import {
-    SuspendedProfileErrorsSummaryTypeFromJSON,
-    SuspendedProfileErrorsSummaryTypeFromJSONTyped,
-    SuspendedProfileErrorsSummaryTypeToJSON,
-} from './SuspendedProfileErrorsSummaryType';
-import type { WarningsType } from './WarningsType';
+    SuspendedProfileErrorSummaryTypeFromJSON,
+    SuspendedProfileErrorSummaryTypeFromJSONTyped,
+    SuspendedProfileErrorSummaryTypeToJSON,
+} from './SuspendedProfileErrorSummaryType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetch suspended profile Errors summary. This object contains collection of profile erros and count of how many profiles encountered this error.
@@ -40,22 +40,22 @@ import {
 export interface SuspendedProfileErrorSummaryInfo {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SuspendedProfileErrorSummaryInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {SuspendedProfileErrorsSummaryType}
+     * Collection of profile error summary.
+     * @type {Array<SuspendedProfileErrorSummaryType>}
      * @memberof SuspendedProfileErrorSummaryInfo
      */
-    suspendedProfileErrorSummary?: SuspendedProfileErrorsSummaryType;
+    suspendedProfileErrorSummary?: Array<SuspendedProfileErrorSummaryType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SuspendedProfileErrorSummaryInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function SuspendedProfileErrorSummaryInfoFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'suspendedProfileErrorSummary': !exists(json, 'suspendedProfileErrorSummary') ? undefined : SuspendedProfileErrorsSummaryTypeFromJSON(json['suspendedProfileErrorSummary']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'suspendedProfileErrorSummary': !exists(json, 'suspendedProfileErrorSummary') ? undefined : ((json['suspendedProfileErrorSummary'] as Array<any>).map(SuspendedProfileErrorSummaryTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function SuspendedProfileErrorSummaryInfoToJSON(value?: SuspendedProfileE
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'suspendedProfileErrorSummary': SuspendedProfileErrorsSummaryTypeToJSON(value.suspendedProfileErrorSummary),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'suspendedProfileErrorSummary': value.suspendedProfileErrorSummary === undefined ? undefined : ((value.suspendedProfileErrorSummary as Array<any>).map(SuspendedProfileErrorSummaryTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AttachmentsType } from './AttachmentsType';
+import type { AttachmentType } from './AttachmentType';
 import {
-    AttachmentsTypeFromJSON,
-    AttachmentsTypeFromJSONTyped,
-    AttachmentsTypeToJSON,
-} from './AttachmentsType';
-import type { Links } from './Links';
+    AttachmentTypeFromJSON,
+    AttachmentTypeFromJSONTyped,
+    AttachmentTypeToJSON,
+} from './AttachmentType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Return object to the request for information regarding block attachments.
@@ -39,23 +39,23 @@ import {
  */
 export interface BlockAttachments {
     /**
-     * 
-     * @type {AttachmentsType}
+     * Attachment List.
+     * @type {Array<AttachmentType>}
      * @memberof BlockAttachments
      */
-    blockAttachments?: AttachmentsType;
+    blockAttachments?: Array<AttachmentType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockAttachments
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockAttachments
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function BlockAttachmentsFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'blockAttachments': !exists(json, 'blockAttachments') ? undefined : AttachmentsTypeFromJSON(json['blockAttachments']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'blockAttachments': !exists(json, 'blockAttachments') ? undefined : ((json['blockAttachments'] as Array<any>).map(AttachmentTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function BlockAttachmentsToJSON(value?: BlockAttachments | null): any {
     }
     return {
         
-        'blockAttachments': AttachmentsTypeToJSON(value.blockAttachments),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'blockAttachments': value.blockAttachments === undefined ? undefined : ((value.blockAttachments as Array<any>).map(AttachmentTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

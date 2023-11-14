@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RatePlanRatingsInfoType } from './RatePlanRatingsInfoType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RatePlanRatingInfoType } from './RatePlanRatingInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching the rate codes and their rating details.
  * @export
@@ -32,10 +32,10 @@ export interface RatePlanRatings {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RatePlanRatings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -43,11 +43,11 @@ export interface RatePlanRatings {
      */
     offset?: number;
     /**
-     *
-     * @type {RatePlanRatingsInfoType}
+     * Collection of rate plan Codes and their ratings.
+     * @type {Array<RatePlanRatingInfoType>}
      * @memberof RatePlanRatings
      */
-    ratePlanRatingsInfo?: RatePlanRatingsInfoType;
+    ratePlanRatingsInfo?: Array<RatePlanRatingInfoType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -61,11 +61,11 @@ export interface RatePlanRatings {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RatePlanRatings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RatePlanRatings interface.

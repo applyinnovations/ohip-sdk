@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RatePlanCodeListType } from './RatePlanCodeListType';
 /**
  * Dynamic Base Rate type
  * @export
@@ -23,11 +22,11 @@ export interface RatePlanBasedOnRateTypeDynamicBaseRate {
      */
     compareWithRateSchedules?: boolean;
     /**
-     *
-     * @type {RatePlanCodeListType}
+     * Rate Plan code.
+     * @type {Array<string>}
      * @memberof RatePlanBasedOnRateTypeDynamicBaseRate
      */
-    dependentRatePlans?: RatePlanCodeListType;
+    dependentRatePlans?: Array<string>;
     /**
      * Base Amount used for Dynamic base rate calculation.
      * @type {number}

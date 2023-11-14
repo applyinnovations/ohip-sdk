@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockAlternateDatesType } from './BlockAlternateDatesType';
-import type { BlockIdList } from './BlockIdList';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BlockAlternateDateType } from './BlockAlternateDateType';
+import type { InstanceLink } from './InstanceLink';
+import type { UniqueIDType } from './UniqueIDType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to create block alternate dates.
  * @export
@@ -20,17 +20,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BlockAlternateDates {
     /**
-     *
-     * @type {BlockAlternateDatesType}
+     * Contains a list of Block Alternate Dates.
+     * @type {Array<BlockAlternateDateType>}
      * @memberof BlockAlternateDates
      */
-    blockAlternateDates?: BlockAlternateDatesType;
+    blockAlternateDates?: Array<BlockAlternateDateType>;
     /**
-     *
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof BlockAlternateDates
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -39,16 +39,16 @@ export interface BlockAlternateDates {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockAlternateDates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockAlternateDates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockAlternateDates interface.

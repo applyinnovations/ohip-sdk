@@ -11,7 +11,6 @@
  */
 import type { BlockGridRatesType } from './BlockGridRatesType';
 import type { CodeDescriptionType } from './CodeDescriptionType';
-import type { RateProgramRoomType } from './RateProgramRoomType';
 /**
  * Room Pool Rate Program.
  * @export
@@ -61,11 +60,11 @@ export interface RateProgramRateType {
      */
     rateMarketCode?: CodeDescriptionType;
     /**
-     *
-     * @type {RateProgramRoomType}
+     * Room type for which Rate Program Rate Applies.
+     * @type {Array<string>}
      * @memberof RateProgramRateType
      */
-    roomTypes?: RateProgramRoomType;
+    roomTypes?: Array<string>;
     /**
      * Sequence Number of the Rate Program.
      * @type {number}

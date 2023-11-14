@@ -19,12 +19,6 @@ import {
     CashieringPaymentMethodTypeFromJSONTyped,
     CashieringPaymentMethodTypeToJSON,
 } from './CashieringPaymentMethodType';
-import type { CompRedemptionsType } from './CompRedemptionsType';
-import {
-    CompRedemptionsTypeFromJSON,
-    CompRedemptionsTypeFromJSONTyped,
-    CompRedemptionsTypeToJSON,
-} from './CompRedemptionsType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import {
     CurrencyAmountTypeFromJSON,
@@ -37,24 +31,24 @@ import {
     PaymentTaxTypeFromJSONTyped,
     PaymentTaxTypeToJSON,
 } from './PaymentTaxType';
-import type { PaymentTaxesType } from './PaymentTaxesType';
-import {
-    PaymentTaxesTypeFromJSON,
-    PaymentTaxesTypeFromJSONTyped,
-    PaymentTaxesTypeToJSON,
-} from './PaymentTaxesType';
 import type { PostPaymentActionType } from './PostPaymentActionType';
 import {
     PostPaymentActionTypeFromJSON,
     PostPaymentActionTypeFromJSONTyped,
     PostPaymentActionTypeToJSON,
 } from './PostPaymentActionType';
-import type { PrepaidCardRedemptionsType } from './PrepaidCardRedemptionsType';
+import type { PrepaidCardRedemptionType } from './PrepaidCardRedemptionType';
 import {
-    PrepaidCardRedemptionsTypeFromJSON,
-    PrepaidCardRedemptionsTypeFromJSONTyped,
-    PrepaidCardRedemptionsTypeToJSON,
-} from './PrepaidCardRedemptionsType';
+    PrepaidCardRedemptionTypeFromJSON,
+    PrepaidCardRedemptionTypeFromJSONTyped,
+    PrepaidCardRedemptionTypeToJSON,
+} from './PrepaidCardRedemptionType';
+import type { RedemptionType } from './RedemptionType';
+import {
+    RedemptionTypeFromJSON,
+    RedemptionTypeFromJSONTyped,
+    RedemptionTypeToJSON,
+} from './RedemptionType';
 
 /**
  * 
@@ -99,17 +93,17 @@ export interface PaymentCriteriaType {
      */
     comments?: string;
     /**
-     * 
-     * @type {CompRedemptionsType}
+     * Information regarding Complimentary Bucket Redemption object.
+     * @type {Array<RedemptionType>}
      * @memberof PaymentCriteriaType
      */
-    compRedemptions?: CompRedemptionsType;
+    compRedemptions?: Array<RedemptionType>;
     /**
-     * 
-     * @type {PaymentTaxesType}
+     * Payment Tax record.
+     * @type {Array<PaymentTaxType>}
      * @memberof PaymentCriteriaType
      */
-    creditablePaymentTaxes?: PaymentTaxesType;
+    creditablePaymentTaxes?: Array<PaymentTaxType>;
     /**
      * 
      * @type {number}
@@ -165,11 +159,11 @@ export interface PaymentCriteriaType {
      */
     postingRemark?: string;
     /**
-     * 
-     * @type {PrepaidCardRedemptionsType}
+     * A prepaid redemption info object to be used for posting a payment.
+     * @type {Array<PrepaidCardRedemptionType>}
      * @memberof PaymentCriteriaType
      */
-    prepaidCardRedemptions?: PrepaidCardRedemptionsType;
+    prepaidCardRedemptions?: Array<PrepaidCardRedemptionType>;
     /**
      * Applicable for chip and pin. The ID of the terminal where the chip and pin device is connected and where the payment is made.
      * @type {string}
@@ -209,8 +203,8 @@ export function PaymentCriteriaTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
         'changeDueAmount': !exists(json, 'changeDueAmount') ? undefined : CurrencyAmountTypeFromJSON(json['changeDueAmount']),
         'comments': !exists(json, 'comments') ? undefined : json['comments'],
-        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : CompRedemptionsTypeFromJSON(json['compRedemptions']),
-        'creditablePaymentTaxes': !exists(json, 'creditablePaymentTaxes') ? undefined : PaymentTaxesTypeFromJSON(json['creditablePaymentTaxes']),
+        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : ((json['compRedemptions'] as Array<any>).map(RedemptionTypeFromJSON)),
+        'creditablePaymentTaxes': !exists(json, 'creditablePaymentTaxes') ? undefined : ((json['creditablePaymentTaxes'] as Array<any>).map(PaymentTaxTypeFromJSON)),
         'folioWindowNo': !exists(json, 'folioWindowNo') ? undefined : json['folioWindowNo'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'manualPaymentTaxInfo': !exists(json, 'manualPaymentTaxInfo') ? undefined : PaymentTaxTypeFromJSON(json['manualPaymentTaxInfo']),
@@ -220,7 +214,7 @@ export function PaymentCriteriaTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'postingAmount': !exists(json, 'postingAmount') ? undefined : CurrencyAmountTypeFromJSON(json['postingAmount']),
         'postingReference': !exists(json, 'postingReference') ? undefined : json['postingReference'],
         'postingRemark': !exists(json, 'postingRemark') ? undefined : json['postingRemark'],
-        'prepaidCardRedemptions': !exists(json, 'prepaidCardRedemptions') ? undefined : PrepaidCardRedemptionsTypeFromJSON(json['prepaidCardRedemptions']),
+        'prepaidCardRedemptions': !exists(json, 'prepaidCardRedemptions') ? undefined : ((json['prepaidCardRedemptions'] as Array<any>).map(PrepaidCardRedemptionTypeFromJSON)),
         'terminalId': !exists(json, 'terminalId') ? undefined : json['terminalId'],
         'vATOffset': !exists(json, 'vATOffset') ? undefined : json['vATOffset'],
     };
@@ -241,8 +235,8 @@ export function PaymentCriteriaTypeToJSON(value?: PaymentCriteriaType | null): a
         'cashierId': value.cashierId,
         'changeDueAmount': CurrencyAmountTypeToJSON(value.changeDueAmount),
         'comments': value.comments,
-        'compRedemptions': CompRedemptionsTypeToJSON(value.compRedemptions),
-        'creditablePaymentTaxes': PaymentTaxesTypeToJSON(value.creditablePaymentTaxes),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : ((value.compRedemptions as Array<any>).map(RedemptionTypeToJSON)),
+        'creditablePaymentTaxes': value.creditablePaymentTaxes === undefined ? undefined : ((value.creditablePaymentTaxes as Array<any>).map(PaymentTaxTypeToJSON)),
         'folioWindowNo': value.folioWindowNo,
         'hotelId': value.hotelId,
         'manualPaymentTaxInfo': PaymentTaxTypeToJSON(value.manualPaymentTaxInfo),
@@ -252,7 +246,7 @@ export function PaymentCriteriaTypeToJSON(value?: PaymentCriteriaType | null): a
         'postingAmount': CurrencyAmountTypeToJSON(value.postingAmount),
         'postingReference': value.postingReference,
         'postingRemark': value.postingRemark,
-        'prepaidCardRedemptions': PrepaidCardRedemptionsTypeToJSON(value.prepaidCardRedemptions),
+        'prepaidCardRedemptions': value.prepaidCardRedemptions === undefined ? undefined : ((value.prepaidCardRedemptions as Array<any>).map(PrepaidCardRedemptionTypeToJSON)),
         'terminalId': value.terminalId,
         'vATOffset': value.vATOffset,
     };

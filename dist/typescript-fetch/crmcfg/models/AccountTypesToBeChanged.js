@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AccountTypesToBeChangedToJSON = exports.AccountTypesToBeChangedFromJSONTyped = exports.AccountTypesToBeChangedFromJSON = exports.instanceOfAccountTypesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const AccountTypesType_1 = require("./AccountTypesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const AccountTypeType_1 = require("./AccountTypeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AccountTypesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function AccountTypesToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'accountTypes': !(0, runtime_1.exists)(json, 'accountTypes') ? undefined : (0, AccountTypesType_1.AccountTypesTypeFromJSON)(json['accountTypes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'accountTypes': !(0, runtime_1.exists)(json, 'accountTypes') ? undefined : (json['accountTypes'].map(AccountTypeType_1.AccountTypeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AccountTypesToBeChangedFromJSONTyped = AccountTypesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function AccountTypesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'accountTypes': (0, AccountTypesType_1.AccountTypesTypeToJSON)(value.accountTypes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'accountTypes': value.accountTypes === undefined ? undefined : (value.accountTypes.map(AccountTypeType_1.AccountTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AccountTypesToBeChangedToJSON = AccountTypesToBeChangedToJSON;

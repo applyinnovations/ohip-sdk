@@ -61,6 +61,12 @@ import {
     InterfacePrimaryInfoTypeFromJSONTyped,
     InterfacePrimaryInfoTypeToJSON,
 } from './InterfacePrimaryInfoType';
+import type { InterfaceWorkstationType } from './InterfaceWorkstationType';
+import {
+    InterfaceWorkstationTypeFromJSON,
+    InterfaceWorkstationTypeFromJSONTyped,
+    InterfaceWorkstationTypeToJSON,
+} from './InterfaceWorkstationType';
 import type { PostingInfoType } from './PostingInfoType';
 import {
     PostingInfoTypeFromJSON,
@@ -79,12 +85,6 @@ import {
     TranslationTypeFromJSONTyped,
     TranslationTypeToJSON,
 } from './TranslationType';
-import type { WorkstationSetupType } from './WorkstationSetupType';
-import {
-    WorkstationSetupTypeFromJSON,
-    WorkstationSetupTypeFromJSONTyped,
-    WorkstationSetupTypeToJSON,
-} from './WorkstationSetupType';
 
 /**
  * 
@@ -159,11 +159,11 @@ export interface HotelInterfaceDetailType {
      */
     translationInfo?: TranslationType;
     /**
-     * 
-     * @type {WorkstationSetupType}
+     * List of workstations of a hotel interface.
+     * @type {Array<InterfaceWorkstationType>}
      * @memberof HotelInterfaceDetailType
      */
-    workstationSetupInfo?: WorkstationSetupType;
+    workstationSetupInfo?: Array<InterfaceWorkstationType>;
 }
 
 /**
@@ -196,7 +196,7 @@ export function HotelInterfaceDetailTypeFromJSONTyped(json: any, ignoreDiscrimin
         'primaryInfo': !exists(json, 'primaryInfo') ? undefined : InterfacePrimaryInfoTypeFromJSON(json['primaryInfo']),
         'transactionsInfo': !exists(json, 'transactionsInfo') ? undefined : TransactionCodeInfoTypeFromJSON(json['transactionsInfo']),
         'translationInfo': !exists(json, 'translationInfo') ? undefined : TranslationTypeFromJSON(json['translationInfo']),
-        'workstationSetupInfo': !exists(json, 'workstationSetupInfo') ? undefined : WorkstationSetupTypeFromJSON(json['workstationSetupInfo']),
+        'workstationSetupInfo': !exists(json, 'workstationSetupInfo') ? undefined : ((json['workstationSetupInfo'] as Array<any>).map(InterfaceWorkstationTypeFromJSON)),
     };
 }
 
@@ -220,7 +220,7 @@ export function HotelInterfaceDetailTypeToJSON(value?: HotelInterfaceDetailType 
         'primaryInfo': InterfacePrimaryInfoTypeToJSON(value.primaryInfo),
         'transactionsInfo': TransactionCodeInfoTypeToJSON(value.transactionsInfo),
         'translationInfo': TranslationTypeToJSON(value.translationInfo),
-        'workstationSetupInfo': WorkstationSetupTypeToJSON(value.workstationSetupInfo),
+        'workstationSetupInfo': value.workstationSetupInfo === undefined ? undefined : ((value.workstationSetupInfo as Array<any>).map(InterfaceWorkstationTypeToJSON)),
     };
 }
 

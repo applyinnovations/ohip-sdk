@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { StopProcessingReasonsType } from './StopProcessingReasonsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { StopProcessingReasonType } from './StopProcessingReasonType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Stop Processing Reason.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface StopProcessingReasons {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof StopProcessingReasons
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {StopProcessingReasonsType}
+     * List of the Stop Processing Reasons to be configured or fetched
+     * @type {Array<StopProcessingReasonType>}
      * @memberof StopProcessingReasons
      */
-    stopProcessingReasons?: StopProcessingReasonsType;
+    stopProcessingReasons?: Array<StopProcessingReasonType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof StopProcessingReasons
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the StopProcessingReasons interface.

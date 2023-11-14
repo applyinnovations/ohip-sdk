@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RatePlanCodeListType } from './RatePlanCodeListType';
 /**
  * Base Rate type
  * @export
@@ -29,11 +28,11 @@ export interface RatePlanBasedOnRateTypeBaseRate {
      */
     basedOnRatePlan?: string;
     /**
-     *
-     * @type {RatePlanCodeListType}
+     * Rate Plan code.
+     * @type {Array<string>}
      * @memberof RatePlanBasedOnRateTypeBaseRate
      */
-    dependentRatePlans?: RatePlanCodeListType;
+    dependentRatePlans?: Array<string>;
     /**
      * Flat or Percentage (FLT/PCT) indicator.
      * @type {string}

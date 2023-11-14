@@ -17,9 +17,9 @@ exports.EventsToJSON = exports.EventsFromJSONTyped = exports.EventsFromJSON = ex
 const runtime_1 = require("../runtime");
 const BlocksType_1 = require("./BlocksType");
 const EventSummariesInfoType_1 = require("./EventSummariesInfoType");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const MasterInfoType_1 = require("./MasterInfoType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the Events interface.
  */
@@ -39,9 +39,9 @@ function EventsFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'blockInfo': !(0, runtime_1.exists)(json, 'blockInfo') ? undefined : (0, BlocksType_1.BlocksTypeFromJSON)(json['blockInfo']),
         'eventSummaries': !(0, runtime_1.exists)(json, 'eventSummaries') ? undefined : (0, EventSummariesInfoType_1.EventSummariesInfoTypeFromJSON)(json['eventSummaries']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'masterInfoList': !(0, runtime_1.exists)(json, 'masterInfoList') ? undefined : (json['masterInfoList'].map(MasterInfoType_1.MasterInfoTypeFromJSON)),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.EventsFromJSONTyped = EventsFromJSONTyped;
@@ -55,9 +55,9 @@ function EventsToJSON(value) {
     return {
         'blockInfo': (0, BlocksType_1.BlocksTypeToJSON)(value.blockInfo),
         'eventSummaries': (0, EventSummariesInfoType_1.EventSummariesInfoTypeToJSON)(value.eventSummaries),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'masterInfoList': value.masterInfoList === undefined ? undefined : (value.masterInfoList.map(MasterInfoType_1.MasterInfoTypeToJSON)),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.EventsToJSON = EventsToJSON;

@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ForgetProfileResultTypeToJSON = exports.ForgetProfileResultTypeFromJSONTyped = exports.ForgetProfileResultTypeFromJSON = exports.instanceOfForgetProfileResultType = void 0;
 const runtime_1 = require("../runtime");
 const AnonymizationStatusType_1 = require("./AnonymizationStatusType");
-const ForgetProfileFailureReasonListType_1 = require("./ForgetProfileFailureReasonListType");
+const ForgetProfileFailureReasonType_1 = require("./ForgetProfileFailureReasonType");
 const ProfileId_1 = require("./ProfileId");
 /**
  * Check if a given object implements the ForgetProfileResultType interface.
@@ -36,7 +36,7 @@ function ForgetProfileResultTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'canBeForgotten': !(0, runtime_1.exists)(json, 'canBeForgotten') ? undefined : json['canBeForgotten'],
-        'failureReasons': !(0, runtime_1.exists)(json, 'failureReasons') ? undefined : (0, ForgetProfileFailureReasonListType_1.ForgetProfileFailureReasonListTypeFromJSON)(json['failureReasons']),
+        'failureReasons': !(0, runtime_1.exists)(json, 'failureReasons') ? undefined : (json['failureReasons'].map(ForgetProfileFailureReasonType_1.ForgetProfileFailureReasonTypeFromJSON)),
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, ProfileId_1.ProfileIdFromJSON)(json['profileId']),
         'status': !(0, runtime_1.exists)(json, 'status') ? undefined : (0, AnonymizationStatusType_1.AnonymizationStatusTypeFromJSON)(json['status']),
     };
@@ -51,7 +51,7 @@ function ForgetProfileResultTypeToJSON(value) {
     }
     return {
         'canBeForgotten': value.canBeForgotten,
-        'failureReasons': (0, ForgetProfileFailureReasonListType_1.ForgetProfileFailureReasonListTypeToJSON)(value.failureReasons),
+        'failureReasons': value.failureReasons === undefined ? undefined : (value.failureReasons.map(ForgetProfileFailureReasonType_1.ForgetProfileFailureReasonTypeToJSON)),
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
         'status': (0, AnonymizationStatusType_1.AnonymizationStatusTypeToJSON)(value.status),
     };

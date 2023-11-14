@@ -25,12 +25,12 @@ import {
     CheckoutInstructionsTypeFromJSONTyped,
     CheckoutInstructionsTypeToJSON,
 } from './CheckoutInstructionsType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -87,11 +87,11 @@ export interface CheckoutReservationType {
      */
     mobileCheckoutFolioEmail?: string;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CheckoutReservationType
      */
-    reservationIdList?: UniqueIDListType;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * Indicates Stop Checkout reservation Global Alert flag.
      * @type {boolean}
@@ -127,7 +127,7 @@ export function CheckoutReservationTypeFromJSONTyped(json: any, ignoreDiscrimina
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'mobileCheckout': !exists(json, 'mobileCheckout') ? undefined : json['mobileCheckout'],
         'mobileCheckoutFolioEmail': !exists(json, 'mobileCheckoutFolioEmail') ? undefined : json['mobileCheckoutFolioEmail'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : UniqueIDListTypeFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'stopCheckout': !exists(json, 'stopCheckout') ? undefined : json['stopCheckout'],
     };
 }
@@ -149,7 +149,7 @@ export function CheckoutReservationTypeToJSON(value?: CheckoutReservationType | 
         'hotelId': value.hotelId,
         'mobileCheckout': value.mobileCheckout,
         'mobileCheckoutFolioEmail': value.mobileCheckoutFolioEmail,
-        'reservationIdList': UniqueIDListTypeToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'stopCheckout': value.stopCheckout,
     };
 }

@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AutoTraceOwnerAssignmentListType } from './AutoTraceOwnerAssignmentListType';
-import type { WarningsType } from './WarningsType';
+import type { AutoTraceOwnerAssignmentType } from './AutoTraceOwnerAssignmentType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating/changing trace owner assignments.
  * @export
@@ -18,17 +18,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AutoTraceOwnerAssignmentsInfo {
     /**
-     *
-     * @type {AutoTraceOwnerAssignmentListType}
+     * Detailed information of trace owner assignment.
+     * @type {Array<AutoTraceOwnerAssignmentType>}
      * @memberof AutoTraceOwnerAssignmentsInfo
      */
-    autoTraceOwnerAssignments?: AutoTraceOwnerAssignmentListType;
+    autoTraceOwnerAssignments?: Array<AutoTraceOwnerAssignmentType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoTraceOwnerAssignmentsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AutoTraceOwnerAssignmentsInfo interface.

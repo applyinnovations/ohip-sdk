@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BuildingsToBeChangedToJSON = exports.BuildingsToBeChangedFromJSONTyped = exports.BuildingsToBeChangedFromJSON = exports.instanceOfBuildingsToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const BuildingsType_1 = require("./BuildingsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const BuildingType_1 = require("./BuildingType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BuildingsToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function BuildingsToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'buildings': !(0, runtime_1.exists)(json, 'buildings') ? undefined : (0, BuildingsType_1.BuildingsTypeFromJSON)(json['buildings']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'buildings': !(0, runtime_1.exists)(json, 'buildings') ? undefined : (json['buildings'].map(BuildingType_1.BuildingTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BuildingsToBeChangedFromJSONTyped = BuildingsToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function BuildingsToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'buildings': (0, BuildingsType_1.BuildingsTypeToJSON)(value.buildings),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'buildings': value.buildings === undefined ? undefined : (value.buildings.map(BuildingType_1.BuildingTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BuildingsToBeChangedToJSON = BuildingsToBeChangedToJSON;

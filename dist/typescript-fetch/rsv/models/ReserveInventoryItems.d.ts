@@ -9,11 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ItemHoldIDListType } from './ItemHoldIDListType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ResInventoryItemsType } from './ResInventoryItemsType';
 import type { ReservationId } from './ReservationId';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to reserve inventory Items for a reservation.
  * @export
@@ -33,17 +32,17 @@ export interface ReserveInventoryItems {
      */
     inventoryItems?: ResInventoryItemsType;
     /**
-     *
-     * @type {ItemHoldIDListType}
+     * ID of an Hold Item
+     * @type {Array<number>}
      * @memberof ReserveInventoryItems
      */
-    itemHoldIdList?: ItemHoldIDListType;
+    itemHoldIdList?: Array<number>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReserveInventoryItems
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationId}
@@ -51,11 +50,11 @@ export interface ReserveInventoryItems {
      */
     reservationId?: ReservationId;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReserveInventoryItems
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReserveInventoryItems interface.

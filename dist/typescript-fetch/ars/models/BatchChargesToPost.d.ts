@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ARPostChargesInBatchCriteriaType } from './ARPostChargesInBatchCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request for posting a charge in a batch to list of accounts.
  * @export
@@ -26,16 +26,16 @@ export interface BatchChargesToPost {
     criteria?: ARPostChargesInBatchCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BatchChargesToPost
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BatchChargesToPost
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BatchChargesToPost interface.

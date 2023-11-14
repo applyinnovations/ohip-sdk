@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FolioArrangementCodesType } from './FolioArrangementCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { FolioArrangementCodeType } from './FolioArrangementCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FolioArrangementCodes {
     /**
-     *
-     * @type {FolioArrangementCodesType}
+     * Details for folio arrangement code along with associated transaction codes.
+     * @type {Array<FolioArrangementCodeType>}
      * @memberof FolioArrangementCodes
      */
-    folioArrangementCodes?: FolioArrangementCodesType;
+    folioArrangementCodes?: Array<FolioArrangementCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FolioArrangementCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FolioArrangementCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FolioArrangementCodes interface.

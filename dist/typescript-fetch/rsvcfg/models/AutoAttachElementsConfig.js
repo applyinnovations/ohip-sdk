@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AutoAttachElementsConfigToJSON = exports.AutoAttachElementsConfigFromJSONTyped = exports.AutoAttachElementsConfigFromJSON = exports.instanceOfAutoAttachElementsConfig = void 0;
 const runtime_1 = require("../runtime");
-const AutoAttachElementsConfigType_1 = require("./AutoAttachElementsConfigType");
-const Links_1 = require("./Links");
+const AutoAttachRuleType_1 = require("./AutoAttachRuleType");
+const InstanceLink_1 = require("./InstanceLink");
 const MasterInfoType_1 = require("./MasterInfoType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AutoAttachElementsConfig interface.
  */
@@ -36,10 +36,10 @@ function AutoAttachElementsConfigFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'autoAttachRules': !(0, runtime_1.exists)(json, 'autoAttachRules') ? undefined : (0, AutoAttachElementsConfigType_1.AutoAttachElementsConfigTypeFromJSON)(json['autoAttachRules']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'autoAttachRules': !(0, runtime_1.exists)(json, 'autoAttachRules') ? undefined : (json['autoAttachRules'].map(AutoAttachRuleType_1.AutoAttachRuleTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'masterInfoList': !(0, runtime_1.exists)(json, 'masterInfoList') ? undefined : (json['masterInfoList'].map(MasterInfoType_1.MasterInfoTypeFromJSON)),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AutoAttachElementsConfigFromJSONTyped = AutoAttachElementsConfigFromJSONTyped;
@@ -51,10 +51,10 @@ function AutoAttachElementsConfigToJSON(value) {
         return null;
     }
     return {
-        'autoAttachRules': (0, AutoAttachElementsConfigType_1.AutoAttachElementsConfigTypeToJSON)(value.autoAttachRules),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'autoAttachRules': value.autoAttachRules === undefined ? undefined : (value.autoAttachRules.map(AutoAttachRuleType_1.AutoAttachRuleTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'masterInfoList': value.masterInfoList === undefined ? undefined : (value.masterInfoList.map(MasterInfoType_1.MasterInfoTypeToJSON)),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AutoAttachElementsConfigToJSON = AutoAttachElementsConfigToJSON;

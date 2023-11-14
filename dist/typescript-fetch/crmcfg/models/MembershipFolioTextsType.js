@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipFolioTextsTypeToJSON = exports.MembershipFolioTextsTypeFromJSONTyped = exports.MembershipFolioTextsTypeFromJSON = exports.instanceOfMembershipFolioTextsType = void 0;
 const runtime_1 = require("../runtime");
-const HotelFolioTextsType_1 = require("./HotelFolioTextsType");
 /**
  * Check if a given object implements the MembershipFolioTextsType interface.
  */
@@ -33,7 +32,7 @@ function MembershipFolioTextsTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'folioTexts': !(0, runtime_1.exists)(json, 'folioTexts') ? undefined : (json['folioTexts'].map(HotelFolioTextsType_1.HotelFolioTextsTypeFromJSON)),
+        'folioTexts': !(0, runtime_1.exists)(json, 'folioTexts') ? undefined : json['folioTexts'],
         'membershipLevel': !(0, runtime_1.exists)(json, 'membershipLevel') ? undefined : json['membershipLevel'],
         'membershipType': !(0, runtime_1.exists)(json, 'membershipType') ? undefined : json['membershipType'],
     };
@@ -47,7 +46,7 @@ function MembershipFolioTextsTypeToJSON(value) {
         return null;
     }
     return {
-        'folioTexts': value.folioTexts === undefined ? undefined : (value.folioTexts.map(HotelFolioTextsType_1.HotelFolioTextsTypeToJSON)),
+        'folioTexts': value.folioTexts,
         'membershipLevel': value.membershipLevel,
         'membershipType': value.membershipType,
     };

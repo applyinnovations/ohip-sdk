@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BedTypeRequestsType } from './BedTypeRequestsType';
+import type { BedTypeRequestType } from './BedTypeRequestType';
 import {
-    BedTypeRequestsTypeFromJSON,
-    BedTypeRequestsTypeFromJSONTyped,
-    BedTypeRequestsTypeToJSON,
-} from './BedTypeRequestsType';
-import type { Links } from './Links';
+    BedTypeRequestTypeFromJSON,
+    BedTypeRequestTypeFromJSONTyped,
+    BedTypeRequestTypeToJSON,
+} from './BedTypeRequestType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Bed Type Requests.
@@ -39,23 +39,23 @@ import {
  */
 export interface BedTypeRequestsToBeChanged {
     /**
-     * 
-     * @type {BedTypeRequestsType}
+     * List of Bed Type Requests.
+     * @type {Array<BedTypeRequestType>}
      * @memberof BedTypeRequestsToBeChanged
      */
-    bedTypeRequests?: BedTypeRequestsType;
+    bedTypeRequests?: Array<BedTypeRequestType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BedTypeRequestsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BedTypeRequestsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function BedTypeRequestsToBeChangedFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'bedTypeRequests': !exists(json, 'bedTypeRequests') ? undefined : BedTypeRequestsTypeFromJSON(json['bedTypeRequests']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'bedTypeRequests': !exists(json, 'bedTypeRequests') ? undefined : ((json['bedTypeRequests'] as Array<any>).map(BedTypeRequestTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function BedTypeRequestsToBeChangedToJSON(value?: BedTypeRequestsToBeChan
     }
     return {
         
-        'bedTypeRequests': BedTypeRequestsTypeToJSON(value.bedTypeRequests),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'bedTypeRequests': value.bedTypeRequests === undefined ? undefined : ((value.bedTypeRequests as Array<any>).map(BedTypeRequestTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

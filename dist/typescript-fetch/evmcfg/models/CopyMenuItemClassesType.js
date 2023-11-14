@@ -15,9 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyMenuItemClassesTypeToJSON = exports.CopyMenuItemClassesTypeFromJSONTyped = exports.CopyMenuItemClassesTypeFromJSON = exports.instanceOfCopyMenuItemClassesType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const CopyMenuItemClassesTypeCopyInstructions_1 = require("./CopyMenuItemClassesTypeCopyInstructions");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CopyMenuItemClassesType interface.
  */
@@ -36,9 +35,9 @@ function CopyMenuItemClassesTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'copyInstructions': !(0, runtime_1.exists)(json, 'copyInstructions') ? undefined : (0, CopyMenuItemClassesTypeCopyInstructions_1.CopyMenuItemClassesTypeCopyInstructionsFromJSON)(json['copyInstructions']),
-        'itemClasses': !(0, runtime_1.exists)(json, 'itemClasses') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['itemClasses']),
+        'itemClasses': !(0, runtime_1.exists)(json, 'itemClasses') ? undefined : (json['itemClasses'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'sourceHotelCode': !(0, runtime_1.exists)(json, 'sourceHotelCode') ? undefined : json['sourceHotelCode'],
-        'targetHotelCodes': !(0, runtime_1.exists)(json, 'targetHotelCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['targetHotelCodes']),
+        'targetHotelCodes': !(0, runtime_1.exists)(json, 'targetHotelCodes') ? undefined : json['targetHotelCodes'],
     };
 }
 exports.CopyMenuItemClassesTypeFromJSONTyped = CopyMenuItemClassesTypeFromJSONTyped;
@@ -51,9 +50,9 @@ function CopyMenuItemClassesTypeToJSON(value) {
     }
     return {
         'copyInstructions': (0, CopyMenuItemClassesTypeCopyInstructions_1.CopyMenuItemClassesTypeCopyInstructionsToJSON)(value.copyInstructions),
-        'itemClasses': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.itemClasses),
+        'itemClasses': value.itemClasses === undefined ? undefined : (value.itemClasses.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'sourceHotelCode': value.sourceHotelCode,
-        'targetHotelCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.targetHotelCodes),
+        'targetHotelCodes': value.targetHotelCodes,
     };
 }
 exports.CopyMenuItemClassesTypeToJSON = CopyMenuItemClassesTypeToJSON;

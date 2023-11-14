@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HousekeepingCreditRuleTypeToJSON = exports.HousekeepingCreditRuleTypeFromJSONTyped = exports.HousekeepingCreditRuleTypeFromJSON = exports.instanceOfHousekeepingCreditRuleType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const HousekeepingCreditRuleTravelTypeType_1 = require("./HousekeepingCreditRuleTravelTypeType");
 const HousekeepingCreditRuleTypeFacilityTaskRule_1 = require("./HousekeepingCreditRuleTypeFacilityTaskRule");
 const HousekeepingCreditRuleTypeType_1 = require("./HousekeepingCreditRuleTypeType");
@@ -37,7 +36,7 @@ function HousekeepingCreditRuleTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'buildings': !(0, runtime_1.exists)(json, 'buildings') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['buildings']),
+        'buildings': !(0, runtime_1.exists)(json, 'buildings') ? undefined : json['buildings'],
         'creditValue': !(0, runtime_1.exists)(json, 'creditValue') ? undefined : json['creditValue'],
         'daysOfWeek': !(0, runtime_1.exists)(json, 'daysOfWeek') ? undefined : (0, TimeSpanDaysOfWeekType_1.TimeSpanDaysOfWeekTypeFromJSON)(json['daysOfWeek']),
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
@@ -59,7 +58,7 @@ function HousekeepingCreditRuleTypeToJSON(value) {
         return null;
     }
     return {
-        'buildings': (0, CodeListType_1.CodeListTypeToJSON)(value.buildings),
+        'buildings': value.buildings,
         'creditValue': value.creditValue,
         'daysOfWeek': (0, TimeSpanDaysOfWeekType_1.TimeSpanDaysOfWeekTypeToJSON)(value.daysOfWeek),
         'description': value.description,

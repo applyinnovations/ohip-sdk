@@ -16,9 +16,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringEventPostingsToJSON = exports.CateringEventPostingsFromJSONTyped = exports.CateringEventPostingsFromJSON = exports.instanceOfCateringEventPostings = void 0;
 const runtime_1 = require("../runtime");
 const CateringEventPostingsType_1 = require("./CateringEventPostingsType");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const ReservationSnapshotsType_1 = require("./ReservationSnapshotsType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CateringEventPostings interface.
  */
@@ -37,9 +37,9 @@ function CateringEventPostingsFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'cateringEventPostings': !(0, runtime_1.exists)(json, 'cateringEventPostings') ? undefined : (0, CateringEventPostingsType_1.CateringEventPostingsTypeFromJSON)(json['cateringEventPostings']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'postingMasterReservations': !(0, runtime_1.exists)(json, 'postingMasterReservations') ? undefined : (0, ReservationSnapshotsType_1.ReservationSnapshotsTypeFromJSON)(json['postingMasterReservations']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CateringEventPostingsFromJSONTyped = CateringEventPostingsFromJSONTyped;
@@ -52,9 +52,9 @@ function CateringEventPostingsToJSON(value) {
     }
     return {
         'cateringEventPostings': (0, CateringEventPostingsType_1.CateringEventPostingsTypeToJSON)(value.cateringEventPostings),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'postingMasterReservations': (0, ReservationSnapshotsType_1.ReservationSnapshotsTypeToJSON)(value.postingMasterReservations),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CateringEventPostingsToJSON = CateringEventPostingsToJSON;

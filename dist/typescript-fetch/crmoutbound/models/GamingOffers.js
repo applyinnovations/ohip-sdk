@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GamingOffersToJSON = exports.GamingOffersFromJSONTyped = exports.GamingOffersFromJSON = exports.instanceOfGamingOffers = void 0;
 const runtime_1 = require("../runtime");
-const GamingOffersType_1 = require("./GamingOffersType");
-const Links_1 = require("./Links");
+const CodeDescriptionType_1 = require("./CodeDescriptionType");
+const InstanceLink_1 = require("./InstanceLink");
 /**
  * Check if a given object implements the GamingOffers interface.
  */
@@ -34,8 +34,8 @@ function GamingOffersFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'gamingOffersInfo': !(0, runtime_1.exists)(json, 'gamingOffersInfo') ? undefined : (0, GamingOffersType_1.GamingOffersTypeFromJSON)(json['gamingOffersInfo']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'gamingOffersInfo': !(0, runtime_1.exists)(json, 'gamingOffersInfo') ? undefined : (json['gamingOffersInfo'].map(CodeDescriptionType_1.CodeDescriptionTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.GamingOffersFromJSONTyped = GamingOffersFromJSONTyped;
@@ -47,8 +47,8 @@ function GamingOffersToJSON(value) {
         return null;
     }
     return {
-        'gamingOffersInfo': (0, GamingOffersType_1.GamingOffersTypeToJSON)(value.gamingOffersInfo),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'gamingOffersInfo': value.gamingOffersInfo === undefined ? undefined : (value.gamingOffersInfo.map(CodeDescriptionType_1.CodeDescriptionTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.GamingOffersToJSON = GamingOffersToJSON;

@@ -15,8 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyTraceTextsCriteriaTypeToJSON = exports.CopyTraceTextsCriteriaTypeFromJSONTyped = exports.CopyTraceTextsCriteriaTypeFromJSON = exports.instanceOfCopyTraceTextsCriteriaType = void 0;
 const runtime_1 = require("../runtime");
-const HotelCodeListType_1 = require("./HotelCodeListType");
-const TraceTextsType_1 = require("./TraceTextsType");
+const TraceTextType_1 = require("./TraceTextType");
 /**
  * Check if a given object implements the CopyTraceTextsCriteriaType interface.
  */
@@ -34,8 +33,8 @@ function CopyTraceTextsCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'targetHotels': !(0, runtime_1.exists)(json, 'targetHotels') ? undefined : (0, HotelCodeListType_1.HotelCodeListTypeFromJSON)(json['targetHotels']),
-        'traceTexts': !(0, runtime_1.exists)(json, 'traceTexts') ? undefined : (0, TraceTextsType_1.TraceTextsTypeFromJSON)(json['traceTexts']),
+        'targetHotels': !(0, runtime_1.exists)(json, 'targetHotels') ? undefined : json['targetHotels'],
+        'traceTexts': !(0, runtime_1.exists)(json, 'traceTexts') ? undefined : (json['traceTexts'].map(TraceTextType_1.TraceTextTypeFromJSON)),
     };
 }
 exports.CopyTraceTextsCriteriaTypeFromJSONTyped = CopyTraceTextsCriteriaTypeFromJSONTyped;
@@ -47,8 +46,8 @@ function CopyTraceTextsCriteriaTypeToJSON(value) {
         return null;
     }
     return {
-        'targetHotels': (0, HotelCodeListType_1.HotelCodeListTypeToJSON)(value.targetHotels),
-        'traceTexts': (0, TraceTextsType_1.TraceTextsTypeToJSON)(value.traceTexts),
+        'targetHotels': value.targetHotels,
+        'traceTexts': value.traceTexts === undefined ? undefined : (value.traceTexts.map(TraceTextType_1.TraceTextTypeToJSON)),
     };
 }
 exports.CopyTraceTextsCriteriaTypeToJSON = CopyTraceTextsCriteriaTypeToJSON;

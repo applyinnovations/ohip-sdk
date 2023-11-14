@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { VIPLevelsType } from './VIPLevelsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { VIPLevelType } from './VIPLevelType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating V I P Levels.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface VIPLevelsCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof VIPLevelsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {VIPLevelsType}
+     * List of V I P Levels.
+     * @type {Array<VIPLevelType>}
      * @memberof VIPLevelsCriteria
      */
-    vIPLevels?: VIPLevelsType;
+    vIPLevels?: Array<VIPLevelType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof VIPLevelsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the VIPLevelsCriteria interface.

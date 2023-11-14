@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DiscountReasonsType } from './DiscountReasonsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { DiscountReasonType } from './DiscountReasonType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Discount Reasons.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface DiscountReasonsDetails {
     /**
-     *
-     * @type {DiscountReasonsType}
+     * List of Discount Reasons.
+     * @type {Array<DiscountReasonType>}
      * @memberof DiscountReasonsDetails
      */
-    discountReasons?: DiscountReasonsType;
+    discountReasons?: Array<DiscountReasonType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DiscountReasonsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DiscountReasonsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DiscountReasonsDetails interface.

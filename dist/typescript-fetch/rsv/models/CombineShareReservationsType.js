@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CombineShareReservationsTypeToJSON = exports.CombineShareReservationsTypeFromJSONTyped = exports.CombineShareReservationsTypeFromJSON = exports.instanceOfCombineShareReservationsType = void 0;
 const runtime_1 = require("../runtime");
-const CombineShareFromProfilesType_1 = require("./CombineShareFromProfilesType");
+const CombineShareFromProfileType_1 = require("./CombineShareFromProfileType");
 const CombineShareInstructionType_1 = require("./CombineShareInstructionType");
 const CombineShareReservationsTypeFetchInstructions_1 = require("./CombineShareReservationsTypeFetchInstructions");
 const CombineShareReservationsTypeShareToReservation_1 = require("./CombineShareReservationsTypeShareToReservation");
@@ -41,7 +41,7 @@ function CombineShareReservationsTypeFromJSONTyped(json, ignoreDiscriminator) {
         'existingReservationId': !(0, runtime_1.exists)(json, 'existingReservationId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['existingReservationId']),
         'fetchInstructions': !(0, runtime_1.exists)(json, 'fetchInstructions') ? undefined : (0, CombineShareReservationsTypeFetchInstructions_1.CombineShareReservationsTypeFetchInstructionsFromJSON)(json['fetchInstructions']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'newReservations': !(0, runtime_1.exists)(json, 'newReservations') ? undefined : (0, CombineShareFromProfilesType_1.CombineShareFromProfilesTypeFromJSON)(json['newReservations']),
+        'newReservations': !(0, runtime_1.exists)(json, 'newReservations') ? undefined : (json['newReservations'].map(CombineShareFromProfileType_1.CombineShareFromProfileTypeFromJSON)),
         'shareToReservation': !(0, runtime_1.exists)(json, 'shareToReservation') ? undefined : (0, CombineShareReservationsTypeShareToReservation_1.CombineShareReservationsTypeShareToReservationFromJSON)(json['shareToReservation']),
     };
 }
@@ -58,7 +58,7 @@ function CombineShareReservationsTypeToJSON(value) {
         'existingReservationId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.existingReservationId),
         'fetchInstructions': (0, CombineShareReservationsTypeFetchInstructions_1.CombineShareReservationsTypeFetchInstructionsToJSON)(value.fetchInstructions),
         'hotelId': value.hotelId,
-        'newReservations': (0, CombineShareFromProfilesType_1.CombineShareFromProfilesTypeToJSON)(value.newReservations),
+        'newReservations': value.newReservations === undefined ? undefined : (value.newReservations.map(CombineShareFromProfileType_1.CombineShareFromProfileTypeToJSON)),
         'shareToReservation': (0, CombineShareReservationsTypeShareToReservation_1.CombineShareReservationsTypeShareToReservationToJSON)(value.shareToReservation),
     };
 }

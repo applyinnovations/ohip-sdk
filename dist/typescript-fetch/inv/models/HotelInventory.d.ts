@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { HotelInventoryType } from './HotelInventoryType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * A response for Hotel Inventories meeting the search criteria. Returns inventory classified on room type, class and house level for a given property.
  * @export
@@ -26,16 +26,16 @@ export interface HotelInventory {
     hotelInventories?: Array<HotelInventoryType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelInventory
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelInventory
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HotelInventory interface.

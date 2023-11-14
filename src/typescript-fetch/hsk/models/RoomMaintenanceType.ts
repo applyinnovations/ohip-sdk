@@ -19,12 +19,12 @@ import {
     AssignedUserTypeFromJSONTyped,
     AssignedUserTypeToJSON,
 } from './AssignedUserType';
-import type { ImageResultsType } from './ImageResultsType';
+import type { ImageResultType } from './ImageResultType';
 import {
-    ImageResultsTypeFromJSON,
-    ImageResultsTypeFromJSONTyped,
-    ImageResultsTypeToJSON,
-} from './ImageResultsType';
+    ImageResultTypeFromJSON,
+    ImageResultTypeFromJSONTyped,
+    ImageResultTypeToJSON,
+} from './ImageResultType';
 import type { ResolveRoomMaintenanceType } from './ResolveRoomMaintenanceType';
 import {
     ResolveRoomMaintenanceTypeFromJSON,
@@ -69,11 +69,11 @@ export interface RoomMaintenanceType {
      */
     creatorId?: string;
     /**
-     * 
-     * @type {ImageResultsType}
+     * Collection of image results.
+     * @type {Array<ImageResultType>}
      * @memberof RoomMaintenanceType
      */
-    images?: ImageResultsType;
+    images?: Array<ImageResultType>;
     /**
      * Identifies the last software system or person to modify a record.
      * @type {string}
@@ -146,7 +146,7 @@ export function RoomMaintenanceTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'assignedUserInfo': !exists(json, 'assignedUserInfo') ? undefined : AssignedUserTypeFromJSON(json['assignedUserInfo']),
         'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !exists(json, 'creatorId') ? undefined : json['creatorId'],
-        'images': !exists(json, 'images') ? undefined : ImageResultsTypeFromJSON(json['images']),
+        'images': !exists(json, 'images') ? undefined : ((json['images'] as Array<any>).map(ImageResultTypeFromJSON)),
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'maintenanceCode': !exists(json, 'maintenanceCode') ? undefined : json['maintenanceCode'],
@@ -170,7 +170,7 @@ export function RoomMaintenanceTypeToJSON(value?: RoomMaintenanceType | null): a
         'assignedUserInfo': AssignedUserTypeToJSON(value.assignedUserInfo),
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
-        'images': ImageResultsTypeToJSON(value.images),
+        'images': value.images === undefined ? undefined : ((value.images as Array<any>).map(ImageResultTypeToJSON)),
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'maintenanceCode': value.maintenanceCode,

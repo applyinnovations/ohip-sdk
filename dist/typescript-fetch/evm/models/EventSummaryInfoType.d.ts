@@ -9,13 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockIdList } from './BlockIdList';
 import type { BookingStatusType } from './BookingStatusType';
 import type { CateringEventLinkType } from './CateringEventLinkType';
 import type { CateringStatusTypeType } from './CateringStatusTypeType';
 import type { CodeDescriptionType } from './CodeDescriptionType';
 import type { EventId } from './EventId';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Contains information about an event.
  * @export
@@ -53,11 +53,11 @@ export interface EventSummaryInfoType {
      */
     blockHotelCode?: string;
     /**
-     *
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof EventSummaryInfoType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * Name of the block.
      * @type {string}
@@ -125,11 +125,11 @@ export interface EventSummaryInfoType {
      */
     eventId?: EventId;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof EventSummaryInfoType
      */
-    eventIndicators?: IndicatorsType;
+    eventIndicators?: Array<IndicatorType>;
     /**
      *
      * @type {CateringEventLinkType}
@@ -209,11 +209,11 @@ export interface EventSummaryInfoType {
      */
     includeSpaceInPackage?: boolean;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof EventSummaryInfoType
      */
-    indicators?: IndicatorsType;
+    indicators?: Array<IndicatorType>;
     /**
      * Indicates whether the event is expected to be noisy and might possibly disturb other events.
      * @type {boolean}

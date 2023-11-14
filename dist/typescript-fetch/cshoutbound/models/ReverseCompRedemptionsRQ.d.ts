@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ReverseCompRedemptionsRQCompRedemptionsType } from './ReverseCompRedemptionsRQCompRedemptionsType';
+import type { ReverseCompRedemptionsRQCompRedemptionType } from './ReverseCompRedemptionsRQCompRedemptionType';
 /**
  * Request type of Complimentary Redemptions reversal.
  * @export
@@ -17,11 +17,11 @@ import type { ReverseCompRedemptionsRQCompRedemptionsType } from './ReverseCompR
  */
 export interface ReverseCompRedemptionsRQ {
     /**
-     *
-     * @type {ReverseCompRedemptionsRQCompRedemptionsType}
+     * Collection of Complimentary Redemptions for reversal.
+     * @type {Array<ReverseCompRedemptionsRQCompRedemptionType>}
      * @memberof ReverseCompRedemptionsRQ
      */
-    compRedemptions?: ReverseCompRedemptionsRQCompRedemptionsType;
+    compRedemptions?: Array<ReverseCompRedemptionsRQCompRedemptionType>;
 }
 /**
  * Check if a given object implements the ReverseCompRedemptionsRQ interface.

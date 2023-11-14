@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { GuestMessagesType } from './GuestMessagesType';
+import type { GuestMessageType } from './GuestMessageType';
 import {
-    GuestMessagesTypeFromJSON,
-    GuestMessagesTypeFromJSONTyped,
-    GuestMessagesTypeToJSON,
-} from './GuestMessagesType';
-import type { Links } from './Links';
+    GuestMessageTypeFromJSON,
+    GuestMessageTypeFromJSONTyped,
+    GuestMessageTypeToJSON,
+} from './GuestMessageType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReservationId } from './ReservationId';
 import {
     ReservationIdFromJSON,
     ReservationIdFromJSONTyped,
     ReservationIdToJSON,
 } from './ReservationId';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for updating the Guest Messages for a Reservation.
@@ -45,11 +45,11 @@ import {
  */
 export interface ChangeGuestMessages {
     /**
-     * 
-     * @type {GuestMessagesType}
+     * Holds the Message Information
+     * @type {Array<GuestMessageType>}
      * @memberof ChangeGuestMessages
      */
-    guestMessages?: GuestMessagesType;
+    guestMessages?: Array<GuestMessageType>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -58,10 +58,10 @@ export interface ChangeGuestMessages {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangeGuestMessages
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ReservationId}
@@ -69,11 +69,11 @@ export interface ChangeGuestMessages {
      */
     reservationId?: ReservationId;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeGuestMessages
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -95,11 +95,11 @@ export function ChangeGuestMessagesFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'guestMessages': !exists(json, 'guestMessages') ? undefined : GuestMessagesTypeFromJSON(json['guestMessages']),
+        'guestMessages': !exists(json, 'guestMessages') ? undefined : ((json['guestMessages'] as Array<any>).map(GuestMessageTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -112,11 +112,11 @@ export function ChangeGuestMessagesToJSON(value?: ChangeGuestMessages | null): a
     }
     return {
         
-        'guestMessages': GuestMessagesTypeToJSON(value.guestMessages),
+        'guestMessages': value.guestMessages === undefined ? undefined : ((value.guestMessages as Array<any>).map(GuestMessageTypeToJSON)),
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservationId': ReservationIdToJSON(value.reservationId),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -25,12 +25,12 @@ import {
     GuestCountsTypeFromJSONTyped,
     GuestCountsTypeToJSON,
 } from './GuestCountsType';
-import type { PromotionsType } from './PromotionsType';
+import type { PromotionType } from './PromotionType';
 import {
-    PromotionsTypeFromJSON,
-    PromotionsTypeFromJSONTyped,
-    PromotionsTypeToJSON,
-} from './PromotionsType';
+    PromotionTypeFromJSON,
+    PromotionTypeFromJSONTyped,
+    PromotionTypeToJSON,
+} from './PromotionType';
 
 /**
  * Rate details for the different dates of a reservation.
@@ -81,11 +81,11 @@ export interface DailyRateDetailType {
      */
     marketCode?: string;
     /**
-     * 
-     * @type {PromotionsType}
+     * Type to specify a rate promotion. Usually attached to a reservation to indicate a specific promotion is applied to the reservation.
+     * @type {Array<PromotionType>}
      * @memberof DailyRateDetailType
      */
-    promotions?: PromotionsType;
+    promotions?: Array<PromotionType>;
     /**
      * 
      * @type {AmountType}
@@ -156,7 +156,7 @@ export function DailyRateDetailTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'fixedRate': !exists(json, 'fixedRate') ? undefined : json['fixedRate'],
         'guestCounts': !exists(json, 'guestCounts') ? undefined : GuestCountsTypeFromJSON(json['guestCounts']),
         'marketCode': !exists(json, 'marketCode') ? undefined : json['marketCode'],
-        'promotions': !exists(json, 'promotions') ? undefined : PromotionsTypeFromJSON(json['promotions']),
+        'promotions': !exists(json, 'promotions') ? undefined : ((json['promotions'] as Array<any>).map(PromotionTypeFromJSON)),
         'rate': !exists(json, 'rate') ? undefined : AmountTypeFromJSON(json['rate']),
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
@@ -183,7 +183,7 @@ export function DailyRateDetailTypeToJSON(value?: DailyRateDetailType | null): a
         'fixedRate': value.fixedRate,
         'guestCounts': GuestCountsTypeToJSON(value.guestCounts),
         'marketCode': value.marketCode,
-        'promotions': PromotionsTypeToJSON(value.promotions),
+        'promotions': value.promotions === undefined ? undefined : ((value.promotions as Array<any>).map(PromotionTypeToJSON)),
         'rate': AmountTypeToJSON(value.rate),
         'ratePlanCode': value.ratePlanCode,
         'roomId': value.roomId,

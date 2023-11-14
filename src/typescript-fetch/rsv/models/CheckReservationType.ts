@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CheckResultsType } from './CheckResultsType';
+import type { CheckResultType } from './CheckResultType';
 import {
-    CheckResultsTypeFromJSON,
-    CheckResultsTypeFromJSONTyped,
-    CheckResultsTypeToJSON,
-} from './CheckResultsType';
+    CheckResultTypeFromJSON,
+    CheckResultTypeFromJSONTyped,
+    CheckResultTypeToJSON,
+} from './CheckResultType';
 import type { ReservationId } from './ReservationId';
 import {
     ReservationIdFromJSON,
@@ -45,11 +45,11 @@ export interface CheckReservationType {
      */
     reservationId?: ReservationId;
     /**
-     * 
-     * @type {CheckResultsType}
+     * Collection of status of allowed actions, attached records, and indicators of the reservation.
+     * @type {Array<CheckResultType>}
      * @memberof CheckReservationType
      */
-    results?: CheckResultsType;
+    results?: Array<CheckResultType>;
 }
 
 /**
@@ -73,7 +73,7 @@ export function CheckReservationTypeFromJSONTyped(json: any, ignoreDiscriminator
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
-        'results': !exists(json, 'results') ? undefined : CheckResultsTypeFromJSON(json['results']),
+        'results': !exists(json, 'results') ? undefined : ((json['results'] as Array<any>).map(CheckResultTypeFromJSON)),
     };
 }
 
@@ -88,7 +88,7 @@ export function CheckReservationTypeToJSON(value?: CheckReservationType | null):
         
         'hotelId': value.hotelId,
         'reservationId': ReservationIdToJSON(value.reservationId),
-        'results': CheckResultsTypeToJSON(value.results),
+        'results': value.results === undefined ? undefined : ((value.results as Array<any>).map(CheckResultTypeToJSON)),
     };
 }
 

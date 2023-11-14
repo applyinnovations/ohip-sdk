@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplatePromotionCodesToJSON = exports.TemplatePromotionCodesFromJSONTyped = exports.TemplatePromotionCodesFromJSON = exports.instanceOfTemplatePromotionCodes = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TemplatePromotionCodesType_1 = require("./TemplatePromotionCodesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TemplatePromotionCodeType_1 = require("./TemplatePromotionCodeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TemplatePromotionCodes interface.
  */
@@ -35,9 +35,9 @@ function TemplatePromotionCodesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'templatePromotionCodes': !(0, runtime_1.exists)(json, 'templatePromotionCodes') ? undefined : (0, TemplatePromotionCodesType_1.TemplatePromotionCodesTypeFromJSON)(json['templatePromotionCodes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'templatePromotionCodes': !(0, runtime_1.exists)(json, 'templatePromotionCodes') ? undefined : (json['templatePromotionCodes'].map(TemplatePromotionCodeType_1.TemplatePromotionCodeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TemplatePromotionCodesFromJSONTyped = TemplatePromotionCodesFromJSONTyped;
@@ -49,9 +49,9 @@ function TemplatePromotionCodesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'templatePromotionCodes': (0, TemplatePromotionCodesType_1.TemplatePromotionCodesTypeToJSON)(value.templatePromotionCodes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'templatePromotionCodes': value.templatePromotionCodes === undefined ? undefined : (value.templatePromotionCodes.map(TemplatePromotionCodeType_1.TemplatePromotionCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TemplatePromotionCodesToJSON = TemplatePromotionCodesToJSON;

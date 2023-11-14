@@ -25,12 +25,12 @@ import {
     CateringEventBulkUpdateFunctionSpaceTypeFromJSONTyped,
     CateringEventBulkUpdateFunctionSpaceTypeToJSON,
 } from './CateringEventBulkUpdateFunctionSpaceType';
-import type { EventIdList } from './EventIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    EventIdListFromJSON,
-    EventIdListFromJSONTyped,
-    EventIdListToJSON,
-} from './EventIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Collection of Event/Function Space Details and their Event IDs to be updated.
@@ -39,11 +39,11 @@ import {
  */
 export interface CateringEventsBulkUpdateType {
     /**
-     * 
-     * @type {EventIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CateringEventsBulkUpdateType
      */
-    eventIdList?: EventIdList;
+    eventIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {CateringEventBulkUpdateDetailType}
@@ -83,7 +83,7 @@ export function CateringEventsBulkUpdateTypeFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'eventIdList': !exists(json, 'eventIdList') ? undefined : EventIdListFromJSON(json['eventIdList']),
+        'eventIdList': !exists(json, 'eventIdList') ? undefined : ((json['eventIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'eventRec': !exists(json, 'eventRec') ? undefined : CateringEventBulkUpdateDetailTypeFromJSON(json['eventRec']),
         'functionSpaceRec': !exists(json, 'functionSpaceRec') ? undefined : CateringEventBulkUpdateFunctionSpaceTypeFromJSON(json['functionSpaceRec']),
         'overrideProcessWarnings': !exists(json, 'overrideProcessWarnings') ? undefined : json['overrideProcessWarnings'],
@@ -99,7 +99,7 @@ export function CateringEventsBulkUpdateTypeToJSON(value?: CateringEventsBulkUpd
     }
     return {
         
-        'eventIdList': EventIdListToJSON(value.eventIdList),
+        'eventIdList': value.eventIdList === undefined ? undefined : ((value.eventIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'eventRec': CateringEventBulkUpdateDetailTypeToJSON(value.eventRec),
         'functionSpaceRec': CateringEventBulkUpdateFunctionSpaceTypeToJSON(value.functionSpaceRec),
         'overrideProcessWarnings': value.overrideProcessWarnings,

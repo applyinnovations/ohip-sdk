@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringTotalsInformationTypeToJSON = exports.CateringTotalsInformationTypeFromJSONTyped = exports.CateringTotalsInformationTypeFromJSON = exports.instanceOfCateringTotalsInformationType = void 0;
 const runtime_1 = require("../runtime");
 const CateringInfoType_1 = require("./CateringInfoType");
-const CateringVarianceInfoType_1 = require("./CateringVarianceInfoType");
+const MonthlyCateringVarianceInfoType_1 = require("./MonthlyCateringVarianceInfoType");
 /**
  * Check if a given object implements the CateringTotalsInformationType interface.
  */
@@ -34,11 +34,11 @@ function CateringTotalsInformationTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'aBVarianceTotalInfo': !(0, runtime_1.exists)(json, 'aBVarianceTotalInfo') ? undefined : (0, CateringVarianceInfoType_1.CateringVarianceInfoTypeFromJSON)(json['aBVarianceTotalInfo']),
-        'aFVarianceTotalInfo': !(0, runtime_1.exists)(json, 'aFVarianceTotalInfo') ? undefined : (0, CateringVarianceInfoType_1.CateringVarianceInfoTypeFromJSON)(json['aFVarianceTotalInfo']),
+        'aBVarianceTotalInfo': !(0, runtime_1.exists)(json, 'aBVarianceTotalInfo') ? undefined : (json['aBVarianceTotalInfo'].map(MonthlyCateringVarianceInfoType_1.MonthlyCateringVarianceInfoTypeFromJSON)),
+        'aFVarianceTotalInfo': !(0, runtime_1.exists)(json, 'aFVarianceTotalInfo') ? undefined : (json['aFVarianceTotalInfo'].map(MonthlyCateringVarianceInfoType_1.MonthlyCateringVarianceInfoTypeFromJSON)),
         'actualTotalInfo': !(0, runtime_1.exists)(json, 'actualTotalInfo') ? undefined : (0, CateringInfoType_1.CateringInfoTypeFromJSON)(json['actualTotalInfo']),
         'budgetTotalInfo': !(0, runtime_1.exists)(json, 'budgetTotalInfo') ? undefined : (0, CateringInfoType_1.CateringInfoTypeFromJSON)(json['budgetTotalInfo']),
-        'fBVarianceTotalInfo': !(0, runtime_1.exists)(json, 'fBVarianceTotalInfo') ? undefined : (0, CateringVarianceInfoType_1.CateringVarianceInfoTypeFromJSON)(json['fBVarianceTotalInfo']),
+        'fBVarianceTotalInfo': !(0, runtime_1.exists)(json, 'fBVarianceTotalInfo') ? undefined : (json['fBVarianceTotalInfo'].map(MonthlyCateringVarianceInfoType_1.MonthlyCateringVarianceInfoTypeFromJSON)),
         'forecastTotalInfo': !(0, runtime_1.exists)(json, 'forecastTotalInfo') ? undefined : (0, CateringInfoType_1.CateringInfoTypeFromJSON)(json['forecastTotalInfo']),
     };
 }
@@ -51,11 +51,11 @@ function CateringTotalsInformationTypeToJSON(value) {
         return null;
     }
     return {
-        'aBVarianceTotalInfo': (0, CateringVarianceInfoType_1.CateringVarianceInfoTypeToJSON)(value.aBVarianceTotalInfo),
-        'aFVarianceTotalInfo': (0, CateringVarianceInfoType_1.CateringVarianceInfoTypeToJSON)(value.aFVarianceTotalInfo),
+        'aBVarianceTotalInfo': value.aBVarianceTotalInfo === undefined ? undefined : (value.aBVarianceTotalInfo.map(MonthlyCateringVarianceInfoType_1.MonthlyCateringVarianceInfoTypeToJSON)),
+        'aFVarianceTotalInfo': value.aFVarianceTotalInfo === undefined ? undefined : (value.aFVarianceTotalInfo.map(MonthlyCateringVarianceInfoType_1.MonthlyCateringVarianceInfoTypeToJSON)),
         'actualTotalInfo': (0, CateringInfoType_1.CateringInfoTypeToJSON)(value.actualTotalInfo),
         'budgetTotalInfo': (0, CateringInfoType_1.CateringInfoTypeToJSON)(value.budgetTotalInfo),
-        'fBVarianceTotalInfo': (0, CateringVarianceInfoType_1.CateringVarianceInfoTypeToJSON)(value.fBVarianceTotalInfo),
+        'fBVarianceTotalInfo': value.fBVarianceTotalInfo === undefined ? undefined : (value.fBVarianceTotalInfo.map(MonthlyCateringVarianceInfoType_1.MonthlyCateringVarianceInfoTypeToJSON)),
         'forecastTotalInfo': (0, CateringInfoType_1.CateringInfoTypeToJSON)(value.forecastTotalInfo),
     };
 }

@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SetProfileOwnersCriteriaTypeToJSON = exports.SetProfileOwnersCriteriaTypeFromJSONTyped = exports.SetProfileOwnersCriteriaTypeFromJSON = exports.instanceOfSetProfileOwnersCriteriaType = void 0;
 const runtime_1 = require("../runtime");
-const OwnersType_1 = require("./OwnersType");
-const ProfileIdList_1 = require("./ProfileIdList");
+const OwnerType_1 = require("./OwnerType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the SetProfileOwnersCriteriaType interface.
  */
@@ -34,8 +34,8 @@ function SetProfileOwnersCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'owners': !(0, runtime_1.exists)(json, 'owners') ? undefined : (0, OwnersType_1.OwnersTypeFromJSON)(json['owners']),
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
+        'owners': !(0, runtime_1.exists)(json, 'owners') ? undefined : (json['owners'].map(OwnerType_1.OwnerTypeFromJSON)),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.SetProfileOwnersCriteriaTypeFromJSONTyped = SetProfileOwnersCriteriaTypeFromJSONTyped;
@@ -47,8 +47,8 @@ function SetProfileOwnersCriteriaTypeToJSON(value) {
         return null;
     }
     return {
-        'owners': (0, OwnersType_1.OwnersTypeToJSON)(value.owners),
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
+        'owners': value.owners === undefined ? undefined : (value.owners.map(OwnerType_1.OwnerTypeToJSON)),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.SetProfileOwnersCriteriaTypeToJSON = SetProfileOwnersCriteriaTypeToJSON;

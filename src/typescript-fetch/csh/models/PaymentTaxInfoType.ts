@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PaymentTaxesType } from './PaymentTaxesType';
+import type { PaymentTaxType } from './PaymentTaxType';
 import {
-    PaymentTaxesTypeFromJSON,
-    PaymentTaxesTypeFromJSONTyped,
-    PaymentTaxesTypeToJSON,
-} from './PaymentTaxesType';
+    PaymentTaxTypeFromJSON,
+    PaymentTaxTypeFromJSONTyped,
+    PaymentTaxTypeToJSON,
+} from './PaymentTaxType';
 import type { ReservationId } from './ReservationId';
 import {
     ReservationIdFromJSON,
@@ -45,11 +45,11 @@ export interface PaymentTaxInfoType {
      */
     reservationId?: ReservationId;
     /**
-     * 
-     * @type {PaymentTaxesType}
+     * Payment Tax record.
+     * @type {Array<PaymentTaxType>}
      * @memberof PaymentTaxInfoType
      */
-    taxes?: PaymentTaxesType;
+    taxes?: Array<PaymentTaxType>;
 }
 
 /**
@@ -73,7 +73,7 @@ export function PaymentTaxInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
-        'taxes': !exists(json, 'taxes') ? undefined : PaymentTaxesTypeFromJSON(json['taxes']),
+        'taxes': !exists(json, 'taxes') ? undefined : ((json['taxes'] as Array<any>).map(PaymentTaxTypeFromJSON)),
     };
 }
 
@@ -88,7 +88,7 @@ export function PaymentTaxInfoTypeToJSON(value?: PaymentTaxInfoType | null): any
         
         'hotelId': value.hotelId,
         'reservationId': ReservationIdToJSON(value.reservationId),
-        'taxes': PaymentTaxesTypeToJSON(value.taxes),
+        'taxes': value.taxes === undefined ? undefined : ((value.taxes as Array<any>).map(PaymentTaxTypeToJSON)),
     };
 }
 

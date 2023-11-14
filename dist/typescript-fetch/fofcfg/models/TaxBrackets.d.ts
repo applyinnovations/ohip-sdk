@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TaxBracketsType } from './TaxBracketsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TaxBracketType } from './TaxBracketType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TaxBrackets {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TaxBrackets
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TaxBracketsType}
+     * Details used for storing information about a tax bracket.
+     * @type {Array<TaxBracketType>}
      * @memberof TaxBrackets
      */
-    taxBrackets?: TaxBracketsType;
+    taxBrackets?: Array<TaxBracketType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TaxBrackets
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TaxBrackets interface.

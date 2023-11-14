@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RateClassDetailsRateClassesToJSON = exports.RateClassDetailsRateClassesFromJSONTyped = exports.RateClassDetailsRateClassesFromJSON = exports.instanceOfRateClassDetailsRateClasses = void 0;
 const runtime_1 = require("../runtime");
-const RateClassesType_1 = require("./RateClassesType");
+const RateClassType_1 = require("./RateClassType");
 /**
  * Check if a given object implements the RateClassDetailsRateClasses interface.
  */
@@ -37,7 +37,7 @@ function RateClassDetailsRateClassesFromJSONTyped(json, ignoreDiscriminator) {
         'hasMore': !(0, runtime_1.exists)(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
         'offset': !(0, runtime_1.exists)(json, 'offset') ? undefined : json['offset'],
-        'rateClasses': !(0, runtime_1.exists)(json, 'rateClasses') ? undefined : (0, RateClassesType_1.RateClassesTypeFromJSON)(json['rateClasses']),
+        'rateClasses': !(0, runtime_1.exists)(json, 'rateClasses') ? undefined : (json['rateClasses'].map(RateClassType_1.RateClassTypeFromJSON)),
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !(0, runtime_1.exists)(json, 'totalResults') ? undefined : json['totalResults'],
     };
@@ -55,7 +55,7 @@ function RateClassDetailsRateClassesToJSON(value) {
         'hasMore': value.hasMore,
         'limit': value.limit,
         'offset': value.offset,
-        'rateClasses': (0, RateClassesType_1.RateClassesTypeToJSON)(value.rateClasses),
+        'rateClasses': value.rateClasses === undefined ? undefined : (value.rateClasses.map(RateClassType_1.RateClassTypeToJSON)),
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
     };

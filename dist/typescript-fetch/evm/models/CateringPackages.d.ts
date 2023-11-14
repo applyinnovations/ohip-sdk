@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockCateringPackageListType } from './BlockCateringPackageListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BlockCateringPackageType } from './BlockCateringPackageType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Object containing list of catering packages associated to block.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CateringPackages {
     /**
-     *
-     * @type {BlockCateringPackageListType}
+     * Collection of multiple Catering Packages.
+     * @type {Array<BlockCateringPackageType>}
      * @memberof CateringPackages
      */
-    cateringPackageList?: BlockCateringPackageListType;
+    cateringPackageList?: Array<BlockCateringPackageType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringPackages
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringPackages
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CateringPackages interface.

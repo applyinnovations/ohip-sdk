@@ -11,7 +11,6 @@
  */
 import type { BlockAvailabilityRatePlanInfo } from './BlockAvailabilityRatePlanInfo';
 import type { BlockAvailabilityRoomTypeInfo } from './BlockAvailabilityRoomTypeInfo';
-import type { CodeListType } from './CodeListType';
 import type { CurrencyExchangeRateType } from './CurrencyExchangeRateType';
 /**
  * Holds master information for block availability.
@@ -33,10 +32,10 @@ export interface BlockAvailabilityMasterInfoType {
     fetchedRoomTypes?: Array<BlockAvailabilityRoomTypeInfo>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof BlockAvailabilityMasterInfoType
      */
-    masterRoomTypes?: CodeListType;
+    masterRoomTypes?: Array<string>;
     /**
      * Rate plan code details for the block.
      * @type {Array<BlockAvailabilityRatePlanInfo>}

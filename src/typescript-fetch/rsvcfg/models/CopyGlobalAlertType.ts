@@ -13,18 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-import type { UniqueIDListType } from './UniqueIDListType';
-import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Copy Global Alerts criteria from one property to another property
@@ -33,17 +27,17 @@ import {
  */
 export interface CopyGlobalAlertType {
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CopyGlobalAlertType
      */
-    resvAlertIds?: UniqueIDListType;
+    resvAlertIds?: Array<UniqueIDType>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyGlobalAlertType
      */
-    targetHotelCodes?: CodeListType;
+    targetHotelCodes?: Array<string>;
 }
 
 /**
@@ -65,8 +59,8 @@ export function CopyGlobalAlertTypeFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'resvAlertIds': !exists(json, 'resvAlertIds') ? undefined : UniqueIDListTypeFromJSON(json['resvAlertIds']),
-        'targetHotelCodes': !exists(json, 'targetHotelCodes') ? undefined : CodeListTypeFromJSON(json['targetHotelCodes']),
+        'resvAlertIds': !exists(json, 'resvAlertIds') ? undefined : ((json['resvAlertIds'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'targetHotelCodes': !exists(json, 'targetHotelCodes') ? undefined : json['targetHotelCodes'],
     };
 }
 
@@ -79,8 +73,8 @@ export function CopyGlobalAlertTypeToJSON(value?: CopyGlobalAlertType | null): a
     }
     return {
         
-        'resvAlertIds': UniqueIDListTypeToJSON(value.resvAlertIds),
-        'targetHotelCodes': CodeListTypeToJSON(value.targetHotelCodes),
+        'resvAlertIds': value.resvAlertIds === undefined ? undefined : ((value.resvAlertIds as Array<any>).map(UniqueIDTypeToJSON)),
+        'targetHotelCodes': value.targetHotelCodes,
     };
 }
 

@@ -2,14 +2,11 @@
 apis/LOVApi.ts
 apis/index.ts
 index.ts
-models/CodeListType.ts
 models/ErrorInstance.ts
 models/ExceptionDetailType.ts
 models/InstanceLink.ts
 models/ItemType.ts
 models/LOVNameType.ts
-models/LOVNamesType.ts
-models/Links.ts
 models/ListOfValueNames.ts
 models/ListOfValues.ts
 models/ListOfValuesCriteriaType.ts
@@ -18,10 +15,8 @@ models/ListOfValuesType.ts
 models/OperaVersion.ts
 models/ParameterType.ts
 models/ParametersNameType.ts
-models/ParametersType.ts
 models/ValidateListOfValues.ts
 models/ValidateListOfValuesDetails.ts
 models/WarningType.ts
-models/WarningsType.ts
 models/index.ts
 runtime.ts

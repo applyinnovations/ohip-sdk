@@ -15,8 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PreCheckInRuleTypeToJSON = exports.PreCheckInRuleTypeFromJSONTyped = exports.PreCheckInRuleTypeFromJSON = exports.instanceOfPreCheckInRuleType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
-const MembershipTypeLevelListType_1 = require("./MembershipTypeLevelListType");
+const MembershipTypeLevelType_1 = require("./MembershipTypeLevelType");
 const PreCheckInRuleTypeType_1 = require("./PreCheckInRuleTypeType");
 const PreCheckInTimeRuleTypes_1 = require("./PreCheckInTimeRuleTypes");
 const TimeSpanType_1 = require("./TimeSpanType");
@@ -38,17 +37,17 @@ function PreCheckInRuleTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'marketCodes': !(0, runtime_1.exists)(json, 'marketCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['marketCodes']),
-        'memberships': !(0, runtime_1.exists)(json, 'memberships') ? undefined : (0, MembershipTypeLevelListType_1.MembershipTypeLevelListTypeFromJSON)(json['memberships']),
+        'marketCodes': !(0, runtime_1.exists)(json, 'marketCodes') ? undefined : json['marketCodes'],
+        'memberships': !(0, runtime_1.exists)(json, 'memberships') ? undefined : (json['memberships'].map(MembershipTypeLevelType_1.MembershipTypeLevelTypeFromJSON)),
         'newTimeSpan': !(0, runtime_1.exists)(json, 'newTimeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['newTimeSpan']),
-        'originCodes': !(0, runtime_1.exists)(json, 'originCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['originCodes']),
-        'ratePlans': !(0, runtime_1.exists)(json, 'ratePlans') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['ratePlans']),
-        'reservationTypes': !(0, runtime_1.exists)(json, 'reservationTypes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['reservationTypes']),
+        'originCodes': !(0, runtime_1.exists)(json, 'originCodes') ? undefined : json['originCodes'],
+        'ratePlans': !(0, runtime_1.exists)(json, 'ratePlans') ? undefined : json['ratePlans'],
+        'reservationTypes': !(0, runtime_1.exists)(json, 'reservationTypes') ? undefined : json['reservationTypes'],
         'ruleType': !(0, runtime_1.exists)(json, 'ruleType') ? undefined : (0, PreCheckInRuleTypeType_1.PreCheckInRuleTypeTypeFromJSON)(json['ruleType']),
-        'specials': !(0, runtime_1.exists)(json, 'specials') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['specials']),
+        'specials': !(0, runtime_1.exists)(json, 'specials') ? undefined : json['specials'],
         'timeLimit': !(0, runtime_1.exists)(json, 'timeLimit') ? undefined : (0, PreCheckInTimeRuleTypes_1.PreCheckInTimeRuleTypesFromJSON)(json['timeLimit']),
         'timeSpan': !(0, runtime_1.exists)(json, 'timeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['timeSpan']),
-        'vIPCodes': !(0, runtime_1.exists)(json, 'vIPCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['vIPCodes']),
+        'vIPCodes': !(0, runtime_1.exists)(json, 'vIPCodes') ? undefined : json['vIPCodes'],
     };
 }
 exports.PreCheckInRuleTypeFromJSONTyped = PreCheckInRuleTypeFromJSONTyped;
@@ -61,17 +60,17 @@ function PreCheckInRuleTypeToJSON(value) {
     }
     return {
         'hotelId': value.hotelId,
-        'marketCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.marketCodes),
-        'memberships': (0, MembershipTypeLevelListType_1.MembershipTypeLevelListTypeToJSON)(value.memberships),
+        'marketCodes': value.marketCodes,
+        'memberships': value.memberships === undefined ? undefined : (value.memberships.map(MembershipTypeLevelType_1.MembershipTypeLevelTypeToJSON)),
         'newTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.newTimeSpan),
-        'originCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.originCodes),
-        'ratePlans': (0, CodeListType_1.CodeListTypeToJSON)(value.ratePlans),
-        'reservationTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.reservationTypes),
+        'originCodes': value.originCodes,
+        'ratePlans': value.ratePlans,
+        'reservationTypes': value.reservationTypes,
         'ruleType': (0, PreCheckInRuleTypeType_1.PreCheckInRuleTypeTypeToJSON)(value.ruleType),
-        'specials': (0, CodeListType_1.CodeListTypeToJSON)(value.specials),
+        'specials': value.specials,
         'timeLimit': (0, PreCheckInTimeRuleTypes_1.PreCheckInTimeRuleTypesToJSON)(value.timeLimit),
         'timeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.timeSpan),
-        'vIPCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.vIPCodes),
+        'vIPCodes': value.vIPCodes,
     };
 }
 exports.PreCheckInRuleTypeToJSON = PreCheckInRuleTypeToJSON;

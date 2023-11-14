@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DailyRatesType } from './DailyRatesType';
-import type { ReservationIdList } from './ReservationIdList';
+import type { DailyRateType } from './DailyRateType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Collection of unique reservation identifiers. Currently supported are Reservation Id and/or Confirmation Number which may include the leg number.
  * @export
@@ -18,17 +18,17 @@ import type { ReservationIdList } from './ReservationIdList';
  */
 export interface CombineShareReservationsTypeShareToReservation {
     /**
-     *
-     * @type {DailyRatesType}
+     * Defines room rate information on a daily basis.
+     * @type {Array<DailyRateType>}
      * @memberof CombineShareReservationsTypeShareToReservation
      */
-    dailyRates?: DailyRatesType;
+    dailyRates?: Array<DailyRateType>;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CombineShareReservationsTypeShareToReservation
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the CombineShareReservationsTypeShareToReservation interface.

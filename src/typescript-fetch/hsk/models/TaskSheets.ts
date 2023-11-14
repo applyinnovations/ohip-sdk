@@ -19,18 +19,18 @@ import {
     AutoGenerateTaskSheetsCriteriaTypeFromJSONTyped,
     AutoGenerateTaskSheetsCriteriaTypeToJSON,
 } from './AutoGenerateTaskSheetsCriteriaType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request for generating housekeeping Task Sheets automatically. To generate task sheets automatically the minimum required criteria is the Task Date, Task Code, Number of Attendants/Tasksheets required and the Room Statuses. Based on the criteria defined, task sheets will be created and the rooms will be assigned to the Tasksheets. Example: if the criteria defines that Dirty room status to be used to generate 5 sheets, then only those rooms which have the status = Dirty will be used and will be assigned to the 5 sheets.
@@ -46,16 +46,16 @@ export interface TaskSheets {
     criteria?: AutoGenerateTaskSheetsCriteriaType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TaskSheets
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TaskSheets
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -78,8 +78,8 @@ export function TaskSheetsFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : AutoGenerateTaskSheetsCriteriaTypeFromJSON(json['criteria']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -93,8 +93,8 @@ export function TaskSheetsToJSON(value?: TaskSheets | null): any {
     return {
         
         'criteria': AutoGenerateTaskSheetsCriteriaTypeToJSON(value.criteria),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

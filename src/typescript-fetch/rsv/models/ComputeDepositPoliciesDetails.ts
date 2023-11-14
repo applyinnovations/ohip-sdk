@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ResDepositPoliciesType } from './ResDepositPoliciesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ResDepositPolicyType } from './ResDepositPolicyType';
 import {
-    ResDepositPoliciesTypeFromJSON,
-    ResDepositPoliciesTypeFromJSONTyped,
-    ResDepositPoliciesTypeToJSON,
-} from './ResDepositPoliciesType';
-import type { WarningsType } from './WarningsType';
+    ResDepositPolicyTypeFromJSON,
+    ResDepositPolicyTypeFromJSONTyped,
+    ResDepositPolicyTypeToJSON,
+} from './ResDepositPolicyType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for the deposit rules configuration request. Contains computed details for the deposit rules requested.
@@ -40,22 +40,22 @@ import {
 export interface ComputeDepositPoliciesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ComputeDepositPoliciesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ResDepositPoliciesType}
+     * A list of deposit policies attached with the reservation.
+     * @type {Array<ResDepositPolicyType>}
      * @memberof ComputeDepositPoliciesDetails
      */
-    policies?: ResDepositPoliciesType;
+    policies?: Array<ResDepositPolicyType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ComputeDepositPoliciesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ComputeDepositPoliciesDetailsFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'policies': !exists(json, 'policies') ? undefined : ResDepositPoliciesTypeFromJSON(json['policies']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'policies': !exists(json, 'policies') ? undefined : ((json['policies'] as Array<any>).map(ResDepositPolicyTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ComputeDepositPoliciesDetailsToJSON(value?: ComputeDepositPolici
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'policies': ResDepositPoliciesTypeToJSON(value.policies),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'policies': value.policies === undefined ? undefined : ((value.policies as Array<any>).map(ResDepositPolicyTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

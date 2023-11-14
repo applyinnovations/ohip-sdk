@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MemberPointsToExpireListType } from './MemberPointsToExpireListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MemberPointToExpireType } from './MemberPointToExpireType';
 import {
-    MemberPointsToExpireListTypeFromJSON,
-    MemberPointsToExpireListTypeFromJSONTyped,
-    MemberPointsToExpireListTypeToJSON,
-} from './MemberPointsToExpireListType';
-import type { WarningsType } from './WarningsType';
+    MemberPointToExpireTypeFromJSON,
+    MemberPointToExpireTypeFromJSONTyped,
+    MemberPointToExpireTypeToJSON,
+} from './MemberPointToExpireType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching member points to expire information.
@@ -40,22 +40,22 @@ import {
 export interface MemberPointsToExpire {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MemberPointsToExpire
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MemberPointsToExpireListType}
+     * List of of member points to expire.
+     * @type {Array<MemberPointToExpireType>}
      * @memberof MemberPointsToExpire
      */
-    memberPointsToExpireList?: MemberPointsToExpireListType;
+    memberPointsToExpireList?: Array<MemberPointToExpireType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MemberPointsToExpire
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MemberPointsToExpireFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'memberPointsToExpireList': !exists(json, 'memberPointsToExpireList') ? undefined : MemberPointsToExpireListTypeFromJSON(json['memberPointsToExpireList']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'memberPointsToExpireList': !exists(json, 'memberPointsToExpireList') ? undefined : ((json['memberPointsToExpireList'] as Array<any>).map(MemberPointToExpireTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MemberPointsToExpireToJSON(value?: MemberPointsToExpire | null):
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'memberPointsToExpireList': MemberPointsToExpireListTypeToJSON(value.memberPointsToExpireList),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'memberPointsToExpireList': value.memberPointsToExpireList === undefined ? undefined : ((value.memberPointsToExpireList as Array<any>).map(MemberPointToExpireTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

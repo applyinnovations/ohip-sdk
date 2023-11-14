@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CompRedemptionsType } from './CompRedemptionsType';
+import type { RedemptionType } from './RedemptionType';
 /**
  * Criteria to reverse complimentary bucket redemptions request.
  * @export
@@ -23,11 +23,11 @@ export interface ReverseCompRedemptionsCriteria {
      */
     cashierId?: number;
     /**
-     *
-     * @type {CompRedemptionsType}
+     * Information regarding Complimentary Bucket Redemption object.
+     * @type {Array<RedemptionType>}
      * @memberof ReverseCompRedemptionsCriteria
      */
-    compRedemptions?: CompRedemptionsType;
+    compRedemptions?: Array<RedemptionType>;
     /**
      * Folio Window.
      * @type {number}

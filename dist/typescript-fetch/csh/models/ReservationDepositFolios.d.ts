@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ReservationDepositFoliosInfoType } from './ReservationDepositFoliosInfoType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ReservationDepositFolioInfoType } from './ReservationDepositFolioInfoType';
+import type { TrxInfoType } from './TrxInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Deposit Posting Information for a reservation. Contains all deposit payments made for a reservation.
  * @export
@@ -21,28 +21,28 @@ import type { WarningsType } from './WarningsType';
 export interface ReservationDepositFolios {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationDepositFolios
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ReservationDepositFoliosInfoType}
+     * Detailed information of a reservation and its deposit payment posting information.
+     * @type {Array<ReservationDepositFolioInfoType>}
      * @memberof ReservationDepositFolios
      */
-    reservationDepositFoliosInfo?: ReservationDepositFoliosInfoType;
+    reservationDepositFoliosInfo?: Array<ReservationDepositFolioInfoType>;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof ReservationDepositFolios
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationDepositFolios
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationDepositFolios interface.

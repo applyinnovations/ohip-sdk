@@ -21,7 +21,7 @@ const CountryNameType_1 = require("./CountryNameType");
 const GuestLastStayInfoType_1 = require("./GuestLastStayInfoType");
 const MembershipInfoType_1 = require("./MembershipInfoType");
 const NameTypeType_1 = require("./NameTypeType");
-const ResAccompanyGuestListType_1 = require("./ResAccompanyGuestListType");
+const ResAccompanyGuestInfoType_1 = require("./ResAccompanyGuestInfoType");
 const VIPType_1 = require("./VIPType");
 /**
  * Check if a given object implements the ResGuestInfoType interface.
@@ -40,7 +40,7 @@ function ResGuestInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'accompanyGuests': !(0, runtime_1.exists)(json, 'accompanyGuests') ? undefined : (0, ResAccompanyGuestListType_1.ResAccompanyGuestListTypeFromJSON)(json['accompanyGuests']),
+        'accompanyGuests': !(0, runtime_1.exists)(json, 'accompanyGuests') ? undefined : (json['accompanyGuests'].map(ResAccompanyGuestInfoType_1.ResAccompanyGuestInfoTypeFromJSON)),
         'address': !(0, runtime_1.exists)(json, 'address') ? undefined : (0, AddressSearchType_1.AddressSearchTypeFromJSON)(json['address']),
         'alternateGivenName': !(0, runtime_1.exists)(json, 'alternateGivenName') ? undefined : json['alternateGivenName'],
         'alternateSurname': !(0, runtime_1.exists)(json, 'alternateSurname') ? undefined : json['alternateSurname'],
@@ -77,7 +77,7 @@ function ResGuestInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'accompanyGuests': (0, ResAccompanyGuestListType_1.ResAccompanyGuestListTypeToJSON)(value.accompanyGuests),
+        'accompanyGuests': value.accompanyGuests === undefined ? undefined : (value.accompanyGuests.map(ResAccompanyGuestInfoType_1.ResAccompanyGuestInfoTypeToJSON)),
         'address': (0, AddressSearchType_1.AddressSearchTypeToJSON)(value.address),
         'alternateGivenName': value.alternateGivenName,
         'alternateSurname': value.alternateSurname,

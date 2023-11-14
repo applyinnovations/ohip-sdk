@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MembershipTransactionType } from './MembershipTransactionType';
 /**
  * Response object for fetching a membership transaction.
@@ -25,10 +25,10 @@ export interface MembershipTransaction {
     membershipTransactionDetails?: MembershipTransactionType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipTransaction
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the MembershipTransaction interface.

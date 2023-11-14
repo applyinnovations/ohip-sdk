@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DistrictsType } from './DistrictsType';
+import type { DistrictType } from './DistrictType';
 import {
-    DistrictsTypeFromJSON,
-    DistrictsTypeFromJSONTyped,
-    DistrictsTypeToJSON,
-} from './DistrictsType';
-import type { Links } from './Links';
+    DistrictTypeFromJSON,
+    DistrictTypeFromJSONTyped,
+    DistrictTypeToJSON,
+} from './DistrictType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Districts.
@@ -39,23 +39,23 @@ import {
  */
 export interface DistrictsToBeChanged {
     /**
-     * 
-     * @type {DistrictsType}
+     * List of Districts.
+     * @type {Array<DistrictType>}
      * @memberof DistrictsToBeChanged
      */
-    districts?: DistrictsType;
+    districts?: Array<DistrictType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DistrictsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DistrictsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function DistrictsToBeChangedFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'districts': !exists(json, 'districts') ? undefined : DistrictsTypeFromJSON(json['districts']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'districts': !exists(json, 'districts') ? undefined : ((json['districts'] as Array<any>).map(DistrictTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function DistrictsToBeChangedToJSON(value?: DistrictsToBeChanged | null):
     }
     return {
         
-        'districts': DistrictsTypeToJSON(value.districts),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'districts': value.districts === undefined ? undefined : ((value.districts as Array<any>).map(DistrictTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

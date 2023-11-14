@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { RoomHierarchyTypeType } from './RoomHierarchyTypeType';
 /**
  * Room hierarchy search type to fetch room hierarchies
@@ -25,10 +24,10 @@ export interface RoomHierarchySearchType {
     fromCode?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof RoomHierarchySearchType
      */
-    hotelCodes?: CodeListType;
+    hotelCodes?: Array<string>;
     /**
      *
      * @type {RoomHierarchyTypeType}

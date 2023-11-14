@@ -25,12 +25,12 @@ import {
     FaxDeliveryConfigurationTypeFromJSONTyped,
     FaxDeliveryConfigurationTypeToJSON,
 } from './FaxDeliveryConfigurationType';
-import type { SftpConfigurationsListType } from './SftpConfigurationsListType';
+import type { SftpConfigurationType } from './SftpConfigurationType';
 import {
-    SftpConfigurationsListTypeFromJSON,
-    SftpConfigurationsListTypeFromJSONTyped,
-    SftpConfigurationsListTypeToJSON,
-} from './SftpConfigurationsListType';
+    SftpConfigurationTypeFromJSON,
+    SftpConfigurationTypeFromJSONTyped,
+    SftpConfigurationTypeToJSON,
+} from './SftpConfigurationType';
 
 /**
  * General delivery method SFTPConfigurationType configuration, settings for Email and Fax Delivery of General Letters
@@ -51,11 +51,11 @@ export interface GeneralDeliveryMethodType {
      */
     fax?: FaxDeliveryConfigurationType;
     /**
-     * 
-     * @type {SftpConfigurationsListType}
+     * Type that holds sftp configurations
+     * @type {Array<SftpConfigurationType>}
      * @memberof GeneralDeliveryMethodType
      */
-    sftpConfigurations?: SftpConfigurationsListType;
+    sftpConfigurations?: Array<SftpConfigurationType>;
 }
 
 /**
@@ -79,7 +79,7 @@ export function GeneralDeliveryMethodTypeFromJSONTyped(json: any, ignoreDiscrimi
         
         'email': !exists(json, 'email') ? undefined : EmailDeliveryConfigurationTypeFromJSON(json['email']),
         'fax': !exists(json, 'fax') ? undefined : FaxDeliveryConfigurationTypeFromJSON(json['fax']),
-        'sftpConfigurations': !exists(json, 'sftpConfigurations') ? undefined : SftpConfigurationsListTypeFromJSON(json['sftpConfigurations']),
+        'sftpConfigurations': !exists(json, 'sftpConfigurations') ? undefined : ((json['sftpConfigurations'] as Array<any>).map(SftpConfigurationTypeFromJSON)),
     };
 }
 
@@ -94,7 +94,7 @@ export function GeneralDeliveryMethodTypeToJSON(value?: GeneralDeliveryMethodTyp
         
         'email': EmailDeliveryConfigurationTypeToJSON(value.email),
         'fax': FaxDeliveryConfigurationTypeToJSON(value.fax),
-        'sftpConfigurations': SftpConfigurationsListTypeToJSON(value.sftpConfigurations),
+        'sftpConfigurations': value.sftpConfigurations === undefined ? undefined : ((value.sftpConfigurations as Array<any>).map(SftpConfigurationTypeToJSON)),
     };
 }
 

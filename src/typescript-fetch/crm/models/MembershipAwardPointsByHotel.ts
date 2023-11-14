@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipAwardPointsByHotelType } from './MembershipAwardPointsByHotelType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipAwardPointByHotelType } from './MembershipAwardPointByHotelType';
 import {
-    MembershipAwardPointsByHotelTypeFromJSON,
-    MembershipAwardPointsByHotelTypeFromJSONTyped,
-    MembershipAwardPointsByHotelTypeToJSON,
-} from './MembershipAwardPointsByHotelType';
-import type { WarningsType } from './WarningsType';
+    MembershipAwardPointByHotelTypeFromJSON,
+    MembershipAwardPointByHotelTypeFromJSONTyped,
+    MembershipAwardPointByHotelTypeToJSON,
+} from './MembershipAwardPointByHotelType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching member award points by Hotel.
@@ -40,22 +40,22 @@ import {
 export interface MembershipAwardPointsByHotel {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipAwardPointsByHotel
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MembershipAwardPointsByHotelType}
+     * List of available award points information by Hotel.
+     * @type {Array<MembershipAwardPointByHotelType>}
      * @memberof MembershipAwardPointsByHotel
      */
-    membershipAwardPoints?: MembershipAwardPointsByHotelType;
+    membershipAwardPoints?: Array<MembershipAwardPointByHotelType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipAwardPointsByHotel
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MembershipAwardPointsByHotelFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'membershipAwardPoints': !exists(json, 'membershipAwardPoints') ? undefined : MembershipAwardPointsByHotelTypeFromJSON(json['membershipAwardPoints']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'membershipAwardPoints': !exists(json, 'membershipAwardPoints') ? undefined : ((json['membershipAwardPoints'] as Array<any>).map(MembershipAwardPointByHotelTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MembershipAwardPointsByHotelToJSON(value?: MembershipAwardPoints
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'membershipAwardPoints': MembershipAwardPointsByHotelTypeToJSON(value.membershipAwardPoints),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'membershipAwardPoints': value.membershipAwardPoints === undefined ? undefined : ((value.membershipAwardPoints as Array<any>).map(MembershipAwardPointByHotelTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

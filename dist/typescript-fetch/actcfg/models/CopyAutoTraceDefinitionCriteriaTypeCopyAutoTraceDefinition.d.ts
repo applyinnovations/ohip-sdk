@@ -9,9 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionCopyInstructions } from './CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionCopyInstructions';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * The hotel code where the trace definition was created.
  * @export
@@ -32,16 +31,16 @@ export interface CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinition {
     sourceHotelCode?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinition
      */
-    targetHotelCode?: CodeListType;
+    targetHotelCode?: Array<string>;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinition
      */
-    traceDefinitionCodeList?: UniqueIDListType;
+    traceDefinitionCodeList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinition interface.

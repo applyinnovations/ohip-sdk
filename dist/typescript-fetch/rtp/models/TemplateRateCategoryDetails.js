@@ -15,9 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateRateCategoryDetailsToJSON = exports.TemplateRateCategoryDetailsFromJSONTyped = exports.TemplateRateCategoryDetailsFromJSON = exports.instanceOfTemplateRateCategoryDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TemplateRateCategoriesType_1 = require("./TemplateRateCategoriesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TemplateRateCategoryDetails interface.
  */
@@ -35,9 +34,9 @@ function TemplateRateCategoryDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'templateRateCategories': !(0, runtime_1.exists)(json, 'templateRateCategories') ? undefined : (json['templateRateCategories'].map(TemplateRateCategoriesType_1.TemplateRateCategoriesTypeFromJSON)),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'templateRateCategories': !(0, runtime_1.exists)(json, 'templateRateCategories') ? undefined : json['templateRateCategories'],
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TemplateRateCategoryDetailsFromJSONTyped = TemplateRateCategoryDetailsFromJSONTyped;
@@ -49,9 +48,9 @@ function TemplateRateCategoryDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'templateRateCategories': value.templateRateCategories === undefined ? undefined : (value.templateRateCategories.map(TemplateRateCategoriesType_1.TemplateRateCategoriesTypeToJSON)),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'templateRateCategories': value.templateRateCategories,
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TemplateRateCategoryDetailsToJSON = TemplateRateCategoryDetailsToJSON;

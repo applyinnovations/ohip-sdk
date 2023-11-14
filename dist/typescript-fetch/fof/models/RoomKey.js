@@ -15,15 +15,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomKeyToJSON = exports.RoomKeyFromJSONTyped = exports.RoomKeyFromJSON = exports.instanceOfRoomKey = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
+const InstanceLink_1 = require("./InstanceLink");
 const KeyCardType_1 = require("./KeyCardType");
 const KeyTrackType_1 = require("./KeyTrackType");
-const Links_1 = require("./Links");
 const RoomKeyGuest_1 = require("./RoomKeyGuest");
 const RoomKeyType_1 = require("./RoomKeyType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
 const UniqueIDType_1 = require("./UniqueIDType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomKey interface.
  */
@@ -41,7 +39,7 @@ function RoomKeyFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'additionalRooms': !(0, runtime_1.exists)(json, 'additionalRooms') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['additionalRooms']),
+        'additionalRooms': !(0, runtime_1.exists)(json, 'additionalRooms') ? undefined : json['additionalRooms'],
         'encoderId': !(0, runtime_1.exists)(json, 'encoderId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['encoderId']),
         'encoderTerminal': !(0, runtime_1.exists)(json, 'encoderTerminal') ? undefined : json['encoderTerminal'],
         'keyCardType': !(0, runtime_1.exists)(json, 'keyCardType') ? undefined : (0, KeyCardType_1.KeyCardTypeFromJSON)(json['keyCardType']),
@@ -51,13 +49,13 @@ function RoomKeyFromJSONTyped(json, ignoreDiscriminator) {
         'keyType': !(0, runtime_1.exists)(json, 'keyType') ? undefined : (0, RoomKeyType_1.RoomKeyTypeFromJSON)(json['keyType']),
         'keyValidityEnd': !(0, runtime_1.exists)(json, 'keyValidityEnd') ? undefined : json['keyValidityEnd'],
         'keyValidityStart': !(0, runtime_1.exists)(json, 'keyValidityStart') ? undefined : json['keyValidityStart'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'noOfKeys': !(0, runtime_1.exists)(json, 'noOfKeys') ? undefined : json['noOfKeys'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'resort': !(0, runtime_1.exists)(json, 'resort') ? undefined : json['resort'],
         'roomKeyGuests': !(0, runtime_1.exists)(json, 'roomKeyGuests') ? undefined : (json['roomKeyGuests'].map(RoomKeyGuest_1.RoomKeyGuestFromJSON)),
         'roomNumber': !(0, runtime_1.exists)(json, 'roomNumber') ? undefined : json['roomNumber'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomKeyFromJSONTyped = RoomKeyFromJSONTyped;
@@ -69,7 +67,7 @@ function RoomKeyToJSON(value) {
         return null;
     }
     return {
-        'additionalRooms': (0, CodeListType_1.CodeListTypeToJSON)(value.additionalRooms),
+        'additionalRooms': value.additionalRooms,
         'encoderId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.encoderId),
         'encoderTerminal': value.encoderTerminal,
         'keyCardType': (0, KeyCardType_1.KeyCardTypeToJSON)(value.keyCardType),
@@ -79,13 +77,13 @@ function RoomKeyToJSON(value) {
         'keyType': (0, RoomKeyType_1.RoomKeyTypeToJSON)(value.keyType),
         'keyValidityEnd': value.keyValidityEnd,
         'keyValidityStart': value.keyValidityStart,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'noOfKeys': value.noOfKeys,
-        'reservationIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'resort': value.resort,
         'roomKeyGuests': value.roomKeyGuests === undefined ? undefined : (value.roomKeyGuests.map(RoomKeyGuest_1.RoomKeyGuestToJSON)),
         'roomNumber': value.roomNumber,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomKeyToJSON = RoomKeyToJSON;

@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RedeemPrepaidCardCriteriaTypeToJSON = exports.RedeemPrepaidCardCriteriaTypeFromJSONTyped = exports.RedeemPrepaidCardCriteriaTypeFromJSON = exports.instanceOfRedeemPrepaidCardCriteriaType = void 0;
 const runtime_1 = require("../runtime");
-const PrepaidCardRedemptionsType_1 = require("./PrepaidCardRedemptionsType");
+const PrepaidCardRedemptionType_1 = require("./PrepaidCardRedemptionType");
 const ReservationId_1 = require("./ReservationId");
 /**
  * Check if a given object implements the RedeemPrepaidCardCriteriaType interface.
@@ -37,7 +37,7 @@ function RedeemPrepaidCardCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
         'folioView': !(0, runtime_1.exists)(json, 'folioView') ? undefined : json['folioView'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'prepaidCardRedemptions': !(0, runtime_1.exists)(json, 'prepaidCardRedemptions') ? undefined : (0, PrepaidCardRedemptionsType_1.PrepaidCardRedemptionsTypeFromJSON)(json['prepaidCardRedemptions']),
+        'prepaidCardRedemptions': !(0, runtime_1.exists)(json, 'prepaidCardRedemptions') ? undefined : (json['prepaidCardRedemptions'].map(PrepaidCardRedemptionType_1.PrepaidCardRedemptionTypeFromJSON)),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
     };
 }
@@ -53,7 +53,7 @@ function RedeemPrepaidCardCriteriaTypeToJSON(value) {
         'cashierId': value.cashierId,
         'folioView': value.folioView,
         'hotelId': value.hotelId,
-        'prepaidCardRedemptions': (0, PrepaidCardRedemptionsType_1.PrepaidCardRedemptionsTypeToJSON)(value.prepaidCardRedemptions),
+        'prepaidCardRedemptions': value.prepaidCardRedemptions === undefined ? undefined : (value.prepaidCardRedemptions.map(PrepaidCardRedemptionType_1.PrepaidCardRedemptionTypeToJSON)),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
     };
 }

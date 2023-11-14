@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpsellRulesToTestDetailsToJSON = exports.UpsellRulesToTestDetailsFromJSONTyped = exports.UpsellRulesToTestDetailsFromJSON = exports.instanceOfUpsellRulesToTestDetails = void 0;
 const runtime_1 = require("../runtime");
-const ConfigTestUpsellRulesType_1 = require("./ConfigTestUpsellRulesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ConfigTestUpsellRuleType_1 = require("./ConfigTestUpsellRuleType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the UpsellRulesToTestDetails interface.
  */
@@ -35,9 +35,9 @@ function UpsellRulesToTestDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'upsellRules': !(0, runtime_1.exists)(json, 'upsellRules') ? undefined : (0, ConfigTestUpsellRulesType_1.ConfigTestUpsellRulesTypeFromJSON)(json['upsellRules']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'upsellRules': !(0, runtime_1.exists)(json, 'upsellRules') ? undefined : (json['upsellRules'].map(ConfigTestUpsellRuleType_1.ConfigTestUpsellRuleTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.UpsellRulesToTestDetailsFromJSONTyped = UpsellRulesToTestDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function UpsellRulesToTestDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'upsellRules': (0, ConfigTestUpsellRulesType_1.ConfigTestUpsellRulesTypeToJSON)(value.upsellRules),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'upsellRules': value.upsellRules === undefined ? undefined : (value.upsellRules.map(ConfigTestUpsellRuleType_1.ConfigTestUpsellRuleTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.UpsellRulesToTestDetailsToJSON = UpsellRulesToTestDetailsToJSON;

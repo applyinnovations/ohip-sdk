@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FacilityHousekeepingTaskTypeToJSON = exports.FacilityHousekeepingTaskTypeFromJSONTyped = exports.FacilityHousekeepingTaskTypeFromJSON = exports.instanceOfFacilityHousekeepingTaskType = void 0;
 const runtime_1 = require("../runtime");
-const FacilityCodesType_1 = require("./FacilityCodesType");
+const FacilityCodeType_1 = require("./FacilityCodeType");
 const FacilityTaskBaseType_1 = require("./FacilityTaskBaseType");
 const HousekeepingTaskStayPeriodType_1 = require("./HousekeepingTaskStayPeriodType");
 /**
@@ -36,7 +36,7 @@ function FacilityHousekeepingTaskTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'cycleStartDay': !(0, runtime_1.exists)(json, 'cycleStartDay') ? undefined : json['cycleStartDay'],
-        'facilityCodes': !(0, runtime_1.exists)(json, 'facilityCodes') ? undefined : (0, FacilityCodesType_1.FacilityCodesTypeFromJSON)(json['facilityCodes']),
+        'facilityCodes': !(0, runtime_1.exists)(json, 'facilityCodes') ? undefined : (json['facilityCodes'].map(FacilityCodeType_1.FacilityCodeTypeFromJSON)),
         'facilityTask': !(0, runtime_1.exists)(json, 'facilityTask') ? undefined : (0, FacilityTaskBaseType_1.FacilityTaskBaseTypeFromJSON)(json['facilityTask']),
         'frequency': !(0, runtime_1.exists)(json, 'frequency') ? undefined : json['frequency'],
         'roomId': !(0, runtime_1.exists)(json, 'roomId') ? undefined : json['roomId'],
@@ -57,7 +57,7 @@ function FacilityHousekeepingTaskTypeToJSON(value) {
     }
     return {
         'cycleStartDay': value.cycleStartDay,
-        'facilityCodes': (0, FacilityCodesType_1.FacilityCodesTypeToJSON)(value.facilityCodes),
+        'facilityCodes': value.facilityCodes === undefined ? undefined : (value.facilityCodes.map(FacilityCodeType_1.FacilityCodeTypeToJSON)),
         'facilityTask': (0, FacilityTaskBaseType_1.FacilityTaskBaseTypeToJSON)(value.facilityTask),
         'frequency': value.frequency,
         'roomId': value.roomId,

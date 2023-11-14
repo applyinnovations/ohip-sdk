@@ -13,24 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AlternateHotelsType } from './AlternateHotelsType';
+import type { AlternateHotelType } from './AlternateHotelType';
 import {
-    AlternateHotelsTypeFromJSON,
-    AlternateHotelsTypeFromJSONTyped,
-    AlternateHotelsTypeToJSON,
-} from './AlternateHotelsType';
-import type { HotelAttractionsType } from './HotelAttractionsType';
+    AlternateHotelTypeFromJSON,
+    AlternateHotelTypeFromJSONTyped,
+    AlternateHotelTypeToJSON,
+} from './AlternateHotelType';
+import type { CommentInfoType } from './CommentInfoType';
 import {
-    HotelAttractionsTypeFromJSON,
-    HotelAttractionsTypeFromJSONTyped,
-    HotelAttractionsTypeToJSON,
-} from './HotelAttractionsType';
-import type { HotelContactsType } from './HotelContactsType';
+    CommentInfoTypeFromJSON,
+    CommentInfoTypeFromJSONTyped,
+    CommentInfoTypeToJSON,
+} from './CommentInfoType';
+import type { HotelAttractionType } from './HotelAttractionType';
 import {
-    HotelContactsTypeFromJSON,
-    HotelContactsTypeFromJSONTyped,
-    HotelContactsTypeToJSON,
-} from './HotelContactsType';
+    HotelAttractionTypeFromJSON,
+    HotelAttractionTypeFromJSONTyped,
+    HotelAttractionTypeToJSON,
+} from './HotelAttractionType';
+import type { HotelContactType } from './HotelContactType';
+import {
+    HotelContactTypeFromJSON,
+    HotelContactTypeFromJSONTyped,
+    HotelContactTypeToJSON,
+} from './HotelContactType';
 import type { HotelCorporateInformationsType } from './HotelCorporateInformationsType';
 import {
     HotelCorporateInformationsTypeFromJSON,
@@ -79,30 +85,24 @@ import {
     HotelInfoTypePropertyControlsFromJSONTyped,
     HotelInfoTypePropertyControlsToJSON,
 } from './HotelInfoTypePropertyControls';
-import type { HotelNotesType } from './HotelNotesType';
+import type { HotelRateRangeType } from './HotelRateRangeType';
 import {
-    HotelNotesTypeFromJSON,
-    HotelNotesTypeFromJSONTyped,
-    HotelNotesTypeToJSON,
-} from './HotelNotesType';
-import type { HotelRateRangesType } from './HotelRateRangesType';
+    HotelRateRangeTypeFromJSON,
+    HotelRateRangeTypeFromJSONTyped,
+    HotelRateRangeTypeToJSON,
+} from './HotelRateRangeType';
+import type { HotelRestaurantType } from './HotelRestaurantType';
 import {
-    HotelRateRangesTypeFromJSON,
-    HotelRateRangesTypeFromJSONTyped,
-    HotelRateRangesTypeToJSON,
-} from './HotelRateRangesType';
-import type { HotelRestaurantsType } from './HotelRestaurantsType';
+    HotelRestaurantTypeFromJSON,
+    HotelRestaurantTypeFromJSONTyped,
+    HotelRestaurantTypeToJSON,
+} from './HotelRestaurantType';
+import type { MeetingRoomType } from './MeetingRoomType';
 import {
-    HotelRestaurantsTypeFromJSON,
-    HotelRestaurantsTypeFromJSONTyped,
-    HotelRestaurantsTypeToJSON,
-} from './HotelRestaurantsType';
-import type { MeetingRoomsType } from './MeetingRoomsType';
-import {
-    MeetingRoomsTypeFromJSON,
-    MeetingRoomsTypeFromJSONTyped,
-    MeetingRoomsTypeToJSON,
-} from './MeetingRoomsType';
+    MeetingRoomTypeFromJSON,
+    MeetingRoomTypeFromJSONTyped,
+    MeetingRoomTypeToJSON,
+} from './MeetingRoomType';
 
 /**
  * Contains the basic configuration information about a Hotel.
@@ -124,16 +124,16 @@ export interface HotelInfoType {
     address?: HotelInfoTypeAddress;
     /**
      * 
-     * @type {AlternateHotelsType}
+     * @type {Array<AlternateHotelType>}
      * @memberof HotelInfoType
      */
-    alternateHotels?: AlternateHotelsType;
+    alternateHotels?: Array<AlternateHotelType>;
     /**
      * 
-     * @type {HotelAttractionsType}
+     * @type {Array<HotelAttractionType>}
      * @memberof HotelInfoType
      */
-    attractions?: HotelAttractionsType;
+    attractions?: Array<HotelAttractionType>;
     /**
      * The code that identifies a hotel chain or management group. The hotel chain code is decided between vendors. This attribute is optional if the hotel is an independent property that can be identified by the HotelCode attribute.
      * @type {string}
@@ -171,11 +171,11 @@ export interface HotelInfoType {
      */
     hotelCodeContext?: string;
     /**
-     * 
-     * @type {HotelContactsType}
+     * Lists of contacts of the hotel.
+     * @type {Array<HotelContactType>}
      * @memberof HotelInfoType
      */
-    hotelContacts?: HotelContactsType;
+    hotelContacts?: Array<HotelContactType>;
     /**
      * 
      * @type {HotelCorporateInformationsType}
@@ -201,29 +201,29 @@ export interface HotelInfoType {
      */
     hotelName?: string;
     /**
-     * 
-     * @type {HotelNotesType}
+     * List of Notes of the hotel.
+     * @type {Array<CommentInfoType>}
      * @memberof HotelInfoType
      */
-    hotelNotes?: HotelNotesType;
+    hotelNotes?: Array<CommentInfoType>;
+    /**
+     * Lists of rate ranges of the hotel.
+     * @type {Array<HotelRateRangeType>}
+     * @memberof HotelInfoType
+     */
+    hotelRateRanges?: Array<HotelRateRangeType>;
     /**
      * 
-     * @type {HotelRateRangesType}
+     * @type {Array<HotelRestaurantType>}
      * @memberof HotelInfoType
      */
-    hotelRateRanges?: HotelRateRangesType;
+    hotelRestaurants?: Array<HotelRestaurantType>;
     /**
-     * 
-     * @type {HotelRestaurantsType}
+     * List of meeting rooms of the hotel.
+     * @type {Array<MeetingRoomType>}
      * @memberof HotelInfoType
      */
-    hotelRestaurants?: HotelRestaurantsType;
-    /**
-     * 
-     * @type {MeetingRoomsType}
-     * @memberof HotelInfoType
-     */
-    meetingRooms?: MeetingRoomsType;
+    meetingRooms?: Array<MeetingRoomType>;
     /**
      * 
      * @type {HotelInfoTypePrimaryDetails}
@@ -259,23 +259,23 @@ export function HotelInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
         
         'accommodationDetails': !exists(json, 'accommodationDetails') ? undefined : HotelInfoTypeAccommodationDetailsFromJSON(json['accommodationDetails']),
         'address': !exists(json, 'address') ? undefined : HotelInfoTypeAddressFromJSON(json['address']),
-        'alternateHotels': !exists(json, 'alternateHotels') ? undefined : AlternateHotelsTypeFromJSON(json['alternateHotels']),
-        'attractions': !exists(json, 'attractions') ? undefined : HotelAttractionsTypeFromJSON(json['attractions']),
+        'alternateHotels': !exists(json, 'alternateHotels') ? undefined : ((json['alternateHotels'] as Array<any>).map(AlternateHotelTypeFromJSON)),
+        'attractions': !exists(json, 'attractions') ? undefined : ((json['attractions'] as Array<any>).map(HotelAttractionTypeFromJSON)),
         'chainCode': !exists(json, 'chainCode') ? undefined : json['chainCode'],
         'chainName': !exists(json, 'chainName') ? undefined : json['chainName'],
         'communication': !exists(json, 'communication') ? undefined : HotelInfoTypeCommunicationFromJSON(json['communication']),
         'generalInformation': !exists(json, 'generalInformation') ? undefined : HotelInfoTypeGeneralInformationFromJSON(json['generalInformation']),
         'hotelCityCode': !exists(json, 'hotelCityCode') ? undefined : json['hotelCityCode'],
         'hotelCodeContext': !exists(json, 'hotelCodeContext') ? undefined : json['hotelCodeContext'],
-        'hotelContacts': !exists(json, 'hotelContacts') ? undefined : HotelContactsTypeFromJSON(json['hotelContacts']),
+        'hotelContacts': !exists(json, 'hotelContacts') ? undefined : ((json['hotelContacts'] as Array<any>).map(HotelContactTypeFromJSON)),
         'hotelCorporateInformations': !exists(json, 'hotelCorporateInformations') ? undefined : HotelCorporateInformationsTypeFromJSON(json['hotelCorporateInformations']),
         'hotelEventSpaces': !exists(json, 'hotelEventSpaces') ? undefined : HotelEventSpacesTypeFromJSON(json['hotelEventSpaces']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'hotelName': !exists(json, 'hotelName') ? undefined : json['hotelName'],
-        'hotelNotes': !exists(json, 'hotelNotes') ? undefined : HotelNotesTypeFromJSON(json['hotelNotes']),
-        'hotelRateRanges': !exists(json, 'hotelRateRanges') ? undefined : HotelRateRangesTypeFromJSON(json['hotelRateRanges']),
-        'hotelRestaurants': !exists(json, 'hotelRestaurants') ? undefined : HotelRestaurantsTypeFromJSON(json['hotelRestaurants']),
-        'meetingRooms': !exists(json, 'meetingRooms') ? undefined : MeetingRoomsTypeFromJSON(json['meetingRooms']),
+        'hotelNotes': !exists(json, 'hotelNotes') ? undefined : ((json['hotelNotes'] as Array<any>).map(CommentInfoTypeFromJSON)),
+        'hotelRateRanges': !exists(json, 'hotelRateRanges') ? undefined : ((json['hotelRateRanges'] as Array<any>).map(HotelRateRangeTypeFromJSON)),
+        'hotelRestaurants': !exists(json, 'hotelRestaurants') ? undefined : ((json['hotelRestaurants'] as Array<any>).map(HotelRestaurantTypeFromJSON)),
+        'meetingRooms': !exists(json, 'meetingRooms') ? undefined : ((json['meetingRooms'] as Array<any>).map(MeetingRoomTypeFromJSON)),
         'primaryDetails': !exists(json, 'primaryDetails') ? undefined : HotelInfoTypePrimaryDetailsFromJSON(json['primaryDetails']),
         'propertyControls': !exists(json, 'propertyControls') ? undefined : HotelInfoTypePropertyControlsFromJSON(json['propertyControls']),
     };
@@ -292,23 +292,23 @@ export function HotelInfoTypeToJSON(value?: HotelInfoType | null): any {
         
         'accommodationDetails': HotelInfoTypeAccommodationDetailsToJSON(value.accommodationDetails),
         'address': HotelInfoTypeAddressToJSON(value.address),
-        'alternateHotels': AlternateHotelsTypeToJSON(value.alternateHotels),
-        'attractions': HotelAttractionsTypeToJSON(value.attractions),
+        'alternateHotels': value.alternateHotels === undefined ? undefined : ((value.alternateHotels as Array<any>).map(AlternateHotelTypeToJSON)),
+        'attractions': value.attractions === undefined ? undefined : ((value.attractions as Array<any>).map(HotelAttractionTypeToJSON)),
         'chainCode': value.chainCode,
         'chainName': value.chainName,
         'communication': HotelInfoTypeCommunicationToJSON(value.communication),
         'generalInformation': HotelInfoTypeGeneralInformationToJSON(value.generalInformation),
         'hotelCityCode': value.hotelCityCode,
         'hotelCodeContext': value.hotelCodeContext,
-        'hotelContacts': HotelContactsTypeToJSON(value.hotelContacts),
+        'hotelContacts': value.hotelContacts === undefined ? undefined : ((value.hotelContacts as Array<any>).map(HotelContactTypeToJSON)),
         'hotelCorporateInformations': HotelCorporateInformationsTypeToJSON(value.hotelCorporateInformations),
         'hotelEventSpaces': HotelEventSpacesTypeToJSON(value.hotelEventSpaces),
         'hotelId': value.hotelId,
         'hotelName': value.hotelName,
-        'hotelNotes': HotelNotesTypeToJSON(value.hotelNotes),
-        'hotelRateRanges': HotelRateRangesTypeToJSON(value.hotelRateRanges),
-        'hotelRestaurants': HotelRestaurantsTypeToJSON(value.hotelRestaurants),
-        'meetingRooms': MeetingRoomsTypeToJSON(value.meetingRooms),
+        'hotelNotes': value.hotelNotes === undefined ? undefined : ((value.hotelNotes as Array<any>).map(CommentInfoTypeToJSON)),
+        'hotelRateRanges': value.hotelRateRanges === undefined ? undefined : ((value.hotelRateRanges as Array<any>).map(HotelRateRangeTypeToJSON)),
+        'hotelRestaurants': value.hotelRestaurants === undefined ? undefined : ((value.hotelRestaurants as Array<any>).map(HotelRestaurantTypeToJSON)),
+        'meetingRooms': value.meetingRooms === undefined ? undefined : ((value.meetingRooms as Array<any>).map(MeetingRoomTypeToJSON)),
         'primaryDetails': HotelInfoTypePrimaryDetailsToJSON(value.primaryDetails),
         'propertyControls': HotelInfoTypePropertyControlsToJSON(value.propertyControls),
     };

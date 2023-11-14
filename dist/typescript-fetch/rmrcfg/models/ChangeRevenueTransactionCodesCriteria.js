@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChangeRevenueTransactionCodesCriteriaToJSON = exports.ChangeRevenueTransactionCodesCriteriaFromJSONTyped = exports.ChangeRevenueTransactionCodesCriteriaFromJSON = exports.instanceOfChangeRevenueTransactionCodesCriteria = void 0;
 const runtime_1 = require("../runtime");
 const RotationRevenueTransactionCodesChangeType_1 = require("./RotationRevenueTransactionCodesChangeType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChangeRevenueTransactionCodesCriteria interface.
  */
@@ -35,7 +35,7 @@ function ChangeRevenueTransactionCodesCriteriaFromJSONTyped(json, ignoreDiscrimi
     }
     return {
         'revenueTransactionCodes': !(0, runtime_1.exists)(json, 'revenueTransactionCodes') ? undefined : (0, RotationRevenueTransactionCodesChangeType_1.RotationRevenueTransactionCodesChangeTypeFromJSON)(json['revenueTransactionCodes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChangeRevenueTransactionCodesCriteriaFromJSONTyped = ChangeRevenueTransactionCodesCriteriaFromJSONTyped;
@@ -48,7 +48,7 @@ function ChangeRevenueTransactionCodesCriteriaToJSON(value) {
     }
     return {
         'revenueTransactionCodes': (0, RotationRevenueTransactionCodesChangeType_1.RotationRevenueTransactionCodesChangeTypeToJSON)(value.revenueTransactionCodes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChangeRevenueTransactionCodesCriteriaToJSON = ChangeRevenueTransactionCodesCriteriaToJSON;

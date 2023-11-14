@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommissionProcessingAgentTypeToJSON = exports.CommissionProcessingAgentTypeFromJSONTyped = exports.CommissionProcessingAgentTypeFromJSON = exports.instanceOfCommissionProcessingAgentType = void 0;
 const runtime_1 = require("../runtime");
 const CommissionProcessingInstructionsType_1 = require("./CommissionProcessingInstructionsType");
-const CommissionProcessingReservationsType_1 = require("./CommissionProcessingReservationsType");
+const CommissionProcessingReservationType_1 = require("./CommissionProcessingReservationType");
 /**
  * Check if a given object implements the CommissionProcessingAgentType interface.
  */
@@ -40,7 +40,7 @@ function CommissionProcessingAgentTypeFromJSONTyped(json, ignoreDiscriminator) {
         'idExtension': !(0, runtime_1.exists)(json, 'idExtension') ? undefined : json['idExtension'],
         'instance': !(0, runtime_1.exists)(json, 'instance') ? undefined : json['instance'],
         'instructions': !(0, runtime_1.exists)(json, 'instructions') ? undefined : (0, CommissionProcessingInstructionsType_1.CommissionProcessingInstructionsTypeFromJSON)(json['instructions']),
-        'reservations': !(0, runtime_1.exists)(json, 'reservations') ? undefined : (0, CommissionProcessingReservationsType_1.CommissionProcessingReservationsTypeFromJSON)(json['reservations']),
+        'reservations': !(0, runtime_1.exists)(json, 'reservations') ? undefined : (json['reservations'].map(CommissionProcessingReservationType_1.CommissionProcessingReservationTypeFromJSON)),
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : json['type'],
         'url': !(0, runtime_1.exists)(json, 'url') ? undefined : json['url'],
     };
@@ -60,7 +60,7 @@ function CommissionProcessingAgentTypeToJSON(value) {
         'idExtension': value.idExtension,
         'instance': value.instance,
         'instructions': (0, CommissionProcessingInstructionsType_1.CommissionProcessingInstructionsTypeToJSON)(value.instructions),
-        'reservations': (0, CommissionProcessingReservationsType_1.CommissionProcessingReservationsTypeToJSON)(value.reservations),
+        'reservations': value.reservations === undefined ? undefined : (value.reservations.map(CommissionProcessingReservationType_1.CommissionProcessingReservationTypeToJSON)),
         'type': value.type,
         'url': value.url,
     };

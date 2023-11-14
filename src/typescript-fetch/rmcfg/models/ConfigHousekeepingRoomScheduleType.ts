@@ -19,18 +19,12 @@ import {
     CodeDescriptionTypeFromJSONTyped,
     CodeDescriptionTypeToJSON,
 } from './CodeDescriptionType';
-import type { CodeListType } from './CodeListType';
+import type { ConfigHousekeepingRoomScheduleTaskSupplyType } from './ConfigHousekeepingRoomScheduleTaskSupplyType';
 import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-import type { ConfigHousekeepingRoomScheduleTaskSuppliesType } from './ConfigHousekeepingRoomScheduleTaskSuppliesType';
-import {
-    ConfigHousekeepingRoomScheduleTaskSuppliesTypeFromJSON,
-    ConfigHousekeepingRoomScheduleTaskSuppliesTypeFromJSONTyped,
-    ConfigHousekeepingRoomScheduleTaskSuppliesTypeToJSON,
-} from './ConfigHousekeepingRoomScheduleTaskSuppliesType';
+    ConfigHousekeepingRoomScheduleTaskSupplyTypeFromJSON,
+    ConfigHousekeepingRoomScheduleTaskSupplyTypeFromJSONTyped,
+    ConfigHousekeepingRoomScheduleTaskSupplyTypeToJSON,
+} from './ConfigHousekeepingRoomScheduleTaskSupplyType';
 import type { FrequencyTypeType } from './FrequencyTypeType';
 import {
     FrequencyTypeTypeFromJSON,
@@ -118,10 +112,10 @@ export interface ConfigHousekeepingRoomScheduleType {
     hotelId?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigHousekeepingRoomScheduleType
      */
-    marketCodes?: CodeListType;
+    marketCodes?: Array<string>;
     /**
      * Automatically moves the task up one day if it falls on the day before the guest's departure. It will only be available when the schedule is set to every 3 days or more.
      * @type {boolean}
@@ -136,10 +130,10 @@ export interface ConfigHousekeepingRoomScheduleType {
     priority?: number;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigHousekeepingRoomScheduleType
      */
-    rateCodes?: CodeListType;
+    rateCodes?: Array<string>;
     /**
      * 
      * @type {CodeDescriptionType}
@@ -154,22 +148,22 @@ export interface ConfigHousekeepingRoomScheduleType {
     sequence?: number;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigHousekeepingRoomScheduleType
      */
-    specialRequests?: CodeListType;
+    specialRequests?: Array<string>;
+    /**
+     * This type holds a collection of housekeeping task supplies attached to a room type.
+     * @type {Array<ConfigHousekeepingRoomScheduleTaskSupplyType>}
+     * @memberof ConfigHousekeepingRoomScheduleType
+     */
+    taskSupplies?: Array<ConfigHousekeepingRoomScheduleTaskSupplyType>;
     /**
      * 
-     * @type {ConfigHousekeepingRoomScheduleTaskSuppliesType}
+     * @type {Array<string>}
      * @memberof ConfigHousekeepingRoomScheduleType
      */
-    taskSupplies?: ConfigHousekeepingRoomScheduleTaskSuppliesType;
-    /**
-     * 
-     * @type {CodeListType}
-     * @memberof ConfigHousekeepingRoomScheduleType
-     */
-    vIPStatuses?: CodeListType;
+    vIPStatuses?: Array<string>;
 }
 
 /**
@@ -202,15 +196,15 @@ export function ConfigHousekeepingRoomScheduleTypeFromJSONTyped(json: any, ignor
         'frequencyDays': !exists(json, 'frequencyDays') ? undefined : json['frequencyDays'],
         'guestRequested': !exists(json, 'guestRequested') ? undefined : json['guestRequested'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'marketCodes': !exists(json, 'marketCodes') ? undefined : CodeListTypeFromJSON(json['marketCodes']),
+        'marketCodes': !exists(json, 'marketCodes') ? undefined : json['marketCodes'],
         'moveup': !exists(json, 'moveup') ? undefined : json['moveup'],
         'priority': !exists(json, 'priority') ? undefined : json['priority'],
-        'rateCodes': !exists(json, 'rateCodes') ? undefined : CodeListTypeFromJSON(json['rateCodes']),
+        'rateCodes': !exists(json, 'rateCodes') ? undefined : json['rateCodes'],
         'roomType': !exists(json, 'roomType') ? undefined : CodeDescriptionTypeFromJSON(json['roomType']),
         'sequence': !exists(json, 'sequence') ? undefined : json['sequence'],
-        'specialRequests': !exists(json, 'specialRequests') ? undefined : CodeListTypeFromJSON(json['specialRequests']),
-        'taskSupplies': !exists(json, 'taskSupplies') ? undefined : ConfigHousekeepingRoomScheduleTaskSuppliesTypeFromJSON(json['taskSupplies']),
-        'vIPStatuses': !exists(json, 'vIPStatuses') ? undefined : CodeListTypeFromJSON(json['vIPStatuses']),
+        'specialRequests': !exists(json, 'specialRequests') ? undefined : json['specialRequests'],
+        'taskSupplies': !exists(json, 'taskSupplies') ? undefined : ((json['taskSupplies'] as Array<any>).map(ConfigHousekeepingRoomScheduleTaskSupplyTypeFromJSON)),
+        'vIPStatuses': !exists(json, 'vIPStatuses') ? undefined : json['vIPStatuses'],
     };
 }
 
@@ -234,15 +228,15 @@ export function ConfigHousekeepingRoomScheduleTypeToJSON(value?: ConfigHousekeep
         'frequencyDays': value.frequencyDays,
         'guestRequested': value.guestRequested,
         'hotelId': value.hotelId,
-        'marketCodes': CodeListTypeToJSON(value.marketCodes),
+        'marketCodes': value.marketCodes,
         'moveup': value.moveup,
         'priority': value.priority,
-        'rateCodes': CodeListTypeToJSON(value.rateCodes),
+        'rateCodes': value.rateCodes,
         'roomType': CodeDescriptionTypeToJSON(value.roomType),
         'sequence': value.sequence,
-        'specialRequests': CodeListTypeToJSON(value.specialRequests),
-        'taskSupplies': ConfigHousekeepingRoomScheduleTaskSuppliesTypeToJSON(value.taskSupplies),
-        'vIPStatuses': CodeListTypeToJSON(value.vIPStatuses),
+        'specialRequests': value.specialRequests,
+        'taskSupplies': value.taskSupplies === undefined ? undefined : ((value.taskSupplies as Array<any>).map(ConfigHousekeepingRoomScheduleTaskSupplyTypeToJSON)),
+        'vIPStatuses': value.vIPStatuses,
     };
 }
 

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CheckReservationsType } from './CheckReservationsType';
+import type { CheckReservationType } from './CheckReservationType';
 import {
-    CheckReservationsTypeFromJSON,
-    CheckReservationsTypeFromJSONTyped,
-    CheckReservationsTypeToJSON,
-} from './CheckReservationsType';
-import type { Links } from './Links';
+    CheckReservationTypeFromJSON,
+    CheckReservationTypeFromJSONTyped,
+    CheckReservationTypeToJSON,
+} from './CheckReservationType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for checking allowed actions, existence of attached records, or indicators of a reservation.
@@ -39,23 +39,23 @@ import {
  */
 export interface CheckReservationsDetails {
     /**
-     * 
-     * @type {CheckReservationsType}
+     * Collection of reservations and the status of its allowed actions, attached records, and indicators.
+     * @type {Array<CheckReservationType>}
      * @memberof CheckReservationsDetails
      */
-    checkReservations?: CheckReservationsType;
+    checkReservations?: Array<CheckReservationType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CheckReservationsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CheckReservationsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CheckReservationsDetailsFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'checkReservations': !exists(json, 'checkReservations') ? undefined : CheckReservationsTypeFromJSON(json['checkReservations']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'checkReservations': !exists(json, 'checkReservations') ? undefined : ((json['checkReservations'] as Array<any>).map(CheckReservationTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CheckReservationsDetailsToJSON(value?: CheckReservationsDetails 
     }
     return {
         
-        'checkReservations': CheckReservationsTypeToJSON(value.checkReservations),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'checkReservations': value.checkReservations === undefined ? undefined : ((value.checkReservations as Array<any>).map(CheckReservationTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

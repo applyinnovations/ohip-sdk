@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CustomChargeExemptionsConfigType } from './CustomChargeExemptionsConfigType';
-import type { WarningsType } from './WarningsType';
+import type { CustomChargeExemptionConfigType } from './CustomChargeExemptionConfigType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,16 +19,16 @@ import type { WarningsType } from './WarningsType';
 export interface CustomChargeExemptionsConfigToBeChanged {
     /**
      * Existing Custom Charge Exemptions to be changed.
-     * @type {Array<CustomChargeExemptionsConfigType>}
+     * @type {Array<Array<CustomChargeExemptionConfigType>>}
      * @memberof CustomChargeExemptionsConfigToBeChanged
      */
-    customChargeExemptionsConfig?: Array<CustomChargeExemptionsConfigType>;
+    customChargeExemptionsConfig?: Array<Array<CustomChargeExemptionConfigType>>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CustomChargeExemptionsConfigToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CustomChargeExemptionsConfigToBeChanged interface.

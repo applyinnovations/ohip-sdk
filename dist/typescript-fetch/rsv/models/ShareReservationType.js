@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ShareReservationTypeToJSON = exports.ShareReservationTypeFromJSONTyped = exports.ShareReservationTypeFromJSON = exports.instanceOfShareReservationType = void 0;
 const runtime_1 = require("../runtime");
-const DailyRatesType_1 = require("./DailyRatesType");
+const DailyRateType_1 = require("./DailyRateType");
 const ReservationId_1 = require("./ReservationId");
 /**
  * Check if a given object implements the ShareReservationType interface.
@@ -34,7 +34,7 @@ function ShareReservationTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'dailyRates': !(0, runtime_1.exists)(json, 'dailyRates') ? undefined : (0, DailyRatesType_1.DailyRatesTypeFromJSON)(json['dailyRates']),
+        'dailyRates': !(0, runtime_1.exists)(json, 'dailyRates') ? undefined : (json['dailyRates'].map(DailyRateType_1.DailyRateTypeFromJSON)),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
     };
 }
@@ -47,7 +47,7 @@ function ShareReservationTypeToJSON(value) {
         return null;
     }
     return {
-        'dailyRates': (0, DailyRatesType_1.DailyRatesTypeToJSON)(value.dailyRates),
+        'dailyRates': value.dailyRates === undefined ? undefined : (value.dailyRates.map(DailyRateType_1.DailyRateTypeToJSON)),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
     };
 }

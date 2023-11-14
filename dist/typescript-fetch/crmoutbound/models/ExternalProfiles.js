@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExternalProfilesToJSON = exports.ExternalProfilesFromJSONTyped = exports.ExternalProfilesFromJSON = exports.instanceOfExternalProfiles = void 0;
 const runtime_1 = require("../runtime");
 const ExternalProfileSummariesType_1 = require("./ExternalProfileSummariesType");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 /**
  * Check if a given object implements the ExternalProfiles interface.
  */
@@ -35,7 +35,7 @@ function ExternalProfilesFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'externalProfileSummaries': !(0, runtime_1.exists)(json, 'externalProfileSummaries') ? undefined : (0, ExternalProfileSummariesType_1.ExternalProfileSummariesTypeFromJSON)(json['externalProfileSummaries']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.ExternalProfilesFromJSONTyped = ExternalProfilesFromJSONTyped;
@@ -48,7 +48,7 @@ function ExternalProfilesToJSON(value) {
     }
     return {
         'externalProfileSummaries': (0, ExternalProfileSummariesType_1.ExternalProfileSummariesTypeToJSON)(value.externalProfileSummaries),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.ExternalProfilesToJSON = ExternalProfilesToJSON;

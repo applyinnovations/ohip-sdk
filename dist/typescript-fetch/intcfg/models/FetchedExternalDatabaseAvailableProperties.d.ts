@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ExternalDatabaseAssociatedHotelsType } from './ExternalDatabaseAssociatedHotelsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ExternalDatabaseAssociatedHotelType } from './ExternalDatabaseAssociatedHotelType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for retrieving the Available properties for External Databases.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FetchedExternalDatabaseAvailableProperties {
     /**
-     *
-     * @type {ExternalDatabaseAssociatedHotelsType}
+     * Collection of Hotel for external database.
+     * @type {Array<ExternalDatabaseAssociatedHotelType>}
      * @memberof FetchedExternalDatabaseAvailableProperties
      */
-    availailableProperties?: ExternalDatabaseAssociatedHotelsType;
+    availailableProperties?: Array<ExternalDatabaseAssociatedHotelType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchedExternalDatabaseAvailableProperties
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchedExternalDatabaseAvailableProperties
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FetchedExternalDatabaseAvailableProperties interface.

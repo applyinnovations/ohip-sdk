@@ -31,24 +31,24 @@ import {
     ChannelResvRQInfoTypeFromJSONTyped,
     ChannelResvRQInfoTypeToJSON,
 } from './ChannelResvRQInfoType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { RateChangeInstructionType } from './RateChangeInstructionType';
 import {
     RateChangeInstructionTypeFromJSON,
     RateChangeInstructionTypeFromJSONTyped,
     RateChangeInstructionTypeToJSON,
 } from './RateChangeInstructionType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for canceling reservations.
@@ -64,10 +64,10 @@ export interface CancelReservation {
     channelInformation?: ChannelResvRQInfoType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CancelReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {RateChangeInstructionType}
@@ -93,11 +93,11 @@ export interface CancelReservation {
      */
     verificationOnly?: boolean;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CancelReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -120,12 +120,12 @@ export function CancelReservationFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'channelInformation': !exists(json, 'channelInformation') ? undefined : ChannelResvRQInfoTypeFromJSON(json['channelInformation']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'rateChangeInstruction': !exists(json, 'rateChangeInstruction') ? undefined : RateChangeInstructionTypeFromJSON(json['rateChangeInstruction']),
         'reason': !exists(json, 'reason') ? undefined : CancellationReasonTypeFromJSON(json['reason']),
         'reservations': !exists(json, 'reservations') ? undefined : ((json['reservations'] as Array<any>).map(CancelReservationTypeFromJSON)),
         'verificationOnly': !exists(json, 'verificationOnly') ? undefined : json['verificationOnly'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -139,12 +139,12 @@ export function CancelReservationToJSON(value?: CancelReservation | null): any {
     return {
         
         'channelInformation': ChannelResvRQInfoTypeToJSON(value.channelInformation),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'rateChangeInstruction': RateChangeInstructionTypeToJSON(value.rateChangeInstruction),
         'reason': CancellationReasonTypeToJSON(value.reason),
         'reservations': value.reservations === undefined ? undefined : ((value.reservations as Array<any>).map(CancelReservationTypeToJSON)),
         'verificationOnly': value.verificationOnly,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FunctionArgumentsType } from './FunctionArgumentsType';
+import type { FunctionArgumentType } from './FunctionArgumentType';
 import {
-    FunctionArgumentsTypeFromJSON,
-    FunctionArgumentsTypeFromJSONTyped,
-    FunctionArgumentsTypeToJSON,
-} from './FunctionArgumentsType';
+    FunctionArgumentTypeFromJSON,
+    FunctionArgumentTypeFromJSONTyped,
+    FunctionArgumentTypeToJSON,
+} from './FunctionArgumentType';
 import type { PackageCalculationRuleType } from './PackageCalculationRuleType';
 import {
     PackageCalculationRuleTypeFromJSON,
@@ -87,11 +87,11 @@ export interface ConfigPostingAttributesType {
      */
     formula?: string;
     /**
-     * 
-     * @type {FunctionArgumentsType}
+     * Collection of function arguments and their corresponding values.
+     * @type {Array<FunctionArgumentType>}
      * @memberof ConfigPostingAttributesType
      */
-    formulaFunctionArguments?: FunctionArgumentsType;
+    formulaFunctionArguments?: Array<FunctionArgumentType>;
     /**
      * The custom formula function name used for this package, if any.
      * @type {string}
@@ -180,7 +180,7 @@ export function ConfigPostingAttributesTypeFromJSONTyped(json: any, ignoreDiscri
         'endTime': !exists(json, 'endTime') ? undefined : json['endTime'],
         'forecastNextDay': !exists(json, 'forecastNextDay') ? undefined : json['forecastNextDay'],
         'formula': !exists(json, 'formula') ? undefined : json['formula'],
-        'formulaFunctionArguments': !exists(json, 'formulaFunctionArguments') ? undefined : FunctionArgumentsTypeFromJSON(json['formulaFunctionArguments']),
+        'formulaFunctionArguments': !exists(json, 'formulaFunctionArguments') ? undefined : ((json['formulaFunctionArguments'] as Array<any>).map(FunctionArgumentTypeFromJSON)),
         'formulaFunctionName': !exists(json, 'formulaFunctionName') ? undefined : json['formulaFunctionName'],
         'inventoryItems': !exists(json, 'inventoryItems') ? undefined : ((json['inventoryItems'] as Array<any>).map(PkgInventoryItemTypeFromJSON)),
         'postNextDay': !exists(json, 'postNextDay') ? undefined : json['postNextDay'],
@@ -210,7 +210,7 @@ export function ConfigPostingAttributesTypeToJSON(value?: ConfigPostingAttribute
         'endTime': value.endTime,
         'forecastNextDay': value.forecastNextDay,
         'formula': value.formula,
-        'formulaFunctionArguments': FunctionArgumentsTypeToJSON(value.formulaFunctionArguments),
+        'formulaFunctionArguments': value.formulaFunctionArguments === undefined ? undefined : ((value.formulaFunctionArguments as Array<any>).map(FunctionArgumentTypeToJSON)),
         'formulaFunctionName': value.formulaFunctionName,
         'inventoryItems': value.inventoryItems === undefined ? undefined : ((value.inventoryItems as Array<any>).map(PkgInventoryItemTypeToJSON)),
         'postNextDay': value.postNextDay,

@@ -19,12 +19,12 @@ import {
     GenerateCalculationBucketsTypeFromJSONTyped,
     GenerateCalculationBucketsTypeToJSON,
 } from './GenerateCalculationBucketsType';
-import type { GeneratesType } from './GeneratesType';
+import type { GenerateType } from './GenerateType';
 import {
-    GeneratesTypeFromJSON,
-    GeneratesTypeFromJSONTyped,
-    GeneratesTypeToJSON,
-} from './GeneratesType';
+    GenerateTypeFromJSON,
+    GenerateTypeFromJSONTyped,
+    GenerateTypeToJSON,
+} from './GenerateType';
 
 /**
  * Defines the Generates Setup and its Calculation Rules.
@@ -39,11 +39,11 @@ export interface GeneratesSetupType {
      */
     addBaseAmtTo?: GenerateCalculationBucketsType;
     /**
-     * 
-     * @type {GeneratesType}
+     * Defines the Generate and its Calculation Rules.
+     * @type {Array<GenerateType>}
      * @memberof GeneratesSetupType
      */
-    generates?: GeneratesType;
+    generates?: Array<GenerateType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function GeneratesSetupTypeFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'addBaseAmtTo': !exists(json, 'addBaseAmtTo') ? undefined : GenerateCalculationBucketsTypeFromJSON(json['addBaseAmtTo']),
-        'generates': !exists(json, 'generates') ? undefined : GeneratesTypeFromJSON(json['generates']),
+        'generates': !exists(json, 'generates') ? undefined : ((json['generates'] as Array<any>).map(GenerateTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function GeneratesSetupTypeToJSON(value?: GeneratesSetupType | null): any
     return {
         
         'addBaseAmtTo': GenerateCalculationBucketsTypeToJSON(value.addBaseAmtTo),
-        'generates': GeneratesTypeToJSON(value.generates),
+        'generates': value.generates === undefined ? undefined : ((value.generates as Array<any>).map(GenerateTypeToJSON)),
     };
 }
 

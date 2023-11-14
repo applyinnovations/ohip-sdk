@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CommissionProcessingAgentsType } from './CommissionProcessingAgentsType';
+import type { CommissionProcessingAgentType } from './CommissionProcessingAgentType';
 import {
-    CommissionProcessingAgentsTypeFromJSON,
-    CommissionProcessingAgentsTypeFromJSONTyped,
-    CommissionProcessingAgentsTypeToJSON,
-} from './CommissionProcessingAgentsType';
-import type { Links } from './Links';
+    CommissionProcessingAgentTypeFromJSON,
+    CommissionProcessingAgentTypeFromJSONTyped,
+    CommissionProcessingAgentTypeToJSON,
+} from './CommissionProcessingAgentType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request Type for setting instructions for commission processing on Agent or Reservation level.
@@ -39,23 +39,23 @@ import {
  */
 export interface SetProcessingInstructions {
     /**
-     * 
-     * @type {CommissionProcessingAgentsType}
+     * Commission processing instructions for an Agent.
+     * @type {Array<CommissionProcessingAgentType>}
      * @memberof SetProcessingInstructions
      */
-    agents?: CommissionProcessingAgentsType;
+    agents?: Array<CommissionProcessingAgentType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SetProcessingInstructions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SetProcessingInstructions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function SetProcessingInstructionsFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'agents': !exists(json, 'agents') ? undefined : CommissionProcessingAgentsTypeFromJSON(json['agents']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'agents': !exists(json, 'agents') ? undefined : ((json['agents'] as Array<any>).map(CommissionProcessingAgentTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function SetProcessingInstructionsToJSON(value?: SetProcessingInstruction
     }
     return {
         
-        'agents': CommissionProcessingAgentsTypeToJSON(value.agents),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'agents': value.agents === undefined ? undefined : ((value.agents as Array<any>).map(CommissionProcessingAgentTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

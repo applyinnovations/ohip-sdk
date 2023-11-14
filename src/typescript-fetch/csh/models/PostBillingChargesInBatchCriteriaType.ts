@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChargesCriteriaType } from './ChargesCriteriaType';
+import type { ChargeCriteriaType } from './ChargeCriteriaType';
 import {
-    ChargesCriteriaTypeFromJSON,
-    ChargesCriteriaTypeFromJSONTyped,
-    ChargesCriteriaTypeToJSON,
-} from './ChargesCriteriaType';
-import type { Reservations } from './Reservations';
+    ChargeCriteriaTypeFromJSON,
+    ChargeCriteriaTypeFromJSONTyped,
+    ChargeCriteriaTypeToJSON,
+} from './ChargeCriteriaType';
+import type { ReservationId } from './ReservationId';
 import {
-    ReservationsFromJSON,
-    ReservationsFromJSONTyped,
-    ReservationsToJSON,
-} from './Reservations';
+    ReservationIdFromJSON,
+    ReservationIdFromJSONTyped,
+    ReservationIdToJSON,
+} from './ReservationId';
 
 /**
  * Criteria type for posting charges.
@@ -33,11 +33,11 @@ import {
  */
 export interface PostBillingChargesInBatchCriteriaType {
     /**
-     * 
-     * @type {ChargesCriteriaType}
+     * Collection of Charges to be posted.
+     * @type {Array<ChargeCriteriaType>}
      * @memberof PostBillingChargesInBatchCriteriaType
      */
-    charges?: ChargesCriteriaType;
+    charges?: Array<ChargeCriteriaType>;
     /**
      * Property where the charges are to be posted.
      * @type {string}
@@ -45,11 +45,11 @@ export interface PostBillingChargesInBatchCriteriaType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {Reservations}
+     * Unique identifier for a reservation.
+     * @type {Array<ReservationId>}
      * @memberof PostBillingChargesInBatchCriteriaType
      */
-    reservations?: Reservations;
+    reservations?: Array<ReservationId>;
 }
 
 /**
@@ -71,9 +71,9 @@ export function PostBillingChargesInBatchCriteriaTypeFromJSONTyped(json: any, ig
     }
     return {
         
-        'charges': !exists(json, 'charges') ? undefined : ChargesCriteriaTypeFromJSON(json['charges']),
+        'charges': !exists(json, 'charges') ? undefined : ((json['charges'] as Array<any>).map(ChargeCriteriaTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'reservations': !exists(json, 'reservations') ? undefined : ReservationsFromJSON(json['reservations']),
+        'reservations': !exists(json, 'reservations') ? undefined : ((json['reservations'] as Array<any>).map(ReservationIdFromJSON)),
     };
 }
 
@@ -86,9 +86,9 @@ export function PostBillingChargesInBatchCriteriaTypeToJSON(value?: PostBillingC
     }
     return {
         
-        'charges': ChargesCriteriaTypeToJSON(value.charges),
+        'charges': value.charges === undefined ? undefined : ((value.charges as Array<any>).map(ChargeCriteriaTypeToJSON)),
         'hotelId': value.hotelId,
-        'reservations': ReservationsToJSON(value.reservations),
+        'reservations': value.reservations === undefined ? undefined : ((value.reservations as Array<any>).map(ReservationIdToJSON)),
     };
 }
 

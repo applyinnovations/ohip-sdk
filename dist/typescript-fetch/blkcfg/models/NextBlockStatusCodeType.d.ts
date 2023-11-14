@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { NextBlockStatusCodeInfoListType } from './NextBlockStatusCodeInfoListType';
+import type { NextBlockStatusCodeInfoType } from './NextBlockStatusCodeInfoType';
 /**
  * Next block status codes information. Contains list of all configured and/or available next status codes for a particular status code.
  * @export
@@ -17,17 +17,17 @@ import type { NextBlockStatusCodeInfoListType } from './NextBlockStatusCodeInfoL
  */
 export interface NextBlockStatusCodeType {
     /**
-     *
-     * @type {NextBlockStatusCodeInfoListType}
+     * List of all configured next status codes for the main status code.
+     * @type {Array<NextBlockStatusCodeInfoType>}
      * @memberof NextBlockStatusCodeType
      */
-    nextAvailableStatusList?: NextBlockStatusCodeInfoListType;
+    nextAvailableStatusList?: Array<NextBlockStatusCodeInfoType>;
     /**
-     *
-     * @type {NextBlockStatusCodeInfoListType}
+     * List of all configured next status codes for the main status code.
+     * @type {Array<NextBlockStatusCodeInfoType>}
      * @memberof NextBlockStatusCodeType
      */
-    nextConfiguredStatusList?: NextBlockStatusCodeInfoListType;
+    nextConfiguredStatusList?: Array<NextBlockStatusCodeInfoType>;
     /**
      * Main block status code.
      * @type {string}

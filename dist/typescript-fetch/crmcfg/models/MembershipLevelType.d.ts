@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ColorType } from './ColorType';
-import type { HotelFolioTextsType } from './HotelFolioTextsType';
+import type { HotelFolioTextType } from './HotelFolioTextType';
 /**
  * A Type that holds key values, that uniquely identifies a membership level
  * @export
@@ -60,11 +60,11 @@ export interface MembershipLevelType {
      */
     feeRequired?: boolean;
     /**
-     *
-     * @type {HotelFolioTextsType}
+     * Collection of hotel folio texts
+     * @type {Array<HotelFolioTextType>}
      * @memberof MembershipLevelType
      */
-    folioTexts?: HotelFolioTextsType;
+    folioTexts?: Array<HotelFolioTextType>;
     /**
      * Indicates whether memberships upgraded or downgraded to or from this level will be included in the Membership Export.
      * @type {boolean}

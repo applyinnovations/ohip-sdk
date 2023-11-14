@@ -17,14 +17,13 @@ exports.ARPaymentCriteriaToJSON = exports.ARPaymentCriteriaFromJSONTyped = expor
 const runtime_1 = require("../runtime");
 const ARAccountCriteriaType_1 = require("./ARAccountCriteriaType");
 const ARApplyType_1 = require("./ARApplyType");
-const ARPaymentInvoicesType_1 = require("./ARPaymentInvoicesType");
+const ARPaymentInvoicesTypeInner_1 = require("./ARPaymentInvoicesTypeInner");
 const CashieringPaymentMethodType_1 = require("./CashieringPaymentMethodType");
-const CompRedemptionsType_1 = require("./CompRedemptionsType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const PaymentTaxType_1 = require("./PaymentTaxType");
-const PaymentTaxesType_1 = require("./PaymentTaxesType");
 const PostPaymentActionType_1 = require("./PostPaymentActionType");
-const PrepaidCardRedemptionsType_1 = require("./PrepaidCardRedemptionsType");
+const PrepaidCardRedemptionType_1 = require("./PrepaidCardRedemptionType");
+const RedemptionType_1 = require("./RedemptionType");
 /**
  * Check if a given object implements the ARPaymentCriteria interface.
  */
@@ -50,11 +49,11 @@ function ARPaymentCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
         'changeDueAmount': !(0, runtime_1.exists)(json, 'changeDueAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['changeDueAmount']),
         'comments': !(0, runtime_1.exists)(json, 'comments') ? undefined : json['comments'],
-        'compRedemptions': !(0, runtime_1.exists)(json, 'compRedemptions') ? undefined : (0, CompRedemptionsType_1.CompRedemptionsTypeFromJSON)(json['compRedemptions']),
-        'creditablePaymentTaxes': !(0, runtime_1.exists)(json, 'creditablePaymentTaxes') ? undefined : (0, PaymentTaxesType_1.PaymentTaxesTypeFromJSON)(json['creditablePaymentTaxes']),
+        'compRedemptions': !(0, runtime_1.exists)(json, 'compRedemptions') ? undefined : (json['compRedemptions'].map(RedemptionType_1.RedemptionTypeFromJSON)),
+        'creditablePaymentTaxes': !(0, runtime_1.exists)(json, 'creditablePaymentTaxes') ? undefined : (json['creditablePaymentTaxes'].map(PaymentTaxType_1.PaymentTaxTypeFromJSON)),
         'folioWindowNo': !(0, runtime_1.exists)(json, 'folioWindowNo') ? undefined : json['folioWindowNo'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'invoices': !(0, runtime_1.exists)(json, 'invoices') ? undefined : (0, ARPaymentInvoicesType_1.ARPaymentInvoicesTypeFromJSON)(json['invoices']),
+        'invoices': !(0, runtime_1.exists)(json, 'invoices') ? undefined : (json['invoices'].map(ARPaymentInvoicesTypeInner_1.ARPaymentInvoicesTypeInnerFromJSON)),
         'manualPaymentTaxInfo': !(0, runtime_1.exists)(json, 'manualPaymentTaxInfo') ? undefined : (0, PaymentTaxType_1.PaymentTaxTypeFromJSON)(json['manualPaymentTaxInfo']),
         'overrideARCreditLimit': !(0, runtime_1.exists)(json, 'overrideARCreditLimit') ? undefined : json['overrideARCreditLimit'],
         'overrideInsufficientCC': !(0, runtime_1.exists)(json, 'overrideInsufficientCC') ? undefined : json['overrideInsufficientCC'],
@@ -62,7 +61,7 @@ function ARPaymentCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         'postingAmount': !(0, runtime_1.exists)(json, 'postingAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['postingAmount']),
         'postingReference': !(0, runtime_1.exists)(json, 'postingReference') ? undefined : json['postingReference'],
         'postingRemark': !(0, runtime_1.exists)(json, 'postingRemark') ? undefined : json['postingRemark'],
-        'prepaidCardRedemptions': !(0, runtime_1.exists)(json, 'prepaidCardRedemptions') ? undefined : (0, PrepaidCardRedemptionsType_1.PrepaidCardRedemptionsTypeFromJSON)(json['prepaidCardRedemptions']),
+        'prepaidCardRedemptions': !(0, runtime_1.exists)(json, 'prepaidCardRedemptions') ? undefined : (json['prepaidCardRedemptions'].map(PrepaidCardRedemptionType_1.PrepaidCardRedemptionTypeFromJSON)),
         'sequenceNo': !(0, runtime_1.exists)(json, 'sequenceNo') ? undefined : json['sequenceNo'],
         'terminalId': !(0, runtime_1.exists)(json, 'terminalId') ? undefined : json['terminalId'],
         'vATOffset': !(0, runtime_1.exists)(json, 'vATOffset') ? undefined : json['vATOffset'],
@@ -85,11 +84,11 @@ function ARPaymentCriteriaToJSON(value) {
         'cashierId': value.cashierId,
         'changeDueAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.changeDueAmount),
         'comments': value.comments,
-        'compRedemptions': (0, CompRedemptionsType_1.CompRedemptionsTypeToJSON)(value.compRedemptions),
-        'creditablePaymentTaxes': (0, PaymentTaxesType_1.PaymentTaxesTypeToJSON)(value.creditablePaymentTaxes),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : (value.compRedemptions.map(RedemptionType_1.RedemptionTypeToJSON)),
+        'creditablePaymentTaxes': value.creditablePaymentTaxes === undefined ? undefined : (value.creditablePaymentTaxes.map(PaymentTaxType_1.PaymentTaxTypeToJSON)),
         'folioWindowNo': value.folioWindowNo,
         'hotelId': value.hotelId,
-        'invoices': (0, ARPaymentInvoicesType_1.ARPaymentInvoicesTypeToJSON)(value.invoices),
+        'invoices': value.invoices === undefined ? undefined : (value.invoices.map(ARPaymentInvoicesTypeInner_1.ARPaymentInvoicesTypeInnerToJSON)),
         'manualPaymentTaxInfo': (0, PaymentTaxType_1.PaymentTaxTypeToJSON)(value.manualPaymentTaxInfo),
         'overrideARCreditLimit': value.overrideARCreditLimit,
         'overrideInsufficientCC': value.overrideInsufficientCC,
@@ -97,7 +96,7 @@ function ARPaymentCriteriaToJSON(value) {
         'postingAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.postingAmount),
         'postingReference': value.postingReference,
         'postingRemark': value.postingRemark,
-        'prepaidCardRedemptions': (0, PrepaidCardRedemptionsType_1.PrepaidCardRedemptionsTypeToJSON)(value.prepaidCardRedemptions),
+        'prepaidCardRedemptions': value.prepaidCardRedemptions === undefined ? undefined : (value.prepaidCardRedemptions.map(PrepaidCardRedemptionType_1.PrepaidCardRedemptionTypeToJSON)),
         'sequenceNo': value.sequenceNo,
         'terminalId': value.terminalId,
         'vATOffset': value.vATOffset,

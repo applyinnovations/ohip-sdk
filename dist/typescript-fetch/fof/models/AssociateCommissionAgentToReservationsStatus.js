@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AssociateCommissionAgentToReservationsStatusToJSON = exports.AssociateCommissionAgentToReservationsStatusFromJSONTyped = exports.AssociateCommissionAgentToReservationsStatusFromJSON = exports.instanceOfAssociateCommissionAgentToReservationsStatus = void 0;
 const runtime_1 = require("../runtime");
-const CommissionReservationFailuresType_1 = require("./CommissionReservationFailuresType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CommissionReservationFailureType_1 = require("./CommissionReservationFailureType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AssociateCommissionAgentToReservationsStatus interface.
  */
@@ -35,9 +35,9 @@ function AssociateCommissionAgentToReservationsStatusFromJSONTyped(json, ignoreD
         return json;
     }
     return {
-        'commissionReservationFailures': !(0, runtime_1.exists)(json, 'commissionReservationFailures') ? undefined : (0, CommissionReservationFailuresType_1.CommissionReservationFailuresTypeFromJSON)(json['commissionReservationFailures']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'commissionReservationFailures': !(0, runtime_1.exists)(json, 'commissionReservationFailures') ? undefined : (json['commissionReservationFailures'].map(CommissionReservationFailureType_1.CommissionReservationFailureTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AssociateCommissionAgentToReservationsStatusFromJSONTyped = AssociateCommissionAgentToReservationsStatusFromJSONTyped;
@@ -49,9 +49,9 @@ function AssociateCommissionAgentToReservationsStatusToJSON(value) {
         return null;
     }
     return {
-        'commissionReservationFailures': (0, CommissionReservationFailuresType_1.CommissionReservationFailuresTypeToJSON)(value.commissionReservationFailures),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'commissionReservationFailures': value.commissionReservationFailures === undefined ? undefined : (value.commissionReservationFailures.map(CommissionReservationFailureType_1.CommissionReservationFailureTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AssociateCommissionAgentToReservationsStatusToJSON = AssociateCommissionAgentToReservationsStatusToJSON;

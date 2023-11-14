@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CityPostalCodesType } from './CityPostalCodesType';
+import type { CityPostalCodeType } from './CityPostalCodeType';
 import {
-    CityPostalCodesTypeFromJSON,
-    CityPostalCodesTypeFromJSONTyped,
-    CityPostalCodesTypeToJSON,
-} from './CityPostalCodesType';
-import type { Links } from './Links';
+    CityPostalCodeTypeFromJSON,
+    CityPostalCodeTypeFromJSONTyped,
+    CityPostalCodeTypeToJSON,
+} from './CityPostalCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { MasterInfoType } from './MasterInfoType';
 import {
     MasterInfoTypeFromJSON,
     MasterInfoTypeFromJSONTyped,
     MasterInfoTypeToJSON,
 } from './MasterInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching city and postal codes.
@@ -45,11 +45,11 @@ import {
  */
 export interface CityPostalCodesDetails {
     /**
-     * 
-     * @type {CityPostalCodesType}
+     * Lists of City and Postal Codes.
+     * @type {Array<CityPostalCodeType>}
      * @memberof CityPostalCodesDetails
      */
-    cityPostalCodes?: CityPostalCodesType;
+    cityPostalCodes?: Array<CityPostalCodeType>;
     /**
      * Total number of rows returned
      * @type {number}
@@ -70,10 +70,10 @@ export interface CityPostalCodesDetails {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CityPostalCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Refer to Generic common types document.
      * @type {Array<MasterInfoType>}
@@ -99,11 +99,11 @@ export interface CityPostalCodesDetails {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CityPostalCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -125,16 +125,16 @@ export function CityPostalCodesDetailsFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'cityPostalCodes': !exists(json, 'cityPostalCodes') ? undefined : CityPostalCodesTypeFromJSON(json['cityPostalCodes']),
+        'cityPostalCodes': !exists(json, 'cityPostalCodes') ? undefined : ((json['cityPostalCodes'] as Array<any>).map(CityPostalCodeTypeFromJSON)),
         'count': !exists(json, 'count') ? undefined : json['count'],
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'masterInfoList': !exists(json, 'masterInfoList') ? undefined : ((json['masterInfoList'] as Array<any>).map(MasterInfoTypeFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -147,16 +147,16 @@ export function CityPostalCodesDetailsToJSON(value?: CityPostalCodesDetails | nu
     }
     return {
         
-        'cityPostalCodes': CityPostalCodesTypeToJSON(value.cityPostalCodes),
+        'cityPostalCodes': value.cityPostalCodes === undefined ? undefined : ((value.cityPostalCodes as Array<any>).map(CityPostalCodeTypeToJSON)),
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'masterInfoList': value.masterInfoList === undefined ? undefined : ((value.masterInfoList as Array<any>).map(MasterInfoTypeToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

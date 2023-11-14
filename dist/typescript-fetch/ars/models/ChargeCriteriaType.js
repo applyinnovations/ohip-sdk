@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChargeCriteriaTypeToJSON = exports.ChargeCriteriaTypeFromJSONTyped = exports.ChargeCriteriaTypeFromJSON = exports.instanceOfChargeCriteriaType = void 0;
 const runtime_1 = require("../runtime");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ChargeCriteriaType interface.
  */
@@ -40,7 +40,7 @@ function ChargeCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         'autoPosting': !(0, runtime_1.exists)(json, 'autoPosting') ? undefined : json['autoPosting'],
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
         'checkNumber': !(0, runtime_1.exists)(json, 'checkNumber') ? undefined : json['checkNumber'],
-        'financialTransactionIdList': !(0, runtime_1.exists)(json, 'financialTransactionIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['financialTransactionIdList']),
+        'financialTransactionIdList': !(0, runtime_1.exists)(json, 'financialTransactionIdList') ? undefined : (json['financialTransactionIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'folioWindowNo': !(0, runtime_1.exists)(json, 'folioWindowNo') ? undefined : json['folioWindowNo'],
         'postingQuantity': !(0, runtime_1.exists)(json, 'postingQuantity') ? undefined : json['postingQuantity'],
         'postingReference': !(0, runtime_1.exists)(json, 'postingReference') ? undefined : json['postingReference'],
@@ -65,7 +65,7 @@ function ChargeCriteriaTypeToJSON(value) {
         'autoPosting': value.autoPosting,
         'cashierId': value.cashierId,
         'checkNumber': value.checkNumber,
-        'financialTransactionIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.financialTransactionIdList),
+        'financialTransactionIdList': value.financialTransactionIdList === undefined ? undefined : (value.financialTransactionIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'folioWindowNo': value.folioWindowNo,
         'postingQuantity': value.postingQuantity,
         'postingReference': value.postingReference,

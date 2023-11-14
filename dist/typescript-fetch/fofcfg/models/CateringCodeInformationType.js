@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringCodeInformationTypeToJSON = exports.CateringCodeInformationTypeFromJSONTyped = exports.CateringCodeInformationTypeFromJSON = exports.instanceOfCateringCodeInformationType = void 0;
 const runtime_1 = require("../runtime");
 const CateringInfoType_1 = require("./CateringInfoType");
-const CateringVarianceInfoType_1 = require("./CateringVarianceInfoType");
+const MonthlyCateringVarianceInfoType_1 = require("./MonthlyCateringVarianceInfoType");
 /**
  * Check if a given object implements the CateringCodeInformationType interface.
  */
@@ -34,14 +34,14 @@ function CateringCodeInformationTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'aBVarianceInfo': !(0, runtime_1.exists)(json, 'aBVarianceInfo') ? undefined : (0, CateringVarianceInfoType_1.CateringVarianceInfoTypeFromJSON)(json['aBVarianceInfo']),
-        'aFVarianceInfo': !(0, runtime_1.exists)(json, 'aFVarianceInfo') ? undefined : (0, CateringVarianceInfoType_1.CateringVarianceInfoTypeFromJSON)(json['aFVarianceInfo']),
+        'aBVarianceInfo': !(0, runtime_1.exists)(json, 'aBVarianceInfo') ? undefined : (json['aBVarianceInfo'].map(MonthlyCateringVarianceInfoType_1.MonthlyCateringVarianceInfoTypeFromJSON)),
+        'aFVarianceInfo': !(0, runtime_1.exists)(json, 'aFVarianceInfo') ? undefined : (json['aFVarianceInfo'].map(MonthlyCateringVarianceInfoType_1.MonthlyCateringVarianceInfoTypeFromJSON)),
         'actualInfo': !(0, runtime_1.exists)(json, 'actualInfo') ? undefined : (0, CateringInfoType_1.CateringInfoTypeFromJSON)(json['actualInfo']),
         'budgetInfo': !(0, runtime_1.exists)(json, 'budgetInfo') ? undefined : (0, CateringInfoType_1.CateringInfoTypeFromJSON)(json['budgetInfo']),
         'cateringCode': !(0, runtime_1.exists)(json, 'cateringCode') ? undefined : json['cateringCode'],
         'cateringCodeDescription': !(0, runtime_1.exists)(json, 'cateringCodeDescription') ? undefined : json['cateringCodeDescription'],
         'cateringCodeGrp': !(0, runtime_1.exists)(json, 'cateringCodeGrp') ? undefined : json['cateringCodeGrp'],
-        'fBVarianceInfo': !(0, runtime_1.exists)(json, 'fBVarianceInfo') ? undefined : (0, CateringVarianceInfoType_1.CateringVarianceInfoTypeFromJSON)(json['fBVarianceInfo']),
+        'fBVarianceInfo': !(0, runtime_1.exists)(json, 'fBVarianceInfo') ? undefined : (json['fBVarianceInfo'].map(MonthlyCateringVarianceInfoType_1.MonthlyCateringVarianceInfoTypeFromJSON)),
         'forecastInfo': !(0, runtime_1.exists)(json, 'forecastInfo') ? undefined : (0, CateringInfoType_1.CateringInfoTypeFromJSON)(json['forecastInfo']),
     };
 }
@@ -54,14 +54,14 @@ function CateringCodeInformationTypeToJSON(value) {
         return null;
     }
     return {
-        'aBVarianceInfo': (0, CateringVarianceInfoType_1.CateringVarianceInfoTypeToJSON)(value.aBVarianceInfo),
-        'aFVarianceInfo': (0, CateringVarianceInfoType_1.CateringVarianceInfoTypeToJSON)(value.aFVarianceInfo),
+        'aBVarianceInfo': value.aBVarianceInfo === undefined ? undefined : (value.aBVarianceInfo.map(MonthlyCateringVarianceInfoType_1.MonthlyCateringVarianceInfoTypeToJSON)),
+        'aFVarianceInfo': value.aFVarianceInfo === undefined ? undefined : (value.aFVarianceInfo.map(MonthlyCateringVarianceInfoType_1.MonthlyCateringVarianceInfoTypeToJSON)),
         'actualInfo': (0, CateringInfoType_1.CateringInfoTypeToJSON)(value.actualInfo),
         'budgetInfo': (0, CateringInfoType_1.CateringInfoTypeToJSON)(value.budgetInfo),
         'cateringCode': value.cateringCode,
         'cateringCodeDescription': value.cateringCodeDescription,
         'cateringCodeGrp': value.cateringCodeGrp,
-        'fBVarianceInfo': (0, CateringVarianceInfoType_1.CateringVarianceInfoTypeToJSON)(value.fBVarianceInfo),
+        'fBVarianceInfo': value.fBVarianceInfo === undefined ? undefined : (value.fBVarianceInfo.map(MonthlyCateringVarianceInfoType_1.MonthlyCateringVarianceInfoTypeToJSON)),
         'forecastInfo': (0, CateringInfoType_1.CateringInfoTypeToJSON)(value.forecastInfo),
     };
 }

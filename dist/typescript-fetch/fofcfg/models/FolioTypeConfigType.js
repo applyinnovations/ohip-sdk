@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FolioTypeConfigTypeToJSON = exports.FolioTypeConfigTypeFromJSONTyped = exports.FolioTypeConfigTypeFromJSON = exports.instanceOfFolioTypeConfigType = void 0;
 const runtime_1 = require("../runtime");
-const FolioReportsType_1 = require("./FolioReportsType");
+const FolioReportType_1 = require("./FolioReportType");
 const FolioTypeProfileAttributes_1 = require("./FolioTypeProfileAttributes");
 /**
  * Check if a given object implements the FolioTypeConfigType interface.
@@ -48,7 +48,7 @@ function FolioTypeConfigTypeFromJSONTyped(json, ignoreDiscriminator) {
         'depositFolio': !(0, runtime_1.exists)(json, 'depositFolio') ? undefined : json['depositFolio'],
         'documentCode': !(0, runtime_1.exists)(json, 'documentCode') ? undefined : json['documentCode'],
         'fiscalFolio': !(0, runtime_1.exists)(json, 'fiscalFolio') ? undefined : json['fiscalFolio'],
-        'folioReports': !(0, runtime_1.exists)(json, 'folioReports') ? undefined : (0, FolioReportsType_1.FolioReportsTypeFromJSON)(json['folioReports']),
+        'folioReports': !(0, runtime_1.exists)(json, 'folioReports') ? undefined : (json['folioReports'].map(FolioReportType_1.FolioReportTypeFromJSON)),
         'folioUsed': !(0, runtime_1.exists)(json, 'folioUsed') ? undefined : json['folioUsed'],
         'guestClassification': !(0, runtime_1.exists)(json, 'guestClassification') ? undefined : json['guestClassification'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
@@ -90,7 +90,7 @@ function FolioTypeConfigTypeToJSON(value) {
         'depositFolio': value.depositFolio,
         'documentCode': value.documentCode,
         'fiscalFolio': value.fiscalFolio,
-        'folioReports': (0, FolioReportsType_1.FolioReportsTypeToJSON)(value.folioReports),
+        'folioReports': value.folioReports === undefined ? undefined : (value.folioReports.map(FolioReportType_1.FolioReportTypeToJSON)),
         'folioUsed': value.folioUsed,
         'guestClassification': value.guestClassification,
         'hotelId': value.hotelId,

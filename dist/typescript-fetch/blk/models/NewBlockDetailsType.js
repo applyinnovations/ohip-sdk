@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NewBlockDetailsTypeToJSON = exports.NewBlockDetailsTypeFromJSONTyped = exports.NewBlockDetailsTypeFromJSON = exports.instanceOfNewBlockDetailsType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const DateRangeType_1 = require("./DateRangeType");
 /**
  * Check if a given object implements the NewBlockDetailsType interface.
@@ -40,7 +39,7 @@ function NewBlockDetailsTypeFromJSONTyped(json, ignoreDiscriminator) {
         'blockOrigin': !(0, runtime_1.exists)(json, 'blockOrigin') ? undefined : json['blockOrigin'],
         'blockStatus': !(0, runtime_1.exists)(json, 'blockStatus') ? undefined : json['blockStatus'],
         'cateringStatus': !(0, runtime_1.exists)(json, 'cateringStatus') ? undefined : json['cateringStatus'],
-        'gridCategory': !(0, runtime_1.exists)(json, 'gridCategory') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['gridCategory']),
+        'gridCategory': !(0, runtime_1.exists)(json, 'gridCategory') ? undefined : json['gridCategory'],
         'gridType': !(0, runtime_1.exists)(json, 'gridType') ? undefined : json['gridType'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'marketCode': !(0, runtime_1.exists)(json, 'marketCode') ? undefined : json['marketCode'],
@@ -65,7 +64,7 @@ function NewBlockDetailsTypeToJSON(value) {
         'blockOrigin': value.blockOrigin,
         'blockStatus': value.blockStatus,
         'cateringStatus': value.cateringStatus,
-        'gridCategory': (0, CodeListType_1.CodeListTypeToJSON)(value.gridCategory),
+        'gridCategory': value.gridCategory,
         'gridType': value.gridType,
         'hotelId': value.hotelId,
         'marketCode': value.marketCode,

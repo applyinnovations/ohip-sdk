@@ -13,19 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-import type { CodeListType10 } from './CodeListType10';
-import {
-    CodeListType10FromJSON,
-    CodeListType10FromJSONTyped,
-    CodeListType10ToJSON,
-} from './CodeListType10';
-
 /**
  * The hotel code where the activity type was created.
  * @export
@@ -34,10 +21,10 @@ import {
 export interface CopyActivityConfigCriteriaTypeCopyActivityConfig {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyActivityConfigCriteriaTypeCopyActivityConfig
      */
-    activityCodeList?: CodeListType;
+    activityCodeList?: Array<string>;
     /**
      * The hotel code where the activity type was created.
      * @type {string}
@@ -46,10 +33,10 @@ export interface CopyActivityConfigCriteriaTypeCopyActivityConfig {
     sourceHotelCode?: string;
     /**
      * 
-     * @type {CodeListType10}
+     * @type {Array<string>}
      * @memberof CopyActivityConfigCriteriaTypeCopyActivityConfig
      */
-    targetHotelCode?: CodeListType10;
+    targetHotelCode?: Array<string>;
 }
 
 /**
@@ -71,9 +58,9 @@ export function CopyActivityConfigCriteriaTypeCopyActivityConfigFromJSONTyped(js
     }
     return {
         
-        'activityCodeList': !exists(json, 'activityCodeList') ? undefined : CodeListTypeFromJSON(json['activityCodeList']),
+        'activityCodeList': !exists(json, 'activityCodeList') ? undefined : json['activityCodeList'],
         'sourceHotelCode': !exists(json, 'sourceHotelCode') ? undefined : json['sourceHotelCode'],
-        'targetHotelCode': !exists(json, 'targetHotelCode') ? undefined : CodeListType10FromJSON(json['targetHotelCode']),
+        'targetHotelCode': !exists(json, 'targetHotelCode') ? undefined : json['targetHotelCode'],
     };
 }
 
@@ -86,9 +73,9 @@ export function CopyActivityConfigCriteriaTypeCopyActivityConfigToJSON(value?: C
     }
     return {
         
-        'activityCodeList': CodeListTypeToJSON(value.activityCodeList),
+        'activityCodeList': value.activityCodeList,
         'sourceHotelCode': value.sourceHotelCode,
-        'targetHotelCode': CodeListType10ToJSON(value.targetHotelCode),
+        'targetHotelCode': value.targetHotelCode,
     };
 }
 

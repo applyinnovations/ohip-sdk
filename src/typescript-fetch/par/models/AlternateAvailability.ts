@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AlternateAvailDatesType } from './AlternateAvailDatesType';
+import type { AlternateAvailDateType } from './AlternateAvailDateType';
 import {
-    AlternateAvailDatesTypeFromJSON,
-    AlternateAvailDatesTypeFromJSONTyped,
-    AlternateAvailDatesTypeToJSON,
-} from './AlternateAvailDatesType';
-import type { Links } from './Links';
+    AlternateAvailDateTypeFromJSON,
+    AlternateAvailDateTypeFromJSONTyped,
+    AlternateAvailDateTypeToJSON,
+} from './AlternateAvailDateType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetch alternate availability operation
@@ -39,23 +39,23 @@ import {
  */
 export interface AlternateAvailability {
     /**
-     * 
-     * @type {AlternateAvailDatesType}
+     * List of alternate dates.
+     * @type {Array<AlternateAvailDateType>}
      * @memberof AlternateAvailability
      */
-    alternates?: AlternateAvailDatesType;
+    alternates?: Array<AlternateAvailDateType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AlternateAvailability
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AlternateAvailability
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function AlternateAvailabilityFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'alternates': !exists(json, 'alternates') ? undefined : AlternateAvailDatesTypeFromJSON(json['alternates']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'alternates': !exists(json, 'alternates') ? undefined : ((json['alternates'] as Array<any>).map(AlternateAvailDateTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function AlternateAvailabilityToJSON(value?: AlternateAvailability | null
     }
     return {
         
-        'alternates': AlternateAvailDatesTypeToJSON(value.alternates),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'alternates': value.alternates === undefined ? undefined : ((value.alternates as Array<any>).map(AlternateAvailDateTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

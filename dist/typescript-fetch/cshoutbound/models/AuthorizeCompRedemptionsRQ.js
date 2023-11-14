@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthorizeCompRedemptionsRQToJSON = exports.AuthorizeCompRedemptionsRQFromJSONTyped = exports.AuthorizeCompRedemptionsRQFromJSON = exports.instanceOfAuthorizeCompRedemptionsRQ = void 0;
 const runtime_1 = require("../runtime");
-const AuthorizeCompRedemptionsRQCompRedemptionsType_1 = require("./AuthorizeCompRedemptionsRQCompRedemptionsType");
+const AuthorizeCompRedemptionsRQCompRedemptionType_1 = require("./AuthorizeCompRedemptionsRQCompRedemptionType");
 /**
  * Check if a given object implements the AuthorizeCompRedemptionsRQ interface.
  */
@@ -33,7 +33,7 @@ function AuthorizeCompRedemptionsRQFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'compRedemptions': !(0, runtime_1.exists)(json, 'compRedemptions') ? undefined : (0, AuthorizeCompRedemptionsRQCompRedemptionsType_1.AuthorizeCompRedemptionsRQCompRedemptionsTypeFromJSON)(json['compRedemptions']),
+        'compRedemptions': !(0, runtime_1.exists)(json, 'compRedemptions') ? undefined : (json['compRedemptions'].map(AuthorizeCompRedemptionsRQCompRedemptionType_1.AuthorizeCompRedemptionsRQCompRedemptionTypeFromJSON)),
     };
 }
 exports.AuthorizeCompRedemptionsRQFromJSONTyped = AuthorizeCompRedemptionsRQFromJSONTyped;
@@ -45,7 +45,7 @@ function AuthorizeCompRedemptionsRQToJSON(value) {
         return null;
     }
     return {
-        'compRedemptions': (0, AuthorizeCompRedemptionsRQCompRedemptionsType_1.AuthorizeCompRedemptionsRQCompRedemptionsTypeToJSON)(value.compRedemptions),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : (value.compRedemptions.map(AuthorizeCompRedemptionsRQCompRedemptionType_1.AuthorizeCompRedemptionsRQCompRedemptionTypeToJSON)),
     };
 }
 exports.AuthorizeCompRedemptionsRQToJSON = AuthorizeCompRedemptionsRQToJSON;

@@ -25,12 +25,12 @@ import {
     HousekeepingRoomStatusTypeFromJSONTyped,
     HousekeepingRoomStatusTypeToJSON,
 } from './HousekeepingRoomStatusType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { RoomInformationType } from './RoomInformationType';
 import {
     RoomInformationTypeFromJSON,
@@ -43,12 +43,12 @@ import {
     TurndownStatusTypeFromJSONTyped,
     TurndownStatusTypeToJSON,
 } from './TurndownStatusType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -70,10 +70,10 @@ export interface HousekeepingRoomStatusCriteria {
     housekeepingStatus?: FrontOfficeRoomStatusType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HousekeepingRoomStatusCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Collection of room numbers for which the status is to be updated.
      * @type {Array<RoomInformationType>}
@@ -87,11 +87,11 @@ export interface HousekeepingRoomStatusCriteria {
      */
     turndownStatus?: TurndownStatusType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HousekeepingRoomStatusCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -115,10 +115,10 @@ export function HousekeepingRoomStatusCriteriaFromJSONTyped(json: any, ignoreDis
         
         'housekeepingRoomStatus': !exists(json, 'housekeepingRoomStatus') ? undefined : HousekeepingRoomStatusTypeFromJSON(json['housekeepingRoomStatus']),
         'housekeepingStatus': !exists(json, 'housekeepingStatus') ? undefined : FrontOfficeRoomStatusTypeFromJSON(json['housekeepingStatus']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'roomList': !exists(json, 'roomList') ? undefined : ((json['roomList'] as Array<any>).map(RoomInformationTypeFromJSON)),
         'turndownStatus': !exists(json, 'turndownStatus') ? undefined : TurndownStatusTypeFromJSON(json['turndownStatus']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -133,10 +133,10 @@ export function HousekeepingRoomStatusCriteriaToJSON(value?: HousekeepingRoomSta
         
         'housekeepingRoomStatus': HousekeepingRoomStatusTypeToJSON(value.housekeepingRoomStatus),
         'housekeepingStatus': FrontOfficeRoomStatusTypeToJSON(value.housekeepingStatus),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'roomList': value.roomList === undefined ? undefined : ((value.roomList as Array<any>).map(RoomInformationTypeToJSON)),
         'turndownStatus': TurndownStatusTypeToJSON(value.turndownStatus),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

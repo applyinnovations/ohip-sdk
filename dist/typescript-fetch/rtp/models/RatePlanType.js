@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RatePlanTypeToJSON = exports.RatePlanTypeFromJSONTyped = exports.RatePlanTypeFromJSON = exports.instanceOfRatePlanType = void 0;
 const runtime_1 = require("../runtime");
-const IndicatorsType_1 = require("./IndicatorsType");
+const IndicatorType_1 = require("./IndicatorType");
 const RateAccessExclusionType_1 = require("./RateAccessExclusionType");
 const RatePackagesType_1 = require("./RatePackagesType");
-const RatePlanBasedOnRatesType_1 = require("./RatePlanBasedOnRatesType");
+const RatePlanBasedOnRateType_1 = require("./RatePlanBasedOnRateType");
 const RatePlanClassificationsType_1 = require("./RatePlanClassificationsType");
 const RatePlanCommissionType_1 = require("./RatePlanCommissionType");
 const RatePlanControlsType_1 = require("./RatePlanControlsType");
@@ -26,13 +26,13 @@ const RatePlanDepositType_1 = require("./RatePlanDepositType");
 const RatePlanDescriptionsType_1 = require("./RatePlanDescriptionsType");
 const RatePlanDistributionType_1 = require("./RatePlanDistributionType");
 const RatePlanExternalAttributesType_1 = require("./RatePlanExternalAttributesType");
-const RatePlanNotesType_1 = require("./RatePlanNotesType");
+const RatePlanNoteType_1 = require("./RatePlanNoteType");
 const RatePlanPrimaryDetailsType_1 = require("./RatePlanPrimaryDetailsType");
 const RatePlanRoutingInstructionsType_1 = require("./RatePlanRoutingInstructionsType");
 const RatePlanScheduleInfoType_1 = require("./RatePlanScheduleInfoType");
 const RatePlanTransactionDetailsType_1 = require("./RatePlanTransactionDetailsType");
 const RatePlanTypeNegotiatedRates_1 = require("./RatePlanTypeNegotiatedRates");
-const RateRoomTypeListType_1 = require("./RateRoomTypeListType");
+const RateRoomTypeDetailType_1 = require("./RateRoomTypeDetailType");
 /**
  * Check if a given object implements the RatePlanType interface.
  */
@@ -53,7 +53,7 @@ function RatePlanTypeFromJSONTyped(json, ignoreDiscriminator) {
         'accessExclusions': !(0, runtime_1.exists)(json, 'accessExclusions') ? undefined : (json['accessExclusions'].map(RateAccessExclusionType_1.RateAccessExclusionTypeFromJSON)),
         'advancedDailyBase': !(0, runtime_1.exists)(json, 'advancedDailyBase') ? undefined : json['advancedDailyBase'],
         'advancedDailyRate': !(0, runtime_1.exists)(json, 'advancedDailyRate') ? undefined : json['advancedDailyRate'],
-        'approvalNotes': !(0, runtime_1.exists)(json, 'approvalNotes') ? undefined : (0, RatePlanNotesType_1.RatePlanNotesTypeFromJSON)(json['approvalNotes']),
+        'approvalNotes': !(0, runtime_1.exists)(json, 'approvalNotes') ? undefined : (json['approvalNotes'].map(RatePlanNoteType_1.RatePlanNoteTypeFromJSON)),
         'bARRate': !(0, runtime_1.exists)(json, 'bARRate') ? undefined : json['bARRate'],
         'classifications': !(0, runtime_1.exists)(json, 'classifications') ? undefined : (0, RatePlanClassificationsType_1.RatePlanClassificationsTypeFromJSON)(json['classifications']),
         'complimentary': !(0, runtime_1.exists)(json, 'complimentary') ? undefined : json['complimentary'],
@@ -85,12 +85,12 @@ function RatePlanTypeFromJSONTyped(json, ignoreDiscriminator) {
         'rateCommission': !(0, runtime_1.exists)(json, 'rateCommission') ? undefined : (0, RatePlanCommissionType_1.RatePlanCommissionTypeFromJSON)(json['rateCommission']),
         'rateDeposit': !(0, runtime_1.exists)(json, 'rateDeposit') ? undefined : (0, RatePlanDepositType_1.RatePlanDepositTypeFromJSON)(json['rateDeposit']),
         'ratePackages': !(0, runtime_1.exists)(json, 'ratePackages') ? undefined : (0, RatePackagesType_1.RatePackagesTypeFromJSON)(json['ratePackages']),
-        'ratePlanBasedOnRates': !(0, runtime_1.exists)(json, 'ratePlanBasedOnRates') ? undefined : (0, RatePlanBasedOnRatesType_1.RatePlanBasedOnRatesTypeFromJSON)(json['ratePlanBasedOnRates']),
+        'ratePlanBasedOnRates': !(0, runtime_1.exists)(json, 'ratePlanBasedOnRates') ? undefined : (json['ratePlanBasedOnRates'].map(RatePlanBasedOnRateType_1.RatePlanBasedOnRateTypeFromJSON)),
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
-        'ratePlanCodeIndicators': !(0, runtime_1.exists)(json, 'ratePlanCodeIndicators') ? undefined : (0, IndicatorsType_1.IndicatorsTypeFromJSON)(json['ratePlanCodeIndicators']),
+        'ratePlanCodeIndicators': !(0, runtime_1.exists)(json, 'ratePlanCodeIndicators') ? undefined : (json['ratePlanCodeIndicators'].map(IndicatorType_1.IndicatorTypeFromJSON)),
         'ratePlanScheduleInfo': !(0, runtime_1.exists)(json, 'ratePlanScheduleInfo') ? undefined : (0, RatePlanScheduleInfoType_1.RatePlanScheduleInfoTypeFromJSON)(json['ratePlanScheduleInfo']),
         'redemption': !(0, runtime_1.exists)(json, 'redemption') ? undefined : json['redemption'],
-        'roomTypeList': !(0, runtime_1.exists)(json, 'roomTypeList') ? undefined : (0, RateRoomTypeListType_1.RateRoomTypeListTypeFromJSON)(json['roomTypeList']),
+        'roomTypeList': !(0, runtime_1.exists)(json, 'roomTypeList') ? undefined : (json['roomTypeList'].map(RateRoomTypeDetailType_1.RateRoomTypeDetailTypeFromJSON)),
         'routingInstructions': !(0, runtime_1.exists)(json, 'routingInstructions') ? undefined : (0, RatePlanRoutingInstructionsType_1.RatePlanRoutingInstructionsTypeFromJSON)(json['routingInstructions']),
         'supressRate': !(0, runtime_1.exists)(json, 'supressRate') ? undefined : json['supressRate'],
         'tiered': !(0, runtime_1.exists)(json, 'tiered') ? undefined : json['tiered'],
@@ -109,7 +109,7 @@ function RatePlanTypeToJSON(value) {
         'accessExclusions': value.accessExclusions === undefined ? undefined : (value.accessExclusions.map(RateAccessExclusionType_1.RateAccessExclusionTypeToJSON)),
         'advancedDailyBase': value.advancedDailyBase,
         'advancedDailyRate': value.advancedDailyRate,
-        'approvalNotes': (0, RatePlanNotesType_1.RatePlanNotesTypeToJSON)(value.approvalNotes),
+        'approvalNotes': value.approvalNotes === undefined ? undefined : (value.approvalNotes.map(RatePlanNoteType_1.RatePlanNoteTypeToJSON)),
         'bARRate': value.bARRate,
         'classifications': (0, RatePlanClassificationsType_1.RatePlanClassificationsTypeToJSON)(value.classifications),
         'complimentary': value.complimentary,
@@ -141,12 +141,12 @@ function RatePlanTypeToJSON(value) {
         'rateCommission': (0, RatePlanCommissionType_1.RatePlanCommissionTypeToJSON)(value.rateCommission),
         'rateDeposit': (0, RatePlanDepositType_1.RatePlanDepositTypeToJSON)(value.rateDeposit),
         'ratePackages': (0, RatePackagesType_1.RatePackagesTypeToJSON)(value.ratePackages),
-        'ratePlanBasedOnRates': (0, RatePlanBasedOnRatesType_1.RatePlanBasedOnRatesTypeToJSON)(value.ratePlanBasedOnRates),
+        'ratePlanBasedOnRates': value.ratePlanBasedOnRates === undefined ? undefined : (value.ratePlanBasedOnRates.map(RatePlanBasedOnRateType_1.RatePlanBasedOnRateTypeToJSON)),
         'ratePlanCode': value.ratePlanCode,
-        'ratePlanCodeIndicators': (0, IndicatorsType_1.IndicatorsTypeToJSON)(value.ratePlanCodeIndicators),
+        'ratePlanCodeIndicators': value.ratePlanCodeIndicators === undefined ? undefined : (value.ratePlanCodeIndicators.map(IndicatorType_1.IndicatorTypeToJSON)),
         'ratePlanScheduleInfo': (0, RatePlanScheduleInfoType_1.RatePlanScheduleInfoTypeToJSON)(value.ratePlanScheduleInfo),
         'redemption': value.redemption,
-        'roomTypeList': (0, RateRoomTypeListType_1.RateRoomTypeListTypeToJSON)(value.roomTypeList),
+        'roomTypeList': value.roomTypeList === undefined ? undefined : (value.roomTypeList.map(RateRoomTypeDetailType_1.RateRoomTypeDetailTypeToJSON)),
         'routingInstructions': (0, RatePlanRoutingInstructionsType_1.RatePlanRoutingInstructionsTypeToJSON)(value.routingInstructions),
         'supressRate': value.supressRate,
         'tiered': value.tiered,

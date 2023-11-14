@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MassAdvanceCheckInCriteriaType } from './MassAdvanceCheckInCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to Submit Batch job for Mass Advance Check In of Reservations.
  * @export
@@ -26,16 +26,16 @@ export interface MassAdvanceCheckInReservations {
     criteria?: MassAdvanceCheckInCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MassAdvanceCheckInReservations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MassAdvanceCheckInReservations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MassAdvanceCheckInReservations interface.

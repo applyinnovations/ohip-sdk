@@ -37,12 +37,12 @@ import {
     ImageSetTypeFromJSONTyped,
     ImageSetTypeToJSON,
 } from './ImageSetType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import {
-    IndicatorsTypeFromJSON,
-    IndicatorsTypeFromJSONTyped,
-    IndicatorsTypeToJSON,
-} from './IndicatorsType';
+    IndicatorTypeFromJSON,
+    IndicatorTypeFromJSONTyped,
+    IndicatorTypeToJSON,
+} from './IndicatorType';
 import type { LastStayInfoType } from './LastStayInfoType';
 import {
     LastStayInfoTypeFromJSON,
@@ -195,11 +195,11 @@ export interface CompanyProfileType {
      */
     keywords?: ProfileTypeKeywords;
     /**
-     * 
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof CompanyProfileType
      */
-    profileIndicators?: IndicatorsType;
+    profileIndicators?: Array<IndicatorType>;
     /**
      * 
      * @type {LastStayInfoType}
@@ -352,7 +352,7 @@ export function CompanyProfileTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'profileMemberships': !exists(json, 'profileMemberships') ? undefined : ProfileTypeProfileMembershipsFromJSON(json['profileMemberships']),
         'preferenceCollection': !exists(json, 'preferenceCollection') ? undefined : ProfileTypePreferenceCollectionFromJSON(json['preferenceCollection']),
         'keywords': !exists(json, 'keywords') ? undefined : ProfileTypeKeywordsFromJSON(json['keywords']),
-        'profileIndicators': !exists(json, 'profileIndicators') ? undefined : IndicatorsTypeFromJSON(json['profileIndicators']),
+        'profileIndicators': !exists(json, 'profileIndicators') ? undefined : ((json['profileIndicators'] as Array<any>).map(IndicatorTypeFromJSON)),
         'lastStayInfo': !exists(json, 'lastStayInfo') ? undefined : LastStayInfoTypeFromJSON(json['lastStayInfo']),
         'profileAccessType': !exists(json, 'profileAccessType') ? undefined : ProfileAccessTypeFromJSON(json['profileAccessType']),
         'profileRestrictions': !exists(json, 'profileRestrictions') ? undefined : ProfileRestrictionsFromJSON(json['profileRestrictions']),
@@ -396,7 +396,7 @@ export function CompanyProfileTypeToJSON(value?: CompanyProfileType | null): any
         'profileMemberships': ProfileTypeProfileMembershipsToJSON(value.profileMemberships),
         'preferenceCollection': ProfileTypePreferenceCollectionToJSON(value.preferenceCollection),
         'keywords': ProfileTypeKeywordsToJSON(value.keywords),
-        'profileIndicators': IndicatorsTypeToJSON(value.profileIndicators),
+        'profileIndicators': value.profileIndicators === undefined ? undefined : ((value.profileIndicators as Array<any>).map(IndicatorTypeToJSON)),
         'lastStayInfo': LastStayInfoTypeToJSON(value.lastStayInfo),
         'profileAccessType': ProfileAccessTypeToJSON(value.profileAccessType),
         'profileRestrictions': ProfileRestrictionsToJSON(value.profileRestrictions),

@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { ActivityBlockInfoType } from './ActivityBlockInfoType';
+import {
+    ActivityBlockInfoTypeFromJSON,
+    ActivityBlockInfoTypeFromJSONTyped,
+    ActivityBlockInfoTypeToJSON,
+} from './ActivityBlockInfoType';
 import type { ActivityDetailsTypeLinkedAccounts } from './ActivityDetailsTypeLinkedAccounts';
 import {
     ActivityDetailsTypeLinkedAccountsFromJSON,
@@ -37,24 +43,18 @@ import {
     ActivityInfoTypeFromJSONTyped,
     ActivityInfoTypeToJSON,
 } from './ActivityInfoType';
-import type { AttachmentsType } from './AttachmentsType';
+import type { AttachmentType } from './AttachmentType';
 import {
-    AttachmentsTypeFromJSON,
-    AttachmentsTypeFromJSONTyped,
-    AttachmentsTypeToJSON,
-} from './AttachmentsType';
-import type { BlockListType } from './BlockListType';
+    AttachmentTypeFromJSON,
+    AttachmentTypeFromJSONTyped,
+    AttachmentTypeToJSON,
+} from './AttachmentType';
+import type { IndicatorType } from './IndicatorType';
 import {
-    BlockListTypeFromJSON,
-    BlockListTypeFromJSONTyped,
-    BlockListTypeToJSON,
-} from './BlockListType';
-import type { IndicatorsType } from './IndicatorsType';
-import {
-    IndicatorsTypeFromJSON,
-    IndicatorsTypeFromJSONTyped,
-    IndicatorsTypeToJSON,
-} from './IndicatorsType';
+    IndicatorTypeFromJSON,
+    IndicatorTypeFromJSONTyped,
+    IndicatorTypeToJSON,
+} from './IndicatorType';
 import type { LinkedActivityDetailsType } from './LinkedActivityDetailsType';
 import {
     LinkedActivityDetailsTypeFromJSON,
@@ -81,11 +81,11 @@ export interface ActivityDetailsType {
      */
     activityId?: ActivityId;
     /**
-     * 
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof ActivityDetailsType
      */
-    indicators?: IndicatorsType;
+    indicators?: Array<IndicatorType>;
     /**
      * 
      * @type {ActivityDetailsTypeLinkedAccounts}
@@ -99,17 +99,17 @@ export interface ActivityDetailsType {
      */
     linkedActivities?: Array<LinkedActivityDetailsType>;
     /**
-     * 
-     * @type {AttachmentsType}
+     * Attachment List.
+     * @type {Array<AttachmentType>}
      * @memberof ActivityDetailsType
      */
-    linkedAttachments?: AttachmentsType;
+    linkedAttachments?: Array<AttachmentType>;
     /**
-     * 
-     * @type {BlockListType}
+     * List of Blocks that are linked to the Activity.
+     * @type {Array<ActivityBlockInfoType>}
      * @memberof ActivityDetailsType
      */
-    linkedBlocks?: BlockListType;
+    linkedBlocks?: Array<ActivityBlockInfoType>;
     /**
      * 
      * @type {ActivityDetailsTypeLinkedContacts}
@@ -139,11 +139,11 @@ export function ActivityDetailsTypeFromJSONTyped(json: any, ignoreDiscriminator:
         
         'activityDetail': !exists(json, 'activityDetail') ? undefined : ActivityInfoTypeFromJSON(json['activityDetail']),
         'activityId': !exists(json, 'activityId') ? undefined : ActivityIdFromJSON(json['activityId']),
-        'indicators': !exists(json, 'indicators') ? undefined : IndicatorsTypeFromJSON(json['indicators']),
+        'indicators': !exists(json, 'indicators') ? undefined : ((json['indicators'] as Array<any>).map(IndicatorTypeFromJSON)),
         'linkedAccounts': !exists(json, 'linkedAccounts') ? undefined : ActivityDetailsTypeLinkedAccountsFromJSON(json['linkedAccounts']),
         'linkedActivities': !exists(json, 'linkedActivities') ? undefined : ((json['linkedActivities'] as Array<any>).map(LinkedActivityDetailsTypeFromJSON)),
-        'linkedAttachments': !exists(json, 'linkedAttachments') ? undefined : AttachmentsTypeFromJSON(json['linkedAttachments']),
-        'linkedBlocks': !exists(json, 'linkedBlocks') ? undefined : BlockListTypeFromJSON(json['linkedBlocks']),
+        'linkedAttachments': !exists(json, 'linkedAttachments') ? undefined : ((json['linkedAttachments'] as Array<any>).map(AttachmentTypeFromJSON)),
+        'linkedBlocks': !exists(json, 'linkedBlocks') ? undefined : ((json['linkedBlocks'] as Array<any>).map(ActivityBlockInfoTypeFromJSON)),
         'linkedContacts': !exists(json, 'linkedContacts') ? undefined : ActivityDetailsTypeLinkedContactsFromJSON(json['linkedContacts']),
     };
 }
@@ -159,11 +159,11 @@ export function ActivityDetailsTypeToJSON(value?: ActivityDetailsType | null): a
         
         'activityDetail': ActivityInfoTypeToJSON(value.activityDetail),
         'activityId': ActivityIdToJSON(value.activityId),
-        'indicators': IndicatorsTypeToJSON(value.indicators),
+        'indicators': value.indicators === undefined ? undefined : ((value.indicators as Array<any>).map(IndicatorTypeToJSON)),
         'linkedAccounts': ActivityDetailsTypeLinkedAccountsToJSON(value.linkedAccounts),
         'linkedActivities': value.linkedActivities === undefined ? undefined : ((value.linkedActivities as Array<any>).map(LinkedActivityDetailsTypeToJSON)),
-        'linkedAttachments': AttachmentsTypeToJSON(value.linkedAttachments),
-        'linkedBlocks': BlockListTypeToJSON(value.linkedBlocks),
+        'linkedAttachments': value.linkedAttachments === undefined ? undefined : ((value.linkedAttachments as Array<any>).map(AttachmentTypeToJSON)),
+        'linkedBlocks': value.linkedBlocks === undefined ? undefined : ((value.linkedBlocks as Array<any>).map(ActivityBlockInfoTypeToJSON)),
         'linkedContacts': ActivityDetailsTypeLinkedContactsToJSON(value.linkedContacts),
     };
 }

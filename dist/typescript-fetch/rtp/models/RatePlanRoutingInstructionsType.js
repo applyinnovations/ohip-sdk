@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RatePlanRoutingInstructionsTypeToJSON = exports.RatePlanRoutingInstructionsTypeFromJSONTyped = exports.RatePlanRoutingInstructionsTypeFromJSON = exports.instanceOfRatePlanRoutingInstructionsType = void 0;
 const runtime_1 = require("../runtime");
-const BillingInstructionsType_1 = require("./BillingInstructionsType");
+const BillingInstructionType_1 = require("./BillingInstructionType");
 const RoutingProfileTypeType_1 = require("./RoutingProfileTypeType");
-const TrxCodesInfoType_1 = require("./TrxCodesInfoType");
+const TrxInfoType_1 = require("./TrxInfoType");
 /**
  * Check if a given object implements the RatePlanRoutingInstructionsType interface.
  */
@@ -35,9 +35,9 @@ function RatePlanRoutingInstructionsTypeFromJSONTyped(json, ignoreDiscriminator)
         return json;
     }
     return {
-        'billingInstructions': !(0, runtime_1.exists)(json, 'billingInstructions') ? undefined : (0, BillingInstructionsType_1.BillingInstructionsTypeFromJSON)(json['billingInstructions']),
+        'billingInstructions': !(0, runtime_1.exists)(json, 'billingInstructions') ? undefined : (json['billingInstructions'].map(BillingInstructionType_1.BillingInstructionTypeFromJSON)),
         'profileType': !(0, runtime_1.exists)(json, 'profileType') ? undefined : (0, RoutingProfileTypeType_1.RoutingProfileTypeTypeFromJSON)(json['profileType']),
-        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (0, TrxCodesInfoType_1.TrxCodesInfoTypeFromJSON)(json['transactionCodes']),
+        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (json['transactionCodes'].map(TrxInfoType_1.TrxInfoTypeFromJSON)),
     };
 }
 exports.RatePlanRoutingInstructionsTypeFromJSONTyped = RatePlanRoutingInstructionsTypeFromJSONTyped;
@@ -49,9 +49,9 @@ function RatePlanRoutingInstructionsTypeToJSON(value) {
         return null;
     }
     return {
-        'billingInstructions': (0, BillingInstructionsType_1.BillingInstructionsTypeToJSON)(value.billingInstructions),
+        'billingInstructions': value.billingInstructions === undefined ? undefined : (value.billingInstructions.map(BillingInstructionType_1.BillingInstructionTypeToJSON)),
         'profileType': (0, RoutingProfileTypeType_1.RoutingProfileTypeTypeToJSON)(value.profileType),
-        'transactionCodes': (0, TrxCodesInfoType_1.TrxCodesInfoTypeToJSON)(value.transactionCodes),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : (value.transactionCodes.map(TrxInfoType_1.TrxInfoTypeToJSON)),
     };
 }
 exports.RatePlanRoutingInstructionsTypeToJSON = RatePlanRoutingInstructionsTypeToJSON;

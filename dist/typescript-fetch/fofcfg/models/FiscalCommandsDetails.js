@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FiscalCommandsDetailsToJSON = exports.FiscalCommandsDetailsFromJSONTyped = exports.FiscalCommandsDetailsFromJSON = exports.instanceOfFiscalCommandsDetails = void 0;
 const runtime_1 = require("../runtime");
-const FiscalCommandsType_1 = require("./FiscalCommandsType");
-const WarningsType_1 = require("./WarningsType");
+const FiscalCommandType_1 = require("./FiscalCommandType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FiscalCommandsDetails interface.
  */
@@ -34,8 +34,8 @@ function FiscalCommandsDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'fiscalPartners': !(0, runtime_1.exists)(json, 'fiscalPartners') ? undefined : (0, FiscalCommandsType_1.FiscalCommandsTypeFromJSON)(json['fiscalPartners']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'fiscalPartners': !(0, runtime_1.exists)(json, 'fiscalPartners') ? undefined : (json['fiscalPartners'].map(FiscalCommandType_1.FiscalCommandTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FiscalCommandsDetailsFromJSONTyped = FiscalCommandsDetailsFromJSONTyped;
@@ -47,8 +47,8 @@ function FiscalCommandsDetailsToJSON(value) {
         return null;
     }
     return {
-        'fiscalPartners': (0, FiscalCommandsType_1.FiscalCommandsTypeToJSON)(value.fiscalPartners),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'fiscalPartners': value.fiscalPartners === undefined ? undefined : (value.fiscalPartners.map(FiscalCommandType_1.FiscalCommandTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FiscalCommandsDetailsToJSON = FiscalCommandsDetailsToJSON;

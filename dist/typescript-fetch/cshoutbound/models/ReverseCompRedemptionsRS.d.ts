@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response type of Complimentary Redemptions for reversal
  * @export
@@ -17,11 +17,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ReverseCompRedemptionsRS {
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReverseCompRedemptionsRS
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReverseCompRedemptionsRS interface.

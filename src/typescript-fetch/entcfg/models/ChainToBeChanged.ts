@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChainConfigInfoType } from './ChainConfigInfoType';
+import type { ChainDetailInfoType } from './ChainDetailInfoType';
 import {
-    ChainConfigInfoTypeFromJSON,
-    ChainConfigInfoTypeFromJSONTyped,
-    ChainConfigInfoTypeToJSON,
-} from './ChainConfigInfoType';
-import type { Links } from './Links';
+    ChainDetailInfoTypeFromJSON,
+    ChainDetailInfoTypeFromJSONTyped,
+    ChainDetailInfoTypeToJSON,
+} from './ChainDetailInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Chain.
@@ -40,22 +40,22 @@ import {
 export interface ChainToBeChanged {
     /**
      * 
-     * @type {ChainConfigInfoType}
+     * @type {Array<ChainDetailInfoType>}
      * @memberof ChainToBeChanged
      */
-    chains?: ChainConfigInfoType;
+    chains?: Array<ChainDetailInfoType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChainToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChainToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ChainToBeChangedFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'chains': !exists(json, 'chains') ? undefined : ChainConfigInfoTypeFromJSON(json['chains']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'chains': !exists(json, 'chains') ? undefined : ((json['chains'] as Array<any>).map(ChainDetailInfoTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ChainToBeChangedToJSON(value?: ChainToBeChanged | null): any {
     }
     return {
         
-        'chains': ChainConfigInfoTypeToJSON(value.chains),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'chains': value.chains === undefined ? undefined : ((value.chains as Array<any>).map(ChainDetailInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CateringCodesType } from './CateringCodesType';
+import type { CateringCodeType } from './CateringCodeType';
 import {
-    CateringCodesTypeFromJSON,
-    CateringCodesTypeFromJSONTyped,
-    CateringCodesTypeToJSON,
-} from './CateringCodesType';
-import type { Links } from './Links';
+    CateringCodeTypeFromJSON,
+    CateringCodeTypeFromJSONTyped,
+    CateringCodeTypeToJSON,
+} from './CateringCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Catering Code's Item Rate details.
@@ -39,23 +39,23 @@ import {
  */
 export interface CateringItemRatesInfo {
     /**
-     * 
-     * @type {CateringCodesType}
+     * Catering Code details.
+     * @type {Array<CateringCodeType>}
      * @memberof CateringItemRatesInfo
      */
-    itemRates?: CateringCodesType;
+    itemRates?: Array<CateringCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringItemRatesInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringItemRatesInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CateringItemRatesInfoFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'itemRates': !exists(json, 'itemRates') ? undefined : CateringCodesTypeFromJSON(json['itemRates']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'itemRates': !exists(json, 'itemRates') ? undefined : ((json['itemRates'] as Array<any>).map(CateringCodeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CateringItemRatesInfoToJSON(value?: CateringItemRatesInfo | null
     }
     return {
         
-        'itemRates': CateringCodesTypeToJSON(value.itemRates),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'itemRates': value.itemRates === undefined ? undefined : ((value.itemRates as Array<any>).map(CateringCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

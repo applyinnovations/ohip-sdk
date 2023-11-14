@@ -15,25 +15,23 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockDetailsTypeToJSON = exports.BlockDetailsTypeFromJSONTyped = exports.BlockDetailsTypeFromJSON = exports.instanceOfBlockDetailsType = void 0;
 const runtime_1 = require("../runtime");
-const BlockAliasesType_1 = require("./BlockAliasesType");
 const BlockClassificationType_1 = require("./BlockClassificationType");
 const BlockDetailsTypePrimaryOwners_1 = require("./BlockDetailsTypePrimaryOwners");
 const BlockDetailsTypePrimaryProfiles_1 = require("./BlockDetailsTypePrimaryProfiles");
 const BlockDetailsTypePrimaryRatePlanCodes_1 = require("./BlockDetailsTypePrimaryRatePlanCodes");
 const BlockDetailsTypeShoulderRatePlanCode_1 = require("./BlockDetailsTypeShoulderRatePlanCode");
-const BlockNextStatusListType_1 = require("./BlockNextStatusListType");
 const BlockNonCompeteType_1 = require("./BlockNonCompeteType");
 const BlockRateProtectionType_1 = require("./BlockRateProtectionType");
 const BlockSourceOfSaleType_1 = require("./BlockSourceOfSaleType");
-const BlockStatusChangeHistoryType_1 = require("./BlockStatusChangeHistoryType");
 const BookingStatusDetailType_1 = require("./BookingStatusDetailType");
+const BookingStatusHistoryType_1 = require("./BookingStatusHistoryType");
 const CancellationDetailsType_1 = require("./CancellationDetailsType");
 const CodeDescriptionType_1 = require("./CodeDescriptionType");
 const HotelUseType_1 = require("./HotelUseType");
 const MarketCodeInfoType_1 = require("./MarketCodeInfoType");
 const ReservationTypeInfoType_1 = require("./ReservationTypeInfoType");
-const SubBlockIdList_1 = require("./SubBlockIdList");
 const TimeSpanType_1 = require("./TimeSpanType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the BlockDetailsType interface.
  */
@@ -53,14 +51,14 @@ function BlockDetailsTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'allowRateOverride': !(0, runtime_1.exists)(json, 'allowRateOverride') ? undefined : json['allowRateOverride'],
         'autoloadContractGrid': !(0, runtime_1.exists)(json, 'autoloadContractGrid') ? undefined : json['autoloadContractGrid'],
-        'blockAliases': !(0, runtime_1.exists)(json, 'blockAliases') ? undefined : (0, BlockAliasesType_1.BlockAliasesTypeFromJSON)(json['blockAliases']),
+        'blockAliases': !(0, runtime_1.exists)(json, 'blockAliases') ? undefined : json['blockAliases'],
         'blockClassification': !(0, runtime_1.exists)(json, 'blockClassification') ? undefined : (0, BlockClassificationType_1.BlockClassificationTypeFromJSON)(json['blockClassification']),
         'blockCode': !(0, runtime_1.exists)(json, 'blockCode') ? undefined : json['blockCode'],
         'blockName': !(0, runtime_1.exists)(json, 'blockName') ? undefined : json['blockName'],
-        'blockNextStatusList': !(0, runtime_1.exists)(json, 'blockNextStatusList') ? undefined : (0, BlockNextStatusListType_1.BlockNextStatusListTypeFromJSON)(json['blockNextStatusList']),
+        'blockNextStatusList': !(0, runtime_1.exists)(json, 'blockNextStatusList') ? undefined : (json['blockNextStatusList'].map(BookingStatusDetailType_1.BookingStatusDetailTypeFromJSON)),
         'blockOrigin': !(0, runtime_1.exists)(json, 'blockOrigin') ? undefined : json['blockOrigin'],
         'blockStatus': !(0, runtime_1.exists)(json, 'blockStatus') ? undefined : (0, BookingStatusDetailType_1.BookingStatusDetailTypeFromJSON)(json['blockStatus']),
-        'blockStatusChangeHistory': !(0, runtime_1.exists)(json, 'blockStatusChangeHistory') ? undefined : (0, BlockStatusChangeHistoryType_1.BlockStatusChangeHistoryTypeFromJSON)(json['blockStatusChangeHistory']),
+        'blockStatusChangeHistory': !(0, runtime_1.exists)(json, 'blockStatusChangeHistory') ? undefined : (json['blockStatusChangeHistory'].map(BookingStatusHistoryType_1.BookingStatusHistoryTypeFromJSON)),
         'blockType': !(0, runtime_1.exists)(json, 'blockType') ? undefined : json['blockType'],
         'bookingType': !(0, runtime_1.exists)(json, 'bookingType') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['bookingType']),
         'businessDateArrivalsExist': !(0, runtime_1.exists)(json, 'businessDateArrivalsExist') ? undefined : json['businessDateArrivalsExist'],
@@ -94,7 +92,7 @@ function BlockDetailsTypeFromJSONTyped(json, ignoreDiscriminator) {
         'shoulderRatePlanCode': !(0, runtime_1.exists)(json, 'shoulderRatePlanCode') ? undefined : (0, BlockDetailsTypeShoulderRatePlanCode_1.BlockDetailsTypeShoulderRatePlanCodeFromJSON)(json['shoulderRatePlanCode']),
         'sourceOfSale': !(0, runtime_1.exists)(json, 'sourceOfSale') ? undefined : (0, BlockSourceOfSaleType_1.BlockSourceOfSaleTypeFromJSON)(json['sourceOfSale']),
         'status': !(0, runtime_1.exists)(json, 'status') ? undefined : json['status'],
-        'subBlockIdList': !(0, runtime_1.exists)(json, 'subBlockIdList') ? undefined : (0, SubBlockIdList_1.SubBlockIdListFromJSON)(json['subBlockIdList']),
+        'subBlockIdList': !(0, runtime_1.exists)(json, 'subBlockIdList') ? undefined : (json['subBlockIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         '_synchronized': !(0, runtime_1.exists)(json, 'synchronized') ? undefined : json['synchronized'],
         'taxType': !(0, runtime_1.exists)(json, 'taxType') ? undefined : json['taxType'],
         'timeSpan': !(0, runtime_1.exists)(json, 'timeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['timeSpan']),
@@ -113,14 +111,14 @@ function BlockDetailsTypeToJSON(value) {
     return {
         'allowRateOverride': value.allowRateOverride,
         'autoloadContractGrid': value.autoloadContractGrid,
-        'blockAliases': (0, BlockAliasesType_1.BlockAliasesTypeToJSON)(value.blockAliases),
+        'blockAliases': value.blockAliases,
         'blockClassification': (0, BlockClassificationType_1.BlockClassificationTypeToJSON)(value.blockClassification),
         'blockCode': value.blockCode,
         'blockName': value.blockName,
-        'blockNextStatusList': (0, BlockNextStatusListType_1.BlockNextStatusListTypeToJSON)(value.blockNextStatusList),
+        'blockNextStatusList': value.blockNextStatusList === undefined ? undefined : (value.blockNextStatusList.map(BookingStatusDetailType_1.BookingStatusDetailTypeToJSON)),
         'blockOrigin': value.blockOrigin,
         'blockStatus': (0, BookingStatusDetailType_1.BookingStatusDetailTypeToJSON)(value.blockStatus),
-        'blockStatusChangeHistory': (0, BlockStatusChangeHistoryType_1.BlockStatusChangeHistoryTypeToJSON)(value.blockStatusChangeHistory),
+        'blockStatusChangeHistory': value.blockStatusChangeHistory === undefined ? undefined : (value.blockStatusChangeHistory.map(BookingStatusHistoryType_1.BookingStatusHistoryTypeToJSON)),
         'blockType': value.blockType,
         'bookingType': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.bookingType),
         'businessDateArrivalsExist': value.businessDateArrivalsExist,
@@ -154,7 +152,7 @@ function BlockDetailsTypeToJSON(value) {
         'shoulderRatePlanCode': (0, BlockDetailsTypeShoulderRatePlanCode_1.BlockDetailsTypeShoulderRatePlanCodeToJSON)(value.shoulderRatePlanCode),
         'sourceOfSale': (0, BlockSourceOfSaleType_1.BlockSourceOfSaleTypeToJSON)(value.sourceOfSale),
         'status': value.status,
-        'subBlockIdList': (0, SubBlockIdList_1.SubBlockIdListToJSON)(value.subBlockIdList),
+        'subBlockIdList': value.subBlockIdList === undefined ? undefined : (value.subBlockIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'synchronized': value._synchronized,
         'taxType': value.taxType,
         'timeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.timeSpan),

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ProfileInactiveReasonsType } from './ProfileInactiveReasonsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ProfileInactiveReasonType } from './ProfileInactiveReasonType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Profile Inactive Reasons.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ProfileInactiveReasonsToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileInactiveReasonsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ProfileInactiveReasonsType}
+     * List of Profile Inactive Reasons.
+     * @type {Array<ProfileInactiveReasonType>}
      * @memberof ProfileInactiveReasonsToBeChanged
      */
-    profileInactiveReasons?: ProfileInactiveReasonsType;
+    profileInactiveReasons?: Array<ProfileInactiveReasonType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileInactiveReasonsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileInactiveReasonsToBeChanged interface.

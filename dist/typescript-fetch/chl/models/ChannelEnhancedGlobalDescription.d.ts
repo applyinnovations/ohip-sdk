@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { EnhancedDescriptionType } from './EnhancedDescriptionType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for information regarding global descriptions of hotel room types.
  * @export
@@ -26,16 +26,16 @@ export interface ChannelEnhancedGlobalDescription {
     globalDescription?: EnhancedDescriptionType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelEnhancedGlobalDescription
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelEnhancedGlobalDescription
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelEnhancedGlobalDescription interface.

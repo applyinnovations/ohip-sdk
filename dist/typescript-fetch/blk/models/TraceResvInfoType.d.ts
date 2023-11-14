@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ResGuestType } from './ResGuestType';
-import type { ReservationIdList } from './ReservationIdList';
 import type { TimeSpanType } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Reservation information related to the trace.
  * @export
@@ -31,11 +31,11 @@ export interface TraceResvInfoType {
      */
     reservationGuests?: Array<ResGuestType>;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof TraceResvInfoType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * Current Reservation Status.
      * @type {string}

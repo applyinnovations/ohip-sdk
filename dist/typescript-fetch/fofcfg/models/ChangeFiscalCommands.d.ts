@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FiscalCommandsType } from './FiscalCommandsType';
-import type { WarningsType } from './WarningsType';
+import type { FiscalCommandType } from './FiscalCommandType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to edit Fiscal Commands.
  * @export
@@ -18,17 +18,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ChangeFiscalCommands {
     /**
-     *
-     * @type {FiscalCommandsType}
+     * List of FiscalCommands.
+     * @type {Array<FiscalCommandType>}
      * @memberof ChangeFiscalCommands
      */
-    fiscalPartners?: FiscalCommandsType;
+    fiscalPartners?: Array<FiscalCommandType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeFiscalCommands
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChangeFiscalCommands interface.

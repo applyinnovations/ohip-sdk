@@ -12,7 +12,7 @@
 import type { AddressInfoType } from './AddressInfoType';
 import type { EmailInfoType } from './EmailInfoType';
 import type { ExternalProfileSummaryTypeFormerName } from './ExternalProfileSummaryTypeFormerName';
-import type { OwnersType } from './OwnersType';
+import type { OwnerType } from './OwnerType';
 import type { ProfileMembershipType } from './ProfileMembershipType';
 import type { ProfileStatusType } from './ProfileStatusType';
 import type { ProfileTypeType } from './ProfileTypeType';
@@ -61,11 +61,11 @@ export interface ExternalProfileSummaryType {
      */
     urlInfo?: URLInfoType;
     /**
-     *
-     * @type {OwnersType}
+     * Generic type for a list of owners.
+     * @type {Array<OwnerType>}
      * @memberof ExternalProfileSummaryType
      */
-    owners?: OwnersType;
+    owners?: Array<OwnerType>;
     /**
      *
      * @type {ProfileTypeType}

@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomingListShareTypeToJSON = exports.RoomingListShareTypeFromJSONTyped = exports.RoomingListShareTypeFromJSON = exports.instanceOfRoomingListShareType = void 0;
 const runtime_1 = require("../runtime");
-const EffectiveRatesType_1 = require("./EffectiveRatesType");
+const EffectiveRateType_1 = require("./EffectiveRateType");
 const RoomingListShareReservationType_1 = require("./RoomingListShareReservationType");
 const TimeSpanType_1 = require("./TimeSpanType");
 /**
@@ -35,7 +35,7 @@ function RoomingListShareTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'effectiveRates': !(0, runtime_1.exists)(json, 'effectiveRates') ? undefined : (0, EffectiveRatesType_1.EffectiveRatesTypeFromJSON)(json['effectiveRates']),
+        'effectiveRates': !(0, runtime_1.exists)(json, 'effectiveRates') ? undefined : (json['effectiveRates'].map(EffectiveRateType_1.EffectiveRateTypeFromJSON)),
         'reservation': !(0, runtime_1.exists)(json, 'reservation') ? undefined : (json['reservation'].map(RoomingListShareReservationType_1.RoomingListShareReservationTypeFromJSON)),
         'timeSpan': !(0, runtime_1.exists)(json, 'timeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['timeSpan']),
     };
@@ -49,7 +49,7 @@ function RoomingListShareTypeToJSON(value) {
         return null;
     }
     return {
-        'effectiveRates': (0, EffectiveRatesType_1.EffectiveRatesTypeToJSON)(value.effectiveRates),
+        'effectiveRates': value.effectiveRates === undefined ? undefined : (value.effectiveRates.map(EffectiveRateType_1.EffectiveRateTypeToJSON)),
         'reservation': value.reservation === undefined ? undefined : (value.reservation.map(RoomingListShareReservationType_1.RoomingListShareReservationTypeToJSON)),
         'timeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.timeSpan),
     };

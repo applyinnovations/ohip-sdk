@@ -17,7 +17,7 @@ exports.BusinessEventsToJSON = exports.BusinessEventsFromJSONTyped = exports.Bus
 const runtime_1 = require("../runtime");
 const BusinessEventDataType_1 = require("./BusinessEventDataType");
 const InstanceLink_1 = require("./InstanceLink");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BusinessEvents interface.
  */
@@ -37,7 +37,7 @@ function BusinessEventsFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'businessEventData': !(0, runtime_1.exists)(json, 'businessEventData') ? undefined : (json['businessEventData'].map(BusinessEventDataType_1.BusinessEventDataTypeFromJSON)),
         'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BusinessEventsFromJSONTyped = BusinessEventsFromJSONTyped;
@@ -51,7 +51,7 @@ function BusinessEventsToJSON(value) {
     return {
         'businessEventData': value.businessEventData === undefined ? undefined : (value.businessEventData.map(BusinessEventDataType_1.BusinessEventDataTypeToJSON)),
         'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BusinessEventsToJSON = BusinessEventsToJSON;

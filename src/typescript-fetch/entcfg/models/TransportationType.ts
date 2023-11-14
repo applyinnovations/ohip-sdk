@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { RelativePositionType } from './RelativePositionType';
 import {
     RelativePositionTypeFromJSON,
@@ -64,10 +58,10 @@ export interface TransportationType {
     hotelId?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof TransportationType
      */
-    keyOptions?: CodeListType;
+    keyOptions?: Array<string>;
     /**
      * 
      * @type {string}
@@ -134,7 +128,7 @@ export function TransportationTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'comments': !exists(json, 'comments') ? undefined : json['comments'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'keyOptions': !exists(json, 'keyOptions') ? undefined : CodeListTypeFromJSON(json['keyOptions']),
+        'keyOptions': !exists(json, 'keyOptions') ? undefined : json['keyOptions'],
         'label': !exists(json, 'label') ? undefined : json['label'],
         'orderBy': !exists(json, 'orderBy') ? undefined : json['orderBy'],
         'phoneNumber': !exists(json, 'phoneNumber') ? undefined : TelephoneTypeFromJSON(json['phoneNumber']),
@@ -157,7 +151,7 @@ export function TransportationTypeToJSON(value?: TransportationType | null): any
         'comments': value.comments,
         'description': value.description,
         'hotelId': value.hotelId,
-        'keyOptions': CodeListTypeToJSON(value.keyOptions),
+        'keyOptions': value.keyOptions,
         'label': value.label,
         'orderBy': value.orderBy,
         'phoneNumber': TelephoneTypeToJSON(value.phoneNumber),

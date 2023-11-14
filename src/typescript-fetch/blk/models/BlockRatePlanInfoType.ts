@@ -25,12 +25,12 @@ import {
     GuaranteeTypeFromJSONTyped,
     GuaranteeTypeToJSON,
 } from './GuaranteeType';
-import type { MealPlansType } from './MealPlansType';
+import type { MealPlanCodeType } from './MealPlanCodeType';
 import {
-    MealPlansTypeFromJSON,
-    MealPlansTypeFromJSONTyped,
-    MealPlansTypeToJSON,
-} from './MealPlansType';
+    MealPlanCodeTypeFromJSON,
+    MealPlanCodeTypeFromJSONTyped,
+    MealPlanCodeTypeToJSON,
+} from './MealPlanCodeType';
 
 /**
  * Rate Plan info type extension for block.
@@ -81,11 +81,11 @@ export interface BlockRatePlanInfoType {
      */
     marketCode?: string;
     /**
-     * 
-     * @type {MealPlansType}
+     * Meal plan codes associated with the rate codes.
+     * @type {Array<MealPlanCodeType>}
      * @memberof BlockRatePlanInfoType
      */
-    mealPlans?: MealPlansType;
+    mealPlans?: Array<MealPlanCodeType>;
     /**
      * Indicates if the rate code is a negotiated rate code
      * @type {boolean}
@@ -180,7 +180,7 @@ export function BlockRatePlanInfoTypeFromJSONTyped(json: any, ignoreDiscriminato
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'longInfo': !exists(json, 'longInfo') ? undefined : json['longInfo'],
         'marketCode': !exists(json, 'marketCode') ? undefined : json['marketCode'],
-        'mealPlans': !exists(json, 'mealPlans') ? undefined : MealPlansTypeFromJSON(json['mealPlans']),
+        'mealPlans': !exists(json, 'mealPlans') ? undefined : ((json['mealPlans'] as Array<any>).map(MealPlanCodeTypeFromJSON)),
         'negotiated': !exists(json, 'negotiated') ? undefined : json['negotiated'],
         'primary': !exists(json, 'primary') ? undefined : json['primary'],
         'ratePlanCategory': !exists(json, 'ratePlanCategory') ? undefined : json['ratePlanCategory'],
@@ -211,7 +211,7 @@ export function BlockRatePlanInfoTypeToJSON(value?: BlockRatePlanInfoType | null
         'hotelId': value.hotelId,
         'longInfo': value.longInfo,
         'marketCode': value.marketCode,
-        'mealPlans': MealPlansTypeToJSON(value.mealPlans),
+        'mealPlans': value.mealPlans === undefined ? undefined : ((value.mealPlans as Array<any>).map(MealPlanCodeTypeToJSON)),
         'negotiated': value.negotiated,
         'primary': value.primary,
         'ratePlanCategory': value.ratePlanCategory,

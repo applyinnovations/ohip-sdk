@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Reservations } from './Reservations';
+import type { ReservationId } from './ReservationId';
 /**
  * Contains criteria for batch deposit for reservations.
  * @export
@@ -29,11 +29,11 @@ export interface BatchDepositType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {Reservations}
+     * Unique identifier for a reservation.
+     * @type {Array<ReservationId>}
      * @memberof BatchDepositType
      */
-    reservations?: Reservations;
+    reservations?: Array<ReservationId>;
 }
 /**
  * Check if a given object implements the BatchDepositType interface.

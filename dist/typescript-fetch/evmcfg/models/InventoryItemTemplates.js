@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InventoryItemTemplatesToJSON = exports.InventoryItemTemplatesFromJSONTyped = exports.InventoryItemTemplatesFromJSON = exports.instanceOfInventoryItemTemplates = void 0;
 const runtime_1 = require("../runtime");
-const InventoryItemTemplatesType_1 = require("./InventoryItemTemplatesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const InventoryItemTemplateType_1 = require("./InventoryItemTemplateType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the InventoryItemTemplates interface.
  */
@@ -35,9 +35,9 @@ function InventoryItemTemplatesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'inventoryItemTemplates': !(0, runtime_1.exists)(json, 'inventoryItemTemplates') ? undefined : (0, InventoryItemTemplatesType_1.InventoryItemTemplatesTypeFromJSON)(json['inventoryItemTemplates']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'inventoryItemTemplates': !(0, runtime_1.exists)(json, 'inventoryItemTemplates') ? undefined : (json['inventoryItemTemplates'].map(InventoryItemTemplateType_1.InventoryItemTemplateTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.InventoryItemTemplatesFromJSONTyped = InventoryItemTemplatesFromJSONTyped;
@@ -49,9 +49,9 @@ function InventoryItemTemplatesToJSON(value) {
         return null;
     }
     return {
-        'inventoryItemTemplates': (0, InventoryItemTemplatesType_1.InventoryItemTemplatesTypeToJSON)(value.inventoryItemTemplates),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'inventoryItemTemplates': value.inventoryItemTemplates === undefined ? undefined : (value.inventoryItemTemplates.map(InventoryItemTemplateType_1.InventoryItemTemplateTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.InventoryItemTemplatesToJSON = InventoryItemTemplatesToJSON;

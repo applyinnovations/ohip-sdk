@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NoShowPostingRulesEditToJSON = exports.NoShowPostingRulesEditFromJSONTyped = exports.NoShowPostingRulesEditFromJSON = exports.instanceOfNoShowPostingRulesEdit = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const NoShowPostingRulesEditType_1 = require("./NoShowPostingRulesEditType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const NoShowPostingRuleEditType_1 = require("./NoShowPostingRuleEditType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the NoShowPostingRulesEdit interface.
  */
@@ -35,9 +35,9 @@ function NoShowPostingRulesEditFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'noShowPostingRules': !(0, runtime_1.exists)(json, 'noShowPostingRules') ? undefined : (0, NoShowPostingRulesEditType_1.NoShowPostingRulesEditTypeFromJSON)(json['noShowPostingRules']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'noShowPostingRules': !(0, runtime_1.exists)(json, 'noShowPostingRules') ? undefined : (json['noShowPostingRules'].map(NoShowPostingRuleEditType_1.NoShowPostingRuleEditTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.NoShowPostingRulesEditFromJSONTyped = NoShowPostingRulesEditFromJSONTyped;
@@ -49,9 +49,9 @@ function NoShowPostingRulesEditToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'noShowPostingRules': (0, NoShowPostingRulesEditType_1.NoShowPostingRulesEditTypeToJSON)(value.noShowPostingRules),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'noShowPostingRules': value.noShowPostingRules === undefined ? undefined : (value.noShowPostingRules.map(NoShowPostingRuleEditType_1.NoShowPostingRuleEditTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.NoShowPostingRulesEditToJSON = NoShowPostingRulesEditToJSON;

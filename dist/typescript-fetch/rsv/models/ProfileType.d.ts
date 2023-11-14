@@ -11,7 +11,7 @@
  */
 import type { CompanyType } from './CompanyType';
 import type { CustomerType } from './CustomerType';
-import type { ECertificatesType } from './ECertificatesType';
+import type { ECertificateType } from './ECertificateType';
 import type { ImageSetType } from './ImageSetType';
 import type { LastStayInfoType } from './LastStayInfoType';
 import type { ProfileCashieringType } from './ProfileCashieringType';
@@ -88,11 +88,11 @@ export interface ProfileType {
      */
     customer?: CustomerType;
     /**
-     *
-     * @type {ECertificatesType}
+     * List of e-certificates for the profile.
+     * @type {Array<ECertificateType>}
      * @memberof ProfileType
      */
-    eCertificates?: ECertificatesType;
+    eCertificates?: Array<ECertificateType>;
     /**
      * Eligible for Fiscal Folio/Payload generation.
      * @type {string}

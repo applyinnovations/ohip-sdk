@@ -11,7 +11,7 @@
  */
 import type { BlockProfileTypeType } from './BlockProfileTypeType';
 import type { ProfileType } from './ProfileType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * A collection of Profile objects or Unique IDs of Profiles.
  * @export
@@ -37,11 +37,11 @@ export interface BlockProfilesType {
      */
     profile?: ProfileType;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof BlockProfilesType
      */
-    profileIdList?: UniqueIDListType;
+    profileIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the BlockProfilesType interface.

@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CCManualAuthorizationCriteriaTypeToJSON = exports.CCManualAuthorizationCriteriaTypeFromJSONTyped = exports.CCManualAuthorizationCriteriaTypeFromJSON = exports.instanceOfCCManualAuthorizationCriteriaType = void 0;
 const runtime_1 = require("../runtime");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
-const ReservationIdList_1 = require("./ReservationIdList");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CCManualAuthorizationCriteriaType interface.
  */
@@ -38,7 +38,7 @@ function CCManualAuthorizationCriteriaTypeFromJSONTyped(json, ignoreDiscriminato
         'folioView': !(0, runtime_1.exists)(json, 'folioView') ? undefined : json['folioView'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'manualApprovalCode': !(0, runtime_1.exists)(json, 'manualApprovalCode') ? undefined : json['manualApprovalCode'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.CCManualAuthorizationCriteriaTypeFromJSONTyped = CCManualAuthorizationCriteriaTypeFromJSONTyped;
@@ -54,7 +54,7 @@ function CCManualAuthorizationCriteriaTypeToJSON(value) {
         'folioView': value.folioView,
         'hotelId': value.hotelId,
         'manualApprovalCode': value.manualApprovalCode,
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.CCManualAuthorizationCriteriaTypeToJSON = CCManualAuthorizationCriteriaTypeToJSON;

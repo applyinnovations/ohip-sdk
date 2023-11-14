@@ -12,7 +12,7 @@
 import type { CashierClosureNoType } from './CashierClosureNoType';
 import type { CashierTransactionType } from './CashierTransactionType';
 import type { HotelCashierTransactionType } from './HotelCashierTransactionType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+import type { TrxInfoType } from './TrxInfoType';
 /**
  * Cashier Shift Totals and Per Hotel transactions group by transaction code
  * @export
@@ -38,11 +38,11 @@ export interface CashierTransactionsType {
      */
     summaryTransactionList?: Array<CashierTransactionType>;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof CashierTransactionsType
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
 }
 /**
  * Check if a given object implements the CashierTransactionsType interface.

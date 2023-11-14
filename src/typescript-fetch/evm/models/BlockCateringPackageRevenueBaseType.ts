@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { BlockCateringPackageRevenueType } from './BlockCateringPackageRevenueType';
+import {
+    BlockCateringPackageRevenueTypeFromJSON,
+    BlockCateringPackageRevenueTypeFromJSONTyped,
+    BlockCateringPackageRevenueTypeToJSON,
+} from './BlockCateringPackageRevenueType';
 import type { BlockType } from './BlockType';
 import {
     BlockTypeFromJSON,
@@ -25,12 +31,6 @@ import {
     CateringPackageInfoTypeFromJSONTyped,
     CateringPackageInfoTypeToJSON,
 } from './CateringPackageInfoType';
-import type { RevenueListType } from './RevenueListType';
-import {
-    RevenueListTypeFromJSON,
-    RevenueListTypeFromJSONTyped,
-    RevenueListTypeToJSON,
-} from './RevenueListType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -81,11 +81,11 @@ export interface BlockCateringPackageRevenueBaseType {
      */
     priceDescription?: string;
     /**
-     * 
-     * @type {RevenueListType}
+     * Collection of revenues associated with packaged event.
+     * @type {Array<BlockCateringPackageRevenueType>}
      * @memberof BlockCateringPackageRevenueBaseType
      */
-    revenues?: RevenueListType;
+    revenues?: Array<BlockCateringPackageRevenueType>;
 }
 
 /**
@@ -113,7 +113,7 @@ export function BlockCateringPackageRevenueBaseTypeFromJSONTyped(json: any, igno
         'packageId': !exists(json, 'packageId') ? undefined : UniqueIDTypeFromJSON(json['packageId']),
         'priceCode': !exists(json, 'priceCode') ? undefined : json['priceCode'],
         'priceDescription': !exists(json, 'priceDescription') ? undefined : json['priceDescription'],
-        'revenues': !exists(json, 'revenues') ? undefined : RevenueListTypeFromJSON(json['revenues']),
+        'revenues': !exists(json, 'revenues') ? undefined : ((json['revenues'] as Array<any>).map(BlockCateringPackageRevenueTypeFromJSON)),
     };
 }
 
@@ -132,7 +132,7 @@ export function BlockCateringPackageRevenueBaseTypeToJSON(value?: BlockCateringP
         'packageId': UniqueIDTypeToJSON(value.packageId),
         'priceCode': value.priceCode,
         'priceDescription': value.priceDescription,
-        'revenues': RevenueListTypeToJSON(value.revenues),
+        'revenues': value.revenues === undefined ? undefined : ((value.revenues as Array<any>).map(BlockCateringPackageRevenueTypeToJSON)),
     };
 }
 

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { Links, Restrictions, RestrictionsStatus } from '../models/index';
+import type { InstanceLink, Restrictions, RestrictionsStatus } from '../models/index';
 export interface GetRestrictionsRequest {
     hotelId: string;
     extSystemCode: string;
@@ -66,10 +66,10 @@ export declare class AvailabilityAsyncApi extends runtime.BaseAPI {
      * A user can send various restrictions to OPERA by specifying restriction details in the request. <p><strong>OperationId:</strong>postRestrictionsProcess</p>
      * Create restrictions in OPERA Cloud.
      */
-    postRestrictionsProcessRaw(requestParameters: PostRestrictionsProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Links>>;
+    postRestrictionsProcessRaw(requestParameters: PostRestrictionsProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<InstanceLink>>>;
     /**
      * A user can send various restrictions to OPERA by specifying restriction details in the request. <p><strong>OperationId:</strong>postRestrictionsProcess</p>
      * Create restrictions in OPERA Cloud.
      */
-    postRestrictionsProcess(requestParameters: PostRestrictionsProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Links>;
+    postRestrictionsProcess(requestParameters: PostRestrictionsProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<InstanceLink>>;
 }

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.KeywordTypesDetailsToJSON = exports.KeywordTypesDetailsFromJSONTyped = exports.KeywordTypesDetailsFromJSON = exports.instanceOfKeywordTypesDetails = void 0;
 const runtime_1 = require("../runtime");
-const KeywordTypesType_1 = require("./KeywordTypesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const KeywordTypeType_1 = require("./KeywordTypeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the KeywordTypesDetails interface.
  */
@@ -35,9 +35,9 @@ function KeywordTypesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'keywordTypes': !(0, runtime_1.exists)(json, 'keywordTypes') ? undefined : (0, KeywordTypesType_1.KeywordTypesTypeFromJSON)(json['keywordTypes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'keywordTypes': !(0, runtime_1.exists)(json, 'keywordTypes') ? undefined : (json['keywordTypes'].map(KeywordTypeType_1.KeywordTypeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.KeywordTypesDetailsFromJSONTyped = KeywordTypesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function KeywordTypesDetailsToJSON(value) {
         return null;
     }
     return {
-        'keywordTypes': (0, KeywordTypesType_1.KeywordTypesTypeToJSON)(value.keywordTypes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'keywordTypes': value.keywordTypes === undefined ? undefined : (value.keywordTypes.map(KeywordTypeType_1.KeywordTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.KeywordTypesDetailsToJSON = KeywordTypesDetailsToJSON;

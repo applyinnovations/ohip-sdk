@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SetDayTypesToJSON = exports.SetDayTypesFromJSONTyped = exports.SetDayTypesFromJSON = exports.instanceOfSetDayTypes = void 0;
 const runtime_1 = require("../runtime");
-const HotelDayTypesType_1 = require("./HotelDayTypesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HotelDayTypeType_1 = require("./HotelDayTypeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the SetDayTypes interface.
  */
@@ -35,9 +35,9 @@ function SetDayTypesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'hotelDayTypes': !(0, runtime_1.exists)(json, 'hotelDayTypes') ? undefined : (0, HotelDayTypesType_1.HotelDayTypesTypeFromJSON)(json['hotelDayTypes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'hotelDayTypes': !(0, runtime_1.exists)(json, 'hotelDayTypes') ? undefined : (json['hotelDayTypes'].map(HotelDayTypeType_1.HotelDayTypeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.SetDayTypesFromJSONTyped = SetDayTypesFromJSONTyped;
@@ -49,9 +49,9 @@ function SetDayTypesToJSON(value) {
         return null;
     }
     return {
-        'hotelDayTypes': (0, HotelDayTypesType_1.HotelDayTypesTypeToJSON)(value.hotelDayTypes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'hotelDayTypes': value.hotelDayTypes === undefined ? undefined : (value.hotelDayTypes.map(HotelDayTypeType_1.HotelDayTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.SetDayTypesToJSON = SetDayTypesToJSON;

@@ -15,12 +15,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipClaimSummaryTypeToJSON = exports.MembershipClaimSummaryTypeFromJSONTyped = exports.MembershipClaimSummaryTypeFromJSON = exports.instanceOfMembershipClaimSummaryType = void 0;
 const runtime_1 = require("../runtime");
-const ClaimActivityLogListType_1 = require("./ClaimActivityLogListType");
+const ClaimActivityLogType_1 = require("./ClaimActivityLogType");
 const ClaimApprovalStatusType_1 = require("./ClaimApprovalStatusType");
 const ClaimRecordType_1 = require("./ClaimRecordType");
 const ClaimSourceType_1 = require("./ClaimSourceType");
 const ProfileId_1 = require("./ProfileId");
-const UniqueIDListType_1 = require("./UniqueIDListType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the MembershipClaimSummaryType interface.
@@ -39,7 +38,7 @@ function MembershipClaimSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'activityLog': !(0, runtime_1.exists)(json, 'activityLog') ? undefined : (0, ClaimActivityLogListType_1.ClaimActivityLogListTypeFromJSON)(json['activityLog']),
+        'activityLog': !(0, runtime_1.exists)(json, 'activityLog') ? undefined : (json['activityLog'].map(ClaimActivityLogType_1.ClaimActivityLogTypeFromJSON)),
         'approvalStatus': !(0, runtime_1.exists)(json, 'approvalStatus') ? undefined : (0, ClaimApprovalStatusType_1.ClaimApprovalStatusTypeFromJSON)(json['approvalStatus']),
         'arrival': !(0, runtime_1.exists)(json, 'arrival') ? undefined : (new Date(json['arrival'])),
         'callerInformation': !(0, runtime_1.exists)(json, 'callerInformation') ? undefined : json['callerInformation'],
@@ -49,7 +48,7 @@ function MembershipClaimSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
         'claimStatus': !(0, runtime_1.exists)(json, 'claimStatus') ? undefined : json['claimStatus'],
         'claimType': !(0, runtime_1.exists)(json, 'claimType') ? undefined : json['claimType'],
         'closeDate': !(0, runtime_1.exists)(json, 'closeDate') ? undefined : (new Date(json['closeDate'])),
-        'confirmationNo': !(0, runtime_1.exists)(json, 'confirmationNo') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['confirmationNo']),
+        'confirmationNo': !(0, runtime_1.exists)(json, 'confirmationNo') ? undefined : (json['confirmationNo'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'departure': !(0, runtime_1.exists)(json, 'departure') ? undefined : (new Date(json['departure'])),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'membershipId': !(0, runtime_1.exists)(json, 'membershipId') ? undefined : json['membershipId'],
@@ -73,7 +72,7 @@ function MembershipClaimSummaryTypeToJSON(value) {
         return null;
     }
     return {
-        'activityLog': (0, ClaimActivityLogListType_1.ClaimActivityLogListTypeToJSON)(value.activityLog),
+        'activityLog': value.activityLog === undefined ? undefined : (value.activityLog.map(ClaimActivityLogType_1.ClaimActivityLogTypeToJSON)),
         'approvalStatus': (0, ClaimApprovalStatusType_1.ClaimApprovalStatusTypeToJSON)(value.approvalStatus),
         'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0, 10)),
         'callerInformation': value.callerInformation,
@@ -83,7 +82,7 @@ function MembershipClaimSummaryTypeToJSON(value) {
         'claimStatus': value.claimStatus,
         'claimType': value.claimType,
         'closeDate': value.closeDate === undefined ? undefined : (value.closeDate.toISOString().substring(0, 10)),
-        'confirmationNo': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.confirmationNo),
+        'confirmationNo': value.confirmationNo === undefined ? undefined : (value.confirmationNo.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0, 10)),
         'hotelId': value.hotelId,
         'membershipId': value.membershipId,

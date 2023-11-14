@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ParametersType } from './ParametersType';
+import type { ParameterType } from './ParameterType';
 /**
  *
  * @export
@@ -35,11 +35,11 @@ export interface ItemType {
      */
     description?: string;
     /**
-     *
-     * @type {ParametersType}
+     * Collection of generic Name-Value-Pair parameters.
+     * @type {Array<ParameterType>}
      * @memberof ItemType
      */
-    flexfields?: ParametersType;
+    flexfields?: Array<ParameterType>;
     /**
      *
      * @type {string}

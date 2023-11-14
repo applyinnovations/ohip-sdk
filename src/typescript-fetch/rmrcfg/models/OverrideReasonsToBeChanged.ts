@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RoomRotationOverrideReasonsType } from './RoomRotationOverrideReasonsType';
+import type { RoomRotationOverrideReasonType } from './RoomRotationOverrideReasonType';
 import {
-    RoomRotationOverrideReasonsTypeFromJSON,
-    RoomRotationOverrideReasonsTypeFromJSONTyped,
-    RoomRotationOverrideReasonsTypeToJSON,
-} from './RoomRotationOverrideReasonsType';
-import type { WarningsType } from './WarningsType';
+    RoomRotationOverrideReasonTypeFromJSON,
+    RoomRotationOverrideReasonTypeFromJSONTyped,
+    RoomRotationOverrideReasonTypeToJSON,
+} from './RoomRotationOverrideReasonType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing an existing Room Rotation Override Reason.
@@ -33,17 +33,17 @@ import {
  */
 export interface OverrideReasonsToBeChanged {
     /**
-     * 
-     * @type {RoomRotationOverrideReasonsType}
+     * Room Rotation Override Reason Enumeration element.
+     * @type {Array<RoomRotationOverrideReasonType>}
      * @memberof OverrideReasonsToBeChanged
      */
-    overrideReasons?: RoomRotationOverrideReasonsType;
+    overrideReasons?: Array<RoomRotationOverrideReasonType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OverrideReasonsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function OverrideReasonsToBeChangedFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'overrideReasons': !exists(json, 'overrideReasons') ? undefined : RoomRotationOverrideReasonsTypeFromJSON(json['overrideReasons']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'overrideReasons': !exists(json, 'overrideReasons') ? undefined : ((json['overrideReasons'] as Array<any>).map(RoomRotationOverrideReasonTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function OverrideReasonsToBeChangedToJSON(value?: OverrideReasonsToBeChan
     }
     return {
         
-        'overrideReasons': RoomRotationOverrideReasonsTypeToJSON(value.overrideReasons),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'overrideReasons': value.overrideReasons === undefined ? undefined : ((value.overrideReasons as Array<any>).map(RoomRotationOverrideReasonTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DistanceTypesType } from './DistanceTypesType';
+import type { DistanceTypeType } from './DistanceTypeType';
 import {
-    DistanceTypesTypeFromJSON,
-    DistanceTypesTypeFromJSONTyped,
-    DistanceTypesTypeToJSON,
-} from './DistanceTypesType';
-import type { Links } from './Links';
+    DistanceTypeTypeFromJSON,
+    DistanceTypeTypeFromJSONTyped,
+    DistanceTypeTypeToJSON,
+} from './DistanceTypeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Distance Types.
@@ -39,23 +39,23 @@ import {
  */
 export interface DistanceTypesToBeChanged {
     /**
-     * 
-     * @type {DistanceTypesType}
+     * List of Distance Types.
+     * @type {Array<DistanceTypeType>}
      * @memberof DistanceTypesToBeChanged
      */
-    distanceTypes?: DistanceTypesType;
+    distanceTypes?: Array<DistanceTypeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DistanceTypesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DistanceTypesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function DistanceTypesToBeChangedFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'distanceTypes': !exists(json, 'distanceTypes') ? undefined : DistanceTypesTypeFromJSON(json['distanceTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'distanceTypes': !exists(json, 'distanceTypes') ? undefined : ((json['distanceTypes'] as Array<any>).map(DistanceTypeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function DistanceTypesToBeChangedToJSON(value?: DistanceTypesToBeChanged 
     }
     return {
         
-        'distanceTypes': DistanceTypesTypeToJSON(value.distanceTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'distanceTypes': value.distanceTypes === undefined ? undefined : ((value.distanceTypes as Array<any>).map(DistanceTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

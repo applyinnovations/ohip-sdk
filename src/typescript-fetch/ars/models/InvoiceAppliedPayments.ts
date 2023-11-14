@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ARAppliedPaymentsType } from './ARAppliedPaymentsType';
+import type { ARAppliedPaymentType } from './ARAppliedPaymentType';
 import {
-    ARAppliedPaymentsTypeFromJSON,
-    ARAppliedPaymentsTypeFromJSONTyped,
-    ARAppliedPaymentsTypeToJSON,
-} from './ARAppliedPaymentsType';
-import type { Links } from './Links';
+    ARAppliedPaymentTypeFromJSON,
+    ARAppliedPaymentTypeFromJSONTyped,
+    ARAppliedPaymentTypeToJSON,
+} from './ARAppliedPaymentType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response to the applied payment details,Contains errors or warnings if any.
@@ -45,29 +45,29 @@ import {
  */
 export interface InvoiceAppliedPayments {
     /**
-     * 
-     * @type {ARAppliedPaymentsType}
+     * Applied Payment record.
+     * @type {Array<ARAppliedPaymentType>}
      * @memberof InvoiceAppliedPayments
      */
-    details?: ARAppliedPaymentsType;
+    details?: Array<ARAppliedPaymentType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof InvoiceAppliedPayments
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof InvoiceAppliedPayments
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof InvoiceAppliedPayments
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function InvoiceAppliedPaymentsFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'details': !exists(json, 'details') ? undefined : ARAppliedPaymentsTypeFromJSON(json['details']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : TrxCodesInfoTypeFromJSON(json['trxCodesInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'details': !exists(json, 'details') ? undefined : ((json['details'] as Array<any>).map(ARAppliedPaymentTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : ((json['trxCodesInfo'] as Array<any>).map(TrxInfoTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function InvoiceAppliedPaymentsToJSON(value?: InvoiceAppliedPayments | nu
     }
     return {
         
-        'details': ARAppliedPaymentsTypeToJSON(value.details),
-        'links': LinksToJSON(value.links),
-        'trxCodesInfo': TrxCodesInfoTypeToJSON(value.trxCodesInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'details': value.details === undefined ? undefined : ((value.details as Array<any>).map(ARAppliedPaymentTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : ((value.trxCodesInfo as Array<any>).map(TrxInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

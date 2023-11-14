@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockReservationStatisticsByDateAndRoomPoolTypeToJSON = exports.BlockReservationStatisticsByDateAndRoomPoolTypeFromJSONTyped = exports.BlockReservationStatisticsByDateAndRoomPoolTypeFromJSON = exports.instanceOfBlockReservationStatisticsByDateAndRoomPoolType = void 0;
 const runtime_1 = require("../runtime");
-const DailyStatsType_1 = require("./DailyStatsType");
+const DailyStatType_1 = require("./DailyStatType");
 /**
  * Check if a given object implements the BlockReservationStatisticsByDateAndRoomPoolType interface.
  */
@@ -33,7 +33,7 @@ function BlockReservationStatisticsByDateAndRoomPoolTypeFromJSONTyped(json, igno
         return json;
     }
     return {
-        'dailyStats': !(0, runtime_1.exists)(json, 'dailyStats') ? undefined : (0, DailyStatsType_1.DailyStatsTypeFromJSON)(json['dailyStats']),
+        'dailyStats': !(0, runtime_1.exists)(json, 'dailyStats') ? undefined : (json['dailyStats'].map(DailyStatType_1.DailyStatTypeFromJSON)),
     };
 }
 exports.BlockReservationStatisticsByDateAndRoomPoolTypeFromJSONTyped = BlockReservationStatisticsByDateAndRoomPoolTypeFromJSONTyped;
@@ -45,7 +45,7 @@ function BlockReservationStatisticsByDateAndRoomPoolTypeToJSON(value) {
         return null;
     }
     return {
-        'dailyStats': (0, DailyStatsType_1.DailyStatsTypeToJSON)(value.dailyStats),
+        'dailyStats': value.dailyStats === undefined ? undefined : (value.dailyStats.map(DailyStatType_1.DailyStatTypeToJSON)),
     };
 }
 exports.BlockReservationStatisticsByDateAndRoomPoolTypeToJSON = BlockReservationStatisticsByDateAndRoomPoolTypeToJSON;

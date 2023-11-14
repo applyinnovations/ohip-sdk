@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ProfileTypeType } from './ProfileTypeType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -18,11 +18,11 @@ import type { UniqueIDListType } from './UniqueIDListType';
  */
 export interface RelationshipProfileType {
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RelationshipProfileType
      */
-    profileIdList?: UniqueIDListType;
+    profileIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {ProfileTypeType}

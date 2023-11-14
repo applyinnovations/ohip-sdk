@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { PromotionGroupsPromotionGroups } from './PromotionGroupsPromotionGroups';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface PromotionGroups {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PromotionGroups
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {PromotionGroupsPromotionGroups}
@@ -31,11 +31,11 @@ export interface PromotionGroups {
      */
     promotionGroups?: PromotionGroupsPromotionGroups;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PromotionGroups
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PromotionGroups interface.

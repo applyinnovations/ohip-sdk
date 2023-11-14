@@ -11,7 +11,7 @@
  */
 import type { CancelPenaltyType } from './CancelPenaltyType';
 import type { GuaranteeType } from './GuaranteeType';
-import type { MealPlansType } from './MealPlansType';
+import type { MealPlanCodeType } from './MealPlanCodeType';
 /**
  * Rate Plan info type extension for block.
  * @export
@@ -61,11 +61,11 @@ export interface BlockRatePlanInfoType {
      */
     marketCode?: string;
     /**
-     *
-     * @type {MealPlansType}
+     * Meal plan codes associated with the rate codes.
+     * @type {Array<MealPlanCodeType>}
      * @memberof BlockRatePlanInfoType
      */
-    mealPlans?: MealPlansType;
+    mealPlans?: Array<MealPlanCodeType>;
     /**
      * Indicates if the rate code is a negotiated rate code
      * @type {boolean}

@@ -19,12 +19,12 @@ import {
     SellLimitByDateTypeFromJSONTyped,
     SellLimitByDateTypeToJSON,
 } from './SellLimitByDateType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * A Request message that sets sell limit for a particular date for all the levels House, room type and room class. The request can contain the number type in which the sell limits is to be fetched for the different levels.
@@ -39,11 +39,11 @@ export interface SellLimit {
      */
     sellLimitsByDate?: SellLimitByDateType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SellLimit
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function SellLimitFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     return {
         
         'sellLimitsByDate': !exists(json, 'sellLimitsByDate') ? undefined : SellLimitByDateTypeFromJSON(json['sellLimitsByDate']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function SellLimitToJSON(value?: SellLimit | null): any {
     return {
         
         'sellLimitsByDate': SellLimitByDateTypeToJSON(value.sellLimitsByDate),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

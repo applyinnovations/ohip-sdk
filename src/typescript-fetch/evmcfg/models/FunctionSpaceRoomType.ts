@@ -25,12 +25,12 @@ import {
     RoomCapacityTypeFromJSONTyped,
     RoomCapacityTypeToJSON,
 } from './RoomCapacityType';
-import type { RoomFeaturesType } from './RoomFeaturesType';
+import type { RoomFeatureType } from './RoomFeatureType';
 import {
-    RoomFeaturesTypeFromJSON,
-    RoomFeaturesTypeFromJSONTyped,
-    RoomFeaturesTypeToJSON,
-} from './RoomFeaturesType';
+    RoomFeatureTypeFromJSON,
+    RoomFeatureTypeFromJSONTyped,
+    RoomFeatureTypeToJSON,
+} from './RoomFeatureType';
 import type { RoomSizeType } from './RoomSizeType';
 import {
     RoomSizeTypeFromJSON,
@@ -111,11 +111,11 @@ export interface FunctionSpaceRoomType {
      */
     roomDescription?: string;
     /**
-     * 
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof FunctionSpaceRoomType
      */
-    roomFeatures?: RoomFeaturesType;
+    roomFeatures?: Array<RoomFeatureType>;
     /**
      * Code of the room.
      * @type {string}
@@ -176,7 +176,7 @@ export function FunctionSpaceRoomTypeFromJSONTyped(json: any, ignoreDiscriminato
         'roomAssignmentRating': !exists(json, 'roomAssignmentRating') ? undefined : RatePlanRatingTypeFromJSON(json['roomAssignmentRating']),
         'roomCapacity': !exists(json, 'roomCapacity') ? undefined : RoomCapacityTypeFromJSON(json['roomCapacity']),
         'roomDescription': !exists(json, 'roomDescription') ? undefined : json['roomDescription'],
-        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : RoomFeaturesTypeFromJSON(json['roomFeatures']),
+        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : ((json['roomFeatures'] as Array<any>).map(RoomFeatureTypeFromJSON)),
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'roomSize': !exists(json, 'roomSize') ? undefined : ((json['roomSize'] as Array<any>).map(RoomSizeTypeFromJSON)),
         'roomType': !exists(json, 'roomType') ? undefined : RoomTypeShortInfoTypeFromJSON(json['roomType']),
@@ -203,7 +203,7 @@ export function FunctionSpaceRoomTypeToJSON(value?: FunctionSpaceRoomType | null
         'roomAssignmentRating': RatePlanRatingTypeToJSON(value.roomAssignmentRating),
         'roomCapacity': RoomCapacityTypeToJSON(value.roomCapacity),
         'roomDescription': value.roomDescription,
-        'roomFeatures': RoomFeaturesTypeToJSON(value.roomFeatures),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : ((value.roomFeatures as Array<any>).map(RoomFeatureTypeToJSON)),
         'roomId': value.roomId,
         'roomSize': value.roomSize === undefined ? undefined : ((value.roomSize as Array<any>).map(RoomSizeTypeToJSON)),
         'roomType': RoomTypeShortInfoTypeToJSON(value.roomType),

@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ARAccountsInvoicesPaymentsType } from './ARAccountsInvoicesPaymentsType';
+import type { ARAccountInvoicesPaymentsType } from './ARAccountInvoicesPaymentsType';
 import {
-    ARAccountsInvoicesPaymentsTypeFromJSON,
-    ARAccountsInvoicesPaymentsTypeFromJSONTyped,
-    ARAccountsInvoicesPaymentsTypeToJSON,
-} from './ARAccountsInvoicesPaymentsType';
-import type { Links } from './Links';
+    ARAccountInvoicesPaymentsTypeFromJSON,
+    ARAccountInvoicesPaymentsTypeFromJSONTyped,
+    ARAccountInvoicesPaymentsTypeToJSON,
+} from './ARAccountInvoicesPaymentsType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for the fetch invoice and payments details request.
@@ -51,11 +51,11 @@ export interface InvoicesPayments {
      */
     count?: number;
     /**
-     * 
-     * @type {ARAccountsInvoicesPaymentsType}
+     * Account Invoice information.
+     * @type {Array<ARAccountInvoicesPaymentsType>}
      * @memberof InvoicesPayments
      */
-    details?: ARAccountsInvoicesPaymentsType;
+    details?: Array<ARAccountInvoicesPaymentsType>;
     /**
      * Indicates whether all the records are included in the response or not. Absence of the attribute values should be consider as all rows fetched in the response.
      * @type {boolean}
@@ -70,10 +70,10 @@ export interface InvoicesPayments {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof InvoicesPayments
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -93,17 +93,17 @@ export interface InvoicesPayments {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof InvoicesPayments
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof InvoicesPayments
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -126,15 +126,15 @@ export function InvoicesPaymentsFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'count': !exists(json, 'count') ? undefined : json['count'],
-        'details': !exists(json, 'details') ? undefined : ARAccountsInvoicesPaymentsTypeFromJSON(json['details']),
+        'details': !exists(json, 'details') ? undefined : ((json['details'] as Array<any>).map(ARAccountInvoicesPaymentsTypeFromJSON)),
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : TrxCodesInfoTypeFromJSON(json['trxCodesInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : ((json['trxCodesInfo'] as Array<any>).map(TrxInfoTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -148,15 +148,15 @@ export function InvoicesPaymentsToJSON(value?: InvoicesPayments | null): any {
     return {
         
         'count': value.count,
-        'details': ARAccountsInvoicesPaymentsTypeToJSON(value.details),
+        'details': value.details === undefined ? undefined : ((value.details as Array<any>).map(ARAccountInvoicesPaymentsTypeToJSON)),
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'trxCodesInfo': TrxCodesInfoTypeToJSON(value.trxCodesInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : ((value.trxCodesInfo as Array<any>).map(TrxInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

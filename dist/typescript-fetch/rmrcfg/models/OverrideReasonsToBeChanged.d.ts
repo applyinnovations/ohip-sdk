@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RoomRotationOverrideReasonsType } from './RoomRotationOverrideReasonsType';
-import type { WarningsType } from './WarningsType';
+import type { RoomRotationOverrideReasonType } from './RoomRotationOverrideReasonType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing an existing Room Rotation Override Reason.
  * @export
@@ -18,17 +18,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface OverrideReasonsToBeChanged {
     /**
-     *
-     * @type {RoomRotationOverrideReasonsType}
+     * Room Rotation Override Reason Enumeration element.
+     * @type {Array<RoomRotationOverrideReasonType>}
      * @memberof OverrideReasonsToBeChanged
      */
-    overrideReasons?: RoomRotationOverrideReasonsType;
+    overrideReasons?: Array<RoomRotationOverrideReasonType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OverrideReasonsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the OverrideReasonsToBeChanged interface.

@@ -15,11 +15,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ManageWaitlistedEventsRequestToJSON = exports.ManageWaitlistedEventsRequestFromJSONTyped = exports.ManageWaitlistedEventsRequestFromJSON = exports.instanceOfManageWaitlistedEventsRequest = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const WaitlistedEventProcessingInstructionsType_1 = require("./WaitlistedEventProcessingInstructionsType");
+const WaitlistedEventType_1 = require("./WaitlistedEventType");
 const WaitlistedEventsSearchType_1 = require("./WaitlistedEventsSearchType");
-const WaitlistedEventsType_1 = require("./WaitlistedEventsType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ManageWaitlistedEventsRequest interface.
  */
@@ -38,10 +38,10 @@ function ManageWaitlistedEventsRequestFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'criteria': !(0, runtime_1.exists)(json, 'criteria') ? undefined : (0, WaitlistedEventsSearchType_1.WaitlistedEventsSearchTypeFromJSON)(json['criteria']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'processingInstructions': !(0, runtime_1.exists)(json, 'processingInstructions') ? undefined : (0, WaitlistedEventProcessingInstructionsType_1.WaitlistedEventProcessingInstructionsTypeFromJSON)(json['processingInstructions']),
-        'waitlistedEvents': !(0, runtime_1.exists)(json, 'waitlistedEvents') ? undefined : (0, WaitlistedEventsType_1.WaitlistedEventsTypeFromJSON)(json['waitlistedEvents']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'waitlistedEvents': !(0, runtime_1.exists)(json, 'waitlistedEvents') ? undefined : (json['waitlistedEvents'].map(WaitlistedEventType_1.WaitlistedEventTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ManageWaitlistedEventsRequestFromJSONTyped = ManageWaitlistedEventsRequestFromJSONTyped;
@@ -54,10 +54,10 @@ function ManageWaitlistedEventsRequestToJSON(value) {
     }
     return {
         'criteria': (0, WaitlistedEventsSearchType_1.WaitlistedEventsSearchTypeToJSON)(value.criteria),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'processingInstructions': (0, WaitlistedEventProcessingInstructionsType_1.WaitlistedEventProcessingInstructionsTypeToJSON)(value.processingInstructions),
-        'waitlistedEvents': (0, WaitlistedEventsType_1.WaitlistedEventsTypeToJSON)(value.waitlistedEvents),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'waitlistedEvents': value.waitlistedEvents === undefined ? undefined : (value.waitlistedEvents.map(WaitlistedEventType_1.WaitlistedEventTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ManageWaitlistedEventsRequestToJSON = ManageWaitlistedEventsRequestToJSON;

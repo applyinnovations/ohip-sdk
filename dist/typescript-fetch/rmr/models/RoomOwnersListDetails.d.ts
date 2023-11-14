@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RoomOwnerInfoType } from './RoomOwnerInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Provides Pagination Information for the REST API.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface RoomOwnersListDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomOwnersListDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Collection of Room Owners with Room Ownership details.
      * @type {Array<RoomOwnerInfoType>}
@@ -31,11 +31,11 @@ export interface RoomOwnersListDetails {
      */
     roomOwnerInfoTypeList?: Array<RoomOwnerInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomOwnersListDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
     /**
      * Indicates number of records the API has returned actually as per the API request criteria.
      * @type {number}

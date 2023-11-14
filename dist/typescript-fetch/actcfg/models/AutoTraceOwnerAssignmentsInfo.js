@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AutoTraceOwnerAssignmentsInfoToJSON = exports.AutoTraceOwnerAssignmentsInfoFromJSONTyped = exports.AutoTraceOwnerAssignmentsInfoFromJSON = exports.instanceOfAutoTraceOwnerAssignmentsInfo = void 0;
 const runtime_1 = require("../runtime");
-const AutoTraceOwnerAssignmentListType_1 = require("./AutoTraceOwnerAssignmentListType");
-const WarningsType_1 = require("./WarningsType");
+const AutoTraceOwnerAssignmentType_1 = require("./AutoTraceOwnerAssignmentType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AutoTraceOwnerAssignmentsInfo interface.
  */
@@ -34,8 +34,8 @@ function AutoTraceOwnerAssignmentsInfoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'autoTraceOwnerAssignments': !(0, runtime_1.exists)(json, 'autoTraceOwnerAssignments') ? undefined : (0, AutoTraceOwnerAssignmentListType_1.AutoTraceOwnerAssignmentListTypeFromJSON)(json['autoTraceOwnerAssignments']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'autoTraceOwnerAssignments': !(0, runtime_1.exists)(json, 'autoTraceOwnerAssignments') ? undefined : (json['autoTraceOwnerAssignments'].map(AutoTraceOwnerAssignmentType_1.AutoTraceOwnerAssignmentTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AutoTraceOwnerAssignmentsInfoFromJSONTyped = AutoTraceOwnerAssignmentsInfoFromJSONTyped;
@@ -47,8 +47,8 @@ function AutoTraceOwnerAssignmentsInfoToJSON(value) {
         return null;
     }
     return {
-        'autoTraceOwnerAssignments': (0, AutoTraceOwnerAssignmentListType_1.AutoTraceOwnerAssignmentListTypeToJSON)(value.autoTraceOwnerAssignments),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'autoTraceOwnerAssignments': value.autoTraceOwnerAssignments === undefined ? undefined : (value.autoTraceOwnerAssignments.map(AutoTraceOwnerAssignmentType_1.AutoTraceOwnerAssignmentTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AutoTraceOwnerAssignmentsInfoToJSON = AutoTraceOwnerAssignmentsInfoToJSON;

@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { ProfileDistributionFilterIDType } from './ProfileDistributionFilterIDType';
 /**
  * Profile Distribution Filter details.
@@ -37,28 +36,28 @@ export interface ProfileDistributionFilterType {
     description?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ProfileDistributionFilterType
      */
-    toDatabases?: CodeListType;
+    toDatabases?: Array<string>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ProfileDistributionFilterType
      */
-    fromDatabases?: CodeListType;
+    fromDatabases?: Array<string>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ProfileDistributionFilterType
      */
-    fromCountry?: CodeListType;
+    fromCountry?: Array<string>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ProfileDistributionFilterType
      */
-    fromTerritory?: CodeListType;
+    fromTerritory?: Array<string>;
     /**
      * Profile Type.
      * @type {string}
@@ -127,22 +126,22 @@ export interface ProfileDistributionFilterType {
     toStayDate?: Date;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ProfileDistributionFilterType
      */
-    roomLabels?: CodeListType;
+    roomLabels?: Array<string>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ProfileDistributionFilterType
      */
-    stayResorts?: CodeListType;
+    stayResorts?: Array<string>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ProfileDistributionFilterType
      */
-    stayChains?: CodeListType;
+    stayChains?: Array<string>;
     /**
      * Sum of total revenue on stay records for the time period.
      * @type {number}
@@ -211,10 +210,10 @@ export interface ProfileDistributionFilterType {
     excludeStay?: boolean;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ProfileDistributionFilterType
      */
-    revenueType?: CodeListType;
+    revenueType?: Array<string>;
     /**
      * Total amount of Membership Revenue Type.
      * @type {number}

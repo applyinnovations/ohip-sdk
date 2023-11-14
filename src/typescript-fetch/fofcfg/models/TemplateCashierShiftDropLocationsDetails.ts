@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateCashierShiftDropLocationsType } from './TemplateCashierShiftDropLocationsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TemplateCashierShiftDropLocationType } from './TemplateCashierShiftDropLocationType';
 import {
-    TemplateCashierShiftDropLocationsTypeFromJSON,
-    TemplateCashierShiftDropLocationsTypeFromJSONTyped,
-    TemplateCashierShiftDropLocationsTypeToJSON,
-} from './TemplateCashierShiftDropLocationsType';
-import type { WarningsType } from './WarningsType';
+    TemplateCashierShiftDropLocationTypeFromJSON,
+    TemplateCashierShiftDropLocationTypeFromJSONTyped,
+    TemplateCashierShiftDropLocationTypeToJSON,
+} from './TemplateCashierShiftDropLocationType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Template Cashier Shift Drop Locations.
@@ -40,22 +40,22 @@ import {
 export interface TemplateCashierShiftDropLocationsDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateCashierShiftDropLocationsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TemplateCashierShiftDropLocationsType}
+     * List of Template Cashier Shift Drop Locations.
+     * @type {Array<TemplateCashierShiftDropLocationType>}
      * @memberof TemplateCashierShiftDropLocationsDetails
      */
-    templateCashierShiftDropLocations?: TemplateCashierShiftDropLocationsType;
+    templateCashierShiftDropLocations?: Array<TemplateCashierShiftDropLocationType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateCashierShiftDropLocationsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateCashierShiftDropLocationsDetailsFromJSONTyped(json: any,
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'templateCashierShiftDropLocations': !exists(json, 'templateCashierShiftDropLocations') ? undefined : TemplateCashierShiftDropLocationsTypeFromJSON(json['templateCashierShiftDropLocations']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'templateCashierShiftDropLocations': !exists(json, 'templateCashierShiftDropLocations') ? undefined : ((json['templateCashierShiftDropLocations'] as Array<any>).map(TemplateCashierShiftDropLocationTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateCashierShiftDropLocationsDetailsToJSON(value?: TemplateC
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'templateCashierShiftDropLocations': TemplateCashierShiftDropLocationsTypeToJSON(value.templateCashierShiftDropLocations),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'templateCashierShiftDropLocations': value.templateCashierShiftDropLocations === undefined ? undefined : ((value.templateCashierShiftDropLocations as Array<any>).map(TemplateCashierShiftDropLocationTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

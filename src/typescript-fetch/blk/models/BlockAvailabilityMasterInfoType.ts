@@ -25,12 +25,6 @@ import {
     BlockAvailabilityRoomTypeInfoFromJSONTyped,
     BlockAvailabilityRoomTypeInfoToJSON,
 } from './BlockAvailabilityRoomTypeInfo';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { CurrencyExchangeRateType } from './CurrencyExchangeRateType';
 import {
     CurrencyExchangeRateTypeFromJSON,
@@ -58,10 +52,10 @@ export interface BlockAvailabilityMasterInfoType {
     fetchedRoomTypes?: Array<BlockAvailabilityRoomTypeInfo>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof BlockAvailabilityMasterInfoType
      */
-    masterRoomTypes?: CodeListType;
+    masterRoomTypes?: Array<string>;
     /**
      * Rate plan code details for the block.
      * @type {Array<BlockAvailabilityRatePlanInfo>}
@@ -91,7 +85,7 @@ export function BlockAvailabilityMasterInfoTypeFromJSONTyped(json: any, ignoreDi
         
         'currencyExchangeRates': !exists(json, 'currencyExchangeRates') ? undefined : ((json['currencyExchangeRates'] as Array<any>).map(CurrencyExchangeRateTypeFromJSON)),
         'fetchedRoomTypes': !exists(json, 'fetchedRoomTypes') ? undefined : ((json['fetchedRoomTypes'] as Array<any>).map(BlockAvailabilityRoomTypeInfoFromJSON)),
-        'masterRoomTypes': !exists(json, 'masterRoomTypes') ? undefined : CodeListTypeFromJSON(json['masterRoomTypes']),
+        'masterRoomTypes': !exists(json, 'masterRoomTypes') ? undefined : json['masterRoomTypes'],
         'ratePlans': !exists(json, 'ratePlans') ? undefined : ((json['ratePlans'] as Array<any>).map(BlockAvailabilityRatePlanInfoFromJSON)),
     };
 }
@@ -107,7 +101,7 @@ export function BlockAvailabilityMasterInfoTypeToJSON(value?: BlockAvailabilityM
         
         'currencyExchangeRates': value.currencyExchangeRates === undefined ? undefined : ((value.currencyExchangeRates as Array<any>).map(CurrencyExchangeRateTypeToJSON)),
         'fetchedRoomTypes': value.fetchedRoomTypes === undefined ? undefined : ((value.fetchedRoomTypes as Array<any>).map(BlockAvailabilityRoomTypeInfoToJSON)),
-        'masterRoomTypes': CodeListTypeToJSON(value.masterRoomTypes),
+        'masterRoomTypes': value.masterRoomTypes,
         'ratePlans': value.ratePlans === undefined ? undefined : ((value.ratePlans as Array<any>).map(BlockAvailabilityRatePlanInfoToJSON)),
     };
 }

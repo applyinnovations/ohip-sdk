@@ -25,12 +25,12 @@ import {
     CurrencyAmountTypeFromJSONTyped,
     CurrencyAmountTypeToJSON,
 } from './CurrencyAmountType';
-import type { EffectiveRatesType } from './EffectiveRatesType';
+import type { EffectiveRateType } from './EffectiveRateType';
 import {
-    EffectiveRatesTypeFromJSON,
-    EffectiveRatesTypeFromJSONTyped,
-    EffectiveRatesTypeToJSON,
-} from './EffectiveRatesType';
+    EffectiveRateTypeFromJSON,
+    EffectiveRateTypeFromJSONTyped,
+    EffectiveRateTypeToJSON,
+} from './EffectiveRateType';
 import type { GuestCountsType } from './GuestCountsType';
 import {
     GuestCountsTypeFromJSON,
@@ -99,11 +99,11 @@ export interface ValidateRateInfoCriteria {
      */
     detailDate?: Date;
     /**
-     * 
-     * @type {EffectiveRatesType}
+     * Collection of effective rate amount per guest on specific dates.
+     * @type {Array<EffectiveRateType>}
      * @memberof ValidateRateInfoCriteria
      */
-    effectiveRates?: EffectiveRatesType;
+    effectiveRates?: Array<EffectiveRateType>;
     /**
      * 
      * @type {GuestCountsType}
@@ -190,7 +190,7 @@ export function ValidateRateInfoCriteriaFromJSONTyped(json: any, ignoreDiscrimin
         'currencySymbol': !exists(json, 'currencySymbol') ? undefined : json['currencySymbol'],
         'decimalPlaces': !exists(json, 'decimalPlaces') ? undefined : json['decimalPlaces'],
         'detailDate': !exists(json, 'detailDate') ? undefined : (new Date(json['detailDate'])),
-        'effectiveRates': !exists(json, 'effectiveRates') ? undefined : EffectiveRatesTypeFromJSON(json['effectiveRates']),
+        'effectiveRates': !exists(json, 'effectiveRates') ? undefined : ((json['effectiveRates'] as Array<any>).map(EffectiveRateTypeFromJSON)),
         'guestCounts': !exists(json, 'guestCounts') ? undefined : GuestCountsTypeFromJSON(json['guestCounts']),
         'quantity': !exists(json, 'quantity') ? undefined : json['quantity'],
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
@@ -218,7 +218,7 @@ export function ValidateRateInfoCriteriaToJSON(value?: ValidateRateInfoCriteria 
         'currencySymbol': value.currencySymbol,
         'decimalPlaces': value.decimalPlaces,
         'detailDate': value.detailDate === undefined ? undefined : (value.detailDate.toISOString().substring(0,10)),
-        'effectiveRates': EffectiveRatesTypeToJSON(value.effectiveRates),
+        'effectiveRates': value.effectiveRates === undefined ? undefined : ((value.effectiveRates as Array<any>).map(EffectiveRateTypeToJSON)),
         'guestCounts': GuestCountsTypeToJSON(value.guestCounts),
         'quantity': value.quantity,
         'ratePlanCode': value.ratePlanCode,

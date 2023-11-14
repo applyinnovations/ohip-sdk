@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AdvancedDynamicBaseRateTypeToJSON = exports.AdvancedDynamicBaseRateTypeFromJSONTyped = exports.AdvancedDynamicBaseRateTypeFromJSON = exports.instanceOfAdvancedDynamicBaseRateType = void 0;
 const runtime_1 = require("../runtime");
-const RatePlanCodeListType_1 = require("./RatePlanCodeListType");
 /**
  * Check if a given object implements the AdvancedDynamicBaseRateType interface.
  */
@@ -33,7 +32,7 @@ function AdvancedDynamicBaseRateTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'advancedDependentRatePlans': !(0, runtime_1.exists)(json, 'advancedDependentRatePlans') ? undefined : (0, RatePlanCodeListType_1.RatePlanCodeListTypeFromJSON)(json['advancedDependentRatePlans']),
+        'advancedDependentRatePlans': !(0, runtime_1.exists)(json, 'advancedDependentRatePlans') ? undefined : json['advancedDependentRatePlans'],
         'basedOnRatePlan': !(0, runtime_1.exists)(json, 'basedOnRatePlan') ? undefined : json['basedOnRatePlan'],
         'compareWithRateSchedules': !(0, runtime_1.exists)(json, 'compareWithRateSchedules') ? undefined : json['compareWithRateSchedules'],
         'rounding': !(0, runtime_1.exists)(json, 'rounding') ? undefined : json['rounding'],
@@ -48,7 +47,7 @@ function AdvancedDynamicBaseRateTypeToJSON(value) {
         return null;
     }
     return {
-        'advancedDependentRatePlans': (0, RatePlanCodeListType_1.RatePlanCodeListTypeToJSON)(value.advancedDependentRatePlans),
+        'advancedDependentRatePlans': value.advancedDependentRatePlans,
         'basedOnRatePlan': value.basedOnRatePlan,
         'compareWithRateSchedules': value.compareWithRateSchedules,
         'rounding': value.rounding,

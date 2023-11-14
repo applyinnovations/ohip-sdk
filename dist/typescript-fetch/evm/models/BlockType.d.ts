@@ -9,23 +9,23 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AttachmentsType } from './AttachmentsType';
+import type { AttachmentType } from './AttachmentType';
 import type { BlockDetailsType } from './BlockDetailsType';
-import type { BlockIdList } from './BlockIdList';
-import type { BlockInventoryItemsType } from './BlockInventoryItemsType';
+import type { BlockInventoryItemType } from './BlockInventoryItemType';
 import type { BlockOwnersType } from './BlockOwnersType';
 import type { BlockRestrictionsType } from './BlockRestrictionsType';
 import type { BlockStatisticsSummaryType } from './BlockStatisticsSummaryType';
 import type { BlockStatisticsType } from './BlockStatisticsType';
-import type { BlockTracesType } from './BlockTracesType';
+import type { BlockTraceType } from './BlockTraceType';
 import type { BlockTypeBlockProfiles } from './BlockTypeBlockProfiles';
 import type { BlockTypeBlockSecurity } from './BlockTypeBlockSecurity';
 import type { BlockTypeComments } from './BlockTypeComments';
-import type { BlockWashSchedulesType } from './BlockWashSchedulesType';
+import type { BlockWashScheduleType } from './BlockWashScheduleType';
 import type { CateringType } from './CateringType';
-import type { ExternalReferencesType } from './ExternalReferencesType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { ExternalReferenceType } from './ExternalReferenceType';
+import type { IndicatorType } from './IndicatorType';
 import type { SellMessageConfigsType } from './SellMessageConfigsType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -33,11 +33,11 @@ import type { SellMessageConfigsType } from './SellMessageConfigsType';
  */
 export interface BlockType {
     /**
-     *
-     * @type {AttachmentsType}
+     * Attachment List.
+     * @type {Array<AttachmentType>}
      * @memberof BlockType
      */
-    attachments?: AttachmentsType;
+    attachments?: Array<AttachmentType>;
     /**
      *
      * @type {BlockDetailsType}
@@ -45,17 +45,17 @@ export interface BlockType {
      */
     blockDetails?: BlockDetailsType;
     /**
-     *
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof BlockType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof BlockType
      */
-    blockIndicators?: IndicatorsType;
+    blockIndicators?: Array<IndicatorType>;
     /**
      *
      * @type {BlockOwnersType}
@@ -105,11 +105,11 @@ export interface BlockType {
      */
     creatorId?: string;
     /**
-     *
-     * @type {ExternalReferencesType}
+     * This type contains unique information of external reference.
+     * @type {Array<ExternalReferenceType>}
      * @memberof BlockType
      */
-    externalReferences?: ExternalReferencesType;
+    externalReferences?: Array<ExternalReferenceType>;
     /**
      *
      * @type {string}
@@ -117,11 +117,11 @@ export interface BlockType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {BlockInventoryItemsType}
+     * Inventory item attached to a block.
+     * @type {Array<BlockInventoryItemType>}
      * @memberof BlockType
      */
-    inventoryItems?: BlockInventoryItemsType;
+    inventoryItems?: Array<BlockInventoryItemType>;
     /**
      * Identifies the last software system or person to modify a record.
      * @type {string}
@@ -159,17 +159,17 @@ export interface BlockType {
      */
     statistics?: Array<BlockStatisticsSummaryType>;
     /**
-     *
-     * @type {BlockTracesType}
+     * List of Block traces.
+     * @type {Array<BlockTraceType>}
      * @memberof BlockType
      */
-    traces?: BlockTracesType;
+    traces?: Array<BlockTraceType>;
     /**
-     *
-     * @type {BlockWashSchedulesType}
+     * Wash Schedule attached to the block, which allows to release inventory based on selected wash schedule type.
+     * @type {Array<BlockWashScheduleType>}
      * @memberof BlockType
      */
-    washSchedules?: BlockWashSchedulesType;
+    washSchedules?: Array<BlockWashScheduleType>;
 }
 /**
  * Check if a given object implements the BlockType interface.

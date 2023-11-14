@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EnrollmentMatchRuleTypeToJSON = exports.EnrollmentMatchRuleTypeFromJSONTyped = exports.EnrollmentMatchRuleTypeFromJSON = exports.instanceOfEnrollmentMatchRuleType = void 0;
 const runtime_1 = require("../runtime");
-const UserDefinedEnrollmentFieldsType_1 = require("./UserDefinedEnrollmentFieldsType");
+const UserDefinedEnrollmentFieldType_1 = require("./UserDefinedEnrollmentFieldType");
 /**
  * Check if a given object implements the EnrollmentMatchRuleType interface.
  */
@@ -35,7 +35,7 @@ function EnrollmentMatchRuleTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'advancedEnrollment': !(0, runtime_1.exists)(json, 'advancedEnrollment') ? undefined : json['advancedEnrollment'],
         'membershipEnrollmentMatchRule': !(0, runtime_1.exists)(json, 'membershipEnrollmentMatchRule') ? undefined : json['membershipEnrollmentMatchRule'],
-        'userDefinedEnrollmentFields': !(0, runtime_1.exists)(json, 'userDefinedEnrollmentFields') ? undefined : (0, UserDefinedEnrollmentFieldsType_1.UserDefinedEnrollmentFieldsTypeFromJSON)(json['userDefinedEnrollmentFields']),
+        'userDefinedEnrollmentFields': !(0, runtime_1.exists)(json, 'userDefinedEnrollmentFields') ? undefined : (json['userDefinedEnrollmentFields'].map(UserDefinedEnrollmentFieldType_1.UserDefinedEnrollmentFieldTypeFromJSON)),
     };
 }
 exports.EnrollmentMatchRuleTypeFromJSONTyped = EnrollmentMatchRuleTypeFromJSONTyped;
@@ -49,7 +49,7 @@ function EnrollmentMatchRuleTypeToJSON(value) {
     return {
         'advancedEnrollment': value.advancedEnrollment,
         'membershipEnrollmentMatchRule': value.membershipEnrollmentMatchRule,
-        'userDefinedEnrollmentFields': (0, UserDefinedEnrollmentFieldsType_1.UserDefinedEnrollmentFieldsTypeToJSON)(value.userDefinedEnrollmentFields),
+        'userDefinedEnrollmentFields': value.userDefinedEnrollmentFields === undefined ? undefined : (value.userDefinedEnrollmentFields.map(UserDefinedEnrollmentFieldType_1.UserDefinedEnrollmentFieldTypeToJSON)),
     };
 }
 exports.EnrollmentMatchRuleTypeToJSON = EnrollmentMatchRuleTypeToJSON;

@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AvailabilityRatePlanInfoToJSON = exports.AvailabilityRatePlanInfoFromJSONTyped = exports.AvailabilityRatePlanInfoFromJSON = exports.instanceOfAvailabilityRatePlanInfo = void 0;
 const runtime_1 = require("../runtime");
 const AvailRatePlanInfoType_1 = require("./AvailRatePlanInfoType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AvailabilityRatePlanInfo interface.
  */
@@ -36,8 +36,8 @@ function AvailabilityRatePlanInfoFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'availRatePlanInfoType': !(0, runtime_1.exists)(json, 'availRatePlanInfoType') ? undefined : (0, AvailRatePlanInfoType_1.AvailRatePlanInfoTypeFromJSON)(json['availRatePlanInfoType']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AvailabilityRatePlanInfoFromJSONTyped = AvailabilityRatePlanInfoFromJSONTyped;
@@ -50,8 +50,8 @@ function AvailabilityRatePlanInfoToJSON(value) {
     }
     return {
         'availRatePlanInfoType': (0, AvailRatePlanInfoType_1.AvailRatePlanInfoTypeToJSON)(value.availRatePlanInfoType),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AvailabilityRatePlanInfoToJSON = AvailabilityRatePlanInfoToJSON;

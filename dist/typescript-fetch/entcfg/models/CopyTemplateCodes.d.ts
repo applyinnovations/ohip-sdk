@@ -9,11 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { CopyTemplateType } from './CopyTemplateType';
-import type { HotelCodeListType } from './HotelCodeListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -22,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface CopyTemplateCodes {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyTemplateCodes
      */
-    codes?: CodeListType;
+    codes?: Array<string>;
+    /**
+     * Hotel code.
+     * @type {Array<string>}
+     * @memberof CopyTemplateCodes
+     */
+    hotelCodes?: Array<string>;
     /**
      *
-     * @type {HotelCodeListType}
+     * @type {Array<InstanceLink>}
      * @memberof CopyTemplateCodes
      */
-    hotelCodes?: HotelCodeListType;
-    /**
-     *
-     * @type {Links}
-     * @memberof CopyTemplateCodes
-     */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {CopyTemplateType}
@@ -45,11 +43,11 @@ export interface CopyTemplateCodes {
      */
     templateName?: CopyTemplateType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CopyTemplateCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CopyTemplateCodes interface.

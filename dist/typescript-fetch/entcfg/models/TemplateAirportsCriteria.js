@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateAirportsCriteriaToJSON = exports.TemplateAirportsCriteriaFromJSONTyped = exports.TemplateAirportsCriteriaFromJSON = exports.instanceOfTemplateAirportsCriteria = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TemplateAirportsType_1 = require("./TemplateAirportsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TemplateAirportType_1 = require("./TemplateAirportType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TemplateAirportsCriteria interface.
  */
@@ -35,9 +35,9 @@ function TemplateAirportsCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'templateAirports': !(0, runtime_1.exists)(json, 'templateAirports') ? undefined : (0, TemplateAirportsType_1.TemplateAirportsTypeFromJSON)(json['templateAirports']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'templateAirports': !(0, runtime_1.exists)(json, 'templateAirports') ? undefined : (json['templateAirports'].map(TemplateAirportType_1.TemplateAirportTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TemplateAirportsCriteriaFromJSONTyped = TemplateAirportsCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function TemplateAirportsCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'templateAirports': (0, TemplateAirportsType_1.TemplateAirportsTypeToJSON)(value.templateAirports),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'templateAirports': value.templateAirports === undefined ? undefined : (value.templateAirports.map(TemplateAirportType_1.TemplateAirportTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TemplateAirportsCriteriaToJSON = TemplateAirportsCriteriaToJSON;

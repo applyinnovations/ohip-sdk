@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockStatisticsDatesType } from './BlockStatisticsDatesType';
+import type { BlockStatisticsDateType } from './BlockStatisticsDateType';
 import {
-    BlockStatisticsDatesTypeFromJSON,
-    BlockStatisticsDatesTypeFromJSONTyped,
-    BlockStatisticsDatesTypeToJSON,
-} from './BlockStatisticsDatesType';
+    BlockStatisticsDateTypeFromJSON,
+    BlockStatisticsDateTypeFromJSONTyped,
+    BlockStatisticsDateTypeToJSON,
+} from './BlockStatisticsDateType';
 import type { StatisticsType } from './StatisticsType';
 import {
     StatisticsTypeFromJSON,
@@ -40,10 +40,10 @@ export interface BlockStatisticsDetailType {
     statisticType?: StatisticsType;
     /**
      * 
-     * @type {Array<BlockStatisticsDatesType>}
+     * @type {Array<Array<BlockStatisticsDateType>>}
      * @memberof BlockStatisticsDetailType
      */
-    statisticsDates?: Array<BlockStatisticsDatesType>;
+    statisticsDates?: Array<Array<BlockStatisticsDateType>>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function BlockStatisticsDetailTypeFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'statisticType': !exists(json, 'statisticType') ? undefined : StatisticsTypeFromJSON(json['statisticType']),
-        'statisticsDates': !exists(json, 'statisticsDates') ? undefined : ((json['statisticsDates'] as Array<any>).map(BlockStatisticsDatesTypeFromJSON)),
+        'statisticsDates': !exists(json, 'statisticsDates') ? undefined : json['statisticsDates'],
     };
 }
 
@@ -80,7 +80,7 @@ export function BlockStatisticsDetailTypeToJSON(value?: BlockStatisticsDetailTyp
     return {
         
         'statisticType': StatisticsTypeToJSON(value.statisticType),
-        'statisticsDates': value.statisticsDates === undefined ? undefined : ((value.statisticsDates as Array<any>).map(BlockStatisticsDatesTypeToJSON)),
+        'statisticsDates': value.statisticsDates,
     };
 }
 

@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BestAvailableRatePlanTypeToJSON = exports.BestAvailableRatePlanTypeFromJSONTyped = exports.BestAvailableRatePlanTypeFromJSON = exports.instanceOfBestAvailableRatePlanType = void 0;
 const runtime_1 = require("../runtime");
-const BestAvailableRateCodesType_1 = require("./BestAvailableRateCodesType");
 /**
  * Check if a given object implements the BestAvailableRatePlanType interface.
  */
@@ -42,7 +41,7 @@ function BestAvailableRatePlanTypeFromJSONTyped(json, ignoreDiscriminator) {
         'los7': !(0, runtime_1.exists)(json, 'los7') ? undefined : json['los7'],
         'los8': !(0, runtime_1.exists)(json, 'los8') ? undefined : json['los8'],
         'rateDate': !(0, runtime_1.exists)(json, 'rateDate') ? undefined : (new Date(json['rateDate'])),
-        'ratePlanCodes': !(0, runtime_1.exists)(json, 'ratePlanCodes') ? undefined : (0, BestAvailableRateCodesType_1.BestAvailableRateCodesTypeFromJSON)(json['ratePlanCodes']),
+        'ratePlanCodes': !(0, runtime_1.exists)(json, 'ratePlanCodes') ? undefined : json['ratePlanCodes'],
     };
 }
 exports.BestAvailableRatePlanTypeFromJSONTyped = BestAvailableRatePlanTypeFromJSONTyped;
@@ -63,7 +62,7 @@ function BestAvailableRatePlanTypeToJSON(value) {
         'los7': value.los7,
         'los8': value.los8,
         'rateDate': value.rateDate === undefined ? undefined : (value.rateDate.toISOString().substring(0, 10)),
-        'ratePlanCodes': (0, BestAvailableRateCodesType_1.BestAvailableRateCodesTypeToJSON)(value.ratePlanCodes),
+        'ratePlanCodes': value.ratePlanCodes,
     };
 }
 exports.BestAvailableRatePlanTypeToJSON = BestAvailableRatePlanTypeToJSON;

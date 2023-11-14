@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationPolicySummaryTypeToJSON = exports.ReservationPolicySummaryTypeFromJSONTyped = exports.ReservationPolicySummaryTypeFromJSON = exports.instanceOfReservationPolicySummaryType = void 0;
 const runtime_1 = require("../runtime");
-const ResCancellationPoliciesType_1 = require("./ResCancellationPoliciesType");
-const ResDepositPoliciesType_1 = require("./ResDepositPoliciesType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const ResCancellationPolicyType_1 = require("./ResCancellationPolicyType");
+const ResDepositPolicyType_1 = require("./ResDepositPolicyType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ReservationPolicySummaryType interface.
  */
@@ -35,10 +35,10 @@ function ReservationPolicySummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'cancellationPolicies': !(0, runtime_1.exists)(json, 'cancellationPolicies') ? undefined : (0, ResCancellationPoliciesType_1.ResCancellationPoliciesTypeFromJSON)(json['cancellationPolicies']),
-        'depositPolicies': !(0, runtime_1.exists)(json, 'depositPolicies') ? undefined : (0, ResDepositPoliciesType_1.ResDepositPoliciesTypeFromJSON)(json['depositPolicies']),
+        'cancellationPolicies': !(0, runtime_1.exists)(json, 'cancellationPolicies') ? undefined : (json['cancellationPolicies'].map(ResCancellationPolicyType_1.ResCancellationPolicyTypeFromJSON)),
+        'depositPolicies': !(0, runtime_1.exists)(json, 'depositPolicies') ? undefined : (json['depositPolicies'].map(ResDepositPolicyType_1.ResDepositPolicyTypeFromJSON)),
         'name': !(0, runtime_1.exists)(json, 'name') ? undefined : json['name'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.ReservationPolicySummaryTypeFromJSONTyped = ReservationPolicySummaryTypeFromJSONTyped;
@@ -50,10 +50,10 @@ function ReservationPolicySummaryTypeToJSON(value) {
         return null;
     }
     return {
-        'cancellationPolicies': (0, ResCancellationPoliciesType_1.ResCancellationPoliciesTypeToJSON)(value.cancellationPolicies),
-        'depositPolicies': (0, ResDepositPoliciesType_1.ResDepositPoliciesTypeToJSON)(value.depositPolicies),
+        'cancellationPolicies': value.cancellationPolicies === undefined ? undefined : (value.cancellationPolicies.map(ResCancellationPolicyType_1.ResCancellationPolicyTypeToJSON)),
+        'depositPolicies': value.depositPolicies === undefined ? undefined : (value.depositPolicies.map(ResDepositPolicyType_1.ResDepositPolicyTypeToJSON)),
         'name': value.name,
-        'reservationIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.ReservationPolicySummaryTypeToJSON = ReservationPolicySummaryTypeToJSON;

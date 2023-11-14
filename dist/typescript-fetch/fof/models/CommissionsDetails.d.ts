@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CommissionInfoListType } from './CommissionInfoListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CommissionInfoType } from './CommissionInfoType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Commissions for the requested account or agent id.
  * @export
@@ -19,11 +19,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CommissionsDetails {
     /**
-     *
-     * @type {CommissionInfoListType}
+     * List of commission info.
+     * @type {Array<CommissionInfoType>}
      * @memberof CommissionsDetails
      */
-    commissionInfoList?: CommissionInfoListType;
+    commissionInfoList?: Array<CommissionInfoType>;
     /**
      * Total number of rows returned
      * @type {number}
@@ -44,10 +44,10 @@ export interface CommissionsDetails {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CommissionsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface CommissionsDetails {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CommissionsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CommissionsDetails interface.

@@ -17,7 +17,7 @@ exports.ResCashieringTypeToJSON = exports.ResCashieringTypeFromJSONTyped = expor
 const runtime_1 = require("../runtime");
 const BedTaxReportingType_1 = require("./BedTaxReportingType");
 const BillingPrivilegesType_1 = require("./BillingPrivilegesType");
-const FolioTextsType_1 = require("./FolioTextsType");
+const FolioTextsTypeInner_1 = require("./FolioTextsTypeInner");
 const ResCompAccountingType_1 = require("./ResCompAccountingType");
 const ResPeriodicFolioType_1 = require("./ResPeriodicFolioType");
 const ResPreConfiguredRoutingInstrType_1 = require("./ResPreConfiguredRoutingInstrType");
@@ -44,7 +44,7 @@ function ResCashieringTypeFromJSONTyped(json, ignoreDiscriminator) {
         'billingPrivileges': !(0, runtime_1.exists)(json, 'billingPrivileges') ? undefined : (0, BillingPrivilegesType_1.BillingPrivilegesTypeFromJSON)(json['billingPrivileges']),
         'compAccounting': !(0, runtime_1.exists)(json, 'compAccounting') ? undefined : (0, ResCompAccountingType_1.ResCompAccountingTypeFromJSON)(json['compAccounting']),
         'financiallyResponsible': !(0, runtime_1.exists)(json, 'financiallyResponsible') ? undefined : json['financiallyResponsible'],
-        'folioTexts': !(0, runtime_1.exists)(json, 'folioTexts') ? undefined : (0, FolioTextsType_1.FolioTextsTypeFromJSON)(json['folioTexts']),
+        'folioTexts': !(0, runtime_1.exists)(json, 'folioTexts') ? undefined : (json['folioTexts'].map(FolioTextsTypeInner_1.FolioTextsTypeInnerFromJSON)),
         'lastRoomAndTaxPostedDate': !(0, runtime_1.exists)(json, 'lastRoomAndTaxPostedDate') ? undefined : (new Date(json['lastRoomAndTaxPostedDate'])),
         'periodicFolio': !(0, runtime_1.exists)(json, 'periodicFolio') ? undefined : (0, ResPeriodicFolioType_1.ResPeriodicFolioTypeFromJSON)(json['periodicFolio']),
         'proratedBilling': !(0, runtime_1.exists)(json, 'proratedBilling') ? undefined : json['proratedBilling'],
@@ -69,7 +69,7 @@ function ResCashieringTypeToJSON(value) {
         'billingPrivileges': (0, BillingPrivilegesType_1.BillingPrivilegesTypeToJSON)(value.billingPrivileges),
         'compAccounting': (0, ResCompAccountingType_1.ResCompAccountingTypeToJSON)(value.compAccounting),
         'financiallyResponsible': value.financiallyResponsible,
-        'folioTexts': (0, FolioTextsType_1.FolioTextsTypeToJSON)(value.folioTexts),
+        'folioTexts': value.folioTexts === undefined ? undefined : (value.folioTexts.map(FolioTextsTypeInner_1.FolioTextsTypeInnerToJSON)),
         'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate === undefined ? undefined : (value.lastRoomAndTaxPostedDate.toISOString().substring(0, 10)),
         'periodicFolio': (0, ResPeriodicFolioType_1.ResPeriodicFolioTypeToJSON)(value.periodicFolio),
         'proratedBilling': value.proratedBilling,

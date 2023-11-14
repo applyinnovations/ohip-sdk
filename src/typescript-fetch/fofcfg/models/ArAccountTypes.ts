@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ARAccountTypesType } from './ARAccountTypesType';
+import type { ARAccountTypeType } from './ARAccountTypeType';
 import {
-    ARAccountTypesTypeFromJSON,
-    ARAccountTypesTypeFromJSONTyped,
-    ARAccountTypesTypeToJSON,
-} from './ARAccountTypesType';
-import type { Links } from './Links';
+    ARAccountTypeTypeFromJSON,
+    ARAccountTypeTypeFromJSONTyped,
+    ARAccountTypeTypeToJSON,
+} from './ARAccountTypeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing account types.
@@ -39,23 +39,23 @@ import {
  */
 export interface ArAccountTypes {
     /**
-     * 
-     * @type {ARAccountTypesType}
+     * Holds collection of account types
+     * @type {Array<ARAccountTypeType>}
      * @memberof ArAccountTypes
      */
-    accountTypes?: ARAccountTypesType;
+    accountTypes?: Array<ARAccountTypeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ArAccountTypes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ArAccountTypes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ArAccountTypesFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'accountTypes': !exists(json, 'accountTypes') ? undefined : ARAccountTypesTypeFromJSON(json['accountTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'accountTypes': !exists(json, 'accountTypes') ? undefined : ((json['accountTypes'] as Array<any>).map(ARAccountTypeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ArAccountTypesToJSON(value?: ArAccountTypes | null): any {
     }
     return {
         
-        'accountTypes': ARAccountTypesTypeToJSON(value.accountTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'accountTypes': value.accountTypes === undefined ? undefined : ((value.accountTypes as Array<any>).map(ARAccountTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

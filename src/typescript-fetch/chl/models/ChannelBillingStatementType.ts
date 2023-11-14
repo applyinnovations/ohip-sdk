@@ -13,18 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelStatementAccountsType } from './ChannelStatementAccountsType';
+import type { ChannelStatementAccountType } from './ChannelStatementAccountType';
 import {
-    ChannelStatementAccountsTypeFromJSON,
-    ChannelStatementAccountsTypeFromJSONTyped,
-    ChannelStatementAccountsTypeToJSON,
-} from './ChannelStatementAccountsType';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
+    ChannelStatementAccountTypeFromJSON,
+    ChannelStatementAccountTypeFromJSONTyped,
+    ChannelStatementAccountTypeToJSON,
+} from './ChannelStatementAccountType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import {
     CurrencyAmountTypeFromJSON,
@@ -46,10 +40,10 @@ import {
 export interface ChannelBillingStatementType {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ChannelBillingStatementType
      */
-    accountCodeList?: CodeListType;
+    accountCodeList?: Array<string>;
     /**
      * Holds begin date of the statement.
      * @type {Date}
@@ -57,11 +51,11 @@ export interface ChannelBillingStatementType {
      */
     beginDate?: Date;
     /**
-     * 
-     * @type {ChannelStatementAccountsType}
+     * Provides detailed information regarding Channel Account contract.
+     * @type {Array<ChannelStatementAccountType>}
      * @memberof ChannelBillingStatementType
      */
-    channelAccountStatements?: ChannelStatementAccountsType;
+    channelAccountStatements?: Array<ChannelStatementAccountType>;
     /**
      * Flag to identify Statements generated were dirty or not.
      * @type {boolean}
@@ -131,9 +125,9 @@ export function ChannelBillingStatementTypeFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'accountCodeList': !exists(json, 'accountCodeList') ? undefined : CodeListTypeFromJSON(json['accountCodeList']),
+        'accountCodeList': !exists(json, 'accountCodeList') ? undefined : json['accountCodeList'],
         'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
-        'channelAccountStatements': !exists(json, 'channelAccountStatements') ? undefined : ChannelStatementAccountsTypeFromJSON(json['channelAccountStatements']),
+        'channelAccountStatements': !exists(json, 'channelAccountStatements') ? undefined : ((json['channelAccountStatements'] as Array<any>).map(ChannelStatementAccountTypeFromJSON)),
         'dirty': !exists(json, 'dirty') ? undefined : json['dirty'],
         'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
         'generated': !exists(json, 'generated') ? undefined : json['generated'],
@@ -154,9 +148,9 @@ export function ChannelBillingStatementTypeToJSON(value?: ChannelBillingStatemen
     }
     return {
         
-        'accountCodeList': CodeListTypeToJSON(value.accountCodeList),
+        'accountCodeList': value.accountCodeList,
         'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
-        'channelAccountStatements': ChannelStatementAccountsTypeToJSON(value.channelAccountStatements),
+        'channelAccountStatements': value.channelAccountStatements === undefined ? undefined : ((value.channelAccountStatements as Array<any>).map(ChannelStatementAccountTypeToJSON)),
         'dirty': value.dirty,
         'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
         'generated': value.generated,

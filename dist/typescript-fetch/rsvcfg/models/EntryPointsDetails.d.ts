@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EntryPointsType } from './EntryPointsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { EntryPointType } from './EntryPointType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Entry Points.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface EntryPointsDetails {
     /**
-     *
-     * @type {EntryPointsType}
+     * List of Entry Points.
+     * @type {Array<EntryPointType>}
      * @memberof EntryPointsDetails
      */
-    entryPoints?: EntryPointsType;
+    entryPoints?: Array<EntryPointType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EntryPointsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EntryPointsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the EntryPointsDetails interface.

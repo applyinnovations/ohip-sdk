@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ReservationSummaryListType } from './ReservationSummaryListType';
+import type { ReservationSummaryType } from './ReservationSummaryType';
 import {
-    ReservationSummaryListTypeFromJSON,
-    ReservationSummaryListTypeFromJSONTyped,
-    ReservationSummaryListTypeToJSON,
-} from './ReservationSummaryListType';
+    ReservationSummaryTypeFromJSON,
+    ReservationSummaryTypeFromJSONTyped,
+    ReservationSummaryTypeToJSON,
+} from './ReservationSummaryType';
 import type { ValidationActionType } from './ValidationActionType';
 import {
     ValidationActionTypeFromJSON,
@@ -33,11 +33,11 @@ import {
  */
 export interface ValidationReturnType {
     /**
-     * 
-     * @type {ReservationSummaryListType}
+     * List of Reservations.
+     * @type {Array<ReservationSummaryType>}
      * @memberof ValidationReturnType
      */
-    invalidReservations?: ReservationSummaryListType;
+    invalidReservations?: Array<ReservationSummaryType>;
     /**
      * 
      * @type {ValidationActionType}
@@ -83,7 +83,7 @@ export function ValidationReturnTypeFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'invalidReservations': !exists(json, 'invalidReservations') ? undefined : ReservationSummaryListTypeFromJSON(json['invalidReservations']),
+        'invalidReservations': !exists(json, 'invalidReservations') ? undefined : ((json['invalidReservations'] as Array<any>).map(ReservationSummaryTypeFromJSON)),
         'validationAction': !exists(json, 'validationAction') ? undefined : ValidationActionTypeFromJSON(json['validationAction']),
         'validationCode': !exists(json, 'validationCode') ? undefined : json['validationCode'],
         'validationMessage': !exists(json, 'validationMessage') ? undefined : json['validationMessage'],
@@ -100,7 +100,7 @@ export function ValidationReturnTypeToJSON(value?: ValidationReturnType | null):
     }
     return {
         
-        'invalidReservations': ReservationSummaryListTypeToJSON(value.invalidReservations),
+        'invalidReservations': value.invalidReservations === undefined ? undefined : ((value.invalidReservations as Array<any>).map(ReservationSummaryTypeToJSON)),
         'validationAction': ValidationActionTypeToJSON(value.validationAction),
         'validationCode': value.validationCode,
         'validationMessage': value.validationMessage,

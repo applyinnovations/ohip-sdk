@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CateringMenuClassListType } from './CateringMenuClassListType';
+import type { CateringMenuClassType } from './CateringMenuClassType';
 import {
-    CateringMenuClassListTypeFromJSON,
-    CateringMenuClassListTypeFromJSONTyped,
-    CateringMenuClassListTypeToJSON,
-} from './CateringMenuClassListType';
+    CateringMenuClassTypeFromJSON,
+    CateringMenuClassTypeFromJSONTyped,
+    CateringMenuClassTypeToJSON,
+} from './CateringMenuClassType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -39,11 +39,11 @@ export interface CopyCateringMenuType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {CateringMenuClassListType}
+     * List of Values of Menu.
+     * @type {Array<CateringMenuClassType>}
      * @memberof CopyCateringMenuType
      */
-    menuClassList?: CateringMenuClassListType;
+    menuClassList?: Array<CateringMenuClassType>;
     /**
      * 
      * @type {UniqueIDType}
@@ -72,7 +72,7 @@ export function CopyCateringMenuTypeFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'menuClassList': !exists(json, 'menuClassList') ? undefined : CateringMenuClassListTypeFromJSON(json['menuClassList']),
+        'menuClassList': !exists(json, 'menuClassList') ? undefined : ((json['menuClassList'] as Array<any>).map(CateringMenuClassTypeFromJSON)),
         'menuId': !exists(json, 'menuId') ? undefined : UniqueIDTypeFromJSON(json['menuId']),
     };
 }
@@ -87,7 +87,7 @@ export function CopyCateringMenuTypeToJSON(value?: CopyCateringMenuType | null):
     return {
         
         'hotelId': value.hotelId,
-        'menuClassList': CateringMenuClassListTypeToJSON(value.menuClassList),
+        'menuClassList': value.menuClassList === undefined ? undefined : ((value.menuClassList as Array<any>).map(CateringMenuClassTypeToJSON)),
         'menuId': UniqueIDTypeToJSON(value.menuId),
     };
 }

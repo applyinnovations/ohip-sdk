@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BatchDepositTypeToJSON = exports.BatchDepositTypeFromJSONTyped = exports.BatchDepositTypeFromJSON = exports.instanceOfBatchDepositType = void 0;
 const runtime_1 = require("../runtime");
-const Reservations_1 = require("./Reservations");
+const ReservationId_1 = require("./ReservationId");
 /**
  * Check if a given object implements the BatchDepositType interface.
  */
@@ -35,7 +35,7 @@ function BatchDepositTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'reservations': !(0, runtime_1.exists)(json, 'reservations') ? undefined : (0, Reservations_1.ReservationsFromJSON)(json['reservations']),
+        'reservations': !(0, runtime_1.exists)(json, 'reservations') ? undefined : (json['reservations'].map(ReservationId_1.ReservationIdFromJSON)),
     };
 }
 exports.BatchDepositTypeFromJSONTyped = BatchDepositTypeFromJSONTyped;
@@ -49,7 +49,7 @@ function BatchDepositTypeToJSON(value) {
     return {
         'cashierId': value.cashierId,
         'hotelId': value.hotelId,
-        'reservations': (0, Reservations_1.ReservationsToJSON)(value.reservations),
+        'reservations': value.reservations === undefined ? undefined : (value.reservations.map(ReservationId_1.ReservationIdToJSON)),
     };
 }
 exports.BatchDepositTypeToJSON = BatchDepositTypeToJSON;

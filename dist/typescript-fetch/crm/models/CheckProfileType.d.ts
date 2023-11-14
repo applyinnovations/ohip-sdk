@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CheckProfileResultsType } from './CheckProfileResultsType';
+import type { CheckProfileResultType } from './CheckProfileResultType';
 import type { ProfileId } from './ProfileId';
 /**
  * Profile and the status of its allowed actions, attached records, and indicators.
@@ -24,11 +24,11 @@ export interface CheckProfileType {
      */
     profileId?: ProfileId;
     /**
-     *
-     * @type {CheckProfileResultsType}
+     * Collection of status of allowed actions, attached records, and indicators of the profile.
+     * @type {Array<CheckProfileResultType>}
      * @memberof CheckProfileType
      */
-    results?: CheckProfileResultsType;
+    results?: Array<CheckProfileResultType>;
 }
 /**
  * Check if a given object implements the CheckProfileType interface.

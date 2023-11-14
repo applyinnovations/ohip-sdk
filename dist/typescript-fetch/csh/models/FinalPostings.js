@@ -16,9 +16,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FinalPostingsToJSON = exports.FinalPostingsFromJSONTyped = exports.FinalPostingsFromJSON = exports.instanceOfFinalPostings = void 0;
 const runtime_1 = require("../runtime");
 const CheckoutReservationType_1 = require("./CheckoutReservationType");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const ResponseInstructionType_1 = require("./ResponseInstructionType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FinalPostings interface.
  */
@@ -36,10 +36,10 @@ function FinalPostingsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'reservation': !(0, runtime_1.exists)(json, 'reservation') ? undefined : (0, CheckoutReservationType_1.CheckoutReservationTypeFromJSON)(json['reservation']),
         'responseInstruction': !(0, runtime_1.exists)(json, 'responseInstruction') ? undefined : (0, ResponseInstructionType_1.ResponseInstructionTypeFromJSON)(json['responseInstruction']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FinalPostingsFromJSONTyped = FinalPostingsFromJSONTyped;
@@ -51,10 +51,10 @@ function FinalPostingsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'reservation': (0, CheckoutReservationType_1.CheckoutReservationTypeToJSON)(value.reservation),
         'responseInstruction': (0, ResponseInstructionType_1.ResponseInstructionTypeToJSON)(value.responseInstruction),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FinalPostingsToJSON = FinalPostingsToJSON;

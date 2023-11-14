@@ -17,11 +17,11 @@ exports.ChannelAccountInformationTypeToJSON = exports.ChannelAccountInformationT
 const runtime_1 = require("../runtime");
 const ChannelAccountCommunicationType_1 = require("./ChannelAccountCommunicationType");
 const ChannelAccountContactType_1 = require("./ChannelAccountContactType");
-const ChannelAccountContractsInformationType_1 = require("./ChannelAccountContractsInformationType");
+const ChannelAccountContractInformationType_1 = require("./ChannelAccountContractInformationType");
 const ChannelAccountDetailsType_1 = require("./ChannelAccountDetailsType");
 const ChannelAccountNotesType_1 = require("./ChannelAccountNotesType");
 const ChannelAccountSetupDetailsType_1 = require("./ChannelAccountSetupDetailsType");
-const IndicatorsType_1 = require("./IndicatorsType");
+const IndicatorType_1 = require("./IndicatorType");
 /**
  * Check if a given object implements the ChannelAccountInformationType interface.
  */
@@ -41,11 +41,11 @@ function ChannelAccountInformationTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'accountDetails': !(0, runtime_1.exists)(json, 'accountDetails') ? undefined : (0, ChannelAccountDetailsType_1.ChannelAccountDetailsTypeFromJSON)(json['accountDetails']),
         'accountSetupDetails': !(0, runtime_1.exists)(json, 'accountSetupDetails') ? undefined : (0, ChannelAccountSetupDetailsType_1.ChannelAccountSetupDetailsTypeFromJSON)(json['accountSetupDetails']),
-        'channelAccountIndicators': !(0, runtime_1.exists)(json, 'channelAccountIndicators') ? undefined : (0, IndicatorsType_1.IndicatorsTypeFromJSON)(json['channelAccountIndicators']),
+        'channelAccountIndicators': !(0, runtime_1.exists)(json, 'channelAccountIndicators') ? undefined : (json['channelAccountIndicators'].map(IndicatorType_1.IndicatorTypeFromJSON)),
         'channelAccountNotes': !(0, runtime_1.exists)(json, 'channelAccountNotes') ? undefined : (0, ChannelAccountNotesType_1.ChannelAccountNotesTypeFromJSON)(json['channelAccountNotes']),
         'communicationDetails': !(0, runtime_1.exists)(json, 'communicationDetails') ? undefined : (0, ChannelAccountCommunicationType_1.ChannelAccountCommunicationTypeFromJSON)(json['communicationDetails']),
         'contactInformation': !(0, runtime_1.exists)(json, 'contactInformation') ? undefined : (0, ChannelAccountContactType_1.ChannelAccountContactTypeFromJSON)(json['contactInformation']),
-        'contractInformation': !(0, runtime_1.exists)(json, 'contractInformation') ? undefined : (0, ChannelAccountContractsInformationType_1.ChannelAccountContractsInformationTypeFromJSON)(json['contractInformation']),
+        'contractInformation': !(0, runtime_1.exists)(json, 'contractInformation') ? undefined : (json['contractInformation'].map(ChannelAccountContractInformationType_1.ChannelAccountContractInformationTypeFromJSON)),
     };
 }
 exports.ChannelAccountInformationTypeFromJSONTyped = ChannelAccountInformationTypeFromJSONTyped;
@@ -59,11 +59,11 @@ function ChannelAccountInformationTypeToJSON(value) {
     return {
         'accountDetails': (0, ChannelAccountDetailsType_1.ChannelAccountDetailsTypeToJSON)(value.accountDetails),
         'accountSetupDetails': (0, ChannelAccountSetupDetailsType_1.ChannelAccountSetupDetailsTypeToJSON)(value.accountSetupDetails),
-        'channelAccountIndicators': (0, IndicatorsType_1.IndicatorsTypeToJSON)(value.channelAccountIndicators),
+        'channelAccountIndicators': value.channelAccountIndicators === undefined ? undefined : (value.channelAccountIndicators.map(IndicatorType_1.IndicatorTypeToJSON)),
         'channelAccountNotes': (0, ChannelAccountNotesType_1.ChannelAccountNotesTypeToJSON)(value.channelAccountNotes),
         'communicationDetails': (0, ChannelAccountCommunicationType_1.ChannelAccountCommunicationTypeToJSON)(value.communicationDetails),
         'contactInformation': (0, ChannelAccountContactType_1.ChannelAccountContactTypeToJSON)(value.contactInformation),
-        'contractInformation': (0, ChannelAccountContractsInformationType_1.ChannelAccountContractsInformationTypeToJSON)(value.contractInformation),
+        'contractInformation': value.contractInformation === undefined ? undefined : (value.contractInformation.map(ChannelAccountContractInformationType_1.ChannelAccountContractInformationTypeToJSON)),
     };
 }
 exports.ChannelAccountInformationTypeToJSON = ChannelAccountInformationTypeToJSON;

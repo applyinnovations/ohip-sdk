@@ -19,12 +19,6 @@ import {
     BudgetInfoDeleteTypeFromJSONTyped,
     BudgetInfoDeleteTypeToJSON,
 } from './BudgetInfoDeleteType';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { MonthNoType } from './MonthNoType';
 import {
     MonthNoTypeFromJSON,
@@ -76,10 +70,10 @@ export interface DeleteSegmentCodeInfoType {
     segment?: SegmentNameType;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof DeleteSegmentCodeInfoType
      */
-    segmentCode?: CodeListType;
+    segmentCode?: Array<string>;
     /**
      * segment code group.
      * @type {string}
@@ -112,7 +106,7 @@ export function DeleteSegmentCodeInfoTypeFromJSONTyped(json: any, ignoreDiscrimi
         'deleteInformation': !exists(json, 'deleteInformation') ? undefined : BudgetInfoDeleteTypeFromJSON(json['deleteInformation']),
         'forecast': !exists(json, 'forecast') ? undefined : json['forecast'],
         'segment': !exists(json, 'segment') ? undefined : SegmentNameTypeFromJSON(json['segment']),
-        'segmentCode': !exists(json, 'segmentCode') ? undefined : CodeListTypeFromJSON(json['segmentCode']),
+        'segmentCode': !exists(json, 'segmentCode') ? undefined : json['segmentCode'],
         'segmentCodeGroup': !exists(json, 'segmentCodeGroup') ? undefined : json['segmentCodeGroup'],
     };
 }
@@ -131,7 +125,7 @@ export function DeleteSegmentCodeInfoTypeToJSON(value?: DeleteSegmentCodeInfoTyp
         'deleteInformation': BudgetInfoDeleteTypeToJSON(value.deleteInformation),
         'forecast': value.forecast,
         'segment': SegmentNameTypeToJSON(value.segment),
-        'segmentCode': CodeListTypeToJSON(value.segmentCode),
+        'segmentCode': value.segmentCode,
         'segmentCodeGroup': value.segmentCodeGroup,
     };
 }

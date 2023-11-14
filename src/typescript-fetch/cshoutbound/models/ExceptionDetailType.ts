@@ -19,12 +19,12 @@ import {
     ErrorInstanceFromJSONTyped,
     ErrorInstanceToJSON,
 } from './ErrorInstance';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 
 /**
  * Complex type that contains error details for a REST call.
@@ -82,10 +82,10 @@ export interface ExceptionDetailType {
     oerrorDetails?: Array<ErrorInstance>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExceptionDetailType
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -117,7 +117,7 @@ export function ExceptionDetailTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'oerrorCode': !exists(json, 'o:errorCode') ? undefined : json['o:errorCode'],
         'oerrorPath': !exists(json, 'o:errorPath') ? undefined : json['o:errorPath'],
         'oerrorDetails': !exists(json, 'o:errorDetails') ? undefined : ((json['o:errorDetails'] as Array<any>).map(ErrorInstanceFromJSON)),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -138,7 +138,7 @@ export function ExceptionDetailTypeToJSON(value?: ExceptionDetailType | null): a
         'o:errorCode': value.oerrorCode,
         'o:errorPath': value.oerrorPath,
         'o:errorDetails': value.oerrorDetails === undefined ? undefined : ((value.oerrorDetails as Array<any>).map(ErrorInstanceToJSON)),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

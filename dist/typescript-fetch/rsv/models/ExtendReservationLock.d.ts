@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Operation for extending the lifetime of a lock on a reservation.
  * @export
@@ -31,10 +31,10 @@ export interface ExtendReservationLock {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExtendReservationLock
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * The lock handle of the record lock we are attempting to release.
      * @type {number}
@@ -42,11 +42,11 @@ export interface ExtendReservationLock {
      */
     lockHandle?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ExtendReservationLock
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ExtendReservationLock interface.

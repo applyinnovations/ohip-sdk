@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { CancelPenaltyType } from './CancelPenaltyType';
-import type { ChannelMarketingInfoType } from './ChannelMarketingInfoType';
+import type { ChannelMarketingInfoTypeInner } from './ChannelMarketingInfoTypeInner';
 import type { DepositPolicyType } from './DepositPolicyType';
-import type { GuaranteesInfoType } from './GuaranteesInfoType';
+import type { GuaranteeType } from './GuaranteeType';
 /**
  * Policy details including guaranteeInfo, cancellation information etc.
  * @export
@@ -26,11 +26,11 @@ export interface ChannelPolicyType {
      */
     cancelPenalty?: CancelPenaltyType;
     /**
-     *
-     * @type {ChannelMarketingInfoType}
+     * Marketing Text like cancel policy, deposit policy etc.
+     * @type {Array<ChannelMarketingInfoTypeInner>}
      * @memberof ChannelPolicyType
      */
-    channelMarketingInfo?: ChannelMarketingInfoType;
+    channelMarketingInfo?: Array<ChannelMarketingInfoTypeInner>;
     /**
      *
      * @type {string}
@@ -56,11 +56,11 @@ export interface ChannelPolicyType {
      */
     depositPolicy?: DepositPolicyType;
     /**
-     *
-     * @type {GuaranteesInfoType}
+     * Guarantee details.
+     * @type {Array<GuaranteeType>}
      * @memberof ChannelPolicyType
      */
-    guarantees?: GuaranteesInfoType;
+    guarantees?: Array<GuaranteeType>;
     /**
      *
      * @type {boolean}

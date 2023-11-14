@@ -19,18 +19,18 @@ import {
     CompanyProfileTypeFromJSONTyped,
     CompanyProfileTypeToJSON,
 } from './CompanyProfileType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ProfileIdList } from './ProfileIdList';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Request object for creation of company/agent/group/source profile. This object contains profile details with unique identifiers of a profile. The standard optional Opera Context element is also included.
@@ -39,11 +39,11 @@ import {
  */
 export interface Company {
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof Company
      */
-    companyIdList?: ProfileIdList;
+    companyIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {CompanyProfileType}
@@ -52,10 +52,10 @@ export interface Company {
     companyDetails?: CompanyProfileType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Company
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CompanyFromJSONTyped(json: any, ignoreDiscriminator: boolean): C
     }
     return {
         
-        'companyIdList': !exists(json, 'companyIdList') ? undefined : ProfileIdListFromJSON(json['companyIdList']),
+        'companyIdList': !exists(json, 'companyIdList') ? undefined : ((json['companyIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'companyDetails': !exists(json, 'companyDetails') ? undefined : CompanyProfileTypeFromJSON(json['companyDetails']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CompanyToJSON(value?: Company | null): any {
     }
     return {
         
-        'companyIdList': ProfileIdListToJSON(value.companyIdList),
+        'companyIdList': value.companyIdList === undefined ? undefined : ((value.companyIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'companyDetails': CompanyProfileTypeToJSON(value.companyDetails),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

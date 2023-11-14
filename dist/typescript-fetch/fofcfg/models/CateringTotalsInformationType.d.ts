@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CateringInfoType } from './CateringInfoType';
-import type { CateringVarianceInfoType } from './CateringVarianceInfoType';
+import type { MonthlyCateringVarianceInfoType } from './MonthlyCateringVarianceInfoType';
 /**
  * Budget Forecast totals information for Catering segment.
  * @export
@@ -18,17 +18,17 @@ import type { CateringVarianceInfoType } from './CateringVarianceInfoType';
  */
 export interface CateringTotalsInformationType {
     /**
-     *
-     * @type {CateringVarianceInfoType}
+     * Monthly Variance information.
+     * @type {Array<MonthlyCateringVarianceInfoType>}
      * @memberof CateringTotalsInformationType
      */
-    aBVarianceTotalInfo?: CateringVarianceInfoType;
+    aBVarianceTotalInfo?: Array<MonthlyCateringVarianceInfoType>;
     /**
-     *
-     * @type {CateringVarianceInfoType}
+     * Monthly Variance information.
+     * @type {Array<MonthlyCateringVarianceInfoType>}
      * @memberof CateringTotalsInformationType
      */
-    aFVarianceTotalInfo?: CateringVarianceInfoType;
+    aFVarianceTotalInfo?: Array<MonthlyCateringVarianceInfoType>;
     /**
      *
      * @type {CateringInfoType}
@@ -42,11 +42,11 @@ export interface CateringTotalsInformationType {
      */
     budgetTotalInfo?: CateringInfoType;
     /**
-     *
-     * @type {CateringVarianceInfoType}
+     * Monthly Variance information.
+     * @type {Array<MonthlyCateringVarianceInfoType>}
      * @memberof CateringTotalsInformationType
      */
-    fBVarianceTotalInfo?: CateringVarianceInfoType;
+    fBVarianceTotalInfo?: Array<MonthlyCateringVarianceInfoType>;
     /**
      *
      * @type {CateringInfoType}

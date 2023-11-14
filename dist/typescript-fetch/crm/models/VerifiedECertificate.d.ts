@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ProfileId } from './ProfileId';
 import type { ProfileNameType } from './ProfileNameType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object to Verify E-Certificate and will return the profile information.
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface VerifiedECertificate {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof VerifiedECertificate
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ProfileId}
@@ -38,11 +38,11 @@ export interface VerifiedECertificate {
      */
     profileName?: ProfileNameType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof VerifiedECertificate
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the VerifiedECertificate interface.

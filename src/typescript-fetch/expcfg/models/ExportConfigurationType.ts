@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ExportColumnsType } from './ExportColumnsType';
+import type { ExportColumnDetailType } from './ExportColumnDetailType';
 import {
-    ExportColumnsTypeFromJSON,
-    ExportColumnsTypeFromJSONTyped,
-    ExportColumnsTypeToJSON,
-} from './ExportColumnsType';
-import type { ExportComponentsType } from './ExportComponentsType';
+    ExportColumnDetailTypeFromJSON,
+    ExportColumnDetailTypeFromJSONTyped,
+    ExportColumnDetailTypeToJSON,
+} from './ExportColumnDetailType';
+import type { ExportComponentType } from './ExportComponentType';
 import {
-    ExportComponentsTypeFromJSON,
-    ExportComponentsTypeFromJSONTyped,
-    ExportComponentsTypeToJSON,
-} from './ExportComponentsType';
+    ExportComponentTypeFromJSON,
+    ExportComponentTypeFromJSONTyped,
+    ExportComponentTypeToJSON,
+} from './ExportComponentType';
 import type { ExportDataSetupType } from './ExportDataSetupType';
 import {
     ExportDataSetupTypeFromJSON,
@@ -63,17 +63,17 @@ import {
  */
 export interface ExportConfigurationType {
     /**
-     * 
-     * @type {ExportColumnsType}
+     * A collection of export columns.
+     * @type {Array<ExportColumnDetailType>}
      * @memberof ExportConfigurationType
      */
-    columns?: ExportColumnsType;
+    columns?: Array<ExportColumnDetailType>;
     /**
-     * 
-     * @type {ExportComponentsType}
+     * A collection of export components.
+     * @type {Array<ExportComponentType>}
      * @memberof ExportConfigurationType
      */
-    components?: ExportComponentsType;
+    components?: Array<ExportComponentType>;
     /**
      * 
      * @type {ExportDataSetupType}
@@ -125,8 +125,8 @@ export function ExportConfigurationTypeFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'columns': !exists(json, 'columns') ? undefined : ExportColumnsTypeFromJSON(json['columns']),
-        'components': !exists(json, 'components') ? undefined : ExportComponentsTypeFromJSON(json['components']),
+        'columns': !exists(json, 'columns') ? undefined : ((json['columns'] as Array<any>).map(ExportColumnDetailTypeFromJSON)),
+        'components': !exists(json, 'components') ? undefined : ((json['components'] as Array<any>).map(ExportComponentTypeFromJSON)),
         'dataSetup': !exists(json, 'dataSetup') ? undefined : ExportDataSetupTypeFromJSON(json['dataSetup']),
         'destinationSetup': !exists(json, 'destinationSetup') ? undefined : ExportDestinationTypeFromJSON(json['destinationSetup']),
         'generateConfigSetup': !exists(json, 'generateConfigSetup') ? undefined : ExportGenerateConfigurationTypeFromJSON(json['generateConfigSetup']),
@@ -144,8 +144,8 @@ export function ExportConfigurationTypeToJSON(value?: ExportConfigurationType | 
     }
     return {
         
-        'columns': ExportColumnsTypeToJSON(value.columns),
-        'components': ExportComponentsTypeToJSON(value.components),
+        'columns': value.columns === undefined ? undefined : ((value.columns as Array<any>).map(ExportColumnDetailTypeToJSON)),
+        'components': value.components === undefined ? undefined : ((value.components as Array<any>).map(ExportComponentTypeToJSON)),
         'dataSetup': ExportDataSetupTypeToJSON(value.dataSetup),
         'destinationSetup': ExportDestinationTypeToJSON(value.destinationSetup),
         'generateConfigSetup': ExportGenerateConfigurationTypeToJSON(value.generateConfigSetup),

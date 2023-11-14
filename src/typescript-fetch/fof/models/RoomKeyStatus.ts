@@ -25,18 +25,18 @@ import {
     DateTimeRangeTypeFromJSONTyped,
     DateTimeRangeTypeToJSON,
 } from './DateTimeRangeType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Respose for the reading of room key.
@@ -76,10 +76,10 @@ export interface RoomKeyStatus {
     keyOptions?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomKeyStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {string}
@@ -93,11 +93,11 @@ export interface RoomKeyStatus {
      */
     validUntil?: string;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomKeyStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -124,10 +124,10 @@ export function RoomKeyStatusFromJSONTyped(json: any, ignoreDiscriminator: boole
         'guestFirstName': !exists(json, 'guestFirstName') ? undefined : json['guestFirstName'],
         'guestLastName': !exists(json, 'guestLastName') ? undefined : json['guestLastName'],
         'keyOptions': !exists(json, 'keyOptions') ? undefined : json['keyOptions'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'room': !exists(json, 'room') ? undefined : json['room'],
         'validUntil': !exists(json, 'validUntil') ? undefined : json['validUntil'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -145,10 +145,10 @@ export function RoomKeyStatusToJSON(value?: RoomKeyStatus | null): any {
         'guestFirstName': value.guestFirstName,
         'guestLastName': value.guestLastName,
         'keyOptions': value.keyOptions,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'room': value.room,
         'validUntil': value.validUntil,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { ConfigExclusivePrefCodeAndGroupType } from './ConfigExclusivePrefCodeAndGroupType';
 /**
  * Copy instructions for copying template Exclusive preferences to hotel(s)
@@ -19,10 +18,10 @@ import type { ConfigExclusivePrefCodeAndGroupType } from './ConfigExclusivePrefC
 export interface ConfigCopyExclusivePreferencesType {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigCopyExclusivePreferencesType
      */
-    hotelCodes?: CodeListType;
+    hotelCodes?: Array<string>;
     /**
      * Template Exclusive preference to be copied to the hotel(s).
      * @type {Array<ConfigExclusivePrefCodeAndGroupType>}

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { UpgradeEligibilityListType } from './UpgradeEligibilityListType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { UpgradeEligibilityType } from './UpgradeEligibilityType';
+import type { WarningType } from './WarningType';
 /**
  * Request object containing a list of reservation name ids, hotel code and eligibility flag.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ReservationsUpgradeEligibility {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationsUpgradeEligibility
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {UpgradeEligibilityListType}
+     * List of upgrade Eligibility Types.
+     * @type {Array<UpgradeEligibilityType>}
      * @memberof ReservationsUpgradeEligibility
      */
-    upgradeEligibilityListType?: UpgradeEligibilityListType;
+    upgradeEligibilityListType?: Array<UpgradeEligibilityType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationsUpgradeEligibility
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationsUpgradeEligibility interface.

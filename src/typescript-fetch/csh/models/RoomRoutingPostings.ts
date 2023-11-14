@@ -19,12 +19,12 @@ import {
     PostingsInfoTypeFromJSONTyped,
     PostingsInfoTypeToJSON,
 } from './PostingsInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,11 +39,11 @@ export interface RoomRoutingPostings {
      */
     postingsForRoomRouting?: PostingsInfoType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomRoutingPostings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function RoomRoutingPostingsFromJSONTyped(json: any, ignoreDiscriminator:
     return {
         
         'postingsForRoomRouting': !exists(json, 'postingsForRoomRouting') ? undefined : PostingsInfoTypeFromJSON(json['postingsForRoomRouting']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function RoomRoutingPostingsToJSON(value?: RoomRoutingPostings | null): a
     return {
         
         'postingsForRoomRouting': PostingsInfoTypeToJSON(value.postingsForRoomRouting),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CancellationCodesToBeChangedToJSON = exports.CancellationCodesToBeChangedFromJSONTyped = exports.CancellationCodesToBeChangedFromJSON = exports.instanceOfCancellationCodesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const CancellationCodesType_1 = require("./CancellationCodesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CancellationCodeType_1 = require("./CancellationCodeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CancellationCodesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function CancellationCodesToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'cancellationCodes': !(0, runtime_1.exists)(json, 'cancellationCodes') ? undefined : (0, CancellationCodesType_1.CancellationCodesTypeFromJSON)(json['cancellationCodes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'cancellationCodes': !(0, runtime_1.exists)(json, 'cancellationCodes') ? undefined : (json['cancellationCodes'].map(CancellationCodeType_1.CancellationCodeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CancellationCodesToBeChangedFromJSONTyped = CancellationCodesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function CancellationCodesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'cancellationCodes': (0, CancellationCodesType_1.CancellationCodesTypeToJSON)(value.cancellationCodes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'cancellationCodes': value.cancellationCodes === undefined ? undefined : (value.cancellationCodes.map(CancellationCodeType_1.CancellationCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CancellationCodesToBeChangedToJSON = CancellationCodesToBeChangedToJSON;

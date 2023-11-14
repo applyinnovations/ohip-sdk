@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RoomHierarchiesType } from './RoomHierarchiesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RoomHierarchyType } from './RoomHierarchyType';
+import type { WarningType } from './WarningType';
 /**
  * Request to change room hierarchies
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface RoomHierarchiesToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomHierarchiesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RoomHierarchiesType}
+     * Holds collection of room hierarchies
+     * @type {Array<RoomHierarchyType>}
      * @memberof RoomHierarchiesToBeChanged
      */
-    roomHierarchies?: RoomHierarchiesType;
+    roomHierarchies?: Array<RoomHierarchyType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomHierarchiesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomHierarchiesToBeChanged interface.

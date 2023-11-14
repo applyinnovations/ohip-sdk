@@ -12,7 +12,6 @@
 import type { GuaranteePolicyTypeCancelPenalty } from './GuaranteePolicyTypeCancelPenalty';
 import type { GuaranteePolicyTypeDepositPolicy } from './GuaranteePolicyTypeDepositPolicy';
 import type { GuaranteeRequirementsType } from './GuaranteeRequirementsType';
-import type { PaymentTypesType } from './PaymentTypesType';
 import type { TranslationTextType80 } from './TranslationTextType80';
 /**
  * Specifies Guarantee Code attributes.
@@ -69,11 +68,11 @@ export interface GuaranteePolicyType {
      */
     orderSequence?: number;
     /**
-     *
-     * @type {PaymentTypesType}
+     * Payment card code like AX,VI etc.
+     * @type {Array<string>}
      * @memberof GuaranteePolicyType
      */
-    paymentTypes?: PaymentTypesType;
+    paymentTypes?: Array<string>;
     /**
      *
      * @type {GuaranteeRequirementsType}

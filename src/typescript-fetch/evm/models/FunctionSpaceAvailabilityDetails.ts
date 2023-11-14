@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FunctionSpacesAvailabilityType } from './FunctionSpacesAvailabilityType';
+import type { FunctionSpaceAvailabilityType } from './FunctionSpaceAvailabilityType';
 import {
-    FunctionSpacesAvailabilityTypeFromJSON,
-    FunctionSpacesAvailabilityTypeFromJSONTyped,
-    FunctionSpacesAvailabilityTypeToJSON,
-} from './FunctionSpacesAvailabilityType';
-import type { Links } from './Links';
+    FunctionSpaceAvailabilityTypeFromJSON,
+    FunctionSpaceAvailabilityTypeFromJSONTyped,
+    FunctionSpaceAvailabilityTypeToJSON,
+} from './FunctionSpaceAvailabilityType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for retrieving availability for catering function spaces.
@@ -39,23 +39,23 @@ import {
  */
 export interface FunctionSpaceAvailabilityDetails {
     /**
-     * 
-     * @type {FunctionSpacesAvailabilityType}
+     * Collection of available Function Spaces.
+     * @type {Array<FunctionSpaceAvailabilityType>}
      * @memberof FunctionSpaceAvailabilityDetails
      */
-    functionSpacesAvailability?: FunctionSpacesAvailabilityType;
+    functionSpacesAvailability?: Array<FunctionSpaceAvailabilityType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FunctionSpaceAvailabilityDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FunctionSpaceAvailabilityDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FunctionSpaceAvailabilityDetailsFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'functionSpacesAvailability': !exists(json, 'functionSpacesAvailability') ? undefined : FunctionSpacesAvailabilityTypeFromJSON(json['functionSpacesAvailability']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'functionSpacesAvailability': !exists(json, 'functionSpacesAvailability') ? undefined : ((json['functionSpacesAvailability'] as Array<any>).map(FunctionSpaceAvailabilityTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FunctionSpaceAvailabilityDetailsToJSON(value?: FunctionSpaceAvai
     }
     return {
         
-        'functionSpacesAvailability': FunctionSpacesAvailabilityTypeToJSON(value.functionSpacesAvailability),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'functionSpacesAvailability': value.functionSpacesAvailability === undefined ? undefined : ((value.functionSpacesAvailability as Array<any>).map(FunctionSpaceAvailabilityTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

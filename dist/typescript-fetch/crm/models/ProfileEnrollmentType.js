@@ -25,13 +25,13 @@ const CompanyProfileTypeRelationships_1 = require("./CompanyProfileTypeRelations
 const CompanyProfileTypeURLs_1 = require("./CompanyProfileTypeURLs");
 const CompanyType_1 = require("./CompanyType");
 const CustomerType_1 = require("./CustomerType");
-const ECertificatesType_1 = require("./ECertificatesType");
+const ECertificateType_1 = require("./ECertificateType");
 const EarningPreferencesType_1 = require("./EarningPreferencesType");
 const EnrollmentPaymentDetailsType_1 = require("./EnrollmentPaymentDetailsType");
 const EnrollmentTypeType_1 = require("./EnrollmentTypeType");
-const HotelStaysType_1 = require("./HotelStaysType");
+const HotelStayType_1 = require("./HotelStayType");
 const ImageSetType_1 = require("./ImageSetType");
-const IndicatorsType_1 = require("./IndicatorsType");
+const IndicatorType_1 = require("./IndicatorType");
 const LastStayInfoType_1 = require("./LastStayInfoType");
 const MailingActionsType_1 = require("./MailingActionsType");
 const MailingPreferencesType_1 = require("./MailingPreferencesType");
@@ -48,7 +48,7 @@ const ProfileEnrollmentTypeRoomOwnershipsList_1 = require("./ProfileEnrollmentTy
 const ProfileEnrollmentTypeTelephones_1 = require("./ProfileEnrollmentTypeTelephones");
 const ProfileRestrictions_1 = require("./ProfileRestrictions");
 const ProfileStatusType_1 = require("./ProfileStatusType");
-const ProfileSubscriptionListType_1 = require("./ProfileSubscriptionListType");
+const ProfileSubscriptionType_1 = require("./ProfileSubscriptionType");
 const ProfileTaxInfoType_1 = require("./ProfileTaxInfoType");
 const ProfileTypeType_1 = require("./ProfileTypeType");
 const ReservationHistoryFutureInfoType_1 = require("./ReservationHistoryFutureInfoType");
@@ -59,7 +59,7 @@ const RoomPreferencesType_1 = require("./RoomPreferencesType");
 const SalesInfoType_1 = require("./SalesInfoType");
 const UniqueIDType_1 = require("./UniqueIDType");
 const UserDefinedFieldsType_1 = require("./UserDefinedFieldsType");
-const WebUserAccountsType_1 = require("./WebUserAccountsType");
+const WebUserAccountType_1 = require("./WebUserAccountType");
 /**
  * Check if a given object implements the ProfileEnrollmentType interface.
  */
@@ -86,7 +86,7 @@ function ProfileEnrollmentTypeFromJSONTyped(json, ignoreDiscriminator) {
         'createDateTime': !(0, runtime_1.exists)(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !(0, runtime_1.exists)(json, 'creatorId') ? undefined : json['creatorId'],
         'customer': !(0, runtime_1.exists)(json, 'customer') ? undefined : (0, CustomerType_1.CustomerTypeFromJSON)(json['customer']),
-        'eCertificates': !(0, runtime_1.exists)(json, 'eCertificates') ? undefined : (0, ECertificatesType_1.ECertificatesTypeFromJSON)(json['eCertificates']),
+        'eCertificates': !(0, runtime_1.exists)(json, 'eCertificates') ? undefined : (json['eCertificates'].map(ECertificateType_1.ECertificateTypeFromJSON)),
         'earningPreferences': !(0, runtime_1.exists)(json, 'earningPreferences') ? undefined : (0, EarningPreferencesType_1.EarningPreferencesTypeFromJSON)(json['earningPreferences']),
         'eligibleForFiscalFolio': !(0, runtime_1.exists)(json, 'eligibleForFiscalFolio') ? undefined : json['eligibleForFiscalFolio'],
         'emails': !(0, runtime_1.exists)(json, 'emails') ? undefined : (0, ProfileEnrollmentTypeEmails_1.ProfileEnrollmentTypeEmailsFromJSON)(json['emails']),
@@ -115,13 +115,13 @@ function ProfileEnrollmentTypeFromJSONTyped(json, ignoreDiscriminator) {
         'negotiatedRates': !(0, runtime_1.exists)(json, 'negotiatedRates') ? undefined : (0, CompanyProfileTypeNegotiatedRates_1.CompanyProfileTypeNegotiatedRatesFromJSON)(json['negotiatedRates']),
         'ownerCode': !(0, runtime_1.exists)(json, 'ownerCode') ? undefined : json['ownerCode'],
         'preferenceCollection': !(0, runtime_1.exists)(json, 'preferenceCollection') ? undefined : (0, ProfileEnrollmentTypePreferenceCollection_1.ProfileEnrollmentTypePreferenceCollectionFromJSON)(json['preferenceCollection']),
-        'previousHotelStays': !(0, runtime_1.exists)(json, 'previousHotelStays') ? undefined : (0, HotelStaysType_1.HotelStaysTypeFromJSON)(json['previousHotelStays']),
+        'previousHotelStays': !(0, runtime_1.exists)(json, 'previousHotelStays') ? undefined : (json['previousHotelStays'].map(HotelStayType_1.HotelStayTypeFromJSON)),
         'privacyInfo': !(0, runtime_1.exists)(json, 'privacyInfo') ? undefined : (0, PrivacyInfoType_1.PrivacyInfoTypeFromJSON)(json['privacyInfo']),
         'profileAccessType': !(0, runtime_1.exists)(json, 'profileAccessType') ? undefined : (0, ProfileAccessType_1.ProfileAccessTypeFromJSON)(json['profileAccessType']),
         'profileDeliveryMethods': !(0, runtime_1.exists)(json, 'profileDeliveryMethods') ? undefined : (0, ProfileEnrollmentTypeProfileDeliveryMethods_1.ProfileEnrollmentTypeProfileDeliveryMethodsFromJSON)(json['profileDeliveryMethods']),
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['profileId']),
         'profileImage': !(0, runtime_1.exists)(json, 'profileImage') ? undefined : (0, ImageSetType_1.ImageSetTypeFromJSON)(json['profileImage']),
-        'profileIndicators': !(0, runtime_1.exists)(json, 'profileIndicators') ? undefined : (0, IndicatorsType_1.IndicatorsTypeFromJSON)(json['profileIndicators']),
+        'profileIndicators': !(0, runtime_1.exists)(json, 'profileIndicators') ? undefined : (json['profileIndicators'].map(IndicatorType_1.IndicatorTypeFromJSON)),
         'profileMemberships': !(0, runtime_1.exists)(json, 'profileMemberships') ? undefined : (0, ProfileEnrollmentTypeProfileMemberships_1.ProfileEnrollmentTypeProfileMembershipsFromJSON)(json['profileMemberships']),
         'profileRestrictions': !(0, runtime_1.exists)(json, 'profileRestrictions') ? undefined : (0, ProfileRestrictions_1.ProfileRestrictionsFromJSON)(json['profileRestrictions']),
         'profileType': !(0, runtime_1.exists)(json, 'profileType') ? undefined : (0, ProfileTypeType_1.ProfileTypeTypeFromJSON)(json['profileType']),
@@ -139,7 +139,7 @@ function ProfileEnrollmentTypeFromJSONTyped(json, ignoreDiscriminator) {
         'showInactiveRoomOwners': !(0, runtime_1.exists)(json, 'showInactiveRoomOwners') ? undefined : json['showInactiveRoomOwners'],
         'statusCode': !(0, runtime_1.exists)(json, 'statusCode') ? undefined : (0, ProfileStatusType_1.ProfileStatusTypeFromJSON)(json['statusCode']),
         'stayReservationInfoList': !(0, runtime_1.exists)(json, 'stayReservationInfoList') ? undefined : (0, ReservationStayHistoryFutureInfoType_1.ReservationStayHistoryFutureInfoTypeFromJSON)(json['stayReservationInfoList']),
-        'subscriptions': !(0, runtime_1.exists)(json, 'subscriptions') ? undefined : (0, ProfileSubscriptionListType_1.ProfileSubscriptionListTypeFromJSON)(json['subscriptions']),
+        'subscriptions': !(0, runtime_1.exists)(json, 'subscriptions') ? undefined : (json['subscriptions'].map(ProfileSubscriptionType_1.ProfileSubscriptionTypeFromJSON)),
         'taxInfo': !(0, runtime_1.exists)(json, 'taxInfo') ? undefined : (0, ProfileTaxInfoType_1.ProfileTaxInfoTypeFromJSON)(json['taxInfo']),
         'telephones': !(0, runtime_1.exists)(json, 'telephones') ? undefined : (0, ProfileEnrollmentTypeTelephones_1.ProfileEnrollmentTypeTelephonesFromJSON)(json['telephones']),
         'territory': !(0, runtime_1.exists)(json, 'territory') ? undefined : json['territory'],
@@ -147,7 +147,7 @@ function ProfileEnrollmentTypeFromJSONTyped(json, ignoreDiscriminator) {
         'uRLs': !(0, runtime_1.exists)(json, 'uRLs') ? undefined : (0, CompanyProfileTypeURLs_1.CompanyProfileTypeURLsFromJSON)(json['uRLs']),
         'userDefinedFields': !(0, runtime_1.exists)(json, 'userDefinedFields') ? undefined : (0, UserDefinedFieldsType_1.UserDefinedFieldsTypeFromJSON)(json['userDefinedFields']),
         'userId': !(0, runtime_1.exists)(json, 'userId') ? undefined : json['userId'],
-        'webUserAccounts': !(0, runtime_1.exists)(json, 'webUserAccounts') ? undefined : (0, WebUserAccountsType_1.WebUserAccountsTypeFromJSON)(json['webUserAccounts']),
+        'webUserAccounts': !(0, runtime_1.exists)(json, 'webUserAccounts') ? undefined : (json['webUserAccounts'].map(WebUserAccountType_1.WebUserAccountTypeFromJSON)),
     };
 }
 exports.ProfileEnrollmentTypeFromJSONTyped = ProfileEnrollmentTypeFromJSONTyped;
@@ -168,7 +168,7 @@ function ProfileEnrollmentTypeToJSON(value) {
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
         'customer': (0, CustomerType_1.CustomerTypeToJSON)(value.customer),
-        'eCertificates': (0, ECertificatesType_1.ECertificatesTypeToJSON)(value.eCertificates),
+        'eCertificates': value.eCertificates === undefined ? undefined : (value.eCertificates.map(ECertificateType_1.ECertificateTypeToJSON)),
         'earningPreferences': (0, EarningPreferencesType_1.EarningPreferencesTypeToJSON)(value.earningPreferences),
         'eligibleForFiscalFolio': value.eligibleForFiscalFolio,
         'emails': (0, ProfileEnrollmentTypeEmails_1.ProfileEnrollmentTypeEmailsToJSON)(value.emails),
@@ -197,13 +197,13 @@ function ProfileEnrollmentTypeToJSON(value) {
         'negotiatedRates': (0, CompanyProfileTypeNegotiatedRates_1.CompanyProfileTypeNegotiatedRatesToJSON)(value.negotiatedRates),
         'ownerCode': value.ownerCode,
         'preferenceCollection': (0, ProfileEnrollmentTypePreferenceCollection_1.ProfileEnrollmentTypePreferenceCollectionToJSON)(value.preferenceCollection),
-        'previousHotelStays': (0, HotelStaysType_1.HotelStaysTypeToJSON)(value.previousHotelStays),
+        'previousHotelStays': value.previousHotelStays === undefined ? undefined : (value.previousHotelStays.map(HotelStayType_1.HotelStayTypeToJSON)),
         'privacyInfo': (0, PrivacyInfoType_1.PrivacyInfoTypeToJSON)(value.privacyInfo),
         'profileAccessType': (0, ProfileAccessType_1.ProfileAccessTypeToJSON)(value.profileAccessType),
         'profileDeliveryMethods': (0, ProfileEnrollmentTypeProfileDeliveryMethods_1.ProfileEnrollmentTypeProfileDeliveryMethodsToJSON)(value.profileDeliveryMethods),
         'profileId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.profileId),
         'profileImage': (0, ImageSetType_1.ImageSetTypeToJSON)(value.profileImage),
-        'profileIndicators': (0, IndicatorsType_1.IndicatorsTypeToJSON)(value.profileIndicators),
+        'profileIndicators': value.profileIndicators === undefined ? undefined : (value.profileIndicators.map(IndicatorType_1.IndicatorTypeToJSON)),
         'profileMemberships': (0, ProfileEnrollmentTypeProfileMemberships_1.ProfileEnrollmentTypeProfileMembershipsToJSON)(value.profileMemberships),
         'profileRestrictions': (0, ProfileRestrictions_1.ProfileRestrictionsToJSON)(value.profileRestrictions),
         'profileType': (0, ProfileTypeType_1.ProfileTypeTypeToJSON)(value.profileType),
@@ -221,7 +221,7 @@ function ProfileEnrollmentTypeToJSON(value) {
         'showInactiveRoomOwners': value.showInactiveRoomOwners,
         'statusCode': (0, ProfileStatusType_1.ProfileStatusTypeToJSON)(value.statusCode),
         'stayReservationInfoList': (0, ReservationStayHistoryFutureInfoType_1.ReservationStayHistoryFutureInfoTypeToJSON)(value.stayReservationInfoList),
-        'subscriptions': (0, ProfileSubscriptionListType_1.ProfileSubscriptionListTypeToJSON)(value.subscriptions),
+        'subscriptions': value.subscriptions === undefined ? undefined : (value.subscriptions.map(ProfileSubscriptionType_1.ProfileSubscriptionTypeToJSON)),
         'taxInfo': (0, ProfileTaxInfoType_1.ProfileTaxInfoTypeToJSON)(value.taxInfo),
         'telephones': (0, ProfileEnrollmentTypeTelephones_1.ProfileEnrollmentTypeTelephonesToJSON)(value.telephones),
         'territory': value.territory,
@@ -229,7 +229,7 @@ function ProfileEnrollmentTypeToJSON(value) {
         'uRLs': (0, CompanyProfileTypeURLs_1.CompanyProfileTypeURLsToJSON)(value.uRLs),
         'userDefinedFields': (0, UserDefinedFieldsType_1.UserDefinedFieldsTypeToJSON)(value.userDefinedFields),
         'userId': value.userId,
-        'webUserAccounts': (0, WebUserAccountsType_1.WebUserAccountsTypeToJSON)(value.webUserAccounts),
+        'webUserAccounts': value.webUserAccounts === undefined ? undefined : (value.webUserAccounts.map(WebUserAccountType_1.WebUserAccountTypeToJSON)),
     };
 }
 exports.ProfileEnrollmentTypeToJSON = ProfileEnrollmentTypeToJSON;

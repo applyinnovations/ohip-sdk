@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationConfLettersTypeToJSON = exports.ReservationConfLettersTypeFromJSONTyped = exports.ReservationConfLettersTypeFromJSON = exports.instanceOfReservationConfLettersType = void 0;
 const runtime_1 = require("../runtime");
-const ConfirmationsType_1 = require("./ConfirmationsType");
+const ConfirmationType_1 = require("./ConfirmationType");
 const ReservationInfoType_1 = require("./ReservationInfoType");
 /**
  * Check if a given object implements the ReservationConfLettersType interface.
@@ -34,7 +34,7 @@ function ReservationConfLettersTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'confLetters': !(0, runtime_1.exists)(json, 'confLetters') ? undefined : (0, ConfirmationsType_1.ConfirmationsTypeFromJSON)(json['confLetters']),
+        'confLetters': !(0, runtime_1.exists)(json, 'confLetters') ? undefined : (json['confLetters'].map(ConfirmationType_1.ConfirmationTypeFromJSON)),
         'reservation': !(0, runtime_1.exists)(json, 'reservation') ? undefined : (0, ReservationInfoType_1.ReservationInfoTypeFromJSON)(json['reservation']),
     };
 }
@@ -47,7 +47,7 @@ function ReservationConfLettersTypeToJSON(value) {
         return null;
     }
     return {
-        'confLetters': (0, ConfirmationsType_1.ConfirmationsTypeToJSON)(value.confLetters),
+        'confLetters': value.confLetters === undefined ? undefined : (value.confLetters.map(ConfirmationType_1.ConfirmationTypeToJSON)),
         'reservation': (0, ReservationInfoType_1.ReservationInfoTypeToJSON)(value.reservation),
     };
 }

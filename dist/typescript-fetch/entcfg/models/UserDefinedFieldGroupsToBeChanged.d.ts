@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { UserDefinedFieldGroupsType } from './UserDefinedFieldGroupsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { UserDefinedFieldGroupType } from './UserDefinedFieldGroupType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing User Defined Field Groups.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface UserDefinedFieldGroupsToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof UserDefinedFieldGroupsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {UserDefinedFieldGroupsType}
+     * A recurring element that identifies the User Defined Field Group.
+     * @type {Array<UserDefinedFieldGroupType>}
      * @memberof UserDefinedFieldGroupsToBeChanged
      */
-    userDefinedFieldGroups?: UserDefinedFieldGroupsType;
+    userDefinedFieldGroups?: Array<UserDefinedFieldGroupType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof UserDefinedFieldGroupsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the UserDefinedFieldGroupsToBeChanged interface.

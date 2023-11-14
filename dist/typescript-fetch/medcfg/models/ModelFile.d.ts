@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { FileAttachmentType } from './FileAttachmentType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response to fetch file attachment
  * @export
@@ -26,16 +26,16 @@ export interface ModelFile {
     fileDetails?: FileAttachmentType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ModelFile
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ModelFile
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ModelFile interface.

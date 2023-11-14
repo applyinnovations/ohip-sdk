@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CheckReservationsType } from './CheckReservationsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CheckReservationType } from './CheckReservationType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for checking allowed actions, existence of attached records, or indicators of a reservation.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CheckReservationsDetails {
     /**
-     *
-     * @type {CheckReservationsType}
+     * Collection of reservations and the status of its allowed actions, attached records, and indicators.
+     * @type {Array<CheckReservationType>}
      * @memberof CheckReservationsDetails
      */
-    checkReservations?: CheckReservationsType;
+    checkReservations?: Array<CheckReservationType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CheckReservationsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CheckReservationsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CheckReservationsDetails interface.

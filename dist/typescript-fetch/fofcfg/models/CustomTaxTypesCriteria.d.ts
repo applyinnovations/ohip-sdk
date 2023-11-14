@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CustomTaxTypesType } from './CustomTaxTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CustomTaxTypeType } from './CustomTaxTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Custom Tax Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CustomTaxTypesCriteria {
     /**
-     *
-     * @type {CustomTaxTypesType}
+     * List of Custom Tax Types.
+     * @type {Array<CustomTaxTypeType>}
      * @memberof CustomTaxTypesCriteria
      */
-    customTaxTypes?: CustomTaxTypesType;
+    customTaxTypes?: Array<CustomTaxTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CustomTaxTypesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CustomTaxTypesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CustomTaxTypesCriteria interface.

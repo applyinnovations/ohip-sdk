@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { BlockReservationsType } from './BlockReservationsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response type for holding block reservations as part of the response to FetchBlockReservations operation.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface BlockReservations {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockReservations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {BlockReservationsType}
@@ -31,11 +31,11 @@ export interface BlockReservations {
      */
     reservations?: BlockReservationsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockReservations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockReservations interface.

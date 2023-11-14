@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelEventSpaceDetailTypeToJSON = exports.HotelEventSpaceDetailTypeFromJSONTyped = exports.HotelEventSpaceDetailTypeFromJSON = exports.instanceOfHotelEventSpaceDetailType = void 0;
 const runtime_1 = require("../runtime");
-const EventSpaceMaxOccupanciesType_1 = require("./EventSpaceMaxOccupanciesType");
 /**
  * Check if a given object implements the HotelEventSpaceDetailType interface.
  */
@@ -36,7 +35,7 @@ function HotelEventSpaceDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'maxCapacity': !(0, runtime_1.exists)(json, 'maxCapacity') ? undefined : json['maxCapacity'],
-        'maxOccupancies': !(0, runtime_1.exists)(json, 'maxOccupancies') ? undefined : (0, EventSpaceMaxOccupanciesType_1.EventSpaceMaxOccupanciesTypeFromJSON)(json['maxOccupancies']),
+        'maxOccupancies': !(0, runtime_1.exists)(json, 'maxOccupancies') ? undefined : json['maxOccupancies'],
     };
 }
 exports.HotelEventSpaceDetailTypeFromJSONTyped = HotelEventSpaceDetailTypeFromJSONTyped;
@@ -51,7 +50,7 @@ function HotelEventSpaceDetailTypeToJSON(value) {
         'code': value.code,
         'description': value.description,
         'maxCapacity': value.maxCapacity,
-        'maxOccupancies': (0, EventSpaceMaxOccupanciesType_1.EventSpaceMaxOccupanciesTypeToJSON)(value.maxOccupancies),
+        'maxOccupancies': value.maxOccupancies,
     };
 }
 exports.HotelEventSpaceDetailTypeToJSON = HotelEventSpaceDetailTypeToJSON;

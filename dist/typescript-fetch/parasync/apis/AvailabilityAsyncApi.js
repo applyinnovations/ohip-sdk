@@ -184,7 +184,7 @@ class AvailabilityAsyncApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: (0, index_1.RestrictionsToJSON)(requestParameters.restrictions),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.LinksFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(index_1.InstanceLinkFromJSON));
         });
     }
     /**

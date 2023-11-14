@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ChannelRoomMappingType } from './ChannelRoomMappingType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Channel Room Mapping.
  * @export
@@ -26,16 +26,16 @@ export interface ChannelRoomMapping {
     channelRoomMapping?: ChannelRoomMappingType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelRoomMapping
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelRoomMapping
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelRoomMapping interface.

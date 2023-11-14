@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AttractionClassesType } from './AttractionClassesType';
+import type { AttractionClassType } from './AttractionClassType';
 import {
-    AttractionClassesTypeFromJSON,
-    AttractionClassesTypeFromJSONTyped,
-    AttractionClassesTypeToJSON,
-} from './AttractionClassesType';
-import type { Links } from './Links';
+    AttractionClassTypeFromJSON,
+    AttractionClassTypeFromJSONTyped,
+    AttractionClassTypeToJSON,
+} from './AttractionClassType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Attraction Classes.
@@ -39,23 +39,23 @@ import {
  */
 export interface AttractionClassesDetails {
     /**
-     * 
-     * @type {AttractionClassesType}
+     * List of Attraction Classes.
+     * @type {Array<AttractionClassType>}
      * @memberof AttractionClassesDetails
      */
-    attractionClasses?: AttractionClassesType;
+    attractionClasses?: Array<AttractionClassType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AttractionClassesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AttractionClassesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function AttractionClassesDetailsFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'attractionClasses': !exists(json, 'attractionClasses') ? undefined : AttractionClassesTypeFromJSON(json['attractionClasses']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'attractionClasses': !exists(json, 'attractionClasses') ? undefined : ((json['attractionClasses'] as Array<any>).map(AttractionClassTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function AttractionClassesDetailsToJSON(value?: AttractionClassesDetails 
     }
     return {
         
-        'attractionClasses': AttractionClassesTypeToJSON(value.attractionClasses),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'attractionClasses': value.attractionClasses === undefined ? undefined : ((value.attractionClasses as Array<any>).map(AttractionClassTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

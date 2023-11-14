@@ -19,12 +19,12 @@ import {
     ChannelErrorsErrorsFromJSONTyped,
     ChannelErrorsErrorsToJSON,
 } from './ChannelErrorsErrors';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating channel errors.
@@ -39,11 +39,11 @@ export interface ChannelErrors {
      */
     errors?: ChannelErrorsErrors;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelErrors
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function ChannelErrorsFromJSONTyped(json: any, ignoreDiscriminator: boole
     return {
         
         'errors': !exists(json, 'errors') ? undefined : ChannelErrorsErrorsFromJSON(json['errors']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function ChannelErrorsToJSON(value?: ChannelErrors | null): any {
     return {
         
         'errors': ChannelErrorsErrorsToJSON(value.errors),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

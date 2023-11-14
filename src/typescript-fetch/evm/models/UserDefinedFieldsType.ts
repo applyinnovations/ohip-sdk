@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CharacterUDFsType } from './CharacterUDFsType';
+import type { CharacterUDFType } from './CharacterUDFType';
 import {
-    CharacterUDFsTypeFromJSON,
-    CharacterUDFsTypeFromJSONTyped,
-    CharacterUDFsTypeToJSON,
-} from './CharacterUDFsType';
-import type { DateUDFsType } from './DateUDFsType';
+    CharacterUDFTypeFromJSON,
+    CharacterUDFTypeFromJSONTyped,
+    CharacterUDFTypeToJSON,
+} from './CharacterUDFType';
+import type { DateUDFType } from './DateUDFType';
 import {
-    DateUDFsTypeFromJSON,
-    DateUDFsTypeFromJSONTyped,
-    DateUDFsTypeToJSON,
-} from './DateUDFsType';
-import type { NumericUDFsType } from './NumericUDFsType';
+    DateUDFTypeFromJSON,
+    DateUDFTypeFromJSONTyped,
+    DateUDFTypeToJSON,
+} from './DateUDFType';
+import type { NumericUDFType } from './NumericUDFType';
 import {
-    NumericUDFsTypeFromJSON,
-    NumericUDFsTypeFromJSONTyped,
-    NumericUDFsTypeToJSON,
-} from './NumericUDFsType';
+    NumericUDFTypeFromJSON,
+    NumericUDFTypeFromJSONTyped,
+    NumericUDFTypeToJSON,
+} from './NumericUDFType';
 
 /**
  * A common type used to hold user defined fields(UDFs). This type should be used to handle UDFs on RReservation, Profiles, etc.
@@ -39,23 +39,23 @@ import {
  */
 export interface UserDefinedFieldsType {
     /**
-     * 
-     * @type {CharacterUDFsType}
+     * Used to hold collection of user defined fields of Character/String Type.
+     * @type {Array<CharacterUDFType>}
      * @memberof UserDefinedFieldsType
      */
-    characterUDFs?: CharacterUDFsType;
+    characterUDFs?: Array<CharacterUDFType>;
     /**
-     * 
-     * @type {DateUDFsType}
+     * Used to hold collection of user defined fields of Date Type.
+     * @type {Array<DateUDFType>}
      * @memberof UserDefinedFieldsType
      */
-    dateUDFs?: DateUDFsType;
+    dateUDFs?: Array<DateUDFType>;
     /**
-     * 
-     * @type {NumericUDFsType}
+     * Used to hold collection of user defined fields of Numeric Type.
+     * @type {Array<NumericUDFType>}
      * @memberof UserDefinedFieldsType
      */
-    numericUDFs?: NumericUDFsType;
+    numericUDFs?: Array<NumericUDFType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function UserDefinedFieldsTypeFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'characterUDFs': !exists(json, 'characterUDFs') ? undefined : CharacterUDFsTypeFromJSON(json['characterUDFs']),
-        'dateUDFs': !exists(json, 'dateUDFs') ? undefined : DateUDFsTypeFromJSON(json['dateUDFs']),
-        'numericUDFs': !exists(json, 'numericUDFs') ? undefined : NumericUDFsTypeFromJSON(json['numericUDFs']),
+        'characterUDFs': !exists(json, 'characterUDFs') ? undefined : ((json['characterUDFs'] as Array<any>).map(CharacterUDFTypeFromJSON)),
+        'dateUDFs': !exists(json, 'dateUDFs') ? undefined : ((json['dateUDFs'] as Array<any>).map(DateUDFTypeFromJSON)),
+        'numericUDFs': !exists(json, 'numericUDFs') ? undefined : ((json['numericUDFs'] as Array<any>).map(NumericUDFTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function UserDefinedFieldsTypeToJSON(value?: UserDefinedFieldsType | null
     }
     return {
         
-        'characterUDFs': CharacterUDFsTypeToJSON(value.characterUDFs),
-        'dateUDFs': DateUDFsTypeToJSON(value.dateUDFs),
-        'numericUDFs': NumericUDFsTypeToJSON(value.numericUDFs),
+        'characterUDFs': value.characterUDFs === undefined ? undefined : ((value.characterUDFs as Array<any>).map(CharacterUDFTypeToJSON)),
+        'dateUDFs': value.dateUDFs === undefined ? undefined : ((value.dateUDFs as Array<any>).map(DateUDFTypeToJSON)),
+        'numericUDFs': value.numericUDFs === undefined ? undefined : ((value.numericUDFs as Array<any>).map(NumericUDFTypeToJSON)),
     };
 }
 

@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CheckoutReservationType } from './CheckoutReservationType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Checkout request can be used to verify a reservation for checkout and do an actual checkout. In case the verificationOnly attribute is sent false, the operation will perform an actual checkout. In case the verificationOnly attribute is sent true, the operation goes through the reservation in question and verifies if it's Ok to checkout, otherwise the verification status element will provide you the verification code. The verification codes are described in the documentation of verificationOnly attribute.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface Reservation {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Reservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {CheckoutReservationType}
@@ -37,11 +37,11 @@ export interface Reservation {
      */
     verificationOnly?: boolean;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Reservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Reservation interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GuestMessageCodesType } from './GuestMessageCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { GuestMessageCodeType } from './GuestMessageCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for information regarding guest message.
  * @export
@@ -19,11 +19,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface RetrievedGuestMessages {
     /**
-     *
-     * @type {GuestMessageCodesType}
+     * Collection of guest messages with attached guest message types.
+     * @type {Array<GuestMessageCodeType>}
      * @memberof RetrievedGuestMessages
      */
-    guestMessages?: GuestMessageCodesType;
+    guestMessages?: Array<GuestMessageCodeType>;
     /**
      * Indicates whether all the records are included in the response or not. Absence of the attribute values should be consider as all rows fetched in the response.
      * @type {boolean}
@@ -38,10 +38,10 @@ export interface RetrievedGuestMessages {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RetrievedGuestMessages
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -61,11 +61,11 @@ export interface RetrievedGuestMessages {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RetrievedGuestMessages
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RetrievedGuestMessages interface.

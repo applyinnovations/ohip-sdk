@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { DateRangeType } from './DateRangeType';
 /**
  * To apply additional filter on the posting of an invoice
@@ -49,16 +48,16 @@ export interface ARInvoiceCriteriaTypeAdditionalFilter {
     supplementWildCard?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ARInvoiceCriteriaTypeAdditionalFilter
      */
-    transactionCode?: CodeListType;
+    transactionCode?: Array<string>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ARInvoiceCriteriaTypeAdditionalFilter
      */
-    transactionSubGroup?: CodeListType;
+    transactionSubGroup?: Array<string>;
 }
 /**
  * Check if a given object implements the ARInvoiceCriteriaTypeAdditionalFilter interface.

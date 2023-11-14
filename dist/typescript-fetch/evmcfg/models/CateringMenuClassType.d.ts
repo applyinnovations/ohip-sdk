@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CateringMenuClassInfoType } from './CateringMenuClassInfoType';
-import type { CateringMenuListType } from './CateringMenuListType';
+import type { CateringMenuType } from './CateringMenuType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Catering Menu Class which holds the value of menu class.
@@ -37,11 +37,11 @@ export interface CateringMenuClassType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {CateringMenuListType}
+     * List of Values of Menu.
+     * @type {Array<CateringMenuType>}
      * @memberof CateringMenuClassType
      */
-    menuList?: CateringMenuListType;
+    menuList?: Array<CateringMenuType>;
 }
 /**
  * Check if a given object implements the CateringMenuClassType interface.

@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CancellationActivityTypeToJSON = exports.CancellationActivityTypeFromJSONTyped = exports.CancellationActivityTypeFromJSON = exports.instanceOfCancellationActivityType = void 0;
 const runtime_1 = require("../runtime");
 const CancellationReasonType_1 = require("./CancellationReasonType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CancellationActivityType interface.
  */
@@ -34,7 +34,7 @@ function CancellationActivityTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'cancellationIdList': !(0, runtime_1.exists)(json, 'cancellationIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['cancellationIdList']),
+        'cancellationIdList': !(0, runtime_1.exists)(json, 'cancellationIdList') ? undefined : (json['cancellationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'cxlDate': !(0, runtime_1.exists)(json, 'cxlDate') ? undefined : (new Date(json['cxlDate'])),
         'reason': !(0, runtime_1.exists)(json, 'reason') ? undefined : (0, CancellationReasonType_1.CancellationReasonTypeFromJSON)(json['reason']),
         'userId': !(0, runtime_1.exists)(json, 'userId') ? undefined : json['userId'],
@@ -50,7 +50,7 @@ function CancellationActivityTypeToJSON(value) {
         return null;
     }
     return {
-        'cancellationIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.cancellationIdList),
+        'cancellationIdList': value.cancellationIdList === undefined ? undefined : (value.cancellationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'cxlDate': value.cxlDate === undefined ? undefined : (value.cxlDate.toISOString().substring(0, 10)),
         'reason': (0, CancellationReasonType_1.CancellationReasonTypeToJSON)(value.reason),
         'userId': value.userId,

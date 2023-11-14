@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ValidatedCreditBillFolio } from './ValidatedCreditBillFolio';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response to the request to check if a Folio is valid for Credit Bill.
  * @export
@@ -26,16 +26,16 @@ export interface ValidatedCreditBill {
     folio?: ValidatedCreditBillFolio;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ValidatedCreditBill
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ValidatedCreditBill
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ValidatedCreditBill interface.

@@ -19,12 +19,12 @@ import {
     ExternalProfileTypeFromJSONTyped,
     ExternalProfileTypeToJSON,
 } from './ExternalProfileType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 
 /**
  * Response object for fetching profile from external CRM System. This object contains profile details, preferences and incidents.
@@ -40,10 +40,10 @@ export interface ExternalProfile {
     profileInfo?: ExternalProfileType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExternalProfile
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function ExternalProfileFromJSONTyped(json: any, ignoreDiscriminator: boo
     return {
         
         'profileInfo': !exists(json, 'profileInfo') ? undefined : ExternalProfileTypeFromJSON(json['profileInfo']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function ExternalProfileToJSON(value?: ExternalProfile | null): any {
     return {
         
         'profileInfo': ExternalProfileTypeToJSON(value.profileInfo),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

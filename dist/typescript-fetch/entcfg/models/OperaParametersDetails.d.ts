@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ApplicationSettingSimpleType } from './ApplicationSettingSimpleType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * The result element containing a collection of the requested application parameters.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface OperaParametersDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof OperaParametersDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Represents a single application parameter and its value.
      * @type {Array<ApplicationSettingSimpleType>}
@@ -31,11 +31,11 @@ export interface OperaParametersDetails {
      */
     parameters?: Array<ApplicationSettingSimpleType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OperaParametersDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the OperaParametersDetails interface.

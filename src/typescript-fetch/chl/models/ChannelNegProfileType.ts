@@ -25,12 +25,12 @@ import {
     PersonNameTypeFromJSONTyped,
     PersonNameTypeToJSON,
 } from './PersonNameType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * A negotiated rate type
@@ -51,11 +51,11 @@ export interface ChannelNegProfileType {
      */
     formerName?: PersonNameType;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ChannelNegProfileType
      */
-    uniqueId?: UniqueIDListType;
+    uniqueId?: Array<UniqueIDType>;
 }
 
 /**
@@ -79,7 +79,7 @@ export function ChannelNegProfileTypeFromJSONTyped(json: any, ignoreDiscriminato
         
         'accessInfoList': !exists(json, 'accessInfoList') ? undefined : ((json['accessInfoList'] as Array<any>).map(ChannelNegRateAccessTypeFromJSON)),
         'formerName': !exists(json, 'formerName') ? undefined : PersonNameTypeFromJSON(json['formerName']),
-        'uniqueId': !exists(json, 'uniqueId') ? undefined : UniqueIDListTypeFromJSON(json['uniqueId']),
+        'uniqueId': !exists(json, 'uniqueId') ? undefined : ((json['uniqueId'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -94,7 +94,7 @@ export function ChannelNegProfileTypeToJSON(value?: ChannelNegProfileType | null
         
         'accessInfoList': value.accessInfoList === undefined ? undefined : ((value.accessInfoList as Array<any>).map(ChannelNegRateAccessTypeToJSON)),
         'formerName': PersonNameTypeToJSON(value.formerName),
-        'uniqueId': UniqueIDListTypeToJSON(value.uniqueId),
+        'uniqueId': value.uniqueId === undefined ? undefined : ((value.uniqueId as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

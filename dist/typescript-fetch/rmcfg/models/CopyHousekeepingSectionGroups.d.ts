@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HousekeepingSectionGroupsCopyType } from './HousekeepingSectionGroupsCopyType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HousekeepingSectionGroupCopyType } from './HousekeepingSectionGroupCopyType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for copying housekeeping section groups in resort.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CopyHousekeepingSectionGroups {
     /**
-     *
-     * @type {HousekeepingSectionGroupsCopyType}
+     * List of the housekeeping section groups to be copied
+     * @type {Array<HousekeepingSectionGroupCopyType>}
      * @memberof CopyHousekeepingSectionGroups
      */
-    housekeepingSectionGroups?: HousekeepingSectionGroupsCopyType;
+    housekeepingSectionGroups?: Array<HousekeepingSectionGroupCopyType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CopyHousekeepingSectionGroups
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CopyHousekeepingSectionGroups
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CopyHousekeepingSectionGroups interface.

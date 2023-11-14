@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { DeleteSegmentCodeBudgetInformationType } from './DeleteSegmentCodeBudgetInformationType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface BudgetForecastToDelete {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BudgetForecastToDelete
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {DeleteSegmentCodeBudgetInformationType}
@@ -31,11 +31,11 @@ export interface BudgetForecastToDelete {
      */
     segmentCodeInformation?: DeleteSegmentCodeBudgetInformationType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BudgetForecastToDelete
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BudgetForecastToDelete interface.

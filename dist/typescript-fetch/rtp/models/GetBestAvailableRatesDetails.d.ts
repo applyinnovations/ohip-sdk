@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { BestAvailableRatesListType } from './BestAvailableRatesListType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -60,11 +60,11 @@ export interface GetBestAvailableRatesDetails {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GetBestAvailableRatesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GetBestAvailableRatesDetails interface.

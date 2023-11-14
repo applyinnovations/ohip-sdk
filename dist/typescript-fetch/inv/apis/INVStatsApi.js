@@ -333,7 +333,7 @@ class INVStatsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.InventoryStatisticsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(index_1.StatisticTypeFromJSON));
         });
     }
     /**

@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SourceGroupTypeToJSON = exports.SourceGroupTypeFromJSONTyped = exports.SourceGroupTypeFromJSON = exports.instanceOfSourceGroupType = void 0;
 const runtime_1 = require("../runtime");
-const SourceCodesType_1 = require("./SourceCodesType");
+const SourceCodeType_1 = require("./SourceCodeType");
 const TranslationTextType50_1 = require("./TranslationTextType50");
 /**
  * Check if a given object implements the SourceGroupType interface.
@@ -39,7 +39,7 @@ function SourceGroupTypeFromJSONTyped(json, ignoreDiscriminator) {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
         'sequence': !(0, runtime_1.exists)(json, 'sequence') ? undefined : json['sequence'],
-        'sourceCodes': !(0, runtime_1.exists)(json, 'sourceCodes') ? undefined : (0, SourceCodesType_1.SourceCodesTypeFromJSON)(json['sourceCodes']),
+        'sourceCodes': !(0, runtime_1.exists)(json, 'sourceCodes') ? undefined : (json['sourceCodes'].map(SourceCodeType_1.SourceCodeTypeFromJSON)),
     };
 }
 exports.SourceGroupTypeFromJSONTyped = SourceGroupTypeFromJSONTyped;
@@ -56,7 +56,7 @@ function SourceGroupTypeToJSON(value) {
         'hotelId': value.hotelId,
         'inactive': value.inactive,
         'sequence': value.sequence,
-        'sourceCodes': (0, SourceCodesType_1.SourceCodesTypeToJSON)(value.sourceCodes),
+        'sourceCodes': value.sourceCodes === undefined ? undefined : (value.sourceCodes.map(SourceCodeType_1.SourceCodeTypeToJSON)),
     };
 }
 exports.SourceGroupTypeToJSON = SourceGroupTypeToJSON;

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FunctionSpaceEventTypesCriteriaToJSON = exports.FunctionSpaceEventTypesCriteriaFromJSONTyped = exports.FunctionSpaceEventTypesCriteriaFromJSON = exports.instanceOfFunctionSpaceEventTypesCriteria = void 0;
 const runtime_1 = require("../runtime");
-const EventTypesType_1 = require("./EventTypesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const EventTypeConfigType_1 = require("./EventTypeConfigType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FunctionSpaceEventTypesCriteria interface.
  */
@@ -35,9 +35,9 @@ function FunctionSpaceEventTypesCriteriaFromJSONTyped(json, ignoreDiscriminator)
         return json;
     }
     return {
-        'eventTypes': !(0, runtime_1.exists)(json, 'eventTypes') ? undefined : (0, EventTypesType_1.EventTypesTypeFromJSON)(json['eventTypes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'eventTypes': !(0, runtime_1.exists)(json, 'eventTypes') ? undefined : (json['eventTypes'].map(EventTypeConfigType_1.EventTypeConfigTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FunctionSpaceEventTypesCriteriaFromJSONTyped = FunctionSpaceEventTypesCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function FunctionSpaceEventTypesCriteriaToJSON(value) {
         return null;
     }
     return {
-        'eventTypes': (0, EventTypesType_1.EventTypesTypeToJSON)(value.eventTypes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'eventTypes': value.eventTypes === undefined ? undefined : (value.eventTypes.map(EventTypeConfigType_1.EventTypeConfigTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FunctionSpaceEventTypesCriteriaToJSON = FunctionSpaceEventTypesCriteriaToJSON;

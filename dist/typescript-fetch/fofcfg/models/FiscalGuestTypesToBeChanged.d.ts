@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FiscalGuestTypesType } from './FiscalGuestTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { FiscalGuestTypeType } from './FiscalGuestTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Fiscal Guest Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FiscalGuestTypesToBeChanged {
     /**
-     *
-     * @type {FiscalGuestTypesType}
+     * List of Fiscal Guest Types.
+     * @type {Array<FiscalGuestTypeType>}
      * @memberof FiscalGuestTypesToBeChanged
      */
-    fiscalGuestTypes?: FiscalGuestTypesType;
+    fiscalGuestTypes?: Array<FiscalGuestTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FiscalGuestTypesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FiscalGuestTypesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FiscalGuestTypesToBeChanged interface.

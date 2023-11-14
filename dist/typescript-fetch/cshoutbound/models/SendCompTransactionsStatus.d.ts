@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CompTransactionsInfoType } from './CompTransactionsInfoType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CompTransactionInfoType } from './CompTransactionInfoType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface SendCompTransactionsStatus {
     /**
-     *
-     * @type {CompTransactionsInfoType}
+     * List of comp transactions.
+     * @type {Array<CompTransactionInfoType>}
      * @memberof SendCompTransactionsStatus
      */
-    compPostings?: CompTransactionsInfoType;
+    compPostings?: Array<CompTransactionInfoType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SendCompTransactionsStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SendCompTransactionsStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SendCompTransactionsStatus interface.

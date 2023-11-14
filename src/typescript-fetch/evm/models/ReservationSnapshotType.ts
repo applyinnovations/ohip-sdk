@@ -19,12 +19,12 @@ import {
     HotelReservationTypeFromJSONTyped,
     HotelReservationTypeToJSON,
 } from './HotelReservationType';
-import type { RoutingInfoListType } from './RoutingInfoListType';
+import type { RoutingInfoType } from './RoutingInfoType';
 import {
-    RoutingInfoListTypeFromJSON,
-    RoutingInfoListTypeFromJSONTyped,
-    RoutingInfoListTypeToJSON,
-} from './RoutingInfoListType';
+    RoutingInfoTypeFromJSON,
+    RoutingInfoTypeFromJSONTyped,
+    RoutingInfoTypeToJSON,
+} from './RoutingInfoType';
 
 /**
  * This is used when changing block reservations in bulk.
@@ -39,11 +39,11 @@ export interface ReservationSnapshotType {
      */
     hotelReservation?: HotelReservationType;
     /**
-     * 
-     * @type {RoutingInfoListType}
+     * A routing info object can either be of type Folio OR of type Room with its corresponding instructions.
+     * @type {Array<RoutingInfoType>}
      * @memberof ReservationSnapshotType
      */
-    routingInstructions?: RoutingInfoListType;
+    routingInstructions?: Array<RoutingInfoType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function ReservationSnapshotTypeFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'hotelReservation': !exists(json, 'hotelReservation') ? undefined : HotelReservationTypeFromJSON(json['hotelReservation']),
-        'routingInstructions': !exists(json, 'routingInstructions') ? undefined : RoutingInfoListTypeFromJSON(json['routingInstructions']),
+        'routingInstructions': !exists(json, 'routingInstructions') ? undefined : ((json['routingInstructions'] as Array<any>).map(RoutingInfoTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function ReservationSnapshotTypeToJSON(value?: ReservationSnapshotType | 
     return {
         
         'hotelReservation': HotelReservationTypeToJSON(value.hotelReservation),
-        'routingInstructions': RoutingInfoListTypeToJSON(value.routingInstructions),
+        'routingInstructions': value.routingInstructions === undefined ? undefined : ((value.routingInstructions as Array<any>).map(RoutingInfoTypeToJSON)),
     };
 }
 

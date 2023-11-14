@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { FiscalRetryType } from './FiscalRetryType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * The request object to process fiscal retry functionality.
  * @export
@@ -26,16 +26,16 @@ export interface ProcessFiscalRetry {
     criteria?: FiscalRetryType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProcessFiscalRetry
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProcessFiscalRetry
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProcessFiscalRetry interface.

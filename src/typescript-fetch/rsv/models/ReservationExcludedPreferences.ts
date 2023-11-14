@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ExcludedPreferencesType } from './ExcludedPreferencesType';
+import type { ExcludedPreferenceType } from './ExcludedPreferenceType';
 import {
-    ExcludedPreferencesTypeFromJSON,
-    ExcludedPreferencesTypeFromJSONTyped,
-    ExcludedPreferencesTypeToJSON,
-} from './ExcludedPreferencesType';
-import type { Links } from './Links';
+    ExcludedPreferenceTypeFromJSON,
+    ExcludedPreferenceTypeFromJSONTyped,
+    ExcludedPreferenceTypeToJSON,
+} from './ExcludedPreferenceType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for the excluded preferences request.
@@ -40,22 +40,22 @@ import {
 export interface ReservationExcludedPreferences {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationExcludedPreferences
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ExcludedPreferencesType}
+     * Collection of excluded preferences for a particular preference of a reservation.
+     * @type {Array<ExcludedPreferenceType>}
      * @memberof ReservationExcludedPreferences
      */
-    reservationExcludedPreferences?: ExcludedPreferencesType;
+    reservationExcludedPreferences?: Array<ExcludedPreferenceType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationExcludedPreferences
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ReservationExcludedPreferencesFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'reservationExcludedPreferences': !exists(json, 'reservationExcludedPreferences') ? undefined : ExcludedPreferencesTypeFromJSON(json['reservationExcludedPreferences']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'reservationExcludedPreferences': !exists(json, 'reservationExcludedPreferences') ? undefined : ((json['reservationExcludedPreferences'] as Array<any>).map(ExcludedPreferenceTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ReservationExcludedPreferencesToJSON(value?: ReservationExcluded
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'reservationExcludedPreferences': ExcludedPreferencesTypeToJSON(value.reservationExcludedPreferences),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'reservationExcludedPreferences': value.reservationExcludedPreferences === undefined ? undefined : ((value.reservationExcludedPreferences as Array<any>).map(ExcludedPreferenceTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

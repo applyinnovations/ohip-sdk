@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyMarketingCitiesTypeToJSON = exports.CopyMarketingCitiesTypeFromJSONTyped = exports.CopyMarketingCitiesTypeFromJSON = exports.instanceOfCopyMarketingCitiesType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const TemplateMarketingCityInfoType_1 = require("./TemplateMarketingCityInfoType");
 /**
  * Check if a given object implements the CopyMarketingCitiesType interface.
@@ -34,7 +33,7 @@ function CopyMarketingCitiesTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'hotelCodes': !(0, runtime_1.exists)(json, 'hotelCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['hotelCodes']),
+        'hotelCodes': !(0, runtime_1.exists)(json, 'hotelCodes') ? undefined : json['hotelCodes'],
         'templateMarketingCities': !(0, runtime_1.exists)(json, 'templateMarketingCities') ? undefined : (json['templateMarketingCities'].map(TemplateMarketingCityInfoType_1.TemplateMarketingCityInfoTypeFromJSON)),
     };
 }
@@ -47,7 +46,7 @@ function CopyMarketingCitiesTypeToJSON(value) {
         return null;
     }
     return {
-        'hotelCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.hotelCodes),
+        'hotelCodes': value.hotelCodes,
         'templateMarketingCities': value.templateMarketingCities === undefined ? undefined : (value.templateMarketingCities.map(TemplateMarketingCityInfoType_1.TemplateMarketingCityInfoTypeToJSON)),
     };
 }

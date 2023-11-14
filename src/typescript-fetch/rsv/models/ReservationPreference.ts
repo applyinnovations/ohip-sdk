@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { PreferenceTypeType } from './PreferenceTypeType';
 import {
     PreferenceTypeTypeFromJSON,
     PreferenceTypeTypeFromJSONTyped,
     PreferenceTypeTypeToJSON,
 } from './PreferenceTypeType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for the reservation's preferences.
@@ -40,10 +40,10 @@ import {
 export interface ReservationPreference {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationPreference
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * For reservation preferences, you will want to send ReservationPreferenceType as the preferenceType object to acknowledge any reservation related process with the request.
      * @type {Array<PreferenceTypeType>}
@@ -51,11 +51,11 @@ export interface ReservationPreference {
      */
     reservationPreferences?: Array<PreferenceTypeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationPreference
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ReservationPreferenceFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservationPreferences': !exists(json, 'reservationPreferences') ? undefined : ((json['reservationPreferences'] as Array<any>).map(PreferenceTypeTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ReservationPreferenceToJSON(value?: ReservationPreference | null
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservationPreferences': value.reservationPreferences === undefined ? undefined : ((value.reservationPreferences as Array<any>).map(PreferenceTypeTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateRoomFeaturesConfigType } from './TemplateRoomFeaturesConfigType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TemplateRoomFeatureConfigType } from './TemplateRoomFeatureConfigType';
 import {
-    TemplateRoomFeaturesConfigTypeFromJSON,
-    TemplateRoomFeaturesConfigTypeFromJSONTyped,
-    TemplateRoomFeaturesConfigTypeToJSON,
-} from './TemplateRoomFeaturesConfigType';
-import type { WarningsType } from './WarningsType';
+    TemplateRoomFeatureConfigTypeFromJSON,
+    TemplateRoomFeatureConfigTypeFromJSONTyped,
+    TemplateRoomFeatureConfigTypeToJSON,
+} from './TemplateRoomFeatureConfigType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing template room features.
@@ -40,22 +40,22 @@ import {
 export interface TemplateRoomFeaturesToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateRoomFeaturesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TemplateRoomFeaturesConfigType}
+     * Template room feature details.
+     * @type {Array<TemplateRoomFeatureConfigType>}
      * @memberof TemplateRoomFeaturesToBeChanged
      */
-    templateRoomFeatures?: TemplateRoomFeaturesConfigType;
+    templateRoomFeatures?: Array<TemplateRoomFeatureConfigType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateRoomFeaturesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateRoomFeaturesToBeChangedFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'templateRoomFeatures': !exists(json, 'templateRoomFeatures') ? undefined : TemplateRoomFeaturesConfigTypeFromJSON(json['templateRoomFeatures']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'templateRoomFeatures': !exists(json, 'templateRoomFeatures') ? undefined : ((json['templateRoomFeatures'] as Array<any>).map(TemplateRoomFeatureConfigTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateRoomFeaturesToBeChangedToJSON(value?: TemplateRoomFeatur
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'templateRoomFeatures': TemplateRoomFeaturesConfigTypeToJSON(value.templateRoomFeatures),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'templateRoomFeatures': value.templateRoomFeatures === undefined ? undefined : ((value.templateRoomFeatures as Array<any>).map(TemplateRoomFeatureConfigTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

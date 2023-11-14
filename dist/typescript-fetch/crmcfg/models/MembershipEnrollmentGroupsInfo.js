@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipEnrollmentGroupsInfoToJSON = exports.MembershipEnrollmentGroupsInfoFromJSONTyped = exports.MembershipEnrollmentGroupsInfoFromJSON = exports.instanceOfMembershipEnrollmentGroupsInfo = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const MembershipEnrollmentGroupsType_1 = require("./MembershipEnrollmentGroupsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const MembershipEnrollmentGroupType_1 = require("./MembershipEnrollmentGroupType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MembershipEnrollmentGroupsInfo interface.
  */
@@ -38,12 +38,12 @@ function MembershipEnrollmentGroupsInfoFromJSONTyped(json, ignoreDiscriminator) 
         'count': !(0, runtime_1.exists)(json, 'count') ? undefined : json['count'],
         'hasMore': !(0, runtime_1.exists)(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'membershipEnrollmentGroups': !(0, runtime_1.exists)(json, 'membershipEnrollmentGroups') ? undefined : (0, MembershipEnrollmentGroupsType_1.MembershipEnrollmentGroupsTypeFromJSON)(json['membershipEnrollmentGroups']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'membershipEnrollmentGroups': !(0, runtime_1.exists)(json, 'membershipEnrollmentGroups') ? undefined : (json['membershipEnrollmentGroups'].map(MembershipEnrollmentGroupType_1.MembershipEnrollmentGroupTypeFromJSON)),
         'offset': !(0, runtime_1.exists)(json, 'offset') ? undefined : json['offset'],
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !(0, runtime_1.exists)(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MembershipEnrollmentGroupsInfoFromJSONTyped = MembershipEnrollmentGroupsInfoFromJSONTyped;
@@ -58,12 +58,12 @@ function MembershipEnrollmentGroupsInfoToJSON(value) {
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'membershipEnrollmentGroups': (0, MembershipEnrollmentGroupsType_1.MembershipEnrollmentGroupsTypeToJSON)(value.membershipEnrollmentGroups),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'membershipEnrollmentGroups': value.membershipEnrollmentGroups === undefined ? undefined : (value.membershipEnrollmentGroups.map(MembershipEnrollmentGroupType_1.MembershipEnrollmentGroupTypeToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MembershipEnrollmentGroupsInfoToJSON = MembershipEnrollmentGroupsInfoToJSON;

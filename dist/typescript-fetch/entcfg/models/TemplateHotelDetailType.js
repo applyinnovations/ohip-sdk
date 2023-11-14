@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateHotelDetailTypeToJSON = exports.TemplateHotelDetailTypeFromJSONTyped = exports.TemplateHotelDetailTypeFromJSON = exports.instanceOfTemplateHotelDetailType = void 0;
 const runtime_1 = require("../runtime");
-const TemplateHotelDetailValuesType_1 = require("./TemplateHotelDetailValuesType");
+const TemplateHotelDetailValueType_1 = require("./TemplateHotelDetailValueType");
 /**
  * Check if a given object implements the TemplateHotelDetailType interface.
  */
@@ -37,7 +37,7 @@ function TemplateHotelDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'sequence': !(0, runtime_1.exists)(json, 'sequence') ? undefined : json['sequence'],
-        'templateHotelDetailValues': !(0, runtime_1.exists)(json, 'templateHotelDetailValues') ? undefined : (0, TemplateHotelDetailValuesType_1.TemplateHotelDetailValuesTypeFromJSON)(json['templateHotelDetailValues']),
+        'templateHotelDetailValues': !(0, runtime_1.exists)(json, 'templateHotelDetailValues') ? undefined : (json['templateHotelDetailValues'].map(TemplateHotelDetailValueType_1.TemplateHotelDetailValueTypeFromJSON)),
     };
 }
 exports.TemplateHotelDetailTypeFromJSONTyped = TemplateHotelDetailTypeFromJSONTyped;
@@ -53,7 +53,7 @@ function TemplateHotelDetailTypeToJSON(value) {
         'code': value.code,
         'description': value.description,
         'sequence': value.sequence,
-        'templateHotelDetailValues': (0, TemplateHotelDetailValuesType_1.TemplateHotelDetailValuesTypeToJSON)(value.templateHotelDetailValues),
+        'templateHotelDetailValues': value.templateHotelDetailValues === undefined ? undefined : (value.templateHotelDetailValues.map(TemplateHotelDetailValueType_1.TemplateHotelDetailValueTypeToJSON)),
     };
 }
 exports.TemplateHotelDetailTypeToJSON = TemplateHotelDetailTypeToJSON;

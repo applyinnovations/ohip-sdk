@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomKeyMultipleGuestsToJSON = exports.RoomKeyMultipleGuestsFromJSONTyped = exports.RoomKeyMultipleGuestsFromJSON = exports.instanceOfRoomKeyMultipleGuests = void 0;
 const runtime_1 = require("../runtime");
 const RoomKeyGuest_1 = require("./RoomKeyGuest");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the RoomKeyMultipleGuests interface.
  */
@@ -35,7 +35,7 @@ function RoomKeyMultipleGuestsFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'keyOptions': !(0, runtime_1.exists)(json, 'keyOptions') ? undefined : json['keyOptions'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'roomKeyGuests': !(0, runtime_1.exists)(json, 'roomKeyGuests') ? undefined : (json['roomKeyGuests'].map(RoomKeyGuest_1.RoomKeyGuestFromJSON)),
         'roomNumber': !(0, runtime_1.exists)(json, 'roomNumber') ? undefined : json['roomNumber'],
     };
@@ -50,7 +50,7 @@ function RoomKeyMultipleGuestsToJSON(value) {
     }
     return {
         'keyOptions': value.keyOptions,
-        'reservationIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'roomKeyGuests': value.roomKeyGuests === undefined ? undefined : (value.roomKeyGuests.map(RoomKeyGuest_1.RoomKeyGuestToJSON)),
         'roomNumber': value.roomNumber,
     };

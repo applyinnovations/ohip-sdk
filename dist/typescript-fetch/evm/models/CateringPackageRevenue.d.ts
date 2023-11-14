@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { BlockCateringPackageRevenueBaseType } from './BlockCateringPackageRevenueBaseType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Object containing revenue details of the associated catering package.
  * @export
@@ -26,16 +26,16 @@ export interface CateringPackageRevenue {
     cateringPackageRevenueDetails?: BlockCateringPackageRevenueBaseType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringPackageRevenue
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringPackageRevenue
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CateringPackageRevenue interface.

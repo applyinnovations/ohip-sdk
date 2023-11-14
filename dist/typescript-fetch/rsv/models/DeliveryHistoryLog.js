@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DeliveryHistoryLogToJSON = exports.DeliveryHistoryLogFromJSONTyped = exports.DeliveryHistoryLogFromJSON = exports.instanceOfDeliveryHistoryLog = void 0;
 const runtime_1 = require("../runtime");
 const DeliveryHistoryType_1 = require("./DeliveryHistoryType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the DeliveryHistoryLog interface.
  */
@@ -36,8 +36,8 @@ function DeliveryHistoryLogFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'deliveryHistoryLog': !(0, runtime_1.exists)(json, 'deliveryHistoryLog') ? undefined : (json['deliveryHistoryLog'].map(DeliveryHistoryType_1.DeliveryHistoryTypeFromJSON)),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.DeliveryHistoryLogFromJSONTyped = DeliveryHistoryLogFromJSONTyped;
@@ -50,8 +50,8 @@ function DeliveryHistoryLogToJSON(value) {
     }
     return {
         'deliveryHistoryLog': value.deliveryHistoryLog === undefined ? undefined : (value.deliveryHistoryLog.map(DeliveryHistoryType_1.DeliveryHistoryTypeToJSON)),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.DeliveryHistoryLogToJSON = DeliveryHistoryLogToJSON;

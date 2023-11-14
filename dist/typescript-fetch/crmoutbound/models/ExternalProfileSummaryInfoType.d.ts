@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ExternalProfileSummaryType } from './ExternalProfileSummaryType';
-import type { ProfileIdList } from './ProfileIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Summary information about a external profile and the associated Unique IDs.
  * @export
@@ -18,11 +18,11 @@ import type { ProfileIdList } from './ProfileIdList';
  */
 export interface ExternalProfileSummaryInfoType {
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ExternalProfileSummaryInfoType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {ExternalProfileSummaryType}

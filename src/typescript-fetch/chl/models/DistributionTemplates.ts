@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DistributionTemplatesType } from './DistributionTemplatesType';
+import type { DistributionTemplateType } from './DistributionTemplateType';
 import {
-    DistributionTemplatesTypeFromJSON,
-    DistributionTemplatesTypeFromJSONTyped,
-    DistributionTemplatesTypeToJSON,
-} from './DistributionTemplatesType';
-import type { HotelsDistributionTemplatesType } from './HotelsDistributionTemplatesType';
+    DistributionTemplateTypeFromJSON,
+    DistributionTemplateTypeFromJSONTyped,
+    DistributionTemplateTypeToJSON,
+} from './DistributionTemplateType';
+import type { HotelDistributionTemplatesType } from './HotelDistributionTemplatesType';
 import {
-    HotelsDistributionTemplatesTypeFromJSON,
-    HotelsDistributionTemplatesTypeFromJSONTyped,
-    HotelsDistributionTemplatesTypeToJSON,
-} from './HotelsDistributionTemplatesType';
-import type { Links } from './Links';
+    HotelDistributionTemplatesTypeFromJSON,
+    HotelDistributionTemplatesTypeFromJSONTyped,
+    HotelDistributionTemplatesTypeToJSON,
+} from './HotelDistributionTemplatesType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching distribution templates based on search criteria.
@@ -45,29 +45,29 @@ import {
  */
 export interface DistributionTemplates {
     /**
-     * 
-     * @type {DistributionTemplatesType}
+     * Information about a distribution template.
+     * @type {Array<DistributionTemplateType>}
      * @memberof DistributionTemplates
      */
-    distributionTemplates?: DistributionTemplatesType;
+    distributionTemplates?: Array<DistributionTemplateType>;
+    /**
+     * Information about a hotel level distribution template.
+     * @type {Array<HotelDistributionTemplatesType>}
+     * @memberof DistributionTemplates
+     */
+    hotelsDistributionTemplates?: Array<HotelDistributionTemplatesType>;
     /**
      * 
-     * @type {HotelsDistributionTemplatesType}
+     * @type {Array<InstanceLink>}
      * @memberof DistributionTemplates
      */
-    hotelsDistributionTemplates?: HotelsDistributionTemplatesType;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {Links}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DistributionTemplates
      */
-    links?: Links;
-    /**
-     * 
-     * @type {WarningsType}
-     * @memberof DistributionTemplates
-     */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function DistributionTemplatesFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'distributionTemplates': !exists(json, 'distributionTemplates') ? undefined : DistributionTemplatesTypeFromJSON(json['distributionTemplates']),
-        'hotelsDistributionTemplates': !exists(json, 'hotelsDistributionTemplates') ? undefined : HotelsDistributionTemplatesTypeFromJSON(json['hotelsDistributionTemplates']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'distributionTemplates': !exists(json, 'distributionTemplates') ? undefined : ((json['distributionTemplates'] as Array<any>).map(DistributionTemplateTypeFromJSON)),
+        'hotelsDistributionTemplates': !exists(json, 'hotelsDistributionTemplates') ? undefined : ((json['hotelsDistributionTemplates'] as Array<any>).map(HotelDistributionTemplatesTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function DistributionTemplatesToJSON(value?: DistributionTemplates | null
     }
     return {
         
-        'distributionTemplates': DistributionTemplatesTypeToJSON(value.distributionTemplates),
-        'hotelsDistributionTemplates': HotelsDistributionTemplatesTypeToJSON(value.hotelsDistributionTemplates),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'distributionTemplates': value.distributionTemplates === undefined ? undefined : ((value.distributionTemplates as Array<any>).map(DistributionTemplateTypeToJSON)),
+        'hotelsDistributionTemplates': value.hotelsDistributionTemplates === undefined ? undefined : ((value.hotelsDistributionTemplates as Array<any>).map(HotelDistributionTemplatesTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

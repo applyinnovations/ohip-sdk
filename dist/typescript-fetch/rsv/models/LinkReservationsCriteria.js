@@ -15,11 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LinkReservationsCriteriaToJSON = exports.LinkReservationsCriteriaFromJSONTyped = exports.LinkReservationsCriteriaFromJSON = exports.instanceOfLinkReservationsCriteria = void 0;
 const runtime_1 = require("../runtime");
+const InstanceLink_1 = require("./InstanceLink");
 const LinkReservationsCriteriaResponseInstruction_1 = require("./LinkReservationsCriteriaResponseInstruction");
-const Links_1 = require("./Links");
-const ReservationIdList_1 = require("./ReservationIdList");
 const UniqueIDType_1 = require("./UniqueIDType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the LinkReservationsCriteria interface.
  */
@@ -38,10 +37,10 @@ function LinkReservationsCriteriaFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'linkToReservationId': !(0, runtime_1.exists)(json, 'linkToReservationId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['linkToReservationId']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'responseInstruction': !(0, runtime_1.exists)(json, 'responseInstruction') ? undefined : (0, LinkReservationsCriteriaResponseInstruction_1.LinkReservationsCriteriaResponseInstructionFromJSON)(json['responseInstruction']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.LinkReservationsCriteriaFromJSONTyped = LinkReservationsCriteriaFromJSONTyped;
@@ -54,10 +53,10 @@ function LinkReservationsCriteriaToJSON(value) {
     }
     return {
         'linkToReservationId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.linkToReservationId),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'responseInstruction': (0, LinkReservationsCriteriaResponseInstruction_1.LinkReservationsCriteriaResponseInstructionToJSON)(value.responseInstruction),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.LinkReservationsCriteriaToJSON = LinkReservationsCriteriaToJSON;

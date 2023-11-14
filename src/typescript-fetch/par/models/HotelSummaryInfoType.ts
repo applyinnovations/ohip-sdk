@@ -31,12 +31,12 @@ import {
     CurrencyAmountTypeFromJSONTyped,
     CurrencyAmountTypeToJSON,
 } from './CurrencyAmountType';
-import type { CurrencyExchangeRatesType } from './CurrencyExchangeRatesType';
+import type { CurrencyExchangeRateType } from './CurrencyExchangeRateType';
 import {
-    CurrencyExchangeRatesTypeFromJSON,
-    CurrencyExchangeRatesTypeFromJSONTyped,
-    CurrencyExchangeRatesTypeToJSON,
-} from './CurrencyExchangeRatesType';
+    CurrencyExchangeRateTypeFromJSON,
+    CurrencyExchangeRateTypeFromJSONTyped,
+    CurrencyExchangeRateTypeToJSON,
+} from './CurrencyExchangeRateType';
 import type { HotelAmenityType } from './HotelAmenityType';
 import {
     HotelAmenityTypeFromJSON,
@@ -135,11 +135,11 @@ export interface HotelSummaryInfoType {
      */
     currencyCode?: string;
     /**
-     * 
-     * @type {CurrencyExchangeRatesType}
+     * Exchange Rate information for a currency code.
+     * @type {Array<CurrencyExchangeRateType>}
      * @memberof HotelSummaryInfoType
      */
-    currencyExchangeRates?: CurrencyExchangeRatesType;
+    currencyExchangeRates?: Array<CurrencyExchangeRateType>;
     /**
      * 
      * @type {number}
@@ -273,7 +273,7 @@ export function HotelSummaryInfoTypeFromJSONTyped(json: any, ignoreDiscriminator
         'checkOutTime': !exists(json, 'checkOutTime') ? undefined : json['checkOutTime'],
         'contactNumbers': !exists(json, 'contactNumbers') ? undefined : ((json['contactNumbers'] as Array<any>).map(TelephoneTypeFromJSON)),
         'currencyCode': !exists(json, 'currencyCode') ? undefined : json['currencyCode'],
-        'currencyExchangeRates': !exists(json, 'currencyExchangeRates') ? undefined : CurrencyExchangeRatesTypeFromJSON(json['currencyExchangeRates']),
+        'currencyExchangeRates': !exists(json, 'currencyExchangeRates') ? undefined : ((json['currencyExchangeRates'] as Array<any>).map(CurrencyExchangeRateTypeFromJSON)),
         'displayOrder': !exists(json, 'displayOrder') ? undefined : json['displayOrder'],
         'event': !exists(json, 'event') ? undefined : json['event'],
         'hotelAmenities': !exists(json, 'hotelAmenities') ? undefined : ((json['hotelAmenities'] as Array<any>).map(HotelAmenityTypeFromJSON)),
@@ -313,7 +313,7 @@ export function HotelSummaryInfoTypeToJSON(value?: HotelSummaryInfoType | null):
         'checkOutTime': value.checkOutTime,
         'contactNumbers': value.contactNumbers === undefined ? undefined : ((value.contactNumbers as Array<any>).map(TelephoneTypeToJSON)),
         'currencyCode': value.currencyCode,
-        'currencyExchangeRates': CurrencyExchangeRatesTypeToJSON(value.currencyExchangeRates),
+        'currencyExchangeRates': value.currencyExchangeRates === undefined ? undefined : ((value.currencyExchangeRates as Array<any>).map(CurrencyExchangeRateTypeToJSON)),
         'displayOrder': value.displayOrder,
         'event': value.event,
         'hotelAmenities': value.hotelAmenities === undefined ? undefined : ((value.hotelAmenities as Array<any>).map(HotelAmenityTypeToJSON)),

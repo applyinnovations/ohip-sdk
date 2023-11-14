@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ARAccountsInvoicesPaymentsType } from './ARAccountsInvoicesPaymentsType';
+import type { ARAccountInvoicesPaymentsType } from './ARAccountInvoicesPaymentsType';
 import {
-    ARAccountsInvoicesPaymentsTypeFromJSON,
-    ARAccountsInvoicesPaymentsTypeFromJSONTyped,
-    ARAccountsInvoicesPaymentsTypeToJSON,
-} from './ARAccountsInvoicesPaymentsType';
-import type { Links } from './Links';
+    ARAccountInvoicesPaymentsTypeFromJSON,
+    ARAccountInvoicesPaymentsTypeFromJSONTyped,
+    ARAccountInvoicesPaymentsTypeToJSON,
+} from './ARAccountInvoicesPaymentsType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response after fetching on-hold invoices.
@@ -39,23 +39,23 @@ import {
  */
 export interface InvoicesOnHold {
     /**
-     * 
-     * @type {ARAccountsInvoicesPaymentsType}
+     * Account Invoice information.
+     * @type {Array<ARAccountInvoicesPaymentsType>}
      * @memberof InvoicesOnHold
      */
-    details?: ARAccountsInvoicesPaymentsType;
+    details?: Array<ARAccountInvoicesPaymentsType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof InvoicesOnHold
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof InvoicesOnHold
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function InvoicesOnHoldFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'details': !exists(json, 'details') ? undefined : ARAccountsInvoicesPaymentsTypeFromJSON(json['details']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'details': !exists(json, 'details') ? undefined : ((json['details'] as Array<any>).map(ARAccountInvoicesPaymentsTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function InvoicesOnHoldToJSON(value?: InvoicesOnHold | null): any {
     }
     return {
         
-        'details': ARAccountsInvoicesPaymentsTypeToJSON(value.details),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'details': value.details === undefined ? undefined : ((value.details as Array<any>).map(ARAccountInvoicesPaymentsTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

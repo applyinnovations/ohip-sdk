@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { EarlyDepartureCriteriaType } from './EarlyDepartureCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to change a reservation to an Early Departure. As part of this process the reservation will be changed to a Due Out status with the departure date being the current business date. Only Inhouse reservations can be changed to Early Departure. Before changing the reservation to early departure, rate restrictions on the rate code used and any allowances consumed by the guest for today will be checked. If there is a penalty applicable this can be posted to the reservation.
  * @export
@@ -26,16 +26,16 @@ export interface EarlyDeparture {
     criteria?: EarlyDepartureCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EarlyDeparture
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EarlyDeparture
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the EarlyDeparture interface.

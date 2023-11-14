@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CorporateDivisionsType } from './CorporateDivisionsType';
+import type { CorporateDivisionType } from './CorporateDivisionType';
 import {
-    CorporateDivisionsTypeFromJSON,
-    CorporateDivisionsTypeFromJSONTyped,
-    CorporateDivisionsTypeToJSON,
-} from './CorporateDivisionsType';
-import type { Links } from './Links';
+    CorporateDivisionTypeFromJSON,
+    CorporateDivisionTypeFromJSONTyped,
+    CorporateDivisionTypeToJSON,
+} from './CorporateDivisionType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Corporate Divisions.
@@ -39,23 +39,23 @@ import {
  */
 export interface CorporateDivisionsToBeChanged {
     /**
-     * 
-     * @type {CorporateDivisionsType}
+     * List of Corporate Divisions.
+     * @type {Array<CorporateDivisionType>}
      * @memberof CorporateDivisionsToBeChanged
      */
-    corporateDivisions?: CorporateDivisionsType;
+    corporateDivisions?: Array<CorporateDivisionType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CorporateDivisionsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CorporateDivisionsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CorporateDivisionsToBeChangedFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'corporateDivisions': !exists(json, 'corporateDivisions') ? undefined : CorporateDivisionsTypeFromJSON(json['corporateDivisions']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'corporateDivisions': !exists(json, 'corporateDivisions') ? undefined : ((json['corporateDivisions'] as Array<any>).map(CorporateDivisionTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CorporateDivisionsToBeChangedToJSON(value?: CorporateDivisionsTo
     }
     return {
         
-        'corporateDivisions': CorporateDivisionsTypeToJSON(value.corporateDivisions),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'corporateDivisions': value.corporateDivisions === undefined ? undefined : ((value.corporateDivisions as Array<any>).map(CorporateDivisionTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

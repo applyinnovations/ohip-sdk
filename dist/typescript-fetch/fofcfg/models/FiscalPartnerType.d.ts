@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { FiscalPayloadType } from './FiscalPayloadType';
 /**
  * Fiscal partner Type
@@ -43,10 +42,10 @@ export interface FiscalPartnerType {
     partnerCode?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof FiscalPartnerType
      */
-    paymentTypes?: CodeListType;
+    paymentTypes?: Array<string>;
     /**
      * Priority order for processing.
      * @type {number}

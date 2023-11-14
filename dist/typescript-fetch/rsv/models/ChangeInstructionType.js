@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChangeInstructionTypeToJSON = exports.ChangeInstructionTypeFromJSONTyped = exports.ChangeInstructionTypeFromJSON = exports.instanceOfChangeInstructionType = void 0;
 const runtime_1 = require("../runtime");
 const FacilitySchedulerOptionType_1 = require("./FacilitySchedulerOptionType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ChangeInstructionType interface.
  */
@@ -37,7 +37,7 @@ function ChangeInstructionTypeFromJSONTyped(json, ignoreDiscriminator) {
         'changeAllShares': !(0, runtime_1.exists)(json, 'changeAllShares') ? undefined : json['changeAllShares'],
         'facilitySchedulerOption': !(0, runtime_1.exists)(json, 'facilitySchedulerOption') ? undefined : (0, FacilitySchedulerOptionType_1.FacilitySchedulerOptionTypeFromJSON)(json['facilitySchedulerOption']),
         'overrideInventory': !(0, runtime_1.exists)(json, 'overrideInventory') ? undefined : json['overrideInventory'],
-        'shareReservations': !(0, runtime_1.exists)(json, 'shareReservations') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['shareReservations']),
+        'shareReservations': !(0, runtime_1.exists)(json, 'shareReservations') ? undefined : (json['shareReservations'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'updatePackagePrice': !(0, runtime_1.exists)(json, 'updatePackagePrice') ? undefined : json['updatePackagePrice'],
     };
 }
@@ -53,7 +53,7 @@ function ChangeInstructionTypeToJSON(value) {
         'changeAllShares': value.changeAllShares,
         'facilitySchedulerOption': (0, FacilitySchedulerOptionType_1.FacilitySchedulerOptionTypeToJSON)(value.facilitySchedulerOption),
         'overrideInventory': value.overrideInventory,
-        'shareReservations': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.shareReservations),
+        'shareReservations': value.shareReservations === undefined ? undefined : (value.shareReservations.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'updatePackagePrice': value.updatePackagePrice,
     };
 }

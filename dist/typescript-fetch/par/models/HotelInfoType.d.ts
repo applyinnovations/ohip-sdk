@@ -9,9 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AlternateHotelsType } from './AlternateHotelsType';
-import type { HotelAttractionsType } from './HotelAttractionsType';
-import type { HotelContactsType } from './HotelContactsType';
+import type { AlternateHotelType } from './AlternateHotelType';
+import type { CommentInfoType } from './CommentInfoType';
+import type { HotelAttractionType } from './HotelAttractionType';
+import type { HotelContactType } from './HotelContactType';
 import type { HotelCorporateInformationsType } from './HotelCorporateInformationsType';
 import type { HotelEventSpacesType } from './HotelEventSpacesType';
 import type { HotelInfoTypeAccommodationDetails } from './HotelInfoTypeAccommodationDetails';
@@ -20,10 +21,9 @@ import type { HotelInfoTypeCommunication } from './HotelInfoTypeCommunication';
 import type { HotelInfoTypeGeneralInformation } from './HotelInfoTypeGeneralInformation';
 import type { HotelInfoTypePrimaryDetails } from './HotelInfoTypePrimaryDetails';
 import type { HotelInfoTypePropertyControls } from './HotelInfoTypePropertyControls';
-import type { HotelNotesType } from './HotelNotesType';
-import type { HotelRateRangesType } from './HotelRateRangesType';
-import type { HotelRestaurantsType } from './HotelRestaurantsType';
-import type { MeetingRoomsType } from './MeetingRoomsType';
+import type { HotelRateRangeType } from './HotelRateRangeType';
+import type { HotelRestaurantType } from './HotelRestaurantType';
+import type { MeetingRoomType } from './MeetingRoomType';
 /**
  * Contains the basic configuration information about a Hotel.
  * @export
@@ -44,16 +44,16 @@ export interface HotelInfoType {
     address?: HotelInfoTypeAddress;
     /**
      *
-     * @type {AlternateHotelsType}
+     * @type {Array<AlternateHotelType>}
      * @memberof HotelInfoType
      */
-    alternateHotels?: AlternateHotelsType;
+    alternateHotels?: Array<AlternateHotelType>;
     /**
      *
-     * @type {HotelAttractionsType}
+     * @type {Array<HotelAttractionType>}
      * @memberof HotelInfoType
      */
-    attractions?: HotelAttractionsType;
+    attractions?: Array<HotelAttractionType>;
     /**
      * The code that identifies a hotel chain or management group. The hotel chain code is decided between vendors. This attribute is optional if the hotel is an independent property that can be identified by the HotelCode attribute.
      * @type {string}
@@ -91,11 +91,11 @@ export interface HotelInfoType {
      */
     hotelCodeContext?: string;
     /**
-     *
-     * @type {HotelContactsType}
+     * Lists of contacts of the hotel.
+     * @type {Array<HotelContactType>}
      * @memberof HotelInfoType
      */
-    hotelContacts?: HotelContactsType;
+    hotelContacts?: Array<HotelContactType>;
     /**
      *
      * @type {HotelCorporateInformationsType}
@@ -121,29 +121,29 @@ export interface HotelInfoType {
      */
     hotelName?: string;
     /**
-     *
-     * @type {HotelNotesType}
+     * List of Notes of the hotel.
+     * @type {Array<CommentInfoType>}
      * @memberof HotelInfoType
      */
-    hotelNotes?: HotelNotesType;
+    hotelNotes?: Array<CommentInfoType>;
+    /**
+     * Lists of rate ranges of the hotel.
+     * @type {Array<HotelRateRangeType>}
+     * @memberof HotelInfoType
+     */
+    hotelRateRanges?: Array<HotelRateRangeType>;
     /**
      *
-     * @type {HotelRateRangesType}
+     * @type {Array<HotelRestaurantType>}
      * @memberof HotelInfoType
      */
-    hotelRateRanges?: HotelRateRangesType;
+    hotelRestaurants?: Array<HotelRestaurantType>;
     /**
-     *
-     * @type {HotelRestaurantsType}
+     * List of meeting rooms of the hotel.
+     * @type {Array<MeetingRoomType>}
      * @memberof HotelInfoType
      */
-    hotelRestaurants?: HotelRestaurantsType;
-    /**
-     *
-     * @type {MeetingRoomsType}
-     * @memberof HotelInfoType
-     */
-    meetingRooms?: MeetingRoomsType;
+    meetingRooms?: Array<MeetingRoomType>;
     /**
      *
      * @type {HotelInfoTypePrimaryDetails}

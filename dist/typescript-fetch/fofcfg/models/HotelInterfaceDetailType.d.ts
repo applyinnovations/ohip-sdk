@@ -17,10 +17,10 @@ import type { InterfaceCommunicationInfoType } from './InterfaceCommunicationInf
 import type { InterfaceCustomDataInfoType } from './InterfaceCustomDataInfoType';
 import type { InterfaceExportDataInfoType } from './InterfaceExportDataInfoType';
 import type { InterfacePrimaryInfoType } from './InterfacePrimaryInfoType';
+import type { InterfaceWorkstationType } from './InterfaceWorkstationType';
 import type { PostingInfoType } from './PostingInfoType';
 import type { TransactionCodeInfoType } from './TransactionCodeInfoType';
 import type { TranslationType } from './TranslationType';
-import type { WorkstationSetupType } from './WorkstationSetupType';
 /**
  *
  * @export
@@ -94,11 +94,11 @@ export interface HotelInterfaceDetailType {
      */
     translationInfo?: TranslationType;
     /**
-     *
-     * @type {WorkstationSetupType}
+     * List of workstations of a hotel interface.
+     * @type {Array<InterfaceWorkstationType>}
      * @memberof HotelInterfaceDetailType
      */
-    workstationSetupInfo?: WorkstationSetupType;
+    workstationSetupInfo?: Array<InterfaceWorkstationType>;
 }
 /**
  * Check if a given object implements the HotelInterfaceDetailType interface.

@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockStatisticsDetailTypeToJSON = exports.BlockStatisticsDetailTypeFromJSONTyped = exports.BlockStatisticsDetailTypeFromJSON = exports.instanceOfBlockStatisticsDetailType = void 0;
 const runtime_1 = require("../runtime");
-const BlockStatisticsDatesType_1 = require("./BlockStatisticsDatesType");
 const StatisticsType_1 = require("./StatisticsType");
 /**
  * Check if a given object implements the BlockStatisticsDetailType interface.
@@ -35,7 +34,7 @@ function BlockStatisticsDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'statisticType': !(0, runtime_1.exists)(json, 'statisticType') ? undefined : (0, StatisticsType_1.StatisticsTypeFromJSON)(json['statisticType']),
-        'statisticsDates': !(0, runtime_1.exists)(json, 'statisticsDates') ? undefined : (json['statisticsDates'].map(BlockStatisticsDatesType_1.BlockStatisticsDatesTypeFromJSON)),
+        'statisticsDates': !(0, runtime_1.exists)(json, 'statisticsDates') ? undefined : json['statisticsDates'],
     };
 }
 exports.BlockStatisticsDetailTypeFromJSONTyped = BlockStatisticsDetailTypeFromJSONTyped;
@@ -48,7 +47,7 @@ function BlockStatisticsDetailTypeToJSON(value) {
     }
     return {
         'statisticType': (0, StatisticsType_1.StatisticsTypeToJSON)(value.statisticType),
-        'statisticsDates': value.statisticsDates === undefined ? undefined : (value.statisticsDates.map(BlockStatisticsDatesType_1.BlockStatisticsDatesTypeToJSON)),
+        'statisticsDates': value.statisticsDates,
     };
 }
 exports.BlockStatisticsDetailTypeToJSON = BlockStatisticsDetailTypeToJSON;

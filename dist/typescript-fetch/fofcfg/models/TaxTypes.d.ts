@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TaxTypesType } from './TaxTypesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TaxTypeType } from './TaxTypeType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TaxTypes {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TaxTypes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TaxTypesType}
+     * Holds Tax Type details.
+     * @type {Array<TaxTypeType>}
      * @memberof TaxTypes
      */
-    taxTypes?: TaxTypesType;
+    taxTypes?: Array<TaxTypeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TaxTypes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TaxTypes interface.

@@ -17,7 +17,7 @@ exports.BlockProfilesTypeToJSON = exports.BlockProfilesTypeFromJSONTyped = expor
 const runtime_1 = require("../runtime");
 const BlockProfileTypeType_1 = require("./BlockProfileTypeType");
 const ProfileType_1 = require("./ProfileType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the BlockProfilesType interface.
  */
@@ -39,7 +39,7 @@ function BlockProfilesTypeFromJSONTyped(json, ignoreDiscriminator) {
         'defaultPrint': !(0, runtime_1.exists)(json, 'defaultPrint') ? undefined : json['defaultPrint'],
         'primary': !(0, runtime_1.exists)(json, 'primary') ? undefined : json['primary'],
         'profile': !(0, runtime_1.exists)(json, 'profile') ? undefined : (0, ProfileType_1.ProfileTypeFromJSON)(json['profile']),
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.BlockProfilesTypeFromJSONTyped = BlockProfilesTypeFromJSONTyped;
@@ -55,7 +55,7 @@ function BlockProfilesTypeToJSON(value) {
         'defaultPrint': value.defaultPrint,
         'primary': value.primary,
         'profile': (0, ProfileType_1.ProfileTypeToJSON)(value.profile),
-        'profileIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.BlockProfilesTypeToJSON = BlockProfilesTypeToJSON;

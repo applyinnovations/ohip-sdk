@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ECertificatesToJSON = exports.ECertificatesFromJSONTyped = exports.ECertificatesFromJSON = exports.instanceOfECertificates = void 0;
 const runtime_1 = require("../runtime");
-const ECertificatesType_1 = require("./ECertificatesType");
-const Links_1 = require("./Links");
+const ECertificateType_1 = require("./ECertificateType");
+const InstanceLink_1 = require("./InstanceLink");
 /**
  * Check if a given object implements the ECertificates interface.
  */
@@ -34,8 +34,8 @@ function ECertificatesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'eCertificatesDetail': !(0, runtime_1.exists)(json, 'eCertificatesDetail') ? undefined : (0, ECertificatesType_1.ECertificatesTypeFromJSON)(json['eCertificatesDetail']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'eCertificatesDetail': !(0, runtime_1.exists)(json, 'eCertificatesDetail') ? undefined : (json['eCertificatesDetail'].map(ECertificateType_1.ECertificateTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.ECertificatesFromJSONTyped = ECertificatesFromJSONTyped;
@@ -47,8 +47,8 @@ function ECertificatesToJSON(value) {
         return null;
     }
     return {
-        'eCertificatesDetail': (0, ECertificatesType_1.ECertificatesTypeToJSON)(value.eCertificatesDetail),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'eCertificatesDetail': value.eCertificatesDetail === undefined ? undefined : (value.eCertificatesDetail.map(ECertificateType_1.ECertificateTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.ECertificatesToJSON = ECertificatesToJSON;

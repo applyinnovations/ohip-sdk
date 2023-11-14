@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelPackageForecastGroupsType } from './HotelPackageForecastGroupsType';
+import type { HotelPackageForecastGroupType } from './HotelPackageForecastGroupType';
 import {
-    HotelPackageForecastGroupsTypeFromJSON,
-    HotelPackageForecastGroupsTypeFromJSONTyped,
-    HotelPackageForecastGroupsTypeToJSON,
-} from './HotelPackageForecastGroupsType';
-import type { Links } from './Links';
+    HotelPackageForecastGroupTypeFromJSON,
+    HotelPackageForecastGroupTypeFromJSONTyped,
+    HotelPackageForecastGroupTypeToJSON,
+} from './HotelPackageForecastGroupType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating new package forecast groups for a hotel.
@@ -39,23 +39,23 @@ import {
  */
 export interface HotelPackageForecastGroupsToCreate {
     /**
-     * 
-     * @type {HotelPackageForecastGroupsType}
+     * Hotel package forecast group details.
+     * @type {Array<HotelPackageForecastGroupType>}
      * @memberof HotelPackageForecastGroupsToCreate
      */
-    hotelPackageForecastGroups?: HotelPackageForecastGroupsType;
+    hotelPackageForecastGroups?: Array<HotelPackageForecastGroupType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelPackageForecastGroupsToCreate
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelPackageForecastGroupsToCreate
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function HotelPackageForecastGroupsToCreateFromJSONTyped(json: any, ignor
     }
     return {
         
-        'hotelPackageForecastGroups': !exists(json, 'hotelPackageForecastGroups') ? undefined : HotelPackageForecastGroupsTypeFromJSON(json['hotelPackageForecastGroups']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'hotelPackageForecastGroups': !exists(json, 'hotelPackageForecastGroups') ? undefined : ((json['hotelPackageForecastGroups'] as Array<any>).map(HotelPackageForecastGroupTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function HotelPackageForecastGroupsToCreateToJSON(value?: HotelPackageFor
     }
     return {
         
-        'hotelPackageForecastGroups': HotelPackageForecastGroupsTypeToJSON(value.hotelPackageForecastGroups),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'hotelPackageForecastGroups': value.hotelPackageForecastGroups === undefined ? undefined : ((value.hotelPackageForecastGroups as Array<any>).map(HotelPackageForecastGroupTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

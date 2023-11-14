@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BusinessEventDetailsType } from './BusinessEventDetailsType';
+import type { BusinessEventDetailType } from './BusinessEventDetailType';
 import type { BusinessEventHeaderType } from './BusinessEventHeaderType';
 /**
  *
@@ -19,10 +19,10 @@ import type { BusinessEventHeaderType } from './BusinessEventHeaderType';
 export interface BusinessEventType {
     /**
      *
-     * @type {BusinessEventDetailsType}
+     * @type {Array<BusinessEventDetailType>}
      * @memberof BusinessEventType
      */
-    details?: BusinessEventDetailsType;
+    details?: Array<BusinessEventDetailType>;
     /**
      *
      * @type {BusinessEventHeaderType}

@@ -6,8 +6,6 @@ models/Currencies.ts
 models/ErrorInstance.ts
 models/ExceptionDetailType.ts
 models/InstanceLink.ts
-models/Links.ts
 models/WarningType.ts
-models/WarningsType.ts
 models/index.ts
 runtime.ts

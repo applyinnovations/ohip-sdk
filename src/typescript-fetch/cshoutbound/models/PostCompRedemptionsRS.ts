@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostCompRedemptionsRSCompRedemptionsType } from './PostCompRedemptionsRSCompRedemptionsType';
+import type { PostCompRedemptionsRSCompRedemptionType } from './PostCompRedemptionsRSCompRedemptionType';
 import {
-    PostCompRedemptionsRSCompRedemptionsTypeFromJSON,
-    PostCompRedemptionsRSCompRedemptionsTypeFromJSONTyped,
-    PostCompRedemptionsRSCompRedemptionsTypeToJSON,
-} from './PostCompRedemptionsRSCompRedemptionsType';
-import type { WarningsType } from './WarningsType';
+    PostCompRedemptionsRSCompRedemptionTypeFromJSON,
+    PostCompRedemptionsRSCompRedemptionTypeFromJSONTyped,
+    PostCompRedemptionsRSCompRedemptionTypeToJSON,
+} from './PostCompRedemptionsRSCompRedemptionType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response type of Complimentary Redemptions for posting.
@@ -33,17 +33,17 @@ import {
  */
 export interface PostCompRedemptionsRS {
     /**
-     * 
-     * @type {PostCompRedemptionsRSCompRedemptionsType}
+     * Collection of Complimentary Redemption codes and their respective Approval Code.
+     * @type {Array<PostCompRedemptionsRSCompRedemptionType>}
      * @memberof PostCompRedemptionsRS
      */
-    compRedemptions?: PostCompRedemptionsRSCompRedemptionsType;
+    compRedemptions?: Array<PostCompRedemptionsRSCompRedemptionType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostCompRedemptionsRS
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function PostCompRedemptionsRSFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : PostCompRedemptionsRSCompRedemptionsTypeFromJSON(json['compRedemptions']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : ((json['compRedemptions'] as Array<any>).map(PostCompRedemptionsRSCompRedemptionTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function PostCompRedemptionsRSToJSON(value?: PostCompRedemptionsRS | null
     }
     return {
         
-        'compRedemptions': PostCompRedemptionsRSCompRedemptionsTypeToJSON(value.compRedemptions),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : ((value.compRedemptions as Array<any>).map(PostCompRedemptionsRSCompRedemptionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

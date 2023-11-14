@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { EventInfoType } from './EventInfoType';
+import {
+    EventInfoTypeFromJSON,
+    EventInfoTypeFromJSONTyped,
+    EventInfoTypeToJSON,
+} from './EventInfoType';
 import type { EventItemsType } from './EventItemsType';
 import {
     EventItemsTypeFromJSON,
@@ -25,24 +31,18 @@ import {
     EventMenusTypeFromJSONTyped,
     EventMenusTypeToJSON,
 } from './EventMenusType';
-import type { EventsInfoType } from './EventsInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    EventsInfoTypeFromJSON,
-    EventsInfoTypeFromJSONTyped,
-    EventsInfoTypeToJSON,
-} from './EventsInfoType';
-import type { Links } from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
-import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Object containing details for managing events resources.
@@ -51,11 +51,11 @@ import {
  */
 export interface ManageEventsResources {
     /**
-     * 
-     * @type {EventsInfoType}
+     * Pertain event information.
+     * @type {Array<EventInfoType>}
      * @memberof ManageEventsResources
      */
-    eventDetails?: EventsInfoType;
+    eventDetails?: Array<EventInfoType>;
     /**
      * 
      * @type {EventItemsType}
@@ -70,16 +70,16 @@ export interface ManageEventsResources {
     eventMenus?: EventMenusType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ManageEventsResources
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ManageEventsResources
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -101,11 +101,11 @@ export function ManageEventsResourcesFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'eventDetails': !exists(json, 'eventDetails') ? undefined : EventsInfoTypeFromJSON(json['eventDetails']),
+        'eventDetails': !exists(json, 'eventDetails') ? undefined : ((json['eventDetails'] as Array<any>).map(EventInfoTypeFromJSON)),
         'eventItems': !exists(json, 'eventItems') ? undefined : EventItemsTypeFromJSON(json['eventItems']),
         'eventMenus': !exists(json, 'eventMenus') ? undefined : EventMenusTypeFromJSON(json['eventMenus']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -118,11 +118,11 @@ export function ManageEventsResourcesToJSON(value?: ManageEventsResources | null
     }
     return {
         
-        'eventDetails': EventsInfoTypeToJSON(value.eventDetails),
+        'eventDetails': value.eventDetails === undefined ? undefined : ((value.eventDetails as Array<any>).map(EventInfoTypeToJSON)),
         'eventItems': EventItemsTypeToJSON(value.eventItems),
         'eventMenus': EventMenusTypeToJSON(value.eventMenus),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

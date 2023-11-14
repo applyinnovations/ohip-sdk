@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RateByAgeBucketsType } from './RateByAgeBucketsType';
+import type { RateByAgeBucketType } from './RateByAgeBucketType';
 import {
-    RateByAgeBucketsTypeFromJSON,
-    RateByAgeBucketsTypeFromJSONTyped,
-    RateByAgeBucketsTypeToJSON,
-} from './RateByAgeBucketsType';
+    RateByAgeBucketTypeFromJSON,
+    RateByAgeBucketTypeFromJSONTyped,
+    RateByAgeBucketTypeToJSON,
+} from './RateByAgeBucketType';
 
 /**
  * 
@@ -75,11 +75,11 @@ export interface RateAmountsType {
      */
     onePersonRate?: number;
     /**
-     * 
-     * @type {RateByAgeBucketsType}
+     * Rate amount by age bucket.
+     * @type {Array<RateByAgeBucketType>}
      * @memberof RateAmountsType
      */
-    rateByAgeBuckets?: RateByAgeBucketsType;
+    rateByAgeBuckets?: Array<RateByAgeBucketType>;
     /**
      * Rate amount for three Children.
      * @type {number}
@@ -133,7 +133,7 @@ export function RateAmountsTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'fourPersonsRate': !exists(json, 'fourPersonsRate') ? undefined : json['fourPersonsRate'],
         'oneChildRate': !exists(json, 'oneChildRate') ? undefined : json['oneChildRate'],
         'onePersonRate': !exists(json, 'onePersonRate') ? undefined : json['onePersonRate'],
-        'rateByAgeBuckets': !exists(json, 'rateByAgeBuckets') ? undefined : RateByAgeBucketsTypeFromJSON(json['rateByAgeBuckets']),
+        'rateByAgeBuckets': !exists(json, 'rateByAgeBuckets') ? undefined : ((json['rateByAgeBuckets'] as Array<any>).map(RateByAgeBucketTypeFromJSON)),
         'threeChildrenRate': !exists(json, 'threeChildrenRate') ? undefined : json['threeChildrenRate'],
         'threePersonsRate': !exists(json, 'threePersonsRate') ? undefined : json['threePersonsRate'],
         'twoChildrenRate': !exists(json, 'twoChildrenRate') ? undefined : json['twoChildrenRate'],
@@ -158,7 +158,7 @@ export function RateAmountsTypeToJSON(value?: RateAmountsType | null): any {
         'fourPersonsRate': value.fourPersonsRate,
         'oneChildRate': value.oneChildRate,
         'onePersonRate': value.onePersonRate,
-        'rateByAgeBuckets': RateByAgeBucketsTypeToJSON(value.rateByAgeBuckets),
+        'rateByAgeBuckets': value.rateByAgeBuckets === undefined ? undefined : ((value.rateByAgeBuckets as Array<any>).map(RateByAgeBucketTypeToJSON)),
         'threeChildrenRate': value.threeChildrenRate,
         'threePersonsRate': value.threePersonsRate,
         'twoChildrenRate': value.twoChildrenRate,

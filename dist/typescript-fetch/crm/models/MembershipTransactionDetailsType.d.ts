@@ -9,11 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { MembershipAwardPointsType } from './MembershipAwardPointsType';
 import type { MembershipTransactionId } from './MembershipTransactionId';
 import type { MembershipTransactionTierPointsType } from './MembershipTransactionTierPointsType';
-import type { ReservationIdList } from './ReservationIdList';
 import type { TimeSpanType } from './TimeSpanType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -126,10 +124,10 @@ export interface MembershipTransactionDetailsType {
     processingMessages?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof MembershipTransactionDetailsType
      */
-    profilePromotions?: CodeListType;
+    profilePromotions?: Array<string>;
     /**
      * Promotion code assigned on reservation.
      * @type {string}
@@ -137,11 +135,11 @@ export interface MembershipTransactionDetailsType {
      */
     ratePromotion?: string;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MembershipTransactionDetailsType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * The room type for this transaction.
      * @type {string}

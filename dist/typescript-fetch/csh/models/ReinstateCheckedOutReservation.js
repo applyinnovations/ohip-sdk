@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReinstateCheckedOutReservationToJSON = exports.ReinstateCheckedOutReservationFromJSONTyped = exports.ReinstateCheckedOutReservationFromJSON = exports.instanceOfReinstateCheckedOutReservation = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const ReservationId_1 = require("./ReservationId");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ReinstateCheckedOutReservation interface.
  */
@@ -37,11 +37,11 @@ function ReinstateCheckedOutReservationFromJSONTyped(json, ignoreDiscriminator) 
     return {
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'notifyInterfaces': !(0, runtime_1.exists)(json, 'notifyInterfaces') ? undefined : json['notifyInterfaces'],
         'overrideFlag': !(0, runtime_1.exists)(json, 'overrideFlag') ? undefined : json['overrideFlag'],
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ReinstateCheckedOutReservationFromJSONTyped = ReinstateCheckedOutReservationFromJSONTyped;
@@ -55,11 +55,11 @@ function ReinstateCheckedOutReservationToJSON(value) {
     return {
         'cashierId': value.cashierId,
         'hotelId': value.hotelId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'notifyInterfaces': value.notifyInterfaces,
         'overrideFlag': value.overrideFlag,
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ReinstateCheckedOutReservationToJSON = ReinstateCheckedOutReservationToJSON;

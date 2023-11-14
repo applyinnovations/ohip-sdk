@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MealTypesType } from './MealTypesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MealTypeType } from './MealTypeType';
 import {
-    MealTypesTypeFromJSON,
-    MealTypesTypeFromJSONTyped,
-    MealTypesTypeToJSON,
-} from './MealTypesType';
-import type { WarningsType } from './WarningsType';
+    MealTypeTypeFromJSON,
+    MealTypeTypeFromJSONTyped,
+    MealTypeTypeToJSON,
+} from './MealTypeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Meal Types.
@@ -40,22 +40,22 @@ import {
 export interface MealTypesCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MealTypesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MealTypesType}
+     * List of Meal Types.
+     * @type {Array<MealTypeType>}
      * @memberof MealTypesCriteria
      */
-    mealTypes?: MealTypesType;
+    mealTypes?: Array<MealTypeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MealTypesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MealTypesCriteriaFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'mealTypes': !exists(json, 'mealTypes') ? undefined : MealTypesTypeFromJSON(json['mealTypes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'mealTypes': !exists(json, 'mealTypes') ? undefined : ((json['mealTypes'] as Array<any>).map(MealTypeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MealTypesCriteriaToJSON(value?: MealTypesCriteria | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'mealTypes': MealTypesTypeToJSON(value.mealTypes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'mealTypes': value.mealTypes === undefined ? undefined : ((value.mealTypes as Array<any>).map(MealTypeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

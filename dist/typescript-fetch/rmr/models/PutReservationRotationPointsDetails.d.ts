@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationRotationPointsDetailsListType } from './ReservationRotationPointsDetailsListType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Collection of Reservation Rotation Points Details.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface PutReservationRotationPointsDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PutReservationRotationPointsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationRotationPointsDetailsListType}
@@ -31,11 +31,11 @@ export interface PutReservationRotationPointsDetails {
      */
     reservationRotationPointsDetailsList?: ReservationRotationPointsDetailsListType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PutReservationRotationPointsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PutReservationRotationPointsDetails interface.

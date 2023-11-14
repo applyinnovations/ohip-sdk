@@ -19,12 +19,12 @@ import {
     BankAccountTypeFromJSONTyped,
     BankAccountTypeToJSON,
 } from './BankAccountType';
-import type { CommissionAgentsType } from './CommissionAgentsType';
+import type { CommissionAgentType } from './CommissionAgentType';
 import {
-    CommissionAgentsTypeFromJSON,
-    CommissionAgentsTypeFromJSONTyped,
-    CommissionAgentsTypeToJSON,
-} from './CommissionAgentsType';
+    CommissionAgentTypeFromJSON,
+    CommissionAgentTypeFromJSONTyped,
+    CommissionAgentTypeToJSON,
+} from './CommissionAgentType';
 import type { CommissionSummaryType } from './CommissionSummaryType';
 import {
     CommissionSummaryTypeFromJSON,
@@ -45,11 +45,11 @@ export interface CommissionInfoType {
      */
     bankAccount?: BankAccountType;
     /**
-     * 
-     * @type {CommissionAgentsType}
+     * Agent or source profiles that were returned by the search.
+     * @type {Array<CommissionAgentType>}
      * @memberof CommissionInfoType
      */
-    commissionAgents?: CommissionAgentsType;
+    commissionAgents?: Array<CommissionAgentType>;
     /**
      * 
      * @type {CommissionSummaryType}
@@ -78,7 +78,7 @@ export function CommissionInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'bankAccount': !exists(json, 'bankAccount') ? undefined : BankAccountTypeFromJSON(json['bankAccount']),
-        'commissionAgents': !exists(json, 'commissionAgents') ? undefined : CommissionAgentsTypeFromJSON(json['commissionAgents']),
+        'commissionAgents': !exists(json, 'commissionAgents') ? undefined : ((json['commissionAgents'] as Array<any>).map(CommissionAgentTypeFromJSON)),
         'commissionSummary': !exists(json, 'commissionSummary') ? undefined : CommissionSummaryTypeFromJSON(json['commissionSummary']),
     };
 }
@@ -93,7 +93,7 @@ export function CommissionInfoTypeToJSON(value?: CommissionInfoType | null): any
     return {
         
         'bankAccount': BankAccountTypeToJSON(value.bankAccount),
-        'commissionAgents': CommissionAgentsTypeToJSON(value.commissionAgents),
+        'commissionAgents': value.commissionAgents === undefined ? undefined : ((value.commissionAgents as Array<any>).map(CommissionAgentTypeToJSON)),
         'commissionSummary': CommissionSummaryTypeToJSON(value.commissionSummary),
     };
 }

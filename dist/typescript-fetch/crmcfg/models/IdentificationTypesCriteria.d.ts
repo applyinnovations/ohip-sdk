@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { IdentificationTypesType } from './IdentificationTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { IdentificationTypeType } from './IdentificationTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Identification Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface IdentificationTypesCriteria {
     /**
-     *
-     * @type {IdentificationTypesType}
+     * List of Identification Types.
+     * @type {Array<IdentificationTypeType>}
      * @memberof IdentificationTypesCriteria
      */
-    identificationTypes?: IdentificationTypesType;
+    identificationTypes?: Array<IdentificationTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof IdentificationTypesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof IdentificationTypesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the IdentificationTypesCriteria interface.

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ResCancellationPoliciesType } from './ResCancellationPoliciesType';
+import type { ResCancellationPolicyType } from './ResCancellationPolicyType';
 import {
-    ResCancellationPoliciesTypeFromJSON,
-    ResCancellationPoliciesTypeFromJSONTyped,
-    ResCancellationPoliciesTypeToJSON,
-} from './ResCancellationPoliciesType';
-import type { ResDepositPoliciesType } from './ResDepositPoliciesType';
+    ResCancellationPolicyTypeFromJSON,
+    ResCancellationPolicyTypeFromJSONTyped,
+    ResCancellationPolicyTypeToJSON,
+} from './ResCancellationPolicyType';
+import type { ResDepositPolicyType } from './ResDepositPolicyType';
 import {
-    ResDepositPoliciesTypeFromJSON,
-    ResDepositPoliciesTypeFromJSONTyped,
-    ResDepositPoliciesTypeToJSON,
-} from './ResDepositPoliciesType';
-import type { UniqueIDListType } from './UniqueIDListType';
+    ResDepositPolicyTypeFromJSON,
+    ResDepositPolicyTypeFromJSONTyped,
+    ResDepositPolicyTypeToJSON,
+} from './ResDepositPolicyType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * A collection of reservation deposit and cancellation policies.
@@ -39,17 +39,17 @@ import {
  */
 export interface ReservationPoliciesType {
     /**
-     * 
-     * @type {ResCancellationPoliciesType}
+     * A list of reservation cancellation policies.
+     * @type {Array<ResCancellationPolicyType>}
      * @memberof ReservationPoliciesType
      */
-    cancellationPolicies?: ResCancellationPoliciesType;
+    cancellationPolicies?: Array<ResCancellationPolicyType>;
     /**
-     * 
-     * @type {ResDepositPoliciesType}
+     * A list of deposit policies attached with the reservation.
+     * @type {Array<ResDepositPolicyType>}
      * @memberof ReservationPoliciesType
      */
-    depositPolicies?: ResDepositPoliciesType;
+    depositPolicies?: Array<ResDepositPolicyType>;
     /**
      * Name identifier for the reservation.
      * @type {string}
@@ -57,11 +57,11 @@ export interface ReservationPoliciesType {
      */
     name?: string;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ReservationPoliciesType
      */
-    reservationIdList?: UniqueIDListType;
+    reservationIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -83,10 +83,10 @@ export function ReservationPoliciesTypeFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'cancellationPolicies': !exists(json, 'cancellationPolicies') ? undefined : ResCancellationPoliciesTypeFromJSON(json['cancellationPolicies']),
-        'depositPolicies': !exists(json, 'depositPolicies') ? undefined : ResDepositPoliciesTypeFromJSON(json['depositPolicies']),
+        'cancellationPolicies': !exists(json, 'cancellationPolicies') ? undefined : ((json['cancellationPolicies'] as Array<any>).map(ResCancellationPolicyTypeFromJSON)),
+        'depositPolicies': !exists(json, 'depositPolicies') ? undefined : ((json['depositPolicies'] as Array<any>).map(ResDepositPolicyTypeFromJSON)),
         'name': !exists(json, 'name') ? undefined : json['name'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : UniqueIDListTypeFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -99,10 +99,10 @@ export function ReservationPoliciesTypeToJSON(value?: ReservationPoliciesType | 
     }
     return {
         
-        'cancellationPolicies': ResCancellationPoliciesTypeToJSON(value.cancellationPolicies),
-        'depositPolicies': ResDepositPoliciesTypeToJSON(value.depositPolicies),
+        'cancellationPolicies': value.cancellationPolicies === undefined ? undefined : ((value.cancellationPolicies as Array<any>).map(ResCancellationPolicyTypeToJSON)),
+        'depositPolicies': value.depositPolicies === undefined ? undefined : ((value.depositPolicies as Array<any>).map(ResDepositPolicyTypeToJSON)),
         'name': value.name,
-        'reservationIdList': UniqueIDListTypeToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

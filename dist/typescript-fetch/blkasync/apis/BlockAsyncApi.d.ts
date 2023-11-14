@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlockAllocationSummary, Criteria } from '../models/index';
+import type { BlockAllocationSummaryType, Criteria } from '../models/index';
 export interface GetBlockAllocationSummaryRequest {
     requestId: string;
     hotelId: string;
@@ -46,12 +46,12 @@ export declare class BlockAsyncApi extends runtime.BaseAPI {
      * This API will fetch Block allocation information for a hotel, and specified date range.  The block allocated inventory, rates and room type statistics are returned as part of the response. <p><strong>OperationId:</strong>getBlockAllocationSummary</p>
      * This API returns a hotel\'s block allocation summary for a scheduled process.
      */
-    getBlockAllocationSummaryRaw(requestParameters: GetBlockAllocationSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockAllocationSummary>>;
+    getBlockAllocationSummaryRaw(requestParameters: GetBlockAllocationSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BlockAllocationSummaryType>>>;
     /**
      * This API will fetch Block allocation information for a hotel, and specified date range.  The block allocated inventory, rates and room type statistics are returned as part of the response. <p><strong>OperationId:</strong>getBlockAllocationSummary</p>
      * This API returns a hotel\'s block allocation summary for a scheduled process.
      */
-    getBlockAllocationSummary(requestParameters: GetBlockAllocationSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlockAllocationSummary>;
+    getBlockAllocationSummary(requestParameters: GetBlockAllocationSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BlockAllocationSummaryType>>;
     /**
      *  <p><strong>OperationId:</strong>getBlockAllocationSummaryProcessStatus</p>
      * This API returns the status of asynchronous process scheduled for given id.

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FunctionSpaceAvailabilityDetailsToJSON = exports.FunctionSpaceAvailabilityDetailsFromJSONTyped = exports.FunctionSpaceAvailabilityDetailsFromJSON = exports.instanceOfFunctionSpaceAvailabilityDetails = void 0;
 const runtime_1 = require("../runtime");
-const FunctionSpacesAvailabilityType_1 = require("./FunctionSpacesAvailabilityType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const FunctionSpaceAvailabilityType_1 = require("./FunctionSpaceAvailabilityType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FunctionSpaceAvailabilityDetails interface.
  */
@@ -35,9 +35,9 @@ function FunctionSpaceAvailabilityDetailsFromJSONTyped(json, ignoreDiscriminator
         return json;
     }
     return {
-        'functionSpacesAvailability': !(0, runtime_1.exists)(json, 'functionSpacesAvailability') ? undefined : (0, FunctionSpacesAvailabilityType_1.FunctionSpacesAvailabilityTypeFromJSON)(json['functionSpacesAvailability']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'functionSpacesAvailability': !(0, runtime_1.exists)(json, 'functionSpacesAvailability') ? undefined : (json['functionSpacesAvailability'].map(FunctionSpaceAvailabilityType_1.FunctionSpaceAvailabilityTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FunctionSpaceAvailabilityDetailsFromJSONTyped = FunctionSpaceAvailabilityDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function FunctionSpaceAvailabilityDetailsToJSON(value) {
         return null;
     }
     return {
-        'functionSpacesAvailability': (0, FunctionSpacesAvailabilityType_1.FunctionSpacesAvailabilityTypeToJSON)(value.functionSpacesAvailability),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'functionSpacesAvailability': value.functionSpacesAvailability === undefined ? undefined : (value.functionSpacesAvailability.map(FunctionSpaceAvailabilityType_1.FunctionSpaceAvailabilityTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FunctionSpaceAvailabilityDetailsToJSON = FunctionSpaceAvailabilityDetailsToJSON;

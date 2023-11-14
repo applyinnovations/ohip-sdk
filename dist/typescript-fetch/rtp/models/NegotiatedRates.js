@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NegotiatedRatesToJSON = exports.NegotiatedRatesFromJSONTyped = exports.NegotiatedRatesFromJSON = exports.instanceOfNegotiatedRates = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const NegotiatedRatesType_1 = require("./NegotiatedRatesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const NegotiatedRateType_1 = require("./NegotiatedRateType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the NegotiatedRates interface.
  */
@@ -35,9 +35,9 @@ function NegotiatedRatesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'negotiatedRates': !(0, runtime_1.exists)(json, 'negotiatedRates') ? undefined : (0, NegotiatedRatesType_1.NegotiatedRatesTypeFromJSON)(json['negotiatedRates']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'negotiatedRates': !(0, runtime_1.exists)(json, 'negotiatedRates') ? undefined : (json['negotiatedRates'].map(NegotiatedRateType_1.NegotiatedRateTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.NegotiatedRatesFromJSONTyped = NegotiatedRatesFromJSONTyped;
@@ -49,9 +49,9 @@ function NegotiatedRatesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'negotiatedRates': (0, NegotiatedRatesType_1.NegotiatedRatesTypeToJSON)(value.negotiatedRates),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'negotiatedRates': value.negotiatedRates === undefined ? undefined : (value.negotiatedRates.map(NegotiatedRateType_1.NegotiatedRateTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.NegotiatedRatesToJSON = NegotiatedRatesToJSON;

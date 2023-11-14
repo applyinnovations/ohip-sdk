@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomTaxTypesDetailsToJSON = exports.CustomTaxTypesDetailsFromJSONTyped = exports.CustomTaxTypesDetailsFromJSON = exports.instanceOfCustomTaxTypesDetails = void 0;
 const runtime_1 = require("../runtime");
-const CustomTaxTypesType_1 = require("./CustomTaxTypesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CustomTaxTypeType_1 = require("./CustomTaxTypeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CustomTaxTypesDetails interface.
  */
@@ -35,9 +35,9 @@ function CustomTaxTypesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'customTaxTypes': !(0, runtime_1.exists)(json, 'customTaxTypes') ? undefined : (0, CustomTaxTypesType_1.CustomTaxTypesTypeFromJSON)(json['customTaxTypes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'customTaxTypes': !(0, runtime_1.exists)(json, 'customTaxTypes') ? undefined : (json['customTaxTypes'].map(CustomTaxTypeType_1.CustomTaxTypeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CustomTaxTypesDetailsFromJSONTyped = CustomTaxTypesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function CustomTaxTypesDetailsToJSON(value) {
         return null;
     }
     return {
-        'customTaxTypes': (0, CustomTaxTypesType_1.CustomTaxTypesTypeToJSON)(value.customTaxTypes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'customTaxTypes': value.customTaxTypes === undefined ? undefined : (value.customTaxTypes.map(CustomTaxTypeType_1.CustomTaxTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CustomTaxTypesDetailsToJSON = CustomTaxTypesDetailsToJSON;

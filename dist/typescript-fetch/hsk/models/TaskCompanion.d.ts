@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { TaskCompanionTaskRoom } from './TaskCompanionTaskRoom';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response for the Fetch Task Room request. The room details for the room requested or for the room which was evaluated to be cleaned will be returned along with details of the rooms current status and reservations for the room, if any.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface TaskCompanion {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TaskCompanion
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {TaskCompanionTaskRoom}
@@ -31,11 +31,11 @@ export interface TaskCompanion {
      */
     taskRoom?: TaskCompanionTaskRoom;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TaskCompanion
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TaskCompanion interface.

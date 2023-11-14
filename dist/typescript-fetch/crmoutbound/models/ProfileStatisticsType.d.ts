@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ProfileIdList } from './ProfileIdList';
-import type { RevenueStatisticsSummaryListType } from './RevenueStatisticsSummaryListType';
+import type { RevenueStatisticsSummaryType } from './RevenueStatisticsSummaryType';
 import type { StatisticsReportType } from './StatisticsReportType';
 import type { StatisticsSummaryListType } from './StatisticsSummaryListType';
-import type { StayStatisticsDetailListType } from './StayStatisticsDetailListType';
+import type { StayStatisticsDetailType } from './StayStatisticsDetailType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Contains summary/detail/Revenue statistics information for Profile.
  * @export
@@ -21,11 +21,11 @@ import type { StayStatisticsDetailListType } from './StayStatisticsDetailListTyp
  */
 export interface ProfileStatisticsType {
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ProfileStatisticsType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {StatisticsSummaryListType}
@@ -33,17 +33,17 @@ export interface ProfileStatisticsType {
      */
     stayStatisticsSummaryList?: StatisticsSummaryListType;
     /**
-     *
-     * @type {StayStatisticsDetailListType}
+     * Collection of stay statistics detail information
+     * @type {Array<StayStatisticsDetailType>}
      * @memberof ProfileStatisticsType
      */
-    stayStatisticsDetailList?: StayStatisticsDetailListType;
+    stayStatisticsDetailList?: Array<StayStatisticsDetailType>;
     /**
-     *
-     * @type {RevenueStatisticsSummaryListType}
+     * List of the detailed and yearly summarized information about the profile revenue.
+     * @type {Array<RevenueStatisticsSummaryType>}
      * @memberof ProfileStatisticsType
      */
-    revenueStatisticsSummaryList?: RevenueStatisticsSummaryListType;
+    revenueStatisticsSummaryList?: Array<RevenueStatisticsSummaryType>;
     /**
      *
      * @type {StatisticsReportType}

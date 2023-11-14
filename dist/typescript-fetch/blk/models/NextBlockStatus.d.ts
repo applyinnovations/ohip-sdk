@@ -9,10 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockNextStatusListType } from './BlockNextStatusListType';
-import type { CateringNextStatusListType } from './CateringNextStatusListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BookingStatusDetailType } from './BookingStatusDetailType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for FetchNextBlockStatus operation.
  * @export
@@ -20,29 +19,29 @@ import type { WarningsType } from './WarningsType';
  */
 export interface NextBlockStatus {
     /**
-     *
-     * @type {BlockNextStatusListType}
+     * Next booking status of the business block.
+     * @type {Array<BookingStatusDetailType>}
      * @memberof NextBlockStatus
      */
-    blockNextStatusList?: BlockNextStatusListType;
+    blockNextStatusList?: Array<BookingStatusDetailType>;
+    /**
+     * Next catering status of the business block.
+     * @type {Array<BookingStatusDetailType>}
+     * @memberof NextBlockStatus
+     */
+    cateringNextStatusList?: Array<BookingStatusDetailType>;
     /**
      *
-     * @type {CateringNextStatusListType}
+     * @type {Array<InstanceLink>}
      * @memberof NextBlockStatus
      */
-    cateringNextStatusList?: CateringNextStatusListType;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {Links}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof NextBlockStatus
      */
-    links?: Links;
-    /**
-     *
-     * @type {WarningsType}
-     * @memberof NextBlockStatus
-     */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the NextBlockStatus interface.

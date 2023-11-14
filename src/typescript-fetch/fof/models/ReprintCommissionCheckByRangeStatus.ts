@@ -19,18 +19,18 @@ import {
     CommissionPaymentReportTypeFromJSONTyped,
     CommissionPaymentReportTypeToJSON,
 } from './CommissionPaymentReportType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response type for reprinting a range of check payments.
@@ -40,10 +40,10 @@ import {
 export interface ReprintCommissionCheckByRangeStatus {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReprintCommissionCheckByRangeStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {CommissionPaymentReportType}
@@ -51,11 +51,11 @@ export interface ReprintCommissionCheckByRangeStatus {
      */
     reprintCheckReport?: CommissionPaymentReportType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReprintCommissionCheckByRangeStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ReprintCommissionCheckByRangeStatusFromJSONTyped(json: any, igno
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reprintCheckReport': !exists(json, 'reprintCheckReport') ? undefined : CommissionPaymentReportTypeFromJSON(json['reprintCheckReport']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ReprintCommissionCheckByRangeStatusToJSON(value?: ReprintCommiss
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reprintCheckReport': CommissionPaymentReportTypeToJSON(value.reprintCheckReport),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

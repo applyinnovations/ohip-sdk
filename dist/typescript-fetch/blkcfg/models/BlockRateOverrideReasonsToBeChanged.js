@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockRateOverrideReasonsToBeChangedToJSON = exports.BlockRateOverrideReasonsToBeChangedFromJSONTyped = exports.BlockRateOverrideReasonsToBeChangedFromJSON = exports.instanceOfBlockRateOverrideReasonsToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const BlockRateOverrideReasonsType_1 = require("./BlockRateOverrideReasonsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const BlockRateOverrideReasonType_1 = require("./BlockRateOverrideReasonType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BlockRateOverrideReasonsToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function BlockRateOverrideReasonsToBeChangedFromJSONTyped(json, ignoreDiscrimina
         return json;
     }
     return {
-        'blockRateOverrideReasons': !(0, runtime_1.exists)(json, 'blockRateOverrideReasons') ? undefined : (0, BlockRateOverrideReasonsType_1.BlockRateOverrideReasonsTypeFromJSON)(json['blockRateOverrideReasons']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'blockRateOverrideReasons': !(0, runtime_1.exists)(json, 'blockRateOverrideReasons') ? undefined : (json['blockRateOverrideReasons'].map(BlockRateOverrideReasonType_1.BlockRateOverrideReasonTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BlockRateOverrideReasonsToBeChangedFromJSONTyped = BlockRateOverrideReasonsToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function BlockRateOverrideReasonsToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'blockRateOverrideReasons': (0, BlockRateOverrideReasonsType_1.BlockRateOverrideReasonsTypeToJSON)(value.blockRateOverrideReasons),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'blockRateOverrideReasons': value.blockRateOverrideReasons === undefined ? undefined : (value.blockRateOverrideReasons.map(BlockRateOverrideReasonType_1.BlockRateOverrideReasonTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BlockRateOverrideReasonsToBeChangedToJSON = BlockRateOverrideReasonsToBeChangedToJSON;

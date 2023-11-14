@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ResAwardsTypeToJSON = exports.ResAwardsTypeFromJSONTyped = exports.ResAwardsTypeFromJSON = exports.instanceOfResAwardsType = void 0;
 const runtime_1 = require("../runtime");
-const AwardVouchersType_1 = require("./AwardVouchersType");
+const AwardVouchersTypeInner_1 = require("./AwardVouchersTypeInner");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ResAwardsType interface.
@@ -34,7 +34,7 @@ function ResAwardsTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'awardVouchers': !(0, runtime_1.exists)(json, 'awardVouchers') ? undefined : (0, AwardVouchersType_1.AwardVouchersTypeFromJSON)(json['awardVouchers']),
+        'awardVouchers': !(0, runtime_1.exists)(json, 'awardVouchers') ? undefined : (json['awardVouchers'].map(AwardVouchersTypeInner_1.AwardVouchersTypeInnerFromJSON)),
         'membershipNo': !(0, runtime_1.exists)(json, 'membershipNo') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['membershipNo']),
         'originalRoomType': !(0, runtime_1.exists)(json, 'originalRoomType') ? undefined : json['originalRoomType'],
         'upgradeRoomType': !(0, runtime_1.exists)(json, 'upgradeRoomType') ? undefined : json['upgradeRoomType'],
@@ -49,7 +49,7 @@ function ResAwardsTypeToJSON(value) {
         return null;
     }
     return {
-        'awardVouchers': (0, AwardVouchersType_1.AwardVouchersTypeToJSON)(value.awardVouchers),
+        'awardVouchers': value.awardVouchers === undefined ? undefined : (value.awardVouchers.map(AwardVouchersTypeInner_1.AwardVouchersTypeInnerToJSON)),
         'membershipNo': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.membershipNo),
         'originalRoomType': value.originalRoomType,
         'upgradeRoomType': value.upgradeRoomType,

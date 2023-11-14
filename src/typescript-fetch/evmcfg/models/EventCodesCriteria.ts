@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { EventCodesType } from './EventCodesType';
+import type { EventCodeType } from './EventCodeType';
 import {
-    EventCodesTypeFromJSON,
-    EventCodesTypeFromJSONTyped,
-    EventCodesTypeToJSON,
-} from './EventCodesType';
-import type { Links } from './Links';
+    EventCodeTypeFromJSON,
+    EventCodeTypeFromJSONTyped,
+    EventCodeTypeToJSON,
+} from './EventCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating new Event Codes for a hotel.
@@ -39,23 +39,23 @@ import {
  */
 export interface EventCodesCriteria {
     /**
-     * 
-     * @type {EventCodesType}
+     * Details for Event Code at hotel level.
+     * @type {Array<EventCodeType>}
      * @memberof EventCodesCriteria
      */
-    eventCodes?: EventCodesType;
+    eventCodes?: Array<EventCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EventCodesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EventCodesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function EventCodesCriteriaFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'eventCodes': !exists(json, 'eventCodes') ? undefined : EventCodesTypeFromJSON(json['eventCodes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'eventCodes': !exists(json, 'eventCodes') ? undefined : ((json['eventCodes'] as Array<any>).map(EventCodeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function EventCodesCriteriaToJSON(value?: EventCodesCriteria | null): any
     }
     return {
         
-        'eventCodes': EventCodesTypeToJSON(value.eventCodes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'eventCodes': value.eventCodes === undefined ? undefined : ((value.eventCodes as Array<any>).map(EventCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

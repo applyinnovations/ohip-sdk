@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CompRedemptionsType } from './CompRedemptionsType';
+import type { RedemptionType } from './RedemptionType';
 import {
-    CompRedemptionsTypeFromJSON,
-    CompRedemptionsTypeFromJSONTyped,
-    CompRedemptionsTypeToJSON,
-} from './CompRedemptionsType';
+    RedemptionTypeFromJSON,
+    RedemptionTypeFromJSONTyped,
+    RedemptionTypeToJSON,
+} from './RedemptionType';
 
 /**
  * Criteria to post complimentary bucket redemptions request.
@@ -33,11 +33,11 @@ export interface PostCompRedemptionsCriteria {
      */
     cashierId?: number;
     /**
-     * 
-     * @type {CompRedemptionsType}
+     * Information regarding Complimentary Bucket Redemption object.
+     * @type {Array<RedemptionType>}
      * @memberof PostCompRedemptionsCriteria
      */
-    compRedemptions?: CompRedemptionsType;
+    compRedemptions?: Array<RedemptionType>;
     /**
      * Folio Window.
      * @type {number}
@@ -72,7 +72,7 @@ export function PostCompRedemptionsCriteriaFromJSONTyped(json: any, ignoreDiscri
     return {
         
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
-        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : CompRedemptionsTypeFromJSON(json['compRedemptions']),
+        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : ((json['compRedemptions'] as Array<any>).map(RedemptionTypeFromJSON)),
         'folioView': !exists(json, 'folioView') ? undefined : json['folioView'],
         'membershipId': !exists(json, 'membershipId') ? undefined : json['membershipId'],
     };
@@ -88,7 +88,7 @@ export function PostCompRedemptionsCriteriaToJSON(value?: PostCompRedemptionsCri
     return {
         
         'cashierId': value.cashierId,
-        'compRedemptions': CompRedemptionsTypeToJSON(value.compRedemptions),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : ((value.compRedemptions as Array<any>).map(RedemptionTypeToJSON)),
         'folioView': value.folioView,
         'membershipId': value.membershipId,
     };

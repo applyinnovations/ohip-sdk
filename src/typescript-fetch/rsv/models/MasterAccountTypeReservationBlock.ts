@@ -13,18 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockIdList } from './BlockIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    BlockIdListFromJSON,
-    BlockIdListFromJSONTyped,
-    BlockIdListToJSON,
-} from './BlockIdList';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Information of the block associated with the reservation.
@@ -33,17 +27,17 @@ import {
  */
 export interface MasterAccountTypeReservationBlock {
     /**
-     * 
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MasterAccountTypeReservationBlock
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof MasterAccountTypeReservationBlock
      */
-    transactionCode?: CodeListType;
+    transactionCode?: Array<string>;
 }
 
 /**
@@ -65,8 +59,8 @@ export function MasterAccountTypeReservationBlockFromJSONTyped(json: any, ignore
     }
     return {
         
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : BlockIdListFromJSON(json['blockIdList']),
-        'transactionCode': !exists(json, 'transactionCode') ? undefined : CodeListTypeFromJSON(json['transactionCode']),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'transactionCode': !exists(json, 'transactionCode') ? undefined : json['transactionCode'],
     };
 }
 
@@ -79,8 +73,8 @@ export function MasterAccountTypeReservationBlockToJSON(value?: MasterAccountTyp
     }
     return {
         
-        'blockIdList': BlockIdListToJSON(value.blockIdList),
-        'transactionCode': CodeListTypeToJSON(value.transactionCode),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
+        'transactionCode': value.transactionCode,
     };
 }
 

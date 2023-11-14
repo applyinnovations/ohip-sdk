@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { InvoiceTrxNoList } from './InvoiceTrxNoList';
-import {
-    InvoiceTrxNoListFromJSON,
-    InvoiceTrxNoListFromJSONTyped,
-    InvoiceTrxNoListToJSON,
-} from './InvoiceTrxNoList';
-
 /**
  * Criteria for unlinking invoice from statement.
  * @export
@@ -39,11 +32,11 @@ export interface UnlinkStatementCriteriaType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {InvoiceTrxNoList}
+     * Transaction Number .
+     * @type {Array<number>}
      * @memberof UnlinkStatementCriteriaType
      */
-    invoiceTrxNoList?: InvoiceTrxNoList;
+    invoiceTrxNoList?: Array<number>;
 }
 
 /**
@@ -67,7 +60,7 @@ export function UnlinkStatementCriteriaTypeFromJSONTyped(json: any, ignoreDiscri
         
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'invoiceTrxNoList': !exists(json, 'invoiceTrxNoList') ? undefined : InvoiceTrxNoListFromJSON(json['invoiceTrxNoList']),
+        'invoiceTrxNoList': !exists(json, 'invoiceTrxNoList') ? undefined : json['invoiceTrxNoList'],
     };
 }
 
@@ -82,7 +75,7 @@ export function UnlinkStatementCriteriaTypeToJSON(value?: UnlinkStatementCriteri
         
         'cashierId': value.cashierId,
         'hotelId': value.hotelId,
-        'invoiceTrxNoList': InvoiceTrxNoListToJSON(value.invoiceTrxNoList),
+        'invoiceTrxNoList': value.invoiceTrxNoList,
     };
 }
 

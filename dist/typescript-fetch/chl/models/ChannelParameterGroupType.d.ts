@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChannelParametersType } from './ChannelParametersType';
+import type { ChannelParameterType } from './ChannelParameterType';
 /**
  *
  * @export
@@ -17,11 +17,11 @@ import type { ChannelParametersType } from './ChannelParametersType';
  */
 export interface ChannelParameterGroupType {
     /**
-     *
-     * @type {ChannelParametersType}
+     * parameters details.
+     * @type {Array<ChannelParameterType>}
      * @memberof ChannelParameterGroupType
      */
-    channelParameters?: ChannelParametersType;
+    channelParameters?: Array<ChannelParameterType>;
     /**
      *
      * @type {string}

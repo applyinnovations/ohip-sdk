@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EnrollmentToJSON = exports.EnrollmentFromJSONTyped = exports.EnrollmentFromJSON = exports.instanceOfEnrollment = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const ProfileEnrollmentType_1 = require("./ProfileEnrollmentType");
 /**
  * Check if a given object implements the Enrollment interface.
@@ -35,7 +35,7 @@ function EnrollmentFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'enrollmentInfo': !(0, runtime_1.exists)(json, 'enrollmentInfo') ? undefined : (0, ProfileEnrollmentType_1.ProfileEnrollmentTypeFromJSON)(json['enrollmentInfo']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.EnrollmentFromJSONTyped = EnrollmentFromJSONTyped;
@@ -48,7 +48,7 @@ function EnrollmentToJSON(value) {
     }
     return {
         'enrollmentInfo': (0, ProfileEnrollmentType_1.ProfileEnrollmentTypeToJSON)(value.enrollmentInfo),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.EnrollmentToJSON = EnrollmentToJSON;

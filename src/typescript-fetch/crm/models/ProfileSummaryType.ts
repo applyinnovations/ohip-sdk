@@ -49,24 +49,24 @@ import {
     EmailInfoTypeFromJSONTyped,
     EmailInfoTypeToJSON,
 } from './EmailInfoType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import {
-    IndicatorsTypeFromJSON,
-    IndicatorsTypeFromJSONTyped,
-    IndicatorsTypeToJSON,
-} from './IndicatorsType';
+    IndicatorTypeFromJSON,
+    IndicatorTypeFromJSONTyped,
+    IndicatorTypeToJSON,
+} from './IndicatorType';
 import type { LastStayInfoType } from './LastStayInfoType';
 import {
     LastStayInfoTypeFromJSON,
     LastStayInfoTypeFromJSONTyped,
     LastStayInfoTypeToJSON,
 } from './LastStayInfoType';
-import type { OwnersType } from './OwnersType';
+import type { OwnerType } from './OwnerType';
 import {
-    OwnersTypeFromJSON,
-    OwnersTypeFromJSONTyped,
-    OwnersTypeToJSON,
-} from './OwnersType';
+    OwnerTypeFromJSON,
+    OwnerTypeFromJSONTyped,
+    OwnerTypeToJSON,
+} from './OwnerType';
 import type { PrimaryProfileInfoType } from './PrimaryProfileInfoType';
 import {
     PrimaryProfileInfoTypeFromJSON,
@@ -85,12 +85,12 @@ import {
     ProfileAdditionalInfoTypeFromJSONTyped,
     ProfileAdditionalInfoTypeToJSON,
 } from './ProfileAdditionalInfoType';
-import type { ProfileAllowedActionsType } from './ProfileAllowedActionsType';
+import type { ProfileAllowedActionType } from './ProfileAllowedActionType';
 import {
-    ProfileAllowedActionsTypeFromJSON,
-    ProfileAllowedActionsTypeFromJSONTyped,
-    ProfileAllowedActionsTypeToJSON,
-} from './ProfileAllowedActionsType';
+    ProfileAllowedActionTypeFromJSON,
+    ProfileAllowedActionTypeFromJSONTyped,
+    ProfileAllowedActionTypeToJSON,
+} from './ProfileAllowedActionType';
 import type { ProfileCashieringType } from './ProfileCashieringType';
 import {
     ProfileCashieringTypeFromJSON,
@@ -145,12 +145,12 @@ import {
     SalesInfoTypeFromJSONTyped,
     SalesInfoTypeToJSON,
 } from './SalesInfoType';
-import type { SearchMatchesType } from './SearchMatchesType';
+import type { SearchMatchType } from './SearchMatchType';
 import {
-    SearchMatchesTypeFromJSON,
-    SearchMatchesTypeFromJSONTyped,
-    SearchMatchesTypeToJSON,
-} from './SearchMatchesType';
+    SearchMatchTypeFromJSON,
+    SearchMatchTypeFromJSONTyped,
+    SearchMatchTypeToJSON,
+} from './SearchMatchType';
 import type { TelephoneInfoType } from './TelephoneInfoType';
 import {
     TelephoneInfoTypeFromJSON,
@@ -195,11 +195,11 @@ export interface ProfileSummaryType {
      */
     addressInfo?: AddressInfoType;
     /**
-     * 
-     * @type {ProfileAllowedActionsType}
+     * Allowed actions for profile operations.
+     * @type {Array<ProfileAllowedActionType>}
      * @memberof ProfileSummaryType
      */
-    allowedActions?: ProfileAllowedActionsType;
+    allowedActions?: Array<ProfileAllowedActionType>;
     /**
      * 
      * @type {ProfileNameType}
@@ -279,11 +279,11 @@ export interface ProfileSummaryType {
      */
     lastStayInfo?: LastStayInfoType;
     /**
-     * 
-     * @type {OwnersType}
+     * Generic type for a list of owners.
+     * @type {Array<OwnerType>}
      * @memberof ProfileSummaryType
      */
-    owners?: OwnersType;
+    owners?: Array<OwnerType>;
     /**
      * 
      * @type {PrimaryProfileInfoType}
@@ -309,11 +309,11 @@ export interface ProfileSummaryType {
      */
     profileAccessType?: ProfileAccessType;
     /**
-     * 
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof ProfileSummaryType
      */
-    profileIndicators?: IndicatorsType;
+    profileIndicators?: Array<IndicatorType>;
     /**
      * 
      * @type {ProfileMembershipType}
@@ -351,11 +351,11 @@ export interface ProfileSummaryType {
      */
     salesInfo?: SalesInfoType;
     /**
-     * 
-     * @type {SearchMatchesType}
+     * List of Generic Name-Value-Pair Parameters used for super search matches.
+     * @type {Array<SearchMatchType>}
      * @memberof ProfileSummaryType
      */
-    searchMatches?: SearchMatchesType;
+    searchMatches?: Array<SearchMatchType>;
     /**
      * 
      * @type {ProfileStatusType}
@@ -416,7 +416,7 @@ export function ProfileSummaryTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'aRAccount': !exists(json, 'aRAccount') ? undefined : DirectBillingTypeFromJSON(json['aRAccount']),
         'additionalInfo': !exists(json, 'additionalInfo') ? undefined : ProfileAdditionalInfoTypeFromJSON(json['additionalInfo']),
         'addressInfo': !exists(json, 'addressInfo') ? undefined : AddressInfoTypeFromJSON(json['addressInfo']),
-        'allowedActions': !exists(json, 'allowedActions') ? undefined : ProfileAllowedActionsTypeFromJSON(json['allowedActions']),
+        'allowedActions': !exists(json, 'allowedActions') ? undefined : ((json['allowedActions'] as Array<any>).map(ProfileAllowedActionTypeFromJSON)),
         'altName': !exists(json, 'altName') ? undefined : ProfileNameTypeFromJSON(json['altName']),
         'anonymization': !exists(json, 'anonymization') ? undefined : AnonymizationTypeFromJSON(json['anonymization']),
         'cashiering': !exists(json, 'cashiering') ? undefined : ProfileCashieringTypeFromJSON(json['cashiering']),
@@ -430,19 +430,19 @@ export function ProfileSummaryTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'lastStayInfo': !exists(json, 'lastStayInfo') ? undefined : LastStayInfoTypeFromJSON(json['lastStayInfo']),
-        'owners': !exists(json, 'owners') ? undefined : OwnersTypeFromJSON(json['owners']),
+        'owners': !exists(json, 'owners') ? undefined : ((json['owners'] as Array<any>).map(OwnerTypeFromJSON)),
         'primaryAccountInfo': !exists(json, 'primaryAccountInfo') ? undefined : PrimaryProfileInfoTypeFromJSON(json['primaryAccountInfo']),
         'primaryCompany': !exists(json, 'primaryCompany') ? undefined : json['primaryCompany'],
         'privateProfile': !exists(json, 'privateProfile') ? undefined : json['privateProfile'],
         'profileAccessType': !exists(json, 'profileAccessType') ? undefined : ProfileAccessTypeFromJSON(json['profileAccessType']),
-        'profileIndicators': !exists(json, 'profileIndicators') ? undefined : IndicatorsTypeFromJSON(json['profileIndicators']),
+        'profileIndicators': !exists(json, 'profileIndicators') ? undefined : ((json['profileIndicators'] as Array<any>).map(IndicatorTypeFromJSON)),
         'profileMembership': !exists(json, 'profileMembership') ? undefined : ProfileMembershipTypeFromJSON(json['profileMembership']),
         'profileRestrictions': !exists(json, 'profileRestrictions') ? undefined : ProfileRestrictionsFromJSON(json['profileRestrictions']),
         'profileType': !exists(json, 'profileType') ? undefined : ProfileTypeTypeFromJSON(json['profileType']),
         '_protected': !exists(json, 'protected') ? undefined : json['protected'],
         'registeredProperty': !exists(json, 'registeredProperty') ? undefined : json['registeredProperty'],
         'salesInfo': !exists(json, 'salesInfo') ? undefined : SalesInfoTypeFromJSON(json['salesInfo']),
-        'searchMatches': !exists(json, 'searchMatches') ? undefined : SearchMatchesTypeFromJSON(json['searchMatches']),
+        'searchMatches': !exists(json, 'searchMatches') ? undefined : ((json['searchMatches'] as Array<any>).map(SearchMatchTypeFromJSON)),
         'statusCode': !exists(json, 'statusCode') ? undefined : ProfileStatusTypeFromJSON(json['statusCode']),
         'subscription': !exists(json, 'subscription') ? undefined : json['subscription'],
         'taxInfo': !exists(json, 'taxInfo') ? undefined : ProfileTaxInfoTypeFromJSON(json['taxInfo']),
@@ -464,7 +464,7 @@ export function ProfileSummaryTypeToJSON(value?: ProfileSummaryType | null): any
         'aRAccount': DirectBillingTypeToJSON(value.aRAccount),
         'additionalInfo': ProfileAdditionalInfoTypeToJSON(value.additionalInfo),
         'addressInfo': AddressInfoTypeToJSON(value.addressInfo),
-        'allowedActions': ProfileAllowedActionsTypeToJSON(value.allowedActions),
+        'allowedActions': value.allowedActions === undefined ? undefined : ((value.allowedActions as Array<any>).map(ProfileAllowedActionTypeToJSON)),
         'altName': ProfileNameTypeToJSON(value.altName),
         'anonymization': AnonymizationTypeToJSON(value.anonymization),
         'cashiering': ProfileCashieringTypeToJSON(value.cashiering),
@@ -478,19 +478,19 @@ export function ProfileSummaryTypeToJSON(value?: ProfileSummaryType | null): any
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'lastStayInfo': LastStayInfoTypeToJSON(value.lastStayInfo),
-        'owners': OwnersTypeToJSON(value.owners),
+        'owners': value.owners === undefined ? undefined : ((value.owners as Array<any>).map(OwnerTypeToJSON)),
         'primaryAccountInfo': PrimaryProfileInfoTypeToJSON(value.primaryAccountInfo),
         'primaryCompany': value.primaryCompany,
         'privateProfile': value.privateProfile,
         'profileAccessType': ProfileAccessTypeToJSON(value.profileAccessType),
-        'profileIndicators': IndicatorsTypeToJSON(value.profileIndicators),
+        'profileIndicators': value.profileIndicators === undefined ? undefined : ((value.profileIndicators as Array<any>).map(IndicatorTypeToJSON)),
         'profileMembership': ProfileMembershipTypeToJSON(value.profileMembership),
         'profileRestrictions': ProfileRestrictionsToJSON(value.profileRestrictions),
         'profileType': ProfileTypeTypeToJSON(value.profileType),
         'protected': value._protected,
         'registeredProperty': value.registeredProperty,
         'salesInfo': SalesInfoTypeToJSON(value.salesInfo),
-        'searchMatches': SearchMatchesTypeToJSON(value.searchMatches),
+        'searchMatches': value.searchMatches === undefined ? undefined : ((value.searchMatches as Array<any>).map(SearchMatchTypeToJSON)),
         'statusCode': ProfileStatusTypeToJSON(value.statusCode),
         'subscription': value.subscription,
         'taxInfo': ProfileTaxInfoTypeToJSON(value.taxInfo),

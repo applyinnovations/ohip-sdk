@@ -15,9 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyNewRoomTypeToJSON = exports.CopyNewRoomTypeFromJSONTyped = exports.CopyNewRoomTypeFromJSON = exports.instanceOfCopyNewRoomType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const HousekeepingCreditsType_1 = require("./HousekeepingCreditsType");
-const RoomFeaturesType_1 = require("./RoomFeaturesType");
+const RoomFeatureType_1 = require("./RoomFeatureType");
 const RoomSectionType_1 = require("./RoomSectionType");
 /**
  * Check if a given object implements the CopyNewRoomType interface.
@@ -36,9 +35,9 @@ function CopyNewRoomTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'floors': !(0, runtime_1.exists)(json, 'floors') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['floors']),
+        'floors': !(0, runtime_1.exists)(json, 'floors') ? undefined : json['floors'],
         'housekeepingCredits': !(0, runtime_1.exists)(json, 'housekeepingCredits') ? undefined : (json['housekeepingCredits'].map(HousekeepingCreditsType_1.HousekeepingCreditsTypeFromJSON)),
-        'roomFeatures': !(0, runtime_1.exists)(json, 'roomFeatures') ? undefined : (0, RoomFeaturesType_1.RoomFeaturesTypeFromJSON)(json['roomFeatures']),
+        'roomFeatures': !(0, runtime_1.exists)(json, 'roomFeatures') ? undefined : (json['roomFeatures'].map(RoomFeatureType_1.RoomFeatureTypeFromJSON)),
         'roomId': !(0, runtime_1.exists)(json, 'roomId') ? undefined : json['roomId'],
         'roomSection': !(0, runtime_1.exists)(json, 'roomSection') ? undefined : (0, RoomSectionType_1.RoomSectionTypeFromJSON)(json['roomSection']),
     };
@@ -52,9 +51,9 @@ function CopyNewRoomTypeToJSON(value) {
         return null;
     }
     return {
-        'floors': (0, CodeListType_1.CodeListTypeToJSON)(value.floors),
+        'floors': value.floors,
         'housekeepingCredits': value.housekeepingCredits === undefined ? undefined : (value.housekeepingCredits.map(HousekeepingCreditsType_1.HousekeepingCreditsTypeToJSON)),
-        'roomFeatures': (0, RoomFeaturesType_1.RoomFeaturesTypeToJSON)(value.roomFeatures),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : (value.roomFeatures.map(RoomFeatureType_1.RoomFeatureTypeToJSON)),
         'roomId': value.roomId,
         'roomSection': (0, RoomSectionType_1.RoomSectionTypeToJSON)(value.roomSection),
     };

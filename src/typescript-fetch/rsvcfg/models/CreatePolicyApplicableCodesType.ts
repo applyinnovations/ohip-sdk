@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -46,16 +40,16 @@ export interface CreatePolicyApplicableCodesType {
     blockId?: UniqueIDType;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CreatePolicyApplicableCodesType
      */
-    creditRatings?: CodeListType;
+    creditRatings?: Array<string>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CreatePolicyApplicableCodesType
      */
-    guaranteeCodes?: CodeListType;
+    guaranteeCodes?: Array<string>;
     /**
      * create schedule for this Hotel code.
      * @type {string}
@@ -64,10 +58,10 @@ export interface CreatePolicyApplicableCodesType {
     hotelId?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CreatePolicyApplicableCodesType
      */
-    ratePlanCodes?: CodeListType;
+    ratePlanCodes?: Array<string>;
     /**
      * create schedule for this Season Code.
      * @type {string}
@@ -97,10 +91,10 @@ export function CreatePolicyApplicableCodesTypeFromJSONTyped(json: any, ignoreDi
         
         'blockCode': !exists(json, 'blockCode') ? undefined : json['blockCode'],
         'blockId': !exists(json, 'blockId') ? undefined : UniqueIDTypeFromJSON(json['blockId']),
-        'creditRatings': !exists(json, 'creditRatings') ? undefined : CodeListTypeFromJSON(json['creditRatings']),
-        'guaranteeCodes': !exists(json, 'guaranteeCodes') ? undefined : CodeListTypeFromJSON(json['guaranteeCodes']),
+        'creditRatings': !exists(json, 'creditRatings') ? undefined : json['creditRatings'],
+        'guaranteeCodes': !exists(json, 'guaranteeCodes') ? undefined : json['guaranteeCodes'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'ratePlanCodes': !exists(json, 'ratePlanCodes') ? undefined : CodeListTypeFromJSON(json['ratePlanCodes']),
+        'ratePlanCodes': !exists(json, 'ratePlanCodes') ? undefined : json['ratePlanCodes'],
         'seasonCode': !exists(json, 'seasonCode') ? undefined : json['seasonCode'],
     };
 }
@@ -116,10 +110,10 @@ export function CreatePolicyApplicableCodesTypeToJSON(value?: CreatePolicyApplic
         
         'blockCode': value.blockCode,
         'blockId': UniqueIDTypeToJSON(value.blockId),
-        'creditRatings': CodeListTypeToJSON(value.creditRatings),
-        'guaranteeCodes': CodeListTypeToJSON(value.guaranteeCodes),
+        'creditRatings': value.creditRatings,
+        'guaranteeCodes': value.guaranteeCodes,
         'hotelId': value.hotelId,
-        'ratePlanCodes': CodeListTypeToJSON(value.ratePlanCodes),
+        'ratePlanCodes': value.ratePlanCodes,
         'seasonCode': value.seasonCode,
     };
 }

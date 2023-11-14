@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ErrorsType } from './ErrorsType';
+import type { ErrorType } from './ErrorType';
 import {
-    ErrorsTypeFromJSON,
-    ErrorsTypeFromJSONTyped,
-    ErrorsTypeToJSON,
-} from './ErrorsType';
-import type { WarningsType } from './WarningsType';
+    ErrorTypeFromJSON,
+    ErrorTypeFromJSONTyped,
+    ErrorTypeToJSON,
+} from './ErrorType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * This provides a collection of all borrowable room types by date.
@@ -45,11 +45,11 @@ export interface BorrowableInventoryType {
      */
     availableSellLimit?: number;
     /**
-     * 
-     * @type {ErrorsType}
+     * An error that occurred during the processing of a message.
+     * @type {Array<ErrorType>}
      * @memberof BorrowableInventoryType
      */
-    errors?: ErrorsType;
+    errors?: Array<ErrorType>;
     /**
      * Returning an empty element of this type indicates the this is a House type. This is used in conjunction with the Borrow operations for Blocks where rooms are to be borrowed from House.
      * @type {object}
@@ -63,11 +63,11 @@ export interface BorrowableInventoryType {
      */
     roomType?: string;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BorrowableInventoryType
      */
-    warning?: WarningsType;
+    warning?: Array<WarningType>;
 }
 
 /**
@@ -91,10 +91,10 @@ export function BorrowableInventoryTypeFromJSONTyped(json: any, ignoreDiscrimina
         
         'availableRooms': !exists(json, 'availableRooms') ? undefined : json['availableRooms'],
         'availableSellLimit': !exists(json, 'availableSellLimit') ? undefined : json['availableSellLimit'],
-        'errors': !exists(json, 'errors') ? undefined : ErrorsTypeFromJSON(json['errors']),
+        'errors': !exists(json, 'errors') ? undefined : ((json['errors'] as Array<any>).map(ErrorTypeFromJSON)),
         'house': !exists(json, 'house') ? undefined : json['house'],
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
-        'warning': !exists(json, 'warning') ? undefined : WarningsTypeFromJSON(json['warning']),
+        'warning': !exists(json, 'warning') ? undefined : ((json['warning'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -109,10 +109,10 @@ export function BorrowableInventoryTypeToJSON(value?: BorrowableInventoryType | 
         
         'availableRooms': value.availableRooms,
         'availableSellLimit': value.availableSellLimit,
-        'errors': ErrorsTypeToJSON(value.errors),
+        'errors': value.errors === undefined ? undefined : ((value.errors as Array<any>).map(ErrorTypeToJSON)),
         'house': value.house,
         'roomType': value.roomType,
-        'warning': WarningsTypeToJSON(value.warning),
+        'warning': value.warning === undefined ? undefined : ((value.warning as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

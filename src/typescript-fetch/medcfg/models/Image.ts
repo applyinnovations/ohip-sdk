@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ImageResultsType } from './ImageResultsType';
+import type { ImageResultType } from './ImageResultType';
 import {
-    ImageResultsTypeFromJSON,
-    ImageResultsTypeFromJSONTyped,
-    ImageResultsTypeToJSON,
-} from './ImageResultsType';
-import type { Links } from './Links';
+    ImageResultTypeFromJSON,
+    ImageResultTypeFromJSONTyped,
+    ImageResultTypeToJSON,
+} from './ImageResultType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response to fetch image(s)
@@ -39,23 +39,23 @@ import {
  */
 export interface Image {
     /**
-     * 
-     * @type {ImageResultsType}
+     * Collection of image results.
+     * @type {Array<ImageResultType>}
      * @memberof Image
      */
-    images?: ImageResultsType;
+    images?: Array<ImageResultType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Image
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Image
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ImageFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ima
     }
     return {
         
-        'images': !exists(json, 'images') ? undefined : ImageResultsTypeFromJSON(json['images']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'images': !exists(json, 'images') ? undefined : ((json['images'] as Array<any>).map(ImageResultTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ImageToJSON(value?: Image | null): any {
     }
     return {
         
-        'images': ImageResultsTypeToJSON(value.images),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'images': value.images === undefined ? undefined : ((value.images as Array<any>).map(ImageResultTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

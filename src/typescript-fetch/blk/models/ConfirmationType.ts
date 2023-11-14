@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ConfDeliveryInfoTypes } from './ConfDeliveryInfoTypes';
+import type { ConfDeliveryInfoType } from './ConfDeliveryInfoType';
 import {
-    ConfDeliveryInfoTypesFromJSON,
-    ConfDeliveryInfoTypesFromJSONTyped,
-    ConfDeliveryInfoTypesToJSON,
-} from './ConfDeliveryInfoTypes';
+    ConfDeliveryInfoTypeFromJSON,
+    ConfDeliveryInfoTypeFromJSONTyped,
+    ConfDeliveryInfoTypeToJSON,
+} from './ConfDeliveryInfoType';
 import type { ConfRecipientInfoType } from './ConfRecipientInfoType';
 import {
     ConfRecipientInfoTypeFromJSON,
@@ -45,11 +45,11 @@ export interface ConfirmationType {
      */
     confirmationStyleInfo?: ConfirmationStyle;
     /**
-     * 
-     * @type {ConfDeliveryInfoTypes}
+     * List of confirmation letter delivery methods and their status
+     * @type {Array<ConfDeliveryInfoType>}
      * @memberof ConfirmationType
      */
-    deliveryInfo?: ConfDeliveryInfoTypes;
+    deliveryInfo?: Array<ConfDeliveryInfoType>;
     /**
      * Senders Email address.
      * @type {string}
@@ -126,7 +126,7 @@ export function ConfirmationTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'confirmationStyleInfo': !exists(json, 'confirmationStyleInfo') ? undefined : ConfirmationStyleFromJSON(json['confirmationStyleInfo']),
-        'deliveryInfo': !exists(json, 'deliveryInfo') ? undefined : ConfDeliveryInfoTypesFromJSON(json['deliveryInfo']),
+        'deliveryInfo': !exists(json, 'deliveryInfo') ? undefined : ((json['deliveryInfo'] as Array<any>).map(ConfDeliveryInfoTypeFromJSON)),
         'fromEmail': !exists(json, 'fromEmail') ? undefined : json['fromEmail'],
         'id': !exists(json, 'id') ? undefined : json['id'],
         'idContext': !exists(json, 'idContext') ? undefined : json['idContext'],
@@ -149,7 +149,7 @@ export function ConfirmationTypeToJSON(value?: ConfirmationType | null): any {
     return {
         
         'confirmationStyleInfo': ConfirmationStyleToJSON(value.confirmationStyleInfo),
-        'deliveryInfo': ConfDeliveryInfoTypesToJSON(value.deliveryInfo),
+        'deliveryInfo': value.deliveryInfo === undefined ? undefined : ((value.deliveryInfo as Array<any>).map(ConfDeliveryInfoTypeToJSON)),
         'fromEmail': value.fromEmail,
         'id': value.id,
         'idContext': value.idContext,

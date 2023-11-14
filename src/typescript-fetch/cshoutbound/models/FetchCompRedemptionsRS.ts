@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FetchCompRedemptionsRSCompRedemptionsType } from './FetchCompRedemptionsRSCompRedemptionsType';
+import type { FetchCompRedemptionsRSCompRedemptionType } from './FetchCompRedemptionsRSCompRedemptionType';
 import {
-    FetchCompRedemptionsRSCompRedemptionsTypeFromJSON,
-    FetchCompRedemptionsRSCompRedemptionsTypeFromJSONTyped,
-    FetchCompRedemptionsRSCompRedemptionsTypeToJSON,
-} from './FetchCompRedemptionsRSCompRedemptionsType';
+    FetchCompRedemptionsRSCompRedemptionTypeFromJSON,
+    FetchCompRedemptionsRSCompRedemptionTypeFromJSONTyped,
+    FetchCompRedemptionsRSCompRedemptionTypeToJSON,
+} from './FetchCompRedemptionsRSCompRedemptionType';
 
 /**
  * Response type for retrieval of Complimentary Redemption codes and their respective Available Amount.
@@ -27,11 +27,11 @@ import {
  */
 export interface FetchCompRedemptionsRS {
     /**
-     * 
-     * @type {FetchCompRedemptionsRSCompRedemptionsType}
+     * Collection of Complimentary Redemption codes and their respective Available Amount.
+     * @type {Array<FetchCompRedemptionsRSCompRedemptionType>}
      * @memberof FetchCompRedemptionsRS
      */
-    compRedemptions?: FetchCompRedemptionsRSCompRedemptionsType;
+    compRedemptions?: Array<FetchCompRedemptionsRSCompRedemptionType>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function FetchCompRedemptionsRSFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : FetchCompRedemptionsRSCompRedemptionsTypeFromJSON(json['compRedemptions']),
+        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : ((json['compRedemptions'] as Array<any>).map(FetchCompRedemptionsRSCompRedemptionTypeFromJSON)),
     };
 }
 
@@ -66,7 +66,7 @@ export function FetchCompRedemptionsRSToJSON(value?: FetchCompRedemptionsRS | nu
     }
     return {
         
-        'compRedemptions': FetchCompRedemptionsRSCompRedemptionsTypeToJSON(value.compRedemptions),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : ((value.compRedemptions as Array<any>).map(FetchCompRedemptionsRSCompRedemptionTypeToJSON)),
     };
 }
 

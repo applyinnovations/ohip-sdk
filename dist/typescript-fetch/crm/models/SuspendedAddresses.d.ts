@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { SuspendedAddressesType } from './SuspendedAddressesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching unique company profile.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface SuspendedAddresses {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SuspendedAddresses
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {SuspendedAddressesType}
@@ -31,11 +31,11 @@ export interface SuspendedAddresses {
      */
     suspendedAddressesInfo?: SuspendedAddressesType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SuspendedAddresses
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SuspendedAddresses interface.

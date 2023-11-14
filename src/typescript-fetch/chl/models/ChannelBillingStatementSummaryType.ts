@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import {
     CurrencyAmountTypeFromJSON,
@@ -40,10 +34,10 @@ import {
 export interface ChannelBillingStatementSummaryType {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ChannelBillingStatementSummaryType
      */
-    accountCodeList?: CodeListType;
+    accountCodeList?: Array<string>;
     /**
      * Holds begin date of the statement.
      * @type {Date}
@@ -119,7 +113,7 @@ export function ChannelBillingStatementSummaryTypeFromJSONTyped(json: any, ignor
     }
     return {
         
-        'accountCodeList': !exists(json, 'accountCodeList') ? undefined : CodeListTypeFromJSON(json['accountCodeList']),
+        'accountCodeList': !exists(json, 'accountCodeList') ? undefined : json['accountCodeList'],
         'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
         'dirty': !exists(json, 'dirty') ? undefined : json['dirty'],
         'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
@@ -141,7 +135,7 @@ export function ChannelBillingStatementSummaryTypeToJSON(value?: ChannelBillingS
     }
     return {
         
-        'accountCodeList': CodeListTypeToJSON(value.accountCodeList),
+        'accountCodeList': value.accountCodeList,
         'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
         'dirty': value.dirty,
         'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),

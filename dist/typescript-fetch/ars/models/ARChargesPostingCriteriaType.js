@@ -17,7 +17,7 @@ exports.ARChargesPostingCriteriaTypeToJSON = exports.ARChargesPostingCriteriaTyp
 const runtime_1 = require("../runtime");
 const ARAccountCriteriaType_1 = require("./ARAccountCriteriaType");
 const ARInvoiceType_1 = require("./ARInvoiceType");
-const ChargesCriteriaType_1 = require("./ChargesCriteriaType");
+const ChargeCriteriaType_1 = require("./ChargeCriteriaType");
 /**
  * Check if a given object implements the ARChargesPostingCriteriaType interface.
  */
@@ -37,7 +37,7 @@ function ARChargesPostingCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'account': !(0, runtime_1.exists)(json, 'account') ? undefined : (0, ARAccountCriteriaType_1.ARAccountCriteriaTypeFromJSON)(json['account']),
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
-        'charges': !(0, runtime_1.exists)(json, 'charges') ? undefined : (0, ChargesCriteriaType_1.ChargesCriteriaTypeFromJSON)(json['charges']),
+        'charges': !(0, runtime_1.exists)(json, 'charges') ? undefined : (json['charges'].map(ChargeCriteriaType_1.ChargeCriteriaTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'invoice': !(0, runtime_1.exists)(json, 'invoice') ? undefined : (0, ARInvoiceType_1.ARInvoiceTypeFromJSON)(json['invoice']),
         'overrideCreditHoldCheck': !(0, runtime_1.exists)(json, 'overrideCreditHoldCheck') ? undefined : json['overrideCreditHoldCheck'],
@@ -54,7 +54,7 @@ function ARChargesPostingCriteriaTypeToJSON(value) {
     return {
         'account': (0, ARAccountCriteriaType_1.ARAccountCriteriaTypeToJSON)(value.account),
         'cashierId': value.cashierId,
-        'charges': (0, ChargesCriteriaType_1.ChargesCriteriaTypeToJSON)(value.charges),
+        'charges': value.charges === undefined ? undefined : (value.charges.map(ChargeCriteriaType_1.ChargeCriteriaTypeToJSON)),
         'hotelId': value.hotelId,
         'invoice': (0, ARInvoiceType_1.ARInvoiceTypeToJSON)(value.invoice),
         'overrideCreditHoldCheck': value.overrideCreditHoldCheck,

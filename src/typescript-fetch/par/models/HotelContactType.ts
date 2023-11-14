@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelContactRolesType } from './HotelContactRolesType';
+import type { HotelContactRoleType } from './HotelContactRoleType';
 import {
-    HotelContactRolesTypeFromJSON,
-    HotelContactRolesTypeFromJSONTyped,
-    HotelContactRolesTypeToJSON,
-} from './HotelContactRolesType';
+    HotelContactRoleTypeFromJSON,
+    HotelContactRoleTypeFromJSONTyped,
+    HotelContactRoleTypeToJSON,
+} from './HotelContactRoleType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -75,11 +75,11 @@ export interface HotelContactType {
      */
     primary?: boolean;
     /**
-     * 
-     * @type {HotelContactRolesType}
+     * Lists of HotelContactRoles of the hotel.
+     * @type {Array<HotelContactRoleType>}
      * @memberof HotelContactType
      */
-    roles?: HotelContactRolesType;
+    roles?: Array<HotelContactRoleType>;
 }
 
 /**
@@ -108,7 +108,7 @@ export function HotelContactTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'nameId': !exists(json, 'nameId') ? undefined : UniqueIDTypeFromJSON(json['nameId']),
         'ownerCode': !exists(json, 'ownerCode') ? undefined : json['ownerCode'],
         'primary': !exists(json, 'primary') ? undefined : json['primary'],
-        'roles': !exists(json, 'roles') ? undefined : HotelContactRolesTypeFromJSON(json['roles']),
+        'roles': !exists(json, 'roles') ? undefined : ((json['roles'] as Array<any>).map(HotelContactRoleTypeFromJSON)),
     };
 }
 
@@ -128,7 +128,7 @@ export function HotelContactTypeToJSON(value?: HotelContactType | null): any {
         'nameId': UniqueIDTypeToJSON(value.nameId),
         'ownerCode': value.ownerCode,
         'primary': value.primary,
-        'roles': HotelContactRolesTypeToJSON(value.roles),
+        'roles': value.roles === undefined ? undefined : ((value.roles as Array<any>).map(HotelContactRoleTypeToJSON)),
     };
 }
 

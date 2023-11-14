@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { AdjustmentDetailType } from './AdjustmentDetailType';
+import {
+    AdjustmentDetailTypeFromJSON,
+    AdjustmentDetailTypeFromJSONTyped,
+    AdjustmentDetailTypeToJSON,
+} from './AdjustmentDetailType';
 import type { AdvancedBaseRateOffsetType } from './AdvancedBaseRateOffsetType';
 import {
     AdvancedBaseRateOffsetTypeFromJSON,
@@ -43,12 +49,6 @@ import {
     RatePlanScheduleClassificationsTypeFromJSONTyped,
     RatePlanScheduleClassificationsTypeToJSON,
 } from './RatePlanScheduleClassificationsType';
-import type { ScheduleAdjustmentDetailsType } from './ScheduleAdjustmentDetailsType';
-import {
-    ScheduleAdjustmentDetailsTypeFromJSON,
-    ScheduleAdjustmentDetailsTypeFromJSONTyped,
-    ScheduleAdjustmentDetailsTypeToJSON,
-} from './ScheduleAdjustmentDetailsType';
 import type { ScheduleRateAmountsType } from './ScheduleRateAmountsType';
 import {
     ScheduleRateAmountsTypeFromJSON,
@@ -63,11 +63,11 @@ import {
  */
 export interface BaseRatePlanScheduleDetailType {
     /**
-     * 
-     * @type {ScheduleAdjustmentDetailsType}
+     * The list of adjustment codes for the rate plan schedule.
+     * @type {Array<AdjustmentDetailType>}
      * @memberof BaseRatePlanScheduleDetailType
      */
-    adjustmentDetails?: ScheduleAdjustmentDetailsType;
+    adjustmentDetails?: Array<AdjustmentDetailType>;
     /**
      * 
      * @type {AdvancedBaseRateOffsetType}
@@ -149,7 +149,7 @@ export function BaseRatePlanScheduleDetailTypeFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'adjustmentDetails': !exists(json, 'adjustmentDetails') ? undefined : ScheduleAdjustmentDetailsTypeFromJSON(json['adjustmentDetails']),
+        'adjustmentDetails': !exists(json, 'adjustmentDetails') ? undefined : ((json['adjustmentDetails'] as Array<any>).map(AdjustmentDetailTypeFromJSON)),
         'advancedBaseRateOffset': !exists(json, 'advancedBaseRateOffset') ? undefined : AdvancedBaseRateOffsetTypeFromJSON(json['advancedBaseRateOffset']),
         'classifications': !exists(json, 'classifications') ? undefined : RatePlanScheduleClassificationsTypeFromJSON(json['classifications']),
         'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
@@ -172,7 +172,7 @@ export function BaseRatePlanScheduleDetailTypeToJSON(value?: BaseRatePlanSchedul
     }
     return {
         
-        'adjustmentDetails': ScheduleAdjustmentDetailsTypeToJSON(value.adjustmentDetails),
+        'adjustmentDetails': value.adjustmentDetails === undefined ? undefined : ((value.adjustmentDetails as Array<any>).map(AdjustmentDetailTypeToJSON)),
         'advancedBaseRateOffset': AdvancedBaseRateOffsetTypeToJSON(value.advancedBaseRateOffset),
         'classifications': RatePlanScheduleClassificationsTypeToJSON(value.classifications),
         'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),

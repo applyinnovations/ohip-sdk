@@ -11,14 +11,13 @@
  */
 import type { ARAccountCriteriaType } from './ARAccountCriteriaType';
 import type { ARApplyType } from './ARApplyType';
-import type { ARPaymentInvoicesType } from './ARPaymentInvoicesType';
+import type { ARPaymentInvoicesTypeInner } from './ARPaymentInvoicesTypeInner';
 import type { CashieringPaymentMethodType } from './CashieringPaymentMethodType';
-import type { CompRedemptionsType } from './CompRedemptionsType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { PaymentTaxType } from './PaymentTaxType';
-import type { PaymentTaxesType } from './PaymentTaxesType';
 import type { PostPaymentActionType } from './PostPaymentActionType';
-import type { PrepaidCardRedemptionsType } from './PrepaidCardRedemptionsType';
+import type { PrepaidCardRedemptionType } from './PrepaidCardRedemptionType';
+import type { RedemptionType } from './RedemptionType';
 /**
  * Criteria for applying payments to invoices or posting an unallocated payment to an AR Account.
  * @export
@@ -74,17 +73,17 @@ export interface ARPaymentCriteria {
      */
     comments?: string;
     /**
-     *
-     * @type {CompRedemptionsType}
+     * Information regarding Complimentary Bucket Redemption object.
+     * @type {Array<RedemptionType>}
      * @memberof ARPaymentCriteria
      */
-    compRedemptions?: CompRedemptionsType;
+    compRedemptions?: Array<RedemptionType>;
     /**
-     *
-     * @type {PaymentTaxesType}
+     * Payment Tax record.
+     * @type {Array<PaymentTaxType>}
      * @memberof ARPaymentCriteria
      */
-    creditablePaymentTaxes?: PaymentTaxesType;
+    creditablePaymentTaxes?: Array<PaymentTaxType>;
     /**
      *
      * @type {number}
@@ -98,11 +97,11 @@ export interface ARPaymentCriteria {
      */
     hotelId?: string;
     /**
-     *
-     * @type {ARPaymentInvoicesType}
+     * AR Invoice to which the payment will be applied.
+     * @type {Array<ARPaymentInvoicesTypeInner>}
      * @memberof ARPaymentCriteria
      */
-    invoices?: ARPaymentInvoicesType;
+    invoices?: Array<ARPaymentInvoicesTypeInner>;
     /**
      *
      * @type {PaymentTaxType}
@@ -146,11 +145,11 @@ export interface ARPaymentCriteria {
      */
     postingRemark?: string;
     /**
-     *
-     * @type {PrepaidCardRedemptionsType}
+     * A prepaid redemption info object to be used for posting a payment.
+     * @type {Array<PrepaidCardRedemptionType>}
      * @memberof ARPaymentCriteria
      */
-    prepaidCardRedemptions?: PrepaidCardRedemptionsType;
+    prepaidCardRedemptions?: Array<PrepaidCardRedemptionType>;
     /**
      * Sequence of the payment in a batch request.
      * @type {number}

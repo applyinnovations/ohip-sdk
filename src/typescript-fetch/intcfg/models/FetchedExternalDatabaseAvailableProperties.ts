@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ExternalDatabaseAssociatedHotelsType } from './ExternalDatabaseAssociatedHotelsType';
+import type { ExternalDatabaseAssociatedHotelType } from './ExternalDatabaseAssociatedHotelType';
 import {
-    ExternalDatabaseAssociatedHotelsTypeFromJSON,
-    ExternalDatabaseAssociatedHotelsTypeFromJSONTyped,
-    ExternalDatabaseAssociatedHotelsTypeToJSON,
-} from './ExternalDatabaseAssociatedHotelsType';
-import type { Links } from './Links';
+    ExternalDatabaseAssociatedHotelTypeFromJSON,
+    ExternalDatabaseAssociatedHotelTypeFromJSONTyped,
+    ExternalDatabaseAssociatedHotelTypeToJSON,
+} from './ExternalDatabaseAssociatedHotelType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for retrieving the Available properties for External Databases.
@@ -39,23 +39,23 @@ import {
  */
 export interface FetchedExternalDatabaseAvailableProperties {
     /**
-     * 
-     * @type {ExternalDatabaseAssociatedHotelsType}
+     * Collection of Hotel for external database.
+     * @type {Array<ExternalDatabaseAssociatedHotelType>}
      * @memberof FetchedExternalDatabaseAvailableProperties
      */
-    availailableProperties?: ExternalDatabaseAssociatedHotelsType;
+    availailableProperties?: Array<ExternalDatabaseAssociatedHotelType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchedExternalDatabaseAvailableProperties
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchedExternalDatabaseAvailableProperties
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FetchedExternalDatabaseAvailablePropertiesFromJSONTyped(json: an
     }
     return {
         
-        'availailableProperties': !exists(json, 'availailableProperties') ? undefined : ExternalDatabaseAssociatedHotelsTypeFromJSON(json['availailableProperties']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'availailableProperties': !exists(json, 'availailableProperties') ? undefined : ((json['availailableProperties'] as Array<any>).map(ExternalDatabaseAssociatedHotelTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FetchedExternalDatabaseAvailablePropertiesToJSON(value?: Fetched
     }
     return {
         
-        'availailableProperties': ExternalDatabaseAssociatedHotelsTypeToJSON(value.availailableProperties),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'availailableProperties': value.availailableProperties === undefined ? undefined : ((value.availailableProperties as Array<any>).map(ExternalDatabaseAssociatedHotelTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FulfillmentExportLogsType } from './FulfillmentExportLogsType';
+import type { FulfillmentExportInfoType } from './FulfillmentExportInfoType';
 import {
-    FulfillmentExportLogsTypeFromJSON,
-    FulfillmentExportLogsTypeFromJSONTyped,
-    FulfillmentExportLogsTypeToJSON,
-} from './FulfillmentExportLogsType';
-import type { Links } from './Links';
+    FulfillmentExportInfoTypeFromJSON,
+    FulfillmentExportInfoTypeFromJSONTyped,
+    FulfillmentExportInfoTypeToJSON,
+} from './FulfillmentExportInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Optional elements whether to update exclude extract or delivery status in membership fulfillment
@@ -39,23 +39,23 @@ import {
  */
 export interface FulfillmentExportedLogs {
     /**
-     * 
-     * @type {FulfillmentExportLogsType}
+     * This type holds the export log information for the membership fulfillment record.
+     * @type {Array<FulfillmentExportInfoType>}
      * @memberof FulfillmentExportedLogs
      */
-    fulfillmentExportLogs?: FulfillmentExportLogsType;
+    fulfillmentExportLogs?: Array<FulfillmentExportInfoType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FulfillmentExportedLogs
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FulfillmentExportedLogs
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FulfillmentExportedLogsFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'fulfillmentExportLogs': !exists(json, 'fulfillmentExportLogs') ? undefined : FulfillmentExportLogsTypeFromJSON(json['fulfillmentExportLogs']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'fulfillmentExportLogs': !exists(json, 'fulfillmentExportLogs') ? undefined : ((json['fulfillmentExportLogs'] as Array<any>).map(FulfillmentExportInfoTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FulfillmentExportedLogsToJSON(value?: FulfillmentExportedLogs | 
     }
     return {
         
-        'fulfillmentExportLogs': FulfillmentExportLogsTypeToJSON(value.fulfillmentExportLogs),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'fulfillmentExportLogs': value.fulfillmentExportLogs === undefined ? undefined : ((value.fulfillmentExportLogs as Array<any>).map(FulfillmentExportInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

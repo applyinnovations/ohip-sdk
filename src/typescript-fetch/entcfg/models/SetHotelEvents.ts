@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelEventCodesType } from './HotelEventCodesType';
+import type { HotelEventCodeType } from './HotelEventCodeType';
 import {
-    HotelEventCodesTypeFromJSON,
-    HotelEventCodesTypeFromJSONTyped,
-    HotelEventCodesTypeToJSON,
-} from './HotelEventCodesType';
-import type { Links } from './Links';
+    HotelEventCodeTypeFromJSON,
+    HotelEventCodeTypeFromJSONTyped,
+    HotelEventCodeTypeToJSON,
+} from './HotelEventCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for setting hotel events for specified date range.
@@ -39,23 +39,23 @@ import {
  */
 export interface SetHotelEvents {
     /**
-     * 
-     * @type {HotelEventCodesType}
+     * Collection of hotel events.
+     * @type {Array<HotelEventCodeType>}
      * @memberof SetHotelEvents
      */
-    hotelEvents?: HotelEventCodesType;
+    hotelEvents?: Array<HotelEventCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SetHotelEvents
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SetHotelEvents
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function SetHotelEventsFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'hotelEvents': !exists(json, 'hotelEvents') ? undefined : HotelEventCodesTypeFromJSON(json['hotelEvents']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'hotelEvents': !exists(json, 'hotelEvents') ? undefined : ((json['hotelEvents'] as Array<any>).map(HotelEventCodeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function SetHotelEventsToJSON(value?: SetHotelEvents | null): any {
     }
     return {
         
-        'hotelEvents': HotelEventCodesTypeToJSON(value.hotelEvents),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'hotelEvents': value.hotelEvents === undefined ? undefined : ((value.hotelEvents as Array<any>).map(HotelEventCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

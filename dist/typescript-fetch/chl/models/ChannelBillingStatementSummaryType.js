@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelBillingStatementSummaryTypeToJSON = exports.ChannelBillingStatementSummaryTypeFromJSONTyped = exports.ChannelBillingStatementSummaryTypeFromJSON = exports.instanceOfChannelBillingStatementSummaryType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -35,7 +34,7 @@ function ChannelBillingStatementSummaryTypeFromJSONTyped(json, ignoreDiscriminat
         return json;
     }
     return {
-        'accountCodeList': !(0, runtime_1.exists)(json, 'accountCodeList') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['accountCodeList']),
+        'accountCodeList': !(0, runtime_1.exists)(json, 'accountCodeList') ? undefined : json['accountCodeList'],
         'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
         'dirty': !(0, runtime_1.exists)(json, 'dirty') ? undefined : json['dirty'],
         'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
@@ -56,7 +55,7 @@ function ChannelBillingStatementSummaryTypeToJSON(value) {
         return null;
     }
     return {
-        'accountCodeList': (0, CodeListType_1.CodeListTypeToJSON)(value.accountCodeList),
+        'accountCodeList': value.accountCodeList,
         'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
         'dirty': value.dirty,
         'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),

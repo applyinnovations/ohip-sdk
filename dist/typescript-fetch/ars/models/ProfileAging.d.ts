@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ARProfileAgingInfoType } from './ARProfileAgingInfoType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response to the request to fetch the total Aging information for a Profile.
  * @export
@@ -26,16 +26,16 @@ export interface ProfileAging {
     aging?: ARProfileAgingInfoType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileAging
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileAging
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileAging interface.

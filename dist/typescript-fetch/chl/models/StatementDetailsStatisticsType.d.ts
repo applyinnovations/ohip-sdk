@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { StatisticDetailsType } from './StatisticDetailsType';
+import type { StatementDetailsStatisticType } from './StatementDetailsStatisticType';
 /**
  * Channel statement details statistics .
  * @export
@@ -17,29 +17,29 @@ import type { StatisticDetailsType } from './StatisticDetailsType';
  */
 export interface StatementDetailsStatisticsType {
     /**
-     *
-     * @type {StatisticDetailsType}
+     * Holds the statistic details for the statement details.
+     * @type {Array<StatementDetailsStatisticType>}
      * @memberof StatementDetailsStatisticsType
      */
-    detailsByChannel?: StatisticDetailsType;
+    detailsByChannel?: Array<StatementDetailsStatisticType>;
     /**
-     *
-     * @type {StatisticDetailsType}
+     * Holds the statistic details for the statement details.
+     * @type {Array<StatementDetailsStatisticType>}
      * @memberof StatementDetailsStatisticsType
      */
-    detailsByChannelType?: StatisticDetailsType;
+    detailsByChannelType?: Array<StatementDetailsStatisticType>;
     /**
-     *
-     * @type {StatisticDetailsType}
+     * Holds the statistic details for the statement details.
+     * @type {Array<StatementDetailsStatisticType>}
      * @memberof StatementDetailsStatisticsType
      */
-    detailsByFeeType?: StatisticDetailsType;
+    detailsByFeeType?: Array<StatementDetailsStatisticType>;
     /**
-     *
-     * @type {StatisticDetailsType}
+     * Holds the statistic details for the statement details.
+     * @type {Array<StatementDetailsStatisticType>}
      * @memberof StatementDetailsStatisticsType
      */
-    detailsByResort?: StatisticDetailsType;
+    detailsByResort?: Array<StatementDetailsStatisticType>;
 }
 /**
  * Check if a given object implements the StatementDetailsStatisticsType interface.

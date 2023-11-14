@@ -23,10 +23,10 @@ const InterfaceCommunicationInfoType_1 = require("./InterfaceCommunicationInfoTy
 const InterfaceCustomDataInfoType_1 = require("./InterfaceCustomDataInfoType");
 const InterfaceExportDataInfoType_1 = require("./InterfaceExportDataInfoType");
 const InterfacePrimaryInfoType_1 = require("./InterfacePrimaryInfoType");
+const InterfaceWorkstationType_1 = require("./InterfaceWorkstationType");
 const PostingInfoType_1 = require("./PostingInfoType");
 const TransactionCodeInfoType_1 = require("./TransactionCodeInfoType");
 const TranslationType_1 = require("./TranslationType");
-const WorkstationSetupType_1 = require("./WorkstationSetupType");
 /**
  * Check if a given object implements the HotelInterfaceDetailType interface.
  */
@@ -55,7 +55,7 @@ function HotelInterfaceDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         'primaryInfo': !(0, runtime_1.exists)(json, 'primaryInfo') ? undefined : (0, InterfacePrimaryInfoType_1.InterfacePrimaryInfoTypeFromJSON)(json['primaryInfo']),
         'transactionsInfo': !(0, runtime_1.exists)(json, 'transactionsInfo') ? undefined : (0, TransactionCodeInfoType_1.TransactionCodeInfoTypeFromJSON)(json['transactionsInfo']),
         'translationInfo': !(0, runtime_1.exists)(json, 'translationInfo') ? undefined : (0, TranslationType_1.TranslationTypeFromJSON)(json['translationInfo']),
-        'workstationSetupInfo': !(0, runtime_1.exists)(json, 'workstationSetupInfo') ? undefined : (0, WorkstationSetupType_1.WorkstationSetupTypeFromJSON)(json['workstationSetupInfo']),
+        'workstationSetupInfo': !(0, runtime_1.exists)(json, 'workstationSetupInfo') ? undefined : (json['workstationSetupInfo'].map(InterfaceWorkstationType_1.InterfaceWorkstationTypeFromJSON)),
     };
 }
 exports.HotelInterfaceDetailTypeFromJSONTyped = HotelInterfaceDetailTypeFromJSONTyped;
@@ -78,7 +78,7 @@ function HotelInterfaceDetailTypeToJSON(value) {
         'primaryInfo': (0, InterfacePrimaryInfoType_1.InterfacePrimaryInfoTypeToJSON)(value.primaryInfo),
         'transactionsInfo': (0, TransactionCodeInfoType_1.TransactionCodeInfoTypeToJSON)(value.transactionsInfo),
         'translationInfo': (0, TranslationType_1.TranslationTypeToJSON)(value.translationInfo),
-        'workstationSetupInfo': (0, WorkstationSetupType_1.WorkstationSetupTypeToJSON)(value.workstationSetupInfo),
+        'workstationSetupInfo': value.workstationSetupInfo === undefined ? undefined : (value.workstationSetupInfo.map(InterfaceWorkstationType_1.InterfaceWorkstationTypeToJSON)),
     };
 }
 exports.HotelInterfaceDetailTypeToJSON = HotelInterfaceDetailTypeToJSON;

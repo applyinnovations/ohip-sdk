@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ResponseInstructionType } from './ResponseInstructionType';
 import type { TourSeriesType } from './TourSeriesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request for creating a tour series based on an existing block.
  * @export
@@ -27,10 +27,10 @@ export interface TourSeries {
     criteria?: TourSeriesType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TourSeries
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ResponseInstructionType}
@@ -38,11 +38,11 @@ export interface TourSeries {
      */
     responseInstruction?: ResponseInstructionType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TourSeries
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TourSeries interface.

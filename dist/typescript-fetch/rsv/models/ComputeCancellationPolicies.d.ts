@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ComputeCancellationPoliciesCriteria } from './ComputeCancellationPoliciesCriteria';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Operation to fetch the details for cancellation rules, applicable to a reservation. Based on the criteria the rule information can be retrieved for all cancellation rules or for a particular rule.
  * @export
@@ -26,16 +26,16 @@ export interface ComputeCancellationPolicies {
     criteria?: ComputeCancellationPoliciesCriteria;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ComputeCancellationPolicies
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ComputeCancellationPolicies
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ComputeCancellationPolicies interface.

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelAccountContractElementsType } from './ChannelAccountContractElementsType';
+import type { ContractElementInformationType } from './ContractElementInformationType';
 import {
-    ChannelAccountContractElementsTypeFromJSON,
-    ChannelAccountContractElementsTypeFromJSONTyped,
-    ChannelAccountContractElementsTypeToJSON,
-} from './ChannelAccountContractElementsType';
-import type { Links } from './Links';
+    ContractElementInformationTypeFromJSON,
+    ContractElementInformationTypeFromJSONTyped,
+    ContractElementInformationTypeToJSON,
+} from './ContractElementInformationType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object of the channel account contract elements fetch request. Contains detailed information for the channel contract elements.
@@ -39,11 +39,11 @@ import {
  */
 export interface ChannelAccountContractElements {
     /**
-     * 
-     * @type {ChannelAccountContractElementsType}
+     * Channel account contract elements information object to hold details of contract elements.
+     * @type {Array<ContractElementInformationType>}
      * @memberof ChannelAccountContractElements
      */
-    contractElements?: ChannelAccountContractElementsType;
+    contractElements?: Array<ContractElementInformationType>;
     /**
      * Total number of rows returned
      * @type {number}
@@ -64,10 +64,10 @@ export interface ChannelAccountContractElements {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelAccountContractElements
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -87,11 +87,11 @@ export interface ChannelAccountContractElements {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelAccountContractElements
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -113,15 +113,15 @@ export function ChannelAccountContractElementsFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'contractElements': !exists(json, 'contractElements') ? undefined : ChannelAccountContractElementsTypeFromJSON(json['contractElements']),
+        'contractElements': !exists(json, 'contractElements') ? undefined : ((json['contractElements'] as Array<any>).map(ContractElementInformationTypeFromJSON)),
         'count': !exists(json, 'count') ? undefined : json['count'],
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -134,15 +134,15 @@ export function ChannelAccountContractElementsToJSON(value?: ChannelAccountContr
     }
     return {
         
-        'contractElements': ChannelAccountContractElementsTypeToJSON(value.contractElements),
+        'contractElements': value.contractElements === undefined ? undefined : ((value.contractElements as Array<any>).map(ContractElementInformationTypeToJSON)),
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

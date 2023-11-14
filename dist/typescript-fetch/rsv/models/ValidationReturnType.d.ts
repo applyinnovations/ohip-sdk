@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ReservationSummaryListType } from './ReservationSummaryListType';
+import type { ReservationSummaryType } from './ReservationSummaryType';
 import type { ValidationActionType } from './ValidationActionType';
 /**
  * Validations type record returned after Validations are done.
@@ -18,11 +18,11 @@ import type { ValidationActionType } from './ValidationActionType';
  */
 export interface ValidationReturnType {
     /**
-     *
-     * @type {ReservationSummaryListType}
+     * List of Reservations.
+     * @type {Array<ReservationSummaryType>}
      * @memberof ValidationReturnType
      */
-    invalidReservations?: ReservationSummaryListType;
+    invalidReservations?: Array<ReservationSummaryType>;
     /**
      *
      * @type {ValidationActionType}

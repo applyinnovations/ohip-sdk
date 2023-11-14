@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { RoomHierarchyTypeType } from './RoomHierarchyTypeType';
 /**
  * Room Hierarchy id type for create, change and delete
@@ -43,10 +42,10 @@ export interface RoomHierarchyType {
     roomHierarchyType?: RoomHierarchyTypeType;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof RoomHierarchyType
      */
-    toCodes?: CodeListType;
+    toCodes?: Array<string>;
 }
 /**
  * Check if a given object implements the RoomHierarchyType interface.

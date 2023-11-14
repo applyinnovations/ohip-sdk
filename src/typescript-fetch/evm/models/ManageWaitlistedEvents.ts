@@ -13,36 +13,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { WaitlistedEventProcessingInstructionsType } from './WaitlistedEventProcessingInstructionsType';
 import {
     WaitlistedEventProcessingInstructionsTypeFromJSON,
     WaitlistedEventProcessingInstructionsTypeFromJSONTyped,
     WaitlistedEventProcessingInstructionsTypeToJSON,
 } from './WaitlistedEventProcessingInstructionsType';
+import type { WaitlistedEventType } from './WaitlistedEventType';
+import {
+    WaitlistedEventTypeFromJSON,
+    WaitlistedEventTypeFromJSONTyped,
+    WaitlistedEventTypeToJSON,
+} from './WaitlistedEventType';
 import type { WaitlistedEventsSearchType } from './WaitlistedEventsSearchType';
 import {
     WaitlistedEventsSearchTypeFromJSON,
     WaitlistedEventsSearchTypeFromJSONTyped,
     WaitlistedEventsSearchTypeToJSON,
 } from './WaitlistedEventsSearchType';
-import type { WaitlistedEventsType } from './WaitlistedEventsType';
+import type { WarningType } from './WarningType';
 import {
-    WaitlistedEventsTypeFromJSON,
-    WaitlistedEventsTypeFromJSONTyped,
-    WaitlistedEventsTypeToJSON,
-} from './WaitlistedEventsType';
-import type { WarningsType } from './WarningsType';
-import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for managing waitlisted catering events.
@@ -58,10 +58,10 @@ export interface ManageWaitlistedEvents {
     criteria?: WaitlistedEventsSearchType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ManageWaitlistedEvents
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {WaitlistedEventProcessingInstructionsType}
@@ -69,17 +69,17 @@ export interface ManageWaitlistedEvents {
      */
     processingInstructions?: WaitlistedEventProcessingInstructionsType;
     /**
-     * 
-     * @type {WaitlistedEventsType}
+     * Pertain waitlisted event Information.
+     * @type {Array<WaitlistedEventType>}
      * @memberof ManageWaitlistedEvents
      */
-    waitlistedEvents?: WaitlistedEventsType;
+    waitlistedEvents?: Array<WaitlistedEventType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ManageWaitlistedEvents
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -102,10 +102,10 @@ export function ManageWaitlistedEventsFromJSONTyped(json: any, ignoreDiscriminat
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : WaitlistedEventsSearchTypeFromJSON(json['criteria']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'processingInstructions': !exists(json, 'processingInstructions') ? undefined : WaitlistedEventProcessingInstructionsTypeFromJSON(json['processingInstructions']),
-        'waitlistedEvents': !exists(json, 'waitlistedEvents') ? undefined : WaitlistedEventsTypeFromJSON(json['waitlistedEvents']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'waitlistedEvents': !exists(json, 'waitlistedEvents') ? undefined : ((json['waitlistedEvents'] as Array<any>).map(WaitlistedEventTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -119,10 +119,10 @@ export function ManageWaitlistedEventsToJSON(value?: ManageWaitlistedEvents | nu
     return {
         
         'criteria': WaitlistedEventsSearchTypeToJSON(value.criteria),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'processingInstructions': WaitlistedEventProcessingInstructionsTypeToJSON(value.processingInstructions),
-        'waitlistedEvents': WaitlistedEventsTypeToJSON(value.waitlistedEvents),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'waitlistedEvents': value.waitlistedEvents === undefined ? undefined : ((value.waitlistedEvents as Array<any>).map(WaitlistedEventTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

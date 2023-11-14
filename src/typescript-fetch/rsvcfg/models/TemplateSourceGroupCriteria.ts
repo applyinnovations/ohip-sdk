@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { TemplateSourceGroupType } from './TemplateSourceGroupType';
 import {
     TemplateSourceGroupTypeFromJSON,
     TemplateSourceGroupTypeFromJSONTyped,
     TemplateSourceGroupTypeToJSON,
 } from './TemplateSourceGroupType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object that holds the details of template Source Group to be created.
@@ -40,10 +40,10 @@ import {
 export interface TemplateSourceGroupCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateSourceGroupCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {TemplateSourceGroupType}
@@ -51,11 +51,11 @@ export interface TemplateSourceGroupCriteria {
      */
     templateSourceGroup?: TemplateSourceGroupType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateSourceGroupCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateSourceGroupCriteriaFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'templateSourceGroup': !exists(json, 'templateSourceGroup') ? undefined : TemplateSourceGroupTypeFromJSON(json['templateSourceGroup']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateSourceGroupCriteriaToJSON(value?: TemplateSourceGroupCri
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'templateSourceGroup': TemplateSourceGroupTypeToJSON(value.templateSourceGroup),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

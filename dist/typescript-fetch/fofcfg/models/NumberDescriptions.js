@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NumberDescriptionsToJSON = exports.NumberDescriptionsFromJSONTyped = exports.NumberDescriptionsFromJSON = exports.instanceOfNumberDescriptions = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const NumberDescriptionsType_1 = require("./NumberDescriptionsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const NumberDescriptionType_1 = require("./NumberDescriptionType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the NumberDescriptions interface.
  */
@@ -35,9 +35,9 @@ function NumberDescriptionsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'numberDescriptions': !(0, runtime_1.exists)(json, 'numberDescriptions') ? undefined : (0, NumberDescriptionsType_1.NumberDescriptionsTypeFromJSON)(json['numberDescriptions']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'numberDescriptions': !(0, runtime_1.exists)(json, 'numberDescriptions') ? undefined : (json['numberDescriptions'].map(NumberDescriptionType_1.NumberDescriptionTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.NumberDescriptionsFromJSONTyped = NumberDescriptionsFromJSONTyped;
@@ -49,9 +49,9 @@ function NumberDescriptionsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'numberDescriptions': (0, NumberDescriptionsType_1.NumberDescriptionsTypeToJSON)(value.numberDescriptions),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'numberDescriptions': value.numberDescriptions === undefined ? undefined : (value.numberDescriptions.map(NumberDescriptionType_1.NumberDescriptionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.NumberDescriptionsToJSON = NumberDescriptionsToJSON;

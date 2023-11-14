@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TransactionDiversionRulesToJSON = exports.TransactionDiversionRulesFromJSONTyped = exports.TransactionDiversionRulesFromJSON = exports.instanceOfTransactionDiversionRules = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TransactionDiversionRulesType_1 = require("./TransactionDiversionRulesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TransactionDiversionRuleType_1 = require("./TransactionDiversionRuleType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TransactionDiversionRules interface.
  */
@@ -35,9 +35,9 @@ function TransactionDiversionRulesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'diversionRules': !(0, runtime_1.exists)(json, 'diversionRules') ? undefined : (0, TransactionDiversionRulesType_1.TransactionDiversionRulesTypeFromJSON)(json['diversionRules']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'diversionRules': !(0, runtime_1.exists)(json, 'diversionRules') ? undefined : (json['diversionRules'].map(TransactionDiversionRuleType_1.TransactionDiversionRuleTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TransactionDiversionRulesFromJSONTyped = TransactionDiversionRulesFromJSONTyped;
@@ -49,9 +49,9 @@ function TransactionDiversionRulesToJSON(value) {
         return null;
     }
     return {
-        'diversionRules': (0, TransactionDiversionRulesType_1.TransactionDiversionRulesTypeToJSON)(value.diversionRules),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'diversionRules': value.diversionRules === undefined ? undefined : (value.diversionRules.map(TransactionDiversionRuleType_1.TransactionDiversionRuleTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TransactionDiversionRulesToJSON = TransactionDiversionRulesToJSON;

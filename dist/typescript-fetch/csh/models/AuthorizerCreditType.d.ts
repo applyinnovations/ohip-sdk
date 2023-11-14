@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AuthorizerCreditDetailsType } from './AuthorizerCreditDetailsType';
+import type { AuthorizerCreditDetailType } from './AuthorizerCreditDetailType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -25,11 +25,11 @@ export interface AuthorizerCreditType {
      */
     actualAmount?: CurrencyAmountType;
     /**
-     *
-     * @type {AuthorizerCreditDetailsType}
+     * List of Comp Accounting Authorizers details
+     * @type {Array<AuthorizerCreditDetailType>}
      * @memberof AuthorizerCreditType
      */
-    authorizerCreditDetails?: AuthorizerCreditDetailsType;
+    authorizerCreditDetails?: Array<AuthorizerCreditDetailType>;
     /**
      *
      * @type {UniqueIDType}

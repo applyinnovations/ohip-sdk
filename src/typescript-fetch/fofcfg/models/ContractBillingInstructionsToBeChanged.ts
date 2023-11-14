@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ContractBillingInstructionsType } from './ContractBillingInstructionsType';
+import type { ContractBillingInstructionType } from './ContractBillingInstructionType';
 import {
-    ContractBillingInstructionsTypeFromJSON,
-    ContractBillingInstructionsTypeFromJSONTyped,
-    ContractBillingInstructionsTypeToJSON,
-} from './ContractBillingInstructionsType';
-import type { Links } from './Links';
+    ContractBillingInstructionTypeFromJSON,
+    ContractBillingInstructionTypeFromJSONTyped,
+    ContractBillingInstructionTypeToJSON,
+} from './ContractBillingInstructionType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Contract Billing Instructions.
@@ -39,23 +39,23 @@ import {
  */
 export interface ContractBillingInstructionsToBeChanged {
     /**
-     * 
-     * @type {ContractBillingInstructionsType}
+     * List of Contract Billing Instructions.
+     * @type {Array<ContractBillingInstructionType>}
      * @memberof ContractBillingInstructionsToBeChanged
      */
-    contractBillingInstructions?: ContractBillingInstructionsType;
+    contractBillingInstructions?: Array<ContractBillingInstructionType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ContractBillingInstructionsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ContractBillingInstructionsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ContractBillingInstructionsToBeChangedFromJSONTyped(json: any, i
     }
     return {
         
-        'contractBillingInstructions': !exists(json, 'contractBillingInstructions') ? undefined : ContractBillingInstructionsTypeFromJSON(json['contractBillingInstructions']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'contractBillingInstructions': !exists(json, 'contractBillingInstructions') ? undefined : ((json['contractBillingInstructions'] as Array<any>).map(ContractBillingInstructionTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ContractBillingInstructionsToBeChangedToJSON(value?: ContractBil
     }
     return {
         
-        'contractBillingInstructions': ContractBillingInstructionsTypeToJSON(value.contractBillingInstructions),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'contractBillingInstructions': value.contractBillingInstructions === undefined ? undefined : ((value.contractBillingInstructions as Array<any>).map(ContractBillingInstructionTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

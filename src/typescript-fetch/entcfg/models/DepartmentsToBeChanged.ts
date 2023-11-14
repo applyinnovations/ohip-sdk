@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DepartmentsType } from './DepartmentsType';
+import type { DepartmentType } from './DepartmentType';
 import {
-    DepartmentsTypeFromJSON,
-    DepartmentsTypeFromJSONTyped,
-    DepartmentsTypeToJSON,
-} from './DepartmentsType';
-import type { Links } from './Links';
+    DepartmentTypeFromJSON,
+    DepartmentTypeFromJSONTyped,
+    DepartmentTypeToJSON,
+} from './DepartmentType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for updating departments.
@@ -39,23 +39,23 @@ import {
  */
 export interface DepartmentsToBeChanged {
     /**
-     * 
-     * @type {DepartmentsType}
+     * Collection of departments.
+     * @type {Array<DepartmentType>}
      * @memberof DepartmentsToBeChanged
      */
-    departments?: DepartmentsType;
+    departments?: Array<DepartmentType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DepartmentsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DepartmentsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function DepartmentsToBeChangedFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'departments': !exists(json, 'departments') ? undefined : DepartmentsTypeFromJSON(json['departments']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'departments': !exists(json, 'departments') ? undefined : ((json['departments'] as Array<any>).map(DepartmentTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function DepartmentsToBeChangedToJSON(value?: DepartmentsToBeChanged | nu
     }
     return {
         
-        'departments': DepartmentsTypeToJSON(value.departments),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'departments': value.departments === undefined ? undefined : ((value.departments as Array<any>).map(DepartmentTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

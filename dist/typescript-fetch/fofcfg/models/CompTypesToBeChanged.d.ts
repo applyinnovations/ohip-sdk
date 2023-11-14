@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CompTypesType } from './CompTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CompTypeType } from './CompTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Comp Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CompTypesToBeChanged {
     /**
-     *
-     * @type {CompTypesType}
+     * List of Comp Types.
+     * @type {Array<CompTypeType>}
      * @memberof CompTypesToBeChanged
      */
-    compTypes?: CompTypesType;
+    compTypes?: Array<CompTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CompTypesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CompTypesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CompTypesToBeChanged interface.

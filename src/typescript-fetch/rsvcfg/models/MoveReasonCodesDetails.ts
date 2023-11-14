@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MoveReasonCodesType } from './MoveReasonCodesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MoveReasonCodeType } from './MoveReasonCodeType';
 import {
-    MoveReasonCodesTypeFromJSON,
-    MoveReasonCodesTypeFromJSONTyped,
-    MoveReasonCodesTypeToJSON,
-} from './MoveReasonCodesType';
-import type { WarningsType } from './WarningsType';
+    MoveReasonCodeTypeFromJSON,
+    MoveReasonCodeTypeFromJSONTyped,
+    MoveReasonCodeTypeToJSON,
+} from './MoveReasonCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Move Reason Codes.
@@ -40,22 +40,22 @@ import {
 export interface MoveReasonCodesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MoveReasonCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MoveReasonCodesType}
+     * List of Move Reason Codes.
+     * @type {Array<MoveReasonCodeType>}
      * @memberof MoveReasonCodesDetails
      */
-    moveReasonCodes?: MoveReasonCodesType;
+    moveReasonCodes?: Array<MoveReasonCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MoveReasonCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MoveReasonCodesDetailsFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'moveReasonCodes': !exists(json, 'moveReasonCodes') ? undefined : MoveReasonCodesTypeFromJSON(json['moveReasonCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'moveReasonCodes': !exists(json, 'moveReasonCodes') ? undefined : ((json['moveReasonCodes'] as Array<any>).map(MoveReasonCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MoveReasonCodesDetailsToJSON(value?: MoveReasonCodesDetails | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'moveReasonCodes': MoveReasonCodesTypeToJSON(value.moveReasonCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'moveReasonCodes': value.moveReasonCodes === undefined ? undefined : ((value.moveReasonCodes as Array<any>).map(MoveReasonCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { PreferenceTypeType } from './PreferenceTypeType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response for the reservation's preferences.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ReservationPreference {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationPreference
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * For reservation preferences, you will want to send ReservationPreferenceType as the preferenceType object to acknowledge any reservation related process with the request.
      * @type {Array<PreferenceTypeType>}
@@ -31,11 +31,11 @@ export interface ReservationPreference {
      */
     reservationPreferences?: Array<PreferenceTypeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationPreference
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationPreference interface.

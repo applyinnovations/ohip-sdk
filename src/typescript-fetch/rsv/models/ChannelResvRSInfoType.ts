@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelMarketingInfoType } from './ChannelMarketingInfoType';
+import type { ChannelMarketingInfoTypeInner } from './ChannelMarketingInfoTypeInner';
 import {
-    ChannelMarketingInfoTypeFromJSON,
-    ChannelMarketingInfoTypeFromJSONTyped,
-    ChannelMarketingInfoTypeToJSON,
-} from './ChannelMarketingInfoType';
+    ChannelMarketingInfoTypeInnerFromJSON,
+    ChannelMarketingInfoTypeInnerFromJSONTyped,
+    ChannelMarketingInfoTypeInnerToJSON,
+} from './ChannelMarketingInfoTypeInner';
 import type { ChannelResvStatusType } from './ChannelResvStatusType';
 import {
     ChannelResvStatusTypeFromJSON,
@@ -39,11 +39,11 @@ import {
  */
 export interface ChannelResvRSInfoType {
     /**
-     * 
-     * @type {ChannelMarketingInfoType}
+     * Marketing Text like cancel policy, deposit policy etc.
+     * @type {Array<ChannelMarketingInfoTypeInner>}
      * @memberof ChannelResvRSInfoType
      */
-    channelMarketingInfo?: ChannelMarketingInfoType;
+    channelMarketingInfo?: Array<ChannelMarketingInfoTypeInner>;
     /**
      * 
      * @type {ChannelResvStatusType}
@@ -77,7 +77,7 @@ export function ChannelResvRSInfoTypeFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'channelMarketingInfo': !exists(json, 'channelMarketingInfo') ? undefined : ChannelMarketingInfoTypeFromJSON(json['channelMarketingInfo']),
+        'channelMarketingInfo': !exists(json, 'channelMarketingInfo') ? undefined : ((json['channelMarketingInfo'] as Array<any>).map(ChannelMarketingInfoTypeInnerFromJSON)),
         'channelResvStatus': !exists(json, 'channelResvStatus') ? undefined : ChannelResvStatusTypeFromJSON(json['channelResvStatus']),
         'channelSummaryInfo': !exists(json, 'channelSummaryInfo') ? undefined : ChannelSummaryInfoTypeFromJSON(json['channelSummaryInfo']),
     };
@@ -92,7 +92,7 @@ export function ChannelResvRSInfoTypeToJSON(value?: ChannelResvRSInfoType | null
     }
     return {
         
-        'channelMarketingInfo': ChannelMarketingInfoTypeToJSON(value.channelMarketingInfo),
+        'channelMarketingInfo': value.channelMarketingInfo === undefined ? undefined : ((value.channelMarketingInfo as Array<any>).map(ChannelMarketingInfoTypeInnerToJSON)),
         'channelResvStatus': ChannelResvStatusTypeToJSON(value.channelResvStatus),
         'channelSummaryInfo': ChannelSummaryInfoTypeToJSON(value.channelSummaryInfo),
     };

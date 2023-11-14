@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ConfigDepositPolicyType } from './ConfigDepositPolicyType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for fetch template Deposit Policies.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateDepositPolicyDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateDepositPolicyDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Collection of template Deposit policies.
      * @type {Array<ConfigDepositPolicyType>}
@@ -31,11 +31,11 @@ export interface TemplateDepositPolicyDetails {
      */
     templateDepositPolicies?: Array<ConfigDepositPolicyType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateDepositPolicyDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateDepositPolicyDetails interface.

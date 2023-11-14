@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RateCodeTotalInformationTypeToJSON = exports.RateCodeTotalInformationTypeFromJSONTyped = exports.RateCodeTotalInformationTypeFromJSON = exports.instanceOfRateCodeTotalInformationType = void 0;
 const runtime_1 = require("../runtime");
+const MonthlyRevenueNightsVarianceInfoType_1 = require("./MonthlyRevenueNightsVarianceInfoType");
 const RevenueNightsInfoType_1 = require("./RevenueNightsInfoType");
-const RevenueNightsVarianceInfoType_1 = require("./RevenueNightsVarianceInfoType");
 /**
  * Check if a given object implements the RateCodeTotalInformationType interface.
  */
@@ -34,11 +34,11 @@ function RateCodeTotalInformationTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'aBVarianceTotalInfo': !(0, runtime_1.exists)(json, 'aBVarianceTotalInfo') ? undefined : (0, RevenueNightsVarianceInfoType_1.RevenueNightsVarianceInfoTypeFromJSON)(json['aBVarianceTotalInfo']),
-        'aFVarianceTotalInfo': !(0, runtime_1.exists)(json, 'aFVarianceTotalInfo') ? undefined : (0, RevenueNightsVarianceInfoType_1.RevenueNightsVarianceInfoTypeFromJSON)(json['aFVarianceTotalInfo']),
+        'aBVarianceTotalInfo': !(0, runtime_1.exists)(json, 'aBVarianceTotalInfo') ? undefined : (json['aBVarianceTotalInfo'].map(MonthlyRevenueNightsVarianceInfoType_1.MonthlyRevenueNightsVarianceInfoTypeFromJSON)),
+        'aFVarianceTotalInfo': !(0, runtime_1.exists)(json, 'aFVarianceTotalInfo') ? undefined : (json['aFVarianceTotalInfo'].map(MonthlyRevenueNightsVarianceInfoType_1.MonthlyRevenueNightsVarianceInfoTypeFromJSON)),
         'actualTotalInfo': !(0, runtime_1.exists)(json, 'actualTotalInfo') ? undefined : (0, RevenueNightsInfoType_1.RevenueNightsInfoTypeFromJSON)(json['actualTotalInfo']),
         'budgetTotalInfo': !(0, runtime_1.exists)(json, 'budgetTotalInfo') ? undefined : (0, RevenueNightsInfoType_1.RevenueNightsInfoTypeFromJSON)(json['budgetTotalInfo']),
-        'fBVarianceTotalInfo': !(0, runtime_1.exists)(json, 'fBVarianceTotalInfo') ? undefined : (0, RevenueNightsVarianceInfoType_1.RevenueNightsVarianceInfoTypeFromJSON)(json['fBVarianceTotalInfo']),
+        'fBVarianceTotalInfo': !(0, runtime_1.exists)(json, 'fBVarianceTotalInfo') ? undefined : (json['fBVarianceTotalInfo'].map(MonthlyRevenueNightsVarianceInfoType_1.MonthlyRevenueNightsVarianceInfoTypeFromJSON)),
         'forecastTotalInfo': !(0, runtime_1.exists)(json, 'forecastTotalInfo') ? undefined : (0, RevenueNightsInfoType_1.RevenueNightsInfoTypeFromJSON)(json['forecastTotalInfo']),
     };
 }
@@ -51,11 +51,11 @@ function RateCodeTotalInformationTypeToJSON(value) {
         return null;
     }
     return {
-        'aBVarianceTotalInfo': (0, RevenueNightsVarianceInfoType_1.RevenueNightsVarianceInfoTypeToJSON)(value.aBVarianceTotalInfo),
-        'aFVarianceTotalInfo': (0, RevenueNightsVarianceInfoType_1.RevenueNightsVarianceInfoTypeToJSON)(value.aFVarianceTotalInfo),
+        'aBVarianceTotalInfo': value.aBVarianceTotalInfo === undefined ? undefined : (value.aBVarianceTotalInfo.map(MonthlyRevenueNightsVarianceInfoType_1.MonthlyRevenueNightsVarianceInfoTypeToJSON)),
+        'aFVarianceTotalInfo': value.aFVarianceTotalInfo === undefined ? undefined : (value.aFVarianceTotalInfo.map(MonthlyRevenueNightsVarianceInfoType_1.MonthlyRevenueNightsVarianceInfoTypeToJSON)),
         'actualTotalInfo': (0, RevenueNightsInfoType_1.RevenueNightsInfoTypeToJSON)(value.actualTotalInfo),
         'budgetTotalInfo': (0, RevenueNightsInfoType_1.RevenueNightsInfoTypeToJSON)(value.budgetTotalInfo),
-        'fBVarianceTotalInfo': (0, RevenueNightsVarianceInfoType_1.RevenueNightsVarianceInfoTypeToJSON)(value.fBVarianceTotalInfo),
+        'fBVarianceTotalInfo': value.fBVarianceTotalInfo === undefined ? undefined : (value.fBVarianceTotalInfo.map(MonthlyRevenueNightsVarianceInfoType_1.MonthlyRevenueNightsVarianceInfoTypeToJSON)),
         'forecastTotalInfo': (0, RevenueNightsInfoType_1.RevenueNightsInfoTypeToJSON)(value.forecastTotalInfo),
     };
 }

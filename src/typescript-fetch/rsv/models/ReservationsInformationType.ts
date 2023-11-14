@@ -25,12 +25,12 @@ import {
     DistinctIDTypeFromJSONTyped,
     DistinctIDTypeToJSON,
 } from './DistinctIDType';
-import type { ExternalReferencesType } from './ExternalReferencesType';
+import type { ExternalReferenceType } from './ExternalReferenceType';
 import {
-    ExternalReferencesTypeFromJSON,
-    ExternalReferencesTypeFromJSONTyped,
-    ExternalReferencesTypeToJSON,
-} from './ExternalReferencesType';
+    ExternalReferenceTypeFromJSON,
+    ExternalReferenceTypeFromJSONTyped,
+    ExternalReferenceTypeToJSON,
+} from './ExternalReferenceType';
 import type { GroupDetails } from './GroupDetails';
 import {
     GroupDetailsFromJSON,
@@ -147,11 +147,11 @@ export interface ReservationsInformationType {
      */
     departureTime?: string;
     /**
-     * 
-     * @type {ExternalReferencesType}
+     * This type contains unique information of external reference.
+     * @type {Array<ExternalReferenceType>}
      * @memberof ReservationsInformationType
      */
-    externalReferences?: ExternalReferencesType;
+    externalReferences?: Array<ExternalReferenceType>;
     /**
      * 
      * @type {GroupDetails}
@@ -336,7 +336,7 @@ export function ReservationsInformationTypeFromJSONTyped(json: any, ignoreDiscri
         'creatorId': !exists(json, 'creatorId') ? undefined : json['creatorId'],
         'currencyCode': !exists(json, 'currencyCode') ? undefined : json['currencyCode'],
         'departureTime': !exists(json, 'departureTime') ? undefined : json['departureTime'],
-        'externalReferences': !exists(json, 'externalReferences') ? undefined : ExternalReferencesTypeFromJSON(json['externalReferences']),
+        'externalReferences': !exists(json, 'externalReferences') ? undefined : ((json['externalReferences'] as Array<any>).map(ExternalReferenceTypeFromJSON)),
         'groupDetails': !exists(json, 'groupDetails') ? undefined : GroupDetailsFromJSON(json['groupDetails']),
         'guaranteeCode': !exists(json, 'guaranteeCode') ? undefined : json['guaranteeCode'],
         'guestDetails': !exists(json, 'guestDetails') ? undefined : GuestDetailsFromJSON(json['guestDetails']),
@@ -387,7 +387,7 @@ export function ReservationsInformationTypeToJSON(value?: ReservationsInformatio
         'creatorId': value.creatorId,
         'currencyCode': value.currencyCode,
         'departureTime': value.departureTime,
-        'externalReferences': ExternalReferencesTypeToJSON(value.externalReferences),
+        'externalReferences': value.externalReferences === undefined ? undefined : ((value.externalReferences as Array<any>).map(ExternalReferenceTypeToJSON)),
         'groupDetails': GroupDetailsToJSON(value.groupDetails),
         'guaranteeCode': value.guaranteeCode,
         'guestDetails': GuestDetailsToJSON(value.guestDetails),

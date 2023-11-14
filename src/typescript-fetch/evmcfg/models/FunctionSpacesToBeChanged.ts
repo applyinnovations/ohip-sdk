@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FunctionSpacesConfigType } from './FunctionSpacesConfigType';
+import type { FunctionSpaceConfigType } from './FunctionSpaceConfigType';
 import {
-    FunctionSpacesConfigTypeFromJSON,
-    FunctionSpacesConfigTypeFromJSONTyped,
-    FunctionSpacesConfigTypeToJSON,
-} from './FunctionSpacesConfigType';
-import type { Links } from './Links';
+    FunctionSpaceConfigTypeFromJSON,
+    FunctionSpaceConfigTypeFromJSONTyped,
+    FunctionSpaceConfigTypeToJSON,
+} from './FunctionSpaceConfigType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing function spaces.
@@ -39,23 +39,23 @@ import {
  */
 export interface FunctionSpacesToBeChanged {
     /**
-     * 
-     * @type {FunctionSpacesConfigType}
+     * The detail information of function space for function space configuration.
+     * @type {Array<FunctionSpaceConfigType>}
      * @memberof FunctionSpacesToBeChanged
      */
-    functionSpaces?: FunctionSpacesConfigType;
+    functionSpaces?: Array<FunctionSpaceConfigType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FunctionSpacesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FunctionSpacesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FunctionSpacesToBeChangedFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'functionSpaces': !exists(json, 'functionSpaces') ? undefined : FunctionSpacesConfigTypeFromJSON(json['functionSpaces']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'functionSpaces': !exists(json, 'functionSpaces') ? undefined : ((json['functionSpaces'] as Array<any>).map(FunctionSpaceConfigTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FunctionSpacesToBeChangedToJSON(value?: FunctionSpacesToBeChange
     }
     return {
         
-        'functionSpaces': FunctionSpacesConfigTypeToJSON(value.functionSpaces),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'functionSpaces': value.functionSpaces === undefined ? undefined : ((value.functionSpaces as Array<any>).map(FunctionSpaceConfigTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

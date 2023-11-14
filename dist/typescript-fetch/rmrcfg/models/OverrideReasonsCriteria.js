@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OverrideReasonsCriteriaToJSON = exports.OverrideReasonsCriteriaFromJSONTyped = exports.OverrideReasonsCriteriaFromJSON = exports.instanceOfOverrideReasonsCriteria = void 0;
 const runtime_1 = require("../runtime");
-const RoomRotationOverrideReasonsType_1 = require("./RoomRotationOverrideReasonsType");
-const WarningsType_1 = require("./WarningsType");
+const RoomRotationOverrideReasonType_1 = require("./RoomRotationOverrideReasonType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the OverrideReasonsCriteria interface.
  */
@@ -34,8 +34,8 @@ function OverrideReasonsCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'overrideReasons': !(0, runtime_1.exists)(json, 'overrideReasons') ? undefined : (0, RoomRotationOverrideReasonsType_1.RoomRotationOverrideReasonsTypeFromJSON)(json['overrideReasons']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'overrideReasons': !(0, runtime_1.exists)(json, 'overrideReasons') ? undefined : (json['overrideReasons'].map(RoomRotationOverrideReasonType_1.RoomRotationOverrideReasonTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.OverrideReasonsCriteriaFromJSONTyped = OverrideReasonsCriteriaFromJSONTyped;
@@ -47,8 +47,8 @@ function OverrideReasonsCriteriaToJSON(value) {
         return null;
     }
     return {
-        'overrideReasons': (0, RoomRotationOverrideReasonsType_1.RoomRotationOverrideReasonsTypeToJSON)(value.overrideReasons),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'overrideReasons': value.overrideReasons === undefined ? undefined : (value.overrideReasons.map(RoomRotationOverrideReasonType_1.RoomRotationOverrideReasonTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.OverrideReasonsCriteriaToJSON = OverrideReasonsCriteriaToJSON;

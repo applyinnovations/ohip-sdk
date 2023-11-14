@@ -15,11 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipTransactionDetailsTypeToJSON = exports.MembershipTransactionDetailsTypeFromJSONTyped = exports.MembershipTransactionDetailsTypeFromJSON = exports.instanceOfMembershipTransactionDetailsType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const MembershipAwardPointsType_1 = require("./MembershipAwardPointsType");
 const MembershipTransactionId_1 = require("./MembershipTransactionId");
 const MembershipTransactionTierPointsType_1 = require("./MembershipTransactionTierPointsType");
-const ReservationIdList_1 = require("./ReservationIdList");
 const TimeSpanType_1 = require("./TimeSpanType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -56,9 +54,9 @@ function MembershipTransactionDetailsTypeFromJSONTyped(json, ignoreDiscriminator
         'pointsCost': !(0, runtime_1.exists)(json, 'pointsCost') ? undefined : json['pointsCost'],
         'pointsCreditDate': !(0, runtime_1.exists)(json, 'pointsCreditDate') ? undefined : (new Date(json['pointsCreditDate'])),
         'processingMessages': !(0, runtime_1.exists)(json, 'processingMessages') ? undefined : json['processingMessages'],
-        'profilePromotions': !(0, runtime_1.exists)(json, 'profilePromotions') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['profilePromotions']),
+        'profilePromotions': !(0, runtime_1.exists)(json, 'profilePromotions') ? undefined : json['profilePromotions'],
         'ratePromotion': !(0, runtime_1.exists)(json, 'ratePromotion') ? undefined : json['ratePromotion'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'roomLabel': !(0, runtime_1.exists)(json, 'roomLabel') ? undefined : json['roomLabel'],
         'statementId': !(0, runtime_1.exists)(json, 'statementId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['statementId']),
         'stayTimeSpan': !(0, runtime_1.exists)(json, 'stayTimeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['stayTimeSpan']),
@@ -93,9 +91,9 @@ function MembershipTransactionDetailsTypeToJSON(value) {
         'pointsCost': value.pointsCost,
         'pointsCreditDate': value.pointsCreditDate === undefined ? undefined : (value.pointsCreditDate.toISOString().substring(0, 10)),
         'processingMessages': value.processingMessages,
-        'profilePromotions': (0, CodeListType_1.CodeListTypeToJSON)(value.profilePromotions),
+        'profilePromotions': value.profilePromotions,
         'ratePromotion': value.ratePromotion,
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'roomLabel': value.roomLabel,
         'statementId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.statementId),
         'stayTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.stayTimeSpan),

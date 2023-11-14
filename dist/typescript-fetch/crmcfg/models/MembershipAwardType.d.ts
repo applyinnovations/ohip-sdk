@@ -11,7 +11,7 @@
  */
 import type { DateRangeType } from './DateRangeType';
 import type { MembershipAwardBasedOnType } from './MembershipAwardBasedOnType';
-import type { MembershipAwardDetailsType } from './MembershipAwardDetailsType';
+import type { MembershipAwardDetailType } from './MembershipAwardDetailType';
 import type { MembershipAwardFinancialTransactionInfoType } from './MembershipAwardFinancialTransactionInfoType';
 import type { MembershipAwardOtherInfoType } from './MembershipAwardOtherInfoType';
 import type { MembershipAwardProductInfoType } from './MembershipAwardProductInfoType';
@@ -42,11 +42,11 @@ export interface MembershipAwardType {
      */
     awardCode?: string;
     /**
-     *
-     * @type {MembershipAwardDetailsType}
+     * Membership Award Rate details.
+     * @type {Array<MembershipAwardDetailType>}
      * @memberof MembershipAwardType
      */
-    awardDetails?: MembershipAwardDetailsType;
+    awardDetails?: Array<MembershipAwardDetailType>;
     /**
      * Number of awards to be given.
      * @type {number}

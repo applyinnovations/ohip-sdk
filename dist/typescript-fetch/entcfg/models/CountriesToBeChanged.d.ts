@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CountriesType } from './CountriesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CountryType } from './CountryType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for modifying Countries for hotels.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CountriesToBeChanged {
     /**
-     *
-     * @type {CountriesType}
+     * Country details.
+     * @type {Array<CountryType>}
      * @memberof CountriesToBeChanged
      */
-    countries?: CountriesType;
+    countries?: Array<CountryType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CountriesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CountriesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CountriesToBeChanged interface.

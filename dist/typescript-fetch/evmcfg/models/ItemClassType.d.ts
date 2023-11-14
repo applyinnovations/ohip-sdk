@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { ItemClassTypeType } from './ItemClassTypeType';
 import type { TranslationTextType200 } from './TranslationTextType200';
 /**
@@ -32,10 +31,10 @@ export interface ItemClassType {
     code?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ItemClassType
      */
-    departments?: CodeListType;
+    departments?: Array<string>;
     /**
      *
      * @type {TranslationTextType200}
@@ -62,10 +61,10 @@ export interface ItemClassType {
     displaySequence?: number;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ItemClassType
      */
-    eventTypes?: CodeListType;
+    eventTypes?: Array<string>;
     /**
      * Code of the Hotel.
      * @type {string}

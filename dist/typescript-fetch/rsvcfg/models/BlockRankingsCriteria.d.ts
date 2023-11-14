@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockRankingsType } from './BlockRankingsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BlockRankingType } from './BlockRankingType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Block Rankings.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BlockRankingsCriteria {
     /**
-     *
-     * @type {BlockRankingsType}
+     * List of Block Rankings.
+     * @type {Array<BlockRankingType>}
      * @memberof BlockRankingsCriteria
      */
-    blockRankings?: BlockRankingsType;
+    blockRankings?: Array<BlockRankingType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockRankingsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockRankingsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockRankingsCriteria interface.

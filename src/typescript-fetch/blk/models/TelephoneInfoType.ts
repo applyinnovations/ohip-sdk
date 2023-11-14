@@ -19,12 +19,12 @@ import {
     TelephoneTypeFromJSONTyped,
     TelephoneTypeToJSON,
 } from './TelephoneType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Information on a telephone number for the customer.
@@ -57,11 +57,11 @@ export interface TelephoneInfoType {
      */
     type?: string;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TelephoneInfoType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -87,7 +87,7 @@ export function TelephoneInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'idContext': !exists(json, 'idContext') ? undefined : json['idContext'],
         'telephone': !exists(json, 'telephone') ? undefined : TelephoneTypeFromJSON(json['telephone']),
         'type': !exists(json, 'type') ? undefined : json['type'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -104,7 +104,7 @@ export function TelephoneInfoTypeToJSON(value?: TelephoneInfoType | null): any {
         'idContext': value.idContext,
         'telephone': TelephoneTypeToJSON(value.telephone),
         'type': value.type,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

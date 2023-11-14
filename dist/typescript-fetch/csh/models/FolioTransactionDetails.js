@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FolioTransactionDetailsToJSON = exports.FolioTransactionDetailsFromJSONTyped = exports.FolioTransactionDetailsFromJSON = exports.instanceOfFolioTransactionDetails = void 0;
 const runtime_1 = require("../runtime");
-const DetailPostingsType_1 = require("./DetailPostingsType");
-const Links_1 = require("./Links");
-const TrxCodesInfoType_1 = require("./TrxCodesInfoType");
-const WarningsType_1 = require("./WarningsType");
+const DetailPostingType_1 = require("./DetailPostingType");
+const InstanceLink_1 = require("./InstanceLink");
+const TrxInfoType_1 = require("./TrxInfoType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FolioTransactionDetails interface.
  */
@@ -36,10 +36,10 @@ function FolioTransactionDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'transactions': !(0, runtime_1.exists)(json, 'transactions') ? undefined : (0, DetailPostingsType_1.DetailPostingsTypeFromJSON)(json['transactions']),
-        'trxCodesInfo': !(0, runtime_1.exists)(json, 'trxCodesInfo') ? undefined : (0, TrxCodesInfoType_1.TrxCodesInfoTypeFromJSON)(json['trxCodesInfo']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'transactions': !(0, runtime_1.exists)(json, 'transactions') ? undefined : (json['transactions'].map(DetailPostingType_1.DetailPostingTypeFromJSON)),
+        'trxCodesInfo': !(0, runtime_1.exists)(json, 'trxCodesInfo') ? undefined : (json['trxCodesInfo'].map(TrxInfoType_1.TrxInfoTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FolioTransactionDetailsFromJSONTyped = FolioTransactionDetailsFromJSONTyped;
@@ -51,10 +51,10 @@ function FolioTransactionDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'transactions': (0, DetailPostingsType_1.DetailPostingsTypeToJSON)(value.transactions),
-        'trxCodesInfo': (0, TrxCodesInfoType_1.TrxCodesInfoTypeToJSON)(value.trxCodesInfo),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'transactions': value.transactions === undefined ? undefined : (value.transactions.map(DetailPostingType_1.DetailPostingTypeToJSON)),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : (value.trxCodesInfo.map(TrxInfoType_1.TrxInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FolioTransactionDetailsToJSON = FolioTransactionDetailsToJSON;

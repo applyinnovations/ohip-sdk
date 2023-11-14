@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfileNameValidationsToJSON = exports.ProfileNameValidationsFromJSONTyped = exports.ProfileNameValidationsFromJSON = exports.instanceOfProfileNameValidations = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const ProfileNameValidationsType_1 = require("./ProfileNameValidationsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const ProfileNameValidationType_1 = require("./ProfileNameValidationType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ProfileNameValidations interface.
  */
@@ -35,9 +35,9 @@ function ProfileNameValidationsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'profileNames': !(0, runtime_1.exists)(json, 'profileNames') ? undefined : (0, ProfileNameValidationsType_1.ProfileNameValidationsTypeFromJSON)(json['profileNames']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'profileNames': !(0, runtime_1.exists)(json, 'profileNames') ? undefined : (json['profileNames'].map(ProfileNameValidationType_1.ProfileNameValidationTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ProfileNameValidationsFromJSONTyped = ProfileNameValidationsFromJSONTyped;
@@ -49,9 +49,9 @@ function ProfileNameValidationsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'profileNames': (0, ProfileNameValidationsType_1.ProfileNameValidationsTypeToJSON)(value.profileNames),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'profileNames': value.profileNames === undefined ? undefined : (value.profileNames.map(ProfileNameValidationType_1.ProfileNameValidationTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ProfileNameValidationsToJSON = ProfileNameValidationsToJSON;

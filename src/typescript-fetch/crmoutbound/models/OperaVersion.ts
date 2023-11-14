@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 
 /**
  * Response for Ping operation.
@@ -34,10 +34,10 @@ export interface OperaVersion {
     operaVersion?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof OperaVersion
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -60,7 +60,7 @@ export function OperaVersionFromJSONTyped(json: any, ignoreDiscriminator: boolea
     return {
         
         'operaVersion': !exists(json, 'operaVersion') ? undefined : json['operaVersion'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -74,7 +74,7 @@ export function OperaVersionToJSON(value?: OperaVersion | null): any {
     return {
         
         'operaVersion': value.operaVersion,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

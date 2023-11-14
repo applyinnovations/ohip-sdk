@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelTransactionSubgroupsToJSON = exports.HotelTransactionSubgroupsFromJSONTyped = exports.HotelTransactionSubgroupsFromJSON = exports.instanceOfHotelTransactionSubgroups = void 0;
 const runtime_1 = require("../runtime");
-const HotelTransactionSubgroupsType_1 = require("./HotelTransactionSubgroupsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HotelTransactionSubgroupType_1 = require("./HotelTransactionSubgroupType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the HotelTransactionSubgroups interface.
  */
@@ -35,9 +35,9 @@ function HotelTransactionSubgroupsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'transactionSubgroups': !(0, runtime_1.exists)(json, 'transactionSubgroups') ? undefined : (0, HotelTransactionSubgroupsType_1.HotelTransactionSubgroupsTypeFromJSON)(json['transactionSubgroups']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'transactionSubgroups': !(0, runtime_1.exists)(json, 'transactionSubgroups') ? undefined : (json['transactionSubgroups'].map(HotelTransactionSubgroupType_1.HotelTransactionSubgroupTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.HotelTransactionSubgroupsFromJSONTyped = HotelTransactionSubgroupsFromJSONTyped;
@@ -49,9 +49,9 @@ function HotelTransactionSubgroupsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'transactionSubgroups': (0, HotelTransactionSubgroupsType_1.HotelTransactionSubgroupsTypeToJSON)(value.transactionSubgroups),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'transactionSubgroups': value.transactionSubgroups === undefined ? undefined : (value.transactionSubgroups.map(HotelTransactionSubgroupType_1.HotelTransactionSubgroupTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.HotelTransactionSubgroupsToJSON = HotelTransactionSubgroupsToJSON;

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TemplateOutOfOrderServiceReasonsType } from './TemplateOutOfOrderServiceReasonsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TemplateOutOfOrderServiceReasonType } from './TemplateOutOfOrderServiceReasonType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for modifying template out of order/service reasons.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateOutOfOrderServiceReasonsToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateOutOfOrderServiceReasonsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TemplateOutOfOrderServiceReasonsType}
+     * Template of out of order/service reason details.
+     * @type {Array<TemplateOutOfOrderServiceReasonType>}
      * @memberof TemplateOutOfOrderServiceReasonsToBeChanged
      */
-    templateOutOfOrderServiceReasons?: TemplateOutOfOrderServiceReasonsType;
+    templateOutOfOrderServiceReasons?: Array<TemplateOutOfOrderServiceReasonType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateOutOfOrderServiceReasonsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateOutOfOrderServiceReasonsToBeChanged interface.

@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ARStatementHistoryType } from './ARStatementHistoryType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Statement History.
  * @export
@@ -26,16 +26,16 @@ export interface StatementHistory {
     aRStatementHistory?: Array<ARStatementHistoryType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof StatementHistory
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof StatementHistory
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the StatementHistory interface.

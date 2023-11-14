@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-
 /**
  * Detailed attributes of Menu Class .
  * @export
@@ -28,10 +21,10 @@ import {
 export interface CateringMenuClassInfoType {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CateringMenuClassInfoType
      */
-    eventTypes?: CodeListType;
+    eventTypes?: Array<string>;
     /**
      * Return true, when this Menu Item Class will not be available to be associated to a Catering Event.
      * @type {boolean}
@@ -77,7 +70,7 @@ export function CateringMenuClassInfoTypeFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'eventTypes': !exists(json, 'eventTypes') ? undefined : CodeListTypeFromJSON(json['eventTypes']),
+        'eventTypes': !exists(json, 'eventTypes') ? undefined : json['eventTypes'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
         'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
         'name': !exists(json, 'name') ? undefined : json['name'],
@@ -94,7 +87,7 @@ export function CateringMenuClassInfoTypeToJSON(value?: CateringMenuClassInfoTyp
     }
     return {
         
-        'eventTypes': CodeListTypeToJSON(value.eventTypes),
+        'eventTypes': value.eventTypes,
         'inactive': value.inactive,
         'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
         'name': value.name,

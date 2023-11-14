@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipTypesDetailsToJSON = exports.MembershipTypesDetailsFromJSONTyped = exports.MembershipTypesDetailsFromJSON = exports.instanceOfMembershipTypesDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const MasterInfoType_1 = require("./MasterInfoType");
-const MembershipTypesType_1 = require("./MembershipTypesType");
-const WarningsType_1 = require("./WarningsType");
+const MembershipTypeType_1 = require("./MembershipTypeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MembershipTypesDetails interface.
  */
@@ -36,10 +36,10 @@ function MembershipTypesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'masterInfoList': !(0, runtime_1.exists)(json, 'masterInfoList') ? undefined : (json['masterInfoList'].map(MasterInfoType_1.MasterInfoTypeFromJSON)),
-        'membershipTypes': !(0, runtime_1.exists)(json, 'membershipTypes') ? undefined : (0, MembershipTypesType_1.MembershipTypesTypeFromJSON)(json['membershipTypes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'membershipTypes': !(0, runtime_1.exists)(json, 'membershipTypes') ? undefined : (json['membershipTypes'].map(MembershipTypeType_1.MembershipTypeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MembershipTypesDetailsFromJSONTyped = MembershipTypesDetailsFromJSONTyped;
@@ -51,10 +51,10 @@ function MembershipTypesDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'masterInfoList': value.masterInfoList === undefined ? undefined : (value.masterInfoList.map(MasterInfoType_1.MasterInfoTypeToJSON)),
-        'membershipTypes': (0, MembershipTypesType_1.MembershipTypesTypeToJSON)(value.membershipTypes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'membershipTypes': value.membershipTypes === undefined ? undefined : (value.membershipTypes.map(MembershipTypeType_1.MembershipTypeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MembershipTypesDetailsToJSON = MembershipTypesDetailsToJSON;

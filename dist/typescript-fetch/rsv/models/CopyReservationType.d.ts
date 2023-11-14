@@ -11,7 +11,7 @@
  */
 import type { CopyReservationTypeInstructions } from './CopyReservationTypeInstructions';
 import type { HotelReservationInstructionType } from './HotelReservationInstructionType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -37,11 +37,11 @@ export interface CopyReservationType {
      */
     newReservation?: HotelReservationInstructionType;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CopyReservationType
      */
-    sourceReservationId?: UniqueIDListType;
+    sourceReservationId?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the CopyReservationType interface.

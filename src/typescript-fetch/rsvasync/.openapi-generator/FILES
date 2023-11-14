@@ -8,10 +8,8 @@ models/ErrorInstance.ts
 models/ExceptionDetailType.ts
 models/InstanceLink.ts
 models/LastModifiedDateType.ts
-models/Links.ts
 models/PMSResStatusType.ts
 models/ReservationDailySummaryType.ts
-models/ReservationIdList.ts
 models/ReservationsDailySummaryDetails.ts
 models/ReservationsDailySummarySearchType.ts
 models/TimeSpanType.ts

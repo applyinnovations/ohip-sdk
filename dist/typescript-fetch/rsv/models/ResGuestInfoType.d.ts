@@ -15,7 +15,7 @@ import type { CountryNameType } from './CountryNameType';
 import type { GuestLastStayInfoType } from './GuestLastStayInfoType';
 import type { MembershipInfoType } from './MembershipInfoType';
 import type { NameTypeType } from './NameTypeType';
-import type { ResAccompanyGuestListType } from './ResAccompanyGuestListType';
+import type { ResAccompanyGuestInfoType } from './ResAccompanyGuestInfoType';
 import type { VIPType } from './VIPType';
 /**
  * Specifies Company or Travel Agent profile using IATA or Corp. No.
@@ -24,11 +24,11 @@ import type { VIPType } from './VIPType';
  */
 export interface ResGuestInfoType {
     /**
-     *
-     * @type {ResAccompanyGuestListType}
+     * Collection of accompany guests
+     * @type {Array<ResAccompanyGuestInfoType>}
      * @memberof ResGuestInfoType
      */
-    accompanyGuests?: ResAccompanyGuestListType;
+    accompanyGuests?: Array<ResAccompanyGuestInfoType>;
     /**
      *
      * @type {AddressSearchType}

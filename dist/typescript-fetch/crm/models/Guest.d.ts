@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ExternalReferencesType } from './ExternalReferencesType';
+import type { ExternalReferenceType } from './ExternalReferenceType';
 import type { GuestProfileType } from './GuestProfileType';
-import type { Links } from './Links';
-import type { ProfileIdList } from './ProfileIdList';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { UniqueIDType } from './UniqueIDType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creation of guest/contact/employee profile. This object contains profile details with unique identifiers of a profile. The standard optional Opera Context element is also included.
  * @export
@@ -21,11 +21,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface Guest {
     /**
-     *
-     * @type {ExternalReferencesType}
+     * This type contains unique information of external reference.
+     * @type {Array<ExternalReferenceType>}
      * @memberof Guest
      */
-    externalReferences?: ExternalReferencesType;
+    externalReferences?: Array<ExternalReferenceType>;
     /**
      *
      * @type {GuestProfileType}
@@ -33,23 +33,23 @@ export interface Guest {
      */
     guestDetails?: GuestProfileType;
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof Guest
      */
-    guestIdList?: ProfileIdList;
+    guestIdList?: Array<UniqueIDType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Guest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Guest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Guest interface.

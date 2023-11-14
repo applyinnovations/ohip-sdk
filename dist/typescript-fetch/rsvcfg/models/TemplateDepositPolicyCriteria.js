@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateDepositPolicyCriteriaToJSON = exports.TemplateDepositPolicyCriteriaFromJSONTyped = exports.TemplateDepositPolicyCriteriaFromJSON = exports.instanceOfTemplateDepositPolicyCriteria = void 0;
 const runtime_1 = require("../runtime");
 const ConfigDepositPolicyType_1 = require("./ConfigDepositPolicyType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TemplateDepositPolicyCriteria interface.
  */
@@ -35,9 +35,9 @@ function TemplateDepositPolicyCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'templateDepositPolicy': !(0, runtime_1.exists)(json, 'templateDepositPolicy') ? undefined : (0, ConfigDepositPolicyType_1.ConfigDepositPolicyTypeFromJSON)(json['templateDepositPolicy']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TemplateDepositPolicyCriteriaFromJSONTyped = TemplateDepositPolicyCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function TemplateDepositPolicyCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'templateDepositPolicy': (0, ConfigDepositPolicyType_1.ConfigDepositPolicyTypeToJSON)(value.templateDepositPolicy),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TemplateDepositPolicyCriteriaToJSON = TemplateDepositPolicyCriteriaToJSON;

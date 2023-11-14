@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CopyRatePlansResponseType } from './CopyRatePlansResponseType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Return object to the request for copying rate plans to multiple hotels.
  * @export
@@ -26,16 +26,16 @@ export interface RatePlansCopyDetails {
     copyResponses?: CopyRatePlansResponseType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RatePlansCopyDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RatePlansCopyDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RatePlansCopyDetails interface.

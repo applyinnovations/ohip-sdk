@@ -16,9 +16,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PromoCodeRoutingInstructionTypeToJSON = exports.PromoCodeRoutingInstructionTypeFromJSONTyped = exports.PromoCodeRoutingInstructionTypeFromJSON = exports.instanceOfPromoCodeRoutingInstructionType = void 0;
 const runtime_1 = require("../runtime");
 const AuthorizerInfoType_1 = require("./AuthorizerInfoType");
-const BillingInstructionsType_1 = require("./BillingInstructionsType");
+const BillingInstructionType_1 = require("./BillingInstructionType");
 const PromoCodeRoutingInstructionTypeDuration_1 = require("./PromoCodeRoutingInstructionTypeDuration");
-const TrxCodesInfoType_1 = require("./TrxCodesInfoType");
+const TrxInfoType_1 = require("./TrxInfoType");
 /**
  * Check if a given object implements the PromoCodeRoutingInstructionType interface.
  */
@@ -39,7 +39,7 @@ function PromoCodeRoutingInstructionTypeFromJSONTyped(json, ignoreDiscriminator)
         'actionType': !(0, runtime_1.exists)(json, 'actionType') ? undefined : json['actionType'],
         'authorizerInfo': !(0, runtime_1.exists)(json, 'authorizerInfo') ? undefined : (0, AuthorizerInfoType_1.AuthorizerInfoTypeFromJSON)(json['authorizerInfo']),
         'autoPopulateRouting': !(0, runtime_1.exists)(json, 'autoPopulateRouting') ? undefined : json['autoPopulateRouting'],
-        'billingInstructions': !(0, runtime_1.exists)(json, 'billingInstructions') ? undefined : (0, BillingInstructionsType_1.BillingInstructionsTypeFromJSON)(json['billingInstructions']),
+        'billingInstructions': !(0, runtime_1.exists)(json, 'billingInstructions') ? undefined : (json['billingInstructions'].map(BillingInstructionType_1.BillingInstructionTypeFromJSON)),
         'comments': !(0, runtime_1.exists)(json, 'comments') ? undefined : json['comments'],
         'compPreApprovalRequired': !(0, runtime_1.exists)(json, 'compPreApprovalRequired') ? undefined : json['compPreApprovalRequired'],
         'covers': !(0, runtime_1.exists)(json, 'covers') ? undefined : json['covers'],
@@ -50,7 +50,7 @@ function PromoCodeRoutingInstructionTypeFromJSONTyped(json, ignoreDiscriminator)
         'membershipId': !(0, runtime_1.exists)(json, 'membershipId') ? undefined : json['membershipId'],
         'percentageLimit': !(0, runtime_1.exists)(json, 'percentageLimit') ? undefined : json['percentageLimit'],
         'promptForAuthorizer': !(0, runtime_1.exists)(json, 'promptForAuthorizer') ? undefined : json['promptForAuthorizer'],
-        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (0, TrxCodesInfoType_1.TrxCodesInfoTypeFromJSON)(json['transactionCodes']),
+        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (json['transactionCodes'].map(TrxInfoType_1.TrxInfoTypeFromJSON)),
     };
 }
 exports.PromoCodeRoutingInstructionTypeFromJSONTyped = PromoCodeRoutingInstructionTypeFromJSONTyped;
@@ -65,7 +65,7 @@ function PromoCodeRoutingInstructionTypeToJSON(value) {
         'actionType': value.actionType,
         'authorizerInfo': (0, AuthorizerInfoType_1.AuthorizerInfoTypeToJSON)(value.authorizerInfo),
         'autoPopulateRouting': value.autoPopulateRouting,
-        'billingInstructions': (0, BillingInstructionsType_1.BillingInstructionsTypeToJSON)(value.billingInstructions),
+        'billingInstructions': value.billingInstructions === undefined ? undefined : (value.billingInstructions.map(BillingInstructionType_1.BillingInstructionTypeToJSON)),
         'comments': value.comments,
         'compPreApprovalRequired': value.compPreApprovalRequired,
         'covers': value.covers,
@@ -76,7 +76,7 @@ function PromoCodeRoutingInstructionTypeToJSON(value) {
         'membershipId': value.membershipId,
         'percentageLimit': value.percentageLimit,
         'promptForAuthorizer': value.promptForAuthorizer,
-        'transactionCodes': (0, TrxCodesInfoType_1.TrxCodesInfoTypeToJSON)(value.transactionCodes),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : (value.transactionCodes.map(TrxInfoType_1.TrxInfoTypeToJSON)),
     };
 }
 exports.PromoCodeRoutingInstructionTypeToJSON = PromoCodeRoutingInstructionTypeToJSON;

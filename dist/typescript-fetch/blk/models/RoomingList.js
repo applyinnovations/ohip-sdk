@@ -15,11 +15,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomingListToJSON = exports.RoomingListFromJSONTyped = exports.RoomingListFromJSON = exports.instanceOfRoomingList = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const RoomingListBlockInfoType_1 = require("./RoomingListBlockInfoType");
 const RoomingListReservationsType_1 = require("./RoomingListReservationsType");
-const RoomingListSharesType_1 = require("./RoomingListSharesType");
-const WarningsType_1 = require("./WarningsType");
+const RoomingListShareType_1 = require("./RoomingListShareType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomingList interface.
  */
@@ -38,10 +38,10 @@ function RoomingListFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'blockInfo': !(0, runtime_1.exists)(json, 'blockInfo') ? undefined : (0, RoomingListBlockInfoType_1.RoomingListBlockInfoTypeFromJSON)(json['blockInfo']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'reservations': !(0, runtime_1.exists)(json, 'reservations') ? undefined : (0, RoomingListReservationsType_1.RoomingListReservationsTypeFromJSON)(json['reservations']),
-        'shares': !(0, runtime_1.exists)(json, 'shares') ? undefined : (0, RoomingListSharesType_1.RoomingListSharesTypeFromJSON)(json['shares']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'shares': !(0, runtime_1.exists)(json, 'shares') ? undefined : (json['shares'].map(RoomingListShareType_1.RoomingListShareTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomingListFromJSONTyped = RoomingListFromJSONTyped;
@@ -54,10 +54,10 @@ function RoomingListToJSON(value) {
     }
     return {
         'blockInfo': (0, RoomingListBlockInfoType_1.RoomingListBlockInfoTypeToJSON)(value.blockInfo),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'reservations': (0, RoomingListReservationsType_1.RoomingListReservationsTypeToJSON)(value.reservations),
-        'shares': (0, RoomingListSharesType_1.RoomingListSharesTypeToJSON)(value.shares),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'shares': value.shares === undefined ? undefined : (value.shares.map(RoomingListShareType_1.RoomingListShareTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomingListToJSON = RoomingListToJSON;

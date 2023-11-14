@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ValidationsReturnType } from './ValidationsReturnType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ValidationReturnType } from './ValidationReturnType';
+import type { WarningType } from './WarningType';
 /**
  * Response for checking overlapping stays of reservations.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface OverlappingStayDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof OverlappingStayDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
-     * @type {ValidationsReturnType}
+     * @type {Array<ValidationReturnType>}
      * @memberof OverlappingStayDetails
      */
-    overlappingStayMessages?: ValidationsReturnType;
+    overlappingStayMessages?: Array<ValidationReturnType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OverlappingStayDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the OverlappingStayDetails interface.

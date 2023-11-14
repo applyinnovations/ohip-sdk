@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipAwardPointsByHotelToJSON = exports.MembershipAwardPointsByHotelFromJSONTyped = exports.MembershipAwardPointsByHotelFromJSON = exports.instanceOfMembershipAwardPointsByHotel = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const MembershipAwardPointsByHotelType_1 = require("./MembershipAwardPointsByHotelType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const MembershipAwardPointByHotelType_1 = require("./MembershipAwardPointByHotelType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MembershipAwardPointsByHotel interface.
  */
@@ -35,9 +35,9 @@ function MembershipAwardPointsByHotelFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'membershipAwardPoints': !(0, runtime_1.exists)(json, 'membershipAwardPoints') ? undefined : (0, MembershipAwardPointsByHotelType_1.MembershipAwardPointsByHotelTypeFromJSON)(json['membershipAwardPoints']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'membershipAwardPoints': !(0, runtime_1.exists)(json, 'membershipAwardPoints') ? undefined : (json['membershipAwardPoints'].map(MembershipAwardPointByHotelType_1.MembershipAwardPointByHotelTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MembershipAwardPointsByHotelFromJSONTyped = MembershipAwardPointsByHotelFromJSONTyped;
@@ -49,9 +49,9 @@ function MembershipAwardPointsByHotelToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'membershipAwardPoints': (0, MembershipAwardPointsByHotelType_1.MembershipAwardPointsByHotelTypeToJSON)(value.membershipAwardPoints),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'membershipAwardPoints': value.membershipAwardPoints === undefined ? undefined : (value.membershipAwardPoints.map(MembershipAwardPointByHotelType_1.MembershipAwardPointByHotelTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MembershipAwardPointsByHotelToJSON = MembershipAwardPointsByHotelToJSON;

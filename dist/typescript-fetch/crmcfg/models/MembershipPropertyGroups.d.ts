@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MembershipPropertyGroupsType } from './MembershipPropertyGroupsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MembershipPropertyGroupType } from './MembershipPropertyGroupType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing existing Membership Property Groups Configurations.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MembershipPropertyGroups {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipPropertyGroups
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MembershipPropertyGroupsType}
+     * Details for Membership Property Group along with associated property codes.
+     * @type {Array<MembershipPropertyGroupType>}
      * @memberof MembershipPropertyGroups
      */
-    membershipPropertyGroups?: MembershipPropertyGroupsType;
+    membershipPropertyGroups?: Array<MembershipPropertyGroupType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipPropertyGroups
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipPropertyGroups interface.

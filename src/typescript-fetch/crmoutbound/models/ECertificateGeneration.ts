@@ -19,12 +19,12 @@ import {
     ECertificateGenerationDetailsTypeFromJSONTyped,
     ECertificateGenerationDetailsTypeToJSON,
 } from './ECertificateGenerationDetailsType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 
 /**
  * Request object to issue E-Certificate.
@@ -40,10 +40,10 @@ export interface ECertificateGeneration {
     eCertificateGenerationDetails?: ECertificateGenerationDetailsType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ECertificateGeneration
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function ECertificateGenerationFromJSONTyped(json: any, ignoreDiscriminat
     return {
         
         'eCertificateGenerationDetails': !exists(json, 'eCertificateGenerationDetails') ? undefined : ECertificateGenerationDetailsTypeFromJSON(json['eCertificateGenerationDetails']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function ECertificateGenerationToJSON(value?: ECertificateGeneration | nu
     return {
         
         'eCertificateGenerationDetails': ECertificateGenerationDetailsTypeToJSON(value.eCertificateGenerationDetails),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

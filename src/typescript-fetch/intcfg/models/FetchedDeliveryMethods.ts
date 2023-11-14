@@ -19,18 +19,18 @@ import {
     ConfiguredExternalDeliveryMethodsTypeFromJSONTyped,
     ConfiguredExternalDeliveryMethodsTypeToJSON,
 } from './ConfiguredExternalDeliveryMethodsType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response to request to fetch the delivery method for a property/HUB/Chain and its configurations.
@@ -46,16 +46,16 @@ export interface FetchedDeliveryMethods {
     deliveryMethods?: ConfiguredExternalDeliveryMethodsType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchedDeliveryMethods
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchedDeliveryMethods
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -78,8 +78,8 @@ export function FetchedDeliveryMethodsFromJSONTyped(json: any, ignoreDiscriminat
     return {
         
         'deliveryMethods': !exists(json, 'deliveryMethods') ? undefined : ConfiguredExternalDeliveryMethodsTypeFromJSON(json['deliveryMethods']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -93,8 +93,8 @@ export function FetchedDeliveryMethodsToJSON(value?: FetchedDeliveryMethods | nu
     return {
         
         'deliveryMethods': ConfiguredExternalDeliveryMethodsTypeToJSON(value.deliveryMethods),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

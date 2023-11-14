@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomTypePoolToBeChangedToJSON = exports.RoomTypePoolToBeChangedFromJSONTyped = exports.RoomTypePoolToBeChangedFromJSON = exports.instanceOfRoomTypePoolToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RoomTypePoolTypes_1 = require("./RoomTypePoolTypes");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RoomTypePoolType_1 = require("./RoomTypePoolType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomTypePoolToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function RoomTypePoolToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'roomPoolTypes': !(0, runtime_1.exists)(json, 'roomPoolTypes') ? undefined : (0, RoomTypePoolTypes_1.RoomTypePoolTypesFromJSON)(json['roomPoolTypes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'roomPoolTypes': !(0, runtime_1.exists)(json, 'roomPoolTypes') ? undefined : (json['roomPoolTypes'].map(RoomTypePoolType_1.RoomTypePoolTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomTypePoolToBeChangedFromJSONTyped = RoomTypePoolToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function RoomTypePoolToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'roomPoolTypes': (0, RoomTypePoolTypes_1.RoomTypePoolTypesToJSON)(value.roomPoolTypes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'roomPoolTypes': value.roomPoolTypes === undefined ? undefined : (value.roomPoolTypes.map(RoomTypePoolType_1.RoomTypePoolTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomTypePoolToBeChangedToJSON = RoomTypePoolToBeChangedToJSON;

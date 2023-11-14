@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AlertsType } from './AlertsType';
+import type { AlertType } from './AlertType';
 import type { CommentInfoType } from './CommentInfoType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response with the fetched alerts, includes global alerts.
  * @export
@@ -20,11 +20,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AlertNotices {
     /**
-     *
-     * @type {AlertsType}
+     * List of alerts.
+     * @type {Array<AlertType>}
      * @memberof AlertNotices
      */
-    alerts?: AlertsType;
+    alerts?: Array<AlertType>;
     /**
      * List of Notes for the Guest related to the reservation.
      * @type {Array<CommentInfoType>}
@@ -33,16 +33,16 @@ export interface AlertNotices {
     comments?: Array<CommentInfoType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AlertNotices
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AlertNotices
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AlertNotices interface.

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelSellLimitSchedulesType } from './ChannelSellLimitSchedulesType';
+import type { ChannelSellLimitScheduleType } from './ChannelSellLimitScheduleType';
 import {
-    ChannelSellLimitSchedulesTypeFromJSON,
-    ChannelSellLimitSchedulesTypeFromJSONTyped,
-    ChannelSellLimitSchedulesTypeToJSON,
-} from './ChannelSellLimitSchedulesType';
-import type { Links } from './Links';
+    ChannelSellLimitScheduleTypeFromJSON,
+    ChannelSellLimitScheduleTypeFromJSONTyped,
+    ChannelSellLimitScheduleTypeToJSON,
+} from './ChannelSellLimitScheduleType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object containing sell limit schedules set for the channel or channel room type.
@@ -40,22 +40,22 @@ import {
 export interface ChannelSellLimits {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelSellLimits
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ChannelSellLimitSchedulesType}
+     * Details about a sell limit schedule for a channel or channel room type.
+     * @type {Array<ChannelSellLimitScheduleType>}
      * @memberof ChannelSellLimits
      */
-    sellLimits?: ChannelSellLimitSchedulesType;
+    sellLimits?: Array<ChannelSellLimitScheduleType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelSellLimits
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ChannelSellLimitsFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'sellLimits': !exists(json, 'sellLimits') ? undefined : ChannelSellLimitSchedulesTypeFromJSON(json['sellLimits']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'sellLimits': !exists(json, 'sellLimits') ? undefined : ((json['sellLimits'] as Array<any>).map(ChannelSellLimitScheduleTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ChannelSellLimitsToJSON(value?: ChannelSellLimits | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'sellLimits': ChannelSellLimitSchedulesTypeToJSON(value.sellLimits),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'sellLimits': value.sellLimits === undefined ? undefined : ((value.sellLimits as Array<any>).map(ChannelSellLimitScheduleTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

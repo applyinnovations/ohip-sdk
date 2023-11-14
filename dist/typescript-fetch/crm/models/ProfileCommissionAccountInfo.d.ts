@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ProfileCommissionAccountInfoListType } from './ProfileCommissionAccountInfoListType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ProfileCommissionAccountInfoType } from './ProfileCommissionAccountInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching profile commission detail.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ProfileCommissionAccountInfo {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileCommissionAccountInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ProfileCommissionAccountInfoListType}
+     * Profile commission info which contains bank account and commission code details.
+     * @type {Array<ProfileCommissionAccountInfoType>}
      * @memberof ProfileCommissionAccountInfo
      */
-    profileCommissionAccountInfoList?: ProfileCommissionAccountInfoListType;
+    profileCommissionAccountInfoList?: Array<ProfileCommissionAccountInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileCommissionAccountInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileCommissionAccountInfo interface.

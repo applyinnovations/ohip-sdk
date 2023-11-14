@@ -19,18 +19,18 @@ import {
     ARBalanceTypeFromJSONTyped,
     ARBalanceTypeToJSON,
 } from './ARBalanceType';
-import type { ARInvoicesType } from './ARInvoicesType';
+import type { ARInvoiceType } from './ARInvoiceType';
 import {
-    ARInvoicesTypeFromJSON,
-    ARInvoicesTypeFromJSONTyped,
-    ARInvoicesTypeToJSON,
-} from './ARInvoicesType';
-import type { ARPaymentsType } from './ARPaymentsType';
+    ARInvoiceTypeFromJSON,
+    ARInvoiceTypeFromJSONTyped,
+    ARInvoiceTypeToJSON,
+} from './ARInvoiceType';
+import type { ARPaymentType } from './ARPaymentType';
 import {
-    ARPaymentsTypeFromJSON,
-    ARPaymentsTypeFromJSONTyped,
-    ARPaymentsTypeToJSON,
-} from './ARPaymentsType';
+    ARPaymentTypeFromJSON,
+    ARPaymentTypeFromJSONTyped,
+    ARPaymentTypeToJSON,
+} from './ARPaymentType';
 import type { ProfileId } from './ProfileId';
 import {
     ProfileIdFromJSON,
@@ -75,11 +75,11 @@ export interface ARAccountInvoicesPaymentsType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {ARInvoicesType}
+     * A collection of AR Invoices.
+     * @type {Array<ARInvoiceType>}
      * @memberof ARAccountInvoicesPaymentsType
      */
-    invoices?: ARInvoicesType;
+    invoices?: Array<ARInvoiceType>;
     /**
      * Month End Calculation.
      * @type {boolean}
@@ -93,11 +93,11 @@ export interface ARAccountInvoicesPaymentsType {
      */
     paymentDueDays?: string;
     /**
-     * 
-     * @type {ARPaymentsType}
+     * A collection of AR Payments.
+     * @type {Array<ARPaymentType>}
      * @memberof ARAccountInvoicesPaymentsType
      */
-    payments?: ARPaymentsType;
+    payments?: Array<ARPaymentType>;
     /**
      * 
      * @type {ProfileId}
@@ -135,10 +135,10 @@ export function ARAccountInvoicesPaymentsTypeFromJSONTyped(json: any, ignoreDisc
         'accountName': !exists(json, 'accountName') ? undefined : json['accountName'],
         'accountNo': !exists(json, 'accountNo') ? undefined : json['accountNo'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'invoices': !exists(json, 'invoices') ? undefined : ARInvoicesTypeFromJSON(json['invoices']),
+        'invoices': !exists(json, 'invoices') ? undefined : ((json['invoices'] as Array<any>).map(ARInvoiceTypeFromJSON)),
         'monthEndCalcYN': !exists(json, 'monthEndCalcYN') ? undefined : json['monthEndCalcYN'],
         'paymentDueDays': !exists(json, 'paymentDueDays') ? undefined : json['paymentDueDays'],
-        'payments': !exists(json, 'payments') ? undefined : ARPaymentsTypeFromJSON(json['payments']),
+        'payments': !exists(json, 'payments') ? undefined : ((json['payments'] as Array<any>).map(ARPaymentTypeFromJSON)),
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
         'summary': !exists(json, 'summary') ? undefined : ARBalanceTypeFromJSON(json['summary']),
     };
@@ -157,10 +157,10 @@ export function ARAccountInvoicesPaymentsTypeToJSON(value?: ARAccountInvoicesPay
         'accountName': value.accountName,
         'accountNo': value.accountNo,
         'hotelId': value.hotelId,
-        'invoices': ARInvoicesTypeToJSON(value.invoices),
+        'invoices': value.invoices === undefined ? undefined : ((value.invoices as Array<any>).map(ARInvoiceTypeToJSON)),
         'monthEndCalcYN': value.monthEndCalcYN,
         'paymentDueDays': value.paymentDueDays,
-        'payments': ARPaymentsTypeToJSON(value.payments),
+        'payments': value.payments === undefined ? undefined : ((value.payments as Array<any>).map(ARPaymentTypeToJSON)),
         'profileId': ProfileIdToJSON(value.profileId),
         'summary': ARBalanceTypeToJSON(value.summary),
     };

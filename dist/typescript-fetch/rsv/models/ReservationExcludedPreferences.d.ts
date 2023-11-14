@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ExcludedPreferencesType } from './ExcludedPreferencesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ExcludedPreferenceType } from './ExcludedPreferenceType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for the excluded preferences request.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ReservationExcludedPreferences {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationExcludedPreferences
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ExcludedPreferencesType}
+     * Collection of excluded preferences for a particular preference of a reservation.
+     * @type {Array<ExcludedPreferenceType>}
      * @memberof ReservationExcludedPreferences
      */
-    reservationExcludedPreferences?: ExcludedPreferencesType;
+    reservationExcludedPreferences?: Array<ExcludedPreferenceType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationExcludedPreferences
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationExcludedPreferences interface.

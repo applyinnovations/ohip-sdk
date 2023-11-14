@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CateringPackageListType } from './CateringPackageListType';
+import type { CateringPackageType } from './CateringPackageType';
 import {
-    CateringPackageListTypeFromJSON,
-    CateringPackageListTypeFromJSONTyped,
-    CateringPackageListTypeToJSON,
-} from './CateringPackageListType';
-import type { Links } from './Links';
+    CateringPackageTypeFromJSON,
+    CateringPackageTypeFromJSONTyped,
+    CateringPackageTypeToJSON,
+} from './CateringPackageType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface CateringPackage {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringPackage
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {CateringPackageListType}
+     * Collection of multiple Catering Packages.
+     * @type {Array<CateringPackageType>}
      * @memberof CateringPackage
      */
-    pkgTmplts?: CateringPackageListType;
+    pkgTmplts?: Array<CateringPackageType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringPackage
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CateringPackageFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'pkgTmplts': !exists(json, 'pkgTmplts') ? undefined : CateringPackageListTypeFromJSON(json['pkgTmplts']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'pkgTmplts': !exists(json, 'pkgTmplts') ? undefined : ((json['pkgTmplts'] as Array<any>).map(CateringPackageTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CateringPackageToJSON(value?: CateringPackage | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'pkgTmplts': CateringPackageListTypeToJSON(value.pkgTmplts),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'pkgTmplts': value.pkgTmplts === undefined ? undefined : ((value.pkgTmplts as Array<any>).map(CateringPackageTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

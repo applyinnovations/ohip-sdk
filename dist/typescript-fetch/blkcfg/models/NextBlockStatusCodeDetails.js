@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NextBlockStatusCodeDetailsToJSON = exports.NextBlockStatusCodeDetailsFromJSONTyped = exports.NextBlockStatusCodeDetailsFromJSON = exports.instanceOfNextBlockStatusCodeDetails = void 0;
 const runtime_1 = require("../runtime");
-const BlockStatusCodeListType_1 = require("./BlockStatusCodeListType");
-const Links_1 = require("./Links");
-const NextBlockStatusCodeListType_1 = require("./NextBlockStatusCodeListType");
-const WarningsType_1 = require("./WarningsType");
+const BlockStatusCodeType_1 = require("./BlockStatusCodeType");
+const InstanceLink_1 = require("./InstanceLink");
+const NextBlockStatusCodeType_1 = require("./NextBlockStatusCodeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the NextBlockStatusCodeDetails interface.
  */
@@ -36,10 +36,10 @@ function NextBlockStatusCodeDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blockStatusCodeMasterList': !(0, runtime_1.exists)(json, 'blockStatusCodeMasterList') ? undefined : (0, BlockStatusCodeListType_1.BlockStatusCodeListTypeFromJSON)(json['blockStatusCodeMasterList']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'nextBlockStatusCodeList': !(0, runtime_1.exists)(json, 'nextBlockStatusCodeList') ? undefined : (0, NextBlockStatusCodeListType_1.NextBlockStatusCodeListTypeFromJSON)(json['nextBlockStatusCodeList']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'blockStatusCodeMasterList': !(0, runtime_1.exists)(json, 'blockStatusCodeMasterList') ? undefined : (json['blockStatusCodeMasterList'].map(BlockStatusCodeType_1.BlockStatusCodeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'nextBlockStatusCodeList': !(0, runtime_1.exists)(json, 'nextBlockStatusCodeList') ? undefined : (json['nextBlockStatusCodeList'].map(NextBlockStatusCodeType_1.NextBlockStatusCodeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.NextBlockStatusCodeDetailsFromJSONTyped = NextBlockStatusCodeDetailsFromJSONTyped;
@@ -51,10 +51,10 @@ function NextBlockStatusCodeDetailsToJSON(value) {
         return null;
     }
     return {
-        'blockStatusCodeMasterList': (0, BlockStatusCodeListType_1.BlockStatusCodeListTypeToJSON)(value.blockStatusCodeMasterList),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'nextBlockStatusCodeList': (0, NextBlockStatusCodeListType_1.NextBlockStatusCodeListTypeToJSON)(value.nextBlockStatusCodeList),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'blockStatusCodeMasterList': value.blockStatusCodeMasterList === undefined ? undefined : (value.blockStatusCodeMasterList.map(BlockStatusCodeType_1.BlockStatusCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'nextBlockStatusCodeList': value.nextBlockStatusCodeList === undefined ? undefined : (value.nextBlockStatusCodeList.map(NextBlockStatusCodeType_1.NextBlockStatusCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.NextBlockStatusCodeDetailsToJSON = NextBlockStatusCodeDetailsToJSON;

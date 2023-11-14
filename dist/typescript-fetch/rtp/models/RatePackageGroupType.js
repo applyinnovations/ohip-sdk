@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RatePackageGroupTypeToJSON = exports.RatePackageGroupTypeFromJSONTyped = exports.RatePackageGroupTypeFromJSON = exports.instanceOfRatePackageGroupType = void 0;
 const runtime_1 = require("../runtime");
-const RatePackageCodeListType_1 = require("./RatePackageCodeListType");
+const RatePackageCodeType_1 = require("./RatePackageCodeType");
 /**
  * Check if a given object implements the RatePackageGroupType interface.
  */
@@ -35,7 +35,7 @@ function RatePackageGroupTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
-        'packages': !(0, runtime_1.exists)(json, 'packages') ? undefined : (0, RatePackageCodeListType_1.RatePackageCodeListTypeFromJSON)(json['packages']),
+        'packages': !(0, runtime_1.exists)(json, 'packages') ? undefined : (json['packages'].map(RatePackageCodeType_1.RatePackageCodeTypeFromJSON)),
         'sellSeparate': !(0, runtime_1.exists)(json, 'sellSeparate') ? undefined : json['sellSeparate'],
         'shortDescription': !(0, runtime_1.exists)(json, 'shortDescription') ? undefined : json['shortDescription'],
         'webBookable': !(0, runtime_1.exists)(json, 'webBookable') ? undefined : json['webBookable'],
@@ -52,7 +52,7 @@ function RatePackageGroupTypeToJSON(value) {
     return {
         'code': value.code,
         'description': value.description,
-        'packages': (0, RatePackageCodeListType_1.RatePackageCodeListTypeToJSON)(value.packages),
+        'packages': value.packages === undefined ? undefined : (value.packages.map(RatePackageCodeType_1.RatePackageCodeTypeToJSON)),
         'sellSeparate': value.sellSeparate,
         'shortDescription': value.shortDescription,
         'webBookable': value.webBookable,

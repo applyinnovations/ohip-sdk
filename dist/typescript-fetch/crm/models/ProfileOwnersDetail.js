@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfileOwnersDetailToJSON = exports.ProfileOwnersDetailFromJSONTyped = exports.ProfileOwnersDetailFromJSON = exports.instanceOfProfileOwnersDetail = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const OwnersType_1 = require("./OwnersType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const OwnerType_1 = require("./OwnerType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ProfileOwnersDetail interface.
  */
@@ -35,9 +35,9 @@ function ProfileOwnersDetailFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'profileOwnersList': !(0, runtime_1.exists)(json, 'profileOwnersList') ? undefined : (0, OwnersType_1.OwnersTypeFromJSON)(json['profileOwnersList']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'profileOwnersList': !(0, runtime_1.exists)(json, 'profileOwnersList') ? undefined : (json['profileOwnersList'].map(OwnerType_1.OwnerTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ProfileOwnersDetailFromJSONTyped = ProfileOwnersDetailFromJSONTyped;
@@ -49,9 +49,9 @@ function ProfileOwnersDetailToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'profileOwnersList': (0, OwnersType_1.OwnersTypeToJSON)(value.profileOwnersList),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'profileOwnersList': value.profileOwnersList === undefined ? undefined : (value.profileOwnersList.map(OwnerType_1.OwnerTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ProfileOwnersDetailToJSON = ProfileOwnersDetailToJSON;

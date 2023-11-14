@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomTypeTemplateSummaryType } from './RoomTypeTemplateSummaryType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomTypeSummaryType } from './RoomTypeSummaryType';
 import {
-    RoomTypeTemplateSummaryTypeFromJSON,
-    RoomTypeTemplateSummaryTypeFromJSONTyped,
-    RoomTypeTemplateSummaryTypeToJSON,
-} from './RoomTypeTemplateSummaryType';
-import type { RoomTypeTemplateType } from './RoomTypeTemplateType';
+    RoomTypeSummaryTypeFromJSON,
+    RoomTypeSummaryTypeFromJSONTyped,
+    RoomTypeSummaryTypeToJSON,
+} from './RoomTypeSummaryType';
+import type { RoomTypeType } from './RoomTypeType';
 import {
-    RoomTypeTemplateTypeFromJSON,
-    RoomTypeTemplateTypeFromJSONTyped,
-    RoomTypeTemplateTypeToJSON,
-} from './RoomTypeTemplateType';
-import type { WarningsType } from './WarningsType';
+    RoomTypeTypeFromJSON,
+    RoomTypeTypeFromJSONTyped,
+    RoomTypeTypeToJSON,
+} from './RoomTypeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for information regarding room type template of a property.
@@ -64,10 +64,10 @@ export interface RoomTypeTemplatesDetails {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomTypeTemplatesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -75,17 +75,17 @@ export interface RoomTypeTemplatesDetails {
      */
     offset?: number;
     /**
-     * 
-     * @type {RoomTypeTemplateType}
+     * This type holds collection of room type.
+     * @type {Array<RoomTypeType>}
      * @memberof RoomTypeTemplatesDetails
      */
-    roomTypeTemplates?: RoomTypeTemplateType;
+    roomTypeTemplates?: Array<RoomTypeType>;
     /**
-     * 
-     * @type {RoomTypeTemplateSummaryType}
+     * This type holds collection of room type.
+     * @type {Array<RoomTypeSummaryType>}
      * @memberof RoomTypeTemplatesDetails
      */
-    roomTypeTemplatesSummary?: RoomTypeTemplateSummaryType;
+    roomTypeTemplatesSummary?: Array<RoomTypeSummaryType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -99,11 +99,11 @@ export interface RoomTypeTemplatesDetails {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomTypeTemplatesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -128,13 +128,13 @@ export function RoomTypeTemplatesDetailsFromJSONTyped(json: any, ignoreDiscrimin
         'count': !exists(json, 'count') ? undefined : json['count'],
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
-        'roomTypeTemplates': !exists(json, 'roomTypeTemplates') ? undefined : RoomTypeTemplateTypeFromJSON(json['roomTypeTemplates']),
-        'roomTypeTemplatesSummary': !exists(json, 'roomTypeTemplatesSummary') ? undefined : RoomTypeTemplateSummaryTypeFromJSON(json['roomTypeTemplatesSummary']),
+        'roomTypeTemplates': !exists(json, 'roomTypeTemplates') ? undefined : ((json['roomTypeTemplates'] as Array<any>).map(RoomTypeTypeFromJSON)),
+        'roomTypeTemplatesSummary': !exists(json, 'roomTypeTemplatesSummary') ? undefined : ((json['roomTypeTemplatesSummary'] as Array<any>).map(RoomTypeSummaryTypeFromJSON)),
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -150,13 +150,13 @@ export function RoomTypeTemplatesDetailsToJSON(value?: RoomTypeTemplatesDetails 
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
-        'roomTypeTemplates': RoomTypeTemplateTypeToJSON(value.roomTypeTemplates),
-        'roomTypeTemplatesSummary': RoomTypeTemplateSummaryTypeToJSON(value.roomTypeTemplatesSummary),
+        'roomTypeTemplates': value.roomTypeTemplates === undefined ? undefined : ((value.roomTypeTemplates as Array<any>).map(RoomTypeTypeToJSON)),
+        'roomTypeTemplatesSummary': value.roomTypeTemplatesSummary === undefined ? undefined : ((value.roomTypeTemplatesSummary as Array<any>).map(RoomTypeSummaryTypeToJSON)),
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

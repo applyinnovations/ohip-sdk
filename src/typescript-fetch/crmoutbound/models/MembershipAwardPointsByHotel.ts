@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipAwardPointsByHotelType } from './MembershipAwardPointsByHotelType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipAwardPointByHotelType } from './MembershipAwardPointByHotelType';
 import {
-    MembershipAwardPointsByHotelTypeFromJSON,
-    MembershipAwardPointsByHotelTypeFromJSONTyped,
-    MembershipAwardPointsByHotelTypeToJSON,
-} from './MembershipAwardPointsByHotelType';
+    MembershipAwardPointByHotelTypeFromJSON,
+    MembershipAwardPointByHotelTypeFromJSONTyped,
+    MembershipAwardPointByHotelTypeToJSON,
+} from './MembershipAwardPointByHotelType';
 
 /**
  * Response object for fetching member award points by Hotel.
@@ -33,17 +33,17 @@ import {
  */
 export interface MembershipAwardPointsByHotel {
     /**
-     * 
-     * @type {MembershipAwardPointsByHotelType}
+     * List of available award points information by Hotel.
+     * @type {Array<MembershipAwardPointByHotelType>}
      * @memberof MembershipAwardPointsByHotel
      */
-    membershipAwardPoints?: MembershipAwardPointsByHotelType;
+    membershipAwardPoints?: Array<MembershipAwardPointByHotelType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipAwardPointsByHotel
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function MembershipAwardPointsByHotelFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'membershipAwardPoints': !exists(json, 'membershipAwardPoints') ? undefined : MembershipAwardPointsByHotelTypeFromJSON(json['membershipAwardPoints']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'membershipAwardPoints': !exists(json, 'membershipAwardPoints') ? undefined : ((json['membershipAwardPoints'] as Array<any>).map(MembershipAwardPointByHotelTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function MembershipAwardPointsByHotelToJSON(value?: MembershipAwardPoints
     }
     return {
         
-        'membershipAwardPoints': MembershipAwardPointsByHotelTypeToJSON(value.membershipAwardPoints),
-        'links': LinksToJSON(value.links),
+        'membershipAwardPoints': value.membershipAwardPoints === undefined ? undefined : ((value.membershipAwardPoints as Array<any>).map(MembershipAwardPointByHotelTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

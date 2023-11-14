@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ProfileStayDetailsType } from './ProfileStayDetailsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for showing stay history and future reservations of specific profile.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ProfileStayHistory {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileStayHistory
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ProfileStayDetailsType}
@@ -31,11 +31,11 @@ export interface ProfileStayHistory {
      */
     profileStayDetails?: ProfileStayDetailsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileStayHistory
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileStayHistory interface.

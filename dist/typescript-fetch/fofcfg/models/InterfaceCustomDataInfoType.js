@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InterfaceCustomDataInfoTypeToJSON = exports.InterfaceCustomDataInfoTypeFromJSONTyped = exports.InterfaceCustomDataInfoTypeFromJSON = exports.instanceOfInterfaceCustomDataInfoType = void 0;
 const runtime_1 = require("../runtime");
-const InterfaceCustomDataDetailsType_1 = require("./InterfaceCustomDataDetailsType");
+const InterfaceCustomDataDetailType_1 = require("./InterfaceCustomDataDetailType");
 /**
  * Check if a given object implements the InterfaceCustomDataInfoType interface.
  */
@@ -35,7 +35,7 @@ function InterfaceCustomDataInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'exportAsXml': !(0, runtime_1.exists)(json, 'exportAsXml') ? undefined : json['exportAsXml'],
         'includeDoorcardField': !(0, runtime_1.exists)(json, 'includeDoorcardField') ? undefined : json['includeDoorcardField'],
-        'interfaceCustomDataDetails': !(0, runtime_1.exists)(json, 'interfaceCustomDataDetails') ? undefined : (0, InterfaceCustomDataDetailsType_1.InterfaceCustomDataDetailsTypeFromJSON)(json['interfaceCustomDataDetails']),
+        'interfaceCustomDataDetails': !(0, runtime_1.exists)(json, 'interfaceCustomDataDetails') ? undefined : (json['interfaceCustomDataDetails'].map(InterfaceCustomDataDetailType_1.InterfaceCustomDataDetailTypeFromJSON)),
     };
 }
 exports.InterfaceCustomDataInfoTypeFromJSONTyped = InterfaceCustomDataInfoTypeFromJSONTyped;
@@ -49,7 +49,7 @@ function InterfaceCustomDataInfoTypeToJSON(value) {
     return {
         'exportAsXml': value.exportAsXml,
         'includeDoorcardField': value.includeDoorcardField,
-        'interfaceCustomDataDetails': (0, InterfaceCustomDataDetailsType_1.InterfaceCustomDataDetailsTypeToJSON)(value.interfaceCustomDataDetails),
+        'interfaceCustomDataDetails': value.interfaceCustomDataDetails === undefined ? undefined : (value.interfaceCustomDataDetails.map(InterfaceCustomDataDetailType_1.InterfaceCustomDataDetailTypeToJSON)),
     };
 }
 exports.InterfaceCustomDataInfoTypeToJSON = InterfaceCustomDataInfoTypeToJSON;

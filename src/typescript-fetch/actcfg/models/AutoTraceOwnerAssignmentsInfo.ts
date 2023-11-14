@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AutoTraceOwnerAssignmentListType } from './AutoTraceOwnerAssignmentListType';
+import type { AutoTraceOwnerAssignmentType } from './AutoTraceOwnerAssignmentType';
 import {
-    AutoTraceOwnerAssignmentListTypeFromJSON,
-    AutoTraceOwnerAssignmentListTypeFromJSONTyped,
-    AutoTraceOwnerAssignmentListTypeToJSON,
-} from './AutoTraceOwnerAssignmentListType';
-import type { WarningsType } from './WarningsType';
+    AutoTraceOwnerAssignmentTypeFromJSON,
+    AutoTraceOwnerAssignmentTypeFromJSONTyped,
+    AutoTraceOwnerAssignmentTypeToJSON,
+} from './AutoTraceOwnerAssignmentType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating/changing trace owner assignments.
@@ -33,17 +33,17 @@ import {
  */
 export interface AutoTraceOwnerAssignmentsInfo {
     /**
-     * 
-     * @type {AutoTraceOwnerAssignmentListType}
+     * Detailed information of trace owner assignment.
+     * @type {Array<AutoTraceOwnerAssignmentType>}
      * @memberof AutoTraceOwnerAssignmentsInfo
      */
-    autoTraceOwnerAssignments?: AutoTraceOwnerAssignmentListType;
+    autoTraceOwnerAssignments?: Array<AutoTraceOwnerAssignmentType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoTraceOwnerAssignmentsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function AutoTraceOwnerAssignmentsInfoFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'autoTraceOwnerAssignments': !exists(json, 'autoTraceOwnerAssignments') ? undefined : AutoTraceOwnerAssignmentListTypeFromJSON(json['autoTraceOwnerAssignments']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'autoTraceOwnerAssignments': !exists(json, 'autoTraceOwnerAssignments') ? undefined : ((json['autoTraceOwnerAssignments'] as Array<any>).map(AutoTraceOwnerAssignmentTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function AutoTraceOwnerAssignmentsInfoToJSON(value?: AutoTraceOwnerAssign
     }
     return {
         
-        'autoTraceOwnerAssignments': AutoTraceOwnerAssignmentListTypeToJSON(value.autoTraceOwnerAssignments),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'autoTraceOwnerAssignments': value.autoTraceOwnerAssignments === undefined ? undefined : ((value.autoTraceOwnerAssignments as Array<any>).map(AutoTraceOwnerAssignmentTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-
 /**
  * The selected property Rate Codes for update.
  * @export
@@ -28,16 +21,16 @@ import {
 export interface PublishRatePlanTypeHotelCodes {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PublishRatePlanTypeHotelCodes
      */
-    ratePlanCodes?: CodeListType;
+    ratePlanCodes?: Array<string>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PublishRatePlanTypeHotelCodes
      */
-    roomTypes?: CodeListType;
+    roomTypes?: Array<string>;
 }
 
 /**
@@ -59,8 +52,8 @@ export function PublishRatePlanTypeHotelCodesFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'ratePlanCodes': !exists(json, 'ratePlanCodes') ? undefined : CodeListTypeFromJSON(json['ratePlanCodes']),
-        'roomTypes': !exists(json, 'roomTypes') ? undefined : CodeListTypeFromJSON(json['roomTypes']),
+        'ratePlanCodes': !exists(json, 'ratePlanCodes') ? undefined : json['ratePlanCodes'],
+        'roomTypes': !exists(json, 'roomTypes') ? undefined : json['roomTypes'],
     };
 }
 
@@ -73,8 +66,8 @@ export function PublishRatePlanTypeHotelCodesToJSON(value?: PublishRatePlanTypeH
     }
     return {
         
-        'ratePlanCodes': CodeListTypeToJSON(value.ratePlanCodes),
-        'roomTypes': CodeListTypeToJSON(value.roomTypes),
+        'ratePlanCodes': value.ratePlanCodes,
+        'roomTypes': value.roomTypes,
     };
 }
 

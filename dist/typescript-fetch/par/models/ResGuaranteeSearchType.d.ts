@@ -11,7 +11,7 @@
  */
 import type { BlockId } from './BlockId';
 import type { CurrencyAmountType } from './CurrencyAmountType';
-import type { ResAttachedProfileListType } from './ResAttachedProfileListType';
+import type { ResAttachedProfileType } from './ResAttachedProfileType';
 import type { ResGuaranteeFetchInstructionsType } from './ResGuaranteeFetchInstructionsType';
 import type { ReservationPackageType } from './ReservationPackageType';
 import type { RoomStaySearchType } from './RoomStaySearchType';
@@ -60,10 +60,10 @@ export interface ResGuaranteeSearchType {
     ratePlanCode?: string;
     /**
      *
-     * @type {ResAttachedProfileListType}
+     * @type {Array<ResAttachedProfileType>}
      * @memberof ResGuaranteeSearchType
      */
-    resAttachedProfiles?: ResAttachedProfileListType;
+    resAttachedProfiles?: Array<ResAttachedProfileType>;
     /**
      *
      * @type {UniqueIDType}

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GuestMessageCodesType } from './GuestMessageCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { GuestMessageCodeType } from './GuestMessageCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating a new guest message.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface GuestMessages {
     /**
-     *
-     * @type {GuestMessageCodesType}
+     * Collection of guest messages with attached guest message types.
+     * @type {Array<GuestMessageCodeType>}
      * @memberof GuestMessages
      */
-    guestMessages?: GuestMessageCodesType;
+    guestMessages?: Array<GuestMessageCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuestMessages
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuestMessages
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GuestMessages interface.

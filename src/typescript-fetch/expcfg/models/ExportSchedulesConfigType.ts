@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ExportSchedulesType } from './ExportSchedulesType';
+import type { ExportScheduleType } from './ExportScheduleType';
 import {
-    ExportSchedulesTypeFromJSON,
-    ExportSchedulesTypeFromJSONTyped,
-    ExportSchedulesTypeToJSON,
-} from './ExportSchedulesType';
+    ExportScheduleTypeFromJSON,
+    ExportScheduleTypeFromJSONTyped,
+    ExportScheduleTypeToJSON,
+} from './ExportScheduleType';
 
 /**
  * Export schedules information that are required to configure schedules
@@ -27,11 +27,11 @@ import {
  */
 export interface ExportSchedulesConfigType {
     /**
-     * 
-     * @type {ExportSchedulesType}
+     * Export Schedule
+     * @type {Array<ExportScheduleType>}
      * @memberof ExportSchedulesConfigType
      */
-    exportSchedules?: ExportSchedulesType;
+    exportSchedules?: Array<ExportScheduleType>;
     /**
      * Time zone hour and minute specified in the format TZH:TZM example:-05:00
      * @type {string}
@@ -59,7 +59,7 @@ export function ExportSchedulesConfigTypeFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'exportSchedules': !exists(json, 'exportSchedules') ? undefined : ExportSchedulesTypeFromJSON(json['exportSchedules']),
+        'exportSchedules': !exists(json, 'exportSchedules') ? undefined : ((json['exportSchedules'] as Array<any>).map(ExportScheduleTypeFromJSON)),
         'timeZone': !exists(json, 'timeZone') ? undefined : json['timeZone'],
     };
 }
@@ -73,7 +73,7 @@ export function ExportSchedulesConfigTypeToJSON(value?: ExportSchedulesConfigTyp
     }
     return {
         
-        'exportSchedules': ExportSchedulesTypeToJSON(value.exportSchedules),
+        'exportSchedules': value.exportSchedules === undefined ? undefined : ((value.exportSchedules as Array<any>).map(ExportScheduleTypeToJSON)),
         'timeZone': value.timeZone,
     };
 }

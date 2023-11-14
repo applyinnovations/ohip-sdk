@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockSalesAllowanceListType } from './BlockSalesAllowanceListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BlockSalesAllowanceType } from './BlockSalesAllowanceType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for FetchBlockSalesAllowance operation which will contain all the information of sales allowance.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface BlockSalesAllowance {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockSalesAllowance
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {BlockSalesAllowanceListType}
+     * Block's sales allowance information.
+     * @type {Array<BlockSalesAllowanceType>}
      * @memberof BlockSalesAllowance
      */
-    salesAllowances?: BlockSalesAllowanceListType;
+    salesAllowances?: Array<BlockSalesAllowanceType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockSalesAllowance
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockSalesAllowance interface.

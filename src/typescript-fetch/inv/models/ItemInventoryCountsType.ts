@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DailyItemInventoryCountsListType } from './DailyItemInventoryCountsListType';
+import type { DailyItemInventoryCountsType } from './DailyItemInventoryCountsType';
 import {
-    DailyItemInventoryCountsListTypeFromJSON,
-    DailyItemInventoryCountsListTypeFromJSONTyped,
-    DailyItemInventoryCountsListTypeToJSON,
-} from './DailyItemInventoryCountsListType';
+    DailyItemInventoryCountsTypeFromJSON,
+    DailyItemInventoryCountsTypeFromJSONTyped,
+    DailyItemInventoryCountsTypeToJSON,
+} from './DailyItemInventoryCountsType';
 import type { TimeSpanType } from './TimeSpanType';
 import {
     TimeSpanTypeFromJSON,
@@ -69,11 +69,11 @@ export interface ItemInventoryCountsType {
      */
     fixedCharge?: boolean;
     /**
-     * 
-     * @type {DailyItemInventoryCountsListType}
+     * Inventory counts for the given date.
+     * @type {Array<DailyItemInventoryCountsType>}
      * @memberof ItemInventoryCountsType
      */
-    inventories?: DailyItemInventoryCountsListType;
+    inventories?: Array<DailyItemInventoryCountsType>;
     /**
      * ID reference for the hold Item
      * @type {number}
@@ -160,7 +160,7 @@ export function ItemInventoryCountsTypeFromJSONTyped(json: any, ignoreDiscrimina
         'defaultDuration': !exists(json, 'defaultDuration') ? undefined : json['defaultDuration'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'fixedCharge': !exists(json, 'fixedCharge') ? undefined : json['fixedCharge'],
-        'inventories': !exists(json, 'inventories') ? undefined : DailyItemInventoryCountsListTypeFromJSON(json['inventories']),
+        'inventories': !exists(json, 'inventories') ? undefined : ((json['inventories'] as Array<any>).map(DailyItemInventoryCountsTypeFromJSON)),
         'itemHoldId': !exists(json, 'itemHoldId') ? undefined : json['itemHoldId'],
         'itemPool': !exists(json, 'itemPool') ? undefined : json['itemPool'],
         'name': !exists(json, 'name') ? undefined : json['name'],
@@ -188,7 +188,7 @@ export function ItemInventoryCountsTypeToJSON(value?: ItemInventoryCountsType | 
         'defaultDuration': value.defaultDuration,
         'description': value.description,
         'fixedCharge': value.fixedCharge,
-        'inventories': DailyItemInventoryCountsListTypeToJSON(value.inventories),
+        'inventories': value.inventories === undefined ? undefined : ((value.inventories as Array<any>).map(DailyItemInventoryCountsTypeToJSON)),
         'itemHoldId': value.itemHoldId,
         'itemPool': value.itemPool,
         'name': value.name,

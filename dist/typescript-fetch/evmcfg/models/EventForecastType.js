@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.EventForecastTypeToJSON = exports.EventForecastTypeFromJSONTyped = exports.EventForecastTypeFromJSON = exports.instanceOfEventForecastType = void 0;
 const runtime_1 = require("../runtime");
 const EventForecastInfoType_1 = require("./EventForecastInfoType");
-const EventForecastRevDetailListType_1 = require("./EventForecastRevDetailListType");
+const EventForecastRevDetailType_1 = require("./EventForecastRevDetailType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the EventForecastType interface.
@@ -38,7 +38,7 @@ function EventForecastTypeFromJSONTyped(json, ignoreDiscriminator) {
         'forecastId': !(0, runtime_1.exists)(json, 'forecastId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['forecastId']),
         'forecastInfo': !(0, runtime_1.exists)(json, 'forecastInfo') ? undefined : (json['forecastInfo'].map(EventForecastInfoType_1.EventForecastInfoTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'revenueDetails': !(0, runtime_1.exists)(json, 'revenueDetails') ? undefined : (0, EventForecastRevDetailListType_1.EventForecastRevDetailListTypeFromJSON)(json['revenueDetails']),
+        'revenueDetails': !(0, runtime_1.exists)(json, 'revenueDetails') ? undefined : (json['revenueDetails'].map(EventForecastRevDetailType_1.EventForecastRevDetailTypeFromJSON)),
     };
 }
 exports.EventForecastTypeFromJSONTyped = EventForecastTypeFromJSONTyped;
@@ -53,7 +53,7 @@ function EventForecastTypeToJSON(value) {
         'forecastId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.forecastId),
         'forecastInfo': value.forecastInfo === undefined ? undefined : (value.forecastInfo.map(EventForecastInfoType_1.EventForecastInfoTypeToJSON)),
         'hotelId': value.hotelId,
-        'revenueDetails': (0, EventForecastRevDetailListType_1.EventForecastRevDetailListTypeToJSON)(value.revenueDetails),
+        'revenueDetails': value.revenueDetails === undefined ? undefined : (value.revenueDetails.map(EventForecastRevDetailType_1.EventForecastRevDetailTypeToJSON)),
     };
 }
 exports.EventForecastTypeToJSON = EventForecastTypeToJSON;

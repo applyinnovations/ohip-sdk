@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ProfileIdList } from './ProfileIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -51,11 +51,11 @@ export interface ResAccompanyGuestInfoType {
      */
     registrationCardNo?: string;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ResAccompanyGuestInfoType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -81,7 +81,7 @@ export function ResAccompanyGuestInfoTypeFromJSONTyped(json: any, ignoreDiscrimi
         'lastName': !exists(json, 'lastName') ? undefined : json['lastName'],
         'fullName': !exists(json, 'fullName') ? undefined : json['fullName'],
         'registrationCardNo': !exists(json, 'registrationCardNo') ? undefined : json['registrationCardNo'],
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -98,7 +98,7 @@ export function ResAccompanyGuestInfoTypeToJSON(value?: ResAccompanyGuestInfoTyp
         'lastName': value.lastName,
         'fullName': value.fullName,
         'registrationCardNo': value.registrationCardNo,
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

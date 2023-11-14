@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyCateringEventsToJSON = exports.CopyCateringEventsFromJSONTyped = exports.CopyCateringEventsFromJSON = exports.instanceOfCopyCateringEvents = void 0;
 const runtime_1 = require("../runtime");
 const CopyCateringEventsType_1 = require("./CopyCateringEventsType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CopyCateringEvents interface.
  */
@@ -35,7 +35,7 @@ function CopyCateringEventsFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'criteria': !(0, runtime_1.exists)(json, 'criteria') ? undefined : (0, CopyCateringEventsType_1.CopyCateringEventsTypeFromJSON)(json['criteria']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CopyCateringEventsFromJSONTyped = CopyCateringEventsFromJSONTyped;
@@ -48,7 +48,7 @@ function CopyCateringEventsToJSON(value) {
     }
     return {
         'criteria': (0, CopyCateringEventsType_1.CopyCateringEventsTypeToJSON)(value.criteria),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CopyCateringEventsToJSON = CopyCateringEventsToJSON;

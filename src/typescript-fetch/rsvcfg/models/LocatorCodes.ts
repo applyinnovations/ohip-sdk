@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { LocatorCodesType } from './LocatorCodesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { LocatorCodeType } from './LocatorCodeType';
 import {
-    LocatorCodesTypeFromJSON,
-    LocatorCodesTypeFromJSONTyped,
-    LocatorCodesTypeToJSON,
-} from './LocatorCodesType';
-import type { WarningsType } from './WarningsType';
+    LocatorCodeTypeFromJSON,
+    LocatorCodeTypeFromJSONTyped,
+    LocatorCodeTypeToJSON,
+} from './LocatorCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for modifying an existing locator code.
@@ -40,22 +40,22 @@ import {
 export interface LocatorCodes {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof LocatorCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {LocatorCodesType}
+     * Collection of locator codes.
+     * @type {Array<LocatorCodeType>}
      * @memberof LocatorCodes
      */
-    locatorCodes?: LocatorCodesType;
+    locatorCodes?: Array<LocatorCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof LocatorCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function LocatorCodesFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'locatorCodes': !exists(json, 'locatorCodes') ? undefined : LocatorCodesTypeFromJSON(json['locatorCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'locatorCodes': !exists(json, 'locatorCodes') ? undefined : ((json['locatorCodes'] as Array<any>).map(LocatorCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function LocatorCodesToJSON(value?: LocatorCodes | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'locatorCodes': LocatorCodesTypeToJSON(value.locatorCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'locatorCodes': value.locatorCodes === undefined ? undefined : ((value.locatorCodes as Array<any>).map(LocatorCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { RoomKeyGuest } from './RoomKeyGuest';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Short room key information containing  information about the multiple guests and room key options .
  * @export
@@ -24,11 +24,11 @@ export interface RoomKeyMultipleGuests {
      */
     keyOptions?: string;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RoomKeyMultipleGuests
      */
-    reservationIdList?: UniqueIDListType;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * Collection of of Room key guests for multiple guest room key functionality.
      * @type {Array<RoomKeyGuest>}

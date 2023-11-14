@@ -11,8 +11,8 @@
  */
 import type { ChannelRateMappingMasterInfoType } from './ChannelRateMappingMasterInfoType';
 import type { ChannelRateMappingsType } from './ChannelRateMappingsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching hotel-channel rate code mappings given search criteria including hotel codes, booking channel codes, rate codes, channel rate codes, etc.
  * @export
@@ -27,10 +27,10 @@ export interface ChannelRateMappings {
     channelRateMappings?: ChannelRateMappingsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelRateMappings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ChannelRateMappingMasterInfoType}
@@ -38,11 +38,11 @@ export interface ChannelRateMappings {
      */
     masterInfo?: ChannelRateMappingMasterInfoType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelRateMappings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelRateMappings interface.

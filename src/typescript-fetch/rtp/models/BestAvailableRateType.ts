@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-
 /**
  * The list of best availabe rates for rates code(s).
  * @export
@@ -40,10 +33,10 @@ export interface BestAvailableRateType {
     lengthOfStay?: number;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof BestAvailableRateType
      */
-    rateCode?: CodeListType;
+    rateCode?: Array<string>;
 }
 
 /**
@@ -67,7 +60,7 @@ export function BestAvailableRateTypeFromJSONTyped(json: any, ignoreDiscriminato
         
         'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
         'lengthOfStay': !exists(json, 'lengthOfStay') ? undefined : json['lengthOfStay'],
-        'rateCode': !exists(json, 'rateCode') ? undefined : CodeListTypeFromJSON(json['rateCode']),
+        'rateCode': !exists(json, 'rateCode') ? undefined : json['rateCode'],
     };
 }
 
@@ -82,7 +75,7 @@ export function BestAvailableRateTypeToJSON(value?: BestAvailableRateType | null
         
         'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
         'lengthOfStay': value.lengthOfStay,
-        'rateCode': CodeListTypeToJSON(value.rateCode),
+        'rateCode': value.rateCode,
     };
 }
 

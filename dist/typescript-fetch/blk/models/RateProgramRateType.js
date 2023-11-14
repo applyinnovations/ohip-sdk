@@ -17,7 +17,6 @@ exports.RateProgramRateTypeToJSON = exports.RateProgramRateTypeFromJSONTyped = e
 const runtime_1 = require("../runtime");
 const BlockGridRatesType_1 = require("./BlockGridRatesType");
 const CodeDescriptionType_1 = require("./CodeDescriptionType");
-const RateProgramRoomType_1 = require("./RateProgramRoomType");
 /**
  * Check if a given object implements the RateProgramRateType interface.
  */
@@ -42,7 +41,7 @@ function RateProgramRateTypeFromJSONTyped(json, ignoreDiscriminator) {
         'rateAmounts': !(0, runtime_1.exists)(json, 'rateAmounts') ? undefined : (0, BlockGridRatesType_1.BlockGridRatesTypeFromJSON)(json['rateAmounts']),
         'rateCode': !(0, runtime_1.exists)(json, 'rateCode') ? undefined : json['rateCode'],
         'rateMarketCode': !(0, runtime_1.exists)(json, 'rateMarketCode') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['rateMarketCode']),
-        'roomTypes': !(0, runtime_1.exists)(json, 'roomTypes') ? undefined : (0, RateProgramRoomType_1.RateProgramRoomTypeFromJSON)(json['roomTypes']),
+        'roomTypes': !(0, runtime_1.exists)(json, 'roomTypes') ? undefined : json['roomTypes'],
         'sequence': !(0, runtime_1.exists)(json, 'sequence') ? undefined : json['sequence'],
         'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
     };
@@ -63,7 +62,7 @@ function RateProgramRateTypeToJSON(value) {
         'rateAmounts': (0, BlockGridRatesType_1.BlockGridRatesTypeToJSON)(value.rateAmounts),
         'rateCode': value.rateCode,
         'rateMarketCode': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.rateMarketCode),
-        'roomTypes': (0, RateProgramRoomType_1.RateProgramRoomTypeToJSON)(value.roomTypes),
+        'roomTypes': value.roomTypes,
         'sequence': value.sequence,
         'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
     };

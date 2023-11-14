@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FiscalRegionsToBeChangedToJSON = exports.FiscalRegionsToBeChangedFromJSONTyped = exports.FiscalRegionsToBeChangedFromJSON = exports.instanceOfFiscalRegionsToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const FiscalRegionsType_1 = require("./FiscalRegionsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const FiscalRegionType_1 = require("./FiscalRegionType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FiscalRegionsToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function FiscalRegionsToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'fiscalRegions': !(0, runtime_1.exists)(json, 'fiscalRegions') ? undefined : (0, FiscalRegionsType_1.FiscalRegionsTypeFromJSON)(json['fiscalRegions']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'fiscalRegions': !(0, runtime_1.exists)(json, 'fiscalRegions') ? undefined : (json['fiscalRegions'].map(FiscalRegionType_1.FiscalRegionTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FiscalRegionsToBeChangedFromJSONTyped = FiscalRegionsToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function FiscalRegionsToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'fiscalRegions': (0, FiscalRegionsType_1.FiscalRegionsTypeToJSON)(value.fiscalRegions),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'fiscalRegions': value.fiscalRegions === undefined ? undefined : (value.fiscalRegions.map(FiscalRegionType_1.FiscalRegionTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FiscalRegionsToBeChangedToJSON = FiscalRegionsToBeChangedToJSON;

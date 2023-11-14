@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NameValueDetailTypeToJSON = exports.NameValueDetailTypeFromJSONTyped = exports.NameValueDetailTypeFromJSON = exports.instanceOfNameValueDetailType = void 0;
 const runtime_1 = require("../runtime");
-const NameValuesType_1 = require("./NameValuesType");
+const NameValueType_1 = require("./NameValueType");
 /**
  * Check if a given object implements the NameValueDetailType interface.
  */
@@ -33,7 +33,7 @@ function NameValueDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'nameValues': !(0, runtime_1.exists)(json, 'nameValues') ? undefined : (0, NameValuesType_1.NameValuesTypeFromJSON)(json['nameValues']),
+        'nameValues': !(0, runtime_1.exists)(json, 'nameValues') ? undefined : (json['nameValues'].map(NameValueType_1.NameValueTypeFromJSON)),
     };
 }
 exports.NameValueDetailTypeFromJSONTyped = NameValueDetailTypeFromJSONTyped;
@@ -45,7 +45,7 @@ function NameValueDetailTypeToJSON(value) {
         return null;
     }
     return {
-        'nameValues': (0, NameValuesType_1.NameValuesTypeToJSON)(value.nameValues),
+        'nameValues': value.nameValues === undefined ? undefined : (value.nameValues.map(NameValueType_1.NameValueTypeToJSON)),
     };
 }
 exports.NameValueDetailTypeToJSON = NameValueDetailTypeToJSON;

@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DailyPlanCodeTypeToJSON = exports.DailyPlanCodeTypeFromJSONTyped = exports.DailyPlanCodeTypeFromJSON = exports.instanceOfDailyPlanCodeType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const TranslationTextType2000_1 = require("./TranslationTextType2000");
 /**
  * Check if a given object implements the DailyPlanCodeType interface.
@@ -40,7 +39,7 @@ function DailyPlanCodeTypeFromJSONTyped(json, ignoreDiscriminator) {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'revenue': !(0, runtime_1.exists)(json, 'revenue') ? undefined : json['revenue'],
         'taxTypeCode': !(0, runtime_1.exists)(json, 'taxTypeCode') ? undefined : json['taxTypeCode'],
-        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['transactionCodes']),
+        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : json['transactionCodes'],
     };
 }
 exports.DailyPlanCodeTypeFromJSONTyped = DailyPlanCodeTypeFromJSONTyped;
@@ -58,7 +57,7 @@ function DailyPlanCodeTypeToJSON(value) {
         'hotelId': value.hotelId,
         'revenue': value.revenue,
         'taxTypeCode': value.taxTypeCode,
-        'transactionCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.transactionCodes),
+        'transactionCodes': value.transactionCodes,
     };
 }
 exports.DailyPlanCodeTypeToJSON = DailyPlanCodeTypeToJSON;

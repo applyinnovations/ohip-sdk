@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ARInvoicesType } from './ARInvoicesType';
+import type { ARInvoiceType } from './ARInvoiceType';
 import type { ReminderCycleType } from './ReminderCycleType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -55,11 +55,11 @@ export interface ARReminderType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {ARInvoicesType}
+     * A collection of AR Invoices.
+     * @type {Array<ARInvoiceType>}
      * @memberof ARReminderType
      */
-    invoices?: ARInvoicesType;
+    invoices?: Array<ARInvoiceType>;
     /**
      * Indicates that reminders history exists.
      * @type {boolean}

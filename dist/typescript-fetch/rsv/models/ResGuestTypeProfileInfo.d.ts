@@ -11,8 +11,8 @@
  */
 import type { ExternalReferenceType } from './ExternalReferenceType';
 import type { ProfileCashieringDetailType } from './ProfileCashieringDetailType';
-import type { ProfileIdList } from './ProfileIdList';
 import type { ProfileType } from './ProfileType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * A collection of Profiles or Unique IDs of Profiles.
  * @export
@@ -38,11 +38,11 @@ export interface ResGuestTypeProfileInfo {
      */
     profileCashieringDetail?: ProfileCashieringDetailType;
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ResGuestTypeProfileInfo
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * Unique identifier of the police registration card number.
      * @type {string}

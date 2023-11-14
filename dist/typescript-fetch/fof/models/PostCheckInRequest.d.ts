@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { CheckedInReservationInstructionType } from './CheckedInReservationInstructionType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationReservation } from './ReservationReservation';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -33,10 +33,10 @@ export interface PostCheckInRequest {
     includeNotifications?: boolean;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostCheckInRequest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationReservation}
@@ -44,11 +44,11 @@ export interface PostCheckInRequest {
      */
     reservation?: ReservationReservation;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostCheckInRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PostCheckInRequest interface.

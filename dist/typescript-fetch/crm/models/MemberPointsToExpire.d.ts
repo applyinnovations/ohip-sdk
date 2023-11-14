@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MemberPointsToExpireListType } from './MemberPointsToExpireListType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MemberPointToExpireType } from './MemberPointToExpireType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching member points to expire information.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MemberPointsToExpire {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MemberPointsToExpire
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MemberPointsToExpireListType}
+     * List of of member points to expire.
+     * @type {Array<MemberPointToExpireType>}
      * @memberof MemberPointsToExpire
      */
-    memberPointsToExpireList?: MemberPointsToExpireListType;
+    memberPointsToExpireList?: Array<MemberPointToExpireType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MemberPointsToExpire
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MemberPointsToExpire interface.

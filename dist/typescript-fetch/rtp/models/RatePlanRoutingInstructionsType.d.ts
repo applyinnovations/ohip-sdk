@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BillingInstructionsType } from './BillingInstructionsType';
+import type { BillingInstructionType } from './BillingInstructionType';
 import type { RoutingProfileTypeType } from './RoutingProfileTypeType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+import type { TrxInfoType } from './TrxInfoType';
 /**
  * Routing fetchInstructions details for a rate plan.
  * @export
@@ -19,11 +19,11 @@ import type { TrxCodesInfoType } from './TrxCodesInfoType';
  */
 export interface RatePlanRoutingInstructionsType {
     /**
-     *
-     * @type {BillingInstructionsType}
+     * Set of Billing Instruction codes.
+     * @type {Array<BillingInstructionType>}
      * @memberof RatePlanRoutingInstructionsType
      */
-    billingInstructions?: BillingInstructionsType;
+    billingInstructions?: Array<BillingInstructionType>;
     /**
      *
      * @type {RoutingProfileTypeType}
@@ -31,11 +31,11 @@ export interface RatePlanRoutingInstructionsType {
      */
     profileType?: RoutingProfileTypeType;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof RatePlanRoutingInstructionsType
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
 }
 /**
  * Check if a given object implements the RatePlanRoutingInstructionsType interface.

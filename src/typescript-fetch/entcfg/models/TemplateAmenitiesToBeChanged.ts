@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ConfigTemplateAmenitiesType } from './ConfigTemplateAmenitiesType';
+import type { ConfigTemplateAmenityType } from './ConfigTemplateAmenityType';
 import {
-    ConfigTemplateAmenitiesTypeFromJSON,
-    ConfigTemplateAmenitiesTypeFromJSONTyped,
-    ConfigTemplateAmenitiesTypeToJSON,
-} from './ConfigTemplateAmenitiesType';
-import type { Links } from './Links';
+    ConfigTemplateAmenityTypeFromJSON,
+    ConfigTemplateAmenityTypeFromJSONTyped,
+    ConfigTemplateAmenityTypeToJSON,
+} from './ConfigTemplateAmenityType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing amenities at the template level.
@@ -40,22 +40,22 @@ import {
 export interface TemplateAmenitiesToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateAmenitiesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ConfigTemplateAmenitiesType}
+     * This type holds a collection of amenities at the template level.
+     * @type {Array<ConfigTemplateAmenityType>}
      * @memberof TemplateAmenitiesToBeChanged
      */
-    templateAmenities?: ConfigTemplateAmenitiesType;
+    templateAmenities?: Array<ConfigTemplateAmenityType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateAmenitiesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateAmenitiesToBeChangedFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'templateAmenities': !exists(json, 'templateAmenities') ? undefined : ConfigTemplateAmenitiesTypeFromJSON(json['templateAmenities']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'templateAmenities': !exists(json, 'templateAmenities') ? undefined : ((json['templateAmenities'] as Array<any>).map(ConfigTemplateAmenityTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateAmenitiesToBeChangedToJSON(value?: TemplateAmenitiesToBe
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'templateAmenities': ConfigTemplateAmenitiesTypeToJSON(value.templateAmenities),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'templateAmenities': value.templateAmenities === undefined ? undefined : ((value.templateAmenities as Array<any>).map(ConfigTemplateAmenityTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

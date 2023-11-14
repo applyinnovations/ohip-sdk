@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { PropertyDetailCategoriesType } from './PropertyDetailCategoriesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { PropertyDetailCategoryType } from './PropertyDetailCategoryType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Property Detail Categories.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface PropertyDetailCategoriesDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PropertyDetailCategoriesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {PropertyDetailCategoriesType}
+     * List of Property Detail Categories.
+     * @type {Array<PropertyDetailCategoryType>}
      * @memberof PropertyDetailCategoriesDetails
      */
-    propertyDetailCategories?: PropertyDetailCategoriesType;
+    propertyDetailCategories?: Array<PropertyDetailCategoryType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PropertyDetailCategoriesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PropertyDetailCategoriesDetails interface.

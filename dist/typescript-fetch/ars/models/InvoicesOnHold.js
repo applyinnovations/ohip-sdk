@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InvoicesOnHoldToJSON = exports.InvoicesOnHoldFromJSONTyped = exports.InvoicesOnHoldFromJSON = exports.instanceOfInvoicesOnHold = void 0;
 const runtime_1 = require("../runtime");
-const ARAccountsInvoicesPaymentsType_1 = require("./ARAccountsInvoicesPaymentsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ARAccountInvoicesPaymentsType_1 = require("./ARAccountInvoicesPaymentsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the InvoicesOnHold interface.
  */
@@ -35,9 +35,9 @@ function InvoicesOnHoldFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'details': !(0, runtime_1.exists)(json, 'details') ? undefined : (0, ARAccountsInvoicesPaymentsType_1.ARAccountsInvoicesPaymentsTypeFromJSON)(json['details']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'details': !(0, runtime_1.exists)(json, 'details') ? undefined : (json['details'].map(ARAccountInvoicesPaymentsType_1.ARAccountInvoicesPaymentsTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.InvoicesOnHoldFromJSONTyped = InvoicesOnHoldFromJSONTyped;
@@ -49,9 +49,9 @@ function InvoicesOnHoldToJSON(value) {
         return null;
     }
     return {
-        'details': (0, ARAccountsInvoicesPaymentsType_1.ARAccountsInvoicesPaymentsTypeToJSON)(value.details),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'details': value.details === undefined ? undefined : (value.details.map(ARAccountInvoicesPaymentsType_1.ARAccountInvoicesPaymentsTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.InvoicesOnHoldToJSON = InvoicesOnHoldToJSON;

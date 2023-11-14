@@ -16,7 +16,7 @@ import type { CompPostingsType } from './CompPostingsType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { ExchangeAmounts } from './ExchangeAmounts';
 import type { PostingGroupType } from './PostingGroupType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Posting details.
  * @export
@@ -126,11 +126,11 @@ export interface ARInvoicePostingType {
      */
     fbaCertificate?: boolean;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ARInvoicePostingType
      */
-    financialTransactionIdList?: UniqueIDListType;
+    financialTransactionIdList?: Array<UniqueIDType>;
     /**
      * When some SummaryPostingsGroupBy element is send as request ,then this element will represent how many transactions rolled up into this Summary Posting Type.
      * @type {number}

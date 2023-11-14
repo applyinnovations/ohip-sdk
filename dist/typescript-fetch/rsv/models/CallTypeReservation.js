@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CallTypeReservationToJSON = exports.CallTypeReservationFromJSONTyped = exports.CallTypeReservationFromJSON = exports.instanceOfCallTypeReservation = void 0;
 const runtime_1 = require("../runtime");
-const ReservationIdList_1 = require("./ReservationIdList");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CallTypeReservation interface.
  */
@@ -34,7 +34,7 @@ function CallTypeReservationFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.CallTypeReservationFromJSONTyped = CallTypeReservationFromJSONTyped;
@@ -47,7 +47,7 @@ function CallTypeReservationToJSON(value) {
     }
     return {
         'hotelId': value.hotelId,
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.CallTypeReservationToJSON = CallTypeReservationToJSON;

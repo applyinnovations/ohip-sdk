@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GUINumberRules } from './GUINumberRules';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { GUINumberRule } from './GUINumberRule';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface GUINumberRulesDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GUINumberRulesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {GUINumberRules}
+     * List of GUI number rules
+     * @type {Array<GUINumberRule>}
      * @memberof GUINumberRulesDetails
      */
-    rules?: GUINumberRules;
+    rules?: Array<GUINumberRule>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GUINumberRulesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GUINumberRulesDetails interface.

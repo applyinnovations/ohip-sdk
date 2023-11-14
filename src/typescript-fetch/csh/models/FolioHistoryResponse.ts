@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FoliosType } from './FoliosType';
+import type { FolioSummaryType } from './FolioSummaryType';
 import {
-    FoliosTypeFromJSON,
-    FoliosTypeFromJSONTyped,
-    FoliosTypeToJSON,
-} from './FoliosType';
-import type { Links } from './Links';
+    FolioSummaryTypeFromJSON,
+    FolioSummaryTypeFromJSONTyped,
+    FolioSummaryTypeToJSON,
+} from './FolioSummaryType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for the fetch Folio History.
@@ -39,23 +39,23 @@ import {
  */
 export interface FolioHistoryResponse {
     /**
-     * 
-     * @type {FoliosType}
+     * Folio History details.
+     * @type {Array<FolioSummaryType>}
      * @memberof FolioHistoryResponse
      */
-    folioHistory?: FoliosType;
+    folioHistory?: Array<FolioSummaryType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FolioHistoryResponse
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FolioHistoryResponse
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FolioHistoryResponseFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'folioHistory': !exists(json, 'folioHistory') ? undefined : FoliosTypeFromJSON(json['folioHistory']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'folioHistory': !exists(json, 'folioHistory') ? undefined : ((json['folioHistory'] as Array<any>).map(FolioSummaryTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FolioHistoryResponseToJSON(value?: FolioHistoryResponse | null):
     }
     return {
         
-        'folioHistory': FoliosTypeToJSON(value.folioHistory),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'folioHistory': value.folioHistory === undefined ? undefined : ((value.folioHistory as Array<any>).map(FolioSummaryTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

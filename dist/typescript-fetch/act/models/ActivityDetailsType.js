@@ -15,13 +15,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ActivityDetailsTypeToJSON = exports.ActivityDetailsTypeFromJSONTyped = exports.ActivityDetailsTypeFromJSON = exports.instanceOfActivityDetailsType = void 0;
 const runtime_1 = require("../runtime");
+const ActivityBlockInfoType_1 = require("./ActivityBlockInfoType");
 const ActivityDetailsTypeLinkedAccounts_1 = require("./ActivityDetailsTypeLinkedAccounts");
 const ActivityDetailsTypeLinkedContacts_1 = require("./ActivityDetailsTypeLinkedContacts");
 const ActivityId_1 = require("./ActivityId");
 const ActivityInfoType_1 = require("./ActivityInfoType");
-const AttachmentsType_1 = require("./AttachmentsType");
-const BlockListType_1 = require("./BlockListType");
-const IndicatorsType_1 = require("./IndicatorsType");
+const AttachmentType_1 = require("./AttachmentType");
+const IndicatorType_1 = require("./IndicatorType");
 const LinkedActivityDetailsType_1 = require("./LinkedActivityDetailsType");
 /**
  * Check if a given object implements the ActivityDetailsType interface.
@@ -42,11 +42,11 @@ function ActivityDetailsTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'activityDetail': !(0, runtime_1.exists)(json, 'activityDetail') ? undefined : (0, ActivityInfoType_1.ActivityInfoTypeFromJSON)(json['activityDetail']),
         'activityId': !(0, runtime_1.exists)(json, 'activityId') ? undefined : (0, ActivityId_1.ActivityIdFromJSON)(json['activityId']),
-        'indicators': !(0, runtime_1.exists)(json, 'indicators') ? undefined : (0, IndicatorsType_1.IndicatorsTypeFromJSON)(json['indicators']),
+        'indicators': !(0, runtime_1.exists)(json, 'indicators') ? undefined : (json['indicators'].map(IndicatorType_1.IndicatorTypeFromJSON)),
         'linkedAccounts': !(0, runtime_1.exists)(json, 'linkedAccounts') ? undefined : (0, ActivityDetailsTypeLinkedAccounts_1.ActivityDetailsTypeLinkedAccountsFromJSON)(json['linkedAccounts']),
         'linkedActivities': !(0, runtime_1.exists)(json, 'linkedActivities') ? undefined : (json['linkedActivities'].map(LinkedActivityDetailsType_1.LinkedActivityDetailsTypeFromJSON)),
-        'linkedAttachments': !(0, runtime_1.exists)(json, 'linkedAttachments') ? undefined : (0, AttachmentsType_1.AttachmentsTypeFromJSON)(json['linkedAttachments']),
-        'linkedBlocks': !(0, runtime_1.exists)(json, 'linkedBlocks') ? undefined : (0, BlockListType_1.BlockListTypeFromJSON)(json['linkedBlocks']),
+        'linkedAttachments': !(0, runtime_1.exists)(json, 'linkedAttachments') ? undefined : (json['linkedAttachments'].map(AttachmentType_1.AttachmentTypeFromJSON)),
+        'linkedBlocks': !(0, runtime_1.exists)(json, 'linkedBlocks') ? undefined : (json['linkedBlocks'].map(ActivityBlockInfoType_1.ActivityBlockInfoTypeFromJSON)),
         'linkedContacts': !(0, runtime_1.exists)(json, 'linkedContacts') ? undefined : (0, ActivityDetailsTypeLinkedContacts_1.ActivityDetailsTypeLinkedContactsFromJSON)(json['linkedContacts']),
     };
 }
@@ -61,11 +61,11 @@ function ActivityDetailsTypeToJSON(value) {
     return {
         'activityDetail': (0, ActivityInfoType_1.ActivityInfoTypeToJSON)(value.activityDetail),
         'activityId': (0, ActivityId_1.ActivityIdToJSON)(value.activityId),
-        'indicators': (0, IndicatorsType_1.IndicatorsTypeToJSON)(value.indicators),
+        'indicators': value.indicators === undefined ? undefined : (value.indicators.map(IndicatorType_1.IndicatorTypeToJSON)),
         'linkedAccounts': (0, ActivityDetailsTypeLinkedAccounts_1.ActivityDetailsTypeLinkedAccountsToJSON)(value.linkedAccounts),
         'linkedActivities': value.linkedActivities === undefined ? undefined : (value.linkedActivities.map(LinkedActivityDetailsType_1.LinkedActivityDetailsTypeToJSON)),
-        'linkedAttachments': (0, AttachmentsType_1.AttachmentsTypeToJSON)(value.linkedAttachments),
-        'linkedBlocks': (0, BlockListType_1.BlockListTypeToJSON)(value.linkedBlocks),
+        'linkedAttachments': value.linkedAttachments === undefined ? undefined : (value.linkedAttachments.map(AttachmentType_1.AttachmentTypeToJSON)),
+        'linkedBlocks': value.linkedBlocks === undefined ? undefined : (value.linkedBlocks.map(ActivityBlockInfoType_1.ActivityBlockInfoTypeToJSON)),
         'linkedContacts': (0, ActivityDetailsTypeLinkedContacts_1.ActivityDetailsTypeLinkedContactsToJSON)(value.linkedContacts),
     };
 }

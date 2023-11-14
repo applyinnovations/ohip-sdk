@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ARAccountInvoicesPaymentsTypeToJSON = exports.ARAccountInvoicesPaymentsTypeFromJSONTyped = exports.ARAccountInvoicesPaymentsTypeFromJSON = exports.instanceOfARAccountInvoicesPaymentsType = void 0;
 const runtime_1 = require("../runtime");
 const ARBalanceType_1 = require("./ARBalanceType");
-const ARInvoicesType_1 = require("./ARInvoicesType");
-const ARPaymentsType_1 = require("./ARPaymentsType");
+const ARInvoiceType_1 = require("./ARInvoiceType");
+const ARPaymentType_1 = require("./ARPaymentType");
 const ProfileId_1 = require("./ProfileId");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -41,10 +41,10 @@ function ARAccountInvoicesPaymentsTypeFromJSONTyped(json, ignoreDiscriminator) {
         'accountName': !(0, runtime_1.exists)(json, 'accountName') ? undefined : json['accountName'],
         'accountNo': !(0, runtime_1.exists)(json, 'accountNo') ? undefined : json['accountNo'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'invoices': !(0, runtime_1.exists)(json, 'invoices') ? undefined : (0, ARInvoicesType_1.ARInvoicesTypeFromJSON)(json['invoices']),
+        'invoices': !(0, runtime_1.exists)(json, 'invoices') ? undefined : (json['invoices'].map(ARInvoiceType_1.ARInvoiceTypeFromJSON)),
         'monthEndCalcYN': !(0, runtime_1.exists)(json, 'monthEndCalcYN') ? undefined : json['monthEndCalcYN'],
         'paymentDueDays': !(0, runtime_1.exists)(json, 'paymentDueDays') ? undefined : json['paymentDueDays'],
-        'payments': !(0, runtime_1.exists)(json, 'payments') ? undefined : (0, ARPaymentsType_1.ARPaymentsTypeFromJSON)(json['payments']),
+        'payments': !(0, runtime_1.exists)(json, 'payments') ? undefined : (json['payments'].map(ARPaymentType_1.ARPaymentTypeFromJSON)),
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, ProfileId_1.ProfileIdFromJSON)(json['profileId']),
         'summary': !(0, runtime_1.exists)(json, 'summary') ? undefined : (0, ARBalanceType_1.ARBalanceTypeFromJSON)(json['summary']),
     };
@@ -62,10 +62,10 @@ function ARAccountInvoicesPaymentsTypeToJSON(value) {
         'accountName': value.accountName,
         'accountNo': value.accountNo,
         'hotelId': value.hotelId,
-        'invoices': (0, ARInvoicesType_1.ARInvoicesTypeToJSON)(value.invoices),
+        'invoices': value.invoices === undefined ? undefined : (value.invoices.map(ARInvoiceType_1.ARInvoiceTypeToJSON)),
         'monthEndCalcYN': value.monthEndCalcYN,
         'paymentDueDays': value.paymentDueDays,
-        'payments': (0, ARPaymentsType_1.ARPaymentsTypeToJSON)(value.payments),
+        'payments': value.payments === undefined ? undefined : (value.payments.map(ARPaymentType_1.ARPaymentTypeToJSON)),
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
         'summary': (0, ARBalanceType_1.ARBalanceTypeToJSON)(value.summary),
     };

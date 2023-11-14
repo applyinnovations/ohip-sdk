@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { PostingSummaryListType } from './PostingSummaryListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { PostingSummaryType } from './PostingSummaryType';
 import {
-    PostingSummaryListTypeFromJSON,
-    PostingSummaryListTypeFromJSONTyped,
-    PostingSummaryListTypeToJSON,
-} from './PostingSummaryListType';
-import type { WarningsType } from './WarningsType';
+    PostingSummaryTypeFromJSON,
+    PostingSummaryTypeFromJSONTyped,
+    PostingSummaryTypeToJSON,
+} from './PostingSummaryType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object to fetch daily summary charges from Opera which are posted in Opera by external system.
@@ -40,22 +40,22 @@ import {
 export interface PostingSummaryList {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostingSummaryList
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {PostingSummaryListType}
+     * Summary of the postings by external system.
+     * @type {Array<PostingSummaryType>}
      * @memberof PostingSummaryList
      */
-    postingSummaries?: PostingSummaryListType;
+    postingSummaries?: Array<PostingSummaryType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostingSummaryList
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function PostingSummaryListFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'postingSummaries': !exists(json, 'postingSummaries') ? undefined : PostingSummaryListTypeFromJSON(json['postingSummaries']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'postingSummaries': !exists(json, 'postingSummaries') ? undefined : ((json['postingSummaries'] as Array<any>).map(PostingSummaryTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function PostingSummaryListToJSON(value?: PostingSummaryList | null): any
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'postingSummaries': PostingSummaryListTypeToJSON(value.postingSummaries),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'postingSummaries': value.postingSummaries === undefined ? undefined : ((value.postingSummaries as Array<any>).map(PostingSummaryTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

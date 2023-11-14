@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { TourSeriesBlocksType } from './TourSeriesBlocksType';
+import type { TourSeriesBlockType } from './TourSeriesBlockType';
 import {
-    TourSeriesBlocksTypeFromJSON,
-    TourSeriesBlocksTypeFromJSONTyped,
-    TourSeriesBlocksTypeToJSON,
-} from './TourSeriesBlocksType';
+    TourSeriesBlockTypeFromJSON,
+    TourSeriesBlockTypeFromJSONTyped,
+    TourSeriesBlockTypeToJSON,
+} from './TourSeriesBlockType';
 import type { TourSeriesTypeTourInstructions } from './TourSeriesTypeTourInstructions';
 import {
     TourSeriesTypeTourInstructionsFromJSON,
@@ -63,11 +63,11 @@ export interface TourSeriesType {
      */
     tourInstructions?: TourSeriesTypeTourInstructions;
     /**
-     * 
-     * @type {TourSeriesBlocksType}
+     * Contains tour series blocks information.
+     * @type {Array<TourSeriesBlockType>}
      * @memberof TourSeriesType
      */
-    tourSeriesBlocks?: TourSeriesBlocksType;
+    tourSeriesBlocks?: Array<TourSeriesBlockType>;
 }
 
 /**
@@ -93,7 +93,7 @@ export function TourSeriesTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         'tourBlockId': !exists(json, 'tourBlockId') ? undefined : UniqueIDTypeFromJSON(json['tourBlockId']),
         'tourCode': !exists(json, 'tourCode') ? undefined : json['tourCode'],
         'tourInstructions': !exists(json, 'tourInstructions') ? undefined : TourSeriesTypeTourInstructionsFromJSON(json['tourInstructions']),
-        'tourSeriesBlocks': !exists(json, 'tourSeriesBlocks') ? undefined : TourSeriesBlocksTypeFromJSON(json['tourSeriesBlocks']),
+        'tourSeriesBlocks': !exists(json, 'tourSeriesBlocks') ? undefined : ((json['tourSeriesBlocks'] as Array<any>).map(TourSeriesBlockTypeFromJSON)),
     };
 }
 
@@ -110,7 +110,7 @@ export function TourSeriesTypeToJSON(value?: TourSeriesType | null): any {
         'tourBlockId': UniqueIDTypeToJSON(value.tourBlockId),
         'tourCode': value.tourCode,
         'tourInstructions': TourSeriesTypeTourInstructionsToJSON(value.tourInstructions),
-        'tourSeriesBlocks': TourSeriesBlocksTypeToJSON(value.tourSeriesBlocks),
+        'tourSeriesBlocks': value.tourSeriesBlocks === undefined ? undefined : ((value.tourSeriesBlocks as Array<any>).map(TourSeriesBlockTypeToJSON)),
     };
 }
 

@@ -25,12 +25,12 @@ import {
     ProfilesTypeFromJSONTyped,
     ProfilesTypeToJSON,
 } from './ProfilesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching multiple detailed profiles by unique identifiers..
@@ -51,11 +51,11 @@ export interface ProfileDetails {
      */
     profiles?: ProfilesType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -79,7 +79,7 @@ export function ProfileDetailsFromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'masterInfoList': !exists(json, 'masterInfoList') ? undefined : ((json['masterInfoList'] as Array<any>).map(MasterInfoTypeFromJSON)),
         'profiles': !exists(json, 'profiles') ? undefined : ProfilesTypeFromJSON(json['profiles']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -94,7 +94,7 @@ export function ProfileDetailsToJSON(value?: ProfileDetails | null): any {
         
         'masterInfoList': value.masterInfoList === undefined ? undefined : ((value.masterInfoList as Array<any>).map(MasterInfoTypeToJSON)),
         'profiles': ProfilesTypeToJSON(value.profiles),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

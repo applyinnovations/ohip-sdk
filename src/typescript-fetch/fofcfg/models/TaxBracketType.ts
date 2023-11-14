@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { TaxBracketAmountsType } from './TaxBracketAmountsType';
+import type { TaxBracketAmountType } from './TaxBracketAmountType';
 import {
-    TaxBracketAmountsTypeFromJSON,
-    TaxBracketAmountsTypeFromJSONTyped,
-    TaxBracketAmountsTypeToJSON,
-} from './TaxBracketAmountsType';
+    TaxBracketAmountTypeFromJSON,
+    TaxBracketAmountTypeFromJSONTyped,
+    TaxBracketAmountTypeToJSON,
+} from './TaxBracketAmountType';
 import type { TranslationTextType2000 } from './TranslationTextType2000';
 import {
     TranslationTextType2000FromJSON,
@@ -45,11 +45,11 @@ export interface TaxBracketType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {TaxBracketAmountsType}
+     * Details used for storing information about a tax bracket amount.
+     * @type {Array<TaxBracketAmountType>}
      * @memberof TaxBracketType
      */
-    taxBracketAmounts?: TaxBracketAmountsType;
+    taxBracketAmounts?: Array<TaxBracketAmountType>;
     /**
      * Tax Percentage for which this Tax Bracket applies.
      * @type {number}
@@ -85,7 +85,7 @@ export function TaxBracketTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'description': !exists(json, 'description') ? undefined : TranslationTextType2000FromJSON(json['description']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'taxBracketAmounts': !exists(json, 'taxBracketAmounts') ? undefined : TaxBracketAmountsTypeFromJSON(json['taxBracketAmounts']),
+        'taxBracketAmounts': !exists(json, 'taxBracketAmounts') ? undefined : ((json['taxBracketAmounts'] as Array<any>).map(TaxBracketAmountTypeFromJSON)),
         'taxPercentage': !exists(json, 'taxPercentage') ? undefined : json['taxPercentage'],
         'threshold': !exists(json, 'threshold') ? undefined : json['threshold'],
     };
@@ -102,7 +102,7 @@ export function TaxBracketTypeToJSON(value?: TaxBracketType | null): any {
         
         'description': TranslationTextType2000ToJSON(value.description),
         'hotelId': value.hotelId,
-        'taxBracketAmounts': TaxBracketAmountsTypeToJSON(value.taxBracketAmounts),
+        'taxBracketAmounts': value.taxBracketAmounts === undefined ? undefined : ((value.taxBracketAmounts as Array<any>).map(TaxBracketAmountTypeToJSON)),
         'taxPercentage': value.taxPercentage,
         'threshold': value.threshold,
     };

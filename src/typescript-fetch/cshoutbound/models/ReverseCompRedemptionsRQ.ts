@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ReverseCompRedemptionsRQCompRedemptionsType } from './ReverseCompRedemptionsRQCompRedemptionsType';
+import type { ReverseCompRedemptionsRQCompRedemptionType } from './ReverseCompRedemptionsRQCompRedemptionType';
 import {
-    ReverseCompRedemptionsRQCompRedemptionsTypeFromJSON,
-    ReverseCompRedemptionsRQCompRedemptionsTypeFromJSONTyped,
-    ReverseCompRedemptionsRQCompRedemptionsTypeToJSON,
-} from './ReverseCompRedemptionsRQCompRedemptionsType';
+    ReverseCompRedemptionsRQCompRedemptionTypeFromJSON,
+    ReverseCompRedemptionsRQCompRedemptionTypeFromJSONTyped,
+    ReverseCompRedemptionsRQCompRedemptionTypeToJSON,
+} from './ReverseCompRedemptionsRQCompRedemptionType';
 
 /**
  * Request type of Complimentary Redemptions reversal.
@@ -27,11 +27,11 @@ import {
  */
 export interface ReverseCompRedemptionsRQ {
     /**
-     * 
-     * @type {ReverseCompRedemptionsRQCompRedemptionsType}
+     * Collection of Complimentary Redemptions for reversal.
+     * @type {Array<ReverseCompRedemptionsRQCompRedemptionType>}
      * @memberof ReverseCompRedemptionsRQ
      */
-    compRedemptions?: ReverseCompRedemptionsRQCompRedemptionsType;
+    compRedemptions?: Array<ReverseCompRedemptionsRQCompRedemptionType>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function ReverseCompRedemptionsRQFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : ReverseCompRedemptionsRQCompRedemptionsTypeFromJSON(json['compRedemptions']),
+        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : ((json['compRedemptions'] as Array<any>).map(ReverseCompRedemptionsRQCompRedemptionTypeFromJSON)),
     };
 }
 
@@ -66,7 +66,7 @@ export function ReverseCompRedemptionsRQToJSON(value?: ReverseCompRedemptionsRQ 
     }
     return {
         
-        'compRedemptions': ReverseCompRedemptionsRQCompRedemptionsTypeToJSON(value.compRedemptions),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : ((value.compRedemptions as Array<any>).map(ReverseCompRedemptionsRQCompRedemptionTypeToJSON)),
     };
 }
 

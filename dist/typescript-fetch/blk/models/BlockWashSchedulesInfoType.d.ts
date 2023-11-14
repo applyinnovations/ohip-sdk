@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockIdList } from './BlockIdList';
-import type { BlockWashSchedulesType } from './BlockWashSchedulesType';
+import type { BlockWashScheduleType } from './BlockWashScheduleType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * The criteria based on which the block wash schedules will be created/ changed.
  * @export
@@ -18,17 +18,17 @@ import type { BlockWashSchedulesType } from './BlockWashSchedulesType';
  */
 export interface BlockWashSchedulesInfoType {
     /**
-     *
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof BlockWashSchedulesInfoType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
-     *
-     * @type {BlockWashSchedulesType}
+     * Wash Schedule attached to the block, which allows to release inventory based on selected wash schedule type.
+     * @type {Array<BlockWashScheduleType>}
      * @memberof BlockWashSchedulesInfoType
      */
-    blockWashSchedules?: BlockWashSchedulesType;
+    blockWashSchedules?: Array<BlockWashScheduleType>;
     /**
      * Hotel Code to which the block wash schedules will be created/ changed.
      * @type {string}

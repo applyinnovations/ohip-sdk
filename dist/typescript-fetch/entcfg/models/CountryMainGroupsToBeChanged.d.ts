@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CountryMainGroupsType } from './CountryMainGroupsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CountryMainGroupType } from './CountryMainGroupType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Country Main Groups.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CountryMainGroupsToBeChanged {
     /**
-     *
-     * @type {CountryMainGroupsType}
+     * List of Country Main Groups.
+     * @type {Array<CountryMainGroupType>}
      * @memberof CountryMainGroupsToBeChanged
      */
-    countryMainGroups?: CountryMainGroupsType;
+    countryMainGroups?: Array<CountryMainGroupType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CountryMainGroupsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CountryMainGroupsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CountryMainGroupsToBeChanged interface.

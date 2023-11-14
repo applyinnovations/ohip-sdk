@@ -31,12 +31,12 @@ import {
     ExternalProfileSummaryTypeFormerNameFromJSONTyped,
     ExternalProfileSummaryTypeFormerNameToJSON,
 } from './ExternalProfileSummaryTypeFormerName';
-import type { OwnersType } from './OwnersType';
+import type { OwnerType } from './OwnerType';
 import {
-    OwnersTypeFromJSON,
-    OwnersTypeFromJSONTyped,
-    OwnersTypeToJSON,
-} from './OwnersType';
+    OwnerTypeFromJSON,
+    OwnerTypeFromJSONTyped,
+    OwnerTypeToJSON,
+} from './OwnerType';
 import type { ProfileMembershipType } from './ProfileMembershipType';
 import {
     ProfileMembershipTypeFromJSON,
@@ -111,11 +111,11 @@ export interface ExternalProfileSummaryType {
      */
     urlInfo?: URLInfoType;
     /**
-     * 
-     * @type {OwnersType}
+     * Generic type for a list of owners.
+     * @type {Array<OwnerType>}
      * @memberof ExternalProfileSummaryType
      */
-    owners?: OwnersType;
+    owners?: Array<OwnerType>;
     /**
      * 
      * @type {ProfileTypeType}
@@ -185,7 +185,7 @@ export function ExternalProfileSummaryTypeFromJSONTyped(json: any, ignoreDiscrim
         'emailInfo': !exists(json, 'emailInfo') ? undefined : EmailInfoTypeFromJSON(json['emailInfo']),
         'profileMembership': !exists(json, 'profileMembership') ? undefined : ProfileMembershipTypeFromJSON(json['profileMembership']),
         'urlInfo': !exists(json, 'urlInfo') ? undefined : URLInfoTypeFromJSON(json['urlInfo']),
-        'owners': !exists(json, 'owners') ? undefined : OwnersTypeFromJSON(json['owners']),
+        'owners': !exists(json, 'owners') ? undefined : ((json['owners'] as Array<any>).map(OwnerTypeFromJSON)),
         'profileType': !exists(json, 'profileType') ? undefined : ProfileTypeTypeFromJSON(json['profileType']),
         'statusCode': !exists(json, 'statusCode') ? undefined : ProfileStatusTypeFromJSON(json['statusCode']),
         'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
@@ -211,7 +211,7 @@ export function ExternalProfileSummaryTypeToJSON(value?: ExternalProfileSummaryT
         'emailInfo': EmailInfoTypeToJSON(value.emailInfo),
         'profileMembership': ProfileMembershipTypeToJSON(value.profileMembership),
         'urlInfo': URLInfoTypeToJSON(value.urlInfo),
-        'owners': OwnersTypeToJSON(value.owners),
+        'owners': value.owners === undefined ? undefined : ((value.owners as Array<any>).map(OwnerTypeToJSON)),
         'profileType': ProfileTypeTypeToJSON(value.profileType),
         'statusCode': ProfileStatusTypeToJSON(value.statusCode),
         'createDateTime': value.createDateTime,

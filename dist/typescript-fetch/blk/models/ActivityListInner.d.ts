@@ -13,7 +13,7 @@ import type { ActivityListInnerDeposit } from './ActivityListInnerDeposit';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { DateTimeSpanType } from './DateTimeSpanType';
 import type { PersonNameType } from './PersonNameType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Represents a single instance of a scheduled activity.
  * @export
@@ -21,11 +21,11 @@ import type { UniqueIDListType } from './UniqueIDListType';
  */
 export interface ActivityListInner {
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ActivityListInner
      */
-    activityIds?: UniqueIDListType;
+    activityIds?: Array<UniqueIDType>;
     /**
      *
      * @type {CurrencyAmountType}

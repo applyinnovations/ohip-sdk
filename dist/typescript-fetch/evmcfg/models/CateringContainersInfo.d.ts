@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CateringCodesType } from './CateringCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CateringCodeType } from './CateringCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Catering Code Containers details.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CateringContainersInfo {
     /**
-     *
-     * @type {CateringCodesType}
+     * Catering Code details.
+     * @type {Array<CateringCodeType>}
      * @memberof CateringContainersInfo
      */
-    containers?: CateringCodesType;
+    containers?: Array<CateringCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringContainersInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringContainersInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CateringContainersInfo interface.

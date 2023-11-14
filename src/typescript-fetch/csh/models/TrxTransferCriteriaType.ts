@@ -13,18 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ReservationIdList } from './ReservationIdList';
-import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
-import type { UniqueIDListType } from './UniqueIDListType';
-import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -63,11 +51,11 @@ export interface TrxTransferCriteriaType {
      */
     membershipIdNo?: number;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof TrxTransferCriteriaType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * Folio Window Number to where transactions will be transfered.
      * @type {number}
@@ -75,11 +63,11 @@ export interface TrxTransferCriteriaType {
      */
     targetFolioWindowNo?: number;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof TrxTransferCriteriaType
      */
-    targetReservationIdList?: UniqueIDListType;
+    targetReservationIdList?: Array<UniqueIDType>;
     /**
      * List of transactions to be transfered.
      * @type {Array<number>}
@@ -111,9 +99,9 @@ export function TrxTransferCriteriaTypeFromJSONTyped(json: any, ignoreDiscrimina
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'membershipIdNo': !exists(json, 'membershipIdNo') ? undefined : json['membershipIdNo'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'targetFolioWindowNo': !exists(json, 'targetFolioWindowNo') ? undefined : json['targetFolioWindowNo'],
-        'targetReservationIdList': !exists(json, 'targetReservationIdList') ? undefined : UniqueIDListTypeFromJSON(json['targetReservationIdList']),
+        'targetReservationIdList': !exists(json, 'targetReservationIdList') ? undefined : ((json['targetReservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'transactionList': !exists(json, 'transactionList') ? undefined : json['transactionList'],
     };
 }
@@ -131,9 +119,9 @@ export function TrxTransferCriteriaTypeToJSON(value?: TrxTransferCriteriaType | 
         'cashierId': value.cashierId,
         'hotelId': value.hotelId,
         'membershipIdNo': value.membershipIdNo,
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'targetFolioWindowNo': value.targetFolioWindowNo,
-        'targetReservationIdList': UniqueIDListTypeToJSON(value.targetReservationIdList),
+        'targetReservationIdList': value.targetReservationIdList === undefined ? undefined : ((value.targetReservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'transactionList': value.transactionList,
     };
 }

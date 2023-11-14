@@ -19,18 +19,18 @@ import {
     ProfileCashieringDetailTypeFromJSONTyped,
     ProfileCashieringDetailTypeToJSON,
 } from './ProfileCashieringDetailType';
-import type { ProfileIdList } from './ProfileIdList';
-import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
 import type { ProfileType } from './ProfileType';
 import {
     ProfileTypeFromJSON,
     ProfileTypeFromJSONTyped,
     ProfileTypeToJSON,
 } from './ProfileType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * A collection of Profiles or Unique IDs of Profiles.
@@ -51,11 +51,11 @@ export interface ResGuestTypeProfileInfo {
      */
     profileCashieringDetail?: ProfileCashieringDetailType;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ResGuestTypeProfileInfo
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * Unique identifier of the police registration card number.
      * @type {string}
@@ -85,7 +85,7 @@ export function ResGuestTypeProfileInfoFromJSONTyped(json: any, ignoreDiscrimina
         
         'profile': !exists(json, 'profile') ? undefined : ProfileTypeFromJSON(json['profile']),
         'profileCashieringDetail': !exists(json, 'profileCashieringDetail') ? undefined : ProfileCashieringDetailTypeFromJSON(json['profileCashieringDetail']),
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'registrationCardNo': !exists(json, 'registrationCardNo') ? undefined : json['registrationCardNo'],
     };
 }
@@ -101,7 +101,7 @@ export function ResGuestTypeProfileInfoToJSON(value?: ResGuestTypeProfileInfo | 
         
         'profile': ProfileTypeToJSON(value.profile),
         'profileCashieringDetail': ProfileCashieringDetailTypeToJSON(value.profileCashieringDetail),
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'registrationCardNo': value.registrationCardNo,
     };
 }

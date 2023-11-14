@@ -19,13 +19,13 @@ import type { CompanyProfileTypeRelationships } from './CompanyProfileTypeRelati
 import type { CompanyProfileTypeURLs } from './CompanyProfileTypeURLs';
 import type { CompanyType } from './CompanyType';
 import type { CustomerType } from './CustomerType';
-import type { ECertificatesType } from './ECertificatesType';
+import type { ECertificateType } from './ECertificateType';
 import type { EarningPreferencesType } from './EarningPreferencesType';
 import type { EnrollmentPaymentDetailsType } from './EnrollmentPaymentDetailsType';
 import type { EnrollmentTypeType } from './EnrollmentTypeType';
-import type { HotelStaysType } from './HotelStaysType';
+import type { HotelStayType } from './HotelStayType';
 import type { ImageSetType } from './ImageSetType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import type { LastStayInfoType } from './LastStayInfoType';
 import type { MailingActionsType } from './MailingActionsType';
 import type { MailingPreferencesType } from './MailingPreferencesType';
@@ -42,7 +42,7 @@ import type { ProfileEnrollmentTypeRoomOwnershipsList } from './ProfileEnrollmen
 import type { ProfileEnrollmentTypeTelephones } from './ProfileEnrollmentTypeTelephones';
 import type { ProfileRestrictions } from './ProfileRestrictions';
 import type { ProfileStatusType } from './ProfileStatusType';
-import type { ProfileSubscriptionListType } from './ProfileSubscriptionListType';
+import type { ProfileSubscriptionType } from './ProfileSubscriptionType';
 import type { ProfileTaxInfoType } from './ProfileTaxInfoType';
 import type { ProfileTypeType } from './ProfileTypeType';
 import type { ReservationHistoryFutureInfoType } from './ReservationHistoryFutureInfoType';
@@ -53,7 +53,7 @@ import type { RoomPreferencesType } from './RoomPreferencesType';
 import type { SalesInfoType } from './SalesInfoType';
 import type { UniqueIDType } from './UniqueIDType';
 import type { UserDefinedFieldsType } from './UserDefinedFieldsType';
-import type { WebUserAccountsType } from './WebUserAccountsType';
+import type { WebUserAccountType } from './WebUserAccountType';
 /**
  * Type provides the detailed information about the profile and its children.
  * @export
@@ -115,11 +115,11 @@ export interface ProfileEnrollmentType {
      */
     customer?: CustomerType;
     /**
-     *
-     * @type {ECertificatesType}
+     * List of e-certificates for the profile.
+     * @type {Array<ECertificateType>}
      * @memberof ProfileEnrollmentType
      */
-    eCertificates?: ECertificatesType;
+    eCertificates?: Array<ECertificateType>;
     /**
      *
      * @type {EarningPreferencesType}
@@ -289,11 +289,11 @@ export interface ProfileEnrollmentType {
      */
     preferenceCollection?: ProfileEnrollmentTypePreferenceCollection;
     /**
-     *
-     * @type {HotelStaysType}
+     * Detailed information of the hotel stay.
+     * @type {Array<HotelStayType>}
      * @memberof ProfileEnrollmentType
      */
-    previousHotelStays?: HotelStaysType;
+    previousHotelStays?: Array<HotelStayType>;
     /**
      *
      * @type {PrivacyInfoType}
@@ -325,11 +325,11 @@ export interface ProfileEnrollmentType {
      */
     profileImage?: ImageSetType;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof ProfileEnrollmentType
      */
-    profileIndicators?: IndicatorsType;
+    profileIndicators?: Array<IndicatorType>;
     /**
      *
      * @type {ProfileEnrollmentTypeProfileMemberships}
@@ -433,11 +433,11 @@ export interface ProfileEnrollmentType {
      */
     stayReservationInfoList?: ReservationStayHistoryFutureInfoType;
     /**
-     *
-     * @type {ProfileSubscriptionListType}
+     * Details of the OPERA Profile subscription to external system
+     * @type {Array<ProfileSubscriptionType>}
      * @memberof ProfileEnrollmentType
      */
-    subscriptions?: ProfileSubscriptionListType;
+    subscriptions?: Array<ProfileSubscriptionType>;
     /**
      *
      * @type {ProfileTaxInfoType}
@@ -481,11 +481,11 @@ export interface ProfileEnrollmentType {
      */
     userId?: string;
     /**
-     *
-     * @type {WebUserAccountsType}
+     * Web User Accounts List.
+     * @type {Array<WebUserAccountType>}
      * @memberof ProfileEnrollmentType
      */
-    webUserAccounts?: WebUserAccountsType;
+    webUserAccounts?: Array<WebUserAccountType>;
 }
 /**
  * Check if a given object implements the ProfileEnrollmentType interface.

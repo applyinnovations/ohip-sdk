@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FolioTypesConfigType } from './FolioTypesConfigType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { FolioTypeConfigType } from './FolioTypeConfigType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FolioTypesConfig {
     /**
-     *
-     * @type {FolioTypesConfigType}
+     * Information details of the Folio Type Names.
+     * @type {Array<FolioTypeConfigType>}
      * @memberof FolioTypesConfig
      */
-    folioTypes?: FolioTypesConfigType;
+    folioTypes?: Array<FolioTypeConfigType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FolioTypesConfig
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FolioTypesConfig
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FolioTypesConfig interface.

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RoomRoomsType } from './RoomRoomsType';
+import type { RoomRoomType } from './RoomRoomType';
 /**
  * Room component and its quantity for the component room type.
  * @export
@@ -35,11 +35,11 @@ export interface RoomComponentType {
      */
     roomType?: string;
     /**
-     *
-     * @type {RoomRoomsType}
+     * Collection of rooms.
+     * @type {Array<RoomRoomType>}
      * @memberof RoomComponentType
      */
-    rooms?: RoomRoomsType;
+    rooms?: Array<RoomRoomType>;
 }
 /**
  * Check if a given object implements the RoomComponentType interface.

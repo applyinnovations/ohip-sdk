@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { PurposeOfStaysType } from './PurposeOfStaysType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { PurposeOfStayType } from './PurposeOfStayType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Purpose Of Stays.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface PurposeOfStaysCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PurposeOfStaysCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {PurposeOfStaysType}
+     * List of Purpose Of Stays.
+     * @type {Array<PurposeOfStayType>}
      * @memberof PurposeOfStaysCriteria
      */
-    purposeOfStays?: PurposeOfStaysType;
+    purposeOfStays?: Array<PurposeOfStayType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PurposeOfStaysCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PurposeOfStaysCriteria interface.

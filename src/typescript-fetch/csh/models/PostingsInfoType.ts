@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DetailPostingsType } from './DetailPostingsType';
+import type { DetailPostingType } from './DetailPostingType';
 import {
-    DetailPostingsTypeFromJSON,
-    DetailPostingsTypeFromJSONTyped,
-    DetailPostingsTypeToJSON,
-} from './DetailPostingsType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+    DetailPostingTypeFromJSON,
+    DetailPostingTypeFromJSONTyped,
+    DetailPostingTypeToJSON,
+} from './DetailPostingType';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
 
 /**
  * This type is useful to hold the transaction details along the transaction code information.
@@ -33,17 +33,17 @@ import {
  */
 export interface PostingsInfoType {
     /**
-     * 
-     * @type {DetailPostingsType}
+     * Details of the transaction(Posting).
+     * @type {Array<DetailPostingType>}
      * @memberof PostingsInfoType
      */
-    transactions?: DetailPostingsType;
+    transactions?: Array<DetailPostingType>;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof PostingsInfoType
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function PostingsInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'transactions': !exists(json, 'transactions') ? undefined : DetailPostingsTypeFromJSON(json['transactions']),
-        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : TrxCodesInfoTypeFromJSON(json['trxCodesInfo']),
+        'transactions': !exists(json, 'transactions') ? undefined : ((json['transactions'] as Array<any>).map(DetailPostingTypeFromJSON)),
+        'trxCodesInfo': !exists(json, 'trxCodesInfo') ? undefined : ((json['trxCodesInfo'] as Array<any>).map(TrxInfoTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function PostingsInfoTypeToJSON(value?: PostingsInfoType | null): any {
     }
     return {
         
-        'transactions': DetailPostingsTypeToJSON(value.transactions),
-        'trxCodesInfo': TrxCodesInfoTypeToJSON(value.trxCodesInfo),
+        'transactions': value.transactions === undefined ? undefined : ((value.transactions as Array<any>).map(DetailPostingTypeToJSON)),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : ((value.trxCodesInfo as Array<any>).map(TrxInfoTypeToJSON)),
     };
 }
 

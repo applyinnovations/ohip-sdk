@@ -55,12 +55,12 @@ import {
     PostingGroupTypeFromJSONTyped,
     PostingGroupTypeToJSON,
 } from './PostingGroupType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Posting details.
@@ -171,11 +171,11 @@ export interface PackagePostingType {
      */
     fbaCertificate?: boolean;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof PackagePostingType
      */
-    financialTransactionIdList?: UniqueIDListType;
+    financialTransactionIdList?: Array<UniqueIDType>;
     /**
      * Room number for linked reservation package allowance or consumption.
      * @type {string}
@@ -382,7 +382,7 @@ export function PackagePostingTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'depositTransactionId': !exists(json, 'depositTransactionId') ? undefined : json['depositTransactionId'],
         'exchange': !exists(json, 'exchange') ? undefined : ExchangeAmountsFromJSON(json['exchange']),
         'fbaCertificate': !exists(json, 'fbaCertificate') ? undefined : json['fbaCertificate'],
-        'financialTransactionIdList': !exists(json, 'financialTransactionIdList') ? undefined : UniqueIDListTypeFromJSON(json['financialTransactionIdList']),
+        'financialTransactionIdList': !exists(json, 'financialTransactionIdList') ? undefined : ((json['financialTransactionIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'fromRoom': !exists(json, 'fromRoom') ? undefined : json['fromRoom'],
         'groupTypeInfo': !exists(json, 'groupTypeInfo') ? undefined : PostingGroupTypeFromJSON(json['groupTypeInfo']),
         'overageAmount': !exists(json, 'overageAmount') ? undefined : CurrencyAmountTypeFromJSON(json['overageAmount']),
@@ -440,7 +440,7 @@ export function PackagePostingTypeToJSON(value?: PackagePostingType | null): any
         'depositTransactionId': value.depositTransactionId,
         'exchange': ExchangeAmountsToJSON(value.exchange),
         'fbaCertificate': value.fbaCertificate,
-        'financialTransactionIdList': UniqueIDListTypeToJSON(value.financialTransactionIdList),
+        'financialTransactionIdList': value.financialTransactionIdList === undefined ? undefined : ((value.financialTransactionIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'fromRoom': value.fromRoom,
         'groupTypeInfo': PostingGroupTypeToJSON(value.groupTypeInfo),
         'overageAmount': CurrencyAmountTypeToJSON(value.overageAmount),

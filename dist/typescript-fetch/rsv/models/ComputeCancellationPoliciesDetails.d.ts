@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ResCancellationPoliciesType } from './ResCancellationPoliciesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ResCancellationPolicyType } from './ResCancellationPolicyType';
+import type { WarningType } from './WarningType';
 /**
  * Response for the cancellation rules configuration request. Contains computed details for the cancellation rules requested.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ComputeCancellationPoliciesDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ComputeCancellationPoliciesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ResCancellationPoliciesType}
+     * A list of reservation cancellation policies.
+     * @type {Array<ResCancellationPolicyType>}
      * @memberof ComputeCancellationPoliciesDetails
      */
-    policies?: ResCancellationPoliciesType;
+    policies?: Array<ResCancellationPolicyType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ComputeCancellationPoliciesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ComputeCancellationPoliciesDetails interface.

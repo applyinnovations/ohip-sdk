@@ -5628,7 +5628,7 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, index_1.ChannelAccountsToChangeToJSON)(requestParameters.channelAccountsToChange),
+                body: requestParameters.channelAccountsToChange.map(index_1.ChannelAccountTypeToJSON),
             }, initOverrides);
             return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });

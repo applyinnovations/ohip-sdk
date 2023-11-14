@@ -17,9 +17,9 @@ exports.PutReservationRequestToJSON = exports.PutReservationRequestFromJSONTyped
 const runtime_1 = require("../runtime");
 const ChannelResvRQInfoType_1 = require("./ChannelResvRQInfoType");
 const HotelReservationInstructionType_1 = require("./HotelReservationInstructionType");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const ReservationsInstructionsType_1 = require("./ReservationsInstructionsType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PutReservationRequest interface.
  */
@@ -38,10 +38,10 @@ function PutReservationRequestFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'channelInformation': !(0, runtime_1.exists)(json, 'channelInformation') ? undefined : (0, ChannelResvRQInfoType_1.ChannelResvRQInfoTypeFromJSON)(json['channelInformation']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'reservations': !(0, runtime_1.exists)(json, 'reservations') ? undefined : (json['reservations'].map(HotelReservationInstructionType_1.HotelReservationInstructionTypeFromJSON)),
         'reservationsInstructionsType': !(0, runtime_1.exists)(json, 'reservationsInstructionsType') ? undefined : (0, ReservationsInstructionsType_1.ReservationsInstructionsTypeFromJSON)(json['reservationsInstructionsType']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PutReservationRequestFromJSONTyped = PutReservationRequestFromJSONTyped;
@@ -54,10 +54,10 @@ function PutReservationRequestToJSON(value) {
     }
     return {
         'channelInformation': (0, ChannelResvRQInfoType_1.ChannelResvRQInfoTypeToJSON)(value.channelInformation),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'reservations': value.reservations === undefined ? undefined : (value.reservations.map(HotelReservationInstructionType_1.HotelReservationInstructionTypeToJSON)),
         'reservationsInstructionsType': (0, ReservationsInstructionsType_1.ReservationsInstructionsTypeToJSON)(value.reservationsInstructionsType),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PutReservationRequestToJSON = PutReservationRequestToJSON;

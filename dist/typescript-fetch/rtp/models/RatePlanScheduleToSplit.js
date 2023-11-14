@@ -16,9 +16,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RatePlanScheduleToSplitToJSON = exports.RatePlanScheduleToSplitFromJSONTyped = exports.RatePlanScheduleToSplitFromJSON = exports.instanceOfRatePlanScheduleToSplit = void 0;
 const runtime_1 = require("../runtime");
 const BaseRatePlanScheduleDetailType_1 = require("./BaseRatePlanScheduleDetailType");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const RatePlanScheduleToSplitRatePlanSchedule_1 = require("./RatePlanScheduleToSplitRatePlanSchedule");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RatePlanScheduleToSplit interface.
  */
@@ -36,10 +36,10 @@ function RatePlanScheduleToSplitFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'ratePlanSchedule': !(0, runtime_1.exists)(json, 'ratePlanSchedule') ? undefined : (0, RatePlanScheduleToSplitRatePlanSchedule_1.RatePlanScheduleToSplitRatePlanScheduleFromJSON)(json['ratePlanSchedule']),
         'splitDetails': !(0, runtime_1.exists)(json, 'splitDetails') ? undefined : (0, BaseRatePlanScheduleDetailType_1.BaseRatePlanScheduleDetailTypeFromJSON)(json['splitDetails']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RatePlanScheduleToSplitFromJSONTyped = RatePlanScheduleToSplitFromJSONTyped;
@@ -51,10 +51,10 @@ function RatePlanScheduleToSplitToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'ratePlanSchedule': (0, RatePlanScheduleToSplitRatePlanSchedule_1.RatePlanScheduleToSplitRatePlanScheduleToJSON)(value.ratePlanSchedule),
         'splitDetails': (0, BaseRatePlanScheduleDetailType_1.BaseRatePlanScheduleDetailTypeToJSON)(value.splitDetails),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RatePlanScheduleToSplitToJSON = RatePlanScheduleToSplitToJSON;

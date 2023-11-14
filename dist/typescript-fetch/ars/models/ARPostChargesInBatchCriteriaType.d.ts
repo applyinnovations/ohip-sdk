@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ChargeCriteriaType } from './ChargeCriteriaType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Criteria for posting a charge to list of accounts.
  * @export
@@ -18,11 +18,11 @@ import type { UniqueIDListType } from './UniqueIDListType';
  */
 export interface ARPostChargesInBatchCriteriaType {
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ARPostChargesInBatchCriteriaType
      */
-    accountIdList?: UniqueIDListType;
+    accountIdList?: Array<UniqueIDType>;
     /**
      * The Cashier ID of the Cashier who is currently processing the transaction(s).
      * @type {number}

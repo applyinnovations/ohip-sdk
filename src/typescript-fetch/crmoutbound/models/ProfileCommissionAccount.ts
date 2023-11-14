@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ProfileCommissionAccountCriteriaType } from './ProfileCommissionAccountCriteriaType';
 import {
     ProfileCommissionAccountCriteriaTypeFromJSON,
@@ -40,10 +40,10 @@ export interface ProfileCommissionAccount {
     criteria?: ProfileCommissionAccountCriteriaType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileCommissionAccount
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function ProfileCommissionAccountFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : ProfileCommissionAccountCriteriaTypeFromJSON(json['criteria']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function ProfileCommissionAccountToJSON(value?: ProfileCommissionAccount 
     return {
         
         'criteria': ProfileCommissionAccountCriteriaTypeToJSON(value.criteria),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

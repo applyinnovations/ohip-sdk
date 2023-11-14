@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelActiveEndOfDaysType } from './HotelActiveEndOfDaysType';
+import type { HotelActiveEndOfDayType } from './HotelActiveEndOfDayType';
 import {
-    HotelActiveEndOfDaysTypeFromJSON,
-    HotelActiveEndOfDaysTypeFromJSONTyped,
-    HotelActiveEndOfDaysTypeToJSON,
-} from './HotelActiveEndOfDaysType';
-import type { Links } from './Links';
+    HotelActiveEndOfDayTypeFromJSON,
+    HotelActiveEndOfDayTypeFromJSONTyped,
+    HotelActiveEndOfDayTypeToJSON,
+} from './HotelActiveEndOfDayType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for fetching active end of day status for multiple hotels.
@@ -39,23 +39,23 @@ import {
  */
 export interface BusinessDate {
     /**
-     * 
-     * @type {HotelActiveEndOfDaysType}
+     * Collection of hotels and its active end of days.
+     * @type {Array<HotelActiveEndOfDayType>}
      * @memberof BusinessDate
      */
-    hotels?: HotelActiveEndOfDaysType;
+    hotels?: Array<HotelActiveEndOfDayType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BusinessDate
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BusinessDate
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function BusinessDateFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'hotels': !exists(json, 'hotels') ? undefined : HotelActiveEndOfDaysTypeFromJSON(json['hotels']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'hotels': !exists(json, 'hotels') ? undefined : ((json['hotels'] as Array<any>).map(HotelActiveEndOfDayTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function BusinessDateToJSON(value?: BusinessDate | null): any {
     }
     return {
         
-        'hotels': HotelActiveEndOfDaysTypeToJSON(value.hotels),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'hotels': value.hotels === undefined ? undefined : ((value.hotels as Array<any>).map(HotelActiveEndOfDayTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

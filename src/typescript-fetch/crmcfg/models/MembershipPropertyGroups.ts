@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipPropertyGroupsType } from './MembershipPropertyGroupsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipPropertyGroupType } from './MembershipPropertyGroupType';
 import {
-    MembershipPropertyGroupsTypeFromJSON,
-    MembershipPropertyGroupsTypeFromJSONTyped,
-    MembershipPropertyGroupsTypeToJSON,
-} from './MembershipPropertyGroupsType';
-import type { WarningsType } from './WarningsType';
+    MembershipPropertyGroupTypeFromJSON,
+    MembershipPropertyGroupTypeFromJSONTyped,
+    MembershipPropertyGroupTypeToJSON,
+} from './MembershipPropertyGroupType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing existing Membership Property Groups Configurations.
@@ -40,22 +40,22 @@ import {
 export interface MembershipPropertyGroups {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipPropertyGroups
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MembershipPropertyGroupsType}
+     * Details for Membership Property Group along with associated property codes.
+     * @type {Array<MembershipPropertyGroupType>}
      * @memberof MembershipPropertyGroups
      */
-    membershipPropertyGroups?: MembershipPropertyGroupsType;
+    membershipPropertyGroups?: Array<MembershipPropertyGroupType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipPropertyGroups
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MembershipPropertyGroupsFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'membershipPropertyGroups': !exists(json, 'membershipPropertyGroups') ? undefined : MembershipPropertyGroupsTypeFromJSON(json['membershipPropertyGroups']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'membershipPropertyGroups': !exists(json, 'membershipPropertyGroups') ? undefined : ((json['membershipPropertyGroups'] as Array<any>).map(MembershipPropertyGroupTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MembershipPropertyGroupsToJSON(value?: MembershipPropertyGroups 
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'membershipPropertyGroups': MembershipPropertyGroupsTypeToJSON(value.membershipPropertyGroups),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'membershipPropertyGroups': value.membershipPropertyGroups === undefined ? undefined : ((value.membershipPropertyGroups as Array<any>).map(MembershipPropertyGroupTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

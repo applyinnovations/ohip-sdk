@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MassRateChangeStatusListType } from './MassRateChangeStatusListType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MassRateChangeStatusType } from './MassRateChangeStatusType';
+import type { WarningType } from './WarningType';
 /**
  * A response message to fetch the status of mass rate update operation.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MassRateChangeStatus {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MassRateChangeStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MassRateChangeStatusListType}
+     * Mass rate update details.
+     * @type {Array<MassRateChangeStatusType>}
      * @memberof MassRateChangeStatus
      */
-    statusList?: MassRateChangeStatusListType;
+    statusList?: Array<MassRateChangeStatusType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MassRateChangeStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MassRateChangeStatus interface.

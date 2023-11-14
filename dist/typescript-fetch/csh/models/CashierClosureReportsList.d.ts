@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CashierReportType } from './CashierReportType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Returns whether a particular report is applicable or not based on payment posting type. When no postings for a particular payment type is found, that report is marked as not applicable in the closure report.
  * @export
@@ -26,16 +26,16 @@ export interface CashierClosureReportsList {
     cashierReportList?: Array<CashierReportType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CashierClosureReportsList
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CashierClosureReportsList
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CashierClosureReportsList interface.

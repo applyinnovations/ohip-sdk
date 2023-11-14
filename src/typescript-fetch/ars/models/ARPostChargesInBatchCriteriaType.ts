@@ -19,12 +19,12 @@ import {
     ChargeCriteriaTypeFromJSONTyped,
     ChargeCriteriaTypeToJSON,
 } from './ChargeCriteriaType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Criteria for posting a charge to list of accounts.
@@ -33,11 +33,11 @@ import {
  */
 export interface ARPostChargesInBatchCriteriaType {
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ARPostChargesInBatchCriteriaType
      */
-    accountIdList?: UniqueIDListType;
+    accountIdList?: Array<UniqueIDType>;
     /**
      * The Cashier ID of the Cashier who is currently processing the transaction(s).
      * @type {number}
@@ -77,7 +77,7 @@ export function ARPostChargesInBatchCriteriaTypeFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'accountIdList': !exists(json, 'accountIdList') ? undefined : UniqueIDListTypeFromJSON(json['accountIdList']),
+        'accountIdList': !exists(json, 'accountIdList') ? undefined : ((json['accountIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
         'chargeInfo': !exists(json, 'chargeInfo') ? undefined : ChargeCriteriaTypeFromJSON(json['chargeInfo']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -93,7 +93,7 @@ export function ARPostChargesInBatchCriteriaTypeToJSON(value?: ARPostChargesInBa
     }
     return {
         
-        'accountIdList': UniqueIDListTypeToJSON(value.accountIdList),
+        'accountIdList': value.accountIdList === undefined ? undefined : ((value.accountIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'cashierId': value.cashierId,
         'chargeInfo': ChargeCriteriaTypeToJSON(value.chargeInfo),
         'hotelId': value.hotelId,

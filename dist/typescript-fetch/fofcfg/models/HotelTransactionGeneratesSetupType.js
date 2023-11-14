@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelTransactionGeneratesSetupTypeToJSON = exports.HotelTransactionGeneratesSetupTypeFromJSONTyped = exports.HotelTransactionGeneratesSetupTypeFromJSON = exports.instanceOfHotelTransactionGeneratesSetupType = void 0;
 const runtime_1 = require("../runtime");
 const GenerateCalculationBucketsType_1 = require("./GenerateCalculationBucketsType");
-const GeneratesType_1 = require("./GeneratesType");
+const GenerateType_1 = require("./GenerateType");
 /**
  * Check if a given object implements the HotelTransactionGeneratesSetupType interface.
  */
@@ -35,7 +35,7 @@ function HotelTransactionGeneratesSetupTypeFromJSONTyped(json, ignoreDiscriminat
     }
     return {
         'addBaseAmtTo': !(0, runtime_1.exists)(json, 'addBaseAmtTo') ? undefined : (0, GenerateCalculationBucketsType_1.GenerateCalculationBucketsTypeFromJSON)(json['addBaseAmtTo']),
-        'generates': !(0, runtime_1.exists)(json, 'generates') ? undefined : (0, GeneratesType_1.GeneratesTypeFromJSON)(json['generates']),
+        'generates': !(0, runtime_1.exists)(json, 'generates') ? undefined : (json['generates'].map(GenerateType_1.GenerateTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'transactionCode': !(0, runtime_1.exists)(json, 'transactionCode') ? undefined : json['transactionCode'],
         'transactionGroup': !(0, runtime_1.exists)(json, 'transactionGroup') ? undefined : json['transactionGroup'],
@@ -52,7 +52,7 @@ function HotelTransactionGeneratesSetupTypeToJSON(value) {
     }
     return {
         'addBaseAmtTo': (0, GenerateCalculationBucketsType_1.GenerateCalculationBucketsTypeToJSON)(value.addBaseAmtTo),
-        'generates': (0, GeneratesType_1.GeneratesTypeToJSON)(value.generates),
+        'generates': value.generates === undefined ? undefined : (value.generates.map(GenerateType_1.GenerateTypeToJSON)),
         'hotelId': value.hotelId,
         'transactionCode': value.transactionCode,
         'transactionGroup': value.transactionGroup,

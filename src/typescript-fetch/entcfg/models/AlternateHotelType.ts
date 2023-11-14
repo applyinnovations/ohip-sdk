@@ -31,12 +31,12 @@ import {
     CurrencyAmountTypeFromJSONTyped,
     CurrencyAmountTypeToJSON,
 } from './CurrencyAmountType';
-import type { CurrencyExchangeRatesType } from './CurrencyExchangeRatesType';
+import type { CurrencyExchangeRateType } from './CurrencyExchangeRateType';
 import {
-    CurrencyExchangeRatesTypeFromJSON,
-    CurrencyExchangeRatesTypeFromJSONTyped,
-    CurrencyExchangeRatesTypeToJSON,
-} from './CurrencyExchangeRatesType';
+    CurrencyExchangeRateTypeFromJSON,
+    CurrencyExchangeRateTypeFromJSONTyped,
+    CurrencyExchangeRateTypeToJSON,
+} from './CurrencyExchangeRateType';
 import type { HotelAmenityType } from './HotelAmenityType';
 import {
     HotelAmenityTypeFromJSON,
@@ -129,11 +129,11 @@ export interface AlternateHotelType {
      */
     contactNumbers?: Array<TelephoneType>;
     /**
-     * 
-     * @type {CurrencyExchangeRatesType}
+     * Exchange Rate information for a currency code.
+     * @type {Array<CurrencyExchangeRateType>}
      * @memberof AlternateHotelType
      */
-    currencyExchangeRates?: CurrencyExchangeRatesType;
+    currencyExchangeRates?: Array<CurrencyExchangeRateType>;
     /**
      * Compass direction to the attraction from the hotel (North/South, etc).
      * @type {string}
@@ -272,7 +272,7 @@ export function AlternateHotelTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'channelSummaryInfo': !exists(json, 'channelSummaryInfo') ? undefined : ChannelSummaryInfoTypeFromJSON(json['channelSummaryInfo']),
         'comments': !exists(json, 'comments') ? undefined : json['comments'],
         'contactNumbers': !exists(json, 'contactNumbers') ? undefined : ((json['contactNumbers'] as Array<any>).map(TelephoneTypeFromJSON)),
-        'currencyExchangeRates': !exists(json, 'currencyExchangeRates') ? undefined : CurrencyExchangeRatesTypeFromJSON(json['currencyExchangeRates']),
+        'currencyExchangeRates': !exists(json, 'currencyExchangeRates') ? undefined : ((json['currencyExchangeRates'] as Array<any>).map(CurrencyExchangeRateTypeFromJSON)),
         'direction': !exists(json, 'direction') ? undefined : json['direction'],
         'displayOrder': !exists(json, 'displayOrder') ? undefined : json['displayOrder'],
         'event': !exists(json, 'event') ? undefined : json['event'],
@@ -312,7 +312,7 @@ export function AlternateHotelTypeToJSON(value?: AlternateHotelType | null): any
         'channelSummaryInfo': ChannelSummaryInfoTypeToJSON(value.channelSummaryInfo),
         'comments': value.comments,
         'contactNumbers': value.contactNumbers === undefined ? undefined : ((value.contactNumbers as Array<any>).map(TelephoneTypeToJSON)),
-        'currencyExchangeRates': CurrencyExchangeRatesTypeToJSON(value.currencyExchangeRates),
+        'currencyExchangeRates': value.currencyExchangeRates === undefined ? undefined : ((value.currencyExchangeRates as Array<any>).map(CurrencyExchangeRateTypeToJSON)),
         'direction': value.direction,
         'displayOrder': value.displayOrder,
         'event': value.event,

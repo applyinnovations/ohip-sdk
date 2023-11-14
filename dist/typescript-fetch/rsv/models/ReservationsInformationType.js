@@ -17,7 +17,7 @@ exports.ReservationsInformationTypeToJSON = exports.ReservationsInformationTypeF
 const runtime_1 = require("../runtime");
 const CompanyDetails_1 = require("./CompanyDetails");
 const DistinctIDType_1 = require("./DistinctIDType");
-const ExternalReferencesType_1 = require("./ExternalReferencesType");
+const ExternalReferenceType_1 = require("./ExternalReferenceType");
 const GroupDetails_1 = require("./GroupDetails");
 const GuestDetails_1 = require("./GuestDetails");
 const MembershipDetails_1 = require("./MembershipDetails");
@@ -53,7 +53,7 @@ function ReservationsInformationTypeFromJSONTyped(json, ignoreDiscriminator) {
         'creatorId': !(0, runtime_1.exists)(json, 'creatorId') ? undefined : json['creatorId'],
         'currencyCode': !(0, runtime_1.exists)(json, 'currencyCode') ? undefined : json['currencyCode'],
         'departureTime': !(0, runtime_1.exists)(json, 'departureTime') ? undefined : json['departureTime'],
-        'externalReferences': !(0, runtime_1.exists)(json, 'externalReferences') ? undefined : (0, ExternalReferencesType_1.ExternalReferencesTypeFromJSON)(json['externalReferences']),
+        'externalReferences': !(0, runtime_1.exists)(json, 'externalReferences') ? undefined : (json['externalReferences'].map(ExternalReferenceType_1.ExternalReferenceTypeFromJSON)),
         'groupDetails': !(0, runtime_1.exists)(json, 'groupDetails') ? undefined : (0, GroupDetails_1.GroupDetailsFromJSON)(json['groupDetails']),
         'guaranteeCode': !(0, runtime_1.exists)(json, 'guaranteeCode') ? undefined : json['guaranteeCode'],
         'guestDetails': !(0, runtime_1.exists)(json, 'guestDetails') ? undefined : (0, GuestDetails_1.GuestDetailsFromJSON)(json['guestDetails']),
@@ -103,7 +103,7 @@ function ReservationsInformationTypeToJSON(value) {
         'creatorId': value.creatorId,
         'currencyCode': value.currencyCode,
         'departureTime': value.departureTime,
-        'externalReferences': (0, ExternalReferencesType_1.ExternalReferencesTypeToJSON)(value.externalReferences),
+        'externalReferences': value.externalReferences === undefined ? undefined : (value.externalReferences.map(ExternalReferenceType_1.ExternalReferenceTypeToJSON)),
         'groupDetails': (0, GroupDetails_1.GroupDetailsToJSON)(value.groupDetails),
         'guaranteeCode': value.guaranteeCode,
         'guestDetails': (0, GuestDetails_1.GuestDetailsToJSON)(value.guestDetails),

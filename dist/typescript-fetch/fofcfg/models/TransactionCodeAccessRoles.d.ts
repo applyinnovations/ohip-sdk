@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TrxCodeAccessRolesType } from './TrxCodeAccessRolesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TrxCodeAccessRoleType } from './TrxCodeAccessRoleType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TransactionCodeAccessRoles {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransactionCodeAccessRoles
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TrxCodeAccessRolesType}
+     * List of Roles having access to set of transaction codes
+     * @type {Array<TrxCodeAccessRoleType>}
      * @memberof TransactionCodeAccessRoles
      */
-    transactionAccessRoles?: TrxCodeAccessRolesType;
+    transactionAccessRoles?: Array<TrxCodeAccessRoleType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransactionCodeAccessRoles
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TransactionCodeAccessRoles interface.

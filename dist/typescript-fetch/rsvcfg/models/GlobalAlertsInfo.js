@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GlobalAlertsInfoToJSON = exports.GlobalAlertsInfoFromJSONTyped = exports.GlobalAlertsInfoFromJSON = exports.instanceOfGlobalAlertsInfo = void 0;
 const runtime_1 = require("../runtime");
-const GlobalAlertsType_1 = require("./GlobalAlertsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const GlobalAlertType_1 = require("./GlobalAlertType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the GlobalAlertsInfo interface.
  */
@@ -35,9 +35,9 @@ function GlobalAlertsInfoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'globalAlerts': !(0, runtime_1.exists)(json, 'globalAlerts') ? undefined : (0, GlobalAlertsType_1.GlobalAlertsTypeFromJSON)(json['globalAlerts']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'globalAlerts': !(0, runtime_1.exists)(json, 'globalAlerts') ? undefined : (json['globalAlerts'].map(GlobalAlertType_1.GlobalAlertTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.GlobalAlertsInfoFromJSONTyped = GlobalAlertsInfoFromJSONTyped;
@@ -49,9 +49,9 @@ function GlobalAlertsInfoToJSON(value) {
         return null;
     }
     return {
-        'globalAlerts': (0, GlobalAlertsType_1.GlobalAlertsTypeToJSON)(value.globalAlerts),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'globalAlerts': value.globalAlerts === undefined ? undefined : (value.globalAlerts.map(GlobalAlertType_1.GlobalAlertTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.GlobalAlertsInfoToJSON = GlobalAlertsInfoToJSON;

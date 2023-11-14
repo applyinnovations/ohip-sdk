@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RateSeasonsType } from './RateSeasonsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RateSeasonType } from './RateSeasonType';
 import {
-    RateSeasonsTypeFromJSON,
-    RateSeasonsTypeFromJSONTyped,
-    RateSeasonsTypeToJSON,
-} from './RateSeasonsType';
-import type { WarningsType } from './WarningsType';
+    RateSeasonTypeFromJSON,
+    RateSeasonTypeFromJSONTyped,
+    RateSeasonTypeToJSON,
+} from './RateSeasonType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for modifying rate seasons for a hotel.
@@ -40,22 +40,22 @@ import {
 export interface RateSeasonsToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RateSeasonsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RateSeasonsType}
+     * Hotel rate season details.
+     * @type {Array<RateSeasonType>}
      * @memberof RateSeasonsToBeChanged
      */
-    rateSeasons?: RateSeasonsType;
+    rateSeasons?: Array<RateSeasonType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RateSeasonsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RateSeasonsToBeChangedFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'rateSeasons': !exists(json, 'rateSeasons') ? undefined : RateSeasonsTypeFromJSON(json['rateSeasons']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'rateSeasons': !exists(json, 'rateSeasons') ? undefined : ((json['rateSeasons'] as Array<any>).map(RateSeasonTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RateSeasonsToBeChangedToJSON(value?: RateSeasonsToBeChanged | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'rateSeasons': RateSeasonsTypeToJSON(value.rateSeasons),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'rateSeasons': value.rateSeasons === undefined ? undefined : ((value.rateSeasons as Array<any>).map(RateSeasonTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

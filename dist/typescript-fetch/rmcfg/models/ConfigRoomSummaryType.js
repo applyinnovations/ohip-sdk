@@ -16,9 +16,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConfigRoomSummaryTypeToJSON = exports.ConfigRoomSummaryTypeFromJSONTyped = exports.ConfigRoomSummaryTypeFromJSON = exports.instanceOfConfigRoomSummaryType = void 0;
 const runtime_1 = require("../runtime");
 const RatePlanRatingType_1 = require("./RatePlanRatingType");
-const RoomComponentsType_1 = require("./RoomComponentsType");
-const RoomFeaturesType_1 = require("./RoomFeaturesType");
-const RoomRoomsType_1 = require("./RoomRoomsType");
+const RoomComponentType_1 = require("./RoomComponentType");
+const RoomFeatureType_1 = require("./RoomFeatureType");
+const RoomRoomType_1 = require("./RoomRoomType");
 const RoomTypeShortInfoType_1 = require("./RoomTypeShortInfoType");
 const TranslationTextType2000_1 = require("./TranslationTextType2000");
 /**
@@ -40,7 +40,7 @@ function ConfigRoomSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'accessible': !(0, runtime_1.exists)(json, 'accessible') ? undefined : json['accessible'],
         'building': !(0, runtime_1.exists)(json, 'building') ? undefined : json['building'],
-        'connectingRooms': !(0, runtime_1.exists)(json, 'connectingRooms') ? undefined : (0, RoomRoomsType_1.RoomRoomsTypeFromJSON)(json['connectingRooms']),
+        'connectingRooms': !(0, runtime_1.exists)(json, 'connectingRooms') ? undefined : (json['connectingRooms'].map(RoomRoomType_1.RoomRoomTypeFromJSON)),
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : (0, TranslationTextType2000_1.TranslationTextType2000FromJSON)(json['description']),
         'floor': !(0, runtime_1.exists)(json, 'floor') ? undefined : json['floor'],
         'floorDescription': !(0, runtime_1.exists)(json, 'floorDescription') ? undefined : json['floorDescription'],
@@ -48,9 +48,9 @@ function ConfigRoomSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
         'meetingRoom': !(0, runtime_1.exists)(json, 'meetingRoom') ? undefined : json['meetingRoom'],
         'ownerRoom': !(0, runtime_1.exists)(json, 'ownerRoom') ? undefined : json['ownerRoom'],
         'roomAssignmentRating': !(0, runtime_1.exists)(json, 'roomAssignmentRating') ? undefined : (0, RatePlanRatingType_1.RatePlanRatingTypeFromJSON)(json['roomAssignmentRating']),
-        'roomComponents': !(0, runtime_1.exists)(json, 'roomComponents') ? undefined : (0, RoomComponentsType_1.RoomComponentsTypeFromJSON)(json['roomComponents']),
+        'roomComponents': !(0, runtime_1.exists)(json, 'roomComponents') ? undefined : (json['roomComponents'].map(RoomComponentType_1.RoomComponentTypeFromJSON)),
         'roomDescription': !(0, runtime_1.exists)(json, 'roomDescription') ? undefined : json['roomDescription'],
-        'roomFeatures': !(0, runtime_1.exists)(json, 'roomFeatures') ? undefined : (0, RoomFeaturesType_1.RoomFeaturesTypeFromJSON)(json['roomFeatures']),
+        'roomFeatures': !(0, runtime_1.exists)(json, 'roomFeatures') ? undefined : (json['roomFeatures'].map(RoomFeatureType_1.RoomFeatureTypeFromJSON)),
         'roomId': !(0, runtime_1.exists)(json, 'roomId') ? undefined : json['roomId'],
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : (0, RoomTypeShortInfoType_1.RoomTypeShortInfoTypeFromJSON)(json['roomType']),
         'sellSequence': !(0, runtime_1.exists)(json, 'sellSequence') ? undefined : json['sellSequence'],
@@ -73,7 +73,7 @@ function ConfigRoomSummaryTypeToJSON(value) {
     return {
         'accessible': value.accessible,
         'building': value.building,
-        'connectingRooms': (0, RoomRoomsType_1.RoomRoomsTypeToJSON)(value.connectingRooms),
+        'connectingRooms': value.connectingRooms === undefined ? undefined : (value.connectingRooms.map(RoomRoomType_1.RoomRoomTypeToJSON)),
         'description': (0, TranslationTextType2000_1.TranslationTextType2000ToJSON)(value.description),
         'floor': value.floor,
         'floorDescription': value.floorDescription,
@@ -81,9 +81,9 @@ function ConfigRoomSummaryTypeToJSON(value) {
         'meetingRoom': value.meetingRoom,
         'ownerRoom': value.ownerRoom,
         'roomAssignmentRating': (0, RatePlanRatingType_1.RatePlanRatingTypeToJSON)(value.roomAssignmentRating),
-        'roomComponents': (0, RoomComponentsType_1.RoomComponentsTypeToJSON)(value.roomComponents),
+        'roomComponents': value.roomComponents === undefined ? undefined : (value.roomComponents.map(RoomComponentType_1.RoomComponentTypeToJSON)),
         'roomDescription': value.roomDescription,
-        'roomFeatures': (0, RoomFeaturesType_1.RoomFeaturesTypeToJSON)(value.roomFeatures),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : (value.roomFeatures.map(RoomFeatureType_1.RoomFeatureTypeToJSON)),
         'roomId': value.roomId,
         'roomType': (0, RoomTypeShortInfoType_1.RoomTypeShortInfoTypeToJSON)(value.roomType),
         'sellSequence': value.sellSequence,

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { NoteTypesType } from './NoteTypesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { NoteTypeType } from './NoteTypeType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing existing Note Types.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface NoteTypesToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof NoteTypesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {NoteTypesType}
+     * Note Types Collection element.
+     * @type {Array<NoteTypeType>}
      * @memberof NoteTypesToBeChanged
      */
-    noteTypes?: NoteTypesType;
+    noteTypes?: Array<NoteTypeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof NoteTypesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the NoteTypesToBeChanged interface.

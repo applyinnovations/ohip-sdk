@@ -19,24 +19,24 @@ import {
     CancelPenaltyTypeFromJSONTyped,
     CancelPenaltyTypeToJSON,
 } from './CancelPenaltyType';
-import type { ChannelMarketingInfoType } from './ChannelMarketingInfoType';
+import type { ChannelMarketingInfoTypeInner } from './ChannelMarketingInfoTypeInner';
 import {
-    ChannelMarketingInfoTypeFromJSON,
-    ChannelMarketingInfoTypeFromJSONTyped,
-    ChannelMarketingInfoTypeToJSON,
-} from './ChannelMarketingInfoType';
+    ChannelMarketingInfoTypeInnerFromJSON,
+    ChannelMarketingInfoTypeInnerFromJSONTyped,
+    ChannelMarketingInfoTypeInnerToJSON,
+} from './ChannelMarketingInfoTypeInner';
 import type { DepositPolicyType } from './DepositPolicyType';
 import {
     DepositPolicyTypeFromJSON,
     DepositPolicyTypeFromJSONTyped,
     DepositPolicyTypeToJSON,
 } from './DepositPolicyType';
-import type { GuaranteesInfoType } from './GuaranteesInfoType';
+import type { GuaranteeType } from './GuaranteeType';
 import {
-    GuaranteesInfoTypeFromJSON,
-    GuaranteesInfoTypeFromJSONTyped,
-    GuaranteesInfoTypeToJSON,
-} from './GuaranteesInfoType';
+    GuaranteeTypeFromJSON,
+    GuaranteeTypeFromJSONTyped,
+    GuaranteeTypeToJSON,
+} from './GuaranteeType';
 
 /**
  * Policy details including guaranteeInfo, cancellation information etc.
@@ -51,11 +51,11 @@ export interface ChannelPolicyType {
      */
     cancelPenalty?: CancelPenaltyType;
     /**
-     * 
-     * @type {ChannelMarketingInfoType}
+     * Marketing Text like cancel policy, deposit policy etc.
+     * @type {Array<ChannelMarketingInfoTypeInner>}
      * @memberof ChannelPolicyType
      */
-    channelMarketingInfo?: ChannelMarketingInfoType;
+    channelMarketingInfo?: Array<ChannelMarketingInfoTypeInner>;
     /**
      * 
      * @type {string}
@@ -81,11 +81,11 @@ export interface ChannelPolicyType {
      */
     depositPolicy?: DepositPolicyType;
     /**
-     * 
-     * @type {GuaranteesInfoType}
+     * Guarantee details.
+     * @type {Array<GuaranteeType>}
      * @memberof ChannelPolicyType
      */
-    guarantees?: GuaranteesInfoType;
+    guarantees?: Array<GuaranteeType>;
     /**
      * 
      * @type {boolean}
@@ -120,12 +120,12 @@ export function ChannelPolicyTypeFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'cancelPenalty': !exists(json, 'cancelPenalty') ? undefined : CancelPenaltyTypeFromJSON(json['cancelPenalty']),
-        'channelMarketingInfo': !exists(json, 'channelMarketingInfo') ? undefined : ChannelMarketingInfoTypeFromJSON(json['channelMarketingInfo']),
+        'channelMarketingInfo': !exists(json, 'channelMarketingInfo') ? undefined : ((json['channelMarketingInfo'] as Array<any>).map(ChannelMarketingInfoTypeInnerFromJSON)),
         'channelRatePlanCode': !exists(json, 'channelRatePlanCode') ? undefined : json['channelRatePlanCode'],
         'commissionCode': !exists(json, 'commissionCode') ? undefined : json['commissionCode'],
         'deposit': !exists(json, 'deposit') ? undefined : json['deposit'],
         'depositPolicy': !exists(json, 'depositPolicy') ? undefined : DepositPolicyTypeFromJSON(json['depositPolicy']),
-        'guarantees': !exists(json, 'guarantees') ? undefined : GuaranteesInfoTypeFromJSON(json['guarantees']),
+        'guarantees': !exists(json, 'guarantees') ? undefined : ((json['guarantees'] as Array<any>).map(GuaranteeTypeFromJSON)),
         'hold': !exists(json, 'hold') ? undefined : json['hold'],
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
     };
@@ -141,12 +141,12 @@ export function ChannelPolicyTypeToJSON(value?: ChannelPolicyType | null): any {
     return {
         
         'cancelPenalty': CancelPenaltyTypeToJSON(value.cancelPenalty),
-        'channelMarketingInfo': ChannelMarketingInfoTypeToJSON(value.channelMarketingInfo),
+        'channelMarketingInfo': value.channelMarketingInfo === undefined ? undefined : ((value.channelMarketingInfo as Array<any>).map(ChannelMarketingInfoTypeInnerToJSON)),
         'channelRatePlanCode': value.channelRatePlanCode,
         'commissionCode': value.commissionCode,
         'deposit': value.deposit,
         'depositPolicy': DepositPolicyTypeToJSON(value.depositPolicy),
-        'guarantees': GuaranteesInfoTypeToJSON(value.guarantees),
+        'guarantees': value.guarantees === undefined ? undefined : ((value.guarantees as Array<any>).map(GuaranteeTypeToJSON)),
         'hold': value.hold,
         'ratePlanCode': value.ratePlanCode,
     };

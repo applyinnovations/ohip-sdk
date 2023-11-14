@@ -49,12 +49,12 @@ import {
     NameTypeTypeFromJSONTyped,
     NameTypeTypeToJSON,
 } from './NameTypeType';
-import type { ResAccompanyGuestListType } from './ResAccompanyGuestListType';
+import type { ResAccompanyGuestInfoType } from './ResAccompanyGuestInfoType';
 import {
-    ResAccompanyGuestListTypeFromJSON,
-    ResAccompanyGuestListTypeFromJSONTyped,
-    ResAccompanyGuestListTypeToJSON,
-} from './ResAccompanyGuestListType';
+    ResAccompanyGuestInfoTypeFromJSON,
+    ResAccompanyGuestInfoTypeFromJSONTyped,
+    ResAccompanyGuestInfoTypeToJSON,
+} from './ResAccompanyGuestInfoType';
 import type { ResGuestExternalInfoType } from './ResGuestExternalInfoType';
 import {
     ResGuestExternalInfoTypeFromJSON,
@@ -67,12 +67,12 @@ import {
     VIPTypeFromJSONTyped,
     VIPTypeToJSON,
 } from './VIPType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Specifies Company or Travel Agent profile using IATA or Corp. No.
@@ -81,11 +81,11 @@ import {
  */
 export interface ResGuestInfoType {
     /**
-     * 
-     * @type {ResAccompanyGuestListType}
+     * Collection of accompany guests
+     * @type {Array<ResAccompanyGuestInfoType>}
      * @memberof ResGuestInfoType
      */
-    accompanyGuests?: ResAccompanyGuestListType;
+    accompanyGuests?: Array<ResAccompanyGuestInfoType>;
     /**
      * 
      * @type {AddressSearchType}
@@ -267,11 +267,11 @@ export interface ResGuestInfoType {
      */
     vip?: VIPType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ResGuestInfoType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -293,7 +293,7 @@ export function ResGuestInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'accompanyGuests': !exists(json, 'accompanyGuests') ? undefined : ResAccompanyGuestListTypeFromJSON(json['accompanyGuests']),
+        'accompanyGuests': !exists(json, 'accompanyGuests') ? undefined : ((json['accompanyGuests'] as Array<any>).map(ResAccompanyGuestInfoTypeFromJSON)),
         'address': !exists(json, 'address') ? undefined : AddressSearchTypeFromJSON(json['address']),
         'alternateFullName': !exists(json, 'alternateFullName') ? undefined : json['alternateFullName'],
         'alternateGivenName': !exists(json, 'alternateGivenName') ? undefined : json['alternateGivenName'],
@@ -324,7 +324,7 @@ export function ResGuestInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'surnamePrefix': !exists(json, 'surnamePrefix') ? undefined : json['surnamePrefix'],
         'type': !exists(json, 'type') ? undefined : json['type'],
         'vip': !exists(json, 'vip') ? undefined : VIPTypeFromJSON(json['vip']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -337,7 +337,7 @@ export function ResGuestInfoTypeToJSON(value?: ResGuestInfoType | null): any {
     }
     return {
         
-        'accompanyGuests': ResAccompanyGuestListTypeToJSON(value.accompanyGuests),
+        'accompanyGuests': value.accompanyGuests === undefined ? undefined : ((value.accompanyGuests as Array<any>).map(ResAccompanyGuestInfoTypeToJSON)),
         'address': AddressSearchTypeToJSON(value.address),
         'alternateFullName': value.alternateFullName,
         'alternateGivenName': value.alternateGivenName,
@@ -368,7 +368,7 @@ export function ResGuestInfoTypeToJSON(value?: ResGuestInfoType | null): any {
         'surnamePrefix': value.surnamePrefix,
         'type': value.type,
         'vip': VIPTypeToJSON(value.vip),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

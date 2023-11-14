@@ -12,9 +12,9 @@
 import type { CancelReservationType } from './CancelReservationType';
 import type { CancellationReasonType } from './CancellationReasonType';
 import type { ChannelResvRQInfoType } from './ChannelResvRQInfoType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RateChangeInstructionType } from './RateChangeInstructionType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for canceling reservations.
  * @export
@@ -29,10 +29,10 @@ export interface CancelReservation {
     channelInformation?: ChannelResvRQInfoType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CancelReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {RateChangeInstructionType}
@@ -58,11 +58,11 @@ export interface CancelReservation {
      */
     verificationOnly?: boolean;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CancelReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CancelReservation interface.

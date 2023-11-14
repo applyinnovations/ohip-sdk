@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringPackageEventTypeToJSON = exports.CateringPackageEventTypeFromJSONTyped = exports.CateringPackageEventTypeFromJSON = exports.instanceOfCateringPackageEventType = void 0;
 const runtime_1 = require("../runtime");
-const CateringPackageEventNoteListType_1 = require("./CateringPackageEventNoteListType");
-const CateringPackageResourceListType_1 = require("./CateringPackageResourceListType");
+const CateringPackageEventNoteType_1 = require("./CateringPackageEventNoteType");
+const CateringPackageEventResourceType_1 = require("./CateringPackageEventResourceType");
 const DateTimeSpanType_1 = require("./DateTimeSpanType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -45,8 +45,8 @@ function CateringPackageEventTypeFromJSONTyped(json, ignoreDiscriminator) {
         'isMaster': !(0, runtime_1.exists)(json, 'isMaster') ? undefined : json['isMaster'],
         'isShareable': !(0, runtime_1.exists)(json, 'isShareable') ? undefined : json['isShareable'],
         'masterEventId': !(0, runtime_1.exists)(json, 'masterEventId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['masterEventId']),
-        'notes': !(0, runtime_1.exists)(json, 'notes') ? undefined : (0, CateringPackageEventNoteListType_1.CateringPackageEventNoteListTypeFromJSON)(json['notes']),
-        'resources': !(0, runtime_1.exists)(json, 'resources') ? undefined : (0, CateringPackageResourceListType_1.CateringPackageResourceListTypeFromJSON)(json['resources']),
+        'notes': !(0, runtime_1.exists)(json, 'notes') ? undefined : (json['notes'].map(CateringPackageEventNoteType_1.CateringPackageEventNoteTypeFromJSON)),
+        'resources': !(0, runtime_1.exists)(json, 'resources') ? undefined : (json['resources'].map(CateringPackageEventResourceType_1.CateringPackageEventResourceTypeFromJSON)),
         'room': !(0, runtime_1.exists)(json, 'room') ? undefined : json['room'],
         'roomRateCode': !(0, runtime_1.exists)(json, 'roomRateCode') ? undefined : json['roomRateCode'],
         'roomSetup': !(0, runtime_1.exists)(json, 'roomSetup') ? undefined : json['roomSetup'],
@@ -71,8 +71,8 @@ function CateringPackageEventTypeToJSON(value) {
         'isMaster': value.isMaster,
         'isShareable': value.isShareable,
         'masterEventId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.masterEventId),
-        'notes': (0, CateringPackageEventNoteListType_1.CateringPackageEventNoteListTypeToJSON)(value.notes),
-        'resources': (0, CateringPackageResourceListType_1.CateringPackageResourceListTypeToJSON)(value.resources),
+        'notes': value.notes === undefined ? undefined : (value.notes.map(CateringPackageEventNoteType_1.CateringPackageEventNoteTypeToJSON)),
+        'resources': value.resources === undefined ? undefined : (value.resources.map(CateringPackageEventResourceType_1.CateringPackageEventResourceTypeToJSON)),
         'room': value.room,
         'roomRateCode': value.roomRateCode,
         'roomSetup': value.roomSetup,

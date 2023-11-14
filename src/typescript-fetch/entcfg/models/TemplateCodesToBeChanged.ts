@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateCodesType } from './TemplateCodesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TemplateCodeType } from './TemplateCodeType';
 import {
-    TemplateCodesTypeFromJSON,
-    TemplateCodesTypeFromJSONTyped,
-    TemplateCodesTypeToJSON,
-} from './TemplateCodesType';
-import type { WarningsType } from './WarningsType';
+    TemplateCodeTypeFromJSON,
+    TemplateCodeTypeFromJSONTyped,
+    TemplateCodeTypeToJSON,
+} from './TemplateCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Template Codes.
@@ -40,22 +40,22 @@ import {
 export interface TemplateCodesToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateCodesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TemplateCodesType}
+     * List of Template Codes.
+     * @type {Array<TemplateCodeType>}
      * @memberof TemplateCodesToBeChanged
      */
-    templateCodes?: TemplateCodesType;
+    templateCodes?: Array<TemplateCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateCodesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateCodesToBeChangedFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'templateCodes': !exists(json, 'templateCodes') ? undefined : TemplateCodesTypeFromJSON(json['templateCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'templateCodes': !exists(json, 'templateCodes') ? undefined : ((json['templateCodes'] as Array<any>).map(TemplateCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateCodesToBeChangedToJSON(value?: TemplateCodesToBeChanged 
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'templateCodes': TemplateCodesTypeToJSON(value.templateCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'templateCodes': value.templateCodes === undefined ? undefined : ((value.templateCodes as Array<any>).map(TemplateCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

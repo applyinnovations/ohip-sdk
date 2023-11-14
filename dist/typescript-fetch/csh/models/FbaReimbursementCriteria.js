@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FbaReimbursementCriteriaToJSON = exports.FbaReimbursementCriteriaFromJSONTyped = exports.FbaReimbursementCriteriaFromJSON = exports.instanceOfFbaReimbursementCriteria = void 0;
 const runtime_1 = require("../runtime");
-const CertificateReconciliationTypes_1 = require("./CertificateReconciliationTypes");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CertificateReconciliationType_1 = require("./CertificateReconciliationType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FbaReimbursementCriteria interface.
  */
@@ -35,9 +35,9 @@ function FbaReimbursementCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'certificateReconciliationTypes': !(0, runtime_1.exists)(json, 'certificateReconciliationTypes') ? undefined : (0, CertificateReconciliationTypes_1.CertificateReconciliationTypesFromJSON)(json['certificateReconciliationTypes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'certificateReconciliationTypes': !(0, runtime_1.exists)(json, 'certificateReconciliationTypes') ? undefined : (json['certificateReconciliationTypes'].map(CertificateReconciliationType_1.CertificateReconciliationTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FbaReimbursementCriteriaFromJSONTyped = FbaReimbursementCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function FbaReimbursementCriteriaToJSON(value) {
         return null;
     }
     return {
-        'certificateReconciliationTypes': (0, CertificateReconciliationTypes_1.CertificateReconciliationTypesToJSON)(value.certificateReconciliationTypes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'certificateReconciliationTypes': value.certificateReconciliationTypes === undefined ? undefined : (value.certificateReconciliationTypes.map(CertificateReconciliationType_1.CertificateReconciliationTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FbaReimbursementCriteriaToJSON = FbaReimbursementCriteriaToJSON;

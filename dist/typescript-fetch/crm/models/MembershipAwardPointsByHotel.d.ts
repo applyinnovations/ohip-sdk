@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MembershipAwardPointsByHotelType } from './MembershipAwardPointsByHotelType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MembershipAwardPointByHotelType } from './MembershipAwardPointByHotelType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching member award points by Hotel.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MembershipAwardPointsByHotel {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipAwardPointsByHotel
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MembershipAwardPointsByHotelType}
+     * List of available award points information by Hotel.
+     * @type {Array<MembershipAwardPointByHotelType>}
      * @memberof MembershipAwardPointsByHotel
      */
-    membershipAwardPoints?: MembershipAwardPointsByHotelType;
+    membershipAwardPoints?: Array<MembershipAwardPointByHotelType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipAwardPointsByHotel
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipAwardPointsByHotel interface.

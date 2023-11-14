@@ -16,9 +16,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomChargeExemptionTypeToJSON = exports.CustomChargeExemptionTypeFromJSONTyped = exports.CustomChargeExemptionTypeFromJSON = exports.instanceOfCustomChargeExemptionType = void 0;
 const runtime_1 = require("../runtime");
 const CodeDescriptionType_1 = require("./CodeDescriptionType");
-const CustomChargeExemptionDatesType_1 = require("./CustomChargeExemptionDatesType");
+const CustomChargeExemptionDateType_1 = require("./CustomChargeExemptionDateType");
 const CustomChargeQuantityType_1 = require("./CustomChargeQuantityType");
-const ExcludedDatesType_1 = require("./ExcludedDatesType");
+const ExcludedDateType_1 = require("./ExcludedDateType");
 /**
  * Check if a given object implements the CustomChargeExemptionType interface.
  */
@@ -36,10 +36,10 @@ function CustomChargeExemptionTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'customChargeDates': !(0, runtime_1.exists)(json, 'customChargeDates') ? undefined : (0, CustomChargeExemptionDatesType_1.CustomChargeExemptionDatesTypeFromJSON)(json['customChargeDates']),
+        'customChargeDates': !(0, runtime_1.exists)(json, 'customChargeDates') ? undefined : (json['customChargeDates'].map(CustomChargeExemptionDateType_1.CustomChargeExemptionDateTypeFromJSON)),
         'customChargeQuantity': !(0, runtime_1.exists)(json, 'customChargeQuantity') ? undefined : (0, CustomChargeQuantityType_1.CustomChargeQuantityTypeFromJSON)(json['customChargeQuantity']),
         'customChargesExemption': !(0, runtime_1.exists)(json, 'customChargesExemption') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['customChargesExemption']),
-        'excludedDates': !(0, runtime_1.exists)(json, 'excludedDates') ? undefined : (0, ExcludedDatesType_1.ExcludedDatesTypeFromJSON)(json['excludedDates']),
+        'excludedDates': !(0, runtime_1.exists)(json, 'excludedDates') ? undefined : (json['excludedDates'].map(ExcludedDateType_1.ExcludedDateTypeFromJSON)),
         'percentage': !(0, runtime_1.exists)(json, 'percentage') ? undefined : json['percentage'],
         'propertyExemption': !(0, runtime_1.exists)(json, 'propertyExemption') ? undefined : json['propertyExemption'],
     };
@@ -53,10 +53,10 @@ function CustomChargeExemptionTypeToJSON(value) {
         return null;
     }
     return {
-        'customChargeDates': (0, CustomChargeExemptionDatesType_1.CustomChargeExemptionDatesTypeToJSON)(value.customChargeDates),
+        'customChargeDates': value.customChargeDates === undefined ? undefined : (value.customChargeDates.map(CustomChargeExemptionDateType_1.CustomChargeExemptionDateTypeToJSON)),
         'customChargeQuantity': (0, CustomChargeQuantityType_1.CustomChargeQuantityTypeToJSON)(value.customChargeQuantity),
         'customChargesExemption': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.customChargesExemption),
-        'excludedDates': (0, ExcludedDatesType_1.ExcludedDatesTypeToJSON)(value.excludedDates),
+        'excludedDates': value.excludedDates === undefined ? undefined : (value.excludedDates.map(ExcludedDateType_1.ExcludedDateTypeToJSON)),
         'percentage': value.percentage,
         'propertyExemption': value.propertyExemption,
     };

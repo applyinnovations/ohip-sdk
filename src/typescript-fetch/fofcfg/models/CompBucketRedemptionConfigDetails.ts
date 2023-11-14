@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BucketRedemptionCodesType } from './BucketRedemptionCodesType';
+import type { BucketRedemptionCodeType } from './BucketRedemptionCodeType';
 import {
-    BucketRedemptionCodesTypeFromJSON,
-    BucketRedemptionCodesTypeFromJSONTyped,
-    BucketRedemptionCodesTypeToJSON,
-} from './BucketRedemptionCodesType';
-import type { Links } from './Links';
+    BucketRedemptionCodeTypeFromJSON,
+    BucketRedemptionCodeTypeFromJSONTyped,
+    BucketRedemptionCodeTypeToJSON,
+} from './BucketRedemptionCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Comp Bucket Redemption Codes configurations.
@@ -39,23 +39,23 @@ import {
  */
 export interface CompBucketRedemptionConfigDetails {
     /**
-     * 
-     * @type {BucketRedemptionCodesType}
+     * Details for Bucket Redemption codes along with associated transaction codes.
+     * @type {Array<BucketRedemptionCodeType>}
      * @memberof CompBucketRedemptionConfigDetails
      */
-    bucketRedemptionCodes?: BucketRedemptionCodesType;
+    bucketRedemptionCodes?: Array<BucketRedemptionCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CompBucketRedemptionConfigDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CompBucketRedemptionConfigDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CompBucketRedemptionConfigDetailsFromJSONTyped(json: any, ignore
     }
     return {
         
-        'bucketRedemptionCodes': !exists(json, 'bucketRedemptionCodes') ? undefined : BucketRedemptionCodesTypeFromJSON(json['bucketRedemptionCodes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'bucketRedemptionCodes': !exists(json, 'bucketRedemptionCodes') ? undefined : ((json['bucketRedemptionCodes'] as Array<any>).map(BucketRedemptionCodeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CompBucketRedemptionConfigDetailsToJSON(value?: CompBucketRedemp
     }
     return {
         
-        'bucketRedemptionCodes': BucketRedemptionCodesTypeToJSON(value.bucketRedemptionCodes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'bucketRedemptionCodes': value.bucketRedemptionCodes === undefined ? undefined : ((value.bucketRedemptionCodes as Array<any>).map(BucketRedemptionCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -19,12 +19,12 @@ import {
     URLTypeFromJSONTyped,
     URLTypeToJSON,
 } from './URLType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Web site address.
@@ -57,11 +57,11 @@ export interface URLInfoType {
      */
     url?: URLType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof URLInfoType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -87,7 +87,7 @@ export function URLInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'idContext': !exists(json, 'idContext') ? undefined : json['idContext'],
         'type': !exists(json, 'type') ? undefined : json['type'],
         'url': !exists(json, 'url') ? undefined : URLTypeFromJSON(json['url']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -104,7 +104,7 @@ export function URLInfoTypeToJSON(value?: URLInfoType | null): any {
         'idContext': value.idContext,
         'type': value.type,
         'url': URLTypeToJSON(value.url),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

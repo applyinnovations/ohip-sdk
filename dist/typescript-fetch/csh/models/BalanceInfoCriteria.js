@@ -16,10 +16,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BalanceInfoCriteriaToJSON = exports.BalanceInfoCriteriaFromJSONTyped = exports.BalanceInfoCriteriaFromJSON = exports.instanceOfBalanceInfoCriteria = void 0;
 const runtime_1 = require("../runtime");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
-const Links_1 = require("./Links");
-const SummaryPostingsType_1 = require("./SummaryPostingsType");
-const TrxCodesInfoType_1 = require("./TrxCodesInfoType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const SummaryPostingType_1 = require("./SummaryPostingType");
+const TrxInfoType_1 = require("./TrxInfoType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BalanceInfoCriteria interface.
  */
@@ -38,10 +38,10 @@ function BalanceInfoCriteriaFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'balance': !(0, runtime_1.exists)(json, 'balance') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['balance']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'postings': !(0, runtime_1.exists)(json, 'postings') ? undefined : (0, SummaryPostingsType_1.SummaryPostingsTypeFromJSON)(json['postings']),
-        'trxCodesInfo': !(0, runtime_1.exists)(json, 'trxCodesInfo') ? undefined : (0, TrxCodesInfoType_1.TrxCodesInfoTypeFromJSON)(json['trxCodesInfo']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'postings': !(0, runtime_1.exists)(json, 'postings') ? undefined : (json['postings'].map(SummaryPostingType_1.SummaryPostingTypeFromJSON)),
+        'trxCodesInfo': !(0, runtime_1.exists)(json, 'trxCodesInfo') ? undefined : (json['trxCodesInfo'].map(TrxInfoType_1.TrxInfoTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BalanceInfoCriteriaFromJSONTyped = BalanceInfoCriteriaFromJSONTyped;
@@ -54,10 +54,10 @@ function BalanceInfoCriteriaToJSON(value) {
     }
     return {
         'balance': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.balance),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'postings': (0, SummaryPostingsType_1.SummaryPostingsTypeToJSON)(value.postings),
-        'trxCodesInfo': (0, TrxCodesInfoType_1.TrxCodesInfoTypeToJSON)(value.trxCodesInfo),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'postings': value.postings === undefined ? undefined : (value.postings.map(SummaryPostingType_1.SummaryPostingTypeToJSON)),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : (value.trxCodesInfo.map(TrxInfoType_1.TrxInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BalanceInfoCriteriaToJSON = BalanceInfoCriteriaToJSON;

@@ -9,11 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { InstanceLink } from './InstanceLink';
 import type { LinkReservationsCriteriaResponseInstruction } from './LinkReservationsCriteriaResponseInstruction';
-import type { Links } from './Links';
-import type { ReservationIdList } from './ReservationIdList';
 import type { UniqueIDType } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -28,16 +27,16 @@ export interface PostReservationLinksRequest {
     linkToReservationId?: UniqueIDType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostReservationLinksRequest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof PostReservationLinksRequest
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {LinkReservationsCriteriaResponseInstruction}
@@ -45,11 +44,11 @@ export interface PostReservationLinksRequest {
      */
     responseInstruction?: LinkReservationsCriteriaResponseInstruction;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostReservationLinksRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PostReservationLinksRequest interface.

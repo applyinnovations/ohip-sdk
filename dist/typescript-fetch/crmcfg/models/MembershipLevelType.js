@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipLevelTypeToJSON = exports.MembershipLevelTypeFromJSONTyped = exports.MembershipLevelTypeFromJSON = exports.instanceOfMembershipLevelType = void 0;
 const runtime_1 = require("../runtime");
 const ColorType_1 = require("./ColorType");
-const HotelFolioTextsType_1 = require("./HotelFolioTextsType");
+const HotelFolioTextType_1 = require("./HotelFolioTextType");
 /**
  * Check if a given object implements the MembershipLevelType interface.
  */
@@ -41,7 +41,7 @@ function MembershipLevelTypeFromJSONTyped(json, ignoreDiscriminator) {
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'displayColor': !(0, runtime_1.exists)(json, 'displayColor') ? undefined : (0, ColorType_1.ColorTypeFromJSON)(json['displayColor']),
         'feeRequired': !(0, runtime_1.exists)(json, 'feeRequired') ? undefined : json['feeRequired'],
-        'folioTexts': !(0, runtime_1.exists)(json, 'folioTexts') ? undefined : (0, HotelFolioTextsType_1.HotelFolioTextsTypeFromJSON)(json['folioTexts']),
+        'folioTexts': !(0, runtime_1.exists)(json, 'folioTexts') ? undefined : (json['folioTexts'].map(HotelFolioTextType_1.HotelFolioTextTypeFromJSON)),
         'fulfillment': !(0, runtime_1.exists)(json, 'fulfillment') ? undefined : json['fulfillment'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
         'label': !(0, runtime_1.exists)(json, 'label') ? undefined : json['label'],
@@ -70,7 +70,7 @@ function MembershipLevelTypeToJSON(value) {
         'description': value.description,
         'displayColor': (0, ColorType_1.ColorTypeToJSON)(value.displayColor),
         'feeRequired': value.feeRequired,
-        'folioTexts': (0, HotelFolioTextsType_1.HotelFolioTextsTypeToJSON)(value.folioTexts),
+        'folioTexts': value.folioTexts === undefined ? undefined : (value.folioTexts.map(HotelFolioTextType_1.HotelFolioTextTypeToJSON)),
         'fulfillment': value.fulfillment,
         'inactive': value.inactive,
         'label': value.label,

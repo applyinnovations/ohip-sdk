@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RevenueGroupsType } from './RevenueGroupsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RevenueGroupType } from './RevenueGroupType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing existing Catering Revenue Groups Configurations.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface RevenueGroups {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RevenueGroups
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RevenueGroupsType}
+     * Details for Catering Revenue Group along with associated Revenue Type codes.
+     * @type {Array<RevenueGroupType>}
      * @memberof RevenueGroups
      */
-    revenueGroups?: RevenueGroupsType;
+    revenueGroups?: Array<RevenueGroupType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RevenueGroups
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RevenueGroups interface.

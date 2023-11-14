@@ -43,18 +43,18 @@ import {
     ARBalanceTypeFromJSONTyped,
     ARBalanceTypeToJSON,
 } from './ARBalanceType';
-import type { ARInvoicesType } from './ARInvoicesType';
+import type { ARInvoiceType } from './ARInvoiceType';
 import {
-    ARInvoicesTypeFromJSON,
-    ARInvoicesTypeFromJSONTyped,
-    ARInvoicesTypeToJSON,
-} from './ARInvoicesType';
-import type { ARPaymentsType } from './ARPaymentsType';
+    ARInvoiceTypeFromJSON,
+    ARInvoiceTypeFromJSONTyped,
+    ARInvoiceTypeToJSON,
+} from './ARInvoiceType';
+import type { ARPaymentType } from './ARPaymentType';
 import {
-    ARPaymentsTypeFromJSON,
-    ARPaymentsTypeFromJSONTyped,
-    ARPaymentsTypeToJSON,
-} from './ARPaymentsType';
+    ARPaymentTypeFromJSON,
+    ARPaymentTypeFromJSONTyped,
+    ARPaymentTypeToJSON,
+} from './ARPaymentType';
 import type { ARYearViewInfoType } from './ARYearViewInfoType';
 import {
     ARYearViewInfoTypeFromJSON,
@@ -85,30 +85,30 @@ import {
     EmailInfoTypeFromJSONTyped,
     EmailInfoTypeToJSON,
 } from './EmailInfoType';
-import type { FixedChargesType } from './FixedChargesType';
+import type { FixedChargeType } from './FixedChargeType';
 import {
-    FixedChargesTypeFromJSON,
-    FixedChargesTypeFromJSONTyped,
-    FixedChargesTypeToJSON,
-} from './FixedChargesType';
-import type { IndicatorsType } from './IndicatorsType';
+    FixedChargeTypeFromJSON,
+    FixedChargeTypeFromJSONTyped,
+    FixedChargeTypeToJSON,
+} from './FixedChargeType';
+import type { IndicatorType } from './IndicatorType';
 import {
-    IndicatorsTypeFromJSON,
-    IndicatorsTypeFromJSONTyped,
-    IndicatorsTypeToJSON,
-} from './IndicatorsType';
+    IndicatorTypeFromJSON,
+    IndicatorTypeFromJSONTyped,
+    IndicatorTypeToJSON,
+} from './IndicatorType';
 import type { ProfileId } from './ProfileId';
 import {
     ProfileIdFromJSON,
     ProfileIdFromJSONTyped,
     ProfileIdToJSON,
 } from './ProfileId';
-import type { SearchMatchesType } from './SearchMatchesType';
+import type { SearchMatchType } from './SearchMatchType';
 import {
-    SearchMatchesTypeFromJSON,
-    SearchMatchesTypeFromJSONTyped,
-    SearchMatchesTypeToJSON,
-} from './SearchMatchesType';
+    SearchMatchTypeFromJSON,
+    SearchMatchTypeFromJSONTyped,
+    SearchMatchTypeToJSON,
+} from './SearchMatchType';
 import type { TelephoneInfoType } from './TelephoneInfoType';
 import {
     TelephoneInfoTypeFromJSON,
@@ -141,11 +141,11 @@ export interface ARAccountType {
      */
     accountId?: UniqueIDType;
     /**
-     * 
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof ARAccountType
      */
-    accountIndicators?: IndicatorsType;
+    accountIndicators?: Array<IndicatorType>;
     /**
      * Name of the AR Account.
      * @type {string}
@@ -213,11 +213,11 @@ export interface ARAccountType {
      */
     emailStatementsReminders?: boolean;
     /**
-     * 
-     * @type {FixedChargesType}
+     * Holds fixed charge detail.
+     * @type {Array<FixedChargeType>}
      * @memberof ARAccountType
      */
-    fixedCharges?: FixedChargesType;
+    fixedCharges?: Array<FixedChargeType>;
     /**
      * Property where the AR Account exists.
      * @type {string}
@@ -225,11 +225,11 @@ export interface ARAccountType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {ARInvoicesType}
+     * A collection of AR Invoices.
+     * @type {Array<ARInvoiceType>}
      * @memberof ARAccountType
      */
-    invoices?: ARInvoicesType;
+    invoices?: Array<ARInvoiceType>;
     /**
      * 
      * @type {ARAccountTypeLastReminderInfo}
@@ -261,11 +261,11 @@ export interface ARAccountType {
      */
     paymentDueDays?: string;
     /**
-     * 
-     * @type {ARPaymentsType}
+     * A collection of AR Payments.
+     * @type {Array<ARPaymentType>}
      * @memberof ARAccountType
      */
-    payments?: ARPaymentsType;
+    payments?: Array<ARPaymentType>;
     /**
      * Indicates if this is a Permanent Account. Permanent Accounts cannot be deleted.
      * @type {boolean}
@@ -291,11 +291,11 @@ export interface ARAccountType {
      */
     profileId?: ProfileId;
     /**
-     * 
-     * @type {SearchMatchesType}
+     * List of Generic Name-Value-Pair Parameters used for super search matches.
+     * @type {Array<SearchMatchType>}
      * @memberof ARAccountType
      */
-    searchMatches?: SearchMatchesType;
+    searchMatches?: Array<SearchMatchType>;
     /**
      * 
      * @type {ARAccountStatusType}
@@ -354,7 +354,7 @@ export function ARAccountTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
     return {
         
         'accountId': !exists(json, 'accountId') ? undefined : UniqueIDTypeFromJSON(json['accountId']),
-        'accountIndicators': !exists(json, 'accountIndicators') ? undefined : IndicatorsTypeFromJSON(json['accountIndicators']),
+        'accountIndicators': !exists(json, 'accountIndicators') ? undefined : ((json['accountIndicators'] as Array<any>).map(IndicatorTypeFromJSON)),
         'accountName': !exists(json, 'accountName') ? undefined : json['accountName'],
         'accountNo': !exists(json, 'accountNo') ? undefined : json['accountNo'],
         'accountTypeDescription': !exists(json, 'accountTypeDescription') ? undefined : json['accountTypeDescription'],
@@ -366,20 +366,20 @@ export function ARAccountTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
         'creditLimit': !exists(json, 'creditLimit') ? undefined : CurrencyAmountTypeFromJSON(json['creditLimit']),
         'email': !exists(json, 'email') ? undefined : EmailInfoTypeFromJSON(json['email']),
         'emailStatementsReminders': !exists(json, 'emailStatementsReminders') ? undefined : json['emailStatementsReminders'],
-        'fixedCharges': !exists(json, 'fixedCharges') ? undefined : FixedChargesTypeFromJSON(json['fixedCharges']),
+        'fixedCharges': !exists(json, 'fixedCharges') ? undefined : ((json['fixedCharges'] as Array<any>).map(FixedChargeTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'invoices': !exists(json, 'invoices') ? undefined : ARInvoicesTypeFromJSON(json['invoices']),
+        'invoices': !exists(json, 'invoices') ? undefined : ((json['invoices'] as Array<any>).map(ARInvoiceTypeFromJSON)),
         'lastReminderInfo': !exists(json, 'lastReminderInfo') ? undefined : ARAccountTypeLastReminderInfoFromJSON(json['lastReminderInfo']),
         'lastStatementInfo': !exists(json, 'lastStatementInfo') ? undefined : ARAccountTypeLastStatementInfoFromJSON(json['lastStatementInfo']),
         'monthEndCalcYN': !exists(json, 'monthEndCalcYN') ? undefined : json['monthEndCalcYN'],
         'notes': !exists(json, 'notes') ? undefined : ((json['notes'] as Array<any>).map(CommentInfoTypeFromJSON)),
         'paymentDueDays': !exists(json, 'paymentDueDays') ? undefined : json['paymentDueDays'],
-        'payments': !exists(json, 'payments') ? undefined : ARPaymentsTypeFromJSON(json['payments']),
+        'payments': !exists(json, 'payments') ? undefined : ((json['payments'] as Array<any>).map(ARPaymentTypeFromJSON)),
         'permanent': !exists(json, 'permanent') ? undefined : json['permanent'],
         'primary': !exists(json, 'primary') ? undefined : json['primary'],
         'printFoliosWithStatement': !exists(json, 'printFoliosWithStatement') ? undefined : json['printFoliosWithStatement'],
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
-        'searchMatches': !exists(json, 'searchMatches') ? undefined : SearchMatchesTypeFromJSON(json['searchMatches']),
+        'searchMatches': !exists(json, 'searchMatches') ? undefined : ((json['searchMatches'] as Array<any>).map(SearchMatchTypeFromJSON)),
         'status': !exists(json, 'status') ? undefined : ARAccountStatusTypeFromJSON(json['status']),
         'summary': !exists(json, 'summary') ? undefined : ARBalanceTypeFromJSON(json['summary']),
         'telephones': !exists(json, 'telephones') ? undefined : ((json['telephones'] as Array<any>).map(TelephoneInfoTypeFromJSON)),
@@ -399,7 +399,7 @@ export function ARAccountTypeToJSON(value?: ARAccountType | null): any {
     return {
         
         'accountId': UniqueIDTypeToJSON(value.accountId),
-        'accountIndicators': IndicatorsTypeToJSON(value.accountIndicators),
+        'accountIndicators': value.accountIndicators === undefined ? undefined : ((value.accountIndicators as Array<any>).map(IndicatorTypeToJSON)),
         'accountName': value.accountName,
         'accountNo': value.accountNo,
         'accountTypeDescription': value.accountTypeDescription,
@@ -411,20 +411,20 @@ export function ARAccountTypeToJSON(value?: ARAccountType | null): any {
         'creditLimit': CurrencyAmountTypeToJSON(value.creditLimit),
         'email': EmailInfoTypeToJSON(value.email),
         'emailStatementsReminders': value.emailStatementsReminders,
-        'fixedCharges': FixedChargesTypeToJSON(value.fixedCharges),
+        'fixedCharges': value.fixedCharges === undefined ? undefined : ((value.fixedCharges as Array<any>).map(FixedChargeTypeToJSON)),
         'hotelId': value.hotelId,
-        'invoices': ARInvoicesTypeToJSON(value.invoices),
+        'invoices': value.invoices === undefined ? undefined : ((value.invoices as Array<any>).map(ARInvoiceTypeToJSON)),
         'lastReminderInfo': ARAccountTypeLastReminderInfoToJSON(value.lastReminderInfo),
         'lastStatementInfo': ARAccountTypeLastStatementInfoToJSON(value.lastStatementInfo),
         'monthEndCalcYN': value.monthEndCalcYN,
         'notes': value.notes === undefined ? undefined : ((value.notes as Array<any>).map(CommentInfoTypeToJSON)),
         'paymentDueDays': value.paymentDueDays,
-        'payments': ARPaymentsTypeToJSON(value.payments),
+        'payments': value.payments === undefined ? undefined : ((value.payments as Array<any>).map(ARPaymentTypeToJSON)),
         'permanent': value.permanent,
         'primary': value.primary,
         'printFoliosWithStatement': value.printFoliosWithStatement,
         'profileId': ProfileIdToJSON(value.profileId),
-        'searchMatches': SearchMatchesTypeToJSON(value.searchMatches),
+        'searchMatches': value.searchMatches === undefined ? undefined : ((value.searchMatches as Array<any>).map(SearchMatchTypeToJSON)),
         'status': ARAccountStatusTypeToJSON(value.status),
         'summary': ARBalanceTypeToJSON(value.summary),
         'telephones': value.telephones === undefined ? undefined : ((value.telephones as Array<any>).map(TelephoneInfoTypeToJSON)),

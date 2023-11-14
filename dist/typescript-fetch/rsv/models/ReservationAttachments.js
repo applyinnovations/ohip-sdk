@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationAttachmentsToJSON = exports.ReservationAttachmentsFromJSONTyped = exports.ReservationAttachmentsFromJSON = exports.instanceOfReservationAttachments = void 0;
 const runtime_1 = require("../runtime");
-const AttachmentsType_1 = require("./AttachmentsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const AttachmentType_1 = require("./AttachmentType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ReservationAttachments interface.
  */
@@ -35,9 +35,9 @@ function ReservationAttachmentsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'reservationAttachments': !(0, runtime_1.exists)(json, 'reservationAttachments') ? undefined : (0, AttachmentsType_1.AttachmentsTypeFromJSON)(json['reservationAttachments']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'reservationAttachments': !(0, runtime_1.exists)(json, 'reservationAttachments') ? undefined : (json['reservationAttachments'].map(AttachmentType_1.AttachmentTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ReservationAttachmentsFromJSONTyped = ReservationAttachmentsFromJSONTyped;
@@ -49,9 +49,9 @@ function ReservationAttachmentsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'reservationAttachments': (0, AttachmentsType_1.AttachmentsTypeToJSON)(value.reservationAttachments),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'reservationAttachments': value.reservationAttachments === undefined ? undefined : (value.reservationAttachments.map(AttachmentType_1.AttachmentTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ReservationAttachmentsToJSON = ReservationAttachmentsToJSON;

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AuthorizerGroupsType } from './AuthorizerGroupsType';
+import type { AuthorizerGroupType } from './AuthorizerGroupType';
 /**
  * Criteria to change authorizer group.
  * @export
@@ -17,11 +17,11 @@ import type { AuthorizerGroupsType } from './AuthorizerGroupsType';
  */
 export interface AuthorizerGroupsCriteriaType {
     /**
-     *
-     * @type {AuthorizerGroupsType}
+     * Authorizer Group
+     * @type {Array<AuthorizerGroupType>}
      * @memberof AuthorizerGroupsCriteriaType
      */
-    authorizerGroups?: AuthorizerGroupsType;
+    authorizerGroups?: Array<AuthorizerGroupType>;
     /**
      * If true, updates all authorizers in the group.
      * @type {boolean}

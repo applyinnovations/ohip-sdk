@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockRefusedReasonsType } from './BlockRefusedReasonsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BlockRefusedReasonType } from './BlockRefusedReasonType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Block Refused Reasons.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BlockRefusedReasonsDetails {
     /**
-     *
-     * @type {BlockRefusedReasonsType}
+     * List of Block Refused Reasons.
+     * @type {Array<BlockRefusedReasonType>}
      * @memberof BlockRefusedReasonsDetails
      */
-    blockRefusedReasons?: BlockRefusedReasonsType;
+    blockRefusedReasons?: Array<BlockRefusedReasonType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockRefusedReasonsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockRefusedReasonsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockRefusedReasonsDetails interface.

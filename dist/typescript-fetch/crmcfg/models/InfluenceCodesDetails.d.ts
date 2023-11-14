@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { InfluenceCodesType } from './InfluenceCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InfluenceCodeType } from './InfluenceCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Influence Codes.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface InfluenceCodesDetails {
     /**
-     *
-     * @type {InfluenceCodesType}
+     * List of Influence Codes.
+     * @type {Array<InfluenceCodeType>}
      * @memberof InfluenceCodesDetails
      */
-    influenceCodes?: InfluenceCodesType;
+    influenceCodes?: Array<InfluenceCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof InfluenceCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof InfluenceCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the InfluenceCodesDetails interface.

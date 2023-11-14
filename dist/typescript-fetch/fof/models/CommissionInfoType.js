@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommissionInfoTypeToJSON = exports.CommissionInfoTypeFromJSONTyped = exports.CommissionInfoTypeFromJSON = exports.instanceOfCommissionInfoType = void 0;
 const runtime_1 = require("../runtime");
 const BankAccountType_1 = require("./BankAccountType");
-const CommissionAgentsType_1 = require("./CommissionAgentsType");
+const CommissionAgentType_1 = require("./CommissionAgentType");
 const CommissionSummaryType_1 = require("./CommissionSummaryType");
 /**
  * Check if a given object implements the CommissionInfoType interface.
@@ -36,7 +36,7 @@ function CommissionInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'bankAccount': !(0, runtime_1.exists)(json, 'bankAccount') ? undefined : (0, BankAccountType_1.BankAccountTypeFromJSON)(json['bankAccount']),
-        'commissionAgents': !(0, runtime_1.exists)(json, 'commissionAgents') ? undefined : (0, CommissionAgentsType_1.CommissionAgentsTypeFromJSON)(json['commissionAgents']),
+        'commissionAgents': !(0, runtime_1.exists)(json, 'commissionAgents') ? undefined : (json['commissionAgents'].map(CommissionAgentType_1.CommissionAgentTypeFromJSON)),
         'commissionSummary': !(0, runtime_1.exists)(json, 'commissionSummary') ? undefined : (0, CommissionSummaryType_1.CommissionSummaryTypeFromJSON)(json['commissionSummary']),
     };
 }
@@ -50,7 +50,7 @@ function CommissionInfoTypeToJSON(value) {
     }
     return {
         'bankAccount': (0, BankAccountType_1.BankAccountTypeToJSON)(value.bankAccount),
-        'commissionAgents': (0, CommissionAgentsType_1.CommissionAgentsTypeToJSON)(value.commissionAgents),
+        'commissionAgents': value.commissionAgents === undefined ? undefined : (value.commissionAgents.map(CommissionAgentType_1.CommissionAgentTypeToJSON)),
         'commissionSummary': (0, CommissionSummaryType_1.CommissionSummaryTypeToJSON)(value.commissionSummary),
     };
 }

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AvailablePreferencesType } from './AvailablePreferencesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RequestedAvailablePreferenceType } from './RequestedAvailablePreferenceType';
+import type { WarningType } from './WarningType';
 /**
  * Response of Guarantee-able Preferences Request.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface GuaranteeablePreferences {
     /**
-     *
-     * @type {AvailablePreferencesType}
+     * Collection of Requested and Available Guaranteeable Preference Codes.
+     * @type {Array<RequestedAvailablePreferenceType>}
      * @memberof GuaranteeablePreferences
      */
-    availablePreferences?: AvailablePreferencesType;
+    availablePreferences?: Array<RequestedAvailablePreferenceType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuaranteeablePreferences
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuaranteeablePreferences
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GuaranteeablePreferences interface.

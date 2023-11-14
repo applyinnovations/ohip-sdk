@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockStatusCodeListType } from './BlockStatusCodeListType';
-import type { Links } from './Links';
-import type { NextBlockStatusCodeListType } from './NextBlockStatusCodeListType';
-import type { WarningsType } from './WarningsType';
+import type { BlockStatusCodeType } from './BlockStatusCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { NextBlockStatusCodeType } from './NextBlockStatusCodeType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching next block status codes.
  * @export
@@ -20,29 +20,29 @@ import type { WarningsType } from './WarningsType';
  */
 export interface NextBlockStatusCodeDetails {
     /**
-     *
-     * @type {BlockStatusCodeListType}
+     * Block status code information.
+     * @type {Array<BlockStatusCodeType>}
      * @memberof NextBlockStatusCodeDetails
      */
-    blockStatusCodeMasterList?: BlockStatusCodeListType;
+    blockStatusCodeMasterList?: Array<BlockStatusCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof NextBlockStatusCodeDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {NextBlockStatusCodeListType}
+     * Block status code with its next configured and/or available status codes.
+     * @type {Array<NextBlockStatusCodeType>}
      * @memberof NextBlockStatusCodeDetails
      */
-    nextBlockStatusCodeList?: NextBlockStatusCodeListType;
+    nextBlockStatusCodeList?: Array<NextBlockStatusCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof NextBlockStatusCodeDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the NextBlockStatusCodeDetails interface.

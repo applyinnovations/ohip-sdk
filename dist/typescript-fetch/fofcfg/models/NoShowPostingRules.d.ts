@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelNoShowPostingRulesType } from './HotelNoShowPostingRulesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelNoShowPostingRuleType } from './HotelNoShowPostingRuleType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface NoShowPostingRules {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof NoShowPostingRules
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {HotelNoShowPostingRulesType}
+     * Holds No Show Posting Rules Configuration details.
+     * @type {Array<HotelNoShowPostingRuleType>}
      * @memberof NoShowPostingRules
      */
-    noShowPostingRules?: HotelNoShowPostingRulesType;
+    noShowPostingRules?: Array<HotelNoShowPostingRuleType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof NoShowPostingRules
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the NoShowPostingRules interface.

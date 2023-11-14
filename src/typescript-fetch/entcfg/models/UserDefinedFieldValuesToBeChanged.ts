@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { UserDefinedFieldValuesType } from './UserDefinedFieldValuesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { UserDefinedFieldValueType } from './UserDefinedFieldValueType';
 import {
-    UserDefinedFieldValuesTypeFromJSON,
-    UserDefinedFieldValuesTypeFromJSONTyped,
-    UserDefinedFieldValuesTypeToJSON,
-} from './UserDefinedFieldValuesType';
-import type { WarningsType } from './WarningsType';
+    UserDefinedFieldValueTypeFromJSON,
+    UserDefinedFieldValueTypeFromJSONTyped,
+    UserDefinedFieldValueTypeToJSON,
+} from './UserDefinedFieldValueType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing User Defined Field Values.
@@ -40,22 +40,22 @@ import {
 export interface UserDefinedFieldValuesToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof UserDefinedFieldValuesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {UserDefinedFieldValuesType}
+     * A recurring element that identifies the User Defined Field Value.
+     * @type {Array<UserDefinedFieldValueType>}
      * @memberof UserDefinedFieldValuesToBeChanged
      */
-    userDefinedFieldValues?: UserDefinedFieldValuesType;
+    userDefinedFieldValues?: Array<UserDefinedFieldValueType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof UserDefinedFieldValuesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function UserDefinedFieldValuesToBeChangedFromJSONTyped(json: any, ignore
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'userDefinedFieldValues': !exists(json, 'userDefinedFieldValues') ? undefined : UserDefinedFieldValuesTypeFromJSON(json['userDefinedFieldValues']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'userDefinedFieldValues': !exists(json, 'userDefinedFieldValues') ? undefined : ((json['userDefinedFieldValues'] as Array<any>).map(UserDefinedFieldValueTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function UserDefinedFieldValuesToBeChangedToJSON(value?: UserDefinedField
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'userDefinedFieldValues': UserDefinedFieldValuesTypeToJSON(value.userDefinedFieldValues),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'userDefinedFieldValues': value.userDefinedFieldValues === undefined ? undefined : ((value.userDefinedFieldValues as Array<any>).map(UserDefinedFieldValueTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

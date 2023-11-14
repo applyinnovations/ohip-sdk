@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ProfileStatisticsType } from './ProfileStatisticsType';
 import {
     ProfileStatisticsTypeFromJSON,
@@ -40,10 +40,10 @@ export interface ProfileStatistics {
     profileStatistic?: ProfileStatisticsType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileStatistics
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function ProfileStatisticsFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'profileStatistic': !exists(json, 'profileStatistic') ? undefined : ProfileStatisticsTypeFromJSON(json['profileStatistic']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function ProfileStatisticsToJSON(value?: ProfileStatistics | null): any {
     return {
         
         'profileStatistic': ProfileStatisticsTypeToJSON(value.profileStatistic),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

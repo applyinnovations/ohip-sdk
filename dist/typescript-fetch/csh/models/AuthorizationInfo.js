@@ -17,8 +17,8 @@ exports.AuthorizationInfoToJSON = exports.AuthorizationInfoFromJSONTyped = expor
 const runtime_1 = require("../runtime");
 const AuthorizationInfoType_1 = require("./AuthorizationInfoType");
 const CashieringPaymentMethodType_1 = require("./CashieringPaymentMethodType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AuthorizationInfo interface.
  */
@@ -37,9 +37,9 @@ function AuthorizationInfoFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'authInfo': !(0, runtime_1.exists)(json, 'authInfo') ? undefined : (0, AuthorizationInfoType_1.AuthorizationInfoTypeFromJSON)(json['authInfo']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'payment': !(0, runtime_1.exists)(json, 'payment') ? undefined : (0, CashieringPaymentMethodType_1.CashieringPaymentMethodTypeFromJSON)(json['payment']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AuthorizationInfoFromJSONTyped = AuthorizationInfoFromJSONTyped;
@@ -52,9 +52,9 @@ function AuthorizationInfoToJSON(value) {
     }
     return {
         'authInfo': (0, AuthorizationInfoType_1.AuthorizationInfoTypeToJSON)(value.authInfo),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'payment': (0, CashieringPaymentMethodType_1.CashieringPaymentMethodTypeToJSON)(value.payment),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AuthorizationInfoToJSON = AuthorizationInfoToJSON;

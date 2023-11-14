@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { PropertyDetailCategoriesType } from './PropertyDetailCategoriesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { PropertyDetailCategoryType } from './PropertyDetailCategoryType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Property Detail Categories.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface PropertyDetailCategoriesToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PropertyDetailCategoriesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {PropertyDetailCategoriesType}
+     * List of Property Detail Categories.
+     * @type {Array<PropertyDetailCategoryType>}
      * @memberof PropertyDetailCategoriesToBeChanged
      */
-    propertyDetailCategories?: PropertyDetailCategoriesType;
+    propertyDetailCategories?: Array<PropertyDetailCategoryType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PropertyDetailCategoriesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PropertyDetailCategoriesToBeChanged interface.

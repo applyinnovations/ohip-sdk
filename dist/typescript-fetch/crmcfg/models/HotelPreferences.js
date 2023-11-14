@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelPreferencesToJSON = exports.HotelPreferencesFromJSONTyped = exports.HotelPreferencesFromJSON = exports.instanceOfHotelPreferences = void 0;
 const runtime_1 = require("../runtime");
-const ConfigHotelPreferencesType_1 = require("./ConfigHotelPreferencesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ConfigHotelPreferenceType_1 = require("./ConfigHotelPreferenceType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the HotelPreferences interface.
  */
@@ -35,9 +35,9 @@ function HotelPreferencesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'hotelPreferences': !(0, runtime_1.exists)(json, 'hotelPreferences') ? undefined : (0, ConfigHotelPreferencesType_1.ConfigHotelPreferencesTypeFromJSON)(json['hotelPreferences']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'hotelPreferences': !(0, runtime_1.exists)(json, 'hotelPreferences') ? undefined : (json['hotelPreferences'].map(ConfigHotelPreferenceType_1.ConfigHotelPreferenceTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.HotelPreferencesFromJSONTyped = HotelPreferencesFromJSONTyped;
@@ -49,9 +49,9 @@ function HotelPreferencesToJSON(value) {
         return null;
     }
     return {
-        'hotelPreferences': (0, ConfigHotelPreferencesType_1.ConfigHotelPreferencesTypeToJSON)(value.hotelPreferences),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'hotelPreferences': value.hotelPreferences === undefined ? undefined : (value.hotelPreferences.map(ConfigHotelPreferenceType_1.ConfigHotelPreferenceTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.HotelPreferencesToJSON = HotelPreferencesToJSON;

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateRoomMaintenanceReasonsCriteriaToJSON = exports.TemplateRoomMaintenanceReasonsCriteriaFromJSONTyped = exports.TemplateRoomMaintenanceReasonsCriteriaFromJSON = exports.instanceOfTemplateRoomMaintenanceReasonsCriteria = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TemplateRoomMaintenanceReasonsType_1 = require("./TemplateRoomMaintenanceReasonsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TemplateRoomMaintenanceReasonType_1 = require("./TemplateRoomMaintenanceReasonType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TemplateRoomMaintenanceReasonsCriteria interface.
  */
@@ -35,9 +35,9 @@ function TemplateRoomMaintenanceReasonsCriteriaFromJSONTyped(json, ignoreDiscrim
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'templateRoomMaintenanceReasons': !(0, runtime_1.exists)(json, 'templateRoomMaintenanceReasons') ? undefined : (0, TemplateRoomMaintenanceReasonsType_1.TemplateRoomMaintenanceReasonsTypeFromJSON)(json['templateRoomMaintenanceReasons']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'templateRoomMaintenanceReasons': !(0, runtime_1.exists)(json, 'templateRoomMaintenanceReasons') ? undefined : (json['templateRoomMaintenanceReasons'].map(TemplateRoomMaintenanceReasonType_1.TemplateRoomMaintenanceReasonTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TemplateRoomMaintenanceReasonsCriteriaFromJSONTyped = TemplateRoomMaintenanceReasonsCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function TemplateRoomMaintenanceReasonsCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'templateRoomMaintenanceReasons': (0, TemplateRoomMaintenanceReasonsType_1.TemplateRoomMaintenanceReasonsTypeToJSON)(value.templateRoomMaintenanceReasons),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'templateRoomMaintenanceReasons': value.templateRoomMaintenanceReasons === undefined ? undefined : (value.templateRoomMaintenanceReasons.map(TemplateRoomMaintenanceReasonType_1.TemplateRoomMaintenanceReasonTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TemplateRoomMaintenanceReasonsCriteriaToJSON = TemplateRoomMaintenanceReasonsCriteriaToJSON;

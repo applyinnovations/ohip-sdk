@@ -17,8 +17,7 @@ exports.CopyAndMoveEventResourcesTypeToJSON = exports.CopyAndMoveEventResourcesT
 const runtime_1 = require("../runtime");
 const BlockId_1 = require("./BlockId");
 const EventId_1 = require("./EventId");
-const ResourceCopyAndMoveListType_1 = require("./ResourceCopyAndMoveListType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const ResourceCopyAndMoveType_1 = require("./ResourceCopyAndMoveType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CopyAndMoveEventResourcesType interface.
@@ -42,9 +41,9 @@ function CopyAndMoveEventResourcesTypeFromJSONTyped(json, ignoreDiscriminator) {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'includeAsPackage': !(0, runtime_1.exists)(json, 'includeAsPackage') ? undefined : json['includeAsPackage'],
         'overrideCopyAndMoveResourceProcessWarnings': !(0, runtime_1.exists)(json, 'overrideCopyAndMoveResourceProcessWarnings') ? undefined : json['overrideCopyAndMoveResourceProcessWarnings'],
-        'resourceIdList': !(0, runtime_1.exists)(json, 'resourceIdList') ? undefined : (0, ResourceCopyAndMoveListType_1.ResourceCopyAndMoveListTypeFromJSON)(json['resourceIdList']),
+        'resourceIdList': !(0, runtime_1.exists)(json, 'resourceIdList') ? undefined : (json['resourceIdList'].map(ResourceCopyAndMoveType_1.ResourceCopyAndMoveTypeFromJSON)),
         'targetBlockId': !(0, runtime_1.exists)(json, 'targetBlockId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['targetBlockId']),
-        'targetEventIdList': !(0, runtime_1.exists)(json, 'targetEventIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['targetEventIdList']),
+        'targetEventIdList': !(0, runtime_1.exists)(json, 'targetEventIdList') ? undefined : (json['targetEventIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.CopyAndMoveEventResourcesTypeFromJSONTyped = CopyAndMoveEventResourcesTypeFromJSONTyped;
@@ -61,9 +60,9 @@ function CopyAndMoveEventResourcesTypeToJSON(value) {
         'hotelId': value.hotelId,
         'includeAsPackage': value.includeAsPackage,
         'overrideCopyAndMoveResourceProcessWarnings': value.overrideCopyAndMoveResourceProcessWarnings,
-        'resourceIdList': (0, ResourceCopyAndMoveListType_1.ResourceCopyAndMoveListTypeToJSON)(value.resourceIdList),
+        'resourceIdList': value.resourceIdList === undefined ? undefined : (value.resourceIdList.map(ResourceCopyAndMoveType_1.ResourceCopyAndMoveTypeToJSON)),
         'targetBlockId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.targetBlockId),
-        'targetEventIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.targetEventIdList),
+        'targetEventIdList': value.targetEventIdList === undefined ? undefined : (value.targetEventIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.CopyAndMoveEventResourcesTypeToJSON = CopyAndMoveEventResourcesTypeToJSON;

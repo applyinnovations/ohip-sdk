@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { InstanceLink } from './InstanceLink';
 import type { InterfaceRightType } from './InterfaceRightType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for updating a Hotel Interface Right. It will create the Hotel Interface Right if it does not exist on the database.
  * @export
@@ -26,16 +26,16 @@ export interface ChangeInterfaceRight {
     details?: InterfaceRightType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangeInterfaceRight
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeInterfaceRight
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChangeInterfaceRight interface.

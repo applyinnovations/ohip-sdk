@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ServiceRequestCodePrioritiesType } from './ServiceRequestCodePrioritiesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ServiceRequestCodePriorityType } from './ServiceRequestCodePriorityType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Service Request Code Priorities.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ServiceRequestCodePrioritiesToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ServiceRequestCodePrioritiesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ServiceRequestCodePrioritiesType}
+     * List of Service Request Code Priorities.
+     * @type {Array<ServiceRequestCodePriorityType>}
      * @memberof ServiceRequestCodePrioritiesToBeChanged
      */
-    serviceRequestCodePriorities?: ServiceRequestCodePrioritiesType;
+    serviceRequestCodePriorities?: Array<ServiceRequestCodePriorityType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ServiceRequestCodePrioritiesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ServiceRequestCodePrioritiesToBeChanged interface.

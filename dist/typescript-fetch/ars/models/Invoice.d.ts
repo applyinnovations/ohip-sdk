@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ARInvoiceCriteriaType } from './ARInvoiceCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response to the request to change invoice
  * @export
@@ -26,16 +26,16 @@ export interface Invoice {
     invoiceDetails?: ARInvoiceCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Invoice
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Invoice
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Invoice interface.

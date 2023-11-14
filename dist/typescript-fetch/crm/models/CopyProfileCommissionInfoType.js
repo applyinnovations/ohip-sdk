@@ -16,7 +16,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyProfileCommissionInfoTypeToJSON = exports.CopyProfileCommissionInfoTypeFromJSONTyped = exports.CopyProfileCommissionInfoTypeFromJSON = exports.instanceOfCopyProfileCommissionInfoType = void 0;
 const runtime_1 = require("../runtime");
 const CodeDescriptionType_1 = require("./CodeDescriptionType");
-const CodeListType_1 = require("./CodeListType");
 const ProfileId_1 = require("./ProfileId");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
@@ -40,7 +39,7 @@ function CopyProfileCommissionInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'commissionCode': !(0, runtime_1.exists)(json, 'commissionCode') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['commissionCode']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, ProfileId_1.ProfileIdFromJSON)(json['profileId']),
-        'targetHotelCodes': !(0, runtime_1.exists)(json, 'targetHotelCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['targetHotelCodes']),
+        'targetHotelCodes': !(0, runtime_1.exists)(json, 'targetHotelCodes') ? undefined : json['targetHotelCodes'],
         'validatePending': !(0, runtime_1.exists)(json, 'validatePending') ? undefined : json['validatePending'],
     };
 }
@@ -57,7 +56,7 @@ function CopyProfileCommissionInfoTypeToJSON(value) {
         'commissionCode': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.commissionCode),
         'hotelId': value.hotelId,
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
-        'targetHotelCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.targetHotelCodes),
+        'targetHotelCodes': value.targetHotelCodes,
         'validatePending': value.validatePending,
     };
 }

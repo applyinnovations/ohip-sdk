@@ -25,12 +25,12 @@ import {
     ARInvoiceTypeFromJSONTyped,
     ARInvoiceTypeToJSON,
 } from './ARInvoiceType';
-import type { ChargesCriteriaType } from './ChargesCriteriaType';
+import type { ChargeCriteriaType } from './ChargeCriteriaType';
 import {
-    ChargesCriteriaTypeFromJSON,
-    ChargesCriteriaTypeFromJSONTyped,
-    ChargesCriteriaTypeToJSON,
-} from './ChargesCriteriaType';
+    ChargeCriteriaTypeFromJSON,
+    ChargeCriteriaTypeFromJSONTyped,
+    ChargeCriteriaTypeToJSON,
+} from './ChargeCriteriaType';
 
 /**
  * The charges which have to be posted.
@@ -51,11 +51,11 @@ export interface ARChargesPostingCriteriaType {
      */
     cashierId?: number;
     /**
-     * 
-     * @type {ChargesCriteriaType}
+     * Collection of Charges to be posted.
+     * @type {Array<ChargeCriteriaType>}
      * @memberof ARChargesPostingCriteriaType
      */
-    charges?: ChargesCriteriaType;
+    charges?: Array<ChargeCriteriaType>;
     /**
      * Property where the charges are to be posted.
      * @type {string}
@@ -97,7 +97,7 @@ export function ARChargesPostingCriteriaTypeFromJSONTyped(json: any, ignoreDiscr
         
         'account': !exists(json, 'account') ? undefined : ARAccountCriteriaTypeFromJSON(json['account']),
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
-        'charges': !exists(json, 'charges') ? undefined : ChargesCriteriaTypeFromJSON(json['charges']),
+        'charges': !exists(json, 'charges') ? undefined : ((json['charges'] as Array<any>).map(ChargeCriteriaTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'invoice': !exists(json, 'invoice') ? undefined : ARInvoiceTypeFromJSON(json['invoice']),
         'overrideCreditHoldCheck': !exists(json, 'overrideCreditHoldCheck') ? undefined : json['overrideCreditHoldCheck'],
@@ -115,7 +115,7 @@ export function ARChargesPostingCriteriaTypeToJSON(value?: ARChargesPostingCrite
         
         'account': ARAccountCriteriaTypeToJSON(value.account),
         'cashierId': value.cashierId,
-        'charges': ChargesCriteriaTypeToJSON(value.charges),
+        'charges': value.charges === undefined ? undefined : ((value.charges as Array<any>).map(ChargeCriteriaTypeToJSON)),
         'hotelId': value.hotelId,
         'invoice': ARInvoiceTypeToJSON(value.invoice),
         'overrideCreditHoldCheck': value.overrideCreditHoldCheck,

@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ProfileCashieringDetailType } from './ProfileCashieringDetailType';
-import type { ProfileIdList } from './ProfileIdList';
-import type { WarningsType } from './WarningsType';
+import type { UniqueIDType } from './UniqueIDType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing the profile cashiering details.
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface ProfileCashieringDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileCashieringDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Cashiering details for the profile.
      * @type {Array<ProfileCashieringDetailType>}
@@ -32,17 +32,17 @@ export interface ProfileCashieringDetails {
      */
     profileCashieringDetailList?: Array<ProfileCashieringDetailType>;
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ProfileCashieringDetails
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileCashieringDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileCashieringDetails interface.

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RateByAgeBucketsType } from './RateByAgeBucketsType';
+import type { RateByAgeBucketType } from './RateByAgeBucketType';
 /**
  *
  * @export
@@ -77,11 +77,11 @@ export interface ScheduleRateAmountsType {
      */
     pointsRequired?: number;
     /**
-     *
-     * @type {RateByAgeBucketsType}
+     * Rate amount by age bucket.
+     * @type {Array<RateByAgeBucketType>}
      * @memberof ScheduleRateAmountsType
      */
-    rateByAgeBuckets?: RateByAgeBucketsType;
+    rateByAgeBuckets?: Array<RateByAgeBucketType>;
     /**
      * Rate amount for three Children.
      * @type {number}

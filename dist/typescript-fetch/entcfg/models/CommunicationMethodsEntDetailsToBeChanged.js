@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommunicationMethodsEntDetailsToBeChangedToJSON = exports.CommunicationMethodsEntDetailsToBeChangedFromJSONTyped = exports.CommunicationMethodsEntDetailsToBeChangedFromJSON = exports.instanceOfCommunicationMethodsEntDetailsToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const CommunicationMethodsEntDetailsType_1 = require("./CommunicationMethodsEntDetailsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CommunicationMethodsEntDetailType_1 = require("./CommunicationMethodsEntDetailType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CommunicationMethodsEntDetailsToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function CommunicationMethodsEntDetailsToBeChangedFromJSONTyped(json, ignoreDisc
         return json;
     }
     return {
-        'communicationMethodsEntDetails': !(0, runtime_1.exists)(json, 'communicationMethodsEntDetails') ? undefined : (0, CommunicationMethodsEntDetailsType_1.CommunicationMethodsEntDetailsTypeFromJSON)(json['communicationMethodsEntDetails']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'communicationMethodsEntDetails': !(0, runtime_1.exists)(json, 'communicationMethodsEntDetails') ? undefined : (json['communicationMethodsEntDetails'].map(CommunicationMethodsEntDetailType_1.CommunicationMethodsEntDetailTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CommunicationMethodsEntDetailsToBeChangedFromJSONTyped = CommunicationMethodsEntDetailsToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function CommunicationMethodsEntDetailsToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'communicationMethodsEntDetails': (0, CommunicationMethodsEntDetailsType_1.CommunicationMethodsEntDetailsTypeToJSON)(value.communicationMethodsEntDetails),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'communicationMethodsEntDetails': value.communicationMethodsEntDetails === undefined ? undefined : (value.communicationMethodsEntDetails.map(CommunicationMethodsEntDetailType_1.CommunicationMethodsEntDetailTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CommunicationMethodsEntDetailsToBeChangedToJSON = CommunicationMethodsEntDetailsToBeChangedToJSON;

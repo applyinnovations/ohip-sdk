@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { IndustryCodesType } from './IndustryCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { IndustryCodeType } from './IndustryCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Industry Codes.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface IndustryCodesDetails {
     /**
-     *
-     * @type {IndustryCodesType}
+     * List of Industry Codes.
+     * @type {Array<IndustryCodeType>}
      * @memberof IndustryCodesDetails
      */
-    industryCodes?: IndustryCodesType;
+    industryCodes?: Array<IndustryCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof IndustryCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof IndustryCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the IndustryCodesDetails interface.

@@ -19,24 +19,24 @@ import {
     AuthorizerInfoTypeFromJSONTyped,
     AuthorizerInfoTypeToJSON,
 } from './AuthorizerInfoType';
-import type { BillingInstructionsType } from './BillingInstructionsType';
+import type { BillingInstructionType } from './BillingInstructionType';
 import {
-    BillingInstructionsTypeFromJSON,
-    BillingInstructionsTypeFromJSONTyped,
-    BillingInstructionsTypeToJSON,
-} from './BillingInstructionsType';
+    BillingInstructionTypeFromJSON,
+    BillingInstructionTypeFromJSONTyped,
+    BillingInstructionTypeToJSON,
+} from './BillingInstructionType';
 import type { PromoCodeRoutingInstructionTypeDuration } from './PromoCodeRoutingInstructionTypeDuration';
 import {
     PromoCodeRoutingInstructionTypeDurationFromJSON,
     PromoCodeRoutingInstructionTypeDurationFromJSONTyped,
     PromoCodeRoutingInstructionTypeDurationToJSON,
 } from './PromoCodeRoutingInstructionTypeDuration';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
 
 /**
  * Routing limit can be one of the three: Credit Limit, Percetage Limit, Covers Limit
@@ -63,11 +63,11 @@ export interface PromoCodeRoutingInstructionType {
      */
     autoPopulateRouting?: boolean;
     /**
-     * 
-     * @type {BillingInstructionsType}
+     * Set of Billing Instruction codes.
+     * @type {Array<BillingInstructionType>}
      * @memberof PromoCodeRoutingInstructionType
      */
-    billingInstructions?: BillingInstructionsType;
+    billingInstructions?: Array<BillingInstructionType>;
     /**
      * User Defined Comments. Used for Comp Routing.
      * @type {string}
@@ -129,11 +129,11 @@ export interface PromoCodeRoutingInstructionType {
      */
     promptForAuthorizer?: boolean;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof PromoCodeRoutingInstructionType
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
 }
 
 /**
@@ -158,7 +158,7 @@ export function PromoCodeRoutingInstructionTypeFromJSONTyped(json: any, ignoreDi
         'actionType': !exists(json, 'actionType') ? undefined : json['actionType'],
         'authorizerInfo': !exists(json, 'authorizerInfo') ? undefined : AuthorizerInfoTypeFromJSON(json['authorizerInfo']),
         'autoPopulateRouting': !exists(json, 'autoPopulateRouting') ? undefined : json['autoPopulateRouting'],
-        'billingInstructions': !exists(json, 'billingInstructions') ? undefined : BillingInstructionsTypeFromJSON(json['billingInstructions']),
+        'billingInstructions': !exists(json, 'billingInstructions') ? undefined : ((json['billingInstructions'] as Array<any>).map(BillingInstructionTypeFromJSON)),
         'comments': !exists(json, 'comments') ? undefined : json['comments'],
         'compPreApprovalRequired': !exists(json, 'compPreApprovalRequired') ? undefined : json['compPreApprovalRequired'],
         'covers': !exists(json, 'covers') ? undefined : json['covers'],
@@ -169,7 +169,7 @@ export function PromoCodeRoutingInstructionTypeFromJSONTyped(json: any, ignoreDi
         'membershipId': !exists(json, 'membershipId') ? undefined : json['membershipId'],
         'percentageLimit': !exists(json, 'percentageLimit') ? undefined : json['percentageLimit'],
         'promptForAuthorizer': !exists(json, 'promptForAuthorizer') ? undefined : json['promptForAuthorizer'],
-        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : TrxCodesInfoTypeFromJSON(json['transactionCodes']),
+        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : ((json['transactionCodes'] as Array<any>).map(TrxInfoTypeFromJSON)),
     };
 }
 
@@ -185,7 +185,7 @@ export function PromoCodeRoutingInstructionTypeToJSON(value?: PromoCodeRoutingIn
         'actionType': value.actionType,
         'authorizerInfo': AuthorizerInfoTypeToJSON(value.authorizerInfo),
         'autoPopulateRouting': value.autoPopulateRouting,
-        'billingInstructions': BillingInstructionsTypeToJSON(value.billingInstructions),
+        'billingInstructions': value.billingInstructions === undefined ? undefined : ((value.billingInstructions as Array<any>).map(BillingInstructionTypeToJSON)),
         'comments': value.comments,
         'compPreApprovalRequired': value.compPreApprovalRequired,
         'covers': value.covers,
@@ -196,7 +196,7 @@ export function PromoCodeRoutingInstructionTypeToJSON(value?: PromoCodeRoutingIn
         'membershipId': value.membershipId,
         'percentageLimit': value.percentageLimit,
         'promptForAuthorizer': value.promptForAuthorizer,
-        'transactionCodes': TrxCodesInfoTypeToJSON(value.transactionCodes),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : ((value.transactionCodes as Array<any>).map(TrxInfoTypeToJSON)),
     };
 }
 

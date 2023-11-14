@@ -12,7 +12,7 @@
 import type { ProfileStatusType } from './ProfileStatusType';
 import type { ProfileTypeType } from './ProfileTypeType';
 import type { RelationshipAddressType } from './RelationshipAddressType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -62,11 +62,11 @@ export interface RelationshipProfileSummaryType {
      */
     primaryOwnerCode?: boolean;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RelationshipProfileSummaryType
      */
-    profileIdList?: UniqueIDListType;
+    profileIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {ProfileStatusType}

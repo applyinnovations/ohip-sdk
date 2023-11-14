@@ -17,7 +17,7 @@ import type { DepositDetailPostingTypeUpdateInfo } from './DepositDetailPostingT
 import type { ExchangeAmounts } from './ExchangeAmounts';
 import type { PostingGroupType } from './PostingGroupType';
 import type { PostingTimeType } from './PostingTimeType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Posting details.
  * @export
@@ -133,11 +133,11 @@ export interface SummaryPostingType {
      */
     fbaCertificate?: boolean;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof SummaryPostingType
      */
-    financialTransactionIdList?: UniqueIDListType;
+    financialTransactionIdList?: Array<UniqueIDType>;
     /**
      * The Folio Window number of this posting.
      * @type {number}

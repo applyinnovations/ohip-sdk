@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { PrepaidCardRedemptionsType } from './PrepaidCardRedemptionsType';
+import type { PrepaidCardRedemptionType } from './PrepaidCardRedemptionType';
 import type { ReservationId } from './ReservationId';
 /**
  * Criteria for Prepaid card redeem request.
@@ -36,11 +36,11 @@ export interface RedeemPrepaidCardCriteriaType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {PrepaidCardRedemptionsType}
+     * A prepaid redemption info object to be used for posting a payment.
+     * @type {Array<PrepaidCardRedemptionType>}
      * @memberof RedeemPrepaidCardCriteriaType
      */
-    prepaidCardRedemptions?: PrepaidCardRedemptionsType;
+    prepaidCardRedemptions?: Array<PrepaidCardRedemptionType>;
     /**
      *
      * @type {ReservationId}

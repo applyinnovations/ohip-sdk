@@ -19,12 +19,12 @@ import {
     CurrencyAmountTypeFromJSONTyped,
     CurrencyAmountTypeToJSON,
 } from './CurrencyAmountType';
-import type { EventResourceNotesType } from './EventResourceNotesType';
+import type { EventResourceNoteType } from './EventResourceNoteType';
 import {
-    EventResourceNotesTypeFromJSON,
-    EventResourceNotesTypeFromJSONTyped,
-    EventResourceNotesTypeToJSON,
-} from './EventResourceNotesType';
+    EventResourceNoteTypeFromJSON,
+    EventResourceNoteTypeFromJSONTyped,
+    EventResourceNoteTypeToJSON,
+} from './EventResourceNoteType';
 import type { ResourceId } from './ResourceId';
 import {
     ResourceIdFromJSON,
@@ -69,11 +69,11 @@ export interface CateringEventResourceType {
      */
     eventEndDate?: Date;
     /**
-     * 
-     * @type {EventResourceNotesType}
+     * Contains event resource comment information.
+     * @type {Array<EventResourceNoteType>}
      * @memberof CateringEventResourceType
      */
-    eventResourceNotes?: EventResourceNotesType;
+    eventResourceNotes?: Array<EventResourceNoteType>;
     /**
      * Event Start Date of resource of type Menu.
      * @type {Date}
@@ -237,7 +237,7 @@ export function CateringEventResourceTypeFromJSONTyped(json: any, ignoreDiscrimi
         'custom': !exists(json, 'custom') ? undefined : json['custom'],
         'discount': !exists(json, 'discount') ? undefined : json['discount'],
         'eventEndDate': !exists(json, 'eventEndDate') ? undefined : (new Date(json['eventEndDate'])),
-        'eventResourceNotes': !exists(json, 'eventResourceNotes') ? undefined : EventResourceNotesTypeFromJSON(json['eventResourceNotes']),
+        'eventResourceNotes': !exists(json, 'eventResourceNotes') ? undefined : ((json['eventResourceNotes'] as Array<any>).map(EventResourceNoteTypeFromJSON)),
         'eventStartDate': !exists(json, 'eventStartDate') ? undefined : (new Date(json['eventStartDate'])),
         'external': !exists(json, 'external') ? undefined : json['external'],
         'hasDiscountMenuItem': !exists(json, 'hasDiscountMenuItem') ? undefined : json['hasDiscountMenuItem'],
@@ -277,7 +277,7 @@ export function CateringEventResourceTypeToJSON(value?: CateringEventResourceTyp
         'custom': value.custom,
         'discount': value.discount,
         'eventEndDate': value.eventEndDate === undefined ? undefined : (value.eventEndDate.toISOString().substring(0,10)),
-        'eventResourceNotes': EventResourceNotesTypeToJSON(value.eventResourceNotes),
+        'eventResourceNotes': value.eventResourceNotes === undefined ? undefined : ((value.eventResourceNotes as Array<any>).map(EventResourceNoteTypeToJSON)),
         'eventStartDate': value.eventStartDate === undefined ? undefined : (value.eventStartDate.toISOString().substring(0,10)),
         'external': value.external,
         'hasDiscountMenuItem': value.hasDiscountMenuItem,

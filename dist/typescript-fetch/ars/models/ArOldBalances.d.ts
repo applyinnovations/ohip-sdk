@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AROldBalancePostingsType } from './AROldBalancePostingsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AROldBalancePostingType } from './AROldBalancePostingType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to Post AR Old Balances
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ArOldBalances {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ArOldBalances
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {AROldBalancePostingsType}
+     * Collections of Old Balance Postings
+     * @type {Array<AROldBalancePostingType>}
      * @memberof ArOldBalances
      */
-    oldBalances?: AROldBalancePostingsType;
+    oldBalances?: Array<AROldBalancePostingType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ArOldBalances
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ArOldBalances interface.

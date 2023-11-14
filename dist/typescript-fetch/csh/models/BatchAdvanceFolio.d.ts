@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { BatchAdvanceFolioType } from './BatchAdvanceFolioType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request for submitting batch advance folio.
  * @export
@@ -26,16 +26,16 @@ export interface BatchAdvanceFolio {
     batchAdvanceFolio?: BatchAdvanceFolioType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BatchAdvanceFolio
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BatchAdvanceFolio
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BatchAdvanceFolio interface.

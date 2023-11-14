@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CopyNewRoomsType } from './CopyNewRoomsType';
+import type { CopyNewRoomType } from './CopyNewRoomType';
 import {
-    CopyNewRoomsTypeFromJSON,
-    CopyNewRoomsTypeFromJSONTyped,
-    CopyNewRoomsTypeToJSON,
-} from './CopyNewRoomsType';
+    CopyNewRoomTypeFromJSON,
+    CopyNewRoomTypeFromJSONTyped,
+    CopyNewRoomTypeToJSON,
+} from './CopyNewRoomType';
 
 /**
  * Primary details of room to be copied and collection of rooms to be created from it.
@@ -33,11 +33,11 @@ export interface CopyRoomType {
      */
     hotelId?: object;
     /**
-     * 
-     * @type {CopyNewRoomsType}
+     * Room details that may differ from the base existing room.
+     * @type {Array<CopyNewRoomType>}
      * @memberof CopyRoomType
      */
-    newRooms?: CopyNewRoomsType;
+    newRooms?: Array<CopyNewRoomType>;
     /**
      * Room number of an existing room that will serve as the basis for the new rooms.
      * @type {object}
@@ -66,7 +66,7 @@ export function CopyRoomTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
     return {
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'newRooms': !exists(json, 'newRooms') ? undefined : CopyNewRoomsTypeFromJSON(json['newRooms']),
+        'newRooms': !exists(json, 'newRooms') ? undefined : ((json['newRooms'] as Array<any>).map(CopyNewRoomTypeFromJSON)),
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
     };
 }
@@ -81,7 +81,7 @@ export function CopyRoomTypeToJSON(value?: CopyRoomType | null): any {
     return {
         
         'hotelId': value.hotelId,
-        'newRooms': CopyNewRoomsTypeToJSON(value.newRooms),
+        'newRooms': value.newRooms === undefined ? undefined : ((value.newRooms as Array<any>).map(CopyNewRoomTypeToJSON)),
         'roomId': value.roomId,
     };
 }

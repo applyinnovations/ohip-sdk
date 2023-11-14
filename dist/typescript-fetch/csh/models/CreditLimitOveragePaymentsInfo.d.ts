@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationOveragePaymentsType } from './ReservationOveragePaymentsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response for Fetch Credit Limit Overage Payments request
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface CreditLimitOveragePaymentsInfo {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreditLimitOveragePaymentsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationOveragePaymentsType}
@@ -31,11 +31,11 @@ export interface CreditLimitOveragePaymentsInfo {
      */
     reservationOveragePayments?: ReservationOveragePaymentsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreditLimitOveragePaymentsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreditLimitOveragePaymentsInfo interface.

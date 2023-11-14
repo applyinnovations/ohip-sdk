@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AuthorizeCompRedemptionsRQCompRedemptionsType } from './AuthorizeCompRedemptionsRQCompRedemptionsType';
+import type { AuthorizeCompRedemptionsRQCompRedemptionType } from './AuthorizeCompRedemptionsRQCompRedemptionType';
 import {
-    AuthorizeCompRedemptionsRQCompRedemptionsTypeFromJSON,
-    AuthorizeCompRedemptionsRQCompRedemptionsTypeFromJSONTyped,
-    AuthorizeCompRedemptionsRQCompRedemptionsTypeToJSON,
-} from './AuthorizeCompRedemptionsRQCompRedemptionsType';
+    AuthorizeCompRedemptionsRQCompRedemptionTypeFromJSON,
+    AuthorizeCompRedemptionsRQCompRedemptionTypeFromJSONTyped,
+    AuthorizeCompRedemptionsRQCompRedemptionTypeToJSON,
+} from './AuthorizeCompRedemptionsRQCompRedemptionType';
 
 /**
  * Request type of Complimentary Redemptions for approval.
@@ -27,11 +27,11 @@ import {
  */
 export interface AuthorizeCompRedemptionsRQ {
     /**
-     * 
-     * @type {AuthorizeCompRedemptionsRQCompRedemptionsType}
+     * Collection of Complimentary Redemptions for approval.
+     * @type {Array<AuthorizeCompRedemptionsRQCompRedemptionType>}
      * @memberof AuthorizeCompRedemptionsRQ
      */
-    compRedemptions?: AuthorizeCompRedemptionsRQCompRedemptionsType;
+    compRedemptions?: Array<AuthorizeCompRedemptionsRQCompRedemptionType>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function AuthorizeCompRedemptionsRQFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : AuthorizeCompRedemptionsRQCompRedemptionsTypeFromJSON(json['compRedemptions']),
+        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : ((json['compRedemptions'] as Array<any>).map(AuthorizeCompRedemptionsRQCompRedemptionTypeFromJSON)),
     };
 }
 
@@ -66,7 +66,7 @@ export function AuthorizeCompRedemptionsRQToJSON(value?: AuthorizeCompRedemption
     }
     return {
         
-        'compRedemptions': AuthorizeCompRedemptionsRQCompRedemptionsTypeToJSON(value.compRedemptions),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : ((value.compRedemptions as Array<any>).map(AuthorizeCompRedemptionsRQCompRedemptionTypeToJSON)),
     };
 }
 

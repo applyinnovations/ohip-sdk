@@ -13,24 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelEventSpaceDetailsType } from './HotelEventSpaceDetailsType';
+import type { HotelEventSpaceDetailType } from './HotelEventSpaceDetailType';
 import {
-    HotelEventSpaceDetailsTypeFromJSON,
-    HotelEventSpaceDetailsTypeFromJSONTyped,
-    HotelEventSpaceDetailsTypeToJSON,
-} from './HotelEventSpaceDetailsType';
-import type { HotelEventSpaceSummariesType } from './HotelEventSpaceSummariesType';
+    HotelEventSpaceDetailTypeFromJSON,
+    HotelEventSpaceDetailTypeFromJSONTyped,
+    HotelEventSpaceDetailTypeToJSON,
+} from './HotelEventSpaceDetailType';
+import type { HotelEventSpaceSummaryType } from './HotelEventSpaceSummaryType';
 import {
-    HotelEventSpaceSummariesTypeFromJSON,
-    HotelEventSpaceSummariesTypeFromJSONTyped,
-    HotelEventSpaceSummariesTypeToJSON,
-} from './HotelEventSpaceSummariesType';
-import type { HotelSetupStylesType } from './HotelSetupStylesType';
-import {
-    HotelSetupStylesTypeFromJSON,
-    HotelSetupStylesTypeFromJSONTyped,
-    HotelSetupStylesTypeToJSON,
-} from './HotelSetupStylesType';
+    HotelEventSpaceSummaryTypeFromJSON,
+    HotelEventSpaceSummaryTypeFromJSONTyped,
+    HotelEventSpaceSummaryTypeToJSON,
+} from './HotelEventSpaceSummaryType';
 
 /**
  * The Detail and Summary info of event space about the hotel
@@ -39,23 +33,23 @@ import {
  */
 export interface HotelEventSpacesType {
     /**
-     * 
-     * @type {HotelEventSpaceDetailsType}
+     * List of detail info of hotel event space
+     * @type {Array<HotelEventSpaceDetailType>}
      * @memberof HotelEventSpacesType
      */
-    eventSpaceDetails?: HotelEventSpaceDetailsType;
+    eventSpaceDetails?: Array<HotelEventSpaceDetailType>;
     /**
-     * 
-     * @type {HotelEventSpaceSummariesType}
+     * List of summary info of hotel event space
+     * @type {Array<HotelEventSpaceSummaryType>}
      * @memberof HotelEventSpacesType
      */
-    eventSpaceSummaries?: HotelEventSpaceSummariesType;
+    eventSpaceSummaries?: Array<HotelEventSpaceSummaryType>;
     /**
-     * 
-     * @type {HotelSetupStylesType}
+     * List of event space setup style codes.
+     * @type {Array<string>}
      * @memberof HotelEventSpacesType
      */
-    setupStyles?: HotelSetupStylesType;
+    setupStyles?: Array<string>;
 }
 
 /**
@@ -77,9 +71,9 @@ export function HotelEventSpacesTypeFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'eventSpaceDetails': !exists(json, 'eventSpaceDetails') ? undefined : HotelEventSpaceDetailsTypeFromJSON(json['eventSpaceDetails']),
-        'eventSpaceSummaries': !exists(json, 'eventSpaceSummaries') ? undefined : HotelEventSpaceSummariesTypeFromJSON(json['eventSpaceSummaries']),
-        'setupStyles': !exists(json, 'setupStyles') ? undefined : HotelSetupStylesTypeFromJSON(json['setupStyles']),
+        'eventSpaceDetails': !exists(json, 'eventSpaceDetails') ? undefined : ((json['eventSpaceDetails'] as Array<any>).map(HotelEventSpaceDetailTypeFromJSON)),
+        'eventSpaceSummaries': !exists(json, 'eventSpaceSummaries') ? undefined : ((json['eventSpaceSummaries'] as Array<any>).map(HotelEventSpaceSummaryTypeFromJSON)),
+        'setupStyles': !exists(json, 'setupStyles') ? undefined : json['setupStyles'],
     };
 }
 
@@ -92,9 +86,9 @@ export function HotelEventSpacesTypeToJSON(value?: HotelEventSpacesType | null):
     }
     return {
         
-        'eventSpaceDetails': HotelEventSpaceDetailsTypeToJSON(value.eventSpaceDetails),
-        'eventSpaceSummaries': HotelEventSpaceSummariesTypeToJSON(value.eventSpaceSummaries),
-        'setupStyles': HotelSetupStylesTypeToJSON(value.setupStyles),
+        'eventSpaceDetails': value.eventSpaceDetails === undefined ? undefined : ((value.eventSpaceDetails as Array<any>).map(HotelEventSpaceDetailTypeToJSON)),
+        'eventSpaceSummaries': value.eventSpaceSummaries === undefined ? undefined : ((value.eventSpaceSummaries as Array<any>).map(HotelEventSpaceSummaryTypeToJSON)),
+        'setupStyles': value.setupStyles,
     };
 }
 

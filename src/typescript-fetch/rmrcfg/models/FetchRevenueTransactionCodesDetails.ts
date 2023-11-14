@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RotationRevenueTransactionCodesType } from './RotationRevenueTransactionCodesType';
+import type { RotationRevenueTransactionCodeType } from './RotationRevenueTransactionCodeType';
 import {
-    RotationRevenueTransactionCodesTypeFromJSON,
-    RotationRevenueTransactionCodesTypeFromJSONTyped,
-    RotationRevenueTransactionCodesTypeToJSON,
-} from './RotationRevenueTransactionCodesType';
-import type { WarningsType } from './WarningsType';
+    RotationRevenueTransactionCodeTypeFromJSON,
+    RotationRevenueTransactionCodeTypeFromJSONTyped,
+    RotationRevenueTransactionCodeTypeToJSON,
+} from './RotationRevenueTransactionCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for retrieving revenue transaction codes for a given property
@@ -33,17 +33,17 @@ import {
  */
 export interface FetchRevenueTransactionCodesDetails {
     /**
-     * 
-     * @type {RotationRevenueTransactionCodesType}
+     * A revenue transaction code.
+     * @type {Array<RotationRevenueTransactionCodeType>}
      * @memberof FetchRevenueTransactionCodesDetails
      */
-    revenueTransactionCodes?: RotationRevenueTransactionCodesType;
+    revenueTransactionCodes?: Array<RotationRevenueTransactionCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchRevenueTransactionCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function FetchRevenueTransactionCodesDetailsFromJSONTyped(json: any, igno
     }
     return {
         
-        'revenueTransactionCodes': !exists(json, 'revenueTransactionCodes') ? undefined : RotationRevenueTransactionCodesTypeFromJSON(json['revenueTransactionCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'revenueTransactionCodes': !exists(json, 'revenueTransactionCodes') ? undefined : ((json['revenueTransactionCodes'] as Array<any>).map(RotationRevenueTransactionCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function FetchRevenueTransactionCodesDetailsToJSON(value?: FetchRevenueTr
     }
     return {
         
-        'revenueTransactionCodes': RotationRevenueTransactionCodesTypeToJSON(value.revenueTransactionCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'revenueTransactionCodes': value.revenueTransactionCodes === undefined ? undefined : ((value.revenueTransactionCodes as Array<any>).map(RotationRevenueTransactionCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

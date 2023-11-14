@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GlobalActionCodesToBeChangedToJSON = exports.GlobalActionCodesToBeChangedFromJSONTyped = exports.GlobalActionCodesToBeChangedFromJSON = exports.instanceOfGlobalActionCodesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const GlobalActionCodesType_1 = require("./GlobalActionCodesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const GlobalActionCodeType_1 = require("./GlobalActionCodeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the GlobalActionCodesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function GlobalActionCodesToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'globalActionCodes': !(0, runtime_1.exists)(json, 'globalActionCodes') ? undefined : (0, GlobalActionCodesType_1.GlobalActionCodesTypeFromJSON)(json['globalActionCodes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'globalActionCodes': !(0, runtime_1.exists)(json, 'globalActionCodes') ? undefined : (json['globalActionCodes'].map(GlobalActionCodeType_1.GlobalActionCodeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.GlobalActionCodesToBeChangedFromJSONTyped = GlobalActionCodesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function GlobalActionCodesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'globalActionCodes': (0, GlobalActionCodesType_1.GlobalActionCodesTypeToJSON)(value.globalActionCodes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'globalActionCodes': value.globalActionCodes === undefined ? undefined : (value.globalActionCodes.map(GlobalActionCodeType_1.GlobalActionCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.GlobalActionCodesToBeChangedToJSON = GlobalActionCodesToBeChangedToJSON;

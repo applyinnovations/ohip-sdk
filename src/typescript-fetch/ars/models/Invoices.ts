@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ARInvoicesCriteriaType } from './ARInvoicesCriteriaType';
+import type { ARInvoiceCriteriaType } from './ARInvoiceCriteriaType';
 import {
-    ARInvoicesCriteriaTypeFromJSON,
-    ARInvoicesCriteriaTypeFromJSONTyped,
-    ARInvoicesCriteriaTypeToJSON,
-} from './ARInvoicesCriteriaType';
-import type { Links } from './Links';
+    ARInvoiceCriteriaTypeFromJSON,
+    ARInvoiceCriteriaTypeFromJSONTyped,
+    ARInvoiceCriteriaTypeToJSON,
+} from './ARInvoiceCriteriaType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to close invoice(s)
@@ -39,23 +39,23 @@ import {
  */
 export interface Invoices {
     /**
-     * 
-     * @type {ARInvoicesCriteriaType}
+     * Criteria for searching Invoices.
+     * @type {Array<ARInvoiceCriteriaType>}
      * @memberof Invoices
      */
-    invoices?: ARInvoicesCriteriaType;
+    invoices?: Array<ARInvoiceCriteriaType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Invoices
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Invoices
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function InvoicesFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     }
     return {
         
-        'invoices': !exists(json, 'invoices') ? undefined : ARInvoicesCriteriaTypeFromJSON(json['invoices']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'invoices': !exists(json, 'invoices') ? undefined : ((json['invoices'] as Array<any>).map(ARInvoiceCriteriaTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function InvoicesToJSON(value?: Invoices | null): any {
     }
     return {
         
-        'invoices': ARInvoicesCriteriaTypeToJSON(value.invoices),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'invoices': value.invoices === undefined ? undefined : ((value.invoices as Array<any>).map(ARInvoiceCriteriaTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

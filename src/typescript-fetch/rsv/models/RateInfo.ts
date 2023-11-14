@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { RateInfoDetail } from './RateInfoDetail';
 import {
     RateInfoDetailFromJSON,
@@ -31,12 +31,12 @@ import {
     ReservationRateSummaryTypeFromJSONTyped,
     ReservationRateSummaryTypeToJSON,
 } from './ReservationRateSummaryType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response will either be Summary or Detail type, but not both. See the request for the summary attribute flag.
@@ -52,10 +52,10 @@ export interface RateInfo {
     detail?: RateInfoDetail;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RateInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ReservationRateSummaryType}
@@ -63,11 +63,11 @@ export interface RateInfo {
      */
     summary?: ReservationRateSummaryType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RateInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -90,9 +90,9 @@ export function RateInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     return {
         
         'detail': !exists(json, 'detail') ? undefined : RateInfoDetailFromJSON(json['detail']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'summary': !exists(json, 'summary') ? undefined : ReservationRateSummaryTypeFromJSON(json['summary']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -106,9 +106,9 @@ export function RateInfoToJSON(value?: RateInfo | null): any {
     return {
         
         'detail': RateInfoDetailToJSON(value.detail),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'summary': ReservationRateSummaryTypeToJSON(value.summary),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

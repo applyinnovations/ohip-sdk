@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FacilityCodeForecastTypeToJSON = exports.FacilityCodeForecastTypeFromJSONTyped = exports.FacilityCodeForecastTypeFromJSON = exports.instanceOfFacilityCodeForecastType = void 0;
 const runtime_1 = require("../runtime");
 const CodeDescriptionType_1 = require("./CodeDescriptionType");
-const ForecastQuantitiesType_1 = require("./ForecastQuantitiesType");
+const ForecastQuantityType_1 = require("./ForecastQuantityType");
 /**
  * Check if a given object implements the FacilityCodeForecastType interface.
  */
@@ -35,7 +35,7 @@ function FacilityCodeForecastTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['code']),
-        'forecast': !(0, runtime_1.exists)(json, 'forecast') ? undefined : (0, ForecastQuantitiesType_1.ForecastQuantitiesTypeFromJSON)(json['forecast']),
+        'forecast': !(0, runtime_1.exists)(json, 'forecast') ? undefined : (json['forecast'].map(ForecastQuantityType_1.ForecastQuantityTypeFromJSON)),
     };
 }
 exports.FacilityCodeForecastTypeFromJSONTyped = FacilityCodeForecastTypeFromJSONTyped;
@@ -48,7 +48,7 @@ function FacilityCodeForecastTypeToJSON(value) {
     }
     return {
         'code': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.code),
-        'forecast': (0, ForecastQuantitiesType_1.ForecastQuantitiesTypeToJSON)(value.forecast),
+        'forecast': value.forecast === undefined ? undefined : (value.forecast.map(ForecastQuantityType_1.ForecastQuantityTypeToJSON)),
     };
 }
 exports.FacilityCodeForecastTypeToJSON = FacilityCodeForecastTypeToJSON;

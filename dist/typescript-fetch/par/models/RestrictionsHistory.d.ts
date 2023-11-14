@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { FetchRestrictionsHistoryRSType } from './FetchRestrictionsHistoryRSType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for searching restrictions history.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface RestrictionsHistory {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RestrictionsHistory
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {FetchRestrictionsHistoryRSType}
@@ -31,11 +31,11 @@ export interface RestrictionsHistory {
      */
     restrictionsHistory?: FetchRestrictionsHistoryRSType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RestrictionsHistory
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RestrictionsHistory interface.

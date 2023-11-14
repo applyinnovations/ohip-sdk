@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InvoicesToJSON = exports.InvoicesFromJSONTyped = exports.InvoicesFromJSON = exports.instanceOfInvoices = void 0;
 const runtime_1 = require("../runtime");
-const ARInvoicesCriteriaType_1 = require("./ARInvoicesCriteriaType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ARInvoiceCriteriaType_1 = require("./ARInvoiceCriteriaType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the Invoices interface.
  */
@@ -35,9 +35,9 @@ function InvoicesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'invoices': !(0, runtime_1.exists)(json, 'invoices') ? undefined : (0, ARInvoicesCriteriaType_1.ARInvoicesCriteriaTypeFromJSON)(json['invoices']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'invoices': !(0, runtime_1.exists)(json, 'invoices') ? undefined : (json['invoices'].map(ARInvoiceCriteriaType_1.ARInvoiceCriteriaTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.InvoicesFromJSONTyped = InvoicesFromJSONTyped;
@@ -49,9 +49,9 @@ function InvoicesToJSON(value) {
         return null;
     }
     return {
-        'invoices': (0, ARInvoicesCriteriaType_1.ARInvoicesCriteriaTypeToJSON)(value.invoices),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'invoices': value.invoices === undefined ? undefined : (value.invoices.map(ARInvoiceCriteriaType_1.ARInvoiceCriteriaTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.InvoicesToJSON = InvoicesToJSON;

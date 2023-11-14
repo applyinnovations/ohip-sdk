@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipEnrollmentGroupsType } from './MembershipEnrollmentGroupsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipEnrollmentGroupType } from './MembershipEnrollmentGroupType';
 import {
-    MembershipEnrollmentGroupsTypeFromJSON,
-    MembershipEnrollmentGroupsTypeFromJSONTyped,
-    MembershipEnrollmentGroupsTypeToJSON,
-} from './MembershipEnrollmentGroupsType';
-import type { WarningsType } from './WarningsType';
+    MembershipEnrollmentGroupTypeFromJSON,
+    MembershipEnrollmentGroupTypeFromJSONTyped,
+    MembershipEnrollmentGroupTypeToJSON,
+} from './MembershipEnrollmentGroupType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching membership enrollment groups.
@@ -58,16 +58,16 @@ export interface MembershipEnrollmentGroupsInfo {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipEnrollmentGroupsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MembershipEnrollmentGroupsType}
+     * Details of membership enrollment group type.
+     * @type {Array<MembershipEnrollmentGroupType>}
      * @memberof MembershipEnrollmentGroupsInfo
      */
-    membershipEnrollmentGroups?: MembershipEnrollmentGroupsType;
+    membershipEnrollmentGroups?: Array<MembershipEnrollmentGroupType>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -87,11 +87,11 @@ export interface MembershipEnrollmentGroupsInfo {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipEnrollmentGroupsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -116,12 +116,12 @@ export function MembershipEnrollmentGroupsInfoFromJSONTyped(json: any, ignoreDis
         'count': !exists(json, 'count') ? undefined : json['count'],
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'membershipEnrollmentGroups': !exists(json, 'membershipEnrollmentGroups') ? undefined : MembershipEnrollmentGroupsTypeFromJSON(json['membershipEnrollmentGroups']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'membershipEnrollmentGroups': !exists(json, 'membershipEnrollmentGroups') ? undefined : ((json['membershipEnrollmentGroups'] as Array<any>).map(MembershipEnrollmentGroupTypeFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -137,12 +137,12 @@ export function MembershipEnrollmentGroupsInfoToJSON(value?: MembershipEnrollmen
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
-        'membershipEnrollmentGroups': MembershipEnrollmentGroupsTypeToJSON(value.membershipEnrollmentGroups),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'membershipEnrollmentGroups': value.membershipEnrollmentGroups === undefined ? undefined : ((value.membershipEnrollmentGroups as Array<any>).map(MembershipEnrollmentGroupTypeToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

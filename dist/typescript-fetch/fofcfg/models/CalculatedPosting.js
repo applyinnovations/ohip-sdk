@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CalculatedPostingToJSON = exports.CalculatedPostingFromJSONTyped = exports.CalculatedPostingFromJSON = exports.instanceOfCalculatedPosting = void 0;
 const runtime_1 = require("../runtime");
 const CalculatePostingResult_1 = require("./CalculatePostingResult");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CalculatedPosting interface.
  */
@@ -35,9 +35,9 @@ function CalculatedPostingFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'result': !(0, runtime_1.exists)(json, 'result') ? undefined : (0, CalculatePostingResult_1.CalculatePostingResultFromJSON)(json['result']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CalculatedPostingFromJSONTyped = CalculatedPostingFromJSONTyped;
@@ -49,9 +49,9 @@ function CalculatedPostingToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'result': (0, CalculatePostingResult_1.CalculatePostingResultToJSON)(value.result),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CalculatedPostingToJSON = CalculatedPostingToJSON;

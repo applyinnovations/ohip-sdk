@@ -17,7 +17,7 @@ exports.ActivityLinkedProfilesTypeToJSON = exports.ActivityLinkedProfilesTypeFro
 const runtime_1 = require("../runtime");
 const LinkedProfileTypeType_1 = require("./LinkedProfileTypeType");
 const ProfileType_1 = require("./ProfileType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ActivityLinkedProfilesType interface.
  */
@@ -38,7 +38,7 @@ function ActivityLinkedProfilesTypeFromJSONTyped(json, ignoreDiscriminator) {
         'activityLinkedProfileType': !(0, runtime_1.exists)(json, 'activityLinkedProfileType') ? undefined : (0, LinkedProfileTypeType_1.LinkedProfileTypeTypeFromJSON)(json['activityLinkedProfileType']),
         'primary': !(0, runtime_1.exists)(json, 'primary') ? undefined : json['primary'],
         'profile': !(0, runtime_1.exists)(json, 'profile') ? undefined : (0, ProfileType_1.ProfileTypeFromJSON)(json['profile']),
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.ActivityLinkedProfilesTypeFromJSONTyped = ActivityLinkedProfilesTypeFromJSONTyped;
@@ -53,7 +53,7 @@ function ActivityLinkedProfilesTypeToJSON(value) {
         'activityLinkedProfileType': (0, LinkedProfileTypeType_1.LinkedProfileTypeTypeToJSON)(value.activityLinkedProfileType),
         'primary': value.primary,
         'profile': (0, ProfileType_1.ProfileTypeToJSON)(value.profile),
-        'profileIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.ActivityLinkedProfilesTypeToJSON = ActivityLinkedProfilesTypeToJSON;

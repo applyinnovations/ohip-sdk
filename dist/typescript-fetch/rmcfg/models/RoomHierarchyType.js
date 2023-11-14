@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomHierarchyTypeToJSON = exports.RoomHierarchyTypeFromJSONTyped = exports.RoomHierarchyTypeFromJSON = exports.instanceOfRoomHierarchyType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const RoomHierarchyTypeType_1 = require("./RoomHierarchyTypeType");
 /**
  * Check if a given object implements the RoomHierarchyType interface.
@@ -38,7 +37,7 @@ function RoomHierarchyTypeFromJSONTyped(json, ignoreDiscriminator) {
         'fromCode': !(0, runtime_1.exists)(json, 'fromCode') ? undefined : json['fromCode'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'roomHierarchyType': !(0, runtime_1.exists)(json, 'roomHierarchyType') ? undefined : (0, RoomHierarchyTypeType_1.RoomHierarchyTypeTypeFromJSON)(json['roomHierarchyType']),
-        'toCodes': !(0, runtime_1.exists)(json, 'toCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['toCodes']),
+        'toCodes': !(0, runtime_1.exists)(json, 'toCodes') ? undefined : json['toCodes'],
     };
 }
 exports.RoomHierarchyTypeFromJSONTyped = RoomHierarchyTypeFromJSONTyped;
@@ -54,7 +53,7 @@ function RoomHierarchyTypeToJSON(value) {
         'fromCode': value.fromCode,
         'hotelId': value.hotelId,
         'roomHierarchyType': (0, RoomHierarchyTypeType_1.RoomHierarchyTypeTypeToJSON)(value.roomHierarchyType),
-        'toCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.toCodes),
+        'toCodes': value.toCodes,
     };
 }
 exports.RoomHierarchyTypeToJSON = RoomHierarchyTypeToJSON;

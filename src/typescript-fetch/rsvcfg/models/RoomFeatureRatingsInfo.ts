@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomFeatureRatingsInfoType } from './RoomFeatureRatingsInfoType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomFeatureRatingInfoType } from './RoomFeatureRatingInfoType';
 import {
-    RoomFeatureRatingsInfoTypeFromJSON,
-    RoomFeatureRatingsInfoTypeFromJSONTyped,
-    RoomFeatureRatingsInfoTypeToJSON,
-} from './RoomFeatureRatingsInfoType';
-import type { WarningsType } from './WarningsType';
+    RoomFeatureRatingInfoTypeFromJSON,
+    RoomFeatureRatingInfoTypeFromJSONTyped,
+    RoomFeatureRatingInfoTypeToJSON,
+} from './RoomFeatureRatingInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching the room features and their rating details.
@@ -52,10 +52,10 @@ export interface RoomFeatureRatingsInfo {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomFeatureRatingsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -63,11 +63,11 @@ export interface RoomFeatureRatingsInfo {
      */
     offset?: number;
     /**
-     * 
-     * @type {RoomFeatureRatingsInfoType}
+     * Collection of rooms features and their ratings.
+     * @type {Array<RoomFeatureRatingInfoType>}
      * @memberof RoomFeatureRatingsInfo
      */
-    roomFeatureRatingsInfo?: RoomFeatureRatingsInfoType;
+    roomFeatureRatingsInfo?: Array<RoomFeatureRatingInfoType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -81,11 +81,11 @@ export interface RoomFeatureRatingsInfo {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomFeatureRatingsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -109,12 +109,12 @@ export function RoomFeatureRatingsInfoFromJSONTyped(json: any, ignoreDiscriminat
         
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
-        'roomFeatureRatingsInfo': !exists(json, 'roomFeatureRatingsInfo') ? undefined : RoomFeatureRatingsInfoTypeFromJSON(json['roomFeatureRatingsInfo']),
+        'roomFeatureRatingsInfo': !exists(json, 'roomFeatureRatingsInfo') ? undefined : ((json['roomFeatureRatingsInfo'] as Array<any>).map(RoomFeatureRatingInfoTypeFromJSON)),
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -129,12 +129,12 @@ export function RoomFeatureRatingsInfoToJSON(value?: RoomFeatureRatingsInfo | nu
         
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
-        'roomFeatureRatingsInfo': RoomFeatureRatingsInfoTypeToJSON(value.roomFeatureRatingsInfo),
+        'roomFeatureRatingsInfo': value.roomFeatureRatingsInfo === undefined ? undefined : ((value.roomFeatureRatingsInfo as Array<any>).map(RoomFeatureRatingInfoTypeToJSON)),
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

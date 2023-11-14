@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RegionsCodeType } from './RegionsCodeType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RegionCodeType } from './RegionCodeType';
 import {
-    RegionsCodeTypeFromJSON,
-    RegionsCodeTypeFromJSONTyped,
-    RegionsCodeTypeToJSON,
-} from './RegionsCodeType';
-import type { WarningsType } from './WarningsType';
+    RegionCodeTypeFromJSON,
+    RegionCodeTypeFromJSONTyped,
+    RegionCodeTypeToJSON,
+} from './RegionCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Regions Code.
@@ -40,22 +40,22 @@ import {
 export interface RegionsCodeCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RegionsCodeCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RegionsCodeType}
+     * List of Regions Code.
+     * @type {Array<RegionCodeType>}
      * @memberof RegionsCodeCriteria
      */
-    regionsCode?: RegionsCodeType;
+    regionsCode?: Array<RegionCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RegionsCodeCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RegionsCodeCriteriaFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'regionsCode': !exists(json, 'regionsCode') ? undefined : RegionsCodeTypeFromJSON(json['regionsCode']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'regionsCode': !exists(json, 'regionsCode') ? undefined : ((json['regionsCode'] as Array<any>).map(RegionCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RegionsCodeCriteriaToJSON(value?: RegionsCodeCriteria | null): a
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'regionsCode': RegionsCodeTypeToJSON(value.regionsCode),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'regionsCode': value.regionsCode === undefined ? undefined : ((value.regionsCode as Array<any>).map(RegionCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

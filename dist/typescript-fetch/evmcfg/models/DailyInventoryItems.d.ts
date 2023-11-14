@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DailyInventoryItemsType } from './DailyInventoryItemsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { DailyInventoryItemType } from './DailyInventoryItemType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for creating new Catering Packages.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface DailyInventoryItems {
     /**
-     *
-     * @type {DailyInventoryItemsType}
+     * List of Daily Inventory Items.
+     * @type {Array<DailyInventoryItemType>}
      * @memberof DailyInventoryItems
      */
-    dailyItems?: DailyInventoryItemsType;
+    dailyItems?: Array<DailyInventoryItemType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DailyInventoryItems
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DailyInventoryItems
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DailyInventoryItems interface.

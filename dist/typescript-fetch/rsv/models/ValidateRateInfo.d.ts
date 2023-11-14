@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ValidateRateInfoCriteria } from './ValidateRateInfoCriteria';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Retrieve either the reservation's rate information or make a quotation for a rate information. SummaryInfo attribute specifies if the item being requested is of detail or summary type.
  * @export
@@ -24,11 +24,11 @@ export interface ValidateRateInfo {
      */
     criteria?: ValidateRateInfoCriteria;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ValidateRateInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ValidateRateInfo interface.

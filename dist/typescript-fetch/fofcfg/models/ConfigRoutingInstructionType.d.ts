@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { TimeSpanDaysOfWeekType } from './TimeSpanDaysOfWeekType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+import type { TrxInfoType } from './TrxInfoType';
 /**
  * Routing limit can be one of the three: Covers, Limit, Percent. It is not mandatory to set value of either. This field is available when the Cashiering>Routing Limits application function is set to Y.
  * @export
@@ -78,11 +78,11 @@ export interface ConfigRoutingInstructionType {
      */
     percent?: number;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof ConfigRoutingInstructionType
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
 }
 /**
  * Check if a given object implements the ConfigRoutingInstructionType interface.

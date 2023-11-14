@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RotationRevenueTransactionCodesType } from './RotationRevenueTransactionCodesType';
-import type { WarningsType } from './WarningsType';
+import type { RotationRevenueTransactionCodeType } from './RotationRevenueTransactionCodeType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for retrieving revenue transaction codes for a given property
  * @export
@@ -18,17 +18,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FetchRevenueTransactionCodesDetails {
     /**
-     *
-     * @type {RotationRevenueTransactionCodesType}
+     * A revenue transaction code.
+     * @type {Array<RotationRevenueTransactionCodeType>}
      * @memberof FetchRevenueTransactionCodesDetails
      */
-    revenueTransactionCodes?: RotationRevenueTransactionCodesType;
+    revenueTransactionCodes?: Array<RotationRevenueTransactionCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchRevenueTransactionCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FetchRevenueTransactionCodesDetails interface.

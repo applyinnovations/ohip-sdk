@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ActivityList } from './ActivityList';
+import type { ActivityListInner } from './ActivityListInner';
 import {
-    ActivityListFromJSON,
-    ActivityListFromJSONTyped,
-    ActivityListToJSON,
-} from './ActivityList';
+    ActivityListInnerFromJSON,
+    ActivityListInnerFromJSONTyped,
+    ActivityListInnerToJSON,
+} from './ActivityListInner';
 import type { AddressType } from './AddressType';
 import {
     AddressTypeFromJSON,
@@ -31,12 +31,12 @@ import {
     PersonNameTypeFromJSONTyped,
     PersonNameTypeToJSON,
 } from './PersonNameType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Used in the request message to describe the "filtering Criteria" when executing an activity lookup.
@@ -45,11 +45,11 @@ import {
  */
 export interface FetchActivityBookingsType {
     /**
-     * 
-     * @type {ActivityList}
+     * A collection of Activity objects.
+     * @type {Array<ActivityListInner>}
      * @memberof FetchActivityBookingsType
      */
-    activities?: ActivityList;
+    activities?: Array<ActivityListInner>;
     /**
      * 
      * @type {AddressType}
@@ -69,11 +69,11 @@ export interface FetchActivityBookingsType {
      */
     personName?: PersonNameType;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof FetchActivityBookingsType
      */
-    profileId?: UniqueIDListType;
+    profileId?: Array<UniqueIDType>;
 }
 
 /**
@@ -95,11 +95,11 @@ export function FetchActivityBookingsTypeFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'activities': !exists(json, 'activities') ? undefined : ActivityListFromJSON(json['activities']),
+        'activities': !exists(json, 'activities') ? undefined : ((json['activities'] as Array<any>).map(ActivityListInnerFromJSON)),
         'address': !exists(json, 'address') ? undefined : AddressTypeFromJSON(json['address']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'personName': !exists(json, 'personName') ? undefined : PersonNameTypeFromJSON(json['personName']),
-        'profileId': !exists(json, 'profileId') ? undefined : UniqueIDListTypeFromJSON(json['profileId']),
+        'profileId': !exists(json, 'profileId') ? undefined : ((json['profileId'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -112,11 +112,11 @@ export function FetchActivityBookingsTypeToJSON(value?: FetchActivityBookingsTyp
     }
     return {
         
-        'activities': ActivityListToJSON(value.activities),
+        'activities': value.activities === undefined ? undefined : ((value.activities as Array<any>).map(ActivityListInnerToJSON)),
         'address': AddressTypeToJSON(value.address),
         'hotelId': value.hotelId,
         'personName': PersonNameTypeToJSON(value.personName),
-        'profileId': UniqueIDListTypeToJSON(value.profileId),
+        'profileId': value.profileId === undefined ? undefined : ((value.profileId as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

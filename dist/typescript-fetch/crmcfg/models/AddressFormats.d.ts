@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AddressFormatsType } from './AddressFormatsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AddressFormatType } from './AddressFormatType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Address Formats.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AddressFormats {
     /**
-     *
-     * @type {AddressFormatsType}
+     * An Address formats.
+     * @type {Array<AddressFormatType>}
      * @memberof AddressFormats
      */
-    formats?: AddressFormatsType;
+    formats?: Array<AddressFormatType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AddressFormats
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AddressFormats
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AddressFormats interface.

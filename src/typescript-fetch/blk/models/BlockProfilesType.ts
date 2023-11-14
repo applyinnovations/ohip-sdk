@@ -25,12 +25,12 @@ import {
     ProfileTypeFromJSONTyped,
     ProfileTypeToJSON,
 } from './ProfileType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * A collection of Profile objects or Unique IDs of Profiles.
@@ -63,11 +63,11 @@ export interface BlockProfilesType {
      */
     profile?: ProfileType;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof BlockProfilesType
      */
-    profileIdList?: UniqueIDListType;
+    profileIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -93,7 +93,7 @@ export function BlockProfilesTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'defaultPrint': !exists(json, 'defaultPrint') ? undefined : json['defaultPrint'],
         'primary': !exists(json, 'primary') ? undefined : json['primary'],
         'profile': !exists(json, 'profile') ? undefined : ProfileTypeFromJSON(json['profile']),
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : UniqueIDListTypeFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -110,7 +110,7 @@ export function BlockProfilesTypeToJSON(value?: BlockProfilesType | null): any {
         'defaultPrint': value.defaultPrint,
         'primary': value.primary,
         'profile': ProfileTypeToJSON(value.profile),
-        'profileIdList': UniqueIDListTypeToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

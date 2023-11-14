@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RevenueTypesType } from './RevenueTypesType';
+import type { RevenueTypeType } from './RevenueTypeType';
 import {
-    RevenueTypesTypeFromJSON,
-    RevenueTypesTypeFromJSONTyped,
-    RevenueTypesTypeToJSON,
-} from './RevenueTypesType';
+    RevenueTypeTypeFromJSON,
+    RevenueTypeTypeFromJSONTyped,
+    RevenueTypeTypeToJSON,
+} from './RevenueTypeType';
 import type { TranslationTextType200 } from './TranslationTextType200';
 import {
     TranslationTextType200FromJSON,
@@ -51,11 +51,11 @@ export interface RevenueGroupType {
      */
     inactive?: boolean;
     /**
-     * 
-     * @type {RevenueTypesType}
+     * List of Revenue Types to be configured
+     * @type {Array<RevenueTypeType>}
      * @memberof RevenueGroupType
      */
-    revenueTypes?: RevenueTypesType;
+    revenueTypes?: Array<RevenueTypeType>;
     /**
      * 
      * @type {TranslationTextType200}
@@ -86,7 +86,7 @@ export function RevenueGroupTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'code': !exists(json, 'code') ? undefined : json['code'],
         'displaySequence': !exists(json, 'displaySequence') ? undefined : json['displaySequence'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
-        'revenueTypes': !exists(json, 'revenueTypes') ? undefined : RevenueTypesTypeFromJSON(json['revenueTypes']),
+        'revenueTypes': !exists(json, 'revenueTypes') ? undefined : ((json['revenueTypes'] as Array<any>).map(RevenueTypeTypeFromJSON)),
         'translatableDescription': !exists(json, 'translatableDescription') ? undefined : TranslationTextType200FromJSON(json['translatableDescription']),
     };
 }
@@ -103,7 +103,7 @@ export function RevenueGroupTypeToJSON(value?: RevenueGroupType | null): any {
         'code': value.code,
         'displaySequence': value.displaySequence,
         'inactive': value.inactive,
-        'revenueTypes': RevenueTypesTypeToJSON(value.revenueTypes),
+        'revenueTypes': value.revenueTypes === undefined ? undefined : ((value.revenueTypes as Array<any>).map(RevenueTypeTypeToJSON)),
         'translatableDescription': TranslationTextType200ToJSON(value.translatableDescription),
     };
 }

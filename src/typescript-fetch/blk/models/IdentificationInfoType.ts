@@ -19,12 +19,12 @@ import {
     IdentificationTypeFromJSONTyped,
     IdentificationTypeToJSON,
 } from './IdentificationType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Information on the identification of the customer.
@@ -57,11 +57,11 @@ export interface IdentificationInfoType {
      */
     type?: string;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof IdentificationInfoType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -87,7 +87,7 @@ export function IdentificationInfoTypeFromJSONTyped(json: any, ignoreDiscriminat
         'idContext': !exists(json, 'idContext') ? undefined : json['idContext'],
         'identification': !exists(json, 'identification') ? undefined : IdentificationTypeFromJSON(json['identification']),
         'type': !exists(json, 'type') ? undefined : json['type'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -104,7 +104,7 @@ export function IdentificationInfoTypeToJSON(value?: IdentificationInfoType | nu
         'idContext': value.idContext,
         'identification': IdentificationTypeToJSON(value.identification),
         'type': value.type,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

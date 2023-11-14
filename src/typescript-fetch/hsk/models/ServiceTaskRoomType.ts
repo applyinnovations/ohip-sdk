@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { FrontOfficeRoomStatusType } from './FrontOfficeRoomStatusType';
 import {
     FrontOfficeRoomStatusTypeFromJSON,
@@ -88,10 +82,10 @@ export interface ServiceTaskRoomType {
     sheetNumber?: number;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ServiceTaskRoomType
      */
-    taskCodes?: CodeListType;
+    taskCodes?: Array<string>;
     /**
      * Date for which the task sheet was created. By default this would be the current business date.
      * @type {Date}
@@ -127,7 +121,7 @@ export function ServiceTaskRoomTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'roomTaskCode': !exists(json, 'roomTaskCode') ? undefined : json['roomTaskCode'],
         'sheetNumber': !exists(json, 'sheetNumber') ? undefined : json['sheetNumber'],
-        'taskCodes': !exists(json, 'taskCodes') ? undefined : CodeListTypeFromJSON(json['taskCodes']),
+        'taskCodes': !exists(json, 'taskCodes') ? undefined : json['taskCodes'],
         'taskDate': !exists(json, 'taskDate') ? undefined : (new Date(json['taskDate'])),
     };
 }
@@ -149,7 +143,7 @@ export function ServiceTaskRoomTypeToJSON(value?: ServiceTaskRoomType | null): a
         'roomId': value.roomId,
         'roomTaskCode': value.roomTaskCode,
         'sheetNumber': value.sheetNumber,
-        'taskCodes': CodeListTypeToJSON(value.taskCodes),
+        'taskCodes': value.taskCodes,
         'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0,10)),
     };
 }

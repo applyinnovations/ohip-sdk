@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AmenitiesMappingType } from './AmenitiesMappingType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AmenityMappingType } from './AmenityMappingType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching external system amenities.
  * @export
@@ -19,11 +19,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AmenitiesMapping {
     /**
-     *
-     * @type {AmenitiesMappingType}
+     * Information about an external system amenity mapping.
+     * @type {Array<AmenityMappingType>}
      * @memberof AmenitiesMapping
      */
-    amenitiesMapping?: AmenitiesMappingType;
+    amenitiesMapping?: Array<AmenityMappingType>;
     /**
      * Total number of rows returned
      * @type {number}
@@ -44,10 +44,10 @@ export interface AmenitiesMapping {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AmenitiesMapping
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface AmenitiesMapping {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AmenitiesMapping
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AmenitiesMapping interface.

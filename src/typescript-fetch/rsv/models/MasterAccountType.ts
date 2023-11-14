@@ -49,18 +49,12 @@ import {
     ResGuestTypeFromJSONTyped,
     ResGuestTypeToJSON,
 } from './ResGuestType';
-import type { ReservationIdList } from './ReservationIdList';
+import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
 import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
-import type { ReservationPaymentMethodsType } from './ReservationPaymentMethodsType';
-import {
-    ReservationPaymentMethodsTypeFromJSON,
-    ReservationPaymentMethodsTypeFromJSONTyped,
-    ReservationPaymentMethodsTypeToJSON,
-} from './ReservationPaymentMethodsType';
+    ReservationPaymentMethodTypeFromJSON,
+    ReservationPaymentMethodTypeFromJSONTyped,
+    ReservationPaymentMethodTypeToJSON,
+} from './ReservationPaymentMethodType';
 import type { ReservationProfileType } from './ReservationProfileType';
 import {
     ReservationProfileTypeFromJSON,
@@ -73,6 +67,12 @@ import {
     TimeSpanTypeFromJSONTyped,
     TimeSpanTypeToJSON,
 } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 import type { UserDefinedFieldsType } from './UserDefinedFieldsType';
 import {
     UserDefinedFieldsTypeFromJSON,
@@ -123,17 +123,17 @@ export interface MasterAccountType {
      */
     reservationGuest?: ResGuestType;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MasterAccountType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
-     * 
-     * @type {ReservationPaymentMethodsType}
+     * Defines reservation payment methods.
+     * @type {Array<ReservationPaymentMethodType>}
      * @memberof MasterAccountType
      */
-    reservationPaymentMethods?: ReservationPaymentMethodsType;
+    reservationPaymentMethods?: Array<ReservationPaymentMethodType>;
     /**
      * Collection of non-guest profiles associated with the reservation.
      * @type {Array<ReservationProfileType>}
@@ -191,8 +191,8 @@ export function MasterAccountTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'reservationBlock': !exists(json, 'reservationBlock') ? undefined : MasterAccountTypeReservationBlockFromJSON(json['reservationBlock']),
         'reservationGuest': !exists(json, 'reservationGuest') ? undefined : ResGuestTypeFromJSON(json['reservationGuest']),
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
-        'reservationPaymentMethods': !exists(json, 'reservationPaymentMethods') ? undefined : ReservationPaymentMethodsTypeFromJSON(json['reservationPaymentMethods']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'reservationPaymentMethods': !exists(json, 'reservationPaymentMethods') ? undefined : ((json['reservationPaymentMethods'] as Array<any>).map(ReservationPaymentMethodTypeFromJSON)),
         'reservationProfiles': !exists(json, 'reservationProfiles') ? undefined : ((json['reservationProfiles'] as Array<any>).map(ReservationProfileTypeFromJSON)),
         'reservationStatus': !exists(json, 'reservationStatus') ? undefined : PMSResStatusTypeFromJSON(json['reservationStatus']),
         'roomRate': !exists(json, 'roomRate') ? undefined : MasterAccountTypeRoomRateFromJSON(json['roomRate']),
@@ -216,8 +216,8 @@ export function MasterAccountTypeToJSON(value?: MasterAccountType | null): any {
         'hotelId': value.hotelId,
         'reservationBlock': MasterAccountTypeReservationBlockToJSON(value.reservationBlock),
         'reservationGuest': ResGuestTypeToJSON(value.reservationGuest),
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
-        'reservationPaymentMethods': ReservationPaymentMethodsTypeToJSON(value.reservationPaymentMethods),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
+        'reservationPaymentMethods': value.reservationPaymentMethods === undefined ? undefined : ((value.reservationPaymentMethods as Array<any>).map(ReservationPaymentMethodTypeToJSON)),
         'reservationProfiles': value.reservationProfiles === undefined ? undefined : ((value.reservationProfiles as Array<any>).map(ReservationProfileTypeToJSON)),
         'reservationStatus': PMSResStatusTypeToJSON(value.reservationStatus),
         'roomRate': MasterAccountTypeRoomRateToJSON(value.roomRate),

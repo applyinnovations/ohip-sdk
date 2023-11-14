@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TraceTextChangesType } from './TraceTextChangesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TraceTextChangeType } from './TraceTextChangeType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing trace texts.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TraceTextChanges {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TraceTextChanges
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TraceTextChangesType}
+     * Collection of trace texts that will be modified.
+     * @type {Array<TraceTextChangeType>}
      * @memberof TraceTextChanges
      */
-    traceTexts?: TraceTextChangesType;
+    traceTexts?: Array<TraceTextChangeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TraceTextChanges
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TraceTextChanges interface.

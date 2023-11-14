@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ForgetProfileResultListType } from './ForgetProfileResultListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ForgetProfileResultType } from './ForgetProfileResultType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for validating profiles for forgetting.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ValidatedForgetProfiles {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ValidatedForgetProfiles
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ForgetProfileResultListType}
+     * Result of processing/validation for forgetting a profile.
+     * @type {Array<ForgetProfileResultType>}
      * @memberof ValidatedForgetProfiles
      */
-    validateForgetProfilesResults?: ForgetProfileResultListType;
+    validateForgetProfilesResults?: Array<ForgetProfileResultType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ValidatedForgetProfiles
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ValidatedForgetProfiles interface.

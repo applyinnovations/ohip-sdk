@@ -19,12 +19,12 @@ import {
     RoomKeyGuestFromJSONTyped,
     RoomKeyGuestToJSON,
 } from './RoomKeyGuest';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Short room key information containing  information about the multiple guests and room key options .
@@ -39,11 +39,11 @@ export interface RoomKeyMultipleGuests {
      */
     keyOptions?: string;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RoomKeyMultipleGuests
      */
-    reservationIdList?: UniqueIDListType;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * Collection of of Room key guests for multiple guest room key functionality.
      * @type {Array<RoomKeyGuest>}
@@ -78,7 +78,7 @@ export function RoomKeyMultipleGuestsFromJSONTyped(json: any, ignoreDiscriminato
     return {
         
         'keyOptions': !exists(json, 'keyOptions') ? undefined : json['keyOptions'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : UniqueIDListTypeFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'roomKeyGuests': !exists(json, 'roomKeyGuests') ? undefined : ((json['roomKeyGuests'] as Array<any>).map(RoomKeyGuestFromJSON)),
         'roomNumber': !exists(json, 'roomNumber') ? undefined : json['roomNumber'],
     };
@@ -94,7 +94,7 @@ export function RoomKeyMultipleGuestsToJSON(value?: RoomKeyMultipleGuests | null
     return {
         
         'keyOptions': value.keyOptions,
-        'reservationIdList': UniqueIDListTypeToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'roomKeyGuests': value.roomKeyGuests === undefined ? undefined : ((value.roomKeyGuests as Array<any>).map(RoomKeyGuestToJSON)),
         'roomNumber': value.roomNumber,
     };

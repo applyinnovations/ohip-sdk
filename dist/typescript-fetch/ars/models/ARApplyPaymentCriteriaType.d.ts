@@ -11,8 +11,8 @@
  */
 import type { ARAccountCriteriaType } from './ARAccountCriteriaType';
 import type { ARApplyType } from './ARApplyType';
-import type { ARPaymentInvoicesType } from './ARPaymentInvoicesType';
-import type { ARPaymentsType } from './ARPaymentsType';
+import type { ARPaymentInvoicesTypeInner } from './ARPaymentInvoicesTypeInner';
+import type { ARPaymentType } from './ARPaymentType';
 /**
  * Criteria type for apply credits to Invoices. Requires a list of invoices to apply the credit.
  * @export
@@ -38,17 +38,17 @@ export interface ARApplyPaymentCriteriaType {
      */
     cashierId?: number;
     /**
-     *
-     * @type {ARPaymentInvoicesType}
+     * AR Invoice to which the payment will be applied.
+     * @type {Array<ARPaymentInvoicesTypeInner>}
      * @memberof ARApplyPaymentCriteriaType
      */
-    invoices?: ARPaymentInvoicesType;
+    invoices?: Array<ARPaymentInvoicesTypeInner>;
     /**
-     *
-     * @type {ARPaymentsType}
+     * A collection of AR Payments.
+     * @type {Array<ARPaymentType>}
      * @memberof ARApplyPaymentCriteriaType
      */
-    payments?: ARPaymentsType;
+    payments?: Array<ARPaymentType>;
 }
 /**
  * Check if a given object implements the ARApplyPaymentCriteriaType interface.

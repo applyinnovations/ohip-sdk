@@ -19,12 +19,12 @@ import {
     CustomValueInfoTypeFromJSONTyped,
     CustomValueInfoTypeToJSON,
 } from './CustomValueInfoType';
-import type { CustomVarianceInfoType } from './CustomVarianceInfoType';
+import type { MonthlyCustomVarianceInfoType } from './MonthlyCustomVarianceInfoType';
 import {
-    CustomVarianceInfoTypeFromJSON,
-    CustomVarianceInfoTypeFromJSONTyped,
-    CustomVarianceInfoTypeToJSON,
-} from './CustomVarianceInfoType';
+    MonthlyCustomVarianceInfoTypeFromJSON,
+    MonthlyCustomVarianceInfoTypeFromJSONTyped,
+    MonthlyCustomVarianceInfoTypeToJSON,
+} from './MonthlyCustomVarianceInfoType';
 
 /**
  * Budget Forecast information for Custom segment code.
@@ -33,17 +33,17 @@ import {
  */
 export interface CustomCodeInformationType {
     /**
-     * 
-     * @type {CustomVarianceInfoType}
+     * Monthly Value Variance information.
+     * @type {Array<MonthlyCustomVarianceInfoType>}
      * @memberof CustomCodeInformationType
      */
-    aBVarianceInfo?: CustomVarianceInfoType;
+    aBVarianceInfo?: Array<MonthlyCustomVarianceInfoType>;
     /**
-     * 
-     * @type {CustomVarianceInfoType}
+     * Monthly Value Variance information.
+     * @type {Array<MonthlyCustomVarianceInfoType>}
      * @memberof CustomCodeInformationType
      */
-    aFVarianceInfo?: CustomVarianceInfoType;
+    aFVarianceInfo?: Array<MonthlyCustomVarianceInfoType>;
     /**
      * 
      * @type {CustomValueInfoType}
@@ -69,11 +69,11 @@ export interface CustomCodeInformationType {
      */
     customCodeDescription?: string;
     /**
-     * 
-     * @type {CustomVarianceInfoType}
+     * Monthly Value Variance information.
+     * @type {Array<MonthlyCustomVarianceInfoType>}
      * @memberof CustomCodeInformationType
      */
-    fBVarianceInfo?: CustomVarianceInfoType;
+    fBVarianceInfo?: Array<MonthlyCustomVarianceInfoType>;
     /**
      * 
      * @type {CustomValueInfoType}
@@ -101,13 +101,13 @@ export function CustomCodeInformationTypeFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'aBVarianceInfo': !exists(json, 'aBVarianceInfo') ? undefined : CustomVarianceInfoTypeFromJSON(json['aBVarianceInfo']),
-        'aFVarianceInfo': !exists(json, 'aFVarianceInfo') ? undefined : CustomVarianceInfoTypeFromJSON(json['aFVarianceInfo']),
+        'aBVarianceInfo': !exists(json, 'aBVarianceInfo') ? undefined : ((json['aBVarianceInfo'] as Array<any>).map(MonthlyCustomVarianceInfoTypeFromJSON)),
+        'aFVarianceInfo': !exists(json, 'aFVarianceInfo') ? undefined : ((json['aFVarianceInfo'] as Array<any>).map(MonthlyCustomVarianceInfoTypeFromJSON)),
         'actualValueInfo': !exists(json, 'actualValueInfo') ? undefined : CustomValueInfoTypeFromJSON(json['actualValueInfo']),
         'budgetValueInfo': !exists(json, 'budgetValueInfo') ? undefined : CustomValueInfoTypeFromJSON(json['budgetValueInfo']),
         'customCode': !exists(json, 'customCode') ? undefined : json['customCode'],
         'customCodeDescription': !exists(json, 'customCodeDescription') ? undefined : json['customCodeDescription'],
-        'fBVarianceInfo': !exists(json, 'fBVarianceInfo') ? undefined : CustomVarianceInfoTypeFromJSON(json['fBVarianceInfo']),
+        'fBVarianceInfo': !exists(json, 'fBVarianceInfo') ? undefined : ((json['fBVarianceInfo'] as Array<any>).map(MonthlyCustomVarianceInfoTypeFromJSON)),
         'forecastValueInfo': !exists(json, 'forecastValueInfo') ? undefined : CustomValueInfoTypeFromJSON(json['forecastValueInfo']),
     };
 }
@@ -121,13 +121,13 @@ export function CustomCodeInformationTypeToJSON(value?: CustomCodeInformationTyp
     }
     return {
         
-        'aBVarianceInfo': CustomVarianceInfoTypeToJSON(value.aBVarianceInfo),
-        'aFVarianceInfo': CustomVarianceInfoTypeToJSON(value.aFVarianceInfo),
+        'aBVarianceInfo': value.aBVarianceInfo === undefined ? undefined : ((value.aBVarianceInfo as Array<any>).map(MonthlyCustomVarianceInfoTypeToJSON)),
+        'aFVarianceInfo': value.aFVarianceInfo === undefined ? undefined : ((value.aFVarianceInfo as Array<any>).map(MonthlyCustomVarianceInfoTypeToJSON)),
         'actualValueInfo': CustomValueInfoTypeToJSON(value.actualValueInfo),
         'budgetValueInfo': CustomValueInfoTypeToJSON(value.budgetValueInfo),
         'customCode': value.customCode,
         'customCodeDescription': value.customCodeDescription,
-        'fBVarianceInfo': CustomVarianceInfoTypeToJSON(value.fBVarianceInfo),
+        'fBVarianceInfo': value.fBVarianceInfo === undefined ? undefined : ((value.fBVarianceInfo as Array<any>).map(MonthlyCustomVarianceInfoTypeToJSON)),
         'forecastValueInfo': CustomValueInfoTypeToJSON(value.forecastValueInfo),
     };
 }

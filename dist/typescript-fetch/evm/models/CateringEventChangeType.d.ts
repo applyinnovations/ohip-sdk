@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CateringEventChangeListType } from './CateringEventChangeListType';
-import type { CateringEventRevenueChangeListType } from './CateringEventRevenueChangeListType';
-import type { CateringEventStatusChangeListType } from './CateringEventStatusChangeListType';
+import type { CateringEventChangeInfoType } from './CateringEventChangeInfoType';
+import type { EventRevenueChangeType } from './EventRevenueChangeType';
+import type { EventStatusChangeType } from './EventStatusChangeType';
 /**
  *
  * @export
@@ -20,22 +20,22 @@ import type { CateringEventStatusChangeListType } from './CateringEventStatusCha
 export interface CateringEventChangeType {
     /**
      *
-     * @type {CateringEventChangeListType}
+     * @type {Array<CateringEventChangeInfoType>}
      * @memberof CateringEventChangeType
      */
-    changeList?: CateringEventChangeListType;
+    changeList?: Array<CateringEventChangeInfoType>;
     /**
-     *
-     * @type {CateringEventRevenueChangeListType}
+     * Event Revenue Changes Details
+     * @type {Array<EventRevenueChangeType>}
      * @memberof CateringEventChangeType
      */
-    revenueChangeList?: CateringEventRevenueChangeListType;
+    revenueChangeList?: Array<EventRevenueChangeType>;
     /**
-     *
-     * @type {CateringEventStatusChangeListType}
+     * Event Status Changes Details
+     * @type {Array<EventStatusChangeType>}
      * @memberof CateringEventChangeType
      */
-    statusChangeList?: CateringEventStatusChangeListType;
+    statusChangeList?: Array<EventStatusChangeType>;
 }
 /**
  * Check if a given object implements the CateringEventChangeType interface.

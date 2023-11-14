@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { RoomOwnerInfoType } from './RoomOwnerInfoType';
 import {
     RoomOwnerInfoTypeFromJSON,
     RoomOwnerInfoTypeFromJSONTyped,
     RoomOwnerInfoTypeToJSON,
 } from './RoomOwnerInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Provides Pagination Information for the REST API.
@@ -40,10 +40,10 @@ import {
 export interface RoomOwnersListDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomOwnersListDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Collection of Room Owners with Room Ownership details.
      * @type {Array<RoomOwnerInfoType>}
@@ -51,11 +51,11 @@ export interface RoomOwnersListDetails {
      */
     roomOwnerInfoTypeList?: Array<RoomOwnerInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomOwnersListDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
     /**
      * Indicates number of records the API has returned actually as per the API request criteria.
      * @type {number}
@@ -107,9 +107,9 @@ export function RoomOwnersListDetailsFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'roomOwnerInfoTypeList': !exists(json, 'roomOwnerInfoTypeList') ? undefined : ((json['roomOwnerInfoTypeList'] as Array<any>).map(RoomOwnerInfoTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
         'count': !exists(json, 'count') ? undefined : json['count'],
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
@@ -127,9 +127,9 @@ export function RoomOwnersListDetailsToJSON(value?: RoomOwnersListDetails | null
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'roomOwnerInfoTypeList': value.roomOwnerInfoTypeList === undefined ? undefined : ((value.roomOwnerInfoTypeList as Array<any>).map(RoomOwnerInfoTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,

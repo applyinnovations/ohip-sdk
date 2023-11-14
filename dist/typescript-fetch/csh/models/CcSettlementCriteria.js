@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CcSettlementCriteriaToJSON = exports.CcSettlementCriteriaFromJSONTyped = exports.CcSettlementCriteriaFromJSON = exports.instanceOfCcSettlementCriteria = void 0;
 const runtime_1 = require("../runtime");
 const CCBatchSettlementType_1 = require("./CCBatchSettlementType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CcSettlementCriteria interface.
  */
@@ -37,8 +37,8 @@ function CcSettlementCriteriaFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'creditCardSettlement': !(0, runtime_1.exists)(json, 'creditCardSettlement') ? undefined : (0, CCBatchSettlementType_1.CCBatchSettlementTypeFromJSON)(json['creditCardSettlement']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CcSettlementCriteriaFromJSONTyped = CcSettlementCriteriaFromJSONTyped;
@@ -52,8 +52,8 @@ function CcSettlementCriteriaToJSON(value) {
     return {
         'creditCardSettlement': (0, CCBatchSettlementType_1.CCBatchSettlementTypeToJSON)(value.creditCardSettlement),
         'hotelId': value.hotelId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CcSettlementCriteriaToJSON = CcSettlementCriteriaToJSON;

@@ -13,18 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AuthBillingInstructionsType } from './AuthBillingInstructionsType';
+import type { CodeDescriptionType } from './CodeDescriptionType';
 import {
-    AuthBillingInstructionsTypeFromJSON,
-    AuthBillingInstructionsTypeFromJSONTyped,
-    AuthBillingInstructionsTypeToJSON,
-} from './AuthBillingInstructionsType';
-import type { AuthTransactionCodesType } from './AuthTransactionCodesType';
-import {
-    AuthTransactionCodesTypeFromJSON,
-    AuthTransactionCodesTypeFromJSONTyped,
-    AuthTransactionCodesTypeToJSON,
-} from './AuthTransactionCodesType';
+    CodeDescriptionTypeFromJSON,
+    CodeDescriptionTypeFromJSONTyped,
+    CodeDescriptionTypeToJSON,
+} from './CodeDescriptionType';
 
 /**
  * A representation of the information of Transaction Limit.
@@ -33,11 +27,11 @@ import {
  */
 export interface AuthorizerTrxLimitType {
     /**
-     * 
-     * @type {AuthBillingInstructionsType}
+     * Set of Billing Instruction codes.
+     * @type {Array<CodeDescriptionType>}
      * @memberof AuthorizerTrxLimitType
      */
-    billingInstructions?: AuthBillingInstructionsType;
+    billingInstructions?: Array<CodeDescriptionType>;
     /**
      * Credit Limit for a transaction.
      * @type {number}
@@ -57,11 +51,11 @@ export interface AuthorizerTrxLimitType {
      */
     occurrenceLimit?: number;
     /**
-     * 
-     * @type {AuthTransactionCodesType}
+     * List of Transaction codes info.
+     * @type {Array<CodeDescriptionType>}
      * @memberof AuthorizerTrxLimitType
      */
-    transactionCodes?: AuthTransactionCodesType;
+    transactionCodes?: Array<CodeDescriptionType>;
 }
 
 /**
@@ -83,11 +77,11 @@ export function AuthorizerTrxLimitTypeFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'billingInstructions': !exists(json, 'billingInstructions') ? undefined : AuthBillingInstructionsTypeFromJSON(json['billingInstructions']),
+        'billingInstructions': !exists(json, 'billingInstructions') ? undefined : ((json['billingInstructions'] as Array<any>).map(CodeDescriptionTypeFromJSON)),
         'creditLimit': !exists(json, 'creditLimit') ? undefined : json['creditLimit'],
         'groupHeaderId': !exists(json, 'groupHeaderId') ? undefined : json['groupHeaderId'],
         'occurrenceLimit': !exists(json, 'occurrenceLimit') ? undefined : json['occurrenceLimit'],
-        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : AuthTransactionCodesTypeFromJSON(json['transactionCodes']),
+        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : ((json['transactionCodes'] as Array<any>).map(CodeDescriptionTypeFromJSON)),
     };
 }
 
@@ -100,11 +94,11 @@ export function AuthorizerTrxLimitTypeToJSON(value?: AuthorizerTrxLimitType | nu
     }
     return {
         
-        'billingInstructions': AuthBillingInstructionsTypeToJSON(value.billingInstructions),
+        'billingInstructions': value.billingInstructions === undefined ? undefined : ((value.billingInstructions as Array<any>).map(CodeDescriptionTypeToJSON)),
         'creditLimit': value.creditLimit,
         'groupHeaderId': value.groupHeaderId,
         'occurrenceLimit': value.occurrenceLimit,
-        'transactionCodes': AuthTransactionCodesTypeToJSON(value.transactionCodes),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : ((value.transactionCodes as Array<any>).map(CodeDescriptionTypeToJSON)),
     };
 }
 

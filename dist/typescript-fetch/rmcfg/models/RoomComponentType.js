@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomComponentTypeToJSON = exports.RoomComponentTypeFromJSONTyped = exports.RoomComponentTypeFromJSON = exports.instanceOfRoomComponentType = void 0;
 const runtime_1 = require("../runtime");
-const RoomRoomsType_1 = require("./RoomRoomsType");
+const RoomRoomType_1 = require("./RoomRoomType");
 /**
  * Check if a given object implements the RoomComponentType interface.
  */
@@ -36,7 +36,7 @@ function RoomComponentTypeFromJSONTyped(json, ignoreDiscriminator) {
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'qty': !(0, runtime_1.exists)(json, 'qty') ? undefined : json['qty'],
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : json['roomType'],
-        'rooms': !(0, runtime_1.exists)(json, 'rooms') ? undefined : (0, RoomRoomsType_1.RoomRoomsTypeFromJSON)(json['rooms']),
+        'rooms': !(0, runtime_1.exists)(json, 'rooms') ? undefined : (json['rooms'].map(RoomRoomType_1.RoomRoomTypeFromJSON)),
     };
 }
 exports.RoomComponentTypeFromJSONTyped = RoomComponentTypeFromJSONTyped;
@@ -51,7 +51,7 @@ function RoomComponentTypeToJSON(value) {
         'description': value.description,
         'qty': value.qty,
         'roomType': value.roomType,
-        'rooms': (0, RoomRoomsType_1.RoomRoomsTypeToJSON)(value.rooms),
+        'rooms': value.rooms === undefined ? undefined : (value.rooms.map(RoomRoomType_1.RoomRoomTypeToJSON)),
     };
 }
 exports.RoomComponentTypeToJSON = RoomComponentTypeToJSON;

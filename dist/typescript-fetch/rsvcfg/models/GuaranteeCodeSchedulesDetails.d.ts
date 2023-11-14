@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GuaranteeCodeSchedulesType } from './GuaranteeCodeSchedulesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { GuaranteeCodeScheduleType } from './GuaranteeCodeScheduleType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Return response for fetch guarantee code schedules based on request.
  * @export
@@ -25,11 +25,11 @@ export interface GuaranteeCodeSchedulesDetails {
      */
     count?: number;
     /**
-     *
-     * @type {GuaranteeCodeSchedulesType}
+     * Unique Identifer for the Guarantee Code schedule.
+     * @type {Array<GuaranteeCodeScheduleType>}
      * @memberof GuaranteeCodeSchedulesDetails
      */
-    guaranteeCodeSchedules?: GuaranteeCodeSchedulesType;
+    guaranteeCodeSchedules?: Array<GuaranteeCodeScheduleType>;
     /**
      * Indicates whether all the records are included in the response or not. Absence of the attribute values should be consider as all rows fetched in the response.
      * @type {boolean}
@@ -44,10 +44,10 @@ export interface GuaranteeCodeSchedulesDetails {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuaranteeCodeSchedulesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface GuaranteeCodeSchedulesDetails {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuaranteeCodeSchedulesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GuaranteeCodeSchedulesDetails interface.

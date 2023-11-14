@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BuildingFloorMappingsType } from './BuildingFloorMappingsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BuildingFloorMappingType } from './BuildingFloorMappingType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for setting floor mappings to buildings.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface SetBuildingFloorMappings {
     /**
-     *
-     * @type {BuildingFloorMappingsType}
+     * Collection of Floor to Building mapping details.
+     * @type {Array<BuildingFloorMappingType>}
      * @memberof SetBuildingFloorMappings
      */
-    buildingFloorMappings?: BuildingFloorMappingsType;
+    buildingFloorMappings?: Array<BuildingFloorMappingType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SetBuildingFloorMappings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SetBuildingFloorMappings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SetBuildingFloorMappings interface.

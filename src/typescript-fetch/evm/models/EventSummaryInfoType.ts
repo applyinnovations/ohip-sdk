@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockIdList } from './BlockIdList';
-import {
-    BlockIdListFromJSON,
-    BlockIdListFromJSONTyped,
-    BlockIdListToJSON,
-} from './BlockIdList';
 import type { BookingStatusType } from './BookingStatusType';
 import {
     BookingStatusTypeFromJSON,
@@ -49,12 +43,18 @@ import {
     EventIdFromJSONTyped,
     EventIdToJSON,
 } from './EventId';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import {
-    IndicatorsTypeFromJSON,
-    IndicatorsTypeFromJSONTyped,
-    IndicatorsTypeToJSON,
-} from './IndicatorsType';
+    IndicatorTypeFromJSON,
+    IndicatorTypeFromJSONTyped,
+    IndicatorTypeToJSON,
+} from './IndicatorType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Contains information about an event.
@@ -93,11 +93,11 @@ export interface EventSummaryInfoType {
      */
     blockHotelCode?: string;
     /**
-     * 
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof EventSummaryInfoType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * Name of the block.
      * @type {string}
@@ -165,11 +165,11 @@ export interface EventSummaryInfoType {
      */
     eventId?: EventId;
     /**
-     * 
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof EventSummaryInfoType
      */
-    eventIndicators?: IndicatorsType;
+    eventIndicators?: Array<IndicatorType>;
     /**
      * 
      * @type {CateringEventLinkType}
@@ -249,11 +249,11 @@ export interface EventSummaryInfoType {
      */
     includeSpaceInPackage?: boolean;
     /**
-     * 
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof EventSummaryInfoType
      */
-    indicators?: IndicatorsType;
+    indicators?: Array<IndicatorType>;
     /**
      * Indicates whether the event is expected to be noisy and might possibly disturb other events.
      * @type {boolean}
@@ -394,7 +394,7 @@ export function EventSummaryInfoTypeFromJSONTyped(json: any, ignoreDiscriminator
         'attendees': !exists(json, 'attendees') ? undefined : json['attendees'],
         'blockHasPostings': !exists(json, 'blockHasPostings') ? undefined : json['blockHasPostings'],
         'blockHotelCode': !exists(json, 'blockHotelCode') ? undefined : json['blockHotelCode'],
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : BlockIdListFromJSON(json['blockIdList']),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'blockName': !exists(json, 'blockName') ? undefined : json['blockName'],
         'cateringCurrency': !exists(json, 'cateringCurrency') ? undefined : json['cateringCurrency'],
         'cateringQuotedCurrency': !exists(json, 'cateringQuotedCurrency') ? undefined : json['cateringQuotedCurrency'],
@@ -406,7 +406,7 @@ export function EventSummaryInfoTypeFromJSONTyped(json: any, ignoreDiscriminator
         'doorCard': !exists(json, 'doorCard') ? undefined : json['doorCard'],
         'eventEndDate': !exists(json, 'eventEndDate') ? undefined : json['eventEndDate'],
         'eventId': !exists(json, 'eventId') ? undefined : EventIdFromJSON(json['eventId']),
-        'eventIndicators': !exists(json, 'eventIndicators') ? undefined : IndicatorsTypeFromJSON(json['eventIndicators']),
+        'eventIndicators': !exists(json, 'eventIndicators') ? undefined : ((json['eventIndicators'] as Array<any>).map(IndicatorTypeFromJSON)),
         'eventLink': !exists(json, 'eventLink') ? undefined : CateringEventLinkTypeFromJSON(json['eventLink']),
         'eventName': !exists(json, 'eventName') ? undefined : json['eventName'],
         'eventShared': !exists(json, 'eventShared') ? undefined : json['eventShared'],
@@ -420,7 +420,7 @@ export function EventSummaryInfoTypeFromJSONTyped(json: any, ignoreDiscriminator
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
         'includeSpaceInPackage': !exists(json, 'includeSpaceInPackage') ? undefined : json['includeSpaceInPackage'],
-        'indicators': !exists(json, 'indicators') ? undefined : IndicatorsTypeFromJSON(json['indicators']),
+        'indicators': !exists(json, 'indicators') ? undefined : ((json['indicators'] as Array<any>).map(IndicatorTypeFromJSON)),
         'loudEvent': !exists(json, 'loudEvent') ? undefined : json['loudEvent'],
         'masterEvent': !exists(json, 'masterEvent') ? undefined : json['masterEvent'],
         'maximumOccupancy': !exists(json, 'maximumOccupancy') ? undefined : json['maximumOccupancy'],
@@ -457,7 +457,7 @@ export function EventSummaryInfoTypeToJSON(value?: EventSummaryInfoType | null):
         'attendees': value.attendees,
         'blockHasPostings': value.blockHasPostings,
         'blockHotelCode': value.blockHotelCode,
-        'blockIdList': BlockIdListToJSON(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'blockName': value.blockName,
         'cateringCurrency': value.cateringCurrency,
         'cateringQuotedCurrency': value.cateringQuotedCurrency,
@@ -469,7 +469,7 @@ export function EventSummaryInfoTypeToJSON(value?: EventSummaryInfoType | null):
         'doorCard': value.doorCard,
         'eventEndDate': value.eventEndDate,
         'eventId': EventIdToJSON(value.eventId),
-        'eventIndicators': IndicatorsTypeToJSON(value.eventIndicators),
+        'eventIndicators': value.eventIndicators === undefined ? undefined : ((value.eventIndicators as Array<any>).map(IndicatorTypeToJSON)),
         'eventLink': CateringEventLinkTypeToJSON(value.eventLink),
         'eventName': value.eventName,
         'eventShared': value.eventShared,
@@ -483,7 +483,7 @@ export function EventSummaryInfoTypeToJSON(value?: EventSummaryInfoType | null):
         'hotelId': value.hotelId,
         'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
         'includeSpaceInPackage': value.includeSpaceInPackage,
-        'indicators': IndicatorsTypeToJSON(value.indicators),
+        'indicators': value.indicators === undefined ? undefined : ((value.indicators as Array<any>).map(IndicatorTypeToJSON)),
         'loudEvent': value.loudEvent,
         'masterEvent': value.masterEvent,
         'maximumOccupancy': value.maximumOccupancy,

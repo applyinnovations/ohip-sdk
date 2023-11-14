@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { DepositCancelConfigCriteriaType } from './DepositCancelConfigCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Operation to fetch the details for deposit rules, applicable to a reservation. Based on the criteria the rule information can be retrieved for all deposit rules or for a particular rule.
  * @export
@@ -26,16 +26,16 @@ export interface ComputeDepositPolicies {
     criteria?: DepositCancelConfigCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ComputeDepositPolicies
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ComputeDepositPolicies
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ComputeDepositPolicies interface.

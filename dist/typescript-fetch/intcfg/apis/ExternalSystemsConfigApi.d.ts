@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChangeDeliveryMethods, ChangeInterfaceRight, ChangeUDFMapping, ChangedDeliveryMethods, ChangedInterfaceRight, ChangedUDFMapping, CreateDeliveryMethods, CreatePublishers, FetchedDeliveryMethods, FetchedExternalDatabaseAvailableProperties, FetchedHotelInterfaceControllerRegistry, FetchedHotelInterfaceErrors, FetchedHotelInterfaceFailedMessages, FetchedHotelInterfaceSchemas, FetchedHotelInterfaces, FetchedInterfaceRights, FetchedPublishers, FetchedUDFMappings, Status } from '../models/index';
+import type { ChangeDeliveryMethods, ChangeInterfaceRight, ChangeUDFMapping, ChangedDeliveryMethods, ChangedInterfaceRight, ChangedUDFMapping, CreateDeliveryMethods, CreatePublishers, FetchedDeliveryMethods, FetchedExternalDatabaseAvailableProperties, FetchedHotelInterfaceControllerRegistry, FetchedHotelInterfaceErrors, FetchedHotelInterfaceFailedMessages, FetchedHotelInterfaceSchemas, FetchedHotelInterfaces, FetchedPublishers, FetchedUDFMappings, InterfaceRightType, Status } from '../models/index';
 export interface DeleteDeliveryMethodsRequest {
     authorization?: string;
     xAppKey?: string;
@@ -329,12 +329,12 @@ export declare class ExternalSystemsConfigApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>getInterfaceRights</p>
      * Operation to fetch interface rights.
      */
-    getInterfaceRightsRaw(requestParameters: GetInterfaceRightsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchedInterfaceRights>>;
+    getInterfaceRightsRaw(requestParameters: GetInterfaceRightsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<InterfaceRightType>>>;
     /**
      *  <p><strong>OperationId:</strong>getInterfaceRights</p>
      * Operation to fetch interface rights.
      */
-    getInterfaceRights(requestParameters: GetInterfaceRightsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FetchedInterfaceRights>;
+    getInterfaceRights(requestParameters: GetInterfaceRightsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<InterfaceRightType>>;
     /**
      *  <p><strong>OperationId:</strong>getPublishers</p>
      * Operation to fetch publishers.

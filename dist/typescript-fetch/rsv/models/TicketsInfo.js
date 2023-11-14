@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TicketsInfoToJSON = exports.TicketsInfoFromJSONTyped = exports.TicketsInfoFromJSON = exports.instanceOfTicketsInfo = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const ReservationId_1 = require("./ReservationId");
-const TicketsType_1 = require("./TicketsType");
-const WarningsType_1 = require("./WarningsType");
+const TicketType_1 = require("./TicketType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TicketsInfo interface.
  */
@@ -37,10 +37,10 @@ function TicketsInfoFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
-        'tickets': !(0, runtime_1.exists)(json, 'tickets') ? undefined : (0, TicketsType_1.TicketsTypeFromJSON)(json['tickets']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'tickets': !(0, runtime_1.exists)(json, 'tickets') ? undefined : (json['tickets'].map(TicketType_1.TicketTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TicketsInfoFromJSONTyped = TicketsInfoFromJSONTyped;
@@ -53,10 +53,10 @@ function TicketsInfoToJSON(value) {
     }
     return {
         'hotelId': value.hotelId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
-        'tickets': (0, TicketsType_1.TicketsTypeToJSON)(value.tickets),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'tickets': value.tickets === undefined ? undefined : (value.tickets.map(TicketType_1.TicketTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TicketsInfoToJSON = TicketsInfoToJSON;

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CateringMenuClassListType } from './CateringMenuClassListType';
+import type { CateringMenuClassType } from './CateringMenuClassType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  *
@@ -24,11 +24,11 @@ export interface CopyCateringMenuType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {CateringMenuClassListType}
+     * List of Values of Menu.
+     * @type {Array<CateringMenuClassType>}
      * @memberof CopyCateringMenuType
      */
-    menuClassList?: CateringMenuClassListType;
+    menuClassList?: Array<CateringMenuClassType>;
     /**
      *
      * @type {UniqueIDType}

@@ -12,7 +12,7 @@
 import type { CountryNameType } from './CountryNameType';
 import type { ProfileNameType } from './ProfileNameType';
 import type { StagedProfileStatus } from './StagedProfileStatus';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Basic information about staged profile.
  * @export
@@ -38,11 +38,11 @@ export interface StagedProfileSummaryType {
      */
     importDate?: Date;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof StagedProfileSummaryType
      */
-    profileIdList?: UniqueIDListType;
+    profileIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {ProfileNameType}

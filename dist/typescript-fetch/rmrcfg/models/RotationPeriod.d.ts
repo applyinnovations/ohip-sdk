@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { RotationPeriodType } from './RotationPeriodType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request Object for changing Rotation Period.
  * @export
@@ -24,11 +24,11 @@ export interface RotationPeriod {
      */
     rotationPeriod?: RotationPeriodType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RotationPeriod
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RotationPeriod interface.

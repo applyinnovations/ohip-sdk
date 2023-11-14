@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { TemplateMarketingCityInfoType } from './TemplateMarketingCityInfoType';
 /**
  * Copy instructions for template marketing cities to hotel(s).
@@ -19,10 +18,10 @@ import type { TemplateMarketingCityInfoType } from './TemplateMarketingCityInfoT
 export interface CopyMarketingCitiesType {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyMarketingCitiesType
      */
-    hotelCodes?: CodeListType;
+    hotelCodes?: Array<string>;
     /**
      * Marketing city template to be copied to the hotel(s).
      * @type {Array<TemplateMarketingCityInfoType>}

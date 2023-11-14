@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RegionsCodeDetailsToJSON = exports.RegionsCodeDetailsFromJSONTyped = exports.RegionsCodeDetailsFromJSON = exports.instanceOfRegionsCodeDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RegionsCodeType_1 = require("./RegionsCodeType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RegionCodeType_1 = require("./RegionCodeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RegionsCodeDetails interface.
  */
@@ -35,9 +35,9 @@ function RegionsCodeDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'regionsCode': !(0, runtime_1.exists)(json, 'regionsCode') ? undefined : (0, RegionsCodeType_1.RegionsCodeTypeFromJSON)(json['regionsCode']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'regionsCode': !(0, runtime_1.exists)(json, 'regionsCode') ? undefined : (json['regionsCode'].map(RegionCodeType_1.RegionCodeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RegionsCodeDetailsFromJSONTyped = RegionsCodeDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function RegionsCodeDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'regionsCode': (0, RegionsCodeType_1.RegionsCodeTypeToJSON)(value.regionsCode),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'regionsCode': value.regionsCode === undefined ? undefined : (value.regionsCode.map(RegionCodeType_1.RegionCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RegionsCodeDetailsToJSON = RegionsCodeDetailsToJSON;

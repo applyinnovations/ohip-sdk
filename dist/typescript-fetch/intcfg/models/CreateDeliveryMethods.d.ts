@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ConfiguredExternalDeliveryMethodsType } from './ConfiguredExternalDeliveryMethodsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to create the delivery method for a property/HUB/Chain and its configurations.
  * @export
@@ -26,16 +26,16 @@ export interface CreateDeliveryMethods {
     deliveryMethods?: ConfiguredExternalDeliveryMethodsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreateDeliveryMethods
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateDeliveryMethods
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreateDeliveryMethods interface.

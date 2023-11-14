@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BenefitsType } from './BenefitsType';
+import type { BenefitType } from './BenefitType';
 import type { CardReIssueType } from './CardReIssueType';
 import type { DowngradeType } from './DowngradeType';
 import type { MembershipEarningPreferenceType } from './MembershipEarningPreferenceType';
@@ -76,11 +76,11 @@ export interface StagedProfileMembershipType {
      */
     inactive?: boolean;
     /**
-     *
-     * @type {BenefitsType}
+     * Basic information about membership benefit.
+     * @type {Array<BenefitType>}
      * @memberof StagedProfileMembershipType
      */
-    benefits?: BenefitsType;
+    benefits?: Array<BenefitType>;
     /**
      *
      * @type {TierAdministrationType}

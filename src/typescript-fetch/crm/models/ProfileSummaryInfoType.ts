@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ProfileIdList } from './ProfileIdList';
-import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
 import type { ProfileSummaryType } from './ProfileSummaryType';
 import {
     ProfileSummaryTypeFromJSON,
     ProfileSummaryTypeFromJSONTyped,
     ProfileSummaryTypeToJSON,
 } from './ProfileSummaryType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Summary information about a profile and the associated Unique IDs.
@@ -39,11 +39,11 @@ export interface ProfileSummaryInfoType {
      */
     profile?: ProfileSummaryType;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ProfileSummaryInfoType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function ProfileSummaryInfoTypeFromJSONTyped(json: any, ignoreDiscriminat
     return {
         
         'profile': !exists(json, 'profile') ? undefined : ProfileSummaryTypeFromJSON(json['profile']),
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function ProfileSummaryInfoTypeToJSON(value?: ProfileSummaryInfoType | nu
     return {
         
         'profile': ProfileSummaryTypeToJSON(value.profile),
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

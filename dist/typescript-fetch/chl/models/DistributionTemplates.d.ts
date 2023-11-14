@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DistributionTemplatesType } from './DistributionTemplatesType';
-import type { HotelsDistributionTemplatesType } from './HotelsDistributionTemplatesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { DistributionTemplateType } from './DistributionTemplateType';
+import type { HotelDistributionTemplatesType } from './HotelDistributionTemplatesType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching distribution templates based on search criteria.
  * @export
@@ -20,29 +20,29 @@ import type { WarningsType } from './WarningsType';
  */
 export interface DistributionTemplates {
     /**
-     *
-     * @type {DistributionTemplatesType}
+     * Information about a distribution template.
+     * @type {Array<DistributionTemplateType>}
      * @memberof DistributionTemplates
      */
-    distributionTemplates?: DistributionTemplatesType;
+    distributionTemplates?: Array<DistributionTemplateType>;
+    /**
+     * Information about a hotel level distribution template.
+     * @type {Array<HotelDistributionTemplatesType>}
+     * @memberof DistributionTemplates
+     */
+    hotelsDistributionTemplates?: Array<HotelDistributionTemplatesType>;
     /**
      *
-     * @type {HotelsDistributionTemplatesType}
+     * @type {Array<InstanceLink>}
      * @memberof DistributionTemplates
      */
-    hotelsDistributionTemplates?: HotelsDistributionTemplatesType;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {Links}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DistributionTemplates
      */
-    links?: Links;
-    /**
-     *
-     * @type {WarningsType}
-     * @memberof DistributionTemplates
-     */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DistributionTemplates interface.

@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ResHousekeepingType } from './ResHousekeepingType';
 import type { ReservationHousekeepingScheduleType } from './ReservationHousekeepingScheduleType';
 import type { ReservationId } from './ReservationId';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Return object that contains a list of facility tasks for the reservation specified in RQ.
  * @export
@@ -40,10 +40,10 @@ export interface Schedule {
     housekeepingSchedule?: ReservationHousekeepingScheduleType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Schedule
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationId}
@@ -51,11 +51,11 @@ export interface Schedule {
      */
     reservationId?: ReservationId;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Schedule
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Schedule interface.

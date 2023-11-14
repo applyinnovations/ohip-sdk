@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ArticlesType } from './ArticlesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ArticleInfoType } from './ArticleInfoType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to change articles.
  * @export
@@ -19,11 +19,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface Articles {
     /**
-     *
-     * @type {ArticlesType}
+     * Holds collection of articles.
+     * @type {Array<ArticleInfoType>}
      * @memberof Articles
      */
-    articles?: ArticlesType;
+    articles?: Array<ArticleInfoType>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -32,16 +32,16 @@ export interface Articles {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Articles
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Articles
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Articles interface.

@@ -19,18 +19,18 @@ import {
     PMSResStatusTypeFromJSONTyped,
     PMSResStatusTypeToJSON,
 } from './PMSResStatusType';
-import type { ReservationIdList } from './ReservationIdList';
-import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
 import type { TimeSpanType } from './TimeSpanType';
 import {
     TimeSpanTypeFromJSON,
     TimeSpanTypeFromJSONTyped,
     TimeSpanTypeToJSON,
 } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * A recently used reservation record.
@@ -69,11 +69,11 @@ export interface RecentlyAccessedReservationType {
      */
     hotelName?: string;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RecentlyAccessedReservationType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {PMSResStatusType}
@@ -112,7 +112,7 @@ export function RecentlyAccessedReservationTypeFromJSONTyped(json: any, ignoreDi
         'guestLastName': !exists(json, 'guestLastName') ? undefined : json['guestLastName'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'hotelName': !exists(json, 'hotelName') ? undefined : json['hotelName'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'reservationStatus': !exists(json, 'reservationStatus') ? undefined : PMSResStatusTypeFromJSON(json['reservationStatus']),
         'timeSpan': !exists(json, 'timeSpan') ? undefined : TimeSpanTypeFromJSON(json['timeSpan']),
     };
@@ -132,7 +132,7 @@ export function RecentlyAccessedReservationTypeToJSON(value?: RecentlyAccessedRe
         'guestLastName': value.guestLastName,
         'hotelId': value.hotelId,
         'hotelName': value.hotelName,
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'reservationStatus': PMSResStatusTypeToJSON(value.reservationStatus),
         'timeSpan': TimeSpanTypeToJSON(value.timeSpan),
     };

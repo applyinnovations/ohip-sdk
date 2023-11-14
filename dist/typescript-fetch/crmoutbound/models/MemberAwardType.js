@@ -15,11 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MemberAwardTypeToJSON = exports.MemberAwardTypeFromJSONTyped = exports.MemberAwardTypeFromJSON = exports.instanceOfMemberAwardType = void 0;
 const runtime_1 = require("../runtime");
-const MemberAwardDetailsType_1 = require("./MemberAwardDetailsType");
+const MemberAwardDetailType_1 = require("./MemberAwardDetailType");
 const MemberAwardProcessType_1 = require("./MemberAwardProcessType");
-const ProfileIdList_1 = require("./ProfileIdList");
-const ReservationIdList_1 = require("./ReservationIdList");
 const TimeSpanType_1 = require("./TimeSpanType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the MemberAwardType interface.
  */
@@ -37,11 +36,11 @@ function MemberAwardTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'membershipType': !(0, runtime_1.exists)(json, 'membershipType') ? undefined : json['membershipType'],
         'membershipCardNo': !(0, runtime_1.exists)(json, 'membershipCardNo') ? undefined : json['membershipCardNo'],
         'membershipLevel': !(0, runtime_1.exists)(json, 'membershipLevel') ? undefined : json['membershipLevel'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'adults': !(0, runtime_1.exists)(json, 'adults') ? undefined : json['adults'],
         'reservationTimeSpan': !(0, runtime_1.exists)(json, 'reservationTimeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['reservationTimeSpan']),
         'memberPointsBefore': !(0, runtime_1.exists)(json, 'memberPointsBefore') ? undefined : json['memberPointsBefore'],
@@ -51,7 +50,7 @@ function MemberAwardTypeFromJSONTyped(json, ignoreDiscriminator) {
         'actualCancelPoints': !(0, runtime_1.exists)(json, 'actualCancelPoints') ? undefined : json['actualCancelPoints'],
         'expiryPoints': !(0, runtime_1.exists)(json, 'expiryPoints') ? undefined : json['expiryPoints'],
         'awardProcessType': !(0, runtime_1.exists)(json, 'awardProcessType') ? undefined : (0, MemberAwardProcessType_1.MemberAwardProcessTypeFromJSON)(json['awardProcessType']),
-        'memberAwardDetails': !(0, runtime_1.exists)(json, 'memberAwardDetails') ? undefined : (0, MemberAwardDetailsType_1.MemberAwardDetailsTypeFromJSON)(json['memberAwardDetails']),
+        'memberAwardDetails': !(0, runtime_1.exists)(json, 'memberAwardDetails') ? undefined : (json['memberAwardDetails'].map(MemberAwardDetailType_1.MemberAwardDetailTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
     };
 }
@@ -64,11 +63,11 @@ function MemberAwardTypeToJSON(value) {
         return null;
     }
     return {
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'membershipType': value.membershipType,
         'membershipCardNo': value.membershipCardNo,
         'membershipLevel': value.membershipLevel,
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'adults': value.adults,
         'reservationTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.reservationTimeSpan),
         'memberPointsBefore': value.memberPointsBefore,
@@ -78,7 +77,7 @@ function MemberAwardTypeToJSON(value) {
         'actualCancelPoints': value.actualCancelPoints,
         'expiryPoints': value.expiryPoints,
         'awardProcessType': (0, MemberAwardProcessType_1.MemberAwardProcessTypeToJSON)(value.awardProcessType),
-        'memberAwardDetails': (0, MemberAwardDetailsType_1.MemberAwardDetailsTypeToJSON)(value.memberAwardDetails),
+        'memberAwardDetails': value.memberAwardDetails === undefined ? undefined : (value.memberAwardDetails.map(MemberAwardDetailType_1.MemberAwardDetailTypeToJSON)),
         'hotelId': value.hotelId,
     };
 }

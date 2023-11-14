@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TourSeriesToJSON = exports.TourSeriesFromJSONTyped = exports.TourSeriesFromJSON = exports.instanceOfTourSeries = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const ResponseInstructionType_1 = require("./ResponseInstructionType");
 const TourSeriesType_1 = require("./TourSeriesType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TourSeries interface.
  */
@@ -37,9 +37,9 @@ function TourSeriesFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'criteria': !(0, runtime_1.exists)(json, 'criteria') ? undefined : (0, TourSeriesType_1.TourSeriesTypeFromJSON)(json['criteria']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'responseInstruction': !(0, runtime_1.exists)(json, 'responseInstruction') ? undefined : (0, ResponseInstructionType_1.ResponseInstructionTypeFromJSON)(json['responseInstruction']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TourSeriesFromJSONTyped = TourSeriesFromJSONTyped;
@@ -52,9 +52,9 @@ function TourSeriesToJSON(value) {
     }
     return {
         'criteria': (0, TourSeriesType_1.TourSeriesTypeToJSON)(value.criteria),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'responseInstruction': (0, ResponseInstructionType_1.ResponseInstructionTypeToJSON)(value.responseInstruction),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TourSeriesToJSON = TourSeriesToJSON;

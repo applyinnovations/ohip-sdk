@@ -17,7 +17,7 @@ exports.GeneralDeliveryMethodTypeToJSON = exports.GeneralDeliveryMethodTypeFromJ
 const runtime_1 = require("../runtime");
 const EmailDeliveryConfigurationType_1 = require("./EmailDeliveryConfigurationType");
 const FaxDeliveryConfigurationType_1 = require("./FaxDeliveryConfigurationType");
-const SftpConfigurationsListType_1 = require("./SftpConfigurationsListType");
+const SftpConfigurationType_1 = require("./SftpConfigurationType");
 /**
  * Check if a given object implements the GeneralDeliveryMethodType interface.
  */
@@ -37,7 +37,7 @@ function GeneralDeliveryMethodTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'email': !(0, runtime_1.exists)(json, 'email') ? undefined : (0, EmailDeliveryConfigurationType_1.EmailDeliveryConfigurationTypeFromJSON)(json['email']),
         'fax': !(0, runtime_1.exists)(json, 'fax') ? undefined : (0, FaxDeliveryConfigurationType_1.FaxDeliveryConfigurationTypeFromJSON)(json['fax']),
-        'sftpConfigurations': !(0, runtime_1.exists)(json, 'sftpConfigurations') ? undefined : (0, SftpConfigurationsListType_1.SftpConfigurationsListTypeFromJSON)(json['sftpConfigurations']),
+        'sftpConfigurations': !(0, runtime_1.exists)(json, 'sftpConfigurations') ? undefined : (json['sftpConfigurations'].map(SftpConfigurationType_1.SftpConfigurationTypeFromJSON)),
     };
 }
 exports.GeneralDeliveryMethodTypeFromJSONTyped = GeneralDeliveryMethodTypeFromJSONTyped;
@@ -51,7 +51,7 @@ function GeneralDeliveryMethodTypeToJSON(value) {
     return {
         'email': (0, EmailDeliveryConfigurationType_1.EmailDeliveryConfigurationTypeToJSON)(value.email),
         'fax': (0, FaxDeliveryConfigurationType_1.FaxDeliveryConfigurationTypeToJSON)(value.fax),
-        'sftpConfigurations': (0, SftpConfigurationsListType_1.SftpConfigurationsListTypeToJSON)(value.sftpConfigurations),
+        'sftpConfigurations': value.sftpConfigurations === undefined ? undefined : (value.sftpConfigurations.map(SftpConfigurationType_1.SftpConfigurationTypeToJSON)),
     };
 }
 exports.GeneralDeliveryMethodTypeToJSON = GeneralDeliveryMethodTypeToJSON;

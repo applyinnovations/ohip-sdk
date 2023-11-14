@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ARDaysCycleType } from './ARDaysCycleType';
+import type { ARDaysReminderCycleType } from './ARDaysReminderCycleType';
 import {
-    ARDaysCycleTypeFromJSON,
-    ARDaysCycleTypeFromJSONTyped,
-    ARDaysCycleTypeToJSON,
-} from './ARDaysCycleType';
+    ARDaysReminderCycleTypeFromJSON,
+    ARDaysReminderCycleTypeFromJSONTyped,
+    ARDaysReminderCycleTypeToJSON,
+} from './ARDaysReminderCycleType';
 import type { AREndOfMonthCycleType } from './AREndOfMonthCycleType';
 import {
     AREndOfMonthCycleTypeFromJSON,
@@ -33,11 +33,11 @@ import {
  */
 export interface ARReminderCycleType {
     /**
-     * 
-     * @type {ARDaysCycleType}
+     * Reminder letters will be generated based on the number of days for which the account has had an outstanding balance
+     * @type {Array<ARDaysReminderCycleType>}
      * @memberof ARReminderCycleType
      */
-    daysCycle?: ARDaysCycleType;
+    daysCycle?: Array<ARDaysReminderCycleType>;
     /**
      * 
      * @type {AREndOfMonthCycleType}
@@ -65,7 +65,7 @@ export function ARReminderCycleTypeFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'daysCycle': !exists(json, 'daysCycle') ? undefined : ARDaysCycleTypeFromJSON(json['daysCycle']),
+        'daysCycle': !exists(json, 'daysCycle') ? undefined : ((json['daysCycle'] as Array<any>).map(ARDaysReminderCycleTypeFromJSON)),
         'endOfMonthCycle': !exists(json, 'endOfMonthCycle') ? undefined : AREndOfMonthCycleTypeFromJSON(json['endOfMonthCycle']),
     };
 }
@@ -79,7 +79,7 @@ export function ARReminderCycleTypeToJSON(value?: ARReminderCycleType | null): a
     }
     return {
         
-        'daysCycle': ARDaysCycleTypeToJSON(value.daysCycle),
+        'daysCycle': value.daysCycle === undefined ? undefined : ((value.daysCycle as Array<any>).map(ARDaysReminderCycleTypeToJSON)),
         'endOfMonthCycle': AREndOfMonthCycleTypeToJSON(value.endOfMonthCycle),
     };
 }

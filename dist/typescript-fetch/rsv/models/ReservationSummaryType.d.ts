@@ -11,7 +11,7 @@
  */
 import type { DateRangeType } from './DateRangeType';
 import type { ResGuaranteeType } from './ResGuaranteeType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -37,11 +37,11 @@ export interface ReservationSummaryType {
      */
     guestLastName?: string;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ReservationSummaryType
      */
-    reservationIdList?: UniqueIDListType;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {DateRangeType}

@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RotationRevenueTransactionCodesChangeTypeToJSON = exports.RotationRevenueTransactionCodesChangeTypeFromJSONTyped = exports.RotationRevenueTransactionCodesChangeTypeFromJSON = exports.instanceOfRotationRevenueTransactionCodesChangeType = void 0;
 const runtime_1 = require("../runtime");
-const TransactionCodesType_1 = require("./TransactionCodesType");
 /**
  * Check if a given object implements the RotationRevenueTransactionCodesChangeType interface.
  */
@@ -34,8 +33,8 @@ function RotationRevenueTransactionCodesChangeTypeFromJSONTyped(json, ignoreDisc
     }
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'nonRotationRevenueTransactionCodes': !(0, runtime_1.exists)(json, 'nonRotationRevenueTransactionCodes') ? undefined : (0, TransactionCodesType_1.TransactionCodesTypeFromJSON)(json['nonRotationRevenueTransactionCodes']),
-        'rotationRevenueTransactionCodes': !(0, runtime_1.exists)(json, 'rotationRevenueTransactionCodes') ? undefined : (0, TransactionCodesType_1.TransactionCodesTypeFromJSON)(json['rotationRevenueTransactionCodes']),
+        'nonRotationRevenueTransactionCodes': !(0, runtime_1.exists)(json, 'nonRotationRevenueTransactionCodes') ? undefined : json['nonRotationRevenueTransactionCodes'],
+        'rotationRevenueTransactionCodes': !(0, runtime_1.exists)(json, 'rotationRevenueTransactionCodes') ? undefined : json['rotationRevenueTransactionCodes'],
     };
 }
 exports.RotationRevenueTransactionCodesChangeTypeFromJSONTyped = RotationRevenueTransactionCodesChangeTypeFromJSONTyped;
@@ -48,8 +47,8 @@ function RotationRevenueTransactionCodesChangeTypeToJSON(value) {
     }
     return {
         'hotelId': value.hotelId,
-        'nonRotationRevenueTransactionCodes': (0, TransactionCodesType_1.TransactionCodesTypeToJSON)(value.nonRotationRevenueTransactionCodes),
-        'rotationRevenueTransactionCodes': (0, TransactionCodesType_1.TransactionCodesTypeToJSON)(value.rotationRevenueTransactionCodes),
+        'nonRotationRevenueTransactionCodes': value.nonRotationRevenueTransactionCodes,
+        'rotationRevenueTransactionCodes': value.rotationRevenueTransactionCodes,
     };
 }
 exports.RotationRevenueTransactionCodesChangeTypeToJSON = RotationRevenueTransactionCodesChangeTypeToJSON;

@@ -9,8 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelCodeListType } from './HotelCodeListType';
-import type { TraceTextsType } from './TraceTextsType';
+import type { TraceTextType } from './TraceTextType';
 /**
  * Copy Trace texts criteria type to copy multiple trace texts from one Hotel to another Hotel.
  * @export
@@ -18,17 +17,17 @@ import type { TraceTextsType } from './TraceTextsType';
  */
 export interface CopyTraceTextsCriteriaType {
     /**
-     *
-     * @type {HotelCodeListType}
+     * Hotel code.
+     * @type {Array<string>}
      * @memberof CopyTraceTextsCriteriaType
      */
-    targetHotels?: HotelCodeListType;
+    targetHotels?: Array<string>;
     /**
-     *
-     * @type {TraceTextsType}
+     * Collection of trace texts.
+     * @type {Array<TraceTextType>}
      * @memberof CopyTraceTextsCriteriaType
      */
-    traceTexts?: TraceTextsType;
+    traceTexts?: Array<TraceTextType>;
 }
 /**
  * Check if a given object implements the CopyTraceTextsCriteriaType interface.

@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FetchActivityBookingsTypeToJSON = exports.FetchActivityBookingsTypeFromJSONTyped = exports.FetchActivityBookingsTypeFromJSON = exports.instanceOfFetchActivityBookingsType = void 0;
 const runtime_1 = require("../runtime");
-const ActivityList_1 = require("./ActivityList");
+const ActivityListInner_1 = require("./ActivityListInner");
 const AddressType_1 = require("./AddressType");
 const PersonNameType_1 = require("./PersonNameType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the FetchActivityBookingsType interface.
  */
@@ -36,11 +36,11 @@ function FetchActivityBookingsTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'activities': !(0, runtime_1.exists)(json, 'activities') ? undefined : (0, ActivityList_1.ActivityListFromJSON)(json['activities']),
+        'activities': !(0, runtime_1.exists)(json, 'activities') ? undefined : (json['activities'].map(ActivityListInner_1.ActivityListInnerFromJSON)),
         'address': !(0, runtime_1.exists)(json, 'address') ? undefined : (0, AddressType_1.AddressTypeFromJSON)(json['address']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'personName': !(0, runtime_1.exists)(json, 'personName') ? undefined : (0, PersonNameType_1.PersonNameTypeFromJSON)(json['personName']),
-        'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['profileId']),
+        'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (json['profileId'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.FetchActivityBookingsTypeFromJSONTyped = FetchActivityBookingsTypeFromJSONTyped;
@@ -52,11 +52,11 @@ function FetchActivityBookingsTypeToJSON(value) {
         return null;
     }
     return {
-        'activities': (0, ActivityList_1.ActivityListToJSON)(value.activities),
+        'activities': value.activities === undefined ? undefined : (value.activities.map(ActivityListInner_1.ActivityListInnerToJSON)),
         'address': (0, AddressType_1.AddressTypeToJSON)(value.address),
         'hotelId': value.hotelId,
         'personName': (0, PersonNameType_1.PersonNameTypeToJSON)(value.personName),
-        'profileId': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.profileId),
+        'profileId': value.profileId === undefined ? undefined : (value.profileId.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.FetchActivityBookingsTypeToJSON = FetchActivityBookingsTypeToJSON;

@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for Ping operation.
  * @export
@@ -19,10 +19,10 @@ import type { WarningsType } from './WarningsType';
 export interface OperaVersion {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof OperaVersion
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Current Opera Version Number
      * @type {string}
@@ -30,11 +30,11 @@ export interface OperaVersion {
      */
     operaVersion?: string;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OperaVersion
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the OperaVersion interface.

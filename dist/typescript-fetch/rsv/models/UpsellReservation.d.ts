@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationId } from './ReservationId';
 import type { UpsellType } from './UpsellType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to upsell a reservation.
  * @export
@@ -27,10 +27,10 @@ export interface UpsellReservation {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof UpsellReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Indicates whether to override validation or not.
      * @type {boolean}
@@ -50,11 +50,11 @@ export interface UpsellReservation {
      */
     upsell?: UpsellType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof UpsellReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the UpsellReservation interface.

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { VIPLevelsType } from './VIPLevelsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { VIPLevelType } from './VIPLevelType';
 import {
-    VIPLevelsTypeFromJSON,
-    VIPLevelsTypeFromJSONTyped,
-    VIPLevelsTypeToJSON,
-} from './VIPLevelsType';
-import type { WarningsType } from './WarningsType';
+    VIPLevelTypeFromJSON,
+    VIPLevelTypeFromJSONTyped,
+    VIPLevelTypeToJSON,
+} from './VIPLevelType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing V I P Levels.
@@ -40,22 +40,22 @@ import {
 export interface VIPLevelsToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof VIPLevelsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {VIPLevelsType}
+     * List of V I P Levels.
+     * @type {Array<VIPLevelType>}
      * @memberof VIPLevelsToBeChanged
      */
-    vIPLevels?: VIPLevelsType;
+    vIPLevels?: Array<VIPLevelType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof VIPLevelsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function VIPLevelsToBeChangedFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'vIPLevels': !exists(json, 'vIPLevels') ? undefined : VIPLevelsTypeFromJSON(json['vIPLevels']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'vIPLevels': !exists(json, 'vIPLevels') ? undefined : ((json['vIPLevels'] as Array<any>).map(VIPLevelTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function VIPLevelsToBeChangedToJSON(value?: VIPLevelsToBeChanged | null):
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'vIPLevels': VIPLevelsTypeToJSON(value.vIPLevels),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'vIPLevels': value.vIPLevels === undefined ? undefined : ((value.vIPLevels as Array<any>).map(VIPLevelTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

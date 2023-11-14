@@ -16,7 +16,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationAutoRoomAssignRequestTypeToJSON = exports.ReservationAutoRoomAssignRequestTypeFromJSONTyped = exports.ReservationAutoRoomAssignRequestTypeFromJSON = exports.instanceOfReservationAutoRoomAssignRequestType = void 0;
 const runtime_1 = require("../runtime");
 const ReservationAutoRoomAssignRequestTypeRoomSelectionCriteria_1 = require("./ReservationAutoRoomAssignRequestTypeRoomSelectionCriteria");
-const ReservationIdList_1 = require("./ReservationIdList");
 /**
  * Check if a given object implements the ReservationAutoRoomAssignRequestType interface.
  */
@@ -34,7 +33,7 @@ function ReservationAutoRoomAssignRequestTypeFromJSONTyped(json, ignoreDiscrimin
         return json;
     }
     return {
-        'reservationCriteria': !(0, runtime_1.exists)(json, 'reservationCriteria') ? undefined : (json['reservationCriteria'].map(ReservationIdList_1.ReservationIdListFromJSON)),
+        'reservationCriteria': !(0, runtime_1.exists)(json, 'reservationCriteria') ? undefined : json['reservationCriteria'],
         'roomNumberLocked': !(0, runtime_1.exists)(json, 'roomNumberLocked') ? undefined : json['roomNumberLocked'],
         'roomSelectionCriteria': !(0, runtime_1.exists)(json, 'roomSelectionCriteria') ? undefined : (0, ReservationAutoRoomAssignRequestTypeRoomSelectionCriteria_1.ReservationAutoRoomAssignRequestTypeRoomSelectionCriteriaFromJSON)(json['roomSelectionCriteria']),
     };
@@ -48,7 +47,7 @@ function ReservationAutoRoomAssignRequestTypeToJSON(value) {
         return null;
     }
     return {
-        'reservationCriteria': value.reservationCriteria === undefined ? undefined : (value.reservationCriteria.map(ReservationIdList_1.ReservationIdListToJSON)),
+        'reservationCriteria': value.reservationCriteria,
         'roomNumberLocked': value.roomNumberLocked,
         'roomSelectionCriteria': (0, ReservationAutoRoomAssignRequestTypeRoomSelectionCriteria_1.ReservationAutoRoomAssignRequestTypeRoomSelectionCriteriaToJSON)(value.roomSelectionCriteria),
     };

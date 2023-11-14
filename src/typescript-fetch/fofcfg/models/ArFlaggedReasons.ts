@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ARFlaggedReasonsType } from './ARFlaggedReasonsType';
+import type { ARFlaggedReasonType } from './ARFlaggedReasonType';
 import {
-    ARFlaggedReasonsTypeFromJSON,
-    ARFlaggedReasonsTypeFromJSONTyped,
-    ARFlaggedReasonsTypeToJSON,
-} from './ARFlaggedReasonsType';
-import type { Links } from './Links';
+    ARFlaggedReasonTypeFromJSON,
+    ARFlaggedReasonTypeFromJSONTyped,
+    ARFlaggedReasonTypeToJSON,
+} from './ARFlaggedReasonType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for fetching Flagged Reasons.
@@ -39,23 +39,23 @@ import {
  */
 export interface ArFlaggedReasons {
     /**
-     * 
-     * @type {ARFlaggedReasonsType}
+     * List of the Flagged Reason to be configured or fetched
+     * @type {Array<ARFlaggedReasonType>}
      * @memberof ArFlaggedReasons
      */
-    aRFlaggedReasons?: ARFlaggedReasonsType;
+    aRFlaggedReasons?: Array<ARFlaggedReasonType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ArFlaggedReasons
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ArFlaggedReasons
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ArFlaggedReasonsFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'aRFlaggedReasons': !exists(json, 'aRFlaggedReasons') ? undefined : ARFlaggedReasonsTypeFromJSON(json['aRFlaggedReasons']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'aRFlaggedReasons': !exists(json, 'aRFlaggedReasons') ? undefined : ((json['aRFlaggedReasons'] as Array<any>).map(ARFlaggedReasonTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ArFlaggedReasonsToJSON(value?: ArFlaggedReasons | null): any {
     }
     return {
         
-        'aRFlaggedReasons': ARFlaggedReasonsTypeToJSON(value.aRFlaggedReasons),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'aRFlaggedReasons': value.aRFlaggedReasons === undefined ? undefined : ((value.aRFlaggedReasons as Array<any>).map(ARFlaggedReasonTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

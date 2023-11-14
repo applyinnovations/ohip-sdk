@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateRoomKeysToJSON = exports.UpdateRoomKeysFromJSONTyped = exports.UpdateRoomKeysFromJSON = exports.instanceOfUpdateRoomKeys = void 0;
 const runtime_1 = require("../runtime");
-const ErrorsType_1 = require("./ErrorsType");
-const WarningsType_1 = require("./WarningsType");
+const ErrorType_1 = require("./ErrorType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the UpdateRoomKeys interface.
  */
@@ -34,8 +34,8 @@ function UpdateRoomKeysFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'errors': !(0, runtime_1.exists)(json, 'errors') ? undefined : (0, ErrorsType_1.ErrorsTypeFromJSON)(json['errors']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'errors': !(0, runtime_1.exists)(json, 'errors') ? undefined : (json['errors'].map(ErrorType_1.ErrorTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.UpdateRoomKeysFromJSONTyped = UpdateRoomKeysFromJSONTyped;
@@ -47,8 +47,8 @@ function UpdateRoomKeysToJSON(value) {
         return null;
     }
     return {
-        'errors': (0, ErrorsType_1.ErrorsTypeToJSON)(value.errors),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'errors': value.errors === undefined ? undefined : (value.errors.map(ErrorType_1.ErrorTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.UpdateRoomKeysToJSON = UpdateRoomKeysToJSON;

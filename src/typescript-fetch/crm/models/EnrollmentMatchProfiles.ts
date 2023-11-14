@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { EnrollmentMatchProfilesType } from './EnrollmentMatchProfilesType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    EnrollmentMatchProfilesTypeFromJSON,
-    EnrollmentMatchProfilesTypeFromJSONTyped,
-    EnrollmentMatchProfilesTypeToJSON,
-} from './EnrollmentMatchProfilesType';
-import type { Links } from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ProfileEnrollmentType } from './ProfileEnrollmentType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    ProfileEnrollmentTypeFromJSON,
+    ProfileEnrollmentTypeFromJSONTyped,
+    ProfileEnrollmentTypeToJSON,
+} from './ProfileEnrollmentType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object to fetch match profiles for enrollment.
@@ -39,23 +39,23 @@ import {
  */
 export interface EnrollmentMatchProfiles {
     /**
-     * 
-     * @type {EnrollmentMatchProfilesType}
+     * Provide match profile details for enrollment.
+     * @type {Array<ProfileEnrollmentType>}
      * @memberof EnrollmentMatchProfiles
      */
-    enrollmentMatchProfilesDetail?: EnrollmentMatchProfilesType;
+    enrollmentMatchProfilesDetail?: Array<ProfileEnrollmentType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EnrollmentMatchProfiles
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EnrollmentMatchProfiles
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function EnrollmentMatchProfilesFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'enrollmentMatchProfilesDetail': !exists(json, 'enrollmentMatchProfilesDetail') ? undefined : EnrollmentMatchProfilesTypeFromJSON(json['enrollmentMatchProfilesDetail']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'enrollmentMatchProfilesDetail': !exists(json, 'enrollmentMatchProfilesDetail') ? undefined : ((json['enrollmentMatchProfilesDetail'] as Array<any>).map(ProfileEnrollmentTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function EnrollmentMatchProfilesToJSON(value?: EnrollmentMatchProfiles | 
     }
     return {
         
-        'enrollmentMatchProfilesDetail': EnrollmentMatchProfilesTypeToJSON(value.enrollmentMatchProfilesDetail),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'enrollmentMatchProfilesDetail': value.enrollmentMatchProfilesDetail === undefined ? undefined : ((value.enrollmentMatchProfilesDetail as Array<any>).map(ProfileEnrollmentTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { FiscalPeriodType } from './FiscalPeriodType';
 import type { FiscalPeriodsCycleFiscalPeriods } from './FiscalPeriodsCycleFiscalPeriods';
-import type { FiscalPeriodsType } from './FiscalPeriodsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -26,23 +26,23 @@ export interface FiscalPeriods {
      */
     cycleFiscalPeriods?: FiscalPeriodsCycleFiscalPeriods;
     /**
-     *
-     * @type {FiscalPeriodsType}
+     * List of Fiscal Periods.
+     * @type {Array<FiscalPeriodType>}
      * @memberof FiscalPeriods
      */
-    fiscalPeriods?: FiscalPeriodsType;
+    fiscalPeriods?: Array<FiscalPeriodType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FiscalPeriods
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FiscalPeriods
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FiscalPeriods interface.

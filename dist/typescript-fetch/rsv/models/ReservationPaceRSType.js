@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationPaceRSTypeToJSON = exports.ReservationPaceRSTypeFromJSONTyped = exports.ReservationPaceRSTypeFromJSON = exports.instanceOfReservationPaceRSType = void 0;
 const runtime_1 = require("../runtime");
-const DailyPaceStatsType_1 = require("./DailyPaceStatsType");
+const DailyPaceStatType_1 = require("./DailyPaceStatType");
 /**
  * Check if a given object implements the ReservationPaceRSType interface.
  */
@@ -34,7 +34,7 @@ function ReservationPaceRSTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'businessDate': !(0, runtime_1.exists)(json, 'businessDate') ? undefined : (new Date(json['businessDate'])),
-        'dailyPaceStats': !(0, runtime_1.exists)(json, 'dailyPaceStats') ? undefined : (0, DailyPaceStatsType_1.DailyPaceStatsTypeFromJSON)(json['dailyPaceStats']),
+        'dailyPaceStats': !(0, runtime_1.exists)(json, 'dailyPaceStats') ? undefined : (json['dailyPaceStats'].map(DailyPaceStatType_1.DailyPaceStatTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
     };
 }
@@ -48,7 +48,7 @@ function ReservationPaceRSTypeToJSON(value) {
     }
     return {
         'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0, 10)),
-        'dailyPaceStats': (0, DailyPaceStatsType_1.DailyPaceStatsTypeToJSON)(value.dailyPaceStats),
+        'dailyPaceStats': value.dailyPaceStats === undefined ? undefined : (value.dailyPaceStats.map(DailyPaceStatType_1.DailyPaceStatTypeToJSON)),
         'hotelId': value.hotelId,
     };
 }

@@ -18,7 +18,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable */
 __exportStar(require("./BusinessEventDataType"), exports);
 __exportStar(require("./BusinessEventDetailType"), exports);
-__exportStar(require("./BusinessEventDetailsType"), exports);
 __exportStar(require("./BusinessEventHeaderType"), exports);
 __exportStar(require("./BusinessEventIDType"), exports);
 __exportStar(require("./BusinessEventModuleType"), exports);
@@ -27,6 +26,4 @@ __exportStar(require("./BusinessEvents"), exports);
 __exportStar(require("./ErrorInstance"), exports);
 __exportStar(require("./ExceptionDetailType"), exports);
 __exportStar(require("./InstanceLink"), exports);
-__exportStar(require("./Links"), exports);
 __exportStar(require("./WarningType"), exports);
-__exportStar(require("./WarningsType"), exports);

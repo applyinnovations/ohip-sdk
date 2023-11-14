@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HurdleRatesEditType } from './HurdleRatesEditType';
+import type { HurdleRateEditType } from './HurdleRateEditType';
 import {
-    HurdleRatesEditTypeFromJSON,
-    HurdleRatesEditTypeFromJSONTyped,
-    HurdleRatesEditTypeToJSON,
-} from './HurdleRatesEditType';
-import type { Links } from './Links';
+    HurdleRateEditTypeFromJSON,
+    HurdleRateEditTypeFromJSONTyped,
+    HurdleRateEditTypeToJSON,
+} from './HurdleRateEditType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing existing Hurdle Rates.
@@ -39,23 +39,23 @@ import {
  */
 export interface ChangeHurdleRates {
     /**
-     * 
-     * @type {HurdleRatesEditType}
+     * Details for hurdle rate to be modified.
+     * @type {Array<HurdleRateEditType>}
      * @memberof ChangeHurdleRates
      */
-    hurdleRates?: HurdleRatesEditType;
+    hurdleRates?: Array<HurdleRateEditType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangeHurdleRates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeHurdleRates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ChangeHurdleRatesFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'hurdleRates': !exists(json, 'hurdleRates') ? undefined : HurdleRatesEditTypeFromJSON(json['hurdleRates']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'hurdleRates': !exists(json, 'hurdleRates') ? undefined : ((json['hurdleRates'] as Array<any>).map(HurdleRateEditTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ChangeHurdleRatesToJSON(value?: ChangeHurdleRates | null): any {
     }
     return {
         
-        'hurdleRates': HurdleRatesEditTypeToJSON(value.hurdleRates),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'hurdleRates': value.hurdleRates === undefined ? undefined : ((value.hurdleRates as Array<any>).map(HurdleRateEditTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

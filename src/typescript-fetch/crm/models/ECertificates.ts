@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ECertificatesType } from './ECertificatesType';
+import type { ECertificateType } from './ECertificateType';
 import {
-    ECertificatesTypeFromJSON,
-    ECertificatesTypeFromJSONTyped,
-    ECertificatesTypeToJSON,
-} from './ECertificatesType';
-import type { Links } from './Links';
+    ECertificateTypeFromJSON,
+    ECertificateTypeFromJSONTyped,
+    ECertificateTypeToJSON,
+} from './ECertificateType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetch ECertificates. This object contains collection of ECertificates,Success,Warnings and Errors related to this operation.
@@ -39,23 +39,23 @@ import {
  */
 export interface ECertificates {
     /**
-     * 
-     * @type {ECertificatesType}
+     * List of e-certificates for the profile.
+     * @type {Array<ECertificateType>}
      * @memberof ECertificates
      */
-    eCertificatesDetail?: ECertificatesType;
+    eCertificatesDetail?: Array<ECertificateType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ECertificates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ECertificates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ECertificatesFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'eCertificatesDetail': !exists(json, 'eCertificatesDetail') ? undefined : ECertificatesTypeFromJSON(json['eCertificatesDetail']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'eCertificatesDetail': !exists(json, 'eCertificatesDetail') ? undefined : ((json['eCertificatesDetail'] as Array<any>).map(ECertificateTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ECertificatesToJSON(value?: ECertificates | null): any {
     }
     return {
         
-        'eCertificatesDetail': ECertificatesTypeToJSON(value.eCertificatesDetail),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'eCertificatesDetail': value.eCertificatesDetail === undefined ? undefined : ((value.eCertificatesDetail as Array<any>).map(ECertificateTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RecentlyAccessedActivitiesType } from './RecentlyAccessedActivitiesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RecentlyAccessedActivityType } from './RecentlyAccessedActivityType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface RecentlyAccessedActivities {
     /**
-     *
-     * @type {RecentlyAccessedActivitiesType}
+     * A single recently accessed activity.
+     * @type {Array<RecentlyAccessedActivityType>}
      * @memberof RecentlyAccessedActivities
      */
-    activities?: RecentlyAccessedActivitiesType;
+    activities?: Array<RecentlyAccessedActivityType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RecentlyAccessedActivities
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RecentlyAccessedActivities
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RecentlyAccessedActivities interface.

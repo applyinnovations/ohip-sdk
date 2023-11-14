@@ -15,13 +15,13 @@
 
 import * as runtime from '../runtime';
 import type {
-  BlockAllocationSummary,
+  BlockAllocationSummaryType,
   Criteria,
   ExceptionDetailType,
 } from '../models/index';
 import {
-    BlockAllocationSummaryFromJSON,
-    BlockAllocationSummaryToJSON,
+    BlockAllocationSummaryTypeFromJSON,
+    BlockAllocationSummaryTypeToJSON,
     CriteriaFromJSON,
     CriteriaToJSON,
     ExceptionDetailTypeFromJSON,
@@ -67,7 +67,7 @@ export class BlockAsyncApi extends runtime.BaseAPI {
      * This API will fetch Block allocation information for a hotel, and specified date range.  The block allocated inventory, rates and room type statistics are returned as part of the response. <p><strong>OperationId:</strong>getBlockAllocationSummary</p>
      * This API returns a hotel\'s block allocation summary for a scheduled process.
      */
-    async getBlockAllocationSummaryRaw(requestParameters: GetBlockAllocationSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockAllocationSummary>> {
+    async getBlockAllocationSummaryRaw(requestParameters: GetBlockAllocationSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BlockAllocationSummaryType>>> {
         if (requestParameters.requestId === null || requestParameters.requestId === undefined) {
             throw new runtime.RequiredError('requestId','Required parameter requestParameters.requestId was null or undefined when calling getBlockAllocationSummary.');
         }
@@ -107,14 +107,14 @@ export class BlockAsyncApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => BlockAllocationSummaryFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(BlockAllocationSummaryTypeFromJSON));
     }
 
     /**
      * This API will fetch Block allocation information for a hotel, and specified date range.  The block allocated inventory, rates and room type statistics are returned as part of the response. <p><strong>OperationId:</strong>getBlockAllocationSummary</p>
      * This API returns a hotel\'s block allocation summary for a scheduled process.
      */
-    async getBlockAllocationSummary(requestParameters: GetBlockAllocationSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlockAllocationSummary> {
+    async getBlockAllocationSummary(requestParameters: GetBlockAllocationSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BlockAllocationSummaryType>> {
         const response = await this.getBlockAllocationSummaryRaw(requestParameters, initOverrides);
         return await response.value();
     }

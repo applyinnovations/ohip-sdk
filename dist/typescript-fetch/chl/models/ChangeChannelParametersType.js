@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChangeChannelParametersTypeToJSON = exports.ChangeChannelParametersTypeFromJSONTyped = exports.ChangeChannelParametersTypeFromJSON = exports.instanceOfChangeChannelParametersType = void 0;
 const runtime_1 = require("../runtime");
-const ChannelParametersSimpleType_1 = require("./ChannelParametersSimpleType");
+const ChannelParameterSimpleType_1 = require("./ChannelParameterSimpleType");
 /**
  * Check if a given object implements the ChangeChannelParametersType interface.
  */
@@ -33,7 +33,7 @@ function ChangeChannelParametersTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'channelParameters': !(0, runtime_1.exists)(json, 'channelParameters') ? undefined : (0, ChannelParametersSimpleType_1.ChannelParametersSimpleTypeFromJSON)(json['channelParameters']),
+        'channelParameters': !(0, runtime_1.exists)(json, 'channelParameters') ? undefined : (json['channelParameters'].map(ChannelParameterSimpleType_1.ChannelParameterSimpleTypeFromJSON)),
         'systemCode': !(0, runtime_1.exists)(json, 'systemCode') ? undefined : json['systemCode'],
     };
 }
@@ -46,7 +46,7 @@ function ChangeChannelParametersTypeToJSON(value) {
         return null;
     }
     return {
-        'channelParameters': (0, ChannelParametersSimpleType_1.ChannelParametersSimpleTypeToJSON)(value.channelParameters),
+        'channelParameters': value.channelParameters === undefined ? undefined : (value.channelParameters.map(ChannelParameterSimpleType_1.ChannelParameterSimpleTypeToJSON)),
         'systemCode': value.systemCode,
     };
 }

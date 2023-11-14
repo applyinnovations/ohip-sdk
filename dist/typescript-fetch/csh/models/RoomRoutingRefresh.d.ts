@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RoomRoutingRefreshCriteriaType } from './RoomRoutingRefreshCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * The request object for processing refreshing of a routing instruction set. This operation transfers the postings to the respective reservation as per the routing instruction set which is created, edited, deleted or refreshed.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface RoomRoutingRefresh {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomRoutingRefresh
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {RoomRoutingRefreshCriteriaType}
@@ -31,11 +31,11 @@ export interface RoomRoutingRefresh {
      */
     roomRoutingRefreshCriteria?: RoomRoutingRefreshCriteriaType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomRoutingRefresh
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomRoutingRefresh interface.

@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DailyRatesType } from './DailyRatesType';
+import type { DailyRateType } from './DailyRateType';
 import {
-    DailyRatesTypeFromJSON,
-    DailyRatesTypeFromJSONTyped,
-    DailyRatesTypeToJSON,
-} from './DailyRatesType';
-import type { ReservationIdList } from './ReservationIdList';
+    DailyRateTypeFromJSON,
+    DailyRateTypeFromJSONTyped,
+    DailyRateTypeToJSON,
+} from './DailyRateType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Collection of unique reservation identifiers. Currently supported are Reservation Id and/or Confirmation Number which may include the leg number.
@@ -33,17 +33,17 @@ import {
  */
 export interface CombineShareReservationsTypeShareToReservation {
     /**
-     * 
-     * @type {DailyRatesType}
+     * Defines room rate information on a daily basis.
+     * @type {Array<DailyRateType>}
      * @memberof CombineShareReservationsTypeShareToReservation
      */
-    dailyRates?: DailyRatesType;
+    dailyRates?: Array<DailyRateType>;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CombineShareReservationsTypeShareToReservation
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function CombineShareReservationsTypeShareToReservationFromJSONTyped(json
     }
     return {
         
-        'dailyRates': !exists(json, 'dailyRates') ? undefined : DailyRatesTypeFromJSON(json['dailyRates']),
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'dailyRates': !exists(json, 'dailyRates') ? undefined : ((json['dailyRates'] as Array<any>).map(DailyRateTypeFromJSON)),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function CombineShareReservationsTypeShareToReservationToJSON(value?: Com
     }
     return {
         
-        'dailyRates': DailyRatesTypeToJSON(value.dailyRates),
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'dailyRates': value.dailyRates === undefined ? undefined : ((value.dailyRates as Array<any>).map(DailyRateTypeToJSON)),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

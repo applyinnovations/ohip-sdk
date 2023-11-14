@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ARInvoicesType } from './ARInvoicesType';
+import type { ARInvoiceType } from './ARInvoiceType';
 import {
-    ARInvoicesTypeFromJSON,
-    ARInvoicesTypeFromJSONTyped,
-    ARInvoicesTypeToJSON,
-} from './ARInvoicesType';
+    ARInvoiceTypeFromJSON,
+    ARInvoiceTypeFromJSONTyped,
+    ARInvoiceTypeToJSON,
+} from './ARInvoiceType';
 import type { ReminderCycleType } from './ReminderCycleType';
 import {
     ReminderCycleTypeFromJSON,
@@ -75,11 +75,11 @@ export interface ARReminderType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {ARInvoicesType}
+     * A collection of AR Invoices.
+     * @type {Array<ARInvoiceType>}
      * @memberof ARReminderType
      */
-    invoices?: ARInvoicesType;
+    invoices?: Array<ARInvoiceType>;
     /**
      * Indicates that reminders history exists.
      * @type {boolean}
@@ -143,7 +143,7 @@ export function ARReminderTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         'cycle': !exists(json, 'cycle') ? undefined : json['cycle'],
         'cycleUsed': !exists(json, 'cycleUsed') ? undefined : ReminderCycleTypeFromJSON(json['cycleUsed']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'invoices': !exists(json, 'invoices') ? undefined : ARInvoicesTypeFromJSON(json['invoices']),
+        'invoices': !exists(json, 'invoices') ? undefined : ((json['invoices'] as Array<any>).map(ARInvoiceTypeFromJSON)),
         'isHistoryExists': !exists(json, 'isHistoryExists') ? undefined : json['isHistoryExists'],
         'lastCycle': !exists(json, 'lastCycle') ? undefined : json['lastCycle'],
         'lastReminderSent': !exists(json, 'lastReminderSent') ? undefined : (new Date(json['lastReminderSent'])),
@@ -168,7 +168,7 @@ export function ARReminderTypeToJSON(value?: ARReminderType | null): any {
         'cycle': value.cycle,
         'cycleUsed': ReminderCycleTypeToJSON(value.cycleUsed),
         'hotelId': value.hotelId,
-        'invoices': ARInvoicesTypeToJSON(value.invoices),
+        'invoices': value.invoices === undefined ? undefined : ((value.invoices as Array<any>).map(ARInvoiceTypeToJSON)),
         'isHistoryExists': value.isHistoryExists,
         'lastCycle': value.lastCycle,
         'lastReminderSent': value.lastReminderSent === undefined ? undefined : (value.lastReminderSent.toISOString().substring(0,10)),

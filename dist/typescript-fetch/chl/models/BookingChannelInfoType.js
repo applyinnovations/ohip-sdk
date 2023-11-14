@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BookingChannelInfoTypeToJSON = exports.BookingChannelInfoTypeFromJSONTyped = exports.BookingChannelInfoTypeFromJSON = exports.instanceOfBookingChannelInfoType = void 0;
 const runtime_1 = require("../runtime");
 const HotelMappingType_1 = require("./HotelMappingType");
-const ParametersType_1 = require("./ParametersType");
+const ParameterType_1 = require("./ParameterType");
 /**
  * Check if a given object implements the BookingChannelInfoType interface.
  */
@@ -36,7 +36,7 @@ function BookingChannelInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'bookingChannelCode': !(0, runtime_1.exists)(json, 'bookingChannelCode') ? undefined : json['bookingChannelCode'],
         'bookingChannelType': !(0, runtime_1.exists)(json, 'bookingChannelType') ? undefined : json['bookingChannelType'],
-        'configurationParameters': !(0, runtime_1.exists)(json, 'configurationParameters') ? undefined : (0, ParametersType_1.ParametersTypeFromJSON)(json['configurationParameters']),
+        'configurationParameters': !(0, runtime_1.exists)(json, 'configurationParameters') ? undefined : (json['configurationParameters'].map(ParameterType_1.ParameterTypeFromJSON)),
         'hotelMappings': !(0, runtime_1.exists)(json, 'hotelMappings') ? undefined : (json['hotelMappings'].map(HotelMappingType_1.HotelMappingTypeFromJSON)),
         'name': !(0, runtime_1.exists)(json, 'name') ? undefined : json['name'],
     };
@@ -52,7 +52,7 @@ function BookingChannelInfoTypeToJSON(value) {
     return {
         'bookingChannelCode': value.bookingChannelCode,
         'bookingChannelType': value.bookingChannelType,
-        'configurationParameters': (0, ParametersType_1.ParametersTypeToJSON)(value.configurationParameters),
+        'configurationParameters': value.configurationParameters === undefined ? undefined : (value.configurationParameters.map(ParameterType_1.ParameterTypeToJSON)),
         'hotelMappings': value.hotelMappings === undefined ? undefined : (value.hotelMappings.map(HotelMappingType_1.HotelMappingTypeToJSON)),
         'name': value.name,
     };

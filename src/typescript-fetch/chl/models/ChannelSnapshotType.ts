@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RestrictionsInfoType } from './RestrictionsInfoType';
+import type { RestrictionInfoType } from './RestrictionInfoType';
 import {
-    RestrictionsInfoTypeFromJSON,
-    RestrictionsInfoTypeFromJSONTyped,
-    RestrictionsInfoTypeToJSON,
-} from './RestrictionsInfoType';
+    RestrictionInfoTypeFromJSON,
+    RestrictionInfoTypeFromJSONTyped,
+    RestrictionInfoTypeToJSON,
+} from './RestrictionInfoType';
 
 /**
  * Inventory statistic and restriction information for a given date.
@@ -45,11 +45,11 @@ export interface ChannelSnapshotType {
      */
     inventoryRooms?: number;
     /**
-     * 
-     * @type {RestrictionsInfoType}
+     * Provides the basic Restriction type details, specifically used in snapshot operations for efficiency.
+     * @type {Array<RestrictionInfoType>}
      * @memberof ChannelSnapshotType
      */
-    restrictionsInfo?: RestrictionsInfoType;
+    restrictionsInfo?: Array<RestrictionInfoType>;
     /**
      * Number of rooms sold.
      * @type {number}
@@ -92,7 +92,7 @@ export function ChannelSnapshotTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'availableRooms': !exists(json, 'availableRooms') ? undefined : json['availableRooms'],
         'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
         'inventoryRooms': !exists(json, 'inventoryRooms') ? undefined : json['inventoryRooms'],
-        'restrictionsInfo': !exists(json, 'restrictionsInfo') ? undefined : RestrictionsInfoTypeFromJSON(json['restrictionsInfo']),
+        'restrictionsInfo': !exists(json, 'restrictionsInfo') ? undefined : ((json['restrictionsInfo'] as Array<any>).map(RestrictionInfoTypeFromJSON)),
         'roomsSold': !exists(json, 'roomsSold') ? undefined : json['roomsSold'],
         'sellLimit': !exists(json, 'sellLimit') ? undefined : json['sellLimit'],
         'tentativeRoomsSold': !exists(json, 'tentativeRoomsSold') ? undefined : json['tentativeRoomsSold'],
@@ -111,7 +111,7 @@ export function ChannelSnapshotTypeToJSON(value?: ChannelSnapshotType | null): a
         'availableRooms': value.availableRooms,
         'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
         'inventoryRooms': value.inventoryRooms,
-        'restrictionsInfo': RestrictionsInfoTypeToJSON(value.restrictionsInfo),
+        'restrictionsInfo': value.restrictionsInfo === undefined ? undefined : ((value.restrictionsInfo as Array<any>).map(RestrictionInfoTypeToJSON)),
         'roomsSold': value.roomsSold,
         'sellLimit': value.sellLimit,
         'tentativeRoomsSold': value.tentativeRoomsSold,

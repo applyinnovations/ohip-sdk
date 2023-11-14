@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RateClassesType } from './RateClassesType';
+import type { RateClassType } from './RateClassType';
 /**
  * Collection of rate classes.
  * @export
@@ -41,11 +41,11 @@ export interface RateClassDetailsRateClasses {
      */
     offset?: number;
     /**
-     *
-     * @type {RateClassesType}
+     * Collection of hotel rate classes.
+     * @type {Array<RateClassType>}
      * @memberof RateClassDetailsRateClasses
      */
-    rateClasses?: RateClassesType;
+    rateClasses?: Array<RateClassType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelPackageForecastGroupsType } from './HotelPackageForecastGroupsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelPackageForecastGroupType } from './HotelPackageForecastGroupType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new package forecast groups for a hotel.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface HotelPackageForecastGroupsToCreate {
     /**
-     *
-     * @type {HotelPackageForecastGroupsType}
+     * Hotel package forecast group details.
+     * @type {Array<HotelPackageForecastGroupType>}
      * @memberof HotelPackageForecastGroupsToCreate
      */
-    hotelPackageForecastGroups?: HotelPackageForecastGroupsType;
+    hotelPackageForecastGroups?: Array<HotelPackageForecastGroupType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelPackageForecastGroupsToCreate
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelPackageForecastGroupsToCreate
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HotelPackageForecastGroupsToCreate interface.

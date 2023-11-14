@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClaimReservationInfoTypeToJSON = exports.ClaimReservationInfoTypeFromJSONTyped = exports.ClaimReservationInfoTypeFromJSON = exports.instanceOfClaimReservationInfoType = void 0;
 const runtime_1 = require("../runtime");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ClaimReservationInfoType interface.
  */
@@ -34,7 +34,7 @@ function ClaimReservationInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'confirmationNo': !(0, runtime_1.exists)(json, 'confirmationNo') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['confirmationNo']),
+        'confirmationNo': !(0, runtime_1.exists)(json, 'confirmationNo') ? undefined : (json['confirmationNo'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'arrival': !(0, runtime_1.exists)(json, 'arrival') ? undefined : (new Date(json['arrival'])),
         'departure': !(0, runtime_1.exists)(json, 'departure') ? undefined : (new Date(json['departure'])),
     };
@@ -49,7 +49,7 @@ function ClaimReservationInfoTypeToJSON(value) {
     }
     return {
         'hotelId': value.hotelId,
-        'confirmationNo': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.confirmationNo),
+        'confirmationNo': value.confirmationNo === undefined ? undefined : (value.confirmationNo.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0, 10)),
         'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0, 10)),
     };

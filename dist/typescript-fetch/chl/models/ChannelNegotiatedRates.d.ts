@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ChannelNegRateType } from './ChannelNegRateType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Negotiated channel rates.
  * @export
@@ -26,16 +26,16 @@ export interface ChannelNegotiatedRates {
     channelNegRates?: Array<ChannelNegRateType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelNegotiatedRates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelNegotiatedRates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelNegotiatedRates interface.

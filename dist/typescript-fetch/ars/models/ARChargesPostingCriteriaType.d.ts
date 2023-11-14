@@ -11,7 +11,7 @@
  */
 import type { ARAccountCriteriaType } from './ARAccountCriteriaType';
 import type { ARInvoiceType } from './ARInvoiceType';
-import type { ChargesCriteriaType } from './ChargesCriteriaType';
+import type { ChargeCriteriaType } from './ChargeCriteriaType';
 /**
  * The charges which have to be posted.
  * @export
@@ -31,11 +31,11 @@ export interface ARChargesPostingCriteriaType {
      */
     cashierId?: number;
     /**
-     *
-     * @type {ChargesCriteriaType}
+     * Collection of Charges to be posted.
+     * @type {Array<ChargeCriteriaType>}
      * @memberof ARChargesPostingCriteriaType
      */
-    charges?: ChargesCriteriaType;
+    charges?: Array<ChargeCriteriaType>;
     /**
      * Property where the charges are to be posted.
      * @type {string}

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockSalesAllowanceListType } from './BlockSalesAllowanceListType';
+import type { BlockSalesAllowanceType } from './BlockSalesAllowanceType';
 import {
-    BlockSalesAllowanceListTypeFromJSON,
-    BlockSalesAllowanceListTypeFromJSONTyped,
-    BlockSalesAllowanceListTypeToJSON,
-} from './BlockSalesAllowanceListType';
-import type { Links } from './Links';
+    BlockSalesAllowanceTypeFromJSON,
+    BlockSalesAllowanceTypeFromJSONTyped,
+    BlockSalesAllowanceTypeToJSON,
+} from './BlockSalesAllowanceType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for FetchBlockSalesAllowance operation which will contain all the information of sales allowance.
@@ -40,22 +40,22 @@ import {
 export interface BlockSalesAllowance {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockSalesAllowance
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {BlockSalesAllowanceListType}
+     * Block's sales allowance information.
+     * @type {Array<BlockSalesAllowanceType>}
      * @memberof BlockSalesAllowance
      */
-    salesAllowances?: BlockSalesAllowanceListType;
+    salesAllowances?: Array<BlockSalesAllowanceType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockSalesAllowance
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function BlockSalesAllowanceFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'salesAllowances': !exists(json, 'salesAllowances') ? undefined : BlockSalesAllowanceListTypeFromJSON(json['salesAllowances']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'salesAllowances': !exists(json, 'salesAllowances') ? undefined : ((json['salesAllowances'] as Array<any>).map(BlockSalesAllowanceTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function BlockSalesAllowanceToJSON(value?: BlockSalesAllowance | null): a
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'salesAllowances': BlockSalesAllowanceListTypeToJSON(value.salesAllowances),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'salesAllowances': value.salesAllowances === undefined ? undefined : ((value.salesAllowances as Array<any>).map(BlockSalesAllowanceTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

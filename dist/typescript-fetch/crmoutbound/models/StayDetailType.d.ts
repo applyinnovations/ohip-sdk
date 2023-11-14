@@ -12,26 +12,25 @@
 import type { AdvanceCheckInType } from './AdvanceCheckInType';
 import type { CommissionPayoutToType } from './CommissionPayoutToType';
 import type { HousekeepingRoomStatusType } from './HousekeepingRoomStatusType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import type { PMSResStatusType } from './PMSResStatusType';
 import type { ResAccessRestrictionType } from './ResAccessRestrictionType';
-import type { ResAttachedProfileListType } from './ResAttachedProfileListType';
+import type { ResAttachedProfileType } from './ResAttachedProfileType';
 import type { ResCashieringType } from './ResCashieringType';
 import type { ResCommunicationType } from './ResCommunicationType';
 import type { ResGuestInfoType } from './ResGuestInfoType';
 import type { ResHousekeepingType } from './ResHousekeepingType';
 import type { ResMobileNotificationsType } from './ResMobileNotificationsType';
 import type { ResRevenueBalanceType } from './ResRevenueBalanceType';
-import type { ResSharedGuestListType } from './ResSharedGuestListType';
-import type { ReservationAllowedActionsType } from './ReservationAllowedActionsType';
+import type { ResSharedGuestInfoType } from './ResSharedGuestInfoType';
+import type { ReservationAllowedActionType } from './ReservationAllowedActionType';
 import type { ReservationDepositType } from './ReservationDepositType';
-import type { ReservationFolioWindowsType } from './ReservationFolioWindowsType';
-import type { ReservationIdList } from './ReservationIdList';
+import type { ReservationFolioWindowType } from './ReservationFolioWindowType';
 import type { ReservationInterfaceStatusType } from './ReservationInterfaceStatusType';
 import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
 import type { ReservationQueueInformationType } from './ReservationQueueInformationType';
 import type { ReservationTurndownInfoType } from './ReservationTurndownInfoType';
-import type { SearchMatchesType } from './SearchMatchesType';
+import type { SearchMatchType } from './SearchMatchType';
 import type { SourceOfSaleType } from './SourceOfSaleType';
 import type { StayDetailTypeCancellationInfo } from './StayDetailTypeCancellationInfo';
 import type { StayInfoType } from './StayInfoType';
@@ -45,11 +44,11 @@ import type { WaitlistResType } from './WaitlistResType';
  */
 export interface StayDetailType {
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof StayDetailType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {StayInfoType}
@@ -63,17 +62,17 @@ export interface StayDetailType {
      */
     resGuest?: ResGuestInfoType;
     /**
-     *
-     * @type {ResSharedGuestListType}
+     * Collection of shared guest reservations.
+     * @type {Array<ResSharedGuestInfoType>}
      * @memberof StayDetailType
      */
-    sharedGuests?: ResSharedGuestListType;
+    sharedGuests?: Array<ResSharedGuestInfoType>;
     /**
      *
-     * @type {ResAttachedProfileListType}
+     * @type {Array<ResAttachedProfileType>}
      * @memberof StayDetailType
      */
-    attachedProfiles?: ResAttachedProfileListType;
+    attachedProfiles?: Array<ResAttachedProfileType>;
     /**
      *
      * @type {ReservationPaymentMethodType}
@@ -81,11 +80,11 @@ export interface StayDetailType {
      */
     reservationPaymentMethod?: ReservationPaymentMethodType;
     /**
-     *
-     * @type {ReservationFolioWindowsType}
+     * Collection of reservation folio windows.
+     * @type {Array<ReservationFolioWindowType>}
      * @memberof StayDetailType
      */
-    reservationFolioWindows?: ReservationFolioWindowsType;
+    reservationFolioWindows?: Array<ReservationFolioWindowType>;
     /**
      * Set of reservation preferences which belongs to the Specials group.
      * @type {string}
@@ -105,11 +104,11 @@ export interface StayDetailType {
      */
     displayColor?: string;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof StayDetailType
      */
-    reservationIndicators?: IndicatorsType;
+    reservationIndicators?: Array<IndicatorType>;
     /**
      *
      * @type {HousekeepingRoomStatusType}
@@ -117,11 +116,11 @@ export interface StayDetailType {
      */
     roomStatus?: HousekeepingRoomStatusType;
     /**
-     *
-     * @type {SearchMatchesType}
+     * List of Generic Name-Value-Pair Parameters used for super search matches.
+     * @type {Array<SearchMatchType>}
      * @memberof StayDetailType
      */
-    searchMatches?: SearchMatchesType;
+    searchMatches?: Array<SearchMatchType>;
     /**
      *
      * @type {SourceOfSaleType}
@@ -165,11 +164,11 @@ export interface StayDetailType {
      */
     deposit?: ReservationDepositType;
     /**
-     *
-     * @type {ReservationAllowedActionsType}
+     * Allowed action.
+     * @type {Array<ReservationAllowedActionType>}
      * @memberof StayDetailType
      */
-    allowedActions?: ReservationAllowedActionsType;
+    allowedActions?: Array<ReservationAllowedActionType>;
     /**
      *
      * @type {ResRevenueBalanceType}

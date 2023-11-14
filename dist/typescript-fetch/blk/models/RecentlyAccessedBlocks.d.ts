@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RecentlyAccessedBlocksType } from './RecentlyAccessedBlocksType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RecentlyAccessedBlockType } from './RecentlyAccessedBlockType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface RecentlyAccessedBlocks {
     /**
-     *
-     * @type {RecentlyAccessedBlocksType}
+     * A single recently accessed block.
+     * @type {Array<RecentlyAccessedBlockType>}
      * @memberof RecentlyAccessedBlocks
      */
-    blocks?: RecentlyAccessedBlocksType;
+    blocks?: Array<RecentlyAccessedBlockType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RecentlyAccessedBlocks
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RecentlyAccessedBlocks
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RecentlyAccessedBlocks interface.

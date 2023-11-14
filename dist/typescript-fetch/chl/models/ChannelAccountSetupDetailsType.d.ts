@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 /**
  * To hold channel account detailed setup information.
  * @export
@@ -36,10 +35,10 @@ export interface ChannelAccountSetupDetailsType {
     currencyCode?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ChannelAccountSetupDetailsType
      */
-    hotelCodes?: CodeListType;
+    hotelCodes?: Array<string>;
     /**
      * The date that account was marked as inactive.
      * @type {Date}
@@ -48,10 +47,10 @@ export interface ChannelAccountSetupDetailsType {
     inactiveDate?: Date;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ChannelAccountSetupDetailsType
      */
-    instances?: CodeListType;
+    instances?: Array<string>;
     /**
      * The rebate date for the account.
      * @type {Date}

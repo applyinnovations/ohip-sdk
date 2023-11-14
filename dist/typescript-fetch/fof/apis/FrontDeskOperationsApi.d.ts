@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ActivityLog, AdvanceCheckInReservation, AiraLastRunStatusInfo, AssignedRoom, AutoAssignRoom, AutoAssignedRoom, BatchCCAuth, BatchCCAuthToProcess, ChangedWakeUpCalls, CheckedinReservation, DailyDocket, DeliverQueueRoomsTextMessage, FloorPlans, HoldRooms, HotelRooms, LinkedReservations, MassAdvanceCheckInReservations, MassCheckInReservations, MoveInHouseGuest, MovedInHouseGuest, PostCheckInRequest, QueueReservation, QueueRoomsTextMessage, QueuedRoomsTextMessage, ReservationInterface, ReservationQueuePriority, ReservationQueuePriorityNumber, ReservationsInQueue, ReservationsInfo, ResvForBatchCCAut, Room, RoomInterfaceStatus, RoomKey, RoomKeyDetails, RoomKeyInfo, RoomKeyInterfaceDetails, RoomKeyMultipleGuests, RoomKeyStatus, RoomMoveHistory, RoomsAI, ServiceRequestsInfo, ShiftRooms, ShortReservation, Status, SuggestedRooms, SwapRooms, UnAssignRoomCriteria, UnAssignedRoom, UpdateRoomKeys, VerifiedCheckinReservation, WakeUpCalls } from '../models/index';
+import type { ActivityLog, AdvanceCheckInReservation, AiraLastRunStatusInfo, AssignedRoom, AutoAssignRoom, AutoRoomAssignType, BatchCCAuth, BatchCCAuthToProcess, ChangedWakeUpCalls, CheckedinReservation, DailyDocket, DeliverQueueRoomsTextMessage, FloorPlans, HoldRooms, HotelRooms, LinkedReservations, MassAdvanceCheckInReservations, MassCheckInReservations, MoveInHouseGuest, MovedInHouseGuest, PostCheckInRequest, QueueReservation, QueueRoomsTextMessage, QueuedRoomsTextMessage, ReservationInterface, ReservationQueuePriority, ReservationQueuePriorityNumber, ReservationsInQueue, ReservationsInfo, ResvForBatchCCAut, Room, RoomInterfaceStatus, RoomKey, RoomKeyDetails, RoomKeyInfo, RoomKeyInterfaceDetails, RoomKeyMultipleGuests, RoomKeyStatus, RoomMoveHistory, RoomsAI, ServiceRequestsInfo, ShiftRooms, ShortReservation, Status, SuggestedRooms, SwapRooms, UnAssignRoomCriteria, UnAssignedRoom, UpdateRoomKeys, VerifiedCheckinReservation, WakeUpCalls } from '../models/index';
 export interface AddReservationToQueueRequest {
     reservationId: string;
     hotelId: string;
@@ -816,12 +816,12 @@ export declare class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API can be used to assign the room automatically. <p><strong>OperationId:</strong>autoAssignRoom</p>
      * Assign the room automatically
      */
-    autoAssignRoomRaw(requestParameters: AutoAssignRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoAssignedRoom>>;
+    autoAssignRoomRaw(requestParameters: AutoAssignRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AutoRoomAssignType>>>;
     /**
      * This API can be used to assign the room automatically. <p><strong>OperationId:</strong>autoAssignRoom</p>
      * Assign the room automatically
      */
-    autoAssignRoom(requestParameters: AutoAssignRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AutoAssignedRoom>;
+    autoAssignRoom(requestParameters: AutoAssignRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AutoRoomAssignType>>;
     /**
      * This API can be used to auto unassign a room. <p><strong>OperationId:</strong>autoUnAssignRoom</p>
      * Auto unassign room

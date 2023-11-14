@@ -16,9 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringMenuItemTypeToJSON = exports.CateringMenuItemTypeFromJSONTyped = exports.CateringMenuItemTypeFromJSON = exports.instanceOfCateringMenuItemType = void 0;
 const runtime_1 = require("../runtime");
 const CodeDescriptionType_1 = require("./CodeDescriptionType");
-const CodeListType_1 = require("./CodeListType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
-const DietaryPrefListType_1 = require("./DietaryPrefListType");
+const DietaryPrefType_1 = require("./DietaryPrefType");
 const MenuTypeType_1 = require("./MenuTypeType");
 const TranslationTextType2000_1 = require("./TranslationTextType2000");
 const UniqueIDType_1 = require("./UniqueIDType");
@@ -44,9 +43,9 @@ function CateringMenuItemTypeFromJSONTyped(json, ignoreDiscriminator) {
         'cost': !(0, runtime_1.exists)(json, 'cost') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['cost']),
         'custom': !(0, runtime_1.exists)(json, 'custom') ? undefined : json['custom'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : (0, TranslationTextType2000_1.TranslationTextType2000FromJSON)(json['description']),
-        'dietaryPreferenceList': !(0, runtime_1.exists)(json, 'dietaryPreferenceList') ? undefined : (0, DietaryPrefListType_1.DietaryPrefListTypeFromJSON)(json['dietaryPreferenceList']),
+        'dietaryPreferenceList': !(0, runtime_1.exists)(json, 'dietaryPreferenceList') ? undefined : (json['dietaryPreferenceList'].map(DietaryPrefType_1.DietaryPrefTypeFromJSON)),
         'displayOrder': !(0, runtime_1.exists)(json, 'displayOrder') ? undefined : json['displayOrder'],
-        'eventTypes': !(0, runtime_1.exists)(json, 'eventTypes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['eventTypes']),
+        'eventTypes': !(0, runtime_1.exists)(json, 'eventTypes') ? undefined : json['eventTypes'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'id': !(0, runtime_1.exists)(json, 'id') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['id']),
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
@@ -61,7 +60,7 @@ function CateringMenuItemTypeFromJSONTyped(json, ignoreDiscriminator) {
         'portion': !(0, runtime_1.exists)(json, 'portion') ? undefined : (0, TranslationTextType2000_1.TranslationTextType2000FromJSON)(json['portion']),
         'print': !(0, runtime_1.exists)(json, 'print') ? undefined : json['print'],
         'quickInsertCode': !(0, runtime_1.exists)(json, 'quickInsertCode') ? undefined : json['quickInsertCode'],
-        'responsibleDepartments': !(0, runtime_1.exists)(json, 'responsibleDepartments') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['responsibleDepartments']),
+        'responsibleDepartments': !(0, runtime_1.exists)(json, 'responsibleDepartments') ? undefined : json['responsibleDepartments'],
         'restriction': !(0, runtime_1.exists)(json, 'restriction') ? undefined : json['restriction'],
         'revenueType': !(0, runtime_1.exists)(json, 'revenueType') ? undefined : json['revenueType'],
         'salesPrice': !(0, runtime_1.exists)(json, 'salesPrice') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['salesPrice']),
@@ -84,9 +83,9 @@ function CateringMenuItemTypeToJSON(value) {
         'cost': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.cost),
         'custom': value.custom,
         'description': (0, TranslationTextType2000_1.TranslationTextType2000ToJSON)(value.description),
-        'dietaryPreferenceList': (0, DietaryPrefListType_1.DietaryPrefListTypeToJSON)(value.dietaryPreferenceList),
+        'dietaryPreferenceList': value.dietaryPreferenceList === undefined ? undefined : (value.dietaryPreferenceList.map(DietaryPrefType_1.DietaryPrefTypeToJSON)),
         'displayOrder': value.displayOrder,
-        'eventTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.eventTypes),
+        'eventTypes': value.eventTypes,
         'hotelId': value.hotelId,
         'id': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.id),
         'inactive': value.inactive,
@@ -101,7 +100,7 @@ function CateringMenuItemTypeToJSON(value) {
         'portion': (0, TranslationTextType2000_1.TranslationTextType2000ToJSON)(value.portion),
         'print': value.print,
         'quickInsertCode': value.quickInsertCode,
-        'responsibleDepartments': (0, CodeListType_1.CodeListTypeToJSON)(value.responsibleDepartments),
+        'responsibleDepartments': value.responsibleDepartments,
         'restriction': value.restriction,
         'revenueType': value.revenueType,
         'salesPrice': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.salesPrice),

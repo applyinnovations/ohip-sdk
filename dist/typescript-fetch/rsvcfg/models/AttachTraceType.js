@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AttachTraceTypeToJSON = exports.AttachTraceTypeFromJSONTyped = exports.AttachTraceTypeFromJSON = exports.instanceOfAttachTraceType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 /**
  * Check if a given object implements the AttachTraceType interface.
  */
@@ -33,7 +32,7 @@ function AttachTraceTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'departments': !(0, runtime_1.exists)(json, 'departments') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['departments']),
+        'departments': !(0, runtime_1.exists)(json, 'departments') ? undefined : json['departments'],
         'traceText': !(0, runtime_1.exists)(json, 'traceText') ? undefined : json['traceText'],
     };
 }
@@ -46,7 +45,7 @@ function AttachTraceTypeToJSON(value) {
         return null;
     }
     return {
-        'departments': (0, CodeListType_1.CodeListTypeToJSON)(value.departments),
+        'departments': value.departments,
         'traceText': value.traceText,
     };
 }

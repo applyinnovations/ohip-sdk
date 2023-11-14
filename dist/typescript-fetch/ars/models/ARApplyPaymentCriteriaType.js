@@ -17,8 +17,8 @@ exports.ARApplyPaymentCriteriaTypeToJSON = exports.ARApplyPaymentCriteriaTypeFro
 const runtime_1 = require("../runtime");
 const ARAccountCriteriaType_1 = require("./ARAccountCriteriaType");
 const ARApplyType_1 = require("./ARApplyType");
-const ARPaymentInvoicesType_1 = require("./ARPaymentInvoicesType");
-const ARPaymentsType_1 = require("./ARPaymentsType");
+const ARPaymentInvoicesTypeInner_1 = require("./ARPaymentInvoicesTypeInner");
+const ARPaymentType_1 = require("./ARPaymentType");
 /**
  * Check if a given object implements the ARApplyPaymentCriteriaType interface.
  */
@@ -39,8 +39,8 @@ function ARApplyPaymentCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         'account': !(0, runtime_1.exists)(json, 'account') ? undefined : (0, ARAccountCriteriaType_1.ARAccountCriteriaTypeFromJSON)(json['account']),
         'applyType': !(0, runtime_1.exists)(json, 'applyType') ? undefined : (0, ARApplyType_1.ARApplyTypeFromJSON)(json['applyType']),
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
-        'invoices': !(0, runtime_1.exists)(json, 'invoices') ? undefined : (0, ARPaymentInvoicesType_1.ARPaymentInvoicesTypeFromJSON)(json['invoices']),
-        'payments': !(0, runtime_1.exists)(json, 'payments') ? undefined : (0, ARPaymentsType_1.ARPaymentsTypeFromJSON)(json['payments']),
+        'invoices': !(0, runtime_1.exists)(json, 'invoices') ? undefined : (json['invoices'].map(ARPaymentInvoicesTypeInner_1.ARPaymentInvoicesTypeInnerFromJSON)),
+        'payments': !(0, runtime_1.exists)(json, 'payments') ? undefined : (json['payments'].map(ARPaymentType_1.ARPaymentTypeFromJSON)),
     };
 }
 exports.ARApplyPaymentCriteriaTypeFromJSONTyped = ARApplyPaymentCriteriaTypeFromJSONTyped;
@@ -55,8 +55,8 @@ function ARApplyPaymentCriteriaTypeToJSON(value) {
         'account': (0, ARAccountCriteriaType_1.ARAccountCriteriaTypeToJSON)(value.account),
         'applyType': (0, ARApplyType_1.ARApplyTypeToJSON)(value.applyType),
         'cashierId': value.cashierId,
-        'invoices': (0, ARPaymentInvoicesType_1.ARPaymentInvoicesTypeToJSON)(value.invoices),
-        'payments': (0, ARPaymentsType_1.ARPaymentsTypeToJSON)(value.payments),
+        'invoices': value.invoices === undefined ? undefined : (value.invoices.map(ARPaymentInvoicesTypeInner_1.ARPaymentInvoicesTypeInnerToJSON)),
+        'payments': value.payments === undefined ? undefined : (value.payments.map(ARPaymentType_1.ARPaymentTypeToJSON)),
     };
 }
 exports.ARApplyPaymentCriteriaTypeToJSON = ARApplyPaymentCriteriaTypeToJSON;

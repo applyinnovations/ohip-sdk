@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { MembershipPropertyCodesType } from './MembershipPropertyCodesType';
+import type { CodeDescriptionType } from './CodeDescriptionType';
 import {
-    MembershipPropertyCodesTypeFromJSON,
-    MembershipPropertyCodesTypeFromJSONTyped,
-    MembershipPropertyCodesTypeToJSON,
-} from './MembershipPropertyCodesType';
+    CodeDescriptionTypeFromJSON,
+    CodeDescriptionTypeFromJSONTyped,
+    CodeDescriptionTypeToJSON,
+} from './CodeDescriptionType';
 
 /**
  * Base type provides information about Membership Market/Property Groups Configuration.
@@ -45,11 +45,11 @@ export interface MembershipPropertyGroupType {
      */
     displaySequence?: number;
     /**
-     * 
-     * @type {MembershipPropertyCodesType}
+     * Membership Property code and Description.
+     * @type {Array<CodeDescriptionType>}
      * @memberof MembershipPropertyGroupType
      */
-    hotels?: MembershipPropertyCodesType;
+    hotels?: Array<CodeDescriptionType>;
 }
 
 /**
@@ -74,7 +74,7 @@ export function MembershipPropertyGroupTypeFromJSONTyped(json: any, ignoreDiscri
         'code': !exists(json, 'code') ? undefined : json['code'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'displaySequence': !exists(json, 'displaySequence') ? undefined : json['displaySequence'],
-        'hotels': !exists(json, 'hotels') ? undefined : MembershipPropertyCodesTypeFromJSON(json['hotels']),
+        'hotels': !exists(json, 'hotels') ? undefined : ((json['hotels'] as Array<any>).map(CodeDescriptionTypeFromJSON)),
     };
 }
 
@@ -90,7 +90,7 @@ export function MembershipPropertyGroupTypeToJSON(value?: MembershipPropertyGrou
         'code': value.code,
         'description': value.description,
         'displaySequence': value.displaySequence,
-        'hotels': MembershipPropertyCodesTypeToJSON(value.hotels),
+        'hotels': value.hotels === undefined ? undefined : ((value.hotels as Array<any>).map(CodeDescriptionTypeToJSON)),
     };
 }
 

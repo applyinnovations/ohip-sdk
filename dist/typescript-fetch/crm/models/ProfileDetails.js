@@ -17,7 +17,7 @@ exports.ProfileDetailsToJSON = exports.ProfileDetailsFromJSONTyped = exports.Pro
 const runtime_1 = require("../runtime");
 const MasterInfoType_1 = require("./MasterInfoType");
 const ProfilesType_1 = require("./ProfilesType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ProfileDetails interface.
  */
@@ -37,7 +37,7 @@ function ProfileDetailsFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'masterInfoList': !(0, runtime_1.exists)(json, 'masterInfoList') ? undefined : (json['masterInfoList'].map(MasterInfoType_1.MasterInfoTypeFromJSON)),
         'profiles': !(0, runtime_1.exists)(json, 'profiles') ? undefined : (0, ProfilesType_1.ProfilesTypeFromJSON)(json['profiles']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ProfileDetailsFromJSONTyped = ProfileDetailsFromJSONTyped;
@@ -51,7 +51,7 @@ function ProfileDetailsToJSON(value) {
     return {
         'masterInfoList': value.masterInfoList === undefined ? undefined : (value.masterInfoList.map(MasterInfoType_1.MasterInfoTypeToJSON)),
         'profiles': (0, ProfilesType_1.ProfilesTypeToJSON)(value.profiles),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ProfileDetailsToJSON = ProfileDetailsToJSON;

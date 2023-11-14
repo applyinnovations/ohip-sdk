@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RecentlyAccessedActivitiesType } from './RecentlyAccessedActivitiesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RecentlyAccessedActivityType } from './RecentlyAccessedActivityType';
 import {
-    RecentlyAccessedActivitiesTypeFromJSON,
-    RecentlyAccessedActivitiesTypeFromJSONTyped,
-    RecentlyAccessedActivitiesTypeToJSON,
-} from './RecentlyAccessedActivitiesType';
-import type { WarningsType } from './WarningsType';
+    RecentlyAccessedActivityTypeFromJSON,
+    RecentlyAccessedActivityTypeFromJSONTyped,
+    RecentlyAccessedActivityTypeToJSON,
+} from './RecentlyAccessedActivityType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface RecentlyAccessedActivities {
     /**
-     * 
-     * @type {RecentlyAccessedActivitiesType}
+     * A single recently accessed activity.
+     * @type {Array<RecentlyAccessedActivityType>}
      * @memberof RecentlyAccessedActivities
      */
-    activities?: RecentlyAccessedActivitiesType;
+    activities?: Array<RecentlyAccessedActivityType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RecentlyAccessedActivities
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RecentlyAccessedActivities
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RecentlyAccessedActivitiesFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'activities': !exists(json, 'activities') ? undefined : RecentlyAccessedActivitiesTypeFromJSON(json['activities']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'activities': !exists(json, 'activities') ? undefined : ((json['activities'] as Array<any>).map(RecentlyAccessedActivityTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RecentlyAccessedActivitiesToJSON(value?: RecentlyAccessedActivit
     }
     return {
         
-        'activities': RecentlyAccessedActivitiesTypeToJSON(value.activities),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'activities': value.activities === undefined ? undefined : ((value.activities as Array<any>).map(RecentlyAccessedActivityTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PostBillingChargesInBatchCriteriaTypeToJSON = exports.PostBillingChargesInBatchCriteriaTypeFromJSONTyped = exports.PostBillingChargesInBatchCriteriaTypeFromJSON = exports.instanceOfPostBillingChargesInBatchCriteriaType = void 0;
 const runtime_1 = require("../runtime");
-const ChargesCriteriaType_1 = require("./ChargesCriteriaType");
-const Reservations_1 = require("./Reservations");
+const ChargeCriteriaType_1 = require("./ChargeCriteriaType");
+const ReservationId_1 = require("./ReservationId");
 /**
  * Check if a given object implements the PostBillingChargesInBatchCriteriaType interface.
  */
@@ -34,9 +34,9 @@ function PostBillingChargesInBatchCriteriaTypeFromJSONTyped(json, ignoreDiscrimi
         return json;
     }
     return {
-        'charges': !(0, runtime_1.exists)(json, 'charges') ? undefined : (0, ChargesCriteriaType_1.ChargesCriteriaTypeFromJSON)(json['charges']),
+        'charges': !(0, runtime_1.exists)(json, 'charges') ? undefined : (json['charges'].map(ChargeCriteriaType_1.ChargeCriteriaTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'reservations': !(0, runtime_1.exists)(json, 'reservations') ? undefined : (0, Reservations_1.ReservationsFromJSON)(json['reservations']),
+        'reservations': !(0, runtime_1.exists)(json, 'reservations') ? undefined : (json['reservations'].map(ReservationId_1.ReservationIdFromJSON)),
     };
 }
 exports.PostBillingChargesInBatchCriteriaTypeFromJSONTyped = PostBillingChargesInBatchCriteriaTypeFromJSONTyped;
@@ -48,9 +48,9 @@ function PostBillingChargesInBatchCriteriaTypeToJSON(value) {
         return null;
     }
     return {
-        'charges': (0, ChargesCriteriaType_1.ChargesCriteriaTypeToJSON)(value.charges),
+        'charges': value.charges === undefined ? undefined : (value.charges.map(ChargeCriteriaType_1.ChargeCriteriaTypeToJSON)),
         'hotelId': value.hotelId,
-        'reservations': (0, Reservations_1.ReservationsToJSON)(value.reservations),
+        'reservations': value.reservations === undefined ? undefined : (value.reservations.map(ReservationId_1.ReservationIdToJSON)),
     };
 }
 exports.PostBillingChargesInBatchCriteriaTypeToJSON = PostBillingChargesInBatchCriteriaTypeToJSON;

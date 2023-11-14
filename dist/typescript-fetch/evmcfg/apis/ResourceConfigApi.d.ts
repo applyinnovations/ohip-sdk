@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CateringContainers, CateringContainersInfo, CateringItemRates, CateringItemRatesInfo, CateringMenuClasses, CateringMenuClassesInfo, CateringMenuItemClasses, CateringMenuItemClassesCopy, CateringMenuItemClassesInfo, CateringMenuItems, CateringMenuItemsCopy, CateringMenuItemsInfo, CateringMenus, CateringMenusCopy, CateringMenusInfo, CateringPackage, CateringPackages, CateringPackagesInfo, CateringServings, CateringServingsInfo, CheckedDiscountAvailable, DailyInventoryItems, EventForecasts, EventForecastsCopy, EventForecastsInfo, InventoryItemTemplates, InventoryItems, InventoryItemsCopy, InventoryItemsCreated, ItemClasses, ItemClassesCopy, ItemClassesInfo, ItemPools, ItemPoolsInfo, RevenueGroups, RevenueGroupsInfo, RevenueTypes, RevenueTypesInfo, Status } from '../models/index';
+import type { CateringContainers, CateringContainersInfo, CateringItemRates, CateringItemRatesInfo, CateringMenuClasses, CateringMenuClassesInfo, CateringMenuItemClasses, CateringMenuItemClassesCopy, CateringMenuItemClassesInfo, CateringMenuItems, CateringMenuItemsCopy, CateringMenuItemsInfo, CateringMenus, CateringMenusCopy, CateringMenusInfo, CateringPackage, CateringPackages, CateringPackagesInfo, CateringServings, CateringServingsInfo, CheckedDiscountAvailable, CopyConfigurationCodeType, DailyInventoryItems, EventForecasts, EventForecastsCopy, EventForecastsInfo, InventoryItemTemplates, InventoryItems, InventoryItemsCopy, InventoryItemsCreated, ItemClasses, ItemClassesInfo, ItemPools, ItemPoolsInfo, RevenueGroups, RevenueGroupsInfo, RevenueTypes, RevenueTypesInfo, Status } from '../models/index';
 export interface CheckDiscountAvailableRequest {
     hotelId: string;
     authorization?: string;
@@ -68,7 +68,7 @@ export interface CopyItemClassesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    itemClassesCopy: ItemClassesCopy;
+    itemClassesCopy: Array<CopyConfigurationCodeType>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

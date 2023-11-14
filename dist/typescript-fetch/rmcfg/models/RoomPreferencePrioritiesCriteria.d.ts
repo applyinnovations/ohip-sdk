@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RoomPreferencePrioritiesType } from './RoomPreferencePrioritiesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RoomPreferencePriorityType } from './RoomPreferencePriorityType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Room Preference Priorities.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface RoomPreferencePrioritiesCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomPreferencePrioritiesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RoomPreferencePrioritiesType}
+     * List of Room Preference Priorities.
+     * @type {Array<RoomPreferencePriorityType>}
      * @memberof RoomPreferencePrioritiesCriteria
      */
-    roomPreferencePriorities?: RoomPreferencePrioritiesType;
+    roomPreferencePriorities?: Array<RoomPreferencePriorityType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomPreferencePrioritiesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomPreferencePrioritiesCriteria interface.

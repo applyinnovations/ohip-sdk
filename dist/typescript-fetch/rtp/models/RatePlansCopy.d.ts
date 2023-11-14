@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CopyRatePlansCriteriaType } from './CopyRatePlansCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for Copying rate plans to multiple hotels.
  * @export
@@ -26,16 +26,16 @@ export interface RatePlansCopy {
     criteria?: CopyRatePlansCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RatePlansCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RatePlansCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RatePlansCopy interface.

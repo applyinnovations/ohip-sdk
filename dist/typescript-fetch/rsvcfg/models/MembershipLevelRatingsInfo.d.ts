@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MembershipLevelRatingsInfoType } from './MembershipLevelRatingsInfoType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MembershipLevelRatingInfoType } from './MembershipLevelRatingInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching the membership levels and their rating details.
  * @export
@@ -32,16 +32,16 @@ export interface MembershipLevelRatingsInfo {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipLevelRatingsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MembershipLevelRatingsInfoType}
+     * Collection of membership levels and their ratings.
+     * @type {Array<MembershipLevelRatingInfoType>}
      * @memberof MembershipLevelRatingsInfo
      */
-    membershipLevelRatingsInfo?: MembershipLevelRatingsInfoType;
+    membershipLevelRatingsInfo?: Array<MembershipLevelRatingInfoType>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -61,11 +61,11 @@ export interface MembershipLevelRatingsInfo {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipLevelRatingsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipLevelRatingsInfo interface.

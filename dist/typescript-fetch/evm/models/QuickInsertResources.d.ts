@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { QuickInsertResourceListType } from './QuickInsertResourceListType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to add resource on an event in a hotel.
  * @export
@@ -24,11 +24,11 @@ export interface QuickInsertResources {
      */
     quickInsertResourceListInfo?: Array<QuickInsertResourceListType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof QuickInsertResources
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the QuickInsertResources interface.

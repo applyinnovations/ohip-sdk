@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommissionCalculationTypeToJSON = exports.CommissionCalculationTypeFromJSONTyped = exports.CommissionCalculationTypeFromJSON = exports.instanceOfCommissionCalculationType = void 0;
 const runtime_1 = require("../runtime");
+const CommissionCodeTransactionType_1 = require("./CommissionCodeTransactionType");
 const ReservationBasedCommissionType_1 = require("./ReservationBasedCommissionType");
-const RevenueBasedCommissionType_1 = require("./RevenueBasedCommissionType");
 /**
  * Check if a given object implements the CommissionCalculationType interface.
  */
@@ -35,7 +35,7 @@ function CommissionCalculationTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'reservationBasedCommission': !(0, runtime_1.exists)(json, 'reservationBasedCommission') ? undefined : (0, ReservationBasedCommissionType_1.ReservationBasedCommissionTypeFromJSON)(json['reservationBasedCommission']),
-        'revenueBasedCommission': !(0, runtime_1.exists)(json, 'revenueBasedCommission') ? undefined : (0, RevenueBasedCommissionType_1.RevenueBasedCommissionTypeFromJSON)(json['revenueBasedCommission']),
+        'revenueBasedCommission': !(0, runtime_1.exists)(json, 'revenueBasedCommission') ? undefined : (json['revenueBasedCommission'].map(CommissionCodeTransactionType_1.CommissionCodeTransactionTypeFromJSON)),
     };
 }
 exports.CommissionCalculationTypeFromJSONTyped = CommissionCalculationTypeFromJSONTyped;
@@ -48,7 +48,7 @@ function CommissionCalculationTypeToJSON(value) {
     }
     return {
         'reservationBasedCommission': (0, ReservationBasedCommissionType_1.ReservationBasedCommissionTypeToJSON)(value.reservationBasedCommission),
-        'revenueBasedCommission': (0, RevenueBasedCommissionType_1.RevenueBasedCommissionTypeToJSON)(value.revenueBasedCommission),
+        'revenueBasedCommission': value.revenueBasedCommission === undefined ? undefined : (value.revenueBasedCommission.map(CommissionCodeTransactionType_1.CommissionCodeTransactionTypeToJSON)),
     };
 }
 exports.CommissionCalculationTypeToJSON = CommissionCalculationTypeToJSON;

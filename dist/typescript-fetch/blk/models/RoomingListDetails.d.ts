@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RoomingListReservationsType } from './RoomingListReservationsType';
-import type { RoomingListSharesType } from './RoomingListSharesType';
-import type { WarningsType } from './WarningsType';
+import type { RoomingListShareType } from './RoomingListShareType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for creation of block rooming list. This object contains the details with unique identifiers for the created block reservations. Also Success,Warnings and Errors related to this operation.
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface RoomingListDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomingListDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {RoomingListReservationsType}
@@ -32,17 +32,17 @@ export interface RoomingListDetails {
      */
     reservations?: RoomingListReservationsType;
     /**
-     *
-     * @type {RoomingListSharesType}
+     * Contains a set of rooming list reservations that need to be shared.
+     * @type {Array<RoomingListShareType>}
      * @memberof RoomingListDetails
      */
-    shares?: RoomingListSharesType;
+    shares?: Array<RoomingListShareType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomingListDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomingListDetails interface.

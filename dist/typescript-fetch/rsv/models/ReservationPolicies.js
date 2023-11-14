@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationPoliciesToJSON = exports.ReservationPoliciesFromJSONTyped = exports.ReservationPoliciesFromJSON = exports.instanceOfReservationPolicies = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const ResCancellationPoliciesType_1 = require("./ResCancellationPoliciesType");
-const ResDepositPoliciesType_1 = require("./ResDepositPoliciesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const ResCancellationPolicyType_1 = require("./ResCancellationPolicyType");
+const ResDepositPolicyType_1 = require("./ResDepositPolicyType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ReservationPolicies interface.
  */
@@ -36,10 +36,10 @@ function ReservationPoliciesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'cancellationPolicies': !(0, runtime_1.exists)(json, 'cancellationPolicies') ? undefined : (0, ResCancellationPoliciesType_1.ResCancellationPoliciesTypeFromJSON)(json['cancellationPolicies']),
-        'depositPolicies': !(0, runtime_1.exists)(json, 'depositPolicies') ? undefined : (0, ResDepositPoliciesType_1.ResDepositPoliciesTypeFromJSON)(json['depositPolicies']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'cancellationPolicies': !(0, runtime_1.exists)(json, 'cancellationPolicies') ? undefined : (json['cancellationPolicies'].map(ResCancellationPolicyType_1.ResCancellationPolicyTypeFromJSON)),
+        'depositPolicies': !(0, runtime_1.exists)(json, 'depositPolicies') ? undefined : (json['depositPolicies'].map(ResDepositPolicyType_1.ResDepositPolicyTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ReservationPoliciesFromJSONTyped = ReservationPoliciesFromJSONTyped;
@@ -51,10 +51,10 @@ function ReservationPoliciesToJSON(value) {
         return null;
     }
     return {
-        'cancellationPolicies': (0, ResCancellationPoliciesType_1.ResCancellationPoliciesTypeToJSON)(value.cancellationPolicies),
-        'depositPolicies': (0, ResDepositPoliciesType_1.ResDepositPoliciesTypeToJSON)(value.depositPolicies),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'cancellationPolicies': value.cancellationPolicies === undefined ? undefined : (value.cancellationPolicies.map(ResCancellationPolicyType_1.ResCancellationPolicyTypeToJSON)),
+        'depositPolicies': value.depositPolicies === undefined ? undefined : (value.depositPolicies.map(ResDepositPolicyType_1.ResDepositPolicyTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ReservationPoliciesToJSON = ReservationPoliciesToJSON;

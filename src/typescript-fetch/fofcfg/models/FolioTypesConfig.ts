@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FolioTypesConfigType } from './FolioTypesConfigType';
+import type { FolioTypeConfigType } from './FolioTypeConfigType';
 import {
-    FolioTypesConfigTypeFromJSON,
-    FolioTypesConfigTypeFromJSONTyped,
-    FolioTypesConfigTypeToJSON,
-} from './FolioTypesConfigType';
-import type { Links } from './Links';
+    FolioTypeConfigTypeFromJSON,
+    FolioTypeConfigTypeFromJSONTyped,
+    FolioTypeConfigTypeToJSON,
+} from './FolioTypeConfigType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface FolioTypesConfig {
     /**
-     * 
-     * @type {FolioTypesConfigType}
+     * Information details of the Folio Type Names.
+     * @type {Array<FolioTypeConfigType>}
      * @memberof FolioTypesConfig
      */
-    folioTypes?: FolioTypesConfigType;
+    folioTypes?: Array<FolioTypeConfigType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FolioTypesConfig
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FolioTypesConfig
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FolioTypesConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'folioTypes': !exists(json, 'folioTypes') ? undefined : FolioTypesConfigTypeFromJSON(json['folioTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'folioTypes': !exists(json, 'folioTypes') ? undefined : ((json['folioTypes'] as Array<any>).map(FolioTypeConfigTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FolioTypesConfigToJSON(value?: FolioTypesConfig | null): any {
     }
     return {
         
-        'folioTypes': FolioTypesConfigTypeToJSON(value.folioTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'folioTypes': value.folioTypes === undefined ? undefined : ((value.folioTypes as Array<any>).map(FolioTypeConfigTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

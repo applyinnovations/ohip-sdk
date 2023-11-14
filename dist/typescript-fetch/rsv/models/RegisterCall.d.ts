@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CallType } from './CallType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to register call. Either creates a new call or updates an existing call.
  * @export
@@ -26,16 +26,16 @@ export interface RegisterCall {
     call?: CallType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RegisterCall
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RegisterCall
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RegisterCall interface.

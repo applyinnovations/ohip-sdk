@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CommissionPaymentsActivityType } from './CommissionPaymentsActivityType';
+import type { CommissionPaymentActivityType } from './CommissionPaymentActivityType';
 import {
-    CommissionPaymentsActivityTypeFromJSON,
-    CommissionPaymentsActivityTypeFromJSONTyped,
-    CommissionPaymentsActivityTypeToJSON,
-} from './CommissionPaymentsActivityType';
-import type { Links } from './Links';
+    CommissionPaymentActivityTypeFromJSON,
+    CommissionPaymentActivityTypeFromJSONTyped,
+    CommissionPaymentActivityTypeToJSON,
+} from './CommissionPaymentActivityType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response type for commission payments activity.
@@ -40,22 +40,22 @@ import {
 export interface CommissionPaymentsActivityDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CommissionPaymentsActivityDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {CommissionPaymentsActivityType}
+     * List of payment activity information
+     * @type {Array<CommissionPaymentActivityType>}
      * @memberof CommissionPaymentsActivityDetails
      */
-    paymentsActivity?: CommissionPaymentsActivityType;
+    paymentsActivity?: Array<CommissionPaymentActivityType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CommissionPaymentsActivityDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CommissionPaymentsActivityDetailsFromJSONTyped(json: any, ignore
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'paymentsActivity': !exists(json, 'paymentsActivity') ? undefined : CommissionPaymentsActivityTypeFromJSON(json['paymentsActivity']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'paymentsActivity': !exists(json, 'paymentsActivity') ? undefined : ((json['paymentsActivity'] as Array<any>).map(CommissionPaymentActivityTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CommissionPaymentsActivityDetailsToJSON(value?: CommissionPaymen
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'paymentsActivity': CommissionPaymentsActivityTypeToJSON(value.paymentsActivity),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'paymentsActivity': value.paymentsActivity === undefined ? undefined : ((value.paymentsActivity as Array<any>).map(CommissionPaymentActivityTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LocatorCodesTemplateInfoToJSON = exports.LocatorCodesTemplateInfoFromJSONTyped = exports.LocatorCodesTemplateInfoFromJSON = exports.instanceOfLocatorCodesTemplateInfo = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const LocatorCodesTemplateType_1 = require("./LocatorCodesTemplateType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const LocatorCodeTemplateType_1 = require("./LocatorCodeTemplateType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the LocatorCodesTemplateInfo interface.
  */
@@ -35,9 +35,9 @@ function LocatorCodesTemplateInfoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'locatorCodes': !(0, runtime_1.exists)(json, 'locatorCodes') ? undefined : (0, LocatorCodesTemplateType_1.LocatorCodesTemplateTypeFromJSON)(json['locatorCodes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'locatorCodes': !(0, runtime_1.exists)(json, 'locatorCodes') ? undefined : (json['locatorCodes'].map(LocatorCodeTemplateType_1.LocatorCodeTemplateTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.LocatorCodesTemplateInfoFromJSONTyped = LocatorCodesTemplateInfoFromJSONTyped;
@@ -49,9 +49,9 @@ function LocatorCodesTemplateInfoToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'locatorCodes': (0, LocatorCodesTemplateType_1.LocatorCodesTemplateTypeToJSON)(value.locatorCodes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'locatorCodes': value.locatorCodes === undefined ? undefined : (value.locatorCodes.map(LocatorCodeTemplateType_1.LocatorCodeTemplateTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.LocatorCodesTemplateInfoToJSON = LocatorCodesTemplateInfoToJSON;

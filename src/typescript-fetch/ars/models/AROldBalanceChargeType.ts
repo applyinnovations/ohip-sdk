@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ARTaxCodesType } from './ARTaxCodesType';
+import type { ARTaxCodeType } from './ARTaxCodeType';
 import {
-    ARTaxCodesTypeFromJSON,
-    ARTaxCodesTypeFromJSONTyped,
-    ARTaxCodesTypeToJSON,
-} from './ARTaxCodesType';
+    ARTaxCodeTypeFromJSON,
+    ARTaxCodeTypeFromJSONTyped,
+    ARTaxCodeTypeToJSON,
+} from './ARTaxCodeType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import {
     CurrencyAmountTypeFromJSON,
@@ -75,11 +75,11 @@ export interface AROldBalanceChargeType {
      */
     postingRemark?: string;
     /**
-     * 
-     * @type {ARTaxCodesType}
+     * Values of atmost 20 Taxes entered.
+     * @type {Array<ARTaxCodeType>}
      * @memberof AROldBalanceChargeType
      */
-    taxCodes?: ARTaxCodesType;
+    taxCodes?: Array<ARTaxCodeType>;
 }
 
 /**
@@ -108,7 +108,7 @@ export function AROldBalanceChargeTypeFromJSONTyped(json: any, ignoreDiscriminat
         'paid': !exists(json, 'paid') ? undefined : CurrencyAmountTypeFromJSON(json['paid']),
         'postingReference': !exists(json, 'postingReference') ? undefined : json['postingReference'],
         'postingRemark': !exists(json, 'postingRemark') ? undefined : json['postingRemark'],
-        'taxCodes': !exists(json, 'taxCodes') ? undefined : ARTaxCodesTypeFromJSON(json['taxCodes']),
+        'taxCodes': !exists(json, 'taxCodes') ? undefined : ((json['taxCodes'] as Array<any>).map(ARTaxCodeTypeFromJSON)),
     };
 }
 
@@ -128,7 +128,7 @@ export function AROldBalanceChargeTypeToJSON(value?: AROldBalanceChargeType | nu
         'paid': CurrencyAmountTypeToJSON(value.paid),
         'postingReference': value.postingReference,
         'postingRemark': value.postingRemark,
-        'taxCodes': ARTaxCodesTypeToJSON(value.taxCodes),
+        'taxCodes': value.taxCodes === undefined ? undefined : ((value.taxCodes as Array<any>).map(ARTaxCodeTypeToJSON)),
     };
 }
 

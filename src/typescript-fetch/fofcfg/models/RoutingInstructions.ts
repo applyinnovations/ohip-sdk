@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ConfigRoutingInstructionsType } from './ConfigRoutingInstructionsType';
+import type { ConfigRoutingInstructionType } from './ConfigRoutingInstructionType';
 import {
-    ConfigRoutingInstructionsTypeFromJSON,
-    ConfigRoutingInstructionsTypeFromJSONTyped,
-    ConfigRoutingInstructionsTypeToJSON,
-} from './ConfigRoutingInstructionsType';
-import type { Links } from './Links';
+    ConfigRoutingInstructionTypeFromJSON,
+    ConfigRoutingInstructionTypeFromJSONTyped,
+    ConfigRoutingInstructionTypeToJSON,
+} from './ConfigRoutingInstructionType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface RoutingInstructions {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoutingInstructions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ConfigRoutingInstructionsType}
+     * This type holds a collection of routing instructions.
+     * @type {Array<ConfigRoutingInstructionType>}
      * @memberof RoutingInstructions
      */
-    routingInstructions?: ConfigRoutingInstructionsType;
+    routingInstructions?: Array<ConfigRoutingInstructionType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoutingInstructions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RoutingInstructionsFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'routingInstructions': !exists(json, 'routingInstructions') ? undefined : ConfigRoutingInstructionsTypeFromJSON(json['routingInstructions']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'routingInstructions': !exists(json, 'routingInstructions') ? undefined : ((json['routingInstructions'] as Array<any>).map(ConfigRoutingInstructionTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RoutingInstructionsToJSON(value?: RoutingInstructions | null): a
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'routingInstructions': ConfigRoutingInstructionsTypeToJSON(value.routingInstructions),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'routingInstructions': value.routingInstructions === undefined ? undefined : ((value.routingInstructions as Array<any>).map(ConfigRoutingInstructionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelParametersType } from './ChannelParametersType';
+import type { ChannelParameterType } from './ChannelParameterType';
 import {
-    ChannelParametersTypeFromJSON,
-    ChannelParametersTypeFromJSONTyped,
-    ChannelParametersTypeToJSON,
-} from './ChannelParametersType';
+    ChannelParameterTypeFromJSON,
+    ChannelParameterTypeFromJSONTyped,
+    ChannelParameterTypeToJSON,
+} from './ChannelParameterType';
 
 /**
  * 
@@ -27,11 +27,11 @@ import {
  */
 export interface ChannelParameterGroupType {
     /**
-     * 
-     * @type {ChannelParametersType}
+     * parameters details.
+     * @type {Array<ChannelParameterType>}
      * @memberof ChannelParameterGroupType
      */
-    channelParameters?: ChannelParametersType;
+    channelParameters?: Array<ChannelParameterType>;
     /**
      * 
      * @type {string}
@@ -65,7 +65,7 @@ export function ChannelParameterGroupTypeFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'channelParameters': !exists(json, 'channelParameters') ? undefined : ChannelParametersTypeFromJSON(json['channelParameters']),
+        'channelParameters': !exists(json, 'channelParameters') ? undefined : ((json['channelParameters'] as Array<any>).map(ChannelParameterTypeFromJSON)),
         'groupDisplayName': !exists(json, 'groupDisplayName') ? undefined : json['groupDisplayName'],
         'groupName': !exists(json, 'groupName') ? undefined : json['groupName'],
     };
@@ -80,7 +80,7 @@ export function ChannelParameterGroupTypeToJSON(value?: ChannelParameterGroupTyp
     }
     return {
         
-        'channelParameters': ChannelParametersTypeToJSON(value.channelParameters),
+        'channelParameters': value.channelParameters === undefined ? undefined : ((value.channelParameters as Array<any>).map(ChannelParameterTypeToJSON)),
         'groupDisplayName': value.groupDisplayName,
         'groupName': value.groupName,
     };

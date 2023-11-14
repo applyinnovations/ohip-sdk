@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CateringMenuClassListType } from './CateringMenuClassListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CateringMenuClassType } from './CateringMenuClassType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Menu Classes.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface CateringMenuClasses {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringMenuClasses
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {CateringMenuClassListType}
+     * List of Values of Menu.
+     * @type {Array<CateringMenuClassType>}
      * @memberof CateringMenuClasses
      */
-    menuClassList?: CateringMenuClassListType;
+    menuClassList?: Array<CateringMenuClassType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringMenuClasses
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CateringMenuClasses interface.

@@ -15,11 +15,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GuestToJSON = exports.GuestFromJSONTyped = exports.GuestFromJSON = exports.instanceOfGuest = void 0;
 const runtime_1 = require("../runtime");
-const ExternalReferencesType_1 = require("./ExternalReferencesType");
+const ExternalReferenceType_1 = require("./ExternalReferenceType");
 const GuestProfileType_1 = require("./GuestProfileType");
-const Links_1 = require("./Links");
-const ProfileIdList_1 = require("./ProfileIdList");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const UniqueIDType_1 = require("./UniqueIDType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the Guest interface.
  */
@@ -37,11 +37,11 @@ function GuestFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'externalReferences': !(0, runtime_1.exists)(json, 'externalReferences') ? undefined : (0, ExternalReferencesType_1.ExternalReferencesTypeFromJSON)(json['externalReferences']),
+        'externalReferences': !(0, runtime_1.exists)(json, 'externalReferences') ? undefined : (json['externalReferences'].map(ExternalReferenceType_1.ExternalReferenceTypeFromJSON)),
         'guestDetails': !(0, runtime_1.exists)(json, 'guestDetails') ? undefined : (0, GuestProfileType_1.GuestProfileTypeFromJSON)(json['guestDetails']),
-        'guestIdList': !(0, runtime_1.exists)(json, 'guestIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['guestIdList']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'guestIdList': !(0, runtime_1.exists)(json, 'guestIdList') ? undefined : (json['guestIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.GuestFromJSONTyped = GuestFromJSONTyped;
@@ -53,11 +53,11 @@ function GuestToJSON(value) {
         return null;
     }
     return {
-        'externalReferences': (0, ExternalReferencesType_1.ExternalReferencesTypeToJSON)(value.externalReferences),
+        'externalReferences': value.externalReferences === undefined ? undefined : (value.externalReferences.map(ExternalReferenceType_1.ExternalReferenceTypeToJSON)),
         'guestDetails': (0, GuestProfileType_1.GuestProfileTypeToJSON)(value.guestDetails),
-        'guestIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.guestIdList),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'guestIdList': value.guestIdList === undefined ? undefined : (value.guestIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.GuestToJSON = GuestToJSON;

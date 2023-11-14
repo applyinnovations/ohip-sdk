@@ -17,7 +17,7 @@ exports.DailyRateDetailTypeToJSON = exports.DailyRateDetailTypeFromJSONTyped = e
 const runtime_1 = require("../runtime");
 const AmountType_1 = require("./AmountType");
 const GuestCountsType_1 = require("./GuestCountsType");
-const PromotionsType_1 = require("./PromotionsType");
+const PromotionType_1 = require("./PromotionType");
 /**
  * Check if a given object implements the DailyRateDetailType interface.
  */
@@ -42,7 +42,7 @@ function DailyRateDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         'fixedRate': !(0, runtime_1.exists)(json, 'fixedRate') ? undefined : json['fixedRate'],
         'guestCounts': !(0, runtime_1.exists)(json, 'guestCounts') ? undefined : (0, GuestCountsType_1.GuestCountsTypeFromJSON)(json['guestCounts']),
         'marketCode': !(0, runtime_1.exists)(json, 'marketCode') ? undefined : json['marketCode'],
-        'promotions': !(0, runtime_1.exists)(json, 'promotions') ? undefined : (0, PromotionsType_1.PromotionsTypeFromJSON)(json['promotions']),
+        'promotions': !(0, runtime_1.exists)(json, 'promotions') ? undefined : (json['promotions'].map(PromotionType_1.PromotionTypeFromJSON)),
         'rate': !(0, runtime_1.exists)(json, 'rate') ? undefined : (0, AmountType_1.AmountTypeFromJSON)(json['rate']),
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'roomId': !(0, runtime_1.exists)(json, 'roomId') ? undefined : json['roomId'],
@@ -68,7 +68,7 @@ function DailyRateDetailTypeToJSON(value) {
         'fixedRate': value.fixedRate,
         'guestCounts': (0, GuestCountsType_1.GuestCountsTypeToJSON)(value.guestCounts),
         'marketCode': value.marketCode,
-        'promotions': (0, PromotionsType_1.PromotionsTypeToJSON)(value.promotions),
+        'promotions': value.promotions === undefined ? undefined : (value.promotions.map(PromotionType_1.PromotionTypeToJSON)),
         'rate': (0, AmountType_1.AmountTypeToJSON)(value.rate),
         'ratePlanCode': value.ratePlanCode,
         'roomId': value.roomId,

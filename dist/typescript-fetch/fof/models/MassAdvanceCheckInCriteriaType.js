@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MassAdvanceCheckInCriteriaTypeToJSON = exports.MassAdvanceCheckInCriteriaTypeFromJSONTyped = exports.MassAdvanceCheckInCriteriaTypeFromJSON = exports.instanceOfMassAdvanceCheckInCriteriaType = void 0;
 const runtime_1 = require("../runtime");
-const ReservationIdList_1 = require("./ReservationIdList");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the MassAdvanceCheckInCriteriaType interface.
  */
@@ -36,7 +36,7 @@ function MassAdvanceCheckInCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) 
         'eTRComments': !(0, runtime_1.exists)(json, 'eTRComments') ? undefined : json['eTRComments'],
         'expectedReturnTime': !(0, runtime_1.exists)(json, 'expectedReturnTime') ? undefined : json['expectedReturnTime'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.MassAdvanceCheckInCriteriaTypeFromJSONTyped = MassAdvanceCheckInCriteriaTypeFromJSONTyped;
@@ -51,7 +51,7 @@ function MassAdvanceCheckInCriteriaTypeToJSON(value) {
         'eTRComments': value.eTRComments,
         'expectedReturnTime': value.expectedReturnTime,
         'hotelId': value.hotelId,
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.MassAdvanceCheckInCriteriaTypeToJSON = MassAdvanceCheckInCriteriaTypeToJSON;

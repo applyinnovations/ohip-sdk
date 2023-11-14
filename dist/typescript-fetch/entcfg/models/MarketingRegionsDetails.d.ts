@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MarketingRegionsType } from './MarketingRegionsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MarketingRegionType } from './MarketingRegionType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Marketing Regions.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MarketingRegionsDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MarketingRegionsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MarketingRegionsType}
+     * List of Marketing Regions.
+     * @type {Array<MarketingRegionType>}
      * @memberof MarketingRegionsDetails
      */
-    marketingRegions?: MarketingRegionsType;
+    marketingRegions?: Array<MarketingRegionType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MarketingRegionsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MarketingRegionsDetails interface.

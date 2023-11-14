@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ForgetProfilesCriteriaTypeToJSON = exports.ForgetProfilesCriteriaTypeFromJSONTyped = exports.ForgetProfilesCriteriaTypeFromJSON = exports.instanceOfForgetProfilesCriteriaType = void 0;
 const runtime_1 = require("../runtime");
-const Profiles_1 = require("./Profiles");
+const ProfileId_1 = require("./ProfileId");
 /**
  * Check if a given object implements the ForgetProfilesCriteriaType interface.
  */
@@ -33,7 +33,7 @@ function ForgetProfilesCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'profiles': !(0, runtime_1.exists)(json, 'profiles') ? undefined : (0, Profiles_1.ProfilesFromJSON)(json['profiles']),
+        'profiles': !(0, runtime_1.exists)(json, 'profiles') ? undefined : (json['profiles'].map(ProfileId_1.ProfileIdFromJSON)),
     };
 }
 exports.ForgetProfilesCriteriaTypeFromJSONTyped = ForgetProfilesCriteriaTypeFromJSONTyped;
@@ -45,7 +45,7 @@ function ForgetProfilesCriteriaTypeToJSON(value) {
         return null;
     }
     return {
-        'profiles': (0, Profiles_1.ProfilesToJSON)(value.profiles),
+        'profiles': value.profiles === undefined ? undefined : (value.profiles.map(ProfileId_1.ProfileIdToJSON)),
     };
 }
 exports.ForgetProfilesCriteriaTypeToJSON = ForgetProfilesCriteriaTypeToJSON;

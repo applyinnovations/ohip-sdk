@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CateringEventsBulkUpdateType } from './CateringEventsBulkUpdateType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object that will Change a list of events.
  * @export
@@ -26,16 +26,16 @@ export interface CateringEventsBulkUpdate {
     cateringEventsBulkUpdate?: CateringEventsBulkUpdateType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringEventsBulkUpdate
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringEventsBulkUpdate
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CateringEventsBulkUpdate interface.

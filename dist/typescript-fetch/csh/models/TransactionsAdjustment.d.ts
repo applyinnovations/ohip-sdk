@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { TrxAdjustCriteriaType } from './TrxAdjustCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to adjust a transaction. In order to adjust a transaction, a valid amount or percentage is required. A valid reason code and reason text is also required. Only negative adjustments are done. The adjust process will post a new negative transaction for the same transaction code for the current day.
  * @export
@@ -26,16 +26,16 @@ export interface TransactionsAdjustment {
     criteria?: TrxAdjustCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransactionsAdjustment
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransactionsAdjustment
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TransactionsAdjustment interface.

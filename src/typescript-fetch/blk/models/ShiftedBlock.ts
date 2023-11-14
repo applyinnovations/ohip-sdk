@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CateringEventsProcessedInfoList } from './CateringEventsProcessedInfoList';
+import type { CateringEventsProcessedInfoType } from './CateringEventsProcessedInfoType';
 import {
-    CateringEventsProcessedInfoListFromJSON,
-    CateringEventsProcessedInfoListFromJSONTyped,
-    CateringEventsProcessedInfoListToJSON,
-} from './CateringEventsProcessedInfoList';
-import type { Links } from './Links';
+    CateringEventsProcessedInfoTypeFromJSON,
+    CateringEventsProcessedInfoTypeFromJSONTyped,
+    CateringEventsProcessedInfoTypeToJSON,
+} from './CateringEventsProcessedInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for shift block operation.
@@ -39,23 +39,23 @@ import {
  */
 export interface ShiftedBlock {
     /**
-     * 
-     * @type {CateringEventsProcessedInfoList}
+     * Status/Info of the processed events.
+     * @type {Array<CateringEventsProcessedInfoType>}
      * @memberof ShiftedBlock
      */
-    cateringEventsProcessedInfo?: CateringEventsProcessedInfoList;
+    cateringEventsProcessedInfo?: Array<CateringEventsProcessedInfoType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ShiftedBlock
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ShiftedBlock
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ShiftedBlockFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'cateringEventsProcessedInfo': !exists(json, 'cateringEventsProcessedInfo') ? undefined : CateringEventsProcessedInfoListFromJSON(json['cateringEventsProcessedInfo']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'cateringEventsProcessedInfo': !exists(json, 'cateringEventsProcessedInfo') ? undefined : ((json['cateringEventsProcessedInfo'] as Array<any>).map(CateringEventsProcessedInfoTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ShiftedBlockToJSON(value?: ShiftedBlock | null): any {
     }
     return {
         
-        'cateringEventsProcessedInfo': CateringEventsProcessedInfoListToJSON(value.cateringEventsProcessedInfo),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'cateringEventsProcessedInfo': value.cateringEventsProcessedInfo === undefined ? undefined : ((value.cateringEventsProcessedInfo as Array<any>).map(CateringEventsProcessedInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockAlternateDatesToJSON = exports.BlockAlternateDatesFromJSONTyped = exports.BlockAlternateDatesFromJSON = exports.instanceOfBlockAlternateDates = void 0;
 const runtime_1 = require("../runtime");
-const BlockAlternateDatesType_1 = require("./BlockAlternateDatesType");
-const BlockIdList_1 = require("./BlockIdList");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const BlockAlternateDateType_1 = require("./BlockAlternateDateType");
+const InstanceLink_1 = require("./InstanceLink");
+const UniqueIDType_1 = require("./UniqueIDType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BlockAlternateDates interface.
  */
@@ -36,11 +36,11 @@ function BlockAlternateDatesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blockAlternateDates': !(0, runtime_1.exists)(json, 'blockAlternateDates') ? undefined : (0, BlockAlternateDatesType_1.BlockAlternateDatesTypeFromJSON)(json['blockAlternateDates']),
-        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (0, BlockIdList_1.BlockIdListFromJSON)(json['blockIdList']),
+        'blockAlternateDates': !(0, runtime_1.exists)(json, 'blockAlternateDates') ? undefined : (json['blockAlternateDates'].map(BlockAlternateDateType_1.BlockAlternateDateTypeFromJSON)),
+        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BlockAlternateDatesFromJSONTyped = BlockAlternateDatesFromJSONTyped;
@@ -52,11 +52,11 @@ function BlockAlternateDatesToJSON(value) {
         return null;
     }
     return {
-        'blockAlternateDates': (0, BlockAlternateDatesType_1.BlockAlternateDatesTypeToJSON)(value.blockAlternateDates),
-        'blockIdList': (0, BlockIdList_1.BlockIdListToJSON)(value.blockIdList),
+        'blockAlternateDates': value.blockAlternateDates === undefined ? undefined : (value.blockAlternateDates.map(BlockAlternateDateType_1.BlockAlternateDateTypeToJSON)),
+        'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'hotelId': value.hotelId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BlockAlternateDatesToJSON = BlockAlternateDatesToJSON;

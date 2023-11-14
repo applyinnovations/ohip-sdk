@@ -25,18 +25,18 @@ import {
     CashieringPaymentMethodTypeFromJSONTyped,
     CashieringPaymentMethodTypeToJSON,
 } from './CashieringPaymentMethodType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response to the credit card authorization request.
@@ -52,10 +52,10 @@ export interface AuthorizationInfo {
     authInfo?: AuthorizationInfoType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AuthorizationInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {CashieringPaymentMethodType}
@@ -63,11 +63,11 @@ export interface AuthorizationInfo {
      */
     payment?: CashieringPaymentMethodType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AuthorizationInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -90,9 +90,9 @@ export function AuthorizationInfoFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'authInfo': !exists(json, 'authInfo') ? undefined : AuthorizationInfoTypeFromJSON(json['authInfo']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'payment': !exists(json, 'payment') ? undefined : CashieringPaymentMethodTypeFromJSON(json['payment']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -106,9 +106,9 @@ export function AuthorizationInfoToJSON(value?: AuthorizationInfo | null): any {
     return {
         
         'authInfo': AuthorizationInfoTypeToJSON(value.authInfo),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'payment': CashieringPaymentMethodTypeToJSON(value.payment),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

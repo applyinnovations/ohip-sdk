@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { SourceCodesType } from './SourceCodesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { SourceCodeType } from './SourceCodeType';
+import type { WarningType } from './WarningType';
 /**
  * Response for fetch Source Codes.
  * @export
@@ -38,10 +38,10 @@ export interface SourceCodesDetails {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SourceCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -49,11 +49,11 @@ export interface SourceCodesDetails {
      */
     offset?: number;
     /**
-     *
-     * @type {SourceCodesType}
+     * Collection of Source Codes.
+     * @type {Array<SourceCodeType>}
      * @memberof SourceCodesDetails
      */
-    sourceCodes?: SourceCodesType;
+    sourceCodes?: Array<SourceCodeType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -67,11 +67,11 @@ export interface SourceCodesDetails {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SourceCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SourceCodesDetails interface.

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { PropertiesMappingType } from './PropertiesMappingType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { PropertyMappingType } from './PropertyMappingType';
 import {
-    PropertiesMappingTypeFromJSON,
-    PropertiesMappingTypeFromJSONTyped,
-    PropertiesMappingTypeToJSON,
-} from './PropertiesMappingType';
-import type { WarningsType } from './WarningsType';
+    PropertyMappingTypeFromJSON,
+    PropertyMappingTypeFromJSONTyped,
+    PropertyMappingTypeToJSON,
+} from './PropertyMappingType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing existing external system properties.
@@ -40,22 +40,22 @@ import {
 export interface Properties {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Properties
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {PropertiesMappingType}
+     * Information about an external property mapping.
+     * @type {Array<PropertyMappingType>}
      * @memberof Properties
      */
-    properties?: PropertiesMappingType;
+    properties?: Array<PropertyMappingType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Properties
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function PropertiesFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'properties': !exists(json, 'properties') ? undefined : PropertiesMappingTypeFromJSON(json['properties']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'properties': !exists(json, 'properties') ? undefined : ((json['properties'] as Array<any>).map(PropertyMappingTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function PropertiesToJSON(value?: Properties | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'properties': PropertiesMappingTypeToJSON(value.properties),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'properties': value.properties === undefined ? undefined : ((value.properties as Array<any>).map(PropertyMappingTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

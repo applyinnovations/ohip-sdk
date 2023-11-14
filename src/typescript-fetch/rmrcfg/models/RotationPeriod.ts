@@ -19,12 +19,12 @@ import {
     RotationPeriodTypeFromJSONTyped,
     RotationPeriodTypeToJSON,
 } from './RotationPeriodType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request Object for changing Rotation Period.
@@ -39,11 +39,11 @@ export interface RotationPeriod {
      */
     rotationPeriod?: RotationPeriodType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RotationPeriod
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function RotationPeriodFromJSONTyped(json: any, ignoreDiscriminator: bool
     return {
         
         'rotationPeriod': !exists(json, 'rotationPeriod') ? undefined : RotationPeriodTypeFromJSON(json['rotationPeriod']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function RotationPeriodToJSON(value?: RotationPeriod | null): any {
     return {
         
         'rotationPeriod': RotationPeriodTypeToJSON(value.rotationPeriod),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

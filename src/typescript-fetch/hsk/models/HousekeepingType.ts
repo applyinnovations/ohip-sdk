@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { GuestHousekeepingServiceRequestType } from './GuestHousekeepingServiceRequestType';
 import {
     GuestHousekeepingServiceRequestTypeFromJSON,
@@ -64,10 +58,10 @@ export interface HousekeepingType {
     cleaningPriority?: RoomCleaningPriorityType;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof HousekeepingType
      */
-    facilityTaskCode?: CodeListType;
+    facilityTaskCode?: Array<string>;
     /**
      * 
      * @type {GuestHousekeepingServiceRequestType}
@@ -120,7 +114,7 @@ export function HousekeepingTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'cleaningPriority': !exists(json, 'cleaningPriority') ? undefined : RoomCleaningPriorityTypeFromJSON(json['cleaningPriority']),
-        'facilityTaskCode': !exists(json, 'facilityTaskCode') ? undefined : CodeListTypeFromJSON(json['facilityTaskCode']),
+        'facilityTaskCode': !exists(json, 'facilityTaskCode') ? undefined : json['facilityTaskCode'],
         'guestServiceRequest': !exists(json, 'guestServiceRequest') ? undefined : GuestHousekeepingServiceRequestTypeFromJSON(json['guestServiceRequest']),
         'housekeepingRoomStatus': !exists(json, 'housekeepingRoomStatus') ? undefined : RoomStatusTypeFromJSON(json['housekeepingRoomStatus']),
         'linenChange': !exists(json, 'linenChange') ? undefined : json['linenChange'],
@@ -139,7 +133,7 @@ export function HousekeepingTypeToJSON(value?: HousekeepingType | null): any {
     return {
         
         'cleaningPriority': RoomCleaningPriorityTypeToJSON(value.cleaningPriority),
-        'facilityTaskCode': CodeListTypeToJSON(value.facilityTaskCode),
+        'facilityTaskCode': value.facilityTaskCode,
         'guestServiceRequest': GuestHousekeepingServiceRequestTypeToJSON(value.guestServiceRequest),
         'housekeepingRoomStatus': RoomStatusTypeToJSON(value.housekeepingRoomStatus),
         'linenChange': value.linenChange,

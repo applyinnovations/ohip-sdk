@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipRateGroupTypeToJSON = exports.MembershipRateGroupTypeFromJSONTyped = exports.MembershipRateGroupTypeFromJSON = exports.instanceOfMembershipRateGroupType = void 0;
 const runtime_1 = require("../runtime");
-const MembershipRateCodesType_1 = require("./MembershipRateCodesType");
+const CodeDescriptionType_1 = require("./CodeDescriptionType");
 /**
  * Check if a given object implements the MembershipRateGroupType interface.
  */
@@ -36,7 +36,7 @@ function MembershipRateGroupTypeFromJSONTyped(json, ignoreDiscriminator) {
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'displaySequence': !(0, runtime_1.exists)(json, 'displaySequence') ? undefined : json['displaySequence'],
-        'rateCodes': !(0, runtime_1.exists)(json, 'rateCodes') ? undefined : (0, MembershipRateCodesType_1.MembershipRateCodesTypeFromJSON)(json['rateCodes']),
+        'rateCodes': !(0, runtime_1.exists)(json, 'rateCodes') ? undefined : (json['rateCodes'].map(CodeDescriptionType_1.CodeDescriptionTypeFromJSON)),
     };
 }
 exports.MembershipRateGroupTypeFromJSONTyped = MembershipRateGroupTypeFromJSONTyped;
@@ -51,7 +51,7 @@ function MembershipRateGroupTypeToJSON(value) {
         'code': value.code,
         'description': value.description,
         'displaySequence': value.displaySequence,
-        'rateCodes': (0, MembershipRateCodesType_1.MembershipRateCodesTypeToJSON)(value.rateCodes),
+        'rateCodes': value.rateCodes === undefined ? undefined : (value.rateCodes.map(CodeDescriptionType_1.CodeDescriptionTypeToJSON)),
     };
 }
 exports.MembershipRateGroupTypeToJSON = MembershipRateGroupTypeToJSON;

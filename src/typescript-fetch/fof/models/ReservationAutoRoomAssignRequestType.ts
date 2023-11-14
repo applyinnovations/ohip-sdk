@@ -19,12 +19,12 @@ import {
     ReservationAutoRoomAssignRequestTypeRoomSelectionCriteriaFromJSONTyped,
     ReservationAutoRoomAssignRequestTypeRoomSelectionCriteriaToJSON,
 } from './ReservationAutoRoomAssignRequestTypeRoomSelectionCriteria';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Request criteria for auto assignment of rooms to reserved reservations.
@@ -34,10 +34,10 @@ import {
 export interface ReservationAutoRoomAssignRequestType {
     /**
      * A list of reservation ids which will be used to auto assign rooms.
-     * @type {Array<ReservationIdList>}
+     * @type {Array<Array<UniqueIDType>>}
      * @memberof ReservationAutoRoomAssignRequestType
      */
-    reservationCriteria?: Array<ReservationIdList>;
+    reservationCriteria?: Array<Array<UniqueIDType>>;
     /**
      * Update the do not move flag used to locking the reservation room number.
      * @type {boolean}
@@ -71,7 +71,7 @@ export function ReservationAutoRoomAssignRequestTypeFromJSONTyped(json: any, ign
     }
     return {
         
-        'reservationCriteria': !exists(json, 'reservationCriteria') ? undefined : ((json['reservationCriteria'] as Array<any>).map(ReservationIdListFromJSON)),
+        'reservationCriteria': !exists(json, 'reservationCriteria') ? undefined : json['reservationCriteria'],
         'roomNumberLocked': !exists(json, 'roomNumberLocked') ? undefined : json['roomNumberLocked'],
         'roomSelectionCriteria': !exists(json, 'roomSelectionCriteria') ? undefined : ReservationAutoRoomAssignRequestTypeRoomSelectionCriteriaFromJSON(json['roomSelectionCriteria']),
     };
@@ -86,7 +86,7 @@ export function ReservationAutoRoomAssignRequestTypeToJSON(value?: ReservationAu
     }
     return {
         
-        'reservationCriteria': value.reservationCriteria === undefined ? undefined : ((value.reservationCriteria as Array<any>).map(ReservationIdListToJSON)),
+        'reservationCriteria': value.reservationCriteria,
         'roomNumberLocked': value.roomNumberLocked,
         'roomSelectionCriteria': ReservationAutoRoomAssignRequestTypeRoomSelectionCriteriaToJSON(value.roomSelectionCriteria),
     };

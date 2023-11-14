@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DuplicateOPERASubscriptionsToJSON = exports.DuplicateOPERASubscriptionsFromJSONTyped = exports.DuplicateOPERASubscriptionsFromJSON = exports.instanceOfDuplicateOPERASubscriptions = void 0;
 const runtime_1 = require("../runtime");
-const DuplicateOPERASubscriptionsListType_1 = require("./DuplicateOPERASubscriptionsListType");
-const Links_1 = require("./Links");
+const DuplicateOPERASubscriptionsType_1 = require("./DuplicateOPERASubscriptionsType");
+const InstanceLink_1 = require("./InstanceLink");
 /**
  * Check if a given object implements the DuplicateOPERASubscriptions interface.
  */
@@ -34,13 +34,13 @@ function DuplicateOPERASubscriptionsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'duplicateOPERASubscriptionsList': !(0, runtime_1.exists)(json, 'duplicateOPERASubscriptionsList') ? undefined : (0, DuplicateOPERASubscriptionsListType_1.DuplicateOPERASubscriptionsListTypeFromJSON)(json['duplicateOPERASubscriptionsList']),
+        'duplicateOPERASubscriptionsList': !(0, runtime_1.exists)(json, 'duplicateOPERASubscriptionsList') ? undefined : (json['duplicateOPERASubscriptionsList'].map(DuplicateOPERASubscriptionsType_1.DuplicateOPERASubscriptionsTypeFromJSON)),
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'pageNumber': !(0, runtime_1.exists)(json, 'pageNumber') ? undefined : json['pageNumber'],
         'maxFetchCount': !(0, runtime_1.exists)(json, 'maxFetchCount') ? undefined : json['maxFetchCount'],
         'allRowsFetched': !(0, runtime_1.exists)(json, 'allRowsFetched') ? undefined : json['allRowsFetched'],
         'totalRows': !(0, runtime_1.exists)(json, 'totalRows') ? undefined : json['totalRows'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.DuplicateOPERASubscriptionsFromJSONTyped = DuplicateOPERASubscriptionsFromJSONTyped;
@@ -52,13 +52,13 @@ function DuplicateOPERASubscriptionsToJSON(value) {
         return null;
     }
     return {
-        'duplicateOPERASubscriptionsList': (0, DuplicateOPERASubscriptionsListType_1.DuplicateOPERASubscriptionsListTypeToJSON)(value.duplicateOPERASubscriptionsList),
+        'duplicateOPERASubscriptionsList': value.duplicateOPERASubscriptionsList === undefined ? undefined : (value.duplicateOPERASubscriptionsList.map(DuplicateOPERASubscriptionsType_1.DuplicateOPERASubscriptionsTypeToJSON)),
         'totalPages': value.totalPages,
         'pageNumber': value.pageNumber,
         'maxFetchCount': value.maxFetchCount,
         'allRowsFetched': value.allRowsFetched,
         'totalRows': value.totalRows,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.DuplicateOPERASubscriptionsToJSON = DuplicateOPERASubscriptionsToJSON;

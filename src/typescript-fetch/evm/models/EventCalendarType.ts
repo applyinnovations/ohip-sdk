@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { EventCodeDetailListType } from './EventCodeDetailListType';
+import type { EventCodeDetailType } from './EventCodeDetailType';
 import {
-    EventCodeDetailListTypeFromJSON,
-    EventCodeDetailListTypeFromJSONTyped,
-    EventCodeDetailListTypeToJSON,
-} from './EventCodeDetailListType';
+    EventCodeDetailTypeFromJSON,
+    EventCodeDetailTypeFromJSONTyped,
+    EventCodeDetailTypeToJSON,
+} from './EventCodeDetailType';
 import type { EventSpaceScheduleType } from './EventSpaceScheduleType';
 import {
     EventSpaceScheduleTypeFromJSON,
@@ -39,11 +39,11 @@ import {
  */
 export interface EventCalendarType {
     /**
-     * 
-     * @type {EventCodeDetailListType}
+     * Collection of the Event Codes in a Property for a particular time period.
+     * @type {Array<EventCodeDetailType>}
      * @memberof EventCalendarType
      */
-    eventCodes?: EventCodeDetailListType;
+    eventCodes?: Array<EventCodeDetailType>;
     /**
      * Collection of the Events Booked/Scheduled for the function space/functionSpaceDetails for the particular time period.
      * @type {Array<EventSpaceScheduleType>}
@@ -95,7 +95,7 @@ export function EventCalendarTypeFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'eventCodes': !exists(json, 'eventCodes') ? undefined : EventCodeDetailListTypeFromJSON(json['eventCodes']),
+        'eventCodes': !exists(json, 'eventCodes') ? undefined : ((json['eventCodes'] as Array<any>).map(EventCodeDetailTypeFromJSON)),
         'eventSpace': !exists(json, 'eventSpace') ? undefined : ((json['eventSpace'] as Array<any>).map(EventSpaceScheduleTypeFromJSON)),
         'pageIndex': !exists(json, 'pageIndex') ? undefined : json['pageIndex'],
         'recordsPerPage': !exists(json, 'recordsPerPage') ? undefined : json['recordsPerPage'],
@@ -113,7 +113,7 @@ export function EventCalendarTypeToJSON(value?: EventCalendarType | null): any {
     }
     return {
         
-        'eventCodes': EventCodeDetailListTypeToJSON(value.eventCodes),
+        'eventCodes': value.eventCodes === undefined ? undefined : ((value.eventCodes as Array<any>).map(EventCodeDetailTypeToJSON)),
         'eventSpace': value.eventSpace === undefined ? undefined : ((value.eventSpace as Array<any>).map(EventSpaceScheduleTypeToJSON)),
         'pageIndex': value.pageIndex,
         'recordsPerPage': value.recordsPerPage,

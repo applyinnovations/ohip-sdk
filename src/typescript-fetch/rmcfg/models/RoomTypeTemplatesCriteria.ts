@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { RoomTypeTemplatesCriteriaRoomTypeTemplate } from './RoomTypeTemplatesCriteriaRoomTypeTemplate';
 import {
     RoomTypeTemplatesCriteriaRoomTypeTemplateFromJSON,
     RoomTypeTemplatesCriteriaRoomTypeTemplateFromJSONTyped,
     RoomTypeTemplatesCriteriaRoomTypeTemplateToJSON,
 } from './RoomTypeTemplatesCriteriaRoomTypeTemplate';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating a new Room Type Template.
@@ -40,10 +40,10 @@ import {
 export interface RoomTypeTemplatesCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomTypeTemplatesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {RoomTypeTemplatesCriteriaRoomTypeTemplate}
@@ -51,11 +51,11 @@ export interface RoomTypeTemplatesCriteria {
      */
     roomTypeTemplate?: RoomTypeTemplatesCriteriaRoomTypeTemplate;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomTypeTemplatesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RoomTypeTemplatesCriteriaFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'roomTypeTemplate': !exists(json, 'roomTypeTemplate') ? undefined : RoomTypeTemplatesCriteriaRoomTypeTemplateFromJSON(json['roomTypeTemplate']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RoomTypeTemplatesCriteriaToJSON(value?: RoomTypeTemplatesCriteri
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'roomTypeTemplate': RoomTypeTemplatesCriteriaRoomTypeTemplateToJSON(value.roomTypeTemplate),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

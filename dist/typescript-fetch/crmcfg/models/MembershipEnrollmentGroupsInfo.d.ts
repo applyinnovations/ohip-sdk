@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MembershipEnrollmentGroupsType } from './MembershipEnrollmentGroupsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MembershipEnrollmentGroupType } from './MembershipEnrollmentGroupType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching membership enrollment groups.
  * @export
@@ -38,16 +38,16 @@ export interface MembershipEnrollmentGroupsInfo {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipEnrollmentGroupsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MembershipEnrollmentGroupsType}
+     * Details of membership enrollment group type.
+     * @type {Array<MembershipEnrollmentGroupType>}
      * @memberof MembershipEnrollmentGroupsInfo
      */
-    membershipEnrollmentGroups?: MembershipEnrollmentGroupsType;
+    membershipEnrollmentGroups?: Array<MembershipEnrollmentGroupType>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface MembershipEnrollmentGroupsInfo {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipEnrollmentGroupsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipEnrollmentGroupsInfo interface.

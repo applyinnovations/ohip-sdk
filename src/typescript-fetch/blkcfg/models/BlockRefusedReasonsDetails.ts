@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockRefusedReasonsType } from './BlockRefusedReasonsType';
+import type { BlockRefusedReasonType } from './BlockRefusedReasonType';
 import {
-    BlockRefusedReasonsTypeFromJSON,
-    BlockRefusedReasonsTypeFromJSONTyped,
-    BlockRefusedReasonsTypeToJSON,
-} from './BlockRefusedReasonsType';
-import type { Links } from './Links';
+    BlockRefusedReasonTypeFromJSON,
+    BlockRefusedReasonTypeFromJSONTyped,
+    BlockRefusedReasonTypeToJSON,
+} from './BlockRefusedReasonType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Block Refused Reasons.
@@ -39,23 +39,23 @@ import {
  */
 export interface BlockRefusedReasonsDetails {
     /**
-     * 
-     * @type {BlockRefusedReasonsType}
+     * List of Block Refused Reasons.
+     * @type {Array<BlockRefusedReasonType>}
      * @memberof BlockRefusedReasonsDetails
      */
-    blockRefusedReasons?: BlockRefusedReasonsType;
+    blockRefusedReasons?: Array<BlockRefusedReasonType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockRefusedReasonsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockRefusedReasonsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function BlockRefusedReasonsDetailsFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'blockRefusedReasons': !exists(json, 'blockRefusedReasons') ? undefined : BlockRefusedReasonsTypeFromJSON(json['blockRefusedReasons']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'blockRefusedReasons': !exists(json, 'blockRefusedReasons') ? undefined : ((json['blockRefusedReasons'] as Array<any>).map(BlockRefusedReasonTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function BlockRefusedReasonsDetailsToJSON(value?: BlockRefusedReasonsDeta
     }
     return {
         
-        'blockRefusedReasons': BlockRefusedReasonsTypeToJSON(value.blockRefusedReasons),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'blockRefusedReasons': value.blockRefusedReasons === undefined ? undefined : ((value.blockRefusedReasons as Array<any>).map(BlockRefusedReasonTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

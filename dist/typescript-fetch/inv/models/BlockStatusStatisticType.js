@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockStatusStatisticTypeToJSON = exports.BlockStatusStatisticTypeFromJSONTyped = exports.BlockStatusStatisticTypeFromJSON = exports.instanceOfBlockStatusStatisticType = void 0;
 const runtime_1 = require("../runtime");
-const StatisticUnitsType_1 = require("./StatisticUnitsType");
+const StatisticUnitType_1 = require("./StatisticUnitType");
 /**
  * Check if a given object implements the BlockStatusStatisticType interface.
  */
@@ -34,7 +34,7 @@ function BlockStatusStatisticTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'statisticDate': !(0, runtime_1.exists)(json, 'statisticDate') ? undefined : (new Date(json['statisticDate'])),
-        'statusSummaryStatistic': !(0, runtime_1.exists)(json, 'statusSummaryStatistic') ? undefined : (0, StatisticUnitsType_1.StatisticUnitsTypeFromJSON)(json['statusSummaryStatistic']),
+        'statusSummaryStatistic': !(0, runtime_1.exists)(json, 'statusSummaryStatistic') ? undefined : (json['statusSummaryStatistic'].map(StatisticUnitType_1.StatisticUnitTypeFromJSON)),
     };
 }
 exports.BlockStatusStatisticTypeFromJSONTyped = BlockStatusStatisticTypeFromJSONTyped;
@@ -47,7 +47,7 @@ function BlockStatusStatisticTypeToJSON(value) {
     }
     return {
         'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0, 10)),
-        'statusSummaryStatistic': (0, StatisticUnitsType_1.StatisticUnitsTypeToJSON)(value.statusSummaryStatistic),
+        'statusSummaryStatistic': value.statusSummaryStatistic === undefined ? undefined : (value.statusSummaryStatistic.map(StatisticUnitType_1.StatisticUnitTypeToJSON)),
     };
 }
 exports.BlockStatusStatisticTypeToJSON = BlockStatusStatisticTypeToJSON;

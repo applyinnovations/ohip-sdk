@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExtendMemberPointsToExpireToJSON = exports.ExtendMemberPointsToExpireFromJSONTyped = exports.ExtendMemberPointsToExpireFromJSON = exports.instanceOfExtendMemberPointsToExpire = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ExtendMemberPointsToExpire interface.
  */
@@ -35,9 +35,9 @@ function ExtendMemberPointsToExpireFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'expirationDate': !(0, runtime_1.exists)(json, 'expirationDate') ? undefined : (new Date(json['expirationDate'])),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'membershipId': !(0, runtime_1.exists)(json, 'membershipId') ? undefined : json['membershipId'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ExtendMemberPointsToExpireFromJSONTyped = ExtendMemberPointsToExpireFromJSONTyped;
@@ -50,9 +50,9 @@ function ExtendMemberPointsToExpireToJSON(value) {
     }
     return {
         'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substring(0, 10)),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'membershipId': value.membershipId,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ExtendMemberPointsToExpireToJSON = ExtendMemberPointsToExpireToJSON;

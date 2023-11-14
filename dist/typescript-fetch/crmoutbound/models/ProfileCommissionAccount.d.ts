@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ProfileCommissionAccountCriteriaType } from './ProfileCommissionAccountCriteriaType';
 /**
  * Request object for creating profile commission detail.
@@ -25,10 +25,10 @@ export interface ProfileCommissionAccount {
     criteria?: ProfileCommissionAccountCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileCommissionAccount
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the ProfileCommissionAccount interface.

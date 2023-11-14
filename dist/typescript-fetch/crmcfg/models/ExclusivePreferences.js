@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExclusivePreferencesToJSON = exports.ExclusivePreferencesFromJSONTyped = exports.ExclusivePreferencesFromJSON = exports.instanceOfExclusivePreferences = void 0;
 const runtime_1 = require("../runtime");
-const ConfigHotelExclusivePreferencesType_1 = require("./ConfigHotelExclusivePreferencesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ConfigHotelExclusivePreferenceType_1 = require("./ConfigHotelExclusivePreferenceType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ExclusivePreferences interface.
  */
@@ -35,9 +35,9 @@ function ExclusivePreferencesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'hotelExclusivePreferences': !(0, runtime_1.exists)(json, 'hotelExclusivePreferences') ? undefined : (0, ConfigHotelExclusivePreferencesType_1.ConfigHotelExclusivePreferencesTypeFromJSON)(json['hotelExclusivePreferences']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'hotelExclusivePreferences': !(0, runtime_1.exists)(json, 'hotelExclusivePreferences') ? undefined : (json['hotelExclusivePreferences'].map(ConfigHotelExclusivePreferenceType_1.ConfigHotelExclusivePreferenceTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ExclusivePreferencesFromJSONTyped = ExclusivePreferencesFromJSONTyped;
@@ -49,9 +49,9 @@ function ExclusivePreferencesToJSON(value) {
         return null;
     }
     return {
-        'hotelExclusivePreferences': (0, ConfigHotelExclusivePreferencesType_1.ConfigHotelExclusivePreferencesTypeToJSON)(value.hotelExclusivePreferences),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'hotelExclusivePreferences': value.hotelExclusivePreferences === undefined ? undefined : (value.hotelExclusivePreferences.map(ConfigHotelExclusivePreferenceType_1.ConfigHotelExclusivePreferenceTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ExclusivePreferencesToJSON = ExclusivePreferencesToJSON;

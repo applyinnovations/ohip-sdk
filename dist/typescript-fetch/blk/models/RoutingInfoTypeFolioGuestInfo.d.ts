@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ProfileIdList } from './ProfileIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Guest details
  * @export
@@ -17,11 +17,11 @@ import type { ProfileIdList } from './ProfileIdList';
  */
 export interface RoutingInfoTypeFolioGuestInfo {
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RoutingInfoTypeFolioGuestInfo
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the RoutingInfoTypeFolioGuestInfo interface.

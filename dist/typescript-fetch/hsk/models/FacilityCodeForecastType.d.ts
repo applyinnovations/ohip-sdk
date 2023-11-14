@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CodeDescriptionType } from './CodeDescriptionType';
-import type { ForecastQuantitiesType } from './ForecastQuantitiesType';
+import type { ForecastQuantityType } from './ForecastQuantityType';
 /**
  * A facility code and its forecast.
  * @export
@@ -24,11 +24,11 @@ export interface FacilityCodeForecastType {
      */
     code?: CodeDescriptionType;
     /**
-     *
-     * @type {ForecastQuantitiesType}
+     * Collection of dates and their quantities.
+     * @type {Array<ForecastQuantityType>}
      * @memberof FacilityCodeForecastType
      */
-    forecast?: ForecastQuantitiesType;
+    forecast?: Array<ForecastQuantityType>;
 }
 /**
  * Check if a given object implements the FacilityCodeForecastType interface.

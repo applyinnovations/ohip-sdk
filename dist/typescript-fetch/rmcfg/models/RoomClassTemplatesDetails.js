@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomClassTemplatesDetailsToJSON = exports.RoomClassTemplatesDetailsFromJSONTyped = exports.RoomClassTemplatesDetailsFromJSON = exports.instanceOfRoomClassTemplatesDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RoomClassTemplatesType_1 = require("./RoomClassTemplatesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RoomClassTemplateType_1 = require("./RoomClassTemplateType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomClassTemplatesDetails interface.
  */
@@ -35,9 +35,9 @@ function RoomClassTemplatesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'roomClassTemplates': !(0, runtime_1.exists)(json, 'roomClassTemplates') ? undefined : (0, RoomClassTemplatesType_1.RoomClassTemplatesTypeFromJSON)(json['roomClassTemplates']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'roomClassTemplates': !(0, runtime_1.exists)(json, 'roomClassTemplates') ? undefined : (json['roomClassTemplates'].map(RoomClassTemplateType_1.RoomClassTemplateTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomClassTemplatesDetailsFromJSONTyped = RoomClassTemplatesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function RoomClassTemplatesDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'roomClassTemplates': (0, RoomClassTemplatesType_1.RoomClassTemplatesTypeToJSON)(value.roomClassTemplates),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'roomClassTemplates': value.roomClassTemplates === undefined ? undefined : (value.roomClassTemplates.map(RoomClassTemplateType_1.RoomClassTemplateTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomClassTemplatesDetailsToJSON = RoomClassTemplatesDetailsToJSON;

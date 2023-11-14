@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ExpDataSourceColumnsType } from './ExpDataSourceColumnsType';
-import type { ExpFunctionsType } from './ExpFunctionsType';
+import type { ExpDataSourceColumnType } from './ExpDataSourceColumnType';
+import type { ExpFunctionType } from './ExpFunctionType';
 /**
  * Contains columns, pre post functions and export functions
  * @export
@@ -18,23 +18,23 @@ import type { ExpFunctionsType } from './ExpFunctionsType';
  */
 export interface ExportColumnsAndFunctionsType {
     /**
-     *
-     * @type {ExpDataSourceColumnsType}
+     * Function parameters
+     * @type {Array<ExpDataSourceColumnType>}
      * @memberof ExportColumnsAndFunctionsType
      */
-    dbColumns?: ExpDataSourceColumnsType;
+    dbColumns?: Array<ExpDataSourceColumnType>;
     /**
-     *
-     * @type {ExpFunctionsType}
+     * Function parameters
+     * @type {Array<ExpFunctionType>}
      * @memberof ExportColumnsAndFunctionsType
      */
-    functions?: ExpFunctionsType;
+    functions?: Array<ExpFunctionType>;
     /**
-     *
-     * @type {ExpFunctionsType}
+     * Function parameters
+     * @type {Array<ExpFunctionType>}
      * @memberof ExportColumnsAndFunctionsType
      */
-    prePostFunctions?: ExpFunctionsType;
+    prePostFunctions?: Array<ExpFunctionType>;
 }
 /**
  * Check if a given object implements the ExportColumnsAndFunctionsType interface.

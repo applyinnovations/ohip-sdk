@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { PropertyTypesType } from './PropertyTypesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { PropertyTypeType } from './PropertyTypeType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Property Types.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface PropertyTypesCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PropertyTypesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {PropertyTypesType}
+     * List of Property Types.
+     * @type {Array<PropertyTypeType>}
      * @memberof PropertyTypesCriteria
      */
-    propertyTypes?: PropertyTypesType;
+    propertyTypes?: Array<PropertyTypeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PropertyTypesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PropertyTypesCriteria interface.

@@ -19,18 +19,18 @@ import {
     ExchangeRateCalculationTypeFromJSONTyped,
     ExchangeRateCalculationTypeToJSON,
 } from './ExchangeRateCalculationType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Operation to calculate foreign currency exchange.
@@ -58,16 +58,16 @@ export interface ForeignCurrencyCriteria {
     includeExchangeInformation?: boolean;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ForeignCurrencyCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ForeignCurrencyCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -92,8 +92,8 @@ export function ForeignCurrencyCriteriaFromJSONTyped(json: any, ignoreDiscrimina
         'addExchangeCommission': !exists(json, 'addExchangeCommission') ? undefined : json['addExchangeCommission'],
         'exchange': !exists(json, 'exchange') ? undefined : ((json['exchange'] as Array<any>).map(ExchangeRateCalculationTypeFromJSON)),
         'includeExchangeInformation': !exists(json, 'includeExchangeInformation') ? undefined : json['includeExchangeInformation'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -109,8 +109,8 @@ export function ForeignCurrencyCriteriaToJSON(value?: ForeignCurrencyCriteria | 
         'addExchangeCommission': value.addExchangeCommission,
         'exchange': value.exchange === undefined ? undefined : ((value.exchange as Array<any>).map(ExchangeRateCalculationTypeToJSON)),
         'includeExchangeInformation': value.includeExchangeInformation,
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { SmokingTypesType } from './SmokingTypesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { SmokingTypeType } from './SmokingTypeType';
 import {
-    SmokingTypesTypeFromJSON,
-    SmokingTypesTypeFromJSONTyped,
-    SmokingTypesTypeToJSON,
-} from './SmokingTypesType';
-import type { WarningsType } from './WarningsType';
+    SmokingTypeTypeFromJSON,
+    SmokingTypeTypeFromJSONTyped,
+    SmokingTypeTypeToJSON,
+} from './SmokingTypeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Smoking Types.
@@ -40,22 +40,22 @@ import {
 export interface SmokingTypesCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SmokingTypesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {SmokingTypesType}
+     * List of Smoking Types.
+     * @type {Array<SmokingTypeType>}
      * @memberof SmokingTypesCriteria
      */
-    smokingTypes?: SmokingTypesType;
+    smokingTypes?: Array<SmokingTypeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SmokingTypesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function SmokingTypesCriteriaFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'smokingTypes': !exists(json, 'smokingTypes') ? undefined : SmokingTypesTypeFromJSON(json['smokingTypes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'smokingTypes': !exists(json, 'smokingTypes') ? undefined : ((json['smokingTypes'] as Array<any>).map(SmokingTypeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function SmokingTypesCriteriaToJSON(value?: SmokingTypesCriteria | null):
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'smokingTypes': SmokingTypesTypeToJSON(value.smokingTypes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'smokingTypes': value.smokingTypes === undefined ? undefined : ((value.smokingTypes as Array<any>).map(SmokingTypeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

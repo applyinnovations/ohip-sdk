@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BillingInstructionsType } from './BillingInstructionsType';
+import type { BillingInstructionType } from './BillingInstructionType';
 import {
-    BillingInstructionsTypeFromJSON,
-    BillingInstructionsTypeFromJSONTyped,
-    BillingInstructionsTypeToJSON,
-} from './BillingInstructionsType';
+    BillingInstructionTypeFromJSON,
+    BillingInstructionTypeFromJSONTyped,
+    BillingInstructionTypeToJSON,
+} from './BillingInstructionType';
 import type { RoutingProfileTypeType } from './RoutingProfileTypeType';
 import {
     RoutingProfileTypeTypeFromJSON,
     RoutingProfileTypeTypeFromJSONTyped,
     RoutingProfileTypeTypeToJSON,
 } from './RoutingProfileTypeType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
 
 /**
  * Routing fetchInstructions details for a rate plan.
@@ -39,11 +39,11 @@ import {
  */
 export interface RatePlanRoutingInstructionsType {
     /**
-     * 
-     * @type {BillingInstructionsType}
+     * Set of Billing Instruction codes.
+     * @type {Array<BillingInstructionType>}
      * @memberof RatePlanRoutingInstructionsType
      */
-    billingInstructions?: BillingInstructionsType;
+    billingInstructions?: Array<BillingInstructionType>;
     /**
      * 
      * @type {RoutingProfileTypeType}
@@ -51,11 +51,11 @@ export interface RatePlanRoutingInstructionsType {
      */
     profileType?: RoutingProfileTypeType;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof RatePlanRoutingInstructionsType
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RatePlanRoutingInstructionsTypeFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'billingInstructions': !exists(json, 'billingInstructions') ? undefined : BillingInstructionsTypeFromJSON(json['billingInstructions']),
+        'billingInstructions': !exists(json, 'billingInstructions') ? undefined : ((json['billingInstructions'] as Array<any>).map(BillingInstructionTypeFromJSON)),
         'profileType': !exists(json, 'profileType') ? undefined : RoutingProfileTypeTypeFromJSON(json['profileType']),
-        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : TrxCodesInfoTypeFromJSON(json['transactionCodes']),
+        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : ((json['transactionCodes'] as Array<any>).map(TrxInfoTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RatePlanRoutingInstructionsTypeToJSON(value?: RatePlanRoutingIns
     }
     return {
         
-        'billingInstructions': BillingInstructionsTypeToJSON(value.billingInstructions),
+        'billingInstructions': value.billingInstructions === undefined ? undefined : ((value.billingInstructions as Array<any>).map(BillingInstructionTypeToJSON)),
         'profileType': RoutingProfileTypeTypeToJSON(value.profileType),
-        'transactionCodes': TrxCodesInfoTypeToJSON(value.transactionCodes),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : ((value.transactionCodes as Array<any>).map(TrxInfoTypeToJSON)),
     };
 }
 

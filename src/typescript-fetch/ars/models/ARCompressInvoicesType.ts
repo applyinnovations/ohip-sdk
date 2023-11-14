@@ -19,12 +19,12 @@ import {
     ARAccountCriteriaTypeFromJSONTyped,
     ARAccountCriteriaTypeToJSON,
 } from './ARAccountCriteriaType';
-import type { ARInvoicesType } from './ARInvoicesType';
+import type { ARInvoiceType } from './ARInvoiceType';
 import {
-    ARInvoicesTypeFromJSON,
-    ARInvoicesTypeFromJSONTyped,
-    ARInvoicesTypeToJSON,
-} from './ARInvoicesType';
+    ARInvoiceTypeFromJSON,
+    ARInvoiceTypeFromJSONTyped,
+    ARInvoiceTypeToJSON,
+} from './ARInvoiceType';
 
 /**
  * Criteria type compressing invoices i.e grouping multiple invoices into one,for an Account.
@@ -51,11 +51,11 @@ export interface ARCompressInvoicesType {
      */
     folioTypeName?: string;
     /**
-     * 
-     * @type {ARInvoicesType}
+     * A collection of AR Invoices.
+     * @type {Array<ARInvoiceType>}
      * @memberof ARCompressInvoicesType
      */
-    invoices?: ARInvoicesType;
+    invoices?: Array<ARInvoiceType>;
     /**
      * Reference Text for the Master Invoice which will be created.
      * @type {string}
@@ -92,7 +92,7 @@ export function ARCompressInvoicesTypeFromJSONTyped(json: any, ignoreDiscriminat
         'account': !exists(json, 'account') ? undefined : ARAccountCriteriaTypeFromJSON(json['account']),
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
         'folioTypeName': !exists(json, 'folioTypeName') ? undefined : json['folioTypeName'],
-        'invoices': !exists(json, 'invoices') ? undefined : ARInvoicesTypeFromJSON(json['invoices']),
+        'invoices': !exists(json, 'invoices') ? undefined : ((json['invoices'] as Array<any>).map(ARInvoiceTypeFromJSON)),
         'reference': !exists(json, 'reference') ? undefined : json['reference'],
         'remark': !exists(json, 'remark') ? undefined : json['remark'],
     };
@@ -110,7 +110,7 @@ export function ARCompressInvoicesTypeToJSON(value?: ARCompressInvoicesType | nu
         'account': ARAccountCriteriaTypeToJSON(value.account),
         'cashierId': value.cashierId,
         'folioTypeName': value.folioTypeName,
-        'invoices': ARInvoicesTypeToJSON(value.invoices),
+        'invoices': value.invoices === undefined ? undefined : ((value.invoices as Array<any>).map(ARInvoiceTypeToJSON)),
         'reference': value.reference,
         'remark': value.remark,
     };

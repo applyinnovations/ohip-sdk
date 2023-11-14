@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { EventCalendarType } from './EventCalendarType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Return object to the request for the Events Booked/Scheduled for the function spaces in the Hotel for the particular time period.
  * @export
@@ -26,16 +26,16 @@ export interface EventCalendar {
     eventCalendarDetails?: EventCalendarType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EventCalendar
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EventCalendar
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the EventCalendar interface.

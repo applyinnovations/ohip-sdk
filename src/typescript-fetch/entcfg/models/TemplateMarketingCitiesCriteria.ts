@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateMarketingCitiesType } from './TemplateMarketingCitiesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TemplateMarketingCityConfigType } from './TemplateMarketingCityConfigType';
 import {
-    TemplateMarketingCitiesTypeFromJSON,
-    TemplateMarketingCitiesTypeFromJSONTyped,
-    TemplateMarketingCitiesTypeToJSON,
-} from './TemplateMarketingCitiesType';
-import type { WarningsType } from './WarningsType';
+    TemplateMarketingCityConfigTypeFromJSON,
+    TemplateMarketingCityConfigTypeFromJSONTyped,
+    TemplateMarketingCityConfigTypeToJSON,
+} from './TemplateMarketingCityConfigType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating new template marketing cities.
@@ -40,22 +40,22 @@ import {
 export interface TemplateMarketingCitiesCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateMarketingCitiesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TemplateMarketingCitiesType}
+     * Template marketing city details.
+     * @type {Array<TemplateMarketingCityConfigType>}
      * @memberof TemplateMarketingCitiesCriteria
      */
-    templateMarketingCities?: TemplateMarketingCitiesType;
+    templateMarketingCities?: Array<TemplateMarketingCityConfigType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateMarketingCitiesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateMarketingCitiesCriteriaFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'templateMarketingCities': !exists(json, 'templateMarketingCities') ? undefined : TemplateMarketingCitiesTypeFromJSON(json['templateMarketingCities']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'templateMarketingCities': !exists(json, 'templateMarketingCities') ? undefined : ((json['templateMarketingCities'] as Array<any>).map(TemplateMarketingCityConfigTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateMarketingCitiesCriteriaToJSON(value?: TemplateMarketingC
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'templateMarketingCities': TemplateMarketingCitiesTypeToJSON(value.templateMarketingCities),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'templateMarketingCities': value.templateMarketingCities === undefined ? undefined : ((value.templateMarketingCities as Array<any>).map(TemplateMarketingCityConfigTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AccountTypesType } from './AccountTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AccountTypeType } from './AccountTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Account Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AccountTypesDetails {
     /**
-     *
-     * @type {AccountTypesType}
+     * List of Account Types.
+     * @type {Array<AccountTypeType>}
      * @memberof AccountTypesDetails
      */
-    accountTypes?: AccountTypesType;
+    accountTypes?: Array<AccountTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AccountTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AccountTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AccountTypesDetails interface.

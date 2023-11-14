@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CopyConfigurationCodeType } from './CopyConfigurationCodeType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,16 +20,16 @@ import type { WarningsType } from './WarningsType';
 export interface CopyYieldAdjustmentCodes {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CopyYieldAdjustmentCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CopyYieldAdjustmentCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
     /**
      * List of the Yield AdjustmentCodes to be copied.
      * @type {Array<CopyConfigurationCodeType>}

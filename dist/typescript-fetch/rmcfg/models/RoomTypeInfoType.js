@@ -17,7 +17,7 @@ exports.RoomTypeInfoTypeToJSON = exports.RoomTypeInfoTypeFromJSONTyped = exports
 const runtime_1 = require("../runtime");
 const BedTypeInfoType_1 = require("./BedTypeInfoType");
 const BookingChannelMappingType_1 = require("./BookingChannelMappingType");
-const RoomFeaturesType_1 = require("./RoomFeaturesType");
+const RoomFeatureType_1 = require("./RoomFeatureType");
 const RoomTypeAttributesType_1 = require("./RoomTypeAttributesType");
 /**
  * Check if a given object implements the RoomTypeInfoType interface.
@@ -47,7 +47,7 @@ function RoomTypeInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'longDescription': !(0, runtime_1.exists)(json, 'longDescription') ? undefined : json['longDescription'],
         'promotionCode': !(0, runtime_1.exists)(json, 'promotionCode') ? undefined : json['promotionCode'],
         'roomClass': !(0, runtime_1.exists)(json, 'roomClass') ? undefined : json['roomClass'],
-        'roomFeatures': !(0, runtime_1.exists)(json, 'roomFeatures') ? undefined : (0, RoomFeaturesType_1.RoomFeaturesTypeFromJSON)(json['roomFeatures']),
+        'roomFeatures': !(0, runtime_1.exists)(json, 'roomFeatures') ? undefined : (json['roomFeatures'].map(RoomFeatureType_1.RoomFeatureTypeFromJSON)),
         'roomQualifierCode': !(0, runtime_1.exists)(json, 'roomQualifierCode') ? undefined : json['roomQualifierCode'],
         'roomQualifierMatchIndicator': !(0, runtime_1.exists)(json, 'roomQualifierMatchIndicator') ? undefined : json['roomQualifierMatchIndicator'],
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : json['roomType'],
@@ -78,7 +78,7 @@ function RoomTypeInfoTypeToJSON(value) {
         'longDescription': value.longDescription,
         'promotionCode': value.promotionCode,
         'roomClass': value.roomClass,
-        'roomFeatures': (0, RoomFeaturesType_1.RoomFeaturesTypeToJSON)(value.roomFeatures),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : (value.roomFeatures.map(RoomFeatureType_1.RoomFeatureTypeToJSON)),
         'roomQualifierCode': value.roomQualifierCode,
         'roomQualifierMatchIndicator': value.roomQualifierMatchIndicator,
         'roomType': value.roomType,

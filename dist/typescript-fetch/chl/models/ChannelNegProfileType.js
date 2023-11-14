@@ -17,7 +17,7 @@ exports.ChannelNegProfileTypeToJSON = exports.ChannelNegProfileTypeFromJSONTyped
 const runtime_1 = require("../runtime");
 const ChannelNegRateAccessType_1 = require("./ChannelNegRateAccessType");
 const PersonNameType_1 = require("./PersonNameType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ChannelNegProfileType interface.
  */
@@ -37,7 +37,7 @@ function ChannelNegProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'accessInfoList': !(0, runtime_1.exists)(json, 'accessInfoList') ? undefined : (json['accessInfoList'].map(ChannelNegRateAccessType_1.ChannelNegRateAccessTypeFromJSON)),
         'formerName': !(0, runtime_1.exists)(json, 'formerName') ? undefined : (0, PersonNameType_1.PersonNameTypeFromJSON)(json['formerName']),
-        'uniqueId': !(0, runtime_1.exists)(json, 'uniqueId') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['uniqueId']),
+        'uniqueId': !(0, runtime_1.exists)(json, 'uniqueId') ? undefined : (json['uniqueId'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.ChannelNegProfileTypeFromJSONTyped = ChannelNegProfileTypeFromJSONTyped;
@@ -51,7 +51,7 @@ function ChannelNegProfileTypeToJSON(value) {
     return {
         'accessInfoList': value.accessInfoList === undefined ? undefined : (value.accessInfoList.map(ChannelNegRateAccessType_1.ChannelNegRateAccessTypeToJSON)),
         'formerName': (0, PersonNameType_1.PersonNameTypeToJSON)(value.formerName),
-        'uniqueId': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.uniqueId),
+        'uniqueId': value.uniqueId === undefined ? undefined : (value.uniqueId.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.ChannelNegProfileTypeToJSON = ChannelNegProfileTypeToJSON;

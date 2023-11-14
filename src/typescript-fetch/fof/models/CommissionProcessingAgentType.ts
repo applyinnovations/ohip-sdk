@@ -19,12 +19,12 @@ import {
     CommissionProcessingInstructionsTypeFromJSONTyped,
     CommissionProcessingInstructionsTypeToJSON,
 } from './CommissionProcessingInstructionsType';
-import type { CommissionProcessingReservationsType } from './CommissionProcessingReservationsType';
+import type { CommissionProcessingReservationType } from './CommissionProcessingReservationType';
 import {
-    CommissionProcessingReservationsTypeFromJSON,
-    CommissionProcessingReservationsTypeFromJSONTyped,
-    CommissionProcessingReservationsTypeToJSON,
-} from './CommissionProcessingReservationsType';
+    CommissionProcessingReservationTypeFromJSON,
+    CommissionProcessingReservationTypeFromJSONTyped,
+    CommissionProcessingReservationTypeToJSON,
+} from './CommissionProcessingReservationType';
 
 /**
  * An identifier used to uniquely reference an object in a system (e.g. an airline reservation reference, customer profile reference, booking confirmation number, or a reference to a previous availability quote).
@@ -69,11 +69,11 @@ export interface CommissionProcessingAgentType {
      */
     instructions?: CommissionProcessingInstructionsType;
     /**
-     * 
-     * @type {CommissionProcessingReservationsType}
+     * Commission processing instructions for a reservation.
+     * @type {Array<CommissionProcessingReservationType>}
      * @memberof CommissionProcessingAgentType
      */
-    reservations?: CommissionProcessingReservationsType;
+    reservations?: Array<CommissionProcessingReservationType>;
     /**
      * A reference to the type of object defined by the UniqueID element.
      * @type {string}
@@ -113,7 +113,7 @@ export function CommissionProcessingAgentTypeFromJSONTyped(json: any, ignoreDisc
         'idExtension': !exists(json, 'idExtension') ? undefined : json['idExtension'],
         'instance': !exists(json, 'instance') ? undefined : json['instance'],
         'instructions': !exists(json, 'instructions') ? undefined : CommissionProcessingInstructionsTypeFromJSON(json['instructions']),
-        'reservations': !exists(json, 'reservations') ? undefined : CommissionProcessingReservationsTypeFromJSON(json['reservations']),
+        'reservations': !exists(json, 'reservations') ? undefined : ((json['reservations'] as Array<any>).map(CommissionProcessingReservationTypeFromJSON)),
         'type': !exists(json, 'type') ? undefined : json['type'],
         'url': !exists(json, 'url') ? undefined : json['url'],
     };
@@ -134,7 +134,7 @@ export function CommissionProcessingAgentTypeToJSON(value?: CommissionProcessing
         'idExtension': value.idExtension,
         'instance': value.instance,
         'instructions': CommissionProcessingInstructionsTypeToJSON(value.instructions),
-        'reservations': CommissionProcessingReservationsTypeToJSON(value.reservations),
+        'reservations': value.reservations === undefined ? undefined : ((value.reservations as Array<any>).map(CommissionProcessingReservationTypeToJSON)),
         'type': value.type,
         'url': value.url,
     };

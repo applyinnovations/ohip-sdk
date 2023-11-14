@@ -11,7 +11,7 @@
  */
 import type { BusinessEventDataType } from './BusinessEventDataType';
 import type { InstanceLink } from './InstanceLink';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Provides business event message dequeued from BE queue as response
  * @export
@@ -31,11 +31,11 @@ export interface BusinessEvents {
      */
     links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BusinessEvents
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BusinessEvents interface.

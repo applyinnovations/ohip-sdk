@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CateringPackageListType } from './CateringPackageListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CateringPackageType } from './CateringPackageType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Catering Packages.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CateringPackages {
     /**
-     *
-     * @type {CateringPackageListType}
+     * Collection of multiple Catering Packages.
+     * @type {Array<CateringPackageType>}
      * @memberof CateringPackages
      */
-    cateringPackageList?: CateringPackageListType;
+    cateringPackageList?: Array<CateringPackageType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringPackages
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringPackages
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CateringPackages interface.

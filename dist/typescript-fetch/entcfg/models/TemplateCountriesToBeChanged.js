@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateCountriesToBeChangedToJSON = exports.TemplateCountriesToBeChangedFromJSONTyped = exports.TemplateCountriesToBeChangedFromJSON = exports.instanceOfTemplateCountriesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TemplateCountriesType_1 = require("./TemplateCountriesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TemplateCountryType_1 = require("./TemplateCountryType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TemplateCountriesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function TemplateCountriesToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'templateCountries': !(0, runtime_1.exists)(json, 'templateCountries') ? undefined : (0, TemplateCountriesType_1.TemplateCountriesTypeFromJSON)(json['templateCountries']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'templateCountries': !(0, runtime_1.exists)(json, 'templateCountries') ? undefined : (json['templateCountries'].map(TemplateCountryType_1.TemplateCountryTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TemplateCountriesToBeChangedFromJSONTyped = TemplateCountriesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function TemplateCountriesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'templateCountries': (0, TemplateCountriesType_1.TemplateCountriesTypeToJSON)(value.templateCountries),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'templateCountries': value.templateCountries === undefined ? undefined : (value.templateCountries.map(TemplateCountryType_1.TemplateCountryTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TemplateCountriesToBeChangedToJSON = TemplateCountriesToBeChangedToJSON;

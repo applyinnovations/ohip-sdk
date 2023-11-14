@@ -9,8 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
-import type { TotalPricingElementsType } from './TotalPricingElementsType';
+import type { TotalPricingElementType } from './TotalPricingElementType';
 /**
  * Total Pricing Elements to copy from single source property to multi target properties
  * @export
@@ -19,16 +18,16 @@ import type { TotalPricingElementsType } from './TotalPricingElementsType';
 export interface CopyTotalPricingElementsType {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyTotalPricingElementsType
      */
-    targetHotels?: CodeListType;
+    targetHotels?: Array<string>;
     /**
-     *
-     * @type {TotalPricingElementsType}
+     * List of Total Pricing Element Type
+     * @type {Array<TotalPricingElementType>}
      * @memberof CopyTotalPricingElementsType
      */
-    totalPricingElements?: TotalPricingElementsType;
+    totalPricingElements?: Array<TotalPricingElementType>;
 }
 /**
  * Check if a given object implements the CopyTotalPricingElementsType interface.

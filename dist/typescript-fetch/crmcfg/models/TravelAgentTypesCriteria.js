@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TravelAgentTypesCriteriaToJSON = exports.TravelAgentTypesCriteriaFromJSONTyped = exports.TravelAgentTypesCriteriaFromJSON = exports.instanceOfTravelAgentTypesCriteria = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TravelAgentTypesType_1 = require("./TravelAgentTypesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TravelAgentTypeType_1 = require("./TravelAgentTypeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TravelAgentTypesCriteria interface.
  */
@@ -35,9 +35,9 @@ function TravelAgentTypesCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'travelAgentTypes': !(0, runtime_1.exists)(json, 'travelAgentTypes') ? undefined : (0, TravelAgentTypesType_1.TravelAgentTypesTypeFromJSON)(json['travelAgentTypes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'travelAgentTypes': !(0, runtime_1.exists)(json, 'travelAgentTypes') ? undefined : (json['travelAgentTypes'].map(TravelAgentTypeType_1.TravelAgentTypeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TravelAgentTypesCriteriaFromJSONTyped = TravelAgentTypesCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function TravelAgentTypesCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'travelAgentTypes': (0, TravelAgentTypesType_1.TravelAgentTypesTypeToJSON)(value.travelAgentTypes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'travelAgentTypes': value.travelAgentTypes === undefined ? undefined : (value.travelAgentTypes.map(TravelAgentTypeType_1.TravelAgentTypeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TravelAgentTypesCriteriaToJSON = TravelAgentTypesCriteriaToJSON;

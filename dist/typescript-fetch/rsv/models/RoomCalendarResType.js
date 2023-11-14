@@ -20,9 +20,9 @@ const DateTimeSpanType_1 = require("./DateTimeSpanType");
 const LinkedReservationType_1 = require("./LinkedReservationType");
 const PMSResStatusType_1 = require("./PMSResStatusType");
 const ResGuaranteeType_1 = require("./ResGuaranteeType");
-const ReservationIdList_1 = require("./ReservationIdList");
 const RoomCalendarDisplayType_1 = require("./RoomCalendarDisplayType");
-const RoomMoveDetailsType_1 = require("./RoomMoveDetailsType");
+const RoomMoveDetailType_1 = require("./RoomMoveDetailType");
+const UniqueIDType_1 = require("./UniqueIDType");
 const VIPStatusType_1 = require("./VIPStatusType");
 /**
  * Check if a given object implements the RoomCalendarResType interface.
@@ -48,9 +48,9 @@ function RoomCalendarResTypeFromJSONTyped(json, ignoreDiscriminator) {
         'guarantee': !(0, runtime_1.exists)(json, 'guarantee') ? undefined : (0, ResGuaranteeType_1.ResGuaranteeTypeFromJSON)(json['guarantee']),
         'hasLinkedReservations': !(0, runtime_1.exists)(json, 'hasLinkedReservations') ? undefined : (0, LinkedReservationType_1.LinkedReservationTypeFromJSON)(json['hasLinkedReservations']),
         'noOfRooms': !(0, runtime_1.exists)(json, 'noOfRooms') ? undefined : json['noOfRooms'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'reservationStatus': !(0, runtime_1.exists)(json, 'reservationStatus') ? undefined : (0, PMSResStatusType_1.PMSResStatusTypeFromJSON)(json['reservationStatus']),
-        'roomMoveHistory': !(0, runtime_1.exists)(json, 'roomMoveHistory') ? undefined : (0, RoomMoveDetailsType_1.RoomMoveDetailsTypeFromJSON)(json['roomMoveHistory']),
+        'roomMoveHistory': !(0, runtime_1.exists)(json, 'roomMoveHistory') ? undefined : (json['roomMoveHistory'].map(RoomMoveDetailType_1.RoomMoveDetailTypeFromJSON)),
         'roomNumberLocked': !(0, runtime_1.exists)(json, 'roomNumberLocked') ? undefined : json['roomNumberLocked'],
         'roomScheduleDisplay': !(0, runtime_1.exists)(json, 'roomScheduleDisplay') ? undefined : (0, RoomCalendarDisplayType_1.RoomCalendarDisplayTypeFromJSON)(json['roomScheduleDisplay']),
         'surname': !(0, runtime_1.exists)(json, 'surname') ? undefined : json['surname'],
@@ -75,9 +75,9 @@ function RoomCalendarResTypeToJSON(value) {
         'guarantee': (0, ResGuaranteeType_1.ResGuaranteeTypeToJSON)(value.guarantee),
         'hasLinkedReservations': (0, LinkedReservationType_1.LinkedReservationTypeToJSON)(value.hasLinkedReservations),
         'noOfRooms': value.noOfRooms,
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'reservationStatus': (0, PMSResStatusType_1.PMSResStatusTypeToJSON)(value.reservationStatus),
-        'roomMoveHistory': (0, RoomMoveDetailsType_1.RoomMoveDetailsTypeToJSON)(value.roomMoveHistory),
+        'roomMoveHistory': value.roomMoveHistory === undefined ? undefined : (value.roomMoveHistory.map(RoomMoveDetailType_1.RoomMoveDetailTypeToJSON)),
         'roomNumberLocked': value.roomNumberLocked,
         'roomScheduleDisplay': (0, RoomCalendarDisplayType_1.RoomCalendarDisplayTypeToJSON)(value.roomScheduleDisplay),
         'surname': value.surname,

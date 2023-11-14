@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExportMappingCodesToJSON = exports.ExportMappingCodesFromJSONTyped = exports.ExportMappingCodesFromJSON = exports.instanceOfExportMappingCodes = void 0;
 const runtime_1 = require("../runtime");
 const ExportMappingCodeType_1 = require("./ExportMappingCodeType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ExportMappingCodes interface.
  */
@@ -37,8 +37,8 @@ function ExportMappingCodesFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'exportMappingCodes': !(0, runtime_1.exists)(json, 'exportMappingCodes') ? undefined : (json['exportMappingCodes'].map(ExportMappingCodeType_1.ExportMappingCodeTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ExportMappingCodesFromJSONTyped = ExportMappingCodesFromJSONTyped;
@@ -52,8 +52,8 @@ function ExportMappingCodesToJSON(value) {
     return {
         'exportMappingCodes': value.exportMappingCodes === undefined ? undefined : (value.exportMappingCodes.map(ExportMappingCodeType_1.ExportMappingCodeTypeToJSON)),
         'hotelId': value.hotelId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ExportMappingCodesToJSON = ExportMappingCodesToJSON;

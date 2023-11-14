@@ -17,7 +17,7 @@ exports.TaskCompanionTaskRoomToJSON = exports.TaskCompanionTaskRoomFromJSONTyped
 const runtime_1 = require("../runtime");
 const AppUserOnBreakType_1 = require("./AppUserOnBreakType");
 const DepartureTaskInfoType_1 = require("./DepartureTaskInfoType");
-const FacilityCodesType_1 = require("./FacilityCodesType");
+const FacilityCodeType_1 = require("./FacilityCodeType");
 const HousekeepingCreditsType_1 = require("./HousekeepingCreditsType");
 const HousekeepingTaskCodeType_1 = require("./HousekeepingTaskCodeType");
 const HousekeepingTaskTypeAttendant_1 = require("./HousekeepingTaskTypeAttendant");
@@ -66,7 +66,7 @@ function TaskCompanionTaskRoomFromJSONTyped(json, ignoreDiscriminator) {
         'taskInstructions': !(0, runtime_1.exists)(json, 'taskInstructions') ? undefined : json['taskInstructions'],
         'taskSeqNo': !(0, runtime_1.exists)(json, 'taskSeqNo') ? undefined : json['taskSeqNo'],
         'taskSheetCompleted': !(0, runtime_1.exists)(json, 'taskSheetCompleted') ? undefined : json['taskSheetCompleted'],
-        'totalSupplies': !(0, runtime_1.exists)(json, 'totalSupplies') ? undefined : (0, FacilityCodesType_1.FacilityCodesTypeFromJSON)(json['totalSupplies']),
+        'totalSupplies': !(0, runtime_1.exists)(json, 'totalSupplies') ? undefined : (json['totalSupplies'].map(FacilityCodeType_1.FacilityCodeTypeFromJSON)),
     };
 }
 exports.TaskCompanionTaskRoomFromJSONTyped = TaskCompanionTaskRoomFromJSONTyped;
@@ -102,7 +102,7 @@ function TaskCompanionTaskRoomToJSON(value) {
         'taskInstructions': value.taskInstructions,
         'taskSeqNo': value.taskSeqNo,
         'taskSheetCompleted': value.taskSheetCompleted,
-        'totalSupplies': (0, FacilityCodesType_1.FacilityCodesTypeToJSON)(value.totalSupplies),
+        'totalSupplies': value.totalSupplies === undefined ? undefined : (value.totalSupplies.map(FacilityCodeType_1.FacilityCodeTypeToJSON)),
     };
 }
 exports.TaskCompanionTaskRoomToJSON = TaskCompanionTaskRoomToJSON;

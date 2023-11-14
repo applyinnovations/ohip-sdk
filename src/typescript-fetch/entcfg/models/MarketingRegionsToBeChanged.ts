@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MarketingRegionsType } from './MarketingRegionsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MarketingRegionType } from './MarketingRegionType';
 import {
-    MarketingRegionsTypeFromJSON,
-    MarketingRegionsTypeFromJSONTyped,
-    MarketingRegionsTypeToJSON,
-} from './MarketingRegionsType';
-import type { WarningsType } from './WarningsType';
+    MarketingRegionTypeFromJSON,
+    MarketingRegionTypeFromJSONTyped,
+    MarketingRegionTypeToJSON,
+} from './MarketingRegionType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Marketing Regions.
@@ -40,22 +40,22 @@ import {
 export interface MarketingRegionsToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MarketingRegionsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MarketingRegionsType}
+     * List of Marketing Regions.
+     * @type {Array<MarketingRegionType>}
      * @memberof MarketingRegionsToBeChanged
      */
-    marketingRegions?: MarketingRegionsType;
+    marketingRegions?: Array<MarketingRegionType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MarketingRegionsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MarketingRegionsToBeChangedFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'marketingRegions': !exists(json, 'marketingRegions') ? undefined : MarketingRegionsTypeFromJSON(json['marketingRegions']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'marketingRegions': !exists(json, 'marketingRegions') ? undefined : ((json['marketingRegions'] as Array<any>).map(MarketingRegionTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MarketingRegionsToBeChangedToJSON(value?: MarketingRegionsToBeCh
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'marketingRegions': MarketingRegionsTypeToJSON(value.marketingRegions),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'marketingRegions': value.marketingRegions === undefined ? undefined : ((value.marketingRegions as Array<any>).map(MarketingRegionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

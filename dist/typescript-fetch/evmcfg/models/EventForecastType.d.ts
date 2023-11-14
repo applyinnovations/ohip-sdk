@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { EventForecastInfoType } from './EventForecastInfoType';
-import type { EventForecastRevDetailListType } from './EventForecastRevDetailListType';
+import type { EventForecastRevDetailType } from './EventForecastRevDetailType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Type used for managing forecast for any event.
@@ -37,11 +37,11 @@ export interface EventForecastType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {EventForecastRevDetailListType}
+     * Collection of Event Forecast Revenue Details.
+     * @type {Array<EventForecastRevDetailType>}
      * @memberof EventForecastType
      */
-    revenueDetails?: EventForecastRevDetailListType;
+    revenueDetails?: Array<EventForecastRevDetailType>;
 }
 /**
  * Check if a given object implements the EventForecastType interface.

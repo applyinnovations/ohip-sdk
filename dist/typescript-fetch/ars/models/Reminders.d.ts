@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ARRemindersType } from './ARRemindersType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ARReminderType } from './ARReminderType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response to the request to fetch pending Reminders for Accounts.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface Reminders {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Reminders
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ARRemindersType}
+     * Information about a Reminder.
+     * @type {Array<ARReminderType>}
      * @memberof Reminders
      */
-    remindersDetails?: ARRemindersType;
+    remindersDetails?: Array<ARReminderType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Reminders
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Reminders interface.

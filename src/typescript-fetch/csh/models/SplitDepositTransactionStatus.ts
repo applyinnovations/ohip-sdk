@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TransactionsType } from './TransactionsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TransactionType } from './TransactionType';
 import {
-    TransactionsTypeFromJSON,
-    TransactionsTypeFromJSONTyped,
-    TransactionsTypeToJSON,
-} from './TransactionsType';
-import type { WarningsType } from './WarningsType';
+    TransactionTypeFromJSON,
+    TransactionTypeFromJSONTyped,
+    TransactionTypeToJSON,
+} from './TransactionType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response after spliting deposit transaction.
@@ -40,22 +40,22 @@ import {
 export interface SplitDepositTransactionStatus {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SplitDepositTransactionStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TransactionsType}
+     * List of transaction information.
+     * @type {Array<TransactionType>}
      * @memberof SplitDepositTransactionStatus
      */
-    transactions?: TransactionsType;
+    transactions?: Array<TransactionType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SplitDepositTransactionStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function SplitDepositTransactionStatusFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'transactions': !exists(json, 'transactions') ? undefined : TransactionsTypeFromJSON(json['transactions']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'transactions': !exists(json, 'transactions') ? undefined : ((json['transactions'] as Array<any>).map(TransactionTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function SplitDepositTransactionStatusToJSON(value?: SplitDepositTransact
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'transactions': TransactionsTypeToJSON(value.transactions),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'transactions': value.transactions === undefined ? undefined : ((value.transactions as Array<any>).map(TransactionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

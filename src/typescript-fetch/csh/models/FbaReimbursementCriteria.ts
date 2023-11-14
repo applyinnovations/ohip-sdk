@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CertificateReconciliationTypes } from './CertificateReconciliationTypes';
+import type { CertificateReconciliationType } from './CertificateReconciliationType';
 import {
-    CertificateReconciliationTypesFromJSON,
-    CertificateReconciliationTypesFromJSONTyped,
-    CertificateReconciliationTypesToJSON,
-} from './CertificateReconciliationTypes';
-import type { Links } from './Links';
+    CertificateReconciliationTypeFromJSON,
+    CertificateReconciliationTypeFromJSONTyped,
+    CertificateReconciliationTypeToJSON,
+} from './CertificateReconciliationType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * PostFBA Reimbursement/Settlement operation posts reimbursement/settlement against the selected certificate records.
@@ -39,23 +39,23 @@ import {
  */
 export interface FbaReimbursementCriteria {
     /**
-     * 
-     * @type {CertificateReconciliationTypes}
+     * List of CertificateReconciliationType criteria
+     * @type {Array<CertificateReconciliationType>}
      * @memberof FbaReimbursementCriteria
      */
-    certificateReconciliationTypes?: CertificateReconciliationTypes;
+    certificateReconciliationTypes?: Array<CertificateReconciliationType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FbaReimbursementCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FbaReimbursementCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FbaReimbursementCriteriaFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'certificateReconciliationTypes': !exists(json, 'certificateReconciliationTypes') ? undefined : CertificateReconciliationTypesFromJSON(json['certificateReconciliationTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'certificateReconciliationTypes': !exists(json, 'certificateReconciliationTypes') ? undefined : ((json['certificateReconciliationTypes'] as Array<any>).map(CertificateReconciliationTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FbaReimbursementCriteriaToJSON(value?: FbaReimbursementCriteria 
     }
     return {
         
-        'certificateReconciliationTypes': CertificateReconciliationTypesToJSON(value.certificateReconciliationTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'certificateReconciliationTypes': value.certificateReconciliationTypes === undefined ? undefined : ((value.certificateReconciliationTypes as Array<any>).map(CertificateReconciliationTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

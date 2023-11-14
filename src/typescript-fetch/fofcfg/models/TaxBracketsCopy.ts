@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CopyConfigurationCodesType } from './CopyConfigurationCodesType';
+import type { CopyConfigurationCodeType } from './CopyConfigurationCodeType';
 import {
-    CopyConfigurationCodesTypeFromJSON,
-    CopyConfigurationCodesTypeFromJSONTyped,
-    CopyConfigurationCodesTypeToJSON,
-} from './CopyConfigurationCodesType';
-import type { Links } from './Links';
+    CopyConfigurationCodeTypeFromJSON,
+    CopyConfigurationCodeTypeFromJSONTyped,
+    CopyConfigurationCodeTypeToJSON,
+} from './CopyConfigurationCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface TaxBracketsCopy {
     /**
-     * 
-     * @type {CopyConfigurationCodesType}
+     * Information needed to copy configuration code from one property to the other.
+     * @type {Array<CopyConfigurationCodeType>}
      * @memberof TaxBracketsCopy
      */
-    copyInstructions?: CopyConfigurationCodesType;
+    copyInstructions?: Array<CopyConfigurationCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TaxBracketsCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TaxBracketsCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TaxBracketsCopyFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'copyInstructions': !exists(json, 'copyInstructions') ? undefined : CopyConfigurationCodesTypeFromJSON(json['copyInstructions']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'copyInstructions': !exists(json, 'copyInstructions') ? undefined : ((json['copyInstructions'] as Array<any>).map(CopyConfigurationCodeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TaxBracketsCopyToJSON(value?: TaxBracketsCopy | null): any {
     }
     return {
         
-        'copyInstructions': CopyConfigurationCodesTypeToJSON(value.copyInstructions),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'copyInstructions': value.copyInstructions === undefined ? undefined : ((value.copyInstructions as Array<any>).map(CopyConfigurationCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipPropertyGroupsInfoToJSON = exports.MembershipPropertyGroupsInfoFromJSONTyped = exports.MembershipPropertyGroupsInfoFromJSON = exports.instanceOfMembershipPropertyGroupsInfo = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const MembershipPropertyGroupsType_1 = require("./MembershipPropertyGroupsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const MembershipPropertyGroupType_1 = require("./MembershipPropertyGroupType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MembershipPropertyGroupsInfo interface.
  */
@@ -35,9 +35,9 @@ function MembershipPropertyGroupsInfoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'membershipPropertyGroups': !(0, runtime_1.exists)(json, 'membershipPropertyGroups') ? undefined : (0, MembershipPropertyGroupsType_1.MembershipPropertyGroupsTypeFromJSON)(json['membershipPropertyGroups']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'membershipPropertyGroups': !(0, runtime_1.exists)(json, 'membershipPropertyGroups') ? undefined : (json['membershipPropertyGroups'].map(MembershipPropertyGroupType_1.MembershipPropertyGroupTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MembershipPropertyGroupsInfoFromJSONTyped = MembershipPropertyGroupsInfoFromJSONTyped;
@@ -49,9 +49,9 @@ function MembershipPropertyGroupsInfoToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'membershipPropertyGroups': (0, MembershipPropertyGroupsType_1.MembershipPropertyGroupsTypeToJSON)(value.membershipPropertyGroups),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'membershipPropertyGroups': value.membershipPropertyGroups === undefined ? undefined : (value.membershipPropertyGroups.map(MembershipPropertyGroupType_1.MembershipPropertyGroupTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MembershipPropertyGroupsInfoToJSON = MembershipPropertyGroupsInfoToJSON;

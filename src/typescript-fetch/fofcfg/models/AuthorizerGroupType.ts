@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AuthorizerTrxLimitsType } from './AuthorizerTrxLimitsType';
+import type { AuthorizerTrxLimitType } from './AuthorizerTrxLimitType';
 import {
-    AuthorizerTrxLimitsTypeFromJSON,
-    AuthorizerTrxLimitsTypeFromJSONTyped,
-    AuthorizerTrxLimitsTypeToJSON,
-} from './AuthorizerTrxLimitsType';
+    AuthorizerTrxLimitTypeFromJSON,
+    AuthorizerTrxLimitTypeFromJSONTyped,
+    AuthorizerTrxLimitTypeToJSON,
+} from './AuthorizerTrxLimitType';
 
 /**
  * A representation of the information contained by a Authorizer Group.
@@ -51,11 +51,11 @@ export interface AuthorizerGroupType {
      */
     rateCode?: string;
     /**
-     * 
-     * @type {AuthorizerTrxLimitsType}
+     * Set of Transaction Limit configured for the Authorizer Group.
+     * @type {Array<AuthorizerTrxLimitType>}
      * @memberof AuthorizerGroupType
      */
-    transactionLimits?: AuthorizerTrxLimitsType;
+    transactionLimits?: Array<AuthorizerTrxLimitType>;
 }
 
 /**
@@ -81,7 +81,7 @@ export function AuthorizerGroupTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'description': !exists(json, 'description') ? undefined : json['description'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'rateCode': !exists(json, 'rateCode') ? undefined : json['rateCode'],
-        'transactionLimits': !exists(json, 'transactionLimits') ? undefined : AuthorizerTrxLimitsTypeFromJSON(json['transactionLimits']),
+        'transactionLimits': !exists(json, 'transactionLimits') ? undefined : ((json['transactionLimits'] as Array<any>).map(AuthorizerTrxLimitTypeFromJSON)),
     };
 }
 
@@ -98,7 +98,7 @@ export function AuthorizerGroupTypeToJSON(value?: AuthorizerGroupType | null): a
         'description': value.description,
         'hotelId': value.hotelId,
         'rateCode': value.rateCode,
-        'transactionLimits': AuthorizerTrxLimitsTypeToJSON(value.transactionLimits),
+        'transactionLimits': value.transactionLimits === undefined ? undefined : ((value.transactionLimits as Array<any>).map(AuthorizerTrxLimitTypeToJSON)),
     };
 }
 

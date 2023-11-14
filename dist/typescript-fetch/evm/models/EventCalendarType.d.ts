@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EventCodeDetailListType } from './EventCodeDetailListType';
+import type { EventCodeDetailType } from './EventCodeDetailType';
 import type { EventSpaceScheduleType } from './EventSpaceScheduleType';
 import type { SellMessagesType } from './SellMessagesType';
 /**
@@ -19,11 +19,11 @@ import type { SellMessagesType } from './SellMessagesType';
  */
 export interface EventCalendarType {
     /**
-     *
-     * @type {EventCodeDetailListType}
+     * Collection of the Event Codes in a Property for a particular time period.
+     * @type {Array<EventCodeDetailType>}
      * @memberof EventCalendarType
      */
-    eventCodes?: EventCodeDetailListType;
+    eventCodes?: Array<EventCodeDetailType>;
     /**
      * Collection of the Events Booked/Scheduled for the function space/functionSpaceDetails for the particular time period.
      * @type {Array<EventSpaceScheduleType>}

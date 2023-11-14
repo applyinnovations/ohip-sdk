@@ -13,18 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BasicEmailListType } from './BasicEmailListType';
+import type { WarningType } from './WarningType';
 import {
-    BasicEmailListTypeFromJSON,
-    BasicEmailListTypeFromJSONTyped,
-    BasicEmailListTypeToJSON,
-} from './BasicEmailListType';
-import type { WarningsType } from './WarningsType';
-import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -76,16 +70,16 @@ export interface StoreEmailRequest {
     subject?: string;
     /**
      * 
-     * @type {BasicEmailListType}
+     * @type {Array<string>}
      * @memberof StoreEmailRequest
      */
-    toAddress?: BasicEmailListType;
+    toAddress?: Array<string>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof StoreEmailRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -114,8 +108,8 @@ export function StoreEmailRequestFromJSONTyped(json: any, ignoreDiscriminator: b
         'hasAttachment': !exists(json, 'hasAttachment') ? undefined : json['hasAttachment'],
         'messageId': !exists(json, 'messageId') ? undefined : json['messageId'],
         'subject': !exists(json, 'subject') ? undefined : json['subject'],
-        'toAddress': !exists(json, 'toAddress') ? undefined : BasicEmailListTypeFromJSON(json['toAddress']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'toAddress': !exists(json, 'toAddress') ? undefined : json['toAddress'],
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -135,8 +129,8 @@ export function StoreEmailRequestToJSON(value?: StoreEmailRequest | null): any {
         'hasAttachment': value.hasAttachment,
         'messageId': value.messageId,
         'subject': value.subject,
-        'toAddress': BasicEmailListTypeToJSON(value.toAddress),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'toAddress': value.toAddress,
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

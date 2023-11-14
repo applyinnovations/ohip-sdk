@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelInterfaceControllerRegsType } from './HotelInterfaceControllerRegsType';
+import type { HotelInterfaceControllerRegType } from './HotelInterfaceControllerRegType';
 import {
-    HotelInterfaceControllerRegsTypeFromJSON,
-    HotelInterfaceControllerRegsTypeFromJSONTyped,
-    HotelInterfaceControllerRegsTypeToJSON,
-} from './HotelInterfaceControllerRegsType';
-import type { Links } from './Links';
+    HotelInterfaceControllerRegTypeFromJSON,
+    HotelInterfaceControllerRegTypeFromJSONTyped,
+    HotelInterfaceControllerRegTypeToJSON,
+} from './HotelInterfaceControllerRegType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for retrieving Hotel Interface Controller Registry.
@@ -40,22 +40,22 @@ import {
 export interface FetchedHotelInterfaceControllerRegistry {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchedHotelInterfaceControllerRegistry
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {HotelInterfaceControllerRegsType}
+     * Collection of Hotel Interface Controller Registry.
+     * @type {Array<HotelInterfaceControllerRegType>}
      * @memberof FetchedHotelInterfaceControllerRegistry
      */
-    reg?: HotelInterfaceControllerRegsType;
+    reg?: Array<HotelInterfaceControllerRegType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchedHotelInterfaceControllerRegistry
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FetchedHotelInterfaceControllerRegistryFromJSONTyped(json: any, 
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'reg': !exists(json, 'reg') ? undefined : HotelInterfaceControllerRegsTypeFromJSON(json['reg']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'reg': !exists(json, 'reg') ? undefined : ((json['reg'] as Array<any>).map(HotelInterfaceControllerRegTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FetchedHotelInterfaceControllerRegistryToJSON(value?: FetchedHot
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'reg': HotelInterfaceControllerRegsTypeToJSON(value.reg),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'reg': value.reg === undefined ? undefined : ((value.reg as Array<any>).map(HotelInterfaceControllerRegTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyScheduleTypeToJSON = exports.CopyScheduleTypeFromJSONTyped = exports.CopyScheduleTypeFromJSON = exports.instanceOfCopyScheduleType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CopyScheduleType interface.
@@ -35,7 +34,7 @@ function CopyScheduleTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'scheduleId': !(0, runtime_1.exists)(json, 'scheduleId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['scheduleId']),
-        'targetHotelCodes': !(0, runtime_1.exists)(json, 'targetHotelCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['targetHotelCodes']),
+        'targetHotelCodes': !(0, runtime_1.exists)(json, 'targetHotelCodes') ? undefined : json['targetHotelCodes'],
     };
 }
 exports.CopyScheduleTypeFromJSONTyped = CopyScheduleTypeFromJSONTyped;
@@ -48,7 +47,7 @@ function CopyScheduleTypeToJSON(value) {
     }
     return {
         'scheduleId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.scheduleId),
-        'targetHotelCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.targetHotelCodes),
+        'targetHotelCodes': value.targetHotelCodes,
     };
 }
 exports.CopyScheduleTypeToJSON = CopyScheduleTypeToJSON;

@@ -19,12 +19,12 @@ import {
     CodeDescriptionTypeFromJSONTyped,
     CodeDescriptionTypeToJSON,
 } from './CodeDescriptionType';
-import type { ParametersType } from './ParametersType';
+import type { ParameterType } from './ParameterType';
 import {
-    ParametersTypeFromJSON,
-    ParametersTypeFromJSONTyped,
-    ParametersTypeToJSON,
-} from './ParametersType';
+    ParameterTypeFromJSON,
+    ParameterTypeFromJSONTyped,
+    ParameterTypeToJSON,
+} from './ParameterType';
 import type { UserSessionDefaultsType } from './UserSessionDefaultsType';
 import {
     UserSessionDefaultsTypeFromJSON,
@@ -69,11 +69,11 @@ export interface UserSessionInfoType {
      */
     hotel?: CodeDescriptionType;
     /**
-     * 
-     * @type {ParametersType}
+     * Collection of generic Name-Value-Pair parameters.
+     * @type {Array<ParameterType>}
      * @memberof UserSessionInfoType
      */
-    parameters?: ParametersType;
+    parameters?: Array<ParameterType>;
     /**
      * 
      * @type {string}
@@ -130,7 +130,7 @@ export function UserSessionInfoTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'chain': !exists(json, 'chain') ? undefined : json['chain'],
         'cro': !exists(json, 'cro') ? undefined : CodeDescriptionTypeFromJSON(json['cro']),
         'hotel': !exists(json, 'hotel') ? undefined : CodeDescriptionTypeFromJSON(json['hotel']),
-        'parameters': !exists(json, 'parameters') ? undefined : ParametersTypeFromJSON(json['parameters']),
+        'parameters': !exists(json, 'parameters') ? undefined : ((json['parameters'] as Array<any>).map(ParameterTypeFromJSON)),
         'runningApp': !exists(json, 'runningApp') ? undefined : json['runningApp'],
         'sessionDefaults': !exists(json, 'sessionDefaults') ? undefined : UserSessionDefaultsTypeFromJSON(json['sessionDefaults']),
         'shareProfiles': !exists(json, 'shareProfiles') ? undefined : json['shareProfiles'],
@@ -153,7 +153,7 @@ export function UserSessionInfoTypeToJSON(value?: UserSessionInfoType | null): a
         'chain': value.chain,
         'cro': CodeDescriptionTypeToJSON(value.cro),
         'hotel': CodeDescriptionTypeToJSON(value.hotel),
-        'parameters': ParametersTypeToJSON(value.parameters),
+        'parameters': value.parameters === undefined ? undefined : ((value.parameters as Array<any>).map(ParameterTypeToJSON)),
         'runningApp': value.runningApp,
         'sessionDefaults': UserSessionDefaultsTypeToJSON(value.sessionDefaults),
         'shareProfiles': value.shareProfiles,

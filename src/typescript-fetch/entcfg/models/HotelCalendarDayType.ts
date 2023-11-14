@@ -19,12 +19,12 @@ import {
     HotelCalendarDayTypeTypeFromJSONTyped,
     HotelCalendarDayTypeTypeToJSON,
 } from './HotelCalendarDayTypeType';
-import type { HotelCalendarEventsType } from './HotelCalendarEventsType';
+import type { HotelCalendarEventType } from './HotelCalendarEventType';
 import {
-    HotelCalendarEventsTypeFromJSON,
-    HotelCalendarEventsTypeFromJSONTyped,
-    HotelCalendarEventsTypeToJSON,
-} from './HotelCalendarEventsType';
+    HotelCalendarEventTypeFromJSON,
+    HotelCalendarEventTypeFromJSONTyped,
+    HotelCalendarEventTypeToJSON,
+} from './HotelCalendarEventType';
 
 /**
  * Details of calendar entries for a specific day for a specific hotel.
@@ -45,11 +45,11 @@ export interface HotelCalendarDayType {
      */
     dayType?: HotelCalendarDayTypeType;
     /**
-     * 
-     * @type {HotelCalendarEventsType}
+     * Details of hotel events
+     * @type {Array<HotelCalendarEventType>}
      * @memberof HotelCalendarDayType
      */
-    events?: HotelCalendarEventsType;
+    events?: Array<HotelCalendarEventType>;
 }
 
 /**
@@ -73,7 +73,7 @@ export function HotelCalendarDayTypeFromJSONTyped(json: any, ignoreDiscriminator
         
         'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
         'dayType': !exists(json, 'dayType') ? undefined : HotelCalendarDayTypeTypeFromJSON(json['dayType']),
-        'events': !exists(json, 'events') ? undefined : HotelCalendarEventsTypeFromJSON(json['events']),
+        'events': !exists(json, 'events') ? undefined : ((json['events'] as Array<any>).map(HotelCalendarEventTypeFromJSON)),
     };
 }
 
@@ -88,7 +88,7 @@ export function HotelCalendarDayTypeToJSON(value?: HotelCalendarDayType | null):
         
         'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
         'dayType': HotelCalendarDayTypeTypeToJSON(value.dayType),
-        'events': HotelCalendarEventsTypeToJSON(value.events),
+        'events': value.events === undefined ? undefined : ((value.events as Array<any>).map(HotelCalendarEventTypeToJSON)),
     };
 }
 

@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { InstanceLink } from './InstanceLink';
+import {
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { LinkedReservationsInfoType } from './LinkedReservationsInfoType';
 import {
     LinkedReservationsInfoTypeFromJSON,
     LinkedReservationsInfoTypeFromJSONTyped,
     LinkedReservationsInfoTypeToJSON,
 } from './LinkedReservationsInfoType';
-import type { Links } from './Links';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { UniqueIDListType } from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
+import type { WarningType } from './WarningType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
-import type { WarningsType } from './WarningsType';
-import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for splitting multi-room reservation into separate reservations.
@@ -52,22 +52,22 @@ export interface SplitMultiRoomReservationDetails {
     linkedReservations?: LinkedReservationsInfoType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SplitMultiRoomReservationDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof SplitMultiRoomReservationDetails
      */
-    newReservationIdList?: UniqueIDListType;
+    newReservationIdList?: Array<UniqueIDType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SplitMultiRoomReservationDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -90,9 +90,9 @@ export function SplitMultiRoomReservationDetailsFromJSONTyped(json: any, ignoreD
     return {
         
         'linkedReservations': !exists(json, 'linkedReservations') ? undefined : LinkedReservationsInfoTypeFromJSON(json['linkedReservations']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'newReservationIdList': !exists(json, 'newReservationIdList') ? undefined : UniqueIDListTypeFromJSON(json['newReservationIdList']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'newReservationIdList': !exists(json, 'newReservationIdList') ? undefined : ((json['newReservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -106,9 +106,9 @@ export function SplitMultiRoomReservationDetailsToJSON(value?: SplitMultiRoomRes
     return {
         
         'linkedReservations': LinkedReservationsInfoTypeToJSON(value.linkedReservations),
-        'links': LinksToJSON(value.links),
-        'newReservationIdList': UniqueIDListTypeToJSON(value.newReservationIdList),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'newReservationIdList': value.newReservationIdList === undefined ? undefined : ((value.newReservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ServiceRequestCodePrioritiesToBeChangedToJSON = exports.ServiceRequestCodePrioritiesToBeChangedFromJSONTyped = exports.ServiceRequestCodePrioritiesToBeChangedFromJSON = exports.instanceOfServiceRequestCodePrioritiesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const ServiceRequestCodePrioritiesType_1 = require("./ServiceRequestCodePrioritiesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const ServiceRequestCodePriorityType_1 = require("./ServiceRequestCodePriorityType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ServiceRequestCodePrioritiesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function ServiceRequestCodePrioritiesToBeChangedFromJSONTyped(json, ignoreDiscri
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'serviceRequestCodePriorities': !(0, runtime_1.exists)(json, 'serviceRequestCodePriorities') ? undefined : (0, ServiceRequestCodePrioritiesType_1.ServiceRequestCodePrioritiesTypeFromJSON)(json['serviceRequestCodePriorities']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'serviceRequestCodePriorities': !(0, runtime_1.exists)(json, 'serviceRequestCodePriorities') ? undefined : (json['serviceRequestCodePriorities'].map(ServiceRequestCodePriorityType_1.ServiceRequestCodePriorityTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ServiceRequestCodePrioritiesToBeChangedFromJSONTyped = ServiceRequestCodePrioritiesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function ServiceRequestCodePrioritiesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'serviceRequestCodePriorities': (0, ServiceRequestCodePrioritiesType_1.ServiceRequestCodePrioritiesTypeToJSON)(value.serviceRequestCodePriorities),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'serviceRequestCodePriorities': value.serviceRequestCodePriorities === undefined ? undefined : (value.serviceRequestCodePriorities.map(ServiceRequestCodePriorityType_1.ServiceRequestCodePriorityTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ServiceRequestCodePrioritiesToBeChangedToJSON = ServiceRequestCodePrioritiesToBeChangedToJSON;

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { JobTitlesType } from './JobTitlesType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    JobTitlesTypeFromJSON,
-    JobTitlesTypeFromJSONTyped,
-    JobTitlesTypeToJSON,
-} from './JobTitlesType';
-import type { Links } from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { JobTitleType } from './JobTitleType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    JobTitleTypeFromJSON,
+    JobTitleTypeFromJSONTyped,
+    JobTitleTypeToJSON,
+} from './JobTitleType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching job titles configured for hotels.
@@ -39,23 +39,23 @@ import {
  */
 export interface JobTitlesDetails {
     /**
-     * 
-     * @type {JobTitlesType}
+     * Job Title details for a hotel.
+     * @type {Array<JobTitleType>}
      * @memberof JobTitlesDetails
      */
-    jobTitles?: JobTitlesType;
+    jobTitles?: Array<JobTitleType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof JobTitlesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof JobTitlesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function JobTitlesDetailsFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'jobTitles': !exists(json, 'jobTitles') ? undefined : JobTitlesTypeFromJSON(json['jobTitles']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'jobTitles': !exists(json, 'jobTitles') ? undefined : ((json['jobTitles'] as Array<any>).map(JobTitleTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function JobTitlesDetailsToJSON(value?: JobTitlesDetails | null): any {
     }
     return {
         
-        'jobTitles': JobTitlesTypeToJSON(value.jobTitles),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'jobTitles': value.jobTitles === undefined ? undefined : ((value.jobTitles as Array<any>).map(JobTitleTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

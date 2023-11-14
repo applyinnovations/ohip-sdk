@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CodeInfoTypeToJSON = exports.CodeInfoTypeFromJSONTyped = exports.CodeInfoTypeFromJSON = exports.instanceOfCodeInfoType = void 0;
 const runtime_1 = require("../runtime");
-const AddtionalCodeInfoType_1 = require("./AddtionalCodeInfoType");
+const AddtionalCodeInfoTypeInner_1 = require("./AddtionalCodeInfoTypeInner");
 /**
  * Check if a given object implements the CodeInfoType interface.
  */
@@ -33,7 +33,7 @@ function CodeInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'addtionalCodeInfo': !(0, runtime_1.exists)(json, 'addtionalCodeInfo') ? undefined : (0, AddtionalCodeInfoType_1.AddtionalCodeInfoTypeFromJSON)(json['addtionalCodeInfo']),
+        'addtionalCodeInfo': !(0, runtime_1.exists)(json, 'addtionalCodeInfo') ? undefined : (json['addtionalCodeInfo'].map(AddtionalCodeInfoTypeInner_1.AddtionalCodeInfoTypeInnerFromJSON)),
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
@@ -48,7 +48,7 @@ function CodeInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'addtionalCodeInfo': (0, AddtionalCodeInfoType_1.AddtionalCodeInfoTypeToJSON)(value.addtionalCodeInfo),
+        'addtionalCodeInfo': value.addtionalCodeInfo === undefined ? undefined : (value.addtionalCodeInfo.map(AddtionalCodeInfoTypeInner_1.AddtionalCodeInfoTypeInnerToJSON)),
         'code': value.code,
         'description': value.description,
         'hotelId': value.hotelId,

@@ -9,15 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
+import type { InstanceLink } from './InstanceLink';
 import type { KeyCardType } from './KeyCardType';
 import type { KeyTrackType } from './KeyTrackType';
-import type { Links } from './Links';
 import type { RoomKeyGuest } from './RoomKeyGuest';
 import type { RoomKeyType } from './RoomKeyType';
-import type { UniqueIDListType } from './UniqueIDListType';
 import type { UniqueIDType } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request for generation of room key.
  * @export
@@ -26,10 +24,10 @@ import type { WarningsType } from './WarningsType';
 export interface RoomKey {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof RoomKey
      */
-    additionalRooms?: CodeListType;
+    additionalRooms?: Array<string>;
     /**
      *
      * @type {UniqueIDType}
@@ -86,10 +84,10 @@ export interface RoomKey {
     keyValidityStart?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomKey
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {number}
@@ -97,11 +95,11 @@ export interface RoomKey {
      */
     noOfKeys?: number;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RoomKey
      */
-    reservationIdList?: UniqueIDListType;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {string}
@@ -121,11 +119,11 @@ export interface RoomKey {
      */
     roomNumber?: string;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomKey
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomKey interface.

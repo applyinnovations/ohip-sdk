@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CustomTaxTypesType } from './CustomTaxTypesType';
+import type { CustomTaxTypeType } from './CustomTaxTypeType';
 import {
-    CustomTaxTypesTypeFromJSON,
-    CustomTaxTypesTypeFromJSONTyped,
-    CustomTaxTypesTypeToJSON,
-} from './CustomTaxTypesType';
-import type { Links } from './Links';
+    CustomTaxTypeTypeFromJSON,
+    CustomTaxTypeTypeFromJSONTyped,
+    CustomTaxTypeTypeToJSON,
+} from './CustomTaxTypeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Custom Tax Types.
@@ -39,23 +39,23 @@ import {
  */
 export interface CustomTaxTypesCriteria {
     /**
-     * 
-     * @type {CustomTaxTypesType}
+     * List of Custom Tax Types.
+     * @type {Array<CustomTaxTypeType>}
      * @memberof CustomTaxTypesCriteria
      */
-    customTaxTypes?: CustomTaxTypesType;
+    customTaxTypes?: Array<CustomTaxTypeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CustomTaxTypesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CustomTaxTypesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CustomTaxTypesCriteriaFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'customTaxTypes': !exists(json, 'customTaxTypes') ? undefined : CustomTaxTypesTypeFromJSON(json['customTaxTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'customTaxTypes': !exists(json, 'customTaxTypes') ? undefined : ((json['customTaxTypes'] as Array<any>).map(CustomTaxTypeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CustomTaxTypesCriteriaToJSON(value?: CustomTaxTypesCriteria | nu
     }
     return {
         
-        'customTaxTypes': CustomTaxTypesTypeToJSON(value.customTaxTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'customTaxTypes': value.customTaxTypes === undefined ? undefined : ((value.customTaxTypes as Array<any>).map(CustomTaxTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

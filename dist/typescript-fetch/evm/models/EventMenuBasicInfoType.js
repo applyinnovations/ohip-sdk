@@ -16,7 +16,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.EventMenuBasicInfoTypeToJSON = exports.EventMenuBasicInfoTypeFromJSONTyped = exports.EventMenuBasicInfoTypeFromJSON = exports.instanceOfEventMenuBasicInfoType = void 0;
 const runtime_1 = require("../runtime");
 const CateringEventsAttendeesType_1 = require("./CateringEventsAttendeesType");
-const CodeListType_1 = require("./CodeListType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const DateRangeType_1 = require("./DateRangeType");
 const DateTimeRangeType_1 = require("./DateTimeRangeType");
@@ -46,10 +45,10 @@ function EventMenuBasicInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'consumptionBased': !(0, runtime_1.exists)(json, 'consumptionBased') ? undefined : json['consumptionBased'],
         'courseCount': !(0, runtime_1.exists)(json, 'courseCount') ? undefined : json['courseCount'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : (0, TranslationTextType2000_1.TranslationTextType2000FromJSON)(json['description']),
-        'dietaryList': !(0, runtime_1.exists)(json, 'dietaryList') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['dietaryList']),
+        'dietaryList': !(0, runtime_1.exists)(json, 'dietaryList') ? undefined : json['dietaryList'],
         'discountPercentage': !(0, runtime_1.exists)(json, 'discountPercentage') ? undefined : json['discountPercentage'],
         'eventDateRange': !(0, runtime_1.exists)(json, 'eventDateRange') ? undefined : (0, DateRangeType_1.DateRangeTypeFromJSON)(json['eventDateRange']),
-        'eventTypes': !(0, runtime_1.exists)(json, 'eventTypes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['eventTypes']),
+        'eventTypes': !(0, runtime_1.exists)(json, 'eventTypes') ? undefined : json['eventTypes'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
         'includedInMenu': !(0, runtime_1.exists)(json, 'includedInMenu') ? undefined : json['includedInMenu'],
@@ -84,10 +83,10 @@ function EventMenuBasicInfoTypeToJSON(value) {
         'consumptionBased': value.consumptionBased,
         'courseCount': value.courseCount,
         'description': (0, TranslationTextType2000_1.TranslationTextType2000ToJSON)(value.description),
-        'dietaryList': (0, CodeListType_1.CodeListTypeToJSON)(value.dietaryList),
+        'dietaryList': value.dietaryList,
         'discountPercentage': value.discountPercentage,
         'eventDateRange': (0, DateRangeType_1.DateRangeTypeToJSON)(value.eventDateRange),
-        'eventTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.eventTypes),
+        'eventTypes': value.eventTypes,
         'hotelId': value.hotelId,
         'inactive': value.inactive,
         'includedInMenu': value.includedInMenu,

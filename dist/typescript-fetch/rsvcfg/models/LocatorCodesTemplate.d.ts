@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { LocatorCodesTemplateType } from './LocatorCodesTemplateType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { LocatorCodeTemplateType } from './LocatorCodeTemplateType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for modifying an existing locator code template.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface LocatorCodesTemplate {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof LocatorCodesTemplate
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {LocatorCodesTemplateType}
+     * Collection of locator codes.
+     * @type {Array<LocatorCodeTemplateType>}
      * @memberof LocatorCodesTemplate
      */
-    locatorCodes?: LocatorCodesTemplateType;
+    locatorCodes?: Array<LocatorCodeTemplateType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof LocatorCodesTemplate
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the LocatorCodesTemplate interface.

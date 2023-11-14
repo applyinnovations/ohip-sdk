@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TrackItActionsConfigType } from './TrackItActionsConfigType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TrackItActionConfigType } from './TrackItActionConfigType';
 import {
-    TrackItActionsConfigTypeFromJSON,
-    TrackItActionsConfigTypeFromJSONTyped,
-    TrackItActionsConfigTypeToJSON,
-} from './TrackItActionsConfigType';
-import type { WarningsType } from './WarningsType';
+    TrackItActionConfigTypeFromJSON,
+    TrackItActionConfigTypeFromJSONTyped,
+    TrackItActionConfigTypeToJSON,
+} from './TrackItActionConfigType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing existing Track it Actions.
@@ -40,22 +40,22 @@ import {
 export interface TrackItActionsToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TrackItActionsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TrackItActionsConfigType}
+     * Track It Action Collection element.
+     * @type {Array<TrackItActionConfigType>}
      * @memberof TrackItActionsToBeChanged
      */
-    trackItActions?: TrackItActionsConfigType;
+    trackItActions?: Array<TrackItActionConfigType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TrackItActionsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TrackItActionsToBeChangedFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'trackItActions': !exists(json, 'trackItActions') ? undefined : TrackItActionsConfigTypeFromJSON(json['trackItActions']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'trackItActions': !exists(json, 'trackItActions') ? undefined : ((json['trackItActions'] as Array<any>).map(TrackItActionConfigTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TrackItActionsToBeChangedToJSON(value?: TrackItActionsToBeChange
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'trackItActions': TrackItActionsConfigTypeToJSON(value.trackItActions),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'trackItActions': value.trackItActions === undefined ? undefined : ((value.trackItActions as Array<any>).map(TrackItActionConfigTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

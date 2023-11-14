@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { AllocationGridByRoomTypesType } from './AllocationGridByRoomTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * A Request message that sets the room allocations as a collection of room types and dates.
  * @export
@@ -26,16 +26,16 @@ export interface Allocation {
     criteria?: AllocationGridByRoomTypesType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Allocation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Allocation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Allocation interface.

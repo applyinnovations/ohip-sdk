@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RatePlanRatingsInfoType } from './RatePlanRatingsInfoType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RatePlanRatingInfoType } from './RatePlanRatingInfoType';
 import {
-    RatePlanRatingsInfoTypeFromJSON,
-    RatePlanRatingsInfoTypeFromJSONTyped,
-    RatePlanRatingsInfoTypeToJSON,
-} from './RatePlanRatingsInfoType';
-import type { WarningsType } from './WarningsType';
+    RatePlanRatingInfoTypeFromJSON,
+    RatePlanRatingInfoTypeFromJSONTyped,
+    RatePlanRatingInfoTypeToJSON,
+} from './RatePlanRatingInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching the rate codes and their rating details.
@@ -52,10 +52,10 @@ export interface RatePlanRatings {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RatePlanRatings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -63,11 +63,11 @@ export interface RatePlanRatings {
      */
     offset?: number;
     /**
-     * 
-     * @type {RatePlanRatingsInfoType}
+     * Collection of rate plan Codes and their ratings.
+     * @type {Array<RatePlanRatingInfoType>}
      * @memberof RatePlanRatings
      */
-    ratePlanRatingsInfo?: RatePlanRatingsInfoType;
+    ratePlanRatingsInfo?: Array<RatePlanRatingInfoType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -81,11 +81,11 @@ export interface RatePlanRatings {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RatePlanRatings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -109,12 +109,12 @@ export function RatePlanRatingsFromJSONTyped(json: any, ignoreDiscriminator: boo
         
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
-        'ratePlanRatingsInfo': !exists(json, 'ratePlanRatingsInfo') ? undefined : RatePlanRatingsInfoTypeFromJSON(json['ratePlanRatingsInfo']),
+        'ratePlanRatingsInfo': !exists(json, 'ratePlanRatingsInfo') ? undefined : ((json['ratePlanRatingsInfo'] as Array<any>).map(RatePlanRatingInfoTypeFromJSON)),
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -129,12 +129,12 @@ export function RatePlanRatingsToJSON(value?: RatePlanRatings | null): any {
         
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
-        'ratePlanRatingsInfo': RatePlanRatingsInfoTypeToJSON(value.ratePlanRatingsInfo),
+        'ratePlanRatingsInfo': value.ratePlanRatingsInfo === undefined ? undefined : ((value.ratePlanRatingsInfo as Array<any>).map(RatePlanRatingInfoTypeToJSON)),
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

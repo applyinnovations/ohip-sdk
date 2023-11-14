@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
-import type { WashCodesType } from './WashCodesType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
+import type { WashCodeType } from './WashCodeType';
 /**
  * Operation to create new Wash Schedule Configuration under the selected property.
  * @export
@@ -20,22 +20,22 @@ import type { WashCodesType } from './WashCodesType';
 export interface WashScheduleCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof WashScheduleCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof WashScheduleCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
     /**
-     *
-     * @type {WashCodesType}
+     * Wash Code, which will allow the user to define standard schedules that can be attached to blocks prior to the block's cutoff date to automate this process.
+     * @type {Array<WashCodeType>}
      * @memberof WashScheduleCriteria
      */
-    washCodes?: WashCodesType;
+    washCodes?: Array<WashCodeType>;
 }
 /**
  * Check if a given object implements the WashScheduleCriteria interface.

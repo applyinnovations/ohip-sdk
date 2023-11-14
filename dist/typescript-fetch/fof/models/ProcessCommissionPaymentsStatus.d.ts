@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CommissionPaymentReportType } from './CommissionPaymentReportType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response type for processing commission payments.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ProcessCommissionPaymentsStatus {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProcessCommissionPaymentsStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {CommissionPaymentReportType}
@@ -31,11 +31,11 @@ export interface ProcessCommissionPaymentsStatus {
      */
     paymentReport?: CommissionPaymentReportType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProcessCommissionPaymentsStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProcessCommissionPaymentsStatus interface.

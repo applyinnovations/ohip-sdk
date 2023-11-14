@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelAirportTypeToJSON = exports.HotelAirportTypeFromJSONTyped = exports.HotelAirportTypeFromJSON = exports.instanceOfHotelAirportType = void 0;
 const runtime_1 = require("../runtime");
 const RelativePositionType_1 = require("./RelativePositionType");
-const TransportationCodeListType_1 = require("./TransportationCodeListType");
+const TransportationCodeType_1 = require("./TransportationCodeType");
 /**
  * Check if a given object implements the HotelAirportType interface.
  */
@@ -39,7 +39,7 @@ function HotelAirportTypeFromJSONTyped(json, ignoreDiscriminator) {
         'direction': !(0, runtime_1.exists)(json, 'direction') ? undefined : json['direction'],
         'orderSequence': !(0, runtime_1.exists)(json, 'orderSequence') ? undefined : json['orderSequence'],
         'relativePosition': !(0, runtime_1.exists)(json, 'relativePosition') ? undefined : (0, RelativePositionType_1.RelativePositionTypeFromJSON)(json['relativePosition']),
-        'transportationList': !(0, runtime_1.exists)(json, 'transportationList') ? undefined : (0, TransportationCodeListType_1.TransportationCodeListTypeFromJSON)(json['transportationList']),
+        'transportationList': !(0, runtime_1.exists)(json, 'transportationList') ? undefined : (json['transportationList'].map(TransportationCodeType_1.TransportationCodeTypeFromJSON)),
     };
 }
 exports.HotelAirportTypeFromJSONTyped = HotelAirportTypeFromJSONTyped;
@@ -56,7 +56,7 @@ function HotelAirportTypeToJSON(value) {
         'direction': value.direction,
         'orderSequence': value.orderSequence,
         'relativePosition': (0, RelativePositionType_1.RelativePositionTypeToJSON)(value.relativePosition),
-        'transportationList': (0, TransportationCodeListType_1.TransportationCodeListTypeToJSON)(value.transportationList),
+        'transportationList': value.transportationList === undefined ? undefined : (value.transportationList.map(TransportationCodeType_1.TransportationCodeTypeToJSON)),
     };
 }
 exports.HotelAirportTypeToJSON = HotelAirportTypeToJSON;

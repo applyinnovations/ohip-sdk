@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HousekeepingCodesToBeChangedToJSON = exports.HousekeepingCodesToBeChangedFromJSONTyped = exports.HousekeepingCodesToBeChangedFromJSON = exports.instanceOfHousekeepingCodesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const HousekeepingCodesConfigType_1 = require("./HousekeepingCodesConfigType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HousekeepingCodeConfigType_1 = require("./HousekeepingCodeConfigType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the HousekeepingCodesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function HousekeepingCodesToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'codes': !(0, runtime_1.exists)(json, 'codes') ? undefined : (0, HousekeepingCodesConfigType_1.HousekeepingCodesConfigTypeFromJSON)(json['codes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'codes': !(0, runtime_1.exists)(json, 'codes') ? undefined : (json['codes'].map(HousekeepingCodeConfigType_1.HousekeepingCodeConfigTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.HousekeepingCodesToBeChangedFromJSONTyped = HousekeepingCodesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function HousekeepingCodesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'codes': (0, HousekeepingCodesConfigType_1.HousekeepingCodesConfigTypeToJSON)(value.codes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'codes': value.codes === undefined ? undefined : (value.codes.map(HousekeepingCodeConfigType_1.HousekeepingCodeConfigTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.HousekeepingCodesToBeChangedToJSON = HousekeepingCodesToBeChangedToJSON;

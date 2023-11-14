@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RateGroupsToJSON = exports.RateGroupsFromJSONTyped = exports.RateGroupsFromJSON = exports.instanceOfRateGroups = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RateGroupsType_1 = require("./RateGroupsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RateGroupType_1 = require("./RateGroupType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RateGroups interface.
  */
@@ -35,9 +35,9 @@ function RateGroupsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'rateGroups': !(0, runtime_1.exists)(json, 'rateGroups') ? undefined : (0, RateGroupsType_1.RateGroupsTypeFromJSON)(json['rateGroups']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'rateGroups': !(0, runtime_1.exists)(json, 'rateGroups') ? undefined : (json['rateGroups'].map(RateGroupType_1.RateGroupTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RateGroupsFromJSONTyped = RateGroupsFromJSONTyped;
@@ -49,9 +49,9 @@ function RateGroupsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'rateGroups': (0, RateGroupsType_1.RateGroupsTypeToJSON)(value.rateGroups),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'rateGroups': value.rateGroups === undefined ? undefined : (value.rateGroups.map(RateGroupType_1.RateGroupTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RateGroupsToJSON = RateGroupsToJSON;

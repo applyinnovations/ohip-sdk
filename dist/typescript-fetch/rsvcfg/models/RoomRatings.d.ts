@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RoomRatingsInfoType } from './RoomRatingsInfoType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RoomRatingInfoType } from './RoomRatingInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching the rooms and their rating details.
  * @export
@@ -32,10 +32,10 @@ export interface RoomRatings {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomRatings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -43,11 +43,11 @@ export interface RoomRatings {
      */
     offset?: number;
     /**
-     *
-     * @type {RoomRatingsInfoType}
+     * Collection of rooms and their ratings.
+     * @type {Array<RoomRatingInfoType>}
      * @memberof RoomRatings
      */
-    roomRatingsInfo?: RoomRatingsInfoType;
+    roomRatingsInfo?: Array<RoomRatingInfoType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -61,11 +61,11 @@ export interface RoomRatings {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomRatings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomRatings interface.

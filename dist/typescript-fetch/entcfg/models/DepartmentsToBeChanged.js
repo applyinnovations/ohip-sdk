@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DepartmentsToBeChangedToJSON = exports.DepartmentsToBeChangedFromJSONTyped = exports.DepartmentsToBeChangedFromJSON = exports.instanceOfDepartmentsToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const DepartmentsType_1 = require("./DepartmentsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const DepartmentType_1 = require("./DepartmentType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the DepartmentsToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function DepartmentsToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'departments': !(0, runtime_1.exists)(json, 'departments') ? undefined : (0, DepartmentsType_1.DepartmentsTypeFromJSON)(json['departments']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'departments': !(0, runtime_1.exists)(json, 'departments') ? undefined : (json['departments'].map(DepartmentType_1.DepartmentTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.DepartmentsToBeChangedFromJSONTyped = DepartmentsToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function DepartmentsToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'departments': (0, DepartmentsType_1.DepartmentsTypeToJSON)(value.departments),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'departments': value.departments === undefined ? undefined : (value.departments.map(DepartmentType_1.DepartmentTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.DepartmentsToBeChangedToJSON = DepartmentsToBeChangedToJSON;

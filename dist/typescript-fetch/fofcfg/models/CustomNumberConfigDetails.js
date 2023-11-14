@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomNumberConfigDetailsToJSON = exports.CustomNumberConfigDetailsFromJSONTyped = exports.CustomNumberConfigDetailsFromJSON = exports.instanceOfCustomNumberConfigDetails = void 0;
 const runtime_1 = require("../runtime");
-const CustomNumberConfigurationListType_1 = require("./CustomNumberConfigurationListType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CustomNumberConfigurationType_1 = require("./CustomNumberConfigurationType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CustomNumberConfigDetails interface.
  */
@@ -35,9 +35,9 @@ function CustomNumberConfigDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'customNumberConfigurationList': !(0, runtime_1.exists)(json, 'customNumberConfigurationList') ? undefined : (0, CustomNumberConfigurationListType_1.CustomNumberConfigurationListTypeFromJSON)(json['customNumberConfigurationList']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'customNumberConfigurationList': !(0, runtime_1.exists)(json, 'customNumberConfigurationList') ? undefined : (json['customNumberConfigurationList'].map(CustomNumberConfigurationType_1.CustomNumberConfigurationTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CustomNumberConfigDetailsFromJSONTyped = CustomNumberConfigDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function CustomNumberConfigDetailsToJSON(value) {
         return null;
     }
     return {
-        'customNumberConfigurationList': (0, CustomNumberConfigurationListType_1.CustomNumberConfigurationListTypeToJSON)(value.customNumberConfigurationList),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'customNumberConfigurationList': value.customNumberConfigurationList === undefined ? undefined : (value.customNumberConfigurationList.map(CustomNumberConfigurationType_1.CustomNumberConfigurationTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CustomNumberConfigDetailsToJSON = CustomNumberConfigDetailsToJSON;

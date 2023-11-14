@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AssignedTasksType } from './AssignedTasksType';
+import type { AssignedTaskType } from './AssignedTaskType';
 import {
-    AssignedTasksTypeFromJSON,
-    AssignedTasksTypeFromJSONTyped,
-    AssignedTasksTypeToJSON,
-} from './AssignedTasksType';
+    AssignedTaskTypeFromJSON,
+    AssignedTaskTypeFromJSONTyped,
+    AssignedTaskTypeToJSON,
+} from './AssignedTaskType';
 import type { HSKTaskSheetDetailsInfoType } from './HSKTaskSheetDetailsInfoType';
 import {
     HSKTaskSheetDetailsInfoTypeFromJSON,
@@ -45,11 +45,11 @@ import {
  */
 export interface HSKTaskSheetInfoType {
     /**
-     * 
-     * @type {AssignedTasksType}
+     * Holds the assigned task codes for a tasksheet.
+     * @type {Array<AssignedTaskType>}
      * @memberof HSKTaskSheetInfoType
      */
-    assignedTasks?: AssignedTasksType;
+    assignedTasks?: Array<AssignedTaskType>;
     /**
      * 
      * @type {string}
@@ -131,7 +131,7 @@ export function HSKTaskSheetInfoTypeFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'assignedTasks': !exists(json, 'assignedTasks') ? undefined : AssignedTasksTypeFromJSON(json['assignedTasks']),
+        'assignedTasks': !exists(json, 'assignedTasks') ? undefined : ((json['assignedTasks'] as Array<any>).map(AssignedTaskTypeFromJSON)),
         'attendant': !exists(json, 'attendant') ? undefined : json['attendant'],
         'averageActualTimeInSecs': !exists(json, 'averageActualTimeInSecs') ? undefined : json['averageActualTimeInSecs'],
         'roomSummary': !exists(json, 'roomSummary') ? undefined : ((json['roomSummary'] as Array<any>).map(HSKTaskSheetInfoTypeRoomSummaryInnerFromJSON)),
@@ -154,7 +154,7 @@ export function HSKTaskSheetInfoTypeToJSON(value?: HSKTaskSheetInfoType | null):
     }
     return {
         
-        'assignedTasks': AssignedTasksTypeToJSON(value.assignedTasks),
+        'assignedTasks': value.assignedTasks === undefined ? undefined : ((value.assignedTasks as Array<any>).map(AssignedTaskTypeToJSON)),
         'attendant': value.attendant,
         'averageActualTimeInSecs': value.averageActualTimeInSecs,
         'roomSummary': value.roomSummary === undefined ? undefined : ((value.roomSummary as Array<any>).map(HSKTaskSheetInfoTypeRoomSummaryInnerToJSON)),

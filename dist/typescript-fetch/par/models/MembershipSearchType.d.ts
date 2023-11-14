@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 /**
  * Identifies criteria for searching frequent customer reward program.
  * @export
@@ -30,16 +29,16 @@ export interface MembershipSearchType {
     membershipId?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof MembershipSearchType
      */
-    membershipLevel?: CodeListType;
+    membershipLevel?: Array<string>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof MembershipSearchType
      */
-    membershipType?: CodeListType;
+    membershipType?: Array<string>;
 }
 /**
  * Check if a given object implements the MembershipSearchType interface.

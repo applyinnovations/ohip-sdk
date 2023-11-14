@@ -11,8 +11,7 @@
  */
 import type { BlockId } from './BlockId';
 import type { EventId } from './EventId';
-import type { ResourceCopyAndMoveListType } from './ResourceCopyAndMoveListType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { ResourceCopyAndMoveType } from './ResourceCopyAndMoveType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Criteria to copy/move event resources
@@ -51,11 +50,11 @@ export interface CopyAndMoveEventResourcesType {
      */
     overrideCopyAndMoveResourceProcessWarnings?: boolean;
     /**
-     *
-     * @type {ResourceCopyAndMoveListType}
+     * Resource Type and its UniqueID.
+     * @type {Array<ResourceCopyAndMoveType>}
      * @memberof CopyAndMoveEventResourcesType
      */
-    resourceIdList?: ResourceCopyAndMoveListType;
+    resourceIdList?: Array<ResourceCopyAndMoveType>;
     /**
      *
      * @type {UniqueIDType}
@@ -63,11 +62,11 @@ export interface CopyAndMoveEventResourcesType {
      */
     targetBlockId?: UniqueIDType;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CopyAndMoveEventResourcesType
      */
-    targetEventIdList?: UniqueIDListType;
+    targetEventIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the CopyAndMoveEventResourcesType interface.

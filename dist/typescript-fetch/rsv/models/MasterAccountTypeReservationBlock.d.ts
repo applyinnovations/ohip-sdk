@@ -9,8 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockIdList } from './BlockIdList';
-import type { CodeListType } from './CodeListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Information of the block associated with the reservation.
  * @export
@@ -18,17 +17,17 @@ import type { CodeListType } from './CodeListType';
  */
 export interface MasterAccountTypeReservationBlock {
     /**
-     *
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MasterAccountTypeReservationBlock
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof MasterAccountTypeReservationBlock
      */
-    transactionCode?: CodeListType;
+    transactionCode?: Array<string>;
 }
 /**
  * Check if a given object implements the MasterAccountTypeReservationBlock interface.

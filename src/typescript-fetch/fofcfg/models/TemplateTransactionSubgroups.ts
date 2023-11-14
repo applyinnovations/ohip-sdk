@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateTransactionSubgroupsType } from './TemplateTransactionSubgroupsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TransactionSubgroupType } from './TransactionSubgroupType';
 import {
-    TemplateTransactionSubgroupsTypeFromJSON,
-    TemplateTransactionSubgroupsTypeFromJSONTyped,
-    TemplateTransactionSubgroupsTypeToJSON,
-} from './TemplateTransactionSubgroupsType';
-import type { WarningsType } from './WarningsType';
+    TransactionSubgroupTypeFromJSON,
+    TransactionSubgroupTypeFromJSONTyped,
+    TransactionSubgroupTypeToJSON,
+} from './TransactionSubgroupType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface TemplateTransactionSubgroups {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateTransactionSubgroups
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TemplateTransactionSubgroupsType}
+     * Template transaction subgroup configurations.
+     * @type {Array<TransactionSubgroupType>}
      * @memberof TemplateTransactionSubgroups
      */
-    transactionSubgroups?: TemplateTransactionSubgroupsType;
+    transactionSubgroups?: Array<TransactionSubgroupType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateTransactionSubgroups
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateTransactionSubgroupsFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'transactionSubgroups': !exists(json, 'transactionSubgroups') ? undefined : TemplateTransactionSubgroupsTypeFromJSON(json['transactionSubgroups']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'transactionSubgroups': !exists(json, 'transactionSubgroups') ? undefined : ((json['transactionSubgroups'] as Array<any>).map(TransactionSubgroupTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateTransactionSubgroupsToJSON(value?: TemplateTransactionSu
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'transactionSubgroups': TemplateTransactionSubgroupsTypeToJSON(value.transactionSubgroups),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'transactionSubgroups': value.transactionSubgroups === undefined ? undefined : ((value.transactionSubgroups as Array<any>).map(TransactionSubgroupTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

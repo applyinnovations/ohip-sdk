@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { PostCompRedemptionsRSCompRedemptionsType } from './PostCompRedemptionsRSCompRedemptionsType';
-import type { WarningsType } from './WarningsType';
+import type { PostCompRedemptionsRSCompRedemptionType } from './PostCompRedemptionsRSCompRedemptionType';
+import type { WarningType } from './WarningType';
 /**
  * Response type of Complimentary Redemptions for posting.
  * @export
@@ -18,17 +18,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface PostCompRedemptionsRS {
     /**
-     *
-     * @type {PostCompRedemptionsRSCompRedemptionsType}
+     * Collection of Complimentary Redemption codes and their respective Approval Code.
+     * @type {Array<PostCompRedemptionsRSCompRedemptionType>}
      * @memberof PostCompRedemptionsRS
      */
-    compRedemptions?: PostCompRedemptionsRSCompRedemptionsType;
+    compRedemptions?: Array<PostCompRedemptionsRSCompRedemptionType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostCompRedemptionsRS
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PostCompRedemptionsRS interface.

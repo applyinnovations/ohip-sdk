@@ -13,36 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { CopyTemplateType } from './CopyTemplateType';
 import {
     CopyTemplateTypeFromJSON,
     CopyTemplateTypeFromJSONTyped,
     CopyTemplateTypeToJSON,
 } from './CopyTemplateType';
-import type { HotelCodeListType } from './HotelCodeListType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    HotelCodeListTypeFromJSON,
-    HotelCodeListTypeFromJSONTyped,
-    HotelCodeListTypeToJSON,
-} from './HotelCodeListType';
-import type { Links } from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
-import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -52,22 +40,22 @@ import {
 export interface CopyTemplateCodes {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyTemplateCodes
      */
-    codes?: CodeListType;
+    codes?: Array<string>;
+    /**
+     * Hotel code.
+     * @type {Array<string>}
+     * @memberof CopyTemplateCodes
+     */
+    hotelCodes?: Array<string>;
     /**
      * 
-     * @type {HotelCodeListType}
+     * @type {Array<InstanceLink>}
      * @memberof CopyTemplateCodes
      */
-    hotelCodes?: HotelCodeListType;
-    /**
-     * 
-     * @type {Links}
-     * @memberof CopyTemplateCodes
-     */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {CopyTemplateType}
@@ -75,11 +63,11 @@ export interface CopyTemplateCodes {
      */
     templateName?: CopyTemplateType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CopyTemplateCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -101,11 +89,11 @@ export function CopyTemplateCodesFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'codes': !exists(json, 'codes') ? undefined : CodeListTypeFromJSON(json['codes']),
-        'hotelCodes': !exists(json, 'hotelCodes') ? undefined : HotelCodeListTypeFromJSON(json['hotelCodes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'codes': !exists(json, 'codes') ? undefined : json['codes'],
+        'hotelCodes': !exists(json, 'hotelCodes') ? undefined : json['hotelCodes'],
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'templateName': !exists(json, 'templateName') ? undefined : CopyTemplateTypeFromJSON(json['templateName']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -118,11 +106,11 @@ export function CopyTemplateCodesToJSON(value?: CopyTemplateCodes | null): any {
     }
     return {
         
-        'codes': CodeListTypeToJSON(value.codes),
-        'hotelCodes': HotelCodeListTypeToJSON(value.hotelCodes),
-        'links': LinksToJSON(value.links),
+        'codes': value.codes,
+        'hotelCodes': value.hotelCodes,
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'templateName': CopyTemplateTypeToJSON(value.templateName),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

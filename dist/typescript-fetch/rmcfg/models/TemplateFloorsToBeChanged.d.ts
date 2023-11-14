@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TemplateFloorsType } from './TemplateFloorsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TemplateFloorType } from './TemplateFloorType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing floors at the template level.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TemplateFloorsToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateFloorsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TemplateFloorsType}
+     * This type holds a collection of floors at the template level.
+     * @type {Array<TemplateFloorType>}
      * @memberof TemplateFloorsToBeChanged
      */
-    templateFloors?: TemplateFloorsType;
+    templateFloors?: Array<TemplateFloorType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateFloorsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateFloorsToBeChanged interface.

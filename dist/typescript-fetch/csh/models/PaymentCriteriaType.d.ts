@@ -10,12 +10,11 @@
  * Do not edit the class manually.
  */
 import type { CashieringPaymentMethodType } from './CashieringPaymentMethodType';
-import type { CompRedemptionsType } from './CompRedemptionsType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { PaymentTaxType } from './PaymentTaxType';
-import type { PaymentTaxesType } from './PaymentTaxesType';
 import type { PostPaymentActionType } from './PostPaymentActionType';
-import type { PrepaidCardRedemptionsType } from './PrepaidCardRedemptionsType';
+import type { PrepaidCardRedemptionType } from './PrepaidCardRedemptionType';
+import type { RedemptionType } from './RedemptionType';
 /**
  *
  * @export
@@ -59,17 +58,17 @@ export interface PaymentCriteriaType {
      */
     comments?: string;
     /**
-     *
-     * @type {CompRedemptionsType}
+     * Information regarding Complimentary Bucket Redemption object.
+     * @type {Array<RedemptionType>}
      * @memberof PaymentCriteriaType
      */
-    compRedemptions?: CompRedemptionsType;
+    compRedemptions?: Array<RedemptionType>;
     /**
-     *
-     * @type {PaymentTaxesType}
+     * Payment Tax record.
+     * @type {Array<PaymentTaxType>}
      * @memberof PaymentCriteriaType
      */
-    creditablePaymentTaxes?: PaymentTaxesType;
+    creditablePaymentTaxes?: Array<PaymentTaxType>;
     /**
      *
      * @type {number}
@@ -125,11 +124,11 @@ export interface PaymentCriteriaType {
      */
     postingRemark?: string;
     /**
-     *
-     * @type {PrepaidCardRedemptionsType}
+     * A prepaid redemption info object to be used for posting a payment.
+     * @type {Array<PrepaidCardRedemptionType>}
      * @memberof PaymentCriteriaType
      */
-    prepaidCardRedemptions?: PrepaidCardRedemptionsType;
+    prepaidCardRedemptions?: Array<PrepaidCardRedemptionType>;
     /**
      * Applicable for chip and pin. The ID of the terminal where the chip and pin device is connected and where the payment is made.
      * @type {string}

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelDetailValuesType } from './HotelDetailValuesType';
+import type { HotelDetailValueType } from './HotelDetailValueType';
 /**
  * Base details used for storing information about a hotel detail.
  * @export
@@ -35,11 +35,11 @@ export interface HotelDetailType {
      */
     description?: string;
     /**
-     *
-     * @type {HotelDetailValuesType}
+     * Collection of property level hotel detail values.
+     * @type {Array<HotelDetailValueType>}
      * @memberof HotelDetailType
      */
-    hotelDetailValues?: HotelDetailValuesType;
+    hotelDetailValues?: Array<HotelDetailValueType>;
     /**
      * Specifies the hotel code of the hotel detail.
      * @type {string}

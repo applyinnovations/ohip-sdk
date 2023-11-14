@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfileAccountsToJSON = exports.ProfileAccountsFromJSONTyped = exports.ProfileAccountsFromJSON = exports.instanceOfProfileAccounts = void 0;
 const runtime_1 = require("../runtime");
-const ARAccountsType_1 = require("./ARAccountsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ARAccountType_1 = require("./ARAccountType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ProfileAccounts interface.
  */
@@ -35,9 +35,9 @@ function ProfileAccountsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'accounts': !(0, runtime_1.exists)(json, 'accounts') ? undefined : (0, ARAccountsType_1.ARAccountsTypeFromJSON)(json['accounts']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'accounts': !(0, runtime_1.exists)(json, 'accounts') ? undefined : (json['accounts'].map(ARAccountType_1.ARAccountTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ProfileAccountsFromJSONTyped = ProfileAccountsFromJSONTyped;
@@ -49,9 +49,9 @@ function ProfileAccountsToJSON(value) {
         return null;
     }
     return {
-        'accounts': (0, ARAccountsType_1.ARAccountsTypeToJSON)(value.accounts),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'accounts': value.accounts === undefined ? undefined : (value.accounts.map(ARAccountType_1.ARAccountTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ProfileAccountsToJSON = ProfileAccountsToJSON;

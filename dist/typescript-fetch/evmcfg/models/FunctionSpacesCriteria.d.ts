@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FunctionSpacesConfigType } from './FunctionSpacesConfigType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { FunctionSpaceConfigType } from './FunctionSpaceConfigType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating function spaces.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FunctionSpacesCriteria {
     /**
-     *
-     * @type {FunctionSpacesConfigType}
+     * The detail information of function space for function space configuration.
+     * @type {Array<FunctionSpaceConfigType>}
      * @memberof FunctionSpacesCriteria
      */
-    functionSpaces?: FunctionSpacesConfigType;
+    functionSpaces?: Array<FunctionSpaceConfigType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FunctionSpacesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FunctionSpacesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FunctionSpacesCriteria interface.

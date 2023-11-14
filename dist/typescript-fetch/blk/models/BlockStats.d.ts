@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { BlockStatReportType } from './BlockStatReportType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response element for block statistics.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface BlockStats {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockStats
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Statistical report - each report is determined by the requested report in the service request criteria.
      * @type {Array<BlockStatReportType>}
@@ -31,11 +31,11 @@ export interface BlockStats {
      */
     reports?: Array<BlockStatReportType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockStats
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockStats interface.

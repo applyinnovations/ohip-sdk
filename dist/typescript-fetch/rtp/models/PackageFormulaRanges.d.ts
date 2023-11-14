@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { PackageFormulaRangesType } from './PackageFormulaRangesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { PackageFormulaRangeType } from './PackageFormulaRangeType';
+import type { WarningType } from './WarningType';
 /**
  * Response for the request to search for package formula ranges. Based on the hotel code and tax range type code, response can contain multiple package formula ranges
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface PackageFormulaRanges {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PackageFormulaRanges
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {PackageFormulaRangesType}
+     * Collection of Package Formula Ranges.
+     * @type {Array<PackageFormulaRangeType>}
      * @memberof PackageFormulaRanges
      */
-    packageFormulaRanges?: PackageFormulaRangesType;
+    packageFormulaRanges?: Array<PackageFormulaRangeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PackageFormulaRanges
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PackageFormulaRanges interface.

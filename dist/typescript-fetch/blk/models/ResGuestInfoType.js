@@ -21,10 +21,10 @@ const CountryNameType_1 = require("./CountryNameType");
 const GuestLastStayInfoType_1 = require("./GuestLastStayInfoType");
 const MembershipInfoType_1 = require("./MembershipInfoType");
 const NameTypeType_1 = require("./NameTypeType");
-const ResAccompanyGuestListType_1 = require("./ResAccompanyGuestListType");
+const ResAccompanyGuestInfoType_1 = require("./ResAccompanyGuestInfoType");
 const ResGuestExternalInfoType_1 = require("./ResGuestExternalInfoType");
 const VIPType_1 = require("./VIPType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ResGuestInfoType interface.
  */
@@ -42,7 +42,7 @@ function ResGuestInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'accompanyGuests': !(0, runtime_1.exists)(json, 'accompanyGuests') ? undefined : (0, ResAccompanyGuestListType_1.ResAccompanyGuestListTypeFromJSON)(json['accompanyGuests']),
+        'accompanyGuests': !(0, runtime_1.exists)(json, 'accompanyGuests') ? undefined : (json['accompanyGuests'].map(ResAccompanyGuestInfoType_1.ResAccompanyGuestInfoTypeFromJSON)),
         'address': !(0, runtime_1.exists)(json, 'address') ? undefined : (0, AddressSearchType_1.AddressSearchTypeFromJSON)(json['address']),
         'alternateFullName': !(0, runtime_1.exists)(json, 'alternateFullName') ? undefined : json['alternateFullName'],
         'alternateGivenName': !(0, runtime_1.exists)(json, 'alternateGivenName') ? undefined : json['alternateGivenName'],
@@ -73,7 +73,7 @@ function ResGuestInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'surnamePrefix': !(0, runtime_1.exists)(json, 'surnamePrefix') ? undefined : json['surnamePrefix'],
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : json['type'],
         'vip': !(0, runtime_1.exists)(json, 'vip') ? undefined : (0, VIPType_1.VIPTypeFromJSON)(json['vip']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ResGuestInfoTypeFromJSONTyped = ResGuestInfoTypeFromJSONTyped;
@@ -85,7 +85,7 @@ function ResGuestInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'accompanyGuests': (0, ResAccompanyGuestListType_1.ResAccompanyGuestListTypeToJSON)(value.accompanyGuests),
+        'accompanyGuests': value.accompanyGuests === undefined ? undefined : (value.accompanyGuests.map(ResAccompanyGuestInfoType_1.ResAccompanyGuestInfoTypeToJSON)),
         'address': (0, AddressSearchType_1.AddressSearchTypeToJSON)(value.address),
         'alternateFullName': value.alternateFullName,
         'alternateGivenName': value.alternateGivenName,
@@ -116,7 +116,7 @@ function ResGuestInfoTypeToJSON(value) {
         'surnamePrefix': value.surnamePrefix,
         'type': value.type,
         'vip': (0, VIPType_1.VIPTypeToJSON)(value.vip),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ResGuestInfoTypeToJSON = ResGuestInfoTypeToJSON;

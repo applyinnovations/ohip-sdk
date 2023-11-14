@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConfigRoutingInstructionTypeToJSON = exports.ConfigRoutingInstructionTypeFromJSONTyped = exports.ConfigRoutingInstructionTypeFromJSON = exports.instanceOfConfigRoutingInstructionType = void 0;
 const runtime_1 = require("../runtime");
 const TimeSpanDaysOfWeekType_1 = require("./TimeSpanDaysOfWeekType");
-const TrxCodesInfoType_1 = require("./TrxCodesInfoType");
+const TrxInfoType_1 = require("./TrxInfoType");
 /**
  * Check if a given object implements the ConfigRoutingInstructionType interface.
  */
@@ -44,7 +44,7 @@ function ConfigRoutingInstructionTypeFromJSONTyped(json, ignoreDiscriminator) {
         'inheritAuthRateCode': !(0, runtime_1.exists)(json, 'inheritAuthRateCode') ? undefined : json['inheritAuthRateCode'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
         'percent': !(0, runtime_1.exists)(json, 'percent') ? undefined : json['percent'],
-        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (0, TrxCodesInfoType_1.TrxCodesInfoTypeFromJSON)(json['transactionCodes']),
+        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (json['transactionCodes'].map(TrxInfoType_1.TrxInfoTypeFromJSON)),
     };
 }
 exports.ConfigRoutingInstructionTypeFromJSONTyped = ConfigRoutingInstructionTypeFromJSONTyped;
@@ -66,7 +66,7 @@ function ConfigRoutingInstructionTypeToJSON(value) {
         'inheritAuthRateCode': value.inheritAuthRateCode,
         'limit': value.limit,
         'percent': value.percent,
-        'transactionCodes': (0, TrxCodesInfoType_1.TrxCodesInfoTypeToJSON)(value.transactionCodes),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : (value.transactionCodes.map(TrxInfoType_1.TrxInfoTypeToJSON)),
     };
 }
 exports.ConfigRoutingInstructionTypeToJSON = ConfigRoutingInstructionTypeToJSON;

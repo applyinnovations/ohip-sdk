@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Summary of claim activity log information.
@@ -33,11 +33,11 @@ export interface ClaimReservationInfoType {
      */
     arrival?: Date;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ClaimReservationInfoType
      */
-    confirmationNo?: UniqueIDListType;
+    confirmationNo?: Array<UniqueIDType>;
     /**
      * Departure date for the stay associated with this claim.
      * @type {Date}
@@ -72,7 +72,7 @@ export function ClaimReservationInfoTypeFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         'arrival': !exists(json, 'arrival') ? undefined : (new Date(json['arrival'])),
-        'confirmationNo': !exists(json, 'confirmationNo') ? undefined : UniqueIDListTypeFromJSON(json['confirmationNo']),
+        'confirmationNo': !exists(json, 'confirmationNo') ? undefined : ((json['confirmationNo'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'departure': !exists(json, 'departure') ? undefined : (new Date(json['departure'])),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
     };
@@ -88,7 +88,7 @@ export function ClaimReservationInfoTypeToJSON(value?: ClaimReservationInfoType 
     return {
         
         'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0,10)),
-        'confirmationNo': UniqueIDListTypeToJSON(value.confirmationNo),
+        'confirmationNo': value.confirmationNo === undefined ? undefined : ((value.confirmationNo as Array<any>).map(UniqueIDTypeToJSON)),
         'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0,10)),
         'hotelId': value.hotelId,
     };

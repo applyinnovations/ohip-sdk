@@ -19,12 +19,12 @@ import {
     CreditCardUniqueIdTypeFromJSONTyped,
     CreditCardUniqueIdTypeToJSON,
 } from './CreditCardUniqueIdType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request for fetching credit card unique id.
@@ -39,11 +39,11 @@ export interface CreditCardUniqueIdRQ {
      */
     creditCardUniqueId?: CreditCardUniqueIdType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreditCardUniqueIdRQ
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function CreditCardUniqueIdRQFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'creditCardUniqueId': !exists(json, 'creditCardUniqueId') ? undefined : CreditCardUniqueIdTypeFromJSON(json['creditCardUniqueId']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function CreditCardUniqueIdRQToJSON(value?: CreditCardUniqueIdRQ | null):
     return {
         
         'creditCardUniqueId': CreditCardUniqueIdTypeToJSON(value.creditCardUniqueId),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { SalesManagerGoalsType } from './SalesManagerGoalsType';
-import type { WarningsType } from './WarningsType';
+import type { SalesManagerGoalType } from './SalesManagerGoalType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for Creating Sales Manager Goal(s).
  * @export
@@ -18,17 +18,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CreateSalesManagerGoals {
     /**
-     *
-     * @type {SalesManagerGoalsType}
+     * Detail Information about Sales Manager's goal.
+     * @type {Array<SalesManagerGoalType>}
      * @memberof CreateSalesManagerGoals
      */
-    salesManagerGoals?: SalesManagerGoalsType;
+    salesManagerGoals?: Array<SalesManagerGoalType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateSalesManagerGoals
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreateSalesManagerGoals interface.

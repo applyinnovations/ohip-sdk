@@ -13,8 +13,8 @@ import type { HousekeepingRoomStatusType } from './HousekeepingRoomStatusType';
 import type { PMSResStatusType } from './PMSResStatusType';
 import type { ResGuaranteeType } from './ResGuaranteeType';
 import type { ResGuestInfoType } from './ResGuestInfoType';
-import type { ReservationIdList } from './ReservationIdList';
 import type { TimeSpanType } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Reservation info associated with a Track It item.
  * @export
@@ -46,11 +46,11 @@ export interface TrackItReservationInfoType {
      */
     guestInfo?: ResGuestInfoType;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof TrackItReservationInfoType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {PMSResStatusType}

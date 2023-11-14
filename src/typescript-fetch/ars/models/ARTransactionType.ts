@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AccountInvoicesInfoType } from './AccountInvoicesInfoType';
+import type { AccountInvoiceInfoType } from './AccountInvoiceInfoType';
 import {
-    AccountInvoicesInfoTypeFromJSON,
-    AccountInvoicesInfoTypeFromJSONTyped,
-    AccountInvoicesInfoTypeToJSON,
-} from './AccountInvoicesInfoType';
-import type { AccountPaymentsInfoType } from './AccountPaymentsInfoType';
+    AccountInvoiceInfoTypeFromJSON,
+    AccountInvoiceInfoTypeFromJSONTyped,
+    AccountInvoiceInfoTypeToJSON,
+} from './AccountInvoiceInfoType';
+import type { AccountPaymentInfoType } from './AccountPaymentInfoType';
 import {
-    AccountPaymentsInfoTypeFromJSON,
-    AccountPaymentsInfoTypeFromJSONTyped,
-    AccountPaymentsInfoTypeToJSON,
-} from './AccountPaymentsInfoType';
+    AccountPaymentInfoTypeFromJSON,
+    AccountPaymentInfoTypeFromJSONTyped,
+    AccountPaymentInfoTypeToJSON,
+} from './AccountPaymentInfoType';
 
 /**
  * Transaction Information.
@@ -33,17 +33,17 @@ import {
  */
 export interface ARTransactionType {
     /**
-     * 
-     * @type {AccountInvoicesInfoType}
+     * Account Invoice Info.
+     * @type {Array<AccountInvoiceInfoType>}
      * @memberof ARTransactionType
      */
-    invoices?: AccountInvoicesInfoType;
+    invoices?: Array<AccountInvoiceInfoType>;
     /**
-     * 
-     * @type {AccountPaymentsInfoType}
+     * Account Payments info .
+     * @type {Array<AccountPaymentInfoType>}
      * @memberof ARTransactionType
      */
-    payments?: AccountPaymentsInfoType;
+    payments?: Array<AccountPaymentInfoType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function ARTransactionTypeFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'invoices': !exists(json, 'invoices') ? undefined : AccountInvoicesInfoTypeFromJSON(json['invoices']),
-        'payments': !exists(json, 'payments') ? undefined : AccountPaymentsInfoTypeFromJSON(json['payments']),
+        'invoices': !exists(json, 'invoices') ? undefined : ((json['invoices'] as Array<any>).map(AccountInvoiceInfoTypeFromJSON)),
+        'payments': !exists(json, 'payments') ? undefined : ((json['payments'] as Array<any>).map(AccountPaymentInfoTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function ARTransactionTypeToJSON(value?: ARTransactionType | null): any {
     }
     return {
         
-        'invoices': AccountInvoicesInfoTypeToJSON(value.invoices),
-        'payments': AccountPaymentsInfoTypeToJSON(value.payments),
+        'invoices': value.invoices === undefined ? undefined : ((value.invoices as Array<any>).map(AccountInvoiceInfoTypeToJSON)),
+        'payments': value.payments === undefined ? undefined : ((value.payments as Array<any>).map(AccountPaymentInfoTypeToJSON)),
     };
 }
 

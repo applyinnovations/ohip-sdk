@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelRateRangesToBeChangedToJSON = exports.HotelRateRangesToBeChangedFromJSONTyped = exports.HotelRateRangesToBeChangedFromJSON = exports.instanceOfHotelRateRangesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const HotelRateRangesType_1 = require("./HotelRateRangesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HotelRateRangeType_1 = require("./HotelRateRangeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the HotelRateRangesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function HotelRateRangesToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'hotelRateRanges': !(0, runtime_1.exists)(json, 'hotelRateRanges') ? undefined : (0, HotelRateRangesType_1.HotelRateRangesTypeFromJSON)(json['hotelRateRanges']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'hotelRateRanges': !(0, runtime_1.exists)(json, 'hotelRateRanges') ? undefined : (json['hotelRateRanges'].map(HotelRateRangeType_1.HotelRateRangeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.HotelRateRangesToBeChangedFromJSONTyped = HotelRateRangesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function HotelRateRangesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'hotelRateRanges': (0, HotelRateRangesType_1.HotelRateRangesTypeToJSON)(value.hotelRateRanges),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'hotelRateRanges': value.hotelRateRanges === undefined ? undefined : (value.hotelRateRanges.map(HotelRateRangeType_1.HotelRateRangeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.HotelRateRangesToBeChangedToJSON = HotelRateRangesToBeChangedToJSON;

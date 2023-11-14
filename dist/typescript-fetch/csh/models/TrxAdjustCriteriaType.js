@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TrxAdjustCriteriaTypeToJSON = exports.TrxAdjustCriteriaTypeFromJSONTyped = exports.TrxAdjustCriteriaTypeFromJSON = exports.instanceOfTrxAdjustCriteriaType = void 0;
 const runtime_1 = require("../runtime");
 const AdjustmentDetailsType_1 = require("./AdjustmentDetailsType");
-const CustomChargeExemptionsType_1 = require("./CustomChargeExemptionsType");
+const CustomChargeExemptionType_1 = require("./CustomChargeExemptionType");
 const ReservationId_1 = require("./ReservationId");
 /**
  * Check if a given object implements the TrxAdjustCriteriaType interface.
@@ -38,7 +38,7 @@ function TrxAdjustCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         'aRAccountNo': !(0, runtime_1.exists)(json, 'aRAccountNo') ? undefined : json['aRAccountNo'],
         'aRInvoiceNo': !(0, runtime_1.exists)(json, 'aRInvoiceNo') ? undefined : json['aRInvoiceNo'],
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
-        'customChargeExemptionDetails': !(0, runtime_1.exists)(json, 'customChargeExemptionDetails') ? undefined : (0, CustomChargeExemptionsType_1.CustomChargeExemptionsTypeFromJSON)(json['customChargeExemptionDetails']),
+        'customChargeExemptionDetails': !(0, runtime_1.exists)(json, 'customChargeExemptionDetails') ? undefined : (json['customChargeExemptionDetails'].map(CustomChargeExemptionType_1.CustomChargeExemptionTypeFromJSON)),
         'details': !(0, runtime_1.exists)(json, 'details') ? undefined : (0, AdjustmentDetailsType_1.AdjustmentDetailsTypeFromJSON)(json['details']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'incomeAuditDate': !(0, runtime_1.exists)(json, 'incomeAuditDate') ? undefined : (new Date(json['incomeAuditDate'])),
@@ -58,7 +58,7 @@ function TrxAdjustCriteriaTypeToJSON(value) {
         'aRAccountNo': value.aRAccountNo,
         'aRInvoiceNo': value.aRInvoiceNo,
         'cashierId': value.cashierId,
-        'customChargeExemptionDetails': (0, CustomChargeExemptionsType_1.CustomChargeExemptionsTypeToJSON)(value.customChargeExemptionDetails),
+        'customChargeExemptionDetails': value.customChargeExemptionDetails === undefined ? undefined : (value.customChargeExemptionDetails.map(CustomChargeExemptionType_1.CustomChargeExemptionTypeToJSON)),
         'details': (0, AdjustmentDetailsType_1.AdjustmentDetailsTypeToJSON)(value.details),
         'hotelId': value.hotelId,
         'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0, 10)),

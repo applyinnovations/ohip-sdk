@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ProfileCashieringDetailType } from './ProfileCashieringDetailType';
 import {
     ProfileCashieringDetailTypeFromJSON,
     ProfileCashieringDetailTypeFromJSONTyped,
     ProfileCashieringDetailTypeToJSON,
 } from './ProfileCashieringDetailType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object containing profile routing instructions.
@@ -40,10 +40,10 @@ import {
 export interface ProfileCashieringDetailsInfo {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileCashieringDetailsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Cashiering details for the profile.
      * @type {Array<ProfileCashieringDetailType>}
@@ -51,11 +51,11 @@ export interface ProfileCashieringDetailsInfo {
      */
     profileCashieringDetailList?: Array<ProfileCashieringDetailType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileCashieringDetailsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ProfileCashieringDetailsInfoFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'profileCashieringDetailList': !exists(json, 'profileCashieringDetailList') ? undefined : ((json['profileCashieringDetailList'] as Array<any>).map(ProfileCashieringDetailTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ProfileCashieringDetailsInfoToJSON(value?: ProfileCashieringDeta
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'profileCashieringDetailList': value.profileCashieringDetailList === undefined ? undefined : ((value.profileCashieringDetailList as Array<any>).map(ProfileCashieringDetailTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

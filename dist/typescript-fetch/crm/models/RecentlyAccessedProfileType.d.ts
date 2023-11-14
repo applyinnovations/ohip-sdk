@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ProfileIdList } from './ProfileIdList';
 import type { ProfileTypeType } from './ProfileTypeType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * A recently used profile details.
  * @export
@@ -36,11 +36,11 @@ export interface RecentlyAccessedProfileType {
      */
     guestLastName?: string;
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RecentlyAccessedProfileType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {ProfileTypeType}

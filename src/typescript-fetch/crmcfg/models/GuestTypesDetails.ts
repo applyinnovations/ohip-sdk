@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { GuestTypesType } from './GuestTypesType';
+import type { GuestTypeType } from './GuestTypeType';
 import {
-    GuestTypesTypeFromJSON,
-    GuestTypesTypeFromJSONTyped,
-    GuestTypesTypeToJSON,
-} from './GuestTypesType';
-import type { Links } from './Links';
+    GuestTypeTypeFromJSON,
+    GuestTypeTypeFromJSONTyped,
+    GuestTypeTypeToJSON,
+} from './GuestTypeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Guest Types.
@@ -39,23 +39,23 @@ import {
  */
 export interface GuestTypesDetails {
     /**
-     * 
-     * @type {GuestTypesType}
+     * List of Guest Types.
+     * @type {Array<GuestTypeType>}
      * @memberof GuestTypesDetails
      */
-    guestTypes?: GuestTypesType;
+    guestTypes?: Array<GuestTypeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuestTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuestTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function GuestTypesDetailsFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'guestTypes': !exists(json, 'guestTypes') ? undefined : GuestTypesTypeFromJSON(json['guestTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'guestTypes': !exists(json, 'guestTypes') ? undefined : ((json['guestTypes'] as Array<any>).map(GuestTypeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function GuestTypesDetailsToJSON(value?: GuestTypesDetails | null): any {
     }
     return {
         
-        'guestTypes': GuestTypesTypeToJSON(value.guestTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'guestTypes': value.guestTypes === undefined ? undefined : ((value.guestTypes as Array<any>).map(GuestTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

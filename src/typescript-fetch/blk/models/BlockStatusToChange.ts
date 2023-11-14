@@ -19,18 +19,18 @@ import {
     ChangeBlockStatusTypeFromJSONTyped,
     ChangeBlockStatusTypeToJSON,
 } from './ChangeBlockStatusType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing the booking status of the business block.
@@ -58,10 +58,10 @@ export interface BlockStatusToChange {
     changeBlockStatus?: ChangeBlockStatusType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockStatusToChange
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Indicator if the request is a verification on whether the block status can be changed.
      * @type {boolean}
@@ -69,11 +69,11 @@ export interface BlockStatusToChange {
      */
     verificationOnly?: boolean;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockStatusToChange
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -98,9 +98,9 @@ export function BlockStatusToChangeFromJSONTyped(json: any, ignoreDiscriminator:
         'backgroundProcessMode': !exists(json, 'backgroundProcessMode') ? undefined : json['backgroundProcessMode'],
         'blocksStatus': !exists(json, 'blocksStatus') ? undefined : json['blocksStatus'],
         'changeBlockStatus': !exists(json, 'changeBlockStatus') ? undefined : ChangeBlockStatusTypeFromJSON(json['changeBlockStatus']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'verificationOnly': !exists(json, 'verificationOnly') ? undefined : json['verificationOnly'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -116,9 +116,9 @@ export function BlockStatusToChangeToJSON(value?: BlockStatusToChange | null): a
         'backgroundProcessMode': value.backgroundProcessMode,
         'blocksStatus': value.blocksStatus,
         'changeBlockStatus': ChangeBlockStatusTypeToJSON(value.changeBlockStatus),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'verificationOnly': value.verificationOnly,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

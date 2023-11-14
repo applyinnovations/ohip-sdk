@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { HotelBanquetSpaceType } from './HotelBanquetSpaceType';
-import type { HotelConferenceRoomsType } from './HotelConferenceRoomsType';
+import type { HotelConferenceRoomType } from './HotelConferenceRoomType';
 /**
  *
  * @export
@@ -25,10 +25,10 @@ export interface HotelConferenceFacilitiesType {
     hotelBanquetSpace?: HotelBanquetSpaceType;
     /**
      *
-     * @type {HotelConferenceRoomsType}
+     * @type {Array<HotelConferenceRoomType>}
      * @memberof HotelConferenceFacilitiesType
      */
-    hotelConferenceRooms?: HotelConferenceRoomsType;
+    hotelConferenceRooms?: Array<HotelConferenceRoomType>;
 }
 /**
  * Check if a given object implements the HotelConferenceFacilitiesType interface.

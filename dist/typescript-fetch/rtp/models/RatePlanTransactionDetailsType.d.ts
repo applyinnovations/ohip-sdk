@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { ExchangePostingType } from './ExchangePostingType';
-import type { RatePlanAdvancedPostingRhythmsType } from './RatePlanAdvancedPostingRhythmsType';
+import type { RatePlanAdvancedPostingRhythmType } from './RatePlanAdvancedPostingRhythmType';
 import type { RatePlanPostingRhythmType } from './RatePlanPostingRhythmType';
-import type { RatePlanRoomTransactionCodesType } from './RatePlanRoomTransactionCodesType';
+import type { RatePlanRoomTransactionCodeType } from './RatePlanRoomTransactionCodeType';
 import type { TranslationTextType2000 } from './TranslationTextType2000';
 /**
  *
@@ -21,11 +21,11 @@ import type { TranslationTextType2000 } from './TranslationTextType2000';
  */
 export interface RatePlanTransactionDetailsType {
     /**
-     *
-     * @type {RatePlanAdvancedPostingRhythmsType}
+     * Posting rhythm details for a rate plan containing Buy x Get y functionality.
+     * @type {Array<RatePlanAdvancedPostingRhythmType>}
      * @memberof RatePlanTransactionDetailsType
      */
-    advancedPostingRhythms?: RatePlanAdvancedPostingRhythmsType;
+    advancedPostingRhythms?: Array<RatePlanAdvancedPostingRhythmType>;
     /**
      * Currency code used by the rate plan.
      * @type {string}
@@ -63,11 +63,11 @@ export interface RatePlanTransactionDetailsType {
      */
     rateIncludesTax?: boolean;
     /**
-     *
-     * @type {RatePlanRoomTransactionCodesType}
+     * Single transaction code and room type/class association.
+     * @type {Array<RatePlanRoomTransactionCodeType>}
      * @memberof RatePlanTransactionDetailsType
      */
-    roomTransactionCodes?: RatePlanRoomTransactionCodesType;
+    roomTransactionCodes?: Array<RatePlanRoomTransactionCodeType>;
     /**
      * Transaction code used by the rate plan.
      * @type {string}

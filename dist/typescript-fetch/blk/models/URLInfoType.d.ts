@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { URLType } from './URLType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Web site address.
  * @export
@@ -42,11 +42,11 @@ export interface URLInfoType {
      */
     url?: URLType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof URLInfoType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the URLInfoType interface.

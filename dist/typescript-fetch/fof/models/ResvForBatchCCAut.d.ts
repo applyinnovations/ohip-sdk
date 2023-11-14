@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ReservationsForCCAuthType } from './ReservationsForCCAuthType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ReservationForCCAuthType } from './ReservationForCCAuthType';
+import type { WarningType } from './WarningType';
 /**
  * Response which contains a listing of reservations, and associated payment methods, that require credit card authorization.
  * @export
@@ -26,22 +26,22 @@ export interface ResvForBatchCCAut {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ResvForBatchCCAut
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ReservationsForCCAuthType}
+     * List of reservations with their payment methods.
+     * @type {Array<ReservationForCCAuthType>}
      * @memberof ResvForBatchCCAut
      */
-    reservations?: ReservationsForCCAuthType;
+    reservations?: Array<ReservationForCCAuthType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ResvForBatchCCAut
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ResvForBatchCCAut interface.

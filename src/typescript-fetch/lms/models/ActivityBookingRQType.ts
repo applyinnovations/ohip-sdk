@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ActivityList } from './ActivityList';
+import type { ActivityListInner } from './ActivityListInner';
 import {
-    ActivityListFromJSON,
-    ActivityListFromJSONTyped,
-    ActivityListToJSON,
-} from './ActivityList';
+    ActivityListInnerFromJSON,
+    ActivityListInnerFromJSONTyped,
+    ActivityListInnerToJSON,
+} from './ActivityListInner';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -33,11 +33,11 @@ import {
  */
 export interface ActivityBookingRQType {
     /**
-     * 
-     * @type {ActivityList}
+     * A collection of Activity objects.
+     * @type {Array<ActivityListInner>}
      * @memberof ActivityBookingRQType
      */
-    activities?: ActivityList;
+    activities?: Array<ActivityListInner>;
     /**
      * This is not required if a Reservation Id is provided
      * @type {string}
@@ -77,7 +77,7 @@ export function ActivityBookingRQTypeFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'activities': !exists(json, 'activities') ? undefined : ActivityListFromJSON(json['activities']),
+        'activities': !exists(json, 'activities') ? undefined : ((json['activities'] as Array<any>).map(ActivityListInnerFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'profileId': !exists(json, 'profileId') ? undefined : UniqueIDTypeFromJSON(json['profileId']),
         'reservationId': !exists(json, 'reservationId') ? undefined : UniqueIDTypeFromJSON(json['reservationId']),
@@ -93,7 +93,7 @@ export function ActivityBookingRQTypeToJSON(value?: ActivityBookingRQType | null
     }
     return {
         
-        'activities': ActivityListToJSON(value.activities),
+        'activities': value.activities === undefined ? undefined : ((value.activities as Array<any>).map(ActivityListInnerToJSON)),
         'hotelId': value.hotelId,
         'profileId': UniqueIDTypeToJSON(value.profileId),
         'reservationId': UniqueIDTypeToJSON(value.reservationId),

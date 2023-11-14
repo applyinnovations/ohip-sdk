@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CopySchedulesCriteriaType } from './CopySchedulesCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object that provides the criteria to copy policy schedules to different hotels.
  * @export
@@ -26,16 +26,16 @@ export interface CopyPolicySchedules {
     criteria?: CopySchedulesCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CopyPolicySchedules
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CopyPolicySchedules
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CopyPolicySchedules interface.

@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FiscalPartnerTypeToJSON = exports.FiscalPartnerTypeFromJSONTyped = exports.FiscalPartnerTypeFromJSON = exports.instanceOfFiscalPartnerType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const FiscalPayloadType_1 = require("./FiscalPayloadType");
 /**
  * Check if a given object implements the FiscalPartnerType interface.
@@ -38,7 +37,7 @@ function FiscalPartnerTypeFromJSONTyped(json, ignoreDiscriminator) {
         'fiscalPayloadTypes': !(0, runtime_1.exists)(json, 'fiscalPayloadTypes') ? undefined : (new Set(json['fiscalPayloadTypes'].map(FiscalPayloadType_1.FiscalPayloadTypeFromJSON))),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'partnerCode': !(0, runtime_1.exists)(json, 'partnerCode') ? undefined : json['partnerCode'],
-        'paymentTypes': !(0, runtime_1.exists)(json, 'paymentTypes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['paymentTypes']),
+        'paymentTypes': !(0, runtime_1.exists)(json, 'paymentTypes') ? undefined : json['paymentTypes'],
         'priority': !(0, runtime_1.exists)(json, 'priority') ? undefined : json['priority'],
     };
 }
@@ -55,7 +54,7 @@ function FiscalPartnerTypeToJSON(value) {
         'fiscalPayloadTypes': value.fiscalPayloadTypes === undefined ? undefined : (Array.from(value.fiscalPayloadTypes).map(FiscalPayloadType_1.FiscalPayloadTypeToJSON)),
         'hotelId': value.hotelId,
         'partnerCode': value.partnerCode,
-        'paymentTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.paymentTypes),
+        'paymentTypes': value.paymentTypes,
         'priority': value.priority,
     };
 }

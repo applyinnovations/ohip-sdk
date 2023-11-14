@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateFloorsType } from './TemplateFloorsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TemplateFloorType } from './TemplateFloorType';
 import {
-    TemplateFloorsTypeFromJSON,
-    TemplateFloorsTypeFromJSONTyped,
-    TemplateFloorsTypeToJSON,
-} from './TemplateFloorsType';
-import type { WarningsType } from './WarningsType';
+    TemplateFloorTypeFromJSON,
+    TemplateFloorTypeFromJSONTyped,
+    TemplateFloorTypeToJSON,
+} from './TemplateFloorType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating floors at the template level.
@@ -40,22 +40,22 @@ import {
 export interface TemplateFloorsCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateFloorsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TemplateFloorsType}
+     * This type holds a collection of floors at the template level.
+     * @type {Array<TemplateFloorType>}
      * @memberof TemplateFloorsCriteria
      */
-    templateFloors?: TemplateFloorsType;
+    templateFloors?: Array<TemplateFloorType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateFloorsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateFloorsCriteriaFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'templateFloors': !exists(json, 'templateFloors') ? undefined : TemplateFloorsTypeFromJSON(json['templateFloors']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'templateFloors': !exists(json, 'templateFloors') ? undefined : ((json['templateFloors'] as Array<any>).map(TemplateFloorTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateFloorsCriteriaToJSON(value?: TemplateFloorsCriteria | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'templateFloors': TemplateFloorsTypeToJSON(value.templateFloors),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'templateFloors': value.templateFloors === undefined ? undefined : ((value.templateFloors as Array<any>).map(TemplateFloorTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

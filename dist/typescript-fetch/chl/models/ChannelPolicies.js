@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelPoliciesToJSON = exports.ChannelPoliciesFromJSONTyped = exports.ChannelPoliciesFromJSON = exports.instanceOfChannelPolicies = void 0;
 const runtime_1 = require("../runtime");
-const ChannelPoliciesInfoType_1 = require("./ChannelPoliciesInfoType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ChannelPolicyType_1 = require("./ChannelPolicyType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChannelPolicies interface.
  */
@@ -35,9 +35,9 @@ function ChannelPoliciesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'channelPoliciesInfo': !(0, runtime_1.exists)(json, 'channelPoliciesInfo') ? undefined : (0, ChannelPoliciesInfoType_1.ChannelPoliciesInfoTypeFromJSON)(json['channelPoliciesInfo']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'channelPoliciesInfo': !(0, runtime_1.exists)(json, 'channelPoliciesInfo') ? undefined : (json['channelPoliciesInfo'].map(ChannelPolicyType_1.ChannelPolicyTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChannelPoliciesFromJSONTyped = ChannelPoliciesFromJSONTyped;
@@ -49,9 +49,9 @@ function ChannelPoliciesToJSON(value) {
         return null;
     }
     return {
-        'channelPoliciesInfo': (0, ChannelPoliciesInfoType_1.ChannelPoliciesInfoTypeToJSON)(value.channelPoliciesInfo),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'channelPoliciesInfo': value.channelPoliciesInfo === undefined ? undefined : (value.channelPoliciesInfo.map(ChannelPolicyType_1.ChannelPolicyTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChannelPoliciesToJSON = ChannelPoliciesToJSON;

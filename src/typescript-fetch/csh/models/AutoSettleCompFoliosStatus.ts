@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AutoSettleCompFoliosType } from './AutoSettleCompFoliosType';
+import type { AutoSettleCompFolioType } from './AutoSettleCompFolioType';
 import {
-    AutoSettleCompFoliosTypeFromJSON,
-    AutoSettleCompFoliosTypeFromJSONTyped,
-    AutoSettleCompFoliosTypeToJSON,
-} from './AutoSettleCompFoliosType';
-import type { WarningsType } from './WarningsType';
+    AutoSettleCompFolioTypeFromJSON,
+    AutoSettleCompFolioTypeFromJSONTyped,
+    AutoSettleCompFolioTypeToJSON,
+} from './AutoSettleCompFolioType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for auto settle comp folios. This includes collection of auto settled comp folios.
@@ -33,17 +33,17 @@ import {
  */
 export interface AutoSettleCompFoliosStatus {
     /**
-     * 
-     * @type {AutoSettleCompFoliosType}
+     * Information about comp folio that was auto settled.
+     * @type {Array<AutoSettleCompFolioType>}
      * @memberof AutoSettleCompFoliosStatus
      */
-    folios?: AutoSettleCompFoliosType;
+    folios?: Array<AutoSettleCompFolioType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoSettleCompFoliosStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function AutoSettleCompFoliosStatusFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'folios': !exists(json, 'folios') ? undefined : AutoSettleCompFoliosTypeFromJSON(json['folios']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'folios': !exists(json, 'folios') ? undefined : ((json['folios'] as Array<any>).map(AutoSettleCompFolioTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function AutoSettleCompFoliosStatusToJSON(value?: AutoSettleCompFoliosSta
     }
     return {
         
-        'folios': AutoSettleCompFoliosTypeToJSON(value.folios),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'folios': value.folios === undefined ? undefined : ((value.folios as Array<any>).map(AutoSettleCompFolioTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

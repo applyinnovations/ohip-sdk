@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CateringEventChangeTypeToJSON = exports.CateringEventChangeTypeFromJSONTyped = exports.CateringEventChangeTypeFromJSON = exports.instanceOfCateringEventChangeType = void 0;
 const runtime_1 = require("../runtime");
-const CateringEventChangeListType_1 = require("./CateringEventChangeListType");
-const CateringEventRevenueChangeListType_1 = require("./CateringEventRevenueChangeListType");
-const CateringEventStatusChangeListType_1 = require("./CateringEventStatusChangeListType");
+const CateringEventChangeInfoType_1 = require("./CateringEventChangeInfoType");
+const EventRevenueChangeType_1 = require("./EventRevenueChangeType");
+const EventStatusChangeType_1 = require("./EventStatusChangeType");
 /**
  * Check if a given object implements the CateringEventChangeType interface.
  */
@@ -35,9 +35,9 @@ function CateringEventChangeTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'changeList': !(0, runtime_1.exists)(json, 'changeList') ? undefined : (0, CateringEventChangeListType_1.CateringEventChangeListTypeFromJSON)(json['changeList']),
-        'revenueChangeList': !(0, runtime_1.exists)(json, 'revenueChangeList') ? undefined : (0, CateringEventRevenueChangeListType_1.CateringEventRevenueChangeListTypeFromJSON)(json['revenueChangeList']),
-        'statusChangeList': !(0, runtime_1.exists)(json, 'statusChangeList') ? undefined : (0, CateringEventStatusChangeListType_1.CateringEventStatusChangeListTypeFromJSON)(json['statusChangeList']),
+        'changeList': !(0, runtime_1.exists)(json, 'changeList') ? undefined : (json['changeList'].map(CateringEventChangeInfoType_1.CateringEventChangeInfoTypeFromJSON)),
+        'revenueChangeList': !(0, runtime_1.exists)(json, 'revenueChangeList') ? undefined : (json['revenueChangeList'].map(EventRevenueChangeType_1.EventRevenueChangeTypeFromJSON)),
+        'statusChangeList': !(0, runtime_1.exists)(json, 'statusChangeList') ? undefined : (json['statusChangeList'].map(EventStatusChangeType_1.EventStatusChangeTypeFromJSON)),
     };
 }
 exports.CateringEventChangeTypeFromJSONTyped = CateringEventChangeTypeFromJSONTyped;
@@ -49,9 +49,9 @@ function CateringEventChangeTypeToJSON(value) {
         return null;
     }
     return {
-        'changeList': (0, CateringEventChangeListType_1.CateringEventChangeListTypeToJSON)(value.changeList),
-        'revenueChangeList': (0, CateringEventRevenueChangeListType_1.CateringEventRevenueChangeListTypeToJSON)(value.revenueChangeList),
-        'statusChangeList': (0, CateringEventStatusChangeListType_1.CateringEventStatusChangeListTypeToJSON)(value.statusChangeList),
+        'changeList': value.changeList === undefined ? undefined : (value.changeList.map(CateringEventChangeInfoType_1.CateringEventChangeInfoTypeToJSON)),
+        'revenueChangeList': value.revenueChangeList === undefined ? undefined : (value.revenueChangeList.map(EventRevenueChangeType_1.EventRevenueChangeTypeToJSON)),
+        'statusChangeList': value.statusChangeList === undefined ? undefined : (value.statusChangeList.map(EventStatusChangeType_1.EventStatusChangeTypeToJSON)),
     };
 }
 exports.CateringEventChangeTypeToJSON = CateringEventChangeTypeToJSON;

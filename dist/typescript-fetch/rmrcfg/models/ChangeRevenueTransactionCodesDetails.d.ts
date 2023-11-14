@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ErrorsType } from './ErrorsType';
-import type { WarningsType } from './WarningsType';
+import type { ErrorType } from './ErrorType';
+import type { WarningType } from './WarningType';
 /**
  * Existing Operations Responses will eventually be modified to be extended from this type.
  * @export
@@ -36,11 +36,11 @@ export interface ChangeRevenueTransactionCodesDetails {
      */
     enforceAllowed?: boolean;
     /**
-     *
-     * @type {ErrorsType}
+     * An error that occurred during the processing of a message.
+     * @type {Array<ErrorType>}
      * @memberof ChangeRevenueTransactionCodesDetails
      */
-    errors?: ErrorsType;
+    errors?: Array<ErrorType>;
     /**
      * Indicates if the operation supports the ability to retry the request.
      * @type {boolean}
@@ -72,11 +72,11 @@ export interface ChangeRevenueTransactionCodesDetails {
      */
     version?: string;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeRevenueTransactionCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChangeRevenueTransactionCodesDetails interface.

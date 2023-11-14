@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { MonthlyRevenueNightsVarianceInfoType } from './MonthlyRevenueNightsVarianceInfoType';
 import type { RevenueNightsInfoType } from './RevenueNightsInfoType';
-import type { RevenueNightsVarianceInfoType } from './RevenueNightsVarianceInfoType';
 /**
  * Budget Forecast information for budget segment code.
  * @export
@@ -18,17 +18,17 @@ import type { RevenueNightsVarianceInfoType } from './RevenueNightsVarianceInfoT
  */
 export interface RateCodeInformationType {
     /**
-     *
-     * @type {RevenueNightsVarianceInfoType}
+     * Monthly Revenue Variance information.
+     * @type {Array<MonthlyRevenueNightsVarianceInfoType>}
      * @memberof RateCodeInformationType
      */
-    aBVarianceInfo?: RevenueNightsVarianceInfoType;
+    aBVarianceInfo?: Array<MonthlyRevenueNightsVarianceInfoType>;
     /**
-     *
-     * @type {RevenueNightsVarianceInfoType}
+     * Monthly Revenue Variance information.
+     * @type {Array<MonthlyRevenueNightsVarianceInfoType>}
      * @memberof RateCodeInformationType
      */
-    aFVarianceInfo?: RevenueNightsVarianceInfoType;
+    aFVarianceInfo?: Array<MonthlyRevenueNightsVarianceInfoType>;
     /**
      *
      * @type {RevenueNightsInfoType}
@@ -42,11 +42,11 @@ export interface RateCodeInformationType {
      */
     budgetRevenueInfo?: RevenueNightsInfoType;
     /**
-     *
-     * @type {RevenueNightsVarianceInfoType}
+     * Monthly Revenue Variance information.
+     * @type {Array<MonthlyRevenueNightsVarianceInfoType>}
      * @memberof RateCodeInformationType
      */
-    fBVarianceInfo?: RevenueNightsVarianceInfoType;
+    fBVarianceInfo?: Array<MonthlyRevenueNightsVarianceInfoType>;
     /**
      *
      * @type {RevenueNightsInfoType}

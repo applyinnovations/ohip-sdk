@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BestAvailableRatePlans, BestAvailableRatePlansStatus, DailyRatePlanSchedules, DailyRatePlanSchedulesStatus, HurdleRates, HurdleRatesStatus, RatePlans } from '../models/index';
+import type { BestAvailableRatePlans, BestAvailableRatePlansStatus, DailyRatePlanSchedules, DailyRatePlanSchedulesStatus, HurdleRateType, HurdleRatesStatus, RatePlans } from '../models/index';
 export interface GetBestAvailableRatePlansRequest {
     requestId: string;
     hotelId: string;
@@ -89,7 +89,7 @@ export interface StartHurdleRatesProcessRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    hurdleRates: HurdleRates;
+    hurdleRates: Array<HurdleRateType>;
     acceptLanguage?: string;
 }
 export interface StartSetBestAvailableRatePlansProcessRequest {

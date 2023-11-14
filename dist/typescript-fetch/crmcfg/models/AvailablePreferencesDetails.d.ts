@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { PreferenceTypeType } from './PreferenceTypeType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching available preferences for a property.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface AvailablePreferencesDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AvailablePreferencesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * A collection of preferences
      * @type {Array<PreferenceTypeType>}
@@ -31,11 +31,11 @@ export interface AvailablePreferencesDetails {
      */
     preferenceCollection?: Array<PreferenceTypeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AvailablePreferencesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AvailablePreferencesDetails interface.

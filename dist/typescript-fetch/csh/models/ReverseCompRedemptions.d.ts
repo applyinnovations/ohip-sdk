@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ReverseCompRedemptionsCriteria } from './ReverseCompRedemptionsCriteria';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request type of complimentary bucket redemptions reversal.
  * @export
@@ -24,11 +24,11 @@ export interface ReverseCompRedemptions {
      */
     criteria?: ReverseCompRedemptionsCriteria;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReverseCompRedemptions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReverseCompRedemptions interface.

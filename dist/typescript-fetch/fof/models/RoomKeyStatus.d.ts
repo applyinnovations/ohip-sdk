@@ -11,8 +11,8 @@
  */
 import type { DateRangeType } from './DateRangeType';
 import type { DateTimeRangeType } from './DateTimeRangeType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Respose for the reading of room key.
  * @export
@@ -51,10 +51,10 @@ export interface RoomKeyStatus {
     keyOptions?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomKeyStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {string}
@@ -68,11 +68,11 @@ export interface RoomKeyStatus {
      */
     validUntil?: string;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomKeyStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomKeyStatus interface.

@@ -19,12 +19,6 @@ import {
     CodeDescriptionTypeFromJSONTyped,
     CodeDescriptionTypeToJSON,
 } from './CodeDescriptionType';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import {
     CurrencyAmountTypeFromJSON,
@@ -58,10 +52,10 @@ export interface CollectingAgentTaxType {
     hotelId?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CollectingAgentTaxType
      */
-    newTaxType?: CodeListType;
+    newTaxType?: Array<string>;
     /**
      * Percentage used to calculate the Taxes
      * @type {number}
@@ -82,10 +76,10 @@ export interface CollectingAgentTaxType {
     taxTransactionCode?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CollectingAgentTaxType
      */
-    taxType?: CodeListType;
+    taxType?: Array<string>;
     /**
      * Primary Key Sequence.
      * @type {number}
@@ -122,11 +116,11 @@ export function CollectingAgentTaxTypeFromJSONTyped(json: any, ignoreDiscriminat
         'calculatedOnArrangementCodes': !exists(json, 'calculatedOnArrangementCodes') ? undefined : ((json['calculatedOnArrangementCodes'] as Array<any>).map(CodeDescriptionTypeFromJSON)),
         'calculatedOnTransactionCodes': !exists(json, 'calculatedOnTransactionCodes') ? undefined : ((json['calculatedOnTransactionCodes'] as Array<any>).map(CodeDescriptionTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'newTaxType': !exists(json, 'newTaxType') ? undefined : CodeListTypeFromJSON(json['newTaxType']),
+        'newTaxType': !exists(json, 'newTaxType') ? undefined : json['newTaxType'],
         'percentage': !exists(json, 'percentage') ? undefined : json['percentage'],
         'taxCode': !exists(json, 'taxCode') ? undefined : json['taxCode'],
         'taxTransactionCode': !exists(json, 'taxTransactionCode') ? undefined : json['taxTransactionCode'],
-        'taxType': !exists(json, 'taxType') ? undefined : CodeListTypeFromJSON(json['taxType']),
+        'taxType': !exists(json, 'taxType') ? undefined : json['taxType'],
         'taxVoid': !exists(json, 'taxVoid') ? undefined : json['taxVoid'],
         'triggerAmount': !exists(json, 'triggerAmount') ? undefined : CurrencyAmountTypeFromJSON(json['triggerAmount']),
     };
@@ -144,11 +138,11 @@ export function CollectingAgentTaxTypeToJSON(value?: CollectingAgentTaxType | nu
         'calculatedOnArrangementCodes': value.calculatedOnArrangementCodes === undefined ? undefined : ((value.calculatedOnArrangementCodes as Array<any>).map(CodeDescriptionTypeToJSON)),
         'calculatedOnTransactionCodes': value.calculatedOnTransactionCodes === undefined ? undefined : ((value.calculatedOnTransactionCodes as Array<any>).map(CodeDescriptionTypeToJSON)),
         'hotelId': value.hotelId,
-        'newTaxType': CodeListTypeToJSON(value.newTaxType),
+        'newTaxType': value.newTaxType,
         'percentage': value.percentage,
         'taxCode': value.taxCode,
         'taxTransactionCode': value.taxTransactionCode,
-        'taxType': CodeListTypeToJSON(value.taxType),
+        'taxType': value.taxType,
         'taxVoid': value.taxVoid,
         'triggerAmount': CurrencyAmountTypeToJSON(value.triggerAmount),
     };

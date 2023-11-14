@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ProfileIdList } from './ProfileIdList';
 import type { ProfileSummaryType } from './ProfileSummaryType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Summary information about a profile and the associated Unique IDs.
  * @export
@@ -24,11 +24,11 @@ export interface ProfileSummaryInfoType {
      */
     profile?: ProfileSummaryType;
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ProfileSummaryInfoType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the ProfileSummaryInfoType interface.

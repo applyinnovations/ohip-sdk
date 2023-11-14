@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PackageGroupsInfoToJSON = exports.PackageGroupsInfoFromJSONTyped = exports.PackageGroupsInfoFromJSON = exports.instanceOfPackageGroupsInfo = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const MasterInfoType_1 = require("./MasterInfoType");
 const PackageGroupsInfoPackageGroupList_1 = require("./PackageGroupsInfoPackageGroupList");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PackageGroupsInfo interface.
  */
@@ -36,10 +36,10 @@ function PackageGroupsInfoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'masterInfoList': !(0, runtime_1.exists)(json, 'masterInfoList') ? undefined : (json['masterInfoList'].map(MasterInfoType_1.MasterInfoTypeFromJSON)),
         'packageGroupList': !(0, runtime_1.exists)(json, 'packageGroupList') ? undefined : (0, PackageGroupsInfoPackageGroupList_1.PackageGroupsInfoPackageGroupListFromJSON)(json['packageGroupList']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PackageGroupsInfoFromJSONTyped = PackageGroupsInfoFromJSONTyped;
@@ -51,10 +51,10 @@ function PackageGroupsInfoToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'masterInfoList': value.masterInfoList === undefined ? undefined : (value.masterInfoList.map(MasterInfoType_1.MasterInfoTypeToJSON)),
         'packageGroupList': (0, PackageGroupsInfoPackageGroupList_1.PackageGroupsInfoPackageGroupListToJSON)(value.packageGroupList),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PackageGroupsInfoToJSON = PackageGroupsInfoToJSON;

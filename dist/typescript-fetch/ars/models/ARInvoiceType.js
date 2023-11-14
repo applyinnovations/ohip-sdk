@@ -20,7 +20,7 @@ const CashierInfoType_1 = require("./CashierInfoType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const FiscalResponseType_1 = require("./FiscalResponseType");
 const FolioStatusType_1 = require("./FolioStatusType");
-const FolioTextsType_1 = require("./FolioTextsType");
+const FolioTextsTypeInner_1 = require("./FolioTextsTypeInner");
 const MarketCodeInfoType_1 = require("./MarketCodeInfoType");
 const ProfileInfoType_1 = require("./ProfileInfoType");
 const ResPaymentCardType_1 = require("./ResPaymentCardType");
@@ -65,7 +65,7 @@ function ARInvoiceTypeFromJSONTyped(json, ignoreDiscriminator) {
         'folioNo': !(0, runtime_1.exists)(json, 'folioNo') ? undefined : json['folioNo'],
         'folioNoWithPrefix': !(0, runtime_1.exists)(json, 'folioNoWithPrefix') ? undefined : json['folioNoWithPrefix'],
         'folioStatus': !(0, runtime_1.exists)(json, 'folioStatus') ? undefined : (0, FolioStatusType_1.FolioStatusTypeFromJSON)(json['folioStatus']),
-        'folioTexts': !(0, runtime_1.exists)(json, 'folioTexts') ? undefined : (0, FolioTextsType_1.FolioTextsTypeFromJSON)(json['folioTexts']),
+        'folioTexts': !(0, runtime_1.exists)(json, 'folioTexts') ? undefined : (json['folioTexts'].map(FolioTextsTypeInner_1.FolioTextsTypeInnerFromJSON)),
         'folioTypeName': !(0, runtime_1.exists)(json, 'folioTypeName') ? undefined : json['folioTypeName'],
         'guestName': !(0, runtime_1.exists)(json, 'guestName') ? undefined : json['guestName'],
         'guestProfileId': !(0, runtime_1.exists)(json, 'guestProfileId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['guestProfileId']),
@@ -130,7 +130,7 @@ function ARInvoiceTypeToJSON(value) {
         'folioNo': value.folioNo,
         'folioNoWithPrefix': value.folioNoWithPrefix,
         'folioStatus': (0, FolioStatusType_1.FolioStatusTypeToJSON)(value.folioStatus),
-        'folioTexts': (0, FolioTextsType_1.FolioTextsTypeToJSON)(value.folioTexts),
+        'folioTexts': value.folioTexts === undefined ? undefined : (value.folioTexts.map(FolioTextsTypeInner_1.FolioTextsTypeInnerToJSON)),
         'folioTypeName': value.folioTypeName,
         'guestName': value.guestName,
         'guestProfileId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.guestProfileId),

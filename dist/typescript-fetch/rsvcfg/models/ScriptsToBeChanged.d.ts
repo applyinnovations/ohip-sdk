@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ScriptsType } from './ScriptsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ScriptType } from './ScriptType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Scripts.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ScriptsToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ScriptsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ScriptsType}
+     * A Script associated to either Chain, CRO or Property and to a Language and/or Membership Type.
+     * @type {Array<ScriptType>}
      * @memberof ScriptsToBeChanged
      */
-    scripts?: ScriptsType;
+    scripts?: Array<ScriptType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ScriptsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ScriptsToBeChanged interface.

@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { CommissionCodeTransactionType } from './CommissionCodeTransactionType';
 import type { ReservationBasedCommissionType } from './ReservationBasedCommissionType';
-import type { RevenueBasedCommissionType } from './RevenueBasedCommissionType';
 /**
  * Commission calculation type based on details.
  * @export
@@ -24,11 +24,11 @@ export interface CommissionCalculationType {
      */
     reservationBasedCommission?: ReservationBasedCommissionType;
     /**
-     *
-     * @type {RevenueBasedCommissionType}
+     * Revenue based commission details.
+     * @type {Array<CommissionCodeTransactionType>}
      * @memberof CommissionCalculationType
      */
-    revenueBasedCommission?: RevenueBasedCommissionType;
+    revenueBasedCommission?: Array<CommissionCodeTransactionType>;
 }
 /**
  * Check if a given object implements the CommissionCalculationType interface.

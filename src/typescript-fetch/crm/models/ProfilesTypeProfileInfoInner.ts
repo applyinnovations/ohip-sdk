@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ProfileAllowedActionsType } from './ProfileAllowedActionsType';
+import type { ProfileAllowedActionType } from './ProfileAllowedActionType';
 import {
-    ProfileAllowedActionsTypeFromJSON,
-    ProfileAllowedActionsTypeFromJSONTyped,
-    ProfileAllowedActionsTypeToJSON,
-} from './ProfileAllowedActionsType';
-import type { ProfileIdList } from './ProfileIdList';
-import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
+    ProfileAllowedActionTypeFromJSON,
+    ProfileAllowedActionTypeFromJSONTyped,
+    ProfileAllowedActionTypeToJSON,
+} from './ProfileAllowedActionType';
 import type { ProfileType } from './ProfileType';
 import {
     ProfileTypeFromJSON,
     ProfileTypeFromJSONTyped,
     ProfileTypeToJSON,
 } from './ProfileType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -39,11 +39,11 @@ import {
  */
 export interface ProfilesTypeProfileInfoInner {
     /**
-     * 
-     * @type {ProfileAllowedActionsType}
+     * Allowed actions for profile operations.
+     * @type {Array<ProfileAllowedActionType>}
      * @memberof ProfilesTypeProfileInfoInner
      */
-    allowedActions?: ProfileAllowedActionsType;
+    allowedActions?: Array<ProfileAllowedActionType>;
     /**
      * Chain code associated with the profile.
      * @type {string}
@@ -57,11 +57,11 @@ export interface ProfilesTypeProfileInfoInner {
      */
     profile?: ProfileType;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ProfilesTypeProfileInfoInner
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -83,10 +83,10 @@ export function ProfilesTypeProfileInfoInnerFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'allowedActions': !exists(json, 'allowedActions') ? undefined : ProfileAllowedActionsTypeFromJSON(json['allowedActions']),
+        'allowedActions': !exists(json, 'allowedActions') ? undefined : ((json['allowedActions'] as Array<any>).map(ProfileAllowedActionTypeFromJSON)),
         'chainCode': !exists(json, 'chainCode') ? undefined : json['chainCode'],
         'profile': !exists(json, 'profile') ? undefined : ProfileTypeFromJSON(json['profile']),
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -99,10 +99,10 @@ export function ProfilesTypeProfileInfoInnerToJSON(value?: ProfilesTypeProfileIn
     }
     return {
         
-        'allowedActions': ProfileAllowedActionsTypeToJSON(value.allowedActions),
+        'allowedActions': value.allowedActions === undefined ? undefined : ((value.allowedActions as Array<any>).map(ProfileAllowedActionTypeToJSON)),
         'chainCode': value.chainCode,
         'profile': ProfileTypeToJSON(value.profile),
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

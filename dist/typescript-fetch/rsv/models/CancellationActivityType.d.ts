@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CancellationReasonType } from './CancellationReasonType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -18,11 +18,11 @@ import type { UniqueIDListType } from './UniqueIDListType';
  */
 export interface CancellationActivityType {
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CancellationActivityType
      */
-    cancellationIdList?: UniqueIDListType;
+    cancellationIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {Date}

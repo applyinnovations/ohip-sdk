@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CopyCateringEventsProcessedInfoList } from './CopyCateringEventsProcessedInfoList';
+import type { CateringEventsProcessedInfoType } from './CateringEventsProcessedInfoType';
 import {
-    CopyCateringEventsProcessedInfoListFromJSON,
-    CopyCateringEventsProcessedInfoListFromJSONTyped,
-    CopyCateringEventsProcessedInfoListToJSON,
-} from './CopyCateringEventsProcessedInfoList';
-import type { Links } from './Links';
+    CateringEventsProcessedInfoTypeFromJSON,
+    CateringEventsProcessedInfoTypeFromJSONTyped,
+    CateringEventsProcessedInfoTypeToJSON,
+} from './CateringEventsProcessedInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for copying events.
@@ -39,23 +39,23 @@ import {
  */
 export interface CopyCateringEventsResponse {
     /**
-     * 
-     * @type {CopyCateringEventsProcessedInfoList}
+     * Status/Info of the processed events.
+     * @type {Array<CateringEventsProcessedInfoType>}
      * @memberof CopyCateringEventsResponse
      */
-    copyCateringEventsProcessedInfoList?: CopyCateringEventsProcessedInfoList;
+    copyCateringEventsProcessedInfoList?: Array<CateringEventsProcessedInfoType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CopyCateringEventsResponse
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CopyCateringEventsResponse
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CopyCateringEventsResponseFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'copyCateringEventsProcessedInfoList': !exists(json, 'copyCateringEventsProcessedInfoList') ? undefined : CopyCateringEventsProcessedInfoListFromJSON(json['copyCateringEventsProcessedInfoList']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'copyCateringEventsProcessedInfoList': !exists(json, 'copyCateringEventsProcessedInfoList') ? undefined : ((json['copyCateringEventsProcessedInfoList'] as Array<any>).map(CateringEventsProcessedInfoTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CopyCateringEventsResponseToJSON(value?: CopyCateringEventsRespo
     }
     return {
         
-        'copyCateringEventsProcessedInfoList': CopyCateringEventsProcessedInfoListToJSON(value.copyCateringEventsProcessedInfoList),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'copyCateringEventsProcessedInfoList': value.copyCateringEventsProcessedInfoList === undefined ? undefined : ((value.copyCateringEventsProcessedInfoList as Array<any>).map(CateringEventsProcessedInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GenderTypesType } from './GenderTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { GenderType } from './GenderType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Gender Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface GenderTypes {
     /**
-     *
-     * @type {GenderTypesType}
+     * List of Gender Type.
+     * @type {Array<GenderType>}
      * @memberof GenderTypes
      */
-    genderTypes?: GenderTypesType;
+    genderTypes?: Array<GenderType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GenderTypes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GenderTypes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GenderTypes interface.

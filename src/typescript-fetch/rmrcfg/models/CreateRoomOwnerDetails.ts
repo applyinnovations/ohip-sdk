@@ -19,12 +19,12 @@ import {
     RoomOwnershipTypeFromJSONTyped,
     RoomOwnershipTypeToJSON,
 } from './RoomOwnershipType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating room ownership records.
@@ -45,11 +45,11 @@ export interface CreateRoomOwnerDetails {
      */
     roomOwner?: RoomOwnershipType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateRoomOwnerDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -73,7 +73,7 @@ export function CreateRoomOwnerDetailsFromJSONTyped(json: any, ignoreDiscriminat
         
         'overrideOwnerExclusive': !exists(json, 'overrideOwnerExclusive') ? undefined : json['overrideOwnerExclusive'],
         'roomOwner': !exists(json, 'roomOwner') ? undefined : RoomOwnershipTypeFromJSON(json['roomOwner']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -88,7 +88,7 @@ export function CreateRoomOwnerDetailsToJSON(value?: CreateRoomOwnerDetails | nu
         
         'overrideOwnerExclusive': value.overrideOwnerExclusive,
         'roomOwner': RoomOwnershipTypeToJSON(value.roomOwner),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RemindersToJSON = exports.RemindersFromJSONTyped = exports.RemindersFromJSON = exports.instanceOfReminders = void 0;
 const runtime_1 = require("../runtime");
-const ARRemindersType_1 = require("./ARRemindersType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ARReminderType_1 = require("./ARReminderType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the Reminders interface.
  */
@@ -35,9 +35,9 @@ function RemindersFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'remindersDetails': !(0, runtime_1.exists)(json, 'remindersDetails') ? undefined : (0, ARRemindersType_1.ARRemindersTypeFromJSON)(json['remindersDetails']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'remindersDetails': !(0, runtime_1.exists)(json, 'remindersDetails') ? undefined : (json['remindersDetails'].map(ARReminderType_1.ARReminderTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RemindersFromJSONTyped = RemindersFromJSONTyped;
@@ -49,9 +49,9 @@ function RemindersToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'remindersDetails': (0, ARRemindersType_1.ARRemindersTypeToJSON)(value.remindersDetails),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'remindersDetails': value.remindersDetails === undefined ? undefined : (value.remindersDetails.map(ARReminderType_1.ARReminderTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RemindersToJSON = RemindersToJSON;

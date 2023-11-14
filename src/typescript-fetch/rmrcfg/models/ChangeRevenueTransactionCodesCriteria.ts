@@ -19,12 +19,12 @@ import {
     RotationRevenueTransactionCodesChangeTypeFromJSONTyped,
     RotationRevenueTransactionCodesChangeTypeToJSON,
 } from './RotationRevenueTransactionCodesChangeType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for updating the rotation revenue status of a transaction code for a given property.
@@ -39,11 +39,11 @@ export interface ChangeRevenueTransactionCodesCriteria {
      */
     revenueTransactionCodes?: RotationRevenueTransactionCodesChangeType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeRevenueTransactionCodesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function ChangeRevenueTransactionCodesCriteriaFromJSONTyped(json: any, ig
     return {
         
         'revenueTransactionCodes': !exists(json, 'revenueTransactionCodes') ? undefined : RotationRevenueTransactionCodesChangeTypeFromJSON(json['revenueTransactionCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function ChangeRevenueTransactionCodesCriteriaToJSON(value?: ChangeRevenu
     return {
         
         'revenueTransactionCodes': RotationRevenueTransactionCodesChangeTypeToJSON(value.revenueTransactionCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

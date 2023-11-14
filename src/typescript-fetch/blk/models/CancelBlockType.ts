@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockIdList } from './BlockIdList';
-import {
-    BlockIdListFromJSON,
-    BlockIdListFromJSONTyped,
-    BlockIdListToJSON,
-} from './BlockIdList';
 import type { CancellationDetailsType } from './CancellationDetailsType';
 import {
     CancellationDetailsTypeFromJSON,
     CancellationDetailsTypeFromJSONTyped,
     CancellationDetailsTypeToJSON,
 } from './CancellationDetailsType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * ID information of the cancelled Block.
@@ -33,11 +33,11 @@ import {
  */
 export interface CancelBlockType {
     /**
-     * 
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CancelBlockType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {CancellationDetailsType}
@@ -83,7 +83,7 @@ export function CancelBlockTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : BlockIdListFromJSON(json['blockIdList']),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'cancellationDetails': !exists(json, 'cancellationDetails') ? undefined : CancellationDetailsTypeFromJSON(json['cancellationDetails']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'pMReservationsCancellationDetails': !exists(json, 'pMReservationsCancellationDetails') ? undefined : CancellationDetailsTypeFromJSON(json['pMReservationsCancellationDetails']),
@@ -100,7 +100,7 @@ export function CancelBlockTypeToJSON(value?: CancelBlockType | null): any {
     }
     return {
         
-        'blockIdList': BlockIdListToJSON(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'cancellationDetails': CancellationDetailsTypeToJSON(value.cancellationDetails),
         'hotelId': value.hotelId,
         'pMReservationsCancellationDetails': CancellationDetailsTypeToJSON(value.pMReservationsCancellationDetails),

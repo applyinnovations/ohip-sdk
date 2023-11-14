@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PackageFormulaRangesToJSON = exports.PackageFormulaRangesFromJSONTyped = exports.PackageFormulaRangesFromJSON = exports.instanceOfPackageFormulaRanges = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const PackageFormulaRangesType_1 = require("./PackageFormulaRangesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const PackageFormulaRangeType_1 = require("./PackageFormulaRangeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the PackageFormulaRanges interface.
  */
@@ -35,9 +35,9 @@ function PackageFormulaRangesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'packageFormulaRanges': !(0, runtime_1.exists)(json, 'packageFormulaRanges') ? undefined : (0, PackageFormulaRangesType_1.PackageFormulaRangesTypeFromJSON)(json['packageFormulaRanges']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'packageFormulaRanges': !(0, runtime_1.exists)(json, 'packageFormulaRanges') ? undefined : (json['packageFormulaRanges'].map(PackageFormulaRangeType_1.PackageFormulaRangeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.PackageFormulaRangesFromJSONTyped = PackageFormulaRangesFromJSONTyped;
@@ -49,9 +49,9 @@ function PackageFormulaRangesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'packageFormulaRanges': (0, PackageFormulaRangesType_1.PackageFormulaRangesTypeToJSON)(value.packageFormulaRanges),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'packageFormulaRanges': value.packageFormulaRanges === undefined ? undefined : (value.packageFormulaRanges.map(PackageFormulaRangeType_1.PackageFormulaRangeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.PackageFormulaRangesToJSON = PackageFormulaRangesToJSON;

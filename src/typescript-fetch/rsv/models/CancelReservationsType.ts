@@ -25,12 +25,12 @@ import {
     CancellationReasonTypeFromJSONTyped,
     CancellationReasonTypeToJSON,
 } from './CancellationReasonType';
-import type { Reservations } from './Reservations';
+import type { ReservationId } from './ReservationId';
 import {
-    ReservationsFromJSON,
-    ReservationsFromJSONTyped,
-    ReservationsToJSON,
-} from './Reservations';
+    ReservationIdFromJSON,
+    ReservationIdFromJSONTyped,
+    ReservationIdToJSON,
+} from './ReservationId';
 
 /**
  * Criteria for submitting batch cancel reservations.
@@ -57,11 +57,11 @@ export interface CancelReservationsType {
      */
     reason?: CancellationReasonType;
     /**
-     * 
-     * @type {Reservations}
+     * Unique identifier for a reservation.
+     * @type {Array<ReservationId>}
      * @memberof CancelReservationsType
      */
-    reservations?: Reservations;
+    reservations?: Array<ReservationId>;
 }
 
 /**
@@ -86,7 +86,7 @@ export function CancelReservationsTypeFromJSONTyped(json: any, ignoreDiscriminat
         'cancelInstructions': !exists(json, 'cancelInstructions') ? undefined : CancelReservationsInstructionsTypeFromJSON(json['cancelInstructions']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'reason': !exists(json, 'reason') ? undefined : CancellationReasonTypeFromJSON(json['reason']),
-        'reservations': !exists(json, 'reservations') ? undefined : ReservationsFromJSON(json['reservations']),
+        'reservations': !exists(json, 'reservations') ? undefined : ((json['reservations'] as Array<any>).map(ReservationIdFromJSON)),
     };
 }
 
@@ -102,7 +102,7 @@ export function CancelReservationsTypeToJSON(value?: CancelReservationsType | nu
         'cancelInstructions': CancelReservationsInstructionsTypeToJSON(value.cancelInstructions),
         'hotelId': value.hotelId,
         'reason': CancellationReasonTypeToJSON(value.reason),
-        'reservations': ReservationsToJSON(value.reservations),
+        'reservations': value.reservations === undefined ? undefined : ((value.reservations as Array<any>).map(ReservationIdToJSON)),
     };
 }
 

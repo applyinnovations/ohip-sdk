@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DefaultValuesType } from './DefaultValuesType';
+import type { DefaultValueType } from './DefaultValueType';
 import {
-    DefaultValuesTypeFromJSON,
-    DefaultValuesTypeFromJSONTyped,
-    DefaultValuesTypeToJSON,
-} from './DefaultValuesType';
-import type { Links } from './Links';
+    DefaultValueTypeFromJSON,
+    DefaultValueTypeFromJSONTyped,
+    DefaultValueTypeToJSON,
+} from './DefaultValueType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface DefaultValues {
     /**
-     * 
-     * @type {DefaultValuesType}
+     * A collection of default values.
+     * @type {Array<DefaultValueType>}
      * @memberof DefaultValues
      */
-    defaultValues?: DefaultValuesType;
+    defaultValues?: Array<DefaultValueType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DefaultValues
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DefaultValues
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function DefaultValuesFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'defaultValues': !exists(json, 'defaultValues') ? undefined : DefaultValuesTypeFromJSON(json['defaultValues']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'defaultValues': !exists(json, 'defaultValues') ? undefined : ((json['defaultValues'] as Array<any>).map(DefaultValueTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function DefaultValuesToJSON(value?: DefaultValues | null): any {
     }
     return {
         
-        'defaultValues': DefaultValuesTypeToJSON(value.defaultValues),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'defaultValues': value.defaultValues === undefined ? undefined : ((value.defaultValues as Array<any>).map(DefaultValueTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

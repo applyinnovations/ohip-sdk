@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AutoTraceCodesListType } from './AutoTraceCodesListType';
-import type { WarningsType } from './WarningsType';
+import type { AutoTraceCodeDetailType } from './AutoTraceCodeDetailType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating/changing Auto Trace Codes.
  * @export
@@ -18,17 +18,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AutoTraceCodesInfo {
     /**
-     *
-     * @type {AutoTraceCodesListType}
+     * Detailed information of configured Auto Trace Codes.
+     * @type {Array<AutoTraceCodeDetailType>}
      * @memberof AutoTraceCodesInfo
      */
-    autoTraceCodesConfig?: AutoTraceCodesListType;
+    autoTraceCodesConfig?: Array<AutoTraceCodeDetailType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoTraceCodesInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AutoTraceCodesInfo interface.

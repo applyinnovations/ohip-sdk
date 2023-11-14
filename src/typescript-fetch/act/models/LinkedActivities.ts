@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { InstanceLink } from './InstanceLink';
+import {
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { LinkedActivitiesType } from './LinkedActivitiesType';
 import {
     LinkedActivitiesTypeFromJSON,
     LinkedActivitiesTypeFromJSONTyped,
     LinkedActivitiesTypeToJSON,
 } from './LinkedActivitiesType';
-import type { Links } from './Links';
+import type { WarningType } from './WarningType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
-import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -46,16 +46,16 @@ export interface LinkedActivities {
     linkedActivityDetails?: LinkedActivitiesType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof LinkedActivities
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof LinkedActivities
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -78,8 +78,8 @@ export function LinkedActivitiesFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'linkedActivityDetails': !exists(json, 'linkedActivityDetails') ? undefined : LinkedActivitiesTypeFromJSON(json['linkedActivityDetails']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -93,8 +93,8 @@ export function LinkedActivitiesToJSON(value?: LinkedActivities | null): any {
     return {
         
         'linkedActivityDetails': LinkedActivitiesTypeToJSON(value.linkedActivityDetails),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

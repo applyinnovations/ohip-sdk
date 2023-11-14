@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ARInvoicesType } from './ARInvoicesType';
+import type { ARInvoiceType } from './ARInvoiceType';
 import {
-    ARInvoicesTypeFromJSON,
-    ARInvoicesTypeFromJSONTyped,
-    ARInvoicesTypeToJSON,
-} from './ARInvoicesType';
+    ARInvoiceTypeFromJSON,
+    ARInvoiceTypeFromJSONTyped,
+    ARInvoiceTypeToJSON,
+} from './ARInvoiceType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import {
     CurrencyAmountTypeFromJSON,
@@ -69,11 +69,11 @@ export interface ARStatementType {
      */
     inclFolios?: boolean;
     /**
-     * 
-     * @type {ARInvoicesType}
+     * A collection of AR Invoices.
+     * @type {Array<ARInvoiceType>}
      * @memberof ARStatementType
      */
-    invoices?: ARInvoicesType;
+    invoices?: Array<ARInvoiceType>;
     /**
      * The Statement Report name which should be used for printing.
      * @type {string}
@@ -129,7 +129,7 @@ export function ARStatementTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'balance': !exists(json, 'balance') ? undefined : CurrencyAmountTypeFromJSON(json['balance']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'inclFolios': !exists(json, 'inclFolios') ? undefined : json['inclFolios'],
-        'invoices': !exists(json, 'invoices') ? undefined : ARInvoicesTypeFromJSON(json['invoices']),
+        'invoices': !exists(json, 'invoices') ? undefined : ((json['invoices'] as Array<any>).map(ARInvoiceTypeFromJSON)),
         'reportFileName': !exists(json, 'reportFileName') ? undefined : json['reportFileName'],
         'reportSeqNo': !exists(json, 'reportSeqNo') ? undefined : json['reportSeqNo'],
         'statementName': !exists(json, 'statementName') ? undefined : json['statementName'],
@@ -151,7 +151,7 @@ export function ARStatementTypeToJSON(value?: ARStatementType | null): any {
         'balance': CurrencyAmountTypeToJSON(value.balance),
         'hotelId': value.hotelId,
         'inclFolios': value.inclFolios,
-        'invoices': ARInvoicesTypeToJSON(value.invoices),
+        'invoices': value.invoices === undefined ? undefined : ((value.invoices as Array<any>).map(ARInvoiceTypeToJSON)),
         'reportFileName': value.reportFileName,
         'reportSeqNo': value.reportSeqNo,
         'statementName': value.statementName,

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CorporateOperatingUnitsDetailsToJSON = exports.CorporateOperatingUnitsDetailsFromJSONTyped = exports.CorporateOperatingUnitsDetailsFromJSON = exports.instanceOfCorporateOperatingUnitsDetails = void 0;
 const runtime_1 = require("../runtime");
-const CorporateOperatingUnitsType_1 = require("./CorporateOperatingUnitsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CorporateOperatingUnitType_1 = require("./CorporateOperatingUnitType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CorporateOperatingUnitsDetails interface.
  */
@@ -35,9 +35,9 @@ function CorporateOperatingUnitsDetailsFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'corporateOperatingUnits': !(0, runtime_1.exists)(json, 'corporateOperatingUnits') ? undefined : (0, CorporateOperatingUnitsType_1.CorporateOperatingUnitsTypeFromJSON)(json['corporateOperatingUnits']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'corporateOperatingUnits': !(0, runtime_1.exists)(json, 'corporateOperatingUnits') ? undefined : (json['corporateOperatingUnits'].map(CorporateOperatingUnitType_1.CorporateOperatingUnitTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CorporateOperatingUnitsDetailsFromJSONTyped = CorporateOperatingUnitsDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function CorporateOperatingUnitsDetailsToJSON(value) {
         return null;
     }
     return {
-        'corporateOperatingUnits': (0, CorporateOperatingUnitsType_1.CorporateOperatingUnitsTypeToJSON)(value.corporateOperatingUnits),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'corporateOperatingUnits': value.corporateOperatingUnits === undefined ? undefined : (value.corporateOperatingUnits.map(CorporateOperatingUnitType_1.CorporateOperatingUnitTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CorporateOperatingUnitsDetailsToJSON = CorporateOperatingUnitsDetailsToJSON;

@@ -15,7 +15,7 @@ import type { CashierInfoType } from './CashierInfoType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { FiscalResponseType } from './FiscalResponseType';
 import type { FolioStatusType } from './FolioStatusType';
-import type { FolioTextsType } from './FolioTextsType';
+import type { FolioTextsTypeInner } from './FolioTextsTypeInner';
 import type { MarketCodeInfoType } from './MarketCodeInfoType';
 import type { ProfileId } from './ProfileId';
 import type { ProfileInfoType } from './ProfileInfoType';
@@ -165,11 +165,11 @@ export interface ARInvoiceCriteriaType {
      */
     folioStatus?: FolioStatusType;
     /**
-     *
-     * @type {FolioTextsType}
+     * This stores the description for the type of tax calculation especially with tax exemption, etc.
+     * @type {Array<FolioTextsTypeInner>}
      * @memberof ARInvoiceCriteriaType
      */
-    folioTexts?: FolioTextsType;
+    folioTexts?: Array<FolioTextsTypeInner>;
     /**
      * The name of the Folio Type used for the Folio Number sequence.
      * @type {string}

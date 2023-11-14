@@ -19,24 +19,24 @@ import {
     BaseRatePlanScheduleDetailTypeFromJSONTyped,
     BaseRatePlanScheduleDetailTypeToJSON,
 } from './BaseRatePlanScheduleDetailType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { RatePlanScheduleToSplitRatePlanSchedule } from './RatePlanScheduleToSplitRatePlanSchedule';
 import {
     RatePlanScheduleToSplitRatePlanScheduleFromJSON,
     RatePlanScheduleToSplitRatePlanScheduleFromJSONTyped,
     RatePlanScheduleToSplitRatePlanScheduleToJSON,
 } from './RatePlanScheduleToSplitRatePlanSchedule';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to split rate plan schedule.
@@ -46,10 +46,10 @@ import {
 export interface RatePlanScheduleToSplit {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RatePlanScheduleToSplit
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {RatePlanScheduleToSplitRatePlanSchedule}
@@ -63,11 +63,11 @@ export interface RatePlanScheduleToSplit {
      */
     splitDetails?: BaseRatePlanScheduleDetailType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RatePlanScheduleToSplit
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function RatePlanScheduleToSplitFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'ratePlanSchedule': !exists(json, 'ratePlanSchedule') ? undefined : RatePlanScheduleToSplitRatePlanScheduleFromJSON(json['ratePlanSchedule']),
         'splitDetails': !exists(json, 'splitDetails') ? undefined : BaseRatePlanScheduleDetailTypeFromJSON(json['splitDetails']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function RatePlanScheduleToSplitToJSON(value?: RatePlanScheduleToSplit | 
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'ratePlanSchedule': RatePlanScheduleToSplitRatePlanScheduleToJSON(value.ratePlanSchedule),
         'splitDetails': BaseRatePlanScheduleDetailTypeToJSON(value.splitDetails),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

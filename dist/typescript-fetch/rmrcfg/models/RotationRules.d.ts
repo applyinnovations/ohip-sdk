@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { RotationRulesType } from './RotationRulesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating room rotation setup rules.
  * @export
@@ -24,11 +24,11 @@ export interface RotationRules {
      */
     rotationRules?: RotationRulesType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RotationRules
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RotationRules interface.

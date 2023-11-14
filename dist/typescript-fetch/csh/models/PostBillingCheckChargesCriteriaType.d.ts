@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { PostBillingCheckChargesItemsCriteriaType } from './PostBillingCheckChargesItemsCriteriaType';
+import type { PostBillingCheckChargesItemCriteriaType } from './PostBillingCheckChargesItemCriteriaType';
 import type { ReservationId } from './ReservationId';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -43,11 +43,11 @@ export interface PostBillingCheckChargesCriteriaType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {PostBillingCheckChargesItemsCriteriaType}
+     * Line items of the check.
+     * @type {Array<PostBillingCheckChargesItemCriteriaType>}
      * @memberof PostBillingCheckChargesCriteriaType
      */
-    items?: PostBillingCheckChargesItemsCriteriaType;
+    items?: Array<PostBillingCheckChargesItemCriteriaType>;
     /**
      *
      * @type {ReservationId}

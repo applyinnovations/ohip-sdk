@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelDetailsDetailsToJSON = exports.HotelDetailsDetailsFromJSONTyped = exports.HotelDetailsDetailsFromJSON = exports.instanceOfHotelDetailsDetails = void 0;
 const runtime_1 = require("../runtime");
-const HotelDetailsType_1 = require("./HotelDetailsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HotelDetailType_1 = require("./HotelDetailType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the HotelDetailsDetails interface.
  */
@@ -35,9 +35,9 @@ function HotelDetailsDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'hotelDetails': !(0, runtime_1.exists)(json, 'hotelDetails') ? undefined : (0, HotelDetailsType_1.HotelDetailsTypeFromJSON)(json['hotelDetails']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'hotelDetails': !(0, runtime_1.exists)(json, 'hotelDetails') ? undefined : (json['hotelDetails'].map(HotelDetailType_1.HotelDetailTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.HotelDetailsDetailsFromJSONTyped = HotelDetailsDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function HotelDetailsDetailsToJSON(value) {
         return null;
     }
     return {
-        'hotelDetails': (0, HotelDetailsType_1.HotelDetailsTypeToJSON)(value.hotelDetails),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'hotelDetails': value.hotelDetails === undefined ? undefined : (value.hotelDetails.map(HotelDetailType_1.HotelDetailTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.HotelDetailsDetailsToJSON = HotelDetailsDetailsToJSON;

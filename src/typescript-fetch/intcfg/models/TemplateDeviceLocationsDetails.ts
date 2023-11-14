@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateDeviceLocationsType } from './TemplateDeviceLocationsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TemplateDeviceLocationType } from './TemplateDeviceLocationType';
 import {
-    TemplateDeviceLocationsTypeFromJSON,
-    TemplateDeviceLocationsTypeFromJSONTyped,
-    TemplateDeviceLocationsTypeToJSON,
-} from './TemplateDeviceLocationsType';
-import type { WarningsType } from './WarningsType';
+    TemplateDeviceLocationTypeFromJSON,
+    TemplateDeviceLocationTypeFromJSONTyped,
+    TemplateDeviceLocationTypeToJSON,
+} from './TemplateDeviceLocationType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching template Device locations.
@@ -40,22 +40,22 @@ import {
 export interface TemplateDeviceLocationsDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateDeviceLocationsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TemplateDeviceLocationsType}
+     * List of Device locations at template level.
+     * @type {Array<TemplateDeviceLocationType>}
      * @memberof TemplateDeviceLocationsDetails
      */
-    templateDeviceLocations?: TemplateDeviceLocationsType;
+    templateDeviceLocations?: Array<TemplateDeviceLocationType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateDeviceLocationsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateDeviceLocationsDetailsFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'templateDeviceLocations': !exists(json, 'templateDeviceLocations') ? undefined : TemplateDeviceLocationsTypeFromJSON(json['templateDeviceLocations']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'templateDeviceLocations': !exists(json, 'templateDeviceLocations') ? undefined : ((json['templateDeviceLocations'] as Array<any>).map(TemplateDeviceLocationTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateDeviceLocationsDetailsToJSON(value?: TemplateDeviceLocat
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'templateDeviceLocations': TemplateDeviceLocationsTypeToJSON(value.templateDeviceLocations),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'templateDeviceLocations': value.templateDeviceLocations === undefined ? undefined : ((value.templateDeviceLocations as Array<any>).map(TemplateDeviceLocationTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

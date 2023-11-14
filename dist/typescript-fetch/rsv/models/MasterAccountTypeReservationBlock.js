@@ -15,8 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MasterAccountTypeReservationBlockToJSON = exports.MasterAccountTypeReservationBlockFromJSONTyped = exports.MasterAccountTypeReservationBlockFromJSON = exports.instanceOfMasterAccountTypeReservationBlock = void 0;
 const runtime_1 = require("../runtime");
-const BlockIdList_1 = require("./BlockIdList");
-const CodeListType_1 = require("./CodeListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the MasterAccountTypeReservationBlock interface.
  */
@@ -34,8 +33,8 @@ function MasterAccountTypeReservationBlockFromJSONTyped(json, ignoreDiscriminato
         return json;
     }
     return {
-        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (0, BlockIdList_1.BlockIdListFromJSON)(json['blockIdList']),
-        'transactionCode': !(0, runtime_1.exists)(json, 'transactionCode') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['transactionCode']),
+        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'transactionCode': !(0, runtime_1.exists)(json, 'transactionCode') ? undefined : json['transactionCode'],
     };
 }
 exports.MasterAccountTypeReservationBlockFromJSONTyped = MasterAccountTypeReservationBlockFromJSONTyped;
@@ -47,8 +46,8 @@ function MasterAccountTypeReservationBlockToJSON(value) {
         return null;
     }
     return {
-        'blockIdList': (0, BlockIdList_1.BlockIdListToJSON)(value.blockIdList),
-        'transactionCode': (0, CodeListType_1.CodeListTypeToJSON)(value.transactionCode),
+        'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'transactionCode': value.transactionCode,
     };
 }
 exports.MasterAccountTypeReservationBlockToJSON = MasterAccountTypeReservationBlockToJSON;

@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { MembershipAwardPointsType } from './MembershipAwardPointsType';
 import {
     MembershipAwardPointsTypeFromJSON,
@@ -37,12 +31,6 @@ import {
     MembershipTransactionTierPointsTypeFromJSONTyped,
     MembershipTransactionTierPointsTypeToJSON,
 } from './MembershipTransactionTierPointsType';
-import type { ReservationIdList } from './ReservationIdList';
-import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
 import type { TimeSpanType } from './TimeSpanType';
 import {
     TimeSpanTypeFromJSON,
@@ -166,10 +154,10 @@ export interface MembershipTransactionDetailsType {
     processingMessages?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof MembershipTransactionDetailsType
      */
-    profilePromotions?: CodeListType;
+    profilePromotions?: Array<string>;
     /**
      * Promotion code assigned on reservation.
      * @type {string}
@@ -177,11 +165,11 @@ export interface MembershipTransactionDetailsType {
      */
     ratePromotion?: string;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MembershipTransactionDetailsType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * The room type for this transaction.
      * @type {string}
@@ -256,9 +244,9 @@ export function MembershipTransactionDetailsTypeFromJSONTyped(json: any, ignoreD
         'pointsCost': !exists(json, 'pointsCost') ? undefined : json['pointsCost'],
         'pointsCreditDate': !exists(json, 'pointsCreditDate') ? undefined : (new Date(json['pointsCreditDate'])),
         'processingMessages': !exists(json, 'processingMessages') ? undefined : json['processingMessages'],
-        'profilePromotions': !exists(json, 'profilePromotions') ? undefined : CodeListTypeFromJSON(json['profilePromotions']),
+        'profilePromotions': !exists(json, 'profilePromotions') ? undefined : json['profilePromotions'],
         'ratePromotion': !exists(json, 'ratePromotion') ? undefined : json['ratePromotion'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'roomLabel': !exists(json, 'roomLabel') ? undefined : json['roomLabel'],
         'statementId': !exists(json, 'statementId') ? undefined : UniqueIDTypeFromJSON(json['statementId']),
         'stayTimeSpan': !exists(json, 'stayTimeSpan') ? undefined : TimeSpanTypeFromJSON(json['stayTimeSpan']),
@@ -294,9 +282,9 @@ export function MembershipTransactionDetailsTypeToJSON(value?: MembershipTransac
         'pointsCost': value.pointsCost,
         'pointsCreditDate': value.pointsCreditDate === undefined ? undefined : (value.pointsCreditDate.toISOString().substring(0,10)),
         'processingMessages': value.processingMessages,
-        'profilePromotions': CodeListTypeToJSON(value.profilePromotions),
+        'profilePromotions': value.profilePromotions,
         'ratePromotion': value.ratePromotion,
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'roomLabel': value.roomLabel,
         'statementId': UniqueIDTypeToJSON(value.statementId),
         'stayTimeSpan': TimeSpanTypeToJSON(value.stayTimeSpan),

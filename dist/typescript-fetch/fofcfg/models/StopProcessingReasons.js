@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StopProcessingReasonsToJSON = exports.StopProcessingReasonsFromJSONTyped = exports.StopProcessingReasonsFromJSON = exports.instanceOfStopProcessingReasons = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const StopProcessingReasonsType_1 = require("./StopProcessingReasonsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const StopProcessingReasonType_1 = require("./StopProcessingReasonType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the StopProcessingReasons interface.
  */
@@ -35,9 +35,9 @@ function StopProcessingReasonsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'stopProcessingReasons': !(0, runtime_1.exists)(json, 'stopProcessingReasons') ? undefined : (0, StopProcessingReasonsType_1.StopProcessingReasonsTypeFromJSON)(json['stopProcessingReasons']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'stopProcessingReasons': !(0, runtime_1.exists)(json, 'stopProcessingReasons') ? undefined : (json['stopProcessingReasons'].map(StopProcessingReasonType_1.StopProcessingReasonTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.StopProcessingReasonsFromJSONTyped = StopProcessingReasonsFromJSONTyped;
@@ -49,9 +49,9 @@ function StopProcessingReasonsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'stopProcessingReasons': (0, StopProcessingReasonsType_1.StopProcessingReasonsTypeToJSON)(value.stopProcessingReasons),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'stopProcessingReasons': value.stopProcessingReasons === undefined ? undefined : (value.stopProcessingReasons.map(StopProcessingReasonType_1.StopProcessingReasonTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.StopProcessingReasonsToJSON = StopProcessingReasonsToJSON;

@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomRotationRulesToJSON = exports.RoomRotationRulesFromJSONTyped = exports.RoomRotationRulesFromJSON = exports.instanceOfRoomRotationRules = void 0;
 const runtime_1 = require("../runtime");
 const RotationRuleType_1 = require("./RotationRuleType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomRotationRules interface.
  */
@@ -36,7 +36,7 @@ function RoomRotationRulesFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'forceRecalculate': !(0, runtime_1.exists)(json, 'forceRecalculate') ? undefined : json['forceRecalculate'],
         'rotationRules': !(0, runtime_1.exists)(json, 'rotationRules') ? undefined : (json['rotationRules'].map(RotationRuleType_1.RotationRuleTypeFromJSON)),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomRotationRulesFromJSONTyped = RoomRotationRulesFromJSONTyped;
@@ -50,7 +50,7 @@ function RoomRotationRulesToJSON(value) {
     return {
         'forceRecalculate': value.forceRecalculate,
         'rotationRules': value.rotationRules === undefined ? undefined : (value.rotationRules.map(RotationRuleType_1.RotationRuleTypeToJSON)),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomRotationRulesToJSON = RoomRotationRulesToJSON;

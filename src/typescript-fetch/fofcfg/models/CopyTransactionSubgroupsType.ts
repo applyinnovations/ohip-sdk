@@ -13,18 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
+import type { TemplateTransactionSubgroupIDType } from './TemplateTransactionSubgroupIDType';
 import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-import type { TemplateTransactionSubgroupIDsType } from './TemplateTransactionSubgroupIDsType';
-import {
-    TemplateTransactionSubgroupIDsTypeFromJSON,
-    TemplateTransactionSubgroupIDsTypeFromJSONTyped,
-    TemplateTransactionSubgroupIDsTypeToJSON,
-} from './TemplateTransactionSubgroupIDsType';
+    TemplateTransactionSubgroupIDTypeFromJSON,
+    TemplateTransactionSubgroupIDTypeFromJSONTyped,
+    TemplateTransactionSubgroupIDTypeToJSON,
+} from './TemplateTransactionSubgroupIDType';
 
 /**
  * Copy information required to copy transaction subgroup type
@@ -34,16 +28,16 @@ import {
 export interface CopyTransactionSubgroupsType {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyTransactionSubgroupsType
      */
-    hotels?: CodeListType;
+    hotels?: Array<string>;
     /**
-     * 
-     * @type {TemplateTransactionSubgroupIDsType}
+     * List of template transaction subgroup IDs
+     * @type {Array<TemplateTransactionSubgroupIDType>}
      * @memberof CopyTransactionSubgroupsType
      */
-    transactionSubgroups?: TemplateTransactionSubgroupIDsType;
+    transactionSubgroups?: Array<TemplateTransactionSubgroupIDType>;
 }
 
 /**
@@ -65,8 +59,8 @@ export function CopyTransactionSubgroupsTypeFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'hotels': !exists(json, 'hotels') ? undefined : CodeListTypeFromJSON(json['hotels']),
-        'transactionSubgroups': !exists(json, 'transactionSubgroups') ? undefined : TemplateTransactionSubgroupIDsTypeFromJSON(json['transactionSubgroups']),
+        'hotels': !exists(json, 'hotels') ? undefined : json['hotels'],
+        'transactionSubgroups': !exists(json, 'transactionSubgroups') ? undefined : ((json['transactionSubgroups'] as Array<any>).map(TemplateTransactionSubgroupIDTypeFromJSON)),
     };
 }
 
@@ -79,8 +73,8 @@ export function CopyTransactionSubgroupsTypeToJSON(value?: CopyTransactionSubgro
     }
     return {
         
-        'hotels': CodeListTypeToJSON(value.hotels),
-        'transactionSubgroups': TemplateTransactionSubgroupIDsTypeToJSON(value.transactionSubgroups),
+        'hotels': value.hotels,
+        'transactionSubgroups': value.transactionSubgroups === undefined ? undefined : ((value.transactionSubgroups as Array<any>).map(TemplateTransactionSubgroupIDTypeToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BucketRedemptionCodesType } from './BucketRedemptionCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BucketRedemptionCodeType } from './BucketRedemptionCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new Comp Bucket Redemption Codes configurations.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CompBucketRedemptionConfig {
     /**
-     *
-     * @type {BucketRedemptionCodesType}
+     * Details for Bucket Redemption codes along with associated transaction codes.
+     * @type {Array<BucketRedemptionCodeType>}
      * @memberof CompBucketRedemptionConfig
      */
-    bucketRedemptionCodes?: BucketRedemptionCodesType;
+    bucketRedemptionCodes?: Array<BucketRedemptionCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CompBucketRedemptionConfig
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CompBucketRedemptionConfig
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CompBucketRedemptionConfig interface.

@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { BlockClassificationType } from './BlockClassificationType';
-import type { BlockIdList } from './BlockIdList';
 import type { BookingStatusType } from './BookingStatusType';
 import type { TimeSpanType } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -20,11 +20,11 @@ import type { TimeSpanType } from './TimeSpanType';
  */
 export interface LeadInfoType {
     /**
-     *
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof LeadInfoType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * Lead description.
      * @type {string}

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateTurnAwayCodesType } from './TemplateTurnAwayCodesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TemplateTurnAwayCodeType } from './TemplateTurnAwayCodeType';
 import {
-    TemplateTurnAwayCodesTypeFromJSON,
-    TemplateTurnAwayCodesTypeFromJSONTyped,
-    TemplateTurnAwayCodesTypeToJSON,
-} from './TemplateTurnAwayCodesType';
-import type { WarningsType } from './WarningsType';
+    TemplateTurnAwayCodeTypeFromJSON,
+    TemplateTurnAwayCodeTypeFromJSONTyped,
+    TemplateTurnAwayCodeTypeToJSON,
+} from './TemplateTurnAwayCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching template turnaway codes.
@@ -40,22 +40,22 @@ import {
 export interface TemplateTurnAwayCodes {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateTurnAwayCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TemplateTurnAwayCodesType}
+     * Collection of template turnaway codes
+     * @type {Array<TemplateTurnAwayCodeType>}
      * @memberof TemplateTurnAwayCodes
      */
-    turnAwayCodes?: TemplateTurnAwayCodesType;
+    turnAwayCodes?: Array<TemplateTurnAwayCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateTurnAwayCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateTurnAwayCodesFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'turnAwayCodes': !exists(json, 'turnAwayCodes') ? undefined : TemplateTurnAwayCodesTypeFromJSON(json['turnAwayCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'turnAwayCodes': !exists(json, 'turnAwayCodes') ? undefined : ((json['turnAwayCodes'] as Array<any>).map(TemplateTurnAwayCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateTurnAwayCodesToJSON(value?: TemplateTurnAwayCodes | null
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'turnAwayCodes': TemplateTurnAwayCodesTypeToJSON(value.turnAwayCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'turnAwayCodes': value.turnAwayCodes === undefined ? undefined : ((value.turnAwayCodes as Array<any>).map(TemplateTurnAwayCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

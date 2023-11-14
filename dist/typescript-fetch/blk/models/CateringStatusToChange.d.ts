@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ChangeCateringStatusType } from './ChangeCateringStatusType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing the catering status of the business block.
  * @export
@@ -26,10 +26,10 @@ export interface CateringStatusToChange {
     changeCateringStatus?: ChangeCateringStatusType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringStatusToChange
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Indicator if the request is a verification on whether the catering status can be changed.
      * @type {boolean}
@@ -37,11 +37,11 @@ export interface CateringStatusToChange {
      */
     verificationOnly?: boolean;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringStatusToChange
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CateringStatusToChange interface.

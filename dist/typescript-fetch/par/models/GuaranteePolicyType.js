@@ -18,9 +18,8 @@ const runtime_1 = require("../runtime");
 const GuaranteePolicyTypeCancelPenalty_1 = require("./GuaranteePolicyTypeCancelPenalty");
 const GuaranteePolicyTypeDepositPolicy_1 = require("./GuaranteePolicyTypeDepositPolicy");
 const GuaranteeRequirementsType_1 = require("./GuaranteeRequirementsType");
-const PaymentTypesType_1 = require("./PaymentTypesType");
 const TranslationTextType80_1 = require("./TranslationTextType80");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the GuaranteePolicyType interface.
  */
@@ -46,11 +45,11 @@ function GuaranteePolicyTypeFromJSONTyped(json, ignoreDiscriminator) {
         'lateArrival': !(0, runtime_1.exists)(json, 'lateArrival') ? undefined : json['lateArrival'],
         'onHold': !(0, runtime_1.exists)(json, 'onHold') ? undefined : json['onHold'],
         'orderSequence': !(0, runtime_1.exists)(json, 'orderSequence') ? undefined : json['orderSequence'],
-        'paymentTypes': !(0, runtime_1.exists)(json, 'paymentTypes') ? undefined : (0, PaymentTypesType_1.PaymentTypesTypeFromJSON)(json['paymentTypes']),
+        'paymentTypes': !(0, runtime_1.exists)(json, 'paymentTypes') ? undefined : json['paymentTypes'],
         'policyRequirements': !(0, runtime_1.exists)(json, 'policyRequirements') ? undefined : (0, GuaranteeRequirementsType_1.GuaranteeRequirementsTypeFromJSON)(json['policyRequirements']),
         'reserveInventory': !(0, runtime_1.exists)(json, 'reserveInventory') ? undefined : json['reserveInventory'],
         'shortDescription': !(0, runtime_1.exists)(json, 'shortDescription') ? undefined : (0, TranslationTextType80_1.TranslationTextType80FromJSON)(json['shortDescription']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.GuaranteePolicyTypeFromJSONTyped = GuaranteePolicyTypeFromJSONTyped;
@@ -70,11 +69,11 @@ function GuaranteePolicyTypeToJSON(value) {
         'lateArrival': value.lateArrival,
         'onHold': value.onHold,
         'orderSequence': value.orderSequence,
-        'paymentTypes': (0, PaymentTypesType_1.PaymentTypesTypeToJSON)(value.paymentTypes),
+        'paymentTypes': value.paymentTypes,
         'policyRequirements': (0, GuaranteeRequirementsType_1.GuaranteeRequirementsTypeToJSON)(value.policyRequirements),
         'reserveInventory': value.reserveInventory,
         'shortDescription': (0, TranslationTextType80_1.TranslationTextType80ToJSON)(value.shortDescription),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.GuaranteePolicyTypeToJSON = GuaranteePolicyTypeToJSON;

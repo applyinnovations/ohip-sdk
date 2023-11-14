@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CCBatchSettlementsProcessTypeToJSON = exports.CCBatchSettlementsProcessTypeFromJSONTyped = exports.CCBatchSettlementsProcessTypeFromJSON = exports.instanceOfCCBatchSettlementsProcessType = void 0;
 const runtime_1 = require("../runtime");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CCBatchSettlementsProcessType interface.
  */
@@ -35,7 +35,7 @@ function CCBatchSettlementsProcessTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'batchId': !(0, runtime_1.exists)(json, 'batchId') ? undefined : json['batchId'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'settlementIdList': !(0, runtime_1.exists)(json, 'settlementIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['settlementIdList']),
+        'settlementIdList': !(0, runtime_1.exists)(json, 'settlementIdList') ? undefined : (json['settlementIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.CCBatchSettlementsProcessTypeFromJSONTyped = CCBatchSettlementsProcessTypeFromJSONTyped;
@@ -49,7 +49,7 @@ function CCBatchSettlementsProcessTypeToJSON(value) {
     return {
         'batchId': value.batchId,
         'hotelId': value.hotelId,
-        'settlementIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.settlementIdList),
+        'settlementIdList': value.settlementIdList === undefined ? undefined : (value.settlementIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.CCBatchSettlementsProcessTypeToJSON = CCBatchSettlementsProcessTypeToJSON;

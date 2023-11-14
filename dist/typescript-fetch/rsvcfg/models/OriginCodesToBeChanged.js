@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OriginCodesToBeChangedToJSON = exports.OriginCodesToBeChangedFromJSONTyped = exports.OriginCodesToBeChangedFromJSON = exports.instanceOfOriginCodesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const OriginCodesType_1 = require("./OriginCodesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const OriginCodeType_1 = require("./OriginCodeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the OriginCodesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function OriginCodesToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'originCodes': !(0, runtime_1.exists)(json, 'originCodes') ? undefined : (0, OriginCodesType_1.OriginCodesTypeFromJSON)(json['originCodes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'originCodes': !(0, runtime_1.exists)(json, 'originCodes') ? undefined : (json['originCodes'].map(OriginCodeType_1.OriginCodeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.OriginCodesToBeChangedFromJSONTyped = OriginCodesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function OriginCodesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'originCodes': (0, OriginCodesType_1.OriginCodesTypeToJSON)(value.originCodes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'originCodes': value.originCodes === undefined ? undefined : (value.originCodes.map(OriginCodeType_1.OriginCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.OriginCodesToBeChangedToJSON = OriginCodesToBeChangedToJSON;

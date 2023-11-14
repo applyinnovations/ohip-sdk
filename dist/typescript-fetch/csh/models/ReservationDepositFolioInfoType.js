@@ -17,7 +17,7 @@ exports.ReservationDepositFolioInfoTypeToJSON = exports.ReservationDepositFolioI
 const runtime_1 = require("../runtime");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const DepositMaturityType_1 = require("./DepositMaturityType");
-const DepositPostingsType_1 = require("./DepositPostingsType");
+const DepositPostingType_1 = require("./DepositPostingType");
 const DepositType_1 = require("./DepositType");
 const ProjectedRevenueType_1 = require("./ProjectedRevenueType");
 const ReservationInfoType_1 = require("./ReservationInfoType");
@@ -42,7 +42,7 @@ function ReservationDepositFolioInfoTypeFromJSONTyped(json, ignoreDiscriminator)
         'advanceFolioGenerated': !(0, runtime_1.exists)(json, 'advanceFolioGenerated') ? undefined : json['advanceFolioGenerated'],
         'depositMaturityType': !(0, runtime_1.exists)(json, 'depositMaturityType') ? undefined : (0, DepositMaturityType_1.DepositMaturityTypeFromJSON)(json['depositMaturityType']),
         'depositType': !(0, runtime_1.exists)(json, 'depositType') ? undefined : (0, DepositType_1.DepositTypeFromJSON)(json['depositType']),
-        'deposits': !(0, runtime_1.exists)(json, 'deposits') ? undefined : (0, DepositPostingsType_1.DepositPostingsTypeFromJSON)(json['deposits']),
+        'deposits': !(0, runtime_1.exists)(json, 'deposits') ? undefined : (json['deposits'].map(DepositPostingType_1.DepositPostingTypeFromJSON)),
         'policySummaryInfo': !(0, runtime_1.exists)(json, 'policySummaryInfo') ? undefined : (0, ReservationPolicySummaryType_1.ReservationPolicySummaryTypeFromJSON)(json['policySummaryInfo']),
         'projectedRevenue': !(0, runtime_1.exists)(json, 'projectedRevenue') ? undefined : (0, ProjectedRevenueType_1.ProjectedRevenueTypeFromJSON)(json['projectedRevenue']),
         'reservationInfo': !(0, runtime_1.exists)(json, 'reservationInfo') ? undefined : (0, ReservationInfoType_1.ReservationInfoTypeFromJSON)(json['reservationInfo']),
@@ -62,7 +62,7 @@ function ReservationDepositFolioInfoTypeToJSON(value) {
         'advanceFolioGenerated': value.advanceFolioGenerated,
         'depositMaturityType': (0, DepositMaturityType_1.DepositMaturityTypeToJSON)(value.depositMaturityType),
         'depositType': (0, DepositType_1.DepositTypeToJSON)(value.depositType),
-        'deposits': (0, DepositPostingsType_1.DepositPostingsTypeToJSON)(value.deposits),
+        'deposits': value.deposits === undefined ? undefined : (value.deposits.map(DepositPostingType_1.DepositPostingTypeToJSON)),
         'policySummaryInfo': (0, ReservationPolicySummaryType_1.ReservationPolicySummaryTypeToJSON)(value.policySummaryInfo),
         'projectedRevenue': (0, ProjectedRevenueType_1.ProjectedRevenueTypeToJSON)(value.projectedRevenue),
         'reservationInfo': (0, ReservationInfoType_1.ReservationInfoTypeToJSON)(value.reservationInfo),

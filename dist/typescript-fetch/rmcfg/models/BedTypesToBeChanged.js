@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BedTypesToBeChangedToJSON = exports.BedTypesToBeChangedFromJSONTyped = exports.BedTypesToBeChangedFromJSON = exports.instanceOfBedTypesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const BedTypesType_1 = require("./BedTypesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const BedTypeType_1 = require("./BedTypeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BedTypesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function BedTypesToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'bedTypes': !(0, runtime_1.exists)(json, 'bedTypes') ? undefined : (0, BedTypesType_1.BedTypesTypeFromJSON)(json['bedTypes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'bedTypes': !(0, runtime_1.exists)(json, 'bedTypes') ? undefined : (json['bedTypes'].map(BedTypeType_1.BedTypeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BedTypesToBeChangedFromJSONTyped = BedTypesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function BedTypesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'bedTypes': (0, BedTypesType_1.BedTypesTypeToJSON)(value.bedTypes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'bedTypes': value.bedTypes === undefined ? undefined : (value.bedTypes.map(BedTypeType_1.BedTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BedTypesToBeChangedToJSON = BedTypesToBeChangedToJSON;

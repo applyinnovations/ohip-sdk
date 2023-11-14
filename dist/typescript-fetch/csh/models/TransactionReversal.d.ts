@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { DeleteTransactionCriteriaType } from './DeleteTransactionCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to reverse a Payment Tax record for Thailand Tax requirement.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface TransactionReversal {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransactionReversal
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {DeleteTransactionCriteriaType}
@@ -31,11 +31,11 @@ export interface TransactionReversal {
      */
     reverseCriteria?: DeleteTransactionCriteriaType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransactionReversal
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TransactionReversal interface.

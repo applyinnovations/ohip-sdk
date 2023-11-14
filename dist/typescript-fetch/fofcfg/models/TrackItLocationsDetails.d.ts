@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TrackItLocationsConfigType } from './TrackItLocationsConfigType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TrackItLocationConfigType } from './TrackItLocationConfigType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Track it Locations.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TrackItLocationsDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TrackItLocationsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TrackItLocationsConfigType}
+     * Track It Locations Collection element.
+     * @type {Array<TrackItLocationConfigType>}
      * @memberof TrackItLocationsDetails
      */
-    trackItLocations?: TrackItLocationsConfigType;
+    trackItLocations?: Array<TrackItLocationConfigType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TrackItLocationsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TrackItLocationsDetails interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FloorTypesType } from './FloorTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { FloorTypeType } from './FloorTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Floor Types.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FloorTypesDetails {
     /**
-     *
-     * @type {FloorTypesType}
+     * List of Floor Types.
+     * @type {Array<FloorTypeType>}
      * @memberof FloorTypesDetails
      */
-    floorTypes?: FloorTypesType;
+    floorTypes?: Array<FloorTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FloorTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FloorTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FloorTypesDetails interface.

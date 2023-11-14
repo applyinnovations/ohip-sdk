@@ -17,7 +17,7 @@ exports.MembershipAwardTypeToJSON = exports.MembershipAwardTypeFromJSONTyped = e
 const runtime_1 = require("../runtime");
 const DateRangeType_1 = require("./DateRangeType");
 const MembershipAwardBasedOnType_1 = require("./MembershipAwardBasedOnType");
-const MembershipAwardDetailsType_1 = require("./MembershipAwardDetailsType");
+const MembershipAwardDetailType_1 = require("./MembershipAwardDetailType");
 const MembershipAwardFinancialTransactionInfoType_1 = require("./MembershipAwardFinancialTransactionInfoType");
 const MembershipAwardOtherInfoType_1 = require("./MembershipAwardOtherInfoType");
 const MembershipAwardProductInfoType_1 = require("./MembershipAwardProductInfoType");
@@ -43,7 +43,7 @@ function MembershipAwardTypeFromJSONTyped(json, ignoreDiscriminator) {
         'autoConsume': !(0, runtime_1.exists)(json, 'autoConsume') ? undefined : json['autoConsume'],
         'awardBasedOn': !(0, runtime_1.exists)(json, 'awardBasedOn') ? undefined : (0, MembershipAwardBasedOnType_1.MembershipAwardBasedOnTypeFromJSON)(json['awardBasedOn']),
         'awardCode': !(0, runtime_1.exists)(json, 'awardCode') ? undefined : json['awardCode'],
-        'awardDetails': !(0, runtime_1.exists)(json, 'awardDetails') ? undefined : (0, MembershipAwardDetailsType_1.MembershipAwardDetailsTypeFromJSON)(json['awardDetails']),
+        'awardDetails': !(0, runtime_1.exists)(json, 'awardDetails') ? undefined : (json['awardDetails'].map(MembershipAwardDetailType_1.MembershipAwardDetailTypeFromJSON)),
         'awardQuantity': !(0, runtime_1.exists)(json, 'awardQuantity') ? undefined : json['awardQuantity'],
         'billingGroup': !(0, runtime_1.exists)(json, 'billingGroup') ? undefined : json['billingGroup'],
         'dateRange': !(0, runtime_1.exists)(json, 'dateRange') ? undefined : (0, DateRangeType_1.DateRangeTypeFromJSON)(json['dateRange']),
@@ -74,7 +74,7 @@ function MembershipAwardTypeToJSON(value) {
         'autoConsume': value.autoConsume,
         'awardBasedOn': (0, MembershipAwardBasedOnType_1.MembershipAwardBasedOnTypeToJSON)(value.awardBasedOn),
         'awardCode': value.awardCode,
-        'awardDetails': (0, MembershipAwardDetailsType_1.MembershipAwardDetailsTypeToJSON)(value.awardDetails),
+        'awardDetails': value.awardDetails === undefined ? undefined : (value.awardDetails.map(MembershipAwardDetailType_1.MembershipAwardDetailTypeToJSON)),
         'awardQuantity': value.awardQuantity,
         'billingGroup': value.billingGroup,
         'dateRange': (0, DateRangeType_1.DateRangeTypeToJSON)(value.dateRange),

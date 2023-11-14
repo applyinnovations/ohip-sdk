@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { HotelRoomsType } from './HotelRoomsType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationList } from './ReservationList';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response for the operation to fetch Reservations in Queue
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface ReservationsInQueue {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationsInQueue
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationList}
@@ -38,11 +38,11 @@ export interface ReservationsInQueue {
      */
     roomStatusInfo?: HotelRoomsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationsInQueue
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationsInQueue interface.

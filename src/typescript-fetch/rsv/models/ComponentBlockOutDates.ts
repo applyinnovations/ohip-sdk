@@ -19,12 +19,12 @@ import {
     DateTimeSpanTypeFromJSONTyped,
     DateTimeSpanTypeToJSON,
 } from './DateTimeSpanType';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -39,11 +39,11 @@ export interface ComponentBlockOutDates {
      */
     dateTimeSpan?: DateTimeSpanType;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ComponentBlockOutDates
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function ComponentBlockOutDatesFromJSONTyped(json: any, ignoreDiscriminat
     return {
         
         'dateTimeSpan': !exists(json, 'dateTimeSpan') ? undefined : DateTimeSpanTypeFromJSON(json['dateTimeSpan']),
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function ComponentBlockOutDatesToJSON(value?: ComponentBlockOutDates | nu
     return {
         
         'dateTimeSpan': DateTimeSpanTypeToJSON(value.dateTimeSpan),
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

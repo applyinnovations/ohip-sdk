@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FunctionSpacesAvailabilityType } from './FunctionSpacesAvailabilityType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { FunctionSpaceAvailabilityType } from './FunctionSpaceAvailabilityType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for retrieving availability for catering function spaces.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FunctionSpaceAvailabilityDetails {
     /**
-     *
-     * @type {FunctionSpacesAvailabilityType}
+     * Collection of available Function Spaces.
+     * @type {Array<FunctionSpaceAvailabilityType>}
      * @memberof FunctionSpaceAvailabilityDetails
      */
-    functionSpacesAvailability?: FunctionSpacesAvailabilityType;
+    functionSpacesAvailability?: Array<FunctionSpaceAvailabilityType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FunctionSpaceAvailabilityDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FunctionSpaceAvailabilityDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FunctionSpaceAvailabilityDetails interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ErrorsType } from './ErrorsType';
+import type { ErrorType } from './ErrorType';
 import type { ReservationInfoType } from './ReservationInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Collection of error and warning if any.
  * @export
@@ -19,11 +19,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CommissionReservationFailureType {
     /**
-     *
-     * @type {ErrorsType}
+     * An error that occurred during the processing of a message.
+     * @type {Array<ErrorType>}
      * @memberof CommissionReservationFailureType
      */
-    errors?: ErrorsType;
+    errors?: Array<ErrorType>;
     /**
      *
      * @type {ReservationInfoType}
@@ -31,11 +31,11 @@ export interface CommissionReservationFailureType {
      */
     reservationInfo?: ReservationInfoType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CommissionReservationFailureType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CommissionReservationFailureType interface.

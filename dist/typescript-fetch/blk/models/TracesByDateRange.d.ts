@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TracesType } from './TracesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MiscTraceType } from './MiscTraceType';
+import type { WarningType } from './WarningType';
 /**
  * Fetch traces response.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TracesByDateRange {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TracesByDateRange
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TracesType}
+     * List of the traces
+     * @type {Array<MiscTraceType>}
      * @memberof TracesByDateRange
      */
-    tracesInfoList?: TracesType;
+    tracesInfoList?: Array<MiscTraceType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TracesByDateRange
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TracesByDateRange interface.

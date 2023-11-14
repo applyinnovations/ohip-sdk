@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChangeTransactionCodeOwnershipTypeToJSON = exports.ChangeTransactionCodeOwnershipTypeFromJSONTyped = exports.ChangeTransactionCodeOwnershipTypeFromJSON = exports.instanceOfChangeTransactionCodeOwnershipType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const TrxOwnershipType_1 = require("./TrxOwnershipType");
 /**
  * Check if a given object implements the ChangeTransactionCodeOwnershipType interface.
@@ -36,7 +35,7 @@ function ChangeTransactionCodeOwnershipTypeFromJSONTyped(json, ignoreDiscriminat
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'ownershipStatus': !(0, runtime_1.exists)(json, 'ownershipStatus') ? undefined : (0, TrxOwnershipType_1.TrxOwnershipTypeFromJSON)(json['ownershipStatus']),
-        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['transactionCodes']),
+        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : json['transactionCodes'],
     };
 }
 exports.ChangeTransactionCodeOwnershipTypeFromJSONTyped = ChangeTransactionCodeOwnershipTypeFromJSONTyped;
@@ -50,7 +49,7 @@ function ChangeTransactionCodeOwnershipTypeToJSON(value) {
     return {
         'hotelId': value.hotelId,
         'ownershipStatus': (0, TrxOwnershipType_1.TrxOwnershipTypeToJSON)(value.ownershipStatus),
-        'transactionCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.transactionCodes),
+        'transactionCodes': value.transactionCodes,
     };
 }
 exports.ChangeTransactionCodeOwnershipTypeToJSON = ChangeTransactionCodeOwnershipTypeToJSON;

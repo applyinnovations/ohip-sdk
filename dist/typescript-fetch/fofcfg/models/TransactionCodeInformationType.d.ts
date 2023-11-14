@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { MonthlyTransactionVarianceInfoType } from './MonthlyTransactionVarianceInfoType';
 import type { TransactionInfoType } from './TransactionInfoType';
-import type { TransactionVarianceInfoType } from './TransactionVarianceInfoType';
 /**
  * Budget Forecast information for Transaction segment code.
  * @export
@@ -18,17 +18,17 @@ import type { TransactionVarianceInfoType } from './TransactionVarianceInfoType'
  */
 export interface TransactionCodeInformationType {
     /**
-     *
-     * @type {TransactionVarianceInfoType}
+     * Monthly Revenue Variance information.
+     * @type {Array<MonthlyTransactionVarianceInfoType>}
      * @memberof TransactionCodeInformationType
      */
-    aBVarianceInfo?: TransactionVarianceInfoType;
+    aBVarianceInfo?: Array<MonthlyTransactionVarianceInfoType>;
     /**
-     *
-     * @type {TransactionVarianceInfoType}
+     * Monthly Revenue Variance information.
+     * @type {Array<MonthlyTransactionVarianceInfoType>}
      * @memberof TransactionCodeInformationType
      */
-    aFVarianceInfo?: TransactionVarianceInfoType;
+    aFVarianceInfo?: Array<MonthlyTransactionVarianceInfoType>;
     /**
      *
      * @type {TransactionInfoType}
@@ -42,11 +42,11 @@ export interface TransactionCodeInformationType {
      */
     budgetInfo?: TransactionInfoType;
     /**
-     *
-     * @type {TransactionVarianceInfoType}
+     * Monthly Revenue Variance information.
+     * @type {Array<MonthlyTransactionVarianceInfoType>}
      * @memberof TransactionCodeInformationType
      */
-    fBVarianceInfo?: TransactionVarianceInfoType;
+    fBVarianceInfo?: Array<MonthlyTransactionVarianceInfoType>;
     /**
      *
      * @type {TransactionInfoType}

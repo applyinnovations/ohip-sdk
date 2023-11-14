@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CheckReservationsDetailsToJSON = exports.CheckReservationsDetailsFromJSONTyped = exports.CheckReservationsDetailsFromJSON = exports.instanceOfCheckReservationsDetails = void 0;
 const runtime_1 = require("../runtime");
-const CheckReservationsType_1 = require("./CheckReservationsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CheckReservationType_1 = require("./CheckReservationType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CheckReservationsDetails interface.
  */
@@ -35,9 +35,9 @@ function CheckReservationsDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'checkReservations': !(0, runtime_1.exists)(json, 'checkReservations') ? undefined : (0, CheckReservationsType_1.CheckReservationsTypeFromJSON)(json['checkReservations']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'checkReservations': !(0, runtime_1.exists)(json, 'checkReservations') ? undefined : (json['checkReservations'].map(CheckReservationType_1.CheckReservationTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CheckReservationsDetailsFromJSONTyped = CheckReservationsDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function CheckReservationsDetailsToJSON(value) {
         return null;
     }
     return {
-        'checkReservations': (0, CheckReservationsType_1.CheckReservationsTypeToJSON)(value.checkReservations),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'checkReservations': value.checkReservations === undefined ? undefined : (value.checkReservations.map(CheckReservationType_1.CheckReservationTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CheckReservationsDetailsToJSON = CheckReservationsDetailsToJSON;

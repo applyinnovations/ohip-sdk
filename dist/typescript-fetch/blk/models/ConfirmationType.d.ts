@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ConfDeliveryInfoTypes } from './ConfDeliveryInfoTypes';
+import type { ConfDeliveryInfoType } from './ConfDeliveryInfoType';
 import type { ConfRecipientInfoType } from './ConfRecipientInfoType';
 import type { ConfirmationStyle } from './ConfirmationStyle';
 /**
@@ -25,11 +25,11 @@ export interface ConfirmationType {
      */
     confirmationStyleInfo?: ConfirmationStyle;
     /**
-     *
-     * @type {ConfDeliveryInfoTypes}
+     * List of confirmation letter delivery methods and their status
+     * @type {Array<ConfDeliveryInfoType>}
      * @memberof ConfirmationType
      */
-    deliveryInfo?: ConfDeliveryInfoTypes;
+    deliveryInfo?: Array<ConfDeliveryInfoType>;
     /**
      * Senders Email address.
      * @type {string}

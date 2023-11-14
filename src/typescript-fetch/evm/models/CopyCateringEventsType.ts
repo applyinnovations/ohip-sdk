@@ -31,18 +31,6 @@ import {
     CopyStatusModeTypeFromJSONTyped,
     CopyStatusModeTypeToJSON,
 } from './CopyStatusModeType';
-import type { DatesType } from './DatesType';
-import {
-    DatesTypeFromJSON,
-    DatesTypeFromJSONTyped,
-    DatesTypeToJSON,
-} from './DatesType';
-import type { UniqueIDListType } from './UniqueIDListType';
-import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -81,11 +69,11 @@ export interface CopyCateringEventsType {
      */
     copyStatusMode?: CopyStatusModeType;
     /**
-     * 
-     * @type {DatesType}
+     * Specifies a single date.
+     * @type {Array<Date>}
      * @memberof CopyCateringEventsType
      */
-    copyToDates?: DatesType;
+    copyToDates?: Array<Date>;
     /**
      * 
      * @type {UniqueIDType}
@@ -93,11 +81,11 @@ export interface CopyCateringEventsType {
      */
     copyToPackageId?: UniqueIDType;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CopyCateringEventsType
      */
-    eventIdList?: UniqueIDListType;
+    eventIdList?: Array<UniqueIDType>;
     /**
      * Hotel code where event will be copied.
      * @type {string}
@@ -129,9 +117,9 @@ export function CopyCateringEventsTypeFromJSONTyped(json: any, ignoreDiscriminat
         'copyAsSnapshot': !exists(json, 'copyAsSnapshot') ? undefined : json['copyAsSnapshot'],
         'copyInstructions': !exists(json, 'copyInstructions') ? undefined : ((json['copyInstructions'] as Array<any>).map(CateringEventCopyInstructionTypeFromJSON)),
         'copyStatusMode': !exists(json, 'copyStatusMode') ? undefined : CopyStatusModeTypeFromJSON(json['copyStatusMode']),
-        'copyToDates': !exists(json, 'copyToDates') ? undefined : DatesTypeFromJSON(json['copyToDates']),
+        'copyToDates': !exists(json, 'copyToDates') ? undefined : json['copyToDates'],
         'copyToPackageId': !exists(json, 'copyToPackageId') ? undefined : UniqueIDTypeFromJSON(json['copyToPackageId']),
-        'eventIdList': !exists(json, 'eventIdList') ? undefined : UniqueIDListTypeFromJSON(json['eventIdList']),
+        'eventIdList': !exists(json, 'eventIdList') ? undefined : ((json['eventIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
     };
 }
@@ -149,9 +137,9 @@ export function CopyCateringEventsTypeToJSON(value?: CopyCateringEventsType | nu
         'copyAsSnapshot': value.copyAsSnapshot,
         'copyInstructions': value.copyInstructions === undefined ? undefined : ((value.copyInstructions as Array<any>).map(CateringEventCopyInstructionTypeToJSON)),
         'copyStatusMode': CopyStatusModeTypeToJSON(value.copyStatusMode),
-        'copyToDates': DatesTypeToJSON(value.copyToDates),
+        'copyToDates': value.copyToDates,
         'copyToPackageId': UniqueIDTypeToJSON(value.copyToPackageId),
-        'eventIdList': UniqueIDListTypeToJSON(value.eventIdList),
+        'eventIdList': value.eventIdList === undefined ? undefined : ((value.eventIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'hotelId': value.hotelId,
     };
 }

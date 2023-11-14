@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OperaVersionToJSON = exports.OperaVersionFromJSONTyped = exports.OperaVersionFromJSON = exports.instanceOfOperaVersion = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 /**
  * Check if a given object implements the OperaVersion interface.
  */
@@ -34,7 +34,7 @@ function OperaVersionFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'operaVersion': !(0, runtime_1.exists)(json, 'operaVersion') ? undefined : json['operaVersion'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.OperaVersionFromJSONTyped = OperaVersionFromJSONTyped;
@@ -47,7 +47,7 @@ function OperaVersionToJSON(value) {
     }
     return {
         'operaVersion': value.operaVersion,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.OperaVersionToJSON = OperaVersionToJSON;

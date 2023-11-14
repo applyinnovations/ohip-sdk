@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ActivityBookingRSTypeToJSON = exports.ActivityBookingRSTypeFromJSONTyped = exports.ActivityBookingRSTypeFromJSON = exports.instanceOfActivityBookingRSType = void 0;
 const runtime_1 = require("../runtime");
-const ActivityList_1 = require("./ActivityList");
+const ActivityListInner_1 = require("./ActivityListInner");
 /**
  * Check if a given object implements the ActivityBookingRSType interface.
  */
@@ -33,7 +33,7 @@ function ActivityBookingRSTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'activities': !(0, runtime_1.exists)(json, 'activities') ? undefined : (0, ActivityList_1.ActivityListFromJSON)(json['activities']),
+        'activities': !(0, runtime_1.exists)(json, 'activities') ? undefined : (json['activities'].map(ActivityListInner_1.ActivityListInnerFromJSON)),
     };
 }
 exports.ActivityBookingRSTypeFromJSONTyped = ActivityBookingRSTypeFromJSONTyped;
@@ -45,7 +45,7 @@ function ActivityBookingRSTypeToJSON(value) {
         return null;
     }
     return {
-        'activities': (0, ActivityList_1.ActivityListToJSON)(value.activities),
+        'activities': value.activities === undefined ? undefined : (value.activities.map(ActivityListInner_1.ActivityListInnerToJSON)),
     };
 }
 exports.ActivityBookingRSTypeToJSON = ActivityBookingRSTypeToJSON;

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BuildingGroupsType } from './BuildingGroupsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BuildingGroupType } from './BuildingGroupType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object to change the Building Group details of the Hotel.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BuildingGroupsToBeChanged {
     /**
-     *
-     * @type {BuildingGroupsType}
+     * Collection of Building Group details.
+     * @type {Array<BuildingGroupType>}
      * @memberof BuildingGroupsToBeChanged
      */
-    buildingGroups?: BuildingGroupsType;
+    buildingGroups?: Array<BuildingGroupType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BuildingGroupsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BuildingGroupsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BuildingGroupsToBeChanged interface.

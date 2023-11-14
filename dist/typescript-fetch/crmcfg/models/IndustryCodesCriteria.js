@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.IndustryCodesCriteriaToJSON = exports.IndustryCodesCriteriaFromJSONTyped = exports.IndustryCodesCriteriaFromJSON = exports.instanceOfIndustryCodesCriteria = void 0;
 const runtime_1 = require("../runtime");
-const IndustryCodesType_1 = require("./IndustryCodesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const IndustryCodeType_1 = require("./IndustryCodeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the IndustryCodesCriteria interface.
  */
@@ -35,9 +35,9 @@ function IndustryCodesCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'industryCodes': !(0, runtime_1.exists)(json, 'industryCodes') ? undefined : (0, IndustryCodesType_1.IndustryCodesTypeFromJSON)(json['industryCodes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'industryCodes': !(0, runtime_1.exists)(json, 'industryCodes') ? undefined : (json['industryCodes'].map(IndustryCodeType_1.IndustryCodeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.IndustryCodesCriteriaFromJSONTyped = IndustryCodesCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function IndustryCodesCriteriaToJSON(value) {
         return null;
     }
     return {
-        'industryCodes': (0, IndustryCodesType_1.IndustryCodesTypeToJSON)(value.industryCodes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'industryCodes': value.industryCodes === undefined ? undefined : (value.industryCodes.map(IndustryCodeType_1.IndustryCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.IndustryCodesCriteriaToJSON = IndustryCodesCriteriaToJSON;

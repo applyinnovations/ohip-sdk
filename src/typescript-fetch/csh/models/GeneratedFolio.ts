@@ -19,18 +19,18 @@ import {
     FolioWindowTypeFromJSONTyped,
     FolioWindowTypeToJSON,
 } from './FolioWindowType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Generate Folio Response contains generated folio no and invoice number along or errors and warnings in case if folio couldn't be generated: FOF00065 - The hotel code and/or reservation id is missing. FOF00066 - Reservation can't be found with the supplied hotel code and reservation id. FOF00123 - Folio window has a balance and folio cannot be generated. FOF00124 - The guest's reservation is not in a valid status for folio generation.
@@ -46,16 +46,16 @@ export interface GeneratedFolio {
     folioWindows?: Array<FolioWindowType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GeneratedFolio
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GeneratedFolio
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -78,8 +78,8 @@ export function GeneratedFolioFromJSONTyped(json: any, ignoreDiscriminator: bool
     return {
         
         'folioWindows': !exists(json, 'folioWindows') ? undefined : ((json['folioWindows'] as Array<any>).map(FolioWindowTypeFromJSON)),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -93,8 +93,8 @@ export function GeneratedFolioToJSON(value?: GeneratedFolio | null): any {
     return {
         
         'folioWindows': value.folioWindows === undefined ? undefined : ((value.folioWindows as Array<any>).map(FolioWindowTypeToJSON)),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

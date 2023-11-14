@@ -17,7 +17,6 @@ exports.EmailInfoResponseTypeToJSON = exports.EmailInfoResponseTypeFromJSONTyped
 const runtime_1 = require("../runtime");
 const AccountId_1 = require("./AccountId");
 const BlockId_1 = require("./BlockId");
-const CodeListType_1 = require("./CodeListType");
 const ContactId_1 = require("./ContactId");
 const EmailID_1 = require("./EmailID");
 /**
@@ -46,7 +45,7 @@ function EmailInfoResponseTypeFromJSONTyped(json, ignoreDiscriminator) {
         'emailRecipients': !(0, runtime_1.exists)(json, 'emailRecipients') ? undefined : json['emailRecipients'],
         'emailSubject': !(0, runtime_1.exists)(json, 'emailSubject') ? undefined : json['emailSubject'],
         'hasEmailAttachments': !(0, runtime_1.exists)(json, 'hasEmailAttachments') ? undefined : json['hasEmailAttachments'],
-        'hotelCodes': !(0, runtime_1.exists)(json, 'hotelCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['hotelCodes']),
+        'hotelCodes': !(0, runtime_1.exists)(json, 'hotelCodes') ? undefined : json['hotelCodes'],
         'senderEmailAddress': !(0, runtime_1.exists)(json, 'senderEmailAddress') ? undefined : json['senderEmailAddress'],
         'senderFirstName': !(0, runtime_1.exists)(json, 'senderFirstName') ? undefined : json['senderFirstName'],
         'senderLastName': !(0, runtime_1.exists)(json, 'senderLastName') ? undefined : json['senderLastName'],
@@ -70,7 +69,7 @@ function EmailInfoResponseTypeToJSON(value) {
         'emailRecipients': value.emailRecipients,
         'emailSubject': value.emailSubject,
         'hasEmailAttachments': value.hasEmailAttachments,
-        'hotelCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.hotelCodes),
+        'hotelCodes': value.hotelCodes,
         'senderEmailAddress': value.senderEmailAddress,
         'senderFirstName': value.senderFirstName,
         'senderLastName': value.senderLastName,

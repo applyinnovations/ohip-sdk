@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { TransferARCreditCardPaymentsType } from './TransferARCreditCardPaymentsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to transfer AR Credit Card payments.
  * @export
@@ -26,16 +26,16 @@ export interface ArCreditCardPaymentsToTransfer {
     criteria?: TransferARCreditCardPaymentsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ArCreditCardPaymentsToTransfer
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ArCreditCardPaymentsToTransfer
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ArCreditCardPaymentsToTransfer interface.

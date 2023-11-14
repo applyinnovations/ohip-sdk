@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CashierClosureInfoTypeToJSON = exports.CashierClosureInfoTypeFromJSONTyped = exports.CashierClosureInfoTypeFromJSON = exports.instanceOfCashierClosureInfoType = void 0;
 const runtime_1 = require("../runtime");
 const CashierClosureNoType_1 = require("./CashierClosureNoType");
-const CashierClosureReportsType_1 = require("./CashierClosureReportsType");
+const CashierReportType_1 = require("./CashierReportType");
 /**
  * Check if a given object implements the CashierClosureInfoType interface.
  */
@@ -41,7 +41,7 @@ function CashierClosureInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'closureBusinessDate': !(0, runtime_1.exists)(json, 'closureBusinessDate') ? undefined : (new Date(json['closureBusinessDate'])),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'openDate': !(0, runtime_1.exists)(json, 'openDate') ? undefined : (new Date(json['openDate'])),
-        'reportsList': !(0, runtime_1.exists)(json, 'reportsList') ? undefined : (0, CashierClosureReportsType_1.CashierClosureReportsTypeFromJSON)(json['reportsList']),
+        'reportsList': !(0, runtime_1.exists)(json, 'reportsList') ? undefined : (json['reportsList'].map(CashierReportType_1.CashierReportTypeFromJSON)),
     };
 }
 exports.CashierClosureInfoTypeFromJSONTyped = CashierClosureInfoTypeFromJSONTyped;
@@ -60,7 +60,7 @@ function CashierClosureInfoTypeToJSON(value) {
         'closureBusinessDate': value.closureBusinessDate === undefined ? undefined : (value.closureBusinessDate.toISOString().substring(0, 10)),
         'hotelId': value.hotelId,
         'openDate': value.openDate === undefined ? undefined : (value.openDate.toISOString().substring(0, 10)),
-        'reportsList': (0, CashierClosureReportsType_1.CashierClosureReportsTypeToJSON)(value.reportsList),
+        'reportsList': value.reportsList === undefined ? undefined : (value.reportsList.map(CashierReportType_1.CashierReportTypeToJSON)),
     };
 }
 exports.CashierClosureInfoTypeToJSON = CashierClosureInfoTypeToJSON;

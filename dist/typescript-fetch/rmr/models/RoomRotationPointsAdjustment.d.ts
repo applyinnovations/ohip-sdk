@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RoomRotationPointsAdjustmentInfoType } from './RoomRotationPointsAdjustmentInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface RoomRotationPointsAdjustment {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomRotationPointsAdjustment
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * List of Room Rotation Points Information to update
      * @type {Array<RoomRotationPointsAdjustmentInfoType>}
@@ -31,11 +31,11 @@ export interface RoomRotationPointsAdjustment {
      */
     roomRotationPointsAdjustmentInfoTypeList?: Array<RoomRotationPointsAdjustmentInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomRotationPointsAdjustment
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomRotationPointsAdjustment interface.

@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelAccountSetupDetailsTypeToJSON = exports.ChannelAccountSetupDetailsTypeFromJSONTyped = exports.ChannelAccountSetupDetailsTypeFromJSON = exports.instanceOfChannelAccountSetupDetailsType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 /**
  * Check if a given object implements the ChannelAccountSetupDetailsType interface.
  */
@@ -36,9 +35,9 @@ function ChannelAccountSetupDetailsTypeFromJSONTyped(json, ignoreDiscriminator) 
         'chainCode': !(0, runtime_1.exists)(json, 'chainCode') ? undefined : json['chainCode'],
         'contractEndsOn': !(0, runtime_1.exists)(json, 'contractEndsOn') ? undefined : (new Date(json['contractEndsOn'])),
         'currencyCode': !(0, runtime_1.exists)(json, 'currencyCode') ? undefined : json['currencyCode'],
-        'hotelCodes': !(0, runtime_1.exists)(json, 'hotelCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['hotelCodes']),
+        'hotelCodes': !(0, runtime_1.exists)(json, 'hotelCodes') ? undefined : json['hotelCodes'],
         'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
-        'instances': !(0, runtime_1.exists)(json, 'instances') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['instances']),
+        'instances': !(0, runtime_1.exists)(json, 'instances') ? undefined : json['instances'],
         'rebateDate': !(0, runtime_1.exists)(json, 'rebateDate') ? undefined : (new Date(json['rebateDate'])),
         'registeredHotel': !(0, runtime_1.exists)(json, 'registeredHotel') ? undefined : json['registeredHotel'],
     };
@@ -55,9 +54,9 @@ function ChannelAccountSetupDetailsTypeToJSON(value) {
         'chainCode': value.chainCode,
         'contractEndsOn': value.contractEndsOn === undefined ? undefined : (value.contractEndsOn.toISOString().substring(0, 10)),
         'currencyCode': value.currencyCode,
-        'hotelCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.hotelCodes),
+        'hotelCodes': value.hotelCodes,
         'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
-        'instances': (0, CodeListType_1.CodeListTypeToJSON)(value.instances),
+        'instances': value.instances,
         'rebateDate': value.rebateDate === undefined ? undefined : (value.rebateDate.toISOString().substring(0, 10)),
         'registeredHotel': value.registeredHotel,
     };

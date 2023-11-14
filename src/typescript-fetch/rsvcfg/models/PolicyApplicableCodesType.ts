@@ -13,18 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-import type { UniqueIDListType } from './UniqueIDListType';
-import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * The object contains usage of the Policy Schedule detail Type.
@@ -39,23 +33,23 @@ export interface PolicyApplicableCodesType {
      */
     blockCode?: string;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof PolicyApplicableCodesType
      */
-    blockIds?: UniqueIDListType;
+    blockIds?: Array<UniqueIDType>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PolicyApplicableCodesType
      */
-    creditRatings?: CodeListType;
+    creditRatings?: Array<string>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PolicyApplicableCodesType
      */
-    guaranteeCodes?: CodeListType;
+    guaranteeCodes?: Array<string>;
     /**
      * Schedule is used by this Hotel code.
      * @type {string}
@@ -64,10 +58,10 @@ export interface PolicyApplicableCodesType {
     hotelId?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PolicyApplicableCodesType
      */
-    ratePlanCodes?: CodeListType;
+    ratePlanCodes?: Array<string>;
     /**
      * Schedule is used by this Season Code.
      * @type {string}
@@ -96,11 +90,11 @@ export function PolicyApplicableCodesTypeFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'blockCode': !exists(json, 'blockCode') ? undefined : json['blockCode'],
-        'blockIds': !exists(json, 'blockIds') ? undefined : UniqueIDListTypeFromJSON(json['blockIds']),
-        'creditRatings': !exists(json, 'creditRatings') ? undefined : CodeListTypeFromJSON(json['creditRatings']),
-        'guaranteeCodes': !exists(json, 'guaranteeCodes') ? undefined : CodeListTypeFromJSON(json['guaranteeCodes']),
+        'blockIds': !exists(json, 'blockIds') ? undefined : ((json['blockIds'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'creditRatings': !exists(json, 'creditRatings') ? undefined : json['creditRatings'],
+        'guaranteeCodes': !exists(json, 'guaranteeCodes') ? undefined : json['guaranteeCodes'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'ratePlanCodes': !exists(json, 'ratePlanCodes') ? undefined : CodeListTypeFromJSON(json['ratePlanCodes']),
+        'ratePlanCodes': !exists(json, 'ratePlanCodes') ? undefined : json['ratePlanCodes'],
         'seasonCode': !exists(json, 'seasonCode') ? undefined : json['seasonCode'],
     };
 }
@@ -115,11 +109,11 @@ export function PolicyApplicableCodesTypeToJSON(value?: PolicyApplicableCodesTyp
     return {
         
         'blockCode': value.blockCode,
-        'blockIds': UniqueIDListTypeToJSON(value.blockIds),
-        'creditRatings': CodeListTypeToJSON(value.creditRatings),
-        'guaranteeCodes': CodeListTypeToJSON(value.guaranteeCodes),
+        'blockIds': value.blockIds === undefined ? undefined : ((value.blockIds as Array<any>).map(UniqueIDTypeToJSON)),
+        'creditRatings': value.creditRatings,
+        'guaranteeCodes': value.guaranteeCodes,
         'hotelId': value.hotelId,
-        'ratePlanCodes': CodeListTypeToJSON(value.ratePlanCodes),
+        'ratePlanCodes': value.ratePlanCodes,
         'seasonCode': value.seasonCode,
     };
 }

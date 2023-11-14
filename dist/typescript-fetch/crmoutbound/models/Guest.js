@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GuestToJSON = exports.GuestFromJSONTyped = exports.GuestFromJSON = exports.instanceOfGuest = void 0;
 const runtime_1 = require("../runtime");
 const GuestProfileType_1 = require("./GuestProfileType");
-const Links_1 = require("./Links");
-const ProfileIdList_1 = require("./ProfileIdList");
+const InstanceLink_1 = require("./InstanceLink");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the Guest interface.
  */
@@ -35,9 +35,9 @@ function GuestFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'guestIdList': !(0, runtime_1.exists)(json, 'guestIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['guestIdList']),
+        'guestIdList': !(0, runtime_1.exists)(json, 'guestIdList') ? undefined : (json['guestIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'guestDetails': !(0, runtime_1.exists)(json, 'guestDetails') ? undefined : (0, GuestProfileType_1.GuestProfileTypeFromJSON)(json['guestDetails']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.GuestFromJSONTyped = GuestFromJSONTyped;
@@ -49,9 +49,9 @@ function GuestToJSON(value) {
         return null;
     }
     return {
-        'guestIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.guestIdList),
+        'guestIdList': value.guestIdList === undefined ? undefined : (value.guestIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'guestDetails': (0, GuestProfileType_1.GuestProfileTypeToJSON)(value.guestDetails),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.GuestToJSON = GuestToJSON;

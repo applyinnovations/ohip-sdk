@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.IdentificationInfoTypeToJSON = exports.IdentificationInfoTypeFromJSONTyped = exports.IdentificationInfoTypeFromJSON = exports.instanceOfIdentificationInfoType = void 0;
 const runtime_1 = require("../runtime");
 const IdentificationType_1 = require("./IdentificationType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the IdentificationInfoType interface.
  */
@@ -38,7 +38,7 @@ function IdentificationInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'idContext': !(0, runtime_1.exists)(json, 'idContext') ? undefined : json['idContext'],
         'identification': !(0, runtime_1.exists)(json, 'identification') ? undefined : (0, IdentificationType_1.IdentificationTypeFromJSON)(json['identification']),
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : json['type'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.IdentificationInfoTypeFromJSONTyped = IdentificationInfoTypeFromJSONTyped;
@@ -54,7 +54,7 @@ function IdentificationInfoTypeToJSON(value) {
         'idContext': value.idContext,
         'identification': (0, IdentificationType_1.IdentificationTypeToJSON)(value.identification),
         'type': value.type,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.IdentificationInfoTypeToJSON = IdentificationInfoTypeToJSON;

@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { HousekeepingCreditRuleTravelTypeType } from './HousekeepingCreditRuleTravelTypeType';
 import {
     HousekeepingCreditRuleTravelTypeTypeFromJSON,
@@ -52,10 +46,10 @@ import {
 export interface HousekeepingCreditRuleType {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof HousekeepingCreditRuleType
      */
-    buildings?: CodeListType;
+    buildings?: Array<string>;
     /**
      * The additional credits which are applied to the task assignment sheet when the rule criteria has been met.
      * @type {number}
@@ -137,7 +131,7 @@ export function HousekeepingCreditRuleTypeFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'buildings': !exists(json, 'buildings') ? undefined : CodeListTypeFromJSON(json['buildings']),
+        'buildings': !exists(json, 'buildings') ? undefined : json['buildings'],
         'creditValue': !exists(json, 'creditValue') ? undefined : json['creditValue'],
         'daysOfWeek': !exists(json, 'daysOfWeek') ? undefined : TimeSpanDaysOfWeekTypeFromJSON(json['daysOfWeek']),
         'description': !exists(json, 'description') ? undefined : json['description'],
@@ -160,7 +154,7 @@ export function HousekeepingCreditRuleTypeToJSON(value?: HousekeepingCreditRuleT
     }
     return {
         
-        'buildings': CodeListTypeToJSON(value.buildings),
+        'buildings': value.buildings,
         'creditValue': value.creditValue,
         'daysOfWeek': TimeSpanDaysOfWeekTypeToJSON(value.daysOfWeek),
         'description': value.description,

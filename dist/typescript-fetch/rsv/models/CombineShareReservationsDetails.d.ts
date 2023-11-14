@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DailyRatesType } from './DailyRatesType';
-import type { EffectiveRatesType } from './EffectiveRatesType';
+import type { DailyRateType } from './DailyRateType';
+import type { EffectiveRateType } from './EffectiveRateType';
 import type { HotelReservationsType } from './HotelReservationsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for the combine share reservation request. Based on the request, this will return all sharer reservations including the request reservation.
  * @export
@@ -21,29 +21,29 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CombineShareReservationsDetails {
     /**
-     *
-     * @type {EffectiveRatesType}
+     * Collection of effective rate amount per guest on specific dates.
+     * @type {Array<EffectiveRateType>}
      * @memberof CombineShareReservationsDetails
      */
-    effectiveRates?: EffectiveRatesType;
+    effectiveRates?: Array<EffectiveRateType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CombineShareReservationsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {DailyRatesType}
+     * Defines room rate information on a daily basis.
+     * @type {Array<DailyRateType>}
      * @memberof CombineShareReservationsDetails
      */
-    newRates?: DailyRatesType;
+    newRates?: Array<DailyRateType>;
     /**
-     *
-     * @type {DailyRatesType}
+     * Defines room rate information on a daily basis.
+     * @type {Array<DailyRateType>}
      * @memberof CombineShareReservationsDetails
      */
-    oldRates?: DailyRatesType;
+    oldRates?: Array<DailyRateType>;
     /**
      *
      * @type {HotelReservationsType}
@@ -51,11 +51,11 @@ export interface CombineShareReservationsDetails {
      */
     shareReservations?: HotelReservationsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CombineShareReservationsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CombineShareReservationsDetails interface.

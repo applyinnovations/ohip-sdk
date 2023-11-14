@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { TourSeriesBlocksType } from './TourSeriesBlocksType';
+import type { TourSeriesBlockType } from './TourSeriesBlockType';
 import type { TourSeriesTypeTourInstructions } from './TourSeriesTypeTourInstructions';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -43,11 +43,11 @@ export interface TourSeriesType {
      */
     tourInstructions?: TourSeriesTypeTourInstructions;
     /**
-     *
-     * @type {TourSeriesBlocksType}
+     * Contains tour series blocks information.
+     * @type {Array<TourSeriesBlockType>}
      * @memberof TourSeriesType
      */
-    tourSeriesBlocks?: TourSeriesBlocksType;
+    tourSeriesBlocks?: Array<TourSeriesBlockType>;
 }
 /**
  * Check if a given object implements the TourSeriesType interface.

@@ -25,36 +25,30 @@ import {
     ChannelAccountDetailsTypeFromJSONTyped,
     ChannelAccountDetailsTypeToJSON,
 } from './ChannelAccountDetailsType';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { EmailInfoType } from './EmailInfoType';
 import {
     EmailInfoTypeFromJSON,
     EmailInfoTypeFromJSONTyped,
     EmailInfoTypeToJSON,
 } from './EmailInfoType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import {
-    IndicatorsTypeFromJSON,
-    IndicatorsTypeFromJSONTyped,
-    IndicatorsTypeToJSON,
-} from './IndicatorsType';
+    IndicatorTypeFromJSON,
+    IndicatorTypeFromJSONTyped,
+    IndicatorTypeToJSON,
+} from './IndicatorType';
 import type { TelephoneInfoType } from './TelephoneInfoType';
 import {
     TelephoneInfoTypeFromJSON,
     TelephoneInfoTypeFromJSONTyped,
     TelephoneInfoTypeToJSON,
 } from './TelephoneInfoType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * To hold channel account detailed information.
@@ -75,11 +69,11 @@ export interface ChannelAccountSummaryType {
      */
     addressInfo?: AddressInfoType;
     /**
-     * 
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof ChannelAccountSummaryType
      */
-    channelAccountIndicators?: IndicatorsType;
+    channelAccountIndicators?: Array<IndicatorType>;
     /**
      * Channel account contract ends on date.
      * @type {Date}
@@ -100,10 +94,10 @@ export interface ChannelAccountSummaryType {
     hotelId?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ChannelAccountSummaryType
      */
-    hotels?: CodeListType;
+    hotels?: Array<string>;
     /**
      * Indicates whether the account is inactive or not.
      * @type {boolean}
@@ -111,11 +105,11 @@ export interface ChannelAccountSummaryType {
      */
     inactive?: boolean;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ChannelAccountSummaryType
      */
-    profileIdList?: UniqueIDListType;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {TelephoneInfoType}
@@ -145,13 +139,13 @@ export function ChannelAccountSummaryTypeFromJSONTyped(json: any, ignoreDiscrimi
         
         'accountDetails': !exists(json, 'accountDetails') ? undefined : ChannelAccountDetailsTypeFromJSON(json['accountDetails']),
         'addressInfo': !exists(json, 'addressInfo') ? undefined : AddressInfoTypeFromJSON(json['addressInfo']),
-        'channelAccountIndicators': !exists(json, 'channelAccountIndicators') ? undefined : IndicatorsTypeFromJSON(json['channelAccountIndicators']),
+        'channelAccountIndicators': !exists(json, 'channelAccountIndicators') ? undefined : ((json['channelAccountIndicators'] as Array<any>).map(IndicatorTypeFromJSON)),
         'contractEndsOn': !exists(json, 'contractEndsOn') ? undefined : (new Date(json['contractEndsOn'])),
         'emailInfo': !exists(json, 'emailInfo') ? undefined : EmailInfoTypeFromJSON(json['emailInfo']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'hotels': !exists(json, 'hotels') ? undefined : CodeListTypeFromJSON(json['hotels']),
+        'hotels': !exists(json, 'hotels') ? undefined : json['hotels'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : UniqueIDListTypeFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'telephoneInfo': !exists(json, 'telephoneInfo') ? undefined : TelephoneInfoTypeFromJSON(json['telephoneInfo']),
     };
 }
@@ -167,13 +161,13 @@ export function ChannelAccountSummaryTypeToJSON(value?: ChannelAccountSummaryTyp
         
         'accountDetails': ChannelAccountDetailsTypeToJSON(value.accountDetails),
         'addressInfo': AddressInfoTypeToJSON(value.addressInfo),
-        'channelAccountIndicators': IndicatorsTypeToJSON(value.channelAccountIndicators),
+        'channelAccountIndicators': value.channelAccountIndicators === undefined ? undefined : ((value.channelAccountIndicators as Array<any>).map(IndicatorTypeToJSON)),
         'contractEndsOn': value.contractEndsOn === undefined ? undefined : (value.contractEndsOn.toISOString().substring(0,10)),
         'emailInfo': EmailInfoTypeToJSON(value.emailInfo),
         'hotelId': value.hotelId,
-        'hotels': CodeListTypeToJSON(value.hotels),
+        'hotels': value.hotels,
         'inactive': value.inactive,
-        'profileIdList': UniqueIDListTypeToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'telephoneInfo': TelephoneInfoTypeToJSON(value.telephoneInfo),
     };
 }

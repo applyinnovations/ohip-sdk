@@ -36,6 +36,7 @@ import type {
   CateringServings,
   CateringServingsInfo,
   CheckedDiscountAvailable,
+  CopyConfigurationCodeType,
   DailyInventoryItems,
   EventForecasts,
   EventForecastsCopy,
@@ -46,7 +47,6 @@ import type {
   InventoryItemsCopy,
   InventoryItemsCreated,
   ItemClasses,
-  ItemClassesCopy,
   ItemClassesInfo,
   ItemPools,
   ItemPoolsInfo,
@@ -99,6 +99,8 @@ import {
     CateringServingsInfoToJSON,
     CheckedDiscountAvailableFromJSON,
     CheckedDiscountAvailableToJSON,
+    CopyConfigurationCodeTypeFromJSON,
+    CopyConfigurationCodeTypeToJSON,
     DailyInventoryItemsFromJSON,
     DailyInventoryItemsToJSON,
     EventForecastsFromJSON,
@@ -119,8 +121,6 @@ import {
     InventoryItemsCreatedToJSON,
     ItemClassesFromJSON,
     ItemClassesToJSON,
-    ItemClassesCopyFromJSON,
-    ItemClassesCopyToJSON,
     ItemClassesInfoFromJSON,
     ItemClassesInfoToJSON,
     ItemPoolsFromJSON,
@@ -202,7 +202,7 @@ export interface CopyItemClassesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    itemClassesCopy: ItemClassesCopy;
+    itemClassesCopy: Array<CopyConfigurationCodeType>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1455,7 +1455,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ItemClassesCopyToJSON(requestParameters.itemClassesCopy),
+            body: requestParameters.itemClassesCopy.map(CopyConfigurationCodeTypeToJSON),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));

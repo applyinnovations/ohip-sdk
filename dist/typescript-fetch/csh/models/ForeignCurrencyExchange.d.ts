@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { PostForeignCurrencyExchangeType } from './PostForeignCurrencyExchangeType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * A set of posting transactions that need to be posted with regards to exchange.
  * @export
@@ -26,16 +26,16 @@ export interface ForeignCurrencyExchange {
     foreignCurrencyExchangeList?: Array<PostForeignCurrencyExchangeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ForeignCurrencyExchange
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ForeignCurrencyExchange
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ForeignCurrencyExchange interface.

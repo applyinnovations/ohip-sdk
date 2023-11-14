@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MemberPointsToExpireToJSON = exports.MemberPointsToExpireFromJSONTyped = exports.MemberPointsToExpireFromJSON = exports.instanceOfMemberPointsToExpire = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const MemberPointsToExpireListType_1 = require("./MemberPointsToExpireListType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const MemberPointToExpireType_1 = require("./MemberPointToExpireType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MemberPointsToExpire interface.
  */
@@ -35,9 +35,9 @@ function MemberPointsToExpireFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'memberPointsToExpireList': !(0, runtime_1.exists)(json, 'memberPointsToExpireList') ? undefined : (0, MemberPointsToExpireListType_1.MemberPointsToExpireListTypeFromJSON)(json['memberPointsToExpireList']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'memberPointsToExpireList': !(0, runtime_1.exists)(json, 'memberPointsToExpireList') ? undefined : (json['memberPointsToExpireList'].map(MemberPointToExpireType_1.MemberPointToExpireTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MemberPointsToExpireFromJSONTyped = MemberPointsToExpireFromJSONTyped;
@@ -49,9 +49,9 @@ function MemberPointsToExpireToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'memberPointsToExpireList': (0, MemberPointsToExpireListType_1.MemberPointsToExpireListTypeToJSON)(value.memberPointsToExpireList),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'memberPointsToExpireList': value.memberPointsToExpireList === undefined ? undefined : (value.memberPointsToExpireList.map(MemberPointToExpireType_1.MemberPointToExpireTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MemberPointsToExpireToJSON = MemberPointsToExpireToJSON;

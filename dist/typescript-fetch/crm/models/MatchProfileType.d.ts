@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { MatchStatusType } from './MatchStatusType';
-import type { ProfileIdList } from './ProfileIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Provides information for match profile.
  * @export
@@ -24,11 +24,11 @@ export interface MatchProfileType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MatchProfileType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {MatchStatusType}

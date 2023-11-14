@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelResvRSInfoTypeToJSON = exports.ChannelResvRSInfoTypeFromJSONTyped = exports.ChannelResvRSInfoTypeFromJSON = exports.instanceOfChannelResvRSInfoType = void 0;
 const runtime_1 = require("../runtime");
-const ChannelMarketingInfoType_1 = require("./ChannelMarketingInfoType");
+const ChannelMarketingInfoTypeInner_1 = require("./ChannelMarketingInfoTypeInner");
 const ChannelResvStatusType_1 = require("./ChannelResvStatusType");
 const ChannelSummaryInfoType_1 = require("./ChannelSummaryInfoType");
 /**
@@ -35,7 +35,7 @@ function ChannelResvRSInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'channelMarketingInfo': !(0, runtime_1.exists)(json, 'channelMarketingInfo') ? undefined : (0, ChannelMarketingInfoType_1.ChannelMarketingInfoTypeFromJSON)(json['channelMarketingInfo']),
+        'channelMarketingInfo': !(0, runtime_1.exists)(json, 'channelMarketingInfo') ? undefined : (json['channelMarketingInfo'].map(ChannelMarketingInfoTypeInner_1.ChannelMarketingInfoTypeInnerFromJSON)),
         'channelResvStatus': !(0, runtime_1.exists)(json, 'channelResvStatus') ? undefined : (0, ChannelResvStatusType_1.ChannelResvStatusTypeFromJSON)(json['channelResvStatus']),
         'channelSummaryInfo': !(0, runtime_1.exists)(json, 'channelSummaryInfo') ? undefined : (0, ChannelSummaryInfoType_1.ChannelSummaryInfoTypeFromJSON)(json['channelSummaryInfo']),
     };
@@ -49,7 +49,7 @@ function ChannelResvRSInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'channelMarketingInfo': (0, ChannelMarketingInfoType_1.ChannelMarketingInfoTypeToJSON)(value.channelMarketingInfo),
+        'channelMarketingInfo': value.channelMarketingInfo === undefined ? undefined : (value.channelMarketingInfo.map(ChannelMarketingInfoTypeInner_1.ChannelMarketingInfoTypeInnerToJSON)),
         'channelResvStatus': (0, ChannelResvStatusType_1.ChannelResvStatusTypeToJSON)(value.channelResvStatus),
         'channelSummaryInfo': (0, ChannelSummaryInfoType_1.ChannelSummaryInfoTypeToJSON)(value.channelSummaryInfo),
     };

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FetchCompRedemptionsRSCompRedemptionsType } from './FetchCompRedemptionsRSCompRedemptionsType';
+import type { FetchCompRedemptionsRSCompRedemptionType } from './FetchCompRedemptionsRSCompRedemptionType';
 /**
  * Response type for retrieval of Complimentary Redemption codes and their respective Available Amount.
  * @export
@@ -17,11 +17,11 @@ import type { FetchCompRedemptionsRSCompRedemptionsType } from './FetchCompRedem
  */
 export interface FetchCompRedemptionsRS {
     /**
-     *
-     * @type {FetchCompRedemptionsRSCompRedemptionsType}
+     * Collection of Complimentary Redemption codes and their respective Available Amount.
+     * @type {Array<FetchCompRedemptionsRSCompRedemptionType>}
      * @memberof FetchCompRedemptionsRS
      */
-    compRedemptions?: FetchCompRedemptionsRSCompRedemptionsType;
+    compRedemptions?: Array<FetchCompRedemptionsRSCompRedemptionType>;
 }
 /**
  * Check if a given object implements the FetchCompRedemptionsRS interface.

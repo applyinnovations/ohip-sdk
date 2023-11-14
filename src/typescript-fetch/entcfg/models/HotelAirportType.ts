@@ -19,12 +19,12 @@ import {
     RelativePositionTypeFromJSONTyped,
     RelativePositionTypeToJSON,
 } from './RelativePositionType';
-import type { TransportationCodeListType } from './TransportationCodeListType';
+import type { TransportationCodeType } from './TransportationCodeType';
 import {
-    TransportationCodeListTypeFromJSON,
-    TransportationCodeListTypeFromJSONTyped,
-    TransportationCodeListTypeToJSON,
-} from './TransportationCodeListType';
+    TransportationCodeTypeFromJSON,
+    TransportationCodeTypeFromJSONTyped,
+    TransportationCodeTypeToJSON,
+} from './TransportationCodeType';
 
 /**
  * Airport details of the Hotel
@@ -63,11 +63,11 @@ export interface HotelAirportType {
      */
     relativePosition?: RelativePositionType;
     /**
-     * 
-     * @type {TransportationCodeListType}
+     * List of available transportations from airport to get into Hotel.
+     * @type {Array<TransportationCodeType>}
      * @memberof HotelAirportType
      */
-    transportationList?: TransportationCodeListType;
+    transportationList?: Array<TransportationCodeType>;
 }
 
 /**
@@ -94,7 +94,7 @@ export function HotelAirportTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'direction': !exists(json, 'direction') ? undefined : json['direction'],
         'orderSequence': !exists(json, 'orderSequence') ? undefined : json['orderSequence'],
         'relativePosition': !exists(json, 'relativePosition') ? undefined : RelativePositionTypeFromJSON(json['relativePosition']),
-        'transportationList': !exists(json, 'transportationList') ? undefined : TransportationCodeListTypeFromJSON(json['transportationList']),
+        'transportationList': !exists(json, 'transportationList') ? undefined : ((json['transportationList'] as Array<any>).map(TransportationCodeTypeFromJSON)),
     };
 }
 
@@ -112,7 +112,7 @@ export function HotelAirportTypeToJSON(value?: HotelAirportType | null): any {
         'direction': value.direction,
         'orderSequence': value.orderSequence,
         'relativePosition': RelativePositionTypeToJSON(value.relativePosition),
-        'transportationList': TransportationCodeListTypeToJSON(value.transportationList),
+        'transportationList': value.transportationList === undefined ? undefined : ((value.transportationList as Array<any>).map(TransportationCodeTypeToJSON)),
     };
 }
 

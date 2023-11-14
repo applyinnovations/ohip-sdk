@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DepositFolioTransactionDetailsToJSON = exports.DepositFolioTransactionDetailsFromJSONTyped = exports.DepositFolioTransactionDetailsFromJSON = exports.instanceOfDepositFolioTransactionDetails = void 0;
 const runtime_1 = require("../runtime");
-const DepositDetailPostingsType_1 = require("./DepositDetailPostingsType");
-const Links_1 = require("./Links");
-const TrxCodesInfoType_1 = require("./TrxCodesInfoType");
-const WarningsType_1 = require("./WarningsType");
+const DepositDetailPostingType_1 = require("./DepositDetailPostingType");
+const InstanceLink_1 = require("./InstanceLink");
+const TrxInfoType_1 = require("./TrxInfoType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the DepositFolioTransactionDetails interface.
  */
@@ -36,10 +36,10 @@ function DepositFolioTransactionDetailsFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'transactions': !(0, runtime_1.exists)(json, 'transactions') ? undefined : (0, DepositDetailPostingsType_1.DepositDetailPostingsTypeFromJSON)(json['transactions']),
-        'trxCodesInfo': !(0, runtime_1.exists)(json, 'trxCodesInfo') ? undefined : (0, TrxCodesInfoType_1.TrxCodesInfoTypeFromJSON)(json['trxCodesInfo']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'transactions': !(0, runtime_1.exists)(json, 'transactions') ? undefined : (json['transactions'].map(DepositDetailPostingType_1.DepositDetailPostingTypeFromJSON)),
+        'trxCodesInfo': !(0, runtime_1.exists)(json, 'trxCodesInfo') ? undefined : (json['trxCodesInfo'].map(TrxInfoType_1.TrxInfoTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.DepositFolioTransactionDetailsFromJSONTyped = DepositFolioTransactionDetailsFromJSONTyped;
@@ -51,10 +51,10 @@ function DepositFolioTransactionDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'transactions': (0, DepositDetailPostingsType_1.DepositDetailPostingsTypeToJSON)(value.transactions),
-        'trxCodesInfo': (0, TrxCodesInfoType_1.TrxCodesInfoTypeToJSON)(value.trxCodesInfo),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'transactions': value.transactions === undefined ? undefined : (value.transactions.map(DepositDetailPostingType_1.DepositDetailPostingTypeToJSON)),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : (value.trxCodesInfo.map(TrxInfoType_1.TrxInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.DepositFolioTransactionDetailsToJSON = DepositFolioTransactionDetailsToJSON;

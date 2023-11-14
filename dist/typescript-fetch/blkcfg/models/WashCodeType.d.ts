@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { WashCodeDetailsType } from './WashCodeDetailsType';
+import type { WashCodeDetailType } from './WashCodeDetailType';
 /**
  * A representation of the information contained by a Wash Code.
  * @export
@@ -35,11 +35,11 @@ export interface WashCodeType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {WashCodeDetailsType}
+     * Wash Code Detail for a single entry.
+     * @type {Array<WashCodeDetailType>}
      * @memberof WashCodeType
      */
-    washCodeDetails?: WashCodeDetailsType;
+    washCodeDetails?: Array<WashCodeDetailType>;
 }
 /**
  * Check if a given object implements the WashCodeType interface.

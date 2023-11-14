@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockDailyRoomStatisticsListType } from './BlockDailyRoomStatisticsListType';
+import type { BlockDailyRoomStatisticsType } from './BlockDailyRoomStatisticsType';
 /**
  * Holds the room type or generic room type(Room Pool) level statistics for an allotment date.
  * @export
@@ -23,17 +23,17 @@ export interface BlockDailyStatisticsDateType {
      */
     date?: Date;
     /**
-     *
-     * @type {BlockDailyRoomStatisticsListType}
+     * Collection of room type level statistics.
+     * @type {Array<BlockDailyRoomStatisticsType>}
      * @memberof BlockDailyStatisticsDateType
      */
-    genericRoomTypeStatisticsList?: BlockDailyRoomStatisticsListType;
+    genericRoomTypeStatisticsList?: Array<BlockDailyRoomStatisticsType>;
     /**
-     *
-     * @type {BlockDailyRoomStatisticsListType}
+     * Collection of room type level statistics.
+     * @type {Array<BlockDailyRoomStatisticsType>}
      * @memberof BlockDailyStatisticsDateType
      */
-    roomTypeStatisticsList?: BlockDailyRoomStatisticsListType;
+    roomTypeStatisticsList?: Array<BlockDailyRoomStatisticsType>;
 }
 /**
  * Check if a given object implements the BlockDailyStatisticsDateType interface.

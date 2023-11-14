@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PrepaidCardRedemptionsType } from './PrepaidCardRedemptionsType';
+import type { PrepaidCardRedemptionType } from './PrepaidCardRedemptionType';
 import {
-    PrepaidCardRedemptionsTypeFromJSON,
-    PrepaidCardRedemptionsTypeFromJSONTyped,
-    PrepaidCardRedemptionsTypeToJSON,
-} from './PrepaidCardRedemptionsType';
+    PrepaidCardRedemptionTypeFromJSON,
+    PrepaidCardRedemptionTypeFromJSONTyped,
+    PrepaidCardRedemptionTypeToJSON,
+} from './PrepaidCardRedemptionType';
 import type { ReservationId } from './ReservationId';
 import {
     ReservationIdFromJSON,
@@ -51,11 +51,11 @@ export interface RedeemPrepaidCardCriteriaType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {PrepaidCardRedemptionsType}
+     * A prepaid redemption info object to be used for posting a payment.
+     * @type {Array<PrepaidCardRedemptionType>}
      * @memberof RedeemPrepaidCardCriteriaType
      */
-    prepaidCardRedemptions?: PrepaidCardRedemptionsType;
+    prepaidCardRedemptions?: Array<PrepaidCardRedemptionType>;
     /**
      * 
      * @type {ReservationId}
@@ -86,7 +86,7 @@ export function RedeemPrepaidCardCriteriaTypeFromJSONTyped(json: any, ignoreDisc
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
         'folioView': !exists(json, 'folioView') ? undefined : json['folioView'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'prepaidCardRedemptions': !exists(json, 'prepaidCardRedemptions') ? undefined : PrepaidCardRedemptionsTypeFromJSON(json['prepaidCardRedemptions']),
+        'prepaidCardRedemptions': !exists(json, 'prepaidCardRedemptions') ? undefined : ((json['prepaidCardRedemptions'] as Array<any>).map(PrepaidCardRedemptionTypeFromJSON)),
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
     };
 }
@@ -103,7 +103,7 @@ export function RedeemPrepaidCardCriteriaTypeToJSON(value?: RedeemPrepaidCardCri
         'cashierId': value.cashierId,
         'folioView': value.folioView,
         'hotelId': value.hotelId,
-        'prepaidCardRedemptions': PrepaidCardRedemptionsTypeToJSON(value.prepaidCardRedemptions),
+        'prepaidCardRedemptions': value.prepaidCardRedemptions === undefined ? undefined : ((value.prepaidCardRedemptions as Array<any>).map(PrepaidCardRedemptionTypeToJSON)),
         'reservationId': ReservationIdToJSON(value.reservationId),
     };
 }

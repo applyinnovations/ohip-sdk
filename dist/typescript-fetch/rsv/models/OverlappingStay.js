@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OverlappingStayToJSON = exports.OverlappingStayFromJSONTyped = exports.OverlappingStayFromJSON = exports.instanceOfOverlappingStay = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const OverlappingStayInfoListType_1 = require("./OverlappingStayInfoListType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const OverlappingStayInfoType_1 = require("./OverlappingStayInfoType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the OverlappingStay interface.
  */
@@ -35,9 +35,9 @@ function OverlappingStayFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'overlappingStayInfo': !(0, runtime_1.exists)(json, 'overlappingStayInfo') ? undefined : (0, OverlappingStayInfoListType_1.OverlappingStayInfoListTypeFromJSON)(json['overlappingStayInfo']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'overlappingStayInfo': !(0, runtime_1.exists)(json, 'overlappingStayInfo') ? undefined : (json['overlappingStayInfo'].map(OverlappingStayInfoType_1.OverlappingStayInfoTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.OverlappingStayFromJSONTyped = OverlappingStayFromJSONTyped;
@@ -49,9 +49,9 @@ function OverlappingStayToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'overlappingStayInfo': (0, OverlappingStayInfoListType_1.OverlappingStayInfoListTypeToJSON)(value.overlappingStayInfo),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'overlappingStayInfo': value.overlappingStayInfo === undefined ? undefined : (value.overlappingStayInfo.map(OverlappingStayInfoType_1.OverlappingStayInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.OverlappingStayToJSON = OverlappingStayToJSON;

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RoomCondtionsType } from './RoomCondtionsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RoomCondtionType } from './RoomCondtionType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for information regarding room condition configuration in a resort.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ResortRoomConditionsDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ResortRoomConditionsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RoomCondtionsType}
+     * Collection of Resort Room Condition Configuration Type
+     * @type {Array<RoomCondtionType>}
      * @memberof ResortRoomConditionsDetails
      */
-    roomConditions?: RoomCondtionsType;
+    roomConditions?: Array<RoomCondtionType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ResortRoomConditionsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ResortRoomConditionsDetails interface.

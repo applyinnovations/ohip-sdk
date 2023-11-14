@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GUINumberRulesDetailsToJSON = exports.GUINumberRulesDetailsFromJSONTyped = exports.GUINumberRulesDetailsFromJSON = exports.instanceOfGUINumberRulesDetails = void 0;
 const runtime_1 = require("../runtime");
-const GUINumberRules_1 = require("./GUINumberRules");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const GUINumberRule_1 = require("./GUINumberRule");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the GUINumberRulesDetails interface.
  */
@@ -35,9 +35,9 @@ function GUINumberRulesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'rules': !(0, runtime_1.exists)(json, 'rules') ? undefined : (0, GUINumberRules_1.GUINumberRulesFromJSON)(json['rules']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'rules': !(0, runtime_1.exists)(json, 'rules') ? undefined : (json['rules'].map(GUINumberRule_1.GUINumberRuleFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.GUINumberRulesDetailsFromJSONTyped = GUINumberRulesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function GUINumberRulesDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'rules': (0, GUINumberRules_1.GUINumberRulesToJSON)(value.rules),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'rules': value.rules === undefined ? undefined : (value.rules.map(GUINumberRule_1.GUINumberRuleToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.GUINumberRulesDetailsToJSON = GUINumberRulesDetailsToJSON;

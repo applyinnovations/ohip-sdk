@@ -11,9 +11,9 @@
  */
 import type { ChannelResvRSInfoType } from './ChannelResvRSInfoType';
 import type { HotelReservationsType } from './HotelReservationsType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MasterInfoType } from './MasterInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -28,10 +28,10 @@ export interface ChangeReservationDetails {
     channelInformation?: ChannelResvRSInfoType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangeReservationDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Refer to Generic common types document.
      * @type {Array<MasterInfoType>}
@@ -45,11 +45,11 @@ export interface ChangeReservationDetails {
      */
     reservations?: HotelReservationsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeReservationDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChangeReservationDetails interface.

@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ResCancellationPoliciesType } from './ResCancellationPoliciesType';
-import type { ResDepositPoliciesType } from './ResDepositPoliciesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ResCancellationPolicyType } from './ResCancellationPolicyType';
+import type { ResDepositPolicyType } from './ResDepositPolicyType';
+import type { WarningType } from './WarningType';
 /**
  * Response that contains deposit and cancellation policies attached with the reservation.
  * @export
@@ -20,29 +20,29 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ReservationPolicies {
     /**
-     *
-     * @type {ResCancellationPoliciesType}
+     * A list of reservation cancellation policies.
+     * @type {Array<ResCancellationPolicyType>}
      * @memberof ReservationPolicies
      */
-    cancellationPolicies?: ResCancellationPoliciesType;
+    cancellationPolicies?: Array<ResCancellationPolicyType>;
+    /**
+     * A list of deposit policies attached with the reservation.
+     * @type {Array<ResDepositPolicyType>}
+     * @memberof ReservationPolicies
+     */
+    depositPolicies?: Array<ResDepositPolicyType>;
     /**
      *
-     * @type {ResDepositPoliciesType}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationPolicies
      */
-    depositPolicies?: ResDepositPoliciesType;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {Links}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationPolicies
      */
-    links?: Links;
-    /**
-     *
-     * @type {WarningsType}
-     * @memberof ReservationPolicies
-     */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationPolicies interface.

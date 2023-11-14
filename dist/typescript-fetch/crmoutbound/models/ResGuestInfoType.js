@@ -21,7 +21,7 @@ const CountryNameType_1 = require("./CountryNameType");
 const GuestLastStayInfoType_1 = require("./GuestLastStayInfoType");
 const MembershipInfoType_1 = require("./MembershipInfoType");
 const NameTypeType_1 = require("./NameTypeType");
-const ResAccompanyGuestListType_1 = require("./ResAccompanyGuestListType");
+const ResAccompanyGuestInfoType_1 = require("./ResAccompanyGuestInfoType");
 const ResGuestExternalInfoType_1 = require("./ResGuestExternalInfoType");
 const VIPType_1 = require("./VIPType");
 /**
@@ -61,7 +61,7 @@ function ResGuestInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'vip': !(0, runtime_1.exists)(json, 'vip') ? undefined : (0, VIPType_1.VIPTypeFromJSON)(json['vip']),
         'address': !(0, runtime_1.exists)(json, 'address') ? undefined : (0, AddressSearchType_1.AddressSearchTypeFromJSON)(json['address']),
         'anonymization': !(0, runtime_1.exists)(json, 'anonymization') ? undefined : (0, AnonymizationType_1.AnonymizationTypeFromJSON)(json['anonymization']),
-        'accompanyGuests': !(0, runtime_1.exists)(json, 'accompanyGuests') ? undefined : (0, ResAccompanyGuestListType_1.ResAccompanyGuestListTypeFromJSON)(json['accompanyGuests']),
+        'accompanyGuests': !(0, runtime_1.exists)(json, 'accompanyGuests') ? undefined : (json['accompanyGuests'].map(ResAccompanyGuestInfoType_1.ResAccompanyGuestInfoTypeFromJSON)),
         'externalInfo': !(0, runtime_1.exists)(json, 'externalInfo') ? undefined : (0, ResGuestExternalInfoType_1.ResGuestExternalInfoTypeFromJSON)(json['externalInfo']),
         'guestLastStayInfo': !(0, runtime_1.exists)(json, 'guestLastStayInfo') ? undefined : (0, GuestLastStayInfoType_1.GuestLastStayInfoTypeFromJSON)(json['guestLastStayInfo']),
         'guestRestrictedCode': !(0, runtime_1.exists)(json, 'guestRestrictedCode') ? undefined : json['guestRestrictedCode'],
@@ -102,7 +102,7 @@ function ResGuestInfoTypeToJSON(value) {
         'vip': (0, VIPType_1.VIPTypeToJSON)(value.vip),
         'address': (0, AddressSearchType_1.AddressSearchTypeToJSON)(value.address),
         'anonymization': (0, AnonymizationType_1.AnonymizationTypeToJSON)(value.anonymization),
-        'accompanyGuests': (0, ResAccompanyGuestListType_1.ResAccompanyGuestListTypeToJSON)(value.accompanyGuests),
+        'accompanyGuests': value.accompanyGuests === undefined ? undefined : (value.accompanyGuests.map(ResAccompanyGuestInfoType_1.ResAccompanyGuestInfoTypeToJSON)),
         'externalInfo': (0, ResGuestExternalInfoType_1.ResGuestExternalInfoTypeToJSON)(value.externalInfo),
         'guestLastStayInfo': (0, GuestLastStayInfoType_1.GuestLastStayInfoTypeToJSON)(value.guestLastStayInfo),
         'guestRestrictedCode': value.guestRestrictedCode,

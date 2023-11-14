@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CommissionPaymentsActivityType } from './CommissionPaymentsActivityType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CommissionPaymentActivityType } from './CommissionPaymentActivityType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response type for commission payments activity.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface CommissionPaymentsActivityDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CommissionPaymentsActivityDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {CommissionPaymentsActivityType}
+     * List of payment activity information
+     * @type {Array<CommissionPaymentActivityType>}
      * @memberof CommissionPaymentsActivityDetails
      */
-    paymentsActivity?: CommissionPaymentsActivityType;
+    paymentsActivity?: Array<CommissionPaymentActivityType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CommissionPaymentsActivityDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CommissionPaymentsActivityDetails interface.

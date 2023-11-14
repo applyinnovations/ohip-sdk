@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CompanyToJSON = exports.CompanyFromJSONTyped = exports.CompanyFromJSON = exports.instanceOfCompany = void 0;
 const runtime_1 = require("../runtime");
 const CompanyProfileType_1 = require("./CompanyProfileType");
-const Links_1 = require("./Links");
-const ProfileIdList_1 = require("./ProfileIdList");
+const InstanceLink_1 = require("./InstanceLink");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the Company interface.
  */
@@ -35,9 +35,9 @@ function CompanyFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'companyIdList': !(0, runtime_1.exists)(json, 'companyIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['companyIdList']),
+        'companyIdList': !(0, runtime_1.exists)(json, 'companyIdList') ? undefined : (json['companyIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'companyDetails': !(0, runtime_1.exists)(json, 'companyDetails') ? undefined : (0, CompanyProfileType_1.CompanyProfileTypeFromJSON)(json['companyDetails']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.CompanyFromJSONTyped = CompanyFromJSONTyped;
@@ -49,9 +49,9 @@ function CompanyToJSON(value) {
         return null;
     }
     return {
-        'companyIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.companyIdList),
+        'companyIdList': value.companyIdList === undefined ? undefined : (value.companyIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'companyDetails': (0, CompanyProfileType_1.CompanyProfileTypeToJSON)(value.companyDetails),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.CompanyToJSON = CompanyToJSON;

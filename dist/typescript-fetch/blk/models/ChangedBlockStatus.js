@@ -15,14 +15,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChangedBlockStatusToJSON = exports.ChangedBlockStatusFromJSONTyped = exports.ChangedBlockStatusFromJSON = exports.instanceOfChangedBlockStatus = void 0;
 const runtime_1 = require("../runtime");
-const BlockNextStatusListType_1 = require("./BlockNextStatusListType");
-const BlockStatusChangeHistoryType_1 = require("./BlockStatusChangeHistoryType");
 const BlockType_1 = require("./BlockType");
+const BookingStatusDetailType_1 = require("./BookingStatusDetailType");
+const BookingStatusHistoryType_1 = require("./BookingStatusHistoryType");
 const CancellationDetailsType_1 = require("./CancellationDetailsType");
-const CateringEventsProcessedInfoList_1 = require("./CateringEventsProcessedInfoList");
-const Links_1 = require("./Links");
+const CateringEventsProcessedInfoType_1 = require("./CateringEventsProcessedInfoType");
+const InstanceLink_1 = require("./InstanceLink");
 const UniqueIDType_1 = require("./UniqueIDType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChangedBlockStatus interface.
  */
@@ -42,13 +42,13 @@ function ChangedBlockStatusFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'anyActivePMReservations': !(0, runtime_1.exists)(json, 'anyActivePMReservations') ? undefined : json['anyActivePMReservations'],
         'block': !(0, runtime_1.exists)(json, 'block') ? undefined : (0, BlockType_1.BlockTypeFromJSON)(json['block']),
-        'blockNextStatusList': !(0, runtime_1.exists)(json, 'blockNextStatusList') ? undefined : (0, BlockNextStatusListType_1.BlockNextStatusListTypeFromJSON)(json['blockNextStatusList']),
-        'blockStatusChangeHistory': !(0, runtime_1.exists)(json, 'blockStatusChangeHistory') ? undefined : (0, BlockStatusChangeHistoryType_1.BlockStatusChangeHistoryTypeFromJSON)(json['blockStatusChangeHistory']),
+        'blockNextStatusList': !(0, runtime_1.exists)(json, 'blockNextStatusList') ? undefined : (json['blockNextStatusList'].map(BookingStatusDetailType_1.BookingStatusDetailTypeFromJSON)),
+        'blockStatusChangeHistory': !(0, runtime_1.exists)(json, 'blockStatusChangeHistory') ? undefined : (json['blockStatusChangeHistory'].map(BookingStatusHistoryType_1.BookingStatusHistoryTypeFromJSON)),
         'cancellationDetails': !(0, runtime_1.exists)(json, 'cancellationDetails') ? undefined : (0, CancellationDetailsType_1.CancellationDetailsTypeFromJSON)(json['cancellationDetails']),
-        'cateringEventsProcessedInfo': !(0, runtime_1.exists)(json, 'cateringEventsProcessedInfo') ? undefined : (0, CateringEventsProcessedInfoList_1.CateringEventsProcessedInfoListFromJSON)(json['cateringEventsProcessedInfo']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'cateringEventsProcessedInfo': !(0, runtime_1.exists)(json, 'cateringEventsProcessedInfo') ? undefined : (json['cateringEventsProcessedInfo'].map(CateringEventsProcessedInfoType_1.CateringEventsProcessedInfoTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'processId': !(0, runtime_1.exists)(json, 'processId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['processId']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChangedBlockStatusFromJSONTyped = ChangedBlockStatusFromJSONTyped;
@@ -62,13 +62,13 @@ function ChangedBlockStatusToJSON(value) {
     return {
         'anyActivePMReservations': value.anyActivePMReservations,
         'block': (0, BlockType_1.BlockTypeToJSON)(value.block),
-        'blockNextStatusList': (0, BlockNextStatusListType_1.BlockNextStatusListTypeToJSON)(value.blockNextStatusList),
-        'blockStatusChangeHistory': (0, BlockStatusChangeHistoryType_1.BlockStatusChangeHistoryTypeToJSON)(value.blockStatusChangeHistory),
+        'blockNextStatusList': value.blockNextStatusList === undefined ? undefined : (value.blockNextStatusList.map(BookingStatusDetailType_1.BookingStatusDetailTypeToJSON)),
+        'blockStatusChangeHistory': value.blockStatusChangeHistory === undefined ? undefined : (value.blockStatusChangeHistory.map(BookingStatusHistoryType_1.BookingStatusHistoryTypeToJSON)),
         'cancellationDetails': (0, CancellationDetailsType_1.CancellationDetailsTypeToJSON)(value.cancellationDetails),
-        'cateringEventsProcessedInfo': (0, CateringEventsProcessedInfoList_1.CateringEventsProcessedInfoListToJSON)(value.cateringEventsProcessedInfo),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'cateringEventsProcessedInfo': value.cateringEventsProcessedInfo === undefined ? undefined : (value.cateringEventsProcessedInfo.map(CateringEventsProcessedInfoType_1.CateringEventsProcessedInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'processId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.processId),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChangedBlockStatusToJSON = ChangedBlockStatusToJSON;

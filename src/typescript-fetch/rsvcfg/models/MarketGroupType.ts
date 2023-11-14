@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { MarketCodesType } from './MarketCodesType';
+import type { MarketCodeType } from './MarketCodeType';
 import {
-    MarketCodesTypeFromJSON,
-    MarketCodesTypeFromJSONTyped,
-    MarketCodesTypeToJSON,
-} from './MarketCodesType';
+    MarketCodeTypeFromJSON,
+    MarketCodeTypeFromJSONTyped,
+    MarketCodeTypeToJSON,
+} from './MarketCodeType';
 import type { TranslationTextType50 } from './TranslationTextType50';
 import {
     TranslationTextType50FromJSON,
@@ -57,11 +57,11 @@ export interface MarketGroupType {
      */
     inactive?: boolean;
     /**
-     * 
-     * @type {MarketCodesType}
+     * Collection of Market Codes.
+     * @type {Array<MarketCodeType>}
      * @memberof MarketGroupType
      */
-    marketCodes?: MarketCodesType;
+    marketCodes?: Array<MarketCodeType>;
     /**
      * 
      * @type {number}
@@ -105,7 +105,7 @@ export function MarketGroupTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'description': !exists(json, 'description') ? undefined : TranslationTextType50FromJSON(json['description']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
-        'marketCodes': !exists(json, 'marketCodes') ? undefined : MarketCodesTypeFromJSON(json['marketCodes']),
+        'marketCodes': !exists(json, 'marketCodes') ? undefined : ((json['marketCodes'] as Array<any>).map(MarketCodeTypeFromJSON)),
         'ranking': !exists(json, 'ranking') ? undefined : json['ranking'],
         'sequence': !exists(json, 'sequence') ? undefined : json['sequence'],
         'upgradable': !exists(json, 'upgradable') ? undefined : json['upgradable'],
@@ -125,7 +125,7 @@ export function MarketGroupTypeToJSON(value?: MarketGroupType | null): any {
         'description': TranslationTextType50ToJSON(value.description),
         'hotelId': value.hotelId,
         'inactive': value.inactive,
-        'marketCodes': MarketCodesTypeToJSON(value.marketCodes),
+        'marketCodes': value.marketCodes === undefined ? undefined : ((value.marketCodes as Array<any>).map(MarketCodeTypeToJSON)),
         'ranking': value.ranking,
         'sequence': value.sequence,
         'upgradable': value.upgradable,

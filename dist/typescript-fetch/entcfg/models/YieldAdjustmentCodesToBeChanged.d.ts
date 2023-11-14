@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
-import type { YieldAdjustmentCodesType } from './YieldAdjustmentCodesType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
+import type { YieldAdjustmentCodeType } from './YieldAdjustmentCodeType';
 /**
  * Request object for changing existing Yield AdjustmentCodes Configurations.
  * @export
@@ -20,22 +20,22 @@ import type { YieldAdjustmentCodesType } from './YieldAdjustmentCodesType';
 export interface YieldAdjustmentCodesToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof YieldAdjustmentCodesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof YieldAdjustmentCodesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
     /**
-     *
-     * @type {YieldAdjustmentCodesType}
+     * Holds Yield AdjustmentCodes details.
+     * @type {Array<YieldAdjustmentCodeType>}
      * @memberof YieldAdjustmentCodesToBeChanged
      */
-    yieldAdjustmentCodes?: YieldAdjustmentCodesType;
+    yieldAdjustmentCodes?: Array<YieldAdjustmentCodeType>;
 }
 /**
  * Check if a given object implements the YieldAdjustmentCodesToBeChanged interface.

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { PostCompRedemptionsCriteria } from './PostCompRedemptionsCriteria';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request type of complimentary bucket redemptions posting.
  * @export
@@ -24,11 +24,11 @@ export interface PostCompRedemptions {
      */
     criteria?: PostCompRedemptionsCriteria;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostCompRedemptions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PostCompRedemptions interface.

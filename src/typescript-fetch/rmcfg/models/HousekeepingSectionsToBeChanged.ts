@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HousekeepingSectionsType } from './HousekeepingSectionsType';
+import type { HousekeepingSectionType } from './HousekeepingSectionType';
 import {
-    HousekeepingSectionsTypeFromJSON,
-    HousekeepingSectionsTypeFromJSONTyped,
-    HousekeepingSectionsTypeToJSON,
-} from './HousekeepingSectionsType';
-import type { Links } from './Links';
+    HousekeepingSectionTypeFromJSON,
+    HousekeepingSectionTypeFromJSONTyped,
+    HousekeepingSectionTypeToJSON,
+} from './HousekeepingSectionType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Modify housekeeping section codes in resort configurations.
@@ -39,23 +39,23 @@ import {
  */
 export interface HousekeepingSectionsToBeChanged {
     /**
-     * 
-     * @type {HousekeepingSectionsType}
+     * List of the housekeeping sections to be configured or fetched
+     * @type {Array<HousekeepingSectionType>}
      * @memberof HousekeepingSectionsToBeChanged
      */
-    housekeepingSections?: HousekeepingSectionsType;
+    housekeepingSections?: Array<HousekeepingSectionType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HousekeepingSectionsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HousekeepingSectionsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function HousekeepingSectionsToBeChangedFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'housekeepingSections': !exists(json, 'housekeepingSections') ? undefined : HousekeepingSectionsTypeFromJSON(json['housekeepingSections']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'housekeepingSections': !exists(json, 'housekeepingSections') ? undefined : ((json['housekeepingSections'] as Array<any>).map(HousekeepingSectionTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function HousekeepingSectionsToBeChangedToJSON(value?: HousekeepingSectio
     }
     return {
         
-        'housekeepingSections': HousekeepingSectionsTypeToJSON(value.housekeepingSections),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'housekeepingSections': value.housekeepingSections === undefined ? undefined : ((value.housekeepingSections as Array<any>).map(HousekeepingSectionTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

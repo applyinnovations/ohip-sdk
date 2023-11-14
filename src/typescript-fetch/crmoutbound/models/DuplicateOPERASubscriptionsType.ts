@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ProfileSubscriptionListType } from './ProfileSubscriptionListType';
+import type { ProfileSubscriptionType } from './ProfileSubscriptionType';
 import {
-    ProfileSubscriptionListTypeFromJSON,
-    ProfileSubscriptionListTypeFromJSONTyped,
-    ProfileSubscriptionListTypeToJSON,
-} from './ProfileSubscriptionListType';
+    ProfileSubscriptionTypeFromJSON,
+    ProfileSubscriptionTypeFromJSONTyped,
+    ProfileSubscriptionTypeToJSON,
+} from './ProfileSubscriptionType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -39,11 +39,11 @@ export interface DuplicateOPERASubscriptionsType {
      */
     externalProfileId?: UniqueIDType;
     /**
-     * 
-     * @type {ProfileSubscriptionListType}
+     * Details of the OPERA Profile subscription to external system
+     * @type {Array<ProfileSubscriptionType>}
      * @memberof DuplicateOPERASubscriptionsType
      */
-    profileSubscriptions?: ProfileSubscriptionListType;
+    profileSubscriptions?: Array<ProfileSubscriptionType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function DuplicateOPERASubscriptionsTypeFromJSONTyped(json: any, ignoreDi
     return {
         
         'externalProfileId': !exists(json, 'externalProfileId') ? undefined : UniqueIDTypeFromJSON(json['externalProfileId']),
-        'profileSubscriptions': !exists(json, 'profileSubscriptions') ? undefined : ProfileSubscriptionListTypeFromJSON(json['profileSubscriptions']),
+        'profileSubscriptions': !exists(json, 'profileSubscriptions') ? undefined : ((json['profileSubscriptions'] as Array<any>).map(ProfileSubscriptionTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function DuplicateOPERASubscriptionsTypeToJSON(value?: DuplicateOPERASubs
     return {
         
         'externalProfileId': UniqueIDTypeToJSON(value.externalProfileId),
-        'profileSubscriptions': ProfileSubscriptionListTypeToJSON(value.profileSubscriptions),
+        'profileSubscriptions': value.profileSubscriptions === undefined ? undefined : ((value.profileSubscriptions as Array<any>).map(ProfileSubscriptionTypeToJSON)),
     };
 }
 

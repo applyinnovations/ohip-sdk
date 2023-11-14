@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { EventInfoType } from './EventInfoType';
 import type { EventItemsType } from './EventItemsType';
 import type { EventMenusType } from './EventMenusType';
-import type { EventsInfoType } from './EventsInfoType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Object containing details for managing events resources.
  * @export
@@ -21,11 +21,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ManageEventsResources {
     /**
-     *
-     * @type {EventsInfoType}
+     * Pertain event information.
+     * @type {Array<EventInfoType>}
      * @memberof ManageEventsResources
      */
-    eventDetails?: EventsInfoType;
+    eventDetails?: Array<EventInfoType>;
     /**
      *
      * @type {EventItemsType}
@@ -40,16 +40,16 @@ export interface ManageEventsResources {
     eventMenus?: EventMenusType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ManageEventsResources
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ManageEventsResources
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ManageEventsResources interface.

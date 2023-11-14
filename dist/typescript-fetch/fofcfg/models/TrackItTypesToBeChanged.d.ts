@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TrackItTypesConfigType } from './TrackItTypesConfigType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TrackItTypeConfigType } from './TrackItTypeConfigType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing existing Track it Types.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TrackItTypesToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TrackItTypesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TrackItTypesConfigType}
+     * Track It Type Collection element.
+     * @type {Array<TrackItTypeConfigType>}
      * @memberof TrackItTypesToBeChanged
      */
-    trackItTypes?: TrackItTypesConfigType;
+    trackItTypes?: Array<TrackItTypeConfigType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TrackItTypesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TrackItTypesToBeChanged interface.

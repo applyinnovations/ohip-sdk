@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipClaimOriginsType } from './MembershipClaimOriginsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipClaimOriginType } from './MembershipClaimOriginType';
 import {
-    MembershipClaimOriginsTypeFromJSON,
-    MembershipClaimOriginsTypeFromJSONTyped,
-    MembershipClaimOriginsTypeToJSON,
-} from './MembershipClaimOriginsType';
-import type { WarningsType } from './WarningsType';
+    MembershipClaimOriginTypeFromJSON,
+    MembershipClaimOriginTypeFromJSONTyped,
+    MembershipClaimOriginTypeToJSON,
+} from './MembershipClaimOriginType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Membership Claim Origins.
@@ -40,22 +40,22 @@ import {
 export interface MembershipClaimOriginsDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipClaimOriginsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MembershipClaimOriginsType}
+     * List of Membership Claim Origins.
+     * @type {Array<MembershipClaimOriginType>}
      * @memberof MembershipClaimOriginsDetails
      */
-    membershipClaimOrigins?: MembershipClaimOriginsType;
+    membershipClaimOrigins?: Array<MembershipClaimOriginType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipClaimOriginsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MembershipClaimOriginsDetailsFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'membershipClaimOrigins': !exists(json, 'membershipClaimOrigins') ? undefined : MembershipClaimOriginsTypeFromJSON(json['membershipClaimOrigins']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'membershipClaimOrigins': !exists(json, 'membershipClaimOrigins') ? undefined : ((json['membershipClaimOrigins'] as Array<any>).map(MembershipClaimOriginTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MembershipClaimOriginsDetailsToJSON(value?: MembershipClaimOrigi
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'membershipClaimOrigins': MembershipClaimOriginsTypeToJSON(value.membershipClaimOrigins),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'membershipClaimOrigins': value.membershipClaimOrigins === undefined ? undefined : ((value.membershipClaimOrigins as Array<any>).map(MembershipClaimOriginTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

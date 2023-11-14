@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GuaranteeCodeScheduleCriteriaToJSON = exports.GuaranteeCodeScheduleCriteriaFromJSONTyped = exports.GuaranteeCodeScheduleCriteriaFromJSON = exports.instanceOfGuaranteeCodeScheduleCriteria = void 0;
 const runtime_1 = require("../runtime");
 const CreateGuaranteeCodeScheduleType_1 = require("./CreateGuaranteeCodeScheduleType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the GuaranteeCodeScheduleCriteria interface.
  */
@@ -36,8 +36,8 @@ function GuaranteeCodeScheduleCriteriaFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'guaranteeCodeSchedule': !(0, runtime_1.exists)(json, 'guaranteeCodeSchedule') ? undefined : (0, CreateGuaranteeCodeScheduleType_1.CreateGuaranteeCodeScheduleTypeFromJSON)(json['guaranteeCodeSchedule']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.GuaranteeCodeScheduleCriteriaFromJSONTyped = GuaranteeCodeScheduleCriteriaFromJSONTyped;
@@ -50,8 +50,8 @@ function GuaranteeCodeScheduleCriteriaToJSON(value) {
     }
     return {
         'guaranteeCodeSchedule': (0, CreateGuaranteeCodeScheduleType_1.CreateGuaranteeCodeScheduleTypeToJSON)(value.guaranteeCodeSchedule),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.GuaranteeCodeScheduleCriteriaToJSON = GuaranteeCodeScheduleCriteriaToJSON;

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ServiceRequests } from './ServiceRequests';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ServiceRequest } from './ServiceRequest';
+import type { WarningType } from './WarningType';
 /**
  * Response object for service requests.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ServiceRequestsInfo {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ServiceRequestsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ServiceRequests}
+     * Service request.
+     * @type {Array<ServiceRequest>}
      * @memberof ServiceRequestsInfo
      */
-    serviceRequestsDetails?: ServiceRequests;
+    serviceRequestsDetails?: Array<ServiceRequest>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ServiceRequestsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ServiceRequestsInfo interface.

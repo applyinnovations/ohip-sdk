@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelInterfaceFailedMessagesType } from './HotelInterfaceFailedMessagesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelInterfaceFailedMessageType } from './HotelInterfaceFailedMessageType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for retrieving Hotel Interface Failed Messages.
  * @export
@@ -32,16 +32,16 @@ export interface FetchedHotelInterfaceFailedMessages {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchedHotelInterfaceFailedMessages
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {HotelInterfaceFailedMessagesType}
+     * Collection of Hotel Interface Failed Messages.
+     * @type {Array<HotelInterfaceFailedMessageType>}
      * @memberof FetchedHotelInterfaceFailedMessages
      */
-    messages?: HotelInterfaceFailedMessagesType;
+    messages?: Array<HotelInterfaceFailedMessageType>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -61,11 +61,11 @@ export interface FetchedHotelInterfaceFailedMessages {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchedHotelInterfaceFailedMessages
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FetchedHotelInterfaceFailedMessages interface.

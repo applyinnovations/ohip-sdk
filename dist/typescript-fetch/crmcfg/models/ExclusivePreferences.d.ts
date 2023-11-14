@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ConfigHotelExclusivePreferencesType } from './ConfigHotelExclusivePreferencesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ConfigHotelExclusivePreferenceType } from './ConfigHotelExclusivePreferenceType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Exclusive preferences at the property level.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ExclusivePreferences {
     /**
-     *
-     * @type {ConfigHotelExclusivePreferencesType}
+     * This gives detailed information about a Exclusive preference at the property level.
+     * @type {Array<ConfigHotelExclusivePreferenceType>}
      * @memberof ExclusivePreferences
      */
-    hotelExclusivePreferences?: ConfigHotelExclusivePreferencesType;
+    hotelExclusivePreferences?: Array<ConfigHotelExclusivePreferenceType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExclusivePreferences
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ExclusivePreferences
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ExclusivePreferences interface.

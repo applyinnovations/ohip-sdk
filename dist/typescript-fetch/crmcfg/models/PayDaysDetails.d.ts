@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { PayDaysType } from './PayDaysType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { PayDayType } from './PayDayType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Pay Days.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface PayDaysDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PayDaysDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {PayDaysType}
+     * List of Pay Days.
+     * @type {Array<PayDayType>}
      * @memberof PayDaysDetails
      */
-    payDays?: PayDaysType;
+    payDays?: Array<PayDayType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PayDaysDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PayDaysDetails interface.

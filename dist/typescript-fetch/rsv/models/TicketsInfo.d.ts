@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationId } from './ReservationId';
-import type { TicketsType } from './TicketsType';
-import type { WarningsType } from './WarningsType';
+import type { TicketType } from './TicketType';
+import type { WarningType } from './WarningType';
 /**
  * Common tickets request base type.
  * @export
@@ -27,10 +27,10 @@ export interface TicketsInfo {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TicketsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationId}
@@ -38,17 +38,17 @@ export interface TicketsInfo {
      */
     reservationId?: ReservationId;
     /**
-     *
-     * @type {TicketsType}
+     * Collection of TicketType objects.
+     * @type {Array<TicketType>}
      * @memberof TicketsInfo
      */
-    tickets?: TicketsType;
+    tickets?: Array<TicketType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TicketsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TicketsInfo interface.

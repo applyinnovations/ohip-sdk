@@ -14,17 +14,17 @@ import type { ARAccountTypeLastReminderInfo } from './ARAccountTypeLastReminderI
 import type { ARAccountTypeLastStatementInfo } from './ARAccountTypeLastStatementInfo';
 import type { ARAgingInfoType } from './ARAgingInfoType';
 import type { ARBalanceType } from './ARBalanceType';
-import type { ARInvoicesType } from './ARInvoicesType';
-import type { ARPaymentsType } from './ARPaymentsType';
+import type { ARInvoiceType } from './ARInvoiceType';
+import type { ARPaymentType } from './ARPaymentType';
 import type { ARYearViewInfoType } from './ARYearViewInfoType';
 import type { AddressInfoType } from './AddressInfoType';
 import type { CommentInfoType } from './CommentInfoType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { EmailInfoType } from './EmailInfoType';
-import type { FixedChargesType } from './FixedChargesType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { FixedChargeType } from './FixedChargeType';
+import type { IndicatorType } from './IndicatorType';
 import type { ProfileId } from './ProfileId';
-import type { SearchMatchesType } from './SearchMatchesType';
+import type { SearchMatchType } from './SearchMatchType';
 import type { TelephoneInfoType } from './TelephoneInfoType';
 import type { TraceType } from './TraceType';
 import type { UniqueIDType } from './UniqueIDType';
@@ -41,11 +41,11 @@ export interface ARAccountType {
      */
     accountId?: UniqueIDType;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof ARAccountType
      */
-    accountIndicators?: IndicatorsType;
+    accountIndicators?: Array<IndicatorType>;
     /**
      * Name of the AR Account.
      * @type {string}
@@ -113,11 +113,11 @@ export interface ARAccountType {
      */
     emailStatementsReminders?: boolean;
     /**
-     *
-     * @type {FixedChargesType}
+     * Holds fixed charge detail.
+     * @type {Array<FixedChargeType>}
      * @memberof ARAccountType
      */
-    fixedCharges?: FixedChargesType;
+    fixedCharges?: Array<FixedChargeType>;
     /**
      * Property where the AR Account exists.
      * @type {string}
@@ -125,11 +125,11 @@ export interface ARAccountType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {ARInvoicesType}
+     * A collection of AR Invoices.
+     * @type {Array<ARInvoiceType>}
      * @memberof ARAccountType
      */
-    invoices?: ARInvoicesType;
+    invoices?: Array<ARInvoiceType>;
     /**
      *
      * @type {ARAccountTypeLastReminderInfo}
@@ -161,11 +161,11 @@ export interface ARAccountType {
      */
     paymentDueDays?: string;
     /**
-     *
-     * @type {ARPaymentsType}
+     * A collection of AR Payments.
+     * @type {Array<ARPaymentType>}
      * @memberof ARAccountType
      */
-    payments?: ARPaymentsType;
+    payments?: Array<ARPaymentType>;
     /**
      * Indicates if this is a Permanent Account. Permanent Accounts cannot be deleted.
      * @type {boolean}
@@ -191,11 +191,11 @@ export interface ARAccountType {
      */
     profileId?: ProfileId;
     /**
-     *
-     * @type {SearchMatchesType}
+     * List of Generic Name-Value-Pair Parameters used for super search matches.
+     * @type {Array<SearchMatchType>}
      * @memberof ARAccountType
      */
-    searchMatches?: SearchMatchesType;
+    searchMatches?: Array<SearchMatchType>;
     /**
      *
      * @type {ARAccountStatusType}

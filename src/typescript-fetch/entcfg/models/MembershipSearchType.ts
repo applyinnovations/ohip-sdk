@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-
 /**
  * Identifies criteria for searching frequent customer reward program.
  * @export
@@ -40,16 +33,16 @@ export interface MembershipSearchType {
     membershipId?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof MembershipSearchType
      */
-    membershipLevel?: CodeListType;
+    membershipLevel?: Array<string>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof MembershipSearchType
      */
-    membershipType?: CodeListType;
+    membershipType?: Array<string>;
 }
 
 /**
@@ -73,8 +66,8 @@ export function MembershipSearchTypeFromJSONTyped(json: any, ignoreDiscriminator
         
         'associatedReservationsOnly': !exists(json, 'associatedReservationsOnly') ? undefined : json['associatedReservationsOnly'],
         'membershipId': !exists(json, 'membershipId') ? undefined : json['membershipId'],
-        'membershipLevel': !exists(json, 'membershipLevel') ? undefined : CodeListTypeFromJSON(json['membershipLevel']),
-        'membershipType': !exists(json, 'membershipType') ? undefined : CodeListTypeFromJSON(json['membershipType']),
+        'membershipLevel': !exists(json, 'membershipLevel') ? undefined : json['membershipLevel'],
+        'membershipType': !exists(json, 'membershipType') ? undefined : json['membershipType'],
     };
 }
 
@@ -89,8 +82,8 @@ export function MembershipSearchTypeToJSON(value?: MembershipSearchType | null):
         
         'associatedReservationsOnly': value.associatedReservationsOnly,
         'membershipId': value.membershipId,
-        'membershipLevel': CodeListTypeToJSON(value.membershipLevel),
-        'membershipType': CodeListTypeToJSON(value.membershipType),
+        'membershipLevel': value.membershipLevel,
+        'membershipType': value.membershipType,
     };
 }
 

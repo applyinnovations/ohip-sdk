@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomTypeOrderToJSON = exports.RoomTypeOrderFromJSONTyped = exports.RoomTypeOrderFromJSON = exports.instanceOfRoomTypeOrder = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const RoomOrderType_1 = require("./RoomOrderType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomTypeOrder interface.
  */
@@ -35,9 +35,9 @@ function RoomTypeOrderFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'roomTypes': !(0, runtime_1.exists)(json, 'roomTypes') ? undefined : (0, RoomOrderType_1.RoomOrderTypeFromJSON)(json['roomTypes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomTypeOrderFromJSONTyped = RoomTypeOrderFromJSONTyped;
@@ -49,9 +49,9 @@ function RoomTypeOrderToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'roomTypes': (0, RoomOrderType_1.RoomOrderTypeToJSON)(value.roomTypes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomTypeOrderToJSON = RoomTypeOrderToJSON;

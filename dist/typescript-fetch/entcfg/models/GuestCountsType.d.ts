@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChildAgesType } from './ChildAgesType';
+import type { ChildAgeType } from './ChildAgeType';
 import type { ChildBucketsType } from './ChildBucketsType';
 /**
  * A collection of GuestCount by age group.
@@ -24,11 +24,11 @@ export interface GuestCountsType {
      */
     adults?: number;
     /**
-     *
-     * @type {ChildAgesType}
+     * Age of a child in years.
+     * @type {Array<ChildAgeType>}
      * @memberof GuestCountsType
      */
-    childAges?: ChildAgesType;
+    childAges?: Array<ChildAgeType>;
     /**
      *
      * @type {ChildBucketsType}

@@ -19,12 +19,12 @@ import {
     EventForecastInfoTypeFromJSONTyped,
     EventForecastInfoTypeToJSON,
 } from './EventForecastInfoType';
-import type { EventForecastRevDetailListType } from './EventForecastRevDetailListType';
+import type { EventForecastRevDetailType } from './EventForecastRevDetailType';
 import {
-    EventForecastRevDetailListTypeFromJSON,
-    EventForecastRevDetailListTypeFromJSONTyped,
-    EventForecastRevDetailListTypeToJSON,
-} from './EventForecastRevDetailListType';
+    EventForecastRevDetailTypeFromJSON,
+    EventForecastRevDetailTypeFromJSONTyped,
+    EventForecastRevDetailTypeToJSON,
+} from './EventForecastRevDetailType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -57,11 +57,11 @@ export interface EventForecastType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {EventForecastRevDetailListType}
+     * Collection of Event Forecast Revenue Details.
+     * @type {Array<EventForecastRevDetailType>}
      * @memberof EventForecastType
      */
-    revenueDetails?: EventForecastRevDetailListType;
+    revenueDetails?: Array<EventForecastRevDetailType>;
 }
 
 /**
@@ -86,7 +86,7 @@ export function EventForecastTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'forecastId': !exists(json, 'forecastId') ? undefined : UniqueIDTypeFromJSON(json['forecastId']),
         'forecastInfo': !exists(json, 'forecastInfo') ? undefined : ((json['forecastInfo'] as Array<any>).map(EventForecastInfoTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'revenueDetails': !exists(json, 'revenueDetails') ? undefined : EventForecastRevDetailListTypeFromJSON(json['revenueDetails']),
+        'revenueDetails': !exists(json, 'revenueDetails') ? undefined : ((json['revenueDetails'] as Array<any>).map(EventForecastRevDetailTypeFromJSON)),
     };
 }
 
@@ -102,7 +102,7 @@ export function EventForecastTypeToJSON(value?: EventForecastType | null): any {
         'forecastId': UniqueIDTypeToJSON(value.forecastId),
         'forecastInfo': value.forecastInfo === undefined ? undefined : ((value.forecastInfo as Array<any>).map(EventForecastInfoTypeToJSON)),
         'hotelId': value.hotelId,
-        'revenueDetails': EventForecastRevDetailListTypeToJSON(value.revenueDetails),
+        'revenueDetails': value.revenueDetails === undefined ? undefined : ((value.revenueDetails as Array<any>).map(EventForecastRevDetailTypeToJSON)),
     };
 }
 

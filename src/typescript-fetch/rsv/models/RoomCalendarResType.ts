@@ -43,24 +43,24 @@ import {
     ResGuaranteeTypeFromJSONTyped,
     ResGuaranteeTypeToJSON,
 } from './ResGuaranteeType';
-import type { ReservationIdList } from './ReservationIdList';
-import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
 import type { RoomCalendarDisplayType } from './RoomCalendarDisplayType';
 import {
     RoomCalendarDisplayTypeFromJSON,
     RoomCalendarDisplayTypeFromJSONTyped,
     RoomCalendarDisplayTypeToJSON,
 } from './RoomCalendarDisplayType';
-import type { RoomMoveDetailsType } from './RoomMoveDetailsType';
+import type { RoomMoveDetailType } from './RoomMoveDetailType';
 import {
-    RoomMoveDetailsTypeFromJSON,
-    RoomMoveDetailsTypeFromJSONTyped,
-    RoomMoveDetailsTypeToJSON,
-} from './RoomMoveDetailsType';
+    RoomMoveDetailTypeFromJSON,
+    RoomMoveDetailTypeFromJSONTyped,
+    RoomMoveDetailTypeToJSON,
+} from './RoomMoveDetailType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 import type { VIPStatusType } from './VIPStatusType';
 import {
     VIPStatusTypeFromJSON,
@@ -117,11 +117,11 @@ export interface RoomCalendarResType {
      */
     noOfRooms?: number;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RoomCalendarResType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {PMSResStatusType}
@@ -129,11 +129,11 @@ export interface RoomCalendarResType {
      */
     reservationStatus?: PMSResStatusType;
     /**
-     * 
-     * @type {RoomMoveDetailsType}
+     * List of room move details
+     * @type {Array<RoomMoveDetailType>}
      * @memberof RoomCalendarResType
      */
-    roomMoveHistory?: RoomMoveDetailsType;
+    roomMoveHistory?: Array<RoomMoveDetailType>;
     /**
      * Verify if the room number is locked for the reservation. When true the room number cannot be changed.
      * @type {boolean}
@@ -198,9 +198,9 @@ export function RoomCalendarResTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'guarantee': !exists(json, 'guarantee') ? undefined : ResGuaranteeTypeFromJSON(json['guarantee']),
         'hasLinkedReservations': !exists(json, 'hasLinkedReservations') ? undefined : LinkedReservationTypeFromJSON(json['hasLinkedReservations']),
         'noOfRooms': !exists(json, 'noOfRooms') ? undefined : json['noOfRooms'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'reservationStatus': !exists(json, 'reservationStatus') ? undefined : PMSResStatusTypeFromJSON(json['reservationStatus']),
-        'roomMoveHistory': !exists(json, 'roomMoveHistory') ? undefined : RoomMoveDetailsTypeFromJSON(json['roomMoveHistory']),
+        'roomMoveHistory': !exists(json, 'roomMoveHistory') ? undefined : ((json['roomMoveHistory'] as Array<any>).map(RoomMoveDetailTypeFromJSON)),
         'roomNumberLocked': !exists(json, 'roomNumberLocked') ? undefined : json['roomNumberLocked'],
         'roomScheduleDisplay': !exists(json, 'roomScheduleDisplay') ? undefined : RoomCalendarDisplayTypeFromJSON(json['roomScheduleDisplay']),
         'surname': !exists(json, 'surname') ? undefined : json['surname'],
@@ -226,9 +226,9 @@ export function RoomCalendarResTypeToJSON(value?: RoomCalendarResType | null): a
         'guarantee': ResGuaranteeTypeToJSON(value.guarantee),
         'hasLinkedReservations': LinkedReservationTypeToJSON(value.hasLinkedReservations),
         'noOfRooms': value.noOfRooms,
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'reservationStatus': PMSResStatusTypeToJSON(value.reservationStatus),
-        'roomMoveHistory': RoomMoveDetailsTypeToJSON(value.roomMoveHistory),
+        'roomMoveHistory': value.roomMoveHistory === undefined ? undefined : ((value.roomMoveHistory as Array<any>).map(RoomMoveDetailTypeToJSON)),
         'roomNumberLocked': value.roomNumberLocked,
         'roomScheduleDisplay': RoomCalendarDisplayTypeToJSON(value.roomScheduleDisplay),
         'surname': value.surname,

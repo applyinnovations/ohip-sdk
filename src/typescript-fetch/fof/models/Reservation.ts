@@ -19,24 +19,24 @@ import {
     CheckedInReservationInstructionTypeFromJSONTyped,
     CheckedInReservationInstructionTypeToJSON,
 } from './CheckedInReservationInstructionType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReservationReservation } from './ReservationReservation';
 import {
     ReservationReservationFromJSON,
     ReservationReservationFromJSONTyped,
     ReservationReservationToJSON,
 } from './ReservationReservation';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Validation checks includes the following: - Reservation is not valid to be checked in. - Split is still required before the reservation can be checked in. - Room information is missing. - Payment information is missing. - The status of the room needs to be reviewed. - Sharers was impacted. The check-in process affected the reservation details of shared guests on the reservation. - Sharers was not impacted. The check-in process has not affected the reservation details of shared guests on the reservation.
@@ -58,10 +58,10 @@ export interface Reservation {
     includeNotifications?: boolean;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Reservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ReservationReservation}
@@ -69,11 +69,11 @@ export interface Reservation {
      */
     reservation?: ReservationReservation;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Reservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -97,9 +97,9 @@ export function ReservationFromJSONTyped(json: any, ignoreDiscriminator: boolean
         
         'fetchReservationInstruction': !exists(json, 'fetchReservationInstruction') ? undefined : ((json['fetchReservationInstruction'] as Array<any>).map(CheckedInReservationInstructionTypeFromJSON)),
         'includeNotifications': !exists(json, 'includeNotifications') ? undefined : json['includeNotifications'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservation': !exists(json, 'reservation') ? undefined : ReservationReservationFromJSON(json['reservation']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -114,9 +114,9 @@ export function ReservationToJSON(value?: Reservation | null): any {
         
         'fetchReservationInstruction': value.fetchReservationInstruction === undefined ? undefined : ((value.fetchReservationInstruction as Array<any>).map(CheckedInReservationInstructionTypeToJSON)),
         'includeNotifications': value.includeNotifications,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservation': ReservationReservationToJSON(value.reservation),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

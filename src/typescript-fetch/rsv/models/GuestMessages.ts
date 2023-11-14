@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ResvGuestMessagesType } from './ResvGuestMessagesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ResvGuestMessageType } from './ResvGuestMessageType';
 import {
-    ResvGuestMessagesTypeFromJSON,
-    ResvGuestMessagesTypeFromJSONTyped,
-    ResvGuestMessagesTypeToJSON,
-} from './ResvGuestMessagesType';
-import type { WarningsType } from './WarningsType';
+    ResvGuestMessageTypeFromJSON,
+    ResvGuestMessageTypeFromJSONTyped,
+    ResvGuestMessageTypeToJSON,
+} from './ResvGuestMessageType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object to the request to retrieve Guest Messages for a Reservation.
@@ -39,11 +39,11 @@ import {
  */
 export interface GuestMessages {
     /**
-     * 
-     * @type {ResvGuestMessagesType}
+     * Holds the Message Information
+     * @type {Array<ResvGuestMessageType>}
      * @memberof GuestMessages
      */
-    guestMessages?: ResvGuestMessagesType;
+    guestMessages?: Array<ResvGuestMessageType>;
     /**
      * Indicates whether all the records are included in the response or not. Absence of the attribute values should be consider as all rows fetched in the response.
      * @type {boolean}
@@ -58,10 +58,10 @@ export interface GuestMessages {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuestMessages
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -81,11 +81,11 @@ export interface GuestMessages {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuestMessages
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -107,14 +107,14 @@ export function GuestMessagesFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'guestMessages': !exists(json, 'guestMessages') ? undefined : ResvGuestMessagesTypeFromJSON(json['guestMessages']),
+        'guestMessages': !exists(json, 'guestMessages') ? undefined : ((json['guestMessages'] as Array<any>).map(ResvGuestMessageTypeFromJSON)),
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -127,14 +127,14 @@ export function GuestMessagesToJSON(value?: GuestMessages | null): any {
     }
     return {
         
-        'guestMessages': ResvGuestMessagesTypeToJSON(value.guestMessages),
+        'guestMessages': value.guestMessages === undefined ? undefined : ((value.guestMessages as Array<any>).map(ResvGuestMessageTypeToJSON)),
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ItemIDListType } from './ItemIDListType';
-import {
-    ItemIDListTypeFromJSON,
-    ItemIDListTypeFromJSONTyped,
-    ItemIDListTypeToJSON,
-} from './ItemIDListType';
-
 /**
  * A type which holds the Item pool.
  * @export
@@ -57,11 +50,11 @@ export interface ItemPoolType {
      */
     itemClass?: string;
     /**
-     * 
-     * @type {ItemIDListType}
+     * Collection of Item Id which belongs to Item Code.
+     * @type {Array<number>}
      * @memberof ItemPoolType
      */
-    itemIds?: ItemIDListType;
+    itemIds?: Array<number>;
 }
 
 /**
@@ -88,7 +81,7 @@ export function ItemPoolTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'displaySequence': !exists(json, 'displaySequence') ? undefined : json['displaySequence'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'itemClass': !exists(json, 'itemClass') ? undefined : json['itemClass'],
-        'itemIds': !exists(json, 'itemIds') ? undefined : ItemIDListTypeFromJSON(json['itemIds']),
+        'itemIds': !exists(json, 'itemIds') ? undefined : json['itemIds'],
     };
 }
 
@@ -106,7 +99,7 @@ export function ItemPoolTypeToJSON(value?: ItemPoolType | null): any {
         'displaySequence': value.displaySequence,
         'hotelId': value.hotelId,
         'itemClass': value.itemClass,
-        'itemIds': ItemIDListTypeToJSON(value.itemIds),
+        'itemIds': value.itemIds,
     };
 }
 

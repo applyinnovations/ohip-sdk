@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReservationId } from './ReservationId';
 import {
     ReservationIdFromJSON,
     ReservationIdFromJSONTyped,
     ReservationIdToJSON,
 } from './ReservationId';
-import type { ReservationTransactionDiversionsType } from './ReservationTransactionDiversionsType';
+import type { ReservationTransactionDiversionType } from './ReservationTransactionDiversionType';
 import {
-    ReservationTransactionDiversionsTypeFromJSON,
-    ReservationTransactionDiversionsTypeFromJSONTyped,
-    ReservationTransactionDiversionsTypeToJSON,
-} from './ReservationTransactionDiversionsType';
-import type { WarningsType } from './WarningsType';
+    ReservationTransactionDiversionTypeFromJSON,
+    ReservationTransactionDiversionTypeFromJSONTyped,
+    ReservationTransactionDiversionTypeToJSON,
+} from './ReservationTransactionDiversionType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to modify transaction diversion rules attached to a reservation.
@@ -52,10 +52,10 @@ export interface TransactionDiversionsInfo {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransactionDiversionsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ReservationId}
@@ -63,17 +63,17 @@ export interface TransactionDiversionsInfo {
      */
     reservationId?: ReservationId;
     /**
-     * 
-     * @type {ReservationTransactionDiversionsType}
+     * List of Transaction Diversion rules.
+     * @type {Array<ReservationTransactionDiversionType>}
      * @memberof TransactionDiversionsInfo
      */
-    transactionDiversions?: ReservationTransactionDiversionsType;
+    transactionDiversions?: Array<ReservationTransactionDiversionType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransactionDiversionsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -96,10 +96,10 @@ export function TransactionDiversionsInfoFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
-        'transactionDiversions': !exists(json, 'transactionDiversions') ? undefined : ReservationTransactionDiversionsTypeFromJSON(json['transactionDiversions']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'transactionDiversions': !exists(json, 'transactionDiversions') ? undefined : ((json['transactionDiversions'] as Array<any>).map(ReservationTransactionDiversionTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -113,10 +113,10 @@ export function TransactionDiversionsInfoToJSON(value?: TransactionDiversionsInf
     return {
         
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservationId': ReservationIdToJSON(value.reservationId),
-        'transactionDiversions': ReservationTransactionDiversionsTypeToJSON(value.transactionDiversions),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'transactionDiversions': value.transactionDiversions === undefined ? undefined : ((value.transactionDiversions as Array<any>).map(ReservationTransactionDiversionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -18,7 +18,7 @@ const runtime_1 = require("../runtime");
 const CountryNameType_1 = require("./CountryNameType");
 const ProfileNameType_1 = require("./ProfileNameType");
 const StagedProfileStatus_1 = require("./StagedProfileStatus");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the StagedProfileSummaryType interface.
  */
@@ -39,7 +39,7 @@ function StagedProfileSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
         'country': !(0, runtime_1.exists)(json, 'country') ? undefined : (0, CountryNameType_1.CountryNameTypeFromJSON)(json['country']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'importDate': !(0, runtime_1.exists)(json, 'importDate') ? undefined : (new Date(json['importDate'])),
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'profileName': !(0, runtime_1.exists)(json, 'profileName') ? undefined : (0, ProfileNameType_1.ProfileNameTypeFromJSON)(json['profileName']),
         'profileType': !(0, runtime_1.exists)(json, 'profileType') ? undefined : json['profileType'],
         'region': !(0, runtime_1.exists)(json, 'region') ? undefined : json['region'],
@@ -58,7 +58,7 @@ function StagedProfileSummaryTypeToJSON(value) {
         'country': (0, CountryNameType_1.CountryNameTypeToJSON)(value.country),
         'hotelId': value.hotelId,
         'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substring(0, 10)),
-        'profileIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'profileName': (0, ProfileNameType_1.ProfileNameTypeToJSON)(value.profileName),
         'profileType': value.profileType,
         'region': value.region,

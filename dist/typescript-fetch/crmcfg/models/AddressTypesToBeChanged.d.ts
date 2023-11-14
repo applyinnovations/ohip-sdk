@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AddressTypesType } from './AddressTypesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { AddressTypeType } from './AddressTypeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing an existing Address Type.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AddressTypesToBeChanged {
     /**
-     *
-     * @type {AddressTypesType}
+     * Communication Role Enumeration element.
+     * @type {Array<AddressTypeType>}
      * @memberof AddressTypesToBeChanged
      */
-    addressTypes?: AddressTypesType;
+    addressTypes?: Array<AddressTypeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AddressTypesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AddressTypesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AddressTypesToBeChanged interface.

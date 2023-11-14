@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 import type { FlatAmtGenerateType } from './FlatAmtGenerateType';
-import type { FunctionArgumentsType } from './FunctionArgumentsType';
+import type { FunctionArgumentType } from './FunctionArgumentType';
 import type { GeneratePostingRuleType } from './GeneratePostingRuleType';
 import type { GenerateRoundingMethodType } from './GenerateRoundingMethodType';
 import type { PercentageGenerateType } from './PercentageGenerateType';
-import type { TaxTypesGenerateType } from './TaxTypesGenerateType';
+import type { TaxTypeGenerateType } from './TaxTypeGenerateType';
 /**
  * Defines the Calculation Rule for the generate.
  * @export
@@ -46,11 +46,11 @@ export interface GenerateCalcRuleType {
      */
     roundingMethod?: GenerateRoundingMethodType;
     /**
-     *
-     * @type {TaxTypesGenerateType}
+     * Defines the Calculation Rule for the Tax Type for a specific date schedule
+     * @type {Array<TaxTypeGenerateType>}
      * @memberof GenerateCalcRuleType
      */
-    taxTypeBased?: TaxTypesGenerateType;
+    taxTypeBased?: Array<TaxTypeGenerateType>;
     /**
      * Defines User Defined Function to calculate generates.
      * @type {string}
@@ -58,11 +58,11 @@ export interface GenerateCalcRuleType {
      */
     uDF?: string;
     /**
-     *
-     * @type {FunctionArgumentsType}
+     * Collection of function arguments and their corresponding values.
+     * @type {Array<FunctionArgumentType>}
      * @memberof GenerateCalcRuleType
      */
-    uDFFunctionArguments?: FunctionArgumentsType;
+    uDFFunctionArguments?: Array<FunctionArgumentType>;
     /**
      * The function name of the User Defined Function used to calculate generates.
      * @type {string}

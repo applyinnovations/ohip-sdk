@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MasterInfoType } from './MasterInfoType';
-import type { MembershipTypesType } from './MembershipTypesType';
-import type { WarningsType } from './WarningsType';
+import type { MembershipTypeType } from './MembershipTypeType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Membership Type.
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface MembershipTypesDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Refer to Generic common types document.
      * @type {Array<MasterInfoType>}
@@ -32,17 +32,17 @@ export interface MembershipTypesDetails {
      */
     masterInfoList?: Array<MasterInfoType>;
     /**
-     *
-     * @type {MembershipTypesType}
+     * Membership Type
+     * @type {Array<MembershipTypeType>}
      * @memberof MembershipTypesDetails
      */
-    membershipTypes?: MembershipTypesType;
+    membershipTypes?: Array<MembershipTypeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipTypesDetails interface.

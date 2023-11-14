@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 import type { BlockType } from './BlockType';
+import type { BookingStatusDetailType } from './BookingStatusDetailType';
+import type { BookingStatusHistoryType } from './BookingStatusHistoryType';
 import type { CancellationDetailsType } from './CancellationDetailsType';
-import type { CateringEventsProcessedInfoList } from './CateringEventsProcessedInfoList';
-import type { CateringNextStatusListType } from './CateringNextStatusListType';
-import type { CateringStatusChangeHistoryType } from './CateringStatusChangeHistoryType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CateringEventsProcessedInfoType } from './CateringEventsProcessedInfoType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for the request to change catering status. Response contains information on the block whose status was successfully changed.
  * @export
@@ -35,35 +35,35 @@ export interface ChangedCateringStatus {
      */
     cancellationDetails?: CancellationDetailsType;
     /**
-     *
-     * @type {CateringEventsProcessedInfoList}
+     * Status/Info of the processed events.
+     * @type {Array<CateringEventsProcessedInfoType>}
      * @memberof ChangedCateringStatus
      */
-    cateringEventsProcessedInfo?: CateringEventsProcessedInfoList;
+    cateringEventsProcessedInfo?: Array<CateringEventsProcessedInfoType>;
+    /**
+     * Next catering status of the business block.
+     * @type {Array<BookingStatusDetailType>}
+     * @memberof ChangedCateringStatus
+     */
+    cateringNextStatusList?: Array<BookingStatusDetailType>;
+    /**
+     * Collection of catering status history.
+     * @type {Array<BookingStatusHistoryType>}
+     * @memberof ChangedCateringStatus
+     */
+    cateringStatusChangeHistory?: Array<BookingStatusHistoryType>;
     /**
      *
-     * @type {CateringNextStatusListType}
+     * @type {Array<InstanceLink>}
      * @memberof ChangedCateringStatus
      */
-    cateringNextStatusList?: CateringNextStatusListType;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {CateringStatusChangeHistoryType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangedCateringStatus
      */
-    cateringStatusChangeHistory?: CateringStatusChangeHistoryType;
-    /**
-     *
-     * @type {Links}
-     * @memberof ChangedCateringStatus
-     */
-    links?: Links;
-    /**
-     *
-     * @type {WarningsType}
-     * @memberof ChangedCateringStatus
-     */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChangedCateringStatus interface.

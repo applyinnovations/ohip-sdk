@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CompetitionCodesDetailsToJSON = exports.CompetitionCodesDetailsFromJSONTyped = exports.CompetitionCodesDetailsFromJSON = exports.instanceOfCompetitionCodesDetails = void 0;
 const runtime_1 = require("../runtime");
-const CompetitionCodesType_1 = require("./CompetitionCodesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CompetitionCodeType_1 = require("./CompetitionCodeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CompetitionCodesDetails interface.
  */
@@ -35,9 +35,9 @@ function CompetitionCodesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'competitionCodes': !(0, runtime_1.exists)(json, 'competitionCodes') ? undefined : (0, CompetitionCodesType_1.CompetitionCodesTypeFromJSON)(json['competitionCodes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'competitionCodes': !(0, runtime_1.exists)(json, 'competitionCodes') ? undefined : (json['competitionCodes'].map(CompetitionCodeType_1.CompetitionCodeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CompetitionCodesDetailsFromJSONTyped = CompetitionCodesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function CompetitionCodesDetailsToJSON(value) {
         return null;
     }
     return {
-        'competitionCodes': (0, CompetitionCodesType_1.CompetitionCodesTypeToJSON)(value.competitionCodes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'competitionCodes': value.competitionCodes === undefined ? undefined : (value.competitionCodes.map(CompetitionCodeType_1.CompetitionCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CompetitionCodesDetailsToJSON = CompetitionCodesDetailsToJSON;

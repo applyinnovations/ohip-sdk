@@ -11,9 +11,9 @@
  */
 import type { GuaranteePolicyType } from './GuaranteePolicyType';
 import type { HotelReservationType } from './HotelReservationType';
-import type { Links } from './Links';
-import type { ValidationsReturnType } from './ValidationsReturnType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ValidationReturnType } from './ValidationReturnType';
+import type { WarningType } from './WarningType';
 /**
  * Response for validating reservation changes.
  * @export
@@ -22,10 +22,10 @@ import type { WarningsType } from './WarningsType';
 export interface ValidateReservationChangesDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ValidateReservationChangesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {HotelReservationType}
@@ -40,16 +40,16 @@ export interface ValidateReservationChangesDetails {
     reservationGuarantee?: GuaranteePolicyType;
     /**
      *
-     * @type {ValidationsReturnType}
+     * @type {Array<ValidationReturnType>}
      * @memberof ValidateReservationChangesDetails
      */
-    validationMessages?: ValidationsReturnType;
+    validationMessages?: Array<ValidationReturnType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ValidateReservationChangesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ValidateReservationChangesDetails interface.

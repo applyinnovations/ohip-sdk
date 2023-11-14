@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HousekeepingAttendantsToBeChangedToJSON = exports.HousekeepingAttendantsToBeChangedFromJSONTyped = exports.HousekeepingAttendantsToBeChangedFromJSON = exports.instanceOfHousekeepingAttendantsToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const HousekeepingAttendantsConfigType_1 = require("./HousekeepingAttendantsConfigType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HousekeepingAttendantType_1 = require("./HousekeepingAttendantType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the HousekeepingAttendantsToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function HousekeepingAttendantsToBeChangedFromJSONTyped(json, ignoreDiscriminato
         return json;
     }
     return {
-        'attendants': !(0, runtime_1.exists)(json, 'attendants') ? undefined : (0, HousekeepingAttendantsConfigType_1.HousekeepingAttendantsConfigTypeFromJSON)(json['attendants']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'attendants': !(0, runtime_1.exists)(json, 'attendants') ? undefined : (json['attendants'].map(HousekeepingAttendantType_1.HousekeepingAttendantTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.HousekeepingAttendantsToBeChangedFromJSONTyped = HousekeepingAttendantsToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function HousekeepingAttendantsToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'attendants': (0, HousekeepingAttendantsConfigType_1.HousekeepingAttendantsConfigTypeToJSON)(value.attendants),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'attendants': value.attendants === undefined ? undefined : (value.attendants.map(HousekeepingAttendantType_1.HousekeepingAttendantTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.HousekeepingAttendantsToBeChangedToJSON = HousekeepingAttendantsToBeChangedToJSON;

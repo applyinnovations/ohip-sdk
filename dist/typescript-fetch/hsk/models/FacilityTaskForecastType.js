@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FacilityTaskForecastTypeToJSON = exports.FacilityTaskForecastTypeFromJSONTyped = exports.FacilityTaskForecastTypeFromJSON = exports.instanceOfFacilityTaskForecastType = void 0;
 const runtime_1 = require("../runtime");
 const CodeDescriptionType_1 = require("./CodeDescriptionType");
-const FacilityCodesForecastType_1 = require("./FacilityCodesForecastType");
-const ForecastQuantitiesType_1 = require("./ForecastQuantitiesType");
+const FacilityCodeForecastType_1 = require("./FacilityCodeForecastType");
+const ForecastQuantityType_1 = require("./ForecastQuantityType");
 /**
  * Check if a given object implements the FacilityTaskForecastType interface.
  */
@@ -35,9 +35,9 @@ function FacilityTaskForecastTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'facilityCodes': !(0, runtime_1.exists)(json, 'facilityCodes') ? undefined : (0, FacilityCodesForecastType_1.FacilityCodesForecastTypeFromJSON)(json['facilityCodes']),
+        'facilityCodes': !(0, runtime_1.exists)(json, 'facilityCodes') ? undefined : (json['facilityCodes'].map(FacilityCodeForecastType_1.FacilityCodeForecastTypeFromJSON)),
         'task': !(0, runtime_1.exists)(json, 'task') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['task']),
-        'taskForecast': !(0, runtime_1.exists)(json, 'taskForecast') ? undefined : (0, ForecastQuantitiesType_1.ForecastQuantitiesTypeFromJSON)(json['taskForecast']),
+        'taskForecast': !(0, runtime_1.exists)(json, 'taskForecast') ? undefined : (json['taskForecast'].map(ForecastQuantityType_1.ForecastQuantityTypeFromJSON)),
     };
 }
 exports.FacilityTaskForecastTypeFromJSONTyped = FacilityTaskForecastTypeFromJSONTyped;
@@ -49,9 +49,9 @@ function FacilityTaskForecastTypeToJSON(value) {
         return null;
     }
     return {
-        'facilityCodes': (0, FacilityCodesForecastType_1.FacilityCodesForecastTypeToJSON)(value.facilityCodes),
+        'facilityCodes': value.facilityCodes === undefined ? undefined : (value.facilityCodes.map(FacilityCodeForecastType_1.FacilityCodeForecastTypeToJSON)),
         'task': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.task),
-        'taskForecast': (0, ForecastQuantitiesType_1.ForecastQuantitiesTypeToJSON)(value.taskForecast),
+        'taskForecast': value.taskForecast === undefined ? undefined : (value.taskForecast.map(ForecastQuantityType_1.ForecastQuantityTypeToJSON)),
     };
 }
 exports.FacilityTaskForecastTypeToJSON = FacilityTaskForecastTypeToJSON;

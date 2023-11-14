@@ -19,12 +19,12 @@ import {
     CopyAutoTraceDefinitionCriteriaTypeFromJSONTyped,
     CopyAutoTraceDefinitionCriteriaTypeToJSON,
 } from './CopyAutoTraceDefinitionCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for copying trace definition.
@@ -39,11 +39,11 @@ export interface AutoTraceDefinitionCopy {
      */
     criteria?: CopyAutoTraceDefinitionCriteriaType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoTraceDefinitionCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function AutoTraceDefinitionCopyFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : CopyAutoTraceDefinitionCriteriaTypeFromJSON(json['criteria']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function AutoTraceDefinitionCopyToJSON(value?: AutoTraceDefinitionCopy | 
     return {
         
         'criteria': CopyAutoTraceDefinitionCriteriaTypeToJSON(value.criteria),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

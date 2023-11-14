@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ResponseInstructionType } from './ResponseInstructionType';
 import {
     ResponseInstructionTypeFromJSON,
@@ -31,12 +31,12 @@ import {
     TourSeriesTypeFromJSONTyped,
     TourSeriesTypeToJSON,
 } from './TourSeriesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request for creating a tour series based on an existing block.
@@ -52,10 +52,10 @@ export interface TourSeries {
     criteria?: TourSeriesType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TourSeries
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ResponseInstructionType}
@@ -63,11 +63,11 @@ export interface TourSeries {
      */
     responseInstruction?: ResponseInstructionType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TourSeries
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -90,9 +90,9 @@ export function TourSeriesFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : TourSeriesTypeFromJSON(json['criteria']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'responseInstruction': !exists(json, 'responseInstruction') ? undefined : ResponseInstructionTypeFromJSON(json['responseInstruction']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -106,9 +106,9 @@ export function TourSeriesToJSON(value?: TourSeries | null): any {
     return {
         
         'criteria': TourSeriesTypeToJSON(value.criteria),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'responseInstruction': ResponseInstructionTypeToJSON(value.responseInstruction),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

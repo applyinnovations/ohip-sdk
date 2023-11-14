@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CashierClosureType } from './CashierClosureType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for the fetch Cashier Closure information.
  * @export
@@ -26,16 +26,16 @@ export interface CashierClosureDetails {
     cashierClosureInfo?: CashierClosureType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CashierClosureDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CashierClosureDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CashierClosureDetails interface.

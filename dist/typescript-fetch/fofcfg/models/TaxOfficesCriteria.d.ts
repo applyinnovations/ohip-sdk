@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TaxOfficesType } from './TaxOfficesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { TaxOfficeType } from './TaxOfficeType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Tax Offices.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TaxOfficesCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TaxOfficesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {TaxOfficesType}
+     * List of Tax Offices.
+     * @type {Array<TaxOfficeType>}
      * @memberof TaxOfficesCriteria
      */
-    taxOffices?: TaxOfficesType;
+    taxOffices?: Array<TaxOfficeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TaxOfficesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TaxOfficesCriteria interface.

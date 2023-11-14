@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DailyRatesType } from './DailyRatesType';
-import type { EffectiveRatesType } from './EffectiveRatesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { DailyRateType } from './DailyRateType';
+import type { EffectiveRateType } from './EffectiveRateType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Potential errors which this operation might respond are the following: - Reservation is NOT In-House. - The room is NON-EXISTENT for the hotel. - The room is NOT valid for usage based on its current state. - The room's occupancy level has been compromised. - The room's pricing is NOT available.
  * @export
@@ -20,35 +20,35 @@ import type { WarningsType } from './WarningsType';
  */
 export interface MovedInHouseGuest {
     /**
-     *
-     * @type {EffectiveRatesType}
+     * Collection of effective rate amount per guest on specific dates.
+     * @type {Array<EffectiveRateType>}
      * @memberof MovedInHouseGuest
      */
-    effectiveRates?: EffectiveRatesType;
+    effectiveRates?: Array<EffectiveRateType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MovedInHouseGuest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {DailyRatesType}
+     * Defines room rate information on a daily basis.
+     * @type {Array<DailyRateType>}
      * @memberof MovedInHouseGuest
      */
-    newRates?: DailyRatesType;
+    newRates?: Array<DailyRateType>;
     /**
-     *
-     * @type {DailyRatesType}
+     * Defines room rate information on a daily basis.
+     * @type {Array<DailyRateType>}
      * @memberof MovedInHouseGuest
      */
-    oldRates?: DailyRatesType;
+    oldRates?: Array<DailyRateType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MovedInHouseGuest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MovedInHouseGuest interface.

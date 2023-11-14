@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { AutoSettlementType } from './AutoSettlementType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request type for batch auto settlement.
  * @export
@@ -26,16 +26,16 @@ export interface BatchAutoSettlementCriteria {
     criteria?: AutoSettlementType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BatchAutoSettlementCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BatchAutoSettlementCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BatchAutoSettlementCriteria interface.

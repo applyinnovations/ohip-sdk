@@ -17,8 +17,8 @@ exports.ChannelRateMappingsToJSON = exports.ChannelRateMappingsFromJSONTyped = e
 const runtime_1 = require("../runtime");
 const ChannelRateMappingMasterInfoType_1 = require("./ChannelRateMappingMasterInfoType");
 const ChannelRateMappingsType_1 = require("./ChannelRateMappingsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChannelRateMappings interface.
  */
@@ -37,9 +37,9 @@ function ChannelRateMappingsFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'channelRateMappings': !(0, runtime_1.exists)(json, 'channelRateMappings') ? undefined : (0, ChannelRateMappingsType_1.ChannelRateMappingsTypeFromJSON)(json['channelRateMappings']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'masterInfo': !(0, runtime_1.exists)(json, 'masterInfo') ? undefined : (0, ChannelRateMappingMasterInfoType_1.ChannelRateMappingMasterInfoTypeFromJSON)(json['masterInfo']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChannelRateMappingsFromJSONTyped = ChannelRateMappingsFromJSONTyped;
@@ -52,9 +52,9 @@ function ChannelRateMappingsToJSON(value) {
     }
     return {
         'channelRateMappings': (0, ChannelRateMappingsType_1.ChannelRateMappingsTypeToJSON)(value.channelRateMappings),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'masterInfo': (0, ChannelRateMappingMasterInfoType_1.ChannelRateMappingMasterInfoTypeToJSON)(value.masterInfo),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChannelRateMappingsToJSON = ChannelRateMappingsToJSON;

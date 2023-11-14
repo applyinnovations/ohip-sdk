@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ActivityIdListType } from './ActivityIdListType';
+import type { ActivityId } from './ActivityId';
 import type { TimeSpanType } from './TimeSpanType';
 /**
  * A recently used activity details.
@@ -24,11 +24,11 @@ export interface RecentlyAccessedActivityType {
      */
     accessDate?: Date;
     /**
-     *
-     * @type {ActivityIdListType}
+     * Unique identifier for the Activity.
+     * @type {Array<ActivityId>}
      * @memberof RecentlyAccessedActivityType
      */
-    activityIdList?: ActivityIdListType;
+    activityIdList?: Array<ActivityId>;
     /**
      * Owner Code of the Activity.
      * @type {string}

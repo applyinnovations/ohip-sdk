@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AwardUpgradeSummariesType } from './AwardUpgradeSummariesType';
+import type { AwardUpgradeSummaryType } from './AwardUpgradeSummaryType';
 import type { TimeSpanType } from './TimeSpanType';
 /**
  *
@@ -18,11 +18,11 @@ import type { TimeSpanType } from './TimeSpanType';
  */
 export interface AwardUpgradeInfoType {
     /**
-     *
-     * @type {AwardUpgradeSummariesType}
+     * Summary information related to award upgrade.
+     * @type {Array<AwardUpgradeSummaryType>}
      * @memberof AwardUpgradeInfoType
      */
-    awardUpgradeSummaries?: AwardUpgradeSummariesType;
+    awardUpgradeSummaries?: Array<AwardUpgradeSummaryType>;
     /**
      * From Room type associated with the award.
      * @type {string}

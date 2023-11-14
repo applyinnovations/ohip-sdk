@@ -25,12 +25,12 @@ import {
     LetterTypeTypeFromJSONTyped,
     LetterTypeTypeToJSON,
 } from './LetterTypeType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Provide unique identification of Hotel Letter associated with a Booking Channel.
@@ -69,11 +69,11 @@ export interface ChannelHotelLetterType {
      */
     letterType?: LetterTypeType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelHotelLetterType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -100,7 +100,7 @@ export function ChannelHotelLetterTypeFromJSONTyped(json: any, ignoreDiscriminat
         'languageCode': !exists(json, 'languageCode') ? undefined : CodeDescriptionTypeFromJSON(json['languageCode']),
         'letterName': !exists(json, 'letterName') ? undefined : json['letterName'],
         'letterType': !exists(json, 'letterType') ? undefined : LetterTypeTypeFromJSON(json['letterType']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -118,7 +118,7 @@ export function ChannelHotelLetterTypeToJSON(value?: ChannelHotelLetterType | nu
         'languageCode': CodeDescriptionTypeToJSON(value.languageCode),
         'letterName': value.letterName,
         'letterType': LetterTypeTypeToJSON(value.letterType),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

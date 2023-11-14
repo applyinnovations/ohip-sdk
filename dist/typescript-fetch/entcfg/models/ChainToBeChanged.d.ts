@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChainConfigInfoType } from './ChainConfigInfoType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ChainDetailInfoType } from './ChainDetailInfoType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Chain.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ChainToBeChanged {
     /**
      *
-     * @type {ChainConfigInfoType}
+     * @type {Array<ChainDetailInfoType>}
      * @memberof ChainToBeChanged
      */
-    chains?: ChainConfigInfoType;
+    chains?: Array<ChainDetailInfoType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChainToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChainToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChainToBeChanged interface.

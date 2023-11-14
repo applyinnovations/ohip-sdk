@@ -13,18 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
+import type { ConfigOccupancyLevelType } from './ConfigOccupancyLevelType';
 import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-import type { ConfigOccupancyLevelsType } from './ConfigOccupancyLevelsType';
-import {
-    ConfigOccupancyLevelsTypeFromJSON,
-    ConfigOccupancyLevelsTypeFromJSONTyped,
-    ConfigOccupancyLevelsTypeToJSON,
-} from './ConfigOccupancyLevelsType';
+    ConfigOccupancyLevelTypeFromJSON,
+    ConfigOccupancyLevelTypeFromJSONTyped,
+    ConfigOccupancyLevelTypeToJSON,
+} from './ConfigOccupancyLevelType';
 import type { FormulaType } from './FormulaType';
 import {
     FormulaTypeFromJSON,
@@ -52,10 +46,10 @@ import {
 export interface ConfigUpsellRuleType {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigUpsellRuleType
      */
-    channels?: CodeListType;
+    channels?: Array<string>;
     /**
      * The currency code used in the upsell rule.
      * @type {string}
@@ -100,40 +94,40 @@ export interface ConfigUpsellRuleType {
     hotelId?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigUpsellRuleType
      */
-    marketCodes?: CodeListType;
+    marketCodes?: Array<string>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigUpsellRuleType
      */
-    membershipTypes?: CodeListType;
+    membershipTypes?: Array<string>;
+    /**
+     * This type holds a collection of upsell amounts by occupancy levels.
+     * @type {Array<ConfigOccupancyLevelType>}
+     * @memberof ConfigUpsellRuleType
+     */
+    occupancyLevelsType?: Array<ConfigOccupancyLevelType>;
     /**
      * 
-     * @type {ConfigOccupancyLevelsType}
+     * @type {Array<string>}
      * @memberof ConfigUpsellRuleType
      */
-    occupancyLevelsType?: ConfigOccupancyLevelsType;
+    rateCategories?: Array<string>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigUpsellRuleType
      */
-    rateCategories?: CodeListType;
+    rateCodes?: Array<string>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigUpsellRuleType
      */
-    rateCodes?: CodeListType;
-    /**
-     * 
-     * @type {CodeListType}
-     * @memberof ConfigUpsellRuleType
-     */
-    reservationTypes?: CodeListType;
+    reservationTypes?: Array<string>;
     /**
      * 
      * @type {RoundingRuleType}
@@ -209,7 +203,7 @@ export function ConfigUpsellRuleTypeFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'channels': !exists(json, 'channels') ? undefined : CodeListTypeFromJSON(json['channels']),
+        'channels': !exists(json, 'channels') ? undefined : json['channels'],
         'currencyCode': !exists(json, 'currencyCode') ? undefined : json['currencyCode'],
         'daysInAdvance': !exists(json, 'daysInAdvance') ? undefined : json['daysInAdvance'],
         'description': !exists(json, 'description') ? undefined : json['description'],
@@ -217,12 +211,12 @@ export function ConfigUpsellRuleTypeFromJSONTyped(json: any, ignoreDiscriminator
         'formula': !exists(json, 'formula') ? undefined : FormulaTypeFromJSON(json['formula']),
         'fromRoomTypeOrFromRoomClass': !exists(json, 'fromRoomTypeOrFromRoomClass') ? undefined : json['fromRoomTypeOrFromRoomClass'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'marketCodes': !exists(json, 'marketCodes') ? undefined : CodeListTypeFromJSON(json['marketCodes']),
-        'membershipTypes': !exists(json, 'membershipTypes') ? undefined : CodeListTypeFromJSON(json['membershipTypes']),
-        'occupancyLevelsType': !exists(json, 'occupancyLevelsType') ? undefined : ConfigOccupancyLevelsTypeFromJSON(json['occupancyLevelsType']),
-        'rateCategories': !exists(json, 'rateCategories') ? undefined : CodeListTypeFromJSON(json['rateCategories']),
-        'rateCodes': !exists(json, 'rateCodes') ? undefined : CodeListTypeFromJSON(json['rateCodes']),
-        'reservationTypes': !exists(json, 'reservationTypes') ? undefined : CodeListTypeFromJSON(json['reservationTypes']),
+        'marketCodes': !exists(json, 'marketCodes') ? undefined : json['marketCodes'],
+        'membershipTypes': !exists(json, 'membershipTypes') ? undefined : json['membershipTypes'],
+        'occupancyLevelsType': !exists(json, 'occupancyLevelsType') ? undefined : ((json['occupancyLevelsType'] as Array<any>).map(ConfigOccupancyLevelTypeFromJSON)),
+        'rateCategories': !exists(json, 'rateCategories') ? undefined : json['rateCategories'],
+        'rateCodes': !exists(json, 'rateCodes') ? undefined : json['rateCodes'],
+        'reservationTypes': !exists(json, 'reservationTypes') ? undefined : json['reservationTypes'],
         'roundingRule': !exists(json, 'roundingRule') ? undefined : RoundingRuleTypeFromJSON(json['roundingRule']),
         'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
         'toRoomTypeOrToRoomClass': !exists(json, 'toRoomTypeOrToRoomClass') ? undefined : json['toRoomTypeOrToRoomClass'],
@@ -244,7 +238,7 @@ export function ConfigUpsellRuleTypeToJSON(value?: ConfigUpsellRuleType | null):
     }
     return {
         
-        'channels': CodeListTypeToJSON(value.channels),
+        'channels': value.channels,
         'currencyCode': value.currencyCode,
         'daysInAdvance': value.daysInAdvance,
         'description': value.description,
@@ -252,12 +246,12 @@ export function ConfigUpsellRuleTypeToJSON(value?: ConfigUpsellRuleType | null):
         'formula': FormulaTypeToJSON(value.formula),
         'fromRoomTypeOrFromRoomClass': value.fromRoomTypeOrFromRoomClass,
         'hotelId': value.hotelId,
-        'marketCodes': CodeListTypeToJSON(value.marketCodes),
-        'membershipTypes': CodeListTypeToJSON(value.membershipTypes),
-        'occupancyLevelsType': ConfigOccupancyLevelsTypeToJSON(value.occupancyLevelsType),
-        'rateCategories': CodeListTypeToJSON(value.rateCategories),
-        'rateCodes': CodeListTypeToJSON(value.rateCodes),
-        'reservationTypes': CodeListTypeToJSON(value.reservationTypes),
+        'marketCodes': value.marketCodes,
+        'membershipTypes': value.membershipTypes,
+        'occupancyLevelsType': value.occupancyLevelsType === undefined ? undefined : ((value.occupancyLevelsType as Array<any>).map(ConfigOccupancyLevelTypeToJSON)),
+        'rateCategories': value.rateCategories,
+        'rateCodes': value.rateCodes,
+        'reservationTypes': value.reservationTypes,
         'roundingRule': RoundingRuleTypeToJSON(value.roundingRule),
         'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
         'toRoomTypeOrToRoomClass': value.toRoomTypeOrToRoomClass,

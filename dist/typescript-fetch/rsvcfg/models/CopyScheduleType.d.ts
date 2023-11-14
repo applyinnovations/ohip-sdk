@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * The Schedule copy criteria type.
@@ -25,10 +24,10 @@ export interface CopyScheduleType {
     scheduleId?: UniqueIDType;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyScheduleType
      */
-    targetHotelCodes?: CodeListType;
+    targetHotelCodes?: Array<string>;
 }
 /**
  * Check if a given object implements the CopyScheduleType interface.

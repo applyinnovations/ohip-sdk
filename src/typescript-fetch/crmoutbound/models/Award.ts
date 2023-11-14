@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { MemberAwardType } from './MemberAwardType';
 import {
     MemberAwardTypeFromJSON,
@@ -40,10 +40,10 @@ export interface Award {
     memberAward?: MemberAwardType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Award
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function AwardFromJSONTyped(json: any, ignoreDiscriminator: boolean): Awa
     return {
         
         'memberAward': !exists(json, 'memberAward') ? undefined : MemberAwardTypeFromJSON(json['memberAward']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function AwardToJSON(value?: Award | null): any {
     return {
         
         'memberAward': MemberAwardTypeToJSON(value.memberAward),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

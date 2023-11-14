@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { AdjustmentDetailType } from './AdjustmentDetailType';
+import {
+    AdjustmentDetailTypeFromJSON,
+    AdjustmentDetailTypeFromJSONTyped,
+    AdjustmentDetailTypeToJSON,
+} from './AdjustmentDetailType';
 import type { AdvancedBaseRateOffsetType } from './AdvancedBaseRateOffsetType';
 import {
     AdvancedBaseRateOffsetTypeFromJSON,
@@ -43,18 +49,6 @@ import {
     RatePlanScheduleClassificationsTypeFromJSONTyped,
     RatePlanScheduleClassificationsTypeToJSON,
 } from './RatePlanScheduleClassificationsType';
-import type { RoomTypeListType } from './RoomTypeListType';
-import {
-    RoomTypeListTypeFromJSON,
-    RoomTypeListTypeFromJSONTyped,
-    RoomTypeListTypeToJSON,
-} from './RoomTypeListType';
-import type { ScheduleAdjustmentDetailsType } from './ScheduleAdjustmentDetailsType';
-import {
-    ScheduleAdjustmentDetailsTypeFromJSON,
-    ScheduleAdjustmentDetailsTypeFromJSONTyped,
-    ScheduleAdjustmentDetailsTypeToJSON,
-} from './ScheduleAdjustmentDetailsType';
 import type { ScheduleRateAmountsType } from './ScheduleRateAmountsType';
 import {
     ScheduleRateAmountsTypeFromJSON,
@@ -69,11 +63,11 @@ import {
  */
 export interface RatePlanScheduleDetailType {
     /**
-     * 
-     * @type {ScheduleAdjustmentDetailsType}
+     * The list of adjustment codes for the rate plan schedule.
+     * @type {Array<AdjustmentDetailType>}
      * @memberof RatePlanScheduleDetailType
      */
-    adjustmentDetails?: ScheduleAdjustmentDetailsType;
+    adjustmentDetails?: Array<AdjustmentDetailType>;
     /**
      * 
      * @type {AdvancedBaseRateOffsetType}
@@ -135,11 +129,11 @@ export interface RatePlanScheduleDetailType {
      */
     rateSchedulePackages?: RatePackagesType;
     /**
-     * 
-     * @type {RoomTypeListType}
+     * Room Type.
+     * @type {Array<string>}
      * @memberof RatePlanScheduleDetailType
      */
-    roomTypeList?: RoomTypeListType;
+    roomTypeList?: Array<string>;
     /**
      * 
      * @type {boolean}
@@ -209,7 +203,7 @@ export function RatePlanScheduleDetailTypeFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'adjustmentDetails': !exists(json, 'adjustmentDetails') ? undefined : ScheduleAdjustmentDetailsTypeFromJSON(json['adjustmentDetails']),
+        'adjustmentDetails': !exists(json, 'adjustmentDetails') ? undefined : ((json['adjustmentDetails'] as Array<any>).map(AdjustmentDetailTypeFromJSON)),
         'advancedBaseRateOffset': !exists(json, 'advancedBaseRateOffset') ? undefined : AdvancedBaseRateOffsetTypeFromJSON(json['advancedBaseRateOffset']),
         'advancedDailyBaseRatePlanCode': !exists(json, 'advancedDailyBaseRatePlanCode') ? undefined : json['advancedDailyBaseRatePlanCode'],
         'classifications': !exists(json, 'classifications') ? undefined : RatePlanScheduleClassificationsTypeFromJSON(json['classifications']),
@@ -220,7 +214,7 @@ export function RatePlanScheduleDetailTypeFromJSONTyped(json: any, ignoreDiscrim
         'rateAmountBoundaries': !exists(json, 'rateAmountBoundaries') ? undefined : RateAmountBoundariesTypeFromJSON(json['rateAmountBoundaries']),
         'rateAmounts': !exists(json, 'rateAmounts') ? undefined : ScheduleRateAmountsTypeFromJSON(json['rateAmounts']),
         'rateSchedulePackages': !exists(json, 'rateSchedulePackages') ? undefined : RatePackagesTypeFromJSON(json['rateSchedulePackages']),
-        'roomTypeList': !exists(json, 'roomTypeList') ? undefined : RoomTypeListTypeFromJSON(json['roomTypeList']),
+        'roomTypeList': !exists(json, 'roomTypeList') ? undefined : json['roomTypeList'],
         'saturday': !exists(json, 'saturday') ? undefined : json['saturday'],
         'seasonCode': !exists(json, 'seasonCode') ? undefined : json['seasonCode'],
         'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
@@ -241,7 +235,7 @@ export function RatePlanScheduleDetailTypeToJSON(value?: RatePlanScheduleDetailT
     }
     return {
         
-        'adjustmentDetails': ScheduleAdjustmentDetailsTypeToJSON(value.adjustmentDetails),
+        'adjustmentDetails': value.adjustmentDetails === undefined ? undefined : ((value.adjustmentDetails as Array<any>).map(AdjustmentDetailTypeToJSON)),
         'advancedBaseRateOffset': AdvancedBaseRateOffsetTypeToJSON(value.advancedBaseRateOffset),
         'advancedDailyBaseRatePlanCode': value.advancedDailyBaseRatePlanCode,
         'classifications': RatePlanScheduleClassificationsTypeToJSON(value.classifications),
@@ -252,7 +246,7 @@ export function RatePlanScheduleDetailTypeToJSON(value?: RatePlanScheduleDetailT
         'rateAmountBoundaries': RateAmountBoundariesTypeToJSON(value.rateAmountBoundaries),
         'rateAmounts': ScheduleRateAmountsTypeToJSON(value.rateAmounts),
         'rateSchedulePackages': RatePackagesTypeToJSON(value.rateSchedulePackages),
-        'roomTypeList': RoomTypeListTypeToJSON(value.roomTypeList),
+        'roomTypeList': value.roomTypeList,
         'saturday': value.saturday,
         'seasonCode': value.seasonCode,
         'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),

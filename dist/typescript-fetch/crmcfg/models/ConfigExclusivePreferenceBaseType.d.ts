@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { PreferenceCodesType } from './PreferenceCodesType';
+import type { CodeDescriptionType } from './CodeDescriptionType';
 /**
  * Base details common between both template and property level Exclusive preference ids.
  * @export
@@ -29,11 +29,11 @@ export interface ConfigExclusivePreferenceBaseType {
      */
     orderSequence?: number;
     /**
-     *
-     * @type {PreferenceCodesType}
+     * Specifies the preference code and its description mapped to the exclusive preference.
+     * @type {Array<CodeDescriptionType>}
      * @memberof ConfigExclusivePreferenceBaseType
      */
-    preferenceCodes?: PreferenceCodesType;
+    preferenceCodes?: Array<CodeDescriptionType>;
     /**
      * Specifies the preference group the Exclusive preference belongs to.
      * @type {string}

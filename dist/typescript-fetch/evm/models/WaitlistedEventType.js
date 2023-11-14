@@ -16,18 +16,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.WaitlistedEventTypeToJSON = exports.WaitlistedEventTypeFromJSONTyped = exports.WaitlistedEventTypeFromJSON = exports.instanceOfWaitlistedEventType = void 0;
 const runtime_1 = require("../runtime");
 const BlockType_1 = require("./BlockType");
+const CateringEventResourceType_1 = require("./CateringEventResourceType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const EventDetailType_1 = require("./EventDetailType");
 const EventFunctionSpaceType_1 = require("./EventFunctionSpaceType");
-const EventNotesType_1 = require("./EventNotesType");
+const EventInfoType_1 = require("./EventInfoType");
+const EventNoteType_1 = require("./EventNoteType");
 const EventPrimaryInfoType_1 = require("./EventPrimaryInfoType");
 const EventProcessInstructionsType_1 = require("./EventProcessInstructionsType");
-const EventResourcesListType_1 = require("./EventResourcesListType");
 const EventRevenuesInformationType_1 = require("./EventRevenuesInformationType");
-const EventsInfoType_1 = require("./EventsInfoType");
-const IndicatorsType_1 = require("./IndicatorsType");
+const IndicatorType_1 = require("./IndicatorType");
 const LightEventDetailType_1 = require("./LightEventDetailType");
-const LightEventsDetailType_1 = require("./LightEventsDetailType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the WaitlistedEventType interface.
@@ -46,21 +45,21 @@ function WaitlistedEventTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'altEventsDetail': !(0, runtime_1.exists)(json, 'altEventsDetail') ? undefined : (0, LightEventsDetailType_1.LightEventsDetailTypeFromJSON)(json['altEventsDetail']),
-        'currentEventsHoldingFunctionSpace': !(0, runtime_1.exists)(json, 'currentEventsHoldingFunctionSpace') ? undefined : (0, EventsInfoType_1.EventsInfoTypeFromJSON)(json['currentEventsHoldingFunctionSpace']),
+        'altEventsDetail': !(0, runtime_1.exists)(json, 'altEventsDetail') ? undefined : (json['altEventsDetail'].map(LightEventDetailType_1.LightEventDetailTypeFromJSON)),
+        'currentEventsHoldingFunctionSpace': !(0, runtime_1.exists)(json, 'currentEventsHoldingFunctionSpace') ? undefined : (json['currentEventsHoldingFunctionSpace'].map(EventInfoType_1.EventInfoTypeFromJSON)),
         'eventBlockInfo': !(0, runtime_1.exists)(json, 'eventBlockInfo') ? undefined : (0, BlockType_1.BlockTypeFromJSON)(json['eventBlockInfo']),
         'eventDetail': !(0, runtime_1.exists)(json, 'eventDetail') ? undefined : (0, EventDetailType_1.EventDetailTypeFromJSON)(json['eventDetail']),
-        'eventIndicators': !(0, runtime_1.exists)(json, 'eventIndicators') ? undefined : (0, IndicatorsType_1.IndicatorsTypeFromJSON)(json['eventIndicators']),
-        'eventNotes': !(0, runtime_1.exists)(json, 'eventNotes') ? undefined : (0, EventNotesType_1.EventNotesTypeFromJSON)(json['eventNotes']),
+        'eventIndicators': !(0, runtime_1.exists)(json, 'eventIndicators') ? undefined : (json['eventIndicators'].map(IndicatorType_1.IndicatorTypeFromJSON)),
+        'eventNotes': !(0, runtime_1.exists)(json, 'eventNotes') ? undefined : (json['eventNotes'].map(EventNoteType_1.EventNoteTypeFromJSON)),
         'eventPrimaryInfo': !(0, runtime_1.exists)(json, 'eventPrimaryInfo') ? undefined : (0, EventPrimaryInfoType_1.EventPrimaryInfoTypeFromJSON)(json['eventPrimaryInfo']),
-        'eventResources': !(0, runtime_1.exists)(json, 'eventResources') ? undefined : (0, EventResourcesListType_1.EventResourcesListTypeFromJSON)(json['eventResources']),
+        'eventResources': !(0, runtime_1.exists)(json, 'eventResources') ? undefined : (json['eventResources'].map(CateringEventResourceType_1.CateringEventResourceTypeFromJSON)),
         'eventRevenues': !(0, runtime_1.exists)(json, 'eventRevenues') ? undefined : (0, EventRevenuesInformationType_1.EventRevenuesInformationTypeFromJSON)(json['eventRevenues']),
         'functionSpaceInformation': !(0, runtime_1.exists)(json, 'functionSpaceInformation') ? undefined : (0, EventFunctionSpaceType_1.EventFunctionSpaceTypeFromJSON)(json['functionSpaceInformation']),
         'masterEventDetail': !(0, runtime_1.exists)(json, 'masterEventDetail') ? undefined : (0, LightEventDetailType_1.LightEventDetailTypeFromJSON)(json['masterEventDetail']),
         'onTheBooksRevenue': !(0, runtime_1.exists)(json, 'onTheBooksRevenue') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['onTheBooksRevenue']),
         'priority': !(0, runtime_1.exists)(json, 'priority') ? undefined : json['priority'],
         'processInstructions': !(0, runtime_1.exists)(json, 'processInstructions') ? undefined : (0, EventProcessInstructionsType_1.EventProcessInstructionsTypeFromJSON)(json['processInstructions']),
-        'subEventsDetail': !(0, runtime_1.exists)(json, 'subEventsDetail') ? undefined : (0, LightEventsDetailType_1.LightEventsDetailTypeFromJSON)(json['subEventsDetail']),
+        'subEventsDetail': !(0, runtime_1.exists)(json, 'subEventsDetail') ? undefined : (json['subEventsDetail'].map(LightEventDetailType_1.LightEventDetailTypeFromJSON)),
         'updateDate': !(0, runtime_1.exists)(json, 'updateDate') ? undefined : (new Date(json['updateDate'])),
         'updateUser': !(0, runtime_1.exists)(json, 'updateUser') ? undefined : json['updateUser'],
         'waitlistDate': !(0, runtime_1.exists)(json, 'waitlistDate') ? undefined : (new Date(json['waitlistDate'])),
@@ -76,21 +75,21 @@ function WaitlistedEventTypeToJSON(value) {
         return null;
     }
     return {
-        'altEventsDetail': (0, LightEventsDetailType_1.LightEventsDetailTypeToJSON)(value.altEventsDetail),
-        'currentEventsHoldingFunctionSpace': (0, EventsInfoType_1.EventsInfoTypeToJSON)(value.currentEventsHoldingFunctionSpace),
+        'altEventsDetail': value.altEventsDetail === undefined ? undefined : (value.altEventsDetail.map(LightEventDetailType_1.LightEventDetailTypeToJSON)),
+        'currentEventsHoldingFunctionSpace': value.currentEventsHoldingFunctionSpace === undefined ? undefined : (value.currentEventsHoldingFunctionSpace.map(EventInfoType_1.EventInfoTypeToJSON)),
         'eventBlockInfo': (0, BlockType_1.BlockTypeToJSON)(value.eventBlockInfo),
         'eventDetail': (0, EventDetailType_1.EventDetailTypeToJSON)(value.eventDetail),
-        'eventIndicators': (0, IndicatorsType_1.IndicatorsTypeToJSON)(value.eventIndicators),
-        'eventNotes': (0, EventNotesType_1.EventNotesTypeToJSON)(value.eventNotes),
+        'eventIndicators': value.eventIndicators === undefined ? undefined : (value.eventIndicators.map(IndicatorType_1.IndicatorTypeToJSON)),
+        'eventNotes': value.eventNotes === undefined ? undefined : (value.eventNotes.map(EventNoteType_1.EventNoteTypeToJSON)),
         'eventPrimaryInfo': (0, EventPrimaryInfoType_1.EventPrimaryInfoTypeToJSON)(value.eventPrimaryInfo),
-        'eventResources': (0, EventResourcesListType_1.EventResourcesListTypeToJSON)(value.eventResources),
+        'eventResources': value.eventResources === undefined ? undefined : (value.eventResources.map(CateringEventResourceType_1.CateringEventResourceTypeToJSON)),
         'eventRevenues': (0, EventRevenuesInformationType_1.EventRevenuesInformationTypeToJSON)(value.eventRevenues),
         'functionSpaceInformation': (0, EventFunctionSpaceType_1.EventFunctionSpaceTypeToJSON)(value.functionSpaceInformation),
         'masterEventDetail': (0, LightEventDetailType_1.LightEventDetailTypeToJSON)(value.masterEventDetail),
         'onTheBooksRevenue': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.onTheBooksRevenue),
         'priority': value.priority,
         'processInstructions': (0, EventProcessInstructionsType_1.EventProcessInstructionsTypeToJSON)(value.processInstructions),
-        'subEventsDetail': (0, LightEventsDetailType_1.LightEventsDetailTypeToJSON)(value.subEventsDetail),
+        'subEventsDetail': value.subEventsDetail === undefined ? undefined : (value.subEventsDetail.map(LightEventDetailType_1.LightEventDetailTypeToJSON)),
         'updateDate': value.updateDate === undefined ? undefined : (value.updateDate.toISOString().substring(0, 10)),
         'updateUser': value.updateUser,
         'waitlistDate': value.waitlistDate === undefined ? undefined : (value.waitlistDate.toISOString().substring(0, 10)),

@@ -19,18 +19,18 @@ import {
     CurrencyAmountTypeFromJSONTyped,
     CurrencyAmountTypeToJSON,
 } from './CurrencyAmountType';
-import type { DetailPostingsType } from './DetailPostingsType';
+import type { DetailPostingType } from './DetailPostingType';
 import {
-    DetailPostingsTypeFromJSON,
-    DetailPostingsTypeFromJSONTyped,
-    DetailPostingsTypeToJSON,
-} from './DetailPostingsType';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
+    DetailPostingTypeFromJSON,
+    DetailPostingTypeFromJSONTyped,
+    DetailPostingTypeToJSON,
+} from './DetailPostingType';
+import type { TrxInfoType } from './TrxInfoType';
 import {
-    TrxCodesInfoTypeFromJSON,
-    TrxCodesInfoTypeFromJSONTyped,
-    TrxCodesInfoTypeToJSON,
-} from './TrxCodesInfoType';
+    TrxInfoTypeFromJSON,
+    TrxInfoTypeFromJSONTyped,
+    TrxInfoTypeToJSON,
+} from './TrxInfoType';
 
 /**
  * Collection of Reservations and their information.
@@ -45,11 +45,11 @@ export interface FinancialPostingsType {
      */
     overallTotal?: CurrencyAmountType;
     /**
-     * 
-     * @type {DetailPostingsType}
+     * Details of the transaction(Posting).
+     * @type {Array<DetailPostingType>}
      * @memberof FinancialPostingsType
      */
-    postings?: DetailPostingsType;
+    postings?: Array<DetailPostingType>;
     /**
      * 
      * @type {CurrencyAmountType}
@@ -75,11 +75,11 @@ export interface FinancialPostingsType {
      */
     totalForAllPages?: CurrencyAmountType;
     /**
-     * 
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof FinancialPostingsType
      */
-    transactionCodes?: TrxCodesInfoType;
+    transactionCodes?: Array<TrxInfoType>;
 }
 
 /**
@@ -102,12 +102,12 @@ export function FinancialPostingsTypeFromJSONTyped(json: any, ignoreDiscriminato
     return {
         
         'overallTotal': !exists(json, 'overallTotal') ? undefined : CurrencyAmountTypeFromJSON(json['overallTotal']),
-        'postings': !exists(json, 'postings') ? undefined : DetailPostingsTypeFromJSON(json['postings']),
+        'postings': !exists(json, 'postings') ? undefined : ((json['postings'] as Array<any>).map(DetailPostingTypeFromJSON)),
         'totalCredit': !exists(json, 'totalCredit') ? undefined : CurrencyAmountTypeFromJSON(json['totalCredit']),
         'totalDebit': !exists(json, 'totalDebit') ? undefined : CurrencyAmountTypeFromJSON(json['totalDebit']),
         'totalEntriesCount': !exists(json, 'totalEntriesCount') ? undefined : json['totalEntriesCount'],
         'totalForAllPages': !exists(json, 'totalForAllPages') ? undefined : CurrencyAmountTypeFromJSON(json['totalForAllPages']),
-        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : TrxCodesInfoTypeFromJSON(json['transactionCodes']),
+        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : ((json['transactionCodes'] as Array<any>).map(TrxInfoTypeFromJSON)),
     };
 }
 
@@ -121,12 +121,12 @@ export function FinancialPostingsTypeToJSON(value?: FinancialPostingsType | null
     return {
         
         'overallTotal': CurrencyAmountTypeToJSON(value.overallTotal),
-        'postings': DetailPostingsTypeToJSON(value.postings),
+        'postings': value.postings === undefined ? undefined : ((value.postings as Array<any>).map(DetailPostingTypeToJSON)),
         'totalCredit': CurrencyAmountTypeToJSON(value.totalCredit),
         'totalDebit': CurrencyAmountTypeToJSON(value.totalDebit),
         'totalEntriesCount': value.totalEntriesCount,
         'totalForAllPages': CurrencyAmountTypeToJSON(value.totalForAllPages),
-        'transactionCodes': TrxCodesInfoTypeToJSON(value.transactionCodes),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : ((value.transactionCodes as Array<any>).map(TrxInfoTypeToJSON)),
     };
 }
 

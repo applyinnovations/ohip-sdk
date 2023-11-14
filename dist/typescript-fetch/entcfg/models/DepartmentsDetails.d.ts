@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DepartmentsType } from './DepartmentsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { DepartmentType } from './DepartmentType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching departments.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface DepartmentsDetails {
     /**
-     *
-     * @type {DepartmentsType}
+     * Collection of departments.
+     * @type {Array<DepartmentType>}
      * @memberof DepartmentsDetails
      */
-    departments?: DepartmentsType;
+    departments?: Array<DepartmentType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DepartmentsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DepartmentsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DepartmentsDetails interface.

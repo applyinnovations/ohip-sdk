@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipTypesType } from './MembershipTypesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipTypeType } from './MembershipTypeType';
 import {
-    MembershipTypesTypeFromJSON,
-    MembershipTypesTypeFromJSONTyped,
-    MembershipTypesTypeToJSON,
-} from './MembershipTypesType';
-import type { WarningsType } from './WarningsType';
+    MembershipTypeTypeFromJSON,
+    MembershipTypeTypeFromJSONTyped,
+    MembershipTypeTypeToJSON,
+} from './MembershipTypeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Membership Types.
@@ -40,22 +40,22 @@ import {
 export interface MembershipTypes {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipTypes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MembershipTypesType}
+     * Membership Type
+     * @type {Array<MembershipTypeType>}
      * @memberof MembershipTypes
      */
-    membershipTypes?: MembershipTypesType;
+    membershipTypes?: Array<MembershipTypeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipTypes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MembershipTypesFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'membershipTypes': !exists(json, 'membershipTypes') ? undefined : MembershipTypesTypeFromJSON(json['membershipTypes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'membershipTypes': !exists(json, 'membershipTypes') ? undefined : ((json['membershipTypes'] as Array<any>).map(MembershipTypeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MembershipTypesToJSON(value?: MembershipTypes | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'membershipTypes': MembershipTypesTypeToJSON(value.membershipTypes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'membershipTypes': value.membershipTypes === undefined ? undefined : ((value.membershipTypes as Array<any>).map(MembershipTypeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

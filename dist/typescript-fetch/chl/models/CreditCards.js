@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreditCardsToJSON = exports.CreditCardsFromJSONTyped = exports.CreditCardsFromJSON = exports.instanceOfCreditCards = void 0;
 const runtime_1 = require("../runtime");
-const CreditCardsMappingType_1 = require("./CreditCardsMappingType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CreditCardMappingType_1 = require("./CreditCardMappingType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CreditCards interface.
  */
@@ -35,9 +35,9 @@ function CreditCardsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'creditCards': !(0, runtime_1.exists)(json, 'creditCards') ? undefined : (0, CreditCardsMappingType_1.CreditCardsMappingTypeFromJSON)(json['creditCards']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'creditCards': !(0, runtime_1.exists)(json, 'creditCards') ? undefined : (json['creditCards'].map(CreditCardMappingType_1.CreditCardMappingTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CreditCardsFromJSONTyped = CreditCardsFromJSONTyped;
@@ -49,9 +49,9 @@ function CreditCardsToJSON(value) {
         return null;
     }
     return {
-        'creditCards': (0, CreditCardsMappingType_1.CreditCardsMappingTypeToJSON)(value.creditCards),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'creditCards': value.creditCards === undefined ? undefined : (value.creditCards.map(CreditCardMappingType_1.CreditCardMappingTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CreditCardsToJSON = CreditCardsToJSON;

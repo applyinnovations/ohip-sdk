@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomRatingsInfoType } from './RoomRatingsInfoType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomRatingInfoType } from './RoomRatingInfoType';
 import {
-    RoomRatingsInfoTypeFromJSON,
-    RoomRatingsInfoTypeFromJSONTyped,
-    RoomRatingsInfoTypeToJSON,
-} from './RoomRatingsInfoType';
-import type { WarningsType } from './WarningsType';
+    RoomRatingInfoTypeFromJSON,
+    RoomRatingInfoTypeFromJSONTyped,
+    RoomRatingInfoTypeToJSON,
+} from './RoomRatingInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching the rooms and their rating details.
@@ -52,10 +52,10 @@ export interface RoomRatings {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomRatings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -63,11 +63,11 @@ export interface RoomRatings {
      */
     offset?: number;
     /**
-     * 
-     * @type {RoomRatingsInfoType}
+     * Collection of rooms and their ratings.
+     * @type {Array<RoomRatingInfoType>}
      * @memberof RoomRatings
      */
-    roomRatingsInfo?: RoomRatingsInfoType;
+    roomRatingsInfo?: Array<RoomRatingInfoType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -81,11 +81,11 @@ export interface RoomRatings {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomRatings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -109,12 +109,12 @@ export function RoomRatingsFromJSONTyped(json: any, ignoreDiscriminator: boolean
         
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
-        'roomRatingsInfo': !exists(json, 'roomRatingsInfo') ? undefined : RoomRatingsInfoTypeFromJSON(json['roomRatingsInfo']),
+        'roomRatingsInfo': !exists(json, 'roomRatingsInfo') ? undefined : ((json['roomRatingsInfo'] as Array<any>).map(RoomRatingInfoTypeFromJSON)),
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -129,12 +129,12 @@ export function RoomRatingsToJSON(value?: RoomRatings | null): any {
         
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
-        'roomRatingsInfo': RoomRatingsInfoTypeToJSON(value.roomRatingsInfo),
+        'roomRatingsInfo': value.roomRatingsInfo === undefined ? undefined : ((value.roomRatingsInfo as Array<any>).map(RoomRatingInfoTypeToJSON)),
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

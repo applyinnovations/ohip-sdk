@@ -19,12 +19,12 @@ import {
     ExternalProfileSummariesTypeFromJSONTyped,
     ExternalProfileSummariesTypeToJSON,
 } from './ExternalProfileSummariesType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 
 /**
  * Response object for fetching profiles from external CRM System. This object contains profile primary details, profile summary details, master info list containing code and description used as lookup for description.
@@ -40,10 +40,10 @@ export interface ExternalProfiles {
     externalProfileSummaries?: ExternalProfileSummariesType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExternalProfiles
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function ExternalProfilesFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'externalProfileSummaries': !exists(json, 'externalProfileSummaries') ? undefined : ExternalProfileSummariesTypeFromJSON(json['externalProfileSummaries']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function ExternalProfilesToJSON(value?: ExternalProfiles | null): any {
     return {
         
         'externalProfileSummaries': ExternalProfileSummariesTypeToJSON(value.externalProfileSummaries),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

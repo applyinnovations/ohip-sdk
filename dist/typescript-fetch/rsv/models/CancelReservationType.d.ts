@@ -13,28 +13,27 @@ import type { AdvanceCheckInType } from './AdvanceCheckInType';
 import type { CancelReservationTypeCancellationInfo } from './CancelReservationTypeCancellationInfo';
 import type { CancellationInstructionsType } from './CancellationInstructionsType';
 import type { CommissionPayoutToType } from './CommissionPayoutToType';
-import type { ExternalReferencesType } from './ExternalReferencesType';
+import type { ExternalReferenceType } from './ExternalReferenceType';
 import type { HousekeepingRoomStatusType } from './HousekeepingRoomStatusType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import type { PMSResStatusType } from './PMSResStatusType';
 import type { ResAccessRestrictionType } from './ResAccessRestrictionType';
-import type { ResAttachedProfileListType } from './ResAttachedProfileListType';
+import type { ResAttachedProfileType } from './ResAttachedProfileType';
 import type { ResCashieringType } from './ResCashieringType';
 import type { ResCommunicationType } from './ResCommunicationType';
 import type { ResGuestInfoType } from './ResGuestInfoType';
 import type { ResHousekeepingType } from './ResHousekeepingType';
 import type { ResMobileNotificationsType } from './ResMobileNotificationsType';
 import type { ResRevenueBalanceType } from './ResRevenueBalanceType';
-import type { ResSharedGuestListType } from './ResSharedGuestListType';
-import type { ReservationAllowedActionsType } from './ReservationAllowedActionsType';
+import type { ResSharedGuestInfoType } from './ResSharedGuestInfoType';
+import type { ReservationAllowedActionType } from './ReservationAllowedActionType';
 import type { ReservationDepositType } from './ReservationDepositType';
-import type { ReservationFolioWindowsType } from './ReservationFolioWindowsType';
-import type { ReservationIdList } from './ReservationIdList';
+import type { ReservationFolioWindowType } from './ReservationFolioWindowType';
 import type { ReservationInterfaceStatusType } from './ReservationInterfaceStatusType';
 import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
 import type { ReservationQueueInformationType } from './ReservationQueueInformationType';
 import type { ReservationTurndownInfoType } from './ReservationTurndownInfoType';
-import type { SearchMatchesType } from './SearchMatchesType';
+import type { SearchMatchType } from './SearchMatchType';
 import type { SourceOfSaleType } from './SourceOfSaleType';
 import type { StayInfoType } from './StayInfoType';
 import type { TaxTypeType } from './TaxTypeType';
@@ -71,17 +70,17 @@ export interface CancelReservationType {
      */
     allowMobileViewFolio?: boolean;
     /**
-     *
-     * @type {ReservationAllowedActionsType}
+     * Allowed action.
+     * @type {Array<ReservationAllowedActionType>}
      * @memberof CancelReservationType
      */
-    allowedActions?: ReservationAllowedActionsType;
+    allowedActions?: Array<ReservationAllowedActionType>;
     /**
      *
-     * @type {ResAttachedProfileListType}
+     * @type {Array<ResAttachedProfileType>}
      * @memberof CancelReservationType
      */
-    attachedProfiles?: ResAttachedProfileListType;
+    attachedProfiles?: Array<ResAttachedProfileType>;
     /**
      *
      * @type {CancelReservationTypeCancellationInfo}
@@ -149,11 +148,11 @@ export interface CancelReservationType {
      */
     externalCancellationId?: string;
     /**
-     *
-     * @type {ExternalReferencesType}
+     * This type contains unique information of external reference.
+     * @type {Array<ExternalReferenceType>}
      * @memberof CancelReservationType
      */
-    externalReferences?: ExternalReferencesType;
+    externalReferences?: Array<ExternalReferenceType>;
     /**
      *
      * @type {string}
@@ -263,11 +262,11 @@ export interface CancelReservationType {
      */
     reservationCommunication?: ResCommunicationType;
     /**
-     *
-     * @type {ReservationFolioWindowsType}
+     * Collection of reservation folio windows.
+     * @type {Array<ReservationFolioWindowType>}
      * @memberof CancelReservationType
      */
-    reservationFolioWindows?: ReservationFolioWindowsType;
+    reservationFolioWindows?: Array<ReservationFolioWindowType>;
     /**
      *
      * @type {ResGuestInfoType}
@@ -275,17 +274,17 @@ export interface CancelReservationType {
      */
     reservationGuest?: ResGuestInfoType;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CancelReservationType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
-     *
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof CancelReservationType
      */
-    reservationIndicators?: IndicatorsType;
+    reservationIndicators?: Array<IndicatorType>;
     /**
      *
      * @type {number}
@@ -329,17 +328,17 @@ export interface CancelReservationType {
      */
     roomStayReservation?: boolean;
     /**
-     *
-     * @type {SearchMatchesType}
+     * List of Generic Name-Value-Pair Parameters used for super search matches.
+     * @type {Array<SearchMatchType>}
      * @memberof CancelReservationType
      */
-    searchMatches?: SearchMatchesType;
+    searchMatches?: Array<SearchMatchType>;
     /**
-     *
-     * @type {ResSharedGuestListType}
+     * Collection of shared guest reservations.
+     * @type {Array<ResSharedGuestInfoType>}
      * @memberof CancelReservationType
      */
-    sharedGuests?: ResSharedGuestListType;
+    sharedGuests?: Array<ResSharedGuestInfoType>;
     /**
      *
      * @type {SourceOfSaleType}

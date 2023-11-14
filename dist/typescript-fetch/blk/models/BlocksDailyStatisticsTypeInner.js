@@ -15,9 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlocksDailyStatisticsTypeInnerToJSON = exports.BlocksDailyStatisticsTypeInnerFromJSONTyped = exports.BlocksDailyStatisticsTypeInnerFromJSON = exports.instanceOfBlocksDailyStatisticsTypeInner = void 0;
 const runtime_1 = require("../runtime");
-const BlockDailyStatisticsDatesType_1 = require("./BlockDailyStatisticsDatesType");
-const BlockIdList_1 = require("./BlockIdList");
 const TimeSpanType_1 = require("./TimeSpanType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the BlocksDailyStatisticsTypeInner interface.
  */
@@ -36,10 +35,10 @@ function BlocksDailyStatisticsTypeInnerFromJSONTyped(json, ignoreDiscriminator) 
     }
     return {
         'blockCode': !(0, runtime_1.exists)(json, 'blockCode') ? undefined : json['blockCode'],
-        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (0, BlockIdList_1.BlockIdListFromJSON)(json['blockIdList']),
+        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'blockName': !(0, runtime_1.exists)(json, 'blockName') ? undefined : json['blockName'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'stayDates': !(0, runtime_1.exists)(json, 'stayDates') ? undefined : (json['stayDates'].map(BlockDailyStatisticsDatesType_1.BlockDailyStatisticsDatesTypeFromJSON)),
+        'stayDates': !(0, runtime_1.exists)(json, 'stayDates') ? undefined : json['stayDates'],
         'timeSpan': !(0, runtime_1.exists)(json, 'timeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['timeSpan']),
     };
 }
@@ -53,10 +52,10 @@ function BlocksDailyStatisticsTypeInnerToJSON(value) {
     }
     return {
         'blockCode': value.blockCode,
-        'blockIdList': (0, BlockIdList_1.BlockIdListToJSON)(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'blockName': value.blockName,
         'hotelId': value.hotelId,
-        'stayDates': value.stayDates === undefined ? undefined : (value.stayDates.map(BlockDailyStatisticsDatesType_1.BlockDailyStatisticsDatesTypeToJSON)),
+        'stayDates': value.stayDates,
         'timeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.timeSpan),
     };
 }

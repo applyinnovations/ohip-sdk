@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ReservationConfLettersListType } from './ReservationConfLettersListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ReservationConfLettersType } from './ReservationConfLettersType';
 import {
-    ReservationConfLettersListTypeFromJSON,
-    ReservationConfLettersListTypeFromJSONTyped,
-    ReservationConfLettersListTypeToJSON,
-} from './ReservationConfLettersListType';
-import type { WarningsType } from './WarningsType';
+    ReservationConfLettersTypeFromJSON,
+    ReservationConfLettersTypeFromJSONTyped,
+    ReservationConfLettersTypeToJSON,
+} from './ReservationConfLettersType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object to the request to fetch a list of reservations for which confirmation letters need to be sent.
@@ -40,22 +40,22 @@ import {
 export interface ReservationConfirmationLetters {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationConfirmationLetters
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ReservationConfLettersListType}
+     * Reservations information and the confirmation letters type attached with them.
+     * @type {Array<ReservationConfLettersType>}
      * @memberof ReservationConfirmationLetters
      */
-    resrvationInfoList?: ReservationConfLettersListType;
+    resrvationInfoList?: Array<ReservationConfLettersType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationConfirmationLetters
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ReservationConfirmationLettersFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'resrvationInfoList': !exists(json, 'resrvationInfoList') ? undefined : ReservationConfLettersListTypeFromJSON(json['resrvationInfoList']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'resrvationInfoList': !exists(json, 'resrvationInfoList') ? undefined : ((json['resrvationInfoList'] as Array<any>).map(ReservationConfLettersTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ReservationConfirmationLettersToJSON(value?: ReservationConfirma
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'resrvationInfoList': ReservationConfLettersListTypeToJSON(value.resrvationInfoList),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'resrvationInfoList': value.resrvationInfoList === undefined ? undefined : ((value.resrvationInfoList as Array<any>).map(ReservationConfLettersTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

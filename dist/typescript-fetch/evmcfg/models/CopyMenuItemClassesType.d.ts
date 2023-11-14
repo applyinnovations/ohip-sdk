@@ -9,9 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { CopyMenuItemClassesTypeCopyInstructions } from './CopyMenuItemClassesTypeCopyInstructions';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -25,11 +24,11 @@ export interface CopyMenuItemClassesType {
      */
     copyInstructions?: CopyMenuItemClassesTypeCopyInstructions;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CopyMenuItemClassesType
      */
-    itemClasses?: UniqueIDListType;
+    itemClasses?: Array<UniqueIDType>;
     /**
      * Source Hotel code from where menu item classes needs to be copied
      * @type {string}
@@ -38,10 +37,10 @@ export interface CopyMenuItemClassesType {
     sourceHotelCode?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyMenuItemClassesType
      */
-    targetHotelCodes?: CodeListType;
+    targetHotelCodes?: Array<string>;
 }
 /**
  * Check if a given object implements the CopyMenuItemClassesType interface.

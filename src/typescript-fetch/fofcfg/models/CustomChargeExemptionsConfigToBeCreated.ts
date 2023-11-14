@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CustomChargeExemptionsConfigType } from './CustomChargeExemptionsConfigType';
+import type { CustomChargeExemptionConfigType } from './CustomChargeExemptionConfigType';
 import {
-    CustomChargeExemptionsConfigTypeFromJSON,
-    CustomChargeExemptionsConfigTypeFromJSONTyped,
-    CustomChargeExemptionsConfigTypeToJSON,
-} from './CustomChargeExemptionsConfigType';
-import type { WarningsType } from './WarningsType';
+    CustomChargeExemptionConfigTypeFromJSON,
+    CustomChargeExemptionConfigTypeFromJSONTyped,
+    CustomChargeExemptionConfigTypeToJSON,
+} from './CustomChargeExemptionConfigType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -34,16 +34,16 @@ import {
 export interface CustomChargeExemptionsConfigToBeCreated {
     /**
      * New one or more Custom Charge Exemptions to be created.
-     * @type {Array<CustomChargeExemptionsConfigType>}
+     * @type {Array<Array<CustomChargeExemptionConfigType>>}
      * @memberof CustomChargeExemptionsConfigToBeCreated
      */
-    customChargeExemptionsConfig?: Array<CustomChargeExemptionsConfigType>;
+    customChargeExemptionsConfig?: Array<Array<CustomChargeExemptionConfigType>>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CustomChargeExemptionsConfigToBeCreated
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function CustomChargeExemptionsConfigToBeCreatedFromJSONTyped(json: any, 
     }
     return {
         
-        'customChargeExemptionsConfig': !exists(json, 'customChargeExemptionsConfig') ? undefined : ((json['customChargeExemptionsConfig'] as Array<any>).map(CustomChargeExemptionsConfigTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'customChargeExemptionsConfig': !exists(json, 'customChargeExemptionsConfig') ? undefined : json['customChargeExemptionsConfig'],
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function CustomChargeExemptionsConfigToBeCreatedToJSON(value?: CustomChar
     }
     return {
         
-        'customChargeExemptionsConfig': value.customChargeExemptionsConfig === undefined ? undefined : ((value.customChargeExemptionsConfig as Array<any>).map(CustomChargeExemptionsConfigTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'customChargeExemptionsConfig': value.customChargeExemptionsConfig,
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

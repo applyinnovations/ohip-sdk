@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ProfileNameValidationEditType } from './ProfileNameValidationEditType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to edit Profile names.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ProfileNameValidationsToChange {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileNameValidationsToChange
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ProfileNameValidationEditType}
@@ -31,11 +31,11 @@ export interface ProfileNameValidationsToChange {
      */
     profileNames?: ProfileNameValidationEditType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileNameValidationsToChange
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ProfileNameValidationsToChange interface.

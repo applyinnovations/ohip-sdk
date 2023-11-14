@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelContactTypeToJSON = exports.HotelContactTypeFromJSONTyped = exports.HotelContactTypeFromJSON = exports.instanceOfHotelContactType = void 0;
 const runtime_1 = require("../runtime");
-const HotelContactRolesType_1 = require("./HotelContactRolesType");
+const HotelContactRoleType_1 = require("./HotelContactRoleType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the HotelContactType interface.
@@ -41,7 +41,7 @@ function HotelContactTypeFromJSONTyped(json, ignoreDiscriminator) {
         'nameId': !(0, runtime_1.exists)(json, 'nameId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['nameId']),
         'ownerCode': !(0, runtime_1.exists)(json, 'ownerCode') ? undefined : json['ownerCode'],
         'primary': !(0, runtime_1.exists)(json, 'primary') ? undefined : json['primary'],
-        'roles': !(0, runtime_1.exists)(json, 'roles') ? undefined : (0, HotelContactRolesType_1.HotelContactRolesTypeFromJSON)(json['roles']),
+        'roles': !(0, runtime_1.exists)(json, 'roles') ? undefined : (json['roles'].map(HotelContactRoleType_1.HotelContactRoleTypeFromJSON)),
     };
 }
 exports.HotelContactTypeFromJSONTyped = HotelContactTypeFromJSONTyped;
@@ -60,7 +60,7 @@ function HotelContactTypeToJSON(value) {
         'nameId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.nameId),
         'ownerCode': value.ownerCode,
         'primary': value.primary,
-        'roles': (0, HotelContactRolesType_1.HotelContactRolesTypeToJSON)(value.roles),
+        'roles': value.roles === undefined ? undefined : (value.roles.map(HotelContactRoleType_1.HotelContactRoleTypeToJSON)),
     };
 }
 exports.HotelContactTypeToJSON = HotelContactTypeToJSON;

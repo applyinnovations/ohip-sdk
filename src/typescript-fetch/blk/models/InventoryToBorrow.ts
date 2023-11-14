@@ -25,24 +25,24 @@ import {
     BorrowInventoryTypeFromJSONTyped,
     BorrowInventoryTypeToJSON,
 } from './BorrowInventoryType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
     UniqueIDTypeFromJSONTyped,
     UniqueIDTypeToJSON,
 } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * The standard optional Opera Context element is also included.
@@ -82,10 +82,10 @@ export interface InventoryToBorrow {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof InventoryToBorrow
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Indicates whether to overbook the Sales Allowance in case there are no rooms left at the Generic Sales Allowance level.
      * @type {boolean}
@@ -99,11 +99,11 @@ export interface InventoryToBorrow {
      */
     roomType?: string;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof InventoryToBorrow
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -130,10 +130,10 @@ export function InventoryToBorrowFromJSONTyped(json: any, ignoreDiscriminator: b
         'borrowInventoryList': !exists(json, 'borrowInventoryList') ? undefined : ((json['borrowInventoryList'] as Array<any>).map(BorrowInventoryTypeFromJSON)),
         'existingReservationId': !exists(json, 'existingReservationId') ? undefined : UniqueIDTypeFromJSON(json['existingReservationId']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'overbookSalesAllowance': !exists(json, 'overbookSalesAllowance') ? undefined : json['overbookSalesAllowance'],
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -151,10 +151,10 @@ export function InventoryToBorrowToJSON(value?: InventoryToBorrow | null): any {
         'borrowInventoryList': value.borrowInventoryList === undefined ? undefined : ((value.borrowInventoryList as Array<any>).map(BorrowInventoryTypeToJSON)),
         'existingReservationId': UniqueIDTypeToJSON(value.existingReservationId),
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'overbookSalesAllowance': value.overbookSalesAllowance,
         'roomType': value.roomType,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

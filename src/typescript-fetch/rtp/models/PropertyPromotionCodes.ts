@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { PropertyPromotionCodesPropertyPromotionCodes } from './PropertyPromotionCodesPropertyPromotionCodes';
 import {
     PropertyPromotionCodesPropertyPromotionCodesFromJSON,
     PropertyPromotionCodesPropertyPromotionCodesFromJSONTyped,
     PropertyPromotionCodesPropertyPromotionCodesToJSON,
 } from './PropertyPromotionCodesPropertyPromotionCodes';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,10 +40,10 @@ import {
 export interface PropertyPromotionCodes {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PropertyPromotionCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {PropertyPromotionCodesPropertyPromotionCodes}
@@ -51,11 +51,11 @@ export interface PropertyPromotionCodes {
      */
     propertyPromotionCodes?: PropertyPromotionCodesPropertyPromotionCodes;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PropertyPromotionCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function PropertyPromotionCodesFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'propertyPromotionCodes': !exists(json, 'propertyPromotionCodes') ? undefined : PropertyPromotionCodesPropertyPromotionCodesFromJSON(json['propertyPromotionCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function PropertyPromotionCodesToJSON(value?: PropertyPromotionCodes | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'propertyPromotionCodes': PropertyPromotionCodesPropertyPromotionCodesToJSON(value.propertyPromotionCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

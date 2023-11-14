@@ -9,8 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
-import type { CodeListType10 } from './CodeListType10';
 /**
  * The hotel code where the activity type was created.
  * @export
@@ -19,10 +17,10 @@ import type { CodeListType10 } from './CodeListType10';
 export interface CopyActivityConfigCriteriaTypeCopyActivityConfig {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyActivityConfigCriteriaTypeCopyActivityConfig
      */
-    activityCodeList?: CodeListType;
+    activityCodeList?: Array<string>;
     /**
      * The hotel code where the activity type was created.
      * @type {string}
@@ -31,10 +29,10 @@ export interface CopyActivityConfigCriteriaTypeCopyActivityConfig {
     sourceHotelCode?: string;
     /**
      *
-     * @type {CodeListType10}
+     * @type {Array<string>}
      * @memberof CopyActivityConfigCriteriaTypeCopyActivityConfig
      */
-    targetHotelCode?: CodeListType10;
+    targetHotelCode?: Array<string>;
 }
 /**
  * Check if a given object implements the CopyActivityConfigCriteriaTypeCopyActivityConfig interface.

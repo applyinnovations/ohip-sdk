@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { InstanceLink } from './InstanceLink';
 import type { LinkedReservationsInfoType } from './LinkedReservationsInfoType';
-import type { Links } from './Links';
-import type { UniqueIDListType } from './UniqueIDListType';
-import type { WarningsType } from './WarningsType';
+import type { UniqueIDType } from './UniqueIDType';
+import type { WarningType } from './WarningType';
 /**
  * Response for splitting multi-room reservation into separate reservations.
  * @export
@@ -27,22 +27,22 @@ export interface SplitMultiRoomReservationDetails {
     linkedReservations?: LinkedReservationsInfoType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SplitMultiRoomReservationDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof SplitMultiRoomReservationDetails
      */
-    newReservationIdList?: UniqueIDListType;
+    newReservationIdList?: Array<UniqueIDType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SplitMultiRoomReservationDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SplitMultiRoomReservationDetails interface.

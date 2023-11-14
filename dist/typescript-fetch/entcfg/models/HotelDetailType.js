@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelDetailTypeToJSON = exports.HotelDetailTypeFromJSONTyped = exports.HotelDetailTypeFromJSON = exports.instanceOfHotelDetailType = void 0;
 const runtime_1 = require("../runtime");
-const HotelDetailValuesType_1 = require("./HotelDetailValuesType");
+const HotelDetailValueType_1 = require("./HotelDetailValueType");
 /**
  * Check if a given object implements the HotelDetailType interface.
  */
@@ -36,7 +36,7 @@ function HotelDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         'category': !(0, runtime_1.exists)(json, 'category') ? undefined : json['category'],
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
-        'hotelDetailValues': !(0, runtime_1.exists)(json, 'hotelDetailValues') ? undefined : (0, HotelDetailValuesType_1.HotelDetailValuesTypeFromJSON)(json['hotelDetailValues']),
+        'hotelDetailValues': !(0, runtime_1.exists)(json, 'hotelDetailValues') ? undefined : (json['hotelDetailValues'].map(HotelDetailValueType_1.HotelDetailValueTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'sequence': !(0, runtime_1.exists)(json, 'sequence') ? undefined : json['sequence'],
     };
@@ -53,7 +53,7 @@ function HotelDetailTypeToJSON(value) {
         'category': value.category,
         'code': value.code,
         'description': value.description,
-        'hotelDetailValues': (0, HotelDetailValuesType_1.HotelDetailValuesTypeToJSON)(value.hotelDetailValues),
+        'hotelDetailValues': value.hotelDetailValues === undefined ? undefined : (value.hotelDetailValues.map(HotelDetailValueType_1.HotelDetailValueTypeToJSON)),
         'hotelId': value.hotelId,
         'sequence': value.sequence,
     };

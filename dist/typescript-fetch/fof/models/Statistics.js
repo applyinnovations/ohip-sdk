@@ -16,9 +16,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.StatisticsToJSON = exports.StatisticsFromJSONTyped = exports.StatisticsFromJSON = exports.instanceOfStatistics = void 0;
 const runtime_1 = require("../runtime");
 const HSKStatReportCodeType_1 = require("./HSKStatReportCodeType");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const StatisticsMetricSetInner_1 = require("./StatisticsMetricSetInner");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the Statistics interface.
  */
@@ -37,10 +37,10 @@ function StatisticsFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'calendarDate': !(0, runtime_1.exists)(json, 'calendarDate') ? undefined : (new Date(json['calendarDate'])),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'metricSet': !(0, runtime_1.exists)(json, 'metricSet') ? undefined : (json['metricSet'].map(StatisticsMetricSetInner_1.StatisticsMetricSetInnerFromJSON)),
         'statisticsCode': !(0, runtime_1.exists)(json, 'statisticsCode') ? undefined : (0, HSKStatReportCodeType_1.HSKStatReportCodeTypeFromJSON)(json['statisticsCode']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.StatisticsFromJSONTyped = StatisticsFromJSONTyped;
@@ -53,10 +53,10 @@ function StatisticsToJSON(value) {
     }
     return {
         'calendarDate': value.calendarDate === undefined ? undefined : (value.calendarDate.toISOString().substring(0, 10)),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'metricSet': value.metricSet === undefined ? undefined : (value.metricSet.map(StatisticsMetricSetInner_1.StatisticsMetricSetInnerToJSON)),
         'statisticsCode': (0, HSKStatReportCodeType_1.HSKStatReportCodeTypeToJSON)(value.statisticsCode),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.StatisticsToJSON = StatisticsToJSON;

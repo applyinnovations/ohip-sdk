@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CcBatchSettlementsToJSON = exports.CcBatchSettlementsFromJSONTyped = exports.CcBatchSettlementsFromJSON = exports.instanceOfCcBatchSettlements = void 0;
 const runtime_1 = require("../runtime");
-const CCBatchSettlementsType_1 = require("./CCBatchSettlementsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CCBatchSettlementType_1 = require("./CCBatchSettlementType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CcBatchSettlements interface.
  */
@@ -35,9 +35,9 @@ function CcBatchSettlementsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'batchSettlements': !(0, runtime_1.exists)(json, 'batchSettlements') ? undefined : (0, CCBatchSettlementsType_1.CCBatchSettlementsTypeFromJSON)(json['batchSettlements']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'batchSettlements': !(0, runtime_1.exists)(json, 'batchSettlements') ? undefined : (json['batchSettlements'].map(CCBatchSettlementType_1.CCBatchSettlementTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CcBatchSettlementsFromJSONTyped = CcBatchSettlementsFromJSONTyped;
@@ -49,9 +49,9 @@ function CcBatchSettlementsToJSON(value) {
         return null;
     }
     return {
-        'batchSettlements': (0, CCBatchSettlementsType_1.CCBatchSettlementsTypeToJSON)(value.batchSettlements),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'batchSettlements': value.batchSettlements === undefined ? undefined : (value.batchSettlements.map(CCBatchSettlementType_1.CCBatchSettlementTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CcBatchSettlementsToJSON = CcBatchSettlementsToJSON;

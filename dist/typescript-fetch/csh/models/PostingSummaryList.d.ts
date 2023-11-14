@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { PostingSummaryListType } from './PostingSummaryListType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { PostingSummaryType } from './PostingSummaryType';
+import type { WarningType } from './WarningType';
 /**
  * Response object to fetch daily summary charges from Opera which are posted in Opera by external system.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface PostingSummaryList {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostingSummaryList
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {PostingSummaryListType}
+     * Summary of the postings by external system.
+     * @type {Array<PostingSummaryType>}
      * @memberof PostingSummaryList
      */
-    postingSummaries?: PostingSummaryListType;
+    postingSummaries?: Array<PostingSummaryType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostingSummaryList
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PostingSummaryList interface.

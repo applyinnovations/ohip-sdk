@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OwnerTeamsDetailsToJSON = exports.OwnerTeamsDetailsFromJSONTyped = exports.OwnerTeamsDetailsFromJSON = exports.instanceOfOwnerTeamsDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const OwnerTeamsType_1 = require("./OwnerTeamsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const OwnerTeamType_1 = require("./OwnerTeamType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the OwnerTeamsDetails interface.
  */
@@ -35,9 +35,9 @@ function OwnerTeamsDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'ownerTeams': !(0, runtime_1.exists)(json, 'ownerTeams') ? undefined : (0, OwnerTeamsType_1.OwnerTeamsTypeFromJSON)(json['ownerTeams']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'ownerTeams': !(0, runtime_1.exists)(json, 'ownerTeams') ? undefined : (json['ownerTeams'].map(OwnerTeamType_1.OwnerTeamTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.OwnerTeamsDetailsFromJSONTyped = OwnerTeamsDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function OwnerTeamsDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'ownerTeams': (0, OwnerTeamsType_1.OwnerTeamsTypeToJSON)(value.ownerTeams),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'ownerTeams': value.ownerTeams === undefined ? undefined : (value.ownerTeams.map(OwnerTeamType_1.OwnerTeamTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.OwnerTeamsDetailsToJSON = OwnerTeamsDetailsToJSON;

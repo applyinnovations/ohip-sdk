@@ -17,9 +17,9 @@ exports.AvailRatePlanInfoTypeRatePlanInnerToJSON = exports.AvailRatePlanInfoType
 const runtime_1 = require("../runtime");
 const BookingChannelMappingType_1 = require("./BookingChannelMappingType");
 const CancelPenaltyType_1 = require("./CancelPenaltyType");
-const GuaranteePoliciesType_1 = require("./GuaranteePoliciesType");
+const GuaranteePolicyType_1 = require("./GuaranteePolicyType");
 const GuaranteeType_1 = require("./GuaranteeType");
-const MealPlansType_1 = require("./MealPlansType");
+const MealPlanCodeType_1 = require("./MealPlanCodeType");
 const ProfileTypeType_1 = require("./ProfileTypeType");
 const RatePlanChannelInfoType_1 = require("./RatePlanChannelInfoType");
 const RatePlanCommissionType_1 = require("./RatePlanCommissionType");
@@ -51,14 +51,14 @@ function AvailRatePlanInfoTypeRatePlanInnerFromJSONTyped(json, ignoreDiscriminat
         'hotelUseOnly': !(0, runtime_1.exists)(json, 'hotelUseOnly') ? undefined : json['hotelUseOnly'],
         'longInfo': !(0, runtime_1.exists)(json, 'longInfo') ? undefined : json['longInfo'],
         'marketCode': !(0, runtime_1.exists)(json, 'marketCode') ? undefined : json['marketCode'],
-        'mealPlans': !(0, runtime_1.exists)(json, 'mealPlans') ? undefined : (0, MealPlansType_1.MealPlansTypeFromJSON)(json['mealPlans']),
+        'mealPlans': !(0, runtime_1.exists)(json, 'mealPlans') ? undefined : (json['mealPlans'].map(MealPlanCodeType_1.MealPlanCodeTypeFromJSON)),
         'negotiatedBy': !(0, runtime_1.exists)(json, 'negotiatedBy') ? undefined : (0, ProfileTypeType_1.ProfileTypeTypeFromJSON)(json['negotiatedBy']),
         'rateCommission': !(0, runtime_1.exists)(json, 'rateCommission') ? undefined : (0, RatePlanCommissionType_1.RatePlanCommissionTypeFromJSON)(json['rateCommission']),
         'ratePlanCategory': !(0, runtime_1.exists)(json, 'ratePlanCategory') ? undefined : json['ratePlanCategory'],
         'ratePlanChannelInfo': !(0, runtime_1.exists)(json, 'ratePlanChannelInfo') ? undefined : (0, RatePlanChannelInfoType_1.RatePlanChannelInfoTypeFromJSON)(json['ratePlanChannelInfo']),
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'ratePlanLevel': !(0, runtime_1.exists)(json, 'ratePlanLevel') ? undefined : json['ratePlanLevel'],
-        'resGuarantees': !(0, runtime_1.exists)(json, 'resGuarantees') ? undefined : (0, GuaranteePoliciesType_1.GuaranteePoliciesTypeFromJSON)(json['resGuarantees']),
+        'resGuarantees': !(0, runtime_1.exists)(json, 'resGuarantees') ? undefined : (json['resGuarantees'].map(GuaranteePolicyType_1.GuaranteePolicyTypeFromJSON)),
         'serviceFeeInclusive': !(0, runtime_1.exists)(json, 'serviceFeeInclusive') ? undefined : json['serviceFeeInclusive'],
         'shortInfo': !(0, runtime_1.exists)(json, 'shortInfo') ? undefined : json['shortInfo'],
         'sourceCode': !(0, runtime_1.exists)(json, 'sourceCode') ? undefined : json['sourceCode'],
@@ -86,14 +86,14 @@ function AvailRatePlanInfoTypeRatePlanInnerToJSON(value) {
         'hotelUseOnly': value.hotelUseOnly,
         'longInfo': value.longInfo,
         'marketCode': value.marketCode,
-        'mealPlans': (0, MealPlansType_1.MealPlansTypeToJSON)(value.mealPlans),
+        'mealPlans': value.mealPlans === undefined ? undefined : (value.mealPlans.map(MealPlanCodeType_1.MealPlanCodeTypeToJSON)),
         'negotiatedBy': (0, ProfileTypeType_1.ProfileTypeTypeToJSON)(value.negotiatedBy),
         'rateCommission': (0, RatePlanCommissionType_1.RatePlanCommissionTypeToJSON)(value.rateCommission),
         'ratePlanCategory': value.ratePlanCategory,
         'ratePlanChannelInfo': (0, RatePlanChannelInfoType_1.RatePlanChannelInfoTypeToJSON)(value.ratePlanChannelInfo),
         'ratePlanCode': value.ratePlanCode,
         'ratePlanLevel': value.ratePlanLevel,
-        'resGuarantees': (0, GuaranteePoliciesType_1.GuaranteePoliciesTypeToJSON)(value.resGuarantees),
+        'resGuarantees': value.resGuarantees === undefined ? undefined : (value.resGuarantees.map(GuaranteePolicyType_1.GuaranteePolicyTypeToJSON)),
         'serviceFeeInclusive': value.serviceFeeInclusive,
         'shortInfo': value.shortInfo,
         'sourceCode': value.sourceCode,

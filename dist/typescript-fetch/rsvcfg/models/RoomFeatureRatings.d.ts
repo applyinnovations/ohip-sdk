@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RoomFeatureRatingsInfoType } from './RoomFeatureRatingsInfoType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RoomFeatureRatingInfoType } from './RoomFeatureRatingInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for modifying room features rating details.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface RoomFeatureRatings {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomFeatureRatings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RoomFeatureRatingsInfoType}
+     * Collection of rooms features and their ratings.
+     * @type {Array<RoomFeatureRatingInfoType>}
      * @memberof RoomFeatureRatings
      */
-    roomFeatureRatingsInfo?: RoomFeatureRatingsInfoType;
+    roomFeatureRatingsInfo?: Array<RoomFeatureRatingInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomFeatureRatings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomFeatureRatings interface.

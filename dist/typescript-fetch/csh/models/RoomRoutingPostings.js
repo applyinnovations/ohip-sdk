@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomRoutingPostingsToJSON = exports.RoomRoutingPostingsFromJSONTyped = exports.RoomRoutingPostingsFromJSON = exports.instanceOfRoomRoutingPostings = void 0;
 const runtime_1 = require("../runtime");
 const PostingsInfoType_1 = require("./PostingsInfoType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomRoutingPostings interface.
  */
@@ -35,7 +35,7 @@ function RoomRoutingPostingsFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'postingsForRoomRouting': !(0, runtime_1.exists)(json, 'postingsForRoomRouting') ? undefined : (0, PostingsInfoType_1.PostingsInfoTypeFromJSON)(json['postingsForRoomRouting']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomRoutingPostingsFromJSONTyped = RoomRoutingPostingsFromJSONTyped;
@@ -48,7 +48,7 @@ function RoomRoutingPostingsToJSON(value) {
     }
     return {
         'postingsForRoomRouting': (0, PostingsInfoType_1.PostingsInfoTypeToJSON)(value.postingsForRoomRouting),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomRoutingPostingsToJSON = RoomRoutingPostingsToJSON;

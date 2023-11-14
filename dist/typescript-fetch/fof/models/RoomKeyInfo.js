@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomKeyInfoToJSON = exports.RoomKeyInfoFromJSONTyped = exports.RoomKeyInfoFromJSON = exports.instanceOfRoomKeyInfo = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RoomKeysInfoListType_1 = require("./RoomKeysInfoListType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RoomKeyInfoType_1 = require("./RoomKeyInfoType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomKeyInfo interface.
  */
@@ -36,10 +36,10 @@ function RoomKeyInfoFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'incidentalLimit': !(0, runtime_1.exists)(json, 'incidentalLimit') ? undefined : json['incidentalLimit'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'roomKeysInfoList': !(0, runtime_1.exists)(json, 'roomKeysInfoList') ? undefined : (0, RoomKeysInfoListType_1.RoomKeysInfoListTypeFromJSON)(json['roomKeysInfoList']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'roomKeysInfoList': !(0, runtime_1.exists)(json, 'roomKeysInfoList') ? undefined : (json['roomKeysInfoList'].map(RoomKeyInfoType_1.RoomKeyInfoTypeFromJSON)),
         'totalAuthorization': !(0, runtime_1.exists)(json, 'totalAuthorization') ? undefined : json['totalAuthorization'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomKeyInfoFromJSONTyped = RoomKeyInfoFromJSONTyped;
@@ -52,10 +52,10 @@ function RoomKeyInfoToJSON(value) {
     }
     return {
         'incidentalLimit': value.incidentalLimit,
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'roomKeysInfoList': (0, RoomKeysInfoListType_1.RoomKeysInfoListTypeToJSON)(value.roomKeysInfoList),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'roomKeysInfoList': value.roomKeysInfoList === undefined ? undefined : (value.roomKeysInfoList.map(RoomKeyInfoType_1.RoomKeyInfoTypeToJSON)),
         'totalAuthorization': value.totalAuthorization,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomKeyInfoToJSON = RoomKeyInfoToJSON;

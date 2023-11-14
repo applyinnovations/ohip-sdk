@@ -9,13 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { HousekeepingCreditsType } from './HousekeepingCreditsType';
 import type { RatePlanRatingType } from './RatePlanRatingType';
-import type { RoomComponentsType } from './RoomComponentsType';
-import type { RoomFeaturesType } from './RoomFeaturesType';
-import type { RoomRoomsType } from './RoomRoomsType';
+import type { RoomComponentType } from './RoomComponentType';
+import type { RoomFeatureType } from './RoomFeatureType';
+import type { RoomRoomType } from './RoomRoomType';
 import type { RoomSectionType } from './RoomSectionType';
 import type { RoomTypeShortInfoType } from './RoomTypeShortInfoType';
 import type { TranslationTextType2000 } from './TranslationTextType2000';
@@ -38,11 +37,11 @@ export interface ConfigRoomType {
      */
     building?: string;
     /**
-     *
-     * @type {RoomRoomsType}
+     * Collection of rooms.
+     * @type {Array<RoomRoomType>}
      * @memberof ConfigRoomType
      */
-    connectingRooms?: RoomRoomsType;
+    connectingRooms?: Array<RoomRoomType>;
     /**
      *
      * @type {TranslationTextType2000}
@@ -75,10 +74,10 @@ export interface ConfigRoomType {
     keyCode?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigRoomType
      */
-    keyOptions?: CodeListType;
+    keyOptions?: Array<string>;
     /**
      * Maximum occupancy of a room.
      * @type {number}
@@ -128,11 +127,11 @@ export interface ConfigRoomType {
      */
     roomAssignmentRating?: RatePlanRatingType;
     /**
-     *
-     * @type {RoomComponentsType}
+     * Component of a room.
+     * @type {Array<RoomComponentType>}
      * @memberof ConfigRoomType
      */
-    roomComponents?: RoomComponentsType;
+    roomComponents?: Array<RoomComponentType>;
     /**
      * Detail Long Description Of The Room.
      * @type {string}
@@ -140,11 +139,11 @@ export interface ConfigRoomType {
      */
     roomDescription?: string;
     /**
-     *
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof ConfigRoomType
      */
-    roomFeatures?: RoomFeaturesType;
+    roomFeatures?: Array<RoomFeatureType>;
     /**
      * Code of the room.
      * @type {string}

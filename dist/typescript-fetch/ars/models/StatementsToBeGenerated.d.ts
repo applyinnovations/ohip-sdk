@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ARGenerateStatementCriteriaType } from './ARGenerateStatementCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Operation to generate AR Statements. This will validate and check if there exists any invoices to be included in the Statement based on the criteria used. If Statement Numbering is used, this will return a statement number to use in report as well as report sequence id to identify statement's invoices.
  * @export
@@ -26,16 +26,16 @@ export interface StatementsToBeGenerated {
     criteria?: ARGenerateStatementCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof StatementsToBeGenerated
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof StatementsToBeGenerated
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the StatementsToBeGenerated interface.

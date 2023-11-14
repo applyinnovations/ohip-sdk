@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { UpdateRatePlanSchedulesType } from './UpdateRatePlanSchedulesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to change rate plan schedules.
  * @export
@@ -26,10 +26,10 @@ export interface RatePlanSchedules {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RatePlanSchedules
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -43,11 +43,11 @@ export interface RatePlanSchedules {
      */
     ratePlanScheduleList?: Array<UpdateRatePlanSchedulesType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RatePlanSchedules
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RatePlanSchedules interface.

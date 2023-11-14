@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { CheckDetailsType } from './CheckDetailsType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationId } from './ReservationId';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to process a guest check detail.
  * @export
@@ -27,10 +27,10 @@ export interface GuestCheckDetails {
     checkDetails?: CheckDetailsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuestCheckDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationId}
@@ -38,11 +38,11 @@ export interface GuestCheckDetails {
      */
     reservationId?: ReservationId;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuestCheckDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GuestCheckDetails interface.

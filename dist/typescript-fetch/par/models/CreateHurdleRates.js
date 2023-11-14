@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateHurdleRatesToJSON = exports.CreateHurdleRatesFromJSONTyped = exports.CreateHurdleRatesFromJSON = exports.instanceOfCreateHurdleRates = void 0;
 const runtime_1 = require("../runtime");
-const HurdleRatesType_1 = require("./HurdleRatesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HurdleRateType_1 = require("./HurdleRateType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CreateHurdleRates interface.
  */
@@ -35,9 +35,9 @@ function CreateHurdleRatesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'hurdleRates': !(0, runtime_1.exists)(json, 'hurdleRates') ? undefined : (0, HurdleRatesType_1.HurdleRatesTypeFromJSON)(json['hurdleRates']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'hurdleRates': !(0, runtime_1.exists)(json, 'hurdleRates') ? undefined : (json['hurdleRates'].map(HurdleRateType_1.HurdleRateTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CreateHurdleRatesFromJSONTyped = CreateHurdleRatesFromJSONTyped;
@@ -49,9 +49,9 @@ function CreateHurdleRatesToJSON(value) {
         return null;
     }
     return {
-        'hurdleRates': (0, HurdleRatesType_1.HurdleRatesTypeToJSON)(value.hurdleRates),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'hurdleRates': value.hurdleRates === undefined ? undefined : (value.hurdleRates.map(HurdleRateType_1.HurdleRateTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CreateHurdleRatesToJSON = CreateHurdleRatesToJSON;

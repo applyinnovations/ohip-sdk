@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ProfileId } from './ProfileId';
-import type { ProfileSubscriptionListType } from './ProfileSubscriptionListType';
+import type { ProfileSubscriptionType } from './ProfileSubscriptionType';
 /**
  * Contains subscription details about an OPERA Profile that is linked to multiple external profiles within the same external system.
  * @export
@@ -30,11 +30,11 @@ export interface DuplicateExternalSubscriptionsType {
      */
     profileId?: ProfileId;
     /**
-     *
-     * @type {ProfileSubscriptionListType}
+     * Details of the OPERA Profile subscription to external system
+     * @type {Array<ProfileSubscriptionType>}
      * @memberof DuplicateExternalSubscriptionsType
      */
-    profileSubscriptions?: ProfileSubscriptionListType;
+    profileSubscriptions?: Array<ProfileSubscriptionType>;
 }
 /**
  * Check if a given object implements the DuplicateExternalSubscriptionsType interface.

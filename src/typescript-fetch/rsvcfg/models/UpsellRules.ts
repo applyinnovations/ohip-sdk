@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ConfigUpsellRulesType } from './ConfigUpsellRulesType';
+import type { ConfigUpsellRuleType } from './ConfigUpsellRuleType';
 import {
-    ConfigUpsellRulesTypeFromJSON,
-    ConfigUpsellRulesTypeFromJSONTyped,
-    ConfigUpsellRulesTypeToJSON,
-} from './ConfigUpsellRulesType';
-import type { Links } from './Links';
+    ConfigUpsellRuleTypeFromJSON,
+    ConfigUpsellRuleTypeFromJSONTyped,
+    ConfigUpsellRuleTypeToJSON,
+} from './ConfigUpsellRuleType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching upsell rules.
@@ -40,22 +40,22 @@ import {
 export interface UpsellRules {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof UpsellRules
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ConfigUpsellRulesType}
+     * This type holds a collection of upsell rules.
+     * @type {Array<ConfigUpsellRuleType>}
      * @memberof UpsellRules
      */
-    upsellRules?: ConfigUpsellRulesType;
+    upsellRules?: Array<ConfigUpsellRuleType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof UpsellRules
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function UpsellRulesFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'upsellRules': !exists(json, 'upsellRules') ? undefined : ConfigUpsellRulesTypeFromJSON(json['upsellRules']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'upsellRules': !exists(json, 'upsellRules') ? undefined : ((json['upsellRules'] as Array<any>).map(ConfigUpsellRuleTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function UpsellRulesToJSON(value?: UpsellRules | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'upsellRules': ConfigUpsellRulesTypeToJSON(value.upsellRules),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'upsellRules': value.upsellRules === undefined ? undefined : ((value.upsellRules as Array<any>).map(ConfigUpsellRuleTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

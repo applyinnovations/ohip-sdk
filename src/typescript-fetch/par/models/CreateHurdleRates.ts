@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HurdleRatesType } from './HurdleRatesType';
+import type { HurdleRateType } from './HurdleRateType';
 import {
-    HurdleRatesTypeFromJSON,
-    HurdleRatesTypeFromJSONTyped,
-    HurdleRatesTypeToJSON,
-} from './HurdleRatesType';
-import type { Links } from './Links';
+    HurdleRateTypeFromJSON,
+    HurdleRateTypeFromJSONTyped,
+    HurdleRateTypeToJSON,
+} from './HurdleRateType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating new Hurdle Rates.
@@ -39,23 +39,23 @@ import {
  */
 export interface CreateHurdleRates {
     /**
-     * 
-     * @type {HurdleRatesType}
+     * Details for hurdle rate.
+     * @type {Array<HurdleRateType>}
      * @memberof CreateHurdleRates
      */
-    hurdleRates?: HurdleRatesType;
+    hurdleRates?: Array<HurdleRateType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreateHurdleRates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateHurdleRates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CreateHurdleRatesFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'hurdleRates': !exists(json, 'hurdleRates') ? undefined : HurdleRatesTypeFromJSON(json['hurdleRates']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'hurdleRates': !exists(json, 'hurdleRates') ? undefined : ((json['hurdleRates'] as Array<any>).map(HurdleRateTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CreateHurdleRatesToJSON(value?: CreateHurdleRates | null): any {
     }
     return {
         
-        'hurdleRates': HurdleRatesTypeToJSON(value.hurdleRates),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'hurdleRates': value.hurdleRates === undefined ? undefined : ((value.hurdleRates as Array<any>).map(HurdleRateTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

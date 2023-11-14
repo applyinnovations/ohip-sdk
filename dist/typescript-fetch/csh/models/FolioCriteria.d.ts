@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { GenerateFolioCriteriaType } from './GenerateFolioCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Generate Folio request can be used to create a folio for checked in reservation or reservation with open folios
  * @export
@@ -26,16 +26,16 @@ export interface FolioCriteria {
     criteria?: GenerateFolioCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FolioCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FolioCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FolioCriteria interface.

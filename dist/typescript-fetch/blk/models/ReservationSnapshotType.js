@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationSnapshotTypeToJSON = exports.ReservationSnapshotTypeFromJSONTyped = exports.ReservationSnapshotTypeFromJSON = exports.instanceOfReservationSnapshotType = void 0;
 const runtime_1 = require("../runtime");
 const HotelReservationType_1 = require("./HotelReservationType");
-const RoutingInfoListType_1 = require("./RoutingInfoListType");
+const RoutingInfoType_1 = require("./RoutingInfoType");
 /**
  * Check if a given object implements the ReservationSnapshotType interface.
  */
@@ -35,7 +35,7 @@ function ReservationSnapshotTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'hotelReservation': !(0, runtime_1.exists)(json, 'hotelReservation') ? undefined : (0, HotelReservationType_1.HotelReservationTypeFromJSON)(json['hotelReservation']),
-        'routingInstructions': !(0, runtime_1.exists)(json, 'routingInstructions') ? undefined : (0, RoutingInfoListType_1.RoutingInfoListTypeFromJSON)(json['routingInstructions']),
+        'routingInstructions': !(0, runtime_1.exists)(json, 'routingInstructions') ? undefined : (json['routingInstructions'].map(RoutingInfoType_1.RoutingInfoTypeFromJSON)),
     };
 }
 exports.ReservationSnapshotTypeFromJSONTyped = ReservationSnapshotTypeFromJSONTyped;
@@ -48,7 +48,7 @@ function ReservationSnapshotTypeToJSON(value) {
     }
     return {
         'hotelReservation': (0, HotelReservationType_1.HotelReservationTypeToJSON)(value.hotelReservation),
-        'routingInstructions': (0, RoutingInfoListType_1.RoutingInfoListTypeToJSON)(value.routingInstructions),
+        'routingInstructions': value.routingInstructions === undefined ? undefined : (value.routingInstructions.map(RoutingInfoType_1.RoutingInfoTypeToJSON)),
     };
 }
 exports.ReservationSnapshotTypeToJSON = ReservationSnapshotTypeToJSON;

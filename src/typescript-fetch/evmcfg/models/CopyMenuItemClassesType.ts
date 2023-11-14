@@ -13,24 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { CopyMenuItemClassesTypeCopyInstructions } from './CopyMenuItemClassesTypeCopyInstructions';
 import {
     CopyMenuItemClassesTypeCopyInstructionsFromJSON,
     CopyMenuItemClassesTypeCopyInstructionsFromJSONTyped,
     CopyMenuItemClassesTypeCopyInstructionsToJSON,
 } from './CopyMenuItemClassesTypeCopyInstructions';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -45,11 +39,11 @@ export interface CopyMenuItemClassesType {
      */
     copyInstructions?: CopyMenuItemClassesTypeCopyInstructions;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CopyMenuItemClassesType
      */
-    itemClasses?: UniqueIDListType;
+    itemClasses?: Array<UniqueIDType>;
     /**
      * Source Hotel code from where menu item classes needs to be copied
      * @type {string}
@@ -58,10 +52,10 @@ export interface CopyMenuItemClassesType {
     sourceHotelCode?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyMenuItemClassesType
      */
-    targetHotelCodes?: CodeListType;
+    targetHotelCodes?: Array<string>;
 }
 
 /**
@@ -84,9 +78,9 @@ export function CopyMenuItemClassesTypeFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'copyInstructions': !exists(json, 'copyInstructions') ? undefined : CopyMenuItemClassesTypeCopyInstructionsFromJSON(json['copyInstructions']),
-        'itemClasses': !exists(json, 'itemClasses') ? undefined : UniqueIDListTypeFromJSON(json['itemClasses']),
+        'itemClasses': !exists(json, 'itemClasses') ? undefined : ((json['itemClasses'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'sourceHotelCode': !exists(json, 'sourceHotelCode') ? undefined : json['sourceHotelCode'],
-        'targetHotelCodes': !exists(json, 'targetHotelCodes') ? undefined : CodeListTypeFromJSON(json['targetHotelCodes']),
+        'targetHotelCodes': !exists(json, 'targetHotelCodes') ? undefined : json['targetHotelCodes'],
     };
 }
 
@@ -100,9 +94,9 @@ export function CopyMenuItemClassesTypeToJSON(value?: CopyMenuItemClassesType | 
     return {
         
         'copyInstructions': CopyMenuItemClassesTypeCopyInstructionsToJSON(value.copyInstructions),
-        'itemClasses': UniqueIDListTypeToJSON(value.itemClasses),
+        'itemClasses': value.itemClasses === undefined ? undefined : ((value.itemClasses as Array<any>).map(UniqueIDTypeToJSON)),
         'sourceHotelCode': value.sourceHotelCode,
-        'targetHotelCodes': CodeListTypeToJSON(value.targetHotelCodes),
+        'targetHotelCodes': value.targetHotelCodes,
     };
 }
 

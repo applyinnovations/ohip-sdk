@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response of last execution status for AI Room Assignment
  * @export
@@ -31,10 +31,10 @@ export interface AiraLastRunStatusInfo {
     insertDate?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AiraLastRunStatusInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Date time of updated status of an executions
      * @type {string}
@@ -42,11 +42,11 @@ export interface AiraLastRunStatusInfo {
      */
     updateDate?: string;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AiraLastRunStatusInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AiraLastRunStatusInfo interface.

@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CurrencyAmountType } from './CurrencyAmountType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for the advance payment balance.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface AdvancePaymentBalance {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AdvancePaymentBalance
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {CurrencyAmountType}
@@ -31,11 +31,11 @@ export interface AdvancePaymentBalance {
      */
     paymentBalance?: CurrencyAmountType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AdvancePaymentBalance
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AdvancePaymentBalance interface.

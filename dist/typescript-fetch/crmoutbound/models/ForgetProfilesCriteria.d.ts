@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ForgetProfilesCriteriaType } from './ForgetProfilesCriteriaType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 /**
  * Operation to validate profiles for forgetting.
  * @export
@@ -25,10 +25,10 @@ export interface ForgetProfilesCriteria {
     validateForgetProfilesCriteria?: ForgetProfilesCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ForgetProfilesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the ForgetProfilesCriteria interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RateSeasonsType } from './RateSeasonsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RateSeasonType } from './RateSeasonType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching rate seasons for a hotel.
  * @export
@@ -38,10 +38,10 @@ export interface RateSeasonsDetails {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RateSeasonsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -49,11 +49,11 @@ export interface RateSeasonsDetails {
      */
     offset?: number;
     /**
-     *
-     * @type {RateSeasonsType}
+     * Hotel rate season details.
+     * @type {Array<RateSeasonType>}
      * @memberof RateSeasonsDetails
      */
-    rateSeasons?: RateSeasonsType;
+    rateSeasons?: Array<RateSeasonType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -67,11 +67,11 @@ export interface RateSeasonsDetails {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RateSeasonsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RateSeasonsDetails interface.

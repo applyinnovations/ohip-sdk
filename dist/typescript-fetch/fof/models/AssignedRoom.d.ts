@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DailyRatesType } from './DailyRatesType';
-import type { EffectiveRatesType } from './EffectiveRatesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { DailyRateType } from './DailyRateType';
+import type { EffectiveRateType } from './EffectiveRateType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Possible errors that the operation will generate: The reservation is not in Reserved state. The room being requested does not exist.
  * @export
@@ -20,35 +20,35 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AssignedRoom {
     /**
-     *
-     * @type {EffectiveRatesType}
+     * Collection of effective rate amount per guest on specific dates.
+     * @type {Array<EffectiveRateType>}
      * @memberof AssignedRoom
      */
-    effectiveRates?: EffectiveRatesType;
+    effectiveRates?: Array<EffectiveRateType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AssignedRoom
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {DailyRatesType}
+     * Defines room rate information on a daily basis.
+     * @type {Array<DailyRateType>}
      * @memberof AssignedRoom
      */
-    newRates?: DailyRatesType;
+    newRates?: Array<DailyRateType>;
     /**
-     *
-     * @type {DailyRatesType}
+     * Defines room rate information on a daily basis.
+     * @type {Array<DailyRateType>}
      * @memberof AssignedRoom
      */
-    oldRates?: DailyRatesType;
+    oldRates?: Array<DailyRateType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AssignedRoom
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AssignedRoom interface.

@@ -17,7 +17,7 @@ exports.ValidateRateInfoCriteriaToJSON = exports.ValidateRateInfoCriteriaFromJSO
 const runtime_1 = require("../runtime");
 const BlockId_1 = require("./BlockId");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
-const EffectiveRatesType_1 = require("./EffectiveRatesType");
+const EffectiveRateType_1 = require("./EffectiveRateType");
 const GuestCountsType_1 = require("./GuestCountsType");
 const ReservationId_1 = require("./ReservationId");
 const ReservationPackageType_1 = require("./ReservationPackageType");
@@ -45,7 +45,7 @@ function ValidateRateInfoCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         'currencySymbol': !(0, runtime_1.exists)(json, 'currencySymbol') ? undefined : json['currencySymbol'],
         'decimalPlaces': !(0, runtime_1.exists)(json, 'decimalPlaces') ? undefined : json['decimalPlaces'],
         'detailDate': !(0, runtime_1.exists)(json, 'detailDate') ? undefined : (new Date(json['detailDate'])),
-        'effectiveRates': !(0, runtime_1.exists)(json, 'effectiveRates') ? undefined : (0, EffectiveRatesType_1.EffectiveRatesTypeFromJSON)(json['effectiveRates']),
+        'effectiveRates': !(0, runtime_1.exists)(json, 'effectiveRates') ? undefined : (json['effectiveRates'].map(EffectiveRateType_1.EffectiveRateTypeFromJSON)),
         'guestCounts': !(0, runtime_1.exists)(json, 'guestCounts') ? undefined : (0, GuestCountsType_1.GuestCountsTypeFromJSON)(json['guestCounts']),
         'quantity': !(0, runtime_1.exists)(json, 'quantity') ? undefined : json['quantity'],
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
@@ -72,7 +72,7 @@ function ValidateRateInfoCriteriaToJSON(value) {
         'currencySymbol': value.currencySymbol,
         'decimalPlaces': value.decimalPlaces,
         'detailDate': value.detailDate === undefined ? undefined : (value.detailDate.toISOString().substring(0, 10)),
-        'effectiveRates': (0, EffectiveRatesType_1.EffectiveRatesTypeToJSON)(value.effectiveRates),
+        'effectiveRates': value.effectiveRates === undefined ? undefined : (value.effectiveRates.map(EffectiveRateType_1.EffectiveRateTypeToJSON)),
         'guestCounts': (0, GuestCountsType_1.GuestCountsTypeToJSON)(value.guestCounts),
         'quantity': value.quantity,
         'ratePlanCode': value.ratePlanCode,

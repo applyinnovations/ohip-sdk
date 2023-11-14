@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ExportColumnsAndFunctionsType } from './ExportColumnsAndFunctionsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response that contains columns, pre post functions and export functions.
  * @export
@@ -26,16 +26,16 @@ export interface ExportColumnsAndFunctionsDetails {
     columnsAndFunctions?: ExportColumnsAndFunctionsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExportColumnsAndFunctionsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ExportColumnsAndFunctionsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ExportColumnsAndFunctionsDetails interface.

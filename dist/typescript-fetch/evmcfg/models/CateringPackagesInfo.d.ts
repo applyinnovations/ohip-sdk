@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CateringPackageListType } from './CateringPackageListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CateringPackageType } from './CateringPackageType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -38,10 +38,10 @@ export interface CateringPackagesInfo {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CateringPackagesInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -49,11 +49,11 @@ export interface CateringPackagesInfo {
      */
     offset?: number;
     /**
-     *
-     * @type {CateringPackageListType}
+     * Collection of multiple Catering Packages.
+     * @type {Array<CateringPackageType>}
      * @memberof CateringPackagesInfo
      */
-    pkgTmplts?: CateringPackageListType;
+    pkgTmplts?: Array<CateringPackageType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -67,11 +67,11 @@ export interface CateringPackagesInfo {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CateringPackagesInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CateringPackagesInfo interface.

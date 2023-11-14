@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChannelTypeToJSON = exports.ChannelTypeFromJSONTyped = exports.ChannelTypeFromJSON = exports.instanceOfChannelType = void 0;
 const runtime_1 = require("../runtime");
-const ParametersType_1 = require("./ParametersType");
+const ParameterType_1 = require("./ParameterType");
 const SystemCarrierType_1 = require("./SystemCarrierType");
 const SystemErrorType_1 = require("./SystemErrorType");
 const SystemInfoType_1 = require("./SystemInfoType");
@@ -42,7 +42,7 @@ function ChannelTypeFromJSONTyped(json, ignoreDiscriminator) {
         'addOnLicense': !(0, runtime_1.exists)(json, 'addOnLicense') ? undefined : json['addOnLicense'],
         'carriers': !(0, runtime_1.exists)(json, 'carriers') ? undefined : (json['carriers'].map(SystemCarrierType_1.SystemCarrierTypeFromJSON)),
         'errorCodes': !(0, runtime_1.exists)(json, 'errorCodes') ? undefined : (json['errorCodes'].map(SystemErrorType_1.SystemErrorTypeFromJSON)),
-        'parameters': !(0, runtime_1.exists)(json, 'parameters') ? undefined : (0, ParametersType_1.ParametersTypeFromJSON)(json['parameters']),
+        'parameters': !(0, runtime_1.exists)(json, 'parameters') ? undefined : (json['parameters'].map(ParameterType_1.ParameterTypeFromJSON)),
         'rateCategories': !(0, runtime_1.exists)(json, 'rateCategories') ? undefined : (json['rateCategories'].map(SystemRateCategoryType_1.SystemRateCategoryTypeFromJSON)),
         'rateLevels': !(0, runtime_1.exists)(json, 'rateLevels') ? undefined : (json['rateLevels'].map(SystemRateLevelType_1.SystemRateLevelTypeFromJSON)),
         'roomTypes': !(0, runtime_1.exists)(json, 'roomTypes') ? undefined : (json['roomTypes'].map(SystemRoomTypeType_1.SystemRoomTypeTypeFromJSON)),
@@ -62,7 +62,7 @@ function ChannelTypeToJSON(value) {
         'addOnLicense': value.addOnLicense,
         'carriers': value.carriers === undefined ? undefined : (value.carriers.map(SystemCarrierType_1.SystemCarrierTypeToJSON)),
         'errorCodes': value.errorCodes === undefined ? undefined : (value.errorCodes.map(SystemErrorType_1.SystemErrorTypeToJSON)),
-        'parameters': (0, ParametersType_1.ParametersTypeToJSON)(value.parameters),
+        'parameters': value.parameters === undefined ? undefined : (value.parameters.map(ParameterType_1.ParameterTypeToJSON)),
         'rateCategories': value.rateCategories === undefined ? undefined : (value.rateCategories.map(SystemRateCategoryType_1.SystemRateCategoryTypeToJSON)),
         'rateLevels': value.rateLevels === undefined ? undefined : (value.rateLevels.map(SystemRateLevelType_1.SystemRateLevelTypeToJSON)),
         'roomTypes': value.roomTypes === undefined ? undefined : (value.roomTypes.map(SystemRoomTypeType_1.SystemRoomTypeTypeToJSON)),

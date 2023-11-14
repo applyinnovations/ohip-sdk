@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 import type { RelativePositionType } from './RelativePositionType';
 import type { TelephoneType } from './TelephoneType';
 import type { URLType } from './URLType';
@@ -39,10 +38,10 @@ export interface TransportationType {
     hotelId?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof TransportationType
      */
-    keyOptions?: CodeListType;
+    keyOptions?: Array<string>;
     /**
      *
      * @type {string}

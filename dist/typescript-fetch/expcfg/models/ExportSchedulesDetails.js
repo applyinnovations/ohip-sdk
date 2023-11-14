@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExportSchedulesDetailsToJSON = exports.ExportSchedulesDetailsFromJSONTyped = exports.ExportSchedulesDetailsFromJSON = exports.instanceOfExportSchedulesDetails = void 0;
 const runtime_1 = require("../runtime");
-const ExportSchedulesType_1 = require("./ExportSchedulesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ExportScheduleType_1 = require("./ExportScheduleType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ExportSchedulesDetails interface.
  */
@@ -35,9 +35,9 @@ function ExportSchedulesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'exportSchedules': !(0, runtime_1.exists)(json, 'exportSchedules') ? undefined : (0, ExportSchedulesType_1.ExportSchedulesTypeFromJSON)(json['exportSchedules']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'exportSchedules': !(0, runtime_1.exists)(json, 'exportSchedules') ? undefined : (json['exportSchedules'].map(ExportScheduleType_1.ExportScheduleTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ExportSchedulesDetailsFromJSONTyped = ExportSchedulesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function ExportSchedulesDetailsToJSON(value) {
         return null;
     }
     return {
-        'exportSchedules': (0, ExportSchedulesType_1.ExportSchedulesTypeToJSON)(value.exportSchedules),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'exportSchedules': value.exportSchedules === undefined ? undefined : (value.exportSchedules.map(ExportScheduleType_1.ExportScheduleTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ExportSchedulesDetailsToJSON = ExportSchedulesDetailsToJSON;

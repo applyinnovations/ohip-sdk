@@ -25,12 +25,6 @@ import {
     CodeDescriptionTypeFromJSONTyped,
     CodeDescriptionTypeToJSON,
 } from './CodeDescriptionType';
-import type { RateProgramRoomType } from './RateProgramRoomType';
-import {
-    RateProgramRoomTypeFromJSON,
-    RateProgramRoomTypeFromJSONTyped,
-    RateProgramRoomTypeToJSON,
-} from './RateProgramRoomType';
 
 /**
  * Room Pool Rate Program.
@@ -81,11 +75,11 @@ export interface RateProgramRateType {
      */
     rateMarketCode?: CodeDescriptionType;
     /**
-     * 
-     * @type {RateProgramRoomType}
+     * Room type for which Rate Program Rate Applies.
+     * @type {Array<string>}
      * @memberof RateProgramRateType
      */
-    roomTypes?: RateProgramRoomType;
+    roomTypes?: Array<string>;
     /**
      * Sequence Number of the Rate Program.
      * @type {number}
@@ -126,7 +120,7 @@ export function RateProgramRateTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'rateAmounts': !exists(json, 'rateAmounts') ? undefined : BlockGridRatesTypeFromJSON(json['rateAmounts']),
         'rateCode': !exists(json, 'rateCode') ? undefined : json['rateCode'],
         'rateMarketCode': !exists(json, 'rateMarketCode') ? undefined : CodeDescriptionTypeFromJSON(json['rateMarketCode']),
-        'roomTypes': !exists(json, 'roomTypes') ? undefined : RateProgramRoomTypeFromJSON(json['roomTypes']),
+        'roomTypes': !exists(json, 'roomTypes') ? undefined : json['roomTypes'],
         'sequence': !exists(json, 'sequence') ? undefined : json['sequence'],
         'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
     };
@@ -148,7 +142,7 @@ export function RateProgramRateTypeToJSON(value?: RateProgramRateType | null): a
         'rateAmounts': BlockGridRatesTypeToJSON(value.rateAmounts),
         'rateCode': value.rateCode,
         'rateMarketCode': CodeDescriptionTypeToJSON(value.rateMarketCode),
-        'roomTypes': RateProgramRoomTypeToJSON(value.roomTypes),
+        'roomTypes': value.roomTypes,
         'sequence': value.sequence,
         'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
     };

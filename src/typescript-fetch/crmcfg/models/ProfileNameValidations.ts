@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ProfileNameValidationsType } from './ProfileNameValidationsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ProfileNameValidationType } from './ProfileNameValidationType';
 import {
-    ProfileNameValidationsTypeFromJSON,
-    ProfileNameValidationsTypeFromJSONTyped,
-    ProfileNameValidationsTypeToJSON,
-} from './ProfileNameValidationsType';
-import type { WarningsType } from './WarningsType';
+    ProfileNameValidationTypeFromJSON,
+    ProfileNameValidationTypeFromJSONTyped,
+    ProfileNameValidationTypeToJSON,
+} from './ProfileNameValidationType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for fetching Profile names.
@@ -40,22 +40,22 @@ import {
 export interface ProfileNameValidations {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileNameValidations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ProfileNameValidationsType}
+     * List of the Profile name to be configured or fetched.
+     * @type {Array<ProfileNameValidationType>}
      * @memberof ProfileNameValidations
      */
-    profileNames?: ProfileNameValidationsType;
+    profileNames?: Array<ProfileNameValidationType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileNameValidations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ProfileNameValidationsFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'profileNames': !exists(json, 'profileNames') ? undefined : ProfileNameValidationsTypeFromJSON(json['profileNames']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'profileNames': !exists(json, 'profileNames') ? undefined : ((json['profileNames'] as Array<any>).map(ProfileNameValidationTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ProfileNameValidationsToJSON(value?: ProfileNameValidations | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'profileNames': ProfileNameValidationsTypeToJSON(value.profileNames),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'profileNames': value.profileNames === undefined ? undefined : ((value.profileNames as Array<any>).map(ProfileNameValidationTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

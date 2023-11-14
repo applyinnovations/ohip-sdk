@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CountriesType } from './CountriesType';
+import type { CountryType } from './CountryType';
 import {
-    CountriesTypeFromJSON,
-    CountriesTypeFromJSONTyped,
-    CountriesTypeToJSON,
-} from './CountriesType';
-import type { Links } from './Links';
+    CountryTypeFromJSON,
+    CountryTypeFromJSONTyped,
+    CountryTypeToJSON,
+} from './CountryType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Countries.
@@ -45,11 +45,11 @@ export interface CountriesDetails {
      */
     count?: number;
     /**
-     * 
-     * @type {CountriesType}
+     * Country details.
+     * @type {Array<CountryType>}
      * @memberof CountriesDetails
      */
-    countries?: CountriesType;
+    countries?: Array<CountryType>;
     /**
      * Indicates whether all the records are included in the response or not. Absence of the attribute values should be consider as all rows fetched in the response.
      * @type {boolean}
@@ -64,10 +64,10 @@ export interface CountriesDetails {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CountriesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -87,11 +87,11 @@ export interface CountriesDetails {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CountriesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -114,14 +114,14 @@ export function CountriesDetailsFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'count': !exists(json, 'count') ? undefined : json['count'],
-        'countries': !exists(json, 'countries') ? undefined : CountriesTypeFromJSON(json['countries']),
+        'countries': !exists(json, 'countries') ? undefined : ((json['countries'] as Array<any>).map(CountryTypeFromJSON)),
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -135,14 +135,14 @@ export function CountriesDetailsToJSON(value?: CountriesDetails | null): any {
     return {
         
         'count': value.count,
-        'countries': CountriesTypeToJSON(value.countries),
+        'countries': value.countries === undefined ? undefined : ((value.countries as Array<any>).map(CountryTypeToJSON)),
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

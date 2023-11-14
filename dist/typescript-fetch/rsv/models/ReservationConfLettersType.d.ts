@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ConfirmationsType } from './ConfirmationsType';
+import type { ConfirmationType } from './ConfirmationType';
 import type { ReservationInfoType } from './ReservationInfoType';
 /**
  * Reservation information and the confirmation letters type attached with it.
@@ -18,11 +18,11 @@ import type { ReservationInfoType } from './ReservationInfoType';
  */
 export interface ReservationConfLettersType {
     /**
-     *
-     * @type {ConfirmationsType}
+     * List of confirmation letters.
+     * @type {Array<ConfirmationType>}
      * @memberof ReservationConfLettersType
      */
-    confLetters?: ConfirmationsType;
+    confLetters?: Array<ConfirmationType>;
     /**
      *
      * @type {ReservationInfoType}

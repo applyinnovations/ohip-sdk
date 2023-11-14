@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BillingChargesStatusToJSON = exports.BillingChargesStatusFromJSONTyped = exports.BillingChargesStatusFromJSON = exports.instanceOfBillingChargesStatus = void 0;
 const runtime_1 = require("../runtime");
-const CheckPostBillingChargesOptionsType_1 = require("./CheckPostBillingChargesOptionsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CheckPostBillingChargesOptionsTypeInner_1 = require("./CheckPostBillingChargesOptionsTypeInner");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BillingChargesStatus interface.
  */
@@ -35,9 +35,9 @@ function BillingChargesStatusFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'options': !(0, runtime_1.exists)(json, 'options') ? undefined : (0, CheckPostBillingChargesOptionsType_1.CheckPostBillingChargesOptionsTypeFromJSON)(json['options']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'options': !(0, runtime_1.exists)(json, 'options') ? undefined : (json['options'].map(CheckPostBillingChargesOptionsTypeInner_1.CheckPostBillingChargesOptionsTypeInnerFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BillingChargesStatusFromJSONTyped = BillingChargesStatusFromJSONTyped;
@@ -49,9 +49,9 @@ function BillingChargesStatusToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'options': (0, CheckPostBillingChargesOptionsType_1.CheckPostBillingChargesOptionsTypeToJSON)(value.options),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'options': value.options === undefined ? undefined : (value.options.map(CheckPostBillingChargesOptionsTypeInner_1.CheckPostBillingChargesOptionsTypeInnerToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BillingChargesStatusToJSON = BillingChargesStatusToJSON;

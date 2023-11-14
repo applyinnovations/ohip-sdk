@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BusinessSegmentsCriteriaToJSON = exports.BusinessSegmentsCriteriaFromJSONTyped = exports.BusinessSegmentsCriteriaFromJSON = exports.instanceOfBusinessSegmentsCriteria = void 0;
 const runtime_1 = require("../runtime");
-const BusinessSegmentsType_1 = require("./BusinessSegmentsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const BusinessSegmentType_1 = require("./BusinessSegmentType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BusinessSegmentsCriteria interface.
  */
@@ -35,9 +35,9 @@ function BusinessSegmentsCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'businessSegments': !(0, runtime_1.exists)(json, 'businessSegments') ? undefined : (0, BusinessSegmentsType_1.BusinessSegmentsTypeFromJSON)(json['businessSegments']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'businessSegments': !(0, runtime_1.exists)(json, 'businessSegments') ? undefined : (json['businessSegments'].map(BusinessSegmentType_1.BusinessSegmentTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BusinessSegmentsCriteriaFromJSONTyped = BusinessSegmentsCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function BusinessSegmentsCriteriaToJSON(value) {
         return null;
     }
     return {
-        'businessSegments': (0, BusinessSegmentsType_1.BusinessSegmentsTypeToJSON)(value.businessSegments),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'businessSegments': value.businessSegments === undefined ? undefined : (value.businessSegments.map(BusinessSegmentType_1.BusinessSegmentTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BusinessSegmentsCriteriaToJSON = BusinessSegmentsCriteriaToJSON;

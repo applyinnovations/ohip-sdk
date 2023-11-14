@@ -19,12 +19,12 @@ import {
     BookingChannelMappingTypeFromJSONTyped,
     BookingChannelMappingTypeToJSON,
 } from './BookingChannelMappingType';
-import type { RoomFeaturesType } from './RoomFeaturesType';
+import type { RoomFeatureType } from './RoomFeatureType';
 import {
-    RoomFeaturesTypeFromJSON,
-    RoomFeaturesTypeFromJSONTyped,
-    RoomFeaturesTypeToJSON,
-} from './RoomFeaturesType';
+    RoomFeatureTypeFromJSON,
+    RoomFeatureTypeFromJSONTyped,
+    RoomFeatureTypeToJSON,
+} from './RoomFeatureType';
 import type { RoomTypeAttributesType } from './RoomTypeAttributesType';
 import {
     RoomTypeAttributesTypeFromJSON,
@@ -99,11 +99,11 @@ export interface AllocationRoomTypeInfoType {
      */
     roomClass?: string;
     /**
-     * 
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof AllocationRoomTypeInfoType
      */
-    roomFeatures?: RoomFeaturesType;
+    roomFeatures?: Array<RoomFeatureType>;
     /**
      * Represents the room qualifier code like Deluxe,Economy,Suite etc.
      * @type {string}
@@ -183,7 +183,7 @@ export function AllocationRoomTypeInfoTypeFromJSONTyped(json: any, ignoreDiscrim
         'longDescription': !exists(json, 'longDescription') ? undefined : json['longDescription'],
         'promotionCode': !exists(json, 'promotionCode') ? undefined : json['promotionCode'],
         'roomClass': !exists(json, 'roomClass') ? undefined : json['roomClass'],
-        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : RoomFeaturesTypeFromJSON(json['roomFeatures']),
+        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : ((json['roomFeatures'] as Array<any>).map(RoomFeatureTypeFromJSON)),
         'roomQualifierCode': !exists(json, 'roomQualifierCode') ? undefined : json['roomQualifierCode'],
         'roomQualifierMatchIndicator': !exists(json, 'roomQualifierMatchIndicator') ? undefined : json['roomQualifierMatchIndicator'],
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
@@ -214,7 +214,7 @@ export function AllocationRoomTypeInfoTypeToJSON(value?: AllocationRoomTypeInfoT
         'longDescription': value.longDescription,
         'promotionCode': value.promotionCode,
         'roomClass': value.roomClass,
-        'roomFeatures': RoomFeaturesTypeToJSON(value.roomFeatures),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : ((value.roomFeatures as Array<any>).map(RoomFeatureTypeToJSON)),
         'roomQualifierCode': value.roomQualifierCode,
         'roomQualifierMatchIndicator': value.roomQualifierMatchIndicator,
         'roomType': value.roomType,

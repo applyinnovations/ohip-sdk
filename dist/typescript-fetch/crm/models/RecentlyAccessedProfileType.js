@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RecentlyAccessedProfileTypeToJSON = exports.RecentlyAccessedProfileTypeFromJSONTyped = exports.RecentlyAccessedProfileTypeFromJSON = exports.instanceOfRecentlyAccessedProfileType = void 0;
 const runtime_1 = require("../runtime");
-const ProfileIdList_1 = require("./ProfileIdList");
 const ProfileTypeType_1 = require("./ProfileTypeType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the RecentlyAccessedProfileType interface.
  */
@@ -37,7 +37,7 @@ function RecentlyAccessedProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
         'accessDate': !(0, runtime_1.exists)(json, 'accessDate') ? undefined : (new Date(json['accessDate'])),
         'guestFirstName': !(0, runtime_1.exists)(json, 'guestFirstName') ? undefined : json['guestFirstName'],
         'guestLastName': !(0, runtime_1.exists)(json, 'guestLastName') ? undefined : json['guestLastName'],
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'profileType': !(0, runtime_1.exists)(json, 'profileType') ? undefined : (0, ProfileTypeType_1.ProfileTypeTypeFromJSON)(json['profileType']),
     };
 }
@@ -53,7 +53,7 @@ function RecentlyAccessedProfileTypeToJSON(value) {
         'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0, 10)),
         'guestFirstName': value.guestFirstName,
         'guestLastName': value.guestLastName,
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'profileType': (0, ProfileTypeType_1.ProfileTypeTypeToJSON)(value.profileType),
     };
 }

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ValidationsReturnType } from './ValidationsReturnType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ValidationReturnType } from './ValidationReturnType';
+import type { WarningType } from './WarningType';
 /**
  * Response for the Combine Share Validation request. This returns all validation messages which may be required for the combine share operation.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface CombineShareValidationsDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CombineShareValidationsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
-     * @type {ValidationsReturnType}
+     * @type {Array<ValidationReturnType>}
      * @memberof CombineShareValidationsDetails
      */
-    returnedValidations?: ValidationsReturnType;
+    returnedValidations?: Array<ValidationReturnType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CombineShareValidationsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CombineShareValidationsDetails interface.

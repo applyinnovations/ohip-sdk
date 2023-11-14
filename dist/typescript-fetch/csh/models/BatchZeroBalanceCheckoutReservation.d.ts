@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CheckoutZeroBalanceReservationType } from './CheckoutZeroBalanceReservationType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request type for batch zero balance checkout.
  * @export
@@ -26,16 +26,16 @@ export interface BatchZeroBalanceCheckoutReservation {
     criteria?: CheckoutZeroBalanceReservationType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BatchZeroBalanceCheckoutReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BatchZeroBalanceCheckoutReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BatchZeroBalanceCheckoutReservation interface.

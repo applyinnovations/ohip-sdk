@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { StagedCompTransactionsInfoType } from './StagedCompTransactionsInfoType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { UniqueIDType } from './UniqueIDType';
+import type { WarningType } from './WarningType';
 /**
  * Response to the request to get staged transaction information for a Reservation
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface StagedTransactions {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof StagedTransactions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {StagedCompTransactionsInfoType}
+     * Transaction ID List of staged comp transactions for the reservation.
+     * @type {Array<Array<UniqueIDType>>}
      * @memberof StagedTransactions
      */
-    stagedCompTransactionsInfo?: StagedCompTransactionsInfoType;
+    stagedCompTransactionsInfo?: Array<Array<UniqueIDType>>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof StagedTransactions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the StagedTransactions interface.

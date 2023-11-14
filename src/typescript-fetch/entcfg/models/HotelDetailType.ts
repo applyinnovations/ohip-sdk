@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelDetailValuesType } from './HotelDetailValuesType';
+import type { HotelDetailValueType } from './HotelDetailValueType';
 import {
-    HotelDetailValuesTypeFromJSON,
-    HotelDetailValuesTypeFromJSONTyped,
-    HotelDetailValuesTypeToJSON,
-} from './HotelDetailValuesType';
+    HotelDetailValueTypeFromJSON,
+    HotelDetailValueTypeFromJSONTyped,
+    HotelDetailValueTypeToJSON,
+} from './HotelDetailValueType';
 
 /**
  * Base details used for storing information about a hotel detail.
@@ -45,11 +45,11 @@ export interface HotelDetailType {
      */
     description?: string;
     /**
-     * 
-     * @type {HotelDetailValuesType}
+     * Collection of property level hotel detail values.
+     * @type {Array<HotelDetailValueType>}
      * @memberof HotelDetailType
      */
-    hotelDetailValues?: HotelDetailValuesType;
+    hotelDetailValues?: Array<HotelDetailValueType>;
     /**
      * Specifies the hotel code of the hotel detail.
      * @type {string}
@@ -86,7 +86,7 @@ export function HotelDetailTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'category': !exists(json, 'category') ? undefined : json['category'],
         'code': !exists(json, 'code') ? undefined : json['code'],
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'hotelDetailValues': !exists(json, 'hotelDetailValues') ? undefined : HotelDetailValuesTypeFromJSON(json['hotelDetailValues']),
+        'hotelDetailValues': !exists(json, 'hotelDetailValues') ? undefined : ((json['hotelDetailValues'] as Array<any>).map(HotelDetailValueTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'sequence': !exists(json, 'sequence') ? undefined : json['sequence'],
     };
@@ -104,7 +104,7 @@ export function HotelDetailTypeToJSON(value?: HotelDetailType | null): any {
         'category': value.category,
         'code': value.code,
         'description': value.description,
-        'hotelDetailValues': HotelDetailValuesTypeToJSON(value.hotelDetailValues),
+        'hotelDetailValues': value.hotelDetailValues === undefined ? undefined : ((value.hotelDetailValues as Array<any>).map(HotelDetailValueTypeToJSON)),
         'hotelId': value.hotelId,
         'sequence': value.sequence,
     };

@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockRateProtectionTypeToJSON = exports.BlockRateProtectionTypeFromJSONTyped = exports.BlockRateProtectionTypeFromJSON = exports.instanceOfBlockRateProtectionType = void 0;
 const runtime_1 = require("../runtime");
-const DatesType_1 = require("./DatesType");
 const RateProtectionType_1 = require("./RateProtectionType");
 /**
  * Check if a given object implements the BlockRateProtectionType interface.
@@ -35,7 +34,7 @@ function BlockRateProtectionTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'criteria': !(0, runtime_1.exists)(json, 'criteria') ? undefined : (0, RateProtectionType_1.RateProtectionTypeFromJSON)(json['criteria']),
-        'protectedDates': !(0, runtime_1.exists)(json, 'protectedDates') ? undefined : (0, DatesType_1.DatesTypeFromJSON)(json['protectedDates']),
+        'protectedDates': !(0, runtime_1.exists)(json, 'protectedDates') ? undefined : json['protectedDates'],
     };
 }
 exports.BlockRateProtectionTypeFromJSONTyped = BlockRateProtectionTypeFromJSONTyped;
@@ -48,7 +47,7 @@ function BlockRateProtectionTypeToJSON(value) {
     }
     return {
         'criteria': (0, RateProtectionType_1.RateProtectionTypeToJSON)(value.criteria),
-        'protectedDates': (0, DatesType_1.DatesTypeToJSON)(value.protectedDates),
+        'protectedDates': value.protectedDates,
     };
 }
 exports.BlockRateProtectionTypeToJSON = BlockRateProtectionTypeToJSON;

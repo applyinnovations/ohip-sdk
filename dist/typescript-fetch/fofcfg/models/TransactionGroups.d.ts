@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelTransactionGroupsType } from './HotelTransactionGroupsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelTransactionGroupType } from './HotelTransactionGroupType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface TransactionGroups {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransactionGroups
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {HotelTransactionGroupsType}
+     * Hotel's Transaction Group configuration.
+     * @type {Array<HotelTransactionGroupType>}
      * @memberof TransactionGroups
      */
-    transactionGroups?: HotelTransactionGroupsType;
+    transactionGroups?: Array<HotelTransactionGroupType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransactionGroups
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TransactionGroups interface.

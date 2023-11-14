@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { PreCheckInRulesType } from './PreCheckInRulesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { PreCheckInRuleType } from './PreCheckInRuleType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for modifying an existing Pre Check-In Rule
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface PreCheckInRulesToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PreCheckInRulesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {PreCheckInRulesType}
+     * Collection of Pre Check-In Rules List
+     * @type {Array<PreCheckInRuleType>}
      * @memberof PreCheckInRulesToBeChanged
      */
-    preCheckInRules?: PreCheckInRulesType;
+    preCheckInRules?: Array<PreCheckInRuleType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PreCheckInRulesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PreCheckInRulesToBeChanged interface.

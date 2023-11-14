@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { AnonymizationStatusType } from './AnonymizationStatusType';
-import type { ForgetProfileFailureReasonListType } from './ForgetProfileFailureReasonListType';
+import type { ForgetProfileFailureReasonType } from './ForgetProfileFailureReasonType';
 import type { ProfileId } from './ProfileId';
 /**
  * Results of Anonymization processing/validation.
@@ -25,11 +25,11 @@ export interface ForgetProfileResultType {
      */
     canBeForgotten?: boolean;
     /**
-     *
-     * @type {ForgetProfileFailureReasonListType}
+     * Reason describing why the profile is not eligible to be forgotten.
+     * @type {Array<ForgetProfileFailureReasonType>}
      * @memberof ForgetProfileResultType
      */
-    failureReasons?: ForgetProfileFailureReasonListType;
+    failureReasons?: Array<ForgetProfileFailureReasonType>;
     /**
      *
      * @type {ProfileId}

@@ -17,8 +17,8 @@ exports.AutoSettlementTypeToJSON = exports.AutoSettlementTypeFromJSONTyped = exp
 const runtime_1 = require("../runtime");
 const AutoFolioSettlementCriteriaType_1 = require("./AutoFolioSettlementCriteriaType");
 const CashieringEventType_1 = require("./CashieringEventType");
-const PaymentMethodsSearchType_1 = require("./PaymentMethodsSearchType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const PaymentMethodSearchType_1 = require("./PaymentMethodSearchType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the AutoSettlementType interface.
  */
@@ -43,9 +43,9 @@ function AutoSettlementTypeFromJSONTyped(json, ignoreDiscriminator) {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'includeCreditCardBalance': !(0, runtime_1.exists)(json, 'includeCreditCardBalance') ? undefined : json['includeCreditCardBalance'],
         'minimumWindowBalance': !(0, runtime_1.exists)(json, 'minimumWindowBalance') ? undefined : json['minimumWindowBalance'],
-        'paymentMethods': !(0, runtime_1.exists)(json, 'paymentMethods') ? undefined : (0, PaymentMethodsSearchType_1.PaymentMethodsSearchTypeFromJSON)(json['paymentMethods']),
+        'paymentMethods': !(0, runtime_1.exists)(json, 'paymentMethods') ? undefined : (json['paymentMethods'].map(PaymentMethodSearchType_1.PaymentMethodSearchTypeFromJSON)),
         'reservationCriteria': !(0, runtime_1.exists)(json, 'reservationCriteria') ? undefined : (0, AutoFolioSettlementCriteriaType_1.AutoFolioSettlementCriteriaTypeFromJSON)(json['reservationCriteria']),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.AutoSettlementTypeFromJSONTyped = AutoSettlementTypeFromJSONTyped;
@@ -64,9 +64,9 @@ function AutoSettlementTypeToJSON(value) {
         'hotelId': value.hotelId,
         'includeCreditCardBalance': value.includeCreditCardBalance,
         'minimumWindowBalance': value.minimumWindowBalance,
-        'paymentMethods': (0, PaymentMethodsSearchType_1.PaymentMethodsSearchTypeToJSON)(value.paymentMethods),
+        'paymentMethods': value.paymentMethods === undefined ? undefined : (value.paymentMethods.map(PaymentMethodSearchType_1.PaymentMethodSearchTypeToJSON)),
         'reservationCriteria': (0, AutoFolioSettlementCriteriaType_1.AutoFolioSettlementCriteriaTypeToJSON)(value.reservationCriteria),
-        'reservationIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.AutoSettlementTypeToJSON = AutoSettlementTypeToJSON;

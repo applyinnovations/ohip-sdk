@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { TemplateHotelDetailValuesType } from './TemplateHotelDetailValuesType';
+import type { TemplateHotelDetailValueType } from './TemplateHotelDetailValueType';
 import {
-    TemplateHotelDetailValuesTypeFromJSON,
-    TemplateHotelDetailValuesTypeFromJSONTyped,
-    TemplateHotelDetailValuesTypeToJSON,
-} from './TemplateHotelDetailValuesType';
+    TemplateHotelDetailValueTypeFromJSON,
+    TemplateHotelDetailValueTypeFromJSONTyped,
+    TemplateHotelDetailValueTypeToJSON,
+} from './TemplateHotelDetailValueType';
 
 /**
  * Base details used for storing information about a hotel detail.
@@ -51,11 +51,11 @@ export interface TemplateHotelDetailType {
      */
     sequence?: number;
     /**
-     * 
-     * @type {TemplateHotelDetailValuesType}
+     * Collection of template level hotel detail values.
+     * @type {Array<TemplateHotelDetailValueType>}
      * @memberof TemplateHotelDetailType
      */
-    templateHotelDetailValues?: TemplateHotelDetailValuesType;
+    templateHotelDetailValues?: Array<TemplateHotelDetailValueType>;
 }
 
 /**
@@ -81,7 +81,7 @@ export function TemplateHotelDetailTypeFromJSONTyped(json: any, ignoreDiscrimina
         'code': !exists(json, 'code') ? undefined : json['code'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'sequence': !exists(json, 'sequence') ? undefined : json['sequence'],
-        'templateHotelDetailValues': !exists(json, 'templateHotelDetailValues') ? undefined : TemplateHotelDetailValuesTypeFromJSON(json['templateHotelDetailValues']),
+        'templateHotelDetailValues': !exists(json, 'templateHotelDetailValues') ? undefined : ((json['templateHotelDetailValues'] as Array<any>).map(TemplateHotelDetailValueTypeFromJSON)),
     };
 }
 
@@ -98,7 +98,7 @@ export function TemplateHotelDetailTypeToJSON(value?: TemplateHotelDetailType | 
         'code': value.code,
         'description': value.description,
         'sequence': value.sequence,
-        'templateHotelDetailValues': TemplateHotelDetailValuesTypeToJSON(value.templateHotelDetailValues),
+        'templateHotelDetailValues': value.templateHotelDetailValues === undefined ? undefined : ((value.templateHotelDetailValues as Array<any>).map(TemplateHotelDetailValueTypeToJSON)),
     };
 }
 

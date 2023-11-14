@@ -19,12 +19,12 @@ import {
     ResGuaranteeSearchTypeFromJSONTyped,
     ResGuaranteeSearchTypeToJSON,
 } from './ResGuaranteeSearchType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to fetch reservation guarantees.
@@ -39,11 +39,11 @@ export interface ValidateReservationGuarantees {
      */
     criteria?: ResGuaranteeSearchType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ValidateReservationGuarantees
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function ValidateReservationGuaranteesFromJSONTyped(json: any, ignoreDisc
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : ResGuaranteeSearchTypeFromJSON(json['criteria']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function ValidateReservationGuaranteesToJSON(value?: ValidateReservationG
     return {
         
         'criteria': ResGuaranteeSearchTypeToJSON(value.criteria),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

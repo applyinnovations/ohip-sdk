@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -40,10 +34,10 @@ export interface CopyScheduleType {
     scheduleId?: UniqueIDType;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyScheduleType
      */
-    targetHotelCodes?: CodeListType;
+    targetHotelCodes?: Array<string>;
 }
 
 /**
@@ -66,7 +60,7 @@ export function CopyScheduleTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'scheduleId': !exists(json, 'scheduleId') ? undefined : UniqueIDTypeFromJSON(json['scheduleId']),
-        'targetHotelCodes': !exists(json, 'targetHotelCodes') ? undefined : CodeListTypeFromJSON(json['targetHotelCodes']),
+        'targetHotelCodes': !exists(json, 'targetHotelCodes') ? undefined : json['targetHotelCodes'],
     };
 }
 
@@ -80,7 +74,7 @@ export function CopyScheduleTypeToJSON(value?: CopyScheduleType | null): any {
     return {
         
         'scheduleId': UniqueIDTypeToJSON(value.scheduleId),
-        'targetHotelCodes': CodeListTypeToJSON(value.targetHotelCodes),
+        'targetHotelCodes': value.targetHotelCodes,
     };
 }
 

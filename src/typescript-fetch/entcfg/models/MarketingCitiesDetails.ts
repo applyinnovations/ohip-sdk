@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MarketingCitiesType } from './MarketingCitiesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MarketingCityConfigType } from './MarketingCityConfigType';
 import {
-    MarketingCitiesTypeFromJSON,
-    MarketingCitiesTypeFromJSONTyped,
-    MarketingCitiesTypeToJSON,
-} from './MarketingCitiesType';
-import type { WarningsType } from './WarningsType';
+    MarketingCityConfigTypeFromJSON,
+    MarketingCityConfigTypeFromJSONTyped,
+    MarketingCityConfigTypeToJSON,
+} from './MarketingCityConfigType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching marketing cities configured for hotels.
@@ -58,16 +58,16 @@ export interface MarketingCitiesDetails {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MarketingCitiesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MarketingCitiesType}
+     * Marketing city details for a hotel.
+     * @type {Array<MarketingCityConfigType>}
      * @memberof MarketingCitiesDetails
      */
-    marketingCities?: MarketingCitiesType;
+    marketingCities?: Array<MarketingCityConfigType>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -87,11 +87,11 @@ export interface MarketingCitiesDetails {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MarketingCitiesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -116,12 +116,12 @@ export function MarketingCitiesDetailsFromJSONTyped(json: any, ignoreDiscriminat
         'count': !exists(json, 'count') ? undefined : json['count'],
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'marketingCities': !exists(json, 'marketingCities') ? undefined : MarketingCitiesTypeFromJSON(json['marketingCities']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'marketingCities': !exists(json, 'marketingCities') ? undefined : ((json['marketingCities'] as Array<any>).map(MarketingCityConfigTypeFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -137,12 +137,12 @@ export function MarketingCitiesDetailsToJSON(value?: MarketingCitiesDetails | nu
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
-        'marketingCities': MarketingCitiesTypeToJSON(value.marketingCities),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'marketingCities': value.marketingCities === undefined ? undefined : ((value.marketingCities as Array<any>).map(MarketingCityConfigTypeToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

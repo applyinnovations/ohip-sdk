@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelDayTypeCodesType } from './HotelDayTypeCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelDayTypeCodeType } from './HotelDayTypeCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating new day type codes for a hotel.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface HotelDayTypeCodesCriteria {
     /**
-     *
-     * @type {HotelDayTypeCodesType}
+     * Details for day type code at hotel level.
+     * @type {Array<HotelDayTypeCodeType>}
      * @memberof HotelDayTypeCodesCriteria
      */
-    hotelDayTypeCodes?: HotelDayTypeCodesType;
+    hotelDayTypeCodes?: Array<HotelDayTypeCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelDayTypeCodesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelDayTypeCodesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HotelDayTypeCodesCriteria interface.

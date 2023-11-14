@@ -43,12 +43,12 @@ import {
     CurrencyAmountTypeFromJSONTyped,
     CurrencyAmountTypeToJSON,
 } from './CurrencyAmountType';
-import type { OrderByListType } from './OrderByListType';
+import type { OrderByListTypeInner } from './OrderByListTypeInner';
 import {
-    OrderByListTypeFromJSON,
-    OrderByListTypeFromJSONTyped,
-    OrderByListTypeToJSON,
-} from './OrderByListType';
+    OrderByListTypeInnerFromJSON,
+    OrderByListTypeInnerFromJSONTyped,
+    OrderByListTypeInnerToJSON,
+} from './OrderByListTypeInner';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -136,10 +136,10 @@ export interface ChannelStatementDetailType {
     oldHotelCode?: string;
     /**
      * 
-     * @type {OrderByListType}
+     * @type {Array<OrderByListTypeInner>}
      * @memberof ChannelStatementDetailType
      */
-    orderByList?: OrderByListType;
+    orderByList?: Array<OrderByListTypeInner>;
     /**
      * Number of Units (transactions, rooms or properties).
      * @type {number}
@@ -197,7 +197,7 @@ export function ChannelStatementDetailTypeFromJSONTyped(json: any, ignoreDiscrim
         'invoiceAmount': !exists(json, 'invoiceAmount') ? undefined : CurrencyAmountTypeFromJSON(json['invoiceAmount']),
         'note': !exists(json, 'note') ? undefined : json['note'],
         'oldHotelCode': !exists(json, 'oldHotelCode') ? undefined : json['oldHotelCode'],
-        'orderByList': !exists(json, 'orderByList') ? undefined : OrderByListTypeFromJSON(json['orderByList']),
+        'orderByList': !exists(json, 'orderByList') ? undefined : ((json['orderByList'] as Array<any>).map(OrderByListTypeInnerFromJSON)),
         'quantity': !exists(json, 'quantity') ? undefined : json['quantity'],
         'routingAccount': !exists(json, 'routingAccount') ? undefined : json['routingAccount'],
         'sequence': !exists(json, 'sequence') ? undefined : json['sequence'],
@@ -226,7 +226,7 @@ export function ChannelStatementDetailTypeToJSON(value?: ChannelStatementDetailT
         'invoiceAmount': CurrencyAmountTypeToJSON(value.invoiceAmount),
         'note': value.note,
         'oldHotelCode': value.oldHotelCode,
-        'orderByList': OrderByListTypeToJSON(value.orderByList),
+        'orderByList': value.orderByList === undefined ? undefined : ((value.orderByList as Array<any>).map(OrderByListTypeInnerToJSON)),
         'quantity': value.quantity,
         'routingAccount': value.routingAccount,
         'sequence': value.sequence,

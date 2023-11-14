@@ -13,30 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockNextStatusListType } from './BlockNextStatusListType';
+import type { BookingStatusDetailType } from './BookingStatusDetailType';
 import {
-    BlockNextStatusListTypeFromJSON,
-    BlockNextStatusListTypeFromJSONTyped,
-    BlockNextStatusListTypeToJSON,
-} from './BlockNextStatusListType';
-import type { CateringNextStatusListType } from './CateringNextStatusListType';
+    BookingStatusDetailTypeFromJSON,
+    BookingStatusDetailTypeFromJSONTyped,
+    BookingStatusDetailTypeToJSON,
+} from './BookingStatusDetailType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    CateringNextStatusListTypeFromJSON,
-    CateringNextStatusListTypeFromJSONTyped,
-    CateringNextStatusListTypeToJSON,
-} from './CateringNextStatusListType';
-import type { Links } from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
-import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for FetchNextBlockStatus operation.
@@ -45,29 +39,29 @@ import {
  */
 export interface NextBlockStatus {
     /**
-     * 
-     * @type {BlockNextStatusListType}
+     * Next booking status of the business block.
+     * @type {Array<BookingStatusDetailType>}
      * @memberof NextBlockStatus
      */
-    blockNextStatusList?: BlockNextStatusListType;
+    blockNextStatusList?: Array<BookingStatusDetailType>;
+    /**
+     * Next catering status of the business block.
+     * @type {Array<BookingStatusDetailType>}
+     * @memberof NextBlockStatus
+     */
+    cateringNextStatusList?: Array<BookingStatusDetailType>;
     /**
      * 
-     * @type {CateringNextStatusListType}
+     * @type {Array<InstanceLink>}
      * @memberof NextBlockStatus
      */
-    cateringNextStatusList?: CateringNextStatusListType;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {Links}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof NextBlockStatus
      */
-    links?: Links;
-    /**
-     * 
-     * @type {WarningsType}
-     * @memberof NextBlockStatus
-     */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +83,10 @@ export function NextBlockStatusFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'blockNextStatusList': !exists(json, 'blockNextStatusList') ? undefined : BlockNextStatusListTypeFromJSON(json['blockNextStatusList']),
-        'cateringNextStatusList': !exists(json, 'cateringNextStatusList') ? undefined : CateringNextStatusListTypeFromJSON(json['cateringNextStatusList']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'blockNextStatusList': !exists(json, 'blockNextStatusList') ? undefined : ((json['blockNextStatusList'] as Array<any>).map(BookingStatusDetailTypeFromJSON)),
+        'cateringNextStatusList': !exists(json, 'cateringNextStatusList') ? undefined : ((json['cateringNextStatusList'] as Array<any>).map(BookingStatusDetailTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +99,10 @@ export function NextBlockStatusToJSON(value?: NextBlockStatus | null): any {
     }
     return {
         
-        'blockNextStatusList': BlockNextStatusListTypeToJSON(value.blockNextStatusList),
-        'cateringNextStatusList': CateringNextStatusListTypeToJSON(value.cateringNextStatusList),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'blockNextStatusList': value.blockNextStatusList === undefined ? undefined : ((value.blockNextStatusList as Array<any>).map(BookingStatusDetailTypeToJSON)),
+        'cateringNextStatusList': value.cateringNextStatusList === undefined ? undefined : ((value.cateringNextStatusList as Array<any>).map(BookingStatusDetailTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

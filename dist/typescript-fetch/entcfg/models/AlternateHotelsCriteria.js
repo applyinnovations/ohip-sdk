@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AlternateHotelsCriteriaToJSON = exports.AlternateHotelsCriteriaFromJSONTyped = exports.AlternateHotelsCriteriaFromJSON = exports.instanceOfAlternateHotelsCriteria = void 0;
 const runtime_1 = require("../runtime");
-const AlternateHotelsType_1 = require("./AlternateHotelsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const AlternateHotelType_1 = require("./AlternateHotelType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AlternateHotelsCriteria interface.
  */
@@ -35,9 +35,9 @@ function AlternateHotelsCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'alternateHotels': !(0, runtime_1.exists)(json, 'alternateHotels') ? undefined : (0, AlternateHotelsType_1.AlternateHotelsTypeFromJSON)(json['alternateHotels']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'alternateHotels': !(0, runtime_1.exists)(json, 'alternateHotels') ? undefined : (json['alternateHotels'].map(AlternateHotelType_1.AlternateHotelTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AlternateHotelsCriteriaFromJSONTyped = AlternateHotelsCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function AlternateHotelsCriteriaToJSON(value) {
         return null;
     }
     return {
-        'alternateHotels': (0, AlternateHotelsType_1.AlternateHotelsTypeToJSON)(value.alternateHotels),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'alternateHotels': value.alternateHotels === undefined ? undefined : (value.alternateHotels.map(AlternateHotelType_1.AlternateHotelTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AlternateHotelsCriteriaToJSON = AlternateHotelsCriteriaToJSON;

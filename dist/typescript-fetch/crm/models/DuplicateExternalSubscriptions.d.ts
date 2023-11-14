@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DuplicateExternalSubscriptionsListType } from './DuplicateExternalSubscriptionsListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { DuplicateExternalSubscriptionsType } from './DuplicateExternalSubscriptionsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching subscriptions where the same OPERA profile is linked to multiple external profiles within the same external system.
  * @export
@@ -25,11 +25,11 @@ export interface DuplicateExternalSubscriptions {
      */
     count?: number;
     /**
-     *
-     * @type {DuplicateExternalSubscriptionsListType}
+     * Details of the OPERA Profile subscription to external system
+     * @type {Array<DuplicateExternalSubscriptionsType>}
      * @memberof DuplicateExternalSubscriptions
      */
-    duplicateExternalSubscriptionsList?: DuplicateExternalSubscriptionsListType;
+    duplicateExternalSubscriptionsList?: Array<DuplicateExternalSubscriptionsType>;
     /**
      * Indicates whether all the records are included in the response or not. Absence of the attribute values should be consider as all rows fetched in the response.
      * @type {boolean}
@@ -44,10 +44,10 @@ export interface DuplicateExternalSubscriptions {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DuplicateExternalSubscriptions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface DuplicateExternalSubscriptions {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DuplicateExternalSubscriptions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DuplicateExternalSubscriptions interface.

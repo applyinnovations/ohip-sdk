@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to upload a file attachment.
  * @export
@@ -61,10 +61,10 @@ export interface FileToUpload {
     linkType?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FileToUpload
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Used for Character Strings, length 0 to 10.
      * @type {string}
@@ -78,11 +78,11 @@ export interface FileToUpload {
      */
     userName?: string;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FileToUpload
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FileToUpload interface.

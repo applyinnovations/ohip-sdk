@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { BankAccountType } from './BankAccountType';
-import type { CommissionAgentsType } from './CommissionAgentsType';
+import type { CommissionAgentType } from './CommissionAgentType';
 import type { CommissionSummaryType } from './CommissionSummaryType';
 /**
  * Commission processing information including related bank, agents or source and funds details.
@@ -25,11 +25,11 @@ export interface CommissionInfoType {
      */
     bankAccount?: BankAccountType;
     /**
-     *
-     * @type {CommissionAgentsType}
+     * Agent or source profiles that were returned by the search.
+     * @type {Array<CommissionAgentType>}
      * @memberof CommissionInfoType
      */
-    commissionAgents?: CommissionAgentsType;
+    commissionAgents?: Array<CommissionAgentType>;
     /**
      *
      * @type {CommissionSummaryType}

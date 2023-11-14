@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HotelRoomMaintenanceReasonsType } from './HotelRoomMaintenanceReasonsType';
+import type { HotelRoomMaintenanceReasonType } from './HotelRoomMaintenanceReasonType';
 import {
-    HotelRoomMaintenanceReasonsTypeFromJSON,
-    HotelRoomMaintenanceReasonsTypeFromJSONTyped,
-    HotelRoomMaintenanceReasonsTypeToJSON,
-} from './HotelRoomMaintenanceReasonsType';
-import type { Links } from './Links';
+    HotelRoomMaintenanceReasonTypeFromJSON,
+    HotelRoomMaintenanceReasonTypeFromJSONTyped,
+    HotelRoomMaintenanceReasonTypeToJSON,
+} from './HotelRoomMaintenanceReasonType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for modifying room maintenance reasons for a hotel.
@@ -39,23 +39,23 @@ import {
  */
 export interface HotelRoomMaintenanceReasonsToBeChanged {
     /**
-     * 
-     * @type {HotelRoomMaintenanceReasonsType}
+     * Details for room maintenance reason at hotel level.
+     * @type {Array<HotelRoomMaintenanceReasonType>}
      * @memberof HotelRoomMaintenanceReasonsToBeChanged
      */
-    hotelRoomMaintenanceReasons?: HotelRoomMaintenanceReasonsType;
+    hotelRoomMaintenanceReasons?: Array<HotelRoomMaintenanceReasonType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelRoomMaintenanceReasonsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelRoomMaintenanceReasonsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function HotelRoomMaintenanceReasonsToBeChangedFromJSONTyped(json: any, i
     }
     return {
         
-        'hotelRoomMaintenanceReasons': !exists(json, 'hotelRoomMaintenanceReasons') ? undefined : HotelRoomMaintenanceReasonsTypeFromJSON(json['hotelRoomMaintenanceReasons']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'hotelRoomMaintenanceReasons': !exists(json, 'hotelRoomMaintenanceReasons') ? undefined : ((json['hotelRoomMaintenanceReasons'] as Array<any>).map(HotelRoomMaintenanceReasonTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function HotelRoomMaintenanceReasonsToBeChangedToJSON(value?: HotelRoomMa
     }
     return {
         
-        'hotelRoomMaintenanceReasons': HotelRoomMaintenanceReasonsTypeToJSON(value.hotelRoomMaintenanceReasons),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'hotelRoomMaintenanceReasons': value.hotelRoomMaintenanceReasons === undefined ? undefined : ((value.hotelRoomMaintenanceReasons as Array<any>).map(HotelRoomMaintenanceReasonTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

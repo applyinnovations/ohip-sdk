@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CancellationCodesType } from './CancellationCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CancellationCodeType } from './CancellationCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Cancellation Codes.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CancellationCodesDetails {
     /**
-     *
-     * @type {CancellationCodesType}
+     * List of Cancellation Codes.
+     * @type {Array<CancellationCodeType>}
      * @memberof CancellationCodesDetails
      */
-    cancellationCodes?: CancellationCodesType;
+    cancellationCodes?: Array<CancellationCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CancellationCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CancellationCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CancellationCodesDetails interface.

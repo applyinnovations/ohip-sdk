@@ -17,7 +17,6 @@ exports.ReservationDailySummaryTypeToJSON = exports.ReservationDailySummaryTypeF
 const runtime_1 = require("../runtime");
 const DailySummaryType_1 = require("./DailySummaryType");
 const PMSResStatusType_1 = require("./PMSResStatusType");
-const ReservationIdList_1 = require("./ReservationIdList");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ReservationDailySummaryType interface.
@@ -64,7 +63,7 @@ function ReservationDailySummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
         'nationality': !(0, runtime_1.exists)(json, 'nationality') ? undefined : json['nationality'],
         'noOfRooms': !(0, runtime_1.exists)(json, 'noOfRooms') ? undefined : json['noOfRooms'],
         'originOfBooking': !(0, runtime_1.exists)(json, 'origin_of_booking') ? undefined : json['origin_of_booking'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'resvContactId': !(0, runtime_1.exists)(json, 'resvContactId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['resvContactId']),
         'resvContactName': !(0, runtime_1.exists)(json, 'resvContactName') ? undefined : json['resvContactName'],
         'resvStatus': !(0, runtime_1.exists)(json, 'resvStatus') ? undefined : (0, PMSResStatusType_1.PMSResStatusTypeFromJSON)(json['resvStatus']),
@@ -114,7 +113,7 @@ function ReservationDailySummaryTypeToJSON(value) {
         'nationality': value.nationality,
         'noOfRooms': value.noOfRooms,
         'origin_of_booking': value.originOfBooking,
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'resvContactId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.resvContactId),
         'resvContactName': value.resvContactName,
         'resvStatus': (0, PMSResStatusType_1.PMSResStatusTypeToJSON)(value.resvStatus),

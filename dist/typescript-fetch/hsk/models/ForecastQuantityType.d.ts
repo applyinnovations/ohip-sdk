@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RoomTypeTasksType } from './RoomTypeTasksType';
+import type { RoomTypeTaskType } from './RoomTypeTaskType';
 /**
  * Quatity data for a single day.
  * @export
@@ -35,11 +35,11 @@ export interface ForecastQuantityType {
      */
     quantity?: number;
     /**
-     *
-     * @type {RoomTypeTasksType}
+     * This is a break-down of the different room types and their tasks count on a date.
+     * @type {Array<RoomTypeTaskType>}
      * @memberof ForecastQuantityType
      */
-    roomTypeBreakDown?: RoomTypeTasksType;
+    roomTypeBreakDown?: Array<RoomTypeTaskType>;
 }
 /**
  * Check if a given object implements the ForecastQuantityType interface.

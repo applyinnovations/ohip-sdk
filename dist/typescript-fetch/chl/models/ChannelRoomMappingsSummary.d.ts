@@ -11,8 +11,8 @@
  */
 import type { ChannelRoomMappingMasterInfoType } from './ChannelRoomMappingMasterInfoType';
 import type { ChannelRoomMappingsSummaryType } from './ChannelRoomMappingsSummaryType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Operation to fetch hotel-channel room type mappings.
  * @export
@@ -27,10 +27,10 @@ export interface ChannelRoomMappingsSummary {
     channelRoomMappingsSummary?: ChannelRoomMappingsSummaryType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelRoomMappingsSummary
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ChannelRoomMappingMasterInfoType}
@@ -38,11 +38,11 @@ export interface ChannelRoomMappingsSummary {
      */
     masterInfo?: ChannelRoomMappingMasterInfoType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelRoomMappingsSummary
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelRoomMappingsSummary interface.

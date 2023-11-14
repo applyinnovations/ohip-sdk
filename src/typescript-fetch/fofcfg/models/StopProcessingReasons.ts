@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { StopProcessingReasonsType } from './StopProcessingReasonsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { StopProcessingReasonType } from './StopProcessingReasonType';
 import {
-    StopProcessingReasonsTypeFromJSON,
-    StopProcessingReasonsTypeFromJSONTyped,
-    StopProcessingReasonsTypeToJSON,
-} from './StopProcessingReasonsType';
-import type { WarningsType } from './WarningsType';
+    StopProcessingReasonTypeFromJSON,
+    StopProcessingReasonTypeFromJSONTyped,
+    StopProcessingReasonTypeToJSON,
+} from './StopProcessingReasonType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Stop Processing Reason.
@@ -40,22 +40,22 @@ import {
 export interface StopProcessingReasons {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof StopProcessingReasons
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {StopProcessingReasonsType}
+     * List of the Stop Processing Reasons to be configured or fetched
+     * @type {Array<StopProcessingReasonType>}
      * @memberof StopProcessingReasons
      */
-    stopProcessingReasons?: StopProcessingReasonsType;
+    stopProcessingReasons?: Array<StopProcessingReasonType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof StopProcessingReasons
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function StopProcessingReasonsFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'stopProcessingReasons': !exists(json, 'stopProcessingReasons') ? undefined : StopProcessingReasonsTypeFromJSON(json['stopProcessingReasons']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'stopProcessingReasons': !exists(json, 'stopProcessingReasons') ? undefined : ((json['stopProcessingReasons'] as Array<any>).map(StopProcessingReasonTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function StopProcessingReasonsToJSON(value?: StopProcessingReasons | null
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'stopProcessingReasons': StopProcessingReasonsTypeToJSON(value.stopProcessingReasons),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'stopProcessingReasons': value.stopProcessingReasons === undefined ? undefined : ((value.stopProcessingReasons as Array<any>).map(StopProcessingReasonTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

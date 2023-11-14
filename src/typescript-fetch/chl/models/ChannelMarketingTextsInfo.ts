@@ -25,24 +25,24 @@ import {
     HotelChannelInfoTypeFromJSONTyped,
     HotelChannelInfoTypeToJSON,
 } from './HotelChannelInfoType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MarketingTextsType } from './MarketingTextsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MarketingTextType } from './MarketingTextType';
 import {
-    MarketingTextsTypeFromJSON,
-    MarketingTextsTypeFromJSONTyped,
-    MarketingTextsTypeToJSON,
-} from './MarketingTextsType';
-import type { WarningsType } from './WarningsType';
+    MarketingTextTypeFromJSON,
+    MarketingTextTypeFromJSONTyped,
+    MarketingTextTypeToJSON,
+} from './MarketingTextType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching channel marketing texts.
@@ -64,22 +64,22 @@ export interface ChannelMarketingTextsInfo {
     hotelsInfo?: Array<HotelChannelInfoType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelMarketingTextsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
-     * @type {MarketingTextsType}
+     * @type {Array<MarketingTextType>}
      * @memberof ChannelMarketingTextsInfo
      */
-    marketingTexts?: MarketingTextsType;
+    marketingTexts?: Array<MarketingTextType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelMarketingTextsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -103,9 +103,9 @@ export function ChannelMarketingTextsInfoFromJSONTyped(json: any, ignoreDiscrimi
         
         'bookingChannelsInfo': !exists(json, 'bookingChannelsInfo') ? undefined : ((json['bookingChannelsInfo'] as Array<any>).map(BookingChannelInfoTypeFromJSON)),
         'hotelsInfo': !exists(json, 'hotelsInfo') ? undefined : ((json['hotelsInfo'] as Array<any>).map(HotelChannelInfoTypeFromJSON)),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'marketingTexts': !exists(json, 'marketingTexts') ? undefined : MarketingTextsTypeFromJSON(json['marketingTexts']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'marketingTexts': !exists(json, 'marketingTexts') ? undefined : ((json['marketingTexts'] as Array<any>).map(MarketingTextTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -120,9 +120,9 @@ export function ChannelMarketingTextsInfoToJSON(value?: ChannelMarketingTextsInf
         
         'bookingChannelsInfo': value.bookingChannelsInfo === undefined ? undefined : ((value.bookingChannelsInfo as Array<any>).map(BookingChannelInfoTypeToJSON)),
         'hotelsInfo': value.hotelsInfo === undefined ? undefined : ((value.hotelsInfo as Array<any>).map(HotelChannelInfoTypeToJSON)),
-        'links': LinksToJSON(value.links),
-        'marketingTexts': MarketingTextsTypeToJSON(value.marketingTexts),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'marketingTexts': value.marketingTexts === undefined ? undefined : ((value.marketingTexts as Array<any>).map(MarketingTextTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

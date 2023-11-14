@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RegionalRateParityType } from './RegionalRateParityType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object to fetch regional rate parity.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface RegionalRateParity {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RegionalRateParity
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {RegionalRateParityType}
@@ -31,11 +31,11 @@ export interface RegionalRateParity {
      */
     regionalRateParity?: RegionalRateParityType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RegionalRateParity
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RegionalRateParity interface.

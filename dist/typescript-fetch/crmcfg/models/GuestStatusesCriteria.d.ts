@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GuestStatusesType } from './GuestStatusesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { GuestStatusType } from './GuestStatusType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Guest Statuses.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface GuestStatusesCriteria {
     /**
-     *
-     * @type {GuestStatusesType}
+     * List of Guest Statuses.
+     * @type {Array<GuestStatusType>}
      * @memberof GuestStatusesCriteria
      */
-    guestStatuses?: GuestStatusesType;
+    guestStatuses?: Array<GuestStatusType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuestStatusesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuestStatusesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GuestStatusesCriteria interface.

@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { HotelReservationType } from './HotelReservationType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface VerifiedCheckinReservation {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof VerifiedCheckinReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Reservation record showing the current state of the reservation.
      * @type {Array<HotelReservationType>}
@@ -31,11 +31,11 @@ export interface VerifiedCheckinReservation {
      */
     reservation?: Array<HotelReservationType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof VerifiedCheckinReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the VerifiedCheckinReservation interface.

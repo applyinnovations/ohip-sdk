@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AutoAttachElementsConfigType } from './AutoAttachElementsConfigType';
+import type { AutoAttachRuleType } from './AutoAttachRuleType';
 import {
-    AutoAttachElementsConfigTypeFromJSON,
-    AutoAttachElementsConfigTypeFromJSONTyped,
-    AutoAttachElementsConfigTypeToJSON,
-} from './AutoAttachElementsConfigType';
-import type { Links } from './Links';
+    AutoAttachRuleTypeFromJSON,
+    AutoAttachRuleTypeFromJSONTyped,
+    AutoAttachRuleTypeToJSON,
+} from './AutoAttachRuleType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { MasterInfoType } from './MasterInfoType';
 import {
     MasterInfoTypeFromJSON,
     MasterInfoTypeFromJSONTyped,
     MasterInfoTypeToJSON,
 } from './MasterInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for the configuration rules that specify the elements to be automatically attached to the reservation.
@@ -45,17 +45,17 @@ import {
  */
 export interface AutoAttachElementsConfig {
     /**
-     * 
-     * @type {AutoAttachElementsConfigType}
+     * Auto attachment rule details.
+     * @type {Array<AutoAttachRuleType>}
      * @memberof AutoAttachElementsConfig
      */
-    autoAttachRules?: AutoAttachElementsConfigType;
+    autoAttachRules?: Array<AutoAttachRuleType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AutoAttachElementsConfig
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Refer to Generic common types document.
      * @type {Array<MasterInfoType>}
@@ -63,11 +63,11 @@ export interface AutoAttachElementsConfig {
      */
     masterInfoList?: Array<MasterInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoAttachElementsConfig
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -89,10 +89,10 @@ export function AutoAttachElementsConfigFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'autoAttachRules': !exists(json, 'autoAttachRules') ? undefined : AutoAttachElementsConfigTypeFromJSON(json['autoAttachRules']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'autoAttachRules': !exists(json, 'autoAttachRules') ? undefined : ((json['autoAttachRules'] as Array<any>).map(AutoAttachRuleTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'masterInfoList': !exists(json, 'masterInfoList') ? undefined : ((json['masterInfoList'] as Array<any>).map(MasterInfoTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -105,10 +105,10 @@ export function AutoAttachElementsConfigToJSON(value?: AutoAttachElementsConfig 
     }
     return {
         
-        'autoAttachRules': AutoAttachElementsConfigTypeToJSON(value.autoAttachRules),
-        'links': LinksToJSON(value.links),
+        'autoAttachRules': value.autoAttachRules === undefined ? undefined : ((value.autoAttachRules as Array<any>).map(AutoAttachRuleTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'masterInfoList': value.masterInfoList === undefined ? undefined : ((value.masterInfoList as Array<any>).map(MasterInfoTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

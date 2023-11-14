@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FiscalFolioParametersType } from './FiscalFolioParametersType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { FiscalFolioParameterType } from './FiscalFolioParameterType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FiscalFolioParameters {
     /**
-     *
-     * @type {FiscalFolioParametersType}
+     * Holds Fiscal Folio Parameter details.
+     * @type {Array<FiscalFolioParameterType>}
      * @memberof FiscalFolioParameters
      */
-    fiscalFolioParameters?: FiscalFolioParametersType;
+    fiscalFolioParameters?: Array<FiscalFolioParameterType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FiscalFolioParameters
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FiscalFolioParameters
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FiscalFolioParameters interface.

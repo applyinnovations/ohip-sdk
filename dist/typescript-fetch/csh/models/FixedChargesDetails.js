@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FixedChargesDetailsToJSON = exports.FixedChargesDetailsFromJSONTyped = exports.FixedChargesDetailsFromJSON = exports.instanceOfFixedChargesDetails = void 0;
 const runtime_1 = require("../runtime");
-const FixedChargesType_1 = require("./FixedChargesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const FixedChargeType_1 = require("./FixedChargeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FixedChargesDetails interface.
  */
@@ -35,9 +35,9 @@ function FixedChargesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'fixedCharges': !(0, runtime_1.exists)(json, 'fixedCharges') ? undefined : (0, FixedChargesType_1.FixedChargesTypeFromJSON)(json['fixedCharges']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'fixedCharges': !(0, runtime_1.exists)(json, 'fixedCharges') ? undefined : (json['fixedCharges'].map(FixedChargeType_1.FixedChargeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FixedChargesDetailsFromJSONTyped = FixedChargesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function FixedChargesDetailsToJSON(value) {
         return null;
     }
     return {
-        'fixedCharges': (0, FixedChargesType_1.FixedChargesTypeToJSON)(value.fixedCharges),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'fixedCharges': value.fixedCharges === undefined ? undefined : (value.fixedCharges.map(FixedChargeType_1.FixedChargeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FixedChargesDetailsToJSON = FixedChargesDetailsToJSON;

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface CreditCardTypeValidationStatus {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreditCardTypeValidationStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * A flag indicating whether the credit card number meets its vendor's format requirements
      * @type {boolean}
@@ -37,11 +37,11 @@ export interface CreditCardTypeValidationStatus {
      */
     validatedPaymentMethod?: ReservationPaymentMethodType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreditCardTypeValidationStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreditCardTypeValidationStatus interface.

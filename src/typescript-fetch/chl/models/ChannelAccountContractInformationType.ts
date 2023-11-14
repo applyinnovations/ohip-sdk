@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelAccountContractElementsType } from './ChannelAccountContractElementsType';
+import type { ContractElementInformationType } from './ContractElementInformationType';
 import {
-    ChannelAccountContractElementsTypeFromJSON,
-    ChannelAccountContractElementsTypeFromJSONTyped,
-    ChannelAccountContractElementsTypeToJSON,
-} from './ChannelAccountContractElementsType';
+    ContractElementInformationTypeFromJSON,
+    ContractElementInformationTypeFromJSONTyped,
+    ContractElementInformationTypeToJSON,
+} from './ContractElementInformationType';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -39,11 +39,11 @@ export interface ChannelAccountContractInformationType {
      */
     beginDate?: Date;
     /**
-     * 
-     * @type {ChannelAccountContractElementsType}
+     * Channel account contract elements information object to hold details of contract elements.
+     * @type {Array<ContractElementInformationType>}
      * @memberof ChannelAccountContractInformationType
      */
-    channelAccountContractElements?: ChannelAccountContractElementsType;
+    channelAccountContractElements?: Array<ContractElementInformationType>;
     /**
      * 
      * @type {UniqueIDType}
@@ -96,7 +96,7 @@ export function ChannelAccountContractInformationTypeFromJSONTyped(json: any, ig
     return {
         
         'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
-        'channelAccountContractElements': !exists(json, 'channelAccountContractElements') ? undefined : ChannelAccountContractElementsTypeFromJSON(json['channelAccountContractElements']),
+        'channelAccountContractElements': !exists(json, 'channelAccountContractElements') ? undefined : ((json['channelAccountContractElements'] as Array<any>).map(ContractElementInformationTypeFromJSON)),
         'contractId': !exists(json, 'contractId') ? undefined : UniqueIDTypeFromJSON(json['contractId']),
         'contractNo': !exists(json, 'contractNo') ? undefined : json['contractNo'],
         'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
@@ -115,7 +115,7 @@ export function ChannelAccountContractInformationTypeToJSON(value?: ChannelAccou
     return {
         
         'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
-        'channelAccountContractElements': ChannelAccountContractElementsTypeToJSON(value.channelAccountContractElements),
+        'channelAccountContractElements': value.channelAccountContractElements === undefined ? undefined : ((value.channelAccountContractElements as Array<any>).map(ContractElementInformationTypeToJSON)),
         'contractId': UniqueIDTypeToJSON(value.contractId),
         'contractNo': value.contractNo,
         'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),

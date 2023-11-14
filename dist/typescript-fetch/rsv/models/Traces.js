@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TracesToJSON = exports.TracesFromJSONTyped = exports.TracesFromJSON = exports.instanceOfTraces = void 0;
 const runtime_1 = require("../runtime");
-const HotelReservationTracesType_1 = require("./HotelReservationTracesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HotelReservationTraceType_1 = require("./HotelReservationTraceType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the Traces interface.
  */
@@ -35,9 +35,9 @@ function TracesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'traces': !(0, runtime_1.exists)(json, 'traces') ? undefined : (0, HotelReservationTracesType_1.HotelReservationTracesTypeFromJSON)(json['traces']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'traces': !(0, runtime_1.exists)(json, 'traces') ? undefined : (json['traces'].map(HotelReservationTraceType_1.HotelReservationTraceTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TracesFromJSONTyped = TracesFromJSONTyped;
@@ -49,9 +49,9 @@ function TracesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'traces': (0, HotelReservationTracesType_1.HotelReservationTracesTypeToJSON)(value.traces),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'traces': value.traces === undefined ? undefined : (value.traces.map(HotelReservationTraceType_1.HotelReservationTraceTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TracesToJSON = TracesToJSON;

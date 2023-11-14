@@ -192,7 +192,7 @@ class FrontDeskOperationsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: (0, index_1.AutoAssignRoomToJSON)(requestParameters.autoAssignRoom),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AutoAssignedRoomFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(index_1.AutoRoomAssignTypeFromJSON));
         });
     }
     /**

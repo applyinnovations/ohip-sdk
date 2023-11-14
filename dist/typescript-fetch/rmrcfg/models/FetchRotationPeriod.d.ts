@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RotationPeriodFrequencyType } from './RotationPeriodFrequencyType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response Object for Fetch Rotation Period
  * @export
@@ -32,10 +32,10 @@ export interface FetchRotationPeriod {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchRotationPeriod
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {RotationPeriodFrequencyType}
@@ -49,11 +49,11 @@ export interface FetchRotationPeriod {
      */
     startDate?: Date;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchRotationPeriod
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FetchRotationPeriod interface.

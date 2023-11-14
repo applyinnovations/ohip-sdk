@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { TrxOwnershipType } from './TrxOwnershipType';
 import {
     TrxOwnershipTypeFromJSON,
@@ -46,10 +40,10 @@ export interface ChangeTransactionCodeOwnershipType {
     ownershipStatus?: TrxOwnershipType;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ChangeTransactionCodeOwnershipType
      */
-    transactionCodes?: CodeListType;
+    transactionCodes?: Array<string>;
 }
 
 /**
@@ -73,7 +67,7 @@ export function ChangeTransactionCodeOwnershipTypeFromJSONTyped(json: any, ignor
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'ownershipStatus': !exists(json, 'ownershipStatus') ? undefined : TrxOwnershipTypeFromJSON(json['ownershipStatus']),
-        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : CodeListTypeFromJSON(json['transactionCodes']),
+        'transactionCodes': !exists(json, 'transactionCodes') ? undefined : json['transactionCodes'],
     };
 }
 
@@ -88,7 +82,7 @@ export function ChangeTransactionCodeOwnershipTypeToJSON(value?: ChangeTransacti
         
         'hotelId': value.hotelId,
         'ownershipStatus': TrxOwnershipTypeToJSON(value.ownershipStatus),
-        'transactionCodes': CodeListTypeToJSON(value.transactionCodes),
+        'transactionCodes': value.transactionCodes,
     };
 }
 

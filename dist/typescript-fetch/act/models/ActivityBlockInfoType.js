@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ActivityBlockInfoTypeToJSON = exports.ActivityBlockInfoTypeFromJSONTyped = exports.ActivityBlockInfoTypeFromJSON = exports.instanceOfActivityBlockInfoType = void 0;
 const runtime_1 = require("../runtime");
 const TimeSpanType_1 = require("./TimeSpanType");
-const UniqueNameIDListType_1 = require("./UniqueNameIDListType");
+const UniqueNameIDType_1 = require("./UniqueNameIDType");
 /**
  * Check if a given object implements the ActivityBlockInfoType interface.
  */
@@ -35,7 +35,7 @@ function ActivityBlockInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'blockCode': !(0, runtime_1.exists)(json, 'blockCode') ? undefined : json['blockCode'],
-        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (0, UniqueNameIDListType_1.UniqueNameIDListTypeFromJSON)(json['blockIdList']),
+        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueNameIDType_1.UniqueNameIDTypeFromJSON)),
         'blockName': !(0, runtime_1.exists)(json, 'blockName') ? undefined : json['blockName'],
         'primary': !(0, runtime_1.exists)(json, 'primary') ? undefined : json['primary'],
         'timeSpan': !(0, runtime_1.exists)(json, 'timeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['timeSpan']),
@@ -51,7 +51,7 @@ function ActivityBlockInfoTypeToJSON(value) {
     }
     return {
         'blockCode': value.blockCode,
-        'blockIdList': (0, UniqueNameIDListType_1.UniqueNameIDListTypeToJSON)(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueNameIDType_1.UniqueNameIDTypeToJSON)),
         'blockName': value.blockName,
         'primary': value.primary,
         'timeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.timeSpan),

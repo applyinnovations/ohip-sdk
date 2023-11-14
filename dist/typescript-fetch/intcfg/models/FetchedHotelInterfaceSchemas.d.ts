@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelInterfaceSchemasType } from './HotelInterfaceSchemasType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelInterfaceSchemaType } from './HotelInterfaceSchemaType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for retrieving Hotel Interface Schemas.
  * @export
@@ -32,10 +32,10 @@ export interface FetchedHotelInterfaceSchemas {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchedHotelInterfaceSchemas
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -43,11 +43,11 @@ export interface FetchedHotelInterfaceSchemas {
      */
     offset?: number;
     /**
-     *
-     * @type {HotelInterfaceSchemasType}
+     * Collection of Hotel Interface Schemas.
+     * @type {Array<HotelInterfaceSchemaType>}
      * @memberof FetchedHotelInterfaceSchemas
      */
-    schemas?: HotelInterfaceSchemasType;
+    schemas?: Array<HotelInterfaceSchemaType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -61,11 +61,11 @@ export interface FetchedHotelInterfaceSchemas {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FetchedHotelInterfaceSchemas
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FetchedHotelInterfaceSchemas interface.

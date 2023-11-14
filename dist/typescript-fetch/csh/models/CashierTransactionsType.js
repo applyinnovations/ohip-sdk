@@ -18,7 +18,7 @@ const runtime_1 = require("../runtime");
 const CashierClosureNoType_1 = require("./CashierClosureNoType");
 const CashierTransactionType_1 = require("./CashierTransactionType");
 const HotelCashierTransactionType_1 = require("./HotelCashierTransactionType");
-const TrxCodesInfoType_1 = require("./TrxCodesInfoType");
+const TrxInfoType_1 = require("./TrxInfoType");
 /**
  * Check if a given object implements the CashierTransactionsType interface.
  */
@@ -39,7 +39,7 @@ function CashierTransactionsTypeFromJSONTyped(json, ignoreDiscriminator) {
         'cashierInfo': !(0, runtime_1.exists)(json, 'cashierInfo') ? undefined : (0, CashierClosureNoType_1.CashierClosureNoTypeFromJSON)(json['cashierInfo']),
         'hotelTransactionList': !(0, runtime_1.exists)(json, 'hotelTransactionList') ? undefined : (json['hotelTransactionList'].map(HotelCashierTransactionType_1.HotelCashierTransactionTypeFromJSON)),
         'summaryTransactionList': !(0, runtime_1.exists)(json, 'summaryTransactionList') ? undefined : (json['summaryTransactionList'].map(CashierTransactionType_1.CashierTransactionTypeFromJSON)),
-        'trxCodesInfo': !(0, runtime_1.exists)(json, 'trxCodesInfo') ? undefined : (0, TrxCodesInfoType_1.TrxCodesInfoTypeFromJSON)(json['trxCodesInfo']),
+        'trxCodesInfo': !(0, runtime_1.exists)(json, 'trxCodesInfo') ? undefined : (json['trxCodesInfo'].map(TrxInfoType_1.TrxInfoTypeFromJSON)),
     };
 }
 exports.CashierTransactionsTypeFromJSONTyped = CashierTransactionsTypeFromJSONTyped;
@@ -54,7 +54,7 @@ function CashierTransactionsTypeToJSON(value) {
         'cashierInfo': (0, CashierClosureNoType_1.CashierClosureNoTypeToJSON)(value.cashierInfo),
         'hotelTransactionList': value.hotelTransactionList === undefined ? undefined : (value.hotelTransactionList.map(HotelCashierTransactionType_1.HotelCashierTransactionTypeToJSON)),
         'summaryTransactionList': value.summaryTransactionList === undefined ? undefined : (value.summaryTransactionList.map(CashierTransactionType_1.CashierTransactionTypeToJSON)),
-        'trxCodesInfo': (0, TrxCodesInfoType_1.TrxCodesInfoTypeToJSON)(value.trxCodesInfo),
+        'trxCodesInfo': value.trxCodesInfo === undefined ? undefined : (value.trxCodesInfo.map(TrxInfoType_1.TrxInfoTypeToJSON)),
     };
 }
 exports.CashierTransactionsTypeToJSON = CashierTransactionsTypeToJSON;

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TerritoriesType } from './TerritoriesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TerritoryType } from './TerritoryType';
 import {
-    TerritoriesTypeFromJSON,
-    TerritoriesTypeFromJSONTyped,
-    TerritoriesTypeToJSON,
-} from './TerritoriesType';
-import type { WarningsType } from './WarningsType';
+    TerritoryTypeFromJSON,
+    TerritoryTypeFromJSONTyped,
+    TerritoryTypeToJSON,
+} from './TerritoryType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Territories.
@@ -40,22 +40,22 @@ import {
 export interface TerritoriesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TerritoriesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TerritoriesType}
+     * List of Territories.
+     * @type {Array<TerritoryType>}
      * @memberof TerritoriesDetails
      */
-    territories?: TerritoriesType;
+    territories?: Array<TerritoryType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TerritoriesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TerritoriesDetailsFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'territories': !exists(json, 'territories') ? undefined : TerritoriesTypeFromJSON(json['territories']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'territories': !exists(json, 'territories') ? undefined : ((json['territories'] as Array<any>).map(TerritoryTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TerritoriesDetailsToJSON(value?: TerritoriesDetails | null): any
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'territories': TerritoriesTypeToJSON(value.territories),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'territories': value.territories === undefined ? undefined : ((value.territories as Array<any>).map(TerritoryTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

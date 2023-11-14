@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ResvRoutingInfoListType } from './ResvRoutingInfoListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ResvRoutingInfoType } from './ResvRoutingInfoType';
 import {
-    ResvRoutingInfoListTypeFromJSON,
-    ResvRoutingInfoListTypeFromJSONTyped,
-    ResvRoutingInfoListTypeToJSON,
-} from './ResvRoutingInfoListType';
-import type { WarningsType } from './WarningsType';
+    ResvRoutingInfoTypeFromJSON,
+    ResvRoutingInfoTypeFromJSONTyped,
+    ResvRoutingInfoTypeToJSON,
+} from './ResvRoutingInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object containing comp routing instructions for a reservation .
@@ -40,22 +40,22 @@ import {
 export interface CompRoutingInstructions {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CompRoutingInstructions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ResvRoutingInfoListType}
+     * A comp routing info object
+     * @type {Array<ResvRoutingInfoType>}
      * @memberof CompRoutingInstructions
      */
-    resvRoutingInstructions?: ResvRoutingInfoListType;
+    resvRoutingInstructions?: Array<ResvRoutingInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CompRoutingInstructions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CompRoutingInstructionsFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'resvRoutingInstructions': !exists(json, 'resvRoutingInstructions') ? undefined : ResvRoutingInfoListTypeFromJSON(json['resvRoutingInstructions']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'resvRoutingInstructions': !exists(json, 'resvRoutingInstructions') ? undefined : ((json['resvRoutingInstructions'] as Array<any>).map(ResvRoutingInfoTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CompRoutingInstructionsToJSON(value?: CompRoutingInstructions | 
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'resvRoutingInstructions': ResvRoutingInfoListTypeToJSON(value.resvRoutingInstructions),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'resvRoutingInstructions': value.resvRoutingInstructions === undefined ? undefined : ((value.resvRoutingInstructions as Array<any>).map(ResvRoutingInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

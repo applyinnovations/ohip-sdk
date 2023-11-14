@@ -25,12 +25,12 @@ import {
     HotelReservationsTypeFromJSONTyped,
     HotelReservationsTypeToJSON,
 } from './HotelReservationsType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReservationInstructionType } from './ReservationInstructionType';
 import {
     ReservationInstructionTypeFromJSON,
@@ -43,12 +43,12 @@ import {
     ReservationsInstructionsTypeFromJSONTyped,
     ReservationsInstructionsTypeToJSON,
 } from './ReservationsInstructionsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -70,10 +70,10 @@ export interface PostReservationByBlockRequest {
     fetchInstructions?: Array<ReservationInstructionType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostReservationByBlockRequest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {HotelReservationsType}
@@ -87,11 +87,11 @@ export interface PostReservationByBlockRequest {
      */
     reservationsInstructionsType?: ReservationsInstructionsType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostReservationByBlockRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -115,10 +115,10 @@ export function PostReservationByBlockRequestFromJSONTyped(json: any, ignoreDisc
         
         'channelInformation': !exists(json, 'channelInformation') ? undefined : ChannelResvRQInfoTypeFromJSON(json['channelInformation']),
         'fetchInstructions': !exists(json, 'fetchInstructions') ? undefined : ((json['fetchInstructions'] as Array<any>).map(ReservationInstructionTypeFromJSON)),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservations': !exists(json, 'reservations') ? undefined : HotelReservationsTypeFromJSON(json['reservations']),
         'reservationsInstructionsType': !exists(json, 'reservationsInstructionsType') ? undefined : ReservationsInstructionsTypeFromJSON(json['reservationsInstructionsType']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -133,10 +133,10 @@ export function PostReservationByBlockRequestToJSON(value?: PostReservationByBlo
         
         'channelInformation': ChannelResvRQInfoTypeToJSON(value.channelInformation),
         'fetchInstructions': value.fetchInstructions === undefined ? undefined : ((value.fetchInstructions as Array<any>).map(ReservationInstructionTypeToJSON)),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservations': HotelReservationsTypeToJSON(value.reservations),
         'reservationsInstructionsType': ReservationsInstructionsTypeToJSON(value.reservationsInstructionsType),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

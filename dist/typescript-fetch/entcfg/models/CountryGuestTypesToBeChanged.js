@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CountryGuestTypesToBeChangedToJSON = exports.CountryGuestTypesToBeChangedFromJSONTyped = exports.CountryGuestTypesToBeChangedFromJSON = exports.instanceOfCountryGuestTypesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const CountryGuestTypesType_1 = require("./CountryGuestTypesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CountryGuestTypeType_1 = require("./CountryGuestTypeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CountryGuestTypesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function CountryGuestTypesToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'countryGuestTypes': !(0, runtime_1.exists)(json, 'countryGuestTypes') ? undefined : (0, CountryGuestTypesType_1.CountryGuestTypesTypeFromJSON)(json['countryGuestTypes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'countryGuestTypes': !(0, runtime_1.exists)(json, 'countryGuestTypes') ? undefined : (json['countryGuestTypes'].map(CountryGuestTypeType_1.CountryGuestTypeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CountryGuestTypesToBeChangedFromJSONTyped = CountryGuestTypesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function CountryGuestTypesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'countryGuestTypes': (0, CountryGuestTypesType_1.CountryGuestTypesTypeToJSON)(value.countryGuestTypes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'countryGuestTypes': value.countryGuestTypes === undefined ? undefined : (value.countryGuestTypes.map(CountryGuestTypeType_1.CountryGuestTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CountryGuestTypesToBeChangedToJSON = CountryGuestTypesToBeChangedToJSON;

@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FinancialPostingsTypeToJSON = exports.FinancialPostingsTypeFromJSONTyped = exports.FinancialPostingsTypeFromJSON = exports.instanceOfFinancialPostingsType = void 0;
 const runtime_1 = require("../runtime");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
-const DetailPostingsType_1 = require("./DetailPostingsType");
-const TrxCodesInfoType_1 = require("./TrxCodesInfoType");
+const DetailPostingType_1 = require("./DetailPostingType");
+const TrxInfoType_1 = require("./TrxInfoType");
 /**
  * Check if a given object implements the FinancialPostingsType interface.
  */
@@ -36,12 +36,12 @@ function FinancialPostingsTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'overallTotal': !(0, runtime_1.exists)(json, 'overallTotal') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['overallTotal']),
-        'postings': !(0, runtime_1.exists)(json, 'postings') ? undefined : (0, DetailPostingsType_1.DetailPostingsTypeFromJSON)(json['postings']),
+        'postings': !(0, runtime_1.exists)(json, 'postings') ? undefined : (json['postings'].map(DetailPostingType_1.DetailPostingTypeFromJSON)),
         'totalCredit': !(0, runtime_1.exists)(json, 'totalCredit') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['totalCredit']),
         'totalDebit': !(0, runtime_1.exists)(json, 'totalDebit') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['totalDebit']),
         'totalEntriesCount': !(0, runtime_1.exists)(json, 'totalEntriesCount') ? undefined : json['totalEntriesCount'],
         'totalForAllPages': !(0, runtime_1.exists)(json, 'totalForAllPages') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['totalForAllPages']),
-        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (0, TrxCodesInfoType_1.TrxCodesInfoTypeFromJSON)(json['transactionCodes']),
+        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (json['transactionCodes'].map(TrxInfoType_1.TrxInfoTypeFromJSON)),
     };
 }
 exports.FinancialPostingsTypeFromJSONTyped = FinancialPostingsTypeFromJSONTyped;
@@ -54,12 +54,12 @@ function FinancialPostingsTypeToJSON(value) {
     }
     return {
         'overallTotal': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.overallTotal),
-        'postings': (0, DetailPostingsType_1.DetailPostingsTypeToJSON)(value.postings),
+        'postings': value.postings === undefined ? undefined : (value.postings.map(DetailPostingType_1.DetailPostingTypeToJSON)),
         'totalCredit': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.totalCredit),
         'totalDebit': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.totalDebit),
         'totalEntriesCount': value.totalEntriesCount,
         'totalForAllPages': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.totalForAllPages),
-        'transactionCodes': (0, TrxCodesInfoType_1.TrxCodesInfoTypeToJSON)(value.transactionCodes),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : (value.transactionCodes.map(TrxInfoType_1.TrxInfoTypeToJSON)),
     };
 }
 exports.FinancialPostingsTypeToJSON = FinancialPostingsTypeToJSON;

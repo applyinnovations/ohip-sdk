@@ -43,12 +43,12 @@ import {
     TimeSpanTypeFromJSONTyped,
     TimeSpanTypeToJSON,
 } from './TimeSpanType';
-import type { UniqueNameIDListType } from './UniqueNameIDListType';
+import type { UniqueNameIDType } from './UniqueNameIDType';
 import {
-    UniqueNameIDListTypeFromJSON,
-    UniqueNameIDListTypeFromJSONTyped,
-    UniqueNameIDListTypeToJSON,
-} from './UniqueNameIDListType';
+    UniqueNameIDTypeFromJSON,
+    UniqueNameIDTypeFromJSONTyped,
+    UniqueNameIDTypeToJSON,
+} from './UniqueNameIDType';
 
 /**
  * Detailed information regarding calendar task.
@@ -57,11 +57,11 @@ import {
  */
 export interface CalendarTaskType {
     /**
-     * 
-     * @type {UniqueNameIDListType}
+     * Defines descriptive name and unique identification combination.
+     * @type {Array<UniqueNameIDType>}
      * @memberof CalendarTaskType
      */
-    accountIdList?: UniqueNameIDListType;
+    accountIdList?: Array<UniqueNameIDType>;
     /**
      * Count of the attachments that are attached to the task.
      * @type {number}
@@ -75,11 +75,11 @@ export interface CalendarTaskType {
      */
     author?: string;
     /**
-     * 
-     * @type {UniqueNameIDListType}
+     * Defines descriptive name and unique identification combination.
+     * @type {Array<UniqueNameIDType>}
      * @memberof CalendarTaskType
      */
-    blockIdList?: UniqueNameIDListType;
+    blockIdList?: Array<UniqueNameIDType>;
     /**
      * 
      * @type {CalendarTaskClassType}
@@ -87,11 +87,11 @@ export interface CalendarTaskType {
      */
     classCode?: CalendarTaskClassType;
     /**
-     * 
-     * @type {UniqueNameIDListType}
+     * Defines descriptive name and unique identification combination.
+     * @type {Array<UniqueNameIDType>}
      * @memberof CalendarTaskType
      */
-    contactIdList?: UniqueNameIDListType;
+    contactIdList?: Array<UniqueNameIDType>;
     /**
      * Hotel code of calendar task.
      * @type {string}
@@ -197,12 +197,12 @@ export function CalendarTaskTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'accountIdList': !exists(json, 'accountIdList') ? undefined : UniqueNameIDListTypeFromJSON(json['accountIdList']),
+        'accountIdList': !exists(json, 'accountIdList') ? undefined : ((json['accountIdList'] as Array<any>).map(UniqueNameIDTypeFromJSON)),
         'attachmentsCount': !exists(json, 'attachmentsCount') ? undefined : json['attachmentsCount'],
         'author': !exists(json, 'author') ? undefined : json['author'],
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : UniqueNameIDListTypeFromJSON(json['blockIdList']),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueNameIDTypeFromJSON)),
         'classCode': !exists(json, 'classCode') ? undefined : CalendarTaskClassTypeFromJSON(json['classCode']),
-        'contactIdList': !exists(json, 'contactIdList') ? undefined : UniqueNameIDListTypeFromJSON(json['contactIdList']),
+        'contactIdList': !exists(json, 'contactIdList') ? undefined : ((json['contactIdList'] as Array<any>).map(UniqueNameIDTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'id': !exists(json, 'id') ? undefined : json['id'],
         'idContext': !exists(json, 'idContext') ? undefined : json['idContext'],
@@ -229,12 +229,12 @@ export function CalendarTaskTypeToJSON(value?: CalendarTaskType | null): any {
     }
     return {
         
-        'accountIdList': UniqueNameIDListTypeToJSON(value.accountIdList),
+        'accountIdList': value.accountIdList === undefined ? undefined : ((value.accountIdList as Array<any>).map(UniqueNameIDTypeToJSON)),
         'attachmentsCount': value.attachmentsCount,
         'author': value.author,
-        'blockIdList': UniqueNameIDListTypeToJSON(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueNameIDTypeToJSON)),
         'classCode': CalendarTaskClassTypeToJSON(value.classCode),
-        'contactIdList': UniqueNameIDListTypeToJSON(value.contactIdList),
+        'contactIdList': value.contactIdList === undefined ? undefined : ((value.contactIdList as Array<any>).map(UniqueNameIDTypeToJSON)),
         'hotelId': value.hotelId,
         'id': value.id,
         'idContext': value.idContext,

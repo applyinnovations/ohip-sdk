@@ -19,24 +19,24 @@ import {
     BlockDetailInstructionTypeFromJSONTyped,
     BlockDetailInstructionTypeToJSON,
 } from './BlockDetailInstructionType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { SubAllocationsType } from './SubAllocationsType';
 import {
     SubAllocationsTypeFromJSON,
     SubAllocationsTypeFromJSONTyped,
     SubAllocationsTypeToJSON,
 } from './SubAllocationsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creation of Sub Allocation. This object contains sub allocation details with unique identifiers for each sub allocation along with Master Allocation information. The standard optional Opera Context element is also included.
@@ -52,10 +52,10 @@ export interface SubAllocation {
     fetchInstructions?: Array<BlockDetailInstructionType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SubAllocation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {SubAllocationsType}
@@ -63,11 +63,11 @@ export interface SubAllocation {
      */
     subAllocations?: SubAllocationsType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SubAllocation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -90,9 +90,9 @@ export function SubAllocationFromJSONTyped(json: any, ignoreDiscriminator: boole
     return {
         
         'fetchInstructions': !exists(json, 'fetchInstructions') ? undefined : ((json['fetchInstructions'] as Array<any>).map(BlockDetailInstructionTypeFromJSON)),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'subAllocations': !exists(json, 'subAllocations') ? undefined : SubAllocationsTypeFromJSON(json['subAllocations']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -106,9 +106,9 @@ export function SubAllocationToJSON(value?: SubAllocation | null): any {
     return {
         
         'fetchInstructions': value.fetchInstructions === undefined ? undefined : ((value.fetchInstructions as Array<any>).map(BlockDetailInstructionTypeToJSON)),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'subAllocations': SubAllocationsTypeToJSON(value.subAllocations),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

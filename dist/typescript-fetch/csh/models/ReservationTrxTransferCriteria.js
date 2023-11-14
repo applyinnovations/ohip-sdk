@@ -15,8 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationTrxTransferCriteriaToJSON = exports.ReservationTrxTransferCriteriaFromJSONTyped = exports.ReservationTrxTransferCriteriaFromJSON = exports.instanceOfReservationTrxTransferCriteria = void 0;
 const runtime_1 = require("../runtime");
-const ReservationIdList_1 = require("./ReservationIdList");
-const UniqueIDListType_1 = require("./UniqueIDListType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ReservationTrxTransferCriteria interface.
@@ -39,9 +37,9 @@ function ReservationTrxTransferCriteriaFromJSONTyped(json, ignoreDiscriminator) 
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'membershipIdNo': !(0, runtime_1.exists)(json, 'membershipIdNo') ? undefined : json['membershipIdNo'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'targetFolioWindowNo': !(0, runtime_1.exists)(json, 'targetFolioWindowNo') ? undefined : json['targetFolioWindowNo'],
-        'targetReservationIdList': !(0, runtime_1.exists)(json, 'targetReservationIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['targetReservationIdList']),
+        'targetReservationIdList': !(0, runtime_1.exists)(json, 'targetReservationIdList') ? undefined : (json['targetReservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'transactionList': !(0, runtime_1.exists)(json, 'transactionList') ? undefined : json['transactionList'],
     };
 }
@@ -58,9 +56,9 @@ function ReservationTrxTransferCriteriaToJSON(value) {
         'cashierId': value.cashierId,
         'hotelId': value.hotelId,
         'membershipIdNo': value.membershipIdNo,
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'targetFolioWindowNo': value.targetFolioWindowNo,
-        'targetReservationIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.targetReservationIdList),
+        'targetReservationIdList': value.targetReservationIdList === undefined ? undefined : (value.targetReservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'transactionList': value.transactionList,
     };
 }

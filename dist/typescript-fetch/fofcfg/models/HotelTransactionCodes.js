@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelTransactionCodesToJSON = exports.HotelTransactionCodesFromJSONTyped = exports.HotelTransactionCodesFromJSON = exports.instanceOfHotelTransactionCodes = void 0;
 const runtime_1 = require("../runtime");
-const HotelTransactionCodesType_1 = require("./HotelTransactionCodesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HotelTransactionCodeType_1 = require("./HotelTransactionCodeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the HotelTransactionCodes interface.
  */
@@ -35,9 +35,9 @@ function HotelTransactionCodesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (0, HotelTransactionCodesType_1.HotelTransactionCodesTypeFromJSON)(json['transactionCodes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (json['transactionCodes'].map(HotelTransactionCodeType_1.HotelTransactionCodeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.HotelTransactionCodesFromJSONTyped = HotelTransactionCodesFromJSONTyped;
@@ -49,9 +49,9 @@ function HotelTransactionCodesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'transactionCodes': (0, HotelTransactionCodesType_1.HotelTransactionCodesTypeToJSON)(value.transactionCodes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : (value.transactionCodes.map(HotelTransactionCodeType_1.HotelTransactionCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.HotelTransactionCodesToJSON = HotelTransactionCodesToJSON;

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DestinationCodesType } from './DestinationCodesType';
+import type { DestinationCodeType } from './DestinationCodeType';
 import {
-    DestinationCodesTypeFromJSON,
-    DestinationCodesTypeFromJSONTyped,
-    DestinationCodesTypeToJSON,
-} from './DestinationCodesType';
-import type { Links } from './Links';
+    DestinationCodeTypeFromJSON,
+    DestinationCodeTypeFromJSONTyped,
+    DestinationCodeTypeToJSON,
+} from './DestinationCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Destination Codes.
@@ -39,23 +39,23 @@ import {
  */
 export interface DestinationCodesDetails {
     /**
-     * 
-     * @type {DestinationCodesType}
+     * List of Destination Codes.
+     * @type {Array<DestinationCodeType>}
      * @memberof DestinationCodesDetails
      */
-    destinationCodes?: DestinationCodesType;
+    destinationCodes?: Array<DestinationCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DestinationCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DestinationCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function DestinationCodesDetailsFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'destinationCodes': !exists(json, 'destinationCodes') ? undefined : DestinationCodesTypeFromJSON(json['destinationCodes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'destinationCodes': !exists(json, 'destinationCodes') ? undefined : ((json['destinationCodes'] as Array<any>).map(DestinationCodeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function DestinationCodesDetailsToJSON(value?: DestinationCodesDetails | 
     }
     return {
         
-        'destinationCodes': DestinationCodesTypeToJSON(value.destinationCodes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'destinationCodes': value.destinationCodes === undefined ? undefined : ((value.destinationCodes as Array<any>).map(DestinationCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

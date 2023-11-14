@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EventsResourcesToJSON = exports.EventsResourcesFromJSONTyped = exports.EventsResourcesFromJSON = exports.instanceOfEventsResources = void 0;
 const runtime_1 = require("../runtime");
-const EventsResourcesListType_1 = require("./EventsResourcesListType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const EventInfoType_1 = require("./EventInfoType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the EventsResources interface.
  */
@@ -35,9 +35,9 @@ function EventsResourcesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'eventsResourcesList': !(0, runtime_1.exists)(json, 'eventsResourcesList') ? undefined : (0, EventsResourcesListType_1.EventsResourcesListTypeFromJSON)(json['eventsResourcesList']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'eventsResourcesList': !(0, runtime_1.exists)(json, 'eventsResourcesList') ? undefined : (json['eventsResourcesList'].map(EventInfoType_1.EventInfoTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.EventsResourcesFromJSONTyped = EventsResourcesFromJSONTyped;
@@ -49,9 +49,9 @@ function EventsResourcesToJSON(value) {
         return null;
     }
     return {
-        'eventsResourcesList': (0, EventsResourcesListType_1.EventsResourcesListTypeToJSON)(value.eventsResourcesList),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'eventsResourcesList': value.eventsResourcesList === undefined ? undefined : (value.eventsResourcesList.map(EventInfoType_1.EventInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.EventsResourcesToJSON = EventsResourcesToJSON;

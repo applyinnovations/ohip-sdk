@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AttachmentsType } from './AttachmentsType';
+import type { AttachmentType } from './AttachmentType';
 import {
-    AttachmentsTypeFromJSON,
-    AttachmentsTypeFromJSONTyped,
-    AttachmentsTypeToJSON,
-} from './AttachmentsType';
-import type { Links } from './Links';
+    AttachmentTypeFromJSON,
+    AttachmentTypeFromJSONTyped,
+    AttachmentTypeToJSON,
+} from './AttachmentType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object with the details of the attachments of a profile.
@@ -40,22 +40,22 @@ import {
 export interface ProfileAttachments {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ProfileAttachments
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {AttachmentsType}
+     * Attachment List.
+     * @type {Array<AttachmentType>}
      * @memberof ProfileAttachments
      */
-    profileAttachments?: AttachmentsType;
+    profileAttachments?: Array<AttachmentType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ProfileAttachments
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ProfileAttachmentsFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'profileAttachments': !exists(json, 'profileAttachments') ? undefined : AttachmentsTypeFromJSON(json['profileAttachments']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'profileAttachments': !exists(json, 'profileAttachments') ? undefined : ((json['profileAttachments'] as Array<any>).map(AttachmentTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ProfileAttachmentsToJSON(value?: ProfileAttachments | null): any
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'profileAttachments': AttachmentsTypeToJSON(value.profileAttachments),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'profileAttachments': value.profileAttachments === undefined ? undefined : ((value.profileAttachments as Array<any>).map(AttachmentTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

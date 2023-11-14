@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateRoomOwnerReferralDetailsToJSON = exports.CreateRoomOwnerReferralDetailsFromJSONTyped = exports.CreateRoomOwnerReferralDetailsFromJSON = exports.instanceOfCreateRoomOwnerReferralDetails = void 0;
 const runtime_1 = require("../runtime");
 const RoomOwnerReferralList_1 = require("./RoomOwnerReferralList");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CreateRoomOwnerReferralDetails interface.
  */
@@ -35,7 +35,7 @@ function CreateRoomOwnerReferralDetailsFromJSONTyped(json, ignoreDiscriminator) 
     }
     return {
         'roomOwnerReferrals': !(0, runtime_1.exists)(json, 'roomOwnerReferrals') ? undefined : (0, RoomOwnerReferralList_1.RoomOwnerReferralListFromJSON)(json['roomOwnerReferrals']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CreateRoomOwnerReferralDetailsFromJSONTyped = CreateRoomOwnerReferralDetailsFromJSONTyped;
@@ -48,7 +48,7 @@ function CreateRoomOwnerReferralDetailsToJSON(value) {
     }
     return {
         'roomOwnerReferrals': (0, RoomOwnerReferralList_1.RoomOwnerReferralListToJSON)(value.roomOwnerReferrals),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CreateRoomOwnerReferralDetailsToJSON = CreateRoomOwnerReferralDetailsToJSON;

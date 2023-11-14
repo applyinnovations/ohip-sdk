@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TicketsToJSON = exports.TicketsFromJSONTyped = exports.TicketsFromJSON = exports.instanceOfTickets = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TicketsType_1 = require("./TicketsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TicketType_1 = require("./TicketType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the Tickets interface.
  */
@@ -35,9 +35,9 @@ function TicketsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'tickets': !(0, runtime_1.exists)(json, 'tickets') ? undefined : (0, TicketsType_1.TicketsTypeFromJSON)(json['tickets']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'tickets': !(0, runtime_1.exists)(json, 'tickets') ? undefined : (json['tickets'].map(TicketType_1.TicketTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TicketsFromJSONTyped = TicketsFromJSONTyped;
@@ -49,9 +49,9 @@ function TicketsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'tickets': (0, TicketsType_1.TicketsTypeToJSON)(value.tickets),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'tickets': value.tickets === undefined ? undefined : (value.tickets.map(TicketType_1.TicketTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TicketsToJSON = TicketsToJSON;

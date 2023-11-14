@@ -22,7 +22,7 @@ const CompPostingsType_1 = require("./CompPostingsType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const ExchangeAmounts_1 = require("./ExchangeAmounts");
 const PostingGroupType_1 = require("./PostingGroupType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ARInvoicePostingType interface.
  */
@@ -57,7 +57,7 @@ function ARInvoicePostingTypeFromJSONTyped(json, ignoreDiscriminator) {
         'depositTransactionId': !(0, runtime_1.exists)(json, 'depositTransactionId') ? undefined : json['depositTransactionId'],
         'exchange': !(0, runtime_1.exists)(json, 'exchange') ? undefined : (0, ExchangeAmounts_1.ExchangeAmountsFromJSON)(json['exchange']),
         'fbaCertificate': !(0, runtime_1.exists)(json, 'fbaCertificate') ? undefined : json['fbaCertificate'],
-        'financialTransactionIdList': !(0, runtime_1.exists)(json, 'financialTransactionIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['financialTransactionIdList']),
+        'financialTransactionIdList': !(0, runtime_1.exists)(json, 'financialTransactionIdList') ? undefined : (json['financialTransactionIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'groupByCount': !(0, runtime_1.exists)(json, 'groupByCount') ? undefined : json['groupByCount'],
         'groupTypeInfo': !(0, runtime_1.exists)(json, 'groupTypeInfo') ? undefined : (0, PostingGroupType_1.PostingGroupTypeFromJSON)(json['groupTypeInfo']),
         'paidOut': !(0, runtime_1.exists)(json, 'paidOut') ? undefined : json['paidOut'],
@@ -111,7 +111,7 @@ function ARInvoicePostingTypeToJSON(value) {
         'depositTransactionId': value.depositTransactionId,
         'exchange': (0, ExchangeAmounts_1.ExchangeAmountsToJSON)(value.exchange),
         'fbaCertificate': value.fbaCertificate,
-        'financialTransactionIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.financialTransactionIdList),
+        'financialTransactionIdList': value.financialTransactionIdList === undefined ? undefined : (value.financialTransactionIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'groupByCount': value.groupByCount,
         'groupTypeInfo': (0, PostingGroupType_1.PostingGroupTypeToJSON)(value.groupTypeInfo),
         'paidOut': value.paidOut,

@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DistributionTemplateTypeToJSON = exports.DistributionTemplateTypeFromJSONTyped = exports.DistributionTemplateTypeFromJSON = exports.instanceOfDistributionTemplateType = void 0;
 const runtime_1 = require("../runtime");
-const DistributionTemplateChannelRatesType_1 = require("./DistributionTemplateChannelRatesType");
+const DistributionTemplateChannelRateType_1 = require("./DistributionTemplateChannelRateType");
 /**
  * Check if a given object implements the DistributionTemplateType interface.
  */
@@ -33,7 +33,7 @@ function DistributionTemplateTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'channelRates': !(0, runtime_1.exists)(json, 'channelRates') ? undefined : (0, DistributionTemplateChannelRatesType_1.DistributionTemplateChannelRatesTypeFromJSON)(json['channelRates']),
+        'channelRates': !(0, runtime_1.exists)(json, 'channelRates') ? undefined : (json['channelRates'].map(DistributionTemplateChannelRateType_1.DistributionTemplateChannelRateTypeFromJSON)),
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'displaySequence': !(0, runtime_1.exists)(json, 'displaySequence') ? undefined : json['displaySequence'],
@@ -51,7 +51,7 @@ function DistributionTemplateTypeToJSON(value) {
         return null;
     }
     return {
-        'channelRates': (0, DistributionTemplateChannelRatesType_1.DistributionTemplateChannelRatesTypeToJSON)(value.channelRates),
+        'channelRates': value.channelRates === undefined ? undefined : (value.channelRates.map(DistributionTemplateChannelRateType_1.DistributionTemplateChannelRateTypeToJSON)),
         'code': value.code,
         'description': value.description,
         'displaySequence': value.displaySequence,

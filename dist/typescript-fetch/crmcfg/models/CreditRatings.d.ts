@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CreditRatingsType } from './CreditRatingsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CreditRatingType } from './CreditRatingType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching credit ratings.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CreditRatings {
     /**
-     *
-     * @type {CreditRatingsType}
+     * List of Credit Ratings.
+     * @type {Array<CreditRatingType>}
      * @memberof CreditRatings
      */
-    creditRatings?: CreditRatingsType;
+    creditRatings?: Array<CreditRatingType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreditRatings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreditRatings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreditRatings interface.

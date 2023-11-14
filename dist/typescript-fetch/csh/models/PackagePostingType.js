@@ -22,7 +22,7 @@ const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const DepositDetailPostingTypeUpdateInfo_1 = require("./DepositDetailPostingTypeUpdateInfo");
 const ExchangeAmounts_1 = require("./ExchangeAmounts");
 const PostingGroupType_1 = require("./PostingGroupType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the PackagePostingType interface.
  */
@@ -57,7 +57,7 @@ function PackagePostingTypeFromJSONTyped(json, ignoreDiscriminator) {
         'depositTransactionId': !(0, runtime_1.exists)(json, 'depositTransactionId') ? undefined : json['depositTransactionId'],
         'exchange': !(0, runtime_1.exists)(json, 'exchange') ? undefined : (0, ExchangeAmounts_1.ExchangeAmountsFromJSON)(json['exchange']),
         'fbaCertificate': !(0, runtime_1.exists)(json, 'fbaCertificate') ? undefined : json['fbaCertificate'],
-        'financialTransactionIdList': !(0, runtime_1.exists)(json, 'financialTransactionIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['financialTransactionIdList']),
+        'financialTransactionIdList': !(0, runtime_1.exists)(json, 'financialTransactionIdList') ? undefined : (json['financialTransactionIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'fromRoom': !(0, runtime_1.exists)(json, 'fromRoom') ? undefined : json['fromRoom'],
         'groupTypeInfo': !(0, runtime_1.exists)(json, 'groupTypeInfo') ? undefined : (0, PostingGroupType_1.PostingGroupTypeFromJSON)(json['groupTypeInfo']),
         'overageAmount': !(0, runtime_1.exists)(json, 'overageAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['overageAmount']),
@@ -114,7 +114,7 @@ function PackagePostingTypeToJSON(value) {
         'depositTransactionId': value.depositTransactionId,
         'exchange': (0, ExchangeAmounts_1.ExchangeAmountsToJSON)(value.exchange),
         'fbaCertificate': value.fbaCertificate,
-        'financialTransactionIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.financialTransactionIdList),
+        'financialTransactionIdList': value.financialTransactionIdList === undefined ? undefined : (value.financialTransactionIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'fromRoom': value.fromRoom,
         'groupTypeInfo': (0, PostingGroupType_1.PostingGroupTypeToJSON)(value.groupTypeInfo),
         'overageAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.overageAmount),

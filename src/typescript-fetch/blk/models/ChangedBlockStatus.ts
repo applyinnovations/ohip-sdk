@@ -13,54 +13,54 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockNextStatusListType } from './BlockNextStatusListType';
-import {
-    BlockNextStatusListTypeFromJSON,
-    BlockNextStatusListTypeFromJSONTyped,
-    BlockNextStatusListTypeToJSON,
-} from './BlockNextStatusListType';
-import type { BlockStatusChangeHistoryType } from './BlockStatusChangeHistoryType';
-import {
-    BlockStatusChangeHistoryTypeFromJSON,
-    BlockStatusChangeHistoryTypeFromJSONTyped,
-    BlockStatusChangeHistoryTypeToJSON,
-} from './BlockStatusChangeHistoryType';
 import type { BlockType } from './BlockType';
 import {
     BlockTypeFromJSON,
     BlockTypeFromJSONTyped,
     BlockTypeToJSON,
 } from './BlockType';
+import type { BookingStatusDetailType } from './BookingStatusDetailType';
+import {
+    BookingStatusDetailTypeFromJSON,
+    BookingStatusDetailTypeFromJSONTyped,
+    BookingStatusDetailTypeToJSON,
+} from './BookingStatusDetailType';
+import type { BookingStatusHistoryType } from './BookingStatusHistoryType';
+import {
+    BookingStatusHistoryTypeFromJSON,
+    BookingStatusHistoryTypeFromJSONTyped,
+    BookingStatusHistoryTypeToJSON,
+} from './BookingStatusHistoryType';
 import type { CancellationDetailsType } from './CancellationDetailsType';
 import {
     CancellationDetailsTypeFromJSON,
     CancellationDetailsTypeFromJSONTyped,
     CancellationDetailsTypeToJSON,
 } from './CancellationDetailsType';
-import type { CateringEventsProcessedInfoList } from './CateringEventsProcessedInfoList';
+import type { CateringEventsProcessedInfoType } from './CateringEventsProcessedInfoType';
 import {
-    CateringEventsProcessedInfoListFromJSON,
-    CateringEventsProcessedInfoListFromJSONTyped,
-    CateringEventsProcessedInfoListToJSON,
-} from './CateringEventsProcessedInfoList';
-import type { Links } from './Links';
+    CateringEventsProcessedInfoTypeFromJSON,
+    CateringEventsProcessedInfoTypeFromJSONTyped,
+    CateringEventsProcessedInfoTypeToJSON,
+} from './CateringEventsProcessedInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
     UniqueIDTypeFromJSONTyped,
     UniqueIDTypeToJSON,
 } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for the request to change block status. Response contains information on the block whose status was successfully changed.
@@ -81,17 +81,17 @@ export interface ChangedBlockStatus {
      */
     block?: BlockType;
     /**
-     * 
-     * @type {BlockNextStatusListType}
+     * Next booking status of the business block.
+     * @type {Array<BookingStatusDetailType>}
      * @memberof ChangedBlockStatus
      */
-    blockNextStatusList?: BlockNextStatusListType;
+    blockNextStatusList?: Array<BookingStatusDetailType>;
     /**
-     * 
-     * @type {BlockStatusChangeHistoryType}
+     * Collection of block status history.
+     * @type {Array<BookingStatusHistoryType>}
      * @memberof ChangedBlockStatus
      */
-    blockStatusChangeHistory?: BlockStatusChangeHistoryType;
+    blockStatusChangeHistory?: Array<BookingStatusHistoryType>;
     /**
      * 
      * @type {CancellationDetailsType}
@@ -99,17 +99,17 @@ export interface ChangedBlockStatus {
      */
     cancellationDetails?: CancellationDetailsType;
     /**
-     * 
-     * @type {CateringEventsProcessedInfoList}
+     * Status/Info of the processed events.
+     * @type {Array<CateringEventsProcessedInfoType>}
      * @memberof ChangedBlockStatus
      */
-    cateringEventsProcessedInfo?: CateringEventsProcessedInfoList;
+    cateringEventsProcessedInfo?: Array<CateringEventsProcessedInfoType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangedBlockStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {UniqueIDType}
@@ -117,11 +117,11 @@ export interface ChangedBlockStatus {
      */
     processId?: UniqueIDType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangedBlockStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -145,13 +145,13 @@ export function ChangedBlockStatusFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'anyActivePMReservations': !exists(json, 'anyActivePMReservations') ? undefined : json['anyActivePMReservations'],
         'block': !exists(json, 'block') ? undefined : BlockTypeFromJSON(json['block']),
-        'blockNextStatusList': !exists(json, 'blockNextStatusList') ? undefined : BlockNextStatusListTypeFromJSON(json['blockNextStatusList']),
-        'blockStatusChangeHistory': !exists(json, 'blockStatusChangeHistory') ? undefined : BlockStatusChangeHistoryTypeFromJSON(json['blockStatusChangeHistory']),
+        'blockNextStatusList': !exists(json, 'blockNextStatusList') ? undefined : ((json['blockNextStatusList'] as Array<any>).map(BookingStatusDetailTypeFromJSON)),
+        'blockStatusChangeHistory': !exists(json, 'blockStatusChangeHistory') ? undefined : ((json['blockStatusChangeHistory'] as Array<any>).map(BookingStatusHistoryTypeFromJSON)),
         'cancellationDetails': !exists(json, 'cancellationDetails') ? undefined : CancellationDetailsTypeFromJSON(json['cancellationDetails']),
-        'cateringEventsProcessedInfo': !exists(json, 'cateringEventsProcessedInfo') ? undefined : CateringEventsProcessedInfoListFromJSON(json['cateringEventsProcessedInfo']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'cateringEventsProcessedInfo': !exists(json, 'cateringEventsProcessedInfo') ? undefined : ((json['cateringEventsProcessedInfo'] as Array<any>).map(CateringEventsProcessedInfoTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'processId': !exists(json, 'processId') ? undefined : UniqueIDTypeFromJSON(json['processId']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -166,13 +166,13 @@ export function ChangedBlockStatusToJSON(value?: ChangedBlockStatus | null): any
         
         'anyActivePMReservations': value.anyActivePMReservations,
         'block': BlockTypeToJSON(value.block),
-        'blockNextStatusList': BlockNextStatusListTypeToJSON(value.blockNextStatusList),
-        'blockStatusChangeHistory': BlockStatusChangeHistoryTypeToJSON(value.blockStatusChangeHistory),
+        'blockNextStatusList': value.blockNextStatusList === undefined ? undefined : ((value.blockNextStatusList as Array<any>).map(BookingStatusDetailTypeToJSON)),
+        'blockStatusChangeHistory': value.blockStatusChangeHistory === undefined ? undefined : ((value.blockStatusChangeHistory as Array<any>).map(BookingStatusHistoryTypeToJSON)),
         'cancellationDetails': CancellationDetailsTypeToJSON(value.cancellationDetails),
-        'cateringEventsProcessedInfo': CateringEventsProcessedInfoListToJSON(value.cateringEventsProcessedInfo),
-        'links': LinksToJSON(value.links),
+        'cateringEventsProcessedInfo': value.cateringEventsProcessedInfo === undefined ? undefined : ((value.cateringEventsProcessedInfo as Array<any>).map(CateringEventsProcessedInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'processId': UniqueIDTypeToJSON(value.processId),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

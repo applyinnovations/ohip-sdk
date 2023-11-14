@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MembershipLevelRatingsInfoType } from './MembershipLevelRatingsInfoType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MembershipLevelRatingInfoType } from './MembershipLevelRatingInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for modifying membership levels rating details.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MembershipLevelRatings {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipLevelRatings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MembershipLevelRatingsInfoType}
+     * Collection of membership levels and their ratings.
+     * @type {Array<MembershipLevelRatingInfoType>}
      * @memberof MembershipLevelRatings
      */
-    membershipLevelRatingsInfo?: MembershipLevelRatingsInfoType;
+    membershipLevelRatingsInfo?: Array<MembershipLevelRatingInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipLevelRatings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipLevelRatings interface.

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChannelPoliciesInfoType } from './ChannelPoliciesInfoType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ChannelPolicyType } from './ChannelPolicyType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for fetching Policies, guarantee, and deposit Details.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ChannelPolicies {
     /**
-     *
-     * @type {ChannelPoliciesInfoType}
+     * To list down all the policies associated with the relevant input request.
+     * @type {Array<ChannelPolicyType>}
      * @memberof ChannelPolicies
      */
-    channelPoliciesInfo?: ChannelPoliciesInfoType;
+    channelPoliciesInfo?: Array<ChannelPolicyType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChannelPolicies
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChannelPolicies
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChannelPolicies interface.

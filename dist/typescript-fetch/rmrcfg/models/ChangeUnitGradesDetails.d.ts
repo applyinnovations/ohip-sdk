@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RoomRotationUnitGradesType } from './RoomRotationUnitGradesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RoomRotationUnitGradeType } from './RoomRotationUnitGradeType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing an existing Room Rotation Owner Room Grade Codes.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ChangeUnitGradesDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangeUnitGradesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RoomRotationUnitGradesType}
+     * Room Rotation Owner Room Grade Enumeration element.
+     * @type {Array<RoomRotationUnitGradeType>}
      * @memberof ChangeUnitGradesDetails
      */
-    unitGrades?: RoomRotationUnitGradesType;
+    unitGrades?: Array<RoomRotationUnitGradeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeUnitGradesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChangeUnitGradesDetails interface.

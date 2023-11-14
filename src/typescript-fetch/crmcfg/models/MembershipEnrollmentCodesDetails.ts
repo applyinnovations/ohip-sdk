@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { MembershipEnrollmentCodesType } from './MembershipEnrollmentCodesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { MembershipEnrollmentCodeType } from './MembershipEnrollmentCodeType';
 import {
-    MembershipEnrollmentCodesTypeFromJSON,
-    MembershipEnrollmentCodesTypeFromJSONTyped,
-    MembershipEnrollmentCodesTypeToJSON,
-} from './MembershipEnrollmentCodesType';
-import type { WarningsType } from './WarningsType';
+    MembershipEnrollmentCodeTypeFromJSON,
+    MembershipEnrollmentCodeTypeFromJSONTyped,
+    MembershipEnrollmentCodeTypeToJSON,
+} from './MembershipEnrollmentCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Membership Enrollment Codes.
@@ -40,22 +40,22 @@ import {
 export interface MembershipEnrollmentCodesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipEnrollmentCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {MembershipEnrollmentCodesType}
+     * List of Membership Enrollment Codes.
+     * @type {Array<MembershipEnrollmentCodeType>}
      * @memberof MembershipEnrollmentCodesDetails
      */
-    membershipEnrollmentCodes?: MembershipEnrollmentCodesType;
+    membershipEnrollmentCodes?: Array<MembershipEnrollmentCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipEnrollmentCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function MembershipEnrollmentCodesDetailsFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'membershipEnrollmentCodes': !exists(json, 'membershipEnrollmentCodes') ? undefined : MembershipEnrollmentCodesTypeFromJSON(json['membershipEnrollmentCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'membershipEnrollmentCodes': !exists(json, 'membershipEnrollmentCodes') ? undefined : ((json['membershipEnrollmentCodes'] as Array<any>).map(MembershipEnrollmentCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function MembershipEnrollmentCodesDetailsToJSON(value?: MembershipEnrollm
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'membershipEnrollmentCodes': MembershipEnrollmentCodesTypeToJSON(value.membershipEnrollmentCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'membershipEnrollmentCodes': value.membershipEnrollmentCodes === undefined ? undefined : ((value.membershipEnrollmentCodes as Array<any>).map(MembershipEnrollmentCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

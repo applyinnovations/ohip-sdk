@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BuildingTypeToJSON = exports.BuildingTypeFromJSONTyped = exports.BuildingTypeFromJSON = exports.instanceOfBuildingType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 /**
  * Check if a given object implements the BuildingType interface.
  */
@@ -38,7 +37,7 @@ function BuildingTypeFromJSONTyped(json, ignoreDiscriminator) {
         'credits': !(0, runtime_1.exists)(json, 'credits') ? undefined : json['credits'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'rooms': !(0, runtime_1.exists)(json, 'rooms') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['rooms']),
+        'rooms': !(0, runtime_1.exists)(json, 'rooms') ? undefined : json['rooms'],
         'sequence': !(0, runtime_1.exists)(json, 'sequence') ? undefined : json['sequence'],
         'targetCredits': !(0, runtime_1.exists)(json, 'targetCredits') ? undefined : json['targetCredits'],
     };
@@ -57,7 +56,7 @@ function BuildingTypeToJSON(value) {
         'credits': value.credits,
         'description': value.description,
         'hotelId': value.hotelId,
-        'rooms': (0, CodeListType_1.CodeListTypeToJSON)(value.rooms),
+        'rooms': value.rooms,
         'sequence': value.sequence,
         'targetCredits': value.targetCredits,
     };

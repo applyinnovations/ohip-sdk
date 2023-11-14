@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomTypePoolTypeToJSON = exports.RoomTypePoolTypeFromJSONTyped = exports.RoomTypePoolTypeFromJSON = exports.instanceOfRoomTypePoolType = void 0;
 const runtime_1 = require("../runtime");
-const RoomPoolRoomTypesType_1 = require("./RoomPoolRoomTypesType");
+const RoomPoolRoomTypeType_1 = require("./RoomPoolRoomTypeType");
 const TranslationTextType1000_1 = require("./TranslationTextType1000");
 /**
  * Check if a given object implements the RoomTypePoolType interface.
@@ -34,7 +34,7 @@ function RoomTypePoolTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'associatedRoomTypes': !(0, runtime_1.exists)(json, 'associatedRoomTypes') ? undefined : (0, RoomPoolRoomTypesType_1.RoomPoolRoomTypesTypeFromJSON)(json['associatedRoomTypes']),
+        'associatedRoomTypes': !(0, runtime_1.exists)(json, 'associatedRoomTypes') ? undefined : (json['associatedRoomTypes'].map(RoomPoolRoomTypeType_1.RoomPoolRoomTypeTypeFromJSON)),
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'roomTypePoolCode': !(0, runtime_1.exists)(json, 'roomTypePoolCode') ? undefined : json['roomTypePoolCode'],
@@ -51,7 +51,7 @@ function RoomTypePoolTypeToJSON(value) {
         return null;
     }
     return {
-        'associatedRoomTypes': (0, RoomPoolRoomTypesType_1.RoomPoolRoomTypesTypeToJSON)(value.associatedRoomTypes),
+        'associatedRoomTypes': value.associatedRoomTypes === undefined ? undefined : (value.associatedRoomTypes.map(RoomPoolRoomTypeType_1.RoomPoolRoomTypeTypeToJSON)),
         'description': value.description,
         'hotelId': value.hotelId,
         'roomTypePoolCode': value.roomTypePoolCode,

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FacilityHousekeepingTasksType } from './FacilityHousekeepingTasksType';
+import type { FacilityHousekeepingTaskType } from './FacilityHousekeepingTaskType';
 /**
  * Criteria type for fetching reservation housekeeping schedule.
  * @export
@@ -35,11 +35,11 @@ export interface ReservationHousekeepingScheduleType {
      */
     end?: Date;
     /**
-     *
-     * @type {FacilityHousekeepingTasksType}
+     * List of the facility tasks.
+     * @type {Array<FacilityHousekeepingTaskType>}
      * @memberof ReservationHousekeepingScheduleType
      */
-    facilityHousekeepingTasks?: FacilityHousekeepingTasksType;
+    facilityHousekeepingTasks?: Array<FacilityHousekeepingTaskType>;
     /**
      * Date at which facility tasks started being retrieved.
      * @type {Date}

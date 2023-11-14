@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TrxCodeUsagesType } from './TrxCodeUsagesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TrxCodeUsageType } from './TrxCodeUsageType';
 import {
-    TrxCodeUsagesTypeFromJSON,
-    TrxCodeUsagesTypeFromJSONTyped,
-    TrxCodeUsagesTypeToJSON,
-} from './TrxCodeUsagesType';
-import type { WarningsType } from './WarningsType';
+    TrxCodeUsageTypeFromJSON,
+    TrxCodeUsageTypeFromJSONTyped,
+    TrxCodeUsageTypeToJSON,
+} from './TrxCodeUsageType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface TransactionCodes {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransactionCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TrxCodeUsagesType}
+     * Element on which the transaction code is being used.
+     * @type {Array<TrxCodeUsageType>}
      * @memberof TransactionCodes
      */
-    trxCodeUsages?: TrxCodeUsagesType;
+    trxCodeUsages?: Array<TrxCodeUsageType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransactionCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TransactionCodesFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'trxCodeUsages': !exists(json, 'trxCodeUsages') ? undefined : TrxCodeUsagesTypeFromJSON(json['trxCodeUsages']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'trxCodeUsages': !exists(json, 'trxCodeUsages') ? undefined : ((json['trxCodeUsages'] as Array<any>).map(TrxCodeUsageTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TransactionCodesToJSON(value?: TransactionCodes | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'trxCodeUsages': TrxCodeUsagesTypeToJSON(value.trxCodeUsages),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'trxCodeUsages': value.trxCodeUsages === undefined ? undefined : ((value.trxCodeUsages as Array<any>).map(TrxCodeUsageTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

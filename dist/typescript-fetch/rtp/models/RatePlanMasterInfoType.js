@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RatePlanMasterInfoTypeToJSON = exports.RatePlanMasterInfoTypeFromJSONTyped = exports.RatePlanMasterInfoTypeFromJSON = exports.instanceOfRatePlanMasterInfoType = void 0;
 const runtime_1 = require("../runtime");
-const RatePlanBasedOnRatesType_1 = require("./RatePlanBasedOnRatesType");
+const RatePlanBasedOnRateType_1 = require("./RatePlanBasedOnRateType");
 const RatePlanPrimaryDetailsType_1 = require("./RatePlanPrimaryDetailsType");
-const RateRoomTypeListType_1 = require("./RateRoomTypeListType");
-const RateTiersType_1 = require("./RateTiersType");
+const RateRoomTypeDetailType_1 = require("./RateRoomTypeDetailType");
+const RateTierType_1 = require("./RateTierType");
 /**
  * Check if a given object implements the RatePlanMasterInfoType interface.
  */
@@ -45,10 +45,10 @@ function RatePlanMasterInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'houseUse': !(0, runtime_1.exists)(json, 'houseUse') ? undefined : json['houseUse'],
         'primaryDetails': !(0, runtime_1.exists)(json, 'primaryDetails') ? undefined : (0, RatePlanPrimaryDetailsType_1.RatePlanPrimaryDetailsTypeFromJSON)(json['primaryDetails']),
-        'ratePlanBasedOnRates': !(0, runtime_1.exists)(json, 'ratePlanBasedOnRates') ? undefined : (0, RatePlanBasedOnRatesType_1.RatePlanBasedOnRatesTypeFromJSON)(json['ratePlanBasedOnRates']),
+        'ratePlanBasedOnRates': !(0, runtime_1.exists)(json, 'ratePlanBasedOnRates') ? undefined : (json['ratePlanBasedOnRates'].map(RatePlanBasedOnRateType_1.RatePlanBasedOnRateTypeFromJSON)),
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
-        'rateTiers': !(0, runtime_1.exists)(json, 'rateTiers') ? undefined : (0, RateTiersType_1.RateTiersTypeFromJSON)(json['rateTiers']),
-        'roomTypeList': !(0, runtime_1.exists)(json, 'roomTypeList') ? undefined : (0, RateRoomTypeListType_1.RateRoomTypeListTypeFromJSON)(json['roomTypeList']),
+        'rateTiers': !(0, runtime_1.exists)(json, 'rateTiers') ? undefined : (json['rateTiers'].map(RateTierType_1.RateTierTypeFromJSON)),
+        'roomTypeList': !(0, runtime_1.exists)(json, 'roomTypeList') ? undefined : (json['roomTypeList'].map(RateRoomTypeDetailType_1.RateRoomTypeDetailTypeFromJSON)),
         'tiered': !(0, runtime_1.exists)(json, 'tiered') ? undefined : json['tiered'],
     };
 }
@@ -70,10 +70,10 @@ function RatePlanMasterInfoTypeToJSON(value) {
         'hotelId': value.hotelId,
         'houseUse': value.houseUse,
         'primaryDetails': (0, RatePlanPrimaryDetailsType_1.RatePlanPrimaryDetailsTypeToJSON)(value.primaryDetails),
-        'ratePlanBasedOnRates': (0, RatePlanBasedOnRatesType_1.RatePlanBasedOnRatesTypeToJSON)(value.ratePlanBasedOnRates),
+        'ratePlanBasedOnRates': value.ratePlanBasedOnRates === undefined ? undefined : (value.ratePlanBasedOnRates.map(RatePlanBasedOnRateType_1.RatePlanBasedOnRateTypeToJSON)),
         'ratePlanCode': value.ratePlanCode,
-        'rateTiers': (0, RateTiersType_1.RateTiersTypeToJSON)(value.rateTiers),
-        'roomTypeList': (0, RateRoomTypeListType_1.RateRoomTypeListTypeToJSON)(value.roomTypeList),
+        'rateTiers': value.rateTiers === undefined ? undefined : (value.rateTiers.map(RateTierType_1.RateTierTypeToJSON)),
+        'roomTypeList': value.roomTypeList === undefined ? undefined : (value.roomTypeList.map(RateRoomTypeDetailType_1.RateRoomTypeDetailTypeToJSON)),
         'tiered': value.tiered,
     };
 }

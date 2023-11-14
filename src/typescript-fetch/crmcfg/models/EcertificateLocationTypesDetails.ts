@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { EcertificateLocationTypesType } from './EcertificateLocationTypesType';
+import type { EcertificateLocationTypeType } from './EcertificateLocationTypeType';
 import {
-    EcertificateLocationTypesTypeFromJSON,
-    EcertificateLocationTypesTypeFromJSONTyped,
-    EcertificateLocationTypesTypeToJSON,
-} from './EcertificateLocationTypesType';
-import type { Links } from './Links';
+    EcertificateLocationTypeTypeFromJSON,
+    EcertificateLocationTypeTypeFromJSONTyped,
+    EcertificateLocationTypeTypeToJSON,
+} from './EcertificateLocationTypeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Ecertificate Location Types.
@@ -39,23 +39,23 @@ import {
  */
 export interface EcertificateLocationTypesDetails {
     /**
-     * 
-     * @type {EcertificateLocationTypesType}
+     * List of Ecertificate Location Types.
+     * @type {Array<EcertificateLocationTypeType>}
      * @memberof EcertificateLocationTypesDetails
      */
-    ecertificateLocationTypes?: EcertificateLocationTypesType;
+    ecertificateLocationTypes?: Array<EcertificateLocationTypeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EcertificateLocationTypesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EcertificateLocationTypesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function EcertificateLocationTypesDetailsFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'ecertificateLocationTypes': !exists(json, 'ecertificateLocationTypes') ? undefined : EcertificateLocationTypesTypeFromJSON(json['ecertificateLocationTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'ecertificateLocationTypes': !exists(json, 'ecertificateLocationTypes') ? undefined : ((json['ecertificateLocationTypes'] as Array<any>).map(EcertificateLocationTypeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function EcertificateLocationTypesDetailsToJSON(value?: EcertificateLocat
     }
     return {
         
-        'ecertificateLocationTypes': EcertificateLocationTypesTypeToJSON(value.ecertificateLocationTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'ecertificateLocationTypes': value.ecertificateLocationTypes === undefined ? undefined : ((value.ecertificateLocationTypes as Array<any>).map(EcertificateLocationTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

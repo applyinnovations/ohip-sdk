@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ConfirmationsType } from './ConfirmationsType';
-import type { Links } from './Links';
+import type { ConfirmationType } from './ConfirmationType';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationId } from './ReservationId';
 import type { ResponseInstructionsType } from './ResponseInstructionsType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to create a confirmation letter.
  * @export
@@ -21,11 +21,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ConfirmationLetters {
     /**
-     *
-     * @type {ConfirmationsType}
+     * List of confirmation letters.
+     * @type {Array<ConfirmationType>}
      * @memberof ConfirmationLetters
      */
-    confLetters?: ConfirmationsType;
+    confLetters?: Array<ConfirmationType>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -34,10 +34,10 @@ export interface ConfirmationLetters {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ConfirmationLetters
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ReservationId}
@@ -51,11 +51,11 @@ export interface ConfirmationLetters {
      */
     responseInstruction?: ResponseInstructionsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ConfirmationLetters
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ConfirmationLetters interface.

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ProfileEnrollmentType } from './ProfileEnrollmentType';
 /**
  * Response object for fetching profile enrollment from external system.
@@ -25,10 +25,10 @@ export interface Enrollment {
     enrollmentInfo?: ProfileEnrollmentType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Enrollment
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the Enrollment interface.

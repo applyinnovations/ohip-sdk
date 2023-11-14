@@ -19,12 +19,6 @@ import {
     GuaranteeRequirementsTypeFromJSONTyped,
     GuaranteeRequirementsTypeToJSON,
 } from './GuaranteeRequirementsType';
-import type { PaymentTypesType } from './PaymentTypesType';
-import {
-    PaymentTypesTypeFromJSON,
-    PaymentTypesTypeFromJSONTyped,
-    PaymentTypesTypeToJSON,
-} from './PaymentTypesType';
 import type { TranslationTextType80 } from './TranslationTextType80';
 import {
     TranslationTextType80FromJSON,
@@ -69,11 +63,11 @@ export interface GuaranteeType {
      */
     orderSequence?: number;
     /**
-     * 
-     * @type {PaymentTypesType}
+     * Payment card code like AX,VI etc.
+     * @type {Array<string>}
      * @memberof GuaranteeType
      */
-    paymentTypes?: PaymentTypesType;
+    paymentTypes?: Array<string>;
     /**
      * 
      * @type {GuaranteeRequirementsType}
@@ -118,7 +112,7 @@ export function GuaranteeTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
         'lateArrival': !exists(json, 'lateArrival') ? undefined : json['lateArrival'],
         'onHold': !exists(json, 'onHold') ? undefined : json['onHold'],
         'orderSequence': !exists(json, 'orderSequence') ? undefined : json['orderSequence'],
-        'paymentTypes': !exists(json, 'paymentTypes') ? undefined : PaymentTypesTypeFromJSON(json['paymentTypes']),
+        'paymentTypes': !exists(json, 'paymentTypes') ? undefined : json['paymentTypes'],
         'policyRequirements': !exists(json, 'policyRequirements') ? undefined : GuaranteeRequirementsTypeFromJSON(json['policyRequirements']),
         'reserveInventory': !exists(json, 'reserveInventory') ? undefined : json['reserveInventory'],
         'shortDescription': !exists(json, 'shortDescription') ? undefined : TranslationTextType80FromJSON(json['shortDescription']),
@@ -139,7 +133,7 @@ export function GuaranteeTypeToJSON(value?: GuaranteeType | null): any {
         'lateArrival': value.lateArrival,
         'onHold': value.onHold,
         'orderSequence': value.orderSequence,
-        'paymentTypes': PaymentTypesTypeToJSON(value.paymentTypes),
+        'paymentTypes': value.paymentTypes,
         'policyRequirements': GuaranteeRequirementsTypeToJSON(value.policyRequirements),
         'reserveInventory': value.reserveInventory,
         'shortDescription': TranslationTextType80ToJSON(value.shortDescription),

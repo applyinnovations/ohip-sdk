@@ -20,7 +20,7 @@ import type {
   AiraLastRunStatusInfo,
   AssignedRoom,
   AutoAssignRoom,
-  AutoAssignedRoom,
+  AutoRoomAssignType,
   BatchCCAuth,
   BatchCCAuthToProcess,
   ChangedWakeUpCalls,
@@ -79,8 +79,8 @@ import {
     AssignedRoomToJSON,
     AutoAssignRoomFromJSON,
     AutoAssignRoomToJSON,
-    AutoAssignedRoomFromJSON,
-    AutoAssignedRoomToJSON,
+    AutoRoomAssignTypeFromJSON,
+    AutoRoomAssignTypeToJSON,
     BatchCCAuthFromJSON,
     BatchCCAuthToJSON,
     BatchCCAuthToProcessFromJSON,
@@ -1137,7 +1137,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API can be used to assign the room automatically. <p><strong>OperationId:</strong>autoAssignRoom</p>
      * Assign the room automatically
      */
-    async autoAssignRoomRaw(requestParameters: AutoAssignRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoAssignedRoom>> {
+    async autoAssignRoomRaw(requestParameters: AutoAssignRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AutoRoomAssignType>>> {
         if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
             throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling autoAssignRoom.');
         }
@@ -1180,14 +1180,14 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             body: AutoAssignRoomToJSON(requestParameters.autoAssignRoom),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AutoAssignedRoomFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AutoRoomAssignTypeFromJSON));
     }
 
     /**
      * This API can be used to assign the room automatically. <p><strong>OperationId:</strong>autoAssignRoom</p>
      * Assign the room automatically
      */
-    async autoAssignRoom(requestParameters: AutoAssignRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AutoAssignedRoom> {
+    async autoAssignRoom(requestParameters: AutoAssignRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AutoRoomAssignType>> {
         const response = await this.autoAssignRoomRaw(requestParameters, initOverrides);
         return await response.value();
     }

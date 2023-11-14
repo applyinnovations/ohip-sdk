@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { DepositDetailPostingsType } from './DepositDetailPostingsType';
-import type { Links } from './Links';
-import type { TrxCodesInfoType } from './TrxCodesInfoType';
-import type { WarningsType } from './WarningsType';
+import type { DepositDetailPostingType } from './DepositDetailPostingType';
+import type { InstanceLink } from './InstanceLink';
+import type { TrxInfoType } from './TrxInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response for the fetch transaction details request. Detail information regarding the folio transaction will be returned
  * @export
@@ -21,28 +21,28 @@ import type { WarningsType } from './WarningsType';
 export interface DepositFolioTransactionDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DepositFolioTransactionDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {DepositDetailPostingsType}
+     * List of Deposit Postings with details.
+     * @type {Array<DepositDetailPostingType>}
      * @memberof DepositFolioTransactionDetails
      */
-    transactions?: DepositDetailPostingsType;
+    transactions?: Array<DepositDetailPostingType>;
     /**
-     *
-     * @type {TrxCodesInfoType}
+     * List of Transaction codes info.
+     * @type {Array<TrxInfoType>}
      * @memberof DepositFolioTransactionDetails
      */
-    trxCodesInfo?: TrxCodesInfoType;
+    trxCodesInfo?: Array<TrxInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DepositFolioTransactionDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DepositFolioTransactionDetails interface.

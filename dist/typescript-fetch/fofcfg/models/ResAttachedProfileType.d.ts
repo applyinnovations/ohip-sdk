@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ProfileIdList } from './ProfileIdList';
 import type { ResProfileTypeType } from './ResProfileTypeType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  *
  * @export
@@ -24,11 +24,11 @@ export interface ResAttachedProfileType {
      */
     name?: string;
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ResAttachedProfileType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {ResProfileTypeType}

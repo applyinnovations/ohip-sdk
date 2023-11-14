@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SplitMultiRoomReservationDetailsToJSON = exports.SplitMultiRoomReservationDetailsFromJSONTyped = exports.SplitMultiRoomReservationDetailsFromJSON = exports.instanceOfSplitMultiRoomReservationDetails = void 0;
 const runtime_1 = require("../runtime");
+const InstanceLink_1 = require("./InstanceLink");
 const LinkedReservationsInfoType_1 = require("./LinkedReservationsInfoType");
-const Links_1 = require("./Links");
-const UniqueIDListType_1 = require("./UniqueIDListType");
-const WarningsType_1 = require("./WarningsType");
+const UniqueIDType_1 = require("./UniqueIDType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the SplitMultiRoomReservationDetails interface.
  */
@@ -37,9 +37,9 @@ function SplitMultiRoomReservationDetailsFromJSONTyped(json, ignoreDiscriminator
     }
     return {
         'linkedReservations': !(0, runtime_1.exists)(json, 'linkedReservations') ? undefined : (0, LinkedReservationsInfoType_1.LinkedReservationsInfoTypeFromJSON)(json['linkedReservations']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'newReservationIdList': !(0, runtime_1.exists)(json, 'newReservationIdList') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['newReservationIdList']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'newReservationIdList': !(0, runtime_1.exists)(json, 'newReservationIdList') ? undefined : (json['newReservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.SplitMultiRoomReservationDetailsFromJSONTyped = SplitMultiRoomReservationDetailsFromJSONTyped;
@@ -52,9 +52,9 @@ function SplitMultiRoomReservationDetailsToJSON(value) {
     }
     return {
         'linkedReservations': (0, LinkedReservationsInfoType_1.LinkedReservationsInfoTypeToJSON)(value.linkedReservations),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'newReservationIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.newReservationIdList),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'newReservationIdList': value.newReservationIdList === undefined ? undefined : (value.newReservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.SplitMultiRoomReservationDetailsToJSON = SplitMultiRoomReservationDetailsToJSON;

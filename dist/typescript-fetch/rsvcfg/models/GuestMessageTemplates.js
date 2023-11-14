@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GuestMessageTemplatesToJSON = exports.GuestMessageTemplatesFromJSONTyped = exports.GuestMessageTemplatesFromJSON = exports.instanceOfGuestMessageTemplates = void 0;
 const runtime_1 = require("../runtime");
-const GuestMessageTemplatesType_1 = require("./GuestMessageTemplatesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const GuestMessageTemplateType_1 = require("./GuestMessageTemplateType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the GuestMessageTemplates interface.
  */
@@ -35,9 +35,9 @@ function GuestMessageTemplatesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'guestMessageTemplates': !(0, runtime_1.exists)(json, 'guestMessageTemplates') ? undefined : (0, GuestMessageTemplatesType_1.GuestMessageTemplatesTypeFromJSON)(json['guestMessageTemplates']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'guestMessageTemplates': !(0, runtime_1.exists)(json, 'guestMessageTemplates') ? undefined : (json['guestMessageTemplates'].map(GuestMessageTemplateType_1.GuestMessageTemplateTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.GuestMessageTemplatesFromJSONTyped = GuestMessageTemplatesFromJSONTyped;
@@ -49,9 +49,9 @@ function GuestMessageTemplatesToJSON(value) {
         return null;
     }
     return {
-        'guestMessageTemplates': (0, GuestMessageTemplatesType_1.GuestMessageTemplatesTypeToJSON)(value.guestMessageTemplates),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'guestMessageTemplates': value.guestMessageTemplates === undefined ? undefined : (value.guestMessageTemplates.map(GuestMessageTemplateType_1.GuestMessageTemplateTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.GuestMessageTemplatesToJSON = GuestMessageTemplatesToJSON;

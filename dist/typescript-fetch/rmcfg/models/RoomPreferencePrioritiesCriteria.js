@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomPreferencePrioritiesCriteriaToJSON = exports.RoomPreferencePrioritiesCriteriaFromJSONTyped = exports.RoomPreferencePrioritiesCriteriaFromJSON = exports.instanceOfRoomPreferencePrioritiesCriteria = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const RoomPreferencePrioritiesType_1 = require("./RoomPreferencePrioritiesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const RoomPreferencePriorityType_1 = require("./RoomPreferencePriorityType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomPreferencePrioritiesCriteria interface.
  */
@@ -35,9 +35,9 @@ function RoomPreferencePrioritiesCriteriaFromJSONTyped(json, ignoreDiscriminator
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'roomPreferencePriorities': !(0, runtime_1.exists)(json, 'roomPreferencePriorities') ? undefined : (0, RoomPreferencePrioritiesType_1.RoomPreferencePrioritiesTypeFromJSON)(json['roomPreferencePriorities']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'roomPreferencePriorities': !(0, runtime_1.exists)(json, 'roomPreferencePriorities') ? undefined : (json['roomPreferencePriorities'].map(RoomPreferencePriorityType_1.RoomPreferencePriorityTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomPreferencePrioritiesCriteriaFromJSONTyped = RoomPreferencePrioritiesCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function RoomPreferencePrioritiesCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'roomPreferencePriorities': (0, RoomPreferencePrioritiesType_1.RoomPreferencePrioritiesTypeToJSON)(value.roomPreferencePriorities),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'roomPreferencePriorities': value.roomPreferencePriorities === undefined ? undefined : (value.roomPreferencePriorities.map(RoomPreferencePriorityType_1.RoomPreferencePriorityTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomPreferencePrioritiesCriteriaToJSON = RoomPreferencePrioritiesCriteriaToJSON;

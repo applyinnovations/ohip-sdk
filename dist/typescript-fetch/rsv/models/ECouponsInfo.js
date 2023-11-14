@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ECouponsInfoToJSON = exports.ECouponsInfoFromJSONTyped = exports.ECouponsInfoFromJSON = exports.instanceOfECouponsInfo = void 0;
 const runtime_1 = require("../runtime");
-const ECouponsType_1 = require("./ECouponsType");
-const Links_1 = require("./Links");
+const ECouponType_1 = require("./ECouponType");
+const InstanceLink_1 = require("./InstanceLink");
 const ReservationId_1 = require("./ReservationId");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ECouponsInfo interface.
  */
@@ -36,11 +36,11 @@ function ECouponsInfoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'eCoupons': !(0, runtime_1.exists)(json, 'eCoupons') ? undefined : (0, ECouponsType_1.ECouponsTypeFromJSON)(json['eCoupons']),
+        'eCoupons': !(0, runtime_1.exists)(json, 'eCoupons') ? undefined : (json['eCoupons'].map(ECouponType_1.ECouponTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ECouponsInfoFromJSONTyped = ECouponsInfoFromJSONTyped;
@@ -52,11 +52,11 @@ function ECouponsInfoToJSON(value) {
         return null;
     }
     return {
-        'eCoupons': (0, ECouponsType_1.ECouponsTypeToJSON)(value.eCoupons),
+        'eCoupons': value.eCoupons === undefined ? undefined : (value.eCoupons.map(ECouponType_1.ECouponTypeToJSON)),
         'hotelId': value.hotelId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ECouponsInfoToJSON = ECouponsInfoToJSON;

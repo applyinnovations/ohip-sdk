@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MoveReasonCodesCriteriaToJSON = exports.MoveReasonCodesCriteriaFromJSONTyped = exports.MoveReasonCodesCriteriaFromJSON = exports.instanceOfMoveReasonCodesCriteria = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const MoveReasonCodesType_1 = require("./MoveReasonCodesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const MoveReasonCodeType_1 = require("./MoveReasonCodeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MoveReasonCodesCriteria interface.
  */
@@ -35,9 +35,9 @@ function MoveReasonCodesCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'moveReasonCodes': !(0, runtime_1.exists)(json, 'moveReasonCodes') ? undefined : (0, MoveReasonCodesType_1.MoveReasonCodesTypeFromJSON)(json['moveReasonCodes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'moveReasonCodes': !(0, runtime_1.exists)(json, 'moveReasonCodes') ? undefined : (json['moveReasonCodes'].map(MoveReasonCodeType_1.MoveReasonCodeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MoveReasonCodesCriteriaFromJSONTyped = MoveReasonCodesCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function MoveReasonCodesCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'moveReasonCodes': (0, MoveReasonCodesType_1.MoveReasonCodesTypeToJSON)(value.moveReasonCodes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'moveReasonCodes': value.moveReasonCodes === undefined ? undefined : (value.moveReasonCodes.map(MoveReasonCodeType_1.MoveReasonCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MoveReasonCodesCriteriaToJSON = MoveReasonCodesCriteriaToJSON;

@@ -16,11 +16,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MasterBlockInfoTypeToJSON = exports.MasterBlockInfoTypeFromJSONTyped = exports.MasterBlockInfoTypeFromJSON = exports.instanceOfMasterBlockInfoType = void 0;
 const runtime_1 = require("../runtime");
 const BlockClassificationType_1 = require("./BlockClassificationType");
-const BlockIdList_1 = require("./BlockIdList");
 const BookingStatusType_1 = require("./BookingStatusType");
-const HotelCodeListType_1 = require("./HotelCodeListType");
 const MasterSubBlockBaseInfoType_1 = require("./MasterSubBlockBaseInfoType");
 const TimeSpanType_1 = require("./TimeSpanType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the MasterBlockInfoType interface.
  */
@@ -38,13 +37,13 @@ function MasterBlockInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (0, BlockIdList_1.BlockIdListFromJSON)(json['blockIdList']),
+        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'blockName': !(0, runtime_1.exists)(json, 'blockName') ? undefined : json['blockName'],
         'blockStatus': !(0, runtime_1.exists)(json, 'blockStatus') ? undefined : (0, BookingStatusType_1.BookingStatusTypeFromJSON)(json['blockStatus']),
         'blockType': !(0, runtime_1.exists)(json, 'blockType') ? undefined : (0, BlockClassificationType_1.BlockClassificationTypeFromJSON)(json['blockType']),
         'cateringStatus': !(0, runtime_1.exists)(json, 'cateringStatus') ? undefined : (0, BookingStatusType_1.BookingStatusTypeFromJSON)(json['cateringStatus']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'masterSubHotels': !(0, runtime_1.exists)(json, 'masterSubHotels') ? undefined : (json['masterSubHotels'].map(HotelCodeListType_1.HotelCodeListTypeFromJSON)),
+        'masterSubHotels': !(0, runtime_1.exists)(json, 'masterSubHotels') ? undefined : json['masterSubHotels'],
         'roomNights': !(0, runtime_1.exists)(json, 'roomNights') ? undefined : json['roomNights'],
         'roomNightsPickedup': !(0, runtime_1.exists)(json, 'roomNightsPickedup') ? undefined : json['roomNightsPickedup'],
         'subBlockInfo': !(0, runtime_1.exists)(json, 'subBlockInfo') ? undefined : (json['subBlockInfo'].map(MasterSubBlockBaseInfoType_1.MasterSubBlockBaseInfoTypeFromJSON)),
@@ -64,13 +63,13 @@ function MasterBlockInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'blockIdList': (0, BlockIdList_1.BlockIdListToJSON)(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'blockName': value.blockName,
         'blockStatus': (0, BookingStatusType_1.BookingStatusTypeToJSON)(value.blockStatus),
         'blockType': (0, BlockClassificationType_1.BlockClassificationTypeToJSON)(value.blockType),
         'cateringStatus': (0, BookingStatusType_1.BookingStatusTypeToJSON)(value.cateringStatus),
         'hotelId': value.hotelId,
-        'masterSubHotels': value.masterSubHotels === undefined ? undefined : (value.masterSubHotels.map(HotelCodeListType_1.HotelCodeListTypeToJSON)),
+        'masterSubHotels': value.masterSubHotels,
         'roomNights': value.roomNights,
         'roomNightsPickedup': value.roomNightsPickedup,
         'subBlockInfo': value.subBlockInfo === undefined ? undefined : (value.subBlockInfo.map(MasterSubBlockBaseInfoType_1.MasterSubBlockBaseInfoTypeToJSON)),

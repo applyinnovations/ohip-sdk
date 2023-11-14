@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateAirportsType } from './TemplateAirportsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TemplateAirportType } from './TemplateAirportType';
 import {
-    TemplateAirportsTypeFromJSON,
-    TemplateAirportsTypeFromJSONTyped,
-    TemplateAirportsTypeToJSON,
-} from './TemplateAirportsType';
-import type { WarningsType } from './WarningsType';
+    TemplateAirportTypeFromJSON,
+    TemplateAirportTypeFromJSONTyped,
+    TemplateAirportTypeToJSON,
+} from './TemplateAirportType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for modifying template airports.
@@ -40,22 +40,22 @@ import {
 export interface TemplateAirportsToBeChanged {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateAirportsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TemplateAirportsType}
+     * Template airport details.
+     * @type {Array<TemplateAirportType>}
      * @memberof TemplateAirportsToBeChanged
      */
-    templateAirports?: TemplateAirportsType;
+    templateAirports?: Array<TemplateAirportType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateAirportsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateAirportsToBeChangedFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'templateAirports': !exists(json, 'templateAirports') ? undefined : TemplateAirportsTypeFromJSON(json['templateAirports']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'templateAirports': !exists(json, 'templateAirports') ? undefined : ((json['templateAirports'] as Array<any>).map(TemplateAirportTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateAirportsToBeChangedToJSON(value?: TemplateAirportsToBeCh
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'templateAirports': TemplateAirportsTypeToJSON(value.templateAirports),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'templateAirports': value.templateAirports === undefined ? undefined : ((value.templateAirports as Array<any>).map(TemplateAirportTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

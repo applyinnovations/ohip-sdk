@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CorporateDivisionsDetailsToJSON = exports.CorporateDivisionsDetailsFromJSONTyped = exports.CorporateDivisionsDetailsFromJSON = exports.instanceOfCorporateDivisionsDetails = void 0;
 const runtime_1 = require("../runtime");
-const CorporateDivisionsType_1 = require("./CorporateDivisionsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CorporateDivisionType_1 = require("./CorporateDivisionType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CorporateDivisionsDetails interface.
  */
@@ -35,9 +35,9 @@ function CorporateDivisionsDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'corporateDivisions': !(0, runtime_1.exists)(json, 'corporateDivisions') ? undefined : (0, CorporateDivisionsType_1.CorporateDivisionsTypeFromJSON)(json['corporateDivisions']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'corporateDivisions': !(0, runtime_1.exists)(json, 'corporateDivisions') ? undefined : (json['corporateDivisions'].map(CorporateDivisionType_1.CorporateDivisionTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CorporateDivisionsDetailsFromJSONTyped = CorporateDivisionsDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function CorporateDivisionsDetailsToJSON(value) {
         return null;
     }
     return {
-        'corporateDivisions': (0, CorporateDivisionsType_1.CorporateDivisionsTypeToJSON)(value.corporateDivisions),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'corporateDivisions': value.corporateDivisions === undefined ? undefined : (value.corporateDivisions.map(CorporateDivisionType_1.CorporateDivisionTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CorporateDivisionsDetailsToJSON = CorporateDivisionsDetailsToJSON;

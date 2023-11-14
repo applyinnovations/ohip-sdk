@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { CopyBlockType } from './CopyBlockType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ResponseInstructionType } from './ResponseInstructionType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request for creating a copy of an existing block.
  * @export
@@ -27,10 +27,10 @@ export interface BlockCopy {
     criteria?: CopyBlockType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ResponseInstructionType}
@@ -38,11 +38,11 @@ export interface BlockCopy {
      */
     responseInstruction?: ResponseInstructionType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockCopy interface.

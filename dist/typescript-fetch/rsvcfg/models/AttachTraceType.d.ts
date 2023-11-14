@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 /**
  * Auto attach trace element.
  * @export
@@ -18,10 +17,10 @@ import type { CodeListType } from './CodeListType';
 export interface AttachTraceType {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof AttachTraceType
      */
-    departments?: CodeListType;
+    departments?: Array<string>;
     /**
      * The trace text that will be sent to the selected department(s) when Trace is selected as the Rule Type.
      * @type {string}

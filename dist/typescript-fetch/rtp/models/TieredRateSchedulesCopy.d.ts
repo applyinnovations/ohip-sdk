@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RateOffsetType } from './RateOffsetType';
-import type { UniqueIDListType } from './UniqueIDListType';
-import type { WarningsType } from './WarningsType';
+import type { UniqueIDType } from './UniqueIDType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to copy the specified tier 1 rate schedules into the specified tiers.
  * @export
@@ -51,10 +51,10 @@ export interface TieredRateSchedulesCopy {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TieredRateSchedulesCopy
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -62,17 +62,17 @@ export interface TieredRateSchedulesCopy {
      */
     ratePlanCode?: string;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof TieredRateSchedulesCopy
      */
-    ratePlanSchedulesIdList?: UniqueIDListType;
+    ratePlanSchedulesIdList?: Array<UniqueIDType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TieredRateSchedulesCopy
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TieredRateSchedulesCopy interface.

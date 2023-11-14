@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomTypePoolTypes } from './RoomTypePoolTypes';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomTypePoolType } from './RoomTypePoolType';
 import {
-    RoomTypePoolTypesFromJSON,
-    RoomTypePoolTypesFromJSONTyped,
-    RoomTypePoolTypesToJSON,
-} from './RoomTypePoolTypes';
-import type { WarningsType } from './WarningsType';
+    RoomTypePoolTypeFromJSON,
+    RoomTypePoolTypeFromJSONTyped,
+    RoomTypePoolTypeToJSON,
+} from './RoomTypePoolType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating new room pool.
@@ -40,22 +40,22 @@ import {
 export interface RoomTypePoolCriteria {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomTypePoolCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RoomTypePoolTypes}
+     * Collection of room type pool and associated room type(s).
+     * @type {Array<RoomTypePoolType>}
      * @memberof RoomTypePoolCriteria
      */
-    roomPoolTypes?: RoomTypePoolTypes;
+    roomPoolTypes?: Array<RoomTypePoolType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomTypePoolCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RoomTypePoolCriteriaFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'roomPoolTypes': !exists(json, 'roomPoolTypes') ? undefined : RoomTypePoolTypesFromJSON(json['roomPoolTypes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'roomPoolTypes': !exists(json, 'roomPoolTypes') ? undefined : ((json['roomPoolTypes'] as Array<any>).map(RoomTypePoolTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RoomTypePoolCriteriaToJSON(value?: RoomTypePoolCriteria | null):
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'roomPoolTypes': RoomTypePoolTypesToJSON(value.roomPoolTypes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'roomPoolTypes': value.roomPoolTypes === undefined ? undefined : ((value.roomPoolTypes as Array<any>).map(RoomTypePoolTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

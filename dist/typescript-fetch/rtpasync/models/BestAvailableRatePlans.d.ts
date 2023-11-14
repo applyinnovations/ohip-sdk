@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BestAvailableRatePlansType } from './BestAvailableRatePlansType';
+import type { BestAvailableRatePlanType } from './BestAvailableRatePlanType';
 /**
  * Request for configuring best available rate plans.
  * @export
@@ -17,11 +17,11 @@ import type { BestAvailableRatePlansType } from './BestAvailableRatePlansType';
  */
 export interface BestAvailableRatePlans {
     /**
-     *
-     * @type {BestAvailableRatePlansType}
+     * Collection of best available rate plans.
+     * @type {Array<BestAvailableRatePlanType>}
      * @memberof BestAvailableRatePlans
      */
-    bestAvailableRatePlans?: BestAvailableRatePlansType;
+    bestAvailableRatePlans?: Array<BestAvailableRatePlanType>;
 }
 /**
  * Check if a given object implements the BestAvailableRatePlans interface.

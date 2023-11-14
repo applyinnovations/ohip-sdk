@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FulfillmentExportedLogsToJSON = exports.FulfillmentExportedLogsFromJSONTyped = exports.FulfillmentExportedLogsFromJSON = exports.instanceOfFulfillmentExportedLogs = void 0;
 const runtime_1 = require("../runtime");
-const FulfillmentExportLogsType_1 = require("./FulfillmentExportLogsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const FulfillmentExportInfoType_1 = require("./FulfillmentExportInfoType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FulfillmentExportedLogs interface.
  */
@@ -35,9 +35,9 @@ function FulfillmentExportedLogsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'fulfillmentExportLogs': !(0, runtime_1.exists)(json, 'fulfillmentExportLogs') ? undefined : (0, FulfillmentExportLogsType_1.FulfillmentExportLogsTypeFromJSON)(json['fulfillmentExportLogs']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'fulfillmentExportLogs': !(0, runtime_1.exists)(json, 'fulfillmentExportLogs') ? undefined : (json['fulfillmentExportLogs'].map(FulfillmentExportInfoType_1.FulfillmentExportInfoTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FulfillmentExportedLogsFromJSONTyped = FulfillmentExportedLogsFromJSONTyped;
@@ -49,9 +49,9 @@ function FulfillmentExportedLogsToJSON(value) {
         return null;
     }
     return {
-        'fulfillmentExportLogs': (0, FulfillmentExportLogsType_1.FulfillmentExportLogsTypeToJSON)(value.fulfillmentExportLogs),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'fulfillmentExportLogs': value.fulfillmentExportLogs === undefined ? undefined : (value.fulfillmentExportLogs.map(FulfillmentExportInfoType_1.FulfillmentExportInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FulfillmentExportedLogsToJSON = FulfillmentExportedLogsToJSON;

@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockIdList } from './BlockIdList';
-import {
-    BlockIdListFromJSON,
-    BlockIdListFromJSONTyped,
-    BlockIdListToJSON,
-} from './BlockIdList';
 import type { CreateSubBlockBaseInfoType } from './CreateSubBlockBaseInfoType';
 import {
     CreateSubBlockBaseInfoTypeFromJSON,
     CreateSubBlockBaseInfoTypeFromJSONTyped,
     CreateSubBlockBaseInfoTypeToJSON,
 } from './CreateSubBlockBaseInfoType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Criteria to create new sub block.
@@ -33,11 +33,11 @@ import {
  */
 export interface SubBlockCriteria {
     /**
-     * 
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof SubBlockCriteria
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -71,7 +71,7 @@ export function SubBlockCriteriaFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : BlockIdListFromJSON(json['blockIdList']),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'masterBlockHotelCode': !exists(json, 'masterBlockHotelCode') ? undefined : json['masterBlockHotelCode'],
         'subBlockInfo': !exists(json, 'subBlockInfo') ? undefined : ((json['subBlockInfo'] as Array<any>).map(CreateSubBlockBaseInfoTypeFromJSON)),
     };
@@ -86,7 +86,7 @@ export function SubBlockCriteriaToJSON(value?: SubBlockCriteria | null): any {
     }
     return {
         
-        'blockIdList': BlockIdListToJSON(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'masterBlockHotelCode': value.masterBlockHotelCode,
         'subBlockInfo': value.subBlockInfo === undefined ? undefined : ((value.subBlockInfo as Array<any>).map(CreateSubBlockBaseInfoTypeToJSON)),
     };

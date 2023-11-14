@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomOwnerReferralDetailsToJSON = exports.RoomOwnerReferralDetailsFromJSONTyped = exports.RoomOwnerReferralDetailsFromJSON = exports.instanceOfRoomOwnerReferralDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const RoomOwnerReferralList_1 = require("./RoomOwnerReferralList");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the RoomOwnerReferralDetails interface.
  */
@@ -36,9 +36,9 @@ function RoomOwnerReferralDetailsFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'hasOwnershipRecords': !(0, runtime_1.exists)(json, 'hasOwnershipRecords') ? undefined : json['hasOwnershipRecords'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'roomOwnerReferrals': !(0, runtime_1.exists)(json, 'roomOwnerReferrals') ? undefined : (0, RoomOwnerReferralList_1.RoomOwnerReferralListFromJSON)(json['roomOwnerReferrals']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.RoomOwnerReferralDetailsFromJSONTyped = RoomOwnerReferralDetailsFromJSONTyped;
@@ -51,9 +51,9 @@ function RoomOwnerReferralDetailsToJSON(value) {
     }
     return {
         'hasOwnershipRecords': value.hasOwnershipRecords,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'roomOwnerReferrals': (0, RoomOwnerReferralList_1.RoomOwnerReferralListToJSON)(value.roomOwnerReferrals),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.RoomOwnerReferralDetailsToJSON = RoomOwnerReferralDetailsToJSON;

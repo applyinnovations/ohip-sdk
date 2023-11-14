@@ -19,12 +19,12 @@ import {
     CashierClosureNoTypeFromJSONTyped,
     CashierClosureNoTypeToJSON,
 } from './CashierClosureNoType';
-import type { CashierClosureReportsType } from './CashierClosureReportsType';
+import type { CashierReportType } from './CashierReportType';
 import {
-    CashierClosureReportsTypeFromJSON,
-    CashierClosureReportsTypeFromJSONTyped,
-    CashierClosureReportsTypeToJSON,
-} from './CashierClosureReportsType';
+    CashierReportTypeFromJSON,
+    CashierReportTypeFromJSONTyped,
+    CashierReportTypeToJSON,
+} from './CashierReportType';
 
 /**
  * Cashier closure Information.
@@ -75,11 +75,11 @@ export interface CashierClosureInfoType {
      */
     openDate?: Date;
     /**
-     * 
-     * @type {CashierClosureReportsType}
+     * Information of the Cashier.
+     * @type {Array<CashierReportType>}
      * @memberof CashierClosureInfoType
      */
-    reportsList?: CashierClosureReportsType;
+    reportsList?: Array<CashierReportType>;
 }
 
 /**
@@ -108,7 +108,7 @@ export function CashierClosureInfoTypeFromJSONTyped(json: any, ignoreDiscriminat
         'closureBusinessDate': !exists(json, 'closureBusinessDate') ? undefined : (new Date(json['closureBusinessDate'])),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'openDate': !exists(json, 'openDate') ? undefined : (new Date(json['openDate'])),
-        'reportsList': !exists(json, 'reportsList') ? undefined : CashierClosureReportsTypeFromJSON(json['reportsList']),
+        'reportsList': !exists(json, 'reportsList') ? undefined : ((json['reportsList'] as Array<any>).map(CashierReportTypeFromJSON)),
     };
 }
 
@@ -128,7 +128,7 @@ export function CashierClosureInfoTypeToJSON(value?: CashierClosureInfoType | nu
         'closureBusinessDate': value.closureBusinessDate === undefined ? undefined : (value.closureBusinessDate.toISOString().substring(0,10)),
         'hotelId': value.hotelId,
         'openDate': value.openDate === undefined ? undefined : (value.openDate.toISOString().substring(0,10)),
-        'reportsList': CashierClosureReportsTypeToJSON(value.reportsList),
+        'reportsList': value.reportsList === undefined ? undefined : ((value.reportsList as Array<any>).map(CashierReportTypeToJSON)),
     };
 }
 

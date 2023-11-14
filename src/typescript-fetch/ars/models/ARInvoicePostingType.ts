@@ -55,12 +55,12 @@ import {
     PostingGroupTypeFromJSONTyped,
     PostingGroupTypeToJSON,
 } from './PostingGroupType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Posting details.
@@ -171,11 +171,11 @@ export interface ARInvoicePostingType {
      */
     fbaCertificate?: boolean;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ARInvoicePostingType
      */
-    financialTransactionIdList?: UniqueIDListType;
+    financialTransactionIdList?: Array<UniqueIDType>;
     /**
      * When some SummaryPostingsGroupBy element is send as request ,then this element will represent how many transactions rolled up into this Summary Posting Type.
      * @type {number}
@@ -364,7 +364,7 @@ export function ARInvoicePostingTypeFromJSONTyped(json: any, ignoreDiscriminator
         'depositTransactionId': !exists(json, 'depositTransactionId') ? undefined : json['depositTransactionId'],
         'exchange': !exists(json, 'exchange') ? undefined : ExchangeAmountsFromJSON(json['exchange']),
         'fbaCertificate': !exists(json, 'fbaCertificate') ? undefined : json['fbaCertificate'],
-        'financialTransactionIdList': !exists(json, 'financialTransactionIdList') ? undefined : UniqueIDListTypeFromJSON(json['financialTransactionIdList']),
+        'financialTransactionIdList': !exists(json, 'financialTransactionIdList') ? undefined : ((json['financialTransactionIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'groupByCount': !exists(json, 'groupByCount') ? undefined : json['groupByCount'],
         'groupTypeInfo': !exists(json, 'groupTypeInfo') ? undefined : PostingGroupTypeFromJSON(json['groupTypeInfo']),
         'paidOut': !exists(json, 'paidOut') ? undefined : json['paidOut'],
@@ -419,7 +419,7 @@ export function ARInvoicePostingTypeToJSON(value?: ARInvoicePostingType | null):
         'depositTransactionId': value.depositTransactionId,
         'exchange': ExchangeAmountsToJSON(value.exchange),
         'fbaCertificate': value.fbaCertificate,
-        'financialTransactionIdList': UniqueIDListTypeToJSON(value.financialTransactionIdList),
+        'financialTransactionIdList': value.financialTransactionIdList === undefined ? undefined : ((value.financialTransactionIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'groupByCount': value.groupByCount,
         'groupTypeInfo': PostingGroupTypeToJSON(value.groupTypeInfo),
         'paidOut': value.paidOut,

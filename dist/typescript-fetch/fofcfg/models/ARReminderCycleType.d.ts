@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ARDaysCycleType } from './ARDaysCycleType';
+import type { ARDaysReminderCycleType } from './ARDaysReminderCycleType';
 import type { AREndOfMonthCycleType } from './AREndOfMonthCycleType';
 /**
  * When reminder letters needs to be generated. user can choose from End of month or Day cycle
@@ -18,11 +18,11 @@ import type { AREndOfMonthCycleType } from './AREndOfMonthCycleType';
  */
 export interface ARReminderCycleType {
     /**
-     *
-     * @type {ARDaysCycleType}
+     * Reminder letters will be generated based on the number of days for which the account has had an outstanding balance
+     * @type {Array<ARDaysReminderCycleType>}
      * @memberof ARReminderCycleType
      */
-    daysCycle?: ARDaysCycleType;
+    daysCycle?: Array<ARDaysReminderCycleType>;
     /**
      *
      * @type {AREndOfMonthCycleType}

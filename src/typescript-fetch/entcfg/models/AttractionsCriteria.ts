@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AttractionCodesType } from './AttractionCodesType';
+import type { AttractionCodeType } from './AttractionCodeType';
 import {
-    AttractionCodesTypeFromJSON,
-    AttractionCodesTypeFromJSONTyped,
-    AttractionCodesTypeToJSON,
-} from './AttractionCodesType';
-import type { Links } from './Links';
+    AttractionCodeTypeFromJSON,
+    AttractionCodeTypeFromJSONTyped,
+    AttractionCodeTypeToJSON,
+} from './AttractionCodeType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating a new group of attractions.
@@ -39,23 +39,23 @@ import {
  */
 export interface AttractionsCriteria {
     /**
-     * 
-     * @type {AttractionCodesType}
+     * Collection of hotel level alert codes with attached alert types.
+     * @type {Array<AttractionCodeType>}
      * @memberof AttractionsCriteria
      */
-    attractions?: AttractionCodesType;
+    attractions?: Array<AttractionCodeType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AttractionsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AttractionsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function AttractionsCriteriaFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'attractions': !exists(json, 'attractions') ? undefined : AttractionCodesTypeFromJSON(json['attractions']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'attractions': !exists(json, 'attractions') ? undefined : ((json['attractions'] as Array<any>).map(AttractionCodeTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function AttractionsCriteriaToJSON(value?: AttractionsCriteria | null): a
     }
     return {
         
-        'attractions': AttractionCodesTypeToJSON(value.attractions),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'attractions': value.attractions === undefined ? undefined : ((value.attractions as Array<any>).map(AttractionCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

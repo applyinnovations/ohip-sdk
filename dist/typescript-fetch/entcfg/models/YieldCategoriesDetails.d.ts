@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
-import type { YieldCategoriesType } from './YieldCategoriesType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
+import type { YieldCategoryType } from './YieldCategoryType';
 /**
  * Response object for fetching Yield Category configurations.
  * @export
@@ -20,22 +20,22 @@ import type { YieldCategoriesType } from './YieldCategoriesType';
 export interface YieldCategoriesDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof YieldCategoriesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof YieldCategoriesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
     /**
-     *
-     * @type {YieldCategoriesType}
+     * Holds Yield Category details.
+     * @type {Array<YieldCategoryType>}
      * @memberof YieldCategoriesDetails
      */
-    yieldCategories?: YieldCategoriesType;
+    yieldCategories?: Array<YieldCategoryType>;
 }
 /**
  * Check if a given object implements the YieldCategoriesDetails interface.

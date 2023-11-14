@@ -17,7 +17,7 @@ exports.FunctionSpaceRoomTypeToJSON = exports.FunctionSpaceRoomTypeFromJSONTyped
 const runtime_1 = require("../runtime");
 const RatePlanRatingType_1 = require("./RatePlanRatingType");
 const RoomCapacityType_1 = require("./RoomCapacityType");
-const RoomFeaturesType_1 = require("./RoomFeaturesType");
+const RoomFeatureType_1 = require("./RoomFeatureType");
 const RoomSizeType_1 = require("./RoomSizeType");
 const RoomTypeShortInfoType_1 = require("./RoomTypeShortInfoType");
 const TranslationTextType2000_1 = require("./TranslationTextType2000");
@@ -47,7 +47,7 @@ function FunctionSpaceRoomTypeFromJSONTyped(json, ignoreDiscriminator) {
         'roomAssignmentRating': !(0, runtime_1.exists)(json, 'roomAssignmentRating') ? undefined : (0, RatePlanRatingType_1.RatePlanRatingTypeFromJSON)(json['roomAssignmentRating']),
         'roomCapacity': !(0, runtime_1.exists)(json, 'roomCapacity') ? undefined : (0, RoomCapacityType_1.RoomCapacityTypeFromJSON)(json['roomCapacity']),
         'roomDescription': !(0, runtime_1.exists)(json, 'roomDescription') ? undefined : json['roomDescription'],
-        'roomFeatures': !(0, runtime_1.exists)(json, 'roomFeatures') ? undefined : (0, RoomFeaturesType_1.RoomFeaturesTypeFromJSON)(json['roomFeatures']),
+        'roomFeatures': !(0, runtime_1.exists)(json, 'roomFeatures') ? undefined : (json['roomFeatures'].map(RoomFeatureType_1.RoomFeatureTypeFromJSON)),
         'roomId': !(0, runtime_1.exists)(json, 'roomId') ? undefined : json['roomId'],
         'roomSize': !(0, runtime_1.exists)(json, 'roomSize') ? undefined : (json['roomSize'].map(RoomSizeType_1.RoomSizeTypeFromJSON)),
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : (0, RoomTypeShortInfoType_1.RoomTypeShortInfoTypeFromJSON)(json['roomType']),
@@ -73,7 +73,7 @@ function FunctionSpaceRoomTypeToJSON(value) {
         'roomAssignmentRating': (0, RatePlanRatingType_1.RatePlanRatingTypeToJSON)(value.roomAssignmentRating),
         'roomCapacity': (0, RoomCapacityType_1.RoomCapacityTypeToJSON)(value.roomCapacity),
         'roomDescription': value.roomDescription,
-        'roomFeatures': (0, RoomFeaturesType_1.RoomFeaturesTypeToJSON)(value.roomFeatures),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : (value.roomFeatures.map(RoomFeatureType_1.RoomFeatureTypeToJSON)),
         'roomId': value.roomId,
         'roomSize': value.roomSize === undefined ? undefined : (value.roomSize.map(RoomSizeType_1.RoomSizeTypeToJSON)),
         'roomType': (0, RoomTypeShortInfoType_1.RoomTypeShortInfoTypeToJSON)(value.roomType),

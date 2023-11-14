@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 import type { CopyReservationPaymentMethodsType } from './CopyReservationPaymentMethodsType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ReservationId } from './ReservationId';
 import type { SplitMultiRoomReservationResponseInstructions } from './SplitMultiRoomReservationResponseInstructions';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request to split multi-room reservation into separate reservations.
  * @export
@@ -28,10 +28,10 @@ export interface SplitMultiRoomReservation {
     copyPaymentInformation?: boolean;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SplitMultiRoomReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * An identifier representing the record lock for the reservation under process. When passed, the operation will verify that the lock is still valid.
      * @type {number}
@@ -63,11 +63,11 @@ export interface SplitMultiRoomReservation {
      */
     splitAll?: boolean;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SplitMultiRoomReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SplitMultiRoomReservation interface.

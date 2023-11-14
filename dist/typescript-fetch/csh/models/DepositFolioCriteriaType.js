@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DepositFolioCriteriaTypeToJSON = exports.DepositFolioCriteriaTypeFromJSONTyped = exports.DepositFolioCriteriaTypeFromJSON = exports.instanceOfDepositFolioCriteriaType = void 0;
 const runtime_1 = require("../runtime");
-const ChargesCriteriaType_1 = require("./ChargesCriteriaType");
+const ChargeCriteriaType_1 = require("./ChargeCriteriaType");
 const FiscalServiceType_1 = require("./FiscalServiceType");
 const NameValueHeaderDetailType_1 = require("./NameValueHeaderDetailType");
 const PaymentCriteriaType_1 = require("./PaymentCriteriaType");
@@ -41,7 +41,7 @@ function DepositFolioCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
-        'charges': !(0, runtime_1.exists)(json, 'charges') ? undefined : (0, ChargesCriteriaType_1.ChargesCriteriaTypeFromJSON)(json['charges']),
+        'charges': !(0, runtime_1.exists)(json, 'charges') ? undefined : (json['charges'].map(ChargeCriteriaType_1.ChargeCriteriaTypeFromJSON)),
         'depositPolicyId': !(0, runtime_1.exists)(json, 'depositPolicyId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['depositPolicyId']),
         'fiscalFolioInfo': !(0, runtime_1.exists)(json, 'fiscalFolioInfo') ? undefined : (0, FiscalServiceType_1.FiscalServiceTypeFromJSON)(json['fiscalFolioInfo']),
         'fiscalTerminalId': !(0, runtime_1.exists)(json, 'fiscalTerminalId') ? undefined : json['fiscalTerminalId'],
@@ -69,7 +69,7 @@ function DepositFolioCriteriaTypeToJSON(value) {
     }
     return {
         'cashierId': value.cashierId,
-        'charges': (0, ChargesCriteriaType_1.ChargesCriteriaTypeToJSON)(value.charges),
+        'charges': value.charges === undefined ? undefined : (value.charges.map(ChargeCriteriaType_1.ChargeCriteriaTypeToJSON)),
         'depositPolicyId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.depositPolicyId),
         'fiscalFolioInfo': (0, FiscalServiceType_1.FiscalServiceTypeToJSON)(value.fiscalFolioInfo),
         'fiscalTerminalId': value.fiscalTerminalId,

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TrackItItemsType } from './TrackItItemsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TrackItItemType } from './TrackItItemType';
 import {
-    TrackItItemsTypeFromJSON,
-    TrackItItemsTypeFromJSONTyped,
-    TrackItItemsTypeToJSON,
-} from './TrackItItemsType';
-import type { WarningsType } from './WarningsType';
+    TrackItItemTypeFromJSON,
+    TrackItItemTypeFromJSONTyped,
+    TrackItItemTypeToJSON,
+} from './TrackItItemType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object that retrieves Track It items.
@@ -46,22 +46,22 @@ export interface TrackItItems {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TrackItItems
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
-     * @type {TrackItItemsType}
+     * @type {Array<TrackItItemType>}
      * @memberof TrackItItems
      */
-    trackItItemsInfo?: TrackItItemsType;
+    trackItItemsInfo?: Array<TrackItItemType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TrackItItems
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -84,9 +84,9 @@ export function TrackItItemsFromJSONTyped(json: any, ignoreDiscriminator: boolea
     return {
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'trackItItemsInfo': !exists(json, 'trackItItemsInfo') ? undefined : TrackItItemsTypeFromJSON(json['trackItItemsInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'trackItItemsInfo': !exists(json, 'trackItItemsInfo') ? undefined : ((json['trackItItemsInfo'] as Array<any>).map(TrackItItemTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -100,9 +100,9 @@ export function TrackItItemsToJSON(value?: TrackItItems | null): any {
     return {
         
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
-        'trackItItemsInfo': TrackItItemsTypeToJSON(value.trackItItemsInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'trackItItemsInfo': value.trackItItemsInfo === undefined ? undefined : ((value.trackItItemsInfo as Array<any>).map(TrackItItemTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

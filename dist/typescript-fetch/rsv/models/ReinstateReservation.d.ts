@@ -9,12 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { EffectiveRatesType } from './EffectiveRatesType';
+import type { EffectiveRateType } from './EffectiveRateType';
 import type { HotelReservationType } from './HotelReservationType';
-import type { Links } from './Links';
-import type { ReservationIdList } from './ReservationIdList';
-import type { UniqueIDListType } from './UniqueIDListType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { UniqueIDType } from './UniqueIDType';
+import type { WarningType } from './WarningType';
 /**
  * Overriding the validation check will log the supposed errors in the warnings log if they would fail.
  * @export
@@ -22,17 +21,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface ReinstateReservation {
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ReinstateReservation
      */
-    additionalReservationIdList?: UniqueIDListType;
+    additionalReservationIdList?: Array<UniqueIDType>;
     /**
-     *
-     * @type {EffectiveRatesType}
+     * Collection of effective rate amount per guest on specific dates.
+     * @type {Array<EffectiveRateType>}
      * @memberof ReinstateReservation
      */
-    effectiveRates?: EffectiveRatesType;
+    effectiveRates?: Array<EffectiveRateType>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -41,10 +40,10 @@ export interface ReinstateReservation {
     hotelId?: string;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReinstateReservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Flag that indicates if room inventory check should be skipped when the reservation is being reinstated.
      * @type {boolean}
@@ -76,11 +75,11 @@ export interface ReinstateReservation {
      */
     reservation?: HotelReservationType;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ReinstateReservation
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {number}
@@ -88,11 +87,11 @@ export interface ReinstateReservation {
      */
     reservationLockHandle?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReinstateReservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReinstateReservation interface.

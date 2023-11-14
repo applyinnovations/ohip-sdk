@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ARTransferPostingsCriteriaType } from './ARTransferPostingsCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request for transferring invoice posting(s)in AR.
  * @export
@@ -26,16 +26,16 @@ export interface TransferPostings {
     criteria?: ARTransferPostingsCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransferPostings
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransferPostings
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TransferPostings interface.

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { SourceCodesType } from './SourceCodesType';
+import type { SourceCodeType } from './SourceCodeType';
 import {
-    SourceCodesTypeFromJSON,
-    SourceCodesTypeFromJSONTyped,
-    SourceCodesTypeToJSON,
-} from './SourceCodesType';
+    SourceCodeTypeFromJSON,
+    SourceCodeTypeFromJSONTyped,
+    SourceCodeTypeToJSON,
+} from './SourceCodeType';
 import type { TranslationTextType50 } from './TranslationTextType50';
 import {
     TranslationTextType50FromJSON,
@@ -63,11 +63,11 @@ export interface SourceGroupType {
      */
     sequence?: number;
     /**
-     * 
-     * @type {SourceCodesType}
+     * Collection of Source Codes.
+     * @type {Array<SourceCodeType>}
      * @memberof SourceGroupType
      */
-    sourceCodes?: SourceCodesType;
+    sourceCodes?: Array<SourceCodeType>;
 }
 
 /**
@@ -94,7 +94,7 @@ export function SourceGroupTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
         'sequence': !exists(json, 'sequence') ? undefined : json['sequence'],
-        'sourceCodes': !exists(json, 'sourceCodes') ? undefined : SourceCodesTypeFromJSON(json['sourceCodes']),
+        'sourceCodes': !exists(json, 'sourceCodes') ? undefined : ((json['sourceCodes'] as Array<any>).map(SourceCodeTypeFromJSON)),
     };
 }
 
@@ -112,7 +112,7 @@ export function SourceGroupTypeToJSON(value?: SourceGroupType | null): any {
         'hotelId': value.hotelId,
         'inactive': value.inactive,
         'sequence': value.sequence,
-        'sourceCodes': SourceCodesTypeToJSON(value.sourceCodes),
+        'sourceCodes': value.sourceCodes === undefined ? undefined : ((value.sourceCodes as Array<any>).map(SourceCodeTypeToJSON)),
     };
 }
 

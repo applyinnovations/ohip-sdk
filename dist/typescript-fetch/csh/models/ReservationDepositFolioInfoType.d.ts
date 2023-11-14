@@ -11,7 +11,7 @@
  */
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { DepositMaturityType } from './DepositMaturityType';
-import type { DepositPostingsType } from './DepositPostingsType';
+import type { DepositPostingType } from './DepositPostingType';
 import type { DepositType } from './DepositType';
 import type { ProjectedRevenueType } from './ProjectedRevenueType';
 import type { ReservationInfoType } from './ReservationInfoType';
@@ -41,11 +41,11 @@ export interface ReservationDepositFolioInfoType {
      */
     depositType?: DepositType;
     /**
-     *
-     * @type {DepositPostingsType}
+     * A List of Deposit Payments.
+     * @type {Array<DepositPostingType>}
      * @memberof ReservationDepositFolioInfoType
      */
-    deposits?: DepositPostingsType;
+    deposits?: Array<DepositPostingType>;
     /**
      *
      * @type {ReservationPolicySummaryType}

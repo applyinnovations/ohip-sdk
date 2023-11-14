@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NoteTypesToBeChangedToJSON = exports.NoteTypesToBeChangedFromJSONTyped = exports.NoteTypesToBeChangedFromJSON = exports.instanceOfNoteTypesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const NoteTypesType_1 = require("./NoteTypesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const NoteTypeType_1 = require("./NoteTypeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the NoteTypesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function NoteTypesToBeChangedFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'noteTypes': !(0, runtime_1.exists)(json, 'noteTypes') ? undefined : (0, NoteTypesType_1.NoteTypesTypeFromJSON)(json['noteTypes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'noteTypes': !(0, runtime_1.exists)(json, 'noteTypes') ? undefined : (json['noteTypes'].map(NoteTypeType_1.NoteTypeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.NoteTypesToBeChangedFromJSONTyped = NoteTypesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function NoteTypesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'noteTypes': (0, NoteTypesType_1.NoteTypesTypeToJSON)(value.noteTypes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'noteTypes': value.noteTypes === undefined ? undefined : (value.noteTypes.map(NoteTypeType_1.NoteTypeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.NoteTypesToBeChangedToJSON = NoteTypesToBeChangedToJSON;

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { UserDefinedFieldValuesType } from './UserDefinedFieldValuesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { UserDefinedFieldValueType } from './UserDefinedFieldValueType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing User Defined Field Values.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface UserDefinedFieldValuesToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof UserDefinedFieldValuesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {UserDefinedFieldValuesType}
+     * A recurring element that identifies the User Defined Field Value.
+     * @type {Array<UserDefinedFieldValueType>}
      * @memberof UserDefinedFieldValuesToBeChanged
      */
-    userDefinedFieldValues?: UserDefinedFieldValuesType;
+    userDefinedFieldValues?: Array<UserDefinedFieldValueType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof UserDefinedFieldValuesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the UserDefinedFieldValuesToBeChanged interface.

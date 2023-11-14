@@ -14,9 +14,9 @@ import type { DateTimeSpanType } from './DateTimeSpanType';
 import type { LinkedReservationType } from './LinkedReservationType';
 import type { PMSResStatusType } from './PMSResStatusType';
 import type { ResGuaranteeType } from './ResGuaranteeType';
-import type { ReservationIdList } from './ReservationIdList';
 import type { RoomCalendarDisplayType } from './RoomCalendarDisplayType';
-import type { RoomMoveDetailsType } from './RoomMoveDetailsType';
+import type { RoomMoveDetailType } from './RoomMoveDetailType';
+import type { UniqueIDType } from './UniqueIDType';
 import type { VIPStatusType } from './VIPStatusType';
 /**
  * Reservation Information for a Reservation Item in the Calendar.
@@ -67,11 +67,11 @@ export interface RoomCalendarResType {
      */
     noOfRooms?: number;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RoomCalendarResType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {PMSResStatusType}
@@ -79,11 +79,11 @@ export interface RoomCalendarResType {
      */
     reservationStatus?: PMSResStatusType;
     /**
-     *
-     * @type {RoomMoveDetailsType}
+     * List of room move details
+     * @type {Array<RoomMoveDetailType>}
      * @memberof RoomCalendarResType
      */
-    roomMoveHistory?: RoomMoveDetailsType;
+    roomMoveHistory?: Array<RoomMoveDetailType>;
     /**
      * Verify if the room number is locked for the reservation. When true the room number cannot be changed.
      * @type {boolean}

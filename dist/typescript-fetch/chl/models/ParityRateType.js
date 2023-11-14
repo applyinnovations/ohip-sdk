@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ParityRateTypeToJSON = exports.ParityRateTypeFromJSONTyped = exports.ParityRateTypeFromJSON = exports.instanceOfParityRateType = void 0;
 const runtime_1 = require("../runtime");
-const AdditionalAmountListType_1 = require("./AdditionalAmountListType");
-const AdditionalDetailListType_1 = require("./AdditionalDetailListType");
+const AdditionalAmountType_1 = require("./AdditionalAmountType");
+const AdditionalDetailType_1 = require("./AdditionalDetailType");
 const EnhancedDescriptionType_1 = require("./EnhancedDescriptionType");
 const ParityRateTypeRateAmounts_1 = require("./ParityRateTypeRateAmounts");
 const ParityRateTypeTotalPricingAmounts_1 = require("./ParityRateTypeTotalPricingAmounts");
@@ -37,8 +37,8 @@ function ParityRateTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'additionalAmounts': !(0, runtime_1.exists)(json, 'additionalAmounts') ? undefined : (0, AdditionalAmountListType_1.AdditionalAmountListTypeFromJSON)(json['additionalAmounts']),
-        'additionalDetailList': !(0, runtime_1.exists)(json, 'additionalDetailList') ? undefined : (0, AdditionalDetailListType_1.AdditionalDetailListTypeFromJSON)(json['additionalDetailList']),
+        'additionalAmounts': !(0, runtime_1.exists)(json, 'additionalAmounts') ? undefined : (json['additionalAmounts'].map(AdditionalAmountType_1.AdditionalAmountTypeFromJSON)),
+        'additionalDetailList': !(0, runtime_1.exists)(json, 'additionalDetailList') ? undefined : (json['additionalDetailList'].map(AdditionalDetailType_1.AdditionalDetailTypeFromJSON)),
         'amount': !(0, runtime_1.exists)(json, 'amount') ? undefined : json['amount'],
         'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
         'availableRooms': !(0, runtime_1.exists)(json, 'availableRooms') ? undefined : json['availableRooms'],
@@ -66,8 +66,8 @@ function ParityRateTypeToJSON(value) {
         return null;
     }
     return {
-        'additionalAmounts': (0, AdditionalAmountListType_1.AdditionalAmountListTypeToJSON)(value.additionalAmounts),
-        'additionalDetailList': (0, AdditionalDetailListType_1.AdditionalDetailListTypeToJSON)(value.additionalDetailList),
+        'additionalAmounts': value.additionalAmounts === undefined ? undefined : (value.additionalAmounts.map(AdditionalAmountType_1.AdditionalAmountTypeToJSON)),
+        'additionalDetailList': value.additionalDetailList === undefined ? undefined : (value.additionalDetailList.map(AdditionalDetailType_1.AdditionalDetailTypeToJSON)),
         'amount': value.amount,
         'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
         'availableRooms': value.availableRooms,

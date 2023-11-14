@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { HousekeepingScheduleShiftRequestType } from './HousekeepingScheduleShiftRequestType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request with the information needed for the shift of the schedule.
  * @export
@@ -26,16 +26,16 @@ export interface ScheduleShiftRequest {
     criteria?: HousekeepingScheduleShiftRequestType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ScheduleShiftRequest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ScheduleShiftRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ScheduleShiftRequest interface.

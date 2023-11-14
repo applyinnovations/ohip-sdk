@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AutoAttachElementsConfigType } from './AutoAttachElementsConfigType';
-import type { Links } from './Links';
+import type { AutoAttachRuleType } from './AutoAttachRuleType';
+import type { InstanceLink } from './InstanceLink';
 import type { MasterInfoType } from './MasterInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for the configuration rules that specify the elements to be automatically attached to the reservation.
  * @export
@@ -20,17 +20,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface AutoAttachElementsConfig {
     /**
-     *
-     * @type {AutoAttachElementsConfigType}
+     * Auto attachment rule details.
+     * @type {Array<AutoAttachRuleType>}
      * @memberof AutoAttachElementsConfig
      */
-    autoAttachRules?: AutoAttachElementsConfigType;
+    autoAttachRules?: Array<AutoAttachRuleType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AutoAttachElementsConfig
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Refer to Generic common types document.
      * @type {Array<MasterInfoType>}
@@ -38,11 +38,11 @@ export interface AutoAttachElementsConfig {
      */
     masterInfoList?: Array<MasterInfoType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoAttachElementsConfig
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AutoAttachElementsConfig interface.

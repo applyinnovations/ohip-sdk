@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CorporateDepartmentCodesToBeChangedToJSON = exports.CorporateDepartmentCodesToBeChangedFromJSONTyped = exports.CorporateDepartmentCodesToBeChangedFromJSON = exports.instanceOfCorporateDepartmentCodesToBeChanged = void 0;
 const runtime_1 = require("../runtime");
-const CorporateDepartmentCodesType_1 = require("./CorporateDepartmentCodesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CorporateDepartmentCodeType_1 = require("./CorporateDepartmentCodeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CorporateDepartmentCodesToBeChanged interface.
  */
@@ -35,9 +35,9 @@ function CorporateDepartmentCodesToBeChangedFromJSONTyped(json, ignoreDiscrimina
         return json;
     }
     return {
-        'corporateDepartmentCodes': !(0, runtime_1.exists)(json, 'corporateDepartmentCodes') ? undefined : (0, CorporateDepartmentCodesType_1.CorporateDepartmentCodesTypeFromJSON)(json['corporateDepartmentCodes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'corporateDepartmentCodes': !(0, runtime_1.exists)(json, 'corporateDepartmentCodes') ? undefined : (json['corporateDepartmentCodes'].map(CorporateDepartmentCodeType_1.CorporateDepartmentCodeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CorporateDepartmentCodesToBeChangedFromJSONTyped = CorporateDepartmentCodesToBeChangedFromJSONTyped;
@@ -49,9 +49,9 @@ function CorporateDepartmentCodesToBeChangedToJSON(value) {
         return null;
     }
     return {
-        'corporateDepartmentCodes': (0, CorporateDepartmentCodesType_1.CorporateDepartmentCodesTypeToJSON)(value.corporateDepartmentCodes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'corporateDepartmentCodes': value.corporateDepartmentCodes === undefined ? undefined : (value.corporateDepartmentCodes.map(CorporateDepartmentCodeType_1.CorporateDepartmentCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CorporateDepartmentCodesToBeChangedToJSON = CorporateDepartmentCodesToBeChangedToJSON;

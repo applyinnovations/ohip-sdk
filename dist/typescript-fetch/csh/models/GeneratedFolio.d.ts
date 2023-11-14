@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { FolioWindowType } from './FolioWindowType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Generate Folio Response contains generated folio no and invoice number along or errors and warnings in case if folio couldn't be generated: FOF00065 - The hotel code and/or reservation id is missing. FOF00066 - Reservation can't be found with the supplied hotel code and reservation id. FOF00123 - Folio window has a balance and folio cannot be generated. FOF00124 - The guest's reservation is not in a valid status for folio generation.
  * @export
@@ -26,16 +26,16 @@ export interface GeneratedFolio {
     folioWindows?: Array<FolioWindowType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GeneratedFolio
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GeneratedFolio
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GeneratedFolio interface.

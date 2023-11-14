@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { TranslationsTextType } from './TranslationsTextType';
+import type { TranslationsTextTypeInner } from './TranslationsTextTypeInner';
 /**
  * Contains Multiple translated texts and language codes.
  * @export
@@ -23,11 +23,11 @@ export interface TranslationTextType100 {
      */
     defaultText?: string;
     /**
-     *
-     * @type {TranslationsTextType}
+     * Language code for the translation.
+     * @type {Array<TranslationsTextTypeInner>}
      * @memberof TranslationTextType100
      */
-    translatedTexts?: TranslationsTextType;
+    translatedTexts?: Array<TranslationsTextTypeInner>;
 }
 /**
  * Check if a given object implements the TranslationTextType100 interface.

@@ -37,12 +37,6 @@ import {
     RateAmountsTypeFromJSONTyped,
     RateAmountsTypeToJSON,
 } from './RateAmountsType';
-import type { RateCodesListType } from './RateCodesListType';
-import {
-    RateCodesListTypeFromJSON,
-    RateCodesListTypeFromJSONTyped,
-    RateCodesListTypeToJSON,
-} from './RateCodesListType';
 import type { RatePlanRoundingType } from './RatePlanRoundingType';
 import {
     RatePlanRoundingTypeFromJSON,
@@ -55,12 +49,6 @@ import {
     RatePlanScheduleTypeFromJSONTyped,
     RatePlanScheduleTypeToJSON,
 } from './RatePlanScheduleType';
-import type { RoomTypeListType } from './RoomTypeListType';
-import {
-    RoomTypeListTypeFromJSON,
-    RoomTypeListTypeFromJSONTyped,
-    RoomTypeListTypeToJSON,
-} from './RoomTypeListType';
 import type { TimeSpanDaysOfWeekType } from './TimeSpanDaysOfWeekType';
 import {
     TimeSpanDaysOfWeekTypeFromJSON,
@@ -111,17 +99,17 @@ export interface MassRateChangeCriteriaType {
      */
     rateAmounts?: RateAmountsType;
     /**
-     * 
-     * @type {RateCodesListType}
+     * Rate Codes.
+     * @type {Array<string>}
      * @memberof MassRateChangeCriteriaType
      */
-    rateCodes?: RateCodesListType;
+    rateCodes?: Array<string>;
     /**
-     * 
-     * @type {RoomTypeListType}
+     * Room Type.
+     * @type {Array<string>}
      * @memberof MassRateChangeCriteriaType
      */
-    roomTypes?: RoomTypeListType;
+    roomTypes?: Array<string>;
     /**
      * 
      * @type {RatePlanRoundingType}
@@ -161,8 +149,8 @@ export function MassRateChangeCriteriaTypeFromJSONTyped(json: any, ignoreDiscrim
         'dateRange': !exists(json, 'dateRange') ? undefined : TimeSpanDaysOfWeekTypeFromJSON(json['dateRange']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'rateAmounts': !exists(json, 'rateAmounts') ? undefined : RateAmountsTypeFromJSON(json['rateAmounts']),
-        'rateCodes': !exists(json, 'rateCodes') ? undefined : RateCodesListTypeFromJSON(json['rateCodes']),
-        'roomTypes': !exists(json, 'roomTypes') ? undefined : RoomTypeListTypeFromJSON(json['roomTypes']),
+        'rateCodes': !exists(json, 'rateCodes') ? undefined : json['rateCodes'],
+        'roomTypes': !exists(json, 'roomTypes') ? undefined : json['roomTypes'],
         'rounding': !exists(json, 'rounding') ? undefined : RatePlanRoundingTypeFromJSON(json['rounding']),
         'type': !exists(json, 'type') ? undefined : RatePlanScheduleTypeFromJSON(json['type']),
     };
@@ -183,8 +171,8 @@ export function MassRateChangeCriteriaTypeToJSON(value?: MassRateChangeCriteriaT
         'dateRange': TimeSpanDaysOfWeekTypeToJSON(value.dateRange),
         'hotelId': value.hotelId,
         'rateAmounts': RateAmountsTypeToJSON(value.rateAmounts),
-        'rateCodes': RateCodesListTypeToJSON(value.rateCodes),
-        'roomTypes': RoomTypeListTypeToJSON(value.roomTypes),
+        'rateCodes': value.rateCodes,
+        'roomTypes': value.roomTypes,
         'rounding': RatePlanRoundingTypeToJSON(value.rounding),
         'type': RatePlanScheduleTypeToJSON(value.type),
     };

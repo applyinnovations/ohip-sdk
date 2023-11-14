@@ -13,13 +13,13 @@ import type { CurrentServicingAttendantType } from './CurrentServicingAttendantT
 import type { HousekeepingType } from './HousekeepingType';
 import type { RatePlanRatingType } from './RatePlanRatingType';
 import type { ReservationShortInfoType } from './ReservationShortInfoType';
-import type { RoomDiscrepanciesType } from './RoomDiscrepanciesType';
-import type { RoomFeaturesType } from './RoomFeaturesType';
+import type { RoomDiscrepancyType } from './RoomDiscrepancyType';
+import type { RoomFeatureType } from './RoomFeatureType';
 import type { RoomHoldType } from './RoomHoldType';
-import type { RoomRoomsType } from './RoomRoomsType';
+import type { RoomOutOfOrderType } from './RoomOutOfOrderType';
+import type { RoomRoomType } from './RoomRoomType';
 import type { RoomSectionType } from './RoomSectionType';
 import type { RoomTypeShortInfoType } from './RoomTypeShortInfoType';
-import type { RoomsOutOfOrderType } from './RoomsOutOfOrderType';
 import type { SitePlanSectionType } from './SitePlanSectionType';
 import type { TranslationTextType2000 } from './TranslationTextType2000';
 import type { TurndownInfoType } from './TurndownInfoType';
@@ -60,17 +60,17 @@ export interface RoomType {
      */
     componentRoomNumbers?: Array<string>;
     /**
-     *
-     * @type {RoomRoomsType}
+     * Collection of rooms.
+     * @type {Array<RoomRoomType>}
      * @memberof RoomType
      */
-    componentRooms?: RoomRoomsType;
+    componentRooms?: Array<RoomRoomType>;
     /**
-     *
-     * @type {RoomRoomsType}
+     * Collection of rooms.
+     * @type {Array<RoomRoomType>}
      * @memberof RoomType
      */
-    connectingRooms?: RoomRoomsType;
+    connectingRooms?: Array<RoomRoomType>;
     /**
      *
      * @type {TranslationTextType2000}
@@ -78,11 +78,11 @@ export interface RoomType {
      */
     description?: TranslationTextType2000;
     /**
-     *
-     * @type {RoomDiscrepanciesType}
+     * Room Discrepancies between front office and housekeeping room status and number of persons in the room.
+     * @type {Array<RoomDiscrepancyType>}
      * @memberof RoomType
      */
-    discrepancy?: RoomDiscrepanciesType;
+    discrepancy?: Array<RoomDiscrepancyType>;
     /**
      * Floor of the Room.
      * @type {string}
@@ -114,11 +114,11 @@ export interface RoomType {
      */
     meetingRoom?: boolean;
     /**
-     *
-     * @type {RoomsOutOfOrderType}
+     * Date Range and reasons for a room being Out of Order/Out Of Service (If the room is OO/OS).
+     * @type {Array<RoomOutOfOrderType>}
      * @memberof RoomType
      */
-    outOfOrder?: RoomsOutOfOrderType;
+    outOfOrder?: Array<RoomOutOfOrderType>;
     /**
      *
      * @type {Array<ReservationShortInfoType>}
@@ -138,11 +138,11 @@ export interface RoomType {
      */
     roomDescription?: string;
     /**
-     *
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof RoomType
      */
-    roomFeatures?: RoomFeaturesType;
+    roomFeatures?: Array<RoomFeatureType>;
     /**
      * Code of the room.
      * @type {string}

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Reservations } from './Reservations';
+import type { ReservationId } from './ReservationId';
 /**
  * Contains criteria for process batch advance folio.
  * @export
@@ -29,11 +29,11 @@ export interface BatchAdvanceFolioType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {Reservations}
+     * Unique identifier for a reservation.
+     * @type {Array<ReservationId>}
      * @memberof BatchAdvanceFolioType
      */
-    reservations?: Reservations;
+    reservations?: Array<ReservationId>;
 }
 /**
  * Check if a given object implements the BatchAdvanceFolioType interface.

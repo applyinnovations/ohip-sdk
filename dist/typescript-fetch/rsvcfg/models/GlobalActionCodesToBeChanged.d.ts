@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GlobalActionCodesType } from './GlobalActionCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { GlobalActionCodeType } from './GlobalActionCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Global Action Codes.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface GlobalActionCodesToBeChanged {
     /**
-     *
-     * @type {GlobalActionCodesType}
+     * List of Global Action Codes.
+     * @type {Array<GlobalActionCodeType>}
      * @memberof GlobalActionCodesToBeChanged
      */
-    globalActionCodes?: GlobalActionCodesType;
+    globalActionCodes?: Array<GlobalActionCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GlobalActionCodesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GlobalActionCodesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GlobalActionCodesToBeChanged interface.

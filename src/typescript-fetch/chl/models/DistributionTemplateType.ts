@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DistributionTemplateChannelRatesType } from './DistributionTemplateChannelRatesType';
+import type { DistributionTemplateChannelRateType } from './DistributionTemplateChannelRateType';
 import {
-    DistributionTemplateChannelRatesTypeFromJSON,
-    DistributionTemplateChannelRatesTypeFromJSONTyped,
-    DistributionTemplateChannelRatesTypeToJSON,
-} from './DistributionTemplateChannelRatesType';
+    DistributionTemplateChannelRateTypeFromJSON,
+    DistributionTemplateChannelRateTypeFromJSONTyped,
+    DistributionTemplateChannelRateTypeToJSON,
+} from './DistributionTemplateChannelRateType';
 
 /**
  * Information about a distribution template.
@@ -27,11 +27,11 @@ import {
  */
 export interface DistributionTemplateType {
     /**
-     * 
-     * @type {DistributionTemplateChannelRatesType}
+     * Information about channel rate where distribution template will be distributed to.
+     * @type {Array<DistributionTemplateChannelRateType>}
      * @memberof DistributionTemplateType
      */
-    channelRates?: DistributionTemplateChannelRatesType;
+    channelRates?: Array<DistributionTemplateChannelRateType>;
     /**
      * Uniquely identifies the distribution template.
      * @type {string}
@@ -89,7 +89,7 @@ export function DistributionTemplateTypeFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'channelRates': !exists(json, 'channelRates') ? undefined : DistributionTemplateChannelRatesTypeFromJSON(json['channelRates']),
+        'channelRates': !exists(json, 'channelRates') ? undefined : ((json['channelRates'] as Array<any>).map(DistributionTemplateChannelRateTypeFromJSON)),
         'code': !exists(json, 'code') ? undefined : json['code'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'displaySequence': !exists(json, 'displaySequence') ? undefined : json['displaySequence'],
@@ -108,7 +108,7 @@ export function DistributionTemplateTypeToJSON(value?: DistributionTemplateType 
     }
     return {
         
-        'channelRates': DistributionTemplateChannelRatesTypeToJSON(value.channelRates),
+        'channelRates': value.channelRates === undefined ? undefined : ((value.channelRates as Array<any>).map(DistributionTemplateChannelRateTypeToJSON)),
         'code': value.code,
         'description': value.description,
         'displaySequence': value.displaySequence,

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ActivityTypesType } from './ActivityTypesType';
+import type { ActivityTypeDetailType } from './ActivityTypeDetailType';
 import {
-    ActivityTypesTypeFromJSON,
-    ActivityTypesTypeFromJSONTyped,
-    ActivityTypesTypeToJSON,
-} from './ActivityTypesType';
-import type { Links } from './Links';
+    ActivityTypeDetailTypeFromJSON,
+    ActivityTypeDetailTypeFromJSONTyped,
+    ActivityTypeDetailTypeToJSON,
+} from './ActivityTypeDetailType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for changing Activity Types.
@@ -39,23 +39,23 @@ import {
  */
 export interface ChangeActivityTypes {
     /**
-     * 
-     * @type {ActivityTypesType}
+     * Collection of Activity Types.
+     * @type {Array<ActivityTypeDetailType>}
      * @memberof ChangeActivityTypes
      */
-    activityTypes?: ActivityTypesType;
+    activityTypes?: Array<ActivityTypeDetailType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangeActivityTypes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeActivityTypes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function ChangeActivityTypesFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'activityTypes': !exists(json, 'activityTypes') ? undefined : ActivityTypesTypeFromJSON(json['activityTypes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'activityTypes': !exists(json, 'activityTypes') ? undefined : ((json['activityTypes'] as Array<any>).map(ActivityTypeDetailTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function ChangeActivityTypesToJSON(value?: ChangeActivityTypes | null): a
     }
     return {
         
-        'activityTypes': ActivityTypesTypeToJSON(value.activityTypes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'activityTypes': value.activityTypes === undefined ? undefined : ((value.activityTypes as Array<any>).map(ActivityTypeDetailTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

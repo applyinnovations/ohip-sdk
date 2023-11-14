@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AlertTemplatesType } from './AlertTemplatesType';
+import type { AlertTemplateType } from './AlertTemplateType';
 import {
-    AlertTemplatesTypeFromJSON,
-    AlertTemplatesTypeFromJSONTyped,
-    AlertTemplatesTypeToJSON,
-} from './AlertTemplatesType';
-import type { Links } from './Links';
+    AlertTemplateTypeFromJSON,
+    AlertTemplateTypeFromJSONTyped,
+    AlertTemplateTypeToJSON,
+} from './AlertTemplateType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for modifying the existing alert code templates.
@@ -39,23 +39,23 @@ import {
  */
 export interface AlertTemplates {
     /**
-     * 
-     * @type {AlertTemplatesType}
+     * Collection of alert code templates.
+     * @type {Array<AlertTemplateType>}
      * @memberof AlertTemplates
      */
-    alertTemplates?: AlertTemplatesType;
+    alertTemplates?: Array<AlertTemplateType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AlertTemplates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AlertTemplates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function AlertTemplatesFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'alertTemplates': !exists(json, 'alertTemplates') ? undefined : AlertTemplatesTypeFromJSON(json['alertTemplates']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'alertTemplates': !exists(json, 'alertTemplates') ? undefined : ((json['alertTemplates'] as Array<any>).map(AlertTemplateTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function AlertTemplatesToJSON(value?: AlertTemplates | null): any {
     }
     return {
         
-        'alertTemplates': AlertTemplatesTypeToJSON(value.alertTemplates),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'alertTemplates': value.alertTemplates === undefined ? undefined : ((value.alertTemplates as Array<any>).map(AlertTemplateTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

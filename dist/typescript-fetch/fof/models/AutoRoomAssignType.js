@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AutoRoomAssignTypeToJSON = exports.AutoRoomAssignTypeFromJSONTyped = exports.AutoRoomAssignTypeFromJSON = exports.instanceOfAutoRoomAssignType = void 0;
 const runtime_1 = require("../runtime");
-const ErrorsType_1 = require("./ErrorsType");
+const ErrorType_1 = require("./ErrorType");
 const ReservationId_1 = require("./ReservationId");
 const UniqueIDType_1 = require("./UniqueIDType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AutoRoomAssignType interface.
  */
@@ -39,11 +39,11 @@ function AutoRoomAssignTypeFromJSONTyped(json, ignoreDiscriminator) {
         'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'confirmationNo': !(0, runtime_1.exists)(json, 'confirmationNo') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['confirmationNo']),
         'departureDate': !(0, runtime_1.exists)(json, 'departureDate') ? undefined : json['departureDate'],
-        'errors': !(0, runtime_1.exists)(json, 'errors') ? undefined : (0, ErrorsType_1.ErrorsTypeFromJSON)(json['errors']),
+        'errors': !(0, runtime_1.exists)(json, 'errors') ? undefined : (json['errors'].map(ErrorType_1.ErrorTypeFromJSON)),
         'guestName': !(0, runtime_1.exists)(json, 'guestName') ? undefined : json['guestName'],
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
         'roomId': !(0, runtime_1.exists)(json, 'roomId') ? undefined : json['roomId'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AutoRoomAssignTypeFromJSONTyped = AutoRoomAssignTypeFromJSONTyped;
@@ -58,11 +58,11 @@ function AutoRoomAssignTypeToJSON(value) {
         'arrivalDate': value.arrivalDate,
         'confirmationNo': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.confirmationNo),
         'departureDate': value.departureDate,
-        'errors': (0, ErrorsType_1.ErrorsTypeToJSON)(value.errors),
+        'errors': value.errors === undefined ? undefined : (value.errors.map(ErrorType_1.ErrorTypeToJSON)),
         'guestName': value.guestName,
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
         'roomId': value.roomId,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AutoRoomAssignTypeToJSON = AutoRoomAssignTypeToJSON;

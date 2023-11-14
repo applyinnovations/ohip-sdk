@@ -19,6 +19,12 @@ import {
     BlockTypeFromJSONTyped,
     BlockTypeToJSON,
 } from './BlockType';
+import type { CateringEventResourceType } from './CateringEventResourceType';
+import {
+    CateringEventResourceTypeFromJSON,
+    CateringEventResourceTypeFromJSONTyped,
+    CateringEventResourceTypeToJSON,
+} from './CateringEventResourceType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import {
     CurrencyAmountTypeFromJSON,
@@ -37,12 +43,12 @@ import {
     EventFunctionSpaceTypeFromJSONTyped,
     EventFunctionSpaceTypeToJSON,
 } from './EventFunctionSpaceType';
-import type { EventNotesType } from './EventNotesType';
+import type { EventNoteType } from './EventNoteType';
 import {
-    EventNotesTypeFromJSON,
-    EventNotesTypeFromJSONTyped,
-    EventNotesTypeToJSON,
-} from './EventNotesType';
+    EventNoteTypeFromJSON,
+    EventNoteTypeFromJSONTyped,
+    EventNoteTypeToJSON,
+} from './EventNoteType';
 import type { EventPrimaryInfoType } from './EventPrimaryInfoType';
 import {
     EventPrimaryInfoTypeFromJSON,
@@ -55,36 +61,24 @@ import {
     EventProcessInstructionsTypeFromJSONTyped,
     EventProcessInstructionsTypeToJSON,
 } from './EventProcessInstructionsType';
-import type { EventResourcesListType } from './EventResourcesListType';
-import {
-    EventResourcesListTypeFromJSON,
-    EventResourcesListTypeFromJSONTyped,
-    EventResourcesListTypeToJSON,
-} from './EventResourcesListType';
 import type { EventRevenuesInformationType } from './EventRevenuesInformationType';
 import {
     EventRevenuesInformationTypeFromJSON,
     EventRevenuesInformationTypeFromJSONTyped,
     EventRevenuesInformationTypeToJSON,
 } from './EventRevenuesInformationType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import {
-    IndicatorsTypeFromJSON,
-    IndicatorsTypeFromJSONTyped,
-    IndicatorsTypeToJSON,
-} from './IndicatorsType';
+    IndicatorTypeFromJSON,
+    IndicatorTypeFromJSONTyped,
+    IndicatorTypeToJSON,
+} from './IndicatorType';
 import type { LightEventDetailType } from './LightEventDetailType';
 import {
     LightEventDetailTypeFromJSON,
     LightEventDetailTypeFromJSONTyped,
     LightEventDetailTypeToJSON,
 } from './LightEventDetailType';
-import type { LightEventsDetailType } from './LightEventsDetailType';
-import {
-    LightEventsDetailTypeFromJSON,
-    LightEventsDetailTypeFromJSONTyped,
-    LightEventsDetailTypeToJSON,
-} from './LightEventsDetailType';
 
 /**
  * Catering Event information.
@@ -93,11 +87,11 @@ import {
  */
 export interface EventInfoType {
     /**
-     * 
-     * @type {LightEventsDetailType}
+     * Pertain event few information about events.
+     * @type {Array<LightEventDetailType>}
      * @memberof EventInfoType
      */
-    altEventsDetail?: LightEventsDetailType;
+    altEventsDetail?: Array<LightEventDetailType>;
     /**
      * 
      * @type {BlockType}
@@ -111,17 +105,17 @@ export interface EventInfoType {
      */
     eventDetail?: EventDetailType;
     /**
-     * 
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof EventInfoType
      */
-    eventIndicators?: IndicatorsType;
+    eventIndicators?: Array<IndicatorType>;
     /**
-     * 
-     * @type {EventNotesType}
+     * Pertain event information.
+     * @type {Array<EventNoteType>}
      * @memberof EventInfoType
      */
-    eventNotes?: EventNotesType;
+    eventNotes?: Array<EventNoteType>;
     /**
      * 
      * @type {EventPrimaryInfoType}
@@ -129,11 +123,11 @@ export interface EventInfoType {
      */
     eventPrimaryInfo?: EventPrimaryInfoType;
     /**
-     * 
-     * @type {EventResourcesListType}
+     * Event resources information.
+     * @type {Array<CateringEventResourceType>}
      * @memberof EventInfoType
      */
-    eventResources?: EventResourcesListType;
+    eventResources?: Array<CateringEventResourceType>;
     /**
      * 
      * @type {EventRevenuesInformationType}
@@ -165,11 +159,11 @@ export interface EventInfoType {
      */
     processInstructions?: EventProcessInstructionsType;
     /**
-     * 
-     * @type {LightEventsDetailType}
+     * Pertain event few information about events.
+     * @type {Array<LightEventDetailType>}
      * @memberof EventInfoType
      */
-    subEventsDetail?: LightEventsDetailType;
+    subEventsDetail?: Array<LightEventDetailType>;
 }
 
 /**
@@ -191,19 +185,19 @@ export function EventInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'altEventsDetail': !exists(json, 'altEventsDetail') ? undefined : LightEventsDetailTypeFromJSON(json['altEventsDetail']),
+        'altEventsDetail': !exists(json, 'altEventsDetail') ? undefined : ((json['altEventsDetail'] as Array<any>).map(LightEventDetailTypeFromJSON)),
         'eventBlockInfo': !exists(json, 'eventBlockInfo') ? undefined : BlockTypeFromJSON(json['eventBlockInfo']),
         'eventDetail': !exists(json, 'eventDetail') ? undefined : EventDetailTypeFromJSON(json['eventDetail']),
-        'eventIndicators': !exists(json, 'eventIndicators') ? undefined : IndicatorsTypeFromJSON(json['eventIndicators']),
-        'eventNotes': !exists(json, 'eventNotes') ? undefined : EventNotesTypeFromJSON(json['eventNotes']),
+        'eventIndicators': !exists(json, 'eventIndicators') ? undefined : ((json['eventIndicators'] as Array<any>).map(IndicatorTypeFromJSON)),
+        'eventNotes': !exists(json, 'eventNotes') ? undefined : ((json['eventNotes'] as Array<any>).map(EventNoteTypeFromJSON)),
         'eventPrimaryInfo': !exists(json, 'eventPrimaryInfo') ? undefined : EventPrimaryInfoTypeFromJSON(json['eventPrimaryInfo']),
-        'eventResources': !exists(json, 'eventResources') ? undefined : EventResourcesListTypeFromJSON(json['eventResources']),
+        'eventResources': !exists(json, 'eventResources') ? undefined : ((json['eventResources'] as Array<any>).map(CateringEventResourceTypeFromJSON)),
         'eventRevenues': !exists(json, 'eventRevenues') ? undefined : EventRevenuesInformationTypeFromJSON(json['eventRevenues']),
         'functionSpaceInformation': !exists(json, 'functionSpaceInformation') ? undefined : EventFunctionSpaceTypeFromJSON(json['functionSpaceInformation']),
         'masterEventDetail': !exists(json, 'masterEventDetail') ? undefined : LightEventDetailTypeFromJSON(json['masterEventDetail']),
         'onTheBooksRevenue': !exists(json, 'onTheBooksRevenue') ? undefined : CurrencyAmountTypeFromJSON(json['onTheBooksRevenue']),
         'processInstructions': !exists(json, 'processInstructions') ? undefined : EventProcessInstructionsTypeFromJSON(json['processInstructions']),
-        'subEventsDetail': !exists(json, 'subEventsDetail') ? undefined : LightEventsDetailTypeFromJSON(json['subEventsDetail']),
+        'subEventsDetail': !exists(json, 'subEventsDetail') ? undefined : ((json['subEventsDetail'] as Array<any>).map(LightEventDetailTypeFromJSON)),
     };
 }
 
@@ -216,19 +210,19 @@ export function EventInfoTypeToJSON(value?: EventInfoType | null): any {
     }
     return {
         
-        'altEventsDetail': LightEventsDetailTypeToJSON(value.altEventsDetail),
+        'altEventsDetail': value.altEventsDetail === undefined ? undefined : ((value.altEventsDetail as Array<any>).map(LightEventDetailTypeToJSON)),
         'eventBlockInfo': BlockTypeToJSON(value.eventBlockInfo),
         'eventDetail': EventDetailTypeToJSON(value.eventDetail),
-        'eventIndicators': IndicatorsTypeToJSON(value.eventIndicators),
-        'eventNotes': EventNotesTypeToJSON(value.eventNotes),
+        'eventIndicators': value.eventIndicators === undefined ? undefined : ((value.eventIndicators as Array<any>).map(IndicatorTypeToJSON)),
+        'eventNotes': value.eventNotes === undefined ? undefined : ((value.eventNotes as Array<any>).map(EventNoteTypeToJSON)),
         'eventPrimaryInfo': EventPrimaryInfoTypeToJSON(value.eventPrimaryInfo),
-        'eventResources': EventResourcesListTypeToJSON(value.eventResources),
+        'eventResources': value.eventResources === undefined ? undefined : ((value.eventResources as Array<any>).map(CateringEventResourceTypeToJSON)),
         'eventRevenues': EventRevenuesInformationTypeToJSON(value.eventRevenues),
         'functionSpaceInformation': EventFunctionSpaceTypeToJSON(value.functionSpaceInformation),
         'masterEventDetail': LightEventDetailTypeToJSON(value.masterEventDetail),
         'onTheBooksRevenue': CurrencyAmountTypeToJSON(value.onTheBooksRevenue),
         'processInstructions': EventProcessInstructionsTypeToJSON(value.processInstructions),
-        'subEventsDetail': LightEventsDetailTypeToJSON(value.subEventsDetail),
+        'subEventsDetail': value.subEventsDetail === undefined ? undefined : ((value.subEventsDetail as Array<any>).map(LightEventDetailTypeToJSON)),
     };
 }
 

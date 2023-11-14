@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChargesCriteriaType } from './ChargesCriteriaType';
+import type { ChargeCriteriaType } from './ChargeCriteriaType';
 import type { FiscalServiceType } from './FiscalServiceType';
 import type { NameValueHeaderDetailType } from './NameValueHeaderDetailType';
 import type { PaymentCriteriaType } from './PaymentCriteriaType';
@@ -30,11 +30,11 @@ export interface DepositFolioCriteriaType {
      */
     cashierId?: number;
     /**
-     *
-     * @type {ChargesCriteriaType}
+     * Collection of Charges to be posted.
+     * @type {Array<ChargeCriteriaType>}
      * @memberof DepositFolioCriteriaType
      */
-    charges?: ChargesCriteriaType;
+    charges?: Array<ChargeCriteriaType>;
     /**
      *
      * @type {UniqueIDType}

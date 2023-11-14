@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ChangeBlockReservationType } from './ChangeBlockReservationType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * The response object that contains the reservations that were changed for a block along with the status of each change.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ChangedBlockReservations {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangedBlockReservations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Contains details of the changed reservation along with a success or error message.
      * @type {Array<ChangeBlockReservationType>}
@@ -31,11 +31,11 @@ export interface ChangedBlockReservations {
      */
     reservations?: Array<ChangeBlockReservationType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangedBlockReservations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChangedBlockReservations interface.

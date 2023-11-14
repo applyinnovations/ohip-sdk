@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CodeDescriptionType } from './CodeDescriptionType';
-import type { ParametersType } from './ParametersType';
+import type { ParameterType } from './ParameterType';
 import type { UserSessionDefaultsType } from './UserSessionDefaultsType';
 /**
  *
@@ -49,11 +49,11 @@ export interface UserSessionInfoType {
      */
     hotel?: CodeDescriptionType;
     /**
-     *
-     * @type {ParametersType}
+     * Collection of generic Name-Value-Pair parameters.
+     * @type {Array<ParameterType>}
      * @memberof UserSessionInfoType
      */
-    parameters?: ParametersType;
+    parameters?: Array<ParameterType>;
     /**
      *
      * @type {string}

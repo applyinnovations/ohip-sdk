@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { IncidentsType } from './IncidentsType';
-import type { ProfileIdList } from './ProfileIdList';
+import type { IncidentType } from './IncidentType';
 import type { ProfileType } from './ProfileType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Type provides the detailed information about the profile.
  * @export
@@ -19,11 +19,11 @@ import type { ProfileType } from './ProfileType';
  */
 export interface ExternalProfileType {
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ExternalProfileType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {ProfileType}
@@ -31,11 +31,11 @@ export interface ExternalProfileType {
      */
     profile?: ProfileType;
     /**
-     *
-     * @type {IncidentsType}
+     * Collection of Incidents for the profile.
+     * @type {Array<IncidentType>}
      * @memberof ExternalProfileType
      */
-    incidents?: IncidentsType;
+    incidents?: Array<IncidentType>;
     /**
      * Guest Status for the Profile.
      * @type {string}

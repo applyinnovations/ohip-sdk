@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ErrorsType } from './ErrorsType';
+import type { ErrorType } from './ErrorType';
 import {
-    ErrorsTypeFromJSON,
-    ErrorsTypeFromJSONTyped,
-    ErrorsTypeToJSON,
-} from './ErrorsType';
+    ErrorTypeFromJSON,
+    ErrorTypeFromJSONTyped,
+    ErrorTypeToJSON,
+} from './ErrorType';
 import type { ReservationInfoType } from './ReservationInfoType';
 import {
     ReservationInfoTypeFromJSON,
@@ -33,11 +33,11 @@ import {
  */
 export interface ChangeBlockReservationType {
     /**
-     * 
-     * @type {ErrorsType}
+     * An error that occurred during the processing of a message.
+     * @type {Array<ErrorType>}
      * @memberof ChangeBlockReservationType
      */
-    errors?: ErrorsType;
+    errors?: Array<ErrorType>;
     /**
      * 
      * @type {ReservationInfoType}
@@ -71,7 +71,7 @@ export function ChangeBlockReservationTypeFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'errors': !exists(json, 'errors') ? undefined : ErrorsTypeFromJSON(json['errors']),
+        'errors': !exists(json, 'errors') ? undefined : ((json['errors'] as Array<any>).map(ErrorTypeFromJSON)),
         'reservationInfo': !exists(json, 'reservationInfo') ? undefined : ReservationInfoTypeFromJSON(json['reservationInfo']),
         'success': !exists(json, 'success') ? undefined : json['success'],
     };
@@ -86,7 +86,7 @@ export function ChangeBlockReservationTypeToJSON(value?: ChangeBlockReservationT
     }
     return {
         
-        'errors': ErrorsTypeToJSON(value.errors),
+        'errors': value.errors === undefined ? undefined : ((value.errors as Array<any>).map(ErrorTypeToJSON)),
         'reservationInfo': ReservationInfoTypeToJSON(value.reservationInfo),
         'success': value.success,
     };

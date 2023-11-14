@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RoomTypeTemplateSummaryType } from './RoomTypeTemplateSummaryType';
-import type { RoomTypeTemplateType } from './RoomTypeTemplateType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RoomTypeSummaryType } from './RoomTypeSummaryType';
+import type { RoomTypeType } from './RoomTypeType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for information regarding room type template of a property.
  * @export
@@ -39,10 +39,10 @@ export interface RoomTypeTemplatesDetails {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomTypeTemplatesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -50,17 +50,17 @@ export interface RoomTypeTemplatesDetails {
      */
     offset?: number;
     /**
-     *
-     * @type {RoomTypeTemplateType}
+     * This type holds collection of room type.
+     * @type {Array<RoomTypeType>}
      * @memberof RoomTypeTemplatesDetails
      */
-    roomTypeTemplates?: RoomTypeTemplateType;
+    roomTypeTemplates?: Array<RoomTypeType>;
     /**
-     *
-     * @type {RoomTypeTemplateSummaryType}
+     * This type holds collection of room type.
+     * @type {Array<RoomTypeSummaryType>}
      * @memberof RoomTypeTemplatesDetails
      */
-    roomTypeTemplatesSummary?: RoomTypeTemplateSummaryType;
+    roomTypeTemplatesSummary?: Array<RoomTypeSummaryType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}
@@ -74,11 +74,11 @@ export interface RoomTypeTemplatesDetails {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomTypeTemplatesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomTypeTemplatesDetails interface.

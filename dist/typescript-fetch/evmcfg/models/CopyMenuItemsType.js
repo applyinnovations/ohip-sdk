@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyMenuItemsTypeToJSON = exports.CopyMenuItemsTypeFromJSONTyped = exports.CopyMenuItemsTypeFromJSON = exports.instanceOfCopyMenuItemsType = void 0;
 const runtime_1 = require("../runtime");
-const CateringMenuItemClassListType_1 = require("./CateringMenuItemClassListType");
-const CateringMenuItemListType_1 = require("./CateringMenuItemListType");
+const CateringMenuItemClassType_1 = require("./CateringMenuItemClassType");
+const CateringMenuItemType_1 = require("./CateringMenuItemType");
 /**
  * Check if a given object implements the CopyMenuItemsType interface.
  */
@@ -35,8 +35,8 @@ function CopyMenuItemsTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'menuItemClassList': !(0, runtime_1.exists)(json, 'menuItemClassList') ? undefined : (0, CateringMenuItemClassListType_1.CateringMenuItemClassListTypeFromJSON)(json['menuItemClassList']),
-        'menuItemList': !(0, runtime_1.exists)(json, 'menuItemList') ? undefined : (0, CateringMenuItemListType_1.CateringMenuItemListTypeFromJSON)(json['menuItemList']),
+        'menuItemClassList': !(0, runtime_1.exists)(json, 'menuItemClassList') ? undefined : (json['menuItemClassList'].map(CateringMenuItemClassType_1.CateringMenuItemClassTypeFromJSON)),
+        'menuItemList': !(0, runtime_1.exists)(json, 'menuItemList') ? undefined : (json['menuItemList'].map(CateringMenuItemType_1.CateringMenuItemTypeFromJSON)),
     };
 }
 exports.CopyMenuItemsTypeFromJSONTyped = CopyMenuItemsTypeFromJSONTyped;
@@ -49,8 +49,8 @@ function CopyMenuItemsTypeToJSON(value) {
     }
     return {
         'hotelId': value.hotelId,
-        'menuItemClassList': (0, CateringMenuItemClassListType_1.CateringMenuItemClassListTypeToJSON)(value.menuItemClassList),
-        'menuItemList': (0, CateringMenuItemListType_1.CateringMenuItemListTypeToJSON)(value.menuItemList),
+        'menuItemClassList': value.menuItemClassList === undefined ? undefined : (value.menuItemClassList.map(CateringMenuItemClassType_1.CateringMenuItemClassTypeToJSON)),
+        'menuItemList': value.menuItemList === undefined ? undefined : (value.menuItemList.map(CateringMenuItemType_1.CateringMenuItemTypeToJSON)),
     };
 }
 exports.CopyMenuItemsTypeToJSON = CopyMenuItemsTypeToJSON;

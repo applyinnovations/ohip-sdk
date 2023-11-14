@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AddressFormatsType } from './AddressFormatsType';
+import type { AddressFormatType } from './AddressFormatType';
 import {
-    AddressFormatsTypeFromJSON,
-    AddressFormatsTypeFromJSONTyped,
-    AddressFormatsTypeToJSON,
-} from './AddressFormatsType';
-import type { Links } from './Links';
+    AddressFormatTypeFromJSON,
+    AddressFormatTypeFromJSONTyped,
+    AddressFormatTypeToJSON,
+} from './AddressFormatType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Address Formats.
@@ -39,23 +39,23 @@ import {
  */
 export interface AddressFormats {
     /**
-     * 
-     * @type {AddressFormatsType}
+     * An Address formats.
+     * @type {Array<AddressFormatType>}
      * @memberof AddressFormats
      */
-    formats?: AddressFormatsType;
+    formats?: Array<AddressFormatType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AddressFormats
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AddressFormats
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function AddressFormatsFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'formats': !exists(json, 'formats') ? undefined : AddressFormatsTypeFromJSON(json['formats']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'formats': !exists(json, 'formats') ? undefined : ((json['formats'] as Array<any>).map(AddressFormatTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function AddressFormatsToJSON(value?: AddressFormats | null): any {
     }
     return {
         
-        'formats': AddressFormatsTypeToJSON(value.formats),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'formats': value.formats === undefined ? undefined : ((value.formats as Array<any>).map(AddressFormatTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

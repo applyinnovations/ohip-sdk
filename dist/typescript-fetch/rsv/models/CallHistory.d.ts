@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CallHistoryType } from './CallHistoryType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CallType } from './CallType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response that contains either the fetched call history if was successful or error(s) if not.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CallHistory {
     /**
-     *
-     * @type {CallHistoryType}
+     * Holds call information.
+     * @type {Array<CallType>}
      * @memberof CallHistory
      */
-    callHistory?: CallHistoryType;
+    callHistory?: Array<CallType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CallHistory
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CallHistory
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CallHistory interface.

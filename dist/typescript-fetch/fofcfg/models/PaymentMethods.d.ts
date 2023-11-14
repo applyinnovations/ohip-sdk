@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { PaymentMethodsType } from './PaymentMethodsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { PaymentMethodType } from './PaymentMethodType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface PaymentMethods {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PaymentMethods
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {PaymentMethodsType}
+     * Holds the various types of payment methods.
+     * @type {Array<PaymentMethodType>}
      * @memberof PaymentMethods
      */
-    paymentMethods?: PaymentMethodsType;
+    paymentMethods?: Array<PaymentMethodType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PaymentMethods
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PaymentMethods interface.

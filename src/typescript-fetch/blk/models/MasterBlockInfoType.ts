@@ -19,24 +19,12 @@ import {
     BlockClassificationTypeFromJSONTyped,
     BlockClassificationTypeToJSON,
 } from './BlockClassificationType';
-import type { BlockIdList } from './BlockIdList';
-import {
-    BlockIdListFromJSON,
-    BlockIdListFromJSONTyped,
-    BlockIdListToJSON,
-} from './BlockIdList';
 import type { BookingStatusType } from './BookingStatusType';
 import {
     BookingStatusTypeFromJSON,
     BookingStatusTypeFromJSONTyped,
     BookingStatusTypeToJSON,
 } from './BookingStatusType';
-import type { HotelCodeListType } from './HotelCodeListType';
-import {
-    HotelCodeListTypeFromJSON,
-    HotelCodeListTypeFromJSONTyped,
-    HotelCodeListTypeToJSON,
-} from './HotelCodeListType';
 import type { MasterSubBlockBaseInfoType } from './MasterSubBlockBaseInfoType';
 import {
     MasterSubBlockBaseInfoTypeFromJSON,
@@ -49,6 +37,12 @@ import {
     TimeSpanTypeFromJSONTyped,
     TimeSpanTypeToJSON,
 } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Basic information pertaining to the master block.
@@ -57,11 +51,11 @@ import {
  */
 export interface MasterBlockInfoType {
     /**
-     * 
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MasterBlockInfoType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * Block description.
      * @type {string}
@@ -94,10 +88,10 @@ export interface MasterBlockInfoType {
     hotelId?: string;
     /**
      * Pertains valid hotel code list for logged in user against Master/Sub header record.
-     * @type {Array<HotelCodeListType>}
+     * @type {Array<Array<string>>}
      * @memberof MasterBlockInfoType
      */
-    masterSubHotels?: Array<HotelCodeListType>;
+    masterSubHotels?: Array<Array<string>>;
     /**
      * Pertain value for blocked rooms for a block.
      * @type {number}
@@ -167,13 +161,13 @@ export function MasterBlockInfoTypeFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : BlockIdListFromJSON(json['blockIdList']),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'blockName': !exists(json, 'blockName') ? undefined : json['blockName'],
         'blockStatus': !exists(json, 'blockStatus') ? undefined : BookingStatusTypeFromJSON(json['blockStatus']),
         'blockType': !exists(json, 'blockType') ? undefined : BlockClassificationTypeFromJSON(json['blockType']),
         'cateringStatus': !exists(json, 'cateringStatus') ? undefined : BookingStatusTypeFromJSON(json['cateringStatus']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'masterSubHotels': !exists(json, 'masterSubHotels') ? undefined : ((json['masterSubHotels'] as Array<any>).map(HotelCodeListTypeFromJSON)),
+        'masterSubHotels': !exists(json, 'masterSubHotels') ? undefined : json['masterSubHotels'],
         'roomNights': !exists(json, 'roomNights') ? undefined : json['roomNights'],
         'roomNightsPickedup': !exists(json, 'roomNightsPickedup') ? undefined : json['roomNightsPickedup'],
         'subBlockInfo': !exists(json, 'subBlockInfo') ? undefined : ((json['subBlockInfo'] as Array<any>).map(MasterSubBlockBaseInfoTypeFromJSON)),
@@ -194,13 +188,13 @@ export function MasterBlockInfoTypeToJSON(value?: MasterBlockInfoType | null): a
     }
     return {
         
-        'blockIdList': BlockIdListToJSON(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'blockName': value.blockName,
         'blockStatus': BookingStatusTypeToJSON(value.blockStatus),
         'blockType': BlockClassificationTypeToJSON(value.blockType),
         'cateringStatus': BookingStatusTypeToJSON(value.cateringStatus),
         'hotelId': value.hotelId,
-        'masterSubHotels': value.masterSubHotels === undefined ? undefined : ((value.masterSubHotels as Array<any>).map(HotelCodeListTypeToJSON)),
+        'masterSubHotels': value.masterSubHotels,
         'roomNights': value.roomNights,
         'roomNightsPickedup': value.roomNightsPickedup,
         'subBlockInfo': value.subBlockInfo === undefined ? undefined : ((value.subBlockInfo as Array<any>).map(MasterSubBlockBaseInfoTypeToJSON)),

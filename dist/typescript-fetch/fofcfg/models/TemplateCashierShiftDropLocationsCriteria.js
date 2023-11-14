@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateCashierShiftDropLocationsCriteriaToJSON = exports.TemplateCashierShiftDropLocationsCriteriaFromJSONTyped = exports.TemplateCashierShiftDropLocationsCriteriaFromJSON = exports.instanceOfTemplateCashierShiftDropLocationsCriteria = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TemplateCashierShiftDropLocationsType_1 = require("./TemplateCashierShiftDropLocationsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TemplateCashierShiftDropLocationType_1 = require("./TemplateCashierShiftDropLocationType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TemplateCashierShiftDropLocationsCriteria interface.
  */
@@ -35,9 +35,9 @@ function TemplateCashierShiftDropLocationsCriteriaFromJSONTyped(json, ignoreDisc
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'templateCashierShiftDropLocations': !(0, runtime_1.exists)(json, 'templateCashierShiftDropLocations') ? undefined : (0, TemplateCashierShiftDropLocationsType_1.TemplateCashierShiftDropLocationsTypeFromJSON)(json['templateCashierShiftDropLocations']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'templateCashierShiftDropLocations': !(0, runtime_1.exists)(json, 'templateCashierShiftDropLocations') ? undefined : (json['templateCashierShiftDropLocations'].map(TemplateCashierShiftDropLocationType_1.TemplateCashierShiftDropLocationTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TemplateCashierShiftDropLocationsCriteriaFromJSONTyped = TemplateCashierShiftDropLocationsCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function TemplateCashierShiftDropLocationsCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'templateCashierShiftDropLocations': (0, TemplateCashierShiftDropLocationsType_1.TemplateCashierShiftDropLocationsTypeToJSON)(value.templateCashierShiftDropLocations),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'templateCashierShiftDropLocations': value.templateCashierShiftDropLocations === undefined ? undefined : (value.templateCashierShiftDropLocations.map(TemplateCashierShiftDropLocationType_1.TemplateCashierShiftDropLocationTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TemplateCashierShiftDropLocationsCriteriaToJSON = TemplateCashierShiftDropLocationsCriteriaToJSON;

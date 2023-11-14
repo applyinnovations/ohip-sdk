@@ -15,8 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AutoTraceDefinitionsInfoToJSON = exports.AutoTraceDefinitionsInfoFromJSONTyped = exports.AutoTraceDefinitionsInfoFromJSON = exports.instanceOfAutoTraceDefinitionsInfo = void 0;
 const runtime_1 = require("../runtime");
-const AutoTraceDefinitionListType_1 = require("./AutoTraceDefinitionListType");
-const WarningsType_1 = require("./WarningsType");
+const AutoTraceDefinitionType_1 = require("./AutoTraceDefinitionType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AutoTraceDefinitionsInfo interface.
  */
@@ -34,8 +34,8 @@ function AutoTraceDefinitionsInfoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'autoTraceDefinitions': !(0, runtime_1.exists)(json, 'autoTraceDefinitions') ? undefined : (0, AutoTraceDefinitionListType_1.AutoTraceDefinitionListTypeFromJSON)(json['autoTraceDefinitions']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'autoTraceDefinitions': !(0, runtime_1.exists)(json, 'autoTraceDefinitions') ? undefined : (json['autoTraceDefinitions'].map(AutoTraceDefinitionType_1.AutoTraceDefinitionTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AutoTraceDefinitionsInfoFromJSONTyped = AutoTraceDefinitionsInfoFromJSONTyped;
@@ -47,8 +47,8 @@ function AutoTraceDefinitionsInfoToJSON(value) {
         return null;
     }
     return {
-        'autoTraceDefinitions': (0, AutoTraceDefinitionListType_1.AutoTraceDefinitionListTypeToJSON)(value.autoTraceDefinitions),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'autoTraceDefinitions': value.autoTraceDefinitions === undefined ? undefined : (value.autoTraceDefinitions.map(AutoTraceDefinitionType_1.AutoTraceDefinitionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AutoTraceDefinitionsInfoToJSON = AutoTraceDefinitionsInfoToJSON;

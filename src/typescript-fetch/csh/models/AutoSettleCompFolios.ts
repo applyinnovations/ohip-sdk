@@ -19,12 +19,12 @@ import {
     AutoSettleCompFoliosCriteriaTypeFromJSONTyped,
     AutoSettleCompFoliosCriteriaTypeToJSON,
 } from './AutoSettleCompFoliosCriteriaType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to auto settle comp folios. OPERA will reference the 'Default Comp Payment Method' setting to settle the folio if no authorizer AR account is associated with the folio.
@@ -39,11 +39,11 @@ export interface AutoSettleCompFolios {
      */
     criteria?: AutoSettleCompFoliosCriteriaType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AutoSettleCompFolios
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function AutoSettleCompFoliosFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'criteria': !exists(json, 'criteria') ? undefined : AutoSettleCompFoliosCriteriaTypeFromJSON(json['criteria']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function AutoSettleCompFoliosToJSON(value?: AutoSettleCompFolios | null):
     return {
         
         'criteria': AutoSettleCompFoliosCriteriaTypeToJSON(value.criteria),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

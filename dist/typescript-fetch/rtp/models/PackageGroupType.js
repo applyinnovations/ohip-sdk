@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PackageGroupTypeToJSON = exports.PackageGroupTypeFromJSONTyped = exports.PackageGroupTypeFromJSON = exports.instanceOfPackageGroupType = void 0;
 const runtime_1 = require("../runtime");
-const PackageCodeListType_1 = require("./PackageCodeListType");
+const PackageCodeType_1 = require("./PackageCodeType");
 /**
  * Check if a given object implements the PackageGroupType interface.
  */
@@ -35,7 +35,7 @@ function PackageGroupTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
-        'membersList': !(0, runtime_1.exists)(json, 'membersList') ? undefined : (0, PackageCodeListType_1.PackageCodeListTypeFromJSON)(json['membersList']),
+        'membersList': !(0, runtime_1.exists)(json, 'membersList') ? undefined : (json['membersList'].map(PackageCodeType_1.PackageCodeTypeFromJSON)),
         'sellSeparate': !(0, runtime_1.exists)(json, 'sellSeparate') ? undefined : json['sellSeparate'],
         'shortDescription': !(0, runtime_1.exists)(json, 'shortDescription') ? undefined : json['shortDescription'],
         'webBookable': !(0, runtime_1.exists)(json, 'webBookable') ? undefined : json['webBookable'],
@@ -52,7 +52,7 @@ function PackageGroupTypeToJSON(value) {
     return {
         'code': value.code,
         'description': value.description,
-        'membersList': (0, PackageCodeListType_1.PackageCodeListTypeToJSON)(value.membersList),
+        'membersList': value.membersList === undefined ? undefined : (value.membersList.map(PackageCodeType_1.PackageCodeTypeToJSON)),
         'sellSeparate': value.sellSeparate,
         'shortDescription': value.shortDescription,
         'webBookable': value.webBookable,

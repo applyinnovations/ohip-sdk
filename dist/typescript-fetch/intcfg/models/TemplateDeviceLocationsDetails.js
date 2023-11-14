@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateDeviceLocationsDetailsToJSON = exports.TemplateDeviceLocationsDetailsFromJSONTyped = exports.TemplateDeviceLocationsDetailsFromJSON = exports.instanceOfTemplateDeviceLocationsDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TemplateDeviceLocationsType_1 = require("./TemplateDeviceLocationsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TemplateDeviceLocationType_1 = require("./TemplateDeviceLocationType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TemplateDeviceLocationsDetails interface.
  */
@@ -35,9 +35,9 @@ function TemplateDeviceLocationsDetailsFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'templateDeviceLocations': !(0, runtime_1.exists)(json, 'templateDeviceLocations') ? undefined : (0, TemplateDeviceLocationsType_1.TemplateDeviceLocationsTypeFromJSON)(json['templateDeviceLocations']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'templateDeviceLocations': !(0, runtime_1.exists)(json, 'templateDeviceLocations') ? undefined : (json['templateDeviceLocations'].map(TemplateDeviceLocationType_1.TemplateDeviceLocationTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TemplateDeviceLocationsDetailsFromJSONTyped = TemplateDeviceLocationsDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function TemplateDeviceLocationsDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'templateDeviceLocations': (0, TemplateDeviceLocationsType_1.TemplateDeviceLocationsTypeToJSON)(value.templateDeviceLocations),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'templateDeviceLocations': value.templateDeviceLocations === undefined ? undefined : (value.templateDeviceLocations.map(TemplateDeviceLocationType_1.TemplateDeviceLocationTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TemplateDeviceLocationsDetailsToJSON = TemplateDeviceLocationsDetailsToJSON;

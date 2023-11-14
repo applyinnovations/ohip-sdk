@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FetchedPublishersToJSON = exports.FetchedPublishersFromJSONTyped = exports.FetchedPublishersFromJSON = exports.instanceOfFetchedPublishers = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const PublishersType_1 = require("./PublishersType");
-const WarningsType_1 = require("./WarningsType");
+const ExternalSystemType_1 = require("./ExternalSystemType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FetchedPublishers interface.
  */
@@ -35,9 +35,9 @@ function FetchedPublishersFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'publishers': !(0, runtime_1.exists)(json, 'publishers') ? undefined : (0, PublishersType_1.PublishersTypeFromJSON)(json['publishers']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'publishers': !(0, runtime_1.exists)(json, 'publishers') ? undefined : (json['publishers'].map(ExternalSystemType_1.ExternalSystemTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FetchedPublishersFromJSONTyped = FetchedPublishersFromJSONTyped;
@@ -49,9 +49,9 @@ function FetchedPublishersToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'publishers': (0, PublishersType_1.PublishersTypeToJSON)(value.publishers),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'publishers': value.publishers === undefined ? undefined : (value.publishers.map(ExternalSystemType_1.ExternalSystemTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FetchedPublishersToJSON = FetchedPublishersToJSON;

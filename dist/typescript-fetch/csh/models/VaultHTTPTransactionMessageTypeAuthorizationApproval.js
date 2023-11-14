@@ -18,8 +18,8 @@ const runtime_1 = require("../runtime");
 const CardAuthorizationTransactionType_1 = require("./CardAuthorizationTransactionType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const ProfileId_1 = require("./ProfileId");
-const ReservationIdList_1 = require("./ReservationIdList");
 const ReservationPaymentMethodType_1 = require("./ReservationPaymentMethodType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the VaultHTTPTransactionMessageTypeAuthorizationApproval interface.
  */
@@ -43,7 +43,7 @@ function VaultHTTPTransactionMessageTypeAuthorizationApprovalFromJSONTyped(json,
         'cardSwiped': !(0, runtime_1.exists)(json, 'cardSwiped') ? undefined : json['cardSwiped'],
         'originalAuthSequence': !(0, runtime_1.exists)(json, 'originalAuthSequence') ? undefined : json['originalAuthSequence'],
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, ProfileId_1.ProfileIdFromJSON)(json['profileId']),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'sourceOfAuthorization': !(0, runtime_1.exists)(json, 'sourceOfAuthorization') ? undefined : (0, CardAuthorizationTransactionType_1.CardAuthorizationTransactionTypeFromJSON)(json['sourceOfAuthorization']),
     };
 }
@@ -62,7 +62,7 @@ function VaultHTTPTransactionMessageTypeAuthorizationApprovalToJSON(value) {
         'cardSwiped': value.cardSwiped,
         'originalAuthSequence': value.originalAuthSequence,
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'sourceOfAuthorization': (0, CardAuthorizationTransactionType_1.CardAuthorizationTransactionTypeToJSON)(value.sourceOfAuthorization),
     };
 }

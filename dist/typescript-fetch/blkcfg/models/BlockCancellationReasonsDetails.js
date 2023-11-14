@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockCancellationReasonsDetailsToJSON = exports.BlockCancellationReasonsDetailsFromJSONTyped = exports.BlockCancellationReasonsDetailsFromJSON = exports.instanceOfBlockCancellationReasonsDetails = void 0;
 const runtime_1 = require("../runtime");
-const BlockCancellationReasonsType_1 = require("./BlockCancellationReasonsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const BlockCancellationReasonType_1 = require("./BlockCancellationReasonType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BlockCancellationReasonsDetails interface.
  */
@@ -35,9 +35,9 @@ function BlockCancellationReasonsDetailsFromJSONTyped(json, ignoreDiscriminator)
         return json;
     }
     return {
-        'blockCancellationReasons': !(0, runtime_1.exists)(json, 'blockCancellationReasons') ? undefined : (0, BlockCancellationReasonsType_1.BlockCancellationReasonsTypeFromJSON)(json['blockCancellationReasons']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'blockCancellationReasons': !(0, runtime_1.exists)(json, 'blockCancellationReasons') ? undefined : (json['blockCancellationReasons'].map(BlockCancellationReasonType_1.BlockCancellationReasonTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BlockCancellationReasonsDetailsFromJSONTyped = BlockCancellationReasonsDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function BlockCancellationReasonsDetailsToJSON(value) {
         return null;
     }
     return {
-        'blockCancellationReasons': (0, BlockCancellationReasonsType_1.BlockCancellationReasonsTypeToJSON)(value.blockCancellationReasons),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'blockCancellationReasons': value.blockCancellationReasons === undefined ? undefined : (value.blockCancellationReasons.map(BlockCancellationReasonType_1.BlockCancellationReasonTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BlockCancellationReasonsDetailsToJSON = BlockCancellationReasonsDetailsToJSON;

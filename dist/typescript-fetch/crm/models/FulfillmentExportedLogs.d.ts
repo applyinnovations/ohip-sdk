@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FulfillmentExportLogsType } from './FulfillmentExportLogsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { FulfillmentExportInfoType } from './FulfillmentExportInfoType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Optional elements whether to update exclude extract or delivery status in membership fulfillment
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FulfillmentExportedLogs {
     /**
-     *
-     * @type {FulfillmentExportLogsType}
+     * This type holds the export log information for the membership fulfillment record.
+     * @type {Array<FulfillmentExportInfoType>}
      * @memberof FulfillmentExportedLogs
      */
-    fulfillmentExportLogs?: FulfillmentExportLogsType;
+    fulfillmentExportLogs?: Array<FulfillmentExportInfoType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FulfillmentExportedLogs
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FulfillmentExportedLogs
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FulfillmentExportedLogs interface.

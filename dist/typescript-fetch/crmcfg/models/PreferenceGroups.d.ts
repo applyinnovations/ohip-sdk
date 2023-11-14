@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { PreferenceGroupsType } from './PreferenceGroupsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { PreferenceGroupType } from './PreferenceGroupType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching preference groups.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface PreferenceGroups {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PreferenceGroups
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {PreferenceGroupsType}
+     * Collection of preference groups.
+     * @type {Array<PreferenceGroupType>}
      * @memberof PreferenceGroups
      */
-    preferenceGroups?: PreferenceGroupsType;
+    preferenceGroups?: Array<PreferenceGroupType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PreferenceGroups
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PreferenceGroups interface.

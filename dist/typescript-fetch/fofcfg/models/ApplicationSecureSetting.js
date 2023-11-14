@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ApplicationSecureSettingToJSON = exports.ApplicationSecureSettingFromJSONTyped = exports.ApplicationSecureSettingFromJSON = exports.instanceOfApplicationSecureSetting = void 0;
 const runtime_1 = require("../runtime");
 const ApplicationSecureSettingType_1 = require("./ApplicationSecureSettingType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ApplicationSecureSetting interface.
  */
@@ -35,9 +35,9 @@ function ApplicationSecureSettingFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'settings': !(0, runtime_1.exists)(json, 'settings') ? undefined : (json['settings'].map(ApplicationSecureSettingType_1.ApplicationSecureSettingTypeFromJSON)),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ApplicationSecureSettingFromJSONTyped = ApplicationSecureSettingFromJSONTyped;
@@ -49,9 +49,9 @@ function ApplicationSecureSettingToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'settings': value.settings === undefined ? undefined : (value.settings.map(ApplicationSecureSettingType_1.ApplicationSecureSettingTypeToJSON)),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ApplicationSecureSettingToJSON = ApplicationSecureSettingToJSON;

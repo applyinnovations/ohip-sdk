@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RecentlyAccessedReservationsType } from './RecentlyAccessedReservationsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RecentlyAccessedReservationType } from './RecentlyAccessedReservationType';
+import type { WarningType } from './WarningType';
 /**
  * Response with the fetched recently accessed reservations.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface RecentlyAccessedReservations {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RecentlyAccessedReservations
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RecentlyAccessedReservationsType}
+     * A single recently accessed reservation.
+     * @type {Array<RecentlyAccessedReservationType>}
      * @memberof RecentlyAccessedReservations
      */
-    reservations?: RecentlyAccessedReservationsType;
+    reservations?: Array<RecentlyAccessedReservationType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RecentlyAccessedReservations
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RecentlyAccessedReservations interface.

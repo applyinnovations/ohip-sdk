@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ReservationAutoRoomAssignRequestTypeRoomSelectionCriteria } from './ReservationAutoRoomAssignRequestTypeRoomSelectionCriteria';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Request criteria for auto assignment of rooms to reserved reservations.
  * @export
@@ -19,10 +19,10 @@ import type { ReservationIdList } from './ReservationIdList';
 export interface ReservationAutoRoomAssignRequestType {
     /**
      * A list of reservation ids which will be used to auto assign rooms.
-     * @type {Array<ReservationIdList>}
+     * @type {Array<Array<UniqueIDType>>}
      * @memberof ReservationAutoRoomAssignRequestType
      */
-    reservationCriteria?: Array<ReservationIdList>;
+    reservationCriteria?: Array<Array<UniqueIDType>>;
     /**
      * Update the do not move flag used to locking the reservation room number.
      * @type {boolean}

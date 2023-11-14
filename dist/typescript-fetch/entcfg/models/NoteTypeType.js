@@ -15,9 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NoteTypeTypeToJSON = exports.NoteTypeTypeFromJSONTyped = exports.NoteTypeTypeFromJSON = exports.instanceOfNoteTypeType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
-const DefaultNoteTextsDetailType_1 = require("./DefaultNoteTextsDetailType");
-const GenericHotelCodeCodeListType_1 = require("./GenericHotelCodeCodeListType");
+const DefaultNoteTextDetailType_1 = require("./DefaultNoteTextDetailType");
+const GenericHotelCodeCodeType_1 = require("./GenericHotelCodeCodeType");
 /**
  * Check if a given object implements the NoteTypeType interface.
  */
@@ -40,16 +39,16 @@ function NoteTypeTypeFromJSONTyped(json, ignoreDiscriminator) {
         'defaultNoteType': !(0, runtime_1.exists)(json, 'defaultNoteType') ? undefined : json['defaultNoteType'],
         'defaultText': !(0, runtime_1.exists)(json, 'defaultText') ? undefined : json['defaultText'],
         'departmentNotes': !(0, runtime_1.exists)(json, 'departmentNotes') ? undefined : json['departmentNotes'],
-        'departments': !(0, runtime_1.exists)(json, 'departments') ? undefined : (0, GenericHotelCodeCodeListType_1.GenericHotelCodeCodeListTypeFromJSON)(json['departments']),
+        'departments': !(0, runtime_1.exists)(json, 'departments') ? undefined : (json['departments'].map(GenericHotelCodeCodeType_1.GenericHotelCodeCodeTypeFromJSON)),
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'displaySequence': !(0, runtime_1.exists)(json, 'displaySequence') ? undefined : json['displaySequence'],
         'globalAllowed': !(0, runtime_1.exists)(json, 'globalAllowed') ? undefined : json['globalAllowed'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
         'internal': !(0, runtime_1.exists)(json, 'internal') ? undefined : json['internal'],
         'noteGroup': !(0, runtime_1.exists)(json, 'noteGroup') ? undefined : json['noteGroup'],
-        'notificationAreas': !(0, runtime_1.exists)(json, 'notificationAreas') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['notificationAreas']),
+        'notificationAreas': !(0, runtime_1.exists)(json, 'notificationAreas') ? undefined : json['notificationAreas'],
         'overrideInternal': !(0, runtime_1.exists)(json, 'overrideInternal') ? undefined : json['overrideInternal'],
-        'propertyDefaultNoteTexts': !(0, runtime_1.exists)(json, 'propertyDefaultNoteTexts') ? undefined : (0, DefaultNoteTextsDetailType_1.DefaultNoteTextsDetailTypeFromJSON)(json['propertyDefaultNoteTexts']),
+        'propertyDefaultNoteTexts': !(0, runtime_1.exists)(json, 'propertyDefaultNoteTexts') ? undefined : (json['propertyDefaultNoteTexts'].map(DefaultNoteTextDetailType_1.DefaultNoteTextDetailTypeFromJSON)),
     };
 }
 exports.NoteTypeTypeFromJSONTyped = NoteTypeTypeFromJSONTyped;
@@ -66,16 +65,16 @@ function NoteTypeTypeToJSON(value) {
         'defaultNoteType': value.defaultNoteType,
         'defaultText': value.defaultText,
         'departmentNotes': value.departmentNotes,
-        'departments': (0, GenericHotelCodeCodeListType_1.GenericHotelCodeCodeListTypeToJSON)(value.departments),
+        'departments': value.departments === undefined ? undefined : (value.departments.map(GenericHotelCodeCodeType_1.GenericHotelCodeCodeTypeToJSON)),
         'description': value.description,
         'displaySequence': value.displaySequence,
         'globalAllowed': value.globalAllowed,
         'inactive': value.inactive,
         'internal': value.internal,
         'noteGroup': value.noteGroup,
-        'notificationAreas': (0, CodeListType_1.CodeListTypeToJSON)(value.notificationAreas),
+        'notificationAreas': value.notificationAreas,
         'overrideInternal': value.overrideInternal,
-        'propertyDefaultNoteTexts': (0, DefaultNoteTextsDetailType_1.DefaultNoteTextsDetailTypeToJSON)(value.propertyDefaultNoteTexts),
+        'propertyDefaultNoteTexts': value.propertyDefaultNoteTexts === undefined ? undefined : (value.propertyDefaultNoteTexts.map(DefaultNoteTextDetailType_1.DefaultNoteTextDetailTypeToJSON)),
     };
 }
 exports.NoteTypeTypeToJSON = NoteTypeTypeToJSON;

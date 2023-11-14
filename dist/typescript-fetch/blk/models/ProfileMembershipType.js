@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfileMembershipTypeToJSON = exports.ProfileMembershipTypeFromJSONTyped = exports.ProfileMembershipTypeFromJSON = exports.instanceOfProfileMembershipType = void 0;
 const runtime_1 = require("../runtime");
-const BenefitsType_1 = require("./BenefitsType");
+const BenefitType_1 = require("./BenefitType");
 const CardReIssueType_1 = require("./CardReIssueType");
 const DowngradeType_1 = require("./DowngradeType");
 const MembershipEarningPreferenceType_1 = require("./MembershipEarningPreferenceType");
@@ -38,7 +38,7 @@ function ProfileMembershipTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'benefits': !(0, runtime_1.exists)(json, 'benefits') ? undefined : (0, BenefitsType_1.BenefitsTypeFromJSON)(json['benefits']),
+        'benefits': !(0, runtime_1.exists)(json, 'benefits') ? undefined : (json['benefits'].map(BenefitType_1.BenefitTypeFromJSON)),
         'centralSetup': !(0, runtime_1.exists)(json, 'centralSetup') ? undefined : json['centralSetup'],
         'comment': !(0, runtime_1.exists)(json, 'comment') ? undefined : (0, ParagraphType_1.ParagraphTypeFromJSON)(json['comment']),
         'createDateTime': !(0, runtime_1.exists)(json, 'createDateTime') ? undefined : json['createDateTime'],
@@ -90,7 +90,7 @@ function ProfileMembershipTypeToJSON(value) {
         return null;
     }
     return {
-        'benefits': (0, BenefitsType_1.BenefitsTypeToJSON)(value.benefits),
+        'benefits': value.benefits === undefined ? undefined : (value.benefits.map(BenefitType_1.BenefitTypeToJSON)),
         'centralSetup': value.centralSetup,
         'comment': (0, ParagraphType_1.ParagraphTypeToJSON)(value.comment),
         'createDateTime': value.createDateTime,

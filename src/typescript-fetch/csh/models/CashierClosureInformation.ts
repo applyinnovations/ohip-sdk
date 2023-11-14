@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CashierClosureInfoTypes } from './CashierClosureInfoTypes';
+import type { CashierClosureInfoType } from './CashierClosureInfoType';
 import {
-    CashierClosureInfoTypesFromJSON,
-    CashierClosureInfoTypesFromJSONTyped,
-    CashierClosureInfoTypesToJSON,
-} from './CashierClosureInfoTypes';
-import type { Links } from './Links';
+    CashierClosureInfoTypeFromJSON,
+    CashierClosureInfoTypeFromJSONTyped,
+    CashierClosureInfoTypeToJSON,
+} from './CashierClosureInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response to the request to get financial details for a Posting Activity. This will return the before and after values for the transactions which were changed.
@@ -39,23 +39,23 @@ import {
  */
 export interface CashierClosureInformation {
     /**
-     * 
-     * @type {CashierClosureInfoTypes}
+     * Information of the Cashier.
+     * @type {Array<CashierClosureInfoType>}
      * @memberof CashierClosureInformation
      */
-    cashierClosureInfo?: CashierClosureInfoTypes;
+    cashierClosureInfo?: Array<CashierClosureInfoType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CashierClosureInformation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CashierClosureInformation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CashierClosureInformationFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'cashierClosureInfo': !exists(json, 'cashierClosureInfo') ? undefined : CashierClosureInfoTypesFromJSON(json['cashierClosureInfo']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'cashierClosureInfo': !exists(json, 'cashierClosureInfo') ? undefined : ((json['cashierClosureInfo'] as Array<any>).map(CashierClosureInfoTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CashierClosureInformationToJSON(value?: CashierClosureInformatio
     }
     return {
         
-        'cashierClosureInfo': CashierClosureInfoTypesToJSON(value.cashierClosureInfo),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'cashierClosureInfo': value.cashierClosureInfo === undefined ? undefined : ((value.cashierClosureInfo as Array<any>).map(CashierClosureInfoTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

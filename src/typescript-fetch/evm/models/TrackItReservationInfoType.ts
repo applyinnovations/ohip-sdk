@@ -37,18 +37,18 @@ import {
     ResGuestInfoTypeFromJSONTyped,
     ResGuestInfoTypeToJSON,
 } from './ResGuestInfoType';
-import type { ReservationIdList } from './ReservationIdList';
-import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
 import type { TimeSpanType } from './TimeSpanType';
 import {
     TimeSpanTypeFromJSON,
     TimeSpanTypeFromJSONTyped,
     TimeSpanTypeToJSON,
 } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Reservation info associated with a Track It item.
@@ -81,11 +81,11 @@ export interface TrackItReservationInfoType {
      */
     guestInfo?: ResGuestInfoType;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof TrackItReservationInfoType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {PMSResStatusType}
@@ -135,7 +135,7 @@ export function TrackItReservationInfoTypeFromJSONTyped(json: any, ignoreDiscrim
         'computedReservationStatus': !exists(json, 'computedReservationStatus') ? undefined : PMSResStatusTypeFromJSON(json['computedReservationStatus']),
         'guarantee': !exists(json, 'guarantee') ? undefined : ResGuaranteeTypeFromJSON(json['guarantee']),
         'guestInfo': !exists(json, 'guestInfo') ? undefined : ResGuestInfoTypeFromJSON(json['guestInfo']),
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'reservationStatus': !exists(json, 'reservationStatus') ? undefined : PMSResStatusTypeFromJSON(json['reservationStatus']),
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'roomStatus': !exists(json, 'roomStatus') ? undefined : HousekeepingRoomStatusTypeFromJSON(json['roomStatus']),
@@ -156,7 +156,7 @@ export function TrackItReservationInfoTypeToJSON(value?: TrackItReservationInfoT
         'computedReservationStatus': PMSResStatusTypeToJSON(value.computedReservationStatus),
         'guarantee': ResGuaranteeTypeToJSON(value.guarantee),
         'guestInfo': ResGuestInfoTypeToJSON(value.guestInfo),
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'reservationStatus': PMSResStatusTypeToJSON(value.reservationStatus),
         'roomId': value.roomId,
         'roomStatus': HousekeepingRoomStatusTypeToJSON(value.roomStatus),

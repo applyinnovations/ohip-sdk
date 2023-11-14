@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CashierTransactionsType } from './CashierTransactionsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for the fetch cashier's shift transactions.
  * @export
@@ -26,16 +26,16 @@ export interface CashierTransactionsDetails {
     cashierTransactionsInfo?: CashierTransactionsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CashierTransactionsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CashierTransactionsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CashierTransactionsDetails interface.

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomingListReservationTypeToJSON = exports.RoomingListReservationTypeFromJSONTyped = exports.RoomingListReservationTypeFromJSON = exports.instanceOfRoomingListReservationType = void 0;
 const runtime_1 = require("../runtime");
-const ErrorsType_1 = require("./ErrorsType");
+const ErrorType_1 = require("./ErrorType");
 const HotelReservationType_1 = require("./HotelReservationType");
-const RoutingInfoListType_1 = require("./RoutingInfoListType");
+const RoutingInfoType_1 = require("./RoutingInfoType");
 /**
  * Check if a given object implements the RoomingListReservationType interface.
  */
@@ -35,10 +35,10 @@ function RoomingListReservationTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'errors': !(0, runtime_1.exists)(json, 'errors') ? undefined : (0, ErrorsType_1.ErrorsTypeFromJSON)(json['errors']),
+        'errors': !(0, runtime_1.exists)(json, 'errors') ? undefined : (json['errors'].map(ErrorType_1.ErrorTypeFromJSON)),
         'hotelReservation': !(0, runtime_1.exists)(json, 'hotelReservation') ? undefined : (0, HotelReservationType_1.HotelReservationTypeFromJSON)(json['hotelReservation']),
         'roomingListSequence': !(0, runtime_1.exists)(json, 'roomingListSequence') ? undefined : json['roomingListSequence'],
-        'routingInstructions': !(0, runtime_1.exists)(json, 'routingInstructions') ? undefined : (0, RoutingInfoListType_1.RoutingInfoListTypeFromJSON)(json['routingInstructions']),
+        'routingInstructions': !(0, runtime_1.exists)(json, 'routingInstructions') ? undefined : (json['routingInstructions'].map(RoutingInfoType_1.RoutingInfoTypeFromJSON)),
         'success': !(0, runtime_1.exists)(json, 'success') ? undefined : json['success'],
     };
 }
@@ -51,10 +51,10 @@ function RoomingListReservationTypeToJSON(value) {
         return null;
     }
     return {
-        'errors': (0, ErrorsType_1.ErrorsTypeToJSON)(value.errors),
+        'errors': value.errors === undefined ? undefined : (value.errors.map(ErrorType_1.ErrorTypeToJSON)),
         'hotelReservation': (0, HotelReservationType_1.HotelReservationTypeToJSON)(value.hotelReservation),
         'roomingListSequence': value.roomingListSequence,
-        'routingInstructions': (0, RoutingInfoListType_1.RoutingInfoListTypeToJSON)(value.routingInstructions),
+        'routingInstructions': value.routingInstructions === undefined ? undefined : (value.routingInstructions.map(RoutingInfoType_1.RoutingInfoTypeToJSON)),
         'success': value.success,
     };
 }

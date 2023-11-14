@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { FacilitySchedulerOptionType } from './FacilitySchedulerOptionType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Instructions for Changing a Reservation.
  * @export
@@ -36,11 +36,11 @@ export interface ChangeInstructionType {
      */
     overrideInventory?: boolean;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ChangeInstructionType
      */
-    shareReservations?: UniqueIDListType;
+    shareReservations?: Array<UniqueIDType>;
     /**
      * Indicates whether package prices will be updated with the latest configurations.
      * @type {boolean}

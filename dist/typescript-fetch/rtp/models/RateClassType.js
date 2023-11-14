@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RateClassTypeToJSON = exports.RateClassTypeFromJSONTyped = exports.RateClassTypeFromJSON = exports.instanceOfRateClassType = void 0;
 const runtime_1 = require("../runtime");
-const SimpleRateCategoriesType_1 = require("./SimpleRateCategoriesType");
+const CodeDescriptionType_1 = require("./CodeDescriptionType");
 const TimeSpanType_1 = require("./TimeSpanType");
 /**
  * Check if a given object implements the RateClassType interface.
@@ -36,7 +36,7 @@ function RateClassTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'rateCategories': !(0, runtime_1.exists)(json, 'rateCategories') ? undefined : (0, SimpleRateCategoriesType_1.SimpleRateCategoriesTypeFromJSON)(json['rateCategories']),
+        'rateCategories': !(0, runtime_1.exists)(json, 'rateCategories') ? undefined : (json['rateCategories'].map(CodeDescriptionType_1.CodeDescriptionTypeFromJSON)),
         'rateClass': !(0, runtime_1.exists)(json, 'rateClass') ? undefined : json['rateClass'],
         'sequence': !(0, runtime_1.exists)(json, 'sequence') ? undefined : json['sequence'],
         'timeSpan': !(0, runtime_1.exists)(json, 'timeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['timeSpan']),
@@ -53,7 +53,7 @@ function RateClassTypeToJSON(value) {
     return {
         'description': value.description,
         'hotelId': value.hotelId,
-        'rateCategories': (0, SimpleRateCategoriesType_1.SimpleRateCategoriesTypeToJSON)(value.rateCategories),
+        'rateCategories': value.rateCategories === undefined ? undefined : (value.rateCategories.map(CodeDescriptionType_1.CodeDescriptionTypeToJSON)),
         'rateClass': value.rateClass,
         'sequence': value.sequence,
         'timeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.timeSpan),

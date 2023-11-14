@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { GenericHotelCodeCodeType } from './GenericHotelCodeCodeType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RatePackagesType } from './RatePackagesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to attach package codes and package groups to a rate plan.
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface RatePlanPackages {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RatePlanPackages
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {RatePackagesType}
@@ -38,11 +38,11 @@ export interface RatePlanPackages {
      */
     ratePlan?: GenericHotelCodeCodeType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RatePlanPackages
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RatePlanPackages interface.

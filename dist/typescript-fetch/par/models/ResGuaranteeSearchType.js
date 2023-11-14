@@ -17,7 +17,7 @@ exports.ResGuaranteeSearchTypeToJSON = exports.ResGuaranteeSearchTypeFromJSONTyp
 const runtime_1 = require("../runtime");
 const BlockId_1 = require("./BlockId");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
-const ResAttachedProfileListType_1 = require("./ResAttachedProfileListType");
+const ResAttachedProfileType_1 = require("./ResAttachedProfileType");
 const ResGuaranteeFetchInstructionsType_1 = require("./ResGuaranteeFetchInstructionsType");
 const ReservationPackageType_1 = require("./ReservationPackageType");
 const RoomStaySearchType_1 = require("./RoomStaySearchType");
@@ -45,7 +45,7 @@ function ResGuaranteeSearchTypeFromJSONTyped(json, ignoreDiscriminator) {
         'guaranteeCode': !(0, runtime_1.exists)(json, 'guaranteeCode') ? undefined : json['guaranteeCode'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
-        'resAttachedProfiles': !(0, runtime_1.exists)(json, 'resAttachedProfiles') ? undefined : (0, ResAttachedProfileListType_1.ResAttachedProfileListTypeFromJSON)(json['resAttachedProfiles']),
+        'resAttachedProfiles': !(0, runtime_1.exists)(json, 'resAttachedProfiles') ? undefined : (json['resAttachedProfiles'].map(ResAttachedProfileType_1.ResAttachedProfileTypeFromJSON)),
         'resGuestId': !(0, runtime_1.exists)(json, 'resGuestId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['resGuestId']),
         'reservationPackages': !(0, runtime_1.exists)(json, 'reservationPackages') ? undefined : (json['reservationPackages'].map(ReservationPackageType_1.ReservationPackageTypeFromJSON)),
         'resvRateAmount': !(0, runtime_1.exists)(json, 'resvRateAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['resvRateAmount']),
@@ -68,7 +68,7 @@ function ResGuaranteeSearchTypeToJSON(value) {
         'guaranteeCode': value.guaranteeCode,
         'hotelId': value.hotelId,
         'ratePlanCode': value.ratePlanCode,
-        'resAttachedProfiles': (0, ResAttachedProfileListType_1.ResAttachedProfileListTypeToJSON)(value.resAttachedProfiles),
+        'resAttachedProfiles': value.resAttachedProfiles === undefined ? undefined : (value.resAttachedProfiles.map(ResAttachedProfileType_1.ResAttachedProfileTypeToJSON)),
         'resGuestId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.resGuestId),
         'reservationPackages': value.reservationPackages === undefined ? undefined : (value.reservationPackages.map(ReservationPackageType_1.ReservationPackageTypeToJSON)),
         'resvRateAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.resvRateAmount),

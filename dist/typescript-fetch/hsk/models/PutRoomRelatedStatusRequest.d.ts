@@ -11,10 +11,10 @@
  */
 import type { FrontOfficeRoomStatusType } from './FrontOfficeRoomStatusType';
 import type { HousekeepingRoomStatusType } from './HousekeepingRoomStatusType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { RoomInformationType } from './RoomInformationType';
 import type { TurndownStatusType } from './TurndownStatusType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -35,10 +35,10 @@ export interface PutRoomRelatedStatusRequest {
     housekeepingStatus?: FrontOfficeRoomStatusType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PutRoomRelatedStatusRequest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Collection of room numbers for which the status is to be updated.
      * @type {Array<RoomInformationType>}
@@ -52,11 +52,11 @@ export interface PutRoomRelatedStatusRequest {
      */
     turndownStatus?: TurndownStatusType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PutRoomRelatedStatusRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PutRoomRelatedStatusRequest interface.

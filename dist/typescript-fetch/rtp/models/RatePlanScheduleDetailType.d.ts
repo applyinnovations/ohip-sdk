@@ -9,13 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { AdjustmentDetailType } from './AdjustmentDetailType';
 import type { AdvancedBaseRateOffsetType } from './AdvancedBaseRateOffsetType';
 import type { OccupantThresholdPricingType } from './OccupantThresholdPricingType';
 import type { RateAmountBoundariesType } from './RateAmountBoundariesType';
 import type { RatePackagesType } from './RatePackagesType';
 import type { RatePlanScheduleClassificationsType } from './RatePlanScheduleClassificationsType';
-import type { RoomTypeListType } from './RoomTypeListType';
-import type { ScheduleAdjustmentDetailsType } from './ScheduleAdjustmentDetailsType';
 import type { ScheduleRateAmountsType } from './ScheduleRateAmountsType';
 /**
  * Details of rate plan schedule including room type list and days of week of the schedule.
@@ -24,11 +23,11 @@ import type { ScheduleRateAmountsType } from './ScheduleRateAmountsType';
  */
 export interface RatePlanScheduleDetailType {
     /**
-     *
-     * @type {ScheduleAdjustmentDetailsType}
+     * The list of adjustment codes for the rate plan schedule.
+     * @type {Array<AdjustmentDetailType>}
      * @memberof RatePlanScheduleDetailType
      */
-    adjustmentDetails?: ScheduleAdjustmentDetailsType;
+    adjustmentDetails?: Array<AdjustmentDetailType>;
     /**
      *
      * @type {AdvancedBaseRateOffsetType}
@@ -90,11 +89,11 @@ export interface RatePlanScheduleDetailType {
      */
     rateSchedulePackages?: RatePackagesType;
     /**
-     *
-     * @type {RoomTypeListType}
+     * Room Type.
+     * @type {Array<string>}
      * @memberof RatePlanScheduleDetailType
      */
-    roomTypeList?: RoomTypeListType;
+    roomTypeList?: Array<string>;
     /**
      *
      * @type {boolean}

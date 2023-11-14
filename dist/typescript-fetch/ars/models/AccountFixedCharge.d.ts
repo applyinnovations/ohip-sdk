@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ARAccountFixedChargeCriteriaType } from './ARAccountFixedChargeCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request to create a Fixed Charge for an Account.
  * @export
@@ -26,16 +26,16 @@ export interface AccountFixedCharge {
     fixedChargeInfo?: ARAccountFixedChargeCriteriaType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AccountFixedCharge
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AccountFixedCharge
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the AccountFixedCharge interface.

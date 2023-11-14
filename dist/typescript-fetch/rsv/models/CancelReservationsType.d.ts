@@ -11,7 +11,7 @@
  */
 import type { CancelReservationsInstructionsType } from './CancelReservationsInstructionsType';
 import type { CancellationReasonType } from './CancellationReasonType';
-import type { Reservations } from './Reservations';
+import type { ReservationId } from './ReservationId';
 /**
  * Criteria for submitting batch cancel reservations.
  * @export
@@ -37,11 +37,11 @@ export interface CancelReservationsType {
      */
     reason?: CancellationReasonType;
     /**
-     *
-     * @type {Reservations}
+     * Unique identifier for a reservation.
+     * @type {Array<ReservationId>}
      * @memberof CancelReservationsType
      */
-    reservations?: Reservations;
+    reservations?: Array<ReservationId>;
 }
 /**
  * Check if a given object implements the CancelReservationsType interface.

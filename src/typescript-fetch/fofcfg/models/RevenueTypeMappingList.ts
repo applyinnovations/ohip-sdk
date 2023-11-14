@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RevenueTypeMappingListType } from './RevenueTypeMappingListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RevenueTypeMappingType } from './RevenueTypeMappingType';
 import {
-    RevenueTypeMappingListTypeFromJSON,
-    RevenueTypeMappingListTypeFromJSONTyped,
-    RevenueTypeMappingListTypeToJSON,
-} from './RevenueTypeMappingListType';
-import type { WarningsType } from './WarningsType';
+    RevenueTypeMappingTypeFromJSON,
+    RevenueTypeMappingTypeFromJSONTyped,
+    RevenueTypeMappingTypeToJSON,
+} from './RevenueTypeMappingType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface RevenueTypeMappingList {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RevenueTypeMappingList
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RevenueTypeMappingListType}
+     * Collection of multiple Revenue type mapping codes.
+     * @type {Array<RevenueTypeMappingType>}
      * @memberof RevenueTypeMappingList
      */
-    revenueTypeMappingList?: RevenueTypeMappingListType;
+    revenueTypeMappingList?: Array<RevenueTypeMappingType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RevenueTypeMappingList
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RevenueTypeMappingListFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'revenueTypeMappingList': !exists(json, 'revenueTypeMappingList') ? undefined : RevenueTypeMappingListTypeFromJSON(json['revenueTypeMappingList']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'revenueTypeMappingList': !exists(json, 'revenueTypeMappingList') ? undefined : ((json['revenueTypeMappingList'] as Array<any>).map(RevenueTypeMappingTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RevenueTypeMappingListToJSON(value?: RevenueTypeMappingList | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'revenueTypeMappingList': RevenueTypeMappingListTypeToJSON(value.revenueTypeMappingList),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'revenueTypeMappingList': value.revenueTypeMappingList === undefined ? undefined : ((value.revenueTypeMappingList as Array<any>).map(RevenueTypeMappingTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

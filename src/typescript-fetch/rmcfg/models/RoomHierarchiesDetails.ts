@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomHierarchiesType } from './RoomHierarchiesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomHierarchyType } from './RoomHierarchyType';
 import {
-    RoomHierarchiesTypeFromJSON,
-    RoomHierarchiesTypeFromJSONTyped,
-    RoomHierarchiesTypeToJSON,
-} from './RoomHierarchiesType';
-import type { WarningsType } from './WarningsType';
+    RoomHierarchyTypeFromJSON,
+    RoomHierarchyTypeFromJSONTyped,
+    RoomHierarchyTypeToJSON,
+} from './RoomHierarchyType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response for fetch room hierarchies
@@ -40,22 +40,22 @@ import {
 export interface RoomHierarchiesDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomHierarchiesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RoomHierarchiesType}
+     * Holds collection of room hierarchies
+     * @type {Array<RoomHierarchyType>}
      * @memberof RoomHierarchiesDetails
      */
-    roomHierarchies?: RoomHierarchiesType;
+    roomHierarchies?: Array<RoomHierarchyType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomHierarchiesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RoomHierarchiesDetailsFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'roomHierarchies': !exists(json, 'roomHierarchies') ? undefined : RoomHierarchiesTypeFromJSON(json['roomHierarchies']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'roomHierarchies': !exists(json, 'roomHierarchies') ? undefined : ((json['roomHierarchies'] as Array<any>).map(RoomHierarchyTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RoomHierarchiesDetailsToJSON(value?: RoomHierarchiesDetails | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'roomHierarchies': RoomHierarchiesTypeToJSON(value.roomHierarchies),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'roomHierarchies': value.roomHierarchies === undefined ? undefined : ((value.roomHierarchies as Array<any>).map(RoomHierarchyTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

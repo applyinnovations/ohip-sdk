@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ConfigRoomsType } from './ConfigRoomsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching complete information of existing rooms.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface RoomsDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Collection of rooms with detailed information.
      * @type {Array<ConfigRoomsType>}
@@ -31,11 +31,11 @@ export interface RoomsDetails {
      */
     rooms?: Array<ConfigRoomsType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomsDetails interface.

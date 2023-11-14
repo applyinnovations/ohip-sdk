@@ -19,12 +19,6 @@ import {
     AddressTypeFromJSONTyped,
     AddressTypeToJSON,
 } from './AddressType';
-import type { ProfileIdList } from './ProfileIdList';
-import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
 import type { TurnawayDetailsType } from './TurnawayDetailsType';
 import {
     TurnawayDetailsTypeFromJSON,
@@ -69,11 +63,11 @@ export interface TurnawayType {
      */
     details?: TurnawayDetailsType;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof TurnawayType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * Holds turn away code pertaining to reason of turning away prospect reservation.
      * @type {string}
@@ -105,7 +99,7 @@ export function TurnawayTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'callId': !exists(json, 'callId') ? undefined : UniqueIDTypeFromJSON(json['callId']),
         'comments': !exists(json, 'comments') ? undefined : json['comments'],
         'details': !exists(json, 'details') ? undefined : TurnawayDetailsTypeFromJSON(json['details']),
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'reasonCode': !exists(json, 'reasonCode') ? undefined : json['reasonCode'],
     };
 }
@@ -123,7 +117,7 @@ export function TurnawayTypeToJSON(value?: TurnawayType | null): any {
         'callId': UniqueIDTypeToJSON(value.callId),
         'comments': value.comments,
         'details': TurnawayDetailsTypeToJSON(value.details),
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'reasonCode': value.reasonCode,
     };
 }

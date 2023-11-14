@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RoomAmenitiesType } from './RoomAmenitiesType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RoomAmenityType } from './RoomAmenityType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Room Amenities.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface RoomAmenitiesCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomAmenitiesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RoomAmenitiesType}
+     * List of Room Amenities.
+     * @type {Array<RoomAmenityType>}
      * @memberof RoomAmenitiesCriteria
      */
-    roomAmenities?: RoomAmenitiesType;
+    roomAmenities?: Array<RoomAmenityType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomAmenitiesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomAmenitiesCriteria interface.

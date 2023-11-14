@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { OverlappingStayInfoListType } from './OverlappingStayInfoListType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { OverlappingStayInfoType } from './OverlappingStayInfoType';
 import {
-    OverlappingStayInfoListTypeFromJSON,
-    OverlappingStayInfoListTypeFromJSONTyped,
-    OverlappingStayInfoListTypeToJSON,
-} from './OverlappingStayInfoListType';
-import type { WarningsType } from './WarningsType';
+    OverlappingStayInfoTypeFromJSON,
+    OverlappingStayInfoTypeFromJSONTyped,
+    OverlappingStayInfoTypeToJSON,
+} from './OverlappingStayInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to check for overlapping stays of reservations.
@@ -40,22 +40,22 @@ import {
 export interface OverlappingStay {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof OverlappingStay
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {OverlappingStayInfoListType}
+     * Overlapping stay information of a reservation.
+     * @type {Array<OverlappingStayInfoType>}
      * @memberof OverlappingStay
      */
-    overlappingStayInfo?: OverlappingStayInfoListType;
+    overlappingStayInfo?: Array<OverlappingStayInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof OverlappingStay
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function OverlappingStayFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'overlappingStayInfo': !exists(json, 'overlappingStayInfo') ? undefined : OverlappingStayInfoListTypeFromJSON(json['overlappingStayInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'overlappingStayInfo': !exists(json, 'overlappingStayInfo') ? undefined : ((json['overlappingStayInfo'] as Array<any>).map(OverlappingStayInfoTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function OverlappingStayToJSON(value?: OverlappingStay | null): any {
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'overlappingStayInfo': OverlappingStayInfoListTypeToJSON(value.overlappingStayInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'overlappingStayInfo': value.overlappingStayInfo === undefined ? undefined : ((value.overlappingStayInfo as Array<any>).map(OverlappingStayInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

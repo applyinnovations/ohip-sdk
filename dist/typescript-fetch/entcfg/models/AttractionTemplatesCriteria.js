@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AttractionTemplatesCriteriaToJSON = exports.AttractionTemplatesCriteriaFromJSONTyped = exports.AttractionTemplatesCriteriaFromJSON = exports.instanceOfAttractionTemplatesCriteria = void 0;
 const runtime_1 = require("../runtime");
-const AttractionTemplatesType_1 = require("./AttractionTemplatesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const AttractionTemplateType_1 = require("./AttractionTemplateType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AttractionTemplatesCriteria interface.
  */
@@ -35,9 +35,9 @@ function AttractionTemplatesCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'attractionTemplates': !(0, runtime_1.exists)(json, 'attractionTemplates') ? undefined : (0, AttractionTemplatesType_1.AttractionTemplatesTypeFromJSON)(json['attractionTemplates']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'attractionTemplates': !(0, runtime_1.exists)(json, 'attractionTemplates') ? undefined : (json['attractionTemplates'].map(AttractionTemplateType_1.AttractionTemplateTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AttractionTemplatesCriteriaFromJSONTyped = AttractionTemplatesCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function AttractionTemplatesCriteriaToJSON(value) {
         return null;
     }
     return {
-        'attractionTemplates': (0, AttractionTemplatesType_1.AttractionTemplatesTypeToJSON)(value.attractionTemplates),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'attractionTemplates': value.attractionTemplates === undefined ? undefined : (value.attractionTemplates.map(AttractionTemplateType_1.AttractionTemplateTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AttractionTemplatesCriteriaToJSON = AttractionTemplatesCriteriaToJSON;

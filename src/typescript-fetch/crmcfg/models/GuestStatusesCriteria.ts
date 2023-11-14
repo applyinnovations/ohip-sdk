@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { GuestStatusesType } from './GuestStatusesType';
+import type { GuestStatusType } from './GuestStatusType';
 import {
-    GuestStatusesTypeFromJSON,
-    GuestStatusesTypeFromJSONTyped,
-    GuestStatusesTypeToJSON,
-} from './GuestStatusesType';
-import type { Links } from './Links';
+    GuestStatusTypeFromJSON,
+    GuestStatusTypeFromJSONTyped,
+    GuestStatusTypeToJSON,
+} from './GuestStatusType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Guest Statuses.
@@ -39,23 +39,23 @@ import {
  */
 export interface GuestStatusesCriteria {
     /**
-     * 
-     * @type {GuestStatusesType}
+     * List of Guest Statuses.
+     * @type {Array<GuestStatusType>}
      * @memberof GuestStatusesCriteria
      */
-    guestStatuses?: GuestStatusesType;
+    guestStatuses?: Array<GuestStatusType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof GuestStatusesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuestStatusesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function GuestStatusesCriteriaFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'guestStatuses': !exists(json, 'guestStatuses') ? undefined : GuestStatusesTypeFromJSON(json['guestStatuses']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'guestStatuses': !exists(json, 'guestStatuses') ? undefined : ((json['guestStatuses'] as Array<any>).map(GuestStatusTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function GuestStatusesCriteriaToJSON(value?: GuestStatusesCriteria | null
     }
     return {
         
-        'guestStatuses': GuestStatusesTypeToJSON(value.guestStatuses),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'guestStatuses': value.guestStatuses === undefined ? undefined : ((value.guestStatuses as Array<any>).map(GuestStatusTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

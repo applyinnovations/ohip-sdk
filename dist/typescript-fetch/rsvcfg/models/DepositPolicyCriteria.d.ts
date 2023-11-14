@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { HotelConfigDepositPoliciesType } from './HotelConfigDepositPoliciesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object that holds the details of hotel level Deposit Policy to be created.
  * @export
@@ -26,16 +26,16 @@ export interface DepositPolicyCriteria {
     depositPolicy?: HotelConfigDepositPoliciesType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DepositPolicyCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DepositPolicyCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the DepositPolicyCriteria interface.

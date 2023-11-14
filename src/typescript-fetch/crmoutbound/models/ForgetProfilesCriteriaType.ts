@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Profiles } from './Profiles';
+import type { ProfileId } from './ProfileId';
 import {
-    ProfilesFromJSON,
-    ProfilesFromJSONTyped,
-    ProfilesToJSON,
-} from './Profiles';
+    ProfileIdFromJSON,
+    ProfileIdFromJSONTyped,
+    ProfileIdToJSON,
+} from './ProfileId';
 
 /**
  * Criteria to identify the profiles to be forgotten.
@@ -27,11 +27,11 @@ import {
  */
 export interface ForgetProfilesCriteriaType {
     /**
-     * 
-     * @type {Profiles}
+     * Unique identifier for a profile.
+     * @type {Array<ProfileId>}
      * @memberof ForgetProfilesCriteriaType
      */
-    profiles?: Profiles;
+    profiles?: Array<ProfileId>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function ForgetProfilesCriteriaTypeFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'profiles': !exists(json, 'profiles') ? undefined : ProfilesFromJSON(json['profiles']),
+        'profiles': !exists(json, 'profiles') ? undefined : ((json['profiles'] as Array<any>).map(ProfileIdFromJSON)),
     };
 }
 
@@ -66,7 +66,7 @@ export function ForgetProfilesCriteriaTypeToJSON(value?: ForgetProfilesCriteriaT
     }
     return {
         
-        'profiles': ProfilesToJSON(value.profiles),
+        'profiles': value.profiles === undefined ? undefined : ((value.profiles as Array<any>).map(ProfileIdToJSON)),
     };
 }
 

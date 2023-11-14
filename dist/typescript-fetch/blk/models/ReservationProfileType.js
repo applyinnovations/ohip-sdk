@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationProfileTypeToJSON = exports.ReservationProfileTypeFromJSONTyped = exports.ReservationProfileTypeFromJSON = exports.instanceOfReservationProfileType = void 0;
 const runtime_1 = require("../runtime");
-const ProfileIdList_1 = require("./ProfileIdList");
 const ProfileType_1 = require("./ProfileType");
 const ResProfileTypeType_1 = require("./ResProfileTypeType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ReservationProfileType interface.
  */
@@ -36,7 +36,7 @@ function ReservationProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'profile': !(0, runtime_1.exists)(json, 'profile') ? undefined : (0, ProfileType_1.ProfileTypeFromJSON)(json['profile']),
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'reservationProfileType': !(0, runtime_1.exists)(json, 'reservationProfileType') ? undefined : (0, ResProfileTypeType_1.ResProfileTypeTypeFromJSON)(json['reservationProfileType']),
     };
 }
@@ -50,7 +50,7 @@ function ReservationProfileTypeToJSON(value) {
     }
     return {
         'profile': (0, ProfileType_1.ProfileTypeToJSON)(value.profile),
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'reservationProfileType': (0, ResProfileTypeType_1.ResProfileTypeTypeToJSON)(value.reservationProfileType),
     };
 }

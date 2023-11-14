@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TargetFunctionSpaceTypeToJSON = exports.TargetFunctionSpaceTypeFromJSONTyped = exports.TargetFunctionSpaceTypeFromJSON = exports.instanceOfTargetFunctionSpaceType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 /**
  * Check if a given object implements the TargetFunctionSpaceType interface.
  */
@@ -33,7 +32,7 @@ function TargetFunctionSpaceTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'comboElements': !(0, runtime_1.exists)(json, 'comboElements') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['comboElements']),
+        'comboElements': !(0, runtime_1.exists)(json, 'comboElements') ? undefined : json['comboElements'],
         'orderBy1': !(0, runtime_1.exists)(json, 'orderBy1') ? undefined : json['orderBy1'],
         'orderBy2': !(0, runtime_1.exists)(json, 'orderBy2') ? undefined : json['orderBy2'],
         'orderBy3': !(0, runtime_1.exists)(json, 'orderBy3') ? undefined : json['orderBy3'],
@@ -51,7 +50,7 @@ function TargetFunctionSpaceTypeToJSON(value) {
         return null;
     }
     return {
-        'comboElements': (0, CodeListType_1.CodeListTypeToJSON)(value.comboElements),
+        'comboElements': value.comboElements,
         'orderBy1': value.orderBy1,
         'orderBy2': value.orderBy2,
         'orderBy3': value.orderBy3,

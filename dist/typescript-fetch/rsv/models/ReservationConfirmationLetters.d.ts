@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ReservationConfLettersListType } from './ReservationConfLettersListType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ReservationConfLettersType } from './ReservationConfLettersType';
+import type { WarningType } from './WarningType';
 /**
  * Response object to the request to fetch a list of reservations for which confirmation letters need to be sent.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ReservationConfirmationLetters {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationConfirmationLetters
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ReservationConfLettersListType}
+     * Reservations information and the confirmation letters type attached with them.
+     * @type {Array<ReservationConfLettersType>}
      * @memberof ReservationConfirmationLetters
      */
-    resrvationInfoList?: ReservationConfLettersListType;
+    resrvationInfoList?: Array<ReservationConfLettersType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationConfirmationLetters
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationConfirmationLetters interface.

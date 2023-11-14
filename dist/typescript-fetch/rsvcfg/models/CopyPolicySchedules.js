@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyPolicySchedulesToJSON = exports.CopyPolicySchedulesFromJSONTyped = exports.CopyPolicySchedulesFromJSON = exports.instanceOfCopyPolicySchedules = void 0;
 const runtime_1 = require("../runtime");
 const CopySchedulesCriteriaType_1 = require("./CopySchedulesCriteriaType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CopyPolicySchedules interface.
  */
@@ -36,8 +36,8 @@ function CopyPolicySchedulesFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'criteria': !(0, runtime_1.exists)(json, 'criteria') ? undefined : (0, CopySchedulesCriteriaType_1.CopySchedulesCriteriaTypeFromJSON)(json['criteria']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CopyPolicySchedulesFromJSONTyped = CopyPolicySchedulesFromJSONTyped;
@@ -50,8 +50,8 @@ function CopyPolicySchedulesToJSON(value) {
     }
     return {
         'criteria': (0, CopySchedulesCriteriaType_1.CopySchedulesCriteriaTypeToJSON)(value.criteria),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CopyPolicySchedulesToJSON = CopyPolicySchedulesToJSON;

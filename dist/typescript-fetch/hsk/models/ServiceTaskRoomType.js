@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ServiceTaskRoomTypeToJSON = exports.ServiceTaskRoomTypeFromJSONTyped = exports.ServiceTaskRoomTypeFromJSON = exports.instanceOfServiceTaskRoomType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 const FrontOfficeRoomStatusType_1 = require("./FrontOfficeRoomStatusType");
 const HousekeepingRoomStatusType_1 = require("./HousekeepingRoomStatusType");
 /**
@@ -43,7 +42,7 @@ function ServiceTaskRoomTypeFromJSONTyped(json, ignoreDiscriminator) {
         'roomId': !(0, runtime_1.exists)(json, 'roomId') ? undefined : json['roomId'],
         'roomTaskCode': !(0, runtime_1.exists)(json, 'roomTaskCode') ? undefined : json['roomTaskCode'],
         'sheetNumber': !(0, runtime_1.exists)(json, 'sheetNumber') ? undefined : json['sheetNumber'],
-        'taskCodes': !(0, runtime_1.exists)(json, 'taskCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['taskCodes']),
+        'taskCodes': !(0, runtime_1.exists)(json, 'taskCodes') ? undefined : json['taskCodes'],
         'taskDate': !(0, runtime_1.exists)(json, 'taskDate') ? undefined : (new Date(json['taskDate'])),
     };
 }
@@ -64,7 +63,7 @@ function ServiceTaskRoomTypeToJSON(value) {
         'roomId': value.roomId,
         'roomTaskCode': value.roomTaskCode,
         'sheetNumber': value.sheetNumber,
-        'taskCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.taskCodes),
+        'taskCodes': value.taskCodes,
         'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0, 10)),
     };
 }

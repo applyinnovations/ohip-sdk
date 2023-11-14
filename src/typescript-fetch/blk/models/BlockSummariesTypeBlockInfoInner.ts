@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockIdList } from './BlockIdList';
-import {
-    BlockIdListFromJSON,
-    BlockIdListFromJSONTyped,
-    BlockIdListToJSON,
-} from './BlockIdList';
 import type { BlockSummaryType } from './BlockSummaryType';
 import {
     BlockSummaryTypeFromJSON,
     BlockSummaryTypeFromJSONTyped,
     BlockSummaryTypeToJSON,
 } from './BlockSummaryType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -39,11 +39,11 @@ export interface BlockSummariesTypeBlockInfoInner {
      */
     block?: BlockSummaryType;
     /**
-     * 
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof BlockSummariesTypeBlockInfoInner
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function BlockSummariesTypeBlockInfoInnerFromJSONTyped(json: any, ignoreD
     return {
         
         'block': !exists(json, 'block') ? undefined : BlockSummaryTypeFromJSON(json['block']),
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : BlockIdListFromJSON(json['blockIdList']),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function BlockSummariesTypeBlockInfoInnerToJSON(value?: BlockSummariesTyp
     return {
         
         'block': BlockSummaryTypeToJSON(value.block),
-        'blockIdList': BlockIdListToJSON(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { CCAuthorizationInstructionType } from './CCAuthorizationInstructionType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response to the fetch authorization instructions. Based on the criteria requested, the response can contain information required to send a credit card authorization to the Vendor.
  * @export
@@ -26,16 +26,16 @@ export interface CcAuthorizationInstructions {
     details?: CCAuthorizationInstructionType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CcAuthorizationInstructions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CcAuthorizationInstructions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CcAuthorizationInstructions interface.

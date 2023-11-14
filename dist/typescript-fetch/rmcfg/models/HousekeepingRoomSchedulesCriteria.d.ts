@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ConfigHousekeepingRoomSchedulesType } from './ConfigHousekeepingRoomSchedulesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ConfigHousekeepingRoomScheduleType } from './ConfigHousekeepingRoomScheduleType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for associating housekeeping tasks and housekeeping codes to a room type.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface HousekeepingRoomSchedulesCriteria {
     /**
-     *
-     * @type {ConfigHousekeepingRoomSchedulesType}
+     * This type holds a collection of housekeeping tasks attached to a room type.
+     * @type {Array<ConfigHousekeepingRoomScheduleType>}
      * @memberof HousekeepingRoomSchedulesCriteria
      */
-    housekeepingRoomSchedules?: ConfigHousekeepingRoomSchedulesType;
+    housekeepingRoomSchedules?: Array<ConfigHousekeepingRoomScheduleType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HousekeepingRoomSchedulesCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HousekeepingRoomSchedulesCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HousekeepingRoomSchedulesCriteria interface.

@@ -17,7 +17,7 @@ exports.CopyReservationTypeToJSON = exports.CopyReservationTypeFromJSONTyped = e
 const runtime_1 = require("../runtime");
 const CopyReservationTypeInstructions_1 = require("./CopyReservationTypeInstructions");
 const HotelReservationInstructionType_1 = require("./HotelReservationInstructionType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the CopyReservationType interface.
  */
@@ -38,7 +38,7 @@ function CopyReservationTypeFromJSONTyped(json, ignoreDiscriminator) {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'instructions': !(0, runtime_1.exists)(json, 'instructions') ? undefined : (0, CopyReservationTypeInstructions_1.CopyReservationTypeInstructionsFromJSON)(json['instructions']),
         'newReservation': !(0, runtime_1.exists)(json, 'newReservation') ? undefined : (0, HotelReservationInstructionType_1.HotelReservationInstructionTypeFromJSON)(json['newReservation']),
-        'sourceReservationId': !(0, runtime_1.exists)(json, 'sourceReservationId') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['sourceReservationId']),
+        'sourceReservationId': !(0, runtime_1.exists)(json, 'sourceReservationId') ? undefined : (json['sourceReservationId'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.CopyReservationTypeFromJSONTyped = CopyReservationTypeFromJSONTyped;
@@ -53,7 +53,7 @@ function CopyReservationTypeToJSON(value) {
         'hotelId': value.hotelId,
         'instructions': (0, CopyReservationTypeInstructions_1.CopyReservationTypeInstructionsToJSON)(value.instructions),
         'newReservation': (0, HotelReservationInstructionType_1.HotelReservationInstructionTypeToJSON)(value.newReservation),
-        'sourceReservationId': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.sourceReservationId),
+        'sourceReservationId': value.sourceReservationId === undefined ? undefined : (value.sourceReservationId.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.CopyReservationTypeToJSON = CopyReservationTypeToJSON;

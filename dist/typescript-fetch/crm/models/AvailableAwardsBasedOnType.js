@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AvailableAwardsBasedOnTypeToJSON = exports.AvailableAwardsBasedOnTypeFromJSONTyped = exports.AvailableAwardsBasedOnTypeFromJSON = exports.instanceOfAvailableAwardsBasedOnType = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const MembershipAwardsAvailabilityType_1 = require("./MembershipAwardsAvailabilityType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const MembershipAwardAvailabilityType_1 = require("./MembershipAwardAvailabilityType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AvailableAwardsBasedOnType interface.
  */
@@ -35,9 +35,9 @@ function AvailableAwardsBasedOnTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'membershipAvailableAwards': !(0, runtime_1.exists)(json, 'membershipAvailableAwards') ? undefined : (0, MembershipAwardsAvailabilityType_1.MembershipAwardsAvailabilityTypeFromJSON)(json['membershipAvailableAwards']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'membershipAvailableAwards': !(0, runtime_1.exists)(json, 'membershipAvailableAwards') ? undefined : (json['membershipAvailableAwards'].map(MembershipAwardAvailabilityType_1.MembershipAwardAvailabilityTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AvailableAwardsBasedOnTypeFromJSONTyped = AvailableAwardsBasedOnTypeFromJSONTyped;
@@ -49,9 +49,9 @@ function AvailableAwardsBasedOnTypeToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'membershipAvailableAwards': (0, MembershipAwardsAvailabilityType_1.MembershipAwardsAvailabilityTypeToJSON)(value.membershipAvailableAwards),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'membershipAvailableAwards': value.membershipAvailableAwards === undefined ? undefined : (value.membershipAvailableAwards.map(MembershipAwardAvailabilityType_1.MembershipAwardAvailabilityTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AvailableAwardsBasedOnTypeToJSON = AvailableAwardsBasedOnTypeToJSON;

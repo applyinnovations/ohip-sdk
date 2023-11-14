@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 import type { CateringEventsAttendeesType } from './CateringEventsAttendeesType';
-import type { CodeListType } from './CodeListType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { DateRangeType } from './DateRangeType';
 import type { DateTimeRangeType } from './DateTimeRangeType';
@@ -56,10 +55,10 @@ export interface EventMenuBasicInfoType {
     description?: TranslationTextType2000;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof EventMenuBasicInfoType
      */
-    dietaryList?: CodeListType;
+    dietaryList?: Array<string>;
     /**
      * Discount Percentage applied to Menu Amount.
      * @type {number}
@@ -74,10 +73,10 @@ export interface EventMenuBasicInfoType {
     eventDateRange?: DateRangeType;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof EventMenuBasicInfoType
      */
-    eventTypes?: CodeListType;
+    eventTypes?: Array<string>;
     /**
      * Hotel code where event will be organized.
      * @type {string}

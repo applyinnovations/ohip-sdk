@@ -13,30 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AttachmentsType } from './AttachmentsType';
+import type { AttachmentType } from './AttachmentType';
 import {
-    AttachmentsTypeFromJSON,
-    AttachmentsTypeFromJSONTyped,
-    AttachmentsTypeToJSON,
-} from './AttachmentsType';
+    AttachmentTypeFromJSON,
+    AttachmentTypeFromJSONTyped,
+    AttachmentTypeToJSON,
+} from './AttachmentType';
 import type { BlockDetailsType } from './BlockDetailsType';
 import {
     BlockDetailsTypeFromJSON,
     BlockDetailsTypeFromJSONTyped,
     BlockDetailsTypeToJSON,
 } from './BlockDetailsType';
-import type { BlockIdList } from './BlockIdList';
+import type { BlockInventoryItemType } from './BlockInventoryItemType';
 import {
-    BlockIdListFromJSON,
-    BlockIdListFromJSONTyped,
-    BlockIdListToJSON,
-} from './BlockIdList';
-import type { BlockInventoryItemsType } from './BlockInventoryItemsType';
-import {
-    BlockInventoryItemsTypeFromJSON,
-    BlockInventoryItemsTypeFromJSONTyped,
-    BlockInventoryItemsTypeToJSON,
-} from './BlockInventoryItemsType';
+    BlockInventoryItemTypeFromJSON,
+    BlockInventoryItemTypeFromJSONTyped,
+    BlockInventoryItemTypeToJSON,
+} from './BlockInventoryItemType';
 import type { BlockOwnersType } from './BlockOwnersType';
 import {
     BlockOwnersTypeFromJSON,
@@ -61,12 +55,12 @@ import {
     BlockStatisticsTypeFromJSONTyped,
     BlockStatisticsTypeToJSON,
 } from './BlockStatisticsType';
-import type { BlockTracesType } from './BlockTracesType';
+import type { BlockTraceType } from './BlockTraceType';
 import {
-    BlockTracesTypeFromJSON,
-    BlockTracesTypeFromJSONTyped,
-    BlockTracesTypeToJSON,
-} from './BlockTracesType';
+    BlockTraceTypeFromJSON,
+    BlockTraceTypeFromJSONTyped,
+    BlockTraceTypeToJSON,
+} from './BlockTraceType';
 import type { BlockTypeBlockProfiles } from './BlockTypeBlockProfiles';
 import {
     BlockTypeBlockProfilesFromJSON,
@@ -85,36 +79,42 @@ import {
     BlockTypeCommentsFromJSONTyped,
     BlockTypeCommentsToJSON,
 } from './BlockTypeComments';
-import type { BlockWashSchedulesType } from './BlockWashSchedulesType';
+import type { BlockWashScheduleType } from './BlockWashScheduleType';
 import {
-    BlockWashSchedulesTypeFromJSON,
-    BlockWashSchedulesTypeFromJSONTyped,
-    BlockWashSchedulesTypeToJSON,
-} from './BlockWashSchedulesType';
+    BlockWashScheduleTypeFromJSON,
+    BlockWashScheduleTypeFromJSONTyped,
+    BlockWashScheduleTypeToJSON,
+} from './BlockWashScheduleType';
 import type { CateringType } from './CateringType';
 import {
     CateringTypeFromJSON,
     CateringTypeFromJSONTyped,
     CateringTypeToJSON,
 } from './CateringType';
-import type { ExternalReferencesType } from './ExternalReferencesType';
+import type { ExternalReferenceType } from './ExternalReferenceType';
 import {
-    ExternalReferencesTypeFromJSON,
-    ExternalReferencesTypeFromJSONTyped,
-    ExternalReferencesTypeToJSON,
-} from './ExternalReferencesType';
-import type { IndicatorsType } from './IndicatorsType';
+    ExternalReferenceTypeFromJSON,
+    ExternalReferenceTypeFromJSONTyped,
+    ExternalReferenceTypeToJSON,
+} from './ExternalReferenceType';
+import type { IndicatorType } from './IndicatorType';
 import {
-    IndicatorsTypeFromJSON,
-    IndicatorsTypeFromJSONTyped,
-    IndicatorsTypeToJSON,
-} from './IndicatorsType';
+    IndicatorTypeFromJSON,
+    IndicatorTypeFromJSONTyped,
+    IndicatorTypeToJSON,
+} from './IndicatorType';
 import type { SellMessageConfigsType } from './SellMessageConfigsType';
 import {
     SellMessageConfigsTypeFromJSON,
     SellMessageConfigsTypeFromJSONTyped,
     SellMessageConfigsTypeToJSON,
 } from './SellMessageConfigsType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -123,11 +123,11 @@ import {
  */
 export interface BlockType {
     /**
-     * 
-     * @type {AttachmentsType}
+     * Attachment List.
+     * @type {Array<AttachmentType>}
      * @memberof BlockType
      */
-    attachments?: AttachmentsType;
+    attachments?: Array<AttachmentType>;
     /**
      * 
      * @type {BlockDetailsType}
@@ -135,17 +135,17 @@ export interface BlockType {
      */
     blockDetails?: BlockDetailsType;
     /**
-     * 
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof BlockType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
-     * 
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof BlockType
      */
-    blockIndicators?: IndicatorsType;
+    blockIndicators?: Array<IndicatorType>;
     /**
      * 
      * @type {BlockOwnersType}
@@ -195,11 +195,11 @@ export interface BlockType {
      */
     creatorId?: string;
     /**
-     * 
-     * @type {ExternalReferencesType}
+     * This type contains unique information of external reference.
+     * @type {Array<ExternalReferenceType>}
      * @memberof BlockType
      */
-    externalReferences?: ExternalReferencesType;
+    externalReferences?: Array<ExternalReferenceType>;
     /**
      * 
      * @type {string}
@@ -207,11 +207,11 @@ export interface BlockType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {BlockInventoryItemsType}
+     * Inventory item attached to a block.
+     * @type {Array<BlockInventoryItemType>}
      * @memberof BlockType
      */
-    inventoryItems?: BlockInventoryItemsType;
+    inventoryItems?: Array<BlockInventoryItemType>;
     /**
      * Identifies the last software system or person to modify a record.
      * @type {string}
@@ -249,17 +249,17 @@ export interface BlockType {
      */
     statistics?: Array<BlockStatisticsSummaryType>;
     /**
-     * 
-     * @type {BlockTracesType}
+     * List of Block traces.
+     * @type {Array<BlockTraceType>}
      * @memberof BlockType
      */
-    traces?: BlockTracesType;
+    traces?: Array<BlockTraceType>;
     /**
-     * 
-     * @type {BlockWashSchedulesType}
+     * Wash Schedule attached to the block, which allows to release inventory based on selected wash schedule type.
+     * @type {Array<BlockWashScheduleType>}
      * @memberof BlockType
      */
-    washSchedules?: BlockWashSchedulesType;
+    washSchedules?: Array<BlockWashScheduleType>;
 }
 
 /**
@@ -281,10 +281,10 @@ export function BlockTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     }
     return {
         
-        'attachments': !exists(json, 'attachments') ? undefined : AttachmentsTypeFromJSON(json['attachments']),
+        'attachments': !exists(json, 'attachments') ? undefined : ((json['attachments'] as Array<any>).map(AttachmentTypeFromJSON)),
         'blockDetails': !exists(json, 'blockDetails') ? undefined : BlockDetailsTypeFromJSON(json['blockDetails']),
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : BlockIdListFromJSON(json['blockIdList']),
-        'blockIndicators': !exists(json, 'blockIndicators') ? undefined : IndicatorsTypeFromJSON(json['blockIndicators']),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'blockIndicators': !exists(json, 'blockIndicators') ? undefined : ((json['blockIndicators'] as Array<any>).map(IndicatorTypeFromJSON)),
         'blockOwners': !exists(json, 'blockOwners') ? undefined : BlockOwnersTypeFromJSON(json['blockOwners']),
         'blockProfiles': !exists(json, 'blockProfiles') ? undefined : BlockTypeBlockProfilesFromJSON(json['blockProfiles']),
         'blockSecurity': !exists(json, 'blockSecurity') ? undefined : BlockTypeBlockSecurityFromJSON(json['blockSecurity']),
@@ -293,17 +293,17 @@ export function BlockTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'comments': !exists(json, 'comments') ? undefined : BlockTypeCommentsFromJSON(json['comments']),
         'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !exists(json, 'creatorId') ? undefined : json['creatorId'],
-        'externalReferences': !exists(json, 'externalReferences') ? undefined : ExternalReferencesTypeFromJSON(json['externalReferences']),
+        'externalReferences': !exists(json, 'externalReferences') ? undefined : ((json['externalReferences'] as Array<any>).map(ExternalReferenceTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'inventoryItems': !exists(json, 'inventoryItems') ? undefined : BlockInventoryItemsTypeFromJSON(json['inventoryItems']),
+        'inventoryItems': !exists(json, 'inventoryItems') ? undefined : ((json['inventoryItems'] as Array<any>).map(BlockInventoryItemTypeFromJSON)),
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'markAsRecentlyAccessed': !exists(json, 'markAsRecentlyAccessed') ? undefined : json['markAsRecentlyAccessed'],
         'restrictions': !exists(json, 'restrictions') ? undefined : BlockRestrictionsTypeFromJSON(json['restrictions']),
         'sellMessages': !exists(json, 'sellMessages') ? undefined : SellMessageConfigsTypeFromJSON(json['sellMessages']),
         'statistics': !exists(json, 'statistics') ? undefined : ((json['statistics'] as Array<any>).map(BlockStatisticsSummaryTypeFromJSON)),
-        'traces': !exists(json, 'traces') ? undefined : BlockTracesTypeFromJSON(json['traces']),
-        'washSchedules': !exists(json, 'washSchedules') ? undefined : BlockWashSchedulesTypeFromJSON(json['washSchedules']),
+        'traces': !exists(json, 'traces') ? undefined : ((json['traces'] as Array<any>).map(BlockTraceTypeFromJSON)),
+        'washSchedules': !exists(json, 'washSchedules') ? undefined : ((json['washSchedules'] as Array<any>).map(BlockWashScheduleTypeFromJSON)),
     };
 }
 
@@ -316,10 +316,10 @@ export function BlockTypeToJSON(value?: BlockType | null): any {
     }
     return {
         
-        'attachments': AttachmentsTypeToJSON(value.attachments),
+        'attachments': value.attachments === undefined ? undefined : ((value.attachments as Array<any>).map(AttachmentTypeToJSON)),
         'blockDetails': BlockDetailsTypeToJSON(value.blockDetails),
-        'blockIdList': BlockIdListToJSON(value.blockIdList),
-        'blockIndicators': IndicatorsTypeToJSON(value.blockIndicators),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
+        'blockIndicators': value.blockIndicators === undefined ? undefined : ((value.blockIndicators as Array<any>).map(IndicatorTypeToJSON)),
         'blockOwners': BlockOwnersTypeToJSON(value.blockOwners),
         'blockProfiles': BlockTypeBlockProfilesToJSON(value.blockProfiles),
         'blockSecurity': BlockTypeBlockSecurityToJSON(value.blockSecurity),
@@ -328,17 +328,17 @@ export function BlockTypeToJSON(value?: BlockType | null): any {
         'comments': BlockTypeCommentsToJSON(value.comments),
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
-        'externalReferences': ExternalReferencesTypeToJSON(value.externalReferences),
+        'externalReferences': value.externalReferences === undefined ? undefined : ((value.externalReferences as Array<any>).map(ExternalReferenceTypeToJSON)),
         'hotelId': value.hotelId,
-        'inventoryItems': BlockInventoryItemsTypeToJSON(value.inventoryItems),
+        'inventoryItems': value.inventoryItems === undefined ? undefined : ((value.inventoryItems as Array<any>).map(BlockInventoryItemTypeToJSON)),
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'markAsRecentlyAccessed': value.markAsRecentlyAccessed,
         'restrictions': BlockRestrictionsTypeToJSON(value.restrictions),
         'sellMessages': SellMessageConfigsTypeToJSON(value.sellMessages),
         'statistics': value.statistics === undefined ? undefined : ((value.statistics as Array<any>).map(BlockStatisticsSummaryTypeToJSON)),
-        'traces': BlockTracesTypeToJSON(value.traces),
-        'washSchedules': BlockWashSchedulesTypeToJSON(value.washSchedules),
+        'traces': value.traces === undefined ? undefined : ((value.traces as Array<any>).map(BlockTraceTypeToJSON)),
+        'washSchedules': value.washSchedules === undefined ? undefined : ((value.washSchedules as Array<any>).map(BlockWashScheduleTypeToJSON)),
     };
 }
 

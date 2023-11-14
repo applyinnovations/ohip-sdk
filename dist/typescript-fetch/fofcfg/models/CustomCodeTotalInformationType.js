@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomCodeTotalInformationTypeToJSON = exports.CustomCodeTotalInformationTypeFromJSONTyped = exports.CustomCodeTotalInformationTypeFromJSON = exports.instanceOfCustomCodeTotalInformationType = void 0;
 const runtime_1 = require("../runtime");
 const CustomValueInfoType_1 = require("./CustomValueInfoType");
-const CustomVarianceInfoType_1 = require("./CustomVarianceInfoType");
+const MonthlyCustomVarianceInfoType_1 = require("./MonthlyCustomVarianceInfoType");
 /**
  * Check if a given object implements the CustomCodeTotalInformationType interface.
  */
@@ -34,11 +34,11 @@ function CustomCodeTotalInformationTypeFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'aBVarianceTotalInfo': !(0, runtime_1.exists)(json, 'aBVarianceTotalInfo') ? undefined : (0, CustomVarianceInfoType_1.CustomVarianceInfoTypeFromJSON)(json['aBVarianceTotalInfo']),
-        'aFVarianceTotalInfo': !(0, runtime_1.exists)(json, 'aFVarianceTotalInfo') ? undefined : (0, CustomVarianceInfoType_1.CustomVarianceInfoTypeFromJSON)(json['aFVarianceTotalInfo']),
+        'aBVarianceTotalInfo': !(0, runtime_1.exists)(json, 'aBVarianceTotalInfo') ? undefined : (json['aBVarianceTotalInfo'].map(MonthlyCustomVarianceInfoType_1.MonthlyCustomVarianceInfoTypeFromJSON)),
+        'aFVarianceTotalInfo': !(0, runtime_1.exists)(json, 'aFVarianceTotalInfo') ? undefined : (json['aFVarianceTotalInfo'].map(MonthlyCustomVarianceInfoType_1.MonthlyCustomVarianceInfoTypeFromJSON)),
         'actualTotalInfo': !(0, runtime_1.exists)(json, 'actualTotalInfo') ? undefined : (0, CustomValueInfoType_1.CustomValueInfoTypeFromJSON)(json['actualTotalInfo']),
         'budgetTotalInfo': !(0, runtime_1.exists)(json, 'budgetTotalInfo') ? undefined : (0, CustomValueInfoType_1.CustomValueInfoTypeFromJSON)(json['budgetTotalInfo']),
-        'fBVarianceTotalInfo': !(0, runtime_1.exists)(json, 'fBVarianceTotalInfo') ? undefined : (0, CustomVarianceInfoType_1.CustomVarianceInfoTypeFromJSON)(json['fBVarianceTotalInfo']),
+        'fBVarianceTotalInfo': !(0, runtime_1.exists)(json, 'fBVarianceTotalInfo') ? undefined : (json['fBVarianceTotalInfo'].map(MonthlyCustomVarianceInfoType_1.MonthlyCustomVarianceInfoTypeFromJSON)),
         'forecastTotalInfo': !(0, runtime_1.exists)(json, 'forecastTotalInfo') ? undefined : (0, CustomValueInfoType_1.CustomValueInfoTypeFromJSON)(json['forecastTotalInfo']),
     };
 }
@@ -51,11 +51,11 @@ function CustomCodeTotalInformationTypeToJSON(value) {
         return null;
     }
     return {
-        'aBVarianceTotalInfo': (0, CustomVarianceInfoType_1.CustomVarianceInfoTypeToJSON)(value.aBVarianceTotalInfo),
-        'aFVarianceTotalInfo': (0, CustomVarianceInfoType_1.CustomVarianceInfoTypeToJSON)(value.aFVarianceTotalInfo),
+        'aBVarianceTotalInfo': value.aBVarianceTotalInfo === undefined ? undefined : (value.aBVarianceTotalInfo.map(MonthlyCustomVarianceInfoType_1.MonthlyCustomVarianceInfoTypeToJSON)),
+        'aFVarianceTotalInfo': value.aFVarianceTotalInfo === undefined ? undefined : (value.aFVarianceTotalInfo.map(MonthlyCustomVarianceInfoType_1.MonthlyCustomVarianceInfoTypeToJSON)),
         'actualTotalInfo': (0, CustomValueInfoType_1.CustomValueInfoTypeToJSON)(value.actualTotalInfo),
         'budgetTotalInfo': (0, CustomValueInfoType_1.CustomValueInfoTypeToJSON)(value.budgetTotalInfo),
-        'fBVarianceTotalInfo': (0, CustomVarianceInfoType_1.CustomVarianceInfoTypeToJSON)(value.fBVarianceTotalInfo),
+        'fBVarianceTotalInfo': value.fBVarianceTotalInfo === undefined ? undefined : (value.fBVarianceTotalInfo.map(MonthlyCustomVarianceInfoType_1.MonthlyCustomVarianceInfoTypeToJSON)),
         'forecastTotalInfo': (0, CustomValueInfoType_1.CustomValueInfoTypeToJSON)(value.forecastTotalInfo),
     };
 }

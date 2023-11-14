@@ -73,12 +73,12 @@ import {
     CustomerTypeFromJSONTyped,
     CustomerTypeToJSON,
 } from './CustomerType';
-import type { ECertificatesType } from './ECertificatesType';
+import type { ECertificateType } from './ECertificateType';
 import {
-    ECertificatesTypeFromJSON,
-    ECertificatesTypeFromJSONTyped,
-    ECertificatesTypeToJSON,
-} from './ECertificatesType';
+    ECertificateTypeFromJSON,
+    ECertificateTypeFromJSONTyped,
+    ECertificateTypeToJSON,
+} from './ECertificateType';
 import type { EarningPreferencesType } from './EarningPreferencesType';
 import {
     EarningPreferencesTypeFromJSON,
@@ -97,24 +97,24 @@ import {
     EnrollmentTypeTypeFromJSONTyped,
     EnrollmentTypeTypeToJSON,
 } from './EnrollmentTypeType';
-import type { HotelStaysType } from './HotelStaysType';
+import type { HotelStayType } from './HotelStayType';
 import {
-    HotelStaysTypeFromJSON,
-    HotelStaysTypeFromJSONTyped,
-    HotelStaysTypeToJSON,
-} from './HotelStaysType';
+    HotelStayTypeFromJSON,
+    HotelStayTypeFromJSONTyped,
+    HotelStayTypeToJSON,
+} from './HotelStayType';
 import type { ImageSetType } from './ImageSetType';
 import {
     ImageSetTypeFromJSON,
     ImageSetTypeFromJSONTyped,
     ImageSetTypeToJSON,
 } from './ImageSetType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import {
-    IndicatorsTypeFromJSON,
-    IndicatorsTypeFromJSONTyped,
-    IndicatorsTypeToJSON,
-} from './IndicatorsType';
+    IndicatorTypeFromJSON,
+    IndicatorTypeFromJSONTyped,
+    IndicatorTypeToJSON,
+} from './IndicatorType';
 import type { LastStayInfoType } from './LastStayInfoType';
 import {
     LastStayInfoTypeFromJSON,
@@ -211,12 +211,12 @@ import {
     ProfileStatusTypeFromJSONTyped,
     ProfileStatusTypeToJSON,
 } from './ProfileStatusType';
-import type { ProfileSubscriptionListType } from './ProfileSubscriptionListType';
+import type { ProfileSubscriptionType } from './ProfileSubscriptionType';
 import {
-    ProfileSubscriptionListTypeFromJSON,
-    ProfileSubscriptionListTypeFromJSONTyped,
-    ProfileSubscriptionListTypeToJSON,
-} from './ProfileSubscriptionListType';
+    ProfileSubscriptionTypeFromJSON,
+    ProfileSubscriptionTypeFromJSONTyped,
+    ProfileSubscriptionTypeToJSON,
+} from './ProfileSubscriptionType';
 import type { ProfileTaxInfoType } from './ProfileTaxInfoType';
 import {
     ProfileTaxInfoTypeFromJSON,
@@ -277,12 +277,12 @@ import {
     UserDefinedFieldsTypeFromJSONTyped,
     UserDefinedFieldsTypeToJSON,
 } from './UserDefinedFieldsType';
-import type { WebUserAccountsType } from './WebUserAccountsType';
+import type { WebUserAccountType } from './WebUserAccountType';
 import {
-    WebUserAccountsTypeFromJSON,
-    WebUserAccountsTypeFromJSONTyped,
-    WebUserAccountsTypeToJSON,
-} from './WebUserAccountsType';
+    WebUserAccountTypeFromJSON,
+    WebUserAccountTypeFromJSONTyped,
+    WebUserAccountTypeToJSON,
+} from './WebUserAccountType';
 
 /**
  * Type provides the detailed information about the profile and its children.
@@ -345,11 +345,11 @@ export interface ProfileEnrollmentType {
      */
     customer?: CustomerType;
     /**
-     * 
-     * @type {ECertificatesType}
+     * List of e-certificates for the profile.
+     * @type {Array<ECertificateType>}
      * @memberof ProfileEnrollmentType
      */
-    eCertificates?: ECertificatesType;
+    eCertificates?: Array<ECertificateType>;
     /**
      * 
      * @type {EarningPreferencesType}
@@ -519,11 +519,11 @@ export interface ProfileEnrollmentType {
      */
     preferenceCollection?: ProfileEnrollmentTypePreferenceCollection;
     /**
-     * 
-     * @type {HotelStaysType}
+     * Detailed information of the hotel stay.
+     * @type {Array<HotelStayType>}
      * @memberof ProfileEnrollmentType
      */
-    previousHotelStays?: HotelStaysType;
+    previousHotelStays?: Array<HotelStayType>;
     /**
      * 
      * @type {PrivacyInfoType}
@@ -555,11 +555,11 @@ export interface ProfileEnrollmentType {
      */
     profileImage?: ImageSetType;
     /**
-     * 
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof ProfileEnrollmentType
      */
-    profileIndicators?: IndicatorsType;
+    profileIndicators?: Array<IndicatorType>;
     /**
      * 
      * @type {ProfileEnrollmentTypeProfileMemberships}
@@ -663,11 +663,11 @@ export interface ProfileEnrollmentType {
      */
     stayReservationInfoList?: ReservationStayHistoryFutureInfoType;
     /**
-     * 
-     * @type {ProfileSubscriptionListType}
+     * Details of the OPERA Profile subscription to external system
+     * @type {Array<ProfileSubscriptionType>}
      * @memberof ProfileEnrollmentType
      */
-    subscriptions?: ProfileSubscriptionListType;
+    subscriptions?: Array<ProfileSubscriptionType>;
     /**
      * 
      * @type {ProfileTaxInfoType}
@@ -711,11 +711,11 @@ export interface ProfileEnrollmentType {
      */
     userId?: string;
     /**
-     * 
-     * @type {WebUserAccountsType}
+     * Web User Accounts List.
+     * @type {Array<WebUserAccountType>}
      * @memberof ProfileEnrollmentType
      */
-    webUserAccounts?: WebUserAccountsType;
+    webUserAccounts?: Array<WebUserAccountType>;
 }
 
 /**
@@ -746,7 +746,7 @@ export function ProfileEnrollmentTypeFromJSONTyped(json: any, ignoreDiscriminato
         'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !exists(json, 'creatorId') ? undefined : json['creatorId'],
         'customer': !exists(json, 'customer') ? undefined : CustomerTypeFromJSON(json['customer']),
-        'eCertificates': !exists(json, 'eCertificates') ? undefined : ECertificatesTypeFromJSON(json['eCertificates']),
+        'eCertificates': !exists(json, 'eCertificates') ? undefined : ((json['eCertificates'] as Array<any>).map(ECertificateTypeFromJSON)),
         'earningPreferences': !exists(json, 'earningPreferences') ? undefined : EarningPreferencesTypeFromJSON(json['earningPreferences']),
         'eligibleForFiscalFolio': !exists(json, 'eligibleForFiscalFolio') ? undefined : json['eligibleForFiscalFolio'],
         'emails': !exists(json, 'emails') ? undefined : ProfileEnrollmentTypeEmailsFromJSON(json['emails']),
@@ -775,13 +775,13 @@ export function ProfileEnrollmentTypeFromJSONTyped(json: any, ignoreDiscriminato
         'negotiatedRates': !exists(json, 'negotiatedRates') ? undefined : CompanyProfileTypeNegotiatedRatesFromJSON(json['negotiatedRates']),
         'ownerCode': !exists(json, 'ownerCode') ? undefined : json['ownerCode'],
         'preferenceCollection': !exists(json, 'preferenceCollection') ? undefined : ProfileEnrollmentTypePreferenceCollectionFromJSON(json['preferenceCollection']),
-        'previousHotelStays': !exists(json, 'previousHotelStays') ? undefined : HotelStaysTypeFromJSON(json['previousHotelStays']),
+        'previousHotelStays': !exists(json, 'previousHotelStays') ? undefined : ((json['previousHotelStays'] as Array<any>).map(HotelStayTypeFromJSON)),
         'privacyInfo': !exists(json, 'privacyInfo') ? undefined : PrivacyInfoTypeFromJSON(json['privacyInfo']),
         'profileAccessType': !exists(json, 'profileAccessType') ? undefined : ProfileAccessTypeFromJSON(json['profileAccessType']),
         'profileDeliveryMethods': !exists(json, 'profileDeliveryMethods') ? undefined : ProfileEnrollmentTypeProfileDeliveryMethodsFromJSON(json['profileDeliveryMethods']),
         'profileId': !exists(json, 'profileId') ? undefined : UniqueIDTypeFromJSON(json['profileId']),
         'profileImage': !exists(json, 'profileImage') ? undefined : ImageSetTypeFromJSON(json['profileImage']),
-        'profileIndicators': !exists(json, 'profileIndicators') ? undefined : IndicatorsTypeFromJSON(json['profileIndicators']),
+        'profileIndicators': !exists(json, 'profileIndicators') ? undefined : ((json['profileIndicators'] as Array<any>).map(IndicatorTypeFromJSON)),
         'profileMemberships': !exists(json, 'profileMemberships') ? undefined : ProfileEnrollmentTypeProfileMembershipsFromJSON(json['profileMemberships']),
         'profileRestrictions': !exists(json, 'profileRestrictions') ? undefined : ProfileRestrictionsFromJSON(json['profileRestrictions']),
         'profileType': !exists(json, 'profileType') ? undefined : ProfileTypeTypeFromJSON(json['profileType']),
@@ -799,7 +799,7 @@ export function ProfileEnrollmentTypeFromJSONTyped(json: any, ignoreDiscriminato
         'showInactiveRoomOwners': !exists(json, 'showInactiveRoomOwners') ? undefined : json['showInactiveRoomOwners'],
         'statusCode': !exists(json, 'statusCode') ? undefined : ProfileStatusTypeFromJSON(json['statusCode']),
         'stayReservationInfoList': !exists(json, 'stayReservationInfoList') ? undefined : ReservationStayHistoryFutureInfoTypeFromJSON(json['stayReservationInfoList']),
-        'subscriptions': !exists(json, 'subscriptions') ? undefined : ProfileSubscriptionListTypeFromJSON(json['subscriptions']),
+        'subscriptions': !exists(json, 'subscriptions') ? undefined : ((json['subscriptions'] as Array<any>).map(ProfileSubscriptionTypeFromJSON)),
         'taxInfo': !exists(json, 'taxInfo') ? undefined : ProfileTaxInfoTypeFromJSON(json['taxInfo']),
         'telephones': !exists(json, 'telephones') ? undefined : ProfileEnrollmentTypeTelephonesFromJSON(json['telephones']),
         'territory': !exists(json, 'territory') ? undefined : json['territory'],
@@ -807,7 +807,7 @@ export function ProfileEnrollmentTypeFromJSONTyped(json: any, ignoreDiscriminato
         'uRLs': !exists(json, 'uRLs') ? undefined : CompanyProfileTypeURLsFromJSON(json['uRLs']),
         'userDefinedFields': !exists(json, 'userDefinedFields') ? undefined : UserDefinedFieldsTypeFromJSON(json['userDefinedFields']),
         'userId': !exists(json, 'userId') ? undefined : json['userId'],
-        'webUserAccounts': !exists(json, 'webUserAccounts') ? undefined : WebUserAccountsTypeFromJSON(json['webUserAccounts']),
+        'webUserAccounts': !exists(json, 'webUserAccounts') ? undefined : ((json['webUserAccounts'] as Array<any>).map(WebUserAccountTypeFromJSON)),
     };
 }
 
@@ -829,7 +829,7 @@ export function ProfileEnrollmentTypeToJSON(value?: ProfileEnrollmentType | null
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
         'customer': CustomerTypeToJSON(value.customer),
-        'eCertificates': ECertificatesTypeToJSON(value.eCertificates),
+        'eCertificates': value.eCertificates === undefined ? undefined : ((value.eCertificates as Array<any>).map(ECertificateTypeToJSON)),
         'earningPreferences': EarningPreferencesTypeToJSON(value.earningPreferences),
         'eligibleForFiscalFolio': value.eligibleForFiscalFolio,
         'emails': ProfileEnrollmentTypeEmailsToJSON(value.emails),
@@ -858,13 +858,13 @@ export function ProfileEnrollmentTypeToJSON(value?: ProfileEnrollmentType | null
         'negotiatedRates': CompanyProfileTypeNegotiatedRatesToJSON(value.negotiatedRates),
         'ownerCode': value.ownerCode,
         'preferenceCollection': ProfileEnrollmentTypePreferenceCollectionToJSON(value.preferenceCollection),
-        'previousHotelStays': HotelStaysTypeToJSON(value.previousHotelStays),
+        'previousHotelStays': value.previousHotelStays === undefined ? undefined : ((value.previousHotelStays as Array<any>).map(HotelStayTypeToJSON)),
         'privacyInfo': PrivacyInfoTypeToJSON(value.privacyInfo),
         'profileAccessType': ProfileAccessTypeToJSON(value.profileAccessType),
         'profileDeliveryMethods': ProfileEnrollmentTypeProfileDeliveryMethodsToJSON(value.profileDeliveryMethods),
         'profileId': UniqueIDTypeToJSON(value.profileId),
         'profileImage': ImageSetTypeToJSON(value.profileImage),
-        'profileIndicators': IndicatorsTypeToJSON(value.profileIndicators),
+        'profileIndicators': value.profileIndicators === undefined ? undefined : ((value.profileIndicators as Array<any>).map(IndicatorTypeToJSON)),
         'profileMemberships': ProfileEnrollmentTypeProfileMembershipsToJSON(value.profileMemberships),
         'profileRestrictions': ProfileRestrictionsToJSON(value.profileRestrictions),
         'profileType': ProfileTypeTypeToJSON(value.profileType),
@@ -882,7 +882,7 @@ export function ProfileEnrollmentTypeToJSON(value?: ProfileEnrollmentType | null
         'showInactiveRoomOwners': value.showInactiveRoomOwners,
         'statusCode': ProfileStatusTypeToJSON(value.statusCode),
         'stayReservationInfoList': ReservationStayHistoryFutureInfoTypeToJSON(value.stayReservationInfoList),
-        'subscriptions': ProfileSubscriptionListTypeToJSON(value.subscriptions),
+        'subscriptions': value.subscriptions === undefined ? undefined : ((value.subscriptions as Array<any>).map(ProfileSubscriptionTypeToJSON)),
         'taxInfo': ProfileTaxInfoTypeToJSON(value.taxInfo),
         'telephones': ProfileEnrollmentTypeTelephonesToJSON(value.telephones),
         'territory': value.territory,
@@ -890,7 +890,7 @@ export function ProfileEnrollmentTypeToJSON(value?: ProfileEnrollmentType | null
         'uRLs': CompanyProfileTypeURLsToJSON(value.uRLs),
         'userDefinedFields': UserDefinedFieldsTypeToJSON(value.userDefinedFields),
         'userId': value.userId,
-        'webUserAccounts': WebUserAccountsTypeToJSON(value.webUserAccounts),
+        'webUserAccounts': value.webUserAccounts === undefined ? undefined : ((value.webUserAccounts as Array<any>).map(WebUserAccountTypeToJSON)),
     };
 }
 

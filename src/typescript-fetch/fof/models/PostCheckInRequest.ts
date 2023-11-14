@@ -19,24 +19,24 @@ import {
     CheckedInReservationInstructionTypeFromJSONTyped,
     CheckedInReservationInstructionTypeToJSON,
 } from './CheckedInReservationInstructionType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { ReservationReservation } from './ReservationReservation';
 import {
     ReservationReservationFromJSON,
     ReservationReservationFromJSONTyped,
     ReservationReservationToJSON,
 } from './ReservationReservation';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -58,10 +58,10 @@ export interface PostCheckInRequest {
     includeNotifications?: boolean;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostCheckInRequest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {ReservationReservation}
@@ -69,11 +69,11 @@ export interface PostCheckInRequest {
      */
     reservation?: ReservationReservation;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostCheckInRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -97,9 +97,9 @@ export function PostCheckInRequestFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'fetchReservationInstruction': !exists(json, 'fetchReservationInstruction') ? undefined : ((json['fetchReservationInstruction'] as Array<any>).map(CheckedInReservationInstructionTypeFromJSON)),
         'includeNotifications': !exists(json, 'includeNotifications') ? undefined : json['includeNotifications'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'reservation': !exists(json, 'reservation') ? undefined : ReservationReservationFromJSON(json['reservation']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -114,9 +114,9 @@ export function PostCheckInRequestToJSON(value?: PostCheckInRequest | null): any
         
         'fetchReservationInstruction': value.fetchReservationInstruction === undefined ? undefined : ((value.fetchReservationInstruction as Array<any>).map(CheckedInReservationInstructionTypeToJSON)),
         'includeNotifications': value.includeNotifications,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'reservation': ReservationReservationToJSON(value.reservation),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -15,10 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DistributedNegotiatedRatesToJSON = exports.DistributedNegotiatedRatesFromJSONTyped = exports.DistributedNegotiatedRatesFromJSON = exports.instanceOfDistributedNegotiatedRates = void 0;
 const runtime_1 = require("../runtime");
-const HotelCodeListType_1 = require("./HotelCodeListType");
-const Links_1 = require("./Links");
-const NegotiatedRatesType_1 = require("./NegotiatedRatesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const NegotiatedRateType_1 = require("./NegotiatedRateType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the DistributedNegotiatedRates interface.
  */
@@ -36,10 +35,10 @@ function DistributedNegotiatedRatesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'hotelCodeList': !(0, runtime_1.exists)(json, 'hotelCodeList') ? undefined : (0, HotelCodeListType_1.HotelCodeListTypeFromJSON)(json['hotelCodeList']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'negotiatedRateList': !(0, runtime_1.exists)(json, 'negotiatedRateList') ? undefined : (0, NegotiatedRatesType_1.NegotiatedRatesTypeFromJSON)(json['negotiatedRateList']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'hotelCodeList': !(0, runtime_1.exists)(json, 'hotelCodeList') ? undefined : json['hotelCodeList'],
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'negotiatedRateList': !(0, runtime_1.exists)(json, 'negotiatedRateList') ? undefined : (json['negotiatedRateList'].map(NegotiatedRateType_1.NegotiatedRateTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.DistributedNegotiatedRatesFromJSONTyped = DistributedNegotiatedRatesFromJSONTyped;
@@ -51,10 +50,10 @@ function DistributedNegotiatedRatesToJSON(value) {
         return null;
     }
     return {
-        'hotelCodeList': (0, HotelCodeListType_1.HotelCodeListTypeToJSON)(value.hotelCodeList),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'negotiatedRateList': (0, NegotiatedRatesType_1.NegotiatedRatesTypeToJSON)(value.negotiatedRateList),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'hotelCodeList': value.hotelCodeList,
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'negotiatedRateList': value.negotiatedRateList === undefined ? undefined : (value.negotiatedRateList.map(NegotiatedRateType_1.NegotiatedRateTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.DistributedNegotiatedRatesToJSON = DistributedNegotiatedRatesToJSON;

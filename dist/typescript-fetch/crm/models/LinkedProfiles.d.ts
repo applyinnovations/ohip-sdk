@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { ProfileSummariesType } from './ProfileSummariesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response of fetch set of linked Profiles to the requested Profile.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface LinkedProfiles {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof LinkedProfiles
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {ProfileSummariesType}
@@ -31,11 +31,11 @@ export interface LinkedProfiles {
      */
     profileSummaries?: ProfileSummariesType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof LinkedProfiles
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the LinkedProfiles interface.

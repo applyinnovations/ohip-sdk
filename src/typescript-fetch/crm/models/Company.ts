@@ -19,30 +19,30 @@ import {
     CompanyProfileTypeFromJSONTyped,
     CompanyProfileTypeToJSON,
 } from './CompanyProfileType';
-import type { ExternalReferencesType } from './ExternalReferencesType';
+import type { ExternalReferenceType } from './ExternalReferenceType';
 import {
-    ExternalReferencesTypeFromJSON,
-    ExternalReferencesTypeFromJSONTyped,
-    ExternalReferencesTypeToJSON,
-} from './ExternalReferencesType';
-import type { Links } from './Links';
+    ExternalReferenceTypeFromJSON,
+    ExternalReferenceTypeFromJSONTyped,
+    ExternalReferenceTypeToJSON,
+} from './ExternalReferenceType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ProfileIdList } from './ProfileIdList';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
-import type { WarningsType } from './WarningsType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creation of company/agent/group/source profile. This object contains profile details with unique identifiers of a profile. The standard optional Opera Context element is also included.
@@ -57,29 +57,29 @@ export interface Company {
      */
     companyDetails?: CompanyProfileType;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof Company
      */
-    companyIdList?: ProfileIdList;
+    companyIdList?: Array<UniqueIDType>;
+    /**
+     * This type contains unique information of external reference.
+     * @type {Array<ExternalReferenceType>}
+     * @memberof Company
+     */
+    externalReferences?: Array<ExternalReferenceType>;
     /**
      * 
-     * @type {ExternalReferencesType}
+     * @type {Array<InstanceLink>}
      * @memberof Company
      */
-    externalReferences?: ExternalReferencesType;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {Links}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Company
      */
-    links?: Links;
-    /**
-     * 
-     * @type {WarningsType}
-     * @memberof Company
-     */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -102,10 +102,10 @@ export function CompanyFromJSONTyped(json: any, ignoreDiscriminator: boolean): C
     return {
         
         'companyDetails': !exists(json, 'companyDetails') ? undefined : CompanyProfileTypeFromJSON(json['companyDetails']),
-        'companyIdList': !exists(json, 'companyIdList') ? undefined : ProfileIdListFromJSON(json['companyIdList']),
-        'externalReferences': !exists(json, 'externalReferences') ? undefined : ExternalReferencesTypeFromJSON(json['externalReferences']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'companyIdList': !exists(json, 'companyIdList') ? undefined : ((json['companyIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'externalReferences': !exists(json, 'externalReferences') ? undefined : ((json['externalReferences'] as Array<any>).map(ExternalReferenceTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -119,10 +119,10 @@ export function CompanyToJSON(value?: Company | null): any {
     return {
         
         'companyDetails': CompanyProfileTypeToJSON(value.companyDetails),
-        'companyIdList': ProfileIdListToJSON(value.companyIdList),
-        'externalReferences': ExternalReferencesTypeToJSON(value.externalReferences),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'companyIdList': value.companyIdList === undefined ? undefined : ((value.companyIdList as Array<any>).map(UniqueIDTypeToJSON)),
+        'externalReferences': value.externalReferences === undefined ? undefined : ((value.externalReferences as Array<any>).map(ExternalReferenceTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

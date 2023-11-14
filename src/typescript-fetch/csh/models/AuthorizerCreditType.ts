@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AuthorizerCreditDetailsType } from './AuthorizerCreditDetailsType';
+import type { AuthorizerCreditDetailType } from './AuthorizerCreditDetailType';
 import {
-    AuthorizerCreditDetailsTypeFromJSON,
-    AuthorizerCreditDetailsTypeFromJSONTyped,
-    AuthorizerCreditDetailsTypeToJSON,
-} from './AuthorizerCreditDetailsType';
+    AuthorizerCreditDetailTypeFromJSON,
+    AuthorizerCreditDetailTypeFromJSONTyped,
+    AuthorizerCreditDetailTypeToJSON,
+} from './AuthorizerCreditDetailType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import {
     CurrencyAmountTypeFromJSON,
@@ -45,11 +45,11 @@ export interface AuthorizerCreditType {
      */
     actualAmount?: CurrencyAmountType;
     /**
-     * 
-     * @type {AuthorizerCreditDetailsType}
+     * List of Comp Accounting Authorizers details
+     * @type {Array<AuthorizerCreditDetailType>}
      * @memberof AuthorizerCreditType
      */
-    authorizerCreditDetails?: AuthorizerCreditDetailsType;
+    authorizerCreditDetails?: Array<AuthorizerCreditDetailType>;
     /**
      * 
      * @type {UniqueIDType}
@@ -120,7 +120,7 @@ export function AuthorizerCreditTypeFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'actualAmount': !exists(json, 'actualAmount') ? undefined : CurrencyAmountTypeFromJSON(json['actualAmount']),
-        'authorizerCreditDetails': !exists(json, 'authorizerCreditDetails') ? undefined : AuthorizerCreditDetailsTypeFromJSON(json['authorizerCreditDetails']),
+        'authorizerCreditDetails': !exists(json, 'authorizerCreditDetails') ? undefined : ((json['authorizerCreditDetails'] as Array<any>).map(AuthorizerCreditDetailTypeFromJSON)),
         'authorizerId': !exists(json, 'authorizerId') ? undefined : UniqueIDTypeFromJSON(json['authorizerId']),
         'authorizerName': !exists(json, 'authorizerName') ? undefined : json['authorizerName'],
         'authorizerRateCode': !exists(json, 'authorizerRateCode') ? undefined : json['authorizerRateCode'],
@@ -142,7 +142,7 @@ export function AuthorizerCreditTypeToJSON(value?: AuthorizerCreditType | null):
     return {
         
         'actualAmount': CurrencyAmountTypeToJSON(value.actualAmount),
-        'authorizerCreditDetails': AuthorizerCreditDetailsTypeToJSON(value.authorizerCreditDetails),
+        'authorizerCreditDetails': value.authorizerCreditDetails === undefined ? undefined : ((value.authorizerCreditDetails as Array<any>).map(AuthorizerCreditDetailTypeToJSON)),
         'authorizerId': UniqueIDTypeToJSON(value.authorizerId),
         'authorizerName': value.authorizerName,
         'authorizerRateCode': value.authorizerRateCode,

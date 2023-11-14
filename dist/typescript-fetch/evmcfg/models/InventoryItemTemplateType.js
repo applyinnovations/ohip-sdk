@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InventoryItemTemplateTypeToJSON = exports.InventoryItemTemplateTypeFromJSONTyped = exports.InventoryItemTemplateTypeFromJSON = exports.instanceOfInventoryItemTemplateType = void 0;
 const runtime_1 = require("../runtime");
-const InventoryItemTemplateItemsType_1 = require("./InventoryItemTemplateItemsType");
+const InventoryItemTemplateItemType_1 = require("./InventoryItemTemplateItemType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the InventoryItemTemplateType interface.
@@ -36,7 +36,7 @@ function InventoryItemTemplateTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'inventoryItemTemplateId': !(0, runtime_1.exists)(json, 'inventoryItemTemplateId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['inventoryItemTemplateId']),
-        'inventoryItemTemplateItems': !(0, runtime_1.exists)(json, 'inventoryItemTemplateItems') ? undefined : (0, InventoryItemTemplateItemsType_1.InventoryItemTemplateItemsTypeFromJSON)(json['inventoryItemTemplateItems']),
+        'inventoryItemTemplateItems': !(0, runtime_1.exists)(json, 'inventoryItemTemplateItems') ? undefined : (json['inventoryItemTemplateItems'].map(InventoryItemTemplateItemType_1.InventoryItemTemplateItemTypeFromJSON)),
         'inventoryItemTemplateName': !(0, runtime_1.exists)(json, 'inventoryItemTemplateName') ? undefined : json['inventoryItemTemplateName'],
     };
 }
@@ -51,7 +51,7 @@ function InventoryItemTemplateTypeToJSON(value) {
     return {
         'hotelId': value.hotelId,
         'inventoryItemTemplateId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.inventoryItemTemplateId),
-        'inventoryItemTemplateItems': (0, InventoryItemTemplateItemsType_1.InventoryItemTemplateItemsTypeToJSON)(value.inventoryItemTemplateItems),
+        'inventoryItemTemplateItems': value.inventoryItemTemplateItems === undefined ? undefined : (value.inventoryItemTemplateItems.map(InventoryItemTemplateItemType_1.InventoryItemTemplateItemTypeToJSON)),
         'inventoryItemTemplateName': value.inventoryItemTemplateName,
     };
 }

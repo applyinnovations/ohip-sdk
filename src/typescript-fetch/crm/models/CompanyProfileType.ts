@@ -91,24 +91,24 @@ import {
     CompanyTypeFromJSONTyped,
     CompanyTypeToJSON,
 } from './CompanyType';
-import type { ECertificatesType } from './ECertificatesType';
+import type { ECertificateType } from './ECertificateType';
 import {
-    ECertificatesTypeFromJSON,
-    ECertificatesTypeFromJSONTyped,
-    ECertificatesTypeToJSON,
-} from './ECertificatesType';
+    ECertificateTypeFromJSON,
+    ECertificateTypeFromJSONTyped,
+    ECertificateTypeToJSON,
+} from './ECertificateType';
 import type { ImageSetType } from './ImageSetType';
 import {
     ImageSetTypeFromJSON,
     ImageSetTypeFromJSONTyped,
     ImageSetTypeToJSON,
 } from './ImageSetType';
-import type { IndicatorsType } from './IndicatorsType';
+import type { IndicatorType } from './IndicatorType';
 import {
-    IndicatorsTypeFromJSON,
-    IndicatorsTypeFromJSONTyped,
-    IndicatorsTypeToJSON,
-} from './IndicatorsType';
+    IndicatorTypeFromJSON,
+    IndicatorTypeFromJSONTyped,
+    IndicatorTypeToJSON,
+} from './IndicatorType';
 import type { LastStayInfoType } from './LastStayInfoType';
 import {
     LastStayInfoTypeFromJSON,
@@ -157,12 +157,12 @@ import {
     ProfileStatusTypeFromJSONTyped,
     ProfileStatusTypeToJSON,
 } from './ProfileStatusType';
-import type { ProfileSubscriptionListType } from './ProfileSubscriptionListType';
+import type { ProfileSubscriptionType } from './ProfileSubscriptionType';
 import {
-    ProfileSubscriptionListTypeFromJSON,
-    ProfileSubscriptionListTypeFromJSONTyped,
-    ProfileSubscriptionListTypeToJSON,
-} from './ProfileSubscriptionListType';
+    ProfileSubscriptionTypeFromJSON,
+    ProfileSubscriptionTypeFromJSONTyped,
+    ProfileSubscriptionTypeToJSON,
+} from './ProfileSubscriptionType';
 import type { ProfileTaxInfoType } from './ProfileTaxInfoType';
 import {
     ProfileTaxInfoTypeFromJSON,
@@ -181,12 +181,12 @@ import {
     UserDefinedFieldsTypeFromJSONTyped,
     UserDefinedFieldsTypeToJSON,
 } from './UserDefinedFieldsType';
-import type { WebUserAccountsType } from './WebUserAccountsType';
+import type { WebUserAccountType } from './WebUserAccountType';
 import {
-    WebUserAccountsTypeFromJSON,
-    WebUserAccountsTypeFromJSONTyped,
-    WebUserAccountsTypeToJSON,
-} from './WebUserAccountsType';
+    WebUserAccountTypeFromJSON,
+    WebUserAccountTypeFromJSONTyped,
+    WebUserAccountTypeToJSON,
+} from './WebUserAccountType';
 
 /**
  * Type provides the detailed information about the profile and its children.
@@ -243,11 +243,11 @@ export interface CompanyProfileType {
      */
     creatorId?: string;
     /**
-     * 
-     * @type {ECertificatesType}
+     * List of e-certificates for the profile.
+     * @type {Array<ECertificateType>}
      * @memberof CompanyProfileType
      */
-    eCertificates?: ECertificatesType;
+    eCertificates?: Array<ECertificateType>;
     /**
      * Eligible for Fiscal Folio/Payload generation.
      * @type {string}
@@ -369,11 +369,11 @@ export interface CompanyProfileType {
      */
     profileImage?: ImageSetType;
     /**
-     * 
-     * @type {IndicatorsType}
+     * Collection of lamp indicators.
+     * @type {Array<IndicatorType>}
      * @memberof CompanyProfileType
      */
-    profileIndicators?: IndicatorsType;
+    profileIndicators?: Array<IndicatorType>;
     /**
      * 
      * @type {CompanyProfileTypeProfileMemberships}
@@ -429,11 +429,11 @@ export interface CompanyProfileType {
      */
     statusCode?: ProfileStatusType;
     /**
-     * 
-     * @type {ProfileSubscriptionListType}
+     * Details of the OPERA Profile subscription to external system
+     * @type {Array<ProfileSubscriptionType>}
      * @memberof CompanyProfileType
      */
-    subscriptions?: ProfileSubscriptionListType;
+    subscriptions?: Array<ProfileSubscriptionType>;
     /**
      * 
      * @type {ProfileTaxInfoType}
@@ -471,11 +471,11 @@ export interface CompanyProfileType {
      */
     userDefinedFields?: UserDefinedFieldsType;
     /**
-     * 
-     * @type {WebUserAccountsType}
+     * Web User Accounts List.
+     * @type {Array<WebUserAccountType>}
      * @memberof CompanyProfileType
      */
-    webUserAccounts?: WebUserAccountsType;
+    webUserAccounts?: Array<WebUserAccountType>;
 }
 
 /**
@@ -505,7 +505,7 @@ export function CompanyProfileTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'company': !exists(json, 'company') ? undefined : CompanyTypeFromJSON(json['company']),
         'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !exists(json, 'creatorId') ? undefined : json['creatorId'],
-        'eCertificates': !exists(json, 'eCertificates') ? undefined : ECertificatesTypeFromJSON(json['eCertificates']),
+        'eCertificates': !exists(json, 'eCertificates') ? undefined : ((json['eCertificates'] as Array<any>).map(ECertificateTypeFromJSON)),
         'eligibleForFiscalFolio': !exists(json, 'eligibleForFiscalFolio') ? undefined : json['eligibleForFiscalFolio'],
         'emails': !exists(json, 'emails') ? undefined : CompanyProfileTypeEmailsFromJSON(json['emails']),
         'gdsNegotiatedRates': !exists(json, 'gdsNegotiatedRates') ? undefined : CompanyProfileTypeGdsNegotiatedRatesFromJSON(json['gdsNegotiatedRates']),
@@ -526,7 +526,7 @@ export function CompanyProfileTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'privacyInfo': !exists(json, 'privacyInfo') ? undefined : PrivacyInfoTypeFromJSON(json['privacyInfo']),
         'profileAccessType': !exists(json, 'profileAccessType') ? undefined : ProfileAccessTypeFromJSON(json['profileAccessType']),
         'profileImage': !exists(json, 'profileImage') ? undefined : ImageSetTypeFromJSON(json['profileImage']),
-        'profileIndicators': !exists(json, 'profileIndicators') ? undefined : IndicatorsTypeFromJSON(json['profileIndicators']),
+        'profileIndicators': !exists(json, 'profileIndicators') ? undefined : ((json['profileIndicators'] as Array<any>).map(IndicatorTypeFromJSON)),
         'profileMemberships': !exists(json, 'profileMemberships') ? undefined : CompanyProfileTypeProfileMembershipsFromJSON(json['profileMemberships']),
         'profileRestrictions': !exists(json, 'profileRestrictions') ? undefined : ProfileRestrictionsFromJSON(json['profileRestrictions']),
         'profileType': !exists(json, 'profileType') ? undefined : CompanyProfileTypeTypeFromJSON(json['profileType']),
@@ -536,14 +536,14 @@ export function CompanyProfileTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'requestForHotel': !exists(json, 'requestForHotel') ? undefined : json['requestForHotel'],
         'salesInfo': !exists(json, 'salesInfo') ? undefined : SalesInfoTypeFromJSON(json['salesInfo']),
         'statusCode': !exists(json, 'statusCode') ? undefined : ProfileStatusTypeFromJSON(json['statusCode']),
-        'subscriptions': !exists(json, 'subscriptions') ? undefined : ProfileSubscriptionListTypeFromJSON(json['subscriptions']),
+        'subscriptions': !exists(json, 'subscriptions') ? undefined : ((json['subscriptions'] as Array<any>).map(ProfileSubscriptionTypeFromJSON)),
         'taxInfo': !exists(json, 'taxInfo') ? undefined : ProfileTaxInfoTypeFromJSON(json['taxInfo']),
         'telephones': !exists(json, 'telephones') ? undefined : CompanyProfileTypeTelephonesFromJSON(json['telephones']),
         'territory': !exists(json, 'territory') ? undefined : json['territory'],
         'traceCode': !exists(json, 'traceCode') ? undefined : json['traceCode'],
         'uRLs': !exists(json, 'uRLs') ? undefined : CompanyProfileTypeURLsFromJSON(json['uRLs']),
         'userDefinedFields': !exists(json, 'userDefinedFields') ? undefined : UserDefinedFieldsTypeFromJSON(json['userDefinedFields']),
-        'webUserAccounts': !exists(json, 'webUserAccounts') ? undefined : WebUserAccountsTypeFromJSON(json['webUserAccounts']),
+        'webUserAccounts': !exists(json, 'webUserAccounts') ? undefined : ((json['webUserAccounts'] as Array<any>).map(WebUserAccountTypeFromJSON)),
     };
 }
 
@@ -564,7 +564,7 @@ export function CompanyProfileTypeToJSON(value?: CompanyProfileType | null): any
         'company': CompanyTypeToJSON(value.company),
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
-        'eCertificates': ECertificatesTypeToJSON(value.eCertificates),
+        'eCertificates': value.eCertificates === undefined ? undefined : ((value.eCertificates as Array<any>).map(ECertificateTypeToJSON)),
         'eligibleForFiscalFolio': value.eligibleForFiscalFolio,
         'emails': CompanyProfileTypeEmailsToJSON(value.emails),
         'gdsNegotiatedRates': CompanyProfileTypeGdsNegotiatedRatesToJSON(value.gdsNegotiatedRates),
@@ -585,7 +585,7 @@ export function CompanyProfileTypeToJSON(value?: CompanyProfileType | null): any
         'privacyInfo': PrivacyInfoTypeToJSON(value.privacyInfo),
         'profileAccessType': ProfileAccessTypeToJSON(value.profileAccessType),
         'profileImage': ImageSetTypeToJSON(value.profileImage),
-        'profileIndicators': IndicatorsTypeToJSON(value.profileIndicators),
+        'profileIndicators': value.profileIndicators === undefined ? undefined : ((value.profileIndicators as Array<any>).map(IndicatorTypeToJSON)),
         'profileMemberships': CompanyProfileTypeProfileMembershipsToJSON(value.profileMemberships),
         'profileRestrictions': ProfileRestrictionsToJSON(value.profileRestrictions),
         'profileType': CompanyProfileTypeTypeToJSON(value.profileType),
@@ -595,14 +595,14 @@ export function CompanyProfileTypeToJSON(value?: CompanyProfileType | null): any
         'requestForHotel': value.requestForHotel,
         'salesInfo': SalesInfoTypeToJSON(value.salesInfo),
         'statusCode': ProfileStatusTypeToJSON(value.statusCode),
-        'subscriptions': ProfileSubscriptionListTypeToJSON(value.subscriptions),
+        'subscriptions': value.subscriptions === undefined ? undefined : ((value.subscriptions as Array<any>).map(ProfileSubscriptionTypeToJSON)),
         'taxInfo': ProfileTaxInfoTypeToJSON(value.taxInfo),
         'telephones': CompanyProfileTypeTelephonesToJSON(value.telephones),
         'territory': value.territory,
         'traceCode': value.traceCode,
         'uRLs': CompanyProfileTypeURLsToJSON(value.uRLs),
         'userDefinedFields': UserDefinedFieldsTypeToJSON(value.userDefinedFields),
-        'webUserAccounts': WebUserAccountsTypeToJSON(value.webUserAccounts),
+        'webUserAccounts': value.webUserAccounts === undefined ? undefined : ((value.webUserAccounts as Array<any>).map(WebUserAccountTypeToJSON)),
     };
 }
 

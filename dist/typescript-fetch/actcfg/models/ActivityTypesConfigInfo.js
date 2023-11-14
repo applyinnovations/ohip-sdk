@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ActivityTypesConfigInfoToJSON = exports.ActivityTypesConfigInfoFromJSONTyped = exports.ActivityTypesConfigInfoFromJSON = exports.instanceOfActivityTypesConfigInfo = void 0;
 const runtime_1 = require("../runtime");
-const ActivityConfigListType_1 = require("./ActivityConfigListType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ActivityConfigTypeDetailType_1 = require("./ActivityConfigTypeDetailType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ActivityTypesConfigInfo interface.
  */
@@ -35,9 +35,9 @@ function ActivityTypesConfigInfoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'activityConfigTypes': !(0, runtime_1.exists)(json, 'activityConfigTypes') ? undefined : (0, ActivityConfigListType_1.ActivityConfigListTypeFromJSON)(json['activityConfigTypes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'activityConfigTypes': !(0, runtime_1.exists)(json, 'activityConfigTypes') ? undefined : (json['activityConfigTypes'].map(ActivityConfigTypeDetailType_1.ActivityConfigTypeDetailTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ActivityTypesConfigInfoFromJSONTyped = ActivityTypesConfigInfoFromJSONTyped;
@@ -49,9 +49,9 @@ function ActivityTypesConfigInfoToJSON(value) {
         return null;
     }
     return {
-        'activityConfigTypes': (0, ActivityConfigListType_1.ActivityConfigListTypeToJSON)(value.activityConfigTypes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'activityConfigTypes': value.activityConfigTypes === undefined ? undefined : (value.activityConfigTypes.map(ActivityConfigTypeDetailType_1.ActivityConfigTypeDetailTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ActivityTypesConfigInfoToJSON = ActivityTypesConfigInfoToJSON;

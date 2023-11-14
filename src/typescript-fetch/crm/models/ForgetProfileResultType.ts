@@ -19,12 +19,12 @@ import {
     AnonymizationStatusTypeFromJSONTyped,
     AnonymizationStatusTypeToJSON,
 } from './AnonymizationStatusType';
-import type { ForgetProfileFailureReasonListType } from './ForgetProfileFailureReasonListType';
+import type { ForgetProfileFailureReasonType } from './ForgetProfileFailureReasonType';
 import {
-    ForgetProfileFailureReasonListTypeFromJSON,
-    ForgetProfileFailureReasonListTypeFromJSONTyped,
-    ForgetProfileFailureReasonListTypeToJSON,
-} from './ForgetProfileFailureReasonListType';
+    ForgetProfileFailureReasonTypeFromJSON,
+    ForgetProfileFailureReasonTypeFromJSONTyped,
+    ForgetProfileFailureReasonTypeToJSON,
+} from './ForgetProfileFailureReasonType';
 import type { ProfileId } from './ProfileId';
 import {
     ProfileIdFromJSON,
@@ -45,11 +45,11 @@ export interface ForgetProfileResultType {
      */
     canBeForgotten?: boolean;
     /**
-     * 
-     * @type {ForgetProfileFailureReasonListType}
+     * Reason describing why the profile is not eligible to be forgotten.
+     * @type {Array<ForgetProfileFailureReasonType>}
      * @memberof ForgetProfileResultType
      */
-    failureReasons?: ForgetProfileFailureReasonListType;
+    failureReasons?: Array<ForgetProfileFailureReasonType>;
     /**
      * 
      * @type {ProfileId}
@@ -84,7 +84,7 @@ export function ForgetProfileResultTypeFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'canBeForgotten': !exists(json, 'canBeForgotten') ? undefined : json['canBeForgotten'],
-        'failureReasons': !exists(json, 'failureReasons') ? undefined : ForgetProfileFailureReasonListTypeFromJSON(json['failureReasons']),
+        'failureReasons': !exists(json, 'failureReasons') ? undefined : ((json['failureReasons'] as Array<any>).map(ForgetProfileFailureReasonTypeFromJSON)),
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
         'status': !exists(json, 'status') ? undefined : AnonymizationStatusTypeFromJSON(json['status']),
     };
@@ -100,7 +100,7 @@ export function ForgetProfileResultTypeToJSON(value?: ForgetProfileResultType | 
     return {
         
         'canBeForgotten': value.canBeForgotten,
-        'failureReasons': ForgetProfileFailureReasonListTypeToJSON(value.failureReasons),
+        'failureReasons': value.failureReasons === undefined ? undefined : ((value.failureReasons as Array<any>).map(ForgetProfileFailureReasonTypeToJSON)),
         'profileId': ProfileIdToJSON(value.profileId),
         'status': AnonymizationStatusTypeToJSON(value.status),
     };

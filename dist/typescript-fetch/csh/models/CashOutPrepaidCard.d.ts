@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ActivatePrepaidCardCriteria } from './ActivatePrepaidCardCriteria';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request type for cashout prepaid card.
  * @export
@@ -24,11 +24,11 @@ export interface CashOutPrepaidCard {
      */
     criteria?: ActivatePrepaidCardCriteria;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CashOutPrepaidCard
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CashOutPrepaidCard interface.

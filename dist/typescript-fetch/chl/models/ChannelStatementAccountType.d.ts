@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ChannelStatementDetailsType } from './ChannelStatementDetailsType';
+import type { ChannelStatementDetailType } from './ChannelStatementDetailType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -31,11 +31,11 @@ export interface ChannelStatementAccountType {
      */
     beginDate?: Date;
     /**
-     *
-     * @type {ChannelStatementDetailsType}
+     * Provides detailed information regarding Channel Account statements.
+     * @type {Array<ChannelStatementDetailType>}
      * @memberof ChannelStatementAccountType
      */
-    channelAccountStatementDetails?: ChannelStatementDetailsType;
+    channelAccountStatementDetails?: Array<ChannelStatementDetailType>;
     /**
      *
      * @type {UniqueIDType}

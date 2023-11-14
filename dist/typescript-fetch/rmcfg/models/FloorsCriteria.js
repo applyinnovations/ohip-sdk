@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FloorsCriteriaToJSON = exports.FloorsCriteriaFromJSONTyped = exports.FloorsCriteriaFromJSON = exports.instanceOfFloorsCriteria = void 0;
 const runtime_1 = require("../runtime");
-const HotelFloorsType_1 = require("./HotelFloorsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HotelFloorType_1 = require("./HotelFloorType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FloorsCriteria interface.
  */
@@ -35,9 +35,9 @@ function FloorsCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'hotelFloors': !(0, runtime_1.exists)(json, 'hotelFloors') ? undefined : (0, HotelFloorsType_1.HotelFloorsTypeFromJSON)(json['hotelFloors']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'hotelFloors': !(0, runtime_1.exists)(json, 'hotelFloors') ? undefined : (json['hotelFloors'].map(HotelFloorType_1.HotelFloorTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FloorsCriteriaFromJSONTyped = FloorsCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function FloorsCriteriaToJSON(value) {
         return null;
     }
     return {
-        'hotelFloors': (0, HotelFloorsType_1.HotelFloorsTypeToJSON)(value.hotelFloors),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'hotelFloors': value.hotelFloors === undefined ? undefined : (value.hotelFloors.map(HotelFloorType_1.HotelFloorTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FloorsCriteriaToJSON = FloorsCriteriaToJSON;

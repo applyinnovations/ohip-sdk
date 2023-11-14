@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockLostBookingCodesCriteriaToJSON = exports.BlockLostBookingCodesCriteriaFromJSONTyped = exports.BlockLostBookingCodesCriteriaFromJSON = exports.instanceOfBlockLostBookingCodesCriteria = void 0;
 const runtime_1 = require("../runtime");
-const BlockLostBookingCodesType_1 = require("./BlockLostBookingCodesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const BlockLostBookingCodeType_1 = require("./BlockLostBookingCodeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BlockLostBookingCodesCriteria interface.
  */
@@ -35,9 +35,9 @@ function BlockLostBookingCodesCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blockLostBookingCodes': !(0, runtime_1.exists)(json, 'blockLostBookingCodes') ? undefined : (0, BlockLostBookingCodesType_1.BlockLostBookingCodesTypeFromJSON)(json['blockLostBookingCodes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'blockLostBookingCodes': !(0, runtime_1.exists)(json, 'blockLostBookingCodes') ? undefined : (json['blockLostBookingCodes'].map(BlockLostBookingCodeType_1.BlockLostBookingCodeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BlockLostBookingCodesCriteriaFromJSONTyped = BlockLostBookingCodesCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function BlockLostBookingCodesCriteriaToJSON(value) {
         return null;
     }
     return {
-        'blockLostBookingCodes': (0, BlockLostBookingCodesType_1.BlockLostBookingCodesTypeToJSON)(value.blockLostBookingCodes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'blockLostBookingCodes': value.blockLostBookingCodes === undefined ? undefined : (value.blockLostBookingCodes.map(BlockLostBookingCodeType_1.BlockLostBookingCodeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BlockLostBookingCodesCriteriaToJSON = BlockLostBookingCodesCriteriaToJSON;

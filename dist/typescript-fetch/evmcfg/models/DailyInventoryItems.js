@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DailyInventoryItemsToJSON = exports.DailyInventoryItemsFromJSONTyped = exports.DailyInventoryItemsFromJSON = exports.instanceOfDailyInventoryItems = void 0;
 const runtime_1 = require("../runtime");
-const DailyInventoryItemsType_1 = require("./DailyInventoryItemsType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const DailyInventoryItemType_1 = require("./DailyInventoryItemType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the DailyInventoryItems interface.
  */
@@ -35,9 +35,9 @@ function DailyInventoryItemsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'dailyItems': !(0, runtime_1.exists)(json, 'dailyItems') ? undefined : (0, DailyInventoryItemsType_1.DailyInventoryItemsTypeFromJSON)(json['dailyItems']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'dailyItems': !(0, runtime_1.exists)(json, 'dailyItems') ? undefined : (json['dailyItems'].map(DailyInventoryItemType_1.DailyInventoryItemTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.DailyInventoryItemsFromJSONTyped = DailyInventoryItemsFromJSONTyped;
@@ -49,9 +49,9 @@ function DailyInventoryItemsToJSON(value) {
         return null;
     }
     return {
-        'dailyItems': (0, DailyInventoryItemsType_1.DailyInventoryItemsTypeToJSON)(value.dailyItems),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'dailyItems': value.dailyItems === undefined ? undefined : (value.dailyItems.map(DailyInventoryItemType_1.DailyInventoryItemTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.DailyInventoryItemsToJSON = DailyInventoryItemsToJSON;

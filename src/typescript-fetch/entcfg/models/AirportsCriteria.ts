@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AirportsType } from './AirportsType';
+import type { AirportType } from './AirportType';
 import {
-    AirportsTypeFromJSON,
-    AirportsTypeFromJSONTyped,
-    AirportsTypeToJSON,
-} from './AirportsType';
-import type { Links } from './Links';
+    AirportTypeFromJSON,
+    AirportTypeFromJSONTyped,
+    AirportTypeToJSON,
+} from './AirportType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating new airports for hotels.
@@ -39,23 +39,23 @@ import {
  */
 export interface AirportsCriteria {
     /**
-     * 
-     * @type {AirportsType}
+     * Airport details for a hotel.
+     * @type {Array<AirportType>}
      * @memberof AirportsCriteria
      */
-    airports?: AirportsType;
+    airports?: Array<AirportType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AirportsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AirportsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function AirportsCriteriaFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'airports': !exists(json, 'airports') ? undefined : AirportsTypeFromJSON(json['airports']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'airports': !exists(json, 'airports') ? undefined : ((json['airports'] as Array<any>).map(AirportTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function AirportsCriteriaToJSON(value?: AirportsCriteria | null): any {
     }
     return {
         
-        'airports': AirportsTypeToJSON(value.airports),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'airports': value.airports === undefined ? undefined : ((value.airports as Array<any>).map(AirportTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

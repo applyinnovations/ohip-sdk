@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 import type { AddressType } from './AddressType';
-import type { ProfileIdList } from './ProfileIdList';
 import type { TurnawayDetailsType } from './TurnawayDetailsType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -44,11 +43,11 @@ export interface TurnawayType {
      */
     details?: TurnawayDetailsType;
     /**
-     *
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof TurnawayType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * Holds turn away code pertaining to reason of turning away prospect reservation.
      * @type {string}

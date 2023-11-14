@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.URLInfoTypeToJSON = exports.URLInfoTypeFromJSONTyped = exports.URLInfoTypeFromJSON = exports.instanceOfURLInfoType = void 0;
 const runtime_1 = require("../runtime");
 const URLType_1 = require("./URLType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the URLInfoType interface.
  */
@@ -38,7 +38,7 @@ function URLInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'idContext': !(0, runtime_1.exists)(json, 'idContext') ? undefined : json['idContext'],
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : json['type'],
         'url': !(0, runtime_1.exists)(json, 'url') ? undefined : (0, URLType_1.URLTypeFromJSON)(json['url']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.URLInfoTypeFromJSONTyped = URLInfoTypeFromJSONTyped;
@@ -54,7 +54,7 @@ function URLInfoTypeToJSON(value) {
         'idContext': value.idContext,
         'type': value.type,
         'url': (0, URLType_1.URLTypeToJSON)(value.url),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.URLInfoTypeToJSON = URLInfoTypeToJSON;

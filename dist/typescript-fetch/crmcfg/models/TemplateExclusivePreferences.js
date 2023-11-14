@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateExclusivePreferencesToJSON = exports.TemplateExclusivePreferencesFromJSONTyped = exports.TemplateExclusivePreferencesFromJSON = exports.instanceOfTemplateExclusivePreferences = void 0;
 const runtime_1 = require("../runtime");
-const ConfigTemplateExclusivePreferencesType_1 = require("./ConfigTemplateExclusivePreferencesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const ConfigExclusivePreferenceBaseType_1 = require("./ConfigExclusivePreferenceBaseType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TemplateExclusivePreferences interface.
  */
@@ -35,9 +35,9 @@ function TemplateExclusivePreferencesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'templateExclusivePreferences': !(0, runtime_1.exists)(json, 'templateExclusivePreferences') ? undefined : (0, ConfigTemplateExclusivePreferencesType_1.ConfigTemplateExclusivePreferencesTypeFromJSON)(json['templateExclusivePreferences']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'templateExclusivePreferences': !(0, runtime_1.exists)(json, 'templateExclusivePreferences') ? undefined : (json['templateExclusivePreferences'].map(ConfigExclusivePreferenceBaseType_1.ConfigExclusivePreferenceBaseTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TemplateExclusivePreferencesFromJSONTyped = TemplateExclusivePreferencesFromJSONTyped;
@@ -49,9 +49,9 @@ function TemplateExclusivePreferencesToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'templateExclusivePreferences': (0, ConfigTemplateExclusivePreferencesType_1.ConfigTemplateExclusivePreferencesTypeToJSON)(value.templateExclusivePreferences),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'templateExclusivePreferences': value.templateExclusivePreferences === undefined ? undefined : (value.templateExclusivePreferences.map(ConfigExclusivePreferenceBaseType_1.ConfigExclusivePreferenceBaseTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TemplateExclusivePreferencesToJSON = TemplateExclusivePreferencesToJSON;

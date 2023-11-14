@@ -11,8 +11,8 @@
  */
 import type { ChannelResvRSInfoType } from './ChannelResvRSInfoType';
 import type { HotelReservationsType } from './HotelReservationsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Create Reservation Response Type
  * @export
@@ -27,10 +27,10 @@ export interface CreateReservationType {
     channelInformation?: ChannelResvRSInfoType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreateReservationType
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {HotelReservationsType}
@@ -38,11 +38,11 @@ export interface CreateReservationType {
      */
     reservations?: HotelReservationsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateReservationType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreateReservationType interface.

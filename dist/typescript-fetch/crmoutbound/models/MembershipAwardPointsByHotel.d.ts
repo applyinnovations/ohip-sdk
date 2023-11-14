@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MembershipAwardPointsByHotelType } from './MembershipAwardPointsByHotelType';
+import type { InstanceLink } from './InstanceLink';
+import type { MembershipAwardPointByHotelType } from './MembershipAwardPointByHotelType';
 /**
  * Response object for fetching member award points by Hotel.
  * @export
@@ -18,17 +18,17 @@ import type { MembershipAwardPointsByHotelType } from './MembershipAwardPointsBy
  */
 export interface MembershipAwardPointsByHotel {
     /**
-     *
-     * @type {MembershipAwardPointsByHotelType}
+     * List of available award points information by Hotel.
+     * @type {Array<MembershipAwardPointByHotelType>}
      * @memberof MembershipAwardPointsByHotel
      */
-    membershipAwardPoints?: MembershipAwardPointsByHotelType;
+    membershipAwardPoints?: Array<MembershipAwardPointByHotelType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipAwardPointsByHotel
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the MembershipAwardPointsByHotel interface.

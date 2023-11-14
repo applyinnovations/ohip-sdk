@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AuthorizeCompRedemptionsRSCompRedemptionsType } from './AuthorizeCompRedemptionsRSCompRedemptionsType';
+import type { AuthorizeCompRedemptionsRSCompRedemptionType } from './AuthorizeCompRedemptionsRSCompRedemptionType';
 import {
-    AuthorizeCompRedemptionsRSCompRedemptionsTypeFromJSON,
-    AuthorizeCompRedemptionsRSCompRedemptionsTypeFromJSONTyped,
-    AuthorizeCompRedemptionsRSCompRedemptionsTypeToJSON,
-} from './AuthorizeCompRedemptionsRSCompRedemptionsType';
-import type { WarningsType } from './WarningsType';
+    AuthorizeCompRedemptionsRSCompRedemptionTypeFromJSON,
+    AuthorizeCompRedemptionsRSCompRedemptionTypeFromJSONTyped,
+    AuthorizeCompRedemptionsRSCompRedemptionTypeToJSON,
+} from './AuthorizeCompRedemptionsRSCompRedemptionType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response type of Complimentary Redemptions for approval.
@@ -33,17 +33,17 @@ import {
  */
 export interface AuthorizeCompRedemptionsRS {
     /**
-     * 
-     * @type {AuthorizeCompRedemptionsRSCompRedemptionsType}
+     * Collection of Complimentary Redemption codes and their respective Approval Code.
+     * @type {Array<AuthorizeCompRedemptionsRSCompRedemptionType>}
      * @memberof AuthorizeCompRedemptionsRS
      */
-    compRedemptions?: AuthorizeCompRedemptionsRSCompRedemptionsType;
+    compRedemptions?: Array<AuthorizeCompRedemptionsRSCompRedemptionType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AuthorizeCompRedemptionsRS
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function AuthorizeCompRedemptionsRSFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : AuthorizeCompRedemptionsRSCompRedemptionsTypeFromJSON(json['compRedemptions']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'compRedemptions': !exists(json, 'compRedemptions') ? undefined : ((json['compRedemptions'] as Array<any>).map(AuthorizeCompRedemptionsRSCompRedemptionTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function AuthorizeCompRedemptionsRSToJSON(value?: AuthorizeCompRedemption
     }
     return {
         
-        'compRedemptions': AuthorizeCompRedemptionsRSCompRedemptionsTypeToJSON(value.compRedemptions),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'compRedemptions': value.compRedemptions === undefined ? undefined : ((value.compRedemptions as Array<any>).map(AuthorizeCompRedemptionsRSCompRedemptionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

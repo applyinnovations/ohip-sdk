@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FiscalYearsType } from './FiscalYearsType';
+import type { FiscalYearType } from './FiscalYearType';
 import {
-    FiscalYearsTypeFromJSON,
-    FiscalYearsTypeFromJSONTyped,
-    FiscalYearsTypeToJSON,
-} from './FiscalYearsType';
-import type { Links } from './Links';
+    FiscalYearTypeFromJSON,
+    FiscalYearTypeFromJSONTyped,
+    FiscalYearTypeToJSON,
+} from './FiscalYearType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -39,23 +39,23 @@ import {
  */
 export interface FiscalYears {
     /**
-     * 
-     * @type {FiscalYearsType}
+     * List of Fiscal Years.
+     * @type {Array<FiscalYearType>}
      * @memberof FiscalYears
      */
-    fiscalYears?: FiscalYearsType;
+    fiscalYears?: Array<FiscalYearType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FiscalYears
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FiscalYears
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function FiscalYearsFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'fiscalYears': !exists(json, 'fiscalYears') ? undefined : FiscalYearsTypeFromJSON(json['fiscalYears']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'fiscalYears': !exists(json, 'fiscalYears') ? undefined : ((json['fiscalYears'] as Array<any>).map(FiscalYearTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function FiscalYearsToJSON(value?: FiscalYears | null): any {
     }
     return {
         
-        'fiscalYears': FiscalYearsTypeToJSON(value.fiscalYears),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'fiscalYears': value.fiscalYears === undefined ? undefined : ((value.fiscalYears as Array<any>).map(FiscalYearTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

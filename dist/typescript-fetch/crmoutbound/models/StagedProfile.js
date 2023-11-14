@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StagedProfileToJSON = exports.StagedProfileFromJSONTyped = exports.StagedProfileFromJSON = exports.instanceOfStagedProfile = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const StagedProfileChangeInstructionsType_1 = require("./StagedProfileChangeInstructionsType");
 const StagedProfileType_1 = require("./StagedProfileType");
 /**
@@ -37,7 +37,7 @@ function StagedProfileFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'stagedProfile': !(0, runtime_1.exists)(json, 'stagedProfile') ? undefined : (0, StagedProfileType_1.StagedProfileTypeFromJSON)(json['stagedProfile']),
         'changeInstructions': !(0, runtime_1.exists)(json, 'changeInstructions') ? undefined : (0, StagedProfileChangeInstructionsType_1.StagedProfileChangeInstructionsTypeFromJSON)(json['changeInstructions']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
     };
 }
 exports.StagedProfileFromJSONTyped = StagedProfileFromJSONTyped;
@@ -51,7 +51,7 @@ function StagedProfileToJSON(value) {
     return {
         'stagedProfile': (0, StagedProfileType_1.StagedProfileTypeToJSON)(value.stagedProfile),
         'changeInstructions': (0, StagedProfileChangeInstructionsType_1.StagedProfileChangeInstructionsTypeToJSON)(value.changeInstructions),
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
     };
 }
 exports.StagedProfileToJSON = StagedProfileToJSON;

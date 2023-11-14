@@ -16,9 +16,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationDailyRateDetailDetailsToJSON = exports.ReservationDailyRateDetailDetailsFromJSONTyped = exports.ReservationDailyRateDetailDetailsFromJSON = exports.instanceOfReservationDailyRateDetailDetails = void 0;
 const runtime_1 = require("../runtime");
 const DailyRateDetailType_1 = require("./DailyRateDetailType");
-const Links_1 = require("./Links");
-const ValidationsReturnType_1 = require("./ValidationsReturnType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const ValidationReturnType_1 = require("./ValidationReturnType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ReservationDailyRateDetailDetails interface.
  */
@@ -36,10 +36,10 @@ function ReservationDailyRateDetailDetailsFromJSONTyped(json, ignoreDiscriminato
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'newDetail': !(0, runtime_1.exists)(json, 'newDetail') ? undefined : (json['newDetail'].map(DailyRateDetailType_1.DailyRateDetailTypeFromJSON)),
-        'returnedValidations': !(0, runtime_1.exists)(json, 'returnedValidations') ? undefined : (0, ValidationsReturnType_1.ValidationsReturnTypeFromJSON)(json['returnedValidations']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'returnedValidations': !(0, runtime_1.exists)(json, 'returnedValidations') ? undefined : (json['returnedValidations'].map(ValidationReturnType_1.ValidationReturnTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ReservationDailyRateDetailDetailsFromJSONTyped = ReservationDailyRateDetailDetailsFromJSONTyped;
@@ -51,10 +51,10 @@ function ReservationDailyRateDetailDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'newDetail': value.newDetail === undefined ? undefined : (value.newDetail.map(DailyRateDetailType_1.DailyRateDetailTypeToJSON)),
-        'returnedValidations': (0, ValidationsReturnType_1.ValidationsReturnTypeToJSON)(value.returnedValidations),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'returnedValidations': value.returnedValidations === undefined ? undefined : (value.returnedValidations.map(ValidationReturnType_1.ValidationReturnTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ReservationDailyRateDetailDetailsToJSON = ReservationDailyRateDetailDetailsToJSON;

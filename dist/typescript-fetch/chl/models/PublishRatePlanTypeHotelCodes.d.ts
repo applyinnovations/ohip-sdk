@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 /**
  * The selected property Rate Codes for update.
  * @export
@@ -18,16 +17,16 @@ import type { CodeListType } from './CodeListType';
 export interface PublishRatePlanTypeHotelCodes {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PublishRatePlanTypeHotelCodes
      */
-    ratePlanCodes?: CodeListType;
+    ratePlanCodes?: Array<string>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof PublishRatePlanTypeHotelCodes
      */
-    roomTypes?: CodeListType;
+    roomTypes?: Array<string>;
 }
 /**
  * Check if a given object implements the PublishRatePlanTypeHotelCodes interface.

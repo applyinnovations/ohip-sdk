@@ -25,12 +25,12 @@ import {
     ReservationIdFromJSONTyped,
     ReservationIdToJSON,
 } from './ReservationId';
-import type { ReservationPaymentMethodsType } from './ReservationPaymentMethodsType';
+import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
 import {
-    ReservationPaymentMethodsTypeFromJSON,
-    ReservationPaymentMethodsTypeFromJSONTyped,
-    ReservationPaymentMethodsTypeToJSON,
-} from './ReservationPaymentMethodsType';
+    ReservationPaymentMethodTypeFromJSON,
+    ReservationPaymentMethodTypeFromJSONTyped,
+    ReservationPaymentMethodTypeToJSON,
+} from './ReservationPaymentMethodType';
 import type { StayDateInfoType } from './StayDateInfoType';
 import {
     StayDateInfoTypeFromJSON,
@@ -69,11 +69,11 @@ export interface ReservationForCCAuthType {
      */
     guestName?: string;
     /**
-     * 
-     * @type {ReservationPaymentMethodsType}
+     * Defines reservation payment methods.
+     * @type {Array<ReservationPaymentMethodType>}
      * @memberof ReservationForCCAuthType
      */
-    paymentMethods?: ReservationPaymentMethodsType;
+    paymentMethods?: Array<ReservationPaymentMethodType>;
     /**
      * 
      * @type {UniqueIDType}
@@ -133,7 +133,7 @@ export function ReservationForCCAuthTypeFromJSONTyped(json: any, ignoreDiscrimin
         
         'guestFirstName': !exists(json, 'guestFirstName') ? undefined : json['guestFirstName'],
         'guestName': !exists(json, 'guestName') ? undefined : json['guestName'],
-        'paymentMethods': !exists(json, 'paymentMethods') ? undefined : ReservationPaymentMethodsTypeFromJSON(json['paymentMethods']),
+        'paymentMethods': !exists(json, 'paymentMethods') ? undefined : ((json['paymentMethods'] as Array<any>).map(ReservationPaymentMethodTypeFromJSON)),
         'profileId': !exists(json, 'profileId') ? undefined : UniqueIDTypeFromJSON(json['profileId']),
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
         'reservationStatusInfo': !exists(json, 'reservationStatusInfo') ? undefined : HousekeepingRoomReservationStatusTypeFromJSON(json['reservationStatusInfo']),
@@ -154,7 +154,7 @@ export function ReservationForCCAuthTypeToJSON(value?: ReservationForCCAuthType 
         
         'guestFirstName': value.guestFirstName,
         'guestName': value.guestName,
-        'paymentMethods': ReservationPaymentMethodsTypeToJSON(value.paymentMethods),
+        'paymentMethods': value.paymentMethods === undefined ? undefined : ((value.paymentMethods as Array<any>).map(ReservationPaymentMethodTypeToJSON)),
         'profileId': UniqueIDTypeToJSON(value.profileId),
         'reservationId': ReservationIdToJSON(value.reservationId),
         'reservationStatusInfo': HousekeepingRoomReservationStatusTypeToJSON(value.reservationStatusInfo),

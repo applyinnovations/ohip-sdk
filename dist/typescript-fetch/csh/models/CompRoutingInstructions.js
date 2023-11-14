@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CompRoutingInstructionsToJSON = exports.CompRoutingInstructionsFromJSONTyped = exports.CompRoutingInstructionsFromJSON = exports.instanceOfCompRoutingInstructions = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const ResvRoutingInfoListType_1 = require("./ResvRoutingInfoListType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const ResvRoutingInfoType_1 = require("./ResvRoutingInfoType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CompRoutingInstructions interface.
  */
@@ -35,9 +35,9 @@ function CompRoutingInstructionsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'resvRoutingInstructions': !(0, runtime_1.exists)(json, 'resvRoutingInstructions') ? undefined : (0, ResvRoutingInfoListType_1.ResvRoutingInfoListTypeFromJSON)(json['resvRoutingInstructions']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'resvRoutingInstructions': !(0, runtime_1.exists)(json, 'resvRoutingInstructions') ? undefined : (json['resvRoutingInstructions'].map(ResvRoutingInfoType_1.ResvRoutingInfoTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CompRoutingInstructionsFromJSONTyped = CompRoutingInstructionsFromJSONTyped;
@@ -49,9 +49,9 @@ function CompRoutingInstructionsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'resvRoutingInstructions': (0, ResvRoutingInfoListType_1.ResvRoutingInfoListTypeToJSON)(value.resvRoutingInstructions),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'resvRoutingInstructions': value.resvRoutingInstructions === undefined ? undefined : (value.resvRoutingInstructions.map(ResvRoutingInfoType_1.ResvRoutingInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CompRoutingInstructionsToJSON = CompRoutingInstructionsToJSON;

@@ -16,7 +16,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DeleteSegmentCodeInfoTypeToJSON = exports.DeleteSegmentCodeInfoTypeFromJSONTyped = exports.DeleteSegmentCodeInfoTypeFromJSON = exports.instanceOfDeleteSegmentCodeInfoType = void 0;
 const runtime_1 = require("../runtime");
 const BudgetInfoDeleteType_1 = require("./BudgetInfoDeleteType");
-const CodeListType_1 = require("./CodeListType");
 const MonthNoType_1 = require("./MonthNoType");
 const SegmentNameType_1 = require("./SegmentNameType");
 /**
@@ -41,7 +40,7 @@ function DeleteSegmentCodeInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'deleteInformation': !(0, runtime_1.exists)(json, 'deleteInformation') ? undefined : (0, BudgetInfoDeleteType_1.BudgetInfoDeleteTypeFromJSON)(json['deleteInformation']),
         'forecast': !(0, runtime_1.exists)(json, 'forecast') ? undefined : json['forecast'],
         'segment': !(0, runtime_1.exists)(json, 'segment') ? undefined : (0, SegmentNameType_1.SegmentNameTypeFromJSON)(json['segment']),
-        'segmentCode': !(0, runtime_1.exists)(json, 'segmentCode') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['segmentCode']),
+        'segmentCode': !(0, runtime_1.exists)(json, 'segmentCode') ? undefined : json['segmentCode'],
         'segmentCodeGroup': !(0, runtime_1.exists)(json, 'segmentCodeGroup') ? undefined : json['segmentCodeGroup'],
     };
 }
@@ -59,7 +58,7 @@ function DeleteSegmentCodeInfoTypeToJSON(value) {
         'deleteInformation': (0, BudgetInfoDeleteType_1.BudgetInfoDeleteTypeToJSON)(value.deleteInformation),
         'forecast': value.forecast,
         'segment': (0, SegmentNameType_1.SegmentNameTypeToJSON)(value.segment),
-        'segmentCode': (0, CodeListType_1.CodeListTypeToJSON)(value.segmentCode),
+        'segmentCode': value.segmentCode,
         'segmentCodeGroup': value.segmentCodeGroup,
     };
 }

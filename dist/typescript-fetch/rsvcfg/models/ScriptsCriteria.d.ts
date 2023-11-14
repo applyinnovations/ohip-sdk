@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { ScriptsType } from './ScriptsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ScriptType } from './ScriptType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creating Scripts.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface ScriptsCriteria {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ScriptsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {ScriptsType}
+     * A Script associated to either Chain, CRO or Property and to a Language and/or Membership Type.
+     * @type {Array<ScriptType>}
      * @memberof ScriptsCriteria
      */
-    scripts?: ScriptsType;
+    scripts?: Array<ScriptType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ScriptsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ScriptsCriteria interface.

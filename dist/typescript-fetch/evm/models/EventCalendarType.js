@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EventCalendarTypeToJSON = exports.EventCalendarTypeFromJSONTyped = exports.EventCalendarTypeFromJSON = exports.instanceOfEventCalendarType = void 0;
 const runtime_1 = require("../runtime");
-const EventCodeDetailListType_1 = require("./EventCodeDetailListType");
+const EventCodeDetailType_1 = require("./EventCodeDetailType");
 const EventSpaceScheduleType_1 = require("./EventSpaceScheduleType");
 const SellMessagesType_1 = require("./SellMessagesType");
 /**
@@ -35,7 +35,7 @@ function EventCalendarTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'eventCodes': !(0, runtime_1.exists)(json, 'eventCodes') ? undefined : (0, EventCodeDetailListType_1.EventCodeDetailListTypeFromJSON)(json['eventCodes']),
+        'eventCodes': !(0, runtime_1.exists)(json, 'eventCodes') ? undefined : (json['eventCodes'].map(EventCodeDetailType_1.EventCodeDetailTypeFromJSON)),
         'eventSpace': !(0, runtime_1.exists)(json, 'eventSpace') ? undefined : (json['eventSpace'].map(EventSpaceScheduleType_1.EventSpaceScheduleTypeFromJSON)),
         'pageIndex': !(0, runtime_1.exists)(json, 'pageIndex') ? undefined : json['pageIndex'],
         'recordsPerPage': !(0, runtime_1.exists)(json, 'recordsPerPage') ? undefined : json['recordsPerPage'],
@@ -52,7 +52,7 @@ function EventCalendarTypeToJSON(value) {
         return null;
     }
     return {
-        'eventCodes': (0, EventCodeDetailListType_1.EventCodeDetailListTypeToJSON)(value.eventCodes),
+        'eventCodes': value.eventCodes === undefined ? undefined : (value.eventCodes.map(EventCodeDetailType_1.EventCodeDetailTypeToJSON)),
         'eventSpace': value.eventSpace === undefined ? undefined : (value.eventSpace.map(EventSpaceScheduleType_1.EventSpaceScheduleTypeToJSON)),
         'pageIndex': value.pageIndex,
         'recordsPerPage': value.recordsPerPage,

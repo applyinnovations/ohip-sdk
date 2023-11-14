@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { PostingsInfoType } from './PostingsInfoType';
 import {
     PostingsInfoTypeFromJSON,
     PostingsInfoTypeFromJSONTyped,
     PostingsInfoTypeToJSON,
 } from './PostingsInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response when creating a routing instruction. It may optionally return a list of postings which are eligible for transfer as per the new routing instruction in case of room routing instruction.
@@ -40,10 +40,10 @@ import {
 export interface CreatedRoutingInstructions {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CreatedRoutingInstructions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * 
      * @type {PostingsInfoType}
@@ -51,11 +51,11 @@ export interface CreatedRoutingInstructions {
      */
     postingsForRoomRouting?: PostingsInfoType;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreatedRoutingInstructions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CreatedRoutingInstructionsFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'postingsForRoomRouting': !exists(json, 'postingsForRoomRouting') ? undefined : PostingsInfoTypeFromJSON(json['postingsForRoomRouting']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CreatedRoutingInstructionsToJSON(value?: CreatedRoutingInstructi
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'postingsForRoomRouting': PostingsInfoTypeToJSON(value.postingsForRoomRouting),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

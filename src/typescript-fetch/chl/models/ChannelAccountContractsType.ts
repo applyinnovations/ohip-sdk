@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelAccountContractsInformationType } from './ChannelAccountContractsInformationType';
+import type { ChannelAccountContractInformationType } from './ChannelAccountContractInformationType';
 import {
-    ChannelAccountContractsInformationTypeFromJSON,
-    ChannelAccountContractsInformationTypeFromJSONTyped,
-    ChannelAccountContractsInformationTypeToJSON,
-} from './ChannelAccountContractsInformationType';
+    ChannelAccountContractInformationTypeFromJSON,
+    ChannelAccountContractInformationTypeFromJSONTyped,
+    ChannelAccountContractInformationTypeToJSON,
+} from './ChannelAccountContractInformationType';
 import type { ProfileId } from './ProfileId';
 import {
     ProfileIdFromJSON,
@@ -45,11 +45,11 @@ export interface ChannelAccountContractsType {
      */
     accountName?: string;
     /**
-     * 
-     * @type {ChannelAccountContractsInformationType}
+     * Channel account contract information object to hold details of channel account contract.
+     * @type {Array<ChannelAccountContractInformationType>}
      * @memberof ChannelAccountContractsType
      */
-    channelAccountContractsInformation?: ChannelAccountContractsInformationType;
+    channelAccountContractsInformation?: Array<ChannelAccountContractInformationType>;
     /**
      * 
      * @type {ProfileId}
@@ -79,7 +79,7 @@ export function ChannelAccountContractsTypeFromJSONTyped(json: any, ignoreDiscri
         
         'accountCode': !exists(json, 'accountCode') ? undefined : json['accountCode'],
         'accountName': !exists(json, 'accountName') ? undefined : json['accountName'],
-        'channelAccountContractsInformation': !exists(json, 'channelAccountContractsInformation') ? undefined : ChannelAccountContractsInformationTypeFromJSON(json['channelAccountContractsInformation']),
+        'channelAccountContractsInformation': !exists(json, 'channelAccountContractsInformation') ? undefined : ((json['channelAccountContractsInformation'] as Array<any>).map(ChannelAccountContractInformationTypeFromJSON)),
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
     };
 }
@@ -95,7 +95,7 @@ export function ChannelAccountContractsTypeToJSON(value?: ChannelAccountContract
         
         'accountCode': value.accountCode,
         'accountName': value.accountName,
-        'channelAccountContractsInformation': ChannelAccountContractsInformationTypeToJSON(value.channelAccountContractsInformation),
+        'channelAccountContractsInformation': value.channelAccountContractsInformation === undefined ? undefined : ((value.channelAccountContractsInformation as Array<any>).map(ChannelAccountContractInformationTypeToJSON)),
         'profileId': ProfileIdToJSON(value.profileId),
     };
 }

@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { HotelRateCategoryType } from './HotelRateCategoryType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for Creating a new Rate Category for a property.
  * @export
@@ -26,16 +26,16 @@ export interface RateCategoryCriteria {
     hotelRateCategory?: HotelRateCategoryType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RateCategoryCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RateCategoryCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RateCategoryCriteria interface.

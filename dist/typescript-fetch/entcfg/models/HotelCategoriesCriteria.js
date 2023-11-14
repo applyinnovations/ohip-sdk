@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelCategoriesCriteriaToJSON = exports.HotelCategoriesCriteriaFromJSONTyped = exports.HotelCategoriesCriteriaFromJSON = exports.instanceOfHotelCategoriesCriteria = void 0;
 const runtime_1 = require("../runtime");
-const HotelCategoriesType_1 = require("./HotelCategoriesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const HotelCategoryType_1 = require("./HotelCategoryType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the HotelCategoriesCriteria interface.
  */
@@ -35,9 +35,9 @@ function HotelCategoriesCriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'hotelCategories': !(0, runtime_1.exists)(json, 'hotelCategories') ? undefined : (0, HotelCategoriesType_1.HotelCategoriesTypeFromJSON)(json['hotelCategories']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'hotelCategories': !(0, runtime_1.exists)(json, 'hotelCategories') ? undefined : (json['hotelCategories'].map(HotelCategoryType_1.HotelCategoryTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.HotelCategoriesCriteriaFromJSONTyped = HotelCategoriesCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function HotelCategoriesCriteriaToJSON(value) {
         return null;
     }
     return {
-        'hotelCategories': (0, HotelCategoriesType_1.HotelCategoriesTypeToJSON)(value.hotelCategories),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'hotelCategories': value.hotelCategories === undefined ? undefined : (value.hotelCategories.map(HotelCategoryType_1.HotelCategoryTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.HotelCategoriesCriteriaToJSON = HotelCategoriesCriteriaToJSON;

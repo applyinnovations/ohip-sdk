@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomNumberConfigurationToJSON = exports.CustomNumberConfigurationFromJSONTyped = exports.CustomNumberConfigurationFromJSON = exports.instanceOfCustomNumberConfiguration = void 0;
 const runtime_1 = require("../runtime");
 const CustomNumberConfigurationType_1 = require("./CustomNumberConfigurationType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CustomNumberConfiguration interface.
  */
@@ -36,8 +36,8 @@ function CustomNumberConfigurationFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'customNumberConfiguration': !(0, runtime_1.exists)(json, 'customNumberConfiguration') ? undefined : (0, CustomNumberConfigurationType_1.CustomNumberConfigurationTypeFromJSON)(json['customNumberConfiguration']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CustomNumberConfigurationFromJSONTyped = CustomNumberConfigurationFromJSONTyped;
@@ -50,8 +50,8 @@ function CustomNumberConfigurationToJSON(value) {
     }
     return {
         'customNumberConfiguration': (0, CustomNumberConfigurationType_1.CustomNumberConfigurationTypeToJSON)(value.customNumberConfiguration),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CustomNumberConfigurationToJSON = CustomNumberConfigurationToJSON;

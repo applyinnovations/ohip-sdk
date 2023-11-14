@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateCancellationPolicyCriteriaToJSON = exports.TemplateCancellationPolicyCriteriaFromJSONTyped = exports.TemplateCancellationPolicyCriteriaFromJSON = exports.instanceOfTemplateCancellationPolicyCriteria = void 0;
 const runtime_1 = require("../runtime");
 const ConfigCancelPenaltyType_1 = require("./ConfigCancelPenaltyType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TemplateCancellationPolicyCriteria interface.
  */
@@ -35,9 +35,9 @@ function TemplateCancellationPolicyCriteriaFromJSONTyped(json, ignoreDiscriminat
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'templateCancelPenalty': !(0, runtime_1.exists)(json, 'templateCancelPenalty') ? undefined : (0, ConfigCancelPenaltyType_1.ConfigCancelPenaltyTypeFromJSON)(json['templateCancelPenalty']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TemplateCancellationPolicyCriteriaFromJSONTyped = TemplateCancellationPolicyCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function TemplateCancellationPolicyCriteriaToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'templateCancelPenalty': (0, ConfigCancelPenaltyType_1.ConfigCancelPenaltyTypeToJSON)(value.templateCancelPenalty),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TemplateCancellationPolicyCriteriaToJSON = TemplateCancellationPolicyCriteriaToJSON;

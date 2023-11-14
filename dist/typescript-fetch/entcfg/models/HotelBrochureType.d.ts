@@ -9,11 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AlternateHotelsType } from './AlternateHotelsType';
-import type { DirectionsType } from './DirectionsType';
-import type { GeneralNotesType } from './GeneralNotesType';
-import type { HotelAirportsType } from './HotelAirportsType';
-import type { HotelAttractionsType } from './HotelAttractionsType';
+import type { AlternateHotelType } from './AlternateHotelType';
+import type { CommentInfoType } from './CommentInfoType';
+import type { DirectionType } from './DirectionType';
+import type { GeneralNoteType } from './GeneralNoteType';
+import type { HotelAirportType } from './HotelAirportType';
+import type { HotelAttractionType } from './HotelAttractionType';
 import type { HotelBrochureTypeAccommodationDetails } from './HotelBrochureTypeAccommodationDetails';
 import type { HotelBrochureTypeAddress } from './HotelBrochureTypeAddress';
 import type { HotelBrochureTypeCommunication } from './HotelBrochureTypeCommunication';
@@ -21,17 +22,16 @@ import type { HotelBrochureTypeGeneralInformation } from './HotelBrochureTypeGen
 import type { HotelBrochureTypePrimaryDetails } from './HotelBrochureTypePrimaryDetails';
 import type { HotelBrochureTypePropertyControls } from './HotelBrochureTypePropertyControls';
 import type { HotelConferenceFacilitiesType } from './HotelConferenceFacilitiesType';
-import type { HotelContactsType } from './HotelContactsType';
+import type { HotelContactType } from './HotelContactType';
 import type { HotelCorporateInformationsType } from './HotelCorporateInformationsType';
 import type { HotelEventSpacesType } from './HotelEventSpacesType';
-import type { HotelFeaturesType } from './HotelFeaturesType';
-import type { HotelNotesType } from './HotelNotesType';
-import type { HotelPackagesType } from './HotelPackagesType';
-import type { HotelRateRangesType } from './HotelRateRangesType';
-import type { HotelRestaurantsType } from './HotelRestaurantsType';
-import type { HotelTransportationsType } from './HotelTransportationsType';
-import type { HotelUserDefinedFieldsType } from './HotelUserDefinedFieldsType';
-import type { MeetingRoomsType } from './MeetingRoomsType';
+import type { HotelFeatureType } from './HotelFeatureType';
+import type { HotelPackageType } from './HotelPackageType';
+import type { HotelRateRangeType } from './HotelRateRangeType';
+import type { HotelRestaurantType } from './HotelRestaurantType';
+import type { HotelTransportationType } from './HotelTransportationType';
+import type { HotelUserDefinedFieldType } from './HotelUserDefinedFieldType';
+import type { MeetingRoomType } from './MeetingRoomType';
 /**
  * Contains the basic configuration information about a Hotel.
  * @export
@@ -52,16 +52,16 @@ export interface HotelBrochureType {
     address?: HotelBrochureTypeAddress;
     /**
      *
-     * @type {AlternateHotelsType}
+     * @type {Array<AlternateHotelType>}
      * @memberof HotelBrochureType
      */
-    alternateHotels?: AlternateHotelsType;
+    alternateHotels?: Array<AlternateHotelType>;
     /**
      *
-     * @type {HotelAttractionsType}
+     * @type {Array<HotelAttractionType>}
      * @memberof HotelBrochureType
      */
-    attractions?: HotelAttractionsType;
+    attractions?: Array<HotelAttractionType>;
     /**
      *
      * @type {string}
@@ -93,11 +93,11 @@ export interface HotelBrochureType {
      */
     currentTime?: string;
     /**
-     *
-     * @type {DirectionsType}
+     * Collection of direction details to get into Hotel.
+     * @type {Array<DirectionType>}
      * @memberof HotelBrochureType
      */
-    directions?: DirectionsType;
+    directions?: Array<DirectionType>;
     /**
      *
      * @type {HotelBrochureTypeGeneralInformation}
@@ -105,23 +105,23 @@ export interface HotelBrochureType {
      */
     generalInformation?: HotelBrochureTypeGeneralInformation;
     /**
-     *
-     * @type {GeneralNotesType}
+     * Collection of general notes about the Hotel.
+     * @type {Array<GeneralNoteType>}
      * @memberof HotelBrochureType
      */
-    generalNotes?: GeneralNotesType;
+    generalNotes?: Array<GeneralNoteType>;
+    /**
+     * Collection of Airport details of the Hotel
+     * @type {Array<HotelAirportType>}
+     * @memberof HotelBrochureType
+     */
+    hotelAirports?: Array<HotelAirportType>;
     /**
      *
-     * @type {HotelAirportsType}
+     * @type {Array<HotelAttractionType>}
      * @memberof HotelBrochureType
      */
-    hotelAirports?: HotelAirportsType;
-    /**
-     *
-     * @type {HotelAttractionsType}
-     * @memberof HotelBrochureType
-     */
-    hotelAttractions?: HotelAttractionsType;
+    hotelAttractions?: Array<HotelAttractionType>;
     /**
      * The IATA city code; for example DCA, ORD.
      * @type {string}
@@ -141,11 +141,11 @@ export interface HotelBrochureType {
      */
     hotelConferenceFacilities?: HotelConferenceFacilitiesType;
     /**
-     *
-     * @type {HotelContactsType}
+     * Lists of contacts of the hotel.
+     * @type {Array<HotelContactType>}
      * @memberof HotelBrochureType
      */
-    hotelContacts?: HotelContactsType;
+    hotelContacts?: Array<HotelContactType>;
     /**
      *
      * @type {HotelCorporateInformationsType}
@@ -159,11 +159,11 @@ export interface HotelBrochureType {
      */
     hotelEventSpaces?: HotelEventSpacesType;
     /**
-     *
-     * @type {HotelFeaturesType}
+     * Collection of Features in the Hotel
+     * @type {Array<HotelFeatureType>}
      * @memberof HotelBrochureType
      */
-    hotelFeatures?: HotelFeaturesType;
+    hotelFeatures?: Array<HotelFeatureType>;
     /**
      * The code that uniquely identifies a single hotel property. The hotel code is decided between vendors.
      * @type {string}
@@ -172,10 +172,10 @@ export interface HotelBrochureType {
     hotelId?: string;
     /**
      *
-     * @type {HotelUserDefinedFieldsType}
+     * @type {Array<HotelUserDefinedFieldType>}
      * @memberof HotelBrochureType
      */
-    hotelMiscellaneousInformation?: HotelUserDefinedFieldsType;
+    hotelMiscellaneousInformation?: Array<HotelUserDefinedFieldType>;
     /**
      * A text field used to communicate the proper name of the hotel.
      * @type {string}
@@ -183,41 +183,41 @@ export interface HotelBrochureType {
      */
     hotelName?: string;
     /**
-     *
-     * @type {HotelNotesType}
+     * List of Notes of the hotel.
+     * @type {Array<CommentInfoType>}
      * @memberof HotelBrochureType
      */
-    hotelNotes?: HotelNotesType;
+    hotelNotes?: Array<CommentInfoType>;
     /**
      *
-     * @type {HotelPackagesType}
+     * @type {Array<HotelPackageType>}
      * @memberof HotelBrochureType
      */
-    hotelPackages?: HotelPackagesType;
+    hotelPackages?: Array<HotelPackageType>;
+    /**
+     * Lists of rate ranges of the hotel.
+     * @type {Array<HotelRateRangeType>}
+     * @memberof HotelBrochureType
+     */
+    hotelRateRanges?: Array<HotelRateRangeType>;
     /**
      *
-     * @type {HotelRateRangesType}
+     * @type {Array<HotelRestaurantType>}
      * @memberof HotelBrochureType
      */
-    hotelRateRanges?: HotelRateRangesType;
+    hotelRestaurants?: Array<HotelRestaurantType>;
     /**
      *
-     * @type {HotelRestaurantsType}
+     * @type {Array<HotelTransportationType>}
      * @memberof HotelBrochureType
      */
-    hotelRestaurants?: HotelRestaurantsType;
+    hotelTransportations?: Array<HotelTransportationType>;
     /**
-     *
-     * @type {HotelTransportationsType}
+     * List of meeting rooms of the hotel.
+     * @type {Array<MeetingRoomType>}
      * @memberof HotelBrochureType
      */
-    hotelTransportations?: HotelTransportationsType;
-    /**
-     *
-     * @type {MeetingRoomsType}
-     * @memberof HotelBrochureType
-     */
-    meetingRooms?: MeetingRoomsType;
+    meetingRooms?: Array<MeetingRoomType>;
     /**
      *
      * @type {HotelBrochureTypePrimaryDetails}

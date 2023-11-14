@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MarketGroupType } from './MarketGroupType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response for fetch Market Groups.
  * @export
@@ -38,10 +38,10 @@ export interface MarketGroupsDetails {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MarketGroupsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Collection of Market Groups.
      * @type {Array<MarketGroupType>}
@@ -67,11 +67,11 @@ export interface MarketGroupsDetails {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MarketGroupsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MarketGroupsDetails interface.

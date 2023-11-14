@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthorizerGroupsCriteriaTypeToJSON = exports.AuthorizerGroupsCriteriaTypeFromJSONTyped = exports.AuthorizerGroupsCriteriaTypeFromJSON = exports.instanceOfAuthorizerGroupsCriteriaType = void 0;
 const runtime_1 = require("../runtime");
-const AuthorizerGroupsType_1 = require("./AuthorizerGroupsType");
+const AuthorizerGroupType_1 = require("./AuthorizerGroupType");
 /**
  * Check if a given object implements the AuthorizerGroupsCriteriaType interface.
  */
@@ -33,7 +33,7 @@ function AuthorizerGroupsCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'authorizerGroups': !(0, runtime_1.exists)(json, 'authorizerGroups') ? undefined : (0, AuthorizerGroupsType_1.AuthorizerGroupsTypeFromJSON)(json['authorizerGroups']),
+        'authorizerGroups': !(0, runtime_1.exists)(json, 'authorizerGroups') ? undefined : (json['authorizerGroups'].map(AuthorizerGroupType_1.AuthorizerGroupTypeFromJSON)),
         'updateAuthorizers': !(0, runtime_1.exists)(json, 'updateAuthorizers') ? undefined : json['updateAuthorizers'],
     };
 }
@@ -46,7 +46,7 @@ function AuthorizerGroupsCriteriaTypeToJSON(value) {
         return null;
     }
     return {
-        'authorizerGroups': (0, AuthorizerGroupsType_1.AuthorizerGroupsTypeToJSON)(value.authorizerGroups),
+        'authorizerGroups': value.authorizerGroups === undefined ? undefined : (value.authorizerGroups.map(AuthorizerGroupType_1.AuthorizerGroupTypeToJSON)),
         'updateAuthorizers': value.updateAuthorizers,
     };
 }

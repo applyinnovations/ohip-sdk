@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CopyCateringEventsProcessedInfoList } from './CopyCateringEventsProcessedInfoList';
+import type { CateringEventsProcessedInfoType } from './CateringEventsProcessedInfoType';
 import {
-    CopyCateringEventsProcessedInfoListFromJSON,
-    CopyCateringEventsProcessedInfoListFromJSONTyped,
-    CopyCateringEventsProcessedInfoListToJSON,
-} from './CopyCateringEventsProcessedInfoList';
-import type { Links } from './Links';
+    CateringEventsProcessedInfoTypeFromJSON,
+    CateringEventsProcessedInfoTypeFromJSONTyped,
+    CateringEventsProcessedInfoTypeToJSON,
+} from './CateringEventsProcessedInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Status/Info of the processed resource(s).
@@ -40,22 +40,22 @@ import {
 export interface QuickInsertResourceStatus {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof QuickInsertResourceStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {CopyCateringEventsProcessedInfoList}
+     * Status/Info of the processed events.
+     * @type {Array<CateringEventsProcessedInfoType>}
      * @memberof QuickInsertResourceStatus
      */
-    quickinsertResourcesProcessedInfo?: CopyCateringEventsProcessedInfoList;
+    quickinsertResourcesProcessedInfo?: Array<CateringEventsProcessedInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof QuickInsertResourceStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function QuickInsertResourceStatusFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'quickinsertResourcesProcessedInfo': !exists(json, 'quickinsertResourcesProcessedInfo') ? undefined : CopyCateringEventsProcessedInfoListFromJSON(json['quickinsertResourcesProcessedInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'quickinsertResourcesProcessedInfo': !exists(json, 'quickinsertResourcesProcessedInfo') ? undefined : ((json['quickinsertResourcesProcessedInfo'] as Array<any>).map(CateringEventsProcessedInfoTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function QuickInsertResourceStatusToJSON(value?: QuickInsertResourceStatu
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'quickinsertResourcesProcessedInfo': CopyCateringEventsProcessedInfoListToJSON(value.quickinsertResourcesProcessedInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'quickinsertResourcesProcessedInfo': value.quickinsertResourcesProcessedInfo === undefined ? undefined : ((value.quickinsertResourcesProcessedInfo as Array<any>).map(CateringEventsProcessedInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

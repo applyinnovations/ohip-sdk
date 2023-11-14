@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExportSchedulesConfigTypeToJSON = exports.ExportSchedulesConfigTypeFromJSONTyped = exports.ExportSchedulesConfigTypeFromJSON = exports.instanceOfExportSchedulesConfigType = void 0;
 const runtime_1 = require("../runtime");
-const ExportSchedulesType_1 = require("./ExportSchedulesType");
+const ExportScheduleType_1 = require("./ExportScheduleType");
 /**
  * Check if a given object implements the ExportSchedulesConfigType interface.
  */
@@ -33,7 +33,7 @@ function ExportSchedulesConfigTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'exportSchedules': !(0, runtime_1.exists)(json, 'exportSchedules') ? undefined : (0, ExportSchedulesType_1.ExportSchedulesTypeFromJSON)(json['exportSchedules']),
+        'exportSchedules': !(0, runtime_1.exists)(json, 'exportSchedules') ? undefined : (json['exportSchedules'].map(ExportScheduleType_1.ExportScheduleTypeFromJSON)),
         'timeZone': !(0, runtime_1.exists)(json, 'timeZone') ? undefined : json['timeZone'],
     };
 }
@@ -46,7 +46,7 @@ function ExportSchedulesConfigTypeToJSON(value) {
         return null;
     }
     return {
-        'exportSchedules': (0, ExportSchedulesType_1.ExportSchedulesTypeToJSON)(value.exportSchedules),
+        'exportSchedules': value.exportSchedules === undefined ? undefined : (value.exportSchedules.map(ExportScheduleType_1.ExportScheduleTypeToJSON)),
         'timeZone': value.timeZone,
     };
 }

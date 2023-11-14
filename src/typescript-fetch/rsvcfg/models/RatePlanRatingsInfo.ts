@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RatePlanRatingsInfoType } from './RatePlanRatingsInfoType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RatePlanRatingInfoType } from './RatePlanRatingInfoType';
 import {
-    RatePlanRatingsInfoTypeFromJSON,
-    RatePlanRatingsInfoTypeFromJSONTyped,
-    RatePlanRatingsInfoTypeToJSON,
-} from './RatePlanRatingsInfoType';
-import type { WarningsType } from './WarningsType';
+    RatePlanRatingInfoTypeFromJSON,
+    RatePlanRatingInfoTypeFromJSONTyped,
+    RatePlanRatingInfoTypeToJSON,
+} from './RatePlanRatingInfoType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for modifying rate plan codes and their rating details.
@@ -40,22 +40,22 @@ import {
 export interface RatePlanRatingsInfo {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RatePlanRatingsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {RatePlanRatingsInfoType}
+     * Collection of rate plan Codes and their ratings.
+     * @type {Array<RatePlanRatingInfoType>}
      * @memberof RatePlanRatingsInfo
      */
-    ratePlanRatingsInfo?: RatePlanRatingsInfoType;
+    ratePlanRatingsInfo?: Array<RatePlanRatingInfoType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RatePlanRatingsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function RatePlanRatingsInfoFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'ratePlanRatingsInfo': !exists(json, 'ratePlanRatingsInfo') ? undefined : RatePlanRatingsInfoTypeFromJSON(json['ratePlanRatingsInfo']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'ratePlanRatingsInfo': !exists(json, 'ratePlanRatingsInfo') ? undefined : ((json['ratePlanRatingsInfo'] as Array<any>).map(RatePlanRatingInfoTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function RatePlanRatingsInfoToJSON(value?: RatePlanRatingsInfo | null): a
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'ratePlanRatingsInfo': RatePlanRatingsInfoTypeToJSON(value.ratePlanRatingsInfo),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'ratePlanRatingsInfo': value.ratePlanRatingsInfo === undefined ? undefined : ((value.ratePlanRatingsInfo as Array<any>).map(RatePlanRatingInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -16,7 +16,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CollectingAgentTaxTypeToJSON = exports.CollectingAgentTaxTypeFromJSONTyped = exports.CollectingAgentTaxTypeFromJSON = exports.instanceOfCollectingAgentTaxType = void 0;
 const runtime_1 = require("../runtime");
 const CodeDescriptionType_1 = require("./CodeDescriptionType");
-const CodeListType_1 = require("./CodeListType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 /**
  * Check if a given object implements the CollectingAgentTaxType interface.
@@ -38,11 +37,11 @@ function CollectingAgentTaxTypeFromJSONTyped(json, ignoreDiscriminator) {
         'calculatedOnArrangementCodes': !(0, runtime_1.exists)(json, 'calculatedOnArrangementCodes') ? undefined : (json['calculatedOnArrangementCodes'].map(CodeDescriptionType_1.CodeDescriptionTypeFromJSON)),
         'calculatedOnTransactionCodes': !(0, runtime_1.exists)(json, 'calculatedOnTransactionCodes') ? undefined : (json['calculatedOnTransactionCodes'].map(CodeDescriptionType_1.CodeDescriptionTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'newTaxType': !(0, runtime_1.exists)(json, 'newTaxType') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['newTaxType']),
+        'newTaxType': !(0, runtime_1.exists)(json, 'newTaxType') ? undefined : json['newTaxType'],
         'percentage': !(0, runtime_1.exists)(json, 'percentage') ? undefined : json['percentage'],
         'taxCode': !(0, runtime_1.exists)(json, 'taxCode') ? undefined : json['taxCode'],
         'taxTransactionCode': !(0, runtime_1.exists)(json, 'taxTransactionCode') ? undefined : json['taxTransactionCode'],
-        'taxType': !(0, runtime_1.exists)(json, 'taxType') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['taxType']),
+        'taxType': !(0, runtime_1.exists)(json, 'taxType') ? undefined : json['taxType'],
         'taxVoid': !(0, runtime_1.exists)(json, 'taxVoid') ? undefined : json['taxVoid'],
         'triggerAmount': !(0, runtime_1.exists)(json, 'triggerAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['triggerAmount']),
     };
@@ -59,11 +58,11 @@ function CollectingAgentTaxTypeToJSON(value) {
         'calculatedOnArrangementCodes': value.calculatedOnArrangementCodes === undefined ? undefined : (value.calculatedOnArrangementCodes.map(CodeDescriptionType_1.CodeDescriptionTypeToJSON)),
         'calculatedOnTransactionCodes': value.calculatedOnTransactionCodes === undefined ? undefined : (value.calculatedOnTransactionCodes.map(CodeDescriptionType_1.CodeDescriptionTypeToJSON)),
         'hotelId': value.hotelId,
-        'newTaxType': (0, CodeListType_1.CodeListTypeToJSON)(value.newTaxType),
+        'newTaxType': value.newTaxType,
         'percentage': value.percentage,
         'taxCode': value.taxCode,
         'taxTransactionCode': value.taxTransactionCode,
-        'taxType': (0, CodeListType_1.CodeListTypeToJSON)(value.taxType),
+        'taxType': value.taxType,
         'taxVoid': value.taxVoid,
         'triggerAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.triggerAmount),
     };

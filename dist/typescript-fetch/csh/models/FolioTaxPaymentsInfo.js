@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FolioTaxPaymentsInfoToJSON = exports.FolioTaxPaymentsInfoFromJSONTyped = exports.FolioTaxPaymentsInfoFromJSON = exports.instanceOfFolioTaxPaymentsInfo = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const PaymentTaxInfoType_1 = require("./PaymentTaxInfoType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FolioTaxPaymentsInfo interface.
  */
@@ -35,9 +35,9 @@ function FolioTaxPaymentsInfoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'paymentTaxInfo': !(0, runtime_1.exists)(json, 'paymentTaxInfo') ? undefined : (0, PaymentTaxInfoType_1.PaymentTaxInfoTypeFromJSON)(json['paymentTaxInfo']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FolioTaxPaymentsInfoFromJSONTyped = FolioTaxPaymentsInfoFromJSONTyped;
@@ -49,9 +49,9 @@ function FolioTaxPaymentsInfoToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'paymentTaxInfo': (0, PaymentTaxInfoType_1.PaymentTaxInfoTypeToJSON)(value.paymentTaxInfo),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FolioTaxPaymentsInfoToJSON = FolioTaxPaymentsInfoToJSON;

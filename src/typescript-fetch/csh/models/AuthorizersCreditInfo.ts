@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AuthorizersCreditType } from './AuthorizersCreditType';
+import type { AuthorizerCreditType } from './AuthorizerCreditType';
 import {
-    AuthorizersCreditTypeFromJSON,
-    AuthorizersCreditTypeFromJSONTyped,
-    AuthorizersCreditTypeToJSON,
-} from './AuthorizersCreditType';
-import type { Links } from './Links';
+    AuthorizerCreditTypeFromJSON,
+    AuthorizerCreditTypeFromJSONTyped,
+    AuthorizerCreditTypeToJSON,
+} from './AuthorizerCreditType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Returns credit information of Comp Accounting Authorizers.
@@ -39,23 +39,23 @@ import {
  */
 export interface AuthorizersCreditInfo {
     /**
-     * 
-     * @type {AuthorizersCreditType}
+     * List of Comp Accounting Authorizers Credits
+     * @type {Array<AuthorizerCreditType>}
      * @memberof AuthorizersCreditInfo
      */
-    authorizersCreditType?: AuthorizersCreditType;
+    authorizersCreditType?: Array<AuthorizerCreditType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AuthorizersCreditInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AuthorizersCreditInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function AuthorizersCreditInfoFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'authorizersCreditType': !exists(json, 'authorizersCreditType') ? undefined : AuthorizersCreditTypeFromJSON(json['authorizersCreditType']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'authorizersCreditType': !exists(json, 'authorizersCreditType') ? undefined : ((json['authorizersCreditType'] as Array<any>).map(AuthorizerCreditTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function AuthorizersCreditInfoToJSON(value?: AuthorizersCreditInfo | null
     }
     return {
         
-        'authorizersCreditType': AuthorizersCreditTypeToJSON(value.authorizersCreditType),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'authorizersCreditType': value.authorizersCreditType === undefined ? undefined : ((value.authorizersCreditType as Array<any>).map(AuthorizerCreditTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

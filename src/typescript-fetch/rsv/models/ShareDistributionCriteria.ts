@@ -19,12 +19,12 @@ import {
     ShareDistributionInstructionTypeFromJSONTyped,
     ShareDistributionInstructionTypeToJSON,
 } from './ShareDistributionInstructionType';
-import type { ShareReservationsType } from './ShareReservationsType';
+import type { ShareReservationType } from './ShareReservationType';
 import {
-    ShareReservationsTypeFromJSON,
-    ShareReservationsTypeFromJSONTyped,
-    ShareReservationsTypeToJSON,
-} from './ShareReservationsType';
+    ShareReservationTypeFromJSON,
+    ShareReservationTypeFromJSONTyped,
+    ShareReservationTypeToJSON,
+} from './ShareReservationType';
 
 /**
  * Extended Reservation object to hold additional instructions along with the reservation. This should be used for updates on the reservation.
@@ -40,10 +40,10 @@ export interface ShareDistributionCriteria {
     distributionType?: ShareDistributionInstructionType;
     /**
      * 
-     * @type {ShareReservationsType}
+     * @type {Array<ShareReservationType>}
      * @memberof ShareDistributionCriteria
      */
-    shareReservations?: ShareReservationsType;
+    shareReservations?: Array<ShareReservationType>;
 }
 
 /**
@@ -66,7 +66,7 @@ export function ShareDistributionCriteriaFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'distributionType': !exists(json, 'distributionType') ? undefined : ShareDistributionInstructionTypeFromJSON(json['distributionType']),
-        'shareReservations': !exists(json, 'shareReservations') ? undefined : ShareReservationsTypeFromJSON(json['shareReservations']),
+        'shareReservations': !exists(json, 'shareReservations') ? undefined : ((json['shareReservations'] as Array<any>).map(ShareReservationTypeFromJSON)),
     };
 }
 
@@ -80,7 +80,7 @@ export function ShareDistributionCriteriaToJSON(value?: ShareDistributionCriteri
     return {
         
         'distributionType': ShareDistributionInstructionTypeToJSON(value.distributionType),
-        'shareReservations': ShareReservationsTypeToJSON(value.shareReservations),
+        'shareReservations': value.shareReservations === undefined ? undefined : ((value.shareReservations as Array<any>).map(ShareReservationTypeToJSON)),
     };
 }
 

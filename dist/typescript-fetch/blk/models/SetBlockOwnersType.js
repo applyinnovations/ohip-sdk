@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SetBlockOwnersTypeToJSON = exports.SetBlockOwnersTypeFromJSONTyped = exports.SetBlockOwnersTypeFromJSON = exports.instanceOfSetBlockOwnersType = void 0;
 const runtime_1 = require("../runtime");
-const BlockIdList_1 = require("./BlockIdList");
 const BlockOwnersType_1 = require("./BlockOwnersType");
 const BlockOwnershipType_1 = require("./BlockOwnershipType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the SetBlockOwnersType interface.
  */
@@ -35,7 +35,7 @@ function SetBlockOwnersTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (0, BlockIdList_1.BlockIdListFromJSON)(json['blockIdList']),
+        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'blockOwners': !(0, runtime_1.exists)(json, 'blockOwners') ? undefined : (0, BlockOwnersType_1.BlockOwnersTypeFromJSON)(json['blockOwners']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'ownership': !(0, runtime_1.exists)(json, 'ownership') ? undefined : (0, BlockOwnershipType_1.BlockOwnershipTypeFromJSON)(json['ownership']),
@@ -50,7 +50,7 @@ function SetBlockOwnersTypeToJSON(value) {
         return null;
     }
     return {
-        'blockIdList': (0, BlockIdList_1.BlockIdListToJSON)(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'blockOwners': (0, BlockOwnersType_1.BlockOwnersTypeToJSON)(value.blockOwners),
         'hotelId': value.hotelId,
         'ownership': (0, BlockOwnershipType_1.BlockOwnershipTypeToJSON)(value.ownership),

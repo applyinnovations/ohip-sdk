@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RoomKeysInfoListType } from './RoomKeysInfoListType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RoomKeyInfoType } from './RoomKeyInfoType';
+import type { WarningType } from './WarningType';
 /**
  * Response of fetch room keys operation.
  * @export
@@ -26,16 +26,16 @@ export interface RoomKeyInfo {
     incidentalLimit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RoomKeyInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RoomKeysInfoListType}
+     * Contains details of Room key.
+     * @type {Array<RoomKeyInfoType>}
      * @memberof RoomKeyInfo
      */
-    roomKeysInfoList?: RoomKeysInfoListType;
+    roomKeysInfoList?: Array<RoomKeyInfoType>;
     /**
      * Total Authorization on a reservation.
      * @type {number}
@@ -43,11 +43,11 @@ export interface RoomKeyInfo {
      */
     totalAuthorization?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RoomKeyInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RoomKeyInfo interface.

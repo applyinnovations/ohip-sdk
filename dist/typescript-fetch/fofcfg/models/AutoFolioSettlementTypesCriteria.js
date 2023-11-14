@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AutoFolioSettlementTypesCriteriaToJSON = exports.AutoFolioSettlementTypesCriteriaFromJSONTyped = exports.AutoFolioSettlementTypesCriteriaFromJSON = exports.instanceOfAutoFolioSettlementTypesCriteria = void 0;
 const runtime_1 = require("../runtime");
-const AutoFolioSettlementTypesType_1 = require("./AutoFolioSettlementTypesType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const AutoFolioSettlementTypeType_1 = require("./AutoFolioSettlementTypeType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the AutoFolioSettlementTypesCriteria interface.
  */
@@ -35,9 +35,9 @@ function AutoFolioSettlementTypesCriteriaFromJSONTyped(json, ignoreDiscriminator
         return json;
     }
     return {
-        'autoFolioSettlementTypes': !(0, runtime_1.exists)(json, 'autoFolioSettlementTypes') ? undefined : (0, AutoFolioSettlementTypesType_1.AutoFolioSettlementTypesTypeFromJSON)(json['autoFolioSettlementTypes']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'autoFolioSettlementTypes': !(0, runtime_1.exists)(json, 'autoFolioSettlementTypes') ? undefined : (json['autoFolioSettlementTypes'].map(AutoFolioSettlementTypeType_1.AutoFolioSettlementTypeTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.AutoFolioSettlementTypesCriteriaFromJSONTyped = AutoFolioSettlementTypesCriteriaFromJSONTyped;
@@ -49,9 +49,9 @@ function AutoFolioSettlementTypesCriteriaToJSON(value) {
         return null;
     }
     return {
-        'autoFolioSettlementTypes': (0, AutoFolioSettlementTypesType_1.AutoFolioSettlementTypesTypeToJSON)(value.autoFolioSettlementTypes),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'autoFolioSettlementTypes': value.autoFolioSettlementTypes === undefined ? undefined : (value.autoFolioSettlementTypes.map(AutoFolioSettlementTypeType_1.AutoFolioSettlementTypeTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.AutoFolioSettlementTypesCriteriaToJSON = AutoFolioSettlementTypesCriteriaToJSON;

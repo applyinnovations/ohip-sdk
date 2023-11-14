@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PublishRatePlanTypeChannelCodesToJSON = exports.PublishRatePlanTypeChannelCodesFromJSONTyped = exports.PublishRatePlanTypeChannelCodesFromJSON = exports.instanceOfPublishRatePlanTypeChannelCodes = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
 /**
  * Check if a given object implements the PublishRatePlanTypeChannelCodes interface.
  */
@@ -33,8 +32,8 @@ function PublishRatePlanTypeChannelCodesFromJSONTyped(json, ignoreDiscriminator)
         return json;
     }
     return {
-        'channelRatePlanCodes': !(0, runtime_1.exists)(json, 'channelRatePlanCodes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['channelRatePlanCodes']),
-        'channelRoomTypes': !(0, runtime_1.exists)(json, 'channelRoomTypes') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['channelRoomTypes']),
+        'channelRatePlanCodes': !(0, runtime_1.exists)(json, 'channelRatePlanCodes') ? undefined : json['channelRatePlanCodes'],
+        'channelRoomTypes': !(0, runtime_1.exists)(json, 'channelRoomTypes') ? undefined : json['channelRoomTypes'],
     };
 }
 exports.PublishRatePlanTypeChannelCodesFromJSONTyped = PublishRatePlanTypeChannelCodesFromJSONTyped;
@@ -46,8 +45,8 @@ function PublishRatePlanTypeChannelCodesToJSON(value) {
         return null;
     }
     return {
-        'channelRatePlanCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.channelRatePlanCodes),
-        'channelRoomTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.channelRoomTypes),
+        'channelRatePlanCodes': value.channelRatePlanCodes,
+        'channelRoomTypes': value.channelRoomTypes,
     };
 }
 exports.PublishRatePlanTypeChannelCodesToJSON = PublishRatePlanTypeChannelCodesToJSON;

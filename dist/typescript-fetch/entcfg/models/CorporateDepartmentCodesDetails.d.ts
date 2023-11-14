@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CorporateDepartmentCodesType } from './CorporateDepartmentCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CorporateDepartmentCodeType } from './CorporateDepartmentCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Corporate Department Codes.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CorporateDepartmentCodesDetails {
     /**
-     *
-     * @type {CorporateDepartmentCodesType}
+     * List of Corporate Department Codes.
+     * @type {Array<CorporateDepartmentCodeType>}
      * @memberof CorporateDepartmentCodesDetails
      */
-    corporateDepartmentCodes?: CorporateDepartmentCodesType;
+    corporateDepartmentCodes?: Array<CorporateDepartmentCodeType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CorporateDepartmentCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CorporateDepartmentCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CorporateDepartmentCodesDetails interface.

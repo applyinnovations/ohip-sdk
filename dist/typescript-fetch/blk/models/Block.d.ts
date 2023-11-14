@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { BlocksType } from './BlocksType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for creation of blocks. This object contains block details with unique identifiers for each block. The standard optional Opera Context element is also included.
  * @export
@@ -26,16 +26,16 @@ export interface Block {
     blocks?: BlocksType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Block
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Block
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Block interface.

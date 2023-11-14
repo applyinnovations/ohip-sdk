@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ReservationTransactionDiversionsType } from './ReservationTransactionDiversionsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ReservationTransactionDiversionType } from './ReservationTransactionDiversionType';
 import {
-    ReservationTransactionDiversionsTypeFromJSON,
-    ReservationTransactionDiversionsTypeFromJSONTyped,
-    ReservationTransactionDiversionsTypeToJSON,
-} from './ReservationTransactionDiversionsType';
-import type { WarningsType } from './WarningsType';
+    ReservationTransactionDiversionTypeFromJSON,
+    ReservationTransactionDiversionTypeFromJSONTyped,
+    ReservationTransactionDiversionTypeToJSON,
+} from './ReservationTransactionDiversionType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response to fetch the transaction diversion rules attached to a reservation.
@@ -40,22 +40,22 @@ import {
 export interface TransactionDiversions {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransactionDiversions
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {ReservationTransactionDiversionsType}
+     * List of Transaction Diversion rules.
+     * @type {Array<ReservationTransactionDiversionType>}
      * @memberof TransactionDiversions
      */
-    transactionDiversions?: ReservationTransactionDiversionsType;
+    transactionDiversions?: Array<ReservationTransactionDiversionType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransactionDiversions
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TransactionDiversionsFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'transactionDiversions': !exists(json, 'transactionDiversions') ? undefined : ReservationTransactionDiversionsTypeFromJSON(json['transactionDiversions']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'transactionDiversions': !exists(json, 'transactionDiversions') ? undefined : ((json['transactionDiversions'] as Array<any>).map(ReservationTransactionDiversionTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TransactionDiversionsToJSON(value?: TransactionDiversions | null
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'transactionDiversions': ReservationTransactionDiversionsTypeToJSON(value.transactionDiversions),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'transactionDiversions': value.transactionDiversions === undefined ? undefined : ((value.transactionDiversions as Array<any>).map(ReservationTransactionDiversionTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

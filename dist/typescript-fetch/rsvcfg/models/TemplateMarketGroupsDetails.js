@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateMarketGroupsDetailsToJSON = exports.TemplateMarketGroupsDetailsFromJSONTyped = exports.TemplateMarketGroupsDetailsFromJSON = exports.instanceOfTemplateMarketGroupsDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const TemplateMarketGroupType_1 = require("./TemplateMarketGroupType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TemplateMarketGroupsDetails interface.
  */
@@ -38,12 +38,12 @@ function TemplateMarketGroupsDetailsFromJSONTyped(json, ignoreDiscriminator) {
         'count': !(0, runtime_1.exists)(json, 'count') ? undefined : json['count'],
         'hasMore': !(0, runtime_1.exists)(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'offset': !(0, runtime_1.exists)(json, 'offset') ? undefined : json['offset'],
         'templateMarketGroups': !(0, runtime_1.exists)(json, 'templateMarketGroups') ? undefined : (json['templateMarketGroups'].map(TemplateMarketGroupType_1.TemplateMarketGroupTypeFromJSON)),
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !(0, runtime_1.exists)(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TemplateMarketGroupsDetailsFromJSONTyped = TemplateMarketGroupsDetailsFromJSONTyped;
@@ -58,12 +58,12 @@ function TemplateMarketGroupsDetailsToJSON(value) {
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'offset': value.offset,
         'templateMarketGroups': value.templateMarketGroups === undefined ? undefined : (value.templateMarketGroups.map(TemplateMarketGroupType_1.TemplateMarketGroupTypeToJSON)),
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TemplateMarketGroupsDetailsToJSON = TemplateMarketGroupsDetailsToJSON;

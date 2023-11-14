@@ -12,8 +12,6 @@
 import type { BlockId } from './BlockId';
 import type { CateringEventCopyInstructionType } from './CateringEventCopyInstructionType';
 import type { CopyStatusModeType } from './CopyStatusModeType';
-import type { DatesType } from './DatesType';
-import type { UniqueIDListType } from './UniqueIDListType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * Criteria to copy events
@@ -46,11 +44,11 @@ export interface CopyCateringEventsType {
      */
     copyStatusMode?: CopyStatusModeType;
     /**
-     *
-     * @type {DatesType}
+     * Specifies a single date.
+     * @type {Array<Date>}
      * @memberof CopyCateringEventsType
      */
-    copyToDates?: DatesType;
+    copyToDates?: Array<Date>;
     /**
      *
      * @type {UniqueIDType}
@@ -58,11 +56,11 @@ export interface CopyCateringEventsType {
      */
     copyToPackageId?: UniqueIDType;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CopyCateringEventsType
      */
-    eventIdList?: UniqueIDListType;
+    eventIdList?: Array<UniqueIDType>;
     /**
      * Hotel code where event will be copied.
      * @type {string}

@@ -21,8 +21,8 @@ const BlockOwnersType_1 = require("./BlockOwnersType");
 const BookingStatusType_1 = require("./BookingStatusType");
 const CustomFieldsType_1 = require("./CustomFieldsType");
 const HotelUseType_1 = require("./HotelUseType");
-const IndicatorsType_1 = require("./IndicatorsType");
-const SearchMatchesType_1 = require("./SearchMatchesType");
+const IndicatorType_1 = require("./IndicatorType");
+const SearchMatchType_1 = require("./SearchMatchType");
 /**
  * Check if a given object implements the BlockSummaryType interface.
  */
@@ -43,7 +43,7 @@ function BlockSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
         'actualRooms': !(0, runtime_1.exists)(json, 'actualRooms') ? undefined : json['actualRooms'],
         'blockClassification': !(0, runtime_1.exists)(json, 'blockClassification') ? undefined : (0, BlockClassificationType_1.BlockClassificationTypeFromJSON)(json['blockClassification']),
         'blockCode': !(0, runtime_1.exists)(json, 'blockCode') ? undefined : json['blockCode'],
-        'blockIndicators': !(0, runtime_1.exists)(json, 'blockIndicators') ? undefined : (0, IndicatorsType_1.IndicatorsTypeFromJSON)(json['blockIndicators']),
+        'blockIndicators': !(0, runtime_1.exists)(json, 'blockIndicators') ? undefined : (json['blockIndicators'].map(IndicatorType_1.IndicatorTypeFromJSON)),
         'blockName': !(0, runtime_1.exists)(json, 'blockName') ? undefined : json['blockName'],
         'blockStatus': !(0, runtime_1.exists)(json, 'blockStatus') ? undefined : (0, BookingStatusType_1.BookingStatusTypeFromJSON)(json['blockStatus']),
         'cateringAttendees': !(0, runtime_1.exists)(json, 'cateringAttendees') ? undefined : json['cateringAttendees'],
@@ -69,7 +69,7 @@ function BlockSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
         'rateCode': !(0, runtime_1.exists)(json, 'rateCode') ? undefined : json['rateCode'],
         'reservationType': !(0, runtime_1.exists)(json, 'reservationType') ? undefined : json['reservationType'],
         'rooms': !(0, runtime_1.exists)(json, 'rooms') ? undefined : json['rooms'],
-        'searchMatches': !(0, runtime_1.exists)(json, 'searchMatches') ? undefined : (0, SearchMatchesType_1.SearchMatchesTypeFromJSON)(json['searchMatches']),
+        'searchMatches': !(0, runtime_1.exists)(json, 'searchMatches') ? undefined : (json['searchMatches'].map(SearchMatchType_1.SearchMatchTypeFromJSON)),
         'shoulderEndDate': !(0, runtime_1.exists)(json, 'shoulderEndDate') ? undefined : (new Date(json['shoulderEndDate'])),
         'shoulderStartDate': !(0, runtime_1.exists)(json, 'shoulderStartDate') ? undefined : (new Date(json['shoulderStartDate'])),
         'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
@@ -91,7 +91,7 @@ function BlockSummaryTypeToJSON(value) {
         'actualRooms': value.actualRooms,
         'blockClassification': (0, BlockClassificationType_1.BlockClassificationTypeToJSON)(value.blockClassification),
         'blockCode': value.blockCode,
-        'blockIndicators': (0, IndicatorsType_1.IndicatorsTypeToJSON)(value.blockIndicators),
+        'blockIndicators': value.blockIndicators === undefined ? undefined : (value.blockIndicators.map(IndicatorType_1.IndicatorTypeToJSON)),
         'blockName': value.blockName,
         'blockStatus': (0, BookingStatusType_1.BookingStatusTypeToJSON)(value.blockStatus),
         'cateringAttendees': value.cateringAttendees,
@@ -117,7 +117,7 @@ function BlockSummaryTypeToJSON(value) {
         'rateCode': value.rateCode,
         'reservationType': value.reservationType,
         'rooms': value.rooms,
-        'searchMatches': (0, SearchMatchesType_1.SearchMatchesTypeToJSON)(value.searchMatches),
+        'searchMatches': value.searchMatches === undefined ? undefined : (value.searchMatches.map(SearchMatchType_1.SearchMatchTypeToJSON)),
         'shoulderEndDate': value.shoulderEndDate === undefined ? undefined : (value.shoulderEndDate.toISOString().substring(0, 10)),
         'shoulderStartDate': value.shoulderStartDate === undefined ? undefined : (value.shoulderStartDate.toISOString().substring(0, 10)),
         'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),

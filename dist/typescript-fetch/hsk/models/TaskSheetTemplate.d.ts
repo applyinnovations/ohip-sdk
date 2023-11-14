@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { AutoGenerateTaskSheetsCriteriaType } from './AutoGenerateTaskSheetsCriteriaType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for retrieving a task sheet template. It contains all the information of the previously generated tasksheet.
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface TaskSheetTemplate {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TaskSheetTemplate
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {AutoGenerateTaskSheetsCriteriaType}
@@ -31,11 +31,11 @@ export interface TaskSheetTemplate {
      */
     taskSheetTemplateDetails?: AutoGenerateTaskSheetsCriteriaType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TaskSheetTemplate
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TaskSheetTemplate interface.

@@ -9,12 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { AdjustmentDetailType } from './AdjustmentDetailType';
 import type { AdvancedBaseRateOffsetType } from './AdvancedBaseRateOffsetType';
 import type { OccupantThresholdPricingType } from './OccupantThresholdPricingType';
 import type { RateAmountBoundariesType } from './RateAmountBoundariesType';
 import type { RatePackagesType } from './RatePackagesType';
 import type { RatePlanScheduleClassificationsType } from './RatePlanScheduleClassificationsType';
-import type { ScheduleAdjustmentDetailsType } from './ScheduleAdjustmentDetailsType';
 import type { ScheduleRateAmountsType } from './ScheduleRateAmountsType';
 /**
  *
@@ -23,11 +23,11 @@ import type { ScheduleRateAmountsType } from './ScheduleRateAmountsType';
  */
 export interface BaseRatePlanScheduleDetailType {
     /**
-     *
-     * @type {ScheduleAdjustmentDetailsType}
+     * The list of adjustment codes for the rate plan schedule.
+     * @type {Array<AdjustmentDetailType>}
      * @memberof BaseRatePlanScheduleDetailType
      */
-    adjustmentDetails?: ScheduleAdjustmentDetailsType;
+    adjustmentDetails?: Array<AdjustmentDetailType>;
     /**
      *
      * @type {AdvancedBaseRateOffsetType}

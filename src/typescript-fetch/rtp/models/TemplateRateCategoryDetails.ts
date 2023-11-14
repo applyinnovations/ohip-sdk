@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TemplateRateCategoriesType } from './TemplateRateCategoriesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RateCategoryType } from './RateCategoryType';
 import {
-    TemplateRateCategoriesTypeFromJSON,
-    TemplateRateCategoriesTypeFromJSONTyped,
-    TemplateRateCategoriesTypeToJSON,
-} from './TemplateRateCategoriesType';
-import type { WarningsType } from './WarningsType';
+    RateCategoryTypeFromJSON,
+    RateCategoryTypeFromJSONTyped,
+    RateCategoryTypeToJSON,
+} from './RateCategoryType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface TemplateRateCategoryDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateRateCategoryDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Collection of template rate categories.
-     * @type {Array<TemplateRateCategoriesType>}
+     * @type {Array<Array<RateCategoryType>>}
      * @memberof TemplateRateCategoryDetails
      */
-    templateRateCategories?: Array<TemplateRateCategoriesType>;
+    templateRateCategories?: Array<Array<RateCategoryType>>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateRateCategoryDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TemplateRateCategoryDetailsFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'templateRateCategories': !exists(json, 'templateRateCategories') ? undefined : ((json['templateRateCategories'] as Array<any>).map(TemplateRateCategoriesTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'templateRateCategories': !exists(json, 'templateRateCategories') ? undefined : json['templateRateCategories'],
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TemplateRateCategoryDetailsToJSON(value?: TemplateRateCategoryDe
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'templateRateCategories': value.templateRateCategories === undefined ? undefined : ((value.templateRateCategories as Array<any>).map(TemplateRateCategoriesTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'templateRateCategories': value.templateRateCategories,
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

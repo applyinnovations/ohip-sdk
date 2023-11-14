@@ -9,8 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
-import type { ConfigOccupancyLevelsType } from './ConfigOccupancyLevelsType';
+import type { ConfigOccupancyLevelType } from './ConfigOccupancyLevelType';
 import type { FormulaType } from './FormulaType';
 import type { RoundingRuleType } from './RoundingRuleType';
 import type { TrxInfoType } from './TrxInfoType';
@@ -22,10 +21,10 @@ import type { TrxInfoType } from './TrxInfoType';
 export interface ConfigUpsellRuleType {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigUpsellRuleType
      */
-    channels?: CodeListType;
+    channels?: Array<string>;
     /**
      * The currency code used in the upsell rule.
      * @type {string}
@@ -70,40 +69,40 @@ export interface ConfigUpsellRuleType {
     hotelId?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigUpsellRuleType
      */
-    marketCodes?: CodeListType;
+    marketCodes?: Array<string>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigUpsellRuleType
      */
-    membershipTypes?: CodeListType;
+    membershipTypes?: Array<string>;
+    /**
+     * This type holds a collection of upsell amounts by occupancy levels.
+     * @type {Array<ConfigOccupancyLevelType>}
+     * @memberof ConfigUpsellRuleType
+     */
+    occupancyLevelsType?: Array<ConfigOccupancyLevelType>;
     /**
      *
-     * @type {ConfigOccupancyLevelsType}
+     * @type {Array<string>}
      * @memberof ConfigUpsellRuleType
      */
-    occupancyLevelsType?: ConfigOccupancyLevelsType;
+    rateCategories?: Array<string>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigUpsellRuleType
      */
-    rateCategories?: CodeListType;
+    rateCodes?: Array<string>;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigUpsellRuleType
      */
-    rateCodes?: CodeListType;
-    /**
-     *
-     * @type {CodeListType}
-     * @memberof ConfigUpsellRuleType
-     */
-    reservationTypes?: CodeListType;
+    reservationTypes?: Array<string>;
     /**
      *
      * @type {RoundingRuleType}

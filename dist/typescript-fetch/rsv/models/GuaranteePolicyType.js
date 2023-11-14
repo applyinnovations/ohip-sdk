@@ -18,7 +18,6 @@ const runtime_1 = require("../runtime");
 const GuaranteePolicyTypeCancelPenalty_1 = require("./GuaranteePolicyTypeCancelPenalty");
 const GuaranteePolicyTypeDepositPolicy_1 = require("./GuaranteePolicyTypeDepositPolicy");
 const GuaranteeRequirementsType_1 = require("./GuaranteeRequirementsType");
-const PaymentTypesType_1 = require("./PaymentTypesType");
 const TranslationTextType80_1 = require("./TranslationTextType80");
 /**
  * Check if a given object implements the GuaranteePolicyType interface.
@@ -45,7 +44,7 @@ function GuaranteePolicyTypeFromJSONTyped(json, ignoreDiscriminator) {
         'lateArrival': !(0, runtime_1.exists)(json, 'lateArrival') ? undefined : json['lateArrival'],
         'onHold': !(0, runtime_1.exists)(json, 'onHold') ? undefined : json['onHold'],
         'orderSequence': !(0, runtime_1.exists)(json, 'orderSequence') ? undefined : json['orderSequence'],
-        'paymentTypes': !(0, runtime_1.exists)(json, 'paymentTypes') ? undefined : (0, PaymentTypesType_1.PaymentTypesTypeFromJSON)(json['paymentTypes']),
+        'paymentTypes': !(0, runtime_1.exists)(json, 'paymentTypes') ? undefined : json['paymentTypes'],
         'requirements': !(0, runtime_1.exists)(json, 'requirements') ? undefined : (0, GuaranteeRequirementsType_1.GuaranteeRequirementsTypeFromJSON)(json['requirements']),
         'reserveInventory': !(0, runtime_1.exists)(json, 'reserveInventory') ? undefined : json['reserveInventory'],
         'shortDescription': !(0, runtime_1.exists)(json, 'shortDescription') ? undefined : (0, TranslationTextType80_1.TranslationTextType80FromJSON)(json['shortDescription']),
@@ -68,7 +67,7 @@ function GuaranteePolicyTypeToJSON(value) {
         'lateArrival': value.lateArrival,
         'onHold': value.onHold,
         'orderSequence': value.orderSequence,
-        'paymentTypes': (0, PaymentTypesType_1.PaymentTypesTypeToJSON)(value.paymentTypes),
+        'paymentTypes': value.paymentTypes,
         'requirements': (0, GuaranteeRequirementsType_1.GuaranteeRequirementsTypeToJSON)(value.requirements),
         'reserveInventory': value.reserveInventory,
         'shortDescription': (0, TranslationTextType80_1.TranslationTextType80ToJSON)(value.shortDescription),

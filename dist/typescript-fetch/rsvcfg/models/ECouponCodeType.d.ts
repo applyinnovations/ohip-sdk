@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
 /**
  * eCoupon code detailed information.
  * @export
@@ -60,10 +59,10 @@ export interface ECouponCodeType {
     postingRoom?: string;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ECouponCodeType
      */
-    ratePlans?: CodeListType;
+    ratePlans?: Array<string>;
     /**
      * Determines whether the eCoupon Code is eligible for Welcome Offer or not.
      * @type {boolean}

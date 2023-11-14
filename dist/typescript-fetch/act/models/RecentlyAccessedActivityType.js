@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RecentlyAccessedActivityTypeToJSON = exports.RecentlyAccessedActivityTypeFromJSONTyped = exports.RecentlyAccessedActivityTypeFromJSON = exports.instanceOfRecentlyAccessedActivityType = void 0;
 const runtime_1 = require("../runtime");
-const ActivityIdListType_1 = require("./ActivityIdListType");
+const ActivityId_1 = require("./ActivityId");
 const TimeSpanType_1 = require("./TimeSpanType");
 /**
  * Check if a given object implements the RecentlyAccessedActivityType interface.
@@ -35,7 +35,7 @@ function RecentlyAccessedActivityTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'accessDate': !(0, runtime_1.exists)(json, 'accessDate') ? undefined : (new Date(json['accessDate'])),
-        'activityIdList': !(0, runtime_1.exists)(json, 'activityIdList') ? undefined : (0, ActivityIdListType_1.ActivityIdListTypeFromJSON)(json['activityIdList']),
+        'activityIdList': !(0, runtime_1.exists)(json, 'activityIdList') ? undefined : (json['activityIdList'].map(ActivityId_1.ActivityIdFromJSON)),
         'activityOwnerCode': !(0, runtime_1.exists)(json, 'activityOwnerCode') ? undefined : json['activityOwnerCode'],
         'activityTypeDescription': !(0, runtime_1.exists)(json, 'activityTypeDescription') ? undefined : json['activityTypeDescription'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
@@ -52,7 +52,7 @@ function RecentlyAccessedActivityTypeToJSON(value) {
     }
     return {
         'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0, 10)),
-        'activityIdList': (0, ActivityIdListType_1.ActivityIdListTypeToJSON)(value.activityIdList),
+        'activityIdList': value.activityIdList === undefined ? undefined : (value.activityIdList.map(ActivityId_1.ActivityIdToJSON)),
         'activityOwnerCode': value.activityOwnerCode,
         'activityTypeDescription': value.activityTypeDescription,
         'hotelId': value.hotelId,

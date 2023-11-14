@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { PlayerStatisticsType } from './PlayerStatisticsType';
 /**
  * Response of the WS operation to fetch player statistics.
@@ -25,10 +25,10 @@ export interface FetchPlayerStatisticsRS {
     playerStatistics?: PlayerStatisticsType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FetchPlayerStatisticsRS
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the FetchPlayerStatisticsRS interface.

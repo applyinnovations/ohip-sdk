@@ -31,12 +31,12 @@ import {
     RelationshipAddressTypeFromJSONTyped,
     RelationshipAddressTypeToJSON,
 } from './RelationshipAddressType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -87,11 +87,11 @@ export interface RelationshipProfileSummaryType {
      */
     primaryOwnerCode?: boolean;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RelationshipProfileSummaryType
      */
-    profileIdList?: UniqueIDListType;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {ProfileStatusType}
@@ -138,7 +138,7 @@ export function RelationshipProfileSummaryTypeFromJSONTyped(json: any, ignoreDis
         'ownerCode': !exists(json, 'ownerCode') ? undefined : json['ownerCode'],
         'primary': !exists(json, 'primary') ? undefined : json['primary'],
         'primaryOwnerCode': !exists(json, 'primaryOwnerCode') ? undefined : json['primaryOwnerCode'],
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : UniqueIDListTypeFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'profileStatus': !exists(json, 'profileStatus') ? undefined : ProfileStatusTypeFromJSON(json['profileStatus']),
         'profileType': !exists(json, 'profileType') ? undefined : ProfileTypeTypeFromJSON(json['profileType']),
         'telephoneNumber': !exists(json, 'telephoneNumber') ? undefined : json['telephoneNumber'],
@@ -161,7 +161,7 @@ export function RelationshipProfileSummaryTypeToJSON(value?: RelationshipProfile
         'ownerCode': value.ownerCode,
         'primary': value.primary,
         'primaryOwnerCode': value.primaryOwnerCode,
-        'profileIdList': UniqueIDListTypeToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'profileStatus': ProfileStatusTypeToJSON(value.profileStatus),
         'profileType': ProfileTypeTypeToJSON(value.profileType),
         'telephoneNumber': value.telephoneNumber,

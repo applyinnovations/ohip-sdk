@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import {
     CurrencyAmountTypeFromJSON,
@@ -37,24 +31,24 @@ import {
     RatePlanRatingTypeFromJSONTyped,
     RatePlanRatingTypeToJSON,
 } from './RatePlanRatingType';
-import type { RoomComponentsType } from './RoomComponentsType';
+import type { RoomComponentType } from './RoomComponentType';
 import {
-    RoomComponentsTypeFromJSON,
-    RoomComponentsTypeFromJSONTyped,
-    RoomComponentsTypeToJSON,
-} from './RoomComponentsType';
-import type { RoomFeaturesType } from './RoomFeaturesType';
+    RoomComponentTypeFromJSON,
+    RoomComponentTypeFromJSONTyped,
+    RoomComponentTypeToJSON,
+} from './RoomComponentType';
+import type { RoomFeatureType } from './RoomFeatureType';
 import {
-    RoomFeaturesTypeFromJSON,
-    RoomFeaturesTypeFromJSONTyped,
-    RoomFeaturesTypeToJSON,
-} from './RoomFeaturesType';
-import type { RoomRoomsType } from './RoomRoomsType';
+    RoomFeatureTypeFromJSON,
+    RoomFeatureTypeFromJSONTyped,
+    RoomFeatureTypeToJSON,
+} from './RoomFeatureType';
+import type { RoomRoomType } from './RoomRoomType';
 import {
-    RoomRoomsTypeFromJSON,
-    RoomRoomsTypeFromJSONTyped,
-    RoomRoomsTypeToJSON,
-} from './RoomRoomsType';
+    RoomRoomTypeFromJSON,
+    RoomRoomTypeFromJSONTyped,
+    RoomRoomTypeToJSON,
+} from './RoomRoomType';
 import type { RoomSectionType } from './RoomSectionType';
 import {
     RoomSectionTypeFromJSON,
@@ -93,11 +87,11 @@ export interface ConfigRoomType {
      */
     building?: string;
     /**
-     * 
-     * @type {RoomRoomsType}
+     * Collection of rooms.
+     * @type {Array<RoomRoomType>}
      * @memberof ConfigRoomType
      */
-    connectingRooms?: RoomRoomsType;
+    connectingRooms?: Array<RoomRoomType>;
     /**
      * 
      * @type {TranslationTextType2000}
@@ -130,10 +124,10 @@ export interface ConfigRoomType {
     keyCode?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ConfigRoomType
      */
-    keyOptions?: CodeListType;
+    keyOptions?: Array<string>;
     /**
      * Maximum occupancy of a room.
      * @type {number}
@@ -183,11 +177,11 @@ export interface ConfigRoomType {
      */
     roomAssignmentRating?: RatePlanRatingType;
     /**
-     * 
-     * @type {RoomComponentsType}
+     * Component of a room.
+     * @type {Array<RoomComponentType>}
      * @memberof ConfigRoomType
      */
-    roomComponents?: RoomComponentsType;
+    roomComponents?: Array<RoomComponentType>;
     /**
      * Detail Long Description Of The Room.
      * @type {string}
@@ -195,11 +189,11 @@ export interface ConfigRoomType {
      */
     roomDescription?: string;
     /**
-     * 
-     * @type {RoomFeaturesType}
+     * A recurring element that identifies the room features.
+     * @type {Array<RoomFeatureType>}
      * @memberof ConfigRoomType
      */
-    roomFeatures?: RoomFeaturesType;
+    roomFeatures?: Array<RoomFeatureType>;
     /**
      * Code of the room.
      * @type {string}
@@ -289,13 +283,13 @@ export function ConfigRoomTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'accessible': !exists(json, 'accessible') ? undefined : json['accessible'],
         'building': !exists(json, 'building') ? undefined : json['building'],
-        'connectingRooms': !exists(json, 'connectingRooms') ? undefined : RoomRoomsTypeFromJSON(json['connectingRooms']),
+        'connectingRooms': !exists(json, 'connectingRooms') ? undefined : ((json['connectingRooms'] as Array<any>).map(RoomRoomTypeFromJSON)),
         'description': !exists(json, 'description') ? undefined : TranslationTextType2000FromJSON(json['description']),
         'floor': !exists(json, 'floor') ? undefined : json['floor'],
         'floorDescription': !exists(json, 'floorDescription') ? undefined : json['floorDescription'],
         'housekeepingCredit': !exists(json, 'housekeepingCredit') ? undefined : ((json['housekeepingCredit'] as Array<any>).map(HousekeepingCreditsTypeFromJSON)),
         'keyCode': !exists(json, 'keyCode') ? undefined : json['keyCode'],
-        'keyOptions': !exists(json, 'keyOptions') ? undefined : CodeListTypeFromJSON(json['keyOptions']),
+        'keyOptions': !exists(json, 'keyOptions') ? undefined : json['keyOptions'],
         'maximumOccupancy': !exists(json, 'maximumOccupancy') ? undefined : json['maximumOccupancy'],
         'meetingRoom': !exists(json, 'meetingRoom') ? undefined : json['meetingRoom'],
         'noOfBeds': !exists(json, 'noOfBeds') ? undefined : json['noOfBeds'],
@@ -304,9 +298,9 @@ export function ConfigRoomTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         'rateAmount': !exists(json, 'rateAmount') ? undefined : CurrencyAmountTypeFromJSON(json['rateAmount']),
         'rateCode': !exists(json, 'rateCode') ? undefined : json['rateCode'],
         'roomAssignmentRating': !exists(json, 'roomAssignmentRating') ? undefined : RatePlanRatingTypeFromJSON(json['roomAssignmentRating']),
-        'roomComponents': !exists(json, 'roomComponents') ? undefined : RoomComponentsTypeFromJSON(json['roomComponents']),
+        'roomComponents': !exists(json, 'roomComponents') ? undefined : ((json['roomComponents'] as Array<any>).map(RoomComponentTypeFromJSON)),
         'roomDescription': !exists(json, 'roomDescription') ? undefined : json['roomDescription'],
-        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : RoomFeaturesTypeFromJSON(json['roomFeatures']),
+        'roomFeatures': !exists(json, 'roomFeatures') ? undefined : ((json['roomFeatures'] as Array<any>).map(RoomFeatureTypeFromJSON)),
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'roomSection': !exists(json, 'roomSection') ? undefined : RoomSectionTypeFromJSON(json['roomSection']),
         'roomType': !exists(json, 'roomType') ? undefined : RoomTypeShortInfoTypeFromJSON(json['roomType']),
@@ -332,13 +326,13 @@ export function ConfigRoomTypeToJSON(value?: ConfigRoomType | null): any {
         
         'accessible': value.accessible,
         'building': value.building,
-        'connectingRooms': RoomRoomsTypeToJSON(value.connectingRooms),
+        'connectingRooms': value.connectingRooms === undefined ? undefined : ((value.connectingRooms as Array<any>).map(RoomRoomTypeToJSON)),
         'description': TranslationTextType2000ToJSON(value.description),
         'floor': value.floor,
         'floorDescription': value.floorDescription,
         'housekeepingCredit': value.housekeepingCredit === undefined ? undefined : ((value.housekeepingCredit as Array<any>).map(HousekeepingCreditsTypeToJSON)),
         'keyCode': value.keyCode,
-        'keyOptions': CodeListTypeToJSON(value.keyOptions),
+        'keyOptions': value.keyOptions,
         'maximumOccupancy': value.maximumOccupancy,
         'meetingRoom': value.meetingRoom,
         'noOfBeds': value.noOfBeds,
@@ -347,9 +341,9 @@ export function ConfigRoomTypeToJSON(value?: ConfigRoomType | null): any {
         'rateAmount': CurrencyAmountTypeToJSON(value.rateAmount),
         'rateCode': value.rateCode,
         'roomAssignmentRating': RatePlanRatingTypeToJSON(value.roomAssignmentRating),
-        'roomComponents': RoomComponentsTypeToJSON(value.roomComponents),
+        'roomComponents': value.roomComponents === undefined ? undefined : ((value.roomComponents as Array<any>).map(RoomComponentTypeToJSON)),
         'roomDescription': value.roomDescription,
-        'roomFeatures': RoomFeaturesTypeToJSON(value.roomFeatures),
+        'roomFeatures': value.roomFeatures === undefined ? undefined : ((value.roomFeatures as Array<any>).map(RoomFeatureTypeToJSON)),
         'roomId': value.roomId,
         'roomSection': RoomSectionTypeToJSON(value.roomSection),
         'roomType': RoomTypeShortInfoTypeToJSON(value.roomType),

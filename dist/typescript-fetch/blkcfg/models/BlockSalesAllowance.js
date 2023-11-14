@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockSalesAllowanceToJSON = exports.BlockSalesAllowanceFromJSONTyped = exports.BlockSalesAllowanceFromJSON = exports.instanceOfBlockSalesAllowance = void 0;
 const runtime_1 = require("../runtime");
-const BlockSalesAllowanceListType_1 = require("./BlockSalesAllowanceListType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const BlockSalesAllowanceType_1 = require("./BlockSalesAllowanceType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the BlockSalesAllowance interface.
  */
@@ -35,9 +35,9 @@ function BlockSalesAllowanceFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'salesAllowances': !(0, runtime_1.exists)(json, 'salesAllowances') ? undefined : (0, BlockSalesAllowanceListType_1.BlockSalesAllowanceListTypeFromJSON)(json['salesAllowances']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'salesAllowances': !(0, runtime_1.exists)(json, 'salesAllowances') ? undefined : (json['salesAllowances'].map(BlockSalesAllowanceType_1.BlockSalesAllowanceTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.BlockSalesAllowanceFromJSONTyped = BlockSalesAllowanceFromJSONTyped;
@@ -49,9 +49,9 @@ function BlockSalesAllowanceToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'salesAllowances': (0, BlockSalesAllowanceListType_1.BlockSalesAllowanceListTypeToJSON)(value.salesAllowances),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'salesAllowances': value.salesAllowances === undefined ? undefined : (value.salesAllowances.map(BlockSalesAllowanceType_1.BlockSalesAllowanceTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.BlockSalesAllowanceToJSON = BlockSalesAllowanceToJSON;

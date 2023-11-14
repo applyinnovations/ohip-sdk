@@ -19,12 +19,12 @@ import {
     ColorTypeFromJSONTyped,
     ColorTypeToJSON,
 } from './ColorType';
-import type { HotelFolioTextsType } from './HotelFolioTextsType';
+import type { HotelFolioTextType } from './HotelFolioTextType';
 import {
-    HotelFolioTextsTypeFromJSON,
-    HotelFolioTextsTypeFromJSONTyped,
-    HotelFolioTextsTypeToJSON,
-} from './HotelFolioTextsType';
+    HotelFolioTextTypeFromJSON,
+    HotelFolioTextTypeFromJSONTyped,
+    HotelFolioTextTypeToJSON,
+} from './HotelFolioTextType';
 
 /**
  * A Type that holds key values, that uniquely identifies a membership level
@@ -75,11 +75,11 @@ export interface MembershipLevelType {
      */
     feeRequired?: boolean;
     /**
-     * 
-     * @type {HotelFolioTextsType}
+     * Collection of hotel folio texts
+     * @type {Array<HotelFolioTextType>}
      * @memberof MembershipLevelType
      */
-    folioTexts?: HotelFolioTextsType;
+    folioTexts?: Array<HotelFolioTextType>;
     /**
      * Indicates whether memberships upgraded or downgraded to or from this level will be included in the Membership Export.
      * @type {boolean}
@@ -168,7 +168,7 @@ export function MembershipLevelTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'description': !exists(json, 'description') ? undefined : json['description'],
         'displayColor': !exists(json, 'displayColor') ? undefined : ColorTypeFromJSON(json['displayColor']),
         'feeRequired': !exists(json, 'feeRequired') ? undefined : json['feeRequired'],
-        'folioTexts': !exists(json, 'folioTexts') ? undefined : HotelFolioTextsTypeFromJSON(json['folioTexts']),
+        'folioTexts': !exists(json, 'folioTexts') ? undefined : ((json['folioTexts'] as Array<any>).map(HotelFolioTextTypeFromJSON)),
         'fulfillment': !exists(json, 'fulfillment') ? undefined : json['fulfillment'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
         'label': !exists(json, 'label') ? undefined : json['label'],
@@ -198,7 +198,7 @@ export function MembershipLevelTypeToJSON(value?: MembershipLevelType | null): a
         'description': value.description,
         'displayColor': ColorTypeToJSON(value.displayColor),
         'feeRequired': value.feeRequired,
-        'folioTexts': HotelFolioTextsTypeToJSON(value.folioTexts),
+        'folioTexts': value.folioTexts === undefined ? undefined : ((value.folioTexts as Array<any>).map(HotelFolioTextTypeToJSON)),
         'fulfillment': value.fulfillment,
         'inactive': value.inactive,
         'label': value.label,

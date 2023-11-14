@@ -17,7 +17,7 @@ exports.ChannelHotelLetterTypeToJSON = exports.ChannelHotelLetterTypeFromJSONTyp
 const runtime_1 = require("../runtime");
 const CodeDescriptionType_1 = require("./CodeDescriptionType");
 const LetterTypeType_1 = require("./LetterTypeType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChannelHotelLetterType interface.
  */
@@ -40,7 +40,7 @@ function ChannelHotelLetterTypeFromJSONTyped(json, ignoreDiscriminator) {
         'languageCode': !(0, runtime_1.exists)(json, 'languageCode') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['languageCode']),
         'letterName': !(0, runtime_1.exists)(json, 'letterName') ? undefined : json['letterName'],
         'letterType': !(0, runtime_1.exists)(json, 'letterType') ? undefined : (0, LetterTypeType_1.LetterTypeTypeFromJSON)(json['letterType']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChannelHotelLetterTypeFromJSONTyped = ChannelHotelLetterTypeFromJSONTyped;
@@ -57,7 +57,7 @@ function ChannelHotelLetterTypeToJSON(value) {
         'languageCode': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.languageCode),
         'letterName': value.letterName,
         'letterType': (0, LetterTypeType_1.LetterTypeTypeToJSON)(value.letterType),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChannelHotelLetterTypeToJSON = ChannelHotelLetterTypeToJSON;

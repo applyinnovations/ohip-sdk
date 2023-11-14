@@ -15,8 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CopyTotalPricingElementsTypeToJSON = exports.CopyTotalPricingElementsTypeFromJSONTyped = exports.CopyTotalPricingElementsTypeFromJSON = exports.instanceOfCopyTotalPricingElementsType = void 0;
 const runtime_1 = require("../runtime");
-const CodeListType_1 = require("./CodeListType");
-const TotalPricingElementsType_1 = require("./TotalPricingElementsType");
+const TotalPricingElementType_1 = require("./TotalPricingElementType");
 /**
  * Check if a given object implements the CopyTotalPricingElementsType interface.
  */
@@ -34,8 +33,8 @@ function CopyTotalPricingElementsTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'targetHotels': !(0, runtime_1.exists)(json, 'targetHotels') ? undefined : (0, CodeListType_1.CodeListTypeFromJSON)(json['targetHotels']),
-        'totalPricingElements': !(0, runtime_1.exists)(json, 'totalPricingElements') ? undefined : (0, TotalPricingElementsType_1.TotalPricingElementsTypeFromJSON)(json['totalPricingElements']),
+        'targetHotels': !(0, runtime_1.exists)(json, 'targetHotels') ? undefined : json['targetHotels'],
+        'totalPricingElements': !(0, runtime_1.exists)(json, 'totalPricingElements') ? undefined : (json['totalPricingElements'].map(TotalPricingElementType_1.TotalPricingElementTypeFromJSON)),
     };
 }
 exports.CopyTotalPricingElementsTypeFromJSONTyped = CopyTotalPricingElementsTypeFromJSONTyped;
@@ -47,8 +46,8 @@ function CopyTotalPricingElementsTypeToJSON(value) {
         return null;
     }
     return {
-        'targetHotels': (0, CodeListType_1.CodeListTypeToJSON)(value.targetHotels),
-        'totalPricingElements': (0, TotalPricingElementsType_1.TotalPricingElementsTypeToJSON)(value.totalPricingElements),
+        'targetHotels': value.targetHotels,
+        'totalPricingElements': value.totalPricingElements === undefined ? undefined : (value.totalPricingElements.map(TotalPricingElementType_1.TotalPricingElementTypeToJSON)),
     };
 }
 exports.CopyTotalPricingElementsTypeToJSON = CopyTotalPricingElementsTypeToJSON;

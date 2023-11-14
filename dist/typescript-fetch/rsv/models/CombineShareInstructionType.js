@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CombineShareInstructionTypeToJSON = exports.CombineShareInstructionTypeFromJSONTyped = exports.CombineShareInstructionTypeFromJSON = exports.instanceOfCombineShareInstructionType = void 0;
 const runtime_1 = require("../runtime");
-const EffectiveRatesType_1 = require("./EffectiveRatesType");
+const EffectiveRateType_1 = require("./EffectiveRateType");
 const OverrideInstructionType_1 = require("./OverrideInstructionType");
 const RateChangeInstructionType_1 = require("./RateChangeInstructionType");
 const ShareDistributionInstructionType_1 = require("./ShareDistributionInstructionType");
@@ -37,7 +37,7 @@ function CombineShareInstructionTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'distributionType': !(0, runtime_1.exists)(json, 'distributionType') ? undefined : (0, ShareDistributionInstructionType_1.ShareDistributionInstructionTypeFromJSON)(json['distributionType']),
-        'effectiveRates': !(0, runtime_1.exists)(json, 'effectiveRates') ? undefined : (0, EffectiveRatesType_1.EffectiveRatesTypeFromJSON)(json['effectiveRates']),
+        'effectiveRates': !(0, runtime_1.exists)(json, 'effectiveRates') ? undefined : (json['effectiveRates'].map(EffectiveRateType_1.EffectiveRateTypeFromJSON)),
         'overrideInstruction': !(0, runtime_1.exists)(json, 'overrideInstruction') ? undefined : (0, OverrideInstructionType_1.OverrideInstructionTypeFromJSON)(json['overrideInstruction']),
         'overrideInventoryCheck': !(0, runtime_1.exists)(json, 'overrideInventoryCheck') ? undefined : json['overrideInventoryCheck'],
         'overrideMaxOccupancyCheck': !(0, runtime_1.exists)(json, 'overrideMaxOccupancyCheck') ? undefined : json['overrideMaxOccupancyCheck'],
@@ -55,7 +55,7 @@ function CombineShareInstructionTypeToJSON(value) {
     }
     return {
         'distributionType': (0, ShareDistributionInstructionType_1.ShareDistributionInstructionTypeToJSON)(value.distributionType),
-        'effectiveRates': (0, EffectiveRatesType_1.EffectiveRatesTypeToJSON)(value.effectiveRates),
+        'effectiveRates': value.effectiveRates === undefined ? undefined : (value.effectiveRates.map(EffectiveRateType_1.EffectiveRateTypeToJSON)),
         'overrideInstruction': (0, OverrideInstructionType_1.OverrideInstructionTypeToJSON)(value.overrideInstruction),
         'overrideInventoryCheck': value.overrideInventoryCheck,
         'overrideMaxOccupancyCheck': value.overrideMaxOccupancyCheck,

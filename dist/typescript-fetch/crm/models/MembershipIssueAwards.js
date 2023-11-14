@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MembershipIssueAwardsToJSON = exports.MembershipIssueAwardsFromJSONTyped = exports.MembershipIssueAwardsFromJSON = exports.instanceOfMembershipIssueAwards = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const MembershipAwardsListType_1 = require("./MembershipAwardsListType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const MembershipAwardListType_1 = require("./MembershipAwardListType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the MembershipIssueAwards interface.
  */
@@ -38,12 +38,12 @@ function MembershipIssueAwardsFromJSONTyped(json, ignoreDiscriminator) {
         'count': !(0, runtime_1.exists)(json, 'count') ? undefined : json['count'],
         'hasMore': !(0, runtime_1.exists)(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'membershipAwardsList': !(0, runtime_1.exists)(json, 'membershipAwardsList') ? undefined : (0, MembershipAwardsListType_1.MembershipAwardsListTypeFromJSON)(json['membershipAwardsList']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'membershipAwardsList': !(0, runtime_1.exists)(json, 'membershipAwardsList') ? undefined : (json['membershipAwardsList'].map(MembershipAwardListType_1.MembershipAwardListTypeFromJSON)),
         'offset': !(0, runtime_1.exists)(json, 'offset') ? undefined : json['offset'],
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !(0, runtime_1.exists)(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.MembershipIssueAwardsFromJSONTyped = MembershipIssueAwardsFromJSONTyped;
@@ -58,12 +58,12 @@ function MembershipIssueAwardsToJSON(value) {
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'membershipAwardsList': (0, MembershipAwardsListType_1.MembershipAwardsListTypeToJSON)(value.membershipAwardsList),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'membershipAwardsList': value.membershipAwardsList === undefined ? undefined : (value.membershipAwardsList.map(MembershipAwardListType_1.MembershipAwardListTypeToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.MembershipIssueAwardsToJSON = MembershipIssueAwardsToJSON;

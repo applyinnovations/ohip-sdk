@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { PropertyPromotionCodesType } from './PropertyPromotionCodesType';
+import type { PropertyPromotionCodeType } from './PropertyPromotionCodeType';
 /**
  * Collection of Property promotions.
  * @export
@@ -41,11 +41,11 @@ export interface PropertyPromotionCodesPropertyPromotionCodes {
      */
     offset?: number;
     /**
-     *
-     * @type {PropertyPromotionCodesType}
+     * A property promotion.
+     * @type {Array<PropertyPromotionCodeType>}
      * @memberof PropertyPromotionCodesPropertyPromotionCodes
      */
-    propertyPromotionCodes?: PropertyPromotionCodesType;
+    propertyPromotionCodes?: Array<PropertyPromotionCodeType>;
     /**
      * Evaluated total page count based on the requested max fetch count.
      * @type {number}

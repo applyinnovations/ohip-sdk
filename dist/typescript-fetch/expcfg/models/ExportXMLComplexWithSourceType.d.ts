@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ExportXMLAttributesType } from './ExportXMLAttributesType';
-import type { ExportXMLElementsType } from './ExportXMLElementsType';
+import type { ExportXMLAttributeType } from './ExportXMLAttributeType';
+import type { ExportXMLElementType } from './ExportXMLElementType';
 /**
  * XML simple type that holds all the information related to complex element tag
  * @export
@@ -18,17 +18,17 @@ import type { ExportXMLElementsType } from './ExportXMLElementsType';
  */
 export interface ExportXMLComplexWithSourceType {
     /**
-     *
-     * @type {ExportXMLAttributesType}
+     * XML attribute type that holds all the information related to attribute tag
+     * @type {Array<ExportXMLAttributeType>}
      * @memberof ExportXMLComplexWithSourceType
      */
-    attributes?: ExportXMLAttributesType;
+    attributes?: Array<ExportXMLAttributeType>;
     /**
-     *
-     * @type {ExportXMLElementsType}
+     * XML element type that holds all the information related to element tag
+     * @type {Array<ExportXMLElementType>}
      * @memberof ExportXMLComplexWithSourceType
      */
-    elements?: ExportXMLElementsType;
+    elements?: Array<ExportXMLElementType>;
     /**
      * Filter data using this attribute
      * @type {string}

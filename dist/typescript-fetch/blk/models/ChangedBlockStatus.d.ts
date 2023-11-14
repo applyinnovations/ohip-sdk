@@ -9,14 +9,14 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockNextStatusListType } from './BlockNextStatusListType';
-import type { BlockStatusChangeHistoryType } from './BlockStatusChangeHistoryType';
 import type { BlockType } from './BlockType';
+import type { BookingStatusDetailType } from './BookingStatusDetailType';
+import type { BookingStatusHistoryType } from './BookingStatusHistoryType';
 import type { CancellationDetailsType } from './CancellationDetailsType';
-import type { CateringEventsProcessedInfoList } from './CateringEventsProcessedInfoList';
-import type { Links } from './Links';
+import type { CateringEventsProcessedInfoType } from './CateringEventsProcessedInfoType';
+import type { InstanceLink } from './InstanceLink';
 import type { UniqueIDType } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for the request to change block status. Response contains information on the block whose status was successfully changed.
  * @export
@@ -36,17 +36,17 @@ export interface ChangedBlockStatus {
      */
     block?: BlockType;
     /**
-     *
-     * @type {BlockNextStatusListType}
+     * Next booking status of the business block.
+     * @type {Array<BookingStatusDetailType>}
      * @memberof ChangedBlockStatus
      */
-    blockNextStatusList?: BlockNextStatusListType;
+    blockNextStatusList?: Array<BookingStatusDetailType>;
     /**
-     *
-     * @type {BlockStatusChangeHistoryType}
+     * Collection of block status history.
+     * @type {Array<BookingStatusHistoryType>}
      * @memberof ChangedBlockStatus
      */
-    blockStatusChangeHistory?: BlockStatusChangeHistoryType;
+    blockStatusChangeHistory?: Array<BookingStatusHistoryType>;
     /**
      *
      * @type {CancellationDetailsType}
@@ -54,17 +54,17 @@ export interface ChangedBlockStatus {
      */
     cancellationDetails?: CancellationDetailsType;
     /**
-     *
-     * @type {CateringEventsProcessedInfoList}
+     * Status/Info of the processed events.
+     * @type {Array<CateringEventsProcessedInfoType>}
      * @memberof ChangedBlockStatus
      */
-    cateringEventsProcessedInfo?: CateringEventsProcessedInfoList;
+    cateringEventsProcessedInfo?: Array<CateringEventsProcessedInfoType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangedBlockStatus
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {UniqueIDType}
@@ -72,11 +72,11 @@ export interface ChangedBlockStatus {
      */
     processId?: UniqueIDType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangedBlockStatus
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ChangedBlockStatus interface.

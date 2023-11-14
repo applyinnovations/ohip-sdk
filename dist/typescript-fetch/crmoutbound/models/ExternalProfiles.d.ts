@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ExternalProfileSummariesType } from './ExternalProfileSummariesType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 /**
  * Response object for fetching profiles from external CRM System. This object contains profile primary details, profile summary details, master info list containing code and description used as lookup for description.
  * @export
@@ -25,10 +25,10 @@ export interface ExternalProfiles {
     externalProfileSummaries?: ExternalProfileSummariesType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExternalProfiles
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 /**
  * Check if a given object implements the ExternalProfiles interface.

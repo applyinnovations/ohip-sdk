@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 import type { HotelReservationsType } from './HotelReservationsType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { MasterInfoType } from './MasterInfoType';
 import type { ReservationChannelInfoType } from './ReservationChannelInfoType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Return object to the request for information regarding a reservation.
  * @export
@@ -28,10 +28,10 @@ export interface Reservation {
     channelInfo?: ReservationChannelInfoType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Reservation
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {Array<MasterInfoType>}
@@ -45,11 +45,11 @@ export interface Reservation {
      */
     reservations?: HotelReservationsType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Reservation
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Reservation interface.

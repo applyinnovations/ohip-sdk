@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RoomKeyEncodersType } from './RoomKeyEncodersType';
-import type { RoomKeyInterfaceRightsType } from './RoomKeyInterfaceRightsType';
+import type { RoomKeyEncoderType } from './RoomKeyEncoderType';
+import type { RoomKeyInterfaceRightType } from './RoomKeyInterfaceRightType';
 /**
  *
  * @export
@@ -24,11 +24,11 @@ export interface RoomKeyInterfaceDetailType {
      */
     additionalRoomsLimit?: number;
     /**
-     *
-     * @type {RoomKeyEncodersType}
+     * Holds the key encoder right.
+     * @type {Array<RoomKeyEncoderType>}
      * @memberof RoomKeyInterfaceDetailType
      */
-    encoders?: RoomKeyEncodersType;
+    encoders?: Array<RoomKeyEncoderType>;
     /**
      * Hotel code of the interface.
      * @type {string}
@@ -48,11 +48,11 @@ export interface RoomKeyInterfaceDetailType {
      */
     interfaceName?: string;
     /**
-     *
-     * @type {RoomKeyInterfaceRightsType}
+     * Holds the key encoder right.
+     * @type {Array<RoomKeyInterfaceRightType>}
      * @memberof RoomKeyInterfaceDetailType
      */
-    interfaceRights?: RoomKeyInterfaceRightsType;
+    interfaceRights?: Array<RoomKeyInterfaceRightType>;
     /**
      * Indicator if additional rooms are allowed to be included in key creation.
      * @type {boolean}

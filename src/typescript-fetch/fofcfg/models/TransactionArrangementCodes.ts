@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TransactionArrangementCodesType } from './TransactionArrangementCodesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TransactionArrangementCodeType } from './TransactionArrangementCodeType';
 import {
-    TransactionArrangementCodesTypeFromJSON,
-    TransactionArrangementCodesTypeFromJSONTyped,
-    TransactionArrangementCodesTypeToJSON,
-} from './TransactionArrangementCodesType';
-import type { WarningsType } from './WarningsType';
+    TransactionArrangementCodeTypeFromJSON,
+    TransactionArrangementCodeTypeFromJSONTyped,
+    TransactionArrangementCodeTypeToJSON,
+} from './TransactionArrangementCodeType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,22 +40,22 @@ import {
 export interface TransactionArrangementCodes {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TransactionArrangementCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {TransactionArrangementCodesType}
+     * Contains transaction codes along with associated arrangement codes.
+     * @type {Array<TransactionArrangementCodeType>}
      * @memberof TransactionArrangementCodes
      */
-    transactionArrangementCodes?: TransactionArrangementCodesType;
+    transactionArrangementCodes?: Array<TransactionArrangementCodeType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TransactionArrangementCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function TransactionArrangementCodesFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'transactionArrangementCodes': !exists(json, 'transactionArrangementCodes') ? undefined : TransactionArrangementCodesTypeFromJSON(json['transactionArrangementCodes']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'transactionArrangementCodes': !exists(json, 'transactionArrangementCodes') ? undefined : ((json['transactionArrangementCodes'] as Array<any>).map(TransactionArrangementCodeTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function TransactionArrangementCodesToJSON(value?: TransactionArrangement
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'transactionArrangementCodes': TransactionArrangementCodesTypeToJSON(value.transactionArrangementCodes),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'transactionArrangementCodes': value.transactionArrangementCodes === undefined ? undefined : ((value.transactionArrangementCodes as Array<any>).map(TransactionArrangementCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

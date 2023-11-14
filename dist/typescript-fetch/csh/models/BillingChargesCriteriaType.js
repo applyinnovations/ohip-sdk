@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BillingChargesCriteriaTypeToJSON = exports.BillingChargesCriteriaTypeFromJSONTyped = exports.BillingChargesCriteriaTypeFromJSON = exports.instanceOfBillingChargesCriteriaType = void 0;
 const runtime_1 = require("../runtime");
-const ChargesCriteriaType_1 = require("./ChargesCriteriaType");
+const ChargeCriteriaType_1 = require("./ChargeCriteriaType");
 const ReservationId_1 = require("./ReservationId");
 /**
  * Check if a given object implements the BillingChargesCriteriaType interface.
@@ -35,7 +35,7 @@ function BillingChargesCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
-        'charges': !(0, runtime_1.exists)(json, 'charges') ? undefined : (0, ChargesCriteriaType_1.ChargesCriteriaTypeFromJSON)(json['charges']),
+        'charges': !(0, runtime_1.exists)(json, 'charges') ? undefined : (json['charges'].map(ChargeCriteriaType_1.ChargeCriteriaTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'incomeAuditDate': !(0, runtime_1.exists)(json, 'incomeAuditDate') ? undefined : (new Date(json['incomeAuditDate'])),
         'postIt': !(0, runtime_1.exists)(json, 'postIt') ? undefined : json['postIt'],
@@ -53,7 +53,7 @@ function BillingChargesCriteriaTypeToJSON(value) {
     }
     return {
         'cashierId': value.cashierId,
-        'charges': (0, ChargesCriteriaType_1.ChargesCriteriaTypeToJSON)(value.charges),
+        'charges': value.charges === undefined ? undefined : (value.charges.map(ChargeCriteriaType_1.ChargeCriteriaTypeToJSON)),
         'hotelId': value.hotelId,
         'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0, 10)),
         'postIt': value.postIt,

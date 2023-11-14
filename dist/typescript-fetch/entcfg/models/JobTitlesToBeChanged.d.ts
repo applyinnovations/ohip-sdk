@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { JobTitlesType } from './JobTitlesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { JobTitleType } from './JobTitleType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for modifying job titles for hotels.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface JobTitlesToBeChanged {
     /**
-     *
-     * @type {JobTitlesType}
+     * Job Title details for a hotel.
+     * @type {Array<JobTitleType>}
      * @memberof JobTitlesToBeChanged
      */
-    jobTitles?: JobTitlesType;
+    jobTitles?: Array<JobTitleType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof JobTitlesToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof JobTitlesToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the JobTitlesToBeChanged interface.

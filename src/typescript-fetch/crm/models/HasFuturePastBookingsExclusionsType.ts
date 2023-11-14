@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    UniqueIDListTypeFromJSON,
-    UniqueIDListTypeFromJSONTyped,
-    UniqueIDListTypeToJSON,
-} from './UniqueIDListType';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Search type for excluding list of business blocks and/or reservations.
@@ -27,17 +27,17 @@ import {
  */
 export interface HasFuturePastBookingsExclusionsType {
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof HasFuturePastBookingsExclusionsType
      */
-    blockIdList?: UniqueIDListType;
+    blockIdList?: Array<UniqueIDType>;
     /**
-     * 
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof HasFuturePastBookingsExclusionsType
      */
-    reservationIdList?: UniqueIDListType;
+    reservationIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -59,8 +59,8 @@ export function HasFuturePastBookingsExclusionsTypeFromJSONTyped(json: any, igno
     }
     return {
         
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : UniqueIDListTypeFromJSON(json['blockIdList']),
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : UniqueIDListTypeFromJSON(json['reservationIdList']),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -73,8 +73,8 @@ export function HasFuturePastBookingsExclusionsTypeToJSON(value?: HasFuturePastB
     }
     return {
         
-        'blockIdList': UniqueIDListTypeToJSON(value.blockIdList),
-        'reservationIdList': UniqueIDListTypeToJSON(value.reservationIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

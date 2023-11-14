@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NextBlockStatusCodeToJSON = exports.NextBlockStatusCodeFromJSONTyped = exports.NextBlockStatusCodeFromJSON = exports.instanceOfNextBlockStatusCode = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const NextBlockStatusCodeListType_1 = require("./NextBlockStatusCodeListType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const NextBlockStatusCodeType_1 = require("./NextBlockStatusCodeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the NextBlockStatusCode interface.
  */
@@ -35,9 +35,9 @@ function NextBlockStatusCodeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'nextBlockStatusCodeList': !(0, runtime_1.exists)(json, 'nextBlockStatusCodeList') ? undefined : (0, NextBlockStatusCodeListType_1.NextBlockStatusCodeListTypeFromJSON)(json['nextBlockStatusCodeList']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'nextBlockStatusCodeList': !(0, runtime_1.exists)(json, 'nextBlockStatusCodeList') ? undefined : (json['nextBlockStatusCodeList'].map(NextBlockStatusCodeType_1.NextBlockStatusCodeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.NextBlockStatusCodeFromJSONTyped = NextBlockStatusCodeFromJSONTyped;
@@ -49,9 +49,9 @@ function NextBlockStatusCodeToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'nextBlockStatusCodeList': (0, NextBlockStatusCodeListType_1.NextBlockStatusCodeListTypeToJSON)(value.nextBlockStatusCodeList),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'nextBlockStatusCodeList': value.nextBlockStatusCodeList === undefined ? undefined : (value.nextBlockStatusCodeList.map(NextBlockStatusCodeType_1.NextBlockStatusCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.NextBlockStatusCodeToJSON = NextBlockStatusCodeToJSON;

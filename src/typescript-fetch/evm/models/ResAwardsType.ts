@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AwardVouchersType } from './AwardVouchersType';
+import type { AwardVouchersTypeInner } from './AwardVouchersTypeInner';
 import {
-    AwardVouchersTypeFromJSON,
-    AwardVouchersTypeFromJSONTyped,
-    AwardVouchersTypeToJSON,
-} from './AwardVouchersType';
+    AwardVouchersTypeInnerFromJSON,
+    AwardVouchersTypeInnerFromJSONTyped,
+    AwardVouchersTypeInnerToJSON,
+} from './AwardVouchersTypeInner';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
@@ -33,11 +33,11 @@ import {
  */
 export interface ResAwardsType {
     /**
-     * 
-     * @type {AwardVouchersType}
+     * This stores the Membership Awards code applied on the reservation.
+     * @type {Array<AwardVouchersTypeInner>}
      * @memberof ResAwardsType
      */
-    awardVouchers?: AwardVouchersType;
+    awardVouchers?: Array<AwardVouchersTypeInner>;
     /**
      * 
      * @type {UniqueIDType}
@@ -77,7 +77,7 @@ export function ResAwardsTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'awardVouchers': !exists(json, 'awardVouchers') ? undefined : AwardVouchersTypeFromJSON(json['awardVouchers']),
+        'awardVouchers': !exists(json, 'awardVouchers') ? undefined : ((json['awardVouchers'] as Array<any>).map(AwardVouchersTypeInnerFromJSON)),
         'membershipNo': !exists(json, 'membershipNo') ? undefined : UniqueIDTypeFromJSON(json['membershipNo']),
         'originalRoomType': !exists(json, 'originalRoomType') ? undefined : json['originalRoomType'],
         'upgradeRoomType': !exists(json, 'upgradeRoomType') ? undefined : json['upgradeRoomType'],
@@ -93,7 +93,7 @@ export function ResAwardsTypeToJSON(value?: ResAwardsType | null): any {
     }
     return {
         
-        'awardVouchers': AwardVouchersTypeToJSON(value.awardVouchers),
+        'awardVouchers': value.awardVouchers === undefined ? undefined : ((value.awardVouchers as Array<any>).map(AwardVouchersTypeInnerToJSON)),
         'membershipNo': UniqueIDTypeToJSON(value.membershipNo),
         'originalRoomType': value.originalRoomType,
         'upgradeRoomType': value.upgradeRoomType,

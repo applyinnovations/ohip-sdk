@@ -13,18 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
+import type { TemplateHotelDetailIDType } from './TemplateHotelDetailIDType';
 import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
-import type { TemplateHotelDetailsIDType } from './TemplateHotelDetailsIDType';
-import {
-    TemplateHotelDetailsIDTypeFromJSON,
-    TemplateHotelDetailsIDTypeFromJSONTyped,
-    TemplateHotelDetailsIDTypeToJSON,
-} from './TemplateHotelDetailsIDType';
+    TemplateHotelDetailIDTypeFromJSON,
+    TemplateHotelDetailIDTypeFromJSONTyped,
+    TemplateHotelDetailIDTypeToJSON,
+} from './TemplateHotelDetailIDType';
 
 /**
  * Instructions for copying template hotel details to hotel(s).
@@ -34,16 +28,16 @@ import {
 export interface CopyHotelDetailsType {
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyHotelDetailsType
      */
-    hotels?: CodeListType;
+    hotels?: Array<string>;
     /**
-     * 
-     * @type {TemplateHotelDetailsIDType}
+     * Collection of template level hotel detail identifiers.
+     * @type {Array<TemplateHotelDetailIDType>}
      * @memberof CopyHotelDetailsType
      */
-    templateHotelDetails?: TemplateHotelDetailsIDType;
+    templateHotelDetails?: Array<TemplateHotelDetailIDType>;
 }
 
 /**
@@ -65,8 +59,8 @@ export function CopyHotelDetailsTypeFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'hotels': !exists(json, 'hotels') ? undefined : CodeListTypeFromJSON(json['hotels']),
-        'templateHotelDetails': !exists(json, 'templateHotelDetails') ? undefined : TemplateHotelDetailsIDTypeFromJSON(json['templateHotelDetails']),
+        'hotels': !exists(json, 'hotels') ? undefined : json['hotels'],
+        'templateHotelDetails': !exists(json, 'templateHotelDetails') ? undefined : ((json['templateHotelDetails'] as Array<any>).map(TemplateHotelDetailIDTypeFromJSON)),
     };
 }
 
@@ -79,8 +73,8 @@ export function CopyHotelDetailsTypeToJSON(value?: CopyHotelDetailsType | null):
     }
     return {
         
-        'hotels': CodeListTypeToJSON(value.hotels),
-        'templateHotelDetails': TemplateHotelDetailsIDTypeToJSON(value.templateHotelDetails),
+        'hotels': value.hotels,
+        'templateHotelDetails': value.templateHotelDetails === undefined ? undefined : ((value.templateHotelDetails as Array<any>).map(TemplateHotelDetailIDTypeToJSON)),
     };
 }
 

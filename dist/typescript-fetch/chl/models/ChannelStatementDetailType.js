@@ -20,7 +20,7 @@ const ContractPriceFrequencyType_1 = require("./ContractPriceFrequencyType");
 const ContractPricingType_1 = require("./ContractPricingType");
 const ContractRangeInformationType_1 = require("./ContractRangeInformationType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
-const OrderByListType_1 = require("./OrderByListType");
+const OrderByListTypeInner_1 = require("./OrderByListTypeInner");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ChannelStatementDetailType interface.
@@ -51,7 +51,7 @@ function ChannelStatementDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         'invoiceAmount': !(0, runtime_1.exists)(json, 'invoiceAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['invoiceAmount']),
         'note': !(0, runtime_1.exists)(json, 'note') ? undefined : json['note'],
         'oldHotelCode': !(0, runtime_1.exists)(json, 'oldHotelCode') ? undefined : json['oldHotelCode'],
-        'orderByList': !(0, runtime_1.exists)(json, 'orderByList') ? undefined : (0, OrderByListType_1.OrderByListTypeFromJSON)(json['orderByList']),
+        'orderByList': !(0, runtime_1.exists)(json, 'orderByList') ? undefined : (json['orderByList'].map(OrderByListTypeInner_1.OrderByListTypeInnerFromJSON)),
         'quantity': !(0, runtime_1.exists)(json, 'quantity') ? undefined : json['quantity'],
         'routingAccount': !(0, runtime_1.exists)(json, 'routingAccount') ? undefined : json['routingAccount'],
         'sequence': !(0, runtime_1.exists)(json, 'sequence') ? undefined : json['sequence'],
@@ -79,7 +79,7 @@ function ChannelStatementDetailTypeToJSON(value) {
         'invoiceAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.invoiceAmount),
         'note': value.note,
         'oldHotelCode': value.oldHotelCode,
-        'orderByList': (0, OrderByListType_1.OrderByListTypeToJSON)(value.orderByList),
+        'orderByList': value.orderByList === undefined ? undefined : (value.orderByList.map(OrderByListTypeInner_1.OrderByListTypeInnerToJSON)),
         'quantity': value.quantity,
         'routingAccount': value.routingAccount,
         'sequence': value.sequence,

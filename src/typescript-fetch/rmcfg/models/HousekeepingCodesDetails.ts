@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { HousekeepingCodesConfigType } from './HousekeepingCodesConfigType';
+import type { HousekeepingCodeConfigType } from './HousekeepingCodeConfigType';
 import {
-    HousekeepingCodesConfigTypeFromJSON,
-    HousekeepingCodesConfigTypeFromJSONTyped,
-    HousekeepingCodesConfigTypeToJSON,
-} from './HousekeepingCodesConfigType';
-import type { Links } from './Links';
+    HousekeepingCodeConfigTypeFromJSON,
+    HousekeepingCodeConfigTypeFromJSONTyped,
+    HousekeepingCodeConfigTypeToJSON,
+} from './HousekeepingCodeConfigType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching housekeeping codes.
@@ -39,23 +39,23 @@ import {
  */
 export interface HousekeepingCodesDetails {
     /**
-     * 
-     * @type {HousekeepingCodesConfigType}
+     * List of the housekeeping codes to be configured or fetched
+     * @type {Array<HousekeepingCodeConfigType>}
      * @memberof HousekeepingCodesDetails
      */
-    codes?: HousekeepingCodesConfigType;
+    codes?: Array<HousekeepingCodeConfigType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HousekeepingCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HousekeepingCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function HousekeepingCodesDetailsFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'codes': !exists(json, 'codes') ? undefined : HousekeepingCodesConfigTypeFromJSON(json['codes']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'codes': !exists(json, 'codes') ? undefined : ((json['codes'] as Array<any>).map(HousekeepingCodeConfigTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function HousekeepingCodesDetailsToJSON(value?: HousekeepingCodesDetails 
     }
     return {
         
-        'codes': HousekeepingCodesConfigTypeToJSON(value.codes),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'codes': value.codes === undefined ? undefined : ((value.codes as Array<any>).map(HousekeepingCodeConfigTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { MembershipEnrollmentGroupsType } from './MembershipEnrollmentGroupsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { MembershipEnrollmentGroupType } from './MembershipEnrollmentGroupType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing new membership enrollment groups.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface MembershipEnrollmentGroups {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof MembershipEnrollmentGroups
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {MembershipEnrollmentGroupsType}
+     * Details of membership enrollment group type.
+     * @type {Array<MembershipEnrollmentGroupType>}
      * @memberof MembershipEnrollmentGroups
      */
-    membershipEnrollmentGroups?: MembershipEnrollmentGroupsType;
+    membershipEnrollmentGroups?: Array<MembershipEnrollmentGroupType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof MembershipEnrollmentGroups
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the MembershipEnrollmentGroups interface.

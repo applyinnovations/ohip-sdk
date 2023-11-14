@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CashierReportPostingsInfoToJSON = exports.CashierReportPostingsInfoFromJSONTyped = exports.CashierReportPostingsInfoFromJSON = exports.instanceOfCashierReportPostingsInfo = void 0;
 const runtime_1 = require("../runtime");
-const DetailPostingsType_1 = require("./DetailPostingsType");
-const Links_1 = require("./Links");
-const TrxCodesInfoType_1 = require("./TrxCodesInfoType");
-const WarningsType_1 = require("./WarningsType");
+const DetailPostingType_1 = require("./DetailPostingType");
+const InstanceLink_1 = require("./InstanceLink");
+const TrxInfoType_1 = require("./TrxInfoType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CashierReportPostingsInfo interface.
  */
@@ -36,10 +36,10 @@ function CashierReportPostingsInfoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'postings': !(0, runtime_1.exists)(json, 'postings') ? undefined : (0, DetailPostingsType_1.DetailPostingsTypeFromJSON)(json['postings']),
-        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (0, TrxCodesInfoType_1.TrxCodesInfoTypeFromJSON)(json['transactionCodes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'postings': !(0, runtime_1.exists)(json, 'postings') ? undefined : (json['postings'].map(DetailPostingType_1.DetailPostingTypeFromJSON)),
+        'transactionCodes': !(0, runtime_1.exists)(json, 'transactionCodes') ? undefined : (json['transactionCodes'].map(TrxInfoType_1.TrxInfoTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CashierReportPostingsInfoFromJSONTyped = CashierReportPostingsInfoFromJSONTyped;
@@ -51,10 +51,10 @@ function CashierReportPostingsInfoToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'postings': (0, DetailPostingsType_1.DetailPostingsTypeToJSON)(value.postings),
-        'transactionCodes': (0, TrxCodesInfoType_1.TrxCodesInfoTypeToJSON)(value.transactionCodes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'postings': value.postings === undefined ? undefined : (value.postings.map(DetailPostingType_1.DetailPostingTypeToJSON)),
+        'transactionCodes': value.transactionCodes === undefined ? undefined : (value.transactionCodes.map(TrxInfoType_1.TrxInfoTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CashierReportPostingsInfoToJSON = CashierReportPostingsInfoToJSON;

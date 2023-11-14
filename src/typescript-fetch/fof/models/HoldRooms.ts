@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { RoomsHoldsType } from './RoomsHoldsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { RoomsHoldType } from './RoomsHoldType';
 import {
-    RoomsHoldsTypeFromJSON,
-    RoomsHoldsTypeFromJSONTyped,
-    RoomsHoldsTypeToJSON,
-} from './RoomsHoldsType';
-import type { WarningsType } from './WarningsType';
+    RoomsHoldTypeFromJSON,
+    RoomsHoldTypeFromJSONTyped,
+    RoomsHoldTypeToJSON,
+} from './RoomsHoldType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to place rooms on hold.
@@ -39,17 +39,17 @@ import {
  */
 export interface HoldRooms {
     /**
-     * 
-     * @type {RoomsHoldsType}
+     * List of rooms, reason, and comments.
+     * @type {Array<RoomsHoldType>}
      * @memberof HoldRooms
      */
-    holdRoomsDetails?: RoomsHoldsType;
+    holdRoomsDetails?: Array<RoomsHoldType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HoldRooms
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * If trying to hold a room, which is held by a different user, then this flag will allow the current request to override that hold.
      * @type {boolean}
@@ -57,11 +57,11 @@ export interface HoldRooms {
      */
     overrideRoomHold?: boolean;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HoldRooms
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -83,10 +83,10 @@ export function HoldRoomsFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     }
     return {
         
-        'holdRoomsDetails': !exists(json, 'holdRoomsDetails') ? undefined : RoomsHoldsTypeFromJSON(json['holdRoomsDetails']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'holdRoomsDetails': !exists(json, 'holdRoomsDetails') ? undefined : ((json['holdRoomsDetails'] as Array<any>).map(RoomsHoldTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'overrideRoomHold': !exists(json, 'overrideRoomHold') ? undefined : json['overrideRoomHold'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -99,10 +99,10 @@ export function HoldRoomsToJSON(value?: HoldRooms | null): any {
     }
     return {
         
-        'holdRoomsDetails': RoomsHoldsTypeToJSON(value.holdRoomsDetails),
-        'links': LinksToJSON(value.links),
+        'holdRoomsDetails': value.holdRoomsDetails === undefined ? undefined : ((value.holdRoomsDetails as Array<any>).map(RoomsHoldTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'overrideRoomHold': value.overrideRoomHold,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

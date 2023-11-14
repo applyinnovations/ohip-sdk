@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ARAccountsInvoicesPaymentsType } from './ARAccountsInvoicesPaymentsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ARAccountInvoicesPaymentsType } from './ARAccountInvoicesPaymentsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response after fetching on-hold invoices.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface InvoicesOnHold {
     /**
-     *
-     * @type {ARAccountsInvoicesPaymentsType}
+     * Account Invoice information.
+     * @type {Array<ARAccountInvoicesPaymentsType>}
      * @memberof InvoicesOnHold
      */
-    details?: ARAccountsInvoicesPaymentsType;
+    details?: Array<ARAccountInvoicesPaymentsType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof InvoicesOnHold
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof InvoicesOnHold
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the InvoicesOnHold interface.

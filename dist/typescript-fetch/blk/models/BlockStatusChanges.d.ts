@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockStatusChangesDetailsType } from './BlockStatusChangesDetailsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BlockStatusChangesDetailType } from './BlockStatusChangesDetailType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object to fetch Status Logs for blocks.
  * @export
@@ -19,11 +19,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BlockStatusChanges {
     /**
-     *
-     * @type {BlockStatusChangesDetailsType}
+     * Block Status Changes Details
+     * @type {Array<BlockStatusChangesDetailType>}
      * @memberof BlockStatusChanges
      */
-    blockStatusChanges?: BlockStatusChangesDetailsType;
+    blockStatusChanges?: Array<BlockStatusChangesDetailType>;
     /**
      * Total number of rows returned
      * @type {number}
@@ -44,10 +44,10 @@ export interface BlockStatusChanges {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockStatusChanges
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface BlockStatusChanges {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockStatusChanges
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockStatusChanges interface.

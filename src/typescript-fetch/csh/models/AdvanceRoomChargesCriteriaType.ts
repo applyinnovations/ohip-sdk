@@ -19,12 +19,12 @@ import {
     CashieringEventTypeFromJSONTyped,
     CashieringEventTypeToJSON,
 } from './CashieringEventType';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Type to set the criteria for generation of advance folios. This will post the room and tax transactions for the nights requested.
@@ -63,11 +63,11 @@ export interface AdvanceRoomChargesCriteriaType {
      */
     postForEntireStay?: boolean;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof AdvanceRoomChargesCriteriaType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      * Flag to indicate if only a verification is required. This checks if advance bills have been generated for this reservation and returns the last date in the response. Setting this flag to true, will return the information for the below elements in the response: AvailablePostingDates, GeneratedForEntireStay, LastRoomAndTaxPostedDate and the Reservation Information. No posting will be done. In order for the actual posting to occur this flag should be false.
      * @type {boolean}
@@ -100,7 +100,7 @@ export function AdvanceRoomChargesCriteriaTypeFromJSONTyped(json: any, ignoreDis
         'eventType': !exists(json, 'eventType') ? undefined : CashieringEventTypeFromJSON(json['eventType']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'postForEntireStay': !exists(json, 'postForEntireStay') ? undefined : json['postForEntireStay'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'verifyOnly': !exists(json, 'verifyOnly') ? undefined : json['verifyOnly'],
     };
 }
@@ -119,7 +119,7 @@ export function AdvanceRoomChargesCriteriaTypeToJSON(value?: AdvanceRoomChargesC
         'eventType': CashieringEventTypeToJSON(value.eventType),
         'hotelId': value.hotelId,
         'postForEntireStay': value.postForEntireStay,
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'verifyOnly': value.verifyOnly,
     };
 }

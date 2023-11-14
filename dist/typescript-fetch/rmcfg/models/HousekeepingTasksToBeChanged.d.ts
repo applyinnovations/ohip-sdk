@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HousekeepingTasksConfigType } from './HousekeepingTasksConfigType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HousekeepingTaskConfigType } from './HousekeepingTaskConfigType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Modify housekeeping tasks in resort configurations.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface HousekeepingTasksToBeChanged {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HousekeepingTasksToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {HousekeepingTasksConfigType}
+     * List of the housekeeping tasks to be configured
+     * @type {Array<HousekeepingTaskConfigType>}
      * @memberof HousekeepingTasksToBeChanged
      */
-    tasks?: HousekeepingTasksConfigType;
+    tasks?: Array<HousekeepingTaskConfigType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HousekeepingTasksToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HousekeepingTasksToBeChanged interface.

@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { TotalPricingElementsType } from './TotalPricingElementsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { TotalPricingElementType } from './TotalPricingElementType';
 import {
-    TotalPricingElementsTypeFromJSON,
-    TotalPricingElementsTypeFromJSONTyped,
-    TotalPricingElementsTypeToJSON,
-} from './TotalPricingElementsType';
-import type { WarningsType } from './WarningsType';
+    TotalPricingElementTypeFromJSON,
+    TotalPricingElementTypeFromJSONTyped,
+    TotalPricingElementTypeToJSON,
+} from './TotalPricingElementType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object to populate total pricing elements of the GDS channel.
@@ -58,10 +58,10 @@ export interface TotalPricingElements {
     limit?: number;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TotalPricingElements
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -75,11 +75,11 @@ export interface TotalPricingElements {
      */
     totalPages?: number;
     /**
-     * 
-     * @type {TotalPricingElementsType}
+     * List of Total Pricing Element Type
+     * @type {Array<TotalPricingElementType>}
      * @memberof TotalPricingElements
      */
-    totalPricingElements?: TotalPricingElementsType;
+    totalPricingElements?: Array<TotalPricingElementType>;
     /**
      * Total number of rows queried
      * @type {number}
@@ -87,11 +87,11 @@ export interface TotalPricingElements {
      */
     totalResults?: number;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TotalPricingElements
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -116,12 +116,12 @@ export function TotalPricingElementsFromJSONTyped(json: any, ignoreDiscriminator
         'count': !exists(json, 'count') ? undefined : json['count'],
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'totalPages': !exists(json, 'totalPages') ? undefined : json['totalPages'],
-        'totalPricingElements': !exists(json, 'totalPricingElements') ? undefined : TotalPricingElementsTypeFromJSON(json['totalPricingElements']),
+        'totalPricingElements': !exists(json, 'totalPricingElements') ? undefined : ((json['totalPricingElements'] as Array<any>).map(TotalPricingElementTypeFromJSON)),
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -137,12 +137,12 @@ export function TotalPricingElementsToJSON(value?: TotalPricingElements | null):
         'count': value.count,
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
-        'totalPricingElements': TotalPricingElementsTypeToJSON(value.totalPricingElements),
+        'totalPricingElements': value.totalPricingElements === undefined ? undefined : ((value.totalPricingElements as Array<any>).map(TotalPricingElementTypeToJSON)),
         'totalResults': value.totalResults,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

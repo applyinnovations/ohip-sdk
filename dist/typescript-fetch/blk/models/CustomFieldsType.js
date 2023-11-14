@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomFieldsTypeToJSON = exports.CustomFieldsTypeFromJSONTyped = exports.CustomFieldsTypeFromJSON = exports.instanceOfCustomFieldsType = void 0;
 const runtime_1 = require("../runtime");
-const CustomCharUDFsType_1 = require("./CustomCharUDFsType");
-const CustomDateUDFsType_1 = require("./CustomDateUDFsType");
-const CustomNumericUDFsType_1 = require("./CustomNumericUDFsType");
+const CharacterUDFType_1 = require("./CharacterUDFType");
+const DateUDFType_1 = require("./DateUDFType");
+const NumericUDFType_1 = require("./NumericUDFType");
 /**
  * Check if a given object implements the CustomFieldsType interface.
  */
@@ -35,9 +35,9 @@ function CustomFieldsTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'customCharUDFs': !(0, runtime_1.exists)(json, 'customCharUDFs') ? undefined : (0, CustomCharUDFsType_1.CustomCharUDFsTypeFromJSON)(json['customCharUDFs']),
-        'customDateUDFs': !(0, runtime_1.exists)(json, 'customDateUDFs') ? undefined : (0, CustomDateUDFsType_1.CustomDateUDFsTypeFromJSON)(json['customDateUDFs']),
-        'customNumericUDFs': !(0, runtime_1.exists)(json, 'customNumericUDFs') ? undefined : (0, CustomNumericUDFsType_1.CustomNumericUDFsTypeFromJSON)(json['customNumericUDFs']),
+        'customCharUDFs': !(0, runtime_1.exists)(json, 'customCharUDFs') ? undefined : (json['customCharUDFs'].map(CharacterUDFType_1.CharacterUDFTypeFromJSON)),
+        'customDateUDFs': !(0, runtime_1.exists)(json, 'customDateUDFs') ? undefined : (json['customDateUDFs'].map(DateUDFType_1.DateUDFTypeFromJSON)),
+        'customNumericUDFs': !(0, runtime_1.exists)(json, 'customNumericUDFs') ? undefined : (json['customNumericUDFs'].map(NumericUDFType_1.NumericUDFTypeFromJSON)),
     };
 }
 exports.CustomFieldsTypeFromJSONTyped = CustomFieldsTypeFromJSONTyped;
@@ -49,9 +49,9 @@ function CustomFieldsTypeToJSON(value) {
         return null;
     }
     return {
-        'customCharUDFs': (0, CustomCharUDFsType_1.CustomCharUDFsTypeToJSON)(value.customCharUDFs),
-        'customDateUDFs': (0, CustomDateUDFsType_1.CustomDateUDFsTypeToJSON)(value.customDateUDFs),
-        'customNumericUDFs': (0, CustomNumericUDFsType_1.CustomNumericUDFsTypeToJSON)(value.customNumericUDFs),
+        'customCharUDFs': value.customCharUDFs === undefined ? undefined : (value.customCharUDFs.map(CharacterUDFType_1.CharacterUDFTypeToJSON)),
+        'customDateUDFs': value.customDateUDFs === undefined ? undefined : (value.customDateUDFs.map(DateUDFType_1.DateUDFTypeToJSON)),
+        'customNumericUDFs': value.customNumericUDFs === undefined ? undefined : (value.customNumericUDFs.map(NumericUDFType_1.NumericUDFTypeToJSON)),
     };
 }
 exports.CustomFieldsTypeToJSON = CustomFieldsTypeToJSON;

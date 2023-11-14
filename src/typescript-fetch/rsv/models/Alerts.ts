@@ -13,36 +13,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AlertsType } from './AlertsType';
+import type { AlertType } from './AlertType';
 import {
-    AlertsTypeFromJSON,
-    AlertsTypeFromJSONTyped,
-    AlertsTypeToJSON,
-} from './AlertsType';
+    AlertTypeFromJSON,
+    AlertTypeFromJSONTyped,
+    AlertTypeToJSON,
+} from './AlertType';
 import type { CommentInfoType } from './CommentInfoType';
 import {
     CommentInfoTypeFromJSON,
     CommentInfoTypeFromJSONTyped,
     CommentInfoTypeToJSON,
 } from './CommentInfoType';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ResvGuestMessagesType } from './ResvGuestMessagesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ResvGuestMessageType } from './ResvGuestMessageType';
 import {
-    ResvGuestMessagesTypeFromJSON,
-    ResvGuestMessagesTypeFromJSONTyped,
-    ResvGuestMessagesTypeToJSON,
-} from './ResvGuestMessagesType';
-import type { WarningsType } from './WarningsType';
+    ResvGuestMessageTypeFromJSON,
+    ResvGuestMessageTypeFromJSONTyped,
+    ResvGuestMessageTypeToJSON,
+} from './ResvGuestMessageType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response with the fetched alerts, includes global alerts, notes and undelivered guest messages.
@@ -51,11 +51,11 @@ import {
  */
 export interface Alerts {
     /**
-     * 
-     * @type {AlertsType}
+     * List of alerts.
+     * @type {Array<AlertType>}
      * @memberof Alerts
      */
-    alerts?: AlertsType;
+    alerts?: Array<AlertType>;
     /**
      * List of Notes for the Guest related to the reservation.
      * @type {Array<CommentInfoType>}
@@ -63,23 +63,23 @@ export interface Alerts {
      */
     comments?: Array<CommentInfoType>;
     /**
-     * 
-     * @type {ResvGuestMessagesType}
+     * Holds the Message Information
+     * @type {Array<ResvGuestMessageType>}
      * @memberof Alerts
      */
-    guestMessages?: ResvGuestMessagesType;
+    guestMessages?: Array<ResvGuestMessageType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Alerts
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Alerts
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -101,11 +101,11 @@ export function AlertsFromJSONTyped(json: any, ignoreDiscriminator: boolean): Al
     }
     return {
         
-        'alerts': !exists(json, 'alerts') ? undefined : AlertsTypeFromJSON(json['alerts']),
+        'alerts': !exists(json, 'alerts') ? undefined : ((json['alerts'] as Array<any>).map(AlertTypeFromJSON)),
         'comments': !exists(json, 'comments') ? undefined : ((json['comments'] as Array<any>).map(CommentInfoTypeFromJSON)),
-        'guestMessages': !exists(json, 'guestMessages') ? undefined : ResvGuestMessagesTypeFromJSON(json['guestMessages']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'guestMessages': !exists(json, 'guestMessages') ? undefined : ((json['guestMessages'] as Array<any>).map(ResvGuestMessageTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -118,11 +118,11 @@ export function AlertsToJSON(value?: Alerts | null): any {
     }
     return {
         
-        'alerts': AlertsTypeToJSON(value.alerts),
+        'alerts': value.alerts === undefined ? undefined : ((value.alerts as Array<any>).map(AlertTypeToJSON)),
         'comments': value.comments === undefined ? undefined : ((value.comments as Array<any>).map(CommentInfoTypeToJSON)),
-        'guestMessages': ResvGuestMessagesTypeToJSON(value.guestMessages),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'guestMessages': value.guestMessages === undefined ? undefined : ((value.guestMessages as Array<any>).map(ResvGuestMessageTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

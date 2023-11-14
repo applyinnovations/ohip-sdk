@@ -17,9 +17,9 @@ exports.ChannelMarketingTextsInfoToJSON = exports.ChannelMarketingTextsInfoFromJ
 const runtime_1 = require("../runtime");
 const BookingChannelInfoType_1 = require("./BookingChannelInfoType");
 const HotelChannelInfoType_1 = require("./HotelChannelInfoType");
-const Links_1 = require("./Links");
-const MarketingTextsType_1 = require("./MarketingTextsType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const MarketingTextType_1 = require("./MarketingTextType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ChannelMarketingTextsInfo interface.
  */
@@ -39,9 +39,9 @@ function ChannelMarketingTextsInfoFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'bookingChannelsInfo': !(0, runtime_1.exists)(json, 'bookingChannelsInfo') ? undefined : (json['bookingChannelsInfo'].map(BookingChannelInfoType_1.BookingChannelInfoTypeFromJSON)),
         'hotelsInfo': !(0, runtime_1.exists)(json, 'hotelsInfo') ? undefined : (json['hotelsInfo'].map(HotelChannelInfoType_1.HotelChannelInfoTypeFromJSON)),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'marketingTexts': !(0, runtime_1.exists)(json, 'marketingTexts') ? undefined : (0, MarketingTextsType_1.MarketingTextsTypeFromJSON)(json['marketingTexts']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'marketingTexts': !(0, runtime_1.exists)(json, 'marketingTexts') ? undefined : (json['marketingTexts'].map(MarketingTextType_1.MarketingTextTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ChannelMarketingTextsInfoFromJSONTyped = ChannelMarketingTextsInfoFromJSONTyped;
@@ -55,9 +55,9 @@ function ChannelMarketingTextsInfoToJSON(value) {
     return {
         'bookingChannelsInfo': value.bookingChannelsInfo === undefined ? undefined : (value.bookingChannelsInfo.map(BookingChannelInfoType_1.BookingChannelInfoTypeToJSON)),
         'hotelsInfo': value.hotelsInfo === undefined ? undefined : (value.hotelsInfo.map(HotelChannelInfoType_1.HotelChannelInfoTypeToJSON)),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'marketingTexts': (0, MarketingTextsType_1.MarketingTextsTypeToJSON)(value.marketingTexts),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'marketingTexts': value.marketingTexts === undefined ? undefined : (value.marketingTexts.map(MarketingTextType_1.MarketingTextTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ChannelMarketingTextsInfoToJSON = ChannelMarketingTextsInfoToJSON;

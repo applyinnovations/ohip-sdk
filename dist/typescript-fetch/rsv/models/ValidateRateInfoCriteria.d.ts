@@ -11,7 +11,7 @@
  */
 import type { BlockId } from './BlockId';
 import type { CurrencyAmountType } from './CurrencyAmountType';
-import type { EffectiveRatesType } from './EffectiveRatesType';
+import type { EffectiveRateType } from './EffectiveRateType';
 import type { GuestCountsType } from './GuestCountsType';
 import type { ReservationId } from './ReservationId';
 import type { ReservationPackageType } from './ReservationPackageType';
@@ -54,11 +54,11 @@ export interface ValidateRateInfoCriteria {
      */
     detailDate?: Date;
     /**
-     *
-     * @type {EffectiveRatesType}
+     * Collection of effective rate amount per guest on specific dates.
+     * @type {Array<EffectiveRateType>}
      * @memberof ValidateRateInfoCriteria
      */
-    effectiveRates?: EffectiveRatesType;
+    effectiveRates?: Array<EffectiveRateType>;
     /**
      *
      * @type {GuestCountsType}

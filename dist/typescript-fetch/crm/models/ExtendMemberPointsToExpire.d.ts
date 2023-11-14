@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object to extend a member points to expire.
  * @export
@@ -25,10 +25,10 @@ export interface ExtendMemberPointsToExpire {
     expirationDate?: Date;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExtendMemberPointsToExpire
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Unique Membership ID.
      * @type {number}
@@ -36,11 +36,11 @@ export interface ExtendMemberPointsToExpire {
      */
     membershipId?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ExtendMemberPointsToExpire
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ExtendMemberPointsToExpire interface.

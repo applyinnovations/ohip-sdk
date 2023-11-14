@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CopyNewRoomsType } from './CopyNewRoomsType';
+import type { CopyNewRoomType } from './CopyNewRoomType';
 /**
  * Primary details of room to be copied and collection of rooms to be created from it.
  * @export
@@ -23,11 +23,11 @@ export interface CopyRoomType {
      */
     hotelId?: object;
     /**
-     *
-     * @type {CopyNewRoomsType}
+     * Room details that may differ from the base existing room.
+     * @type {Array<CopyNewRoomType>}
      * @memberof CopyRoomType
      */
-    newRooms?: CopyNewRoomsType;
+    newRooms?: Array<CopyNewRoomType>;
     /**
      * Room number of an existing room that will serve as the basis for the new rooms.
      * @type {object}

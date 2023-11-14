@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { RoomStatusListType } from './RoomStatusListType';
+import type { HousekeepingRoomStatusType } from './HousekeepingRoomStatusType';
 import {
-    RoomStatusListTypeFromJSON,
-    RoomStatusListTypeFromJSONTyped,
-    RoomStatusListTypeToJSON,
-} from './RoomStatusListType';
+    HousekeepingRoomStatusTypeFromJSON,
+    HousekeepingRoomStatusTypeFromJSONTyped,
+    HousekeepingRoomStatusTypeToJSON,
+} from './HousekeepingRoomStatusType';
 
 /**
  * Additional RoomStatus Criteria for Mass Checkin
@@ -27,11 +27,11 @@ import {
  */
 export interface MassCheckInCriteriaTypeAdditionalCriteria {
     /**
-     * 
-     * @type {RoomStatusListType}
+     * Room Status Type.
+     * @type {Array<HousekeepingRoomStatusType>}
      * @memberof MassCheckInCriteriaTypeAdditionalCriteria
      */
-    roomStatuses?: RoomStatusListType;
+    roomStatuses?: Array<HousekeepingRoomStatusType>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function MassCheckInCriteriaTypeAdditionalCriteriaFromJSONTyped(json: any
     }
     return {
         
-        'roomStatuses': !exists(json, 'roomStatuses') ? undefined : RoomStatusListTypeFromJSON(json['roomStatuses']),
+        'roomStatuses': !exists(json, 'roomStatuses') ? undefined : ((json['roomStatuses'] as Array<any>).map(HousekeepingRoomStatusTypeFromJSON)),
     };
 }
 
@@ -66,7 +66,7 @@ export function MassCheckInCriteriaTypeAdditionalCriteriaToJSON(value?: MassChec
     }
     return {
         
-        'roomStatuses': RoomStatusListTypeToJSON(value.roomStatuses),
+        'roomStatuses': value.roomStatuses === undefined ? undefined : ((value.roomStatuses as Array<any>).map(HousekeepingRoomStatusTypeToJSON)),
     };
 }
 

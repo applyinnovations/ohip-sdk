@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { DateRangeType } from './DateRangeType';
 import {
     DateRangeTypeFromJSON,
@@ -64,16 +58,16 @@ export interface ARInvoiceCriteriaTypeAdditionalFilter {
     supplementWildCard?: string;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ARInvoiceCriteriaTypeAdditionalFilter
      */
-    transactionCode?: CodeListType;
+    transactionCode?: Array<string>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof ARInvoiceCriteriaTypeAdditionalFilter
      */
-    transactionSubGroup?: CodeListType;
+    transactionSubGroup?: Array<string>;
 }
 
 /**
@@ -100,8 +94,8 @@ export function ARInvoiceCriteriaTypeAdditionalFilterFromJSONTyped(json: any, ig
         'dateRange': !exists(json, 'dateRange') ? undefined : DateRangeTypeFromJSON(json['dateRange']),
         'referenceWildCard': !exists(json, 'referenceWildCard') ? undefined : json['referenceWildCard'],
         'supplementWildCard': !exists(json, 'supplementWildCard') ? undefined : json['supplementWildCard'],
-        'transactionCode': !exists(json, 'transactionCode') ? undefined : CodeListTypeFromJSON(json['transactionCode']),
-        'transactionSubGroup': !exists(json, 'transactionSubGroup') ? undefined : CodeListTypeFromJSON(json['transactionSubGroup']),
+        'transactionCode': !exists(json, 'transactionCode') ? undefined : json['transactionCode'],
+        'transactionSubGroup': !exists(json, 'transactionSubGroup') ? undefined : json['transactionSubGroup'],
     };
 }
 
@@ -119,8 +113,8 @@ export function ARInvoiceCriteriaTypeAdditionalFilterToJSON(value?: ARInvoiceCri
         'dateRange': DateRangeTypeToJSON(value.dateRange),
         'referenceWildCard': value.referenceWildCard,
         'supplementWildCard': value.supplementWildCard,
-        'transactionCode': CodeListTypeToJSON(value.transactionCode),
-        'transactionSubGroup': CodeListTypeToJSON(value.transactionSubGroup),
+        'transactionCode': value.transactionCode,
+        'transactionSubGroup': value.transactionSubGroup,
     };
 }
 

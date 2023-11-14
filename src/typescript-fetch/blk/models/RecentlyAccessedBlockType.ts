@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockIdList } from './BlockIdList';
-import {
-    BlockIdListFromJSON,
-    BlockIdListFromJSONTyped,
-    BlockIdListToJSON,
-} from './BlockIdList';
 import type { TimeSpanType } from './TimeSpanType';
 import {
     TimeSpanTypeFromJSON,
     TimeSpanTypeFromJSONTyped,
     TimeSpanTypeToJSON,
 } from './TimeSpanType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * A recently used block record.
@@ -45,11 +45,11 @@ export interface RecentlyAccessedBlockType {
      */
     blockCode?: string;
     /**
-     * 
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RecentlyAccessedBlockType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * The name of the business block.
      * @type {string}
@@ -97,7 +97,7 @@ export function RecentlyAccessedBlockTypeFromJSONTyped(json: any, ignoreDiscrimi
         
         'accessDate': !exists(json, 'accessDate') ? undefined : (new Date(json['accessDate'])),
         'blockCode': !exists(json, 'blockCode') ? undefined : json['blockCode'],
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : BlockIdListFromJSON(json['blockIdList']),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'blockName': !exists(json, 'blockName') ? undefined : json['blockName'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'hotelName': !exists(json, 'hotelName') ? undefined : json['hotelName'],
@@ -116,7 +116,7 @@ export function RecentlyAccessedBlockTypeToJSON(value?: RecentlyAccessedBlockTyp
         
         'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0,10)),
         'blockCode': value.blockCode,
-        'blockIdList': BlockIdListToJSON(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'blockName': value.blockName,
         'hotelId': value.hotelId,
         'hotelName': value.hotelName,

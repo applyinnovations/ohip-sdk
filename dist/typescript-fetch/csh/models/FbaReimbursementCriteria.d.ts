@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CertificateReconciliationTypes } from './CertificateReconciliationTypes';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CertificateReconciliationType } from './CertificateReconciliationType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * PostFBA Reimbursement/Settlement operation posts reimbursement/settlement against the selected certificate records.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FbaReimbursementCriteria {
     /**
-     *
-     * @type {CertificateReconciliationTypes}
+     * List of CertificateReconciliationType criteria
+     * @type {Array<CertificateReconciliationType>}
      * @memberof FbaReimbursementCriteria
      */
-    certificateReconciliationTypes?: CertificateReconciliationTypes;
+    certificateReconciliationTypes?: Array<CertificateReconciliationType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FbaReimbursementCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FbaReimbursementCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FbaReimbursementCriteria interface.

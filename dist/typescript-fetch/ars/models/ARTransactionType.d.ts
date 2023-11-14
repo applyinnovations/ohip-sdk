@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AccountInvoicesInfoType } from './AccountInvoicesInfoType';
-import type { AccountPaymentsInfoType } from './AccountPaymentsInfoType';
+import type { AccountInvoiceInfoType } from './AccountInvoiceInfoType';
+import type { AccountPaymentInfoType } from './AccountPaymentInfoType';
 /**
  * Transaction Information.
  * @export
@@ -18,17 +18,17 @@ import type { AccountPaymentsInfoType } from './AccountPaymentsInfoType';
  */
 export interface ARTransactionType {
     /**
-     *
-     * @type {AccountInvoicesInfoType}
+     * Account Invoice Info.
+     * @type {Array<AccountInvoiceInfoType>}
      * @memberof ARTransactionType
      */
-    invoices?: AccountInvoicesInfoType;
+    invoices?: Array<AccountInvoiceInfoType>;
     /**
-     *
-     * @type {AccountPaymentsInfoType}
+     * Account Payments info .
+     * @type {Array<AccountPaymentInfoType>}
      * @memberof ARTransactionType
      */
-    payments?: AccountPaymentsInfoType;
+    payments?: Array<AccountPaymentInfoType>;
 }
 /**
  * Check if a given object implements the ARTransactionType interface.

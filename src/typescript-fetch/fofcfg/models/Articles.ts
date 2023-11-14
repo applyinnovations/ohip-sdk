@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ArticlesType } from './ArticlesType';
+import type { ArticleInfoType } from './ArticleInfoType';
 import {
-    ArticlesTypeFromJSON,
-    ArticlesTypeFromJSONTyped,
-    ArticlesTypeToJSON,
-} from './ArticlesType';
-import type { Links } from './Links';
+    ArticleInfoTypeFromJSON,
+    ArticleInfoTypeFromJSONTyped,
+    ArticleInfoTypeToJSON,
+} from './ArticleInfoType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request to change articles.
@@ -39,11 +39,11 @@ import {
  */
 export interface Articles {
     /**
-     * 
-     * @type {ArticlesType}
+     * Holds collection of articles.
+     * @type {Array<ArticleInfoType>}
      * @memberof Articles
      */
-    articles?: ArticlesType;
+    articles?: Array<ArticleInfoType>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -52,16 +52,16 @@ export interface Articles {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Articles
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Articles
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -83,10 +83,10 @@ export function ArticlesFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     }
     return {
         
-        'articles': !exists(json, 'articles') ? undefined : ArticlesTypeFromJSON(json['articles']),
+        'articles': !exists(json, 'articles') ? undefined : ((json['articles'] as Array<any>).map(ArticleInfoTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -99,10 +99,10 @@ export function ArticlesToJSON(value?: Articles | null): any {
     }
     return {
         
-        'articles': ArticlesTypeToJSON(value.articles),
+        'articles': value.articles === undefined ? undefined : ((value.articles as Array<any>).map(ArticleInfoTypeToJSON)),
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

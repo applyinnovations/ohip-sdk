@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DailyRatesType } from './DailyRatesType';
+import type { DailyRateType } from './DailyRateType';
 import {
-    DailyRatesTypeFromJSON,
-    DailyRatesTypeFromJSONTyped,
-    DailyRatesTypeToJSON,
-} from './DailyRatesType';
-import type { EffectiveRatesType } from './EffectiveRatesType';
+    DailyRateTypeFromJSON,
+    DailyRateTypeFromJSONTyped,
+    DailyRateTypeToJSON,
+} from './DailyRateType';
+import type { EffectiveRateType } from './EffectiveRateType';
 import {
-    EffectiveRatesTypeFromJSON,
-    EffectiveRatesTypeFromJSONTyped,
-    EffectiveRatesTypeToJSON,
-} from './EffectiveRatesType';
-import type { Links } from './Links';
+    EffectiveRateTypeFromJSON,
+    EffectiveRateTypeFromJSONTyped,
+    EffectiveRateTypeToJSON,
+} from './EffectiveRateType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Possible errors that the operation will generate: The reservation is not in Reserved state. The room being requested does not exist.
@@ -45,35 +45,35 @@ import {
  */
 export interface AssignedRoom {
     /**
-     * 
-     * @type {EffectiveRatesType}
+     * Collection of effective rate amount per guest on specific dates.
+     * @type {Array<EffectiveRateType>}
      * @memberof AssignedRoom
      */
-    effectiveRates?: EffectiveRatesType;
+    effectiveRates?: Array<EffectiveRateType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof AssignedRoom
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {DailyRatesType}
+     * Defines room rate information on a daily basis.
+     * @type {Array<DailyRateType>}
      * @memberof AssignedRoom
      */
-    newRates?: DailyRatesType;
+    newRates?: Array<DailyRateType>;
     /**
-     * 
-     * @type {DailyRatesType}
+     * Defines room rate information on a daily basis.
+     * @type {Array<DailyRateType>}
      * @memberof AssignedRoom
      */
-    oldRates?: DailyRatesType;
+    oldRates?: Array<DailyRateType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof AssignedRoom
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -95,11 +95,11 @@ export function AssignedRoomFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'effectiveRates': !exists(json, 'effectiveRates') ? undefined : EffectiveRatesTypeFromJSON(json['effectiveRates']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'newRates': !exists(json, 'newRates') ? undefined : DailyRatesTypeFromJSON(json['newRates']),
-        'oldRates': !exists(json, 'oldRates') ? undefined : DailyRatesTypeFromJSON(json['oldRates']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'effectiveRates': !exists(json, 'effectiveRates') ? undefined : ((json['effectiveRates'] as Array<any>).map(EffectiveRateTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'newRates': !exists(json, 'newRates') ? undefined : ((json['newRates'] as Array<any>).map(DailyRateTypeFromJSON)),
+        'oldRates': !exists(json, 'oldRates') ? undefined : ((json['oldRates'] as Array<any>).map(DailyRateTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -112,11 +112,11 @@ export function AssignedRoomToJSON(value?: AssignedRoom | null): any {
     }
     return {
         
-        'effectiveRates': EffectiveRatesTypeToJSON(value.effectiveRates),
-        'links': LinksToJSON(value.links),
-        'newRates': DailyRatesTypeToJSON(value.newRates),
-        'oldRates': DailyRatesTypeToJSON(value.oldRates),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'effectiveRates': value.effectiveRates === undefined ? undefined : ((value.effectiveRates as Array<any>).map(EffectiveRateTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'newRates': value.newRates === undefined ? undefined : ((value.newRates as Array<any>).map(DailyRateTypeToJSON)),
+        'oldRates': value.oldRates === undefined ? undefined : ((value.oldRates as Array<any>).map(DailyRateTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

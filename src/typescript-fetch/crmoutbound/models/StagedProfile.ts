@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { StagedProfileChangeInstructionsType } from './StagedProfileChangeInstructionsType';
 import {
     StagedProfileChangeInstructionsTypeFromJSON,
@@ -52,10 +52,10 @@ export interface StagedProfile {
     changeInstructions?: StagedProfileChangeInstructionsType;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof StagedProfile
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -79,7 +79,7 @@ export function StagedProfileFromJSONTyped(json: any, ignoreDiscriminator: boole
         
         'stagedProfile': !exists(json, 'stagedProfile') ? undefined : StagedProfileTypeFromJSON(json['stagedProfile']),
         'changeInstructions': !exists(json, 'changeInstructions') ? undefined : StagedProfileChangeInstructionsTypeFromJSON(json['changeInstructions']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -94,7 +94,7 @@ export function StagedProfileToJSON(value?: StagedProfile | null): any {
         
         'stagedProfile': StagedProfileTypeToJSON(value.stagedProfile),
         'changeInstructions': StagedProfileChangeInstructionsTypeToJSON(value.changeInstructions),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

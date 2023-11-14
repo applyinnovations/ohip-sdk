@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ActivityListType } from './ActivityListType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { ActivityDetailsType } from './ActivityDetailsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -19,11 +19,11 @@ import type { WarningsType } from './WarningsType';
  */
 export interface PostSingleActivityCompletionRequest {
     /**
-     *
-     * @type {ActivityListType}
+     * Activity information in detail.
+     * @type {Array<ActivityDetailsType>}
      * @memberof PostSingleActivityCompletionRequest
      */
-    activitiesInformation?: ActivityListType;
+    activitiesInformation?: Array<ActivityDetailsType>;
     /**
      * Signifies whether only activity details are being modified.
      * @type {boolean}
@@ -38,10 +38,10 @@ export interface PostSingleActivityCompletionRequest {
     completeMode?: boolean;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PostSingleActivityCompletionRequest
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Signifies whether the linked activity details should be modified or not.
      * @type {boolean}
@@ -49,11 +49,11 @@ export interface PostSingleActivityCompletionRequest {
      */
     updateLinkedActivities?: boolean;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PostSingleActivityCompletionRequest
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PostSingleActivityCompletionRequest interface.

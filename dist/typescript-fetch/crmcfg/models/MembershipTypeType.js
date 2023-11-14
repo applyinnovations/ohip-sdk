@@ -23,7 +23,7 @@ const EnrollmentMatchRuleType_1 = require("./EnrollmentMatchRuleType");
 const MembershipActionType_1 = require("./MembershipActionType");
 const MembershipAwardGenerationMethodType_1 = require("./MembershipAwardGenerationMethodType");
 const MembershipHandlingType_1 = require("./MembershipHandlingType");
-const MembershipLevelsType_1 = require("./MembershipLevelsType");
+const MembershipLevelType_1 = require("./MembershipLevelType");
 const MembershipTypeAdditionalInfoType_1 = require("./MembershipTypeAdditionalInfoType");
 const TierPointsType_1 = require("./TierPointsType");
 const TranslationTextType2000_1 = require("./TranslationTextType2000");
@@ -76,7 +76,7 @@ function MembershipTypeTypeFromJSONTyped(json, ignoreDiscriminator) {
         'memberFolioMessage': !(0, runtime_1.exists)(json, 'memberFolioMessage') ? undefined : (0, TranslationTextType2000_1.TranslationTextType2000FromJSON)(json['memberFolioMessage']),
         'membershipAction': !(0, runtime_1.exists)(json, 'membershipAction') ? undefined : (0, MembershipActionType_1.MembershipActionTypeFromJSON)(json['membershipAction']),
         'membershipClass': !(0, runtime_1.exists)(json, 'membershipClass') ? undefined : json['membershipClass'],
-        'membershipLevels': !(0, runtime_1.exists)(json, 'membershipLevels') ? undefined : (0, MembershipLevelsType_1.MembershipLevelsTypeFromJSON)(json['membershipLevels']),
+        'membershipLevels': !(0, runtime_1.exists)(json, 'membershipLevels') ? undefined : (json['membershipLevels'].map(MembershipLevelType_1.MembershipLevelTypeFromJSON)),
         'membershipType': !(0, runtime_1.exists)(json, 'membershipType') ? undefined : json['membershipType'],
         'multiplier': !(0, runtime_1.exists)(json, 'multiplier') ? undefined : json['multiplier'],
         'nonMemberFolioMessage': !(0, runtime_1.exists)(json, 'nonMemberFolioMessage') ? undefined : (0, TranslationTextType2000_1.TranslationTextType2000FromJSON)(json['nonMemberFolioMessage']),
@@ -134,7 +134,7 @@ function MembershipTypeTypeToJSON(value) {
         'memberFolioMessage': (0, TranslationTextType2000_1.TranslationTextType2000ToJSON)(value.memberFolioMessage),
         'membershipAction': (0, MembershipActionType_1.MembershipActionTypeToJSON)(value.membershipAction),
         'membershipClass': value.membershipClass,
-        'membershipLevels': (0, MembershipLevelsType_1.MembershipLevelsTypeToJSON)(value.membershipLevels),
+        'membershipLevels': value.membershipLevels === undefined ? undefined : (value.membershipLevels.map(MembershipLevelType_1.MembershipLevelTypeToJSON)),
         'membershipType': value.membershipType,
         'multiplier': value.multiplier,
         'nonMemberFolioMessage': (0, TranslationTextType2000_1.TranslationTextType2000ToJSON)(value.nonMemberFolioMessage),

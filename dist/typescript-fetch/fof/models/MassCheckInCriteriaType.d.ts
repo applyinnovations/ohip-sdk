@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { MassCheckInCriteriaTypeAdditionalCriteria } from './MassCheckInCriteriaTypeAdditionalCriteria';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * This will have details of reservations and advance criteria for performing Mass Checkin of Reservations
  * @export
@@ -30,11 +30,11 @@ export interface MassCheckInCriteriaType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MassCheckInCriteriaType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
 }
 /**
  * Check if a given object implements the MassCheckInCriteriaType interface.

@@ -11,7 +11,7 @@
  */
 import type { CompanyDetails } from './CompanyDetails';
 import type { DistinctIDType } from './DistinctIDType';
-import type { ExternalReferencesType } from './ExternalReferencesType';
+import type { ExternalReferenceType } from './ExternalReferenceType';
 import type { GroupDetails } from './GroupDetails';
 import type { GuestDetails } from './GuestDetails';
 import type { MembershipDetails } from './MembershipDetails';
@@ -102,11 +102,11 @@ export interface ReservationsInformationType {
      */
     departureTime?: string;
     /**
-     *
-     * @type {ExternalReferencesType}
+     * This type contains unique information of external reference.
+     * @type {Array<ExternalReferenceType>}
      * @memberof ReservationsInformationType
      */
-    externalReferences?: ExternalReferencesType;
+    externalReferences?: Array<ExternalReferenceType>;
     /**
      *
      * @type {GroupDetails}

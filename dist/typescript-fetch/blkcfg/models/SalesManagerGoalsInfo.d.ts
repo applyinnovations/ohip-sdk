@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { SalesManagerGoalsType } from './SalesManagerGoalsType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { SalesManagerGoalType } from './SalesManagerGoalType';
+import type { WarningType } from './WarningType';
 /**
  * You can use this API to retrieve individual Sales Manager Goals for a hotel, you can narrow the results using different search criteria
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface SalesManagerGoalsInfo {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof SalesManagerGoalsInfo
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {SalesManagerGoalsType}
+     * Detail Information about Sales Manager's goal.
+     * @type {Array<SalesManagerGoalType>}
      * @memberof SalesManagerGoalsInfo
      */
-    salesManagerGoals?: SalesManagerGoalsType;
+    salesManagerGoals?: Array<SalesManagerGoalType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof SalesManagerGoalsInfo
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the SalesManagerGoalsInfo interface.

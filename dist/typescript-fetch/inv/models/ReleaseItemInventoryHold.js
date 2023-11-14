@@ -16,10 +16,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReleaseItemInventoryHoldToJSON = exports.ReleaseItemInventoryHoldFromJSONTyped = exports.ReleaseItemInventoryHoldFromJSON = exports.instanceOfReleaseItemInventoryHold = void 0;
 const runtime_1 = require("../runtime");
 const HeldByType_1 = require("./HeldByType");
-const ReleaseItemsInventoryHoldType_1 = require("./ReleaseItemsInventoryHoldType");
+const ReleaseItemInventoryHoldType_1 = require("./ReleaseItemInventoryHoldType");
 const TimeSpanType_1 = require("./TimeSpanType");
 const UniqueIDType_1 = require("./UniqueIDType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ReleaseItemInventoryHold interface.
  */
@@ -43,9 +43,9 @@ function ReleaseItemInventoryHoldFromJSONTyped(json, ignoreDiscriminator) {
         'itemCode': !(0, runtime_1.exists)(json, 'itemCode') ? undefined : json['itemCode'],
         'itemHoldId': !(0, runtime_1.exists)(json, 'itemHoldId') ? undefined : json['itemHoldId'],
         'itemId': !(0, runtime_1.exists)(json, 'itemId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['itemId']),
-        'releaseItemsInventoryHoldInfo': !(0, runtime_1.exists)(json, 'releaseItemsInventoryHoldInfo') ? undefined : (0, ReleaseItemsInventoryHoldType_1.ReleaseItemsInventoryHoldTypeFromJSON)(json['releaseItemsInventoryHoldInfo']),
+        'releaseItemsInventoryHoldInfo': !(0, runtime_1.exists)(json, 'releaseItemsInventoryHoldInfo') ? undefined : (json['releaseItemsInventoryHoldInfo'].map(ReleaseItemInventoryHoldType_1.ReleaseItemInventoryHoldTypeFromJSON)),
         'reserveDates': !(0, runtime_1.exists)(json, 'reserveDates') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['reserveDates']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ReleaseItemInventoryHoldFromJSONTyped = ReleaseItemInventoryHoldFromJSONTyped;
@@ -63,9 +63,9 @@ function ReleaseItemInventoryHoldToJSON(value) {
         'itemCode': value.itemCode,
         'itemHoldId': value.itemHoldId,
         'itemId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.itemId),
-        'releaseItemsInventoryHoldInfo': (0, ReleaseItemsInventoryHoldType_1.ReleaseItemsInventoryHoldTypeToJSON)(value.releaseItemsInventoryHoldInfo),
+        'releaseItemsInventoryHoldInfo': value.releaseItemsInventoryHoldInfo === undefined ? undefined : (value.releaseItemsInventoryHoldInfo.map(ReleaseItemInventoryHoldType_1.ReleaseItemInventoryHoldTypeToJSON)),
         'reserveDates': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.reserveDates),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ReleaseItemInventoryHoldToJSON = ReleaseItemInventoryHoldToJSON;

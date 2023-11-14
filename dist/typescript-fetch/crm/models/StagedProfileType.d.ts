@@ -12,7 +12,7 @@
 import type { MailingActionsType } from './MailingActionsType';
 import type { PrivacyInfoType } from './PrivacyInfoType';
 import type { StagedProfileAddressType } from './StagedProfileAddressType';
-import type { StagedProfileCommentInfosType } from './StagedProfileCommentInfosType';
+import type { StagedProfileCommentInfoType } from './StagedProfileCommentInfoType';
 import type { StagedProfileCompanyType } from './StagedProfileCompanyType';
 import type { StagedProfileCustomerType } from './StagedProfileCustomerType';
 import type { StagedProfileEmailType } from './StagedProfileEmailType';
@@ -25,7 +25,7 @@ import type { StagedProfilePreferenceType } from './StagedProfilePreferenceType'
 import type { StagedProfileRoutingInstructionType } from './StagedProfileRoutingInstructionType';
 import type { StagedProfileURLType } from './StagedProfileURLType';
 import type { StagedProfileUserDefinedFieldsType } from './StagedProfileUserDefinedFieldsType';
-import type { UniqueIDListType } from './UniqueIDListType';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Detailed information about the staged profile.
  * @export
@@ -39,11 +39,11 @@ export interface StagedProfileType {
      */
     addresses?: Array<StagedProfileAddressType>;
     /**
-     *
-     * @type {StagedProfileCommentInfosType}
+     * List of Notes for the customer.
+     * @type {Array<StagedProfileCommentInfoType>}
      * @memberof StagedProfileType
      */
-    comments?: StagedProfileCommentInfosType;
+    comments?: Array<StagedProfileCommentInfoType>;
     /**
      *
      * @type {StagedProfileCompanyType}
@@ -117,11 +117,11 @@ export interface StagedProfileType {
      */
     privacyInfo?: PrivacyInfoType;
     /**
-     *
-     * @type {UniqueIDListType}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof StagedProfileType
      */
-    profileIdList?: UniqueIDListType;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * Type of the staged profile.
      * @type {string}

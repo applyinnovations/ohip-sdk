@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MassCheckInCriteriaTypeToJSON = exports.MassCheckInCriteriaTypeFromJSONTyped = exports.MassCheckInCriteriaTypeFromJSON = exports.instanceOfMassCheckInCriteriaType = void 0;
 const runtime_1 = require("../runtime");
 const MassCheckInCriteriaTypeAdditionalCriteria_1 = require("./MassCheckInCriteriaTypeAdditionalCriteria");
-const ReservationIdList_1 = require("./ReservationIdList");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the MassCheckInCriteriaType interface.
  */
@@ -36,7 +36,7 @@ function MassCheckInCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'additionalCriteria': !(0, runtime_1.exists)(json, 'additionalCriteria') ? undefined : (0, MassCheckInCriteriaTypeAdditionalCriteria_1.MassCheckInCriteriaTypeAdditionalCriteriaFromJSON)(json['additionalCriteria']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
 exports.MassCheckInCriteriaTypeFromJSONTyped = MassCheckInCriteriaTypeFromJSONTyped;
@@ -50,7 +50,7 @@ function MassCheckInCriteriaTypeToJSON(value) {
     return {
         'additionalCriteria': (0, MassCheckInCriteriaTypeAdditionalCriteria_1.MassCheckInCriteriaTypeAdditionalCriteriaToJSON)(value.additionalCriteria),
         'hotelId': value.hotelId,
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }
 exports.MassCheckInCriteriaTypeToJSON = MassCheckInCriteriaTypeToJSON;

@@ -9,8 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CodeListType } from './CodeListType';
-import type { TemplateTransactionSubgroupIDsType } from './TemplateTransactionSubgroupIDsType';
+import type { TemplateTransactionSubgroupIDType } from './TemplateTransactionSubgroupIDType';
 /**
  * Copy information required to copy transaction subgroup type
  * @export
@@ -19,16 +18,16 @@ import type { TemplateTransactionSubgroupIDsType } from './TemplateTransactionSu
 export interface CopyTransactionSubgroupsType {
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof CopyTransactionSubgroupsType
      */
-    hotels?: CodeListType;
+    hotels?: Array<string>;
     /**
-     *
-     * @type {TemplateTransactionSubgroupIDsType}
+     * List of template transaction subgroup IDs
+     * @type {Array<TemplateTransactionSubgroupIDType>}
      * @memberof CopyTransactionSubgroupsType
      */
-    transactionSubgroups?: TemplateTransactionSubgroupIDsType;
+    transactionSubgroups?: Array<TemplateTransactionSubgroupIDType>;
 }
 /**
  * Check if a given object implements the CopyTransactionSubgroupsType interface.

@@ -19,30 +19,30 @@ import {
     BlockIdFromJSONTyped,
     BlockIdToJSON,
 } from './BlockId';
+import type { InstanceLink } from './InstanceLink';
+import {
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { InventoryToReturnType } from './InventoryToReturnType';
 import {
     InventoryToReturnTypeFromJSON,
     InventoryToReturnTypeFromJSONTyped,
     InventoryToReturnTypeToJSON,
 } from './InventoryToReturnType';
-import type { Links } from './Links';
-import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
 import type { UniqueIDType } from './UniqueIDType';
 import {
     UniqueIDTypeFromJSON,
     UniqueIDTypeFromJSONTyped,
     UniqueIDTypeToJSON,
 } from './UniqueIDType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * The standard optional Opera Context element is also included.
@@ -82,10 +82,10 @@ export interface BorrowedInventoryToReturn {
     inventoryToReturnList?: Array<InventoryToReturnType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BorrowedInventoryToReturn
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -93,11 +93,11 @@ export interface BorrowedInventoryToReturn {
      */
     roomType?: string;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BorrowedInventoryToReturn
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -124,9 +124,9 @@ export function BorrowedInventoryToReturnFromJSONTyped(json: any, ignoreDiscrimi
         'existingReservationId': !exists(json, 'existingReservationId') ? undefined : UniqueIDTypeFromJSON(json['existingReservationId']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'inventoryToReturnList': !exists(json, 'inventoryToReturnList') ? undefined : ((json['inventoryToReturnList'] as Array<any>).map(InventoryToReturnTypeFromJSON)),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -144,9 +144,9 @@ export function BorrowedInventoryToReturnToJSON(value?: BorrowedInventoryToRetur
         'existingReservationId': UniqueIDTypeToJSON(value.existingReservationId),
         'hotelId': value.hotelId,
         'inventoryToReturnList': value.inventoryToReturnList === undefined ? undefined : ((value.inventoryToReturnList as Array<any>).map(InventoryToReturnTypeToJSON)),
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'roomType': value.roomType,
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

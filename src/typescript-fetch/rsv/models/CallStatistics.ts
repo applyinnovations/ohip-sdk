@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CallStatisticsListType } from './CallStatisticsListType';
+import type { CallStatisticsType } from './CallStatisticsType';
 import {
-    CallStatisticsListTypeFromJSON,
-    CallStatisticsListTypeFromJSONTyped,
-    CallStatisticsListTypeToJSON,
-} from './CallStatisticsListType';
-import type { Links } from './Links';
+    CallStatisticsTypeFromJSON,
+    CallStatisticsTypeFromJSONTyped,
+    CallStatisticsTypeToJSON,
+} from './CallStatisticsType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object to the request to retrieve Call Statistics.
@@ -39,23 +39,23 @@ import {
  */
 export interface CallStatistics {
     /**
-     * 
-     * @type {CallStatisticsListType}
+     * Holds Call Statistics Information.
+     * @type {Array<CallStatisticsType>}
      * @memberof CallStatistics
      */
-    callStatisticsList?: CallStatisticsListType;
+    callStatisticsList?: Array<CallStatisticsType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CallStatistics
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CallStatistics
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CallStatisticsFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'callStatisticsList': !exists(json, 'callStatisticsList') ? undefined : CallStatisticsListTypeFromJSON(json['callStatisticsList']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'callStatisticsList': !exists(json, 'callStatisticsList') ? undefined : ((json['callStatisticsList'] as Array<any>).map(CallStatisticsTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CallStatisticsToJSON(value?: CallStatistics | null): any {
     }
     return {
         
-        'callStatisticsList': CallStatisticsListTypeToJSON(value.callStatisticsList),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'callStatisticsList': value.callStatisticsList === undefined ? undefined : ((value.callStatisticsList as Array<any>).map(CallStatisticsTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

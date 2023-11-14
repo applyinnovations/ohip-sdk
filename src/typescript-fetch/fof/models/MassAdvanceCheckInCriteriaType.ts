@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ReservationIdListFromJSON,
-    ReservationIdListFromJSONTyped,
-    ReservationIdListToJSON,
-} from './ReservationIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Criteria for performing Mass Advance Check In of Reservations
@@ -45,11 +45,11 @@ export interface MassAdvanceCheckInCriteriaType {
      */
     hotelId?: string;
     /**
-     * 
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof MassAdvanceCheckInCriteriaType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
 }
 
 /**
@@ -74,7 +74,7 @@ export function MassAdvanceCheckInCriteriaTypeFromJSONTyped(json: any, ignoreDis
         'eTRComments': !exists(json, 'eTRComments') ? undefined : json['eTRComments'],
         'expectedReturnTime': !exists(json, 'expectedReturnTime') ? undefined : json['expectedReturnTime'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ReservationIdListFromJSON(json['reservationIdList']),
+        'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
 
@@ -90,7 +90,7 @@ export function MassAdvanceCheckInCriteriaTypeToJSON(value?: MassAdvanceCheckInC
         'eTRComments': value.eTRComments,
         'expectedReturnTime': value.expectedReturnTime,
         'hotelId': value.hotelId,
-        'reservationIdList': ReservationIdListToJSON(value.reservationIdList),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }
 

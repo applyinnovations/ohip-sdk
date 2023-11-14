@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { TemplateGuaranteeCodesType } from './TemplateGuaranteeCodesType';
-import type { WarningsType } from './WarningsType';
+import type { GuaranteeConfigType } from './GuaranteeConfigType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response for fetch template Guarantee Codes.
  * @export
@@ -25,11 +25,11 @@ export interface TemplateGuaranteeCodesDetails {
      */
     count?: number;
     /**
-     *
-     * @type {TemplateGuaranteeCodesType}
+     * Guarantee Code details.
+     * @type {Array<GuaranteeConfigType>}
      * @memberof TemplateGuaranteeCodesDetails
      */
-    guaranteeCodes?: TemplateGuaranteeCodesType;
+    guaranteeCodes?: Array<GuaranteeConfigType>;
     /**
      * Indicates whether all the records are included in the response or not. Absence of the attribute values should be consider as all rows fetched in the response.
      * @type {boolean}
@@ -44,10 +44,10 @@ export interface TemplateGuaranteeCodesDetails {
     limit?: number;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof TemplateGuaranteeCodesDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Index or initial index of the set(page) being requested. If the index goes out of the bounds of the total set count then no data will be returned.
      * @type {number}
@@ -67,11 +67,11 @@ export interface TemplateGuaranteeCodesDetails {
      */
     totalResults?: number;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof TemplateGuaranteeCodesDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the TemplateGuaranteeCodesDetails interface.

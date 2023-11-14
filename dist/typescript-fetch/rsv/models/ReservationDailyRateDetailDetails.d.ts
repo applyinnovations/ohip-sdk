@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { DailyRateDetailType } from './DailyRateDetailType';
-import type { Links } from './Links';
-import type { ValidationsReturnType } from './ValidationsReturnType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { ValidationReturnType } from './ValidationReturnType';
+import type { WarningType } from './WarningType';
 /**
  * Response after validating the changes for Daily Rate Details modifications.
  * @export
@@ -21,10 +21,10 @@ import type { WarningsType } from './WarningsType';
 export interface ReservationDailyRateDetailDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ReservationDailyRateDetailDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Daily detail information with changes for Market Code, Source Code, Rate amount and Currency code, based on the validations done.
      * @type {Array<DailyRateDetailType>}
@@ -33,16 +33,16 @@ export interface ReservationDailyRateDetailDetails {
     newDetail?: Array<DailyRateDetailType>;
     /**
      *
-     * @type {ValidationsReturnType}
+     * @type {Array<ValidationReturnType>}
      * @memberof ReservationDailyRateDetailDetails
      */
-    returnedValidations?: ValidationsReturnType;
+    returnedValidations?: Array<ValidationReturnType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ReservationDailyRateDetailDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ReservationDailyRateDetailDetails interface.

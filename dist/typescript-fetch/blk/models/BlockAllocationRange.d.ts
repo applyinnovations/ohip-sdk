@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { BlockAllocationRangeType } from './BlockAllocationRangeType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request for updating block allocation for a range of dates.
  * @export
@@ -26,16 +26,16 @@ export interface BlockAllocationRange {
     blockAllocationRange?: BlockAllocationRangeType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockAllocationRange
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockAllocationRange
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockAllocationRange interface.

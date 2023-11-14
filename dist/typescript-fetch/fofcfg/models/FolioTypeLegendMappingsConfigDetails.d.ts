@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FolioTypeLegendMappingsConfigType } from './FolioTypeLegendMappingsConfigType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { FolioTypeLegendMappingConfigType } from './FolioTypeLegendMappingConfigType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetch folio type legend mapping.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface FolioTypeLegendMappingsConfigDetails {
     /**
-     *
-     * @type {FolioTypeLegendMappingsConfigType}
+     * Details about folio type legened mapping.
+     * @type {Array<FolioTypeLegendMappingConfigType>}
      * @memberof FolioTypeLegendMappingsConfigDetails
      */
-    legends?: FolioTypeLegendMappingsConfigType;
+    legends?: Array<FolioTypeLegendMappingConfigType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof FolioTypeLegendMappingsConfigDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof FolioTypeLegendMappingsConfigDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the FolioTypeLegendMappingsConfigDetails interface.

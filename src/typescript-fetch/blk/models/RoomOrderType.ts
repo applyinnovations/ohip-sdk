@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { BlockIdList } from './BlockIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    BlockIdListFromJSON,
-    BlockIdListFromJSONTyped,
-    BlockIdListToJSON,
-} from './BlockIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * 
@@ -27,11 +27,11 @@ import {
  */
 export interface RoomOrderType {
     /**
-     * 
-     * @type {BlockIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof RoomOrderType
      */
-    blockIdList?: BlockIdList;
+    blockIdList?: Array<UniqueIDType>;
     /**
      * Room Type.
      * @type {Array<string>}
@@ -71,7 +71,7 @@ export function RoomOrderTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'blockIdList': !exists(json, 'blockIdList') ? undefined : BlockIdListFromJSON(json['blockIdList']),
+        'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'genericRoomTypes': !exists(json, 'genericRoomTypes') ? undefined : json['genericRoomTypes'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'roomTypes': !exists(json, 'roomTypes') ? undefined : json['roomTypes'],
@@ -87,7 +87,7 @@ export function RoomOrderTypeToJSON(value?: RoomOrderType | null): any {
     }
     return {
         
-        'blockIdList': BlockIdListToJSON(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'genericRoomTypes': value.genericRoomTypes,
         'hotelId': value.hotelId,
         'roomTypes': value.roomTypes,

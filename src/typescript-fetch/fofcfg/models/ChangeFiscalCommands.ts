@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { FiscalCommandsType } from './FiscalCommandsType';
+import type { FiscalCommandType } from './FiscalCommandType';
 import {
-    FiscalCommandsTypeFromJSON,
-    FiscalCommandsTypeFromJSONTyped,
-    FiscalCommandsTypeToJSON,
-} from './FiscalCommandsType';
-import type { WarningsType } from './WarningsType';
+    FiscalCommandTypeFromJSON,
+    FiscalCommandTypeFromJSONTyped,
+    FiscalCommandTypeToJSON,
+} from './FiscalCommandType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object to edit Fiscal Commands.
@@ -33,17 +33,17 @@ import {
  */
 export interface ChangeFiscalCommands {
     /**
-     * 
-     * @type {FiscalCommandsType}
+     * List of FiscalCommands.
+     * @type {Array<FiscalCommandType>}
      * @memberof ChangeFiscalCommands
      */
-    fiscalPartners?: FiscalCommandsType;
+    fiscalPartners?: Array<FiscalCommandType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeFiscalCommands
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -65,8 +65,8 @@ export function ChangeFiscalCommandsFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'fiscalPartners': !exists(json, 'fiscalPartners') ? undefined : FiscalCommandsTypeFromJSON(json['fiscalPartners']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'fiscalPartners': !exists(json, 'fiscalPartners') ? undefined : ((json['fiscalPartners'] as Array<any>).map(FiscalCommandTypeFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -79,8 +79,8 @@ export function ChangeFiscalCommandsToJSON(value?: ChangeFiscalCommands | null):
     }
     return {
         
-        'fiscalPartners': FiscalCommandsTypeToJSON(value.fiscalPartners),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'fiscalPartners': value.fiscalPartners === undefined ? undefined : ((value.fiscalPartners as Array<any>).map(FiscalCommandTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

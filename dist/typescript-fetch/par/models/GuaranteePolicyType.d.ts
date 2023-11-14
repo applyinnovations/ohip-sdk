@@ -12,9 +12,8 @@
 import type { GuaranteePolicyTypeCancelPenalty } from './GuaranteePolicyTypeCancelPenalty';
 import type { GuaranteePolicyTypeDepositPolicy } from './GuaranteePolicyTypeDepositPolicy';
 import type { GuaranteeRequirementsType } from './GuaranteeRequirementsType';
-import type { PaymentTypesType } from './PaymentTypesType';
 import type { TranslationTextType80 } from './TranslationTextType80';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Specifies Guarantee Code attributes.
  * @export
@@ -70,11 +69,11 @@ export interface GuaranteePolicyType {
      */
     orderSequence?: number;
     /**
-     *
-     * @type {PaymentTypesType}
+     * Payment card code like AX,VI etc.
+     * @type {Array<string>}
      * @memberof GuaranteePolicyType
      */
-    paymentTypes?: PaymentTypesType;
+    paymentTypes?: Array<string>;
     /**
      *
      * @type {GuaranteeRequirementsType}
@@ -94,11 +93,11 @@ export interface GuaranteePolicyType {
      */
     shortDescription?: TranslationTextType80;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof GuaranteePolicyType
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the GuaranteePolicyType interface.

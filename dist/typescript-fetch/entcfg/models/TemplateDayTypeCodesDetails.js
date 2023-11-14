@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateDayTypeCodesDetailsToJSON = exports.TemplateDayTypeCodesDetailsFromJSONTyped = exports.TemplateDayTypeCodesDetailsFromJSON = exports.instanceOfTemplateDayTypeCodesDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
-const TemplateDayTypeCodesType_1 = require("./TemplateDayTypeCodesType");
-const WarningsType_1 = require("./WarningsType");
+const InstanceLink_1 = require("./InstanceLink");
+const TemplateDayTypeCodeType_1 = require("./TemplateDayTypeCodeType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the TemplateDayTypeCodesDetails interface.
  */
@@ -35,9 +35,9 @@ function TemplateDayTypeCodesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'templateDayTypeCodes': !(0, runtime_1.exists)(json, 'templateDayTypeCodes') ? undefined : (0, TemplateDayTypeCodesType_1.TemplateDayTypeCodesTypeFromJSON)(json['templateDayTypeCodes']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'templateDayTypeCodes': !(0, runtime_1.exists)(json, 'templateDayTypeCodes') ? undefined : (json['templateDayTypeCodes'].map(TemplateDayTypeCodeType_1.TemplateDayTypeCodeTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.TemplateDayTypeCodesDetailsFromJSONTyped = TemplateDayTypeCodesDetailsFromJSONTyped;
@@ -49,9 +49,9 @@ function TemplateDayTypeCodesDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'templateDayTypeCodes': (0, TemplateDayTypeCodesType_1.TemplateDayTypeCodesTypeToJSON)(value.templateDayTypeCodes),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'templateDayTypeCodes': value.templateDayTypeCodes === undefined ? undefined : (value.templateDayTypeCodes.map(TemplateDayTypeCodeType_1.TemplateDayTypeCodeTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.TemplateDayTypeCodesDetailsToJSON = TemplateDayTypeCodesDetailsToJSON;

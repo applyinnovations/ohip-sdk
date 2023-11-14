@@ -18,7 +18,7 @@ const runtime_1 = require("../runtime");
 const AddressType_1 = require("./AddressType");
 const ChannelSummaryInfoType_1 = require("./ChannelSummaryInfoType");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
-const CurrencyExchangeRatesType_1 = require("./CurrencyExchangeRatesType");
+const CurrencyExchangeRateType_1 = require("./CurrencyExchangeRateType");
 const HotelAmenityType_1 = require("./HotelAmenityType");
 const RateRoomDetailsType_1 = require("./RateRoomDetailsType");
 const RelativePositionType_1 = require("./RelativePositionType");
@@ -51,7 +51,7 @@ function HotelSummaryInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'checkOutTime': !(0, runtime_1.exists)(json, 'checkOutTime') ? undefined : json['checkOutTime'],
         'contactNumbers': !(0, runtime_1.exists)(json, 'contactNumbers') ? undefined : (json['contactNumbers'].map(TelephoneType_1.TelephoneTypeFromJSON)),
         'currencyCode': !(0, runtime_1.exists)(json, 'currencyCode') ? undefined : json['currencyCode'],
-        'currencyExchangeRates': !(0, runtime_1.exists)(json, 'currencyExchangeRates') ? undefined : (0, CurrencyExchangeRatesType_1.CurrencyExchangeRatesTypeFromJSON)(json['currencyExchangeRates']),
+        'currencyExchangeRates': !(0, runtime_1.exists)(json, 'currencyExchangeRates') ? undefined : (json['currencyExchangeRates'].map(CurrencyExchangeRateType_1.CurrencyExchangeRateTypeFromJSON)),
         'displayOrder': !(0, runtime_1.exists)(json, 'displayOrder') ? undefined : json['displayOrder'],
         'event': !(0, runtime_1.exists)(json, 'event') ? undefined : json['event'],
         'hotelAmenities': !(0, runtime_1.exists)(json, 'hotelAmenities') ? undefined : (json['hotelAmenities'].map(HotelAmenityType_1.HotelAmenityTypeFromJSON)),
@@ -90,7 +90,7 @@ function HotelSummaryInfoTypeToJSON(value) {
         'checkOutTime': value.checkOutTime,
         'contactNumbers': value.contactNumbers === undefined ? undefined : (value.contactNumbers.map(TelephoneType_1.TelephoneTypeToJSON)),
         'currencyCode': value.currencyCode,
-        'currencyExchangeRates': (0, CurrencyExchangeRatesType_1.CurrencyExchangeRatesTypeToJSON)(value.currencyExchangeRates),
+        'currencyExchangeRates': value.currencyExchangeRates === undefined ? undefined : (value.currencyExchangeRates.map(CurrencyExchangeRateType_1.CurrencyExchangeRateTypeToJSON)),
         'displayOrder': value.displayOrder,
         'event': value.event,
         'hotelAmenities': value.hotelAmenities === undefined ? undefined : (value.hotelAmenities.map(HotelAmenityType_1.HotelAmenityTypeToJSON)),

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GuaranteesMappingToJSON = exports.GuaranteesMappingFromJSONTyped = exports.GuaranteesMappingFromJSON = exports.instanceOfGuaranteesMapping = void 0;
 const runtime_1 = require("../runtime");
-const GuaranteesMappingType_1 = require("./GuaranteesMappingType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const GuaranteeMappingType_1 = require("./GuaranteeMappingType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the GuaranteesMapping interface.
  */
@@ -36,14 +36,14 @@ function GuaranteesMappingFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'count': !(0, runtime_1.exists)(json, 'count') ? undefined : json['count'],
-        'guaranteesMapping': !(0, runtime_1.exists)(json, 'guaranteesMapping') ? undefined : (0, GuaranteesMappingType_1.GuaranteesMappingTypeFromJSON)(json['guaranteesMapping']),
+        'guaranteesMapping': !(0, runtime_1.exists)(json, 'guaranteesMapping') ? undefined : (json['guaranteesMapping'].map(GuaranteeMappingType_1.GuaranteeMappingTypeFromJSON)),
         'hasMore': !(0, runtime_1.exists)(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'offset': !(0, runtime_1.exists)(json, 'offset') ? undefined : json['offset'],
         'totalPages': !(0, runtime_1.exists)(json, 'totalPages') ? undefined : json['totalPages'],
         'totalResults': !(0, runtime_1.exists)(json, 'totalResults') ? undefined : json['totalResults'],
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.GuaranteesMappingFromJSONTyped = GuaranteesMappingFromJSONTyped;
@@ -56,14 +56,14 @@ function GuaranteesMappingToJSON(value) {
     }
     return {
         'count': value.count,
-        'guaranteesMapping': (0, GuaranteesMappingType_1.GuaranteesMappingTypeToJSON)(value.guaranteesMapping),
+        'guaranteesMapping': value.guaranteesMapping === undefined ? undefined : (value.guaranteesMapping.map(GuaranteeMappingType_1.GuaranteeMappingTypeToJSON)),
         'hasMore': value.hasMore,
         'limit': value.limit,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'offset': value.offset,
         'totalPages': value.totalPages,
         'totalResults': value.totalResults,
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.GuaranteesMappingToJSON = GuaranteesMappingToJSON;

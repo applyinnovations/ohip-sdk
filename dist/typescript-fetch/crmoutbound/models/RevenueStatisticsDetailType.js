@@ -15,9 +15,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RevenueStatisticsDetailTypeToJSON = exports.RevenueStatisticsDetailTypeFromJSONTyped = exports.RevenueStatisticsDetailTypeFromJSON = exports.instanceOfRevenueStatisticsDetailType = void 0;
 const runtime_1 = require("../runtime");
-const ProfileIdList_1 = require("./ProfileIdList");
-const ReservationIdList_1 = require("./ReservationIdList");
 const TimeSpanType_1 = require("./TimeSpanType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the RevenueStatisticsDetailType interface.
  */
@@ -37,8 +36,8 @@ function RevenueStatisticsDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'stayTimeSpan': !(0, runtime_1.exists)(json, 'stayTimeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['stayTimeSpan']),
         'guestName': !(0, runtime_1.exists)(json, 'guestName') ? undefined : json['guestName'],
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
-        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (0, ReservationIdList_1.ReservationIdListFromJSON)(json['reservationIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'revenueType': !(0, runtime_1.exists)(json, 'revenueType') ? undefined : json['revenueType'],
         'centralRevenue': !(0, runtime_1.exists)(json, 'centralRevenue') ? undefined : json['centralRevenue'],
         'localRevenue': !(0, runtime_1.exists)(json, 'localRevenue') ? undefined : json['localRevenue'],
@@ -56,8 +55,8 @@ function RevenueStatisticsDetailTypeToJSON(value) {
     return {
         'stayTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.stayTimeSpan),
         'guestName': value.guestName,
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
-        'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'revenueType': value.revenueType,
         'centralRevenue': value.centralRevenue,
         'localRevenue': value.localRevenue,

@@ -15,10 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommissionNotesDetailsToJSON = exports.CommissionNotesDetailsFromJSONTyped = exports.CommissionNotesDetailsFromJSON = exports.instanceOfCommissionNotesDetails = void 0;
 const runtime_1 = require("../runtime");
-const CommissionNotesListType_1 = require("./CommissionNotesListType");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const ReservationId_1 = require("./ReservationId");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the CommissionNotesDetails interface.
  */
@@ -36,11 +35,11 @@ function CommissionNotesDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'commissionNotesList': !(0, runtime_1.exists)(json, 'commissionNotesList') ? undefined : (0, CommissionNotesListType_1.CommissionNotesListTypeFromJSON)(json['commissionNotesList']),
+        'commissionNotesList': !(0, runtime_1.exists)(json, 'commissionNotesList') ? undefined : json['commissionNotesList'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CommissionNotesDetailsFromJSONTyped = CommissionNotesDetailsFromJSONTyped;
@@ -52,11 +51,11 @@ function CommissionNotesDetailsToJSON(value) {
         return null;
     }
     return {
-        'commissionNotesList': (0, CommissionNotesListType_1.CommissionNotesListTypeToJSON)(value.commissionNotesList),
+        'commissionNotesList': value.commissionNotesList,
         'hotelId': value.hotelId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CommissionNotesDetailsToJSON = CommissionNotesDetailsToJSON;

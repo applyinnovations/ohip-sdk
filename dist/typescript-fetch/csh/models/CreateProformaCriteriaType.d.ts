@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ProformaResponseInstructionType } from './ProformaResponseInstructionType';
-import type { ReservationIdList } from './ReservationIdList';
+import type { UniqueIDType } from './UniqueIDType';
 /**
  * Criteria for creating Proforma transactions for a reservation. These transactions will be used by the Opera Proforma Report.
  * @export
@@ -24,11 +24,11 @@ export interface CreateProformaCriteriaType {
      */
     hotelId?: string;
     /**
-     *
-     * @type {ReservationIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof CreateProformaCriteriaType
      */
-    reservationIdList?: ReservationIdList;
+    reservationIdList?: Array<UniqueIDType>;
     /**
      *
      * @type {ProformaResponseInstructionType}

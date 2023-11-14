@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HotelTransactionCodesType } from './HotelTransactionCodesType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { HotelTransactionCodeType } from './HotelTransactionCodeType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface HotelTransactionCodes {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof HotelTransactionCodes
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {HotelTransactionCodesType}
+     * Transaction Code configuration details.
+     * @type {Array<HotelTransactionCodeType>}
      * @memberof HotelTransactionCodes
      */
-    transactionCodes?: HotelTransactionCodesType;
+    transactionCodes?: Array<HotelTransactionCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof HotelTransactionCodes
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the HotelTransactionCodes interface.

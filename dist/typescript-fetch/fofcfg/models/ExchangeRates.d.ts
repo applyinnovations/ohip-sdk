@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ExchangeRateType } from './ExchangeRateType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface ExchangeRates {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExchangeRates
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Exchange Rates to be Set.
      * @type {Array<ExchangeRateType>}
@@ -31,11 +31,11 @@ export interface ExchangeRates {
      */
     rates?: Array<ExchangeRateType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ExchangeRates
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ExchangeRates interface.

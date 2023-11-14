@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ReservationArrivalInfoType } from './ReservationArrivalInfoType';
-import type { ReservationPaymentMethodsType } from './ReservationPaymentMethodsType';
+import type { ReservationPaymentMethodType } from './ReservationPaymentMethodType';
 import type { TransportInfoType } from './TransportInfoType';
 /**
  * Type describing the different details regarding a pre-registered reservation.
@@ -43,11 +43,11 @@ export interface PreCheckInDetailsType {
      */
     guestPreferredCurrency?: string;
     /**
-     *
-     * @type {ReservationPaymentMethodsType}
+     * Defines reservation payment methods.
+     * @type {Array<ReservationPaymentMethodType>}
      * @memberof PreCheckInDetailsType
      */
-    reservationPaymentMethods?: ReservationPaymentMethodsType;
+    reservationPaymentMethods?: Array<ReservationPaymentMethodType>;
     /**
      * Room Number to be assigned to the reservation.
      * @type {string}

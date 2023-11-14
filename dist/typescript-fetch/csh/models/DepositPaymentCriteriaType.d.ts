@@ -10,14 +10,13 @@
  * Do not edit the class manually.
  */
 import type { CashieringPaymentMethodType } from './CashieringPaymentMethodType';
-import type { CompRedemptionsType } from './CompRedemptionsType';
 import type { CurrencyAmountType } from './CurrencyAmountType';
 import type { PaymentTaxType } from './PaymentTaxType';
-import type { PaymentTaxesType } from './PaymentTaxesType';
 import type { PostPaymentActionType } from './PostPaymentActionType';
-import type { PrepaidCardRedemptionsType } from './PrepaidCardRedemptionsType';
+import type { PrepaidCardRedemptionType } from './PrepaidCardRedemptionType';
 import type { ProfileId } from './ProfileId';
 import type { ReceiptType } from './ReceiptType';
+import type { RedemptionType } from './RedemptionType';
 import type { ReservationId } from './ReservationId';
 import type { UniqueIDType } from './UniqueIDType';
 /**
@@ -69,17 +68,17 @@ export interface DepositPaymentCriteriaType {
      */
     comments?: string;
     /**
-     *
-     * @type {CompRedemptionsType}
+     * Information regarding Complimentary Bucket Redemption object.
+     * @type {Array<RedemptionType>}
      * @memberof DepositPaymentCriteriaType
      */
-    compRedemptions?: CompRedemptionsType;
+    compRedemptions?: Array<RedemptionType>;
     /**
-     *
-     * @type {PaymentTaxesType}
+     * Payment Tax record.
+     * @type {Array<PaymentTaxType>}
      * @memberof DepositPaymentCriteriaType
      */
-    creditablePaymentTaxes?: PaymentTaxesType;
+    creditablePaymentTaxes?: Array<PaymentTaxType>;
     /**
      *
      * @type {UniqueIDType}
@@ -153,11 +152,11 @@ export interface DepositPaymentCriteriaType {
      */
     postingRemark?: string;
     /**
-     *
-     * @type {PrepaidCardRedemptionsType}
+     * A prepaid redemption info object to be used for posting a payment.
+     * @type {Array<PrepaidCardRedemptionType>}
      * @memberof DepositPaymentCriteriaType
      */
-    prepaidCardRedemptions?: PrepaidCardRedemptionsType;
+    prepaidCardRedemptions?: Array<PrepaidCardRedemptionType>;
     /**
      *
      * @type {ProfileId}

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CurrenciesMappingType } from './CurrenciesMappingType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { CurrencyMappingType } from './CurrencyMappingType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing existing external system currencies.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface Currencies {
     /**
-     *
-     * @type {CurrenciesMappingType}
+     * Information about an external currency mapping.
+     * @type {Array<CurrencyMappingType>}
      * @memberof Currencies
      */
-    currencies?: CurrenciesMappingType;
+    currencies?: Array<CurrencyMappingType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Currencies
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof Currencies
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the Currencies interface.

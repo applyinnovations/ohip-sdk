@@ -19,7 +19,7 @@ const ActivityListInnerDeposit_1 = require("./ActivityListInnerDeposit");
 const CurrencyAmountType_1 = require("./CurrencyAmountType");
 const DateTimeSpanType_1 = require("./DateTimeSpanType");
 const PersonNameType_1 = require("./PersonNameType");
-const UniqueIDListType_1 = require("./UniqueIDListType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ActivityListInner interface.
  */
@@ -37,7 +37,7 @@ function ActivityListInnerFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'activityIds': !(0, runtime_1.exists)(json, 'activityIds') ? undefined : (0, UniqueIDListType_1.UniqueIDListTypeFromJSON)(json['activityIds']),
+        'activityIds': !(0, runtime_1.exists)(json, 'activityIds') ? undefined : (json['activityIds'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'amount': !(0, runtime_1.exists)(json, 'amount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['amount']),
         'deposit': !(0, runtime_1.exists)(json, 'deposit') ? undefined : (0, ActivityListInnerDeposit_1.ActivityListInnerDepositFromJSON)(json['deposit']),
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
@@ -67,7 +67,7 @@ function ActivityListInnerToJSON(value) {
         return null;
     }
     return {
-        'activityIds': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.activityIds),
+        'activityIds': value.activityIds === undefined ? undefined : (value.activityIds.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'amount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.amount),
         'deposit': (0, ActivityListInnerDeposit_1.ActivityListInnerDepositToJSON)(value.deposit),
         'description': value.description,

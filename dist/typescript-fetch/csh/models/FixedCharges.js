@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FixedChargesToJSON = exports.FixedChargesFromJSONTyped = exports.FixedChargesFromJSON = exports.instanceOfFixedCharges = void 0;
 const runtime_1 = require("../runtime");
-const FixedChargesType_1 = require("./FixedChargesType");
-const Links_1 = require("./Links");
+const FixedChargeType_1 = require("./FixedChargeType");
+const InstanceLink_1 = require("./InstanceLink");
 const UniqueIDType_1 = require("./UniqueIDType");
-const WarningsType_1 = require("./WarningsType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the FixedCharges interface.
  */
@@ -36,11 +36,11 @@ function FixedChargesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'fixedCharges': !(0, runtime_1.exists)(json, 'fixedCharges') ? undefined : (0, FixedChargesType_1.FixedChargesTypeFromJSON)(json['fixedCharges']),
+        'fixedCharges': !(0, runtime_1.exists)(json, 'fixedCharges') ? undefined : (json['fixedCharges'].map(FixedChargeType_1.FixedChargeTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['reservationId']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.FixedChargesFromJSONTyped = FixedChargesFromJSONTyped;
@@ -52,11 +52,11 @@ function FixedChargesToJSON(value) {
         return null;
     }
     return {
-        'fixedCharges': (0, FixedChargesType_1.FixedChargesTypeToJSON)(value.fixedCharges),
+        'fixedCharges': value.fixedCharges === undefined ? undefined : (value.fixedCharges.map(FixedChargeType_1.FixedChargeTypeToJSON)),
         'hotelId': value.hotelId,
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'reservationId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.reservationId),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.FixedChargesToJSON = FixedChargesToJSON;

@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CurrenciesToJSON = exports.CurrenciesFromJSONTyped = exports.CurrenciesFromJSON = exports.instanceOfCurrencies = void 0;
 const runtime_1 = require("../runtime");
-const CurrenciesMappingType_1 = require("./CurrenciesMappingType");
-const Links_1 = require("./Links");
-const WarningsType_1 = require("./WarningsType");
+const CurrencyMappingType_1 = require("./CurrencyMappingType");
+const InstanceLink_1 = require("./InstanceLink");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the Currencies interface.
  */
@@ -35,9 +35,9 @@ function CurrenciesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'currencies': !(0, runtime_1.exists)(json, 'currencies') ? undefined : (0, CurrenciesMappingType_1.CurrenciesMappingTypeFromJSON)(json['currencies']),
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'currencies': !(0, runtime_1.exists)(json, 'currencies') ? undefined : (json['currencies'].map(CurrencyMappingType_1.CurrencyMappingTypeFromJSON)),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.CurrenciesFromJSONTyped = CurrenciesFromJSONTyped;
@@ -49,9 +49,9 @@ function CurrenciesToJSON(value) {
         return null;
     }
     return {
-        'currencies': (0, CurrenciesMappingType_1.CurrenciesMappingTypeToJSON)(value.currencies),
-        'links': (0, Links_1.LinksToJSON)(value.links),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'currencies': value.currencies === undefined ? undefined : (value.currencies.map(CurrencyMappingType_1.CurrencyMappingTypeToJSON)),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.CurrenciesToJSON = CurrenciesToJSON;

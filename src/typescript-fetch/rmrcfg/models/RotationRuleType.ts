@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CodeListType } from './CodeListType';
-import {
-    CodeListTypeFromJSON,
-    CodeListTypeFromJSONTyped,
-    CodeListTypeToJSON,
-} from './CodeListType';
 import type { DaysOfWeekAttrType } from './DaysOfWeekAttrType';
 import {
     DaysOfWeekAttrTypeFromJSON,
@@ -82,16 +76,16 @@ export interface RotationRuleType {
     points?: number;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof RotationRuleType
      */
-    rateCodes?: CodeListType;
+    rateCodes?: Array<string>;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof RotationRuleType
      */
-    reasons?: CodeListType;
+    reasons?: Array<string>;
     /**
      * Indicates that this Rotation Setup Rule is to be used for Owner Referral Reservations.
      * @type {boolean}
@@ -100,10 +94,10 @@ export interface RotationRuleType {
     referral?: boolean;
     /**
      * 
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof RotationRuleType
      */
-    roomTypes?: CodeListType;
+    roomTypes?: Array<string>;
     /**
      * Unique ID for Room Rotation Setup Rule.
      * @type {number}
@@ -154,10 +148,10 @@ export function RotationRuleTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
         'multiplier': !exists(json, 'multiplier') ? undefined : json['multiplier'],
         'points': !exists(json, 'points') ? undefined : json['points'],
-        'rateCodes': !exists(json, 'rateCodes') ? undefined : CodeListTypeFromJSON(json['rateCodes']),
-        'reasons': !exists(json, 'reasons') ? undefined : CodeListTypeFromJSON(json['reasons']),
+        'rateCodes': !exists(json, 'rateCodes') ? undefined : json['rateCodes'],
+        'reasons': !exists(json, 'reasons') ? undefined : json['reasons'],
         'referral': !exists(json, 'referral') ? undefined : json['referral'],
-        'roomTypes': !exists(json, 'roomTypes') ? undefined : CodeListTypeFromJSON(json['roomTypes']),
+        'roomTypes': !exists(json, 'roomTypes') ? undefined : json['roomTypes'],
         'ruleId': !exists(json, 'ruleId') ? undefined : json['ruleId'],
         'setupType': !exists(json, 'setupType') ? undefined : RotationRuleSetupTypeFromJSON(json['setupType']),
         'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
@@ -179,10 +173,10 @@ export function RotationRuleTypeToJSON(value?: RotationRuleType | null): any {
         'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
         'multiplier': value.multiplier,
         'points': value.points,
-        'rateCodes': CodeListTypeToJSON(value.rateCodes),
-        'reasons': CodeListTypeToJSON(value.reasons),
+        'rateCodes': value.rateCodes,
+        'reasons': value.reasons,
         'referral': value.referral,
-        'roomTypes': CodeListTypeToJSON(value.roomTypes),
+        'roomTypes': value.roomTypes,
         'ruleId': value.ruleId,
         'setupType': RotationRuleSetupTypeToJSON(value.setupType),
         'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),

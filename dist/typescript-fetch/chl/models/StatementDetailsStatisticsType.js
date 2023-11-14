@@ -15,7 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StatementDetailsStatisticsTypeToJSON = exports.StatementDetailsStatisticsTypeFromJSONTyped = exports.StatementDetailsStatisticsTypeFromJSON = exports.instanceOfStatementDetailsStatisticsType = void 0;
 const runtime_1 = require("../runtime");
-const StatisticDetailsType_1 = require("./StatisticDetailsType");
+const StatementDetailsStatisticType_1 = require("./StatementDetailsStatisticType");
 /**
  * Check if a given object implements the StatementDetailsStatisticsType interface.
  */
@@ -33,10 +33,10 @@ function StatementDetailsStatisticsTypeFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'detailsByChannel': !(0, runtime_1.exists)(json, 'detailsByChannel') ? undefined : (0, StatisticDetailsType_1.StatisticDetailsTypeFromJSON)(json['detailsByChannel']),
-        'detailsByChannelType': !(0, runtime_1.exists)(json, 'detailsByChannelType') ? undefined : (0, StatisticDetailsType_1.StatisticDetailsTypeFromJSON)(json['detailsByChannelType']),
-        'detailsByFeeType': !(0, runtime_1.exists)(json, 'detailsByFeeType') ? undefined : (0, StatisticDetailsType_1.StatisticDetailsTypeFromJSON)(json['detailsByFeeType']),
-        'detailsByResort': !(0, runtime_1.exists)(json, 'detailsByResort') ? undefined : (0, StatisticDetailsType_1.StatisticDetailsTypeFromJSON)(json['detailsByResort']),
+        'detailsByChannel': !(0, runtime_1.exists)(json, 'detailsByChannel') ? undefined : (json['detailsByChannel'].map(StatementDetailsStatisticType_1.StatementDetailsStatisticTypeFromJSON)),
+        'detailsByChannelType': !(0, runtime_1.exists)(json, 'detailsByChannelType') ? undefined : (json['detailsByChannelType'].map(StatementDetailsStatisticType_1.StatementDetailsStatisticTypeFromJSON)),
+        'detailsByFeeType': !(0, runtime_1.exists)(json, 'detailsByFeeType') ? undefined : (json['detailsByFeeType'].map(StatementDetailsStatisticType_1.StatementDetailsStatisticTypeFromJSON)),
+        'detailsByResort': !(0, runtime_1.exists)(json, 'detailsByResort') ? undefined : (json['detailsByResort'].map(StatementDetailsStatisticType_1.StatementDetailsStatisticTypeFromJSON)),
     };
 }
 exports.StatementDetailsStatisticsTypeFromJSONTyped = StatementDetailsStatisticsTypeFromJSONTyped;
@@ -48,10 +48,10 @@ function StatementDetailsStatisticsTypeToJSON(value) {
         return null;
     }
     return {
-        'detailsByChannel': (0, StatisticDetailsType_1.StatisticDetailsTypeToJSON)(value.detailsByChannel),
-        'detailsByChannelType': (0, StatisticDetailsType_1.StatisticDetailsTypeToJSON)(value.detailsByChannelType),
-        'detailsByFeeType': (0, StatisticDetailsType_1.StatisticDetailsTypeToJSON)(value.detailsByFeeType),
-        'detailsByResort': (0, StatisticDetailsType_1.StatisticDetailsTypeToJSON)(value.detailsByResort),
+        'detailsByChannel': value.detailsByChannel === undefined ? undefined : (value.detailsByChannel.map(StatementDetailsStatisticType_1.StatementDetailsStatisticTypeToJSON)),
+        'detailsByChannelType': value.detailsByChannelType === undefined ? undefined : (value.detailsByChannelType.map(StatementDetailsStatisticType_1.StatementDetailsStatisticTypeToJSON)),
+        'detailsByFeeType': value.detailsByFeeType === undefined ? undefined : (value.detailsByFeeType.map(StatementDetailsStatisticType_1.StatementDetailsStatisticTypeToJSON)),
+        'detailsByResort': value.detailsByResort === undefined ? undefined : (value.detailsByResort.map(StatementDetailsStatisticType_1.StatementDetailsStatisticTypeToJSON)),
     };
 }
 exports.StatementDetailsStatisticsTypeToJSON = StatementDetailsStatisticsTypeToJSON;

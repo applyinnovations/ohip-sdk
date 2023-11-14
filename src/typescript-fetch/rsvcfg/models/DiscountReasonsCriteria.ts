@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { DiscountReasonsType } from './DiscountReasonsType';
+import type { DiscountReasonType } from './DiscountReasonType';
 import {
-    DiscountReasonsTypeFromJSON,
-    DiscountReasonsTypeFromJSONTyped,
-    DiscountReasonsTypeToJSON,
-} from './DiscountReasonsType';
-import type { Links } from './Links';
+    DiscountReasonTypeFromJSON,
+    DiscountReasonTypeFromJSONTyped,
+    DiscountReasonTypeToJSON,
+} from './DiscountReasonType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for creating Discount Reasons.
@@ -39,23 +39,23 @@ import {
  */
 export interface DiscountReasonsCriteria {
     /**
-     * 
-     * @type {DiscountReasonsType}
+     * List of Discount Reasons.
+     * @type {Array<DiscountReasonType>}
      * @memberof DiscountReasonsCriteria
      */
-    discountReasons?: DiscountReasonsType;
+    discountReasons?: Array<DiscountReasonType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof DiscountReasonsCriteria
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof DiscountReasonsCriteria
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function DiscountReasonsCriteriaFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'discountReasons': !exists(json, 'discountReasons') ? undefined : DiscountReasonsTypeFromJSON(json['discountReasons']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'discountReasons': !exists(json, 'discountReasons') ? undefined : ((json['discountReasons'] as Array<any>).map(DiscountReasonTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function DiscountReasonsCriteriaToJSON(value?: DiscountReasonsCriteria | 
     }
     return {
         
-        'discountReasons': DiscountReasonsTypeToJSON(value.discountReasons),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'discountReasons': value.discountReasons === undefined ? undefined : ((value.discountReasons as Array<any>).map(DiscountReasonTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

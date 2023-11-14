@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CopyAndMoveEventResourcesType } from './CopyAndMoveEventResourcesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  * Request object for copying/moving event resources.
  * @export
@@ -24,11 +24,11 @@ export interface EventResources {
      */
     criteria?: CopyAndMoveEventResourcesType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success elementSpace to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EventResources
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the EventResources interface.

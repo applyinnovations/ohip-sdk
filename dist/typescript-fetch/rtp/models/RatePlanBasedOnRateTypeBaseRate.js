@@ -15,7 +15,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RatePlanBasedOnRateTypeBaseRateToJSON = exports.RatePlanBasedOnRateTypeBaseRateFromJSONTyped = exports.RatePlanBasedOnRateTypeBaseRateFromJSON = exports.instanceOfRatePlanBasedOnRateTypeBaseRate = void 0;
 const runtime_1 = require("../runtime");
-const RatePlanCodeListType_1 = require("./RatePlanCodeListType");
 /**
  * Check if a given object implements the RatePlanBasedOnRateTypeBaseRate interface.
  */
@@ -35,7 +34,7 @@ function RatePlanBasedOnRateTypeBaseRateFromJSONTyped(json, ignoreDiscriminator)
     return {
         'baseAmount': !(0, runtime_1.exists)(json, 'baseAmount') ? undefined : json['baseAmount'],
         'basedOnRatePlan': !(0, runtime_1.exists)(json, 'basedOnRatePlan') ? undefined : json['basedOnRatePlan'],
-        'dependentRatePlans': !(0, runtime_1.exists)(json, 'dependentRatePlans') ? undefined : (0, RatePlanCodeListType_1.RatePlanCodeListTypeFromJSON)(json['dependentRatePlans']),
+        'dependentRatePlans': !(0, runtime_1.exists)(json, 'dependentRatePlans') ? undefined : json['dependentRatePlans'],
         'flatOrPercentage': !(0, runtime_1.exists)(json, 'flatOrPercentage') ? undefined : json['flatOrPercentage'],
         'rounding': !(0, runtime_1.exists)(json, 'rounding') ? undefined : json['rounding'],
     };
@@ -51,7 +50,7 @@ function RatePlanBasedOnRateTypeBaseRateToJSON(value) {
     return {
         'baseAmount': value.baseAmount,
         'basedOnRatePlan': value.basedOnRatePlan,
-        'dependentRatePlans': (0, RatePlanCodeListType_1.RatePlanCodeListTypeToJSON)(value.dependentRatePlans),
+        'dependentRatePlans': value.dependentRatePlans,
         'flatOrPercentage': value.flatOrPercentage,
         'rounding': value.rounding,
     };

@@ -15,10 +15,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfileCashieringDetailsToJSON = exports.ProfileCashieringDetailsFromJSONTyped = exports.ProfileCashieringDetailsFromJSON = exports.instanceOfProfileCashieringDetails = void 0;
 const runtime_1 = require("../runtime");
-const Links_1 = require("./Links");
+const InstanceLink_1 = require("./InstanceLink");
 const ProfileCashieringDetailType_1 = require("./ProfileCashieringDetailType");
-const ProfileIdList_1 = require("./ProfileIdList");
-const WarningsType_1 = require("./WarningsType");
+const UniqueIDType_1 = require("./UniqueIDType");
+const WarningType_1 = require("./WarningType");
 /**
  * Check if a given object implements the ProfileCashieringDetails interface.
  */
@@ -36,10 +36,10 @@ function ProfileCashieringDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (0, Links_1.LinksFromJSON)(json['links']),
+        'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'profileCashieringDetailList': !(0, runtime_1.exists)(json, 'profileCashieringDetailList') ? undefined : (json['profileCashieringDetailList'].map(ProfileCashieringDetailType_1.ProfileCashieringDetailTypeFromJSON)),
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
-        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (0, WarningsType_1.WarningsTypeFromJSON)(json['warnings']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
+        'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
 exports.ProfileCashieringDetailsFromJSONTyped = ProfileCashieringDetailsFromJSONTyped;
@@ -51,10 +51,10 @@ function ProfileCashieringDetailsToJSON(value) {
         return null;
     }
     return {
-        'links': (0, Links_1.LinksToJSON)(value.links),
+        'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'profileCashieringDetailList': value.profileCashieringDetailList === undefined ? undefined : (value.profileCashieringDetailList.map(ProfileCashieringDetailType_1.ProfileCashieringDetailTypeToJSON)),
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
-        'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
+        'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }
 exports.ProfileCashieringDetailsToJSON = ProfileCashieringDetailsToJSON;

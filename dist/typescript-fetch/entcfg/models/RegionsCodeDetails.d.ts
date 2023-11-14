@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { RegionsCodeType } from './RegionsCodeType';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { RegionCodeType } from './RegionCodeType';
+import type { WarningType } from './WarningType';
 /**
  * Response object for fetching Regions Code.
  * @export
@@ -20,22 +20,22 @@ import type { WarningsType } from './WarningsType';
 export interface RegionsCodeDetails {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof RegionsCodeDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {RegionsCodeType}
+     * List of Regions Code.
+     * @type {Array<RegionCodeType>}
      * @memberof RegionsCodeDetails
      */
-    regionsCode?: RegionsCodeType;
+    regionsCode?: Array<RegionCodeType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof RegionsCodeDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the RegionsCodeDetails interface.

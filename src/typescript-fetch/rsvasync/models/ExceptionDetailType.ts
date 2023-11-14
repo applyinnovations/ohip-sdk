@@ -19,12 +19,12 @@ import {
     ErrorInstanceFromJSONTyped,
     ErrorInstanceToJSON,
 } from './ErrorInstance';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 
 /**
  * Complex type that contains error details for a REST call.
@@ -46,10 +46,10 @@ export interface ExceptionDetailType {
     instance?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ExceptionDetailType
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Application error code, which is different from HTTP error code.
      * @type {string}
@@ -109,7 +109,7 @@ export function ExceptionDetailTypeFromJSONTyped(json: any, ignoreDiscriminator:
         
         'detail': !exists(json, 'detail') ? undefined : json['detail'],
         'instance': !exists(json, 'instance') ? undefined : json['instance'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'oerrorCode': !exists(json, 'o:errorCode') ? undefined : json['o:errorCode'],
         'oerrorDetails': !exists(json, 'o:errorDetails') ? undefined : ((json['o:errorDetails'] as Array<any>).map(ErrorInstanceFromJSON)),
         'oerrorPath': !exists(json, 'o:errorPath') ? undefined : json['o:errorPath'],
@@ -130,7 +130,7 @@ export function ExceptionDetailTypeToJSON(value?: ExceptionDetailType | null): a
         
         'detail': value.detail,
         'instance': value.instance,
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'o:errorCode': value.oerrorCode,
         'o:errorDetails': value.oerrorDetails === undefined ? undefined : ((value.oerrorDetails as Array<any>).map(ErrorInstanceToJSON)),
         'o:errorPath': value.oerrorPath,

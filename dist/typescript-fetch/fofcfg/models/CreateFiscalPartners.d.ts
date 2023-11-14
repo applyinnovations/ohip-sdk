@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FiscalPartnersType } from './FiscalPartnersType';
-import type { WarningsType } from './WarningsType';
+import type { FiscalPartnerType } from './FiscalPartnerType';
+import type { WarningType } from './WarningType';
 /**
  * Request object to create Fiscal Partners
  * @export
@@ -18,17 +18,17 @@ import type { WarningsType } from './WarningsType';
  */
 export interface CreateFiscalPartners {
     /**
-     *
-     * @type {FiscalPartnersType}
+     * Details of Fiscal Partners.
+     * @type {Array<FiscalPartnerType>}
      * @memberof CreateFiscalPartners
      */
-    fiscalPeriods?: FiscalPartnersType;
+    fiscalPeriods?: Array<FiscalPartnerType>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CreateFiscalPartners
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the CreateFiscalPartners interface.

@@ -17,7 +17,7 @@ exports.ProfileTypeToJSON = exports.ProfileTypeFromJSONTyped = exports.ProfileTy
 const runtime_1 = require("../runtime");
 const CompanyType_1 = require("./CompanyType");
 const CustomerType_1 = require("./CustomerType");
-const ECertificatesType_1 = require("./ECertificatesType");
+const ECertificateType_1 = require("./ECertificateType");
 const ImageSetType_1 = require("./ImageSetType");
 const LastStayInfoType_1 = require("./LastStayInfoType");
 const PrivacyInfoType_1 = require("./PrivacyInfoType");
@@ -66,7 +66,7 @@ function ProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
         'createDateTime': !(0, runtime_1.exists)(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !(0, runtime_1.exists)(json, 'creatorId') ? undefined : json['creatorId'],
         'customer': !(0, runtime_1.exists)(json, 'customer') ? undefined : (0, CustomerType_1.CustomerTypeFromJSON)(json['customer']),
-        'eCertificates': !(0, runtime_1.exists)(json, 'eCertificates') ? undefined : (0, ECertificatesType_1.ECertificatesTypeFromJSON)(json['eCertificates']),
+        'eCertificates': !(0, runtime_1.exists)(json, 'eCertificates') ? undefined : (json['eCertificates'].map(ECertificateType_1.ECertificateTypeFromJSON)),
         'emails': !(0, runtime_1.exists)(json, 'emails') ? undefined : (0, ProfileTypeEmails_1.ProfileTypeEmailsFromJSON)(json['emails']),
         'hasCommission': !(0, runtime_1.exists)(json, 'hasCommission') ? undefined : json['hasCommission'],
         'lastModifierId': !(0, runtime_1.exists)(json, 'lastModifierId') ? undefined : json['lastModifierId'],
@@ -113,7 +113,7 @@ function ProfileTypeToJSON(value) {
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
         'customer': (0, CustomerType_1.CustomerTypeToJSON)(value.customer),
-        'eCertificates': (0, ECertificatesType_1.ECertificatesTypeToJSON)(value.eCertificates),
+        'eCertificates': value.eCertificates === undefined ? undefined : (value.eCertificates.map(ECertificateType_1.ECertificateTypeToJSON)),
         'emails': (0, ProfileTypeEmails_1.ProfileTypeEmailsToJSON)(value.emails),
         'hasCommission': value.hasCommission,
         'lastModifierId': value.lastModifierId,

@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 import type { YieldMarketInfoType } from './YieldMarketInfoType';
 import {
     YieldMarketInfoTypeFromJSON,
@@ -40,16 +40,16 @@ import {
 export interface YieldMarketTypeDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof YieldMarketTypeDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof YieldMarketTypeDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
     /**
      * 
      * @type {YieldMarketInfoType}
@@ -77,8 +77,8 @@ export function YieldMarketTypeDetailsFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
         'yieldMarketTypeInfo': !exists(json, 'yieldMarketTypeInfo') ? undefined : YieldMarketInfoTypeFromJSON(json['yieldMarketTypeInfo']),
     };
 }
@@ -92,8 +92,8 @@ export function YieldMarketTypeDetailsToJSON(value?: YieldMarketTypeDetails | nu
     }
     return {
         
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
         'yieldMarketTypeInfo': YieldMarketInfoTypeToJSON(value.yieldMarketTypeInfo),
     };
 }

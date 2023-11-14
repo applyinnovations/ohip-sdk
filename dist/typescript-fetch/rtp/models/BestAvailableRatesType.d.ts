@@ -11,7 +11,6 @@
  */
 import type { BestAvailableRatesTypeDuration } from './BestAvailableRatesTypeDuration';
 import type { BestAvailableRatesTypeLengthOfStay } from './BestAvailableRatesTypeLengthOfStay';
-import type { CodeListType } from './CodeListType';
 import type { DateRangeType } from './DateRangeType';
 /**
  * The best available rate for rate code(s)
@@ -45,10 +44,10 @@ export interface BestAvailableRatesType {
     lengthOfStay?: BestAvailableRatesTypeLengthOfStay;
     /**
      *
-     * @type {CodeListType}
+     * @type {Array<string>}
      * @memberof BestAvailableRatesType
      */
-    rateCode?: CodeListType;
+    rateCode?: Array<string>;
 }
 /**
  * Check if a given object implements the BestAvailableRatesType interface.

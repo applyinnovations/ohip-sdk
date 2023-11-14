@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CallHistoryType } from './CallHistoryType';
+import type { CallType } from './CallType';
 import {
-    CallHistoryTypeFromJSON,
-    CallHistoryTypeFromJSONTyped,
-    CallHistoryTypeToJSON,
-} from './CallHistoryType';
-import type { Links } from './Links';
+    CallTypeFromJSON,
+    CallTypeFromJSONTyped,
+    CallTypeToJSON,
+} from './CallType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response that contains either the fetched call history if was successful or error(s) if not.
@@ -39,23 +39,23 @@ import {
  */
 export interface CallHistory {
     /**
-     * 
-     * @type {CallHistoryType}
+     * Holds call information.
+     * @type {Array<CallType>}
      * @memberof CallHistory
      */
-    callHistory?: CallHistoryType;
+    callHistory?: Array<CallType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CallHistory
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CallHistory
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CallHistoryFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'callHistory': !exists(json, 'callHistory') ? undefined : CallHistoryTypeFromJSON(json['callHistory']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'callHistory': !exists(json, 'callHistory') ? undefined : ((json['callHistory'] as Array<any>).map(CallTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CallHistoryToJSON(value?: CallHistory | null): any {
     }
     return {
         
-        'callHistory': CallHistoryTypeToJSON(value.callHistory),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'callHistory': value.callHistory === undefined ? undefined : ((value.callHistory as Array<any>).map(CallTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

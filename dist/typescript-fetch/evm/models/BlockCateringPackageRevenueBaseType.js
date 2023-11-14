@@ -15,9 +15,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockCateringPackageRevenueBaseTypeToJSON = exports.BlockCateringPackageRevenueBaseTypeFromJSONTyped = exports.BlockCateringPackageRevenueBaseTypeFromJSON = exports.instanceOfBlockCateringPackageRevenueBaseType = void 0;
 const runtime_1 = require("../runtime");
+const BlockCateringPackageRevenueType_1 = require("./BlockCateringPackageRevenueType");
 const BlockType_1 = require("./BlockType");
 const CateringPackageInfoType_1 = require("./CateringPackageInfoType");
-const RevenueListType_1 = require("./RevenueListType");
 const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the BlockCateringPackageRevenueBaseType interface.
@@ -42,7 +42,7 @@ function BlockCateringPackageRevenueBaseTypeFromJSONTyped(json, ignoreDiscrimina
         'packageId': !(0, runtime_1.exists)(json, 'packageId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['packageId']),
         'priceCode': !(0, runtime_1.exists)(json, 'priceCode') ? undefined : json['priceCode'],
         'priceDescription': !(0, runtime_1.exists)(json, 'priceDescription') ? undefined : json['priceDescription'],
-        'revenues': !(0, runtime_1.exists)(json, 'revenues') ? undefined : (0, RevenueListType_1.RevenueListTypeFromJSON)(json['revenues']),
+        'revenues': !(0, runtime_1.exists)(json, 'revenues') ? undefined : (json['revenues'].map(BlockCateringPackageRevenueType_1.BlockCateringPackageRevenueTypeFromJSON)),
     };
 }
 exports.BlockCateringPackageRevenueBaseTypeFromJSONTyped = BlockCateringPackageRevenueBaseTypeFromJSONTyped;
@@ -60,7 +60,7 @@ function BlockCateringPackageRevenueBaseTypeToJSON(value) {
         'packageId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.packageId),
         'priceCode': value.priceCode,
         'priceDescription': value.priceDescription,
-        'revenues': (0, RevenueListType_1.RevenueListTypeToJSON)(value.revenues),
+        'revenues': value.revenues === undefined ? undefined : (value.revenues.map(BlockCateringPackageRevenueType_1.BlockCateringPackageRevenueTypeToJSON)),
     };
 }
 exports.BlockCateringPackageRevenueBaseTypeToJSON = BlockCateringPackageRevenueBaseTypeToJSON;

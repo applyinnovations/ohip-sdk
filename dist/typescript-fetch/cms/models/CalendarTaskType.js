@@ -20,7 +20,7 @@ const CalendarTaskPriorityType_1 = require("./CalendarTaskPriorityType");
 const CalendarTaskTypeStatus_1 = require("./CalendarTaskTypeStatus");
 const CodeDescriptionType_1 = require("./CodeDescriptionType");
 const TimeSpanType_1 = require("./TimeSpanType");
-const UniqueNameIDListType_1 = require("./UniqueNameIDListType");
+const UniqueNameIDType_1 = require("./UniqueNameIDType");
 /**
  * Check if a given object implements the CalendarTaskType interface.
  */
@@ -38,12 +38,12 @@ function CalendarTaskTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'accountIdList': !(0, runtime_1.exists)(json, 'accountIdList') ? undefined : (0, UniqueNameIDListType_1.UniqueNameIDListTypeFromJSON)(json['accountIdList']),
+        'accountIdList': !(0, runtime_1.exists)(json, 'accountIdList') ? undefined : (json['accountIdList'].map(UniqueNameIDType_1.UniqueNameIDTypeFromJSON)),
         'attachmentsCount': !(0, runtime_1.exists)(json, 'attachmentsCount') ? undefined : json['attachmentsCount'],
         'author': !(0, runtime_1.exists)(json, 'author') ? undefined : json['author'],
-        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (0, UniqueNameIDListType_1.UniqueNameIDListTypeFromJSON)(json['blockIdList']),
+        'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueNameIDType_1.UniqueNameIDTypeFromJSON)),
         'classCode': !(0, runtime_1.exists)(json, 'classCode') ? undefined : (0, CalendarTaskClassType_1.CalendarTaskClassTypeFromJSON)(json['classCode']),
-        'contactIdList': !(0, runtime_1.exists)(json, 'contactIdList') ? undefined : (0, UniqueNameIDListType_1.UniqueNameIDListTypeFromJSON)(json['contactIdList']),
+        'contactIdList': !(0, runtime_1.exists)(json, 'contactIdList') ? undefined : (json['contactIdList'].map(UniqueNameIDType_1.UniqueNameIDTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'id': !(0, runtime_1.exists)(json, 'id') ? undefined : json['id'],
         'idContext': !(0, runtime_1.exists)(json, 'idContext') ? undefined : json['idContext'],
@@ -69,12 +69,12 @@ function CalendarTaskTypeToJSON(value) {
         return null;
     }
     return {
-        'accountIdList': (0, UniqueNameIDListType_1.UniqueNameIDListTypeToJSON)(value.accountIdList),
+        'accountIdList': value.accountIdList === undefined ? undefined : (value.accountIdList.map(UniqueNameIDType_1.UniqueNameIDTypeToJSON)),
         'attachmentsCount': value.attachmentsCount,
         'author': value.author,
-        'blockIdList': (0, UniqueNameIDListType_1.UniqueNameIDListTypeToJSON)(value.blockIdList),
+        'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueNameIDType_1.UniqueNameIDTypeToJSON)),
         'classCode': (0, CalendarTaskClassType_1.CalendarTaskClassTypeToJSON)(value.classCode),
-        'contactIdList': (0, UniqueNameIDListType_1.UniqueNameIDListTypeToJSON)(value.contactIdList),
+        'contactIdList': value.contactIdList === undefined ? undefined : (value.contactIdList.map(UniqueNameIDType_1.UniqueNameIDTypeToJSON)),
         'hotelId': value.hotelId,
         'id': value.id,
         'idContext': value.idContext,

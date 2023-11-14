@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { PreArrivalMemberReservationType } from './PreArrivalMemberReservationType';
 import {
     PreArrivalMemberReservationTypeFromJSON,
     PreArrivalMemberReservationTypeFromJSONTyped,
     PreArrivalMemberReservationTypeToJSON,
 } from './PreArrivalMemberReservationType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * 
@@ -40,10 +40,10 @@ import {
 export interface PreArrivalMemberReservationsDetails {
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PreArrivalMemberReservationsDetails
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      * Collection of PreArrivalMemberReservations.
      * @type {Array<PreArrivalMemberReservationType>}
@@ -51,11 +51,11 @@ export interface PreArrivalMemberReservationsDetails {
      */
     preArrivalMemberReservationType?: Array<PreArrivalMemberReservationType>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PreArrivalMemberReservationsDetails
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function PreArrivalMemberReservationsDetailsFromJSONTyped(json: any, igno
     }
     return {
         
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'preArrivalMemberReservationType': !exists(json, 'preArrivalMemberReservationType') ? undefined : ((json['preArrivalMemberReservationType'] as Array<any>).map(PreArrivalMemberReservationTypeFromJSON)),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function PreArrivalMemberReservationsDetailsToJSON(value?: PreArrivalMemb
     }
     return {
         
-        'links': LinksToJSON(value.links),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'preArrivalMemberReservationType': value.preArrivalMemberReservationType === undefined ? undefined : ((value.preArrivalMemberReservationType as Array<any>).map(PreArrivalMemberReservationTypeToJSON)),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

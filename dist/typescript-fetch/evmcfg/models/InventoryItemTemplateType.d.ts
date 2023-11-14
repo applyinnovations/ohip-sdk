@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { InventoryItemTemplateItemsType } from './InventoryItemTemplateItemsType';
+import type { InventoryItemTemplateItemType } from './InventoryItemTemplateItemType';
 import type { UniqueIDType } from './UniqueIDType';
 /**
  * This gives detailed information about an inventory item template.
@@ -30,11 +30,11 @@ export interface InventoryItemTemplateType {
      */
     inventoryItemTemplateId?: UniqueIDType;
     /**
-     *
-     * @type {InventoryItemTemplateItemsType}
+     * This type holds a collection of inventory items which are to be grouped under a single inventory item template.
+     * @type {Array<InventoryItemTemplateItemType>}
      * @memberof InventoryItemTemplateType
      */
-    inventoryItemTemplateItems?: InventoryItemTemplateItemsType;
+    inventoryItemTemplateItems?: Array<InventoryItemTemplateItemType>;
     /**
      * Specifies the name of the inventory item template.
      * @type {string}

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ListOfValuesType } from './ListOfValuesType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -24,11 +24,11 @@ export interface ListOfValues {
      */
     listOfValues?: ListOfValuesType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ListOfValues
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the ListOfValues interface.

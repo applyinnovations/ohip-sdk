@@ -15,11 +15,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfileStatisticsTypeToJSON = exports.ProfileStatisticsTypeFromJSONTyped = exports.ProfileStatisticsTypeFromJSON = exports.instanceOfProfileStatisticsType = void 0;
 const runtime_1 = require("../runtime");
-const ProfileIdList_1 = require("./ProfileIdList");
-const RevenueStatisticsSummaryListType_1 = require("./RevenueStatisticsSummaryListType");
+const RevenueStatisticsSummaryType_1 = require("./RevenueStatisticsSummaryType");
 const StatisticsReportType_1 = require("./StatisticsReportType");
 const StatisticsSummaryListType_1 = require("./StatisticsSummaryListType");
-const StayStatisticsDetailListType_1 = require("./StayStatisticsDetailListType");
+const StayStatisticsDetailType_1 = require("./StayStatisticsDetailType");
+const UniqueIDType_1 = require("./UniqueIDType");
 /**
  * Check if a given object implements the ProfileStatisticsType interface.
  */
@@ -37,10 +37,10 @@ function ProfileStatisticsTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (0, ProfileIdList_1.ProfileIdListFromJSON)(json['profileIdList']),
+        'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'reportType': !(0, runtime_1.exists)(json, 'reportType') ? undefined : (0, StatisticsReportType_1.StatisticsReportTypeFromJSON)(json['reportType']),
-        'revenueStatisticsSummaryList': !(0, runtime_1.exists)(json, 'revenueStatisticsSummaryList') ? undefined : (0, RevenueStatisticsSummaryListType_1.RevenueStatisticsSummaryListTypeFromJSON)(json['revenueStatisticsSummaryList']),
-        'stayStatisticsDetailList': !(0, runtime_1.exists)(json, 'stayStatisticsDetailList') ? undefined : (0, StayStatisticsDetailListType_1.StayStatisticsDetailListTypeFromJSON)(json['stayStatisticsDetailList']),
+        'revenueStatisticsSummaryList': !(0, runtime_1.exists)(json, 'revenueStatisticsSummaryList') ? undefined : (json['revenueStatisticsSummaryList'].map(RevenueStatisticsSummaryType_1.RevenueStatisticsSummaryTypeFromJSON)),
+        'stayStatisticsDetailList': !(0, runtime_1.exists)(json, 'stayStatisticsDetailList') ? undefined : (json['stayStatisticsDetailList'].map(StayStatisticsDetailType_1.StayStatisticsDetailTypeFromJSON)),
         'stayStatisticsSummaryList': !(0, runtime_1.exists)(json, 'stayStatisticsSummaryList') ? undefined : (0, StatisticsSummaryListType_1.StatisticsSummaryListTypeFromJSON)(json['stayStatisticsSummaryList']),
     };
 }
@@ -53,10 +53,10 @@ function ProfileStatisticsTypeToJSON(value) {
         return null;
     }
     return {
-        'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'reportType': (0, StatisticsReportType_1.StatisticsReportTypeToJSON)(value.reportType),
-        'revenueStatisticsSummaryList': (0, RevenueStatisticsSummaryListType_1.RevenueStatisticsSummaryListTypeToJSON)(value.revenueStatisticsSummaryList),
-        'stayStatisticsDetailList': (0, StayStatisticsDetailListType_1.StayStatisticsDetailListTypeToJSON)(value.stayStatisticsDetailList),
+        'revenueStatisticsSummaryList': value.revenueStatisticsSummaryList === undefined ? undefined : (value.revenueStatisticsSummaryList.map(RevenueStatisticsSummaryType_1.RevenueStatisticsSummaryTypeToJSON)),
+        'stayStatisticsDetailList': value.stayStatisticsDetailList === undefined ? undefined : (value.stayStatisticsDetailList.map(StayStatisticsDetailType_1.StayStatisticsDetailTypeToJSON)),
         'stayStatisticsSummaryList': (0, StatisticsSummaryListType_1.StatisticsSummaryListTypeToJSON)(value.stayStatisticsSummaryList),
     };
 }

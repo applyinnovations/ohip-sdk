@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChildAgesType } from './ChildAgesType';
+import type { ChildAgeType } from './ChildAgeType';
 import {
-    ChildAgesTypeFromJSON,
-    ChildAgesTypeFromJSONTyped,
-    ChildAgesTypeToJSON,
-} from './ChildAgesType';
+    ChildAgeTypeFromJSON,
+    ChildAgeTypeFromJSONTyped,
+    ChildAgeTypeToJSON,
+} from './ChildAgeType';
 import type { ChildBucketsType } from './ChildBucketsType';
 import {
     ChildBucketsTypeFromJSON,
@@ -39,11 +39,11 @@ export interface GuestCountsType {
      */
     adults?: number;
     /**
-     * 
-     * @type {ChildAgesType}
+     * Age of a child in years.
+     * @type {Array<ChildAgeType>}
      * @memberof GuestCountsType
      */
-    childAges?: ChildAgesType;
+    childAges?: Array<ChildAgeType>;
     /**
      * 
      * @type {ChildBucketsType}
@@ -78,7 +78,7 @@ export function GuestCountsTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
     return {
         
         'adults': !exists(json, 'adults') ? undefined : json['adults'],
-        'childAges': !exists(json, 'childAges') ? undefined : ChildAgesTypeFromJSON(json['childAges']),
+        'childAges': !exists(json, 'childAges') ? undefined : ((json['childAges'] as Array<any>).map(ChildAgeTypeFromJSON)),
         'childBuckets': !exists(json, 'childBuckets') ? undefined : ChildBucketsTypeFromJSON(json['childBuckets']),
         'children': !exists(json, 'children') ? undefined : json['children'],
     };
@@ -94,7 +94,7 @@ export function GuestCountsTypeToJSON(value?: GuestCountsType | null): any {
     return {
         
         'adults': value.adults,
-        'childAges': ChildAgesTypeToJSON(value.childAges),
+        'childAges': value.childAges === undefined ? undefined : ((value.childAges as Array<any>).map(ChildAgeTypeToJSON)),
         'childBuckets': ChildBucketsTypeToJSON(value.childBuckets),
         'children': value.children,
     };

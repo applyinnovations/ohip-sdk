@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 import type { YieldAdjustmentsType } from './YieldAdjustmentsType';
 /**
  * Response object to fetch Yield adjustments based on the requested criteria.
@@ -20,16 +20,16 @@ import type { YieldAdjustmentsType } from './YieldAdjustmentsType';
 export interface YieldAdjustments {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof YieldAdjustments
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof YieldAdjustments
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
     /**
      *
      * @type {YieldAdjustmentsType}

@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 import type { EmailFileType } from './EmailFileType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Response object for Fetch Email Blob File Operation.
  * @export
@@ -26,16 +26,16 @@ export interface EmailFile {
     file?: EmailFileType;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof EmailFile
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof EmailFile
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the EmailFile interface.

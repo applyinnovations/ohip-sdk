@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import type { PropertyPromotionCodeType } from './PropertyPromotionCodeType';
-import type { WarningsType } from './WarningsType';
+import type { WarningType } from './WarningType';
 /**
  *
  * @export
@@ -20,10 +20,10 @@ import type { WarningsType } from './WarningsType';
 export interface PropertyPromotionCode {
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof PropertyPromotionCode
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
      *
      * @type {PropertyPromotionCodeType}
@@ -31,11 +31,11 @@ export interface PropertyPromotionCode {
      */
     propertyPromotionCode?: PropertyPromotionCodeType;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof PropertyPromotionCode
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the PropertyPromotionCode interface.

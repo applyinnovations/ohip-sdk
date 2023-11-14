@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
 import type { PreferenceTypeType } from './PreferenceTypeType';
 import {
     PreferenceTypeTypeFromJSON,
     PreferenceTypeTypeFromJSONTyped,
     PreferenceTypeTypeToJSON,
 } from './PreferenceTypeType';
-import type { ProfileIdList } from './ProfileIdList';
+import type { UniqueIDType } from './UniqueIDType';
 import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Response object for fetch preference. This object contains collection of preferences,Success,Warnings and Errors related to this operation.
@@ -45,17 +45,17 @@ export interface Preference {
      */
     preferenceCollections?: Array<PreferenceTypeType>;
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof Preference
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof Preference
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
 }
 
 /**
@@ -78,8 +78,8 @@ export function PreferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     return {
         
         'preferenceCollections': !exists(json, 'preferenceCollections') ? undefined : ((json['preferenceCollections'] as Array<any>).map(PreferenceTypeTypeFromJSON)),
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
     };
 }
 
@@ -93,8 +93,8 @@ export function PreferenceToJSON(value?: Preference | null): any {
     return {
         
         'preferenceCollections': value.preferenceCollections === undefined ? undefined : ((value.preferenceCollections as Array<any>).map(PreferenceTypeTypeToJSON)),
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
-        'links': LinksToJSON(value.links),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
     };
 }
 

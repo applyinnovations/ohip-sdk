@@ -13,18 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ProfileIdList } from './ProfileIdList';
+import type { RevenueStatisticsSummaryType } from './RevenueStatisticsSummaryType';
 import {
-    ProfileIdListFromJSON,
-    ProfileIdListFromJSONTyped,
-    ProfileIdListToJSON,
-} from './ProfileIdList';
-import type { RevenueStatisticsSummaryListType } from './RevenueStatisticsSummaryListType';
-import {
-    RevenueStatisticsSummaryListTypeFromJSON,
-    RevenueStatisticsSummaryListTypeFromJSONTyped,
-    RevenueStatisticsSummaryListTypeToJSON,
-} from './RevenueStatisticsSummaryListType';
+    RevenueStatisticsSummaryTypeFromJSON,
+    RevenueStatisticsSummaryTypeFromJSONTyped,
+    RevenueStatisticsSummaryTypeToJSON,
+} from './RevenueStatisticsSummaryType';
 import type { StatisticsReportType } from './StatisticsReportType';
 import {
     StatisticsReportTypeFromJSON,
@@ -37,12 +31,18 @@ import {
     StatisticsSummaryListTypeFromJSONTyped,
     StatisticsSummaryListTypeToJSON,
 } from './StatisticsSummaryListType';
-import type { StayStatisticsDetailListType } from './StayStatisticsDetailListType';
+import type { StayStatisticsDetailType } from './StayStatisticsDetailType';
 import {
-    StayStatisticsDetailListTypeFromJSON,
-    StayStatisticsDetailListTypeFromJSONTyped,
-    StayStatisticsDetailListTypeToJSON,
-} from './StayStatisticsDetailListType';
+    StayStatisticsDetailTypeFromJSON,
+    StayStatisticsDetailTypeFromJSONTyped,
+    StayStatisticsDetailTypeToJSON,
+} from './StayStatisticsDetailType';
+import type { UniqueIDType } from './UniqueIDType';
+import {
+    UniqueIDTypeFromJSON,
+    UniqueIDTypeFromJSONTyped,
+    UniqueIDTypeToJSON,
+} from './UniqueIDType';
 
 /**
  * Contains summary/detail/Revenue statistics information for Profile.
@@ -51,11 +51,11 @@ import {
  */
 export interface ProfileStatisticsType {
     /**
-     * 
-     * @type {ProfileIdList}
+     * Unique Id that references an object uniquely in the system.
+     * @type {Array<UniqueIDType>}
      * @memberof ProfileStatisticsType
      */
-    profileIdList?: ProfileIdList;
+    profileIdList?: Array<UniqueIDType>;
     /**
      * 
      * @type {StatisticsSummaryListType}
@@ -63,17 +63,17 @@ export interface ProfileStatisticsType {
      */
     stayStatisticsSummaryList?: StatisticsSummaryListType;
     /**
-     * 
-     * @type {StayStatisticsDetailListType}
+     * Collection of stay statistics detail information
+     * @type {Array<StayStatisticsDetailType>}
      * @memberof ProfileStatisticsType
      */
-    stayStatisticsDetailList?: StayStatisticsDetailListType;
+    stayStatisticsDetailList?: Array<StayStatisticsDetailType>;
     /**
-     * 
-     * @type {RevenueStatisticsSummaryListType}
+     * List of the detailed and yearly summarized information about the profile revenue.
+     * @type {Array<RevenueStatisticsSummaryType>}
      * @memberof ProfileStatisticsType
      */
-    revenueStatisticsSummaryList?: RevenueStatisticsSummaryListType;
+    revenueStatisticsSummaryList?: Array<RevenueStatisticsSummaryType>;
     /**
      * 
      * @type {StatisticsReportType}
@@ -101,10 +101,10 @@ export function ProfileStatisticsTypeFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'profileIdList': !exists(json, 'profileIdList') ? undefined : ProfileIdListFromJSON(json['profileIdList']),
+        'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'stayStatisticsSummaryList': !exists(json, 'stayStatisticsSummaryList') ? undefined : StatisticsSummaryListTypeFromJSON(json['stayStatisticsSummaryList']),
-        'stayStatisticsDetailList': !exists(json, 'stayStatisticsDetailList') ? undefined : StayStatisticsDetailListTypeFromJSON(json['stayStatisticsDetailList']),
-        'revenueStatisticsSummaryList': !exists(json, 'revenueStatisticsSummaryList') ? undefined : RevenueStatisticsSummaryListTypeFromJSON(json['revenueStatisticsSummaryList']),
+        'stayStatisticsDetailList': !exists(json, 'stayStatisticsDetailList') ? undefined : ((json['stayStatisticsDetailList'] as Array<any>).map(StayStatisticsDetailTypeFromJSON)),
+        'revenueStatisticsSummaryList': !exists(json, 'revenueStatisticsSummaryList') ? undefined : ((json['revenueStatisticsSummaryList'] as Array<any>).map(RevenueStatisticsSummaryTypeFromJSON)),
         'reportType': !exists(json, 'reportType') ? undefined : StatisticsReportTypeFromJSON(json['reportType']),
     };
 }
@@ -118,10 +118,10 @@ export function ProfileStatisticsTypeToJSON(value?: ProfileStatisticsType | null
     }
     return {
         
-        'profileIdList': ProfileIdListToJSON(value.profileIdList),
+        'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'stayStatisticsSummaryList': StatisticsSummaryListTypeToJSON(value.stayStatisticsSummaryList),
-        'stayStatisticsDetailList': StayStatisticsDetailListTypeToJSON(value.stayStatisticsDetailList),
-        'revenueStatisticsSummaryList': RevenueStatisticsSummaryListTypeToJSON(value.revenueStatisticsSummaryList),
+        'stayStatisticsDetailList': value.stayStatisticsDetailList === undefined ? undefined : ((value.stayStatisticsDetailList as Array<any>).map(StayStatisticsDetailTypeToJSON)),
+        'revenueStatisticsSummaryList': value.revenueStatisticsSummaryList === undefined ? undefined : ((value.revenueStatisticsSummaryList as Array<any>).map(RevenueStatisticsSummaryTypeToJSON)),
         'reportType': StatisticsReportTypeToJSON(value.reportType),
     };
 }

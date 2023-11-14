@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BlockRateOverrideReasonsType } from './BlockRateOverrideReasonsType';
-import type { Links } from './Links';
-import type { WarningsType } from './WarningsType';
+import type { BlockRateOverrideReasonType } from './BlockRateOverrideReasonType';
+import type { InstanceLink } from './InstanceLink';
+import type { WarningType } from './WarningType';
 /**
  * Request object for changing Block Rate Override Reasons.
  * @export
@@ -19,23 +19,23 @@ import type { WarningsType } from './WarningsType';
  */
 export interface BlockRateOverrideReasonsToBeChanged {
     /**
-     *
-     * @type {BlockRateOverrideReasonsType}
+     * List of Block Rate Override Reasons.
+     * @type {Array<BlockRateOverrideReasonType>}
      * @memberof BlockRateOverrideReasonsToBeChanged
      */
-    blockRateOverrideReasons?: BlockRateOverrideReasonsType;
+    blockRateOverrideReasons?: Array<BlockRateOverrideReasonType>;
     /**
      *
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof BlockRateOverrideReasonsToBeChanged
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     *
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof BlockRateOverrideReasonsToBeChanged
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 /**
  * Check if a given object implements the BlockRateOverrideReasonsToBeChanged interface.

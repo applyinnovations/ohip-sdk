@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { Links } from './Links';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { ResvGuestMessagesType } from './ResvGuestMessagesType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { ResvGuestMessageType } from './ResvGuestMessageType';
 import {
-    ResvGuestMessagesTypeFromJSON,
-    ResvGuestMessagesTypeFromJSONTyped,
-    ResvGuestMessagesTypeToJSON,
-} from './ResvGuestMessagesType';
-import type { WarningsType } from './WarningsType';
+    ResvGuestMessageTypeFromJSON,
+    ResvGuestMessageTypeFromJSONTyped,
+    ResvGuestMessageTypeToJSON,
+} from './ResvGuestMessageType';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Request object for updating the Guest Messages for a Reservation Workspace.
@@ -39,11 +39,11 @@ import {
  */
 export interface ChangeResvGuestMessages {
     /**
-     * 
-     * @type {ResvGuestMessagesType}
+     * Holds the Message Information
+     * @type {Array<ResvGuestMessageType>}
      * @memberof ChangeResvGuestMessages
      */
-    guestMessages?: ResvGuestMessagesType;
+    guestMessages?: Array<ResvGuestMessageType>;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -52,16 +52,16 @@ export interface ChangeResvGuestMessages {
     hotelId?: string;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof ChangeResvGuestMessages
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof ChangeResvGuestMessages
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -83,10 +83,10 @@ export function ChangeResvGuestMessagesFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'guestMessages': !exists(json, 'guestMessages') ? undefined : ResvGuestMessagesTypeFromJSON(json['guestMessages']),
+        'guestMessages': !exists(json, 'guestMessages') ? undefined : ((json['guestMessages'] as Array<any>).map(ResvGuestMessageTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -99,10 +99,10 @@ export function ChangeResvGuestMessagesToJSON(value?: ChangeResvGuestMessages | 
     }
     return {
         
-        'guestMessages': ResvGuestMessagesTypeToJSON(value.guestMessages),
+        'guestMessages': value.guestMessages === undefined ? undefined : ((value.guestMessages as Array<any>).map(ResvGuestMessageTypeToJSON)),
         'hotelId': value.hotelId,
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

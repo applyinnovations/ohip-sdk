@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { RevenueInventoryStatisticsDetails, RevenueInventoryStatisticsSearchType, SellLimitByDateStatus, SellLimitsByDate } from '../models/index';
+import type { RevenueInventoryStatisticsDetails, RevenueInventoryStatisticsSearchType, SellLimitByDateStatus, SellLimitByDateType } from '../models/index';
 export interface GetRevenueInventoryStatisticsRequest {
     requestId: string;
     extSystemCode: string;
@@ -53,7 +53,7 @@ export interface PostSellLimitsProcessRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    sellLimitsByDate: SellLimitsByDate;
+    sellLimitsByDate: Array<SellLimitByDateType>;
     acceptLanguage?: string;
 }
 export interface StartRevenueInventoryStatisticsProcessRequest {

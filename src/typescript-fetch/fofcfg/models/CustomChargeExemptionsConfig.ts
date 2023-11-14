@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CustomChargeExemptionsConfigType } from './CustomChargeExemptionsConfigType';
+import type { CustomChargeExemptionConfigType } from './CustomChargeExemptionConfigType';
 import {
-    CustomChargeExemptionsConfigTypeFromJSON,
-    CustomChargeExemptionsConfigTypeFromJSONTyped,
-    CustomChargeExemptionsConfigTypeToJSON,
-} from './CustomChargeExemptionsConfigType';
-import type { Links } from './Links';
+    CustomChargeExemptionConfigTypeFromJSON,
+    CustomChargeExemptionConfigTypeFromJSONTyped,
+    CustomChargeExemptionConfigTypeToJSON,
+} from './CustomChargeExemptionConfigType';
+import type { InstanceLink } from './InstanceLink';
 import {
-    LinksFromJSON,
-    LinksFromJSONTyped,
-    LinksToJSON,
-} from './Links';
-import type { WarningsType } from './WarningsType';
+    InstanceLinkFromJSON,
+    InstanceLinkFromJSONTyped,
+    InstanceLinkToJSON,
+} from './InstanceLink';
+import type { WarningType } from './WarningType';
 import {
-    WarningsTypeFromJSON,
-    WarningsTypeFromJSONTyped,
-    WarningsTypeToJSON,
-} from './WarningsType';
+    WarningTypeFromJSON,
+    WarningTypeFromJSONTyped,
+    WarningTypeToJSON,
+} from './WarningType';
 
 /**
  * Response object for fetching Custom Charge Exemptions.
@@ -39,23 +39,23 @@ import {
  */
 export interface CustomChargeExemptionsConfig {
     /**
-     * 
-     * @type {CustomChargeExemptionsConfigType}
+     * Holds Exemption details.
+     * @type {Array<CustomChargeExemptionConfigType>}
      * @memberof CustomChargeExemptionsConfig
      */
-    customChargeExemptionsConfig?: CustomChargeExemptionsConfigType;
+    customChargeExemptionsConfig?: Array<CustomChargeExemptionConfigType>;
     /**
      * 
-     * @type {Links}
+     * @type {Array<InstanceLink>}
      * @memberof CustomChargeExemptionsConfig
      */
-    links?: Links;
+    links?: Array<InstanceLink>;
     /**
-     * 
-     * @type {WarningsType}
+     * Used in conjunction with the Success element to define a business error.
+     * @type {Array<WarningType>}
      * @memberof CustomChargeExemptionsConfig
      */
-    warnings?: WarningsType;
+    warnings?: Array<WarningType>;
 }
 
 /**
@@ -77,9 +77,9 @@ export function CustomChargeExemptionsConfigFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'customChargeExemptionsConfig': !exists(json, 'customChargeExemptionsConfig') ? undefined : CustomChargeExemptionsConfigTypeFromJSON(json['customChargeExemptionsConfig']),
-        'links': !exists(json, 'links') ? undefined : LinksFromJSON(json['links']),
-        'warnings': !exists(json, 'warnings') ? undefined : WarningsTypeFromJSON(json['warnings']),
+        'customChargeExemptionsConfig': !exists(json, 'customChargeExemptionsConfig') ? undefined : ((json['customChargeExemptionsConfig'] as Array<any>).map(CustomChargeExemptionConfigTypeFromJSON)),
+        'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
+        'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function CustomChargeExemptionsConfigToJSON(value?: CustomChargeExemption
     }
     return {
         
-        'customChargeExemptionsConfig': CustomChargeExemptionsConfigTypeToJSON(value.customChargeExemptionsConfig),
-        'links': LinksToJSON(value.links),
-        'warnings': WarningsTypeToJSON(value.warnings),
+        'customChargeExemptionsConfig': value.customChargeExemptionsConfig === undefined ? undefined : ((value.customChargeExemptionsConfig as Array<any>).map(CustomChargeExemptionConfigTypeToJSON)),
+        'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
+        'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }
 

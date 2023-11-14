@@ -19,12 +19,12 @@ import {
     RevenueBucketListTypeFromJSONTyped,
     RevenueBucketListTypeToJSON,
 } from './RevenueBucketListType';
-import type { RevenueStatisticsDetailListType } from './RevenueStatisticsDetailListType';
+import type { RevenueStatisticsDetailType } from './RevenueStatisticsDetailType';
 import {
-    RevenueStatisticsDetailListTypeFromJSON,
-    RevenueStatisticsDetailListTypeFromJSONTyped,
-    RevenueStatisticsDetailListTypeToJSON,
-} from './RevenueStatisticsDetailListType';
+    RevenueStatisticsDetailTypeFromJSON,
+    RevenueStatisticsDetailTypeFromJSONTyped,
+    RevenueStatisticsDetailTypeToJSON,
+} from './RevenueStatisticsDetailType';
 
 /**
  * Summary of the revenue for a year
@@ -39,11 +39,11 @@ export interface RevenueStatisticsSummaryType {
      */
     revenueBucketsSummary?: RevenueBucketListType;
     /**
-     * 
-     * @type {RevenueStatisticsDetailListType}
+     * The collection of profile revenue statistics.
+     * @type {Array<RevenueStatisticsDetailType>}
      * @memberof RevenueStatisticsSummaryType
      */
-    revenueDetails?: RevenueStatisticsDetailListType;
+    revenueDetails?: Array<RevenueStatisticsDetailType>;
     /**
      * Year of the revenue.
      * @type {string}
@@ -72,7 +72,7 @@ export function RevenueStatisticsSummaryTypeFromJSONTyped(json: any, ignoreDiscr
     return {
         
         'revenueBucketsSummary': !exists(json, 'revenueBucketsSummary') ? undefined : RevenueBucketListTypeFromJSON(json['revenueBucketsSummary']),
-        'revenueDetails': !exists(json, 'revenueDetails') ? undefined : RevenueStatisticsDetailListTypeFromJSON(json['revenueDetails']),
+        'revenueDetails': !exists(json, 'revenueDetails') ? undefined : ((json['revenueDetails'] as Array<any>).map(RevenueStatisticsDetailTypeFromJSON)),
         'year': !exists(json, 'year') ? undefined : json['year'],
     };
 }
@@ -87,7 +87,7 @@ export function RevenueStatisticsSummaryTypeToJSON(value?: RevenueStatisticsSumm
     return {
         
         'revenueBucketsSummary': RevenueBucketListTypeToJSON(value.revenueBucketsSummary),
-        'revenueDetails': RevenueStatisticsDetailListTypeToJSON(value.revenueDetails),
+        'revenueDetails': value.revenueDetails === undefined ? undefined : ((value.revenueDetails as Array<any>).map(RevenueStatisticsDetailTypeToJSON)),
         'year': value.year,
     };
 }
